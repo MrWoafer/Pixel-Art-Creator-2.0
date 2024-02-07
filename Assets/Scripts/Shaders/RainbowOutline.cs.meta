@@ -1,0 +1,13 @@
+fileFormatVersion: 2
+guid: f899b98e85aa89d4c9a9097eeab6e001
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - rainbowOutlineMaterial: {fileID: 2100000, guid: 5e7e2b5120a0f3e42961d0b1e7b9556e, type: 2}
+  - rainbowOutlineShader: {fileID: -6465566751694194690, guid: b87738814826a7747942b2198a04daa2, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

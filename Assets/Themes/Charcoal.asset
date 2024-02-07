@@ -1,0 +1,42 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e735212c2469ccb42a81953f7fb5674b, type: 3}
+  m_Name: Charcoal
+  m_EditorClassIdentifier: 
+  themeName: Charcoal
+  backgroundColour: {r: 0.1792453, g: 0.1792453, b: 0.1792453, a: 1}
+  panelColour: {r: 0.43137255, g: 0.43137255, b: 0.43137255, a: 1}
+  subPanelColour: {r: 0.7830189, g: 0.7830189, b: 0.7830189, a: 1}
+  buttonColour: {r: 0.43137258, g: 0.43137258, b: 0.43137258, a: 1}
+  buttonHoverColour: {r: 0.5882353, g: 0.5882353, b: 0.5882353, a: 1}
+  buttonPressedColour: {r: 0.74509805, g: 0.74509805, b: 0.74509805, a: 1}
+  toggleButtonOffColour: {r: 0.43137258, g: 0.43137258, b: 0.43137258, a: 1}
+  toggleButtonOnColour: {r: 0.8235294, g: 0.8235294, b: 0.8235294, a: 1}
+  toggleButtonHoverTint: {r: 0.9411765, g: 0.9411765, b: 0.9411765, a: 1}
+  toggleButtonPressedColour: {r: 1, g: 1, b: 1, a: 1}
+  textboxColour: {r: 0.3529412, g: 0.3529412, b: 0.3529412, a: 1}
+  textboxHoverColour: {r: 0.5882353, g: 0.5882353, b: 0.5882353, a: 1}
+  textboxPressedColour: {r: 0.74509805, g: 0.74509805, b: 0.74509805, a: 1}
+  textboxSelectedColour: {r: 1, g: 1, b: 1, a: 1}
+  scaleColour: {r: 0.3529412, g: 0.3529412, b: 0.3529412, a: 1}
+  scaleHoverColour: {r: 0.5882353, g: 0.5882353, b: 0.5882353, a: 1}
+  scalePressedColour: {r: 0.74509805, g: 0.74509805, b: 0.74509805, a: 1}
+  scrollbarHandleColour: {r: 0.7843138, g: 0.7843138, b: 0.7843138, a: 1}
+  scrollbarHandleHoverColour: {r: 0.8627451, g: 0.8627451, b: 0.8627451, a: 1}
+  scrollbarHandlePressedColour: {r: 0.9411765, g: 0.9411765, b: 0.9411765, a: 1}
+  scrollbarBackgroundColour: {r: 0.6666667, g: 0.6666667, b: 0.6666667, a: 1}
+  scrollbarBackgroundHoverColour: {r: 0.74509805, g: 0.74509805, b: 0.74509805, a: 1}
+  scrollbarBackgroundPressedColour: {r: 0.8235294, g: 0.8235294, b: 0.8235294, a: 1}
+  layerTileOffColour: {r: 0.6666667, g: 0.6666667, b: 0.6666667, a: 1}
+  layerTileOnColour: {r: 0.8235295, g: 0.8235295, b: 0.8235295, a: 1}
+  layerTileHoverTint: {r: 0.9411765, g: 0.9411765, b: 0.9411765, a: 1}
+  layerTilePressedColour: {r: 1, g: 1, b: 1, a: 1}
