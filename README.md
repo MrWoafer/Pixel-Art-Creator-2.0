@@ -2,6 +2,8 @@
 
 A program for making pixel art, including layers, animation and tilesets.
 
+Written in C# with Unity.
+
 # Key Features
 Tools
 * Pencil (with line smoothing)
