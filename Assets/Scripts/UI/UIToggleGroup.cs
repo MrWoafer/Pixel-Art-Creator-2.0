@@ -134,7 +134,7 @@ public class UIToggleGroup : MonoBehaviour
         {
             throw new System.Exception("The given starting toggle is not in the toggle group.");
         }
-        
+
         foreach (UIToggleButton toggle in _toggles)
         {
             if (toggle != null)

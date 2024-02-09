@@ -114,7 +114,7 @@ public abstract class Layer
         AddKeyFrame(0, texture);
     }
 
-    public Layer(Layer layer) : this(layer.name, new Texture2D(1, 1))
+    public Layer(Layer layer) : this(layer.name, new Texture2D(layer.width, layer.height))
     {
         visible = layer.visible;
         locked = layer.locked;

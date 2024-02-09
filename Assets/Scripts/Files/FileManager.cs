@@ -57,7 +57,7 @@ public class FileManager : MonoBehaviour
         /// For testing TileLayer
         currentFile.AddTileLayer();
         TileLayer[] linkedTileLayers = new TileLayer[] { (TileLayer)currentFile.layers[0] };
-        File file = File.OpenFile("D:\\Games\\Pixel Art Creator 2.0\\Test Images\\Cube.png");
+        File file = File.OpenFile("D:\\Games\\Pixel-Art-Creator-2.0\\Test Images\\Cube.png");
         //((TileLayer)currentFile.layers[0]).AddTile(new Tile(file, IntVector2.zero, linkedTileLayers));
         //((TileLayer)currentFile.layers[0]).AddTile(new Tile(file, new IntVector2(45, 10), linkedTileLayers));
         files[0].AddTile(file, new IntVector2(0, 0), 0);
@@ -67,7 +67,7 @@ public class FileManager : MonoBehaviour
         AddFile(file);
         ///
 
-        SwitchToFile(0);
+        SwitchToFile(1);
 
         /// Open file from 'Open with' in File Explorer
         string[] args = System.Environment.GetCommandLineArgs();

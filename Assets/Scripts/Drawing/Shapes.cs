@@ -338,7 +338,7 @@ public static class Shapes
     public static Texture2D RightTriangle(int texWidth, int texHeight, IntVector2 start, IntVector2 end, Color colour, bool rightAngleOnBottom, bool filled)
     {
         IntVector2 corner;
-        if (rightAngleOnBottom)
+        if (!rightAngleOnBottom)
         {
             corner = new IntVector2(start.y <= end.y ? start.x : end.x, Mathf.Max(start.y, end.y));
         }
@@ -360,7 +360,7 @@ public static class Shapes
         IntVector2 fillStartPoint;
         if (start.x != end.x && start.y != end.y)
         {
-            if (rightAngleOnBottom)
+            if (!rightAngleOnBottom)
             {
                 if (start.y >= end.y)
                 {

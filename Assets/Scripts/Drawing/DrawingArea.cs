@@ -704,7 +704,7 @@ public class DrawingArea : MonoBehaviour
             }
             else if (toolbar.shapeToolShape == Shape.Triangle)
             {
-                PreviewTriangle(mouseDragStartPoint, pixel, colour, holdingCtrl, rightClickedOn);
+                PreviewTriangle(mouseDragStartPoint, pixel, colour, !holdingCtrl, rightClickedOn);
             }
         }
         else if (tool == Tool.Gradient && (leftClickedOn || rightClickedOn))
