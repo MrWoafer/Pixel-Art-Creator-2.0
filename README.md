@@ -1,3 +1,5 @@
+![Pixel Art Creator 2 0 09_02_2024 20_50_45](https://github.com/MrWoafer/Pixel-Art-Creator-2.0/assets/159387325/c04ea825-f6b1-4168-b955-62f8b6ed1050)
+
 # Pixel-Art-Creator-2.0
 
 A program for making pixel art, including layers, animation and tilesets.
@@ -52,3 +54,5 @@ Animation
 
 Tilesets
 * In progress
+
+![Icon](https://github.com/MrWoafer/Pixel-Art-Creator-2.0/assets/159387325/3c85079c-e026-4fbe-875b-4b1c5b13b595)
