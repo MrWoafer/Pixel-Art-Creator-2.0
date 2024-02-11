@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Events;
+using System;
 
 public class UIManager : MonoBehaviour
 {
@@ -116,6 +117,7 @@ public class UIManager : MonoBehaviour
     private UIScrollbar importPACScrollbar;
     [SerializeField]
     private UIToggleGroup importPACLayersToggleGroup;
+    private File importPACFile;
 
     [Header("Layer Properties")]
     [SerializeField]
@@ -127,7 +129,14 @@ public class UIManager : MonoBehaviour
     [SerializeField]
     private UIDropdownChoice layerBlendModeDropdown;
     private int layerPropertiesLayerIndex;
-    private File importPACFile;
+
+    [Header("Brush Settings")]
+    [SerializeField]
+    private GameObject brushSettingsWindow;
+    [SerializeField]
+    private UIToggleGroup brushSettingsShapeToggleGroup;
+    [SerializeField]
+    private UINumberField brushSettingsSizeField;
 
     [Header("Unsaved Changes Properties")]
     private UIModalWindow unsavedChangesModalWindow;
@@ -153,6 +162,7 @@ public class UIManager : MonoBehaviour
     private AnimationManager animationManager;
     private GridManager gridManager;
     private DrawingArea drawingArea;
+    private Toolbar toolbar;
 
     private BlurPanel blurPanel;
 
@@ -169,6 +179,7 @@ public class UIManager : MonoBehaviour
         animationManager = Finder.animationManager;
         gridManager = Finder.gridManager;
         drawingArea = Finder.drawingArea;
+        toolbar = Finder.toolbar;
 
         blurPanel = GameObject.Find("Blur Panel").GetComponent<BlurPanel>();
 
@@ -182,6 +193,7 @@ public class UIManager : MonoBehaviour
         replaceColourWindow.SetActive(true);
         importPACWindow.SetActive(true);
         layerPropertiesWindow.SetActive(true);
+        brushSettingsWindow.SetActive(true);
     }
 
     private void Start()
@@ -222,6 +234,9 @@ public class UIManager : MonoBehaviour
         layerNameTextbox.SubscribeToFinishEvent(UpdateLayerPropertiesPreview);
         layerOpacityField.SubscribeToValueChanged(UpdateLayerPropertiesPreview);
         layerBlendModeDropdown.SubscribeToOptionChanged(UpdateLayerPropertiesPreview);
+
+        brushSettingsShapeToggleGroup.SubscribeToSelectedToggleChange(UpdateBrushSettingsShape);
+        brushSettingsSizeField.SubscribeToValueChanged(() => toolbar.brushSize = (int)brushSettingsSizeField.value);
     }
 
     private void Update()
@@ -241,6 +256,7 @@ public class UIManager : MonoBehaviour
             replaceColourWindow.SetActive(false);
             importPACWindow.SetActive(false);
             layerPropertiesWindow.SetActive(false);
+            brushSettingsWindow.SetActive(false);
 
             beenRunningAFrame = true;
         }
@@ -292,23 +308,34 @@ public class UIManager : MonoBehaviour
         return !untargetedThisFrame && (selectedUIElement == null || (inputTarget.uiElement != null && inputTarget.uiElement == selectedUIElement));
     }
 
-    public void OpenNewFileWindow()
+    public void OpenDialogBox(GameObject dialogBox)
     {
         blurPanel.EnableDisable(true);
-        newFileWindow.SetActive(true);
+        dialogBox.SetActive(true);
+
+        dialogBox.transform.localScale = Vector3.zero;
+        LeanTween.scale(dialogBox, Vector3.one, popUpDuration).setEase(popUpOpenScaleCurve);
+    }
+    public void CloseDialogBox(GameObject dialogBox) => CloseDialogBox(dialogBox, null);
+    public void CloseDialogBox(GameObject dialogBox, Action onComplete)
+    {
+        LeanTween.scale(dialogBox, Vector3.zero, popUpDuration).setEase(popUpCloseScaleCurve).setOnComplete(() =>
+        {
+            dialogBox.SetActive(false);
+            blurPanel.EnableDisable(false);
+            onComplete?.Invoke();
+        });
+    }
+
+    public void OpenNewFileWindow()
+    {
+        OpenDialogBox(newFileWindow);
 
         newFileSizeScrollbar.scrollAmount = 1f;
-
-        newFileWindow.transform.localScale = Vector3.zero;
-        LeanTween.scale(newFileWindow, Vector3.one, popUpDuration).setEase(popUpOpenScaleCurve);
     }
     public void CloseNewFileWindow()
     {
-        LeanTween.scale(newFileWindow, Vector3.zero, popUpDuration).setEase(popUpCloseScaleCurve).setOnComplete(() =>
-        {
-            newFileWindow.SetActive(false);
-            blurPanel.EnableDisable(false);
-        });
+        CloseDialogBox(newFileWindow);
     }
 
     public void ConfirmNewFileWindow()
@@ -332,11 +359,7 @@ public class UIManager : MonoBehaviour
 
     public void OpenExtendCropWindow()
     {
-        blurPanel.EnableDisable(true);
-        extendCropWindow.SetActive(true);
-
-        extendCropWindow.transform.localScale = Vector3.zero;
-        LeanTween.scale(extendCropWindow, Vector3.one, popUpDuration).setEase(popUpOpenScaleCurve);
+        OpenDialogBox(extendCropWindow);
 
         extendCropLeftField.value = 0f;
         extendCropRightField.value = 0f;
@@ -347,11 +370,7 @@ public class UIManager : MonoBehaviour
     }
     public void CloseExtendCropWindow()
     {
-        LeanTween.scale(extendCropWindow, Vector3.zero, popUpDuration).setEase(popUpCloseScaleCurve).setOnComplete(() =>
-        {
-            extendCropWindow.SetActive(false);
-            blurPanel.EnableDisable(false);
-        });
+        CloseDialogBox(extendCropWindow);
     }
 
     private void UpdateExtendCropPreview()
@@ -387,11 +406,7 @@ public class UIManager : MonoBehaviour
 
     public void OpenScaleWindow()
     {
-        blurPanel.EnableDisable(true);
-        scaleWindow.SetActive(true);
-
-        scaleWindow.transform.localScale = Vector3.zero;
-        LeanTween.scale(scaleWindow, Vector3.one, popUpDuration).setEase(popUpOpenScaleCurve);
+        OpenDialogBox(scaleWindow);
 
         updatedScaleSettingsThisFrame = true;
         scaleWidthField.value = fileManager.currentFile.width;
@@ -402,11 +417,7 @@ public class UIManager : MonoBehaviour
     }
     public void CloseScaleWindow()
     {
-        LeanTween.scale(scaleWindow, Vector3.zero, popUpDuration).setEase(popUpCloseScaleCurve).setOnComplete(() =>
-        {
-            scaleWindow.SetActive(false);
-            blurPanel.EnableDisable(false);
-        });
+        CloseDialogBox(scaleWindow);
     }
 
     private void UpdateScaleWidthHeight()
@@ -467,11 +478,7 @@ public class UIManager : MonoBehaviour
 
     public void OpenGridWindow()
     {
-        blurPanel.EnableDisable(true);
-        gridWindow.SetActive(true);
-
-        gridWindow.transform.localScale = Vector3.zero;
-        LeanTween.scale(gridWindow, Vector3.one, popUpDuration).setEase(popUpOpenScaleCurve);
+        OpenDialogBox(gridWindow);
 
         gridWidthField.value = gridManager.width;
         gridHeightField.value = gridManager.height;
@@ -485,11 +492,7 @@ public class UIManager : MonoBehaviour
     }
     public void CloseGridWindow()
     {
-        LeanTween.scale(gridWindow, Vector3.zero, popUpDuration).setEase(popUpCloseScaleCurve).setOnComplete(() =>
-        {
-            gridWindow.SetActive(false);
-            blurPanel.EnableDisable(false);
-        });
+        CloseDialogBox(gridWindow);
     }
 
     public void ConfirmGridWindow()
@@ -524,11 +527,7 @@ public class UIManager : MonoBehaviour
 
     public void OpenOutlineWindow()
     {
-        blurPanel.EnableDisable(true);
-        outlineWindow.SetActive(true);
-
-        outlineWindow.transform.localScale = Vector3.zero;
-        LeanTween.scale(outlineWindow, Vector3.one, popUpDuration).setEase(popUpOpenScaleCurve);
+        OpenDialogBox(outlineWindow);
 
         UpdateOutlinePreview();
     }
@@ -536,11 +535,7 @@ public class UIManager : MonoBehaviour
     {
         outlineColourField.CloseColourPicker();
 
-        LeanTween.scale(outlineWindow, Vector3.zero, popUpDuration).setEase(popUpCloseScaleCurve).setOnComplete(() =>
-        {
-            outlineWindow.SetActive(false);
-            blurPanel.EnableDisable(false);
-        });
+        CloseDialogBox(outlineWindow);
     }
 
     public void ConfirmOutlineWindow()
@@ -581,21 +576,16 @@ public class UIManager : MonoBehaviour
 
     public void OpenReplaceColourWindow()
     {
-        blurPanel.EnableDisable(true);
-        replaceColourWindow.SetActive(true);
-
-        replaceColourWindow.transform.localScale = Vector3.zero;
-        LeanTween.scale(replaceColourWindow, Vector3.one, popUpDuration).setEase(popUpOpenScaleCurve);
+        OpenDialogBox(replaceColourWindow);
 
         UpdateReplaceColourPreview();
     }
     public void CloseReplaceColourWindow()
     {
-        LeanTween.scale(replaceColourWindow, Vector3.zero, popUpDuration).setEase(popUpCloseScaleCurve).setOnComplete(() =>
-        {
-            replaceColourWindow.SetActive(false);
-            blurPanel.EnableDisable(false);
-        });
+        replaceColourReplaceWithField.CloseColourPicker();
+        replaceColourToReplaceField.CloseColourPicker();
+
+        CloseDialogBox(replaceColourWindow);
     }
 
     public void ConfirmReplaceColourWindow()
@@ -636,11 +626,7 @@ public class UIManager : MonoBehaviour
     {
         importPACFile = file;
 
-        blurPanel.EnableDisable(true);
-        importPACWindow.SetActive(true);
-
-        importPACWindow.transform.localScale = Vector3.zero;
-        LeanTween.scale(importPACWindow, Vector3.one, popUpDuration).setEase(popUpOpenScaleCurve);
+        OpenDialogBox(importPACWindow);
 
         importPACLayersToggleGroup.DestroyToggles();
 
@@ -673,11 +659,7 @@ public class UIManager : MonoBehaviour
 
     public void CloseImportPACWindow()
     {
-        LeanTween.scale(importPACWindow, Vector3.zero, popUpDuration).setEase(popUpCloseScaleCurve).setOnComplete(() =>
-        {
-            importPACWindow.SetActive(false);
-            blurPanel.EnableDisable(false);
-        });
+        CloseDialogBox(importPACWindow);
     }
 
     public void ConfirmImportPACWindow()
@@ -704,11 +686,7 @@ public class UIManager : MonoBehaviour
 
         layerPropertiesLayerIndex = layerIndex;
 
-        blurPanel.EnableDisable(true);
-        layerPropertiesWindow.SetActive(true);
-
-        layerPropertiesWindow.transform.localScale = Vector3.zero;
-        LeanTween.scale(layerPropertiesWindow, Vector3.one, popUpDuration).setEase(popUpOpenScaleCurve);
+        OpenDialogBox(layerPropertiesWindow);
 
         layerNameTextbox.SetText(fileManager.currentFile.layers[layerIndex].name);
         layerOpacityField.value = fileManager.currentFile.layers[layerIndex].opacity * 255f;
@@ -718,12 +696,7 @@ public class UIManager : MonoBehaviour
     }
     public void CloseLayerPropertiesWindow()
     {
-        LeanTween.scale(layerPropertiesWindow, Vector3.zero, popUpDuration).setEase(popUpCloseScaleCurve).setOnComplete(() =>
-        {
-            layerPropertiesWindow.SetActive(false);
-            blurPanel.EnableDisable(false);
-            openedWindow = false;
-        });
+        CloseDialogBox(layerPropertiesWindow, () => openedWindow = false);
     }
 
     private void UpdateLayerPropertiesPreview()
@@ -740,6 +713,40 @@ public class UIManager : MonoBehaviour
         layerManager.SetLayerOpacity(layerPropertiesLayerIndex, opacity);
         layerManager.SetLayerBlendMode(layerPropertiesLayerIndex, blendMode);
         layerManager.SetLayerName(layerPropertiesLayerIndex, layerName);
+    }
+
+    public void OpenBrushSettingsWindow()
+    {
+        OpenDialogBox(brushSettingsWindow);
+
+        brushSettingsShapeToggleGroup.Press((int)toolbar.brushShape);
+        brushSettingsSizeField.max = toolbar.maxBrushSize;
+        brushSettingsSizeField.value = toolbar.brushSize;
+    }
+    public void CloseBrushSettingsWindow()
+    {
+        CloseDialogBox(brushSettingsWindow);
+    }
+
+    public void UpdateBrushSettingsShape()
+    {
+        string brushShape = brushSettingsShapeToggleGroup.selectedToggles[0].toggleName;
+        if (brushShape == "circle")
+        {
+            toolbar.brushShape = BrushShape.Circle;
+        }
+        else if (brushShape == "square")
+        {
+            toolbar.brushShape = BrushShape.Square;
+        }
+        else if (brushShape == "diamond")
+        {
+            toolbar.brushShape = BrushShape.Diamond;
+        }
+        else
+        {
+            throw new System.Exception("Unknown / unimplemented brush shape: " + brushShape);
+        }
     }
 
     public void OpenUnsavedChangesWindow(int fileIndex)

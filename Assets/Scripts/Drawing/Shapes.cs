@@ -402,6 +402,48 @@ public static class Shapes
         return tex;
     }
 
+    public static Texture2D Diamond(int texWidth, int texHeight, IntVector2 start, IntVector2 end, Color colour, bool filled)
+    {
+        if (!new IntRect(start, end).isSquare)
+        {
+            throw new System.NotImplementedException("Not yet implemented for non-square diamond dimensions.");
+        }
+        if (Mathf.Abs(start.x - end.x) % 2 == 1)
+        {
+            throw new System.NotImplementedException("Not yet implemented for diamonds of even width/height.");
+        }
+
+        IntVector2 bottomLeft = new IntVector2(Mathf.Min(start.x, end.x), Mathf.Min(start.y, end.y));
+        IntVector2 topRight = new IntVector2(Mathf.Max(start.x, end.x), Mathf.Max(start.y, end.y));
+        IntVector2 centre = (bottomLeft + topRight) / 2;
+        int radius = Mathf.Abs(start.x - end.x) / 2;
+
+        Texture2D tex = Tex2DSprite.BlankTexture(texWidth, texHeight);
+
+        if (filled)
+        {
+            for (int x = bottomLeft.x; x <= topRight.x; x++)
+            {
+                for (int y = bottomLeft.y; y <= topRight.y; y++)
+                {
+                    int offX = x - centre.x;
+                    int offY = y - centre.y;
+                    if (Mathf.Abs(offX + offY) <= radius && Mathf.Abs(offX - offY) <= radius)
+                    {
+                        tex.SetPixel(x, y, colour);
+                    }
+                }
+            }
+        }
+        else
+        {
+            throw new System.NotImplementedException("Not yet implemented for unfilled diamonds.");
+        }
+
+        tex.Apply();
+        return tex;
+    }
+
     public static Texture2D Gradient(int texWidth, int texHeight, IntVector2 start, IntVector2 end, Color startColour, Color endColour, GradientMode gradientMode)
     {
         switch (gradientMode)

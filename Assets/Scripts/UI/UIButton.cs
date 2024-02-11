@@ -114,6 +114,10 @@ public class UIButton : MonoBehaviour
     private UnityEvent onHover = new UnityEvent();
     [SerializeField]
     private UnityEvent onClick = new UnityEvent();
+    [SerializeField]
+    private UnityEvent onLeftClick = new UnityEvent();
+    [SerializeField]
+    private UnityEvent onRightClick = new UnityEvent();
 
     public bool isPressed
     {
@@ -217,6 +221,12 @@ public class UIButton : MonoBehaviour
         textBox.color = textPressedColour;
 
         onClick.Invoke();
+        onLeftClick.Invoke();
+    }
+
+    public void RightClick()
+    {
+        onRightClick.Invoke();
     }
 
     private void Select()
@@ -245,7 +255,14 @@ public class UIButton : MonoBehaviour
         }
         else if (inputTarget.mouseTarget.state == MouseTargetState.Pressed)
         {
-            Press();
+            if (inputTarget.mouseTarget.buttonTargetedWith == MouseButton.Left)
+            {
+                Press();
+            }
+            else if (inputTarget.mouseTarget.buttonTargetedWith == MouseButton.Right)
+            {
+                RightClick();
+            }
         }
     }
 
@@ -314,5 +331,13 @@ public class UIButton : MonoBehaviour
     public void SubscribeToClick(UnityAction call)
     {
         onClick.AddListener(call);
+    }
+    public void SubscribeToLeftClick(UnityAction call)
+    {
+        onLeftClick.AddListener(call);
+    }
+    public void SubscribeToRightClick(UnityAction call)
+    {
+        onRightClick.AddListener(call);
     }
 }

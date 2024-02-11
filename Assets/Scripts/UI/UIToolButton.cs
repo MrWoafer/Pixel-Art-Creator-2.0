@@ -28,8 +28,10 @@ public class UIToolButton : MonoBehaviour
                 Select(temp);
                 toggleButton.toggleGroup.Press(toggleButton);
             });
-            toggleButton.SubscribeToTurnOff(() => { Select(buttons[0]); });
         }
+
+        toggleButton.SubscribeToTurnOff(() => Select(buttons[0]));
+        toggleButton.SubscribeToRightClick(() => currentButton.RightClick());
 
         Select(currentButton);
     }

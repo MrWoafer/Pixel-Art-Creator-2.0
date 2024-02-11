@@ -320,6 +320,11 @@ public class UIToggleButton : MonoBehaviour
         onLeftClick.Invoke();
     }
 
+    public void RightClick()
+    {
+        onRightClick.Invoke();
+    }
+
     private void MouseTargetInput()
     {
         if (inputTarget.mouseTarget.state == MouseTargetState.Idle)
@@ -352,7 +357,7 @@ public class UIToggleButton : MonoBehaviour
             }
             else if (inputTarget.mouseTarget.buttonTargetedWith == MouseButton.Right)
             {
-                onRightClick.Invoke();
+                RightClick();
             }
         }
     }

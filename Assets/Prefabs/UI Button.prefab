@@ -477,7 +477,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f695b0b71de2a0c4e97483fa2b98c1f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  text: 
+  _text: 
   hoverTimeUntilTooltip: 2
   padding: {x: 20, y: 15}
   uiTooltipPrefab: {fileID: 1021057533586925802, guid: 370f075e502acf240b6538977adc761f, type: 3}
@@ -516,6 +516,12 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   onClick:
+    m_PersistentCalls:
+      m_Calls: []
+  onLeftClick:
+    m_PersistentCalls:
+      m_Calls: []
+  onRightClick:
     m_PersistentCalls:
       m_Calls: []
 --- !u!114 &1163901195894061840

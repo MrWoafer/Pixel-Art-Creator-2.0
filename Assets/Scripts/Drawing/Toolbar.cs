@@ -21,8 +21,9 @@ public enum SelectionMode
 
 public enum BrushShape
 {
-    Square = 0,
-    Circle = 1,
+    Circle = 0,
+    Square = 1,
+    Diamond = 2
 }
 
 public enum GradientMode
@@ -40,7 +41,15 @@ public class Toolbar : MonoBehaviour
 
     [SerializeField]
     private int _brushSize = 1;
-    public int brushSize { get => _brushSize; private set => _brushSize = value; }
+    public int brushSize
+    {
+        get => _brushSize;
+        set
+        {
+            _brushSize = value;
+            UpdateBrushBorder();
+        }
+    }
 
     [SerializeField]
     [Min(0f)]
@@ -60,7 +69,7 @@ public class Toolbar : MonoBehaviour
     public BrushShape brushShape
     {
         get => _brushShape;
-        private set
+        set
         {
             _brushShape = value;
             UpdateBrushBorder();
@@ -182,7 +191,6 @@ public class Toolbar : MonoBehaviour
         }
 
         this.brushSize = Mathf.Clamp(brushSize, 1, maxBrushSize);
-        UpdateBrushBorder();
         onBrushSizeChanged.Invoke();
 
         return true;
@@ -217,12 +225,17 @@ public class Toolbar : MonoBehaviour
         {
             if (inputSystem.globalKeyboardTarget.IsHeldExactly(KeyCode.Alpha1))
             {
-                brushShape = BrushShape.Square;
+                brushShape = BrushShape.Circle;
                 onBrushSizeChanged.Invoke();
             }
             else if (inputSystem.globalKeyboardTarget.IsHeldExactly(KeyCode.Alpha2))
             {
-                brushShape = BrushShape.Circle;
+                brushShape = BrushShape.Square;
+                onBrushSizeChanged.Invoke();
+            }
+            else if (inputSystem.globalKeyboardTarget.IsHeldExactly(KeyCode.Alpha3))
+            {
+                brushShape = BrushShape.Diamond;
                 onBrushSizeChanged.Invoke();
             }
         }
@@ -292,6 +305,14 @@ public class Toolbar : MonoBehaviour
             else if (brushShape == BrushShape.Circle)
             {
                 brushTexture = Shapes.Circle(brushSize * 2 - 1, brushSize * 2 - 1, IntVector2.zero, IntVector2.one * (brushSize * 2 - 2), Color.white, true, false);
+            }
+            else if (brushShape == BrushShape.Diamond)
+            {
+                brushTexture = Shapes.Diamond(brushSize * 2 - 1, brushSize * 2 - 1, IntVector2.zero, IntVector2.one * (brushSize * 2 - 2), Color.white, true);
+            }
+            else
+            {
+                throw new System.Exception("Unknown / unimplemented brush shape: " + brushShape);
             }
         }
         else
