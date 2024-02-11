@@ -73,7 +73,7 @@ public class AnimationKeyFrame
         }
         tex.Apply();
 
-        if (int.Parse(json[".pacVersion"]) < 8)
+        if (!json.ContainsKey(".pacVersion") || int.Parse(json[".pacVersion"]) < 8)
         {
             return new AnimationKeyFrame(int.Parse(json["frameIndex"]), tex);
         }

@@ -97,27 +97,7 @@ public class FileTabsManager : MonoBehaviour
             AddFileTile(fileManager.files[i]);
         }
 
-        int indexToSelect = 0;
-        if (previouslySelectedIndex != -1)
-        {
-            bool foundPreviouslySelectedLayer = false;
-            for (int i = 0; i < fileTiles.Count; i++)
-            {
-                if (fileTiles[i].file == previouslySelectedFile)
-                {
-                    indexToSelect = i;
-                    foundPreviouslySelectedLayer = true;
-                    break;
-                }
-            }
-
-            if (!foundPreviouslySelectedLayer)
-            {
-                indexToSelect = Mathf.Clamp(previouslySelectedIndex, 0, toggleGroup.Count - 1);
-            }
-        }
-
-        toggleGroup.Press(indexToSelect);
+        toggleGroup.Press(fileManager.currentFileIndex);
         viewport.RefreshViewport();
     }
 

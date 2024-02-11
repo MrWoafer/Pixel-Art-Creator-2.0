@@ -15,7 +15,7 @@ public class FileManager : MonoBehaviour
     [Min(1)]
     private int startingFileHeight = 16;
 
-    private const string defaultFileName = "Untitled Image";
+    public const string defaultFileName = "Untitled Image";
 
     public List<File> files { get; private set; } = new List<File>();
     public int currentFileIndex { get; private set; } = 0;
@@ -46,7 +46,7 @@ public class FileManager : MonoBehaviour
     {
         inputSystem.SubscribeToGlobalKeyboard(KeyboardShortcut);
 
-        AddFile(new File(defaultFileName, startingFileWidth, startingFileHeight));
+        /*AddFile(new File(defaultFileName, startingFileWidth, startingFileHeight));
 
         /// For testing TileLayer
         currentFile.AddTileLayer();
@@ -61,7 +61,9 @@ public class FileManager : MonoBehaviour
         AddFile(file);
         ///
 
-        SwitchToFile(1);
+        SwitchToFile(1);*/
+        AddFile(new File(defaultFileName, 16, 16));
+        SwitchToFile(0);
 
         /// Open file from 'Open with' in File Explorer
         string[] args = System.Environment.GetCommandLineArgs();
@@ -177,8 +179,8 @@ public class FileManager : MonoBehaviour
             return false;
         }
 
-        CloseFile(currentFile);
-        SwitchToFile(0);
+        //CloseFile(currentFile);
+        SwitchToFile(files.Count - 1);
 
         inputSystem.Untarget();
         inputSystem.LockForAFrame();

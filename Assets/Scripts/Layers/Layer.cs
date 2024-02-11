@@ -172,6 +172,27 @@ public abstract class Layer
     public abstract Color GetPixel(IntVector2 pixel, int frame, bool useLayerOpacity = true);
 
     /// <summary>
+    /// Returns true if and only if all pixels are completely transparent.
+    /// </summary>
+    public bool IsBlank()
+    {
+        for (int x = 0; x < width; x++)
+        {
+            for (int y = 0; y < height; y++)
+            {
+                foreach (int frame in keyFrameIndices)
+                {
+                    if (GetPixel(x, y, frame, false).a != 0)
+                    {
+                        return false;
+                    }
+                }
+            }
+        }
+        return true;
+    }
+
+    /// <summary>
     /// Flips the layer, but does not invoke the onPixelsChanged event.
     /// </summary>
     protected abstract void FlipNoEvent(FlipDirection direction);

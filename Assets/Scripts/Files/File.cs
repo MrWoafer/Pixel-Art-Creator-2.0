@@ -226,7 +226,10 @@ public class File
         }
 
         JSON json = JSON.ParseString(System.IO.File.ReadAllText(filePath));
-        return FromJSON(json);
+        File file = FromJSON(json);
+        file.savedSinceLastEdit = true;
+
+        return file;
     }
 
     /// <summary>
@@ -301,7 +304,7 @@ public class File
         JSON json = new JSON();
 
         json.Add(".pacVersion", 8);
-        json.Add("fileName", name);
+        json.Add("name", name);
         json.Add("mostRecentSavePath", mostRecentSavePath);
         json.Add("width", width);
         json.Add("height", height);
@@ -338,7 +341,7 @@ public class File
     /// </summary>
     public static File FromJSON(JSON json)
     {
-        File file = new File(json["fileName"], int.Parse(json["width"]), int.Parse(json["height"]));
+        File file = new File(int.Parse(json[".pacVersion"]) <= 7 ? json["fileName"] : json["name"], int.Parse(json["width"]), int.Parse(json["height"]));
 
         int pacVersion = int.Parse(json[".pacVersion"]);
         if (pacVersion >= 2)
@@ -353,6 +356,10 @@ public class File
         else if (pacVersion >= 8)
         {
             file.mostRecentSavePath = json["mostRecentSavePath"];
+        }
+        if (file.mostRecentSavePath == "")
+        {
+            file.mostRecentSavePath = null;
         }
 
         if (pacVersion >= 5 && pacVersion <= 7)
@@ -491,6 +498,21 @@ public class File
     private bool ExportFrameICO(int frame, string filePath)
     {
         throw new System.NotImplementedException();
+    }
+
+    /// <summary>
+    /// Returns true if and only if all pixels on all layers are completely transparent.
+    /// </summary>
+    public bool IsBlank()
+    {
+        foreach (Layer layer in layers)
+        {
+            if (!layer.IsBlank())
+            {
+                return false;
+            }
+        }
+        return true;
     }
 
     /// <summary>

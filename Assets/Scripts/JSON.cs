@@ -51,6 +51,11 @@ public class JSON
         }
     }
 
+    public bool ContainsKey(string key)
+    {
+        return dictionary.ContainsKey(key);
+    }
+
     public string Get(string key)
     {
         if (!dictionary.ContainsKey(key))
@@ -215,7 +220,14 @@ public class JSON
             }
             else
             {
-                Add(variable, data, false);
+                if (data == "null")
+                {
+                    Add(variable, null, false);
+                }
+                else
+                {
+                    Add(variable, data, false);
+                }
             }
         }
     }
@@ -293,26 +305,33 @@ public class JSON
         {
             str += "\n\t\"" + key + "\": ";
 
-            if (dictionary[key].useQuotationMarks)
+            if (dictionary[key].str == null)
             {
-                str += "\"";
+                str += "null";
             }
-
-            string[] lines = dictionary[key].str.Split('\n');
-            for (int i = 0; i < lines.Length; i++)
+            else
             {
-                if (i > 0)
+                if (dictionary[key].useQuotationMarks)
                 {
-                    str += "\t\t";
+                    str += "\"";
                 }
-                str += lines[i] + "\n";
-            }
 
-            str = str.Remove(str.Length - 1);
+                string[] lines = dictionary[key].str.Split('\n');
+                for (int i = 0; i < lines.Length; i++)
+                {
+                    if (i > 0)
+                    {
+                        str += "\t\t";
+                    }
+                    str += lines[i] + "\n";
+                }
 
-            if (dictionary[key].useQuotationMarks)
-            {
-                str += "\"";
+                str = str.Remove(str.Length - 1);
+
+                if (dictionary[key].useQuotationMarks)
+                {
+                    str += "\"";
+                }
             }
 
             str += ",";
