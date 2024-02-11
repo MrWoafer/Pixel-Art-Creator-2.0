@@ -19,13 +19,7 @@ public class FileManager : MonoBehaviour
 
     public List<File> files { get; private set; } = new List<File>();
     public int currentFileIndex { get; private set; } = 0;
-    public File currentFile
-    {
-        get
-        {
-            return files[currentFileIndex];
-        }
-    }
+    public File currentFile => files[currentFileIndex];
     [HideInInspector]
     public File previousFile = null;
 
@@ -145,6 +139,8 @@ public class FileManager : MonoBehaviour
 
         File removedFile = files[fileIndex];
 
+        previousFile = currentFile;
+
         files.RemoveAt(fileIndex);
 
         if (files.Count == 0)
@@ -152,7 +148,9 @@ public class FileManager : MonoBehaviour
             NewFile(removedFile.width, removedFile.height);
         }
 
-        SwitchToFile(Mathf.Min(fileIndex, files.Count - 1));
+        currentFileIndex = Mathf.Min(fileIndex, files.Count - 1);
+
+        SwitchToFile(currentFileIndex);
 
         return removedFile;
     }

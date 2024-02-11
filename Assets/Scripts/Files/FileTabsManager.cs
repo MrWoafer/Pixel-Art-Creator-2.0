@@ -57,6 +57,11 @@ public class FileTabsManager : MonoBehaviour
         fileManager.SubscribeToFilesChanged(OnFilesChanged);
     }
 
+    private void Start()
+    {
+        toggleGroup.Press(fileManager.currentFileIndex);
+    }
+
     void Update()
     {
         if (scrollLeft.isPressed)
