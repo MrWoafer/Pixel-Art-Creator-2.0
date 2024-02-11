@@ -160,6 +160,7 @@ public class FileManager : MonoBehaviour
     public void NewFile(int width, int height)
     {
         AddFile(new File(defaultFileName, width, height));
+        SwitchToFile(files.Count - 1);
     }
 
     public void OpenFileDialog()
