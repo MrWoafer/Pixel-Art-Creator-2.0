@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AnimationKeyFrame
+public class AnimationKeyFrame : JSONable
 {
     public int frame;
     public Texture2D texture;

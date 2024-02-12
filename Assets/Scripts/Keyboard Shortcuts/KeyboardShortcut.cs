@@ -1,8 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
-public class KeyboardShortcut
+public class KeyboardShortcut : JSONable
 {
     public List<CustomKeyCode> keyCodes = new List<CustomKeyCode>();
 
@@ -73,5 +74,19 @@ public class KeyboardShortcut
     public List<CustomKeyCode> ToList()
     {
         return new List<CustomKeyCode>(keyCodes);
+    }
+
+    public JSON ToJSON()
+    {
+        JSON json = new JSON();
+
+        json.Add("keyCodes", from keyCode in keyCodes select keyCode.displayName);
+
+        return json;
+    }
+
+    public KeyboardShortcut FromJSON(JSON json)
+    {
+        throw new System.NotImplementedException();
     }
 }

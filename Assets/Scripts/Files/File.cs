@@ -6,7 +6,7 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class File
+public class File : JSONable
 {
     public string name { get; set; } = "";
 
@@ -312,26 +312,7 @@ public class File
         json.Add("newTileLayerNameNum", newTileLayerNameNum);
         json.Add("numOfFrames", numOfFrames);
 
-        string layersStr = "[";
-        foreach (Layer layer in layers)
-        {
-            layersStr += "\n";
-
-            string layerJSON = layer.ToJSON().ToString();
-
-            string[] lines = layerJSON.Split('\n');
-            foreach (string line in lines)
-            {
-                layersStr += "\t" + line + "\n";
-            }
-
-            layersStr = layersStr.Remove(layersStr.Length - 1);
-
-            layersStr += ",";
-        }
-        layersStr = layersStr.TrimEnd(',') + "\n]";
-
-        json.Add("layers", layersStr, false);
+        json.Add("layers", layers);
 
         return json;
     }

@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class CustomKeyCode : IEnumerable
 {
-    private string displayName = "";
+    public string displayName { get; private set; } = "";
     private List<KeyCode> _keyCodes = new List<KeyCode>();
     public List<KeyCode> keyCodes { get => _keyCodes; private set => _keyCodes = value; }
 
@@ -75,6 +75,18 @@ public class CustomKeyCode : IEnumerable
     public override string ToString()
     {
         return displayName;
+    }
+
+    public CustomKeyCode FromString(string displayName)
+    {
+        foreach (CustomKeyCode keyCode in allKeyCodes)
+        {
+            if (keyCode.displayName == displayName)
+            {
+                return keyCode;
+            }
+        }
+        return null;
     }
 
     /// <summary>

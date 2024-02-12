@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class JSON
@@ -82,6 +83,10 @@ public class JSON
     {
         Add(key, new JSONProperty(str, useQuotationMarks));
     }
+    public void Add(string key, IEnumerable<string> strings)
+    {
+        Add(key, new JSONProperty(ToJSONString(strings), true));
+    }
 
     public void Add(string key, bool boolean)
     {
@@ -96,6 +101,14 @@ public class JSON
     {
         dictionary[key] = jsonProperty;
     }
+    public void Add(string key, JSONable jsonableObject)
+    {
+        Add(key, jsonableObject.ToJSON());
+    }
+    public void Add(string key, IEnumerable<JSONable> jsonableObjects)
+    {
+        Add(key, new JSONProperty(ToJSONString(jsonableObjects), false));
+    }
 
     public void Add(string key, object obj)
     {
@@ -104,6 +117,10 @@ public class JSON
     public void Add(string key, object obj, bool useQuotationMarks)
     {
         Add(key, new JSONProperty(obj.ToString(), useQuotationMarks));
+    }
+    public void Add(string key, IEnumerable objects)
+    {
+        Add(key, new JSONProperty(ToJSONString(objects), false));
     }
 
     public void Append(JSON json)
@@ -339,5 +356,41 @@ public class JSON
 
         str = str.TrimEnd(',') + "\n}";
         return str;
+    }
+
+    public static string ToJSONString(IEnumerable<JSONable> jsonableObjects)
+    {
+        return ToJSONString(from obj in jsonableObjects select obj.ToJSON().ToString(), false);
+    }
+    public static string ToJSONString(IEnumerable objects)
+    {
+        List<string> strings = new List<string>();
+        foreach (object obj in objects)
+        {
+            strings.Add(obj.ToString());
+        }
+        return ToJSONString(strings, false);
+    }
+    public static string ToJSONString(IEnumerable<string> strings, bool useQuotationMarks = true)
+    {
+        string jsonStr = "[";
+        foreach (string str in strings)
+        {
+            jsonStr += "\n";
+
+            string layerJSON = useQuotationMarks ? "\"" + str + "\"" : str;
+
+            string[] lines = layerJSON.Split('\n');
+            foreach (string line in lines)
+            {
+                jsonStr += "\t" + line + "\n";
+            }
+
+            jsonStr = jsonStr.Remove(jsonStr.Length - 1);
+
+            jsonStr += ",";
+        }
+        jsonStr = jsonStr.TrimEnd(',') + "\n]";
+        return jsonStr;
     }
 }

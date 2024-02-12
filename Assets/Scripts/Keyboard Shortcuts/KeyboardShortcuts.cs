@@ -19,12 +19,41 @@ public class KeyboardShortcuts : MonoBehaviour
     private void Start()
     {
         /// Load saved keyboard shortcuts
-
+        //LoadShortcuts();
         AddShortcut("pencil", KeyCode.W);
         AddShortcut("pencil", KeyCode.P);
+        AddShortcut("rubber", KeyCode.R);
+        AddShortcut("eye dropper", CustomKeyCode.Shift, KeyCode.E);
+
+        Debug.Log(ToJSON().ToString());
     }
 
-    public static bool IsHeld(string shortcutName)
+    public static void LoadShortcuts()
+    {
+        throw new System.NotImplementedException();
+    }
+
+    public static void SaveShortcuts()
+    {
+        throw new System.NotImplementedException();
+    }
+
+    public static JSON ToJSON()
+    {
+        JSON json = new JSON();
+
+        JSON shortcutsJSON = new JSON();
+        foreach (string key in shortcuts.Keys)
+        {
+            shortcutsJSON.Add(key, shortcuts[key]);
+        }
+
+        json.Add("shortcuts", shortcutsJSON);
+
+        return json;
+    }
+
+    public static void LoadJSON()
     {
         throw new System.NotImplementedException();
     }

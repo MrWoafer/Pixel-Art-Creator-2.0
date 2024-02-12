@@ -220,26 +220,7 @@ public class NormalLayer : Layer
         json.Add("opacity", opacity);
         json.Add("blendMode", blendMode.ToString());
 
-        string keyFramesStr = "[";
-        foreach (AnimationKeyFrame keyFrame in keyFrames)
-        {
-            keyFramesStr += "\n";
-
-            string keyFrameJSON = keyFrame.ToJSON().ToString();
-
-            string[] lines = keyFrameJSON.Split('\n');
-            foreach (string line in lines)
-            {
-                keyFramesStr += "\t" + line + "\n";
-            }
-
-            keyFramesStr = keyFramesStr.Remove(keyFramesStr.Length - 1);
-
-            keyFramesStr += ",";
-        }
-        keyFramesStr = keyFramesStr.TrimEnd(',') + "\n]";
-
-        json.Add("keyFrames", keyFramesStr, false);
+        json.Add("keyFrames", keyFrames);
 
         return json;
     }

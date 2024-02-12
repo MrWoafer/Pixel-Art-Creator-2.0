@@ -15,7 +15,7 @@ public enum LayerType
     Tile = 1
 }
 
-public abstract class Layer
+public abstract class Layer : JSONable
 {
     public abstract LayerType layerType { get; }
 
