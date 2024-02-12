@@ -77,7 +77,7 @@ public class CustomKeyCode : IEnumerable
         return displayName;
     }
 
-    public CustomKeyCode FromString(string displayName)
+    public static CustomKeyCode FromString(string displayName)
     {
         foreach (CustomKeyCode keyCode in allKeyCodes)
         {

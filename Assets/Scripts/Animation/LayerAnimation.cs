@@ -453,7 +453,7 @@ public class LayerAnimation
 
         foreach (string keyFrameJSON in JSON.SplitArray(json["keyFrames"]))
         {
-            anim.AddKeyFrame(AnimationKeyFrame.FromJSON(JSON.ParseString(keyFrameJSON)));
+            anim.AddKeyFrame(AnimationKeyFrame.FromJSON(JSON.Parse(keyFrameJSON)));
         }
 
         return anim;

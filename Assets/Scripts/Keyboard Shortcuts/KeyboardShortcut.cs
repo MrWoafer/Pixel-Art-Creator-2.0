@@ -12,6 +12,26 @@ public class KeyboardShortcut : JSONable
         this.keyCodes = new List<CustomKeyCode>(keyCodes);
     }
 
+    public bool Add(CustomKeyCode keyCode)
+    {
+        if (Contains(keyCode))
+        {
+            return false;
+        }
+        keyCodes.Add(keyCode);
+        return true;
+    }
+
+    public bool Remove(CustomKeyCode keyCode)
+    {
+        return keyCodes.Remove(keyCode);
+    }
+
+    public bool Contains(CustomKeyCode keyCode)
+    {
+        return keyCodes.Contains(keyCode);
+    }
+
     /// <summary>
     /// Returns true while all keys are being held down.
     /// </summary>

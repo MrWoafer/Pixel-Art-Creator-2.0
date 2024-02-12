@@ -229,7 +229,7 @@ public class NormalLayer : Layer
     {
         if (int.Parse(json[".pacVersion"]) < 7)
         {
-            LayerAnimation layerAnimation = LayerAnimation.FromJSON(JSON.ParseString(json["animation"]));
+            LayerAnimation layerAnimation = LayerAnimation.FromJSON(JSON.Parse(json["animation"]));
 
             name = json["layerName"];
             width = int.Parse(json["width"]);
@@ -260,7 +260,7 @@ public class NormalLayer : Layer
             {
                 JSON keyFrameJSON = new JSON();
                 keyFrameJSON.Add(".pacVersion", json[".pacVersion"]);
-                keyFrameJSON.Append(JSON.ParseString(keyFrameJSONStr));
+                keyFrameJSON.Append(JSON.Parse(keyFrameJSONStr));
                 AddKeyFrame(AnimationKeyFrame.FromJSON(keyFrameJSON));
             }
         }

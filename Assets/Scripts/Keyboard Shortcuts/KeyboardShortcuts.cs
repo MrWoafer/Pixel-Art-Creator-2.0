@@ -1,5 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
+using System.Linq;
 using UnityEngine;
 
 public class KeyboardShortcuts : MonoBehaviour
@@ -9,7 +11,16 @@ public class KeyboardShortcuts : MonoBehaviour
     private static KeyboardShortcuts main;
 
     private Dictionary<string, List<KeyboardShortcut>> _shortcuts = new Dictionary<string, List<KeyboardShortcut>>();
-    private static Dictionary<string, List<KeyboardShortcut>> shortcuts => main._shortcuts;
+    public static Dictionary<string, List<KeyboardShortcut>> shortcuts
+    {
+        get => main._shortcuts;
+        private set
+        {
+            main._shortcuts = value;
+        }
+    }
+
+    private static string shortcutsFilePath => Path.Combine(Application.persistentDataPath, "KeyboardShortcuts.json");
 
     private void Awake()
     {
@@ -19,23 +30,34 @@ public class KeyboardShortcuts : MonoBehaviour
     private void Start()
     {
         /// Load saved keyboard shortcuts
-        //LoadShortcuts();
-        AddShortcut("pencil", KeyCode.W);
-        AddShortcut("pencil", KeyCode.P);
-        AddShortcut("rubber", KeyCode.R);
-        AddShortcut("eye dropper", CustomKeyCode.Shift, KeyCode.E);
-
-        Debug.Log(ToJSON().ToString());
+        LoadShortcuts();
     }
 
     public static void LoadShortcuts()
     {
-        throw new System.NotImplementedException();
+        if (!Path.IsPathFullyQualified(shortcutsFilePath))
+        {
+            throw new System.Exception("shortcutsFilePath not fully qualified: " + shortcutsFilePath);
+        }
+        if (!System.IO.File.Exists(shortcutsFilePath))
+        {
+            throw new System.Exception("shortcutsFilePath doesn't exist: " + shortcutsFilePath);
+        }
+        if (Path.GetExtension(shortcutsFilePath) != ".json")
+        {
+            throw new System.Exception("The file is not a JSON file. File extension: " + Path.GetExtension(shortcutsFilePath));
+        }
+
+        JSON json = JSON.Parse(System.IO.File.ReadAllText(shortcutsFilePath));
+        LoadJSON(json);
     }
 
     public static void SaveShortcuts()
     {
-        throw new System.NotImplementedException();
+        JSON json = ToJSON();
+        System.IO.File.WriteAllText(shortcutsFilePath, json.ToString());
+
+        Debug.Log("Keyboard shortcuts saved at: " + shortcutsFilePath);
     }
 
     public static JSON ToJSON()
@@ -53,9 +75,27 @@ public class KeyboardShortcuts : MonoBehaviour
         return json;
     }
 
-    public static void LoadJSON()
+    public static void LoadJSON(JSON json)
     {
-        throw new System.NotImplementedException();
+        shortcuts = new Dictionary<string, List<KeyboardShortcut>>();
+
+        JSON shortcutsJSON = JSON.Parse(json["shortcuts"]);
+
+        /// Loop through each key for keyboard shortcuts - e.g. "pencil"
+        foreach (string key in shortcutsJSON.Keys)
+        {
+            /// Loop through each keyboard shortcut
+            foreach (JSON shortcutJSON in JSON.SplitArray(shortcutsJSON[key]).Select(x => JSON.Parse(x)))
+            {
+                /// Get each key code in the keyboard shortcut
+                string[] keyCodeStrings = JSON.SplitArray(shortcutJSON["keyCodes"]).Select(x => JSON.StripQuotationMarks(x)).ToArray();
+
+                /// Convert each key code from a string to the actual CustomKeyCode object
+                CustomKeyCode[] keyCodes = keyCodeStrings.Select(x => CustomKeyCode.FromString(x)).ToArray();
+
+                AddShortcut(key, new KeyboardShortcut(keyCodes));
+            }
+        }
     }
 
     public static void AddShortcut(string actionName, params CustomKeyCode[] keyCodes) => AddShortcut(actionName, new KeyboardShortcut(keyCodes));
@@ -74,7 +114,7 @@ public class KeyboardShortcuts : MonoBehaviour
         {
             throw new System.Exception("There are no shortcuts for: " + actionName);
         }
-        shortcuts.Remove(actionName);
+        shortcuts[actionName] = new List<KeyboardShortcut>();
     }
 
     public static List<KeyboardShortcut> GetShortcutsFor(string actionName)

@@ -198,10 +198,10 @@ public class Toolbar : MonoBehaviour
 
     private void KeyboardShortcut()
     {
-        if (inputSystem.globalKeyboardTarget.OneIsHeldExactly(KeyboardShortcuts.GetShortcutsFor("pencil")) || inputSystem.globalKeyboardTarget.IsHeldExactly(KeyCode.P)) { SelectTool(Tool.Pencil); }
-        else if (inputSystem.globalKeyboardTarget.IsHeldExactly(KeyCode.B)) { SelectTool(Tool.Brush); }
-        else if (inputSystem.globalKeyboardTarget.IsHeldExactly(KeyCode.R)) { SelectTool(Tool.Rubber); }
-        else if (inputSystem.globalKeyboardTarget.IsHeldExactly(KeyCode.E)) { SelectTool(Tool.EyeDropper); }
+        if (inputSystem.globalKeyboardTarget.OneIsHeldExactly(KeyboardShortcuts.GetShortcutsFor("pencil"))) { SelectTool(Tool.Pencil); }
+        else if (inputSystem.globalKeyboardTarget.OneIsHeldExactly(KeyboardShortcuts.GetShortcutsFor("brush"))) { SelectTool(Tool.Brush); }
+        else if (inputSystem.globalKeyboardTarget.OneIsHeldExactly(KeyboardShortcuts.GetShortcutsFor("rubber"))) { SelectTool(Tool.Rubber); }
+        else if (inputSystem.globalKeyboardTarget.OneIsHeldExactly(KeyboardShortcuts.GetShortcutsFor("eye dropper"))) { SelectTool(Tool.EyeDropper); }
         else if (inputSystem.globalKeyboardTarget.IsHeldExactly(KeyCode.F)) { SelectTool(Tool.Fill); }
         else if (inputSystem.globalKeyboardTarget.IsHeldExactly(KeyCode.S)) { SelectTool(Tool.Shape); }
         else if (inputSystem.globalKeyboardTarget.IsHeldExactly(KeyCode.L)) { SelectTool(Tool.Line); }

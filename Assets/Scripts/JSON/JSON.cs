@@ -11,7 +11,7 @@ public class JSON
 
     public JSON(string jsonToParse)
     {
-        Parse(jsonToParse);
+        AddParse(jsonToParse);
     }
 
     public string[] Keys
@@ -136,7 +136,7 @@ public class JSON
         }
     }
 
-    public static JSON ParseString(string jsonToParse)
+    public static JSON Parse(string jsonToParse)
     {
         return new JSON(jsonToParse);
     }
@@ -144,7 +144,7 @@ public class JSON
     /// Parses the JSON string and adds all data to this JSON object.
     /// </summary>
     /// <param name="jsonToParse"></param>
-    public void Parse(string jsonToParse)
+    public void AddParse(string jsonToParse)
     {
         string variable;
         string data;
@@ -263,12 +263,17 @@ public class JSON
         {
             index++;
         }
+        int endIndex = jsonString.Length - 2;
+        while (string.IsNullOrWhiteSpace(jsonString[endIndex].ToString()))
+        {
+            endIndex--;
+        }
 
         string data = "";
 
         bool inString = false;
         int openCloseBalance = 0;
-        while (index < jsonString.Length - 1)
+        while (index <= endIndex)
         {
             if (inString)
             {
@@ -312,6 +317,17 @@ public class JSON
         split.Add(data);
 
         return split.ToArray();
+    }
+
+    public static string StripQuotationMarks(string str)
+    {
+        if (str[0] != '\"' || str[^1] != '\"')
+        {
+            throw new System.Exception("String is not enclosed in quotation marks: " + str);
+        }
+        str = str.Remove(0, 1);
+        str = str.Remove(str.Length - 1, 1);
+        return str;
     }
 
     public override string ToString()

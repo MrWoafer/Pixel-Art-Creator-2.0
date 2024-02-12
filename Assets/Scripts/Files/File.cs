@@ -225,7 +225,7 @@ public class File : JSONable
             throw new System.Exception("The file is not a PAC file. File extension: " + Path.GetExtension(filePath));
         }
 
-        JSON json = JSON.ParseString(System.IO.File.ReadAllText(filePath));
+        JSON json = JSON.Parse(System.IO.File.ReadAllText(filePath));
         File file = FromJSON(json);
         file.savedSinceLastEdit = true;
 
@@ -366,7 +366,7 @@ public class File : JSONable
         {
             JSON layerJSON = new JSON();
             layerJSON.Add(".pacVersion", json[".pacVersion"]);
-            layerJSON.Append(JSON.ParseString(layerJSONStr));
+            layerJSON.Append(JSON.Parse(layerJSONStr));
 
             if (pacVersion < 8)
             {
