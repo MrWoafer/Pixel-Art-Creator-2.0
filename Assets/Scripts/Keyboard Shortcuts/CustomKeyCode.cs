@@ -13,8 +13,20 @@ public class CustomKeyCode : IEnumerable
     public static readonly CustomKeyCode Shift = new CustomKeyCode("Shift", KeyCode.LeftShift, KeyCode.RightShift);
     public static readonly CustomKeyCode Alt = new CustomKeyCode("Alt", KeyCode.LeftAlt, KeyCode.RightAlt);
     public static readonly CustomKeyCode Ctrl = new CustomKeyCode("Ctrl", KeyCode.LeftControl, KeyCode.RightControl);
+
+    public static readonly CustomKeyCode _0 = new CustomKeyCode("0", KeyCode.Alpha0, KeyCode.Keypad0);
+    public static readonly CustomKeyCode _1 = new CustomKeyCode("1", KeyCode.Alpha1, KeyCode.Keypad1);
+    public static readonly CustomKeyCode _2 = new CustomKeyCode("2", KeyCode.Alpha2, KeyCode.Keypad2);
+    public static readonly CustomKeyCode _3 = new CustomKeyCode("3", KeyCode.Alpha3, KeyCode.Keypad3);
+    public static readonly CustomKeyCode _4 = new CustomKeyCode("4", KeyCode.Alpha4, KeyCode.Keypad4);
+    public static readonly CustomKeyCode _5 = new CustomKeyCode("5", KeyCode.Alpha5, KeyCode.Keypad5);
+    public static readonly CustomKeyCode _6 = new CustomKeyCode("6", KeyCode.Alpha6, KeyCode.Keypad6);
+    public static readonly CustomKeyCode _7 = new CustomKeyCode("7", KeyCode.Alpha7, KeyCode.Keypad7);
+    public static readonly CustomKeyCode _8 = new CustomKeyCode("8", KeyCode.Alpha8, KeyCode.Keypad8);
+    public static readonly CustomKeyCode _9 = new CustomKeyCode("9", KeyCode.Alpha9, KeyCode.Keypad9);
+
     public static readonly CustomKeyCode[] allKeyCodes = Functions.ConcatArrays((from x in (KeyCode[])System.Enum.GetValues(typeof(KeyCode)) select (CustomKeyCode)x).ToArray(),
-        new CustomKeyCode[] { Shift, Alt, Ctrl });
+        new CustomKeyCode[] { Shift, Alt, Ctrl, _0, _1, _2, _3, _4, _5, _6, _7, _8, _9 });
 
     private CustomKeyCode(string displayName, params KeyCode[] keyCodes)
     {

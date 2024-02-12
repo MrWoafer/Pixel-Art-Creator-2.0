@@ -202,12 +202,12 @@ public class Toolbar : MonoBehaviour
         else if (inputSystem.globalKeyboardTarget.OneIsHeldExactly(KeyboardShortcuts.GetShortcutsFor("brush"))) { SelectTool(Tool.Brush); }
         else if (inputSystem.globalKeyboardTarget.OneIsHeldExactly(KeyboardShortcuts.GetShortcutsFor("rubber"))) { SelectTool(Tool.Rubber); }
         else if (inputSystem.globalKeyboardTarget.OneIsHeldExactly(KeyboardShortcuts.GetShortcutsFor("eye dropper"))) { SelectTool(Tool.EyeDropper); }
-        else if (inputSystem.globalKeyboardTarget.IsHeldExactly(KeyCode.F)) { SelectTool(Tool.Fill); }
-        else if (inputSystem.globalKeyboardTarget.IsHeldExactly(KeyCode.S)) { SelectTool(Tool.Shape); }
-        else if (inputSystem.globalKeyboardTarget.IsHeldExactly(KeyCode.L)) { SelectTool(Tool.Line); }
-        else if (inputSystem.globalKeyboardTarget.IsHeldExactly(KeyCode.G)) { SelectTool(Tool.Gradient); }
-        else if (inputSystem.globalKeyboardTarget.IsHeldExactly(KeyCode.M)) { SelectTool(Tool.Move); }
-        else if (inputSystem.globalKeyboardTarget.IsHeldExactly(KeyCode.Q)) { SelectTool(Tool.Selection); }
+        else if (inputSystem.globalKeyboardTarget.OneIsHeldExactly(KeyboardShortcuts.GetShortcutsFor("fill"))) { SelectTool(Tool.Fill); }
+        else if (inputSystem.globalKeyboardTarget.OneIsHeldExactly(KeyboardShortcuts.GetShortcutsFor("shape"))) { SelectTool(Tool.Shape); }
+        else if (inputSystem.globalKeyboardTarget.OneIsHeldExactly(KeyboardShortcuts.GetShortcutsFor("line"))) { SelectTool(Tool.Line); }
+        else if (inputSystem.globalKeyboardTarget.OneIsHeldExactly(KeyboardShortcuts.GetShortcutsFor("gradient"))) { SelectTool(Tool.Gradient); }
+        else if (inputSystem.globalKeyboardTarget.OneIsHeldExactly(KeyboardShortcuts.GetShortcutsFor("move"))) { SelectTool(Tool.Move); }
+        else if (inputSystem.globalKeyboardTarget.OneIsHeldExactly(KeyboardShortcuts.GetShortcutsFor("selection"))) { SelectTool(Tool.Selection); }
         else if (selectedTool == Tool.Shape)
         {
             if (inputSystem.globalKeyboardTarget.IsHeldExactly(KeyCode.Alpha1)) { shapeToolShape = Shape.Rectangle; }

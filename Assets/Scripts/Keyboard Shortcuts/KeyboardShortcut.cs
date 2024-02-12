@@ -100,7 +100,7 @@ public class KeyboardShortcut : JSONable
     {
         JSON json = new JSON();
 
-        json.Add("keyCodes", from keyCode in keyCodes select keyCode.displayName);
+        json.Add("keyCodes", from keyCode in keyCodes select keyCode.displayName, false);
 
         return json;
     }
