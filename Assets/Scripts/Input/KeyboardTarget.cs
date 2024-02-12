@@ -172,16 +172,27 @@ public class KeyboardTarget
     /// <summary>
     /// Returns true if all the given key (and potentially some other keys) has been pressed this frame (and is a key detectable by KeyboardTarget).
     /// </summary>
-    public bool IsPressed(KeyCode key)
+    public bool IsPressed(CustomKeyCode key)
     {
-        return keysPressed.Contains(key);
+        foreach(KeyCode keyCode in key)
+        {
+            if (keysPressed.Contains(keyCode))
+            {
+                return true;
+            }
+        }
+        return false;
     }
     /// <summary>
     /// Returns true if all the given keys (and potentially some other keys) have been pressed this frame (and are keys detectable by KeyboardTarget).
     /// </summary>
-    public bool IsPressed(KeyCode[] keys)
+    public bool IsPressed(KeyboardShortcut shortcut) => IsPressed(shortcut.ToArray());
+    /// <summary>
+    /// Returns true if all the given keys (and potentially some other keys) have been pressed this frame (and are keys detectable by KeyboardTarget).
+    /// </summary>
+    public bool IsPressed(params CustomKeyCode[] keys)
     {
-        foreach (KeyCode key in keys)
+        foreach (CustomKeyCode key in keys)
         {
             if (!IsPressed(key))
             {
@@ -190,20 +201,45 @@ public class KeyboardTarget
         }
         return true;
     }
+    /// <summary>
+    /// Returns true if all the given keys (and potentially some other keys) have been pressed this frame (and are keys detectable by KeyboardTarget) for one of the given keyboard shortcuts.
+    /// </summary>
+    public bool OneIsPressed(IEnumerable<KeyboardShortcut> shortcuts)
+    {
+        foreach (KeyboardShortcut shortcut in shortcuts)
+        {
+            if (IsPressed(shortcut))
+            {
+                return true;
+            }
+        }
+        return false;
+    }
 
     /// <summary>
     /// Returns true if all the given key (and potentially some other keys) is held (and is a key detectable by KeyboardTarget).
     /// </summary>
-    public bool IsHeld(KeyCode key)
+    public bool IsHeld(KeyboardShortcut shortcut) => IsHeld(shortcut.ToArray());
+    /// <summary>
+    /// Returns true if all the given key (and potentially some other keys) is held (and is a key detectable by KeyboardTarget).
+    /// </summary>
+    public bool IsHeld(CustomKeyCode key)
     {
-        return keyHeldStates.ContainsKey(key) && keyHeldStates[key];
+        foreach (KeyCode keyCode in key)
+        {
+            if (keyHeldStates.ContainsKey(keyCode) && keyHeldStates[keyCode])
+            {
+                return true;
+            }
+        }
+        return false;
     }
     /// <summary>
     /// Returns true if all the given keys (and potentially some other keys) are held (and are keys detectable by KeyboardTarget).
     /// </summary>
-    public bool IsHeld(params KeyCode[] keys)
+    public bool IsHeld(params CustomKeyCode[] keys)
     {
-        foreach(KeyCode key in keys)
+        foreach(CustomKeyCode key in keys)
         {
             if (!IsHeld(key))
             {
@@ -213,23 +249,72 @@ public class KeyboardTarget
         return true;
     }
     /// <summary>
+    /// Returns true if all the given keys (and potentially some other keys) are held (and are keys detectable by KeyboardTarget) for one of the given keyboard shortcuts.
+    /// </summary>
+    public bool OneIsHeld(IEnumerable<KeyboardShortcut> shortcuts)
+    {
+        foreach (KeyboardShortcut shortcut in shortcuts)
+        {
+            if (IsHeld(shortcut))
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    /// <summary>
     /// Returns true if all and only the given keys are held (and are keys detectable by KeyboardTarget).
     /// </summary>
-    public bool IsHeldExactly(params KeyCode[] keys)
+    public bool IsHeldExactly(KeyboardShortcut shortcut) => IsHeldExactly(shortcut.ToArray());
+    /// <summary>
+    /// Returns true if all and only the given keys are held (and are keys detectable by KeyboardTarget).
+    /// </summary>
+    public bool IsHeldExactly(params CustomKeyCode[] keys)
     {
-        int keysDetectable = 0;
-        foreach(KeyCode key in keyHeldStates.Keys)
+        /// Check all given keys are held
+        foreach (CustomKeyCode key in keys)
         {
-            if (keyHeldStates[key])
+            if (!IsHeld(key))
             {
-                if (!keys.Contains(key))
+                return false;
+            }
+        }
+
+        /// Check all other keys are not held
+        foreach(KeyCode keyCode in keyHeldStates.Keys)
+        {
+            if (keyHeldStates[keyCode])
+            {
+                bool inCustomKeyCode = false;
+                foreach (CustomKeyCode key in keys)
+                {
+                    if (key.Contains(keyCode))
+                    {
+                        inCustomKeyCode = true;
+                    }
+                }
+                if (!inCustomKeyCode)
                 {
                     return false;
                 }
-                keysDetectable++;
             }
         }
-        return keysDetectable == keys.Length;
+        return true;
+    }
+    /// <summary>
+    /// Returns true if all and only the given keys are held (and are keys detectable by KeyboardTarget) for one of the given keyboard shortcuts.
+    /// </summary>
+    public bool OneIsHeldExactly(IEnumerable<KeyboardShortcut> shortcuts)
+    {
+        foreach (KeyboardShortcut shortcut in shortcuts)
+        {
+            if (IsHeldExactly(shortcut))
+            {
+                return true;
+            }
+        }
+        return false;
     }
 
     public void Untarget()

@@ -198,7 +198,7 @@ public class Toolbar : MonoBehaviour
 
     private void KeyboardShortcut()
     {
-        if (inputSystem.globalKeyboardTarget.IsHeldExactly(KeyCode.W) || inputSystem.globalKeyboardTarget.IsHeldExactly(KeyCode.P)) { SelectTool(Tool.Pencil); }
+        if (inputSystem.globalKeyboardTarget.OneIsHeldExactly(KeyboardShortcuts.GetShortcutsFor("pencil")) || inputSystem.globalKeyboardTarget.IsHeldExactly(KeyCode.P)) { SelectTool(Tool.Pencil); }
         else if (inputSystem.globalKeyboardTarget.IsHeldExactly(KeyCode.B)) { SelectTool(Tool.Brush); }
         else if (inputSystem.globalKeyboardTarget.IsHeldExactly(KeyCode.R)) { SelectTool(Tool.Rubber); }
         else if (inputSystem.globalKeyboardTarget.IsHeldExactly(KeyCode.E)) { SelectTool(Tool.EyeDropper); }

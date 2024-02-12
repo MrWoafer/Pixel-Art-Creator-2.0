@@ -751,13 +751,13 @@ public class DrawingArea : MonoBehaviour
         {
             if (toolbar.shapeToolShape == Shape.Rectangle)
             {
-                if (holdingLeftCtrl) { Tools.UseSquare(file, layer, frame, mouseDragStartPoint, pixel, colour, rightClickedOn, true); }
+                if (holdingCtrl) { Tools.UseSquare(file, layer, frame, mouseDragStartPoint, pixel, colour, rightClickedOn, true); }
                 else { Tools.UseRectangle(file, layer, frame, mouseDragStartPoint, pixel, colour, rightClickedOn); }
                 UpdateDrawing();
             }
             else if (toolbar.shapeToolShape == Shape.Ellipse)
             {
-                if (holdingLeftCtrl) { Tools.UseCircle(file, layer, frame, mouseDragStartPoint, pixel, colour, rightClickedOn, true); }
+                if (holdingCtrl) { Tools.UseCircle(file, layer, frame, mouseDragStartPoint, pixel, colour, rightClickedOn, true); }
                 else { Tools.UseEllipse(file, layer, frame, mouseDragStartPoint, pixel, colour, rightClickedOn); }
                 UpdateDrawing();
             }

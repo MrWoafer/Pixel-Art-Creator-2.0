@@ -141,7 +141,7 @@ public static class Functions
         return float.Parse(f.ToString("0." + new string('#', decimalPlaces)));
     }
 
-    public static T[] UnionArrays<T>(T[] array1, T[] array2)
+    public static T[] ConcatArrays<T>(T[] array1, T[] array2)
     {
         T[] array = new T[array1.Length + array2.Length];
 

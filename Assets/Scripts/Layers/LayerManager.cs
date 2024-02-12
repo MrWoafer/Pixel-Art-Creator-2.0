@@ -253,7 +253,7 @@ public class LayerManager : MonoBehaviour
             int[] keyFrames = new int[0];
             foreach (Layer layer in selectedLayers)
             {
-                keyFrames = Functions.UnionArrays(keyFrames, layer.keyFrameIndices);
+                keyFrames = Functions.ConcatArrays(keyFrames, layer.keyFrameIndices);
             }
 
             foreach (int keyFrame in keyFrames)

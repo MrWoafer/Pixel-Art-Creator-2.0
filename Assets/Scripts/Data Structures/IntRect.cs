@@ -77,7 +77,7 @@ public struct IntRect
     }
     public override bool Equals(System.Object obj)
     {
-        if ((obj == null) || !GetType().Equals(obj.GetType()))
+        if (obj == null || !GetType().Equals(obj.GetType()))
         {
             return false;
         }
