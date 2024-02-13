@@ -14,6 +14,9 @@ public class CustomKeyCode : IEnumerable
     public static readonly CustomKeyCode Alt = new CustomKeyCode("Alt", KeyCode.LeftAlt, KeyCode.RightAlt);
     public static readonly CustomKeyCode Ctrl = new CustomKeyCode("Ctrl", KeyCode.LeftControl, KeyCode.RightControl);
 
+    public static readonly CustomKeyCode Plus = new CustomKeyCode("+", KeyCode.Plus, KeyCode.Equals, KeyCode.KeypadPlus);
+    public static readonly CustomKeyCode Minus = new CustomKeyCode("-", KeyCode.Minus, KeyCode.KeypadMinus);
+
     public static readonly CustomKeyCode _0 = new CustomKeyCode("0", KeyCode.Alpha0, KeyCode.Keypad0);
     public static readonly CustomKeyCode _1 = new CustomKeyCode("1", KeyCode.Alpha1, KeyCode.Keypad1);
     public static readonly CustomKeyCode _2 = new CustomKeyCode("2", KeyCode.Alpha2, KeyCode.Keypad2);
@@ -25,8 +28,12 @@ public class CustomKeyCode : IEnumerable
     public static readonly CustomKeyCode _8 = new CustomKeyCode("8", KeyCode.Alpha8, KeyCode.Keypad8);
     public static readonly CustomKeyCode _9 = new CustomKeyCode("9", KeyCode.Alpha9, KeyCode.Keypad9);
 
-    public static readonly CustomKeyCode[] allKeyCodes = Functions.ConcatArrays((from x in (KeyCode[])System.Enum.GetValues(typeof(KeyCode)) select (CustomKeyCode)x).ToArray(),
-        new CustomKeyCode[] { Shift, Alt, Ctrl, _0, _1, _2, _3, _4, _5, _6, _7, _8, _9 });
+    public static readonly CustomKeyCode[] combinedKeyCodes = new CustomKeyCode[] { Shift, Alt, Ctrl, Plus, Minus, _0, _1, _2, _3, _4, _5, _6, _7, _8, _9 };
+    public static readonly CustomKeyCode[] allKeyCodes = Functions.ConcatArrays((from x in (KeyCode[])System.Enum.GetValues(typeof(KeyCode)) select (CustomKeyCode)x).ToArray(), combinedKeyCodes);
+
+    public static readonly CustomKeyCode[] alphabet = new CustomKeyCode[] { KeyCode.A, KeyCode.B, KeyCode.C, KeyCode.D, KeyCode.E, KeyCode.F, KeyCode.G, KeyCode.H, KeyCode.I, KeyCode.J,
+    KeyCode.K, KeyCode.L, KeyCode.M, KeyCode.N, KeyCode.O, KeyCode.P, KeyCode.Q, KeyCode.R, KeyCode.S, KeyCode.T, KeyCode.U, KeyCode.V, KeyCode.W, KeyCode.X, KeyCode.Y, KeyCode.Z };
+    public static readonly CustomKeyCode[] digits = new CustomKeyCode[] { _0, _1, _2, _3, _4, _5, _6, _7, _8, _9 };
 
     private CustomKeyCode(string displayName, params KeyCode[] keyCodes)
     {
@@ -36,6 +43,13 @@ public class CustomKeyCode : IEnumerable
 
     public static implicit operator CustomKeyCode(KeyCode keyCode)
     {
+        foreach (CustomKeyCode combinedKeyCode in combinedKeyCodes)
+        {
+            if (combinedKeyCode.Contains(keyCode))
+            {
+                return combinedKeyCode;
+            }
+        }
         return new CustomKeyCode(keyCode.ToString(), keyCode);
     }
 
@@ -70,18 +84,27 @@ public class CustomKeyCode : IEnumerable
         {
             throw new System.Exception("CustomKeyCodes should not have 0 KeyCodes.");
         }
-        else if (keyCodes.Count == 1)
+        if (keyCodes.Count == 1)
         {
             return keyCodes[0].GetHashCode();
         }
-        else if (keyCodes.Count == 2)
+        if (keyCodes.Count == 2)
         {
             return HashCode.Combine(keyCodes[0], keyCodes[1]);
         }
-        else
+        if (keyCodes.Count == 3)
         {
-            throw new System.Exception("CustomKeyCodes should not have more than 2 KeyCodes. KeyCode count: " + keyCodes.Count);
+            return HashCode.Combine(keyCodes[0], keyCodes[1], keyCodes[2]);
         }
+        if (keyCodes.Count == 4)
+        {
+            return HashCode.Combine(keyCodes[0], keyCodes[1], keyCodes[2], keyCodes[3]);
+        }
+        if (keyCodes.Count == 5)
+        {
+            return HashCode.Combine(keyCodes[0], keyCodes[1], keyCodes[2], keyCodes[3], keyCodes[4]);
+        }
+        throw new System.Exception("CustomKeyCodes should not have more than 5 KeyCodes. KeyCode count: " + keyCodes.Count);
     }
 
     public override string ToString()

@@ -19,9 +19,9 @@ public class Keyboard : MonoBehaviour
     {
         if (canInteract && inputSystem.inputTarget.keyboardInputEnabled)
         {
-            foreach (KeyCode key in System.Enum.GetValues(typeof(KeyCode)))
+            foreach (CustomKeyCode key in CustomKeyCode.allKeyCodes)
             {
-                if (Input.GetKeyDown(key))
+                if (key.GetKeyDown())
                 {
                     if (inputSystem.hasInputTarget)
                     {
@@ -32,7 +32,7 @@ public class Keyboard : MonoBehaviour
                         inputSystem.globalInputTarget.keyboardTarget.KeyDown(key);
                     }
                 }
-                else if (Input.GetKeyUp(key))
+                else if (key.GetKeyUp())
                 {
                     if (inputSystem.hasInputTarget)
                     {

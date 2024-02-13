@@ -6,18 +6,18 @@ using UnityEngine.Events;
 
 public class KeyboardTarget
 {
-    private Dictionary<KeyCode, bool> keyHeldStates = new Dictionary<KeyCode, bool>();
+    private Dictionary<CustomKeyCode, bool> keyHeldStates = new Dictionary<CustomKeyCode, bool>();
 
     /// <summary>The keys that are currently held down, in order of when they were pressed (most recent on top).</summary>
-    private CustomStack<KeyCode> _keysHeld = new CustomStack<KeyCode>();
+    private CustomStack<CustomKeyCode> _keysHeld = new CustomStack<CustomKeyCode>();
     /// <summary>The keys that are currently held down, in order of when they were pressed (most recent first).</summary>
-    public KeyCode[] keysHeld { get => _keysHeld.ToArray(); }
+    public CustomKeyCode[] keysHeld { get => _keysHeld.ToArray(); }
 
-    private KeyCode currentKeyHeld { get => _keysHeld.Count == 0 ? KeyCode.None : _keysHeld.Peek(); }
+    private CustomKeyCode currentKeyHeld { get => _keysHeld.Count == 0 ? KeyCode.None : _keysHeld.Peek(); }
 
     /// <summary>The keys that have been pressed this frame.</summary>
-    private List<KeyCode> _keysPressed = new List<KeyCode>();
-    public KeyCode[] keysPressed { get => _keysPressed.ToArray(); }
+    private List<CustomKeyCode> _keysPressed = new List<CustomKeyCode>();
+    public CustomKeyCode[] keysPressed { get => _keysPressed.ToArray(); }
 
     public bool receiveAlreadyHeldKeys = false;
 
@@ -30,32 +30,32 @@ public class KeyboardTarget
     private InputSystem inputSystem;
 
     private UnityEvent onInput = new UnityEvent();
+    private UnityEvent<CustomKeyCode> onKeyDown = new UnityEvent<CustomKeyCode>();
+    private UnityEvent<CustomKeyCode> onKeyUp = new UnityEvent<CustomKeyCode>();
+    private UnityEvent onUntarget = new UnityEvent();
 
 
     public KeyboardTarget()
     {
         inputSystem = Finder.inputSystem;
 
-        foreach (char chr in "abcdefghijklmnopqrstuvwxyz0123456789,.;:<>-_/\\?!*+=")
+        foreach (char chr in "abcdefghijklmnopqrstuvwxyz0123456789,.;:<>_/\\?!*")
         {
-            KeyCode keyCode = KeyCodeFunctions.StrToKeyCode(chr.ToString());
+            CustomKeyCode keyCode = KeyCodeFunctions.StrToKeyCode(chr.ToString());
             if (keyCode != KeyCode.None)
             {
                 keyHeldStates.Add(keyCode, false);
             }
         }
-        keyHeldStates.Add(KeyCodeFunctions.StrToKeyCode("space"), false);
-        keyHeldStates.Add(KeyCodeFunctions.StrToKeyCode("backspace"), false);
-        keyHeldStates.Add(KeyCodeFunctions.StrToKeyCode("esc"), false);
-        keyHeldStates.Add(KeyCodeFunctions.StrToKeyCode("enter"), false);
-        keyHeldStates.Add(KeyCodeFunctions.StrToKeyCode("lshift"), false);
-        keyHeldStates.Add(KeyCodeFunctions.StrToKeyCode("rshift"), false);
-        keyHeldStates.Add(KeyCodeFunctions.StrToKeyCode("lctrl"), false);
-        keyHeldStates.Add(KeyCodeFunctions.StrToKeyCode("rctrl"), false);
-        keyHeldStates.Add(KeyCodeFunctions.StrToKeyCode("lalt"), false);
-        keyHeldStates.Add(KeyCodeFunctions.StrToKeyCode("ralt"), false);
-        keyHeldStates.Add(KeyCode.KeypadPlus, false);
-        keyHeldStates.Add(KeyCode.KeypadMinus, false);
+        keyHeldStates.Add(KeyCode.Space, false);
+        keyHeldStates.Add(KeyCode.Backspace, false);
+        keyHeldStates.Add(KeyCode.Escape, false);
+        keyHeldStates.Add(KeyCode.Return, false);
+        keyHeldStates.Add(CustomKeyCode.Shift, false);
+        keyHeldStates.Add(CustomKeyCode.Ctrl, false);
+        keyHeldStates.Add(CustomKeyCode.Alt, false);
+        keyHeldStates.Add(CustomKeyCode.Plus, false);
+        keyHeldStates.Add(CustomKeyCode.Minus, false);
         keyHeldStates.Add(KeyCode.Delete, false);
         keyHeldStates.Add(KeyCode.LeftArrow, false);
         keyHeldStates.Add(KeyCode.RightArrow, false);
@@ -87,7 +87,7 @@ public class KeyboardTarget
         if (inputThisFrame)
         {
             onInput.Invoke();
-            _keysPressed = new List<KeyCode>();
+            _keysPressed = new List<CustomKeyCode>();
             inputThisFrame = false;
         }
     }
@@ -95,7 +95,7 @@ public class KeyboardTarget
     /// <summary>
     /// Simulates the key being pressed, if it is a key detectable by KeyboardTarget, without restting the timer until key spamming occurs.
     /// </summary>
-    public void KeyDownNoSpamReset(KeyCode key)
+    public void KeyDownNoSpamReset(CustomKeyCode key)
     {
         if (keyHeldStates.ContainsKey(key))
         {
@@ -108,9 +108,9 @@ public class KeyboardTarget
     /// <summary>
     /// Simulates the keys being pressed, if they are keys detectable by KeyboardTarget, without restting the timer until key spamming occurs.
     /// </summary>
-    public void KeysDownNoSpamReset(params KeyCode[] keys)
+    public void KeysDownNoSpamReset(params CustomKeyCode[] keys)
     {
-        foreach (KeyCode key in keys)
+        foreach (CustomKeyCode key in keys)
         {
             KeyDownNoSpamReset(key);
         }
@@ -118,7 +118,7 @@ public class KeyboardTarget
     /// <summary>
     /// Simulates the key being pressed, if it is a key detectable by KeyboardTarget.
     /// </summary>
-    public void KeyDown(KeyCode key)
+    public void KeyDown(CustomKeyCode key)
     {
         if (keyHeldStates.ContainsKey(key))
         {
@@ -126,14 +126,16 @@ public class KeyboardTarget
 
             _keysHeld.Push(key);
             ResetSpamTimer();
+
+            onKeyDown.Invoke(key);
         }
     }
     /// <summary>
     /// Simulates the keys being pressed, if they are keys detectable by KeyboardTarget.
     /// </summary>
-    public void KeysDown(params KeyCode[] keys)
+    public void KeysDown(params CustomKeyCode[] keys)
     {
-        foreach (KeyCode key in keys)
+        foreach (CustomKeyCode key in keys)
         {
             KeyDown(key);
         }
@@ -141,7 +143,7 @@ public class KeyboardTarget
     /// <summary>
     /// Simulates the key being unpressed.
     /// </summary>
-    public void KeyUp(KeyCode key)
+    public void KeyUp(CustomKeyCode key)
     {
         if (keyHeldStates.ContainsKey(key))
         {
@@ -150,14 +152,16 @@ public class KeyboardTarget
 
             _keysHeld.RemoveAll(key);
             ResetSpamTimer();
+
+            onKeyUp.Invoke(key);
         }
     }
     /// <summary>
     /// Simulates the keys being unpressed.
     /// </summary>
-    public void KeysUp(params KeyCode[] keys)
+    public void KeysUp(params CustomKeyCode[] keys)
     {
-        foreach (KeyCode key in keys)
+        foreach (CustomKeyCode key in keys)
         {
             KeyUp(key);
         }
@@ -174,14 +178,7 @@ public class KeyboardTarget
     /// </summary>
     public bool IsPressed(CustomKeyCode key)
     {
-        foreach(KeyCode keyCode in key)
-        {
-            if (keysPressed.Contains(keyCode))
-            {
-                return true;
-            }
-        }
-        return false;
+        return keysPressed.Contains(key);
     }
     /// <summary>
     /// Returns true if all the given keys (and potentially some other keys) have been pressed this frame (and are keys detectable by KeyboardTarget).
@@ -225,14 +222,7 @@ public class KeyboardTarget
     /// </summary>
     public bool IsHeld(CustomKeyCode key)
     {
-        foreach (KeyCode keyCode in key)
-        {
-            if (keyHeldStates.ContainsKey(keyCode) && keyHeldStates[keyCode])
-            {
-                return true;
-            }
-        }
-        return false;
+        return keyHeldStates.ContainsKey(key) && keyHeldStates[key];
     }
     /// <summary>
     /// Returns true if all the given keys (and potentially some other keys) are held (and are keys detectable by KeyboardTarget).
@@ -272,35 +262,22 @@ public class KeyboardTarget
     /// </summary>
     public bool IsHeldExactly(params CustomKeyCode[] keys)
     {
-        /// Check all given keys are held
-        foreach (CustomKeyCode key in keys)
-        {
-            if (!IsHeld(key))
-            {
-                return false;
-            }
-        }
-
-        /// Check all other keys are not held
-        foreach(KeyCode keyCode in keyHeldStates.Keys)
+        int heldKeyCount = 0;
+        foreach(CustomKeyCode keyCode in keyHeldStates.Keys)
         {
             if (keyHeldStates[keyCode])
             {
-                bool inCustomKeyCode = false;
-                foreach (CustomKeyCode key in keys)
+                if (keys.Contains(keyCode))
                 {
-                    if (key.Contains(keyCode))
-                    {
-                        inCustomKeyCode = true;
-                    }
+                    heldKeyCount++;
                 }
-                if (!inCustomKeyCode)
+                else
                 {
                     return false;
                 }
             }
         }
-        return true;
+        return heldKeyCount == keys.Length;
     }
     /// <summary>
     /// Returns true if all and only the given keys are held (and are keys detectable by KeyboardTarget) for one of the given keyboard shortcuts.
@@ -322,14 +299,29 @@ public class KeyboardTarget
         _keysHeld.Clear();
         ResetSpamTimer();
 
-        foreach(KeyCode key in keyHeldStates.Keys.ToArray())
+        foreach(CustomKeyCode key in keyHeldStates.Keys.ToArray())
         {
             keyHeldStates[key] = false;
         }
+
+        onUntarget.Invoke();
     }
 
     public void SubscribeToOnInput(UnityAction call)
     {
         onInput.AddListener(call);
+    }
+    public void SubscribeToOnKeyDown(UnityAction<CustomKeyCode> call)
+    {
+        onKeyDown.AddListener(call);
+    }
+    public void SubscribeToOnKeyUp(UnityAction<CustomKeyCode> call)
+    {
+        onKeyUp.AddListener(call);
+    }
+
+    public void SubscribeToUntarget(UnityAction call)
+    {
+        onUntarget.AddListener(call);
     }
 }

@@ -246,7 +246,7 @@ public class Toolbar : MonoBehaviour
         }
         else if (selectedTool == Tool.GlobalEyeDropper)
         {
-            if (inputSystem.globalKeyboardTarget.IsHeldExactly(KeyCode.Escape)) { DeselectGlobalEyeDropper(); }
+            if (inputSystem.globalKeyboardTarget.OneIsHeldExactly(KeyboardShortcuts.GetShortcutsFor("cancel tool"))) { DeselectGlobalEyeDropper(); }
         }
 
         inputSystem.mouse.SetCursorSprite(inputSystem.mouse.cursorState);

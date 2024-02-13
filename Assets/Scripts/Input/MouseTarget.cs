@@ -49,6 +49,7 @@ public class MouseTarget
     private UnityEvent onSelect = new UnityEvent();
     private UnityEvent onStateChange = new UnityEvent();
     private UnityEvent onScroll = new UnityEvent();
+    private UnityEvent onUntarget = new UnityEvent();
 
     public bool selected { get; private set; } = false;
 
@@ -132,6 +133,13 @@ public class MouseTarget
         onScroll.Invoke();
     }
 
+    public void Untarget()
+    {
+        Unselect();
+        Idle();
+        onUntarget.Invoke();
+    }
+
     public void SubscribeToIdle(UnityAction call)
     {
         onIdle.AddListener(call);
@@ -175,9 +183,8 @@ public class MouseTarget
         onMiddleClick.AddListener(call);
     }
 
-    public void Untarget()
+    public void SubscribeToUntarget(UnityAction call)
     {
-        Unselect();
-        Idle();
+        onUntarget.AddListener(call);
     }
 }

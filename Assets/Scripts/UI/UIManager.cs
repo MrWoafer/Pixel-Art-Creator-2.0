@@ -138,6 +138,10 @@ public class UIManager : MonoBehaviour
     [SerializeField]
     private UINumberField brushSettingsSizeField;
 
+    [Header("Keyboard Shortcuts")]
+    [SerializeField]
+    private GameObject keyboardShortcutsWindow;
+
     [Header("Unsaved Changes Properties")]
     private UIModalWindow unsavedChangesModalWindow;
     private int unsavedChangesFileIndex;
@@ -194,6 +198,7 @@ public class UIManager : MonoBehaviour
         importPACWindow.SetActive(true);
         layerPropertiesWindow.SetActive(true);
         brushSettingsWindow.SetActive(true);
+        keyboardShortcutsWindow.SetActive(true);
     }
 
     private void Start()
@@ -257,6 +262,7 @@ public class UIManager : MonoBehaviour
             importPACWindow.SetActive(false);
             layerPropertiesWindow.SetActive(false);
             brushSettingsWindow.SetActive(false);
+            keyboardShortcutsWindow.SetActive(false);
 
             beenRunningAFrame = true;
         }
@@ -747,6 +753,15 @@ public class UIManager : MonoBehaviour
         {
             throw new System.Exception("Unknown / unimplemented brush shape: " + brushShape);
         }
+    }
+
+    public void OpenKeyboardShortcutsWindow()
+    {
+        OpenDialogBox(keyboardShortcutsWindow);
+    }
+    public void CloseKeyboardShortcutsWindow()
+    {
+        CloseDialogBox(keyboardShortcutsWindow);
     }
 
     public void OpenUnsavedChangesWindow(int fileIndex)

@@ -58,9 +58,7 @@ public class DrawingArea : MonoBehaviour
     private bool middleClickedOn { get => inputTarget.mouseTarget.buttonTargetedWith == MouseButton.Middle; }
 
     // Keyboard variables
-    private bool holdingCtrl { get => holdingLeftCtrl || holdingRightCtrl; }
-    private bool holdingLeftCtrl { get => inputTarget.keyboardTarget.IsHeldExactly(KeyCode.LeftControl); }
-    private bool holdingRightCtrl { get => inputTarget.keyboardTarget.IsHeldExactly(KeyCode.RightControl); }
+    private bool holdingCtrl => inputTarget.keyboardTarget.IsHeldExactly(CustomKeyCode.Ctrl);
 
     // View variables
     private Vector3 resetViewPosition;
@@ -519,17 +517,17 @@ public class DrawingArea : MonoBehaviour
     {
         if ((mouse.hoverTarget == null || mouse.hoverTarget == inputTarget) && !mouse.hasHoverTrigger)
         {
-            if (inputSystem.globalKeyboardTarget.IsHeldExactly(KeyCode.LeftControl) || inputSystem.globalKeyboardTarget.IsHeldExactly(KeyCode.LeftControl))
+            if (inputSystem.globalKeyboardTarget.IsHeldExactly(CustomKeyCode.Ctrl))
             {
                 inputSystem.inputTarget.cursorScroll = CursorState.UpDownArrow;
                 ScrollViewY(mouse.scrollDelta * scrollSpeed);
             }
-            else if (inputSystem.globalKeyboardTarget.IsHeldExactly(KeyCode.LeftAlt) || inputSystem.globalKeyboardTarget.IsHeldExactly(KeyCode.RightAlt))
+            else if (inputSystem.globalKeyboardTarget.IsHeldExactly(CustomKeyCode.Alt))
             {
                 inputSystem.inputTarget.cursorScroll = CursorState.LeftRightArrow;
                 ScrollViewX(mouse.scrollDelta * scrollSpeed);
             }
-            else if (inputSystem.globalKeyboardTarget.IsHeldExactly(KeyCode.LeftShift) || inputSystem.globalKeyboardTarget.IsHeldExactly(KeyCode.RightShift))
+            else if (inputSystem.globalKeyboardTarget.IsHeldExactly(CustomKeyCode.Shift))
             {
                 inputSystem.inputTarget.cursorScroll = CursorState.CurrentTool;
             }
@@ -593,7 +591,7 @@ public class DrawingArea : MonoBehaviour
     /// </summary>
     private void OnKeyboardInput()
     {
-        if (inputTarget.keyboardTarget.IsHeldExactly(KeyCode.Escape))
+        if (inputTarget.keyboardTarget.OneIsHeldExactly(KeyboardShortcuts.GetShortcutsFor("cancel tool")))
         {
             Tool tool = toolbar.selectedTool;
             if (tool == Tool.Line || tool == Tool.Shape || tool == Tool.Gradient)
@@ -613,11 +611,11 @@ public class DrawingArea : MonoBehaviour
     /// </summary>
     private void OnGlobalKeyboardInput()
     {
-        if (inputSystem.globalKeyboardTarget.IsPressed(KeyCode.Equals) || inputSystem.globalKeyboardTarget.IsPressed(KeyCode.KeypadPlus))
+        if (inputSystem.globalKeyboardTarget.OneIsHeldExactly(KeyboardShortcuts.GetShortcutsFor("zoom in")))
         {
             Zoom(zoomScrollSpeed, Vector2.zero);
         }
-        else if (inputSystem.globalKeyboardTarget.IsPressed(KeyCode.Minus) || inputSystem.globalKeyboardTarget.IsPressed(KeyCode.KeypadMinus))
+        else if (inputSystem.globalKeyboardTarget.OneIsHeldExactly(KeyboardShortcuts.GetShortcutsFor("zoom out")))
         {
             Zoom(-zoomScrollSpeed, Vector2.zero);
         }
@@ -763,7 +761,7 @@ public class DrawingArea : MonoBehaviour
             }
             else if (toolbar.shapeToolShape == Shape.Triangle)
             {
-                Tools.UseRightTriangle(file, layer, frame, mouseDragStartPoint, pixel, colour, !holdingLeftCtrl, rightClickedOn);
+                Tools.UseRightTriangle(file, layer, frame, mouseDragStartPoint, pixel, colour, !holdingCtrl, rightClickedOn);
                 UpdateDrawing();
             }
         }

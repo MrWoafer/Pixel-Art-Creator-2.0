@@ -31,6 +31,12 @@ public class KeyboardShortcuts : MonoBehaviour
     {
         /// Load saved keyboard shortcuts
         LoadShortcuts();
+
+        foreach (UIKeyboardShortcut shortcutField in GetComponentsInChildren<UIKeyboardShortcut>())
+        {
+            shortcutField.shortcut = GetShortcutsFor(shortcutField.actionName)[0];
+            shortcutField.SubscribeToOnShortcutSet((shortcut) => SetShortcutFor(shortcutField.actionName, shortcut));
+        }
     }
 
     public static void LoadShortcuts()
@@ -108,7 +114,13 @@ public class KeyboardShortcuts : MonoBehaviour
         shortcuts[actionName].Add(shortcut);
     }
 
-    public static void ClearShortcutsFor(string actionName, KeyboardShortcut shortcut)
+    public static void SetShortcutFor(string actionName, KeyboardShortcut shortcut)
+    {
+        shortcuts[actionName] = new List<KeyboardShortcut>();
+        AddShortcut(actionName, shortcut);
+    }
+
+    public static void ClearShortcutsFor(string actionName)
     {
         if (!shortcuts.ContainsKey(actionName))
         {
