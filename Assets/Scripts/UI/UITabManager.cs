@@ -9,7 +9,7 @@ public class UITabManager : MonoBehaviour
     [Min(0)]
     private int selectedTabIndex = 0;
     [SerializeField]
-    private GameObject[] tabs;
+    private List<GameObject> tabs;
 
     private bool tabSelectedAlready = false;
 
@@ -23,7 +23,7 @@ public class UITabManager : MonoBehaviour
 
     private void Start()
     {
-        if (!tabSelectedAlready)
+        if (!tabSelectedAlready && tabs.Count != 0)
         {
             SelectTab(selectedTabIndex);
         }
@@ -31,9 +31,9 @@ public class UITabManager : MonoBehaviour
 
     private void OnValidate()
     {
-        if (tabs.Length > 0)
+        if (tabs.Count > 0)
         {
-            selectedTabIndex = Mathf.Clamp(selectedTabIndex, 0, tabs.Length - 1);
+            selectedTabIndex = Mathf.Clamp(selectedTabIndex, 0, tabs.Count - 1);
             SelectTabEditor(selectedTabIndex);
         }
         else
@@ -42,14 +42,19 @@ public class UITabManager : MonoBehaviour
         }
     }
 
+    public void AddTab(GameObject tab)
+    {
+        tabs.Add(tab);
+    }
+
     public void SelectTab(int tabIndex)
     {
-        if (tabIndex < 0 || tabIndex >= tabs.Length)
+        if (tabIndex < 0 || tabIndex >= tabs.Count)
         {
             throw new System.IndexOutOfRangeException("Tab index out of range: " + tabIndex);
         }
 
-        for (int i = 0; i < tabs.Length; i++)
+        for (int i = 0; i < tabs.Count; i++)
         {
             if (i == tabIndex && tabs[i].transform.position.x < -5000f)
             {
@@ -66,12 +71,12 @@ public class UITabManager : MonoBehaviour
 
     public void SelectTabEditor(int tabIndex)
     {
-        if (tabIndex < 0 || tabIndex >= tabs.Length)
+        if (tabIndex < 0 || tabIndex >= tabs.Count)
         {
             throw new System.IndexOutOfRangeException("Tab index out of range: " + tabIndex);
         }
 
-        for (int i = 0; i < tabs.Length; i++)
+        for (int i = 0; i < tabs.Count; i++)
         {
             if (i == tabIndex)
             {

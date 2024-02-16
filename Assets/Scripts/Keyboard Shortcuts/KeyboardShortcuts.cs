@@ -25,18 +25,9 @@ public class KeyboardShortcuts : MonoBehaviour
     private void Awake()
     {
         main = GameObject.Find("Keyboard Shortcuts").GetComponent<KeyboardShortcuts>();
-    }
 
-    private void Start()
-    {
         /// Load saved keyboard shortcuts
         LoadShortcuts();
-
-        foreach (UIKeyboardShortcut shortcutField in GetComponentsInChildren<UIKeyboardShortcut>())
-        {
-            shortcutField.shortcut = GetShortcutsFor(shortcutField.actionName)[0];
-            shortcutField.SubscribeToOnShortcutSet((shortcut) => SetShortcutFor(shortcutField.actionName, shortcut));
-        }
     }
 
     public static void LoadShortcuts()
@@ -56,6 +47,8 @@ public class KeyboardShortcuts : MonoBehaviour
 
         JSON json = JSON.Parse(System.IO.File.ReadAllText(shortcutsFilePath));
         LoadJSON(json);
+
+        Debug.Log("Keyboard shortcuts loaded from: " + shortcutsFilePath);
     }
 
     public static void SaveShortcuts()

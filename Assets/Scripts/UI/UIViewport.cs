@@ -228,9 +228,21 @@ public class UIViewport : MonoBehaviour
 
         foreach (Transform child in scrollingArea.transform)
         {
+            /// So it doesn't bound to stuff that's in an inactive tab for example
+            if (child.transform.position.sqrMagnitude >= 10000)
+            {
+                continue;
+            }
+
             Vector3 position = Vector3.Scale(child.transform.localPosition, scrollingArea.transform.localScale);
 
             Vector3 size = Vector3.Scale(child.transform.localScale, scrollingArea.transform.localScale);
+
+            RectTransform rectTransform = child.GetComponent<RectTransform>();
+            if (rectTransform)
+            {
+                size = Vector3.Scale(Vector3.Scale(rectTransform.sizeDelta, child.localScale), scrollingArea.transform.localScale);
+            }
 
             UIButton button = child.GetComponent<UIButton>();
             if (button)
@@ -278,9 +290,21 @@ public class UIViewport : MonoBehaviour
 
         foreach (Transform child in scrollingArea.transform)
         {
+            /// So it doesn't bound to stuff that's in an inactive tab for example
+            if (child.transform.position.sqrMagnitude >= 10000)
+            {
+                continue;
+            }
+
             Vector3 position = Vector3.Scale(child.transform.localPosition, scrollingArea.transform.localScale);
 
             Vector3 size = Vector3.Scale(child.transform.localScale, scrollingArea.transform.localScale);
+
+            RectTransform rectTransform = child.GetComponent<RectTransform>();
+            if (rectTransform)
+            {
+                size = Vector3.Scale(Vector3.Scale(rectTransform.sizeDelta, child.localScale), scrollingArea.transform.localScale);
+            }
 
             UIButton button = child.GetComponent<UIButton>();
             if (button)

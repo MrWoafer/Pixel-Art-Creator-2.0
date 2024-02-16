@@ -166,7 +166,7 @@ MonoBehaviour:
   minScrollEnabled: 1
   minScrollAmount: -1
   boundScrollToContents: 1
-  defaultScrollSide: 1
+  _defaultScrollSide: 1
   displayBackground: 0
 --- !u!61 &9066344531608715220
 BoxCollider2D:
