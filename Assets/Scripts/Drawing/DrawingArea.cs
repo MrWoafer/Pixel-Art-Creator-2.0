@@ -517,17 +517,17 @@ public class DrawingArea : MonoBehaviour
     {
         if ((mouse.hoverTarget == null || mouse.hoverTarget == inputTarget) && !mouse.hasHoverTrigger)
         {
-            if (inputSystem.globalKeyboardTarget.IsHeldExactly(CustomKeyCode.Ctrl))
+            if (inputSystem.globalKeyboardTarget.OneIsHeldExactly(KeyboardShortcuts.GetShortcutsFor("scroll y")))
             {
                 inputSystem.inputTarget.cursorScroll = CursorState.UpDownArrow;
                 ScrollViewY(mouse.scrollDelta * scrollSpeed);
             }
-            else if (inputSystem.globalKeyboardTarget.IsHeldExactly(CustomKeyCode.Alt))
+            else if (inputSystem.globalKeyboardTarget.OneIsHeldExactly(KeyboardShortcuts.GetShortcutsFor("scroll x")))
             {
                 inputSystem.inputTarget.cursorScroll = CursorState.LeftRightArrow;
                 ScrollViewX(mouse.scrollDelta * scrollSpeed);
             }
-            else if (inputSystem.globalKeyboardTarget.IsHeldExactly(CustomKeyCode.Shift))
+            else if (inputSystem.globalKeyboardTarget.OneIsHeldExactly(KeyboardShortcuts.GetShortcutsFor("scroll brush size")))
             {
                 inputSystem.inputTarget.cursorScroll = CursorState.CurrentTool;
             }
@@ -619,7 +619,7 @@ public class DrawingArea : MonoBehaviour
         {
             Zoom(-zoomScrollSpeed, Vector2.zero);
         }
-        else if (inputSystem.globalKeyboardTarget.IsPressed(KeyCode.Escape) && hasSelection)
+        else if (inputSystem.globalKeyboardTarget.OneIsHeldExactly(KeyboardShortcuts.GetShortcutsFor("clear selection")) && hasSelection)
         {
             DeselectSelection();
         }

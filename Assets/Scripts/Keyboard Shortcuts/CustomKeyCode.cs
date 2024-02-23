@@ -28,7 +28,10 @@ public class CustomKeyCode : IEnumerable
     public static readonly CustomKeyCode _8 = new CustomKeyCode("8", KeyCode.Alpha8, KeyCode.Keypad8);
     public static readonly CustomKeyCode _9 = new CustomKeyCode("9", KeyCode.Alpha9, KeyCode.Keypad9);
 
-    public static readonly CustomKeyCode[] combinedKeyCodes = new CustomKeyCode[] { Shift, Alt, Ctrl, Plus, Minus, _0, _1, _2, _3, _4, _5, _6, _7, _8, _9 };
+    public static readonly CustomKeyCode GreaterThan = new CustomKeyCode(">", KeyCode.Period, KeyCode.Greater);
+    public static readonly CustomKeyCode LessThan = new CustomKeyCode("<", KeyCode.Comma, KeyCode.Less);
+
+    public static readonly CustomKeyCode[] combinedKeyCodes = new CustomKeyCode[] { Shift, Alt, Ctrl, Plus, Minus, _0, _1, _2, _3, _4, _5, _6, _7, _8, _9, GreaterThan, LessThan };
     public static readonly CustomKeyCode[] allKeyCodes = Functions.ConcatArrays((from x in (KeyCode[])System.Enum.GetValues(typeof(KeyCode)) select (CustomKeyCode)x).ToArray(), combinedKeyCodes);
 
     public static readonly CustomKeyCode[] alphabet = new CustomKeyCode[] { KeyCode.A, KeyCode.B, KeyCode.C, KeyCode.D, KeyCode.E, KeyCode.F, KeyCode.G, KeyCode.H, KeyCode.I, KeyCode.J,

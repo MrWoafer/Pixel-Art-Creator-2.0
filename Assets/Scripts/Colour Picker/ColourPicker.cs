@@ -165,11 +165,11 @@ public class ColourPicker : MonoBehaviour
     {
         if (toolbar.selectedTool != Tool.Move)
         {
-            if (inputSystem.globalKeyboardTarget.IsHeldExactly(KeyCode.LeftArrow))
+            if (inputSystem.globalKeyboardTarget.OneIsHeldExactly(KeyboardShortcuts.GetShortcutsFor("selected colour left")))
             {
                 CycleColourPreview(-1);
             }
-            else if (inputSystem.globalKeyboardTarget.IsHeldExactly(KeyCode.RightArrow))
+            else if (inputSystem.globalKeyboardTarget.OneIsHeldExactly(KeyboardShortcuts.GetShortcutsFor("selected colour right")))
             {
                 CycleColourPreview(1);
             }

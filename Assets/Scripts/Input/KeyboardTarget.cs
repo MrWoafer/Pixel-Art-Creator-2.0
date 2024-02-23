@@ -57,8 +57,12 @@ public class KeyboardTarget
         keyHeldStates.Add(CustomKeyCode.Plus, false);
         keyHeldStates.Add(CustomKeyCode.Minus, false);
         keyHeldStates.Add(KeyCode.Delete, false);
+        keyHeldStates.Add(KeyCode.UpArrow, false);
+        keyHeldStates.Add(KeyCode.DownArrow, false);
         keyHeldStates.Add(KeyCode.LeftArrow, false);
         keyHeldStates.Add(KeyCode.RightArrow, false);
+        keyHeldStates.Add(CustomKeyCode.GreaterThan, false);
+        keyHeldStates.Add(CustomKeyCode.LessThan, false);
 
         if (keyHeldStates.ContainsKey(KeyCode.None))
         {

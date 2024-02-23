@@ -110,6 +110,8 @@ public class AnimationManager : MonoBehaviour
         layerManager.SubscribeToLayerChange(UpdateDisplay);
         fileManager.SubscribeToFileSwitched(UpdateDisplay);
 
+        inputSystem.SubscribeToGlobalKeyboard(KeyboardShortcut);
+
         UpdateDisplay();
     }
 
@@ -364,6 +366,30 @@ public class AnimationManager : MonoBehaviour
     private void OnPlaybackModeChanged()
     {
         playForwards = true;
+    }
+
+    private void KeyboardShortcut()
+    {
+        if (inputSystem.globalKeyboardTarget.OneIsHeldExactly(KeyboardShortcuts.GetShortcutsFor("play / pause")))
+        {
+            playPauseButton.Press();
+        }
+        if (inputSystem.globalKeyboardTarget.OneIsHeldExactly(KeyboardShortcuts.GetShortcutsFor("previous frame")))
+        {
+            currentFrameIndex = Functions.Mod(currentFrameIndex - 1, fileManager.currentFile.numOfFrames);
+        }
+        if (inputSystem.globalKeyboardTarget.OneIsHeldExactly(KeyboardShortcuts.GetShortcutsFor("next frame")))
+        {
+            currentFrameIndex = Functions.Mod(currentFrameIndex + 1, fileManager.currentFile.numOfFrames);
+        }
+        if (inputSystem.globalKeyboardTarget.OneIsHeldExactly(KeyboardShortcuts.GetShortcutsFor("first frame")))
+        {
+            currentFrameIndex = 0;
+        }
+        if (inputSystem.globalKeyboardTarget.OneIsHeldExactly(KeyboardShortcuts.GetShortcutsFor("last frame")))
+        {
+            currentFrameIndex = fileManager.currentFile.numOfFrames - 1;
+        }
     }
 
     public void SubscribeToCurrentFrameIndexChange(UnityAction call)

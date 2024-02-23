@@ -54,11 +54,22 @@ public class KeyboardShortutOptionsManager : MonoBehaviour
 
     private KeyboardShortcutCategory[] editableShortcuts = new KeyboardShortcutCategory[]
     {
+        new KeyboardShortcutCategory("Animation", new KeyboardShortcutOption("play / pause", "Play / Pause"), new KeyboardShortcutOption("previous frame", "Previous Frame"),
+            new KeyboardShortcutOption("next frame", "Next Frame"), new KeyboardShortcutOption("first frame", "First Frame"), new KeyboardShortcutOption("last frame", "Last Frame")),
+
+        new KeyboardShortcutCategory("Colour", new KeyboardShortcutOption("selected colour left", "Selected Colour Left"), new KeyboardShortcutOption("selected colour right", "Selected Colour Right")),
+
+        new KeyboardShortcutCategory("File", new KeyboardShortcutOption("save", "Save"), new KeyboardShortcutOption("save as", "Save As"), new KeyboardShortcutOption("export", "Export"),
+            new KeyboardShortcutOption("open", "Open")),
+
+        new KeyboardShortcutCategory("Navigation", new KeyboardShortcutOption("zoom in", "Zoom In"), new KeyboardShortcutOption("zoom out", "Zoom Out"),
+            new KeyboardShortcutOption("scroll x", "Scroll X"), new KeyboardShortcutOption("scroll y", "Scroll Y")),
+
         new KeyboardShortcutCategory("Tools", new KeyboardShortcutOption("brush", "Brush"), new KeyboardShortcutOption("pencil", "Pencil"), new KeyboardShortcutOption("rubber", "Rubber"),
             new KeyboardShortcutOption("eye dropper", "Eye Dropper"), new KeyboardShortcutOption("fill", "Fill"), new KeyboardShortcutOption("shape", "Shape"),
             new KeyboardShortcutOption("line", "Line"), new KeyboardShortcutOption("gradient", "Gradient"), new KeyboardShortcutOption("move", "Move"),
-            new KeyboardShortcutOption("selection", "Selection"), new KeyboardShortcutOption("cancel tool", "Cancel Tool")),
-        new KeyboardShortcutCategory("Navigation", new KeyboardShortcutOption("zoom in", "Zoom In"), new KeyboardShortcutOption("zoom out", "Zoom Out"))
+            new KeyboardShortcutOption("selection", "Selection"), new KeyboardShortcutOption("cancel tool", "Cancel Tool"), new KeyboardShortcutOption("clear selection", "Clear Selection"),
+            new KeyboardShortcutOption("scroll brush size", "Scroll Brush Size"))
     };
 
     private void Start()

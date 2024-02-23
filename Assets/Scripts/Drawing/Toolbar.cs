@@ -274,7 +274,7 @@ public class Toolbar : MonoBehaviour
 
     private void MouseScroll()
     {
-        if (inputSystem.globalKeyboardTarget.IsHeldExactly(KeyCode.LeftShift) || inputSystem.globalKeyboardTarget.IsHeldExactly(KeyCode.RightShift))
+        if (inputSystem.globalKeyboardTarget.OneIsHeldExactly(KeyboardShortcuts.GetShortcutsFor("scroll brush size")))
         {
             if (selectedTool == Tool.Brush || selectedTool == Tool.Rubber)
             {

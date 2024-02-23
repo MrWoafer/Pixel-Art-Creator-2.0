@@ -358,9 +358,26 @@ public class FileManager : MonoBehaviour
 
     private void KeyboardShortcut()
     {
-        if (inputSystem.globalKeyboardTarget.IsHeldExactly(KeyCode.LeftControl, KeyCode.S) || inputSystem.globalKeyboardTarget.IsHeldExactly(KeyCode.RightControl, KeyCode.S))
+        if (Application.isEditor)
+        {
+            return;
+        }
+
+        if (inputSystem.globalKeyboardTarget.OneIsHeldExactly(KeyboardShortcuts.GetShortcutsFor("save")))
+        {
+            SaveCurrentFileDialog();
+        }
+        if (inputSystem.globalKeyboardTarget.OneIsHeldExactly(KeyboardShortcuts.GetShortcutsFor("save as")))
+        {
+            SaveAsCurrentFileDialog();
+        }
+        if (inputSystem.globalKeyboardTarget.OneIsHeldExactly(KeyboardShortcuts.GetShortcutsFor("export")))
         {
             ExportCurrentFrameDialog();
+        }
+        if (inputSystem.globalKeyboardTarget.OneIsHeldExactly(KeyboardShortcuts.GetShortcutsFor("open")))
+        {
+            OpenFileDialog();
         }
     }
 
