@@ -43,6 +43,8 @@ public class FileTile : MonoBehaviour
     {
         this.file = file;
         nameTextbox.SetText(file.name);
+        file.SubscribeToOnSavedSinceEditChanged(SetSavedNameSuffix);
+        SetSavedNameSuffix();
     }
 
     private void Select()
@@ -60,6 +62,13 @@ public class FileTile : MonoBehaviour
     {
         file.name = nameTextbox.text;
         onNameChange.Invoke();
+    }
+
+    private void SetSavedNameSuffix()
+    {
+        string suffix = nameTextbox.suffix.TrimEnd('*');
+        suffix += file.savedSinceLastEdit ? "" : "*";
+        nameTextbox.SetSuffix(suffix);
     }
 
     public void SubscribeToSelect(UnityAction call)

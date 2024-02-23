@@ -11,7 +11,16 @@ public class File : JSONable
     public string name { get; set; } = "";
 
     public string mostRecentSavePath { get; private set; } = null;
-    public bool savedSinceLastEdit { get; private set; } = true;
+    private bool _savedSinceLastEdit = true;
+    public bool savedSinceLastEdit
+    {
+        get => _savedSinceLastEdit;
+        private set
+        {
+            _savedSinceLastEdit = value;
+            onSavedSinceEditChanged.Invoke();
+        }
+    }
 
     public int width { get; private set; }
     public int height { get; private set; }
@@ -82,6 +91,8 @@ public class File : JSONable
     private UnityEvent onTileAdded = new UnityEvent();
     /// <summary>Called when a tile is removed from the file.</summary>
     private UnityEvent onTileRemoved = new UnityEvent();
+    /// <summary>Called when the savedSinceLastEdit variable is changed.</summary>
+    private UnityEvent onSavedSinceEditChanged = new UnityEvent();
 
     /// <summary>
     /// Creates a blank file.
@@ -203,6 +214,8 @@ public class File : JSONable
 
         File file = new File(Path.GetFileNameWithoutExtension(filePath), texture.width, texture.height);
         file.ReplaceLayer(0, new NormalLayer("Layer 1", texture));
+
+        file.savedSinceLastEdit = true;
 
         return file;
     }
@@ -1241,5 +1254,9 @@ public class File : JSONable
     public void SubscribeToOnTileRemoved(UnityAction call)
     {
         onTileRemoved.AddListener(call);
+    }
+    public void SubscribeToOnSavedSinceEditChanged(UnityAction call)
+    {
+        onSavedSinceEditChanged.AddListener(call);
     }
 }
