@@ -27,7 +27,7 @@ public class File : IJSONable
 
     public int width { get; private set; }
     public int height { get; private set; }
-    public IntRect rect { get => new IntRect(IntVector2.zero, new IntVector2(width - 1, height - 1)); }
+    public IntRect rect => new IntRect(IntVector2.zero, new IntVector2(width - 1, height - 1));
 
     public List<Layer> layers { get; private set; } = new List<Layer>();
     /// <summary>The lowest layer (in terms of display order, so highest index) that is visible.</summary>
@@ -70,7 +70,7 @@ public class File : IJSONable
     /// <summary>The number of frames the animation lasts for.</summary>
     public int numOfFrames { get; set; } = 10;
     /// <summary>The frame indices at which some layer has a key frame.</summary>
-    public int[] keyFrameIndices { get => GetKeyFrameIndices(); }
+    public int[] keyFrameIndices => GetKeyFrameIndices();
 
     public Texture2D liveRender { get; private set; }
     private int liveRenderFrame = 0;
@@ -78,7 +78,7 @@ public class File : IJSONable
     private List<Tileset> tilesets = new List<Tileset>();
     private int tilesetIndex = 0;
     /// <summary>All the tile objects currently in the file.</summary>
-    public Tile[] tiles { get => GetTiles(); }
+    public Tile[] tiles => GetTiles();
 
     // Events
 
@@ -1246,18 +1246,31 @@ public class File : IJSONable
 
     // Events
 
+    /// <summary>
+    /// Event invoked when some pixels have been changed on a layer.
+    /// Passes the pixels, layers and frames that were affected.
+    /// </summary>
     public void SubscribeToOnPixelsChanged(UnityAction<IntVector2[], Layer[], int[]> call)
     {
         onPixelsChanged.AddListener(call);
     }
+    /// <summary>
+    /// Event invoked when a tile is added to the file.
+    /// </summary>
     public void SubscribeToOnTileAdded(UnityAction call)
     {
         onTileAdded.AddListener(call);
     }
+    /// <summary>
+    /// Event invoked when a tile is removed from the file.
+    /// </summary>
     public void SubscribeToOnTileRemoved(UnityAction call)
     {
         onTileRemoved.AddListener(call);
     }
+    /// <summary>
+    /// Event invoked when the a change to file is made or when the file is saved.
+    /// </summary>
     public void SubscribeToOnSavedSinceEditChanged(UnityAction call)
     {
         onSavedSinceEditChanged.AddListener(call);

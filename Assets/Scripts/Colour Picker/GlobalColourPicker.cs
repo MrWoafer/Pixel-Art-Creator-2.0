@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
+/// <summary>
+/// A class for the main colour picker in the program - the one that appears in the main view.
+/// </summary>
 [RequireComponent(typeof(UIColourPicker))]
 public class GlobalColourPicker : MonoBehaviour
 {

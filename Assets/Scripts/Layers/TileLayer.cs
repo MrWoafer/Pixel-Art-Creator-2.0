@@ -79,7 +79,7 @@ public class TileLayer : Layer
         {
             AddKeyFrame(keyframe);
         }
-        foreach (IntVector2 pixel in tile.rect.points)
+        foreach (IntVector2 pixel in tile.rect)
         {
             pixelToTile[pixel] = tile;
         }
@@ -99,7 +99,7 @@ public class TileLayer : Layer
 
         tiles.Remove(tile);
 
-        foreach (IntVector2 pixel in tile.rect.points)
+        foreach (IntVector2 pixel in tile.rect)
         {
             if (pixelToTile[pixel] == tile)
             {
@@ -505,14 +505,14 @@ public class TileLayer : Layer
     /// </summary>
     private void OnTileRectChanged(Tile tile, IntRect previousRect)
     {
-        foreach (IntVector2 pixel in previousRect.points)
+        foreach (IntVector2 pixel in previousRect)
         {
             if (PixelToTileNoValidation(pixel) == tile)
             {
                 pixelToTile.Remove(pixel);
             }
         }
-        foreach (IntVector2 pixel in tile.rect.points)
+        foreach (IntVector2 pixel in tile.rect)
         {
             pixelToTile[pixel] = tile;
         }

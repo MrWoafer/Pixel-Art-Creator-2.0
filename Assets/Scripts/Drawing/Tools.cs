@@ -3,6 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
 
+/// <summary>
+/// Defines how different tools act.
+/// I may rework this to be more like the BlendMode class where each Tool instance defines how it acts. Then to use a tool you would just do tool.Use(pixel) or similar.
+/// </summary>
 public static class Tools
 {
     public static void UsePencil(File file, int layer, int frame, IntVector2 pixel, Color colour) => UsePencil(file, layer, frame, pixel.x, pixel.y, colour);
@@ -11,16 +15,19 @@ public static class Tools
         file.layers[layer].SetPixel(x, y, frame, colour, AnimFrameRefMode.NewKeyFrame);
     }
 
-    public static bool PencilLineSmoothing(File file, int layer, int frame, IntVector2[] line, IntVector2[] lineSmoothingPreviousLine, Color colourLineMeetingPoint)
+    /// <summary>
+    /// Smooth the meeting point of the two lines (given as coords) so it is pixel-perfect - i.e. no hard 90-degree corner.
+    /// </summary>
+    public static bool PencilLineSmoothing(File file, int layer, int frame, IntVector2[] line, IntVector2[] previousLine, Color colourLineMeetingPoint)
     {
-        if (lineSmoothingPreviousLine.Length != 0)
+        if (previousLine.Length != 0)
         {
             IntVector2[] offsets = new IntVector2[] { IntVector2.left, IntVector2.right, IntVector2.down, IntVector2.up };
             foreach (IntVector2 offset1 in offsets)
             {
                 foreach (IntVector2 offset2 in offsets)
                 {
-                    bool pixelShouldBeSmoothed = IntVector2.Dot(offset1, offset2) == 0 && lineSmoothingPreviousLine.Contains(line[0] + offset1) && line.Contains(line[0] + offset2) &&
+                    bool pixelShouldBeSmoothed = IntVector2.Dot(offset1, offset2) == 0 && previousLine.Contains(line[0] + offset1) && line.Contains(line[0] + offset2) &&
                         !line.Contains(line[0] - offset1);
                     if (pixelShouldBeSmoothed)
                     {

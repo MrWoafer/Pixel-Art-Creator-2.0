@@ -241,7 +241,7 @@ public class UIManager : MonoBehaviour
         layerBlendModeDropdown.SubscribeToOptionChanged(UpdateLayerPropertiesPreview);
 
         brushSettingsShapeToggleGroup.SubscribeToSelectedToggleChange(UpdateBrushSettingsShape);
-        brushSettingsSizeField.SubscribeToValueChanged(() => toolbar.brushSize = (int)brushSettingsSizeField.value);
+        brushSettingsSizeField.SubscribeToValueChanged(() => toolbar.SetBrushSize((int)brushSettingsSizeField.value));
     }
 
     private void Update()

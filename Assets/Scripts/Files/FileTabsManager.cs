@@ -25,7 +25,7 @@ public class FileTabsManager : MonoBehaviour
     private FileManager fileManager;
     private UIManager uiManager;
 
-    private List<FileTile> fileTiles = new List<FileTile>();
+    private List<FileTab> fileTiles = new List<FileTab>();
 
     public int selectedFileIndex
     {
@@ -87,7 +87,7 @@ public class FileTabsManager : MonoBehaviour
         if (toggleGroup.currentToggle != null)
         {
             previouslySelectedIndex = toggleGroup.currentToggleIndex;
-            previouslySelectedFile = toggleGroup.currentToggle.GetComponent<FileTile>().file;
+            previouslySelectedFile = toggleGroup.currentToggle.GetComponent<FileTab>().file;
         }
 
         ClearFileTiles();
@@ -103,17 +103,17 @@ public class FileTabsManager : MonoBehaviour
 
     private void ClearFileTiles()
     {
-        foreach (FileTile fileTile in fileTiles)
+        foreach (FileTab fileTile in fileTiles)
         {
             DestroyImmediate(fileTile.gameObject);
         }
-        fileTiles = new List<FileTile>();
+        fileTiles = new List<FileTab>();
         toggleGroup.Clear();
     }
 
     private void AddFileTile(File file)
     {
-        FileTile fileTile = GameObject.Instantiate(fileTilePrefab, viewport.scrollingArea).GetComponent<FileTile>();
+        FileTab fileTile = GameObject.Instantiate(fileTilePrefab, viewport.scrollingArea).GetComponent<FileTab>();
         fileTile.SetFile(file);
         fileTile.transform.localPosition = fileTileStartCoords + new Vector2(xIncrement * fileTiles.Count, 0f);
 

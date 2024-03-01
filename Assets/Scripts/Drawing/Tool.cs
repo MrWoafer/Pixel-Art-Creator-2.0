@@ -2,11 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Defines the tools available to use and their properties.
+/// </summary>
 public class Tool
 {
     private string _name;
     public string name { get => _name; private set => _name = value.ToLower(); }
+    /// <summary>When the mouse position jumps between frames: true - the tool should be applied to each coord the mouse moved through; false - just applied to the ending coord.</summary>
     public bool useMovementInterpolation { get; private set; }
+    /// <summary>Whether the outline of the brush shape should be shown.</summary>
     public bool showBrushBorder { get; private set; }
 
     private Tool() { }
@@ -95,9 +100,14 @@ public class Tool
         showBrushBorder = true
     };
 
-    public static Tool ToolNameToTool(string toolName)
+    /// <summary>All implemented tools.</summary>
+    public static readonly Tool[] tools = new Tool[] { None, Pencil, Brush, Rubber, EyeDropper, GlobalEyeDropper, Fill, Shape, Line, Gradient, Move, Selection };
+
+    /// <summary>
+    /// Gets the tool with that name.
+    /// </summary>
+    public static Tool StringToTool(string toolName)
     {
-        Tool[] tools = new Tool[] { None, Pencil, Brush, Rubber, EyeDropper, GlobalEyeDropper, Fill, Shape, Line, Gradient, Move, Selection };
         foreach (Tool tool in tools)
         {
             if (tool.name == toolName)

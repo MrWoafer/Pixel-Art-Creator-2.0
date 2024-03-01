@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
 
+/// <summary>
+/// A struct to represent a 2-dimensional vector with integer coordinates.
+/// </summary>
 public struct IntVector2
 {
     public int x;
@@ -16,25 +19,27 @@ public struct IntVector2
         this.x = x;
         this.y = y;
     }
+    /// <summary>
+    /// Rounds the coords towards zero.
+    /// </summary>
     public IntVector2(Vector2 vector2)
     {
         x = (int)vector2.x;
         y = (int)vector2.y;
     }
-    public IntVector2(IntVector2 intVector2) : this(intVector2.x, intVector2.y) { }
 
     /// <summary>The vector (0, 0).</summary>
-    public static IntVector2 zero { get => new IntVector2(0, 0); }
+    public static IntVector2 zero = new IntVector2(0, 0);
     /// <summary>The vector (1, 1).</summary>
-    public static IntVector2 one { get => new IntVector2(1, 1); }
+    public static IntVector2 one = new IntVector2(1, 1);
     /// <summary>The vector (1, 0).</summary>
-    public static IntVector2 right { get => new IntVector2(1, 0); }
+    public static IntVector2 right = new IntVector2(1, 0);
     /// <summary>The vector (-1, 0).</summary>
-    public static IntVector2 left { get => new IntVector2(-1, 0); }
+    public static IntVector2 left = new IntVector2(-1, 0);
     /// <summary>The vector (0, 1).</summary>
-    public static IntVector2 up { get => new IntVector2(0, 1); }
+    public static IntVector2 up = new IntVector2(0, 1);
     /// <summary>The vector (0, -1).</summary>
-    public static IntVector2 down { get => new IntVector2(0, -1); }
+    public static IntVector2 down = new IntVector2(0, -1);
 
     public static bool operator ==(IntVector2 a, IntVector2 b)
     {
@@ -67,27 +72,45 @@ public struct IntVector2
         return "(" + x.ToString() + ", " + y.ToString() + ")";
     }
 
+    /// <summary>
+    /// Compares component-wise.
+    /// </summary>
     public static bool operator <(IntVector2 a, IntVector2 b)
     {
         return a.x < b.x && a.y < b.y;
     }
+    /// <summary>
+    /// Compares component-wise.
+    /// </summary>
     public static bool operator >(IntVector2 a, IntVector2 b)
     {
         return a.x > b.x && a.y > b.y;
     }
+    /// <summary>
+    /// Compares component-wise.
+    /// </summary>
     public static bool operator <=(IntVector2 a, IntVector2 b)
     {
         return a.x <= b.x && a.y <= b.y;
     }
+    /// <summary>
+    /// Compares component-wise.
+    /// </summary>
     public static bool operator >=(IntVector2 a, IntVector2 b)
     {
         return a.x >= b.x && a.y >= b.y;
     }
 
+    /// <summary>
+    /// Adds component-wise.
+    /// </summary>
     public static IntVector2 operator +(IntVector2 a, IntVector2 b)
     {
         return new IntVector2(a.x + b.x, a.y + b.y);
     }
+    /// <summary>
+    /// Adds the vector to each element of the array.
+    /// </summary>
     public static IntVector2[] operator +(IntVector2 intVector, IntVector2[] intVectorArray)
     {
         IntVector2[] result = new IntVector2[intVectorArray.Length];
@@ -97,19 +120,31 @@ public struct IntVector2
         }
         return result;
     }
+    /// <summary>
+    /// Adds the vector to each element of the array.
+    /// </summary>
     public static IntVector2[] operator +(IntVector2[] intVectorArray, IntVector2 intVector)
     {
         return intVector + intVectorArray;
     }
 
+    /// <summary>
+    /// Subtracts component-wise.
+    /// </summary>
     public static IntVector2 operator -(IntVector2 a, IntVector2 b)
     {
         return new IntVector2(a.x - b.x, a.y - b.y);
     }
+    /// <summary>
+    /// Negates component-wise.
+    /// </summary>
     public static IntVector2 operator -(IntVector2 a)
     {
         return new IntVector2(-a.x, -a.y);
     }
+    /// <summary>
+    /// Subtracts each element of the array from the vector.
+    /// </summary>
     public static IntVector2[] operator -(IntVector2 intVector, IntVector2[] intVectorArray)
     {
         IntVector2[] result = new IntVector2[intVectorArray.Length];
@@ -119,23 +154,38 @@ public struct IntVector2
         }
         return result;
     }
+    /// <summary>
+    /// Subtracts the vector from each element of the array.
+    /// </summary>
     public static IntVector2[] operator -(IntVector2[] intVectorArray, IntVector2 intVector)
     {
         return intVectorArray + (-intVector);
     }
 
+    /// <summary>
+    /// Multiplies component-wise.
+    /// </summary>
     public static IntVector2 operator *(IntVector2 a, IntVector2 b)
     {
         return new IntVector2(a.x * b.x, a.y * b.y);
     }
+    /// <summary>
+    /// Multiplies component-wise.
+    /// </summary>
     public static IntVector2 operator *(int scalar, IntVector2 vector)
     {
         return new IntVector2(vector.x * scalar, vector.y * scalar);
     }
+    /// <summary>
+    /// Multiplies component-wise.
+    /// </summary>
     public static IntVector2 operator *(IntVector2 vector, int scalar)
     {
         return scalar * vector;
     }
+    /// <summary>
+    /// Multiplies each element of the array by the vector.
+    /// </summary>
     public static IntVector2[] operator *(IntVector2 intVector, IntVector2[] intVectorArray)
     {
         IntVector2[] result = new IntVector2[intVectorArray.Length];
@@ -145,19 +195,31 @@ public struct IntVector2
         }
         return result;
     }
+    /// <summary>
+    /// Multiplies each element of the array by the vector.
+    /// </summary>
     public static IntVector2[] operator *(IntVector2[] intVectorArray, IntVector2 intVector)
     {
         return intVector * intVectorArray;
     }
 
+    /// <summary>
+    /// Divides (integer division) component-wise.
+    /// </summary>
     public static IntVector2 operator /(IntVector2 a, IntVector2 b)
     {
         return new IntVector2(a.x / b.x, a.y / b.y);
     }
+    /// <summary>
+    /// Divides (integer division) component-wise.
+    /// </summary>
     public static IntVector2 operator /(IntVector2 vector, int scalar)
     {
         return new IntVector2(vector.x / scalar, vector.y / scalar);
     }
+    /// <summary>
+    /// Divides the vector by each element of the array.
+    /// </summary>
     public static IntVector2[] operator /(IntVector2 intVector, IntVector2[] intVectorArray)
     {
         IntVector2[] result = new IntVector2[intVectorArray.Length];
@@ -167,6 +229,9 @@ public struct IntVector2
         }
         return result;
     }
+    /// <summary>
+    /// Divides each element of the array by the vector.
+    /// </summary>
     public static IntVector2[] operator /(IntVector2[] intVectorArray, IntVector2 intVector)
     {
         IntVector2[] result = new IntVector2[intVectorArray.Length];
@@ -177,36 +242,63 @@ public struct IntVector2
         return result;
     }
 
+    /// <summary>
+    /// Cast to Unity Vector2.
+    /// </summary>
     public static implicit operator Vector2(IntVector2 intVector) => intVector.ToVector2();
+    /// <summary>
+    /// Cast to Unity Vector2.
+    /// </summary>
     public Vector2 ToVector2()
     {
         return new Vector2(x, y);
     }
 
+    /// <summary>
+    /// Cast to Unity Vector3, with a 0 in the z-coord.
+    /// </summary>
     public static implicit operator Vector3(IntVector2 intVector) => intVector.ToVector3();
+    /// <summary>
+    /// Cast to Unity Vector3, with a 0 in the z-coord.
+    /// </summary>
     public Vector3 ToVector3()
     {
         return new Vector3(x, y, 0f);
     }
 
+    /// <summary>
+    /// Floors component-wise.
+    /// </summary>
     public static IntVector2 FloorToIntVector2(Vector2 vector2)
     {
         return new IntVector2(Mathf.FloorToInt(vector2.x), Mathf.FloorToInt(vector2.y));
     }
+    /// <summary>
+    /// Ceils component-wise.
+    /// </summary>
     public static IntVector2 CeilToIntVector2(Vector2 vector2)
     {
         return new IntVector2(Mathf.CeilToInt(vector2.x), Mathf.CeilToInt(vector2.y));
     }
+    /// <summary>
+    /// Rounds component-wise.
+    /// </summary>
     public static IntVector2 RoundToIntVector2(Vector2 vector2)
     {
         return new IntVector2(Mathf.RoundToInt(vector2.x), Mathf.RoundToInt(vector2.y));
     }
 
+    /// <summary>
+    /// Computes the dot product.
+    /// </summary>
     public static int Dot(IntVector2 a, IntVector2 b)
     {
         return a.x * b.x + a.y * b.y;
     }
 
+    /// <summary>
+    /// Computes the Euclidean distance between the vectors.
+    /// </summary>
     public static float Distance(IntVector2 a, IntVector2 b)
     {
         return Magnitude(a - b);

@@ -2,8 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// A class to define how different shapes are drawn.
+/// </summary>
 public static class Shapes
 {
+    /// <summary>
+    /// Gets the coords of a pixel-perfect line between two points, ordered from start to end.
+    /// </summary>
     public static IntVector2[] LineCoords(IntVector2 start, IntVector2 end)
     {
         bool startWasToLeft = start.x <= end.x;
@@ -208,12 +214,18 @@ public static class Shapes
         return Rectangle(texWidth, texHeight, start, SnapEndCoordToSquare(texWidth, texHeight, start, end, stayWithinImageBounds), colour, filled);
     }
 
+    /// <summary>
+    /// Snaps the end coord so that the rect it forms with the start coord is a square.
+    /// </summary>
     public static IntVector2 SnapEndCoordToSquare(IntVector2 start, IntVector2 end)
     {
         int sideLength = Mathf.Max(Mathf.Abs(end.x - start.x), Mathf.Abs(end.y - start.y));
 
         return start + new IntVector2(sideLength * (int)Mathf.Sign(end.x - start.x), sideLength * (int)Mathf.Sign(end.y - start.y));
     }
+    /// <summary>
+    /// Snaps the end coord so that the rect it forms with the start coord is a square.
+    /// </summary>
     public static IntVector2 SnapEndCoordToSquare(int texWidth, int texHeight, IntVector2 start, IntVector2 end, bool stayWithinImageBounds)
     {
         int width = Mathf.Abs(end.x - start.x);

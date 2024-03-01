@@ -3,16 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class FileTile : MonoBehaviour
+public class FileTab : MonoBehaviour
 {
     public File file { get; private set; }
-    public bool selected
-    {
-        get
-        {
-            return tileToggle.on;
-        }
-    }
+    public bool selected => tileToggle.on;
 
     public UIToggleButton tileToggle { get; private set; }
     private UITextbox nameTextbox;

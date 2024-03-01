@@ -32,19 +32,23 @@ public enum GradientMode
     Radial = 1,
 }
 
+
+/// <summary>
+/// Handles selecting tools, brush size, etc.
+/// </summary>
 public class Toolbar : MonoBehaviour
 {
     [Header("Tool Options")]
     [SerializeField]
     private int _maxBrushSize = 10;
-    public int maxBrushSize { get => _maxBrushSize; }
+    public int maxBrushSize => _maxBrushSize;
 
     [SerializeField]
     private int _brushSize = 1;
     public int brushSize
     {
         get => _brushSize;
-        set
+        private set
         {
             _brushSize = value;
             UpdateBrushBorder();
@@ -57,9 +61,9 @@ public class Toolbar : MonoBehaviour
     /// <summary>
     /// The amount of time you have to draw a new pixel in for an old one to be potentially smoothed.
     /// </summary>
-    public float lineSmoothingTime { get => _lineSmoothingTime; }
+    public float lineSmoothingTime => _lineSmoothingTime;
 
-    public Tool selectedTool { get => usingGlobalEyeDropper ? Tool.GlobalEyeDropper : Tool.ToolNameToTool(toggleGroup.currentToggle.toggleName); }
+    public Tool selectedTool { get => usingGlobalEyeDropper ? Tool.GlobalEyeDropper : Tool.StringToTool(toggleGroup.currentToggle.toggleName); }
     public Tool previousTool { get; private set; } = Tool.None;
 
     private bool usingGlobalEyeDropper = false;
@@ -112,20 +116,27 @@ public class Toolbar : MonoBehaviour
         }
     }
 
+    [Header("Events")]
+    [SerializeField]
+    /// <summary>Event invoked when selected tool changes.</summary>
+    private UnityEvent onToolChanged = new UnityEvent();
+    [SerializeField]
+    /// <summary>Event invoked when brush size changes.</summary>
+    private UnityEvent onBrushSizeChanged = new UnityEvent();
+    [SerializeField]
+    /// <summary>Event invoked when brush pixels change.</summary>
+    private UnityEvent onBrushPixelsChanged = new UnityEvent();
+
     /// <summary>The pixels, given relative to the position of the mouse, that will be affected by the current brush.</summary>
     public IntVector2[] brushPixels { get; private set; } = new IntVector2[0];
     public Texture2D brushTexture { get; private set; }
     public int brushPixelsWidth { get; private set; } = 0;
     public int brushPixelsHeight { get; private set; } = 0;
-    public bool brushPixelsIsEmpty { get => brushPixels.Length == 0; }
-    public bool brushPixelsIsSingleCentralPixel { get => brushPixels.Length == 1 && brushPixels[0] == IntVector2.zero; }
+    public bool brushPixelsIsEmpty => brushPixels.Length == 0;
+    public bool brushPixelsIsSingleCentralPixel => brushPixels.Length == 1 && brushPixels[0] == IntVector2.zero;
 
     private InputSystem inputSystem;
     private UIToggleGroup toggleGroup;
-
-    private UnityEvent onToolChanged = new UnityEvent();
-    private UnityEvent onBrushSizeChanged = new UnityEvent();
-    private UnityEvent onBrushPixelsChanged = new UnityEvent();
 
     private void Awake()
     {
@@ -135,8 +146,8 @@ public class Toolbar : MonoBehaviour
 
     void Start()
     {
-        inputSystem.SubscribeToGlobalKeyboard(KeyboardShortcut);
-        inputSystem.SubscribeToGlobalMouseScroll(MouseScroll);
+        inputSystem.SubscribeToGlobalKeyboard(CheckKeyboardShortcuts);
+        inputSystem.SubscribeToGlobalMouseScroll(OnMouseScroll);
 
         toggleGroup.SubscribeToSelectedToggleChange(onToolChanged.Invoke);
 
@@ -175,7 +186,7 @@ public class Toolbar : MonoBehaviour
         return false;
     }
 
-    private bool SetBrushSize(int brushSize)
+    public bool SetBrushSize(int brushSize)
     {
         if (brushSize < 0)
         {
@@ -196,7 +207,7 @@ public class Toolbar : MonoBehaviour
         return true;
     }
 
-    private void KeyboardShortcut()
+    private void CheckKeyboardShortcuts()
     {
         if (inputSystem.globalKeyboardTarget.OneIsHeldExactly(KeyboardShortcuts.GetShortcutsFor("pencil"))) { SelectTool(Tool.Pencil); }
         else if (inputSystem.globalKeyboardTarget.OneIsHeldExactly(KeyboardShortcuts.GetShortcutsFor("brush"))) { SelectTool(Tool.Brush); }
@@ -272,7 +283,10 @@ public class Toolbar : MonoBehaviour
         inputSystem.mouse.SetCursorSprite(inputSystem.mouse.cursorState);
     }
 
-    private void MouseScroll()
+    /// <summary>
+    /// Called when the mouse scrolls.
+    /// </summary>
+    private void OnMouseScroll()
     {
         if (inputSystem.globalKeyboardTarget.OneIsHeldExactly(KeyboardShortcuts.GetShortcutsFor("scroll brush size")))
         {
@@ -288,6 +302,9 @@ public class Toolbar : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Update the outline of the pixels the brush will affect.
+    /// </summary>
     private void UpdateBrushBorder()
     {
         // Get the brush texture
@@ -349,15 +366,24 @@ public class Toolbar : MonoBehaviour
         onBrushPixelsChanged.Invoke();
     }
 
-    public void SubscribeToToolChanged(UnityAction call)
+    /// <summary>
+    /// Event invoked when selected tool changes.
+    /// </summary>
+    public void SubscribeToOnToolChanged(UnityAction call)
     {
         onToolChanged.AddListener(call);
     }
-    public void SubscribeToBrushSizeChanged(UnityAction call)
+    /// <summary>
+    /// Event invoked when brush size changes.
+    /// </summary>
+    public void SubscribeToOnBrushSizeChanged(UnityAction call)
     {
         onBrushSizeChanged.AddListener(call);
     }
-    public void SubscribeToBrushPixelsChanged(UnityAction call)
+    /// <summary>
+    /// Event invoked when brush pixels change.
+    /// </summary>
+    public void SubscribeToOnBrushPixelsChanged(UnityAction call)
     {
         onBrushPixelsChanged.AddListener(call);
     }

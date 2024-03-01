@@ -14,10 +14,10 @@ public class DrawingArea : MonoBehaviour
     private float _zoomScrollSpeed = 1f;
     public float zoomScrollSpeed { get => _zoomScrollSpeed; private set => _zoomScrollSpeed = value; }
 
-    public File file { get => fileManager.currentFile; }
-    private Layer selectedLayer { get => layerManager.selectedLayer; }
-    private int selectedLayerIndex { get => layerManager.selectedLayerIndex; }
-    private int currentFrameIndex { get => animationManager.currentFrameIndex; }
+    public File file => fileManager.currentFile;
+    private Layer selectedLayer => layerManager.selectedLayer;
+    private int selectedLayerIndex => layerManager.selectedLayerIndex;
+    private int currentFrameIndex => animationManager.currentFrameIndex;
 
     // Game object references
     private SpriteRenderer drawingSprRen;
@@ -30,7 +30,7 @@ public class DrawingArea : MonoBehaviour
     private InputTarget inputTarget;
     private Mouse mouse;
 
-    public float pixelsPerUnit { get => Mathf.Max(file.width, file.height); }
+    public float pixelsPerUnit => Mathf.Max(file.width, file.height);
 
     // Manager references
     private InputSystem inputSystem;
@@ -46,7 +46,7 @@ public class DrawingArea : MonoBehaviour
 
     // Mouse variables
     /// <summary>The pixel the mouse is currently on.</summary>
-    IntVector2 mousePixel { get => WorldPosToPixel(mouse.worldPos); }
+    private IntVector2 mousePixel => WorldPosToPixel(mouse.worldPos);
     private readonly IntVector2 mouseDragInactiveCoords = new IntVector2(-1, -1);
     /// <summary>For tools that involve dragging, this is pixel the mouse started dragging from.</summary>
     private IntVector2 mouseDragStartPoint = new IntVector2(-1, -1);
@@ -54,9 +54,9 @@ public class DrawingArea : MonoBehaviour
     /// <summary>The pixel the mouse was on before the current pixel.</summary>
     private IntVector2 previousMousePixel = new IntVector2(-1, -1);
     private bool mouseOutsideDrawingAreaLastFrame = false;
-    private bool leftClickedOn { get => inputTarget.mouseTarget.buttonTargetedWith == MouseButton.Left; }
-    private bool rightClickedOn { get => inputTarget.mouseTarget.buttonTargetedWith == MouseButton.Right; }
-    private bool middleClickedOn { get => inputTarget.mouseTarget.buttonTargetedWith == MouseButton.Middle; }
+    private bool leftClickedOn => inputTarget.mouseTarget.buttonTargetedWith == MouseButton.Left;
+    private bool rightClickedOn => inputTarget.mouseTarget.buttonTargetedWith == MouseButton.Right;
+    private bool middleClickedOn => inputTarget.mouseTarget.buttonTargetedWith == MouseButton.Middle;
 
     // Keyboard variables
     private bool holdingCtrl => inputTarget.keyboardTarget.IsHeldExactly(CustomKeyCode.Ctrl);
@@ -184,15 +184,14 @@ public class DrawingArea : MonoBehaviour
         brushBorderSprRen = transform.Find("Brush Border").GetComponent<SpriteRenderer>();
         tileOutlineManager = Finder.tileOutlineManager;
 
-        fileManager.SubscribeToFileSwitched(() => LoadFile(fileManager.currentFile));
+        fileManager.SubscribeToFileSwitched(InitialiseDisplay);
         layerManager.SubscribeToLayerChange(UpdateDrawing);
 
         resetViewPosition = transform.position;
         resetViewLocalScale = transform.localScale;
     }
 
-    // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
         inputTarget.mouseTarget.SubscribeToStateChange(OnMouseInput);
         inputTarget.mouseTarget.SubscribeToHover(OnMousePixelChanged);
@@ -205,15 +204,15 @@ public class DrawingArea : MonoBehaviour
         imageEditManager.SubscribeToImageSizeChanged(InitialiseDisplay);
         fileManager.SubscribeToFileSwitched(ResetView);
 
-        toolbar.SubscribeToToolChanged(OnToolChanged);
-        toolbar.SubscribeToBrushPixelsChanged(() => UpdateBrushBorder(mousePixel));
+        toolbar.SubscribeToOnToolChanged(OnToolChanged);
+        toolbar.SubscribeToOnBrushPixelsChanged(() => UpdateBrushBorder(mousePixel));
 
         animationManager.SubscribeToOnCurrentFrameIndexChange(UpdateDrawing);
         animationManager.SubscribeToOnKeyFrameDeleted(UpdateDrawing);
 
         tilesetManager.SubscribeToOnTileIconSelected((tileFile) => OnTileIconSelected(tileFile));
 
-        LoadFile(fileManager.currentFile);
+        InitialiseDisplay();
 
         UpdateBrushBorder(mousePixel);
     }
@@ -311,12 +310,6 @@ public class DrawingArea : MonoBehaviour
                 lineSmoothingCountdown = toolbar.lineSmoothingTime;
             }
         }
-    }
-
-    private void LoadFile(File file)
-    {
-        //this.file = file;
-        InitialiseDisplay();
     }
 
     private void InitialiseDisplay()
@@ -751,6 +744,9 @@ public class DrawingArea : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// For tools that only enact changes to the image when you release the mouse (e.g. shape tool), this function enacts those changes.
+    /// </summary>
     private void FinishUsingTool(Tool tool, IntVector2 pixel, int layer, int frame, Color colour)
     {
         if (tool == Tool.Line && leftClickedOn)
@@ -1120,6 +1116,9 @@ public class DrawingArea : MonoBehaviour
         return (Vector2)transform.position + adjustedPixel / pixelsPerUnit * transform.lossyScale;
     }
 
+    /// <summary>
+    /// Called when a tile icon is selected from the tileset menu.
+    /// </summary>
     private void OnTileIconSelected(File tileFile)
     {
         tileBeingMoved = new Tile(tileFile, IntVector2.zero, new TileLayer[] { (TileLayer)file.layers[0] });

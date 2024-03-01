@@ -2,6 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Handles drawing a grid over the image when the grid is enabled.
+/// </summary>
 public class GridManager : MonoBehaviour
 {
     [Header("Settings")]
@@ -30,8 +33,7 @@ public class GridManager : MonoBehaviour
         fileManager = Finder.fileManager;
     }
 
-    // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
         fileManager.SubscribeToFileSwitched(DisplayGrid);
 

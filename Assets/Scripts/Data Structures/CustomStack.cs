@@ -2,17 +2,26 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// A custom implementation of a stack to allow removal of items at a specific index.
+/// </summary>
 public class CustomStack<T>
 {
     private List<T> items = new List<T>();
 
-    public int Count { get => items.Count; }
+    public int Count => items.Count;
 
+    /// <summary>
+    /// Adds the item to the top of the stack.
+    /// </summary>
     public void Push(T item)
     {
         items.Insert(0, item);
     }
 
+    /// <summary>
+    /// Returns the item on top of the stack.
+    /// </summary>
     public T Peek()
     {
         if (Count == 0)
@@ -22,15 +31,21 @@ public class CustomStack<T>
         return items[0];
     }
 
+    /// <summary>
+    /// Removes and returns the item on top of the stack.
+    /// </summary>
     public T Pop()
     {
         if (Count == 0)
         {
-            throw new System.Exception("Cannot peek at an empty stack.");
+            throw new System.Exception("Cannot pop from an empty stack.");
         }
         return RemoveAt(0);
     }
 
+    /// <summary>
+    /// Removes the item at the given index and returns it.
+    /// </summary>
     public T RemoveAt(int index)
     {
         if (index < 0)
@@ -63,6 +78,9 @@ public class CustomStack<T>
         items.RemoveAll(x => x.Equals(item));
     }
 
+    /// <summary>
+    /// Removes all items from the stack.
+    /// </summary>
     public void Clear()
     {
         items.Clear();
