@@ -37,11 +37,12 @@ public class DrawingArea : MonoBehaviour
     private FileManager fileManager;
     private LayerManager layerManager;
     private AnimationManager animationManager;
-    private ColourPicker colourPicker;
+    private GlobalColourPicker colourPicker;
     private Toolbar toolbar;
     private UndoRedoManager undoRedoManager;
     private ImageEditManager imageEditManager;
     private TileOutlineManager tileOutlineManager;
+    private TilesetManager tilesetManager;
 
     // Mouse variables
     /// <summary>The pixel the mouse is currently on.</summary>
@@ -168,6 +169,7 @@ public class DrawingArea : MonoBehaviour
         undoRedoManager = Finder.undoRedoManager;
         imageEditManager = Finder.imageEditManager;
         animationManager = Finder.animationManager;
+        tilesetManager = Finder.tilesetManager;
 
         inputTarget = GetComponent<InputTarget>();
         mouse = Finder.mouse;
@@ -206,8 +208,10 @@ public class DrawingArea : MonoBehaviour
         toolbar.SubscribeToToolChanged(OnToolChanged);
         toolbar.SubscribeToBrushPixelsChanged(() => UpdateBrushBorder(mousePixel));
 
-        animationManager.SubscribeToCurrentFrameIndexChange(UpdateDrawing);
-        animationManager.SubscribeToKeyFrameDeletion(UpdateDrawing);
+        animationManager.SubscribeToOnCurrentFrameIndexChange(UpdateDrawing);
+        animationManager.SubscribeToOnKeyFrameDeleted(UpdateDrawing);
+
+        tilesetManager.SubscribeToOnTileIconSelected((tileFile) => OnTileIconSelected(tileFile));
 
         LoadFile(fileManager.currentFile);
 
@@ -569,9 +573,14 @@ public class DrawingArea : MonoBehaviour
                     tileOutlineManager.HideTileOutline(previousTileHoveredOver);
                     previousTileHoveredOver = null;
                 }
-            }
 
-            ShowBrushBorder();
+                ShowBrushBorder();
+            }
+            else
+            {
+                HideBrushBorder();
+            }
+            
             UpdateBrushBorder(mousePixel);
         }
         else
@@ -615,15 +624,19 @@ public class DrawingArea : MonoBehaviour
         {
             Zoom(zoomScrollSpeed, Vector2.zero);
         }
-        else if (inputSystem.globalKeyboardTarget.OneIsHeldExactly(KeyboardShortcuts.GetShortcutsFor("zoom out")))
+        if (inputSystem.globalKeyboardTarget.OneIsHeldExactly(KeyboardShortcuts.GetShortcutsFor("zoom out")))
         {
             Zoom(-zoomScrollSpeed, Vector2.zero);
         }
-        else if (inputSystem.globalKeyboardTarget.OneIsHeldExactly(KeyboardShortcuts.GetShortcutsFor("clear selection")) && hasSelection)
+        if (inputSystem.globalKeyboardTarget.OneIsHeldExactly(KeyboardShortcuts.GetShortcutsFor("reset view")))
+        {
+            ResetView();
+        }
+        if (inputSystem.globalKeyboardTarget.OneIsHeldExactly(KeyboardShortcuts.GetShortcutsFor("clear selection")) && hasSelection)
         {
             DeselectSelection();
         }
-        else if (inputSystem.globalKeyboardTarget.IsPressed(KeyCode.Delete) && hasSelection)
+        if (inputSystem.globalKeyboardTarget.IsPressed(KeyCode.Delete) && hasSelection)
         {
             undoRedoManager.AddUndoState(new UndoRedoState(UndoRedoAction.Draw, file.layers[selectedLayerIndex], selectedLayerIndex), fileManager.currentFileIndex);
             DeleteSelection();
@@ -1105,5 +1118,15 @@ public class DrawingArea : MonoBehaviour
         Vector2 adjustedPixel = new Vector2(x, y) - new Vector2(file.width, file.height) / 2f;
 
         return (Vector2)transform.position + adjustedPixel / pixelsPerUnit * transform.lossyScale;
+    }
+
+    private void OnTileIconSelected(File tileFile)
+    {
+        tileBeingMoved = new Tile(tileFile, IntVector2.zero, new TileLayer[] { (TileLayer)file.layers[0] });
+        tileBeingMovedOriginalBottomLeft = tileBeingMoved.bottomLeft;
+        tileBeingMovedLastValidPosition = tileBeingMoved.bottomLeft;
+
+        tileBeingMoved.file.liveRender.Apply();
+        SetPreview(tileBeingMoved.file.liveRender, tileBeingMoved.bottomLeft);
     }
 }

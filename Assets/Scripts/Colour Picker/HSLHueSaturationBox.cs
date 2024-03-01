@@ -2,31 +2,28 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HSLColourBox : MonoBehaviour
+/// <summary>
+/// A class for the hue/saturation box of the HSL colour picker.
+/// </summary>
+public class HSLHueSaturationBox : MonoBehaviour
 {
     private float _hue = 0f;
     public float hue
     {
-        get
+        get => _hue;
+        private set
         {
-            return _hue;
-        }
-        set
-        {
-            SetHue(value);
+            _hue = hue;
         }
     }
 
     private float _saturation = 0f;
     public float saturation
     {
-        get
+        get => _saturation;
+        private set
         {
-            return _saturation;
-        }
-        set
-        {
-            SetSaturation(value);
+            _saturation = value;
         }
     }
 
@@ -50,7 +47,7 @@ public class HSLColourBox : MonoBehaviour
 
     private void Start()
     {
-        inputTarget.mouseTarget.SubscribeToStateChange(MouseInput);
+        inputTarget.mouseTarget.SubscribeToStateChange(OnMouseInput);
     }
 
     private void Update()
@@ -63,7 +60,21 @@ public class HSLColourBox : MonoBehaviour
         }
     }
 
-    private void MouseInput()
+    public void SetHue(float hue)
+    {
+        _hue = hue;
+        UpdateCursor();
+    }
+    public void SetSaturation(float saturation)
+    {
+        _saturation = saturation;
+        UpdateCursor();
+    }
+
+    /// <summary>
+    /// Called when there in mouse input.
+    /// </summary>
+    private void OnMouseInput()
     {
         if (inputTarget.mouseTarget.state == MouseTargetState.Pressed)
         {
@@ -77,10 +88,13 @@ public class HSLColourBox : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Handles moving the mouse cursor and updating hue/saturation based on how the mouse has moved since last frame.
+    /// </summary>
     private void UpdateMousePosition()
     {
         float sensitivity = hslColourPicker.mouseSensitivity;
-        if (inputTarget.keyboardTarget.IsHeldExactly(KeyCode.LeftControl) || inputTarget.keyboardTarget.IsHeldExactly(KeyCode.RightControl))
+        if (inputTarget.keyboardTarget.IsHeldExactly(CustomKeyCode.Ctrl))
         {
             sensitivity *= hslColourPicker.slowSensitivityScalar;
         }
@@ -92,29 +106,24 @@ public class HSLColourBox : MonoBehaviour
         UpdateValuesFromMouse(mouseLocalCoords);
     }
 
+    /// <summary>
+    /// Sets the hue/saturation based on the mouse position.
+    /// </summary>
     private void UpdateValuesFromMouse(Vector2 mouseLocalCoords)
     {
-        hue = mouseLocalCoords.x + 0.5f;
-        saturation = mouseLocalCoords.y + 0.5f;
+        SetHue(mouseLocalCoords.x + 0.5f);
+        SetSaturation(mouseLocalCoords.y + 0.5f);
 
         UpdateCursor();
 
         hslColourPicker.UpdateColour();
     }
 
+    /// <summary>
+    /// Move the cursor to the correct position.
+    /// </summary>
     private void UpdateCursor()
     {
         cursor.localPosition = new Vector3(hue - 0.5f, saturation - 0.5f, 0f);
-    }
-
-    public void SetHue(float hue)
-    {
-        _hue = hue;
-        UpdateCursor();
-    }
-    public void SetSaturation(float saturation)
-    {
-        _saturation = saturation;
-        UpdateCursor();
     }
 }

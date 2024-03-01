@@ -2,18 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HSLColourSlider : MonoBehaviour
+/// <summary>
+/// A class for the lightness slider of the HSL colour picker.
+/// </summary>
+public class HSLLightnessSlider : MonoBehaviour
 {
     private float _lightness = 0f;
     public float lightness
     {
-        get
+        get => _lightness;
+        private set
         {
-            return _lightness;
-        }
-        set
-        {
-            SetLightness(value);
+            _lightness = value;
         }
     }
 
@@ -39,7 +39,7 @@ public class HSLColourSlider : MonoBehaviour
 
     private void Start()
     {
-        inputTarget.mouseTarget.SubscribeToStateChange(MouseInput);
+        inputTarget.mouseTarget.SubscribeToStateChange(OnMouseInput);
     }
 
     private void Update()
@@ -52,7 +52,25 @@ public class HSLColourSlider : MonoBehaviour
         }
     }
 
-    private void MouseInput()
+    public void SetLightness(float lightness)
+    {
+        _lightness = lightness;
+        UpdateCursor();
+    }
+
+    /// <summary>
+    /// Sets the hue/saturation to use for displaying the lightness gradient.
+    /// </summary>
+    public void SetDisplayHueSaturation(float hue, float saturation)
+    {
+        renderer.material.SetFloat("_Hue", hue);
+        renderer.material.SetFloat("_Saturation", saturation);
+    }
+
+    /// <summary>
+    /// Called when there in mouse input.
+    /// </summary>
+    private void OnMouseInput()
     {
         if (inputTarget.mouseTarget.state == MouseTargetState.Pressed)
         {
@@ -66,6 +84,9 @@ public class HSLColourSlider : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Handles moving the mouse cursor and updating lightness based on how the mouse has moved since last frame.
+    /// </summary>
     private void UpdateMousePosition()
     {
         float sensitivity = hslColourPicker.mouseSensitivity;
@@ -81,29 +102,23 @@ public class HSLColourSlider : MonoBehaviour
         UpdateValuesFromMouse(mouseLocalCoords);
     }
 
+    /// <summary>
+    /// Sets the lightness based on the mouse position.
+    /// </summary>
     private void UpdateValuesFromMouse(Vector2 mouseLocalCoords)
     {
-        lightness = mouseLocalCoords.y + 0.5f;
+        SetLightness(mouseLocalCoords.y + 0.5f);
 
         UpdateCursor();
 
         hslColourPicker.UpdateColour();
     }
 
-    public void SetHueSaturation(float hue, float saturation)
-    {
-        renderer.material.SetFloat("_Hue", hue);
-        renderer.material.SetFloat("_Saturation", saturation);
-    }
-
+    /// <summary>
+    /// Move the cursor to the correct position.
+    /// </summary>
     private void UpdateCursor()
     {
         cursor.localPosition = new Vector3(0f, lightness - 0.5f, 0f);
-    }
-
-    public void SetLightness(float lightness)
-    {
-        _lightness = lightness;
-        UpdateCursor();
     }
 }

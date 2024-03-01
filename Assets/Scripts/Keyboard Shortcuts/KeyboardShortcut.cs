@@ -4,22 +4,40 @@ using System.Linq;
 using System;
 using UnityEngine;
 
-public class KeyboardShortcut : JSONable
+/// <summary>
+/// A class to represent a single keyboard shortcut.
+/// </summary>
+public class KeyboardShortcut : IJSONable
 {
+    /// <summary>The keycodes in this shortcut, kept in the order they would be read.</summary>
     public List<CustomKeyCode> keyCodes { get; private set; } = new List<CustomKeyCode>();
 
+    /// <summary>The empty keyboard shortcut - i.e. no keycodes.</summary>
     public static KeyboardShortcut None => new KeyboardShortcut();
 
+    /// <summary>
+    /// Creates a shortcut from the given keycodes. Sorts the keycodes into the order they would be read.
+    /// </summary>
     public KeyboardShortcut(params CustomKeyCode[] keyCodes)
     {
-        this.keyCodes = new List<CustomKeyCode>(keyCodes);
+        this.keyCodes = new List<CustomKeyCode>();
+        foreach (CustomKeyCode keyCode in keyCodes)
+        {
+            Add(keyCode);
+        }
         Sort();
     }
 
+    /// <summary>
+    /// Checks if the shortcuts have the same set of keycodes.
+    /// </summary>
     public static bool operator ==(KeyboardShortcut shortcut1, KeyboardShortcut shortcut2)
     {
         return shortcut1.keyCodes.ToHashSet().SetEquals(shortcut2.keyCodes.ToHashSet());
     }
+    /// <summary>
+    /// Checks if the shortcuts do not have the same set of keycodes.
+    /// </summary>
     public static bool operator !=(KeyboardShortcut shortcut1, KeyboardShortcut shortcut2)
     {
         return !(shortcut1 == shortcut2);
@@ -70,11 +88,9 @@ public class KeyboardShortcut : JSONable
         throw new System.Exception("KeyboardShortcuts should not have more than 5 CustomKeyCodes. CustomKeyCodes count: " + keyCodes.Count);
     }
 
-    private void Sort()
-    {
-        keyCodes.Sort(delegate (CustomKeyCode keyCode1, CustomKeyCode keyCode2) { return CompareKeyCodes(keyCode1, keyCode2); });
-    }
-
+    /// <summary>
+    /// Adds the keycode to the shortcut. Returns false if it was already in the shortcut; otherwise returns true.
+    /// </summary>
     public bool Add(CustomKeyCode keyCode)
     {
         if (Contains(keyCode))
@@ -86,11 +102,17 @@ public class KeyboardShortcut : JSONable
         return true;
     }
 
+    /// <summary>
+    /// Removes the keycode from the shortcut. Returns false if the keycode already wasn't in the shortcut; otherwise returns true.
+    /// </summary>
     public bool Remove(CustomKeyCode keyCode)
     {
         return keyCodes.Remove(keyCode);
     }
 
+    /// <summary>
+    /// Returns true if the keycode is in the shortcut.
+    /// </summary>
     public bool Contains(CustomKeyCode keyCode)
     {
         return keyCodes.Contains(keyCode);
@@ -132,7 +154,7 @@ public class KeyboardShortcut : JSONable
     }
 
     /// <summary>
-    /// Returns true the frame this shortcut is released.
+    /// Returns true the frame (any key of) this shortcut is released.
     /// </summary>
     public bool GetKeysUp()
     {
@@ -151,49 +173,14 @@ public class KeyboardShortcut : JSONable
         return keysUp > 0;
     }
 
-    public CustomKeyCode[] ToArray()
+    /// <summary>
+    /// Sorts the keycodes into the order they would be read:
+    /// Ctrl Alt Shift A-Z 0-9 other
+    /// </summary>
+    private void Sort()
     {
-        return keyCodes.ToArray();
+        keyCodes.Sort(delegate (CustomKeyCode keyCode1, CustomKeyCode keyCode2) { return CompareKeyCodes(keyCode1, keyCode2); });
     }
-    public List<CustomKeyCode> ToList()
-    {
-        return new List<CustomKeyCode>(keyCodes);
-    }
-
-    public JSON ToJSON()
-    {
-        JSON json = new JSON();
-
-        json.Add("keyCodes", from keyCode in keyCodes select keyCode.displayName, false);
-
-        return json;
-    }
-
-    public KeyboardShortcut FromJSON(JSON json)
-    {
-        throw new System.NotImplementedException();
-    }
-
-    public override string ToString()
-    {
-        List<string> text = new List<string>();
-
-        if (Contains(CustomKeyCode.Ctrl))
-        {
-            text.Add("Ctrl");
-        }
-        if (Contains(CustomKeyCode.Alt))
-        {
-            text.Add("Alt");
-        }
-        if (Contains(CustomKeyCode.Shift))
-        {
-            text.Add("Shift");
-        }
-
-        return string.Join(" ", keyCodes);
-    }
-
     private int CompareKeyCodes(CustomKeyCode keyCode1, CustomKeyCode keyCode2)
     {
         if (keyCode1 == keyCode2)
@@ -253,5 +240,27 @@ public class KeyboardShortcut : JSONable
         }
 
         return keyCode1.ToString().CompareTo(keyCode2.ToString());
+    }
+
+    public override string ToString()
+    {
+        return string.Join(" ", keyCodes);
+    }
+
+    /// <summary>
+    /// Returns an array of the keycodes in this shortcut, in the order they would be read.
+    /// </summary>
+    public CustomKeyCode[] ToArray()
+    {
+        return keyCodes.ToArray();
+    }
+
+    public JSON ToJSON()
+    {
+        JSON json = new JSON();
+
+        json.Add("keyCodes", from keyCode in keyCodes select keyCode.displayName, false);
+
+        return json;
     }
 }

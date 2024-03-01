@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
+/// <summary>
+/// A class to represent a tile layer - one for placing and editing tileset tiles.
+/// </summary>
 public class TileLayer : Layer
 {
     public override LayerType layerType => LayerType.Tile;
@@ -163,7 +166,7 @@ public class TileLayer : Layer
             throw new System.Exception("Pixel (" + pixel.x + ", " + pixel.y + ") outside of layer dimensions " + width + "x" + height);
         }
 
-        return Colours.Multiply(GetKeyFrame(frame).texture.GetPixel(pixel.x, pixel.y), new Color(1f, 1f, 1f, useLayerOpacity ? opacity : 1f));
+        return BlendMode.MultiplyColours(GetKeyFrame(frame).texture.GetPixel(pixel.x, pixel.y), new Color(1f, 1f, 1f, useLayerOpacity ? opacity : 1f));
     }
 
     /// <summary>

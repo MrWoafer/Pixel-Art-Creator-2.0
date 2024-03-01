@@ -2,11 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// A class to handle copy/paste functionality.
+/// Not yet properly implemented.
+/// </summary>
 public class Clipboard : MonoBehaviour
 {
     [Header("Clipboard")]
     [SerializeField]
+    /// <summary>The texture last copied to the clipboard.</summary>
     private Texture2D copiedTexture;
+    /// <summary>
+    /// The coord of the bottom left of the last texture copied to clipboard, with respect to the file it was copied from.
+    /// </summary>
     private IntVector2 copiedTexturePos;
 
     private FileManager fileManager;
@@ -33,7 +41,7 @@ public class Clipboard : MonoBehaviour
         if (drawingArea.hasSelection)
         {
             copiedTexture = Tex2DSprite.ChangeRect(Tex2DSprite.ApplyMask(layerManager.selectedLayer[animationManager.currentFrameIndex].texture, drawingArea.selectionMask), drawingArea.selectionRect);
-            copiedTexturePos = new IntVector2(drawingArea.selectionRect.bottomLeft);
+            copiedTexturePos = drawingArea.selectionRect.bottomLeft;
 
             Debug.Log("Copied.");
         }

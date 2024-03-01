@@ -15,7 +15,10 @@ public enum LayerType
     Tile = 1
 }
 
-public abstract class Layer : JSONable
+/// <summary>
+/// An abstract class to define what each type of layer must have.
+/// </summary>
+public abstract class Layer : IJSONable
 {
     public abstract LayerType layerType { get; }
 

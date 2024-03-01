@@ -2,6 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// A panel that pixellates the view behind it.
+/// </summary>
 [RequireComponent(typeof(EffectPanel))]
 [AddComponentMenu("Effect Panels/Pixellate Panel")]
 public class PixellatePanel : MonoBehaviour

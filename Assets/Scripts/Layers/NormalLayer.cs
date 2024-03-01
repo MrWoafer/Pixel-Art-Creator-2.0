@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
+/// <summary>
+/// A class to represent a normal layer - one that can be drawn on as a regular image.
+/// </summary>
 public class NormalLayer : Layer
 {
     public override LayerType layerType => LayerType.Normal;
@@ -43,7 +46,7 @@ public class NormalLayer : Layer
             throw new System.Exception("Coords (" + pixel.x + ", " + pixel.y + ") outside of dimensions " + width + "x" + height);
         }
 
-        return useLayerOpacity ? Colours.Multiply(GetKeyFrame(frame).texture.GetPixel(pixel.x, pixel.y), new Color(1f, 1f, 1f, opacity)) : GetKeyFrame(frame).texture.GetPixel(pixel.x, pixel.y);
+        return useLayerOpacity ? BlendMode.MultiplyColours(GetKeyFrame(frame).texture.GetPixel(pixel.x, pixel.y), new Color(1f, 1f, 1f, opacity)) : GetKeyFrame(frame).texture.GetPixel(pixel.x, pixel.y);
     }
 
     /// <summary>
@@ -237,7 +240,7 @@ public class NormalLayer : Layer
             visible = bool.Parse(json["visible"]);
             locked = bool.Parse(json["locked"]);
             opacity = float.Parse(json["opacity"]);
-            blendMode = Colours.StringToBlendMode(json["blendMode"]);
+            blendMode = BlendMode.StringToBlendMode(json["blendMode"]);
             /// (Because I previously incorrectly named Normal blend mode as Overlay
             if (int.Parse(json[".pacVersion"]) <= 3 && blendMode == BlendMode.Overlay)
             {
@@ -254,7 +257,7 @@ public class NormalLayer : Layer
             visible = bool.Parse(json["visible"]);
             locked = bool.Parse(json["locked"]);
             opacity = float.Parse(json["opacity"]);
-            blendMode = Colours.StringToBlendMode(json["blendMode"]);
+            blendMode = BlendMode.StringToBlendMode(json["blendMode"]);
 
             foreach (string keyFrameJSONStr in JSON.SplitArray(json["keyFrames"]))
             {

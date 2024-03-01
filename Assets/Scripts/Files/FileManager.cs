@@ -79,6 +79,10 @@ public class FileManager : MonoBehaviour
         {
             return false;
         }
+        if (files.Contains(file))
+        {
+            return false;
+        }
 
         files.Add(file);
 
@@ -173,22 +177,35 @@ public class FileManager : MonoBehaviour
             OpenFile(fileNames[0]);
         }
     }
-    public bool OpenFile(string filePath)
+    public bool OpenFile(File file)
     {
-        if (!AddFile(File.OpenFile(filePath)))
+        if (files.Contains(file))
         {
-            return false;
+            SwitchToFile(files.IndexOf(file));
         }
+        else
+        {
+            if (!AddFile(file))
+            {
+                return false;
+            }
 
-        //CloseFile(currentFile);
-        SwitchToFile(files.Count - 1);
+            SwitchToFile(files.Count - 1);
+        }
 
         inputSystem.Untarget();
         inputSystem.LockForAFrame();
 
-        Debug.Log("Opened file: " + filePath);
-
         return true;
+    }
+    public bool OpenFile(string filePath)
+    {
+        if (OpenFile(File.OpenFile(filePath)))
+        {
+            Debug.Log("Opened file: " + filePath);
+            return true;
+        }
+        return false;
     }
 
     public void ImportDialog()

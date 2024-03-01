@@ -3,91 +3,64 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
+/// <summary>
+/// A class for the HSL colour picker.
+/// </summary>
 public class HSLColourPicker : MonoBehaviour
 {
     [Header("Settings")]
     [SerializeField]
     private float _mouseSensitivity = 0.1f;
-    public float mouseSensitivity
-    {
-        get
-        {
-            return _mouseSensitivity;
-        }
-    }
+    public float mouseSensitivity => _mouseSensitivity;
     [SerializeField]
     private float _slowSensitivityScalar = 0.5f;
-    public float slowSensitivityScalar
-    {
-        get
-        {
-            return _slowSensitivityScalar;
-        }
-    }
+    /// <summary>The sensitivity of the mouse when holding the modifier keyboard shortcut to reduce the sensitivity.</summary>
+    public float slowSensitivityScalar => _slowSensitivityScalar;
 
     [Header("Events")]
     [SerializeField]
+    /// <summary>Event invoked when the selected colour changes.</summary>
     private UnityEvent onColourChanged = new UnityEvent();
 
     [Header("References")]
-    private HSLColourBox hueSaturationBox;
-    private HSLColourSlider lightnessSlider;
+    private HSLHueSaturationBox hueSaturationBox;
+    private HSLLightnessSlider lightnessSlider;
 
-    public float hue
-    {
-        get
-        {
-            return hueSaturationBox.hue;
-        }
-    }
-    public float saturation
-    {
-        get
-        {
-            return hueSaturationBox.saturation;
-        }
-    }
-    public float lightness
-    {
-        get
-        {
-            return lightnessSlider.lightness;
-        }
-    }
+    public float hue => hueSaturationBox.hue;
+    public float saturation => hueSaturationBox.saturation;
+    public float lightness => lightnessSlider.lightness;
     public float alpha { get; private set; } = 1f;
 
-    public HSL hsl
-    {
-        get
-        {
-            return new HSL(hue, saturation, lightness, alpha);
-        }
-    }
+    public Color color => hsl.color;
+    public HSL hsl => new HSL(hue, saturation, lightness, alpha);
 
     void Awake()
     {
-        hueSaturationBox = transform.Find("Hue Saturation Box").GetComponent<HSLColourBox>();
-        lightnessSlider = transform.Find("Lightness Slider").GetComponent<HSLColourSlider>();
+        hueSaturationBox = transform.Find("Hue Saturation Box").GetComponent<HSLHueSaturationBox>();
+        lightnessSlider = transform.Find("Lightness Slider").GetComponent<HSLLightnessSlider>();
     }
 
     public void UpdateColour()
     {
         onColourChanged.Invoke();
-        lightnessSlider.SetHueSaturation(hsl.h, hsl.s);
+        lightnessSlider.SetDisplayHueSaturation(hsl.h, hsl.s);
     }
 
     public void SetColour(Color colour)
     {
         HSL newHSL = new HSL(colour);
-        hueSaturationBox.hue = newHSL.h;
-        hueSaturationBox.saturation = newHSL.s;
-        lightnessSlider.lightness = newHSL.l;
+        hueSaturationBox.SetHue(newHSL.h);
+        hueSaturationBox.SetSaturation(newHSL.s);
+        lightnessSlider.SetLightness(newHSL.l);
         alpha = colour.a;
 
         UpdateColour();
     }
 
-    public void SubscribeToColourChange(UnityAction call)
+    /// <summary>
+    /// Event invoked when the selected colour changes.
+    /// </summary>
+    public void SubscribeToOnColourChange(UnityAction call)
     {
         onColourChanged.AddListener(call);
     }

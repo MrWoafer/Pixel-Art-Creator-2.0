@@ -62,7 +62,7 @@ public class UIGridPacker : MonoBehaviour
                 throw new System.Exception("Couldn't get a width/height for child: " + child.name);
             }
 
-            if (rowWidth + childWidth >= width || rowObjCount >= maxPerRow)
+            if (rowWidth + childWidth > width || rowObjCount >= maxPerRow)
             {
                 y -= rowMaxY;
                 rowWidth -= xSpacing;
@@ -137,6 +137,13 @@ public class UIGridPacker : MonoBehaviour
         {
             width = toggle.width * obj.transform.localScale.x;
             height = toggle.height * obj.transform.localScale.y;
+        }
+
+        UITileIcon tileIcon = obj.GetComponent<UITileIcon>();
+        if (tileIcon != null)
+        {
+            width = tileIcon.width * obj.transform.localScale.x;
+            height = tileIcon.height * obj.transform.localScale.y;
         }
 
         return new Vector2(width, height);

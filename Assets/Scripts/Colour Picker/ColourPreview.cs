@@ -4,11 +4,15 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
 
+/// <summary>
+/// A class to represent colour previews - the boxes on colour pickers that show what colours you have selected.
+/// </summary>
 public class ColourPreview : MonoBehaviour
 {
     [Header("Settings")]
     [SerializeField]
     private Color _colour = Color.red;
+    /// <summary>The colour displayed in the colour preview.</summary>
     public Color colour
     {
         get
@@ -19,7 +23,7 @@ public class ColourPreview : MonoBehaviour
             }
             return _colour;
         }
-        set
+        private set
         {
             _colour = value;
         }
@@ -29,9 +33,10 @@ public class ColourPreview : MonoBehaviour
     private float _outlineThickness = 0.1f;
     public float outlineThickness
     {
-        get
+        get => _outlineThickness;
+        private set
         {
-            return _outlineThickness;
+            _outlineThickness = value;
         }
     }
     [SerializeField]
@@ -39,7 +44,12 @@ public class ColourPreview : MonoBehaviour
 
     [Header("Events")]
     [SerializeField]
+    /// <summary>Event invoked when colour preview is selected.</summary>
     private UnityEvent onSelect = new UnityEvent();
+    [SerializeField]
+    /// <summary>Event invoked when colour preview is deselected.</summary>
+    private UnityEvent onDeselect = new UnityEvent();
+    /// <summary>Event invoked when colour preview is selected/deselected.</summary>
     [SerializeField]
     private UnityEvent onToggle = new UnityEvent();
 
@@ -54,8 +64,7 @@ public class ColourPreview : MonoBehaviour
         GetReferences();
     }
 
-    // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
         toggle.SubscribeToLeftClick(OnInput);
         SetColour(colour);
@@ -75,13 +84,6 @@ public class ColourPreview : MonoBehaviour
         UpdateDisplay();
     }
 
-    private void UpdateDisplay()
-    {
-        GetReferences();
-        UpdateSize();
-        toggleBackground.color = colour;
-    }
-
     private void GetReferences()
     {
         toggle = GetComponent<UIToggleButton>();
@@ -89,6 +91,13 @@ public class ColourPreview : MonoBehaviour
         rainbowOutline = transform.Find("Canvas").Find("Outline").Find("Rainbow").GetComponent<RainbowOutline>();
         outerOutline = transform.Find("Canvas").Find("Outline").Find("Outer Outline");
         innerOutline = transform.Find("Canvas").Find("Outline").Find("Inner Outline");
+    }
+
+    private void UpdateDisplay()
+    {
+        GetReferences();
+        UpdateSize();
+        toggleBackground.color = colour;
     }
 
     private void UpdateSize()
@@ -107,13 +116,16 @@ public class ColourPreview : MonoBehaviour
 
     public void SetColour(Color colour)
     {
-        _colour = colour;
+        this.colour = colour;
         toggle.offBackgroundColour = colour;
         toggle.onBackgroundColour = colour;
         toggle.pressedBackgroundColour = colour;
         toggleBackground.color = colour;
     }
 
+    /// <summary>
+    /// Called when the colour preview is clicked.
+    /// </summary>
     private void OnInput()
     {
         rainbowOutline.outlineEnabled = toggle.on && useRainbowOutline;
@@ -121,14 +133,31 @@ public class ColourPreview : MonoBehaviour
         {
             onSelect.Invoke();
         }
+        else
+        {
+            onDeselect.Invoke();
+        }
         onToggle.Invoke();
     }
 
-    public void SubscribeToSelect(UnityAction call)
+    /// <summary>
+    /// Event invoked when colour preview is selected.
+    /// </summary>
+    public void SubscribeToOnSelect(UnityAction call)
     {
         onSelect.AddListener(call);
     }
-    public void SubscribeToToggle(UnityAction call)
+    /// <summary>
+    /// Event invoked when colour preview is deselected.
+    /// </summary>
+    public void SubscribeToOnDeselect(UnityAction call)
+    {
+        onDeselect.AddListener(call);
+    }
+    /// <summary>
+    /// Event invoked when colour preview is selected or deselected.
+    /// </summary>
+    public void SubscribeToOnToggle(UnityAction call)
     {
         onToggle.AddListener(call);
     }

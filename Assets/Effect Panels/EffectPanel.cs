@@ -2,6 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// A class to represent a type of panel that applies an effect to the view behind it - e.g. a blur panel or a pixellate panel.
+/// </summary>
 [RequireComponent(typeof(SpriteRenderer))]
 [AddComponentMenu("Effect Panels/Effect Panel")]
 public class EffectPanel : MonoBehaviour
@@ -9,7 +12,7 @@ public class EffectPanel : MonoBehaviour
     [Header("Graphical Settings")]
     [SerializeField]
     [Min(0f)]
-    private float resolution = 1f;
+    private float renderTextureResolution = 1f;
 
     private const float resolutionScaler = 100f;
     private const int depth = 16;
@@ -25,8 +28,8 @@ public class EffectPanel : MonoBehaviour
         renderCamera = transform.Find("Render Camera").GetComponent<Camera>();
         sprRen = GetComponent<SpriteRenderer>();
 
-        SetUpRenderTexture(resolution);
-        SetUpCamera();
+        InitialiseRenderTexture(renderTextureResolution);
+        InitialiseCamera();
     }
 
     private void Update()
@@ -41,8 +44,8 @@ public class EffectPanel : MonoBehaviour
     {
         if (beenRunningForAFrame && Application.isPlaying)
         {
-            SetUpRenderTexture(resolution);
-            SetUpCamera();
+            InitialiseRenderTexture(renderTextureResolution);
+            InitialiseCamera();
         }
     }
 
@@ -52,14 +55,14 @@ public class EffectPanel : MonoBehaviour
         sprRen.enabled = enabled;
     }
 
-    private void SetUpRenderTexture(float resolution)
+    private void InitialiseRenderTexture(float resolution)
     {
         renderTexture = new RenderTexture((int)(transform.lossyScale.x * resolution * resolutionScaler), (int)(transform.lossyScale.y * resolution * resolutionScaler), depth);
         renderTexture.name = "Blur Panel Render Texture";
         sprRen.material.SetTexture("_Render_Texture", renderTexture);
     }
 
-    private void SetUpCamera()
+    private void InitialiseCamera()
     {
         renderCamera.targetTexture = renderTexture;
         renderCamera.orthographic = true;

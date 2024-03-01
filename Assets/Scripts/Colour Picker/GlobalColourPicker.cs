@@ -4,55 +4,29 @@ using UnityEngine;
 using UnityEngine.Events;
 
 [RequireComponent(typeof(UIColourPicker))]
-public class ColourPicker : MonoBehaviour
+public class GlobalColourPicker : MonoBehaviour
 {
-    public Color colour
-    {
-        get
-        {
-            return uiColourPicker.colour;
-        }
-    }
+    /// <summary>The currenty-selected colour.</summary>
+    public Color colour => uiColourPicker.colour;
 
-    public Color primaryColour
-    {
-        get
-        {
-            return colourPreviews[0].colour;
-        }
-    }
-    public Color secondaryColour
-    {
-        get
-        {
-            return colourPreviews[1].colour;
-        }
-    }
+    /// <summary>The current primary colour.</summary>
+    public Color primaryColour => colourPreviews[0].colour;
+    /// <summary>The current secondary colour.</summary>
+    public Color secondaryColour => colourPreviews[1].colour;
 
     [Header("Events")]
     [SerializeField]
+    /// <summary>Called when the selected colour changes.</summary>
     private UnityEvent onColourChanged = new UnityEvent();
 
     [Header("References")]
     private ColourPreview[] colourPreviews;
     private int currentColourPreviewIndex;
-    private ColourPreview currentColourPreview
-    {
-        get
-        {
-            return colourPreviews[currentColourPreviewIndex];
-        }
-    }
+    private ColourPreview currentColourPreview => colourPreviews[currentColourPreviewIndex];
     private UIToggleGroup colourPreviewToggleGroup;
     private UIColourPicker uiColourPicker;
 
-    public int numOfColourPreviews
-    {
-        get
-        {
-            return colourPreviews.Length;
-        }
-    }
+    public int numOfColourPreviews => colourPreviews.Length;
 
     private UIScale rScale;
     private UIScale gScale;
@@ -77,35 +51,36 @@ public class ColourPicker : MonoBehaviour
         toolbar = Finder.toolbar;
     }
 
-    // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
-        rScale.SubscribeToValueChange(ColourChangedByScales);
-        gScale.SubscribeToValueChange(ColourChangedByScales);
-        bScale.SubscribeToValueChange(ColourChangedByScales);
-        aScale.SubscribeToValueChange(ColourChangedByScales);
+        rScale.SubscribeToValueChange(OnColourChangedByScales);
+        gScale.SubscribeToValueChange(OnColourChangedByScales);
+        bScale.SubscribeToValueChange(OnColourChangedByScales);
+        aScale.SubscribeToValueChange(OnColourChangedByScales);
 
         foreach (ColourPreview colourPreview in colourPreviews)
         {
-            colourPreview.SubscribeToSelect(OnSelectColourPreview);
+            colourPreview.SubscribeToOnSelect(OnSelectedColourPreview);
         }
 
-        inputSystem.SubscribeToGlobalKeyboard(KeyboardShortcut);
+        inputSystem.SubscribeToGlobalKeyboard(CheckKeyboardShortcuts);
 
         uiColourPicker.SubscribeToColourChange(() => { onColourChanged.Invoke(); });
 
         SelectColourPreview(0);
     }
 
+    /// <summary>
+    /// Sets the current colour.
+    /// </summary>
     public void SetColour(Color colour)
     {
         uiColourPicker.SetColour(colour);
     }
 
-    public Color GetColour()
-    {
-        return colour;
-    }
+    /// <summary>
+    /// Gets the chosen colour at the given index: 0 - primary; 1 - secondary.
+    /// </summary>
     public Color GetColour(int colourPreviewIndex)
     {
         if (colourPreviewIndex < 0 || colourPreviewIndex >= colourPreviews.Length)
@@ -116,52 +91,29 @@ public class ColourPicker : MonoBehaviour
         return colourPreviews[colourPreviewIndex].colour;
     }
 
-    private void ColourChangedByScales()
-    {
-        SetColour(new Color(rScale.value / 255f, gScale.value / 255f, bScale.value / 255f, aScale.value / 255f));
-    }
-
+    /// <summary>
+    /// Selects the given colour preview: : 0 - primary; 1 - secondary.
+    /// </summary>
+    /// <param name="colourPreviewIndex"></param>
     private void SelectColourPreview(int colourPreviewIndex)
     {
         uiColourPicker.colourPreview = colourPreviews[colourPreviewIndex];
         colourPreviewToggleGroup.Press(colourPreviewIndex);
     }
 
-    private void SelectedColourPreview(int colourPreviewIndex)
-    {
-        if (colourPreviewIndex < 0 || colourPreviewIndex > colourPreviews.Length)
-        {
-            throw new System.Exception("Index out of range: " + colourPreviewIndex);
-        }
-
-        currentColourPreviewIndex = colourPreviewIndex;
-        uiColourPicker.colourPreview = colourPreviews[colourPreviewIndex];
-        SetColour(colourPreviews[colourPreviewIndex].colour);
-    }
-    private void SelectedColourPreview(ColourPreview colourPreview)
-    {
-        for(int i = 0; i < colourPreviews.Length; i++)
-        {
-            if (colourPreview == colourPreviews[i])
-            {
-                SelectedColourPreview(i);
-                return;
-            }
-        }
-        throw new System.Exception("Couldn't find given colour preview.");
-    }
-
+    /// <summary>
+    /// Moves through the colour previews by the specified amount.
+    /// Currently, there are only two colour previews, so this just swaps between primary/secondary colour if numOfSteps is odd, else does nothing.
+    /// </summary>
     private void CycleColourPreview(int numOfSteps)
     {
         SelectColourPreview(Functions.Mod(currentColourPreviewIndex + numOfSteps, colourPreviews.Length));
     }
 
-    private void OnSelectColourPreview()
-    {
-        SelectedColourPreview(colourPreviewToggleGroup.currentToggle.GetComponent<ColourPreview>());
-    }
-
-    private void KeyboardShortcut()
+    /// <summary>
+    /// Handles checking keyboard shortcuts and enacting the relevant actions.
+    /// </summary>
+    private void CheckKeyboardShortcuts()
     {
         if (toolbar.selectedTool != Tool.Move)
         {
@@ -188,7 +140,55 @@ public class ColourPicker : MonoBehaviour
         }
     }
 
-    public void SubscribeToColourChange(UnityAction call)
+    /// <summary>
+    /// Caled when a new colour preview is selected.
+    /// </summary>
+    private void OnSelectedColourPreview()
+    {
+        OnSelectedColourPreview(colourPreviewToggleGroup.currentToggle.GetComponent<ColourPreview>());
+    }
+    /// <summary>
+    /// Caled when a new colour preview is selected.
+    /// </summary>
+    private void OnSelectedColourPreview(int colourPreviewIndex)
+    {
+        if (colourPreviewIndex < 0 || colourPreviewIndex > colourPreviews.Length)
+        {
+            throw new System.Exception("Index out of range: " + colourPreviewIndex);
+        }
+
+        currentColourPreviewIndex = colourPreviewIndex;
+        uiColourPicker.colourPreview = colourPreviews[colourPreviewIndex];
+        SetColour(colourPreviews[colourPreviewIndex].colour);
+    }
+    /// <summary>
+    /// Caled when a new colour preview is selected.
+    /// </summary>
+    private void OnSelectedColourPreview(ColourPreview colourPreview)
+    {
+        for (int i = 0; i < colourPreviews.Length; i++)
+        {
+            if (colourPreview == colourPreviews[i])
+            {
+                OnSelectedColourPreview(i);
+                return;
+            }
+        }
+        throw new System.Exception("Couldn't find given colour preview.");
+    }
+
+    /// <summary>
+    /// Called when the selected colour has been changed by the RGBA scales.
+    /// </summary>
+    private void OnColourChangedByScales()
+    {
+        SetColour(new Color(rScale.value / 255f, gScale.value / 255f, bScale.value / 255f, aScale.value / 255f));
+    }
+
+    /// <summary>
+    /// Event is invoked when the selected colour changes.
+    /// </summary>
+    public void SubscribeToOnColourChange(UnityAction call)
     {
         onColourChanged.AddListener(call);
     }

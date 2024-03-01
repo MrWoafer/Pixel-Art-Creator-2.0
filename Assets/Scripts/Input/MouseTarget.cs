@@ -13,7 +13,8 @@ public enum MouseTargetState
 public enum MouseTargetDeselectMode
 {
     Unclick = 0,
-    ClickAgain = 1
+    ClickAgain = 1,
+    Manual = 100
 }
 
 public class MouseTarget

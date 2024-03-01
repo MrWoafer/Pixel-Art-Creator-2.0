@@ -6,7 +6,10 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class File : JSONable
+/// <summary>
+/// A class to represent a single Pixel Art Creator file.
+/// </summary>
+public class File : IJSONable
 {
     public string name { get; set; } = "";
 
@@ -921,7 +924,7 @@ public class File : JSONable
             if (layers[layerIndices[i]].visible)
             {
                 Color layerPixelColour = layers[layerIndices[i]].GetPixel(x, y, frame);
-                pixelColour = Colours.Blend(layerPixelColour, pixelColour, layers[layerIndices[i]].blendMode);
+                pixelColour = layers[layerIndices[i]].blendMode.Blend(layerPixelColour, pixelColour);
             }
         }
 

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// This class is no longer used
 [System.Serializable]
 [System.Obsolete("LayerAnimation has now been moved directly into the Layer class.")]
 public class LayerAnimation

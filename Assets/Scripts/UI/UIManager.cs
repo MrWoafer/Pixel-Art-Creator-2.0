@@ -714,7 +714,7 @@ public class UIManager : MonoBehaviour
 
         string layerName = layerNameTextbox.text;
         float opacity = layerOpacityField.value / 255f;
-        BlendMode blendMode = Colours.StringToBlendMode(layerBlendModeDropdown.selectedOption);
+        BlendMode blendMode = BlendMode.StringToBlendMode(layerBlendModeDropdown.selectedOption);
 
         layerManager.SetLayerOpacity(layerPropertiesLayerIndex, opacity);
         layerManager.SetLayerBlendMode(layerPropertiesLayerIndex, blendMode);

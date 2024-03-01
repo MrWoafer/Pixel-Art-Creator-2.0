@@ -329,7 +329,7 @@ public static class Tex2DSprite
             {
                 if (texRect.Contains(new IntVector2(x - topTexOffset.x, y - topTexOffset.y)))
                 {
-                    tex.SetPixel(x, y, Colours.Blend(topTex.GetPixel(x - topTexOffset.x, y - topTexOffset.y), bottomTex.GetPixel(x, y), blendMode));
+                    tex.SetPixel(x, y, blendMode.Blend(topTex.GetPixel(x - topTexOffset.x, y - topTexOffset.y), bottomTex.GetPixel(x, y)));
                 }
                 else
                 {
@@ -352,7 +352,7 @@ public static class Tex2DSprite
         {
             for (int y = 0; y < bottomTex.height; y++)
             {
-                tex.SetPixel(x, y, Colours.Blend(topColour, bottomTex.GetPixel(x, y), blendMode));
+                tex.SetPixel(x, y, blendMode.Blend(topColour, bottomTex.GetPixel(x, y)));
             }
         }
 

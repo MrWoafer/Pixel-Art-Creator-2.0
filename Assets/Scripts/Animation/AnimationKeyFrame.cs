@@ -2,9 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AnimationKeyFrame : JSONable
+/// <summary>
+/// A class representing a single keyframe for a layer.
+/// </summary>
+public class AnimationKeyFrame : IJSONable
 {
+    /// <summary>The number of the frame this keyframe is on.</summary>
     public int frame;
+    /// <summary>The texture displayed at this keyframe.</summary>
     public Texture2D texture;
 
     public AnimationKeyFrame(int frame, Texture2D texture)
@@ -49,7 +54,7 @@ public class AnimationKeyFrame : JSONable
 
             texRows[row] = "[" + string.Join(", ", rowColours) + "]";
         }
-        json.Add("texture", "[" + string.Join(", ", texRows) + "]", false);
+        json.Add("texture", texRows, false, false);
 
         return json;
     }

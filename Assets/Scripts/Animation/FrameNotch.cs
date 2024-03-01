@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+/// <summary>
+/// A class for the frame number markers on the animation timeline.
+/// </summary>
 public class FrameNotch : MonoBehaviour
 {
     private Text numberText;

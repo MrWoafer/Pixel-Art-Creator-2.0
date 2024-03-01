@@ -3,23 +3,35 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
+/// <summary>
+/// A class to represent data in a JSON format.
+/// </summary>
 public class JSON
 {
-    private Dictionary<string, JSONProperty> dictionary = new Dictionary<string, JSONProperty>();
+    /// <summary>
+    /// A key is a variable name and the value is the data for that variable.
+    /// </summary>
+    private Dictionary<string, JSONProperty> data = new Dictionary<string, JSONProperty>();
 
+    /// <summary>
+    /// Create an empty JSON object.
+    /// </summary>
     public JSON() { }
-
+    /// <summary>
+    /// Parse the JSON-format string into a JSON object.
+    /// </summary>
     public JSON(string jsonToParse)
     {
         AddParse(jsonToParse);
     }
 
+    /// <summary>The keys appearing in the outermost scope of the JSON data.</summary>
     public string[] Keys
     {
         get
         {
             List<string> list = new List<string>();
-            foreach (string key in dictionary.Keys)
+            foreach (string key in data.Keys)
             {
                 list.Add(key);
             }
@@ -27,107 +39,145 @@ public class JSON
         }
     }
 
+    /// <summary>
+    /// A class to store an individual piece of JSON data.
+    /// </summary>
     public class JSONProperty
     {
-        public bool useQuotationMarks;
-        public string str;
+        /// <summary>The data.</summary>
+        public string data;
+        /// <summary>Whether quotation marks should be added around the data - e.g. if the data represents a string.</summary>
+        public bool addQuotationMarks;
 
-        public JSONProperty(string str, bool useQuotationMarks)
+        /// <param name="addQuotationMarks">Whether quotation marks should be added around the data - e.g. if the data represents a string.</param>
+        public JSONProperty(string data, bool addQuotationMarks)
         {
-            this.useQuotationMarks = useQuotationMarks;
-            this.str = str;
+            this.data = data;
+            this.addQuotationMarks = addQuotationMarks;
         }
     }
 
+    /// <summary>
+    /// Accesses the string form of the data for the given key - the same as Get(key) and Add(key, value). To access the JSONProperty for the key, use GetJSONProperty(key).
+    /// </summary>
     public string this[string key]
     {
         get
         {
             return Get(key);
         }
-
         set
         {
             Add(key, value);
         }
     }
 
+    /// <summary>
+    /// Returns true if this JSON object has the given key.
+    /// </summary>
     public bool ContainsKey(string key)
     {
-        return dictionary.ContainsKey(key);
+        return data.ContainsKey(key);
     }
 
+    /// <summary>
+    /// Returns the string form of the data at the given key.
+    /// </summary>
     public string Get(string key)
     {
-        if (!dictionary.ContainsKey(key))
+        if (!data.ContainsKey(key))
         {
             throw new KeyNotFoundException("No key found with name: " + key);
         }
-        return dictionary[key].str;
+        return data[key].data;
     }
 
+    /// <summary>
+    /// Returns the JSONProperty at the given key.
+    /// </summary>
     public JSONProperty GetJSONProperty(string key)
     {
-        if (!dictionary.ContainsKey(key))
+        if (!data.ContainsKey(key))
         {
             throw new KeyNotFoundException("No key found with name: " + key);
         }
-        return dictionary[key];
+        return data[key];
     }
 
-    public void Add(string key, string str)
+    /// <summary>
+    /// Adds the given data at the given key, overriding any existing data.
+    /// </summary>
+    public void Add(string key, JSONProperty data)
     {
-        Add(key, new JSONProperty(str, true));
-    }
-    public void Add(string key, string str, bool useQuotationMarks)
-    {
-        Add(key, new JSONProperty(str, useQuotationMarks));
-    }
-    public void Add(string key, IEnumerable<string> strings, bool separateLines)
-    {
-        Add(key, new JSONProperty(ToJSONString(strings, separateLines, true), false));
+        this.data[key] = data;
     }
 
-    public void Add(string key, bool boolean)
-    {
-        Add(key, new JSONProperty(boolean ? "true" : "false", true));
-    }
+    /// <summary>
+    /// Adds the given string to the JSON, adding quotation marks around the string.
+    /// </summary>
+    public void Add(string key, string str) => Add(key, new JSONProperty(str, true));
+    /// <summary>
+    /// Adds the given data (given in string form) to the JSON.
+    /// </summary>
+    public void Add(string key, string str, bool addQuotationMarks) => Add(key, new JSONProperty(str, addQuotationMarks));
+    /// <summary>
+    /// Adds the given strings to the JSON in the format of a JSON array, adding quotation marks around each string.
+    /// </summary>
+    /// <param name="separateLines">Whether to start a new line for each element of the array.</param>
+    public void Add(string key, IEnumerable<string> strings, bool separateLines) => Add(key, new JSONProperty(ToJSONString(strings, separateLines, true), false));
+    /// <summary>
+    /// Adds the given data (given in string form) to the JSON in the format of a JSON array.
+    /// </summary>
+    /// <param name="separateLines">Whether to start a new line for each element of the array.</param>
+    /// <param name="addQuotationMarks">Whether to add quotation marks around each element of the array.</param>
+    public void Add(string key, IEnumerable<string> strings, bool separateLines, bool addQuotationMarks) => Add(key, new JSONProperty(ToJSONString(strings, separateLines, addQuotationMarks), false));
 
-    public void Add(string key, JSON json)
-    {
-        Add(key, new JSONProperty(json.ToString(), false));
-    }
-    public void Add(string key, JSONProperty jsonProperty)
-    {
-        dictionary[key] = jsonProperty;
-    }
-    public void Add(string key, JSONable jsonableObject)
-    {
-        Add(key, jsonableObject.ToJSON());
-    }
-    public void Add(string key, IEnumerable<JSONable> jsonableObjects)
-    {
-        Add(key, new JSONProperty(ToJSONString(jsonableObjects), false));
-    }
+    /// <summary>
+    /// Adds the given bool to the JSON.
+    /// </summary>
+    public void Add(string key, bool boolean) => Add(key, new JSONProperty(boolean ? "true" : "false", true));
 
-    public void Add(string key, object obj)
-    {
-        Add(key, new JSONProperty(obj.ToString(), false));
-    }
-    public void Add(string key, object obj, bool useQuotationMarks)
-    {
-        Add(key, new JSONProperty(obj.ToString(), useQuotationMarks));
-    }
-    public void Add(string key, IEnumerable objects, bool separateLines)
-    {
-        Add(key, new JSONProperty(ToJSONString(objects, separateLines), false));
-    }
+    /// <summary>
+    /// Adds the string form of the given JSON to this JSON object.
+    /// </summary>
+    public void Add(string key, JSON json) => Add(key, new JSONProperty(json.ToString(), false));
+    /// <summary>
+    /// Adds the string form of the JSON of the given object to this JSON object.
+    /// </summary>
+    public void Add(string key, IJSONable jsonableObject) => Add(key, jsonableObject.ToJSON());
+    /// <summary>
+    /// Adds the string forms of the JSON of the given objects to this JSON object in the format of a JSON array.
+    /// </summary>
+    public void Add(string key, IEnumerable<IJSONable> jsonableObjects) => Add(key, new JSONProperty(ToJSONString(jsonableObjects), false));
 
+    /// <summary>
+    /// Adds the string form of the given object to the JSON, adding no quotation marks.
+    /// </summary>
+    public void Add(string key, object obj) => Add(key, new JSONProperty(obj.ToString(), false));
+    /// <summary>
+    /// Adds the string form of the given object to the JSON.
+    /// </summary>
+    public void Add(string key, object obj, bool addQuotationMarks) => Add(key, new JSONProperty(obj.ToString(), addQuotationMarks));
+    /// <summary>
+    /// Adds the string form of the given objects to the JSON in the format of a JSON array, adding no quotation marks.
+    /// </summary>
+    /// <param name="separateLines">Whether to start a new line for each element of the array.</param>
+    public void Add(string key, IEnumerable objects, bool separateLines) => Add(key, new JSONProperty(ToJSONString(objects, separateLines), false));
+    /// <summary>
+    /// Adds the string form of the given objects to the JSON in the format of a JSON array.
+    /// </summary>
+    /// <param name="separateLines">Whether to start a new line for each element of the array.</param>
+    /// <param name="addQuotationMarks">Whether to add quotation marks around each element of the array.</param>
+    public void Add(string key, IEnumerable objects, bool separateLines, bool addQuotationMarks) => Add(key, new JSONProperty(ToJSONString(objects, separateLines, addQuotationMarks), false));
+
+    /// <summary>
+    /// Adds the data of the given JSON object to the end of this JSON object. Throws error if they have a key in common.
+    /// </summary>
     public void Append(JSON json)
     {
         foreach (string key in json.Keys)
         {
-            if (dictionary.ContainsKey(key))
+            if (data.ContainsKey(key))
             {
                 throw new System.Exception("The two JSON objects have a common key: " + key);
             }
@@ -136,14 +186,16 @@ public class JSON
         }
     }
 
+    /// <summary>
+    /// Parses the JSON string into a new JSON object.
+    /// </summary>
     public static JSON Parse(string jsonToParse)
     {
         return new JSON(jsonToParse);
     }
     /// <summary>
-    /// Parses the JSON string and adds all data to this JSON object.
+    /// Parses the JSON string and adds all data to this JSON object. Does not delete any existing data in this object, except when keys collide, in which case new data will override old data.
     /// </summary>
-    /// <param name="jsonToParse"></param>
     public void AddParse(string jsonToParse)
     {
         string variable;
@@ -155,7 +207,7 @@ public class JSON
             variable = "";
             data = "";
 
-            /// Find start of next variable name
+            // Find start of next variable name
             while (jsonToParse[index] != '\"')
             {
                 index++;
@@ -166,27 +218,27 @@ public class JSON
             }
             index++;
 
-            /// Read variable name
+            // Read variable name
             while (jsonToParse[index] != '\"')
             {
                 variable += jsonToParse[index];
                 index++;
             }
 
-            /// Find colon
+            // Find colon
             while (jsonToParse[index] != ':')
             {
                 index++;
             }
             index++;
 
-            /// Find start of data
+            // Find start of data
             while (string.IsNullOrWhiteSpace(jsonToParse[index].ToString()))
             {
                 index++;
             }
 
-            /// Read data
+            // Read data
             bool inString = false;
             int openCloseBalance = 0;
             do
@@ -214,7 +266,7 @@ public class JSON
                     }
                 }
 
-                /// To catch reaching the end of the JSON (so where there's not a comma to signify the end of the data)
+                // To catch reaching the end of the JSON (so where there's not a comma to signify the end of the data)
                 if (openCloseBalance < 0)
                 {
                     break;
@@ -227,7 +279,7 @@ public class JSON
 
             data = data.Trim();
 
-            /// Trim start/end "" if data is a string
+            // Trim start/end "" if data is a string
             if (data[0] == '\"')
             {
                 data = data.Remove(0, 1);
@@ -250,75 +302,10 @@ public class JSON
     }
 
     /// <summary>
-    /// Splits a JSON string representing an array into a string[] of the data.
+    /// Removes the " " pair enclosing a string, if there is one; otherwise throws an error.
     /// </summary>
-    /// <param name="jsonString">Include the start/end square brackets in the string.</param>
+    /// <param name="str"></param>
     /// <returns></returns>
-    public static string[] SplitArray(string jsonString)
-    {
-        List<string> split = new List<string>();
-
-        int index = 1;
-        while (string.IsNullOrWhiteSpace(jsonString[index].ToString()))
-        {
-            index++;
-        }
-        int endIndex = jsonString.Length - 2;
-        while (string.IsNullOrWhiteSpace(jsonString[endIndex].ToString()))
-        {
-            endIndex--;
-        }
-
-        string data = "";
-
-        bool inString = false;
-        int openCloseBalance = 0;
-        while (index <= endIndex)
-        {
-            if (inString)
-            {
-                if (jsonString[index] == '\"')
-                {
-                    inString = false;
-                }
-            }
-            else
-            {
-                if (jsonString[index] == '\"')
-                {
-                    inString = true;
-                }
-                else if (jsonString[index] == '{' || jsonString[index] == '[' || jsonString[index] == '(')
-                {
-                    openCloseBalance++;
-                }
-                else if (jsonString[index] == '}' || jsonString[index] == ']' || jsonString[index] == ')')
-                {
-                    openCloseBalance--;
-                }
-            }
-
-            if (jsonString[index] == ',' && !inString && openCloseBalance == 0)
-            {
-                split.Add(data);
-                data = "";
-                do
-                {
-                    index++;
-                }
-                while (string.IsNullOrWhiteSpace(jsonString[index].ToString()));
-            }
-            else
-            {
-                data += jsonString[index];
-                index++;
-            }
-        }
-        split.Add(data);
-
-        return split.ToArray();
-    }
-
     public static string StripQuotationMarks(string str)
     {
         if (str[0] != '\"' || str[^1] != '\"')
@@ -330,26 +317,29 @@ public class JSON
         return str;
     }
 
+    /// <summary>
+    /// Returns the data as a string in JSON format.
+    /// </summary>
     public override string ToString()
     {
         string str = "{";
 
-        foreach (string key in dictionary.Keys)
+        foreach (string key in data.Keys)
         {
             str += "\n\t\"" + key + "\": ";
 
-            if (dictionary[key].str == null)
+            if (data[key].data == null)
             {
                 str += "null";
             }
             else
             {
-                if (dictionary[key].useQuotationMarks)
+                if (data[key].addQuotationMarks)
                 {
                     str += "\"";
                 }
 
-                string[] lines = dictionary[key].str.Split('\n');
+                string[] lines = data[key].data.Split('\n');
                 for (int i = 0; i < lines.Length; i++)
                 {
                     if (i > 0)
@@ -361,7 +351,7 @@ public class JSON
 
                 str = str.Remove(str.Length - 1);
 
-                if (dictionary[key].useQuotationMarks)
+                if (data[key].addQuotationMarks)
                 {
                     str += "\"";
                 }
@@ -374,20 +364,39 @@ public class JSON
         return str;
     }
 
-    public static string ToJSONString(IEnumerable<JSONable> jsonableObjects)
+    /// <summary>
+    /// Returns the JSON of the given objects in a JSON-format array in string form.
+    /// </summary>
+    public static string ToJSONString(IEnumerable<IJSONable> jsonableObjects)
     {
         return ToJSONString(from obj in jsonableObjects select obj.ToJSON().ToString(), true, false);
     }
-    public static string ToJSONString(IEnumerable objects, bool separateLines)
+    /// <summary>
+    /// Returns the JSON of the given objects in a JSON-format array in string form, adding no quotation marks.
+    /// </summary>
+    public static string ToJSONString(IEnumerable objects, bool separateLines) => ToJSONString(objects, separateLines, false);
+    /// <summary>
+    /// Returns the JSON of the given objects in a JSON-format array in string form.
+    /// </summary>
+    /// <param name="addQuotationMarks">Whether to add quotation marks around each element of the array.</param>
+    public static string ToJSONString(IEnumerable objects, bool separateLines, bool addQuotationMarks)
     {
         List<string> strings = new List<string>();
         foreach (object obj in objects)
         {
             strings.Add(obj.ToString());
         }
-        return ToJSONString(strings, separateLines, false);
+        return ToJSONString(strings, separateLines, addQuotationMarks);
     }
-    public static string ToJSONString(IEnumerable<string> strings, bool separateLines, bool useQuotationMarks)
+    /// <summary>
+    /// Returns the given strings in a JSON-format array in string form, adding quotation marks around each element.
+    /// </summary>
+    public static string ToJSONString(IEnumerable<string> strings, bool separateLines) => ToJSONString(strings, separateLines, true);
+    /// <summary>
+    /// Returns the given strings in a JSON-format array in string form.
+    /// </summary>
+    /// <param name="addQuotationMarks">Whether to add quotation marks around each element of the array.</param>
+    public static string ToJSONString(IEnumerable<string> strings, bool separateLines, bool addQuotationMarks)
     {
         string jsonStr = "[";
         bool firstElement = true;
@@ -409,7 +418,7 @@ public class JSON
                 }
             }
 
-            string layerJSON = useQuotationMarks ? "\"" + str + "\"" : str;
+            string layerJSON = addQuotationMarks ? "\"" + str + "\"" : str;
 
             string[] lines = layerJSON.Split('\n');
             foreach (string line in lines)
@@ -431,5 +440,95 @@ public class JSON
 
         jsonStr = jsonStr.TrimEnd(',') + (separateLines ? "\n]" : "]");
         return jsonStr;
+    }
+
+    /// <summary>
+    /// Splits a JSON string representing an array into a string[] of the data.
+    /// </summary>
+    /// <param name="jsonString">Include the start/end square brackets in the string.</param>
+    public static string[] SplitArray(string jsonString)
+    {
+        if (jsonString[0] != '[')
+        {
+            throw new System.Exception("jsonString must start with [");
+        }
+        if (jsonString[^1] != ']')
+        {
+            throw new System.Exception("jsonString must end with ]");
+        }
+
+        List<string> split = new List<string>();
+
+        int index = 1;
+        while (string.IsNullOrWhiteSpace(jsonString[index].ToString()))
+        {
+            index++;
+        }
+        int endIndex = jsonString.Length - 2;
+        while (string.IsNullOrWhiteSpace(jsonString[endIndex].ToString()))
+        {
+            endIndex--;
+        }
+
+        // The current element of the array.
+        string data = "";
+
+        // Elements of the array may be strings, which could contain commas that we then don't want to split at.
+        // This variable keeps track of whether the char we are currently looking at is in a string.
+        bool inString = false;
+        // Since elements of the array may be arrays, and we are only splitting the outermost array, there may be some commas we don't want to split at.
+        // To deal with this, this variable keeps track of whether brackets pairs have been open and closed.
+        int openCloseBalance = 0;
+        while (index <= endIndex)
+        {
+            // Check if we are currently in an array element that is a string
+            if (inString)
+            {
+                // Check if we have reached the end of the string
+                if (jsonString[index] == '\"')
+                {
+                    inString = false;
+                }
+            }
+            else
+            {
+                // Check if we are opening a string
+                if (jsonString[index] == '\"')
+                {
+                    inString = true;
+                }
+                // Check if we are opening / closing a bracket and adjust the bracket balance variable accordingly.
+                else if (jsonString[index] == '{' || jsonString[index] == '[' || jsonString[index] == '(')
+                {
+                    openCloseBalance++;
+                }
+                else if (jsonString[index] == '}' || jsonString[index] == ']' || jsonString[index] == ')')
+                {
+                    openCloseBalance--;
+                }
+            }
+
+            // Check if we have reached the end of the current array element
+            if (jsonString[index] == ',' && !inString && openCloseBalance == 0)
+            {
+                // We have reached the last character of the current array element, so we add it to our list.
+                split.Add(data);
+                data = "";
+                do
+                {
+                    index++;
+                }
+                while (string.IsNullOrWhiteSpace(jsonString[index].ToString()));
+            }
+            else
+            {
+                // Read the next character of the current array element
+                data += jsonString[index];
+                index++;
+            }
+        }
+        split.Add(data);
+
+        return split.ToArray();
     }
 }

@@ -2,6 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// A panel that blurs the view behind it.
+/// </summary>
 [RequireComponent(typeof(EffectPanel), typeof(SpriteRenderer))]
 [AddComponentMenu("Effect Panels/Blur Panel")]
 public class BlurPanel : MonoBehaviour
@@ -26,6 +29,7 @@ public class BlurPanel : MonoBehaviour
 
     private EffectPanel effectPanel;
     private SpriteRenderer sprRen;
+    /// <summary>Used to block mouse interactions with elements behind the panel when the blur is enabled.</summary>
     private Collider2D collider;
 
     private bool beenRunningForAFrame = false;

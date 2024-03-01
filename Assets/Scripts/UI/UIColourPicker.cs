@@ -11,13 +11,7 @@ public class UIColourPicker : MonoBehaviour
     private Color startingColour = Color.red;
     private bool colourSet = false;
 
-    public Color colour
-    {
-        get
-        {
-            return colourPreview ? colourPreview.colour : hslColourPicker.hsl.color;
-        }
-    }
+    public Color colour => colourPreview ? colourPreview.colour : hslColourPicker.color;
 
     [Header("Events")]
     [SerializeField]
@@ -30,7 +24,7 @@ public class UIColourPicker : MonoBehaviour
     public ColourPreview colourPreview;
     private ColourPreview[] selectedColoursPreviews = new ColourPreview[0];
     private HSLColourPicker hslColourPicker;
-    private ColourPicker globalColourPicker;
+    private GlobalColourPicker globalColourPicker;
 
     private Toolbar toolbar;
 
@@ -70,7 +64,7 @@ public class UIColourPicker : MonoBehaviour
 
         inputSystem = Finder.inputSystem;
 
-        hslColourPicker.SubscribeToColourChange(() => UpdateColour(hslColourPicker.hsl.color));
+        hslColourPicker.SubscribeToOnColourChange(() => UpdateColour(hslColourPicker.hsl.color));
     }
 
     // Start is called before the first frame update
@@ -85,13 +79,13 @@ public class UIColourPicker : MonoBehaviour
 
         foreach (ColourPreview selectedColourPreview in selectedColoursPreviews)
         {
-            selectedColourPreview.SubscribeToToggle(() => { SetColour(selectedColourPreview.colour); });
+            selectedColourPreview.SubscribeToOnToggle(() => { SetColour(selectedColourPreview.colour); });
         }
 
         for (int i = 0; i < selectedColoursPreviews.Length && i < globalColourPicker.numOfColourPreviews; i++)
         {
             int j = i;
-            globalColourPicker.SubscribeToColourChange(() => { selectedColoursPreviews[j].SetColour(globalColourPicker.GetColour(j)); });
+            globalColourPicker.SubscribeToOnColourChange(() => { selectedColoursPreviews[j].SetColour(globalColourPicker.GetColour(j)); });
         }
 
         if (!colourSet)
