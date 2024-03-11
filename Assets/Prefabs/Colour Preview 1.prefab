@@ -342,6 +342,9 @@ MonoBehaviour:
   onSelect:
     m_PersistentCalls:
       m_Calls: []
+  onDeselect:
+    m_PersistentCalls:
+      m_Calls: []
   onToggle:
     m_PersistentCalls:
       m_Calls: []
