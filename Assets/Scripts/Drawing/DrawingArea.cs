@@ -48,8 +48,8 @@ public class DrawingArea : MonoBehaviour
     /// <summary>The pixel the mouse is currently on.</summary>
     private IntVector2 mousePixel => WorldPosToPixel(mouse.worldPos);
     private readonly IntVector2 mouseDragInactiveCoords = new IntVector2(-1, -1);
-    /// <summary>For tools that involve dragging, this is pixel the mouse started dragging from.</summary>
-    private IntVector2 mouseDragStartPoint = new IntVector2(-1, -1);
+    /// <summary>For tools that involve dragging, this are the pixels the mouse started dragged from/to, in order.</summary>
+    private List<IntVector2> mouseDragPoints = new List<IntVector2>();
     private IntVector2 previousPixelUsedToolOn = new IntVector2(-1, -1);
     /// <summary>The pixel the mouse was on before the current pixel.</summary>
     private IntVector2 previousMousePixel = new IntVector2(-1, -1);
@@ -156,6 +156,9 @@ public class DrawingArea : MonoBehaviour
     private Color lineSmoothingColourUnderLineEnd = Color.clear;
     private float lineSmoothingCountdown = 0f;
 
+    // Iso box tool variables
+    private bool isoBoxPlacedBase = false;
+
     void Awake()
     {
         drawingSprRen = transform.Find("Drawing").GetComponent<SpriteRenderer>();
@@ -239,7 +242,7 @@ public class DrawingArea : MonoBehaviour
                 {
                     if (mouse.click || mouseOutsideDrawingAreaLastFrame || !toolbar.selectedTool.useMovementInterpolation)
                     {
-                        UseTool(toolbar.selectedTool, mousePixel, selectedLayerIndex, currentFrameIndex, colour);
+                        ClickTool(toolbar.selectedTool, mousePixel, selectedLayerIndex, currentFrameIndex, colour);
                     }
                     else
                     {
@@ -248,7 +251,7 @@ public class DrawingArea : MonoBehaviour
                         Color colourUnderLineEnd = selectedLayer.GetPixel(line[^1], animationManager.currentFrameIndex);
                         foreach (IntVector2 pixel in line)
                         {
-                            UseTool(toolbar.selectedTool, pixel, selectedLayerIndex, currentFrameIndex, colour);
+                            ClickTool(toolbar.selectedTool, pixel, selectedLayerIndex, currentFrameIndex, colour);
                         }
 
                         bool smoothed = false;
@@ -273,6 +276,10 @@ public class DrawingArea : MonoBehaviour
                     deselectedSelectionThisFrame = false;
                 }
             }
+        }
+        else if (inputTarget.mouseTarget.state == MouseTargetState.Hover && !layerManager.selectedLayer.locked)
+        {
+            HoverTool(toolbar.selectedTool, mousePixel, selectedLayerIndex, currentFrameIndex, colourPicker.colour);
         }
 
         // Moving view
@@ -443,7 +450,11 @@ public class DrawingArea : MonoBehaviour
     {
         if (inputTarget.mouseTarget.state == MouseTargetState.Pressed)
         {
-            mouseDragStartPoint = mousePixel;
+            if (finishedUsingTool)
+            {
+                mouseDragPoints.Clear();
+            }
+            mouseDragPoints.Add(mousePixel);
 
             if (middleClickedOn)
             {
@@ -477,7 +488,7 @@ public class DrawingArea : MonoBehaviour
                 {
                     if (selectedLayer.layerType == LayerType.Tile)
                     {
-                        tileBeingMoved = ((TileLayer)selectedLayer).PixelToTile(mouseDragStartPoint);
+                        tileBeingMoved = ((TileLayer)selectedLayer).PixelToTile(mouseDragPoints[0]);
 
                         if (tileBeingMoved != null)
                         {
@@ -493,12 +504,20 @@ public class DrawingArea : MonoBehaviour
                 }
             }
         }
-        else if (mouse.unclick && !finishedUsingTool && !selectedLayer.locked)
+        else if (inputTarget.mouseTarget.state == MouseTargetState.Idle && mouse.unclick && !finishedUsingTool && !selectedLayer.locked && !hasUnclickedSinceUsingTool)
         {
-            FinishUsingTool(toolbar.selectedTool, previousPixelUsedToolOn, selectedLayerIndex, currentFrameIndex, colourPicker.colour);
+            UnclickTool(toolbar.selectedTool, previousPixelUsedToolOn, selectedLayerIndex, currentFrameIndex, colourPicker.colour);
             ClearPreview();
-            mouseDragStartPoint = mouseDragInactiveCoords;
-            finishedUsingTool = true;
+            //mouseDragPoints[0] = mouseDragInactiveCoords;
+
+            if (toolbar.selectedTool.finishMode == MouseTargetDeselectMode.Unclick)
+            {
+                finishedUsingTool = true;
+            }
+            else
+            {
+                mouseDragPoints.Add(mousePixel);
+            }
         }
 
         if (mouse.IsUnclicked(inputTarget.mouseTarget.buttonTargetedWith))
@@ -600,7 +619,7 @@ public class DrawingArea : MonoBehaviour
             {
                 toolCancelled = true;
                 ClearPreview();
-                mouseDragStartPoint = mouseDragInactiveCoords;
+                mouseDragPoints[0] = mouseDragInactiveCoords;
                 finishedUsingTool = true;
             }
         }
@@ -652,18 +671,28 @@ public class DrawingArea : MonoBehaviour
     {
         if (inputTarget.mouseTarget.state == MouseTargetState.Pressed)
         {
-            mouseDragStartPoint = mousePixel;
+            mouseDragPoints[0] = mousePixel;
             ClearPreview();
         }
         else
         {
-            mouseDragStartPoint = mouseDragInactiveCoords;
+            mouseDragPoints[0] = mouseDragInactiveCoords;
         }
 
         finishedUsingTool = true;
+
+        inputTarget.mouseTarget.deselectMode = toolbar.selectedTool.finishMode;
     }
 
-    private void UseTool(Tool tool, IntVector2 pixel, int layer, int frame, Color colour)
+    private void HoverTool(Tool tool, IntVector2 pixel, int layer, int frame, Color colour)
+    {
+        if (tool == Tool.IsoBox)
+        {
+            if (isoBoxPlacedBase) { PreviewIsoBox(mouseDragPoints[0], mouseDragPoints[1], pixel, colour, rightClickedOn); }
+        }
+    }
+
+    private void ClickTool(Tool tool, IntVector2 pixel, int layer, int frame, Color colour)
     {
         finishedUsingTool = false;
 
@@ -692,34 +721,35 @@ public class DrawingArea : MonoBehaviour
         }
         else if (tool == Tool.Line)
         {
-            if (leftClickedOn) { PreviewLine(mouseDragStartPoint, pixel, colour); }
+            if (leftClickedOn) { PreviewLine(mouseDragPoints[0], pixel, colour); }
         }
         else if (tool == Tool.Shape && (leftClickedOn || rightClickedOn))
         {
             if (toolbar.shapeToolShape == Shape.Rectangle)
             {
-                if (holdingCtrl) { PreviewSquare(mouseDragStartPoint, pixel, colour, rightClickedOn); }
-                else { PreviewRectangle(mouseDragStartPoint, pixel, colour, rightClickedOn); }
+                if (holdingCtrl) { PreviewSquare(mouseDragPoints[0], pixel, colour, rightClickedOn); }
+                else { PreviewRectangle(mouseDragPoints[0], pixel, colour, rightClickedOn); }
             }
             else if (toolbar.shapeToolShape == Shape.Ellipse)
             {
-                if (holdingCtrl) { PreviewCircle(mouseDragStartPoint, pixel, colour, rightClickedOn); }
-                else { PreviewEllipse(mouseDragStartPoint, pixel, colour, rightClickedOn); }
+                if (holdingCtrl) { PreviewCircle(mouseDragPoints[0], pixel, colour, rightClickedOn); }
+                else { PreviewEllipse(mouseDragPoints[0], pixel, colour, rightClickedOn); }
             }
             else if (toolbar.shapeToolShape == Shape.Triangle)
             {
-                PreviewTriangle(mouseDragStartPoint, pixel, colour, !holdingCtrl, rightClickedOn);
+                PreviewTriangle(mouseDragPoints[0], pixel, colour, !holdingCtrl, rightClickedOn);
             }
         }
         else if (tool == Tool.IsoBox)
         {
-            PreviewIsoRectangle(mouseDragStartPoint, pixel, colour, rightClickedOn);
+            if (!isoBoxPlacedBase) { PreviewIsoRectangle(mouseDragPoints[0], pixel, colour, false); }
+            else { PreviewIsoBox(mouseDragPoints[0], mouseDragPoints[1], pixel, colour, rightClickedOn); }
         }
         else if (tool == Tool.Gradient && (leftClickedOn || rightClickedOn))
         {
             Color startColour = leftClickedOn ? colourPicker.primaryColour : colourPicker.secondaryColour;
             Color endColour = leftClickedOn ? colourPicker.secondaryColour : colourPicker.primaryColour;
-            PreviewGradient(mouseDragStartPoint, pixel, startColour, endColour, toolbar.gradientMode);
+            PreviewGradient(mouseDragPoints[0], pixel, startColour, endColour, toolbar.gradientMode);
         }
         else if (tool == Tool.Selection && (leftClickedOn || rightClickedOn))
         {
@@ -733,13 +763,13 @@ public class DrawingArea : MonoBehaviour
             }
             else if (toolbar.selectionMode == SelectionMode.Rectangle)
             {
-                if (holdingCtrl) { SelectionSquare(mouseDragStartPoint, pixel, rightClickedOn); }
-                else { SelectionRectangle(mouseDragStartPoint, pixel, rightClickedOn); }
+                if (holdingCtrl) { SelectionSquare(mouseDragPoints[0], pixel, rightClickedOn); }
+                else { SelectionRectangle(mouseDragPoints[0], pixel, rightClickedOn); }
             }
             else if (toolbar.selectionMode == SelectionMode.Ellipse)
             {
-                if (holdingCtrl) { SelectionCircle(mouseDragStartPoint, pixel, rightClickedOn); }
-                else { SelectionEllipse(mouseDragStartPoint, pixel, rightClickedOn); }
+                if (holdingCtrl) { SelectionCircle(mouseDragPoints[0], pixel, rightClickedOn); }
+                else { SelectionEllipse(mouseDragPoints[0], pixel, rightClickedOn); }
             }
         }
         else if (tool == Tool.Move)
@@ -751,47 +781,58 @@ public class DrawingArea : MonoBehaviour
     /// <summary>
     /// For tools that only enact changes to the image when you release the mouse (e.g. shape tool), this function enacts those changes.
     /// </summary>
-    private void FinishUsingTool(Tool tool, IntVector2 pixel, int layer, int frame, Color colour)
+    private void UnclickTool(Tool tool, IntVector2 pixel, int layer, int frame, Color colour)
     {
         if (tool == Tool.Line && leftClickedOn)
         {
-            Tools.UseLine(file, layer, frame, mouseDragStartPoint, pixel, colour);
+            Tools.UseLine(file, layer, frame, mouseDragPoints[0], pixel, colour);
             UpdateDrawing();
         }
         else if (tool == Tool.Shape && (leftClickedOn || rightClickedOn))
         {
             if (toolbar.shapeToolShape == Shape.Rectangle)
             {
-                if (holdingCtrl) { Tools.UseSquare(file, layer, frame, mouseDragStartPoint, pixel, colour, rightClickedOn, true); }
-                else { Tools.UseRectangle(file, layer, frame, mouseDragStartPoint, pixel, colour, rightClickedOn); }
+                if (holdingCtrl) { Tools.UseSquare(file, layer, frame, mouseDragPoints[0], pixel, colour, rightClickedOn, true); }
+                else { Tools.UseRectangle(file, layer, frame, mouseDragPoints[0], pixel, colour, rightClickedOn); }
                 UpdateDrawing();
             }
             else if (toolbar.shapeToolShape == Shape.Ellipse)
             {
-                if (holdingCtrl) { Tools.UseCircle(file, layer, frame, mouseDragStartPoint, pixel, colour, rightClickedOn, true); }
-                else { Tools.UseEllipse(file, layer, frame, mouseDragStartPoint, pixel, colour, rightClickedOn); }
+                if (holdingCtrl) { Tools.UseCircle(file, layer, frame, mouseDragPoints[0], pixel, colour, rightClickedOn, true); }
+                else { Tools.UseEllipse(file, layer, frame, mouseDragPoints[0], pixel, colour, rightClickedOn); }
                 UpdateDrawing();
             }
             else if (toolbar.shapeToolShape == Shape.Triangle)
             {
-                Tools.UseRightTriangle(file, layer, frame, mouseDragStartPoint, pixel, colour, !holdingCtrl, rightClickedOn);
+                Tools.UseRightTriangle(file, layer, frame, mouseDragPoints[0], pixel, colour, !holdingCtrl, rightClickedOn);
                 UpdateDrawing();
             }
         }
         else if (tool == Tool.IsoBox)
         {
-            Tools.UseIsoBox(file, layer, frame, mouseDragStartPoint, pixel, colour, rightClickedOn);
-            UpdateDrawing();
+            if (!isoBoxPlacedBase)
+            {
+                isoBoxPlacedBase = true;
+            }
+            else
+            {
+                Tools.UseIsoBox(file, layer, frame, mouseDragPoints[0], mouseDragPoints[1], pixel, colour, rightClickedOn);
+                UpdateDrawing();
+
+                isoBoxPlacedBase = false;
+                finishedUsingTool = true;
+                inputTarget.Untarget();
+            }
         }
         else if (tool == Tool.Move && leftClickedOn)
         {
             /*if (hasSelection)
             {
-                layerManager.selectedLayer.OverlayTexture(animationManager.currentFrameIndex, selectionTexture, pixel - mouseDragStartPoint, AnimFrameRefMode.NewKeyFrame);
+                layerManager.selectedLayer.OverlayTexture(animationManager.currentFrameIndex, selectionTexture, pixel - mouseDragPoints[0], AnimFrameRefMode.NewKeyFrame);
             }
             else
             {
-                layerManager.selectedLayer.SetTexture(animationManager.currentFrameIndex, Tex2DSprite.Offset(selectionTexture, pixel - mouseDragStartPoint), AnimFrameRefMode.NewKeyFrame);
+                layerManager.selectedLayer.SetTexture(animationManager.currentFrameIndex, Tex2DSprite.Offset(selectionTexture, pixel - mouseDragPoints[0]), AnimFrameRefMode.NewKeyFrame);
             }*/
 
             if (selectedLayer.layerType == LayerType.Tile && tileBeingMoved != null)
@@ -806,7 +847,7 @@ public class DrawingArea : MonoBehaviour
         {
             Color startColour = leftClickedOn ? colourPicker.primaryColour : colourPicker.secondaryColour;
             Color endColour = leftClickedOn ? colourPicker.secondaryColour : colourPicker.primaryColour;
-            Tools.UseGradient(file, layer, frame, mouseDragStartPoint, pixel, startColour, endColour, toolbar.gradientMode);
+            Tools.UseGradient(file, layer, frame, mouseDragPoints[0], pixel, startColour, endColour, toolbar.gradientMode);
             UpdateDrawing();
         }
     }
@@ -869,6 +910,14 @@ public class DrawingArea : MonoBehaviour
         SetPreview(tex, rect.bottomLeft);
     }
 
+    private void PreviewIsoBox(IntVector2 baseStart, IntVector2 baseEnd, IntVector2 heightEnd, Color colour, bool filled)
+    {
+        IntRect rect = file.rect;
+        Texture2D tex = Shapes.IsoBox(rect.width, rect.height, baseStart - rect.bottomLeft, baseEnd - rect.bottomLeft, heightEnd - rect.bottomLeft, colour, filled);
+
+        SetPreview(tex, rect.bottomLeft);
+    }
+
     public void PreviewGradient(IntVector2 start, IntVector2 end, Color startColour, Color endColour, GradientMode gradientMode)
     {
         Texture2D tex = Shapes.Gradient(file.width, file.height, start, end, startColour, endColour, gradientMode);
@@ -880,12 +929,12 @@ public class DrawingArea : MonoBehaviour
 
     private void PreviewMove(IntVector2 pixel)
     {
-        /*selectionMask = Tex2DSprite.Offset(selectionMaskCopy, pixel - mouseDragStartPoint);
+        /*selectionMask = Tex2DSprite.Offset(selectionMaskCopy, pixel - mouseDragPoints[0]);
             UpdateDrawingMoveTool(pixel);*/
 
         if (selectedLayer.layerType == LayerType.Tile && tileBeingMoved != null)
         {
-            IntRect shiftedRect = file.rect.Clamp(tileBeingMoved.rect + pixel - mouseDragStartPoint);
+            IntRect shiftedRect = file.rect.Clamp(tileBeingMoved.rect + pixel - mouseDragPoints[0]);
 
             bool validPosition = true;
             foreach (TileLayer tileLayer in tileBeingMoved.tileLayersAppearsOn)
@@ -936,7 +985,7 @@ public class DrawingArea : MonoBehaviour
 
                     IntVector2 offset = offsetsToVisit.Dequeue();
                     visitedOffsets.Add(offset);
-                    shiftedRect = file.rect.Clamp(tileBeingMoved.rect + pixel - mouseDragStartPoint + offset);
+                    shiftedRect = file.rect.Clamp(tileBeingMoved.rect + pixel - mouseDragPoints[0] + offset);
 
                     validPosition = true;
                     foreach (TileLayer tileLayer in tileBeingMoved.tileLayersAppearsOn)
@@ -977,13 +1026,13 @@ public class DrawingArea : MonoBehaviour
         {
             Texture2D bottomLayers = file.RenderLayersBelow(selectedLayerIndex, currentFrameIndex);
             Texture2D topLayers = file.RenderLayersAbove(selectedLayerIndex, currentFrameIndex);
-            drawingSprRen.sprite = Tex2DSprite.Tex2DToSprite(Tex2DSprite.Overlay(topLayers, Tex2DSprite.Overlay(selectionTexture, bottomLayers, mouseCoords - mouseDragStartPoint)));
+            drawingSprRen.sprite = Tex2DSprite.Tex2DToSprite(Tex2DSprite.Overlay(topLayers, Tex2DSprite.Overlay(selectionTexture, bottomLayers, mouseCoords - mouseDragPoints[0])));
         }
         else
         {
             Texture2D bottomLayers = file.RenderLayersBelow(selectedLayerIndex, currentFrameIndex);
             Texture2D topLayers = file.RenderLayersAbove(selectedLayerIndex, currentFrameIndex);
-            drawingSprRen.sprite = Tex2DSprite.Tex2DToSprite(Tex2DSprite.Overlay(topLayers, Tex2DSprite.Overlay(selectionTexture, bottomLayers, mouseCoords - mouseDragStartPoint)));
+            drawingSprRen.sprite = Tex2DSprite.Tex2DToSprite(Tex2DSprite.Overlay(topLayers, Tex2DSprite.Overlay(selectionTexture, bottomLayers, mouseCoords - mouseDragPoints[0])));
         }
     }
 

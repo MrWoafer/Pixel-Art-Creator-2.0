@@ -13,6 +13,8 @@ public class Tool
     public bool useMovementInterpolation { get; private set; }
     /// <summary>Whether the outline of the brush shape should be shown.</summary>
     public bool showBrushBorder { get; private set; }
+    /// <summary>What action causes a use of the tool to be ended.</summary>
+    public MouseTargetDeselectMode finishMode { get; private set; } = MouseTargetDeselectMode.Unclick;
 
     private Tool() { }
 
@@ -83,7 +85,8 @@ public class Tool
     {
         name = "iso box",
         useMovementInterpolation = false,
-        showBrushBorder = true
+        showBrushBorder = true,
+        finishMode = MouseTargetDeselectMode.Manual
     };
 
     public static Tool Gradient = new Tool

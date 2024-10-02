@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System;
 using UnityEngine;
 
 /// <summary>
@@ -458,15 +459,29 @@ public static class Shapes
 
     public static Texture2D IsoRectangle(int texWidth, int texHeight, IntVector2 start, IntVector2 end, Color colour, bool filled)
     {
-        Texture2D tex = Tex2DSprite.BlankTexture(texWidth, texHeight);
-
+        Texture2D tex = IsoRectangleOnExistingTex(Tex2DSprite.BlankTexture(texWidth, texHeight), texWidth, texHeight, start, end, colour, filled, true);
+        tex.Apply();
+        return tex;
+    }
+    /// <summary>
+    /// Draws the isometric rectangle on the given texture.
+    /// </summary>
+    private static Texture2D IsoRectangleOnExistingTex(Texture2D texture, int texWidth, int texHeight, IntVector2 start, IntVector2 end, Color colour, bool filled, bool drawTopLines)
+    {
+        return IsoRectangleOnExistingTexReturnCorners(texture, texWidth, texHeight, start, end, colour, filled, drawTopLines).Item1;
+    }
+    /// <summary>
+    /// Draws the isometric rectangle on the given texture and returns the corners in the given order: left, top, right, bottom.
+    /// </summary>
+    private static Tuple<Texture2D, IntVector2, IntVector2, IntVector2, IntVector2> IsoRectangleOnExistingTexReturnCorners(Texture2D texture, int texWidth, int texHeight, IntVector2 start, IntVector2 end, Color colour, bool filled, bool drawTopLines)
+    {   
         if (start == end)
         {
-            tex.SetPixel(start, colour);
-            tex.Apply();
-            return tex;
+            texture.SetPixel(start, colour);
+            texture.Apply();
+            return new Tuple<Texture2D, IntVector2, IntVector2, IntVector2, IntVector2>(texture, start, start, start, start);
         }
-        
+
         IntRect rect = new IntRect(IntVector2.zero, new IntVector2(texWidth - 1, texHeight - 1));
 
         /// Relabel start/end corners so that start is the left corner and end is the right corner.
@@ -514,7 +529,7 @@ public static class Shapes
             {
                 if (rect.Contains(x, y))
                 {
-                    tex.SetPixel(x, y, colour);
+                    texture.SetPixel(x, y, colour);
                 }
 
                 startOf2PixelBlock = !startOf2PixelBlock;
@@ -534,7 +549,7 @@ public static class Shapes
             {
                 if (rect.Contains(x, y))
                 {
-                    tex.SetPixel(x, y, colour);
+                    texture.SetPixel(x, y, colour);
                 }
 
                 startOf2PixelBlock = !startOf2PixelBlock;
@@ -547,50 +562,55 @@ public static class Shapes
                 }
             }
 
-            x = start.x;
-            y = start.y;
-            startOf2PixelBlock = startOf2PixelBlockStartValueStart;
-
-            while (x <= upperMeetingPoint.x && y <= upperMeetingPoint.y)
+            if (drawTopLines)
             {
-                if (rect.Contains(x, y))
+                x = start.x;
+                y = start.y;
+                startOf2PixelBlock = startOf2PixelBlockStartValueStart;
+
+                while (x <= upperMeetingPoint.x && y <= upperMeetingPoint.y)
                 {
-                    tex.SetPixel(x, y, colour);
+                    if (rect.Contains(x, y))
+                    {
+                        texture.SetPixel(x, y, colour);
+                    }
+
+                    x++;
+                    startOf2PixelBlock = !startOf2PixelBlock;
+
+                    if (startOf2PixelBlock)
+                    {
+                        y++;
+                    }
                 }
 
-                x++;
-                startOf2PixelBlock = !startOf2PixelBlock;
+                x = end.x;
+                y = end.y;
+                startOf2PixelBlock = startOf2PixelBlockStartValueEnd;
 
-                if (startOf2PixelBlock)
+                while (x >= upperMeetingPoint.x && y <= upperMeetingPoint.y)
                 {
-                    y++;
-                }
-            }
+                    if (rect.Contains(x, y))
+                    {
+                        texture.SetPixel(x, y, colour);
+                    }
 
-            x = end.x;
-            y = end.y;
-            startOf2PixelBlock = startOf2PixelBlockStartValueEnd;
+                    x--;
+                    startOf2PixelBlock = !startOf2PixelBlock;
 
-            while (x >= upperMeetingPoint.x && y <= upperMeetingPoint.y)
-            {
-                if (rect.Contains(x, y))
-                {
-                    tex.SetPixel(x, y, colour);
-                }
-
-                x--;
-                startOf2PixelBlock = !startOf2PixelBlock;
-
-                if (startOf2PixelBlock)
-                {
-                    y++;
+                    if (startOf2PixelBlock)
+                    {
+                        y++;
+                    }
                 }
             }
 
             if (filled && Mathf.Abs(end.y - start.y) > 1)
             {
-                tex = Tex2DSprite.Fill(tex, lowerMeetingPoint + IntVector2.up, colour);
+                texture = Tex2DSprite.Fill(texture, lowerMeetingPoint + IntVector2.up, colour);
             }
+
+            return new Tuple<Texture2D, IntVector2, IntVector2, IntVector2, IntVector2>(texture, start, upperMeetingPoint, end, lowerMeetingPoint);
         }
         else
         {
@@ -644,7 +664,7 @@ public static class Shapes
             {
                 if (rect.Contains(x, y))
                 {
-                    tex.SetPixel(x, y, colour);
+                    texture.SetPixel(x, y, colour);
                 }
 
                 startOf2PixelBlockStartValueStartLeft = !startOf2PixelBlockStartValueStartLeft;
@@ -656,26 +676,6 @@ public static class Shapes
                 }
             }
 
-            x = end.x;
-            y = end.y;
-
-            while (x >= leftMeetingPoint.x && y >= leftMeetingPoint.y)
-            {
-                if (rect.Contains(x, y))
-                {
-                    tex.SetPixel(x, y, colour);
-                }
-
-                startOf2PixelBlockStartValueEndLeft = !startOf2PixelBlockStartValueEndLeft;
-
-                x--;
-
-                if (startOf2PixelBlockStartValueEndLeft)
-                {
-                    y--;
-                }
-            }
-
             x = start.x;
             y = start.y;
 
@@ -683,7 +683,7 @@ public static class Shapes
             {
                 if (rect.Contains(x, y))
                 {
-                    tex.SetPixel(x, y, colour);
+                    texture.SetPixel(x, y, colour);
                 }
 
                 x++;
@@ -695,37 +695,99 @@ public static class Shapes
                 }
             }
 
-            x = end.x;
-            y = end.y;
-
-            while (x <= rightMeetingPoint.x && y >= rightMeetingPoint.y)
+            if (drawTopLines)
             {
-                if (rect.Contains(x, y))
+                x = end.x;
+                y = end.y;
+
+                while (x >= leftMeetingPoint.x && y >= leftMeetingPoint.y)
                 {
-                    tex.SetPixel(x, y, colour);
+                    if (rect.Contains(x, y))
+                    {
+                        texture.SetPixel(x, y, colour);
+                    }
+
+                    startOf2PixelBlockStartValueEndLeft = !startOf2PixelBlockStartValueEndLeft;
+
+                    x--;
+
+                    if (startOf2PixelBlockStartValueEndLeft)
+                    {
+                        y--;
+                    }
                 }
 
-                x++;
-                startOf2PixelBlockStartValueEndRight = !startOf2PixelBlockStartValueEndRight;
+                x = end.x;
+                y = end.y;
 
-                if (startOf2PixelBlockStartValueEndRight)
+                while (x <= rightMeetingPoint.x && y >= rightMeetingPoint.y)
                 {
-                    y--;
+                    if (rect.Contains(x, y))
+                    {
+                        texture.SetPixel(x, y, colour);
+                    }
+
+                    x++;
+                    startOf2PixelBlockStartValueEndRight = !startOf2PixelBlockStartValueEndRight;
+
+                    if (startOf2PixelBlockStartValueEndRight)
+                    {
+                        y--;
+                    }
                 }
             }
 
             if (filled && Mathf.Abs(end.x - start.x) > 1)
             {
-                tex = Tex2DSprite.Fill(tex, leftMeetingPoint + IntVector2.right, colour);
+                texture = Tex2DSprite.Fill(texture, leftMeetingPoint + IntVector2.right, colour);
+            }
+
+            return new Tuple<Texture2D, IntVector2, IntVector2, IntVector2, IntVector2>(texture, leftMeetingPoint, end, rightMeetingPoint, start);
+        }
+    }
+
+    public static Texture2D IsoBox(int texWidth, int texHeight, IntVector2 baseStart, IntVector2 baseEnd, IntVector2 heightEnd, Color colour, bool filled)
+    {
+        Texture2D tex = Tex2DSprite.BlankTexture(texWidth, texHeight);
+        IntRect rect = new IntRect(IntVector2.zero, new IntVector2(texWidth - 1, texHeight - 1));
+
+        IntVector2 offset = new IntVector2(0, heightEnd.y - baseEnd.y);
+        Tuple<Texture2D, IntVector2, IntVector2, IntVector2, IntVector2> texAndCorners = IsoRectangleOnExistingTexReturnCorners(tex, texWidth, texHeight, baseStart, baseEnd, colour, false, !(filled && offset.y > 0f));
+        tex = texAndCorners.Item1;
+
+        IntVector2 left = texAndCorners.Item2;
+        IntVector2 top = texAndCorners.Item3;
+        IntVector2 right = texAndCorners.Item4;
+        IntVector2 bottom = texAndCorners.Item5;
+
+        tex = IsoRectangleOnExistingTex(tex, texWidth, texHeight, baseStart + offset, baseEnd + offset, colour, false, !(filled && offset.y < 0f));
+
+        if (!filled)
+        {
+            foreach (IntVector2 corner in new IntVector2[] { left, top, right, bottom })
+            {
+                for (int y = corner.y; y != corner.y + offset.y; y += MathF.Sign(offset.y))
+                {
+                    if (rect.Contains(corner.x, y))
+                    {
+                        tex.SetPixel(corner.x, y, colour);
+                    }
+                }
             }
         }
-        
-
-        //tex.SetPixel(start, colour);
-        //tex.SetPixel(end, colour);
-        //tex.SetPixel(meetingPoint, colour);
-
-        //Debug.Log(start + " " + end + " " + new Vector2(meetingX, meetingY) + " " + meetingPoint);
+        else
+        {
+            foreach (IntVector2 corner in new IntVector2[] { left, right, bottom })
+            {
+                for (int y = corner.y; y != corner.y + offset.y; y += MathF.Sign(offset.y))
+                {
+                    if (rect.Contains(corner.x, y))
+                    {
+                        tex.SetPixel(corner.x, y, colour);
+                    }
+                }
+            }
+        }
 
         tex.Apply();
         return tex;
