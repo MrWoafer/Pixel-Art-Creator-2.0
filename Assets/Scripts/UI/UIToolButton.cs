@@ -58,8 +58,8 @@ public class UIToolButton : MonoBehaviour
         button.transform.localPosition = new Vector3(-10000f, 0f, 0f);
 
         toggleButton.SetImages(button.image, button.pressedImage, button.hoverImage, button.pressedImage);
-        tooltip.text = button.name;
-        toggleButton.toggleName = tooltip.text.ToLower();
+        tooltip.text = button.GetComponent<Tooltip>().text;
+        toggleButton.toggleName = button.GetComponent<InputTarget>().targetName.ToLower();
 
         currentButton = button;
     }

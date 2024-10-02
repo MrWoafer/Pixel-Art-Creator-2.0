@@ -456,6 +456,281 @@ public static class Shapes
         return tex;
     }
 
+    public static Texture2D IsoRectangle(int texWidth, int texHeight, IntVector2 start, IntVector2 end, Color colour, bool filled)
+    {
+        Texture2D tex = Tex2DSprite.BlankTexture(texWidth, texHeight);
+
+        if (start == end)
+        {
+            tex.SetPixel(start, colour);
+            tex.Apply();
+            return tex;
+        }
+        
+        IntRect rect = new IntRect(IntVector2.zero, new IntVector2(texWidth - 1, texHeight - 1));
+
+        /// Relabel start/end corners so that start is the left corner and end is the right corner.
+        if (start.x > end.x)
+        {
+            IntVector2 temp = start;
+            start = end;
+            end = temp;
+        }
+
+        /// If start is the left corner and end is the right (instead of top/bottom)
+        if (2 * Mathf.Abs(end.y - start.y) <= Mathf.Abs(end.x - start.x))
+        {
+            Vector2 lineStart = new Vector2(start.x, start.y + 1f);
+            Vector2 lineEnd = new Vector2(end.x + 1f, end.y + 1f);
+            bool startOf2PixelBlockStartValueStart = true;
+            bool startOf2PixelBlockStartValueEnd = true;
+
+            int cornerType = (end.x - start.x + 1 + (end.y - start.y) * 2) % 4;
+            if (cornerType == 0 || cornerType == 3)
+            {
+                lineStart += new Vector2(1f, -1f);
+                lineEnd += new Vector2(-1f, -1f);
+
+                startOf2PixelBlockStartValueStart = false;
+                startOf2PixelBlockStartValueEnd = false;
+            }
+            else if (cornerType == 1)
+            {
+                lineEnd += new Vector2(-1f, -1f);
+
+                startOf2PixelBlockStartValueEnd = false;
+            }
+
+            float meetingX = (lineStart.x + lineEnd.x) / 2f + lineStart.y - lineEnd.y;
+            float meetingY = (meetingX - lineEnd.x) / 2f + lineEnd.y;
+            IntVector2 lowerMeetingPoint = new IntVector2(Mathf.FloorToInt(meetingX), Mathf.FloorToInt(meetingY));
+            IntVector2 upperMeetingPoint = end - (lowerMeetingPoint - start);
+
+            int x = start.x;
+            int y = start.y;
+            bool startOf2PixelBlock = startOf2PixelBlockStartValueStart;
+
+            while (x <= lowerMeetingPoint.x && y >= lowerMeetingPoint.y)
+            {
+                if (rect.Contains(x, y))
+                {
+                    tex.SetPixel(x, y, colour);
+                }
+
+                startOf2PixelBlock = !startOf2PixelBlock;
+                x++;
+
+                if (startOf2PixelBlock)
+                {
+                    y--;
+                }
+            }
+
+            x = end.x;
+            y = end.y;
+            startOf2PixelBlock = startOf2PixelBlockStartValueEnd;
+
+            while (x >= lowerMeetingPoint.x && y >= lowerMeetingPoint.y)
+            {
+                if (rect.Contains(x, y))
+                {
+                    tex.SetPixel(x, y, colour);
+                }
+
+                startOf2PixelBlock = !startOf2PixelBlock;
+
+                x--;
+
+                if (startOf2PixelBlock)
+                {
+                    y--;
+                }
+            }
+
+            x = start.x;
+            y = start.y;
+            startOf2PixelBlock = startOf2PixelBlockStartValueStart;
+
+            while (x <= upperMeetingPoint.x && y <= upperMeetingPoint.y)
+            {
+                if (rect.Contains(x, y))
+                {
+                    tex.SetPixel(x, y, colour);
+                }
+
+                x++;
+                startOf2PixelBlock = !startOf2PixelBlock;
+
+                if (startOf2PixelBlock)
+                {
+                    y++;
+                }
+            }
+
+            x = end.x;
+            y = end.y;
+            startOf2PixelBlock = startOf2PixelBlockStartValueEnd;
+
+            while (x >= upperMeetingPoint.x && y <= upperMeetingPoint.y)
+            {
+                if (rect.Contains(x, y))
+                {
+                    tex.SetPixel(x, y, colour);
+                }
+
+                x--;
+                startOf2PixelBlock = !startOf2PixelBlock;
+
+                if (startOf2PixelBlock)
+                {
+                    y++;
+                }
+            }
+
+            if (filled && Mathf.Abs(end.y - start.y) > 1)
+            {
+                tex = Tex2DSprite.Fill(tex, lowerMeetingPoint + IntVector2.up, colour);
+            }
+        }
+        else
+        {
+            /// Relabel start/end corners so that start is the bottom corner and end is the top corner.
+            if (start.y > end.y)
+            {
+                IntVector2 temp = start;
+                start = end;
+                end = temp;
+            }
+
+            Vector2 lineStart = new Vector2(start.x + 1f, start.y + 0.5f);
+            Vector2 lineEnd = new Vector2(end.x, end.y + 0.5f);
+            bool startOf2PixelBlockStartValueStartLeft = false;
+            bool startOf2PixelBlockStartValueStartRight = true;
+            bool startOf2PixelBlockStartValueEndLeft = true;
+            bool startOf2PixelBlockStartValueEndRight = false;
+
+            int cornerType = (end.x - start.x + 1 + (end.y - start.y) * 2) % 4;
+            if (cornerType == 1 || cornerType == 3)
+            {
+                lineEnd += new Vector2(1f, 0f);
+
+                startOf2PixelBlockStartValueEndLeft = false;
+                startOf2PixelBlockStartValueEndRight = true;
+            }
+
+            float meetingX = (lineStart.x + lineEnd.x) / 2f + lineStart.y - lineEnd.y;
+            float meetingY = (meetingX - lineEnd.x) / 2f + lineEnd.y;
+            IntVector2 leftMeetingPoint = new IntVector2(Mathf.FloorToInt(meetingX), Mathf.FloorToInt(meetingY));
+            IntVector2 rightMeetingPoint = end + (start - leftMeetingPoint);
+
+            if (cornerType == 0)
+            {
+                leftMeetingPoint += IntVector2.right;
+                rightMeetingPoint += IntVector2.left;
+            }
+            else if (cornerType == 1)
+            {
+                rightMeetingPoint += IntVector2.right;
+            }
+            else if (cornerType == 3)
+            {
+                leftMeetingPoint += IntVector2.right;
+            }
+
+            int x = start.x;
+            int y = start.y;
+
+            while (x >= leftMeetingPoint.x && y <= leftMeetingPoint.y)
+            {
+                if (rect.Contains(x, y))
+                {
+                    tex.SetPixel(x, y, colour);
+                }
+
+                startOf2PixelBlockStartValueStartLeft = !startOf2PixelBlockStartValueStartLeft;
+                x--;
+
+                if (startOf2PixelBlockStartValueStartLeft)
+                {
+                    y++;
+                }
+            }
+
+            x = end.x;
+            y = end.y;
+
+            while (x >= leftMeetingPoint.x && y >= leftMeetingPoint.y)
+            {
+                if (rect.Contains(x, y))
+                {
+                    tex.SetPixel(x, y, colour);
+                }
+
+                startOf2PixelBlockStartValueEndLeft = !startOf2PixelBlockStartValueEndLeft;
+
+                x--;
+
+                if (startOf2PixelBlockStartValueEndLeft)
+                {
+                    y--;
+                }
+            }
+
+            x = start.x;
+            y = start.y;
+
+            while (x <= rightMeetingPoint.x && y <= rightMeetingPoint.y)
+            {
+                if (rect.Contains(x, y))
+                {
+                    tex.SetPixel(x, y, colour);
+                }
+
+                x++;
+                startOf2PixelBlockStartValueStartRight = !startOf2PixelBlockStartValueStartRight;
+
+                if (startOf2PixelBlockStartValueStartRight)
+                {
+                    y++;
+                }
+            }
+
+            x = end.x;
+            y = end.y;
+
+            while (x <= rightMeetingPoint.x && y >= rightMeetingPoint.y)
+            {
+                if (rect.Contains(x, y))
+                {
+                    tex.SetPixel(x, y, colour);
+                }
+
+                x++;
+                startOf2PixelBlockStartValueEndRight = !startOf2PixelBlockStartValueEndRight;
+
+                if (startOf2PixelBlockStartValueEndRight)
+                {
+                    y--;
+                }
+            }
+
+            if (filled && Mathf.Abs(end.x - start.x) > 1)
+            {
+                tex = Tex2DSprite.Fill(tex, leftMeetingPoint + IntVector2.right, colour);
+            }
+        }
+        
+
+        //tex.SetPixel(start, colour);
+        //tex.SetPixel(end, colour);
+        //tex.SetPixel(meetingPoint, colour);
+
+        //Debug.Log(start + " " + end + " " + new Vector2(meetingX, meetingY) + " " + meetingPoint);
+
+        tex.Apply();
+        return tex;
+    }
+
     public static Texture2D Gradient(int texWidth, int texHeight, IntVector2 start, IntVector2 end, Color startColour, Color endColour, GradientMode gradientMode)
     {
         switch (gradientMode)

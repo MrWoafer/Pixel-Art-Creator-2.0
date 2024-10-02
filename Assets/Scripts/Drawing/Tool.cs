@@ -79,6 +79,13 @@ public class Tool
         showBrushBorder = true
     };
 
+    public static Tool IsoBox = new Tool
+    {
+        name = "iso box",
+        useMovementInterpolation = false,
+        showBrushBorder = true
+    };
+
     public static Tool Gradient = new Tool
     {
         name = "gradient",
@@ -101,7 +108,7 @@ public class Tool
     };
 
     /// <summary>All implemented tools.</summary>
-    public static readonly Tool[] tools = new Tool[] { None, Pencil, Brush, Rubber, EyeDropper, GlobalEyeDropper, Fill, Shape, Line, Gradient, Move, Selection };
+    public static readonly Tool[] tools = new Tool[] { None, Pencil, Brush, Rubber, EyeDropper, GlobalEyeDropper, Fill, Shape, Line, IsoBox, Gradient, Move, Selection };
 
     /// <summary>
     /// Gets the tool with that name.

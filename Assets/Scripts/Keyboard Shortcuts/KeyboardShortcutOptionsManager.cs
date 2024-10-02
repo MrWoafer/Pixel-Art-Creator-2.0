@@ -88,9 +88,9 @@ public class KeyboardShortcutOptionsManager : MonoBehaviour
 
         new KeyboardShortcutCategory("Tools", new KeyboardShortcutOption("brush", "Brush"), new KeyboardShortcutOption("pencil", "Pencil"), new KeyboardShortcutOption("rubber", "Rubber"),
             new KeyboardShortcutOption("eye dropper", "Eye Dropper"), new KeyboardShortcutOption("fill", "Fill"), new KeyboardShortcutOption("shape", "Shape"),
-            new KeyboardShortcutOption("line", "Line"), new KeyboardShortcutOption("gradient", "Gradient"), new KeyboardShortcutOption("move", "Move"),
-            new KeyboardShortcutOption("selection", "Selection"), new KeyboardShortcutOption("cancel tool", "Cancel Tool"), new KeyboardShortcutOption("clear selection", "Clear Selection"),
-            new KeyboardShortcutOption("scroll brush size", "Scroll Brush Size"))
+            new KeyboardShortcutOption("line", "Line"), new KeyboardShortcutOption("iso box", "Isometric Box"), new KeyboardShortcutOption("gradient", "Gradient"),
+            new KeyboardShortcutOption("move", "Move"), new KeyboardShortcutOption("selection", "Selection"), new KeyboardShortcutOption("cancel tool", "Cancel Tool"),
+            new KeyboardShortcutOption("clear selection", "Clear Selection"), new KeyboardShortcutOption("scroll brush size", "Scroll Brush Size"))
     };
 
     private void Start()

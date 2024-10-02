@@ -62,7 +62,8 @@ public class FileManager : MonoBehaviour
         ///
 
         SwitchToFile(1);*/
-        AddFile(new File(defaultFileName, 16, 16));
+        //AddFile(new File(defaultFileName, 16, 16));
+        AddFile(new File(defaultFileName, 64, 64));
         SwitchToFile(0);
 
         /// Open file from 'Open with' in File Explorer

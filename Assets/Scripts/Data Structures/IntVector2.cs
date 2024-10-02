@@ -22,6 +22,14 @@ public struct IntVector2
     /// <summary>
     /// Rounds the coords towards zero.
     /// </summary>
+    public IntVector2(float x, float y)
+    {
+        this.x = (int)x;
+        this.y = (int)y;
+    }
+    /// <summary>
+    /// Rounds the coords towards zero.
+    /// </summary>
     public IntVector2(Vector2 vector2)
     {
         x = (int)vector2.x;

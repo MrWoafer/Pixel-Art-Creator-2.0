@@ -711,6 +711,10 @@ public class DrawingArea : MonoBehaviour
                 PreviewTriangle(mouseDragStartPoint, pixel, colour, !holdingCtrl, rightClickedOn);
             }
         }
+        else if (tool == Tool.IsoBox)
+        {
+            PreviewIsoRectangle(mouseDragStartPoint, pixel, colour, rightClickedOn);
+        }
         else if (tool == Tool.Gradient && (leftClickedOn || rightClickedOn))
         {
             Color startColour = leftClickedOn ? colourPicker.primaryColour : colourPicker.secondaryColour;
@@ -773,6 +777,11 @@ public class DrawingArea : MonoBehaviour
                 Tools.UseRightTriangle(file, layer, frame, mouseDragStartPoint, pixel, colour, !holdingCtrl, rightClickedOn);
                 UpdateDrawing();
             }
+        }
+        else if (tool == Tool.IsoBox)
+        {
+            Tools.UseIsoBox(file, layer, frame, mouseDragStartPoint, pixel, colour, rightClickedOn);
+            UpdateDrawing();
         }
         else if (tool == Tool.Move && leftClickedOn)
         {
@@ -848,6 +857,14 @@ public class DrawingArea : MonoBehaviour
     {
         IntRect rect = new IntRect(start, end);
         Texture2D tex = Shapes.RightTriangle(rect.width, rect.height, start - rect.bottomLeft, end - rect.bottomLeft, colour, rightAngleOnBottom, filled);
+
+        SetPreview(tex, rect.bottomLeft);
+    }
+
+    private void PreviewIsoRectangle(IntVector2 start, IntVector2 end, Color colour, bool filled)
+    {
+        IntRect rect = file.rect;
+        Texture2D tex = Shapes.IsoRectangle(rect.width, rect.height, start - rect.bottomLeft, end - rect.bottomLeft, colour, filled);
 
         SetPreview(tex, rect.bottomLeft);
     }
