@@ -99,7 +99,6 @@ public class MouseTarget
     {
         if (_state != MouseTargetState.Pressed)
         {
-            Debug.Log(deselectMode);
             _state = MouseTargetState.Pressed;
 
             if (buttonTargetedWith == MouseButton.Left)
@@ -122,7 +121,6 @@ public class MouseTarget
 
     public void Select()
     {
-        Debug.Log("Select!");
         if (!selected)
         {
             selected = true;

@@ -223,8 +223,6 @@ public class DrawingArea : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //Debug.Log(inputTarget.mouseTarget.state + "   " + inputTarget.mouseTarget.selected + "   " + isoBoxPlacedBase);
-
         if (mousePixel != previousMousePixel)
         {
             OnMousePixelChanged();
@@ -234,7 +232,6 @@ public class DrawingArea : MonoBehaviour
         // Use selected tool
         if (inputTarget.mouseTarget.state == MouseTargetState.Pressed && !toolCancelled && !layerManager.selectedLayer.locked)
         {
-            Debug.Log("Y");
             Color colour = colourPicker.colour;
 
             bool canUseTool = previousPixelUsedToolOn != mousePixel || previousColourUsedForTool != colour || previousMouseButtonUsedForTool != inputTarget.mouseTarget.buttonTargetedWith ||
@@ -451,11 +448,8 @@ public class DrawingArea : MonoBehaviour
     /// </summary>
     private void OnMouseInput()
     {
-        Debug.Log("Mouse Input");
         if (inputTarget.mouseTarget.state == MouseTargetState.Pressed)
         {
-            Debug.Log("Pressed");
-
             if (finishedUsingTool)
             {
                 mouseDragPoints.Clear();
@@ -512,8 +506,6 @@ public class DrawingArea : MonoBehaviour
         }
         else if (inputTarget.mouseTarget.state == MouseTargetState.Idle && mouse.unclick && !finishedUsingTool && !selectedLayer.locked && !hasUnclickedSinceUsingTool)
         {
-            Debug.Log("Unclick");
-
             UnclickTool(toolbar.selectedTool, previousPixelUsedToolOn, selectedLayerIndex, currentFrameIndex, colourPicker.colour);
             ClearPreview();
             //mouseDragPoints[0] = mouseDragInactiveCoords;
@@ -619,7 +611,6 @@ public class DrawingArea : MonoBehaviour
     {
         if (inputTarget.keyboardTarget.OneIsHeldExactly(KeyboardShortcuts.GetShortcutsFor("cancel tool")) && toolbar.selectedTool.canBeCancelled)
         {
-            Debug.Log("Cancelled");
             toolCancelled = true;
             ClearPreview();
             finishedUsingTool = true;
@@ -745,7 +736,7 @@ public class DrawingArea : MonoBehaviour
                 PreviewTriangle(mouseDragPoints[0], pixel, colour, !holdingCtrl, rightClickedOn);
             }
         }
-        else if (tool == Tool.IsoBox)
+        else if (tool == Tool.IsoBox && (leftClickedOn || rightClickedOn))
         {
             if (!isoBoxPlacedBase) { PreviewIsoRectangle(mouseDragPoints[0], pixel, colour, false); }
             else { PreviewIsoBox(mouseDragPoints[0], mouseDragPoints[1], pixel, colour, rightClickedOn); }
@@ -813,7 +804,7 @@ public class DrawingArea : MonoBehaviour
                 UpdateDrawing();
             }
         }
-        else if (tool == Tool.IsoBox)
+        else if (tool == Tool.IsoBox && (leftClickedOn || rightClickedOn))
         {
             if (!isoBoxPlacedBase)
             {
@@ -827,8 +818,6 @@ public class DrawingArea : MonoBehaviour
                 isoBoxPlacedBase = false;
                 finishedUsingTool = true;
                 inputSystem.Untarget();
-
-                Debug.Log("Done");
             }
         }
         else if (tool == Tool.Move && leftClickedOn)

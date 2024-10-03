@@ -140,6 +140,10 @@ public class Mouse : MonoBehaviour
     private Texture2D cursorSpriteRadialGradient;
     [SerializeField]
     private Vector2 cursorHotSpotRadialGradient;
+    [SerializeField]
+    private Texture2D cursorSpriteIsoBox;
+    [SerializeField]
+    private Vector2 cursorHotSpotIsoBox;
 
     public bool leftClick
     {
@@ -551,6 +555,7 @@ public class Mouse : MonoBehaviour
                     Tuple<Texture2D, Vector2> shapeCursor = ShapeCursor(toolbar.shapeToolShape);
                     SetCursor(shapeCursor.Item1, shapeCursor.Item2);
                 }
+                else if (toolbar.selectedTool == Tool.IsoBox) { SetCursor(cursorSpriteIsoBox, cursorHotSpotIsoBox); }
                 else if (toolbar.selectedTool == Tool.Move) { SetCursor(cursorSpriteCrossArrows, cursorHotSpotCrossArrows); }
                 else if (toolbar.selectedTool == Tool.Selection)
                 {
