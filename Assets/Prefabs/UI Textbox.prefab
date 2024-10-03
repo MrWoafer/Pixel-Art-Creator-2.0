@@ -358,7 +358,7 @@ MonoBehaviour:
   cursorSelected: 0
   _cursorScroll: 0
   mouseDeselectMode: 1
-  disableMouseWhenSelected: 0
+  disableMouseWhenSelected: 1
   keyboardInputEnabled: 1
   receiveAlreadyHeldKeys: 0
   allowHoldingKeySpam: 1
@@ -375,6 +375,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e396b5f9d7359244b8cd637c38559a6e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  useTheme: 1
   themeObjectType: 0
 --- !u!61 &5597085627692269949
 BoxCollider2D:

@@ -7,8 +7,7 @@ public enum MouseTargetState
 {
     Idle = 0,
     Hover = 1,
-    Pressed = 2,
-    Selected = 3
+    Pressed = 2
 }
 
 public enum MouseTargetDeselectMode
@@ -56,6 +55,7 @@ public class MouseTarget
     private UnityEvent onMiddleUnclick = new UnityEvent();
 
     private UnityEvent onSelect = new UnityEvent();
+    private UnityEvent onDeselect = new UnityEvent();
     private UnityEvent onStateChange = new UnityEvent();
     private UnityEvent onScroll = new UnityEvent();
     private UnityEvent onUntarget = new UnityEvent();
@@ -77,7 +77,6 @@ public class MouseTarget
     {
         if (_state != MouseTargetState.Idle)
         {
-            Debug.Log(deselectMode);
             _state = MouseTargetState.Idle;
             onIdle.Invoke();
             onStateChange.Invoke();
@@ -123,19 +122,19 @@ public class MouseTarget
 
     public void Select()
     {
+        Debug.Log("Select!");
         if (!selected)
         {
             selected = true;
             onSelect.Invoke();
-            onStateChange.Invoke();
         }
     }
-    public void Unselect()
+    public void Deselect()
     {
         if (selected)
         {
             selected = false;
-            onStateChange.Invoke();
+            onDeselect.Invoke();
         }
     }
 
@@ -146,7 +145,7 @@ public class MouseTarget
 
     public void Untarget()
     {
-        Unselect();
+        Deselect();
         Idle();
         onUntarget.Invoke();
     }
@@ -169,6 +168,10 @@ public class MouseTarget
     public void SubscribeToSelect(UnityAction call)
     {
         onSelect.AddListener(call);
+    }
+    public void SubscribeToDeselect(UnityAction call)
+    {
+        onDeselect.AddListener(call);
     }
 
     public void SubscribeToStateChange(UnityAction call)

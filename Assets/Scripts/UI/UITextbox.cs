@@ -120,7 +120,10 @@ public class UITextbox : MonoBehaviour
     {
         inputTarget.mouseTarget.SubscribeToStateChange(MouseTargetInput);
         inputTarget.keyboardTarget.SubscribeToOnInput(KeyboardTargetInput);
-        inputTarget.SubscribeToUntarget(() => onFinished.Invoke());
+        inputTarget.SubscribeToUntarget(() => {
+            Idle();
+            onFinished.Invoke();
+        });
 
         UpdateDisplay();
     }

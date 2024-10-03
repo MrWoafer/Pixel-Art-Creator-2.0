@@ -196,10 +196,7 @@ public class DrawingArea : MonoBehaviour
 
     private void Start()
     {
-        //inputTarget.mouseTarget.SubscribeToStateChange(OnMouseClick);
-        inputTarget.mouseTarget.SubscribeToClick(OnMouseClickUnclick);
-        inputTarget.mouseTarget.SubscribeToUnclick(OnMouseClickUnclick);
-        inputTarget.mouseTarget.SubscribeToStateChange(OnMouseClickUnclick);
+        inputTarget.mouseTarget.SubscribeToStateChange(OnMouseInput);
         inputTarget.mouseTarget.SubscribeToHover(OnMousePixelChanged);
         inputTarget.keyboardTarget.SubscribeToOnInput(OnKeyboardInput);
         inputSystem.globalMouseTarget.SubscribeToScroll(OnMouseScroll);
@@ -226,6 +223,8 @@ public class DrawingArea : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //Debug.Log(inputTarget.mouseTarget.state + "   " + inputTarget.mouseTarget.selected + "   " + isoBoxPlacedBase);
+
         if (mousePixel != previousMousePixel)
         {
             OnMousePixelChanged();
@@ -235,6 +234,7 @@ public class DrawingArea : MonoBehaviour
         // Use selected tool
         if (inputTarget.mouseTarget.state == MouseTargetState.Pressed && !toolCancelled && !layerManager.selectedLayer.locked)
         {
+            Debug.Log("Y");
             Color colour = colourPicker.colour;
 
             bool canUseTool = previousPixelUsedToolOn != mousePixel || previousColourUsedForTool != colour || previousMouseButtonUsedForTool != inputTarget.mouseTarget.buttonTargetedWith ||
@@ -449,7 +449,7 @@ public class DrawingArea : MonoBehaviour
     /// <summary>
     /// Called when the drawing area is hovered over/off or clicked on/unclicked.
     /// </summary>
-    private void OnMouseClickUnclick()
+    private void OnMouseInput()
     {
         Debug.Log("Mouse Input");
         if (inputTarget.mouseTarget.state == MouseTargetState.Pressed)
@@ -528,10 +528,7 @@ public class DrawingArea : MonoBehaviour
             }
         }
 
-        if (mouse.IsUnclicked(inputTarget.mouseTarget.buttonTargetedWith))
-        {
-            toolCancelled = false;
-        }
+        toolCancelled = false;
     }
 
     /// <summary>
@@ -622,6 +619,7 @@ public class DrawingArea : MonoBehaviour
     {
         if (inputTarget.keyboardTarget.OneIsHeldExactly(KeyboardShortcuts.GetShortcutsFor("cancel tool")) && toolbar.selectedTool.canBeCancelled)
         {
+            Debug.Log("Cancelled");
             toolCancelled = true;
             ClearPreview();
             finishedUsingTool = true;
@@ -629,7 +627,7 @@ public class DrawingArea : MonoBehaviour
             if (toolbar.selectedTool == Tool.IsoBox)
             {
                 isoBoxPlacedBase = false;
-                inputTarget.Untarget();
+                inputSystem.Untarget();
             }
         }
 
@@ -661,18 +659,6 @@ public class DrawingArea : MonoBehaviour
         {
             undoRedoManager.AddUndoState(new UndoRedoState(UndoRedoAction.Draw, file.layers[selectedLayerIndex], selectedLayerIndex), fileManager.currentFileIndex);
             DeleteSelection();
-        }
-        if (inputSystem.globalKeyboardTarget.OneIsHeldExactly(KeyboardShortcuts.GetShortcutsFor("cancel tool")) && toolbar.selectedTool.canBeCancelled)
-        {
-            toolCancelled = true;
-            ClearPreview();
-            finishedUsingTool = true;
-
-            if (toolbar.selectedTool == Tool.IsoBox)
-            {
-                isoBoxPlacedBase = false;
-                inputTarget.Untarget();
-            }
         }
 
         /// To be implemented
@@ -840,7 +826,9 @@ public class DrawingArea : MonoBehaviour
 
                 isoBoxPlacedBase = false;
                 finishedUsingTool = true;
-                inputTarget.Untarget();
+                inputSystem.Untarget();
+
+                Debug.Log("Done");
             }
         }
         else if (tool == Tool.Move && leftClickedOn)

@@ -358,12 +358,21 @@ public class Mouse : MonoBehaviour
                 }
                 else if (IsUnclicked(inputSystem.inputTarget.mouseTarget.buttonTargetedWith))
                 {
-                    if (hoverTarget && !hoverTarget.mouseTarget.selected)
+                    /*if (hoverTarget && !hoverTarget.mouseTarget.selected)
                     {
                         canInteract = !inputSystem.inputTarget.disableMouseWhenSelected;
                         hoverTarget.mouseTarget.Select();
                         SetCursorState(hoverTarget.cursorSelected);
+                    }*/
+                    
+                    if (!inputSystem.inputTarget.mouseTarget.selected)
+                    {
+                        canInteract = !inputSystem.inputTarget.disableMouseWhenSelected;
+                        inputSystem.inputTarget.mouseTarget.Select();
+                        SetCursorState(inputSystem.inputTarget.cursorSelected);
                     }
+
+                    inputSystem.inputTarget.mouseTarget.Idle();
                 }
             }
 
