@@ -184,6 +184,18 @@ public class UIToggleGroup : MonoBehaviour
     {
         return PressOrCtrlPress(toggle, swapClickAndCtrlClick);
     }
+    public bool PressForceEvent(int index)
+    {
+        if (index < 0 || index >= toggles.Count)
+        {
+            throw new System.Exception("Index out of range: " + index);
+        }
+        return PressForceEvent(toggles[index]);
+    }
+    public bool PressForceEvent(UIToggleButton toggle)
+    {
+        return PressOrCtrlPress(toggle, swapClickAndCtrlClick, true);
+    }
 
     public bool CtrlPress(int index)
     {
@@ -198,7 +210,8 @@ public class UIToggleGroup : MonoBehaviour
         return PressOrCtrlPress(toggle, !swapClickAndCtrlClick);
     }
 
-    public bool PressOrCtrlPress(UIToggleButton toggle, bool ctrlClick)
+    public bool PressOrCtrlPress(UIToggleButton toggle, bool ctrlClick) => PressOrCtrlPress(toggle, ctrlClick, false);
+    private bool PressOrCtrlPress(UIToggleButton toggle, bool ctrlClick, bool forceEvent)
     {
         if (!Contains(toggle))
         {
@@ -209,6 +222,7 @@ public class UIToggleGroup : MonoBehaviour
         {
             if (currentToggle == toggle && selectedToggles.Length == 1)
             {
+                if (forceEvent) { onSelectedToggleChanged.Invoke(); }
                 return false;
             }
 
@@ -241,6 +255,7 @@ public class UIToggleGroup : MonoBehaviour
                     {
                         if (!canSelectNone)
                         {
+                            if (forceEvent) { onSelectedToggleChanged.Invoke(); }
                             return false;
                             
                         }
@@ -272,8 +287,6 @@ public class UIToggleGroup : MonoBehaviour
                 return true;
             }
         }
-
-        return false;
     }
 
     public void Clear()

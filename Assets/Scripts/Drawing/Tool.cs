@@ -15,6 +15,7 @@ public class Tool
     public bool showBrushBorder { get; private set; }
     /// <summary>What action causes a use of the tool to be ended.</summary>
     public MouseTargetDeselectMode finishMode { get; private set; } = MouseTargetDeselectMode.Unclick;
+    public bool canBeCancelled = false;
 
     private Tool() { }
 
@@ -71,14 +72,16 @@ public class Tool
     {
         name = "shape",
         useMovementInterpolation = false,
-        showBrushBorder = true
+        showBrushBorder = true,
+        canBeCancelled = true
     };
 
     public static Tool Line = new Tool
     {
         name = "line",
         useMovementInterpolation = false,
-        showBrushBorder = true
+        showBrushBorder = true,
+        canBeCancelled = true
     };
 
     public static Tool IsoBox = new Tool
@@ -86,14 +89,16 @@ public class Tool
         name = "iso box",
         useMovementInterpolation = false,
         showBrushBorder = true,
-        finishMode = MouseTargetDeselectMode.Manual
+        finishMode = MouseTargetDeselectMode.Manual,
+        canBeCancelled = true
     };
 
     public static Tool Gradient = new Tool
     {
         name = "gradient",
         useMovementInterpolation = false,
-        showBrushBorder = true
+        showBrushBorder = true,
+        canBeCancelled = true
     };
 
     public static Tool Move = new Tool

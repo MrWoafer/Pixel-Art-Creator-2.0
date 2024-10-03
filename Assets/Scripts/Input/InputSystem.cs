@@ -76,7 +76,7 @@ public class InputSystem : MonoBehaviour
         inputTarget = globalInputTarget;
 
         globalKeyboardTarget.SubscribeToOnInput(GlobalKeyboardInput);
-        mouse.SubscribeToScrollEvent(GlobalMouseScroll);
+        mouse.SubscribeToScroll(GlobalMouseScroll);
         mouse.SubscribeToLeftClick(GlobalLeftClick);
 
         mouse.canInteract = true;

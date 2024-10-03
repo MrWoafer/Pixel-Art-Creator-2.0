@@ -149,7 +149,10 @@ public class Toolbar : MonoBehaviour
         inputSystem.SubscribeToGlobalKeyboard(CheckKeyboardShortcuts);
         inputSystem.SubscribeToGlobalMouseScroll(OnMouseScroll);
 
-        toggleGroup.SubscribeToSelectedToggleChange(onToolChanged.Invoke);
+        toggleGroup.SubscribeToSelectedToggleChange(() => {
+            UpdateBrushBorder();
+            onToolChanged.Invoke();
+        });
 
         UpdateBrushBorder();
     }

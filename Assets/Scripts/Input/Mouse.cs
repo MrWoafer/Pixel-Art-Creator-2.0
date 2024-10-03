@@ -308,9 +308,14 @@ public class Mouse : MonoBehaviour
     private const int CURSOR_SCALED_RESOLUTION = 256;
 
     private UnityEvent onScroll = new UnityEvent();
+    private UnityEvent onClick = new UnityEvent();
     private UnityEvent onLeftClick = new UnityEvent();
     private UnityEvent onRightClick = new UnityEvent();
     private UnityEvent onMiddleClick = new UnityEvent();
+    private UnityEvent onUnclick = new UnityEvent();
+    private UnityEvent onLeftUnclick = new UnityEvent();
+    private UnityEvent onRightUnclick = new UnityEvent();
+    private UnityEvent onMiddleUnclick = new UnityEvent();
 
     private float scrollCursorTimer = 0f;
 
@@ -472,6 +477,10 @@ public class Mouse : MonoBehaviour
             }
         }
 
+        if (click)
+        {
+            onClick.Invoke();
+        }
         if (leftClick)
         {
             onLeftClick.Invoke();
@@ -483,6 +492,22 @@ public class Mouse : MonoBehaviour
         if (middleClick)
         {
             onMiddleClick.Invoke();
+        }
+        if (unclick)
+        {
+            onUnclick.Invoke();
+        }
+        if (leftUnclick)
+        {
+            onLeftUnclick.Invoke();
+        }
+        if (rightUnclick)
+        {
+            onRightUnclick.Invoke();
+        }
+        if (middleUnclick)
+        {
+            onMiddleUnclick.Invoke();
         }
     }
 
@@ -652,11 +677,15 @@ public class Mouse : MonoBehaviour
         }
     }
 
-    public void SubscribeToScrollEvent(UnityAction call)
+    public void SubscribeToScroll(UnityAction call)
     {
         onScroll.AddListener(call);
     }
 
+    public void SubscribeToClick(UnityAction call)
+    {
+        onClick.AddListener(call);
+    }
     public void SubscribeToLeftClick(UnityAction call)
     {
         onLeftClick.AddListener(call);
@@ -668,5 +697,21 @@ public class Mouse : MonoBehaviour
     public void SubscribeToMiddleClick(UnityAction call)
     {
         onMiddleClick.AddListener(call);
+    }
+    public void SubscribeToUnclick(UnityAction call)
+    {
+        onUnclick.AddListener(call);
+    }
+    public void SubscribeToLeftUnclick(UnityAction call)
+    {
+        onLeftUnclick.AddListener(call);
+    }
+    public void SubscribeToRightUnclick(UnityAction call)
+    {
+        onRightUnclick.AddListener(call);
+    }
+    public void SubscribeToMiddleUnclick(UnityAction call)
+    {
+        onMiddleUnclick.AddListener(call);
     }
 }

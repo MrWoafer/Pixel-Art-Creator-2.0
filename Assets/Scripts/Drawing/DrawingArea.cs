@@ -196,7 +196,10 @@ public class DrawingArea : MonoBehaviour
 
     private void Start()
     {
-        inputTarget.mouseTarget.SubscribeToStateChange(OnMouseInput);
+        //inputTarget.mouseTarget.SubscribeToStateChange(OnMouseClick);
+        inputTarget.mouseTarget.SubscribeToClick(OnMouseClickUnclick);
+        inputTarget.mouseTarget.SubscribeToUnclick(OnMouseClickUnclick);
+        inputTarget.mouseTarget.SubscribeToStateChange(OnMouseClickUnclick);
         inputTarget.mouseTarget.SubscribeToHover(OnMousePixelChanged);
         inputTarget.keyboardTarget.SubscribeToOnInput(OnKeyboardInput);
         inputSystem.globalMouseTarget.SubscribeToScroll(OnMouseScroll);
@@ -446,10 +449,13 @@ public class DrawingArea : MonoBehaviour
     /// <summary>
     /// Called when the drawing area is hovered over/off or clicked on/unclicked.
     /// </summary>
-    private void OnMouseInput()
+    private void OnMouseClickUnclick()
     {
+        Debug.Log("Mouse Input");
         if (inputTarget.mouseTarget.state == MouseTargetState.Pressed)
         {
+            Debug.Log("Pressed");
+
             if (finishedUsingTool)
             {
                 mouseDragPoints.Clear();
@@ -506,6 +512,8 @@ public class DrawingArea : MonoBehaviour
         }
         else if (inputTarget.mouseTarget.state == MouseTargetState.Idle && mouse.unclick && !finishedUsingTool && !selectedLayer.locked && !hasUnclickedSinceUsingTool)
         {
+            Debug.Log("Unclick");
+
             UnclickTool(toolbar.selectedTool, previousPixelUsedToolOn, selectedLayerIndex, currentFrameIndex, colourPicker.colour);
             ClearPreview();
             //mouseDragPoints[0] = mouseDragInactiveCoords;
@@ -612,15 +620,16 @@ public class DrawingArea : MonoBehaviour
     /// </summary>
     private void OnKeyboardInput()
     {
-        if (inputTarget.keyboardTarget.OneIsHeldExactly(KeyboardShortcuts.GetShortcutsFor("cancel tool")))
+        if (inputTarget.keyboardTarget.OneIsHeldExactly(KeyboardShortcuts.GetShortcutsFor("cancel tool")) && toolbar.selectedTool.canBeCancelled)
         {
-            Tool tool = toolbar.selectedTool;
-            if (tool == Tool.Line || tool == Tool.Shape || tool == Tool.Gradient)
+            toolCancelled = true;
+            ClearPreview();
+            finishedUsingTool = true;
+
+            if (toolbar.selectedTool == Tool.IsoBox)
             {
-                toolCancelled = true;
-                ClearPreview();
-                mouseDragPoints[0] = mouseDragInactiveCoords;
-                finishedUsingTool = true;
+                isoBoxPlacedBase = false;
+                inputTarget.Untarget();
             }
         }
 
@@ -653,6 +662,18 @@ public class DrawingArea : MonoBehaviour
             undoRedoManager.AddUndoState(new UndoRedoState(UndoRedoAction.Draw, file.layers[selectedLayerIndex], selectedLayerIndex), fileManager.currentFileIndex);
             DeleteSelection();
         }
+        if (inputSystem.globalKeyboardTarget.OneIsHeldExactly(KeyboardShortcuts.GetShortcutsFor("cancel tool")) && toolbar.selectedTool.canBeCancelled)
+        {
+            toolCancelled = true;
+            ClearPreview();
+            finishedUsingTool = true;
+
+            if (toolbar.selectedTool == Tool.IsoBox)
+            {
+                isoBoxPlacedBase = false;
+                inputTarget.Untarget();
+            }
+        }
 
         /// To be implemented
         if (toolbar.selectedTool == Tool.Move && hasSelection)
@@ -669,14 +690,12 @@ public class DrawingArea : MonoBehaviour
     /// </summary>
     private void OnToolChanged()
     {
+        mouseDragPoints.Clear();
+
         if (inputTarget.mouseTarget.state == MouseTargetState.Pressed)
         {
-            mouseDragPoints[0] = mousePixel;
+            mouseDragPoints.Add(mousePixel);
             ClearPreview();
-        }
-        else
-        {
-            mouseDragPoints[0] = mouseDragInactiveCoords;
         }
 
         finishedUsingTool = true;

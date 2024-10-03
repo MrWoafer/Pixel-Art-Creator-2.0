@@ -26,7 +26,7 @@ public class UIToolButton : MonoBehaviour
             UIButton temp = button;
             button.SubscribeToClick(() => {
                 Select(temp);
-                toggleButton.toggleGroup.Press(toggleButton);
+                toggleButton.toggleGroup.PressForceEvent(toggleButton);
             });
         }
 
