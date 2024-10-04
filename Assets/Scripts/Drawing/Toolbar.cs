@@ -21,6 +21,7 @@ public enum SelectionMode
 
 public enum BrushShape
 {
+    Custom = -1,
     Circle = 0,
     Square = 1,
     Diamond = 2
@@ -134,6 +135,8 @@ public class Toolbar : MonoBehaviour
     public int brushPixelsHeight { get; private set; } = 0;
     public bool brushPixelsIsEmpty => brushPixels.Length == 0;
     public bool brushPixelsIsSingleCentralPixel => brushPixels.Length == 1 && brushPixels[0] == IntVector2.zero;
+
+    private Texture2D customBrushTexture = null;
 
     private InputSystem inputSystem;
     private UIToggleGroup toggleGroup;
@@ -331,6 +334,15 @@ public class Toolbar : MonoBehaviour
             {
                 brushTexture = Shapes.Diamond(brushSize * 2 - 1, brushSize * 2 - 1, IntVector2.zero, IntVector2.one * (brushSize * 2 - 2), Color.white, true);
             }
+            else if (brushShape == BrushShape.Custom)
+            {
+                if (customBrushTexture == null)
+                {
+                    throw new System.Exception("Custom brush shape has not yet been assigned.");
+                }
+
+                brushTexture = Tex2DSprite.Copy(customBrushTexture);
+            }
             else
             {
                 throw new System.Exception("Unknown / unimplemented brush shape: " + brushShape);
@@ -368,6 +380,27 @@ public class Toolbar : MonoBehaviour
         }
 
         onBrushPixelsChanged.Invoke();
+    }
+
+    /// <summary>
+    /// Turns the given texture into a brush shape by taking any pixels with non-zero alpha.
+    /// </summary>
+    public void LoadCustomBrush(Texture2D brushShape)
+    {
+        customBrushTexture = Tex2DSprite.BlankTexture(brushShape.width, brushShape.height);
+
+        for (int x = 0; x < brushShape.width; x++)
+        {
+            for (int y = 0; y < brushShape.height; y++)
+            {
+                if (brushShape.GetPixel(x, y).a != 0f)
+                {
+                    customBrushTexture.SetPixel(x, y, Color.white);
+                }
+            }
+        }
+
+        customBrushTexture.Apply();
     }
 
     /// <summary>

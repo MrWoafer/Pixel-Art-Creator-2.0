@@ -242,7 +242,7 @@ public class DrawingArea : MonoBehaviour
                 {
                     if (mouse.click || mouseOutsideDrawingAreaLastFrame || !toolbar.selectedTool.useMovementInterpolation)
                     {
-                        ClickTool(toolbar.selectedTool, mousePixel, selectedLayerIndex, currentFrameIndex, colour);
+                        HoldClickTool(toolbar.selectedTool, mousePixel, selectedLayerIndex, currentFrameIndex, colour);
                     }
                     else
                     {
@@ -251,7 +251,7 @@ public class DrawingArea : MonoBehaviour
                         Color colourUnderLineEnd = selectedLayer.GetPixel(line[^1], animationManager.currentFrameIndex);
                         foreach (IntVector2 pixel in line)
                         {
-                            ClickTool(toolbar.selectedTool, pixel, selectedLayerIndex, currentFrameIndex, colour);
+                            HoldClickTool(toolbar.selectedTool, pixel, selectedLayerIndex, currentFrameIndex, colour);
                         }
 
                         bool smoothed = false;
@@ -381,8 +381,19 @@ public class DrawingArea : MonoBehaviour
     private void UpdateBrushBorder(IntVector2 pixel)
     {
         brushBorderSprRen.sprite = Tex2DSprite.Tex2DToSprite(toolbar.brushTexture);
-        brushBorderSprRen.transform.localScale = new Vector3(toolbar.brushPixelsWidth / pixelsPerUnit, toolbar.brushPixelsHeight / pixelsPerUnit, 1f);
+
+        float scaleFactor = Mathf.Max(toolbar.brushTexture.width, toolbar.brushTexture.height) / pixelsPerUnit;
+        brushBorderSprRen.transform.localScale = new Vector3(scaleFactor, scaleFactor, 1f);
+
         brushBorderSprRen.transform.position = PixelsToWorldPos(pixel);
+        if (toolbar.brushTexture.width % 2 == 0)
+        {
+            brushBorderSprRen.transform.localPosition += new Vector3(0.5f / pixelsPerUnit, 0f, 0f);
+        }
+        if (toolbar.brushTexture.height % 2 == 0)
+        {
+            brushBorderSprRen.transform.localPosition += new Vector3(0f, 0.5f / pixelsPerUnit, 0f);
+        }
 
         // When the brush is a single pixel, make the border black/white depending on the lightness of the pixel below
         Color outlineColour = Color.black;
@@ -688,7 +699,7 @@ public class DrawingArea : MonoBehaviour
         }
     }
 
-    private void ClickTool(Tool tool, IntVector2 pixel, int layer, int frame, Color colour)
+    private void HoldClickTool(Tool tool, IntVector2 pixel, int layer, int frame, Color colour)
     {
         finishedUsingTool = false;
 

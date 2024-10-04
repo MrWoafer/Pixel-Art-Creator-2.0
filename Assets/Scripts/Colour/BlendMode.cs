@@ -21,6 +21,8 @@ public class BlendMode
         this.blendFunction = blendFunction;
     }
 
+    /// <summary>Replace blend mode.</summary>
+    public static readonly BlendMode Replace = new BlendMode("Replace", ReplaceBlend);
     /// <summary>Normal blend mode.</summary>
     public static readonly BlendMode Normal = new BlendMode("Normal", NormalBlend);
     /// <summary>Overlay blend mode.</summary>
@@ -35,7 +37,7 @@ public class BlendMode
     public static readonly BlendMode Subtract = new BlendMode("Subtract", SubtractBlend);
 
     /// <summary>All implemented blend modes.</summary>
-    public static readonly BlendMode[] blendModes = new BlendMode[] { Normal, Overlay, Multiply, Screen, Add, Subtract };
+    public static readonly BlendMode[] blendModes = new BlendMode[] { Replace, Normal, Overlay, Multiply, Screen, Add, Subtract };
 
     public static bool operator ==(BlendMode a, BlendMode b)
     {
@@ -74,6 +76,14 @@ public class BlendMode
     public Color Blend(Color topColour, Color bottomColour)
     {
         return blendFunction.Invoke(topColour, bottomColour);
+    }
+
+    /// <summary>
+    /// The blend function for the Replace blend mode.
+    /// </summary>
+    private static Color ReplaceBlend(Color topColour, Color bottomColour)
+    {
+        return topColour;
     }
 
     /// <summary>

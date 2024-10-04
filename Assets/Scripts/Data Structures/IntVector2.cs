@@ -12,7 +12,7 @@ public struct IntVector2
     public int y;
 
     public float magnitude => Magnitude(this);
-    public float squaredMagnitude => SquaredMagnitude(this);
+    public float squaredMagnitude => SqrMagnitude(this);
 
     public IntVector2(int x, int y)
     {
@@ -311,11 +311,15 @@ public struct IntVector2
     {
         return Magnitude(a - b);
     }
+    public static float SqrDistance(IntVector2 a, IntVector2 b)
+    {
+        return SqrMagnitude(a - b);
+    }
     public static float Magnitude(IntVector2 a)
     {
         return Mathf.Sqrt(a.x * a.x + a.y * a.y);
     }
-    public static float SquaredMagnitude(IntVector2 a)
+    public static float SqrMagnitude(IntVector2 a)
     {
         return a.x * a.x + a.y * a.y;
     }

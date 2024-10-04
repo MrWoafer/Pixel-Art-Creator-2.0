@@ -1,9 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
+using System;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Events;
-using System;
+using SFB;
 
 public class UIManager : MonoBehaviour
 {
@@ -748,6 +749,17 @@ public class UIManager : MonoBehaviour
         else if (brushShape == "diamond")
         {
             toolbar.brushShape = BrushShape.Diamond;
+        }
+        else if (brushShape == "open")
+        {
+            ExtensionFilter[] extensions = new ExtensionFilter[] { new ExtensionFilter("Image File ", "png", "jpeg", "jpg") };
+            string[] fileNames = StandaloneFileBrowser.OpenFilePanel("Open File", "", extensions, false);
+            if (fileNames.Length > 0)
+            {
+                toolbar.LoadCustomBrush(Tex2DSprite.LoadFromFile(fileNames[0]));
+            }
+
+            toolbar.brushShape = BrushShape.Custom;
         }
         else
         {

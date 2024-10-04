@@ -272,71 +272,68 @@ public static class Shapes
             focus2 = centre + new Vector2(0f, focusDistance);
         }
 
-        for (int x = bottomLeft.x; x <= topRight.x; x++)
-        {
-            for (int y = bottomLeft.y; y <= topRight.y; y++)
-            {
-                float sumOfDistances = Vector2.Distance(new Vector2(x + 0.5f, y + 0.5f), focus1) + Vector2.Distance(new Vector2(x + 0.5f, y + 0.5f), focus2);
-
-                if (sumOfDistances <= 2 * Mathf.Max(xRadius, yRadius) && tex.ContainsPixel(x, y))
-                {
-                    tex.SetPixel(x, y, colour);
-                }
-            }
-        }
-
-        if (topRight.x - bottomLeft.x == 2 && topRight.y - bottomLeft.y == 2)
-        {
-            if (tex.ContainsPixel(bottomLeft.x, bottomLeft.y))
-            {
-                tex.SetPixel(bottomLeft.x, bottomLeft.y, new Color(0f, 0f, 0f, 0f));
-            }
-            if (tex.ContainsPixel(bottomLeft.x, topRight.y))
-            {
-                tex.SetPixel(bottomLeft.x, topRight.y, new Color(0f, 0f, 0f, 0f));
-            }
-            if (tex.ContainsPixel(topRight.x, bottomLeft.y))
-            {
-                tex.SetPixel(topRight.x, bottomLeft.y, new Color(0f, 0f, 0f, 0f));
-            }
-            if (tex.ContainsPixel(topRight.x, topRight.y))
-            {
-                tex.SetPixel(topRight.x, topRight.y, new Color(0f, 0f, 0f, 0f));
-            }
-        }
-
         if (filled)
         {
-            tex.Apply();
-            return tex;
-        }
-
-        List<IntVector2> interiorPoints = new List<IntVector2>();
-
-        for (int x = bottomLeft.x; x <= topRight.x; x++)
-        {
-            for (int y = bottomLeft.y; y <= topRight.y; y++)
+            for (int x = bottomLeft.x; x <= topRight.x; x++)
             {
-                bool interior = true;
-                foreach (IntVector2 offset in new IntVector2[] { new IntVector2(1, 0), new IntVector2(0, 1), new IntVector2(-1, 0), new IntVector2(0, -1) })
+                for (int y = bottomLeft.y; y <= topRight.y; y++)
                 {
-                    IntVector2 offsetCoord = new IntVector2(x, y) + offset;
-                    if (!tex.ContainsPixel(offsetCoord) || tex.GetPixel(offsetCoord.x, offsetCoord.y) == new Color(0f, 0f, 0f, 0f))
+                    float sumOfDistances = Vector2.Distance(new Vector2(x + 0.5f, y + 0.5f), focus1) + Vector2.Distance(new Vector2(x + 0.5f, y + 0.5f), focus2);
+
+                    if (sumOfDistances <= 2 * Mathf.Max(xRadius, yRadius) && tex.ContainsPixel(x, y))
                     {
-                        interior = false;
+                        tex.SetPixel(x, y, colour);
                     }
                 }
+            }
 
-                if (interior)
+            if (topRight.x - bottomLeft.x == 2 && topRight.y - bottomLeft.y == 2)
+            {
+                if (tex.ContainsPixel(bottomLeft.x, bottomLeft.y))
                 {
-                    interiorPoints.Add(new IntVector2(x, y));
+                    tex.SetPixel(bottomLeft.x, bottomLeft.y, new Color(0f, 0f, 0f, 0f));
+                }
+                if (tex.ContainsPixel(bottomLeft.x, topRight.y))
+                {
+                    tex.SetPixel(bottomLeft.x, topRight.y, new Color(0f, 0f, 0f, 0f));
+                }
+                if (tex.ContainsPixel(topRight.x, bottomLeft.y))
+                {
+                    tex.SetPixel(topRight.x, bottomLeft.y, new Color(0f, 0f, 0f, 0f));
+                }
+                if (tex.ContainsPixel(topRight.x, topRight.y))
+                {
+                    tex.SetPixel(topRight.x, topRight.y, new Color(0f, 0f, 0f, 0f));
                 }
             }
         }
-
-        foreach (IntVector2 interiorPoint in interiorPoints)
+        else
         {
-            tex.SetPixel(interiorPoint.x, interiorPoint.y, new Color(0f, 0f, 0f, 0f));
+            for (int x = bottomLeft.x; x <= topRight.x; x++)
+            {
+                for (int y = bottomLeft.y; y <= topRight.y; y++)
+                {
+                    float sumOfDistances = Vector2.Distance(new Vector2(x + 0.5f, y + 0.5f), focus1) + Vector2.Distance(new Vector2(x + 0.5f, y + 0.5f), focus2);
+                    if (sumOfDistances <= 2 * Mathf.Max(xRadius, yRadius) && tex.ContainsPixel(x, y))
+                    {
+                        bool onBorder = false;
+                        foreach (IntVector2 offset in new IntVector2[] { new IntVector2(1, 0), new IntVector2(0, 1), new IntVector2(-1, 0), new IntVector2(0, -1) })
+                        {
+                            sumOfDistances = Vector2.Distance(new Vector2(x + 0.5f, y + 0.5f) + offset, focus1) + Vector2.Distance(new Vector2(x + 0.5f, y + 0.5f) + offset, focus2);
+                            if (sumOfDistances > 2 * Mathf.Max(xRadius, yRadius))
+                            {
+                                onBorder = true;
+                                break;
+                            }
+                        }
+
+                        if (onBorder)
+                        {
+                            tex.SetPixel(x, y, colour);
+                        }
+                    }
+                }
+            }
         }
 
         tex.Apply();
