@@ -323,6 +323,8 @@ public class DrawingArea : MonoBehaviour
     {
         drawingSprRen.sprite = Tex2DSprite.Tex2DToSprite(file.liveRender);
         backgroundSprRen.sprite = Tex2DSprite.Tex2DToSprite(Tex2DSprite.CheckerboardBackground(file.width, file.height));
+        //backgroundSprRen.material.SetFloat("_Width", 2f * file.width);
+        //backgroundSprRen.material.SetFloat("_Height", 2f * file.height);
         previewSprRen.sprite = Tex2DSprite.Tex2DToSprite(Tex2DSprite.BlankTexture(1, 1));
         selectionMask = Tex2DSprite.BlankTexture(file.width, file.height);
 
