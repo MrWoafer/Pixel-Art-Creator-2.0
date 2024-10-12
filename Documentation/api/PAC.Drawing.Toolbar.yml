@@ -1,0 +1,929 @@
+### YamlMime:ManagedReference
+items:
+- uid: PAC.Drawing.Toolbar
+  commentId: T:PAC.Drawing.Toolbar
+  id: Toolbar
+  parent: PAC.Drawing
+  children:
+  - PAC.Drawing.Toolbar.DeselectGlobalEyeDropper
+  - PAC.Drawing.Toolbar.LoadCustomBrush(Texture2D)
+  - PAC.Drawing.Toolbar.SelectGlobalEyeDropper
+  - PAC.Drawing.Toolbar.SetBrushSize(System.Int32)
+  - PAC.Drawing.Toolbar.SubscribeToOnBrushPixelsChanged(UnityAction)
+  - PAC.Drawing.Toolbar.SubscribeToOnBrushSizeChanged(UnityAction)
+  - PAC.Drawing.Toolbar.SubscribeToOnToolChanged(UnityAction)
+  - PAC.Drawing.Toolbar.brushPixels
+  - PAC.Drawing.Toolbar.brushPixelsHeight
+  - PAC.Drawing.Toolbar.brushPixelsIsEmpty
+  - PAC.Drawing.Toolbar.brushPixelsIsSingleCentralPixel
+  - PAC.Drawing.Toolbar.brushPixelsWidth
+  - PAC.Drawing.Toolbar.brushShape
+  - PAC.Drawing.Toolbar.brushSize
+  - PAC.Drawing.Toolbar.brushTexture
+  - PAC.Drawing.Toolbar.gradientMode
+  - PAC.Drawing.Toolbar.lineSmoothingTime
+  - PAC.Drawing.Toolbar.maxBrushSize
+  - PAC.Drawing.Toolbar.previousTool
+  - PAC.Drawing.Toolbar.selectedTool
+  - PAC.Drawing.Toolbar.selectionMode
+  - PAC.Drawing.Toolbar.shapeToolShape
+  langs:
+  - csharp
+  - vb
+  name: Toolbar
+  nameWithType: Toolbar
+  fullName: PAC.Drawing.Toolbar
+  type: Class
+  source:
+    remote:
+      path: Assets/Scripts/Drawing/Toolbar.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: Toolbar
+    path: ../Assets/Scripts/Drawing/Toolbar.cs
+    startLine: 44
+  namespace: PAC.Drawing
+  summary: Handles selecting tools, brush size, etc.
+  example: []
+  syntax:
+    content: 'public class Toolbar : MonoBehaviour'
+    content.vb: Public Class Toolbar Inherits MonoBehaviour
+  inheritance:
+  - System.Object
+- uid: PAC.Drawing.Toolbar.maxBrushSize
+  commentId: P:PAC.Drawing.Toolbar.maxBrushSize
+  id: maxBrushSize
+  parent: PAC.Drawing.Toolbar
+  langs:
+  - csharp
+  - vb
+  name: maxBrushSize
+  nameWithType: Toolbar.maxBrushSize
+  fullName: PAC.Drawing.Toolbar.maxBrushSize
+  type: Property
+  source:
+    remote:
+      path: Assets/Scripts/Drawing/Toolbar.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: maxBrushSize
+    path: ../Assets/Scripts/Drawing/Toolbar.cs
+    startLine: 49
+  namespace: PAC.Drawing
+  syntax:
+    content: public int maxBrushSize { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public ReadOnly Property maxBrushSize As Integer
+  overload: PAC.Drawing.Toolbar.maxBrushSize*
+- uid: PAC.Drawing.Toolbar.brushSize
+  commentId: P:PAC.Drawing.Toolbar.brushSize
+  id: brushSize
+  parent: PAC.Drawing.Toolbar
+  langs:
+  - csharp
+  - vb
+  name: brushSize
+  nameWithType: Toolbar.brushSize
+  fullName: PAC.Drawing.Toolbar.brushSize
+  type: Property
+  source:
+    remote:
+      path: Assets/Scripts/Drawing/Toolbar.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: brushSize
+    path: ../Assets/Scripts/Drawing/Toolbar.cs
+    startLine: 53
+  namespace: PAC.Drawing
+  syntax:
+    content: public int brushSize { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public Property brushSize As Integer
+  overload: PAC.Drawing.Toolbar.brushSize*
+- uid: PAC.Drawing.Toolbar.lineSmoothingTime
+  commentId: P:PAC.Drawing.Toolbar.lineSmoothingTime
+  id: lineSmoothingTime
+  parent: PAC.Drawing.Toolbar
+  langs:
+  - csharp
+  - vb
+  name: lineSmoothingTime
+  nameWithType: Toolbar.lineSmoothingTime
+  fullName: PAC.Drawing.Toolbar.lineSmoothingTime
+  type: Property
+  source:
+    remote:
+      path: Assets/Scripts/Drawing/Toolbar.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: lineSmoothingTime
+    path: ../Assets/Scripts/Drawing/Toolbar.cs
+    startLine: 69
+  namespace: PAC.Drawing
+  summary: The amount of time you have to draw a new pixel in for an old one to be potentially smoothed.
+  example: []
+  syntax:
+    content: public float lineSmoothingTime { get; }
+    parameters: []
+    return:
+      type: System.Single
+    content.vb: Public ReadOnly Property lineSmoothingTime As Single
+  overload: PAC.Drawing.Toolbar.lineSmoothingTime*
+- uid: PAC.Drawing.Toolbar.selectedTool
+  commentId: P:PAC.Drawing.Toolbar.selectedTool
+  id: selectedTool
+  parent: PAC.Drawing.Toolbar
+  langs:
+  - csharp
+  - vb
+  name: selectedTool
+  nameWithType: Toolbar.selectedTool
+  fullName: PAC.Drawing.Toolbar.selectedTool
+  type: Property
+  source:
+    remote:
+      path: Assets/Scripts/Drawing/Toolbar.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: selectedTool
+    path: ../Assets/Scripts/Drawing/Toolbar.cs
+    startLine: 71
+  namespace: PAC.Drawing
+  syntax:
+    content: public Tool selectedTool { get; }
+    parameters: []
+    return:
+      type: PAC.Drawing.Tool
+    content.vb: Public ReadOnly Property selectedTool As Tool
+  overload: PAC.Drawing.Toolbar.selectedTool*
+- uid: PAC.Drawing.Toolbar.previousTool
+  commentId: P:PAC.Drawing.Toolbar.previousTool
+  id: previousTool
+  parent: PAC.Drawing.Toolbar
+  langs:
+  - csharp
+  - vb
+  name: previousTool
+  nameWithType: Toolbar.previousTool
+  fullName: PAC.Drawing.Toolbar.previousTool
+  type: Property
+  source:
+    remote:
+      path: Assets/Scripts/Drawing/Toolbar.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: previousTool
+    path: ../Assets/Scripts/Drawing/Toolbar.cs
+    startLine: 72
+  namespace: PAC.Drawing
+  syntax:
+    content: public Tool previousTool { get; }
+    parameters: []
+    return:
+      type: PAC.Drawing.Tool
+    content.vb: Public Property previousTool As Tool
+  overload: PAC.Drawing.Toolbar.previousTool*
+- uid: PAC.Drawing.Toolbar.brushShape
+  commentId: P:PAC.Drawing.Toolbar.brushShape
+  id: brushShape
+  parent: PAC.Drawing.Toolbar
+  langs:
+  - csharp
+  - vb
+  name: brushShape
+  nameWithType: Toolbar.brushShape
+  fullName: PAC.Drawing.Toolbar.brushShape
+  type: Property
+  source:
+    remote:
+      path: Assets/Scripts/Drawing/Toolbar.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: brushShape
+    path: ../Assets/Scripts/Drawing/Toolbar.cs
+    startLine: 78
+  namespace: PAC.Drawing
+  syntax:
+    content: public BrushShape brushShape { get; set; }
+    parameters: []
+    return:
+      type: PAC.Drawing.BrushShape
+    content.vb: Public Property brushShape As BrushShape
+  overload: PAC.Drawing.Toolbar.brushShape*
+- uid: PAC.Drawing.Toolbar.shapeToolShape
+  commentId: P:PAC.Drawing.Toolbar.shapeToolShape
+  id: shapeToolShape
+  parent: PAC.Drawing.Toolbar
+  langs:
+  - csharp
+  - vb
+  name: shapeToolShape
+  nameWithType: Toolbar.shapeToolShape
+  fullName: PAC.Drawing.Toolbar.shapeToolShape
+  type: Property
+  source:
+    remote:
+      path: Assets/Scripts/Drawing/Toolbar.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: shapeToolShape
+    path: ../Assets/Scripts/Drawing/Toolbar.cs
+    startLine: 90
+  namespace: PAC.Drawing
+  syntax:
+    content: public Shape shapeToolShape { get; }
+    parameters: []
+    return:
+      type: PAC.Drawing.Shape
+    content.vb: Public Property shapeToolShape As Shape
+  overload: PAC.Drawing.Toolbar.shapeToolShape*
+- uid: PAC.Drawing.Toolbar.gradientMode
+  commentId: P:PAC.Drawing.Toolbar.gradientMode
+  id: gradientMode
+  parent: PAC.Drawing.Toolbar
+  langs:
+  - csharp
+  - vb
+  name: gradientMode
+  nameWithType: Toolbar.gradientMode
+  fullName: PAC.Drawing.Toolbar.gradientMode
+  type: Property
+  source:
+    remote:
+      path: Assets/Scripts/Drawing/Toolbar.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: gradientMode
+    path: ../Assets/Scripts/Drawing/Toolbar.cs
+    startLine: 102
+  namespace: PAC.Drawing
+  syntax:
+    content: public GradientMode gradientMode { get; }
+    parameters: []
+    return:
+      type: PAC.Drawing.GradientMode
+    content.vb: Public Property gradientMode As GradientMode
+  overload: PAC.Drawing.Toolbar.gradientMode*
+- uid: PAC.Drawing.Toolbar.selectionMode
+  commentId: P:PAC.Drawing.Toolbar.selectionMode
+  id: selectionMode
+  parent: PAC.Drawing.Toolbar
+  langs:
+  - csharp
+  - vb
+  name: selectionMode
+  nameWithType: Toolbar.selectionMode
+  fullName: PAC.Drawing.Toolbar.selectionMode
+  type: Property
+  source:
+    remote:
+      path: Assets/Scripts/Drawing/Toolbar.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: selectionMode
+    path: ../Assets/Scripts/Drawing/Toolbar.cs
+    startLine: 114
+  namespace: PAC.Drawing
+  syntax:
+    content: public SelectionMode selectionMode { get; }
+    parameters: []
+    return:
+      type: PAC.Drawing.SelectionMode
+    content.vb: Public Property selectionMode As SelectionMode
+  overload: PAC.Drawing.Toolbar.selectionMode*
+- uid: PAC.Drawing.Toolbar.brushPixels
+  commentId: P:PAC.Drawing.Toolbar.brushPixels
+  id: brushPixels
+  parent: PAC.Drawing.Toolbar
+  langs:
+  - csharp
+  - vb
+  name: brushPixels
+  nameWithType: Toolbar.brushPixels
+  fullName: PAC.Drawing.Toolbar.brushPixels
+  type: Property
+  source:
+    remote:
+      path: Assets/Scripts/Drawing/Toolbar.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: brushPixels
+    path: ../Assets/Scripts/Drawing/Toolbar.cs
+    startLine: 136
+  namespace: PAC.Drawing
+  summary: The pixels, given relative to the position of the mouse, that will be affected by the current brush.
+  example: []
+  syntax:
+    content: public IntVector2[] brushPixels { get; }
+    parameters: []
+    return:
+      type: PAC.DataStructures.IntVector2[]
+    content.vb: Public Property brushPixels As IntVector2()
+  overload: PAC.Drawing.Toolbar.brushPixels*
+- uid: PAC.Drawing.Toolbar.brushTexture
+  commentId: P:PAC.Drawing.Toolbar.brushTexture
+  id: brushTexture
+  parent: PAC.Drawing.Toolbar
+  langs:
+  - csharp
+  - vb
+  name: brushTexture
+  nameWithType: Toolbar.brushTexture
+  fullName: PAC.Drawing.Toolbar.brushTexture
+  type: Property
+  source:
+    remote:
+      path: Assets/Scripts/Drawing/Toolbar.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: brushTexture
+    path: ../Assets/Scripts/Drawing/Toolbar.cs
+    startLine: 137
+  namespace: PAC.Drawing
+  syntax:
+    content: public Texture2D brushTexture { get; }
+    parameters: []
+    return:
+      type: Global.Texture2D
+    content.vb: Public Property brushTexture As Texture2D
+  overload: PAC.Drawing.Toolbar.brushTexture*
+- uid: PAC.Drawing.Toolbar.brushPixelsWidth
+  commentId: P:PAC.Drawing.Toolbar.brushPixelsWidth
+  id: brushPixelsWidth
+  parent: PAC.Drawing.Toolbar
+  langs:
+  - csharp
+  - vb
+  name: brushPixelsWidth
+  nameWithType: Toolbar.brushPixelsWidth
+  fullName: PAC.Drawing.Toolbar.brushPixelsWidth
+  type: Property
+  source:
+    remote:
+      path: Assets/Scripts/Drawing/Toolbar.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: brushPixelsWidth
+    path: ../Assets/Scripts/Drawing/Toolbar.cs
+    startLine: 138
+  namespace: PAC.Drawing
+  syntax:
+    content: public int brushPixelsWidth { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public Property brushPixelsWidth As Integer
+  overload: PAC.Drawing.Toolbar.brushPixelsWidth*
+- uid: PAC.Drawing.Toolbar.brushPixelsHeight
+  commentId: P:PAC.Drawing.Toolbar.brushPixelsHeight
+  id: brushPixelsHeight
+  parent: PAC.Drawing.Toolbar
+  langs:
+  - csharp
+  - vb
+  name: brushPixelsHeight
+  nameWithType: Toolbar.brushPixelsHeight
+  fullName: PAC.Drawing.Toolbar.brushPixelsHeight
+  type: Property
+  source:
+    remote:
+      path: Assets/Scripts/Drawing/Toolbar.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: brushPixelsHeight
+    path: ../Assets/Scripts/Drawing/Toolbar.cs
+    startLine: 139
+  namespace: PAC.Drawing
+  syntax:
+    content: public int brushPixelsHeight { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public Property brushPixelsHeight As Integer
+  overload: PAC.Drawing.Toolbar.brushPixelsHeight*
+- uid: PAC.Drawing.Toolbar.brushPixelsIsEmpty
+  commentId: P:PAC.Drawing.Toolbar.brushPixelsIsEmpty
+  id: brushPixelsIsEmpty
+  parent: PAC.Drawing.Toolbar
+  langs:
+  - csharp
+  - vb
+  name: brushPixelsIsEmpty
+  nameWithType: Toolbar.brushPixelsIsEmpty
+  fullName: PAC.Drawing.Toolbar.brushPixelsIsEmpty
+  type: Property
+  source:
+    remote:
+      path: Assets/Scripts/Drawing/Toolbar.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: brushPixelsIsEmpty
+    path: ../Assets/Scripts/Drawing/Toolbar.cs
+    startLine: 140
+  namespace: PAC.Drawing
+  syntax:
+    content: public bool brushPixelsIsEmpty { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public ReadOnly Property brushPixelsIsEmpty As Boolean
+  overload: PAC.Drawing.Toolbar.brushPixelsIsEmpty*
+- uid: PAC.Drawing.Toolbar.brushPixelsIsSingleCentralPixel
+  commentId: P:PAC.Drawing.Toolbar.brushPixelsIsSingleCentralPixel
+  id: brushPixelsIsSingleCentralPixel
+  parent: PAC.Drawing.Toolbar
+  langs:
+  - csharp
+  - vb
+  name: brushPixelsIsSingleCentralPixel
+  nameWithType: Toolbar.brushPixelsIsSingleCentralPixel
+  fullName: PAC.Drawing.Toolbar.brushPixelsIsSingleCentralPixel
+  type: Property
+  source:
+    remote:
+      path: Assets/Scripts/Drawing/Toolbar.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: brushPixelsIsSingleCentralPixel
+    path: ../Assets/Scripts/Drawing/Toolbar.cs
+    startLine: 141
+  namespace: PAC.Drawing
+  syntax:
+    content: public bool brushPixelsIsSingleCentralPixel { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public ReadOnly Property brushPixelsIsSingleCentralPixel As Boolean
+  overload: PAC.Drawing.Toolbar.brushPixelsIsSingleCentralPixel*
+- uid: PAC.Drawing.Toolbar.SetBrushSize(System.Int32)
+  commentId: M:PAC.Drawing.Toolbar.SetBrushSize(System.Int32)
+  id: SetBrushSize(System.Int32)
+  parent: PAC.Drawing.Toolbar
+  langs:
+  - csharp
+  - vb
+  name: SetBrushSize(int)
+  nameWithType: Toolbar.SetBrushSize(int)
+  fullName: PAC.Drawing.Toolbar.SetBrushSize(int)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Drawing/Toolbar.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: SetBrushSize
+    path: ../Assets/Scripts/Drawing/Toolbar.cs
+    startLine: 199
+  namespace: PAC.Drawing
+  syntax:
+    content: public bool SetBrushSize(int brushSize)
+    parameters:
+    - id: brushSize
+      type: System.Int32
+    return:
+      type: System.Boolean
+    content.vb: Public Function SetBrushSize(brushSize As Integer) As Boolean
+  overload: PAC.Drawing.Toolbar.SetBrushSize*
+  nameWithType.vb: Toolbar.SetBrushSize(Integer)
+  fullName.vb: PAC.Drawing.Toolbar.SetBrushSize(Integer)
+  name.vb: SetBrushSize(Integer)
+- uid: PAC.Drawing.Toolbar.SelectGlobalEyeDropper
+  commentId: M:PAC.Drawing.Toolbar.SelectGlobalEyeDropper
+  id: SelectGlobalEyeDropper
+  parent: PAC.Drawing.Toolbar
+  langs:
+  - csharp
+  - vb
+  name: SelectGlobalEyeDropper()
+  nameWithType: Toolbar.SelectGlobalEyeDropper()
+  fullName: PAC.Drawing.Toolbar.SelectGlobalEyeDropper()
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Drawing/Toolbar.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: SelectGlobalEyeDropper
+    path: ../Assets/Scripts/Drawing/Toolbar.cs
+    startLine: 277
+  namespace: PAC.Drawing
+  syntax:
+    content: public void SelectGlobalEyeDropper()
+    content.vb: Public Sub SelectGlobalEyeDropper()
+  overload: PAC.Drawing.Toolbar.SelectGlobalEyeDropper*
+- uid: PAC.Drawing.Toolbar.DeselectGlobalEyeDropper
+  commentId: M:PAC.Drawing.Toolbar.DeselectGlobalEyeDropper
+  id: DeselectGlobalEyeDropper
+  parent: PAC.Drawing.Toolbar
+  langs:
+  - csharp
+  - vb
+  name: DeselectGlobalEyeDropper()
+  nameWithType: Toolbar.DeselectGlobalEyeDropper()
+  fullName: PAC.Drawing.Toolbar.DeselectGlobalEyeDropper()
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Drawing/Toolbar.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: DeselectGlobalEyeDropper
+    path: ../Assets/Scripts/Drawing/Toolbar.cs
+    startLine: 287
+  namespace: PAC.Drawing
+  syntax:
+    content: public void DeselectGlobalEyeDropper()
+    content.vb: Public Sub DeselectGlobalEyeDropper()
+  overload: PAC.Drawing.Toolbar.DeselectGlobalEyeDropper*
+- uid: PAC.Drawing.Toolbar.LoadCustomBrush(Texture2D)
+  commentId: M:PAC.Drawing.Toolbar.LoadCustomBrush(Texture2D)
+  id: LoadCustomBrush(Texture2D)
+  parent: PAC.Drawing.Toolbar
+  langs:
+  - csharp
+  - vb
+  name: LoadCustomBrush(Texture2D)
+  nameWithType: Toolbar.LoadCustomBrush(Texture2D)
+  fullName: PAC.Drawing.Toolbar.LoadCustomBrush(Texture2D)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Drawing/Toolbar.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: LoadCustomBrush
+    path: ../Assets/Scripts/Drawing/Toolbar.cs
+    startLine: 392
+  namespace: PAC.Drawing
+  summary: Turns the given texture into a brush shape by taking any pixels with non-zero alpha.
+  example: []
+  syntax:
+    content: public void LoadCustomBrush(Texture2D brushShape)
+    parameters:
+    - id: brushShape
+      type: Global.Texture2D
+    content.vb: Public Sub LoadCustomBrush(brushShape As Texture2D)
+  overload: PAC.Drawing.Toolbar.LoadCustomBrush*
+- uid: PAC.Drawing.Toolbar.SubscribeToOnToolChanged(UnityAction)
+  commentId: M:PAC.Drawing.Toolbar.SubscribeToOnToolChanged(UnityAction)
+  id: SubscribeToOnToolChanged(UnityAction)
+  parent: PAC.Drawing.Toolbar
+  langs:
+  - csharp
+  - vb
+  name: SubscribeToOnToolChanged(UnityAction)
+  nameWithType: Toolbar.SubscribeToOnToolChanged(UnityAction)
+  fullName: PAC.Drawing.Toolbar.SubscribeToOnToolChanged(UnityAction)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Drawing/Toolbar.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: SubscribeToOnToolChanged
+    path: ../Assets/Scripts/Drawing/Toolbar.cs
+    startLine: 413
+  namespace: PAC.Drawing
+  summary: Event invoked when selected tool changes.
+  example: []
+  syntax:
+    content: public void SubscribeToOnToolChanged(UnityAction call)
+    parameters:
+    - id: call
+      type: Global.UnityAction
+    content.vb: Public Sub SubscribeToOnToolChanged([call] As UnityAction)
+  overload: PAC.Drawing.Toolbar.SubscribeToOnToolChanged*
+- uid: PAC.Drawing.Toolbar.SubscribeToOnBrushSizeChanged(UnityAction)
+  commentId: M:PAC.Drawing.Toolbar.SubscribeToOnBrushSizeChanged(UnityAction)
+  id: SubscribeToOnBrushSizeChanged(UnityAction)
+  parent: PAC.Drawing.Toolbar
+  langs:
+  - csharp
+  - vb
+  name: SubscribeToOnBrushSizeChanged(UnityAction)
+  nameWithType: Toolbar.SubscribeToOnBrushSizeChanged(UnityAction)
+  fullName: PAC.Drawing.Toolbar.SubscribeToOnBrushSizeChanged(UnityAction)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Drawing/Toolbar.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: SubscribeToOnBrushSizeChanged
+    path: ../Assets/Scripts/Drawing/Toolbar.cs
+    startLine: 420
+  namespace: PAC.Drawing
+  summary: Event invoked when brush size changes.
+  example: []
+  syntax:
+    content: public void SubscribeToOnBrushSizeChanged(UnityAction call)
+    parameters:
+    - id: call
+      type: Global.UnityAction
+    content.vb: Public Sub SubscribeToOnBrushSizeChanged([call] As UnityAction)
+  overload: PAC.Drawing.Toolbar.SubscribeToOnBrushSizeChanged*
+- uid: PAC.Drawing.Toolbar.SubscribeToOnBrushPixelsChanged(UnityAction)
+  commentId: M:PAC.Drawing.Toolbar.SubscribeToOnBrushPixelsChanged(UnityAction)
+  id: SubscribeToOnBrushPixelsChanged(UnityAction)
+  parent: PAC.Drawing.Toolbar
+  langs:
+  - csharp
+  - vb
+  name: SubscribeToOnBrushPixelsChanged(UnityAction)
+  nameWithType: Toolbar.SubscribeToOnBrushPixelsChanged(UnityAction)
+  fullName: PAC.Drawing.Toolbar.SubscribeToOnBrushPixelsChanged(UnityAction)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Drawing/Toolbar.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: SubscribeToOnBrushPixelsChanged
+    path: ../Assets/Scripts/Drawing/Toolbar.cs
+    startLine: 427
+  namespace: PAC.Drawing
+  summary: Event invoked when brush pixels change.
+  example: []
+  syntax:
+    content: public void SubscribeToOnBrushPixelsChanged(UnityAction call)
+    parameters:
+    - id: call
+      type: Global.UnityAction
+    content.vb: Public Sub SubscribeToOnBrushPixelsChanged([call] As UnityAction)
+  overload: PAC.Drawing.Toolbar.SubscribeToOnBrushPixelsChanged*
+references:
+- uid: PAC.Drawing
+  commentId: N:PAC.Drawing
+  href: PAC.html
+  name: PAC.Drawing
+  nameWithType: PAC.Drawing
+  fullName: PAC.Drawing
+  spec.csharp:
+  - uid: PAC
+    name: PAC
+    href: PAC.html
+  - name: .
+  - uid: PAC.Drawing
+    name: Drawing
+    href: PAC.Drawing.html
+  spec.vb:
+  - uid: PAC
+    name: PAC
+    href: PAC.html
+  - name: .
+  - uid: PAC.Drawing
+    name: Drawing
+    href: PAC.Drawing.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: PAC.Drawing.Toolbar.maxBrushSize*
+  commentId: Overload:PAC.Drawing.Toolbar.maxBrushSize
+  href: PAC.Drawing.Toolbar.html#PAC_Drawing_Toolbar_maxBrushSize
+  name: maxBrushSize
+  nameWithType: Toolbar.maxBrushSize
+  fullName: PAC.Drawing.Toolbar.maxBrushSize
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: PAC.Drawing.Toolbar.brushSize*
+  commentId: Overload:PAC.Drawing.Toolbar.brushSize
+  href: PAC.Drawing.Toolbar.html#PAC_Drawing_Toolbar_brushSize
+  name: brushSize
+  nameWithType: Toolbar.brushSize
+  fullName: PAC.Drawing.Toolbar.brushSize
+- uid: PAC.Drawing.Toolbar.lineSmoothingTime*
+  commentId: Overload:PAC.Drawing.Toolbar.lineSmoothingTime
+  href: PAC.Drawing.Toolbar.html#PAC_Drawing_Toolbar_lineSmoothingTime
+  name: lineSmoothingTime
+  nameWithType: Toolbar.lineSmoothingTime
+  fullName: PAC.Drawing.Toolbar.lineSmoothingTime
+- uid: System.Single
+  commentId: T:System.Single
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.single
+  name: float
+  nameWithType: float
+  fullName: float
+  nameWithType.vb: Single
+  fullName.vb: Single
+  name.vb: Single
+- uid: PAC.Drawing.Toolbar.selectedTool*
+  commentId: Overload:PAC.Drawing.Toolbar.selectedTool
+  href: PAC.Drawing.Toolbar.html#PAC_Drawing_Toolbar_selectedTool
+  name: selectedTool
+  nameWithType: Toolbar.selectedTool
+  fullName: PAC.Drawing.Toolbar.selectedTool
+- uid: PAC.Drawing.Tool
+  commentId: T:PAC.Drawing.Tool
+  parent: PAC.Drawing
+  href: PAC.Drawing.Tool.html
+  name: Tool
+  nameWithType: Tool
+  fullName: PAC.Drawing.Tool
+- uid: PAC.Drawing.Toolbar.previousTool*
+  commentId: Overload:PAC.Drawing.Toolbar.previousTool
+  href: PAC.Drawing.Toolbar.html#PAC_Drawing_Toolbar_previousTool
+  name: previousTool
+  nameWithType: Toolbar.previousTool
+  fullName: PAC.Drawing.Toolbar.previousTool
+- uid: PAC.Drawing.Toolbar.brushShape*
+  commentId: Overload:PAC.Drawing.Toolbar.brushShape
+  href: PAC.Drawing.Toolbar.html#PAC_Drawing_Toolbar_brushShape
+  name: brushShape
+  nameWithType: Toolbar.brushShape
+  fullName: PAC.Drawing.Toolbar.brushShape
+- uid: PAC.Drawing.BrushShape
+  commentId: T:PAC.Drawing.BrushShape
+  parent: PAC.Drawing
+  href: PAC.Drawing.BrushShape.html
+  name: BrushShape
+  nameWithType: BrushShape
+  fullName: PAC.Drawing.BrushShape
+- uid: PAC.Drawing.Toolbar.shapeToolShape*
+  commentId: Overload:PAC.Drawing.Toolbar.shapeToolShape
+  href: PAC.Drawing.Toolbar.html#PAC_Drawing_Toolbar_shapeToolShape
+  name: shapeToolShape
+  nameWithType: Toolbar.shapeToolShape
+  fullName: PAC.Drawing.Toolbar.shapeToolShape
+- uid: PAC.Drawing.Shape
+  commentId: T:PAC.Drawing.Shape
+  parent: PAC.Drawing
+  href: PAC.Drawing.Shape.html
+  name: Shape
+  nameWithType: Shape
+  fullName: PAC.Drawing.Shape
+- uid: PAC.Drawing.Toolbar.gradientMode*
+  commentId: Overload:PAC.Drawing.Toolbar.gradientMode
+  href: PAC.Drawing.Toolbar.html#PAC_Drawing_Toolbar_gradientMode
+  name: gradientMode
+  nameWithType: Toolbar.gradientMode
+  fullName: PAC.Drawing.Toolbar.gradientMode
+- uid: PAC.Drawing.GradientMode
+  commentId: T:PAC.Drawing.GradientMode
+  parent: PAC.Drawing
+  href: PAC.Drawing.GradientMode.html
+  name: GradientMode
+  nameWithType: GradientMode
+  fullName: PAC.Drawing.GradientMode
+- uid: PAC.Drawing.Toolbar.selectionMode*
+  commentId: Overload:PAC.Drawing.Toolbar.selectionMode
+  href: PAC.Drawing.Toolbar.html#PAC_Drawing_Toolbar_selectionMode
+  name: selectionMode
+  nameWithType: Toolbar.selectionMode
+  fullName: PAC.Drawing.Toolbar.selectionMode
+- uid: PAC.Drawing.SelectionMode
+  commentId: T:PAC.Drawing.SelectionMode
+  parent: PAC.Drawing
+  href: PAC.Drawing.SelectionMode.html
+  name: SelectionMode
+  nameWithType: SelectionMode
+  fullName: PAC.Drawing.SelectionMode
+- uid: PAC.Drawing.Toolbar.brushPixels*
+  commentId: Overload:PAC.Drawing.Toolbar.brushPixels
+  href: PAC.Drawing.Toolbar.html#PAC_Drawing_Toolbar_brushPixels
+  name: brushPixels
+  nameWithType: Toolbar.brushPixels
+  fullName: PAC.Drawing.Toolbar.brushPixels
+- uid: PAC.DataStructures.IntVector2[]
+  isExternal: true
+  href: PAC.DataStructures.IntVector2.html
+  name: IntVector2[]
+  nameWithType: IntVector2[]
+  fullName: PAC.DataStructures.IntVector2[]
+  nameWithType.vb: IntVector2()
+  fullName.vb: PAC.DataStructures.IntVector2()
+  name.vb: IntVector2()
+  spec.csharp:
+  - uid: PAC.DataStructures.IntVector2
+    name: IntVector2
+    href: PAC.DataStructures.IntVector2.html
+  - name: '['
+  - name: ']'
+  spec.vb:
+  - uid: PAC.DataStructures.IntVector2
+    name: IntVector2
+    href: PAC.DataStructures.IntVector2.html
+  - name: (
+  - name: )
+- uid: PAC.Drawing.Toolbar.brushTexture*
+  commentId: Overload:PAC.Drawing.Toolbar.brushTexture
+  href: PAC.Drawing.Toolbar.html#PAC_Drawing_Toolbar_brushTexture
+  name: brushTexture
+  nameWithType: Toolbar.brushTexture
+  fullName: PAC.Drawing.Toolbar.brushTexture
+- uid: Global.Texture2D
+  isExternal: true
+  name: Texture2D
+  nameWithType: Texture2D
+  fullName: Texture2D
+- uid: PAC.Drawing.Toolbar.brushPixelsWidth*
+  commentId: Overload:PAC.Drawing.Toolbar.brushPixelsWidth
+  href: PAC.Drawing.Toolbar.html#PAC_Drawing_Toolbar_brushPixelsWidth
+  name: brushPixelsWidth
+  nameWithType: Toolbar.brushPixelsWidth
+  fullName: PAC.Drawing.Toolbar.brushPixelsWidth
+- uid: PAC.Drawing.Toolbar.brushPixelsHeight*
+  commentId: Overload:PAC.Drawing.Toolbar.brushPixelsHeight
+  href: PAC.Drawing.Toolbar.html#PAC_Drawing_Toolbar_brushPixelsHeight
+  name: brushPixelsHeight
+  nameWithType: Toolbar.brushPixelsHeight
+  fullName: PAC.Drawing.Toolbar.brushPixelsHeight
+- uid: PAC.Drawing.Toolbar.brushPixelsIsEmpty*
+  commentId: Overload:PAC.Drawing.Toolbar.brushPixelsIsEmpty
+  href: PAC.Drawing.Toolbar.html#PAC_Drawing_Toolbar_brushPixelsIsEmpty
+  name: brushPixelsIsEmpty
+  nameWithType: Toolbar.brushPixelsIsEmpty
+  fullName: PAC.Drawing.Toolbar.brushPixelsIsEmpty
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: PAC.Drawing.Toolbar.brushPixelsIsSingleCentralPixel*
+  commentId: Overload:PAC.Drawing.Toolbar.brushPixelsIsSingleCentralPixel
+  href: PAC.Drawing.Toolbar.html#PAC_Drawing_Toolbar_brushPixelsIsSingleCentralPixel
+  name: brushPixelsIsSingleCentralPixel
+  nameWithType: Toolbar.brushPixelsIsSingleCentralPixel
+  fullName: PAC.Drawing.Toolbar.brushPixelsIsSingleCentralPixel
+- uid: PAC.Drawing.Toolbar.SetBrushSize*
+  commentId: Overload:PAC.Drawing.Toolbar.SetBrushSize
+  href: PAC.Drawing.Toolbar.html#PAC_Drawing_Toolbar_SetBrushSize_System_Int32_
+  name: SetBrushSize
+  nameWithType: Toolbar.SetBrushSize
+  fullName: PAC.Drawing.Toolbar.SetBrushSize
+- uid: PAC.Drawing.Toolbar.SelectGlobalEyeDropper*
+  commentId: Overload:PAC.Drawing.Toolbar.SelectGlobalEyeDropper
+  href: PAC.Drawing.Toolbar.html#PAC_Drawing_Toolbar_SelectGlobalEyeDropper
+  name: SelectGlobalEyeDropper
+  nameWithType: Toolbar.SelectGlobalEyeDropper
+  fullName: PAC.Drawing.Toolbar.SelectGlobalEyeDropper
+- uid: PAC.Drawing.Toolbar.DeselectGlobalEyeDropper*
+  commentId: Overload:PAC.Drawing.Toolbar.DeselectGlobalEyeDropper
+  href: PAC.Drawing.Toolbar.html#PAC_Drawing_Toolbar_DeselectGlobalEyeDropper
+  name: DeselectGlobalEyeDropper
+  nameWithType: Toolbar.DeselectGlobalEyeDropper
+  fullName: PAC.Drawing.Toolbar.DeselectGlobalEyeDropper
+- uid: PAC.Drawing.Toolbar.LoadCustomBrush*
+  commentId: Overload:PAC.Drawing.Toolbar.LoadCustomBrush
+  href: PAC.Drawing.Toolbar.html#PAC_Drawing_Toolbar_LoadCustomBrush_Texture2D_
+  name: LoadCustomBrush
+  nameWithType: Toolbar.LoadCustomBrush
+  fullName: PAC.Drawing.Toolbar.LoadCustomBrush
+- uid: PAC.Drawing.Toolbar.SubscribeToOnToolChanged*
+  commentId: Overload:PAC.Drawing.Toolbar.SubscribeToOnToolChanged
+  href: PAC.Drawing.Toolbar.html#PAC_Drawing_Toolbar_SubscribeToOnToolChanged_UnityAction_
+  name: SubscribeToOnToolChanged
+  nameWithType: Toolbar.SubscribeToOnToolChanged
+  fullName: PAC.Drawing.Toolbar.SubscribeToOnToolChanged
+- uid: Global.UnityAction
+  isExternal: true
+  name: UnityAction
+  nameWithType: UnityAction
+  fullName: UnityAction
+- uid: PAC.Drawing.Toolbar.SubscribeToOnBrushSizeChanged*
+  commentId: Overload:PAC.Drawing.Toolbar.SubscribeToOnBrushSizeChanged
+  href: PAC.Drawing.Toolbar.html#PAC_Drawing_Toolbar_SubscribeToOnBrushSizeChanged_UnityAction_
+  name: SubscribeToOnBrushSizeChanged
+  nameWithType: Toolbar.SubscribeToOnBrushSizeChanged
+  fullName: PAC.Drawing.Toolbar.SubscribeToOnBrushSizeChanged
+- uid: PAC.Drawing.Toolbar.SubscribeToOnBrushPixelsChanged*
+  commentId: Overload:PAC.Drawing.Toolbar.SubscribeToOnBrushPixelsChanged
+  href: PAC.Drawing.Toolbar.html#PAC_Drawing_Toolbar_SubscribeToOnBrushPixelsChanged_UnityAction_
+  name: SubscribeToOnBrushPixelsChanged
+  nameWithType: Toolbar.SubscribeToOnBrushPixelsChanged
+  fullName: PAC.Drawing.Toolbar.SubscribeToOnBrushPixelsChanged

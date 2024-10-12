@@ -1,0 +1,304 @@
+### YamlMime:ManagedReference
+items:
+- uid: PAC.ColourPicker.ColourPreview
+  commentId: T:PAC.ColourPicker.ColourPreview
+  id: ColourPreview
+  parent: PAC.ColourPicker
+  children:
+  - PAC.ColourPicker.ColourPreview.SetColour(Color)
+  - PAC.ColourPicker.ColourPreview.SubscribeToOnDeselect(UnityAction)
+  - PAC.ColourPicker.ColourPreview.SubscribeToOnSelect(UnityAction)
+  - PAC.ColourPicker.ColourPreview.SubscribeToOnToggle(UnityAction)
+  - PAC.ColourPicker.ColourPreview.colour
+  - PAC.ColourPicker.ColourPreview.outlineThickness
+  langs:
+  - csharp
+  - vb
+  name: ColourPreview
+  nameWithType: ColourPreview
+  fullName: PAC.ColourPicker.ColourPreview
+  type: Class
+  source:
+    remote:
+      path: Assets/Scripts/Colour Picker/ColourPreview.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: ColourPreview
+    path: ../Assets/Scripts/Colour Picker/ColourPreview.cs
+    startLine: 11
+  namespace: PAC.ColourPicker
+  summary: A class to represent colour previews - the boxes on colour pickers that show what colours you have selected.
+  example: []
+  syntax:
+    content: 'public class ColourPreview : MonoBehaviour'
+    content.vb: Public Class ColourPreview Inherits MonoBehaviour
+  inheritance:
+  - System.Object
+- uid: PAC.ColourPicker.ColourPreview.colour
+  commentId: P:PAC.ColourPicker.ColourPreview.colour
+  id: colour
+  parent: PAC.ColourPicker.ColourPreview
+  langs:
+  - csharp
+  - vb
+  name: colour
+  nameWithType: ColourPreview.colour
+  fullName: PAC.ColourPicker.ColourPreview.colour
+  type: Property
+  source:
+    remote:
+      path: Assets/Scripts/Colour Picker/ColourPreview.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: colour
+    path: ../Assets/Scripts/Colour Picker/ColourPreview.cs
+    startLine: 17
+  namespace: PAC.ColourPicker
+  summary: The colour displayed in the colour preview.
+  example: []
+  syntax:
+    content: public Color colour { get; }
+    parameters: []
+    return:
+      type: Global.Color
+    content.vb: Public Property colour As Color
+  overload: PAC.ColourPicker.ColourPreview.colour*
+- uid: PAC.ColourPicker.ColourPreview.outlineThickness
+  commentId: P:PAC.ColourPicker.ColourPreview.outlineThickness
+  id: outlineThickness
+  parent: PAC.ColourPicker.ColourPreview
+  langs:
+  - csharp
+  - vb
+  name: outlineThickness
+  nameWithType: ColourPreview.outlineThickness
+  fullName: PAC.ColourPicker.ColourPreview.outlineThickness
+  type: Property
+  source:
+    remote:
+      path: Assets/Scripts/Colour Picker/ColourPreview.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: outlineThickness
+    path: ../Assets/Scripts/Colour Picker/ColourPreview.cs
+    startLine: 35
+  namespace: PAC.ColourPicker
+  syntax:
+    content: public float outlineThickness { get; }
+    parameters: []
+    return:
+      type: System.Single
+    content.vb: Public Property outlineThickness As Single
+  overload: PAC.ColourPicker.ColourPreview.outlineThickness*
+- uid: PAC.ColourPicker.ColourPreview.SetColour(Color)
+  commentId: M:PAC.ColourPicker.ColourPreview.SetColour(Color)
+  id: SetColour(Color)
+  parent: PAC.ColourPicker.ColourPreview
+  langs:
+  - csharp
+  - vb
+  name: SetColour(Color)
+  nameWithType: ColourPreview.SetColour(Color)
+  fullName: PAC.ColourPicker.ColourPreview.SetColour(Color)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Colour Picker/ColourPreview.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: SetColour
+    path: ../Assets/Scripts/Colour Picker/ColourPreview.cs
+    startLine: 118
+  namespace: PAC.ColourPicker
+  syntax:
+    content: public void SetColour(Color colour)
+    parameters:
+    - id: colour
+      type: Global.Color
+    content.vb: Public Sub SetColour(colour As Color)
+  overload: PAC.ColourPicker.ColourPreview.SetColour*
+- uid: PAC.ColourPicker.ColourPreview.SubscribeToOnSelect(UnityAction)
+  commentId: M:PAC.ColourPicker.ColourPreview.SubscribeToOnSelect(UnityAction)
+  id: SubscribeToOnSelect(UnityAction)
+  parent: PAC.ColourPicker.ColourPreview
+  langs:
+  - csharp
+  - vb
+  name: SubscribeToOnSelect(UnityAction)
+  nameWithType: ColourPreview.SubscribeToOnSelect(UnityAction)
+  fullName: PAC.ColourPicker.ColourPreview.SubscribeToOnSelect(UnityAction)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Colour Picker/ColourPreview.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: SubscribeToOnSelect
+    path: ../Assets/Scripts/Colour Picker/ColourPreview.cs
+    startLine: 147
+  namespace: PAC.ColourPicker
+  summary: Event invoked when colour preview is selected.
+  example: []
+  syntax:
+    content: public void SubscribeToOnSelect(UnityAction call)
+    parameters:
+    - id: call
+      type: Global.UnityAction
+    content.vb: Public Sub SubscribeToOnSelect([call] As UnityAction)
+  overload: PAC.ColourPicker.ColourPreview.SubscribeToOnSelect*
+- uid: PAC.ColourPicker.ColourPreview.SubscribeToOnDeselect(UnityAction)
+  commentId: M:PAC.ColourPicker.ColourPreview.SubscribeToOnDeselect(UnityAction)
+  id: SubscribeToOnDeselect(UnityAction)
+  parent: PAC.ColourPicker.ColourPreview
+  langs:
+  - csharp
+  - vb
+  name: SubscribeToOnDeselect(UnityAction)
+  nameWithType: ColourPreview.SubscribeToOnDeselect(UnityAction)
+  fullName: PAC.ColourPicker.ColourPreview.SubscribeToOnDeselect(UnityAction)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Colour Picker/ColourPreview.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: SubscribeToOnDeselect
+    path: ../Assets/Scripts/Colour Picker/ColourPreview.cs
+    startLine: 154
+  namespace: PAC.ColourPicker
+  summary: Event invoked when colour preview is deselected.
+  example: []
+  syntax:
+    content: public void SubscribeToOnDeselect(UnityAction call)
+    parameters:
+    - id: call
+      type: Global.UnityAction
+    content.vb: Public Sub SubscribeToOnDeselect([call] As UnityAction)
+  overload: PAC.ColourPicker.ColourPreview.SubscribeToOnDeselect*
+- uid: PAC.ColourPicker.ColourPreview.SubscribeToOnToggle(UnityAction)
+  commentId: M:PAC.ColourPicker.ColourPreview.SubscribeToOnToggle(UnityAction)
+  id: SubscribeToOnToggle(UnityAction)
+  parent: PAC.ColourPicker.ColourPreview
+  langs:
+  - csharp
+  - vb
+  name: SubscribeToOnToggle(UnityAction)
+  nameWithType: ColourPreview.SubscribeToOnToggle(UnityAction)
+  fullName: PAC.ColourPicker.ColourPreview.SubscribeToOnToggle(UnityAction)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Colour Picker/ColourPreview.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: SubscribeToOnToggle
+    path: ../Assets/Scripts/Colour Picker/ColourPreview.cs
+    startLine: 161
+  namespace: PAC.ColourPicker
+  summary: Event invoked when colour preview is selected or deselected.
+  example: []
+  syntax:
+    content: public void SubscribeToOnToggle(UnityAction call)
+    parameters:
+    - id: call
+      type: Global.UnityAction
+    content.vb: Public Sub SubscribeToOnToggle([call] As UnityAction)
+  overload: PAC.ColourPicker.ColourPreview.SubscribeToOnToggle*
+references:
+- uid: PAC.ColourPicker
+  commentId: N:PAC.ColourPicker
+  href: PAC.html
+  name: PAC.ColourPicker
+  nameWithType: PAC.ColourPicker
+  fullName: PAC.ColourPicker
+  spec.csharp:
+  - uid: PAC
+    name: PAC
+    href: PAC.html
+  - name: .
+  - uid: PAC.ColourPicker
+    name: ColourPicker
+    href: PAC.ColourPicker.html
+  spec.vb:
+  - uid: PAC
+    name: PAC
+    href: PAC.html
+  - name: .
+  - uid: PAC.ColourPicker
+    name: ColourPicker
+    href: PAC.ColourPicker.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: PAC.ColourPicker.ColourPreview.colour*
+  commentId: Overload:PAC.ColourPicker.ColourPreview.colour
+  href: PAC.ColourPicker.ColourPreview.html#PAC_ColourPicker_ColourPreview_colour
+  name: colour
+  nameWithType: ColourPreview.colour
+  fullName: PAC.ColourPicker.ColourPreview.colour
+- uid: Global.Color
+  isExternal: true
+  name: Color
+  nameWithType: Color
+  fullName: Color
+- uid: PAC.ColourPicker.ColourPreview.outlineThickness*
+  commentId: Overload:PAC.ColourPicker.ColourPreview.outlineThickness
+  href: PAC.ColourPicker.ColourPreview.html#PAC_ColourPicker_ColourPreview_outlineThickness
+  name: outlineThickness
+  nameWithType: ColourPreview.outlineThickness
+  fullName: PAC.ColourPicker.ColourPreview.outlineThickness
+- uid: System.Single
+  commentId: T:System.Single
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.single
+  name: float
+  nameWithType: float
+  fullName: float
+  nameWithType.vb: Single
+  fullName.vb: Single
+  name.vb: Single
+- uid: PAC.ColourPicker.ColourPreview.SetColour*
+  commentId: Overload:PAC.ColourPicker.ColourPreview.SetColour
+  href: PAC.ColourPicker.ColourPreview.html#PAC_ColourPicker_ColourPreview_SetColour_Color_
+  name: SetColour
+  nameWithType: ColourPreview.SetColour
+  fullName: PAC.ColourPicker.ColourPreview.SetColour
+- uid: PAC.ColourPicker.ColourPreview.SubscribeToOnSelect*
+  commentId: Overload:PAC.ColourPicker.ColourPreview.SubscribeToOnSelect
+  href: PAC.ColourPicker.ColourPreview.html#PAC_ColourPicker_ColourPreview_SubscribeToOnSelect_UnityAction_
+  name: SubscribeToOnSelect
+  nameWithType: ColourPreview.SubscribeToOnSelect
+  fullName: PAC.ColourPicker.ColourPreview.SubscribeToOnSelect
+- uid: Global.UnityAction
+  isExternal: true
+  name: UnityAction
+  nameWithType: UnityAction
+  fullName: UnityAction
+- uid: PAC.ColourPicker.ColourPreview.SubscribeToOnDeselect*
+  commentId: Overload:PAC.ColourPicker.ColourPreview.SubscribeToOnDeselect
+  href: PAC.ColourPicker.ColourPreview.html#PAC_ColourPicker_ColourPreview_SubscribeToOnDeselect_UnityAction_
+  name: SubscribeToOnDeselect
+  nameWithType: ColourPreview.SubscribeToOnDeselect
+  fullName: PAC.ColourPicker.ColourPreview.SubscribeToOnDeselect
+- uid: PAC.ColourPicker.ColourPreview.SubscribeToOnToggle*
+  commentId: Overload:PAC.ColourPicker.ColourPreview.SubscribeToOnToggle
+  href: PAC.ColourPicker.ColourPreview.html#PAC_ColourPicker_ColourPreview_SubscribeToOnToggle_UnityAction_
+  name: SubscribeToOnToggle
+  nameWithType: ColourPreview.SubscribeToOnToggle
+  fullName: PAC.ColourPicker.ColourPreview.SubscribeToOnToggle

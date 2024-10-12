@@ -1,0 +1,67 @@
+### YamlMime:ManagedReference
+items:
+- uid: PAC.Tilesets
+  commentId: N:PAC.Tilesets
+  id: PAC.Tilesets
+  children:
+  - PAC.Tilesets.Tile
+  - PAC.Tilesets.TileOutlineManager
+  - PAC.Tilesets.Tileset
+  - PAC.Tilesets.TilesetManager
+  langs:
+  - csharp
+  - vb
+  name: PAC.Tilesets
+  nameWithType: PAC.Tilesets
+  fullName: PAC.Tilesets
+  type: Namespace
+references:
+- uid: PAC.Tilesets.Tile
+  commentId: T:PAC.Tilesets.Tile
+  parent: PAC.Tilesets
+  href: PAC.Tilesets.Tile.html
+  name: Tile
+  nameWithType: Tile
+  fullName: PAC.Tilesets.Tile
+- uid: PAC.Tilesets.TileOutlineManager
+  commentId: T:PAC.Tilesets.TileOutlineManager
+  parent: PAC.Tilesets
+  href: PAC.Tilesets.TileOutlineManager.html
+  name: TileOutlineManager
+  nameWithType: TileOutlineManager
+  fullName: PAC.Tilesets.TileOutlineManager
+- uid: PAC.Tilesets.Tileset
+  commentId: T:PAC.Tilesets.Tileset
+  href: PAC.Tilesets.Tileset.html
+  name: Tileset
+  nameWithType: Tileset
+  fullName: PAC.Tilesets.Tileset
+- uid: PAC.Tilesets.TilesetManager
+  commentId: T:PAC.Tilesets.TilesetManager
+  parent: PAC.Tilesets
+  href: PAC.Tilesets.TilesetManager.html
+  name: TilesetManager
+  nameWithType: TilesetManager
+  fullName: PAC.Tilesets.TilesetManager
+- uid: PAC.Tilesets
+  commentId: N:PAC.Tilesets
+  href: PAC.html
+  name: PAC.Tilesets
+  nameWithType: PAC.Tilesets
+  fullName: PAC.Tilesets
+  spec.csharp:
+  - uid: PAC
+    name: PAC
+    href: PAC.html
+  - name: .
+  - uid: PAC.Tilesets
+    name: Tilesets
+    href: PAC.Tilesets.html
+  spec.vb:
+  - uid: PAC
+    name: PAC
+    href: PAC.html
+  - name: .
+  - uid: PAC.Tilesets
+    name: Tilesets
+    href: PAC.Tilesets.html

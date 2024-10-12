@@ -1,0 +1,106 @@
+### YamlMime:ManagedReference
+items:
+- uid: PAC.UI.DropdownCloseMode
+  commentId: T:PAC.UI.DropdownCloseMode
+  id: DropdownCloseMode
+  parent: PAC.UI
+  children:
+  - PAC.UI.DropdownCloseMode.ClickOff
+  - PAC.UI.DropdownCloseMode.MouseOff
+  langs:
+  - csharp
+  - vb
+  name: DropdownCloseMode
+  nameWithType: DropdownCloseMode
+  fullName: PAC.UI.DropdownCloseMode
+  type: Enum
+  source:
+    remote:
+      path: Assets/Scripts/UI/UIDropdown.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: DropdownCloseMode
+    path: ../Assets/Scripts/UI/UIDropdown.cs
+    startLine: 5
+  namespace: PAC.UI
+  syntax:
+    content: public enum DropdownCloseMode
+    content.vb: Public Enum DropdownCloseMode
+- uid: PAC.UI.DropdownCloseMode.ClickOff
+  commentId: F:PAC.UI.DropdownCloseMode.ClickOff
+  id: ClickOff
+  parent: PAC.UI.DropdownCloseMode
+  langs:
+  - csharp
+  - vb
+  name: ClickOff
+  nameWithType: DropdownCloseMode.ClickOff
+  fullName: PAC.UI.DropdownCloseMode.ClickOff
+  type: Field
+  source:
+    remote:
+      path: Assets/Scripts/UI/UIDropdown.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: ClickOff
+    path: ../Assets/Scripts/UI/UIDropdown.cs
+    startLine: 7
+  namespace: PAC.UI
+  syntax:
+    content: ClickOff = 0
+    return:
+      type: PAC.UI.DropdownCloseMode
+- uid: PAC.UI.DropdownCloseMode.MouseOff
+  commentId: F:PAC.UI.DropdownCloseMode.MouseOff
+  id: MouseOff
+  parent: PAC.UI.DropdownCloseMode
+  langs:
+  - csharp
+  - vb
+  name: MouseOff
+  nameWithType: DropdownCloseMode.MouseOff
+  fullName: PAC.UI.DropdownCloseMode.MouseOff
+  type: Field
+  source:
+    remote:
+      path: Assets/Scripts/UI/UIDropdown.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: MouseOff
+    path: ../Assets/Scripts/UI/UIDropdown.cs
+    startLine: 8
+  namespace: PAC.UI
+  syntax:
+    content: MouseOff = 1
+    return:
+      type: PAC.UI.DropdownCloseMode
+references:
+- uid: PAC.UI
+  commentId: N:PAC.UI
+  href: PAC.html
+  name: PAC.UI
+  nameWithType: PAC.UI
+  fullName: PAC.UI
+  spec.csharp:
+  - uid: PAC
+    name: PAC
+    href: PAC.html
+  - name: .
+  - uid: PAC.UI
+    name: UI
+    href: PAC.UI.html
+  spec.vb:
+  - uid: PAC
+    name: PAC
+    href: PAC.html
+  - name: .
+  - uid: PAC.UI
+    name: UI
+    href: PAC.UI.html
+- uid: PAC.UI.DropdownCloseMode
+  commentId: T:PAC.UI.DropdownCloseMode
+  parent: PAC.UI
+  href: PAC.UI.DropdownCloseMode.html
+  name: DropdownCloseMode
+  nameWithType: DropdownCloseMode
+  fullName: PAC.UI.DropdownCloseMode

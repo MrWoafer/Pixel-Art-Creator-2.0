@@ -1,0 +1,131 @@
+### YamlMime:ManagedReference
+items:
+- uid: PAC.Drawing.Shape
+  commentId: T:PAC.Drawing.Shape
+  id: Shape
+  parent: PAC.Drawing
+  children:
+  - PAC.Drawing.Shape.Ellipse
+  - PAC.Drawing.Shape.Rectangle
+  - PAC.Drawing.Shape.Triangle
+  langs:
+  - csharp
+  - vb
+  name: Shape
+  nameWithType: Shape
+  fullName: PAC.Drawing.Shape
+  type: Enum
+  source:
+    remote:
+      path: Assets/Scripts/Drawing/Toolbar.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: Shape
+    path: ../Assets/Scripts/Drawing/Toolbar.cs
+    startLine: 11
+  namespace: PAC.Drawing
+  syntax:
+    content: public enum Shape
+    content.vb: Public Enum Shape
+- uid: PAC.Drawing.Shape.Rectangle
+  commentId: F:PAC.Drawing.Shape.Rectangle
+  id: Rectangle
+  parent: PAC.Drawing.Shape
+  langs:
+  - csharp
+  - vb
+  name: Rectangle
+  nameWithType: Shape.Rectangle
+  fullName: PAC.Drawing.Shape.Rectangle
+  type: Field
+  source:
+    remote:
+      path: Assets/Scripts/Drawing/Toolbar.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: Rectangle
+    path: ../Assets/Scripts/Drawing/Toolbar.cs
+    startLine: 13
+  namespace: PAC.Drawing
+  syntax:
+    content: Rectangle = 0
+    return:
+      type: PAC.Drawing.Shape
+- uid: PAC.Drawing.Shape.Ellipse
+  commentId: F:PAC.Drawing.Shape.Ellipse
+  id: Ellipse
+  parent: PAC.Drawing.Shape
+  langs:
+  - csharp
+  - vb
+  name: Ellipse
+  nameWithType: Shape.Ellipse
+  fullName: PAC.Drawing.Shape.Ellipse
+  type: Field
+  source:
+    remote:
+      path: Assets/Scripts/Drawing/Toolbar.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: Ellipse
+    path: ../Assets/Scripts/Drawing/Toolbar.cs
+    startLine: 14
+  namespace: PAC.Drawing
+  syntax:
+    content: Ellipse = 1
+    return:
+      type: PAC.Drawing.Shape
+- uid: PAC.Drawing.Shape.Triangle
+  commentId: F:PAC.Drawing.Shape.Triangle
+  id: Triangle
+  parent: PAC.Drawing.Shape
+  langs:
+  - csharp
+  - vb
+  name: Triangle
+  nameWithType: Shape.Triangle
+  fullName: PAC.Drawing.Shape.Triangle
+  type: Field
+  source:
+    remote:
+      path: Assets/Scripts/Drawing/Toolbar.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: Triangle
+    path: ../Assets/Scripts/Drawing/Toolbar.cs
+    startLine: 15
+  namespace: PAC.Drawing
+  syntax:
+    content: Triangle = 2
+    return:
+      type: PAC.Drawing.Shape
+references:
+- uid: PAC.Drawing
+  commentId: N:PAC.Drawing
+  href: PAC.html
+  name: PAC.Drawing
+  nameWithType: PAC.Drawing
+  fullName: PAC.Drawing
+  spec.csharp:
+  - uid: PAC
+    name: PAC
+    href: PAC.html
+  - name: .
+  - uid: PAC.Drawing
+    name: Drawing
+    href: PAC.Drawing.html
+  spec.vb:
+  - uid: PAC
+    name: PAC
+    href: PAC.html
+  - name: .
+  - uid: PAC.Drawing
+    name: Drawing
+    href: PAC.Drawing.html
+- uid: PAC.Drawing.Shape
+  commentId: T:PAC.Drawing.Shape
+  parent: PAC.Drawing
+  href: PAC.Drawing.Shape.html
+  name: Shape
+  nameWithType: Shape
+  fullName: PAC.Drawing.Shape

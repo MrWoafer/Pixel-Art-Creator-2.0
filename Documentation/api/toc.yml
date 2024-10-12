@@ -1,242 +1,305 @@
 ### YamlMime:TableOfContent
 items:
-- uid: Global
-  name: ''
+- uid: PAC
+  name: PAC
   items:
-  - uid: Global.AnimFrameRefMode
-    name: AnimFrameRefMode
-  - uid: Global.AnimationKeyFrame
-    name: AnimationKeyFrame
-  - uid: Global.AnimationManager
-    name: AnimationManager
-  - uid: Global.BlendMode
-    name: BlendMode
-  - uid: Global.BrushShape
-    name: BrushShape
-  - uid: Global.Clipboard
-    name: Clipboard
-  - uid: Global.CollapsedState
-    name: CollapsedState
-  - uid: Global.ColorExtensions
-    name: ColorExtensions
-  - uid: Global.ColourPreview
-    name: ColourPreview
-  - uid: Global.CursorState
-    name: CursorState
-  - uid: Global.CustomKeyCode
-    name: CustomKeyCode
-  - uid: Global.CustomStack`1
-    name: CustomStack<T>
-  - uid: Global.DrawingArea
-    name: DrawingArea
-  - uid: Global.DropdownCloseMode
-    name: DropdownCloseMode
-  - uid: Global.DropdownDirection
-    name: DropdownDirection
-  - uid: Global.File
-    name: File
-  - uid: Global.FileManager
-    name: FileManager
-  - uid: Global.FileTab
-    name: FileTab
-  - uid: Global.FileTabsManager
-    name: FileTabsManager
-  - uid: Global.Finder
+  - uid: PAC.Finder
     name: Finder
-  - uid: Global.FlipDirection
+  - uid: PAC.FlipDirection
     name: FlipDirection
-  - uid: Global.FrameNotch
-    name: FrameNotch
-  - uid: Global.Functions
+  - uid: PAC.Functions
     name: Functions
-  - uid: Global.GlobalColourPicker
-    name: GlobalColourPicker
-  - uid: Global.GradientMode
-    name: GradientMode
-  - uid: Global.GridAlignment
-    name: GridAlignment
-  - uid: Global.GridManager
-    name: GridManager
-  - uid: Global.HSL
-    name: HSL
-  - uid: Global.HSLColourPicker
-    name: HSLColourPicker
-  - uid: Global.HSLHueSaturationBox
-    name: HSLHueSaturationBox
-  - uid: Global.HSLLightnessSlider
-    name: HSLLightnessSlider
-  - uid: Global.HSV
-    name: HSV
-  - uid: Global.HueSaturationBoxShader
-    name: HueSaturationBoxShader
-  - uid: Global.IJSONable
-    name: IJSONable
-  - uid: Global.ImageConverter
+  - uid: PAC.ImageConverter
     name: ImageConverter
-  - uid: Global.ImageEditManager
-    name: ImageEditManager
-  - uid: Global.InputSystem
-    name: InputSystem
-  - uid: Global.InputTarget
-    name: InputTarget
-  - uid: Global.IntRect
-    name: IntRect
-  - uid: Global.IntVector2
-    name: IntVector2
-  - uid: Global.JSON
-    name: JSON
-  - uid: Global.JSON.JSONProperty
-    name: JSON.JSONProperty
-  - uid: Global.KeyCodeFunctions
+  - uid: PAC.KeyCodeFunctions
     name: KeyCodeFunctions
-  - uid: Global.KeyFrameIcon
-    name: KeyFrameIcon
-  - uid: Global.Keyboard
-    name: Keyboard
-  - uid: Global.KeyboardShortcut
-    name: KeyboardShortcut
-  - uid: Global.KeyboardShortcutOptionsManager
-    name: KeyboardShortcutOptionsManager
-  - uid: Global.KeyboardShortcuts
-    name: KeyboardShortcuts
-  - uid: Global.KeyboardTarget
-    name: KeyboardTarget
-  - uid: Global.Layer
-    name: Layer
-  - uid: Global.LayerAnimation
-    name: LayerAnimation
-  - uid: Global.LayerManager
-    name: LayerManager
-  - uid: Global.LayerSerializationSurrogate
-    name: LayerSerializationSurrogate
-  - uid: Global.LayerTile
-    name: LayerTile
-  - uid: Global.LayerType
-    name: LayerType
-  - uid: Global.LightnessSliderShader
-    name: LightnessSliderShader
-  - uid: Global.MaximiseWindow
-    name: MaximiseWindow
-  - uid: Global.Mouse
-    name: Mouse
-  - uid: Global.MouseButton
-    name: MouseButton
-  - uid: Global.MouseTarget
-    name: MouseTarget
-  - uid: Global.MouseTargetDeselectMode
-    name: MouseTargetDeselectMode
-  - uid: Global.MouseTargetState
-    name: MouseTargetState
-  - uid: Global.NormalLayer
-    name: NormalLayer
-  - uid: Global.Outline
-    name: Outline
-  - uid: Global.OutlineSideFill
+  - uid: PAC.OutlineSideFill
     name: OutlineSideFill
-  - uid: Global.RainbowOutline
-    name: RainbowOutline
-  - uid: Global.RotationAngle
+  - uid: PAC.RotationAngle
     name: RotationAngle
-  - uid: Global.ScreenInfo
-    name: ScreenInfo
-  - uid: Global.ScrollDirection
-    name: ScrollDirection
-  - uid: Global.SelectionMode
-    name: SelectionMode
-  - uid: Global.Shape
-    name: Shape
-  - uid: Global.Shapes
-    name: Shapes
-  - uid: Global.Tex2DSprite
+  - uid: PAC.Tex2DSprite
     name: Tex2DSprite
-  - uid: Global.Texture2DSerializationSurrogate
-    name: Texture2DSerializationSurrogate
-  - uid: Global.Theme
-    name: Theme
-  - uid: Global.ThemeManager
-    name: ThemeManager
-  - uid: Global.ThemeObjectType
-    name: ThemeObjectType
-  - uid: Global.Tile
-    name: Tile
-  - uid: Global.TileLayer
-    name: TileLayer
-  - uid: Global.TileOutlineManager
-    name: TileOutlineManager
-  - uid: Global.Tileset
-    name: Tileset
-  - uid: Global.TilesetManager
-    name: TilesetManager
-  - uid: Global.Tool
+- uid: PAC.Animation
+  name: PAC.Animation
+  items:
+  - uid: PAC.Animation.AnimationKeyFrame
+    name: AnimationKeyFrame
+  - uid: PAC.Animation.AnimationManager
+    name: AnimationManager
+  - uid: PAC.Animation.FrameNotch
+    name: FrameNotch
+  - uid: PAC.Animation.KeyFrameIcon
+    name: KeyFrameIcon
+  - uid: PAC.Animation.LayerAnimation
+    name: LayerAnimation
+- uid: PAC.Clipboard
+  name: PAC.Clipboard
+  items:
+  - uid: PAC.Clipboard.Clipboard
+    name: Clipboard
+- uid: PAC.Colour
+  name: PAC.Colour
+  items:
+  - uid: PAC.Colour.BlendMode
+    name: BlendMode
+  - uid: PAC.Colour.ColorExtensions
+    name: ColorExtensions
+  - uid: PAC.Colour.HSL
+    name: HSL
+  - uid: PAC.Colour.HSV
+    name: HSV
+- uid: PAC.ColourPicker
+  name: PAC.ColourPicker
+  items:
+  - uid: PAC.ColourPicker.ColourPreview
+    name: ColourPreview
+  - uid: PAC.ColourPicker.GlobalColourPicker
+    name: GlobalColourPicker
+  - uid: PAC.ColourPicker.HSLColourPicker
+    name: HSLColourPicker
+  - uid: PAC.ColourPicker.HSLHueSaturationBox
+    name: HSLHueSaturationBox
+  - uid: PAC.ColourPicker.HSLLightnessSlider
+    name: HSLLightnessSlider
+- uid: PAC.DataStructures
+  name: PAC.DataStructures
+  items:
+  - uid: PAC.DataStructures.CustomStack`1
+    name: CustomStack<T>
+  - uid: PAC.DataStructures.IntRect
+    name: IntRect
+  - uid: PAC.DataStructures.IntVector2
+    name: IntVector2
+- uid: PAC.Drawing
+  name: PAC.Drawing
+  items:
+  - uid: PAC.Drawing.BrushShape
+    name: BrushShape
+  - uid: PAC.Drawing.DrawingArea
+    name: DrawingArea
+  - uid: PAC.Drawing.GradientMode
+    name: GradientMode
+  - uid: PAC.Drawing.GridManager
+    name: GridManager
+  - uid: PAC.Drawing.SelectionMode
+    name: SelectionMode
+  - uid: PAC.Drawing.Shape
+    name: Shape
+  - uid: PAC.Drawing.Shapes
+    name: Shapes
+  - uid: PAC.Drawing.Tool
     name: Tool
-  - uid: Global.Toolbar
+  - uid: PAC.Drawing.Toolbar
     name: Toolbar
-  - uid: Global.Tools
+  - uid: PAC.Drawing.Tools
     name: Tools
-  - uid: Global.Tooltip
+- uid: PAC.EffectPanels
+  name: PAC.EffectPanels
+  items:
+  - uid: PAC.EffectPanels.BlurPanel
+    name: BlurPanel
+  - uid: PAC.EffectPanels.EffectPanel
+    name: EffectPanel
+  - uid: PAC.EffectPanels.PixellatePanel
+    name: PixellatePanel
+- uid: PAC.Files
+  name: PAC.Files
+  items:
+  - uid: PAC.Files.File
+    name: File
+  - uid: PAC.Files.FileManager
+    name: FileManager
+  - uid: PAC.Files.FileTab
+    name: FileTab
+  - uid: PAC.Files.FileTabsManager
+    name: FileTabsManager
+  - uid: PAC.Files.ImageEditManager
+    name: ImageEditManager
+- uid: PAC.Input
+  name: PAC.Input
+  items:
+  - uid: PAC.Input.CursorState
+    name: CursorState
+  - uid: PAC.Input.InputSystem
+    name: InputSystem
+  - uid: PAC.Input.InputTarget
+    name: InputTarget
+  - uid: PAC.Input.Keyboard
+    name: Keyboard
+  - uid: PAC.Input.KeyboardTarget
+    name: KeyboardTarget
+  - uid: PAC.Input.Mouse
+    name: Mouse
+  - uid: PAC.Input.MouseButton
+    name: MouseButton
+  - uid: PAC.Input.MouseTarget
+    name: MouseTarget
+  - uid: PAC.Input.MouseTargetDeselectMode
+    name: MouseTargetDeselectMode
+  - uid: PAC.Input.MouseTargetState
+    name: MouseTargetState
+  - uid: PAC.Input.Tooltip
     name: Tooltip
-  - uid: Global.UIAnchorPoint
-    name: UIAnchorPoint
-  - uid: Global.UIButton
-    name: UIButton
-  - uid: Global.UICollapser
-    name: UICollapser
-  - uid: Global.UIColourField
-    name: UIColourField
-  - uid: Global.UIColourFieldGroup
-    name: UIColourFieldGroup
-  - uid: Global.UIColourPicker
-    name: UIColourPicker
-  - uid: Global.UIDropdown
-    name: UIDropdown
-  - uid: Global.UIDropdownChoice
-    name: UIDropdownChoice
-  - uid: Global.UIElement
-    name: UIElement
-  - uid: Global.UIElementDeselectMode
-    name: UIElementDeselectMode
-  - uid: Global.UIElementSelectMode
-    name: UIElementSelectMode
-  - uid: Global.UIGridPacker
-    name: UIGridPacker
-  - uid: Global.UIKeyboardShortcut
-    name: UIKeyboardShortcut
-  - uid: Global.UIManager
-    name: UIManager
-  - uid: Global.UIModalWindow
-    name: UIModalWindow
-  - uid: Global.UINumberField
-    name: UINumberField
-  - uid: Global.UIScale
-    name: UIScale
-  - uid: Global.UIScrollbar
-    name: UIScrollbar
-  - uid: Global.UITabManager
-    name: UITabManager
-  - uid: Global.UITextbox
-    name: UITextbox
-  - uid: Global.UITextboxAnchorPoint
-    name: UITextboxAnchorPoint
-  - uid: Global.UITheme
+- uid: PAC.JSON
+  name: PAC.JSON
+  items:
+  - uid: PAC.JSON.IJSONable
+    name: IJSONable
+  - uid: PAC.JSON.JSON
+    name: JSON
+  - uid: PAC.JSON.JSON.JSONProperty
+    name: JSON.JSONProperty
+- uid: PAC.KeyboardShortcuts
+  name: PAC.KeyboardShortcuts
+  items:
+  - uid: PAC.KeyboardShortcuts.CustomKeyCode
+    name: CustomKeyCode
+  - uid: PAC.KeyboardShortcuts.KeyboardShortcut
+    name: KeyboardShortcut
+  - uid: PAC.KeyboardShortcuts.KeyboardShortcutOptionsManager
+    name: KeyboardShortcutOptionsManager
+  - uid: PAC.KeyboardShortcuts.KeyboardShortcuts
+    name: KeyboardShortcuts
+- uid: PAC.Layers
+  name: PAC.Layers
+  items:
+  - uid: PAC.Layers.AnimFrameRefMode
+    name: AnimFrameRefMode
+  - uid: PAC.Layers.Layer
+    name: Layer
+  - uid: PAC.Layers.LayerManager
+    name: LayerManager
+  - uid: PAC.Layers.LayerTile
+    name: LayerTile
+  - uid: PAC.Layers.LayerType
+    name: LayerType
+  - uid: PAC.Layers.NormalLayer
+    name: NormalLayer
+  - uid: PAC.Layers.TileLayer
+    name: TileLayer
+- uid: PAC.Screen
+  name: PAC.Screen
+  items:
+  - uid: PAC.Screen.MaximiseWindow
+    name: MaximiseWindow
+  - uid: PAC.Screen.ScreenInfo
+    name: ScreenInfo
+- uid: PAC.Serialization
+  name: PAC.Serialization
+  items:
+  - uid: PAC.Serialization.LayerSerializationSurrogate
+    name: LayerSerializationSurrogate
+  - uid: PAC.Serialization.Texture2DSerializationSurrogate
+    name: Texture2DSerializationSurrogate
+- uid: PAC.Shaders
+  name: PAC.Shaders
+  items:
+  - uid: PAC.Shaders.HueSaturationBoxShader
+    name: HueSaturationBoxShader
+  - uid: PAC.Shaders.LightnessSliderShader
+    name: LightnessSliderShader
+  - uid: PAC.Shaders.Outline
+    name: Outline
+  - uid: PAC.Shaders.RainbowOutline
+    name: RainbowOutline
+- uid: PAC.Themes
+  name: PAC.Themes
+  items:
+  - uid: PAC.Themes.Theme
+    name: Theme
+  - uid: PAC.Themes.ThemeManager
+    name: ThemeManager
+  - uid: PAC.Themes.ThemeObjectType
+    name: ThemeObjectType
+  - uid: PAC.Themes.UITheme
     name: UITheme
-  - uid: Global.UITileIcon
+- uid: PAC.Tilesets
+  name: PAC.Tilesets
+  items:
+  - uid: PAC.Tilesets.Tile
+    name: Tile
+  - uid: PAC.Tilesets.TileOutlineManager
+    name: TileOutlineManager
+  - uid: PAC.Tilesets.Tileset
+    name: Tileset
+  - uid: PAC.Tilesets.TilesetManager
+    name: TilesetManager
+- uid: PAC.UI
+  name: PAC.UI
+  items:
+  - uid: PAC.UI.CollapsedState
+    name: CollapsedState
+  - uid: PAC.UI.DropdownCloseMode
+    name: DropdownCloseMode
+  - uid: PAC.UI.DropdownDirection
+    name: DropdownDirection
+  - uid: PAC.UI.GridAlignment
+    name: GridAlignment
+  - uid: PAC.UI.ScrollDirection
+    name: ScrollDirection
+  - uid: PAC.UI.UIAnchorPoint
+    name: UIAnchorPoint
+  - uid: PAC.UI.UIButton
+    name: UIButton
+  - uid: PAC.UI.UICollapser
+    name: UICollapser
+  - uid: PAC.UI.UIColourField
+    name: UIColourField
+  - uid: PAC.UI.UIColourFieldGroup
+    name: UIColourFieldGroup
+  - uid: PAC.UI.UIColourPicker
+    name: UIColourPicker
+  - uid: PAC.UI.UIDropdown
+    name: UIDropdown
+  - uid: PAC.UI.UIDropdownChoice
+    name: UIDropdownChoice
+  - uid: PAC.UI.UIElement
+    name: UIElement
+  - uid: PAC.UI.UIElementDeselectMode
+    name: UIElementDeselectMode
+  - uid: PAC.UI.UIElementSelectMode
+    name: UIElementSelectMode
+  - uid: PAC.UI.UIGridPacker
+    name: UIGridPacker
+  - uid: PAC.UI.UIKeyboardShortcut
+    name: UIKeyboardShortcut
+  - uid: PAC.UI.UIManager
+    name: UIManager
+  - uid: PAC.UI.UIModalWindow
+    name: UIModalWindow
+  - uid: PAC.UI.UINumberField
+    name: UINumberField
+  - uid: PAC.UI.UIScale
+    name: UIScale
+  - uid: PAC.UI.UIScrollbar
+    name: UIScrollbar
+  - uid: PAC.UI.UITabManager
+    name: UITabManager
+  - uid: PAC.UI.UITextbox
+    name: UITextbox
+  - uid: PAC.UI.UITextboxAnchorPoint
+    name: UITextboxAnchorPoint
+  - uid: PAC.UI.UITileIcon
     name: UITileIcon
-  - uid: Global.UIToggleButton
+  - uid: PAC.UI.UIToggleButton
     name: UIToggleButton
-  - uid: Global.UIToggleGroup
+  - uid: PAC.UI.UIToggleGroup
     name: UIToggleGroup
-  - uid: Global.UIToolButton
+  - uid: PAC.UI.UIToolButton
     name: UIToolButton
-  - uid: Global.UITooltip
+  - uid: PAC.UI.UITooltip
     name: UITooltip
-  - uid: Global.UIViewport
+  - uid: PAC.UI.UIViewport
     name: UIViewport
-  - uid: Global.UndoRedoAction
-    name: UndoRedoAction
-  - uid: Global.UndoRedoManager
-    name: UndoRedoManager
-  - uid: Global.UndoRedoState
-    name: UndoRedoState
-  - uid: Global.ViewportSide
+  - uid: PAC.UI.ViewportSide
     name: ViewportSide
+- uid: PAC.UndoRedo
+  name: PAC.UndoRedo
+  items:
+  - uid: PAC.UndoRedo.UndoRedoAction
+    name: UndoRedoAction
+  - uid: PAC.UndoRedo.UndoRedoManager
+    name: UndoRedoManager
+  - uid: PAC.UndoRedo.UndoRedoState
+    name: UndoRedoState
 memberLayout: SamePage

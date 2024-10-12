@@ -1,0 +1,106 @@
+### YamlMime:ManagedReference
+items:
+- uid: PAC.Layers.LayerType
+  commentId: T:PAC.Layers.LayerType
+  id: LayerType
+  parent: PAC.Layers
+  children:
+  - PAC.Layers.LayerType.Normal
+  - PAC.Layers.LayerType.Tile
+  langs:
+  - csharp
+  - vb
+  name: LayerType
+  nameWithType: LayerType
+  fullName: PAC.Layers.LayerType
+  type: Enum
+  source:
+    remote:
+      path: Assets/Scripts/Layers/Layer.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: LayerType
+    path: ../Assets/Scripts/Layers/Layer.cs
+    startLine: 16
+  namespace: PAC.Layers
+  syntax:
+    content: public enum LayerType
+    content.vb: Public Enum LayerType
+- uid: PAC.Layers.LayerType.Normal
+  commentId: F:PAC.Layers.LayerType.Normal
+  id: Normal
+  parent: PAC.Layers.LayerType
+  langs:
+  - csharp
+  - vb
+  name: Normal
+  nameWithType: LayerType.Normal
+  fullName: PAC.Layers.LayerType.Normal
+  type: Field
+  source:
+    remote:
+      path: Assets/Scripts/Layers/Layer.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: Normal
+    path: ../Assets/Scripts/Layers/Layer.cs
+    startLine: 18
+  namespace: PAC.Layers
+  syntax:
+    content: Normal = 0
+    return:
+      type: PAC.Layers.LayerType
+- uid: PAC.Layers.LayerType.Tile
+  commentId: F:PAC.Layers.LayerType.Tile
+  id: Tile
+  parent: PAC.Layers.LayerType
+  langs:
+  - csharp
+  - vb
+  name: Tile
+  nameWithType: LayerType.Tile
+  fullName: PAC.Layers.LayerType.Tile
+  type: Field
+  source:
+    remote:
+      path: Assets/Scripts/Layers/Layer.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: Tile
+    path: ../Assets/Scripts/Layers/Layer.cs
+    startLine: 19
+  namespace: PAC.Layers
+  syntax:
+    content: Tile = 1
+    return:
+      type: PAC.Layers.LayerType
+references:
+- uid: PAC.Layers
+  commentId: N:PAC.Layers
+  href: PAC.html
+  name: PAC.Layers
+  nameWithType: PAC.Layers
+  fullName: PAC.Layers
+  spec.csharp:
+  - uid: PAC
+    name: PAC
+    href: PAC.html
+  - name: .
+  - uid: PAC.Layers
+    name: Layers
+    href: PAC.Layers.html
+  spec.vb:
+  - uid: PAC
+    name: PAC
+    href: PAC.html
+  - name: .
+  - uid: PAC.Layers
+    name: Layers
+    href: PAC.Layers.html
+- uid: PAC.Layers.LayerType
+  commentId: T:PAC.Layers.LayerType
+  parent: PAC.Layers
+  href: PAC.Layers.LayerType.html
+  name: LayerType
+  nameWithType: LayerType
+  fullName: PAC.Layers.LayerType

@@ -1,0 +1,1960 @@
+### YamlMime:ManagedReference
+items:
+- uid: PAC.Tex2DSprite
+  commentId: T:PAC.Tex2DSprite
+  id: Tex2DSprite
+  parent: PAC
+  children:
+  - PAC.Tex2DSprite.ApplyMask(Texture2D,PAC.DataStructures.IntVector2[])
+  - PAC.Tex2DSprite.ApplyMask(Texture2D,Texture2D)
+  - PAC.Tex2DSprite.BlankTexture(System.Int32,System.Int32)
+  - PAC.Tex2DSprite.Blend(Color,Texture2D,PAC.Colour.BlendMode)
+  - PAC.Tex2DSprite.Blend(Texture2D,Texture2D,PAC.Colour.BlendMode)
+  - PAC.Tex2DSprite.Blend(Texture2D,Texture2D,PAC.DataStructures.IntVector2,PAC.Colour.BlendMode)
+  - PAC.Tex2DSprite.ChangeRect(Texture2D,PAC.DataStructures.IntRect)
+  - PAC.Tex2DSprite.CheckerboardBackground(System.Int32,System.Int32)
+  - PAC.Tex2DSprite.ContainsPixel(Texture2D,PAC.DataStructures.IntVector2)
+  - PAC.Tex2DSprite.ContainsPixel(Texture2D,System.Int32,System.Int32)
+  - PAC.Tex2DSprite.Copy(Texture2D)
+  - PAC.Tex2DSprite.Extend(Texture2D,System.Int32,System.Int32,System.Int32,System.Int32)
+  - PAC.Tex2DSprite.Fill(Texture2D,PAC.DataStructures.IntVector2,Color,System.Int32)
+  - PAC.Tex2DSprite.Flip(Texture2D,PAC.FlipDirection)
+  - PAC.Tex2DSprite.FlipX(Texture2D)
+  - PAC.Tex2DSprite.FlipY(Texture2D)
+  - PAC.Tex2DSprite.GetFillMask(Texture2D,PAC.DataStructures.IntVector2,System.Int32)
+  - PAC.Tex2DSprite.GetPixel(Texture2D,PAC.DataStructures.IntVector2)
+  - PAC.Tex2DSprite.GetPixelsToFill(Texture2D,PAC.DataStructures.IntVector2,System.Int32)
+  - PAC.Tex2DSprite.HSLHueSaturationGrid(System.Int32,System.Int32)
+  - PAC.Tex2DSprite.LoadFromFile(System.String)
+  - PAC.Tex2DSprite.Multiply(Texture2D,Color)
+  - PAC.Tex2DSprite.Offset(Texture2D,PAC.DataStructures.IntVector2)
+  - PAC.Tex2DSprite.Outline(Texture2D,Color,System.Boolean,PAC.OutlineSideFill)
+  - PAC.Tex2DSprite.Overlay(Texture2D,Texture2D)
+  - PAC.Tex2DSprite.Overlay(Texture2D,Texture2D,PAC.DataStructures.IntVector2)
+  - PAC.Tex2DSprite.ReplaceColour(Texture2D,Color,Color)
+  - PAC.Tex2DSprite.Rotate(Texture2D,PAC.RotationAngle)
+  - PAC.Tex2DSprite.Rotate180(Texture2D)
+  - PAC.Tex2DSprite.Rotate90(Texture2D)
+  - PAC.Tex2DSprite.RotateMinus90(Texture2D)
+  - PAC.Tex2DSprite.Scale(Texture2D,System.Int32,System.Int32)
+  - PAC.Tex2DSprite.Scale(Texture2D,System.Single)
+  - PAC.Tex2DSprite.Scale(Texture2D,System.Single,System.Single)
+  - PAC.Tex2DSprite.SetPixel(Texture2D,PAC.DataStructures.IntVector2,Color)
+  - PAC.Tex2DSprite.SolidTexture(System.Int32,System.Int32,Color)
+  - PAC.Tex2DSprite.Subtract(Texture2D,Texture2D)
+  - PAC.Tex2DSprite.Tex2DToSprite(Texture2D)
+  langs:
+  - csharp
+  - vb
+  name: Tex2DSprite
+  nameWithType: Tex2DSprite
+  fullName: PAC.Tex2DSprite
+  type: Class
+  source:
+    remote:
+      path: Assets/Scripts/Tex2DSprite.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: Tex2DSprite
+    path: ../Assets/Scripts/Tex2DSprite.cs
+    startLine: 32
+  namespace: PAC
+  syntax:
+    content: public static class Tex2DSprite
+    content.vb: Public Module Tex2DSprite
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: PAC.Tex2DSprite.Tex2DToSprite(Texture2D)
+  commentId: M:PAC.Tex2DSprite.Tex2DToSprite(Texture2D)
+  id: Tex2DToSprite(Texture2D)
+  parent: PAC.Tex2DSprite
+  langs:
+  - csharp
+  - vb
+  name: Tex2DToSprite(Texture2D)
+  nameWithType: Tex2DSprite.Tex2DToSprite(Texture2D)
+  fullName: PAC.Tex2DSprite.Tex2DToSprite(Texture2D)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Tex2DSprite.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: Tex2DToSprite
+    path: ../Assets/Scripts/Tex2DSprite.cs
+    startLine: 34
+  namespace: PAC
+  syntax:
+    content: public static Sprite Tex2DToSprite(Texture2D tex)
+    parameters:
+    - id: tex
+      type: Global.Texture2D
+    return:
+      type: Global.Sprite
+    content.vb: Public Shared Function Tex2DToSprite(tex As Texture2D) As Sprite
+  overload: PAC.Tex2DSprite.Tex2DToSprite*
+- uid: PAC.Tex2DSprite.BlankTexture(System.Int32,System.Int32)
+  commentId: M:PAC.Tex2DSprite.BlankTexture(System.Int32,System.Int32)
+  id: BlankTexture(System.Int32,System.Int32)
+  parent: PAC.Tex2DSprite
+  langs:
+  - csharp
+  - vb
+  name: BlankTexture(int, int)
+  nameWithType: Tex2DSprite.BlankTexture(int, int)
+  fullName: PAC.Tex2DSprite.BlankTexture(int, int)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Tex2DSprite.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: BlankTexture
+    path: ../Assets/Scripts/Tex2DSprite.cs
+    startLine: 41
+  namespace: PAC
+  syntax:
+    content: public static Texture2D BlankTexture(int width, int height)
+    parameters:
+    - id: width
+      type: System.Int32
+    - id: height
+      type: System.Int32
+    return:
+      type: Global.Texture2D
+    content.vb: Public Shared Function BlankTexture(width As Integer, height As Integer) As Texture2D
+  overload: PAC.Tex2DSprite.BlankTexture*
+  nameWithType.vb: Tex2DSprite.BlankTexture(Integer, Integer)
+  fullName.vb: PAC.Tex2DSprite.BlankTexture(Integer, Integer)
+  name.vb: BlankTexture(Integer, Integer)
+- uid: PAC.Tex2DSprite.SolidTexture(System.Int32,System.Int32,Color)
+  commentId: M:PAC.Tex2DSprite.SolidTexture(System.Int32,System.Int32,Color)
+  id: SolidTexture(System.Int32,System.Int32,Color)
+  parent: PAC.Tex2DSprite
+  langs:
+  - csharp
+  - vb
+  name: SolidTexture(int, int, Color)
+  nameWithType: Tex2DSprite.SolidTexture(int, int, Color)
+  fullName: PAC.Tex2DSprite.SolidTexture(int, int, Color)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Tex2DSprite.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: SolidTexture
+    path: ../Assets/Scripts/Tex2DSprite.cs
+    startLine: 45
+  namespace: PAC
+  syntax:
+    content: public static Texture2D SolidTexture(int width, int height, Color colour)
+    parameters:
+    - id: width
+      type: System.Int32
+    - id: height
+      type: System.Int32
+    - id: colour
+      type: Global.Color
+    return:
+      type: Global.Texture2D
+    content.vb: Public Shared Function SolidTexture(width As Integer, height As Integer, colour As Color) As Texture2D
+  overload: PAC.Tex2DSprite.SolidTexture*
+  nameWithType.vb: Tex2DSprite.SolidTexture(Integer, Integer, Color)
+  fullName.vb: PAC.Tex2DSprite.SolidTexture(Integer, Integer, Color)
+  name.vb: SolidTexture(Integer, Integer, Color)
+- uid: PAC.Tex2DSprite.CheckerboardBackground(System.Int32,System.Int32)
+  commentId: M:PAC.Tex2DSprite.CheckerboardBackground(System.Int32,System.Int32)
+  id: CheckerboardBackground(System.Int32,System.Int32)
+  parent: PAC.Tex2DSprite
+  langs:
+  - csharp
+  - vb
+  name: CheckerboardBackground(int, int)
+  nameWithType: Tex2DSprite.CheckerboardBackground(int, int)
+  fullName: PAC.Tex2DSprite.CheckerboardBackground(int, int)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Tex2DSprite.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: CheckerboardBackground
+    path: ../Assets/Scripts/Tex2DSprite.cs
+    startLine: 69
+  namespace: PAC
+  syntax:
+    content: public static Texture2D CheckerboardBackground(int width, int height)
+    parameters:
+    - id: width
+      type: System.Int32
+    - id: height
+      type: System.Int32
+    return:
+      type: Global.Texture2D
+    content.vb: Public Shared Function CheckerboardBackground(width As Integer, height As Integer) As Texture2D
+  overload: PAC.Tex2DSprite.CheckerboardBackground*
+  nameWithType.vb: Tex2DSprite.CheckerboardBackground(Integer, Integer)
+  fullName.vb: PAC.Tex2DSprite.CheckerboardBackground(Integer, Integer)
+  name.vb: CheckerboardBackground(Integer, Integer)
+- uid: PAC.Tex2DSprite.HSLHueSaturationGrid(System.Int32,System.Int32)
+  commentId: M:PAC.Tex2DSprite.HSLHueSaturationGrid(System.Int32,System.Int32)
+  id: HSLHueSaturationGrid(System.Int32,System.Int32)
+  parent: PAC.Tex2DSprite
+  langs:
+  - csharp
+  - vb
+  name: HSLHueSaturationGrid(int, int)
+  nameWithType: Tex2DSprite.HSLHueSaturationGrid(int, int)
+  fullName: PAC.Tex2DSprite.HSLHueSaturationGrid(int, int)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Tex2DSprite.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: HSLHueSaturationGrid
+    path: ../Assets/Scripts/Tex2DSprite.cs
+    startLine: 103
+  namespace: PAC
+  syntax:
+    content: public static Texture2D HSLHueSaturationGrid(int width, int height)
+    parameters:
+    - id: width
+      type: System.Int32
+    - id: height
+      type: System.Int32
+    return:
+      type: Global.Texture2D
+    content.vb: Public Shared Function HSLHueSaturationGrid(width As Integer, height As Integer) As Texture2D
+  overload: PAC.Tex2DSprite.HSLHueSaturationGrid*
+  nameWithType.vb: Tex2DSprite.HSLHueSaturationGrid(Integer, Integer)
+  fullName.vb: PAC.Tex2DSprite.HSLHueSaturationGrid(Integer, Integer)
+  name.vb: HSLHueSaturationGrid(Integer, Integer)
+- uid: PAC.Tex2DSprite.Flip(Texture2D,PAC.FlipDirection)
+  commentId: M:PAC.Tex2DSprite.Flip(Texture2D,PAC.FlipDirection)
+  id: Flip(Texture2D,PAC.FlipDirection)
+  parent: PAC.Tex2DSprite
+  langs:
+  - csharp
+  - vb
+  name: Flip(Texture2D, FlipDirection)
+  nameWithType: Tex2DSprite.Flip(Texture2D, FlipDirection)
+  fullName: PAC.Tex2DSprite.Flip(Texture2D, PAC.FlipDirection)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Tex2DSprite.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: Flip
+    path: ../Assets/Scripts/Tex2DSprite.cs
+    startLine: 125
+  namespace: PAC
+  syntax:
+    content: public static Texture2D Flip(Texture2D texture, FlipDirection direction)
+    parameters:
+    - id: texture
+      type: Global.Texture2D
+    - id: direction
+      type: PAC.FlipDirection
+    return:
+      type: Global.Texture2D
+    content.vb: Public Shared Function Flip(texture As Texture2D, direction As FlipDirection) As Texture2D
+  overload: PAC.Tex2DSprite.Flip*
+- uid: PAC.Tex2DSprite.FlipX(Texture2D)
+  commentId: M:PAC.Tex2DSprite.FlipX(Texture2D)
+  id: FlipX(Texture2D)
+  parent: PAC.Tex2DSprite
+  langs:
+  - csharp
+  - vb
+  name: FlipX(Texture2D)
+  nameWithType: Tex2DSprite.FlipX(Texture2D)
+  fullName: PAC.Tex2DSprite.FlipX(Texture2D)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Tex2DSprite.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: FlipX
+    path: ../Assets/Scripts/Tex2DSprite.cs
+    startLine: 145
+  namespace: PAC
+  syntax:
+    content: public static Texture2D FlipX(Texture2D texture)
+    parameters:
+    - id: texture
+      type: Global.Texture2D
+    return:
+      type: Global.Texture2D
+    content.vb: Public Shared Function FlipX(texture As Texture2D) As Texture2D
+  overload: PAC.Tex2DSprite.FlipX*
+- uid: PAC.Tex2DSprite.FlipY(Texture2D)
+  commentId: M:PAC.Tex2DSprite.FlipY(Texture2D)
+  id: FlipY(Texture2D)
+  parent: PAC.Tex2DSprite
+  langs:
+  - csharp
+  - vb
+  name: FlipY(Texture2D)
+  nameWithType: Tex2DSprite.FlipY(Texture2D)
+  fullName: PAC.Tex2DSprite.FlipY(Texture2D)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Tex2DSprite.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: FlipY
+    path: ../Assets/Scripts/Tex2DSprite.cs
+    startLine: 161
+  namespace: PAC
+  syntax:
+    content: public static Texture2D FlipY(Texture2D texture)
+    parameters:
+    - id: texture
+      type: Global.Texture2D
+    return:
+      type: Global.Texture2D
+    content.vb: Public Shared Function FlipY(texture As Texture2D) As Texture2D
+  overload: PAC.Tex2DSprite.FlipY*
+- uid: PAC.Tex2DSprite.Rotate(Texture2D,PAC.RotationAngle)
+  commentId: M:PAC.Tex2DSprite.Rotate(Texture2D,PAC.RotationAngle)
+  id: Rotate(Texture2D,PAC.RotationAngle)
+  parent: PAC.Tex2DSprite
+  langs:
+  - csharp
+  - vb
+  name: Rotate(Texture2D, RotationAngle)
+  nameWithType: Tex2DSprite.Rotate(Texture2D, RotationAngle)
+  fullName: PAC.Tex2DSprite.Rotate(Texture2D, PAC.RotationAngle)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Tex2DSprite.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: Rotate
+    path: ../Assets/Scripts/Tex2DSprite.cs
+    startLine: 180
+  namespace: PAC
+  summary: Rotation is clockwise.
+  example: []
+  syntax:
+    content: public static Texture2D Rotate(Texture2D texture, RotationAngle angle)
+    parameters:
+    - id: texture
+      type: Global.Texture2D
+    - id: angle
+      type: PAC.RotationAngle
+    return:
+      type: Global.Texture2D
+    content.vb: Public Shared Function Rotate(texture As Texture2D, angle As RotationAngle) As Texture2D
+  overload: PAC.Tex2DSprite.Rotate*
+- uid: PAC.Tex2DSprite.Rotate90(Texture2D)
+  commentId: M:PAC.Tex2DSprite.Rotate90(Texture2D)
+  id: Rotate90(Texture2D)
+  parent: PAC.Tex2DSprite
+  langs:
+  - csharp
+  - vb
+  name: Rotate90(Texture2D)
+  nameWithType: Tex2DSprite.Rotate90(Texture2D)
+  fullName: PAC.Tex2DSprite.Rotate90(Texture2D)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Tex2DSprite.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: Rotate90
+    path: ../Assets/Scripts/Tex2DSprite.cs
+    startLine: 207
+  namespace: PAC
+  summary: Rotation is clockwise.
+  example: []
+  syntax:
+    content: public static Texture2D Rotate90(Texture2D texture)
+    parameters:
+    - id: texture
+      type: Global.Texture2D
+    return:
+      type: Global.Texture2D
+    content.vb: Public Shared Function Rotate90(texture As Texture2D) As Texture2D
+  overload: PAC.Tex2DSprite.Rotate90*
+- uid: PAC.Tex2DSprite.RotateMinus90(Texture2D)
+  commentId: M:PAC.Tex2DSprite.RotateMinus90(Texture2D)
+  id: RotateMinus90(Texture2D)
+  parent: PAC.Tex2DSprite
+  langs:
+  - csharp
+  - vb
+  name: RotateMinus90(Texture2D)
+  nameWithType: Tex2DSprite.RotateMinus90(Texture2D)
+  fullName: PAC.Tex2DSprite.RotateMinus90(Texture2D)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Tex2DSprite.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: RotateMinus90
+    path: ../Assets/Scripts/Tex2DSprite.cs
+    startLine: 226
+  namespace: PAC
+  summary: Rotation is clockwise.
+  example: []
+  syntax:
+    content: public static Texture2D RotateMinus90(Texture2D texture)
+    parameters:
+    - id: texture
+      type: Global.Texture2D
+    return:
+      type: Global.Texture2D
+    content.vb: Public Shared Function RotateMinus90(texture As Texture2D) As Texture2D
+  overload: PAC.Tex2DSprite.RotateMinus90*
+- uid: PAC.Tex2DSprite.Rotate180(Texture2D)
+  commentId: M:PAC.Tex2DSprite.Rotate180(Texture2D)
+  id: Rotate180(Texture2D)
+  parent: PAC.Tex2DSprite
+  langs:
+  - csharp
+  - vb
+  name: Rotate180(Texture2D)
+  nameWithType: Tex2DSprite.Rotate180(Texture2D)
+  fullName: PAC.Tex2DSprite.Rotate180(Texture2D)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Tex2DSprite.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: Rotate180
+    path: ../Assets/Scripts/Tex2DSprite.cs
+    startLine: 242
+  namespace: PAC
+  syntax:
+    content: public static Texture2D Rotate180(Texture2D texture)
+    parameters:
+    - id: texture
+      type: Global.Texture2D
+    return:
+      type: Global.Texture2D
+    content.vb: Public Shared Function Rotate180(texture As Texture2D) As Texture2D
+  overload: PAC.Tex2DSprite.Rotate180*
+- uid: PAC.Tex2DSprite.Offset(Texture2D,PAC.DataStructures.IntVector2)
+  commentId: M:PAC.Tex2DSprite.Offset(Texture2D,PAC.DataStructures.IntVector2)
+  id: Offset(Texture2D,PAC.DataStructures.IntVector2)
+  parent: PAC.Tex2DSprite
+  langs:
+  - csharp
+  - vb
+  name: Offset(Texture2D, IntVector2)
+  nameWithType: Tex2DSprite.Offset(Texture2D, IntVector2)
+  fullName: PAC.Tex2DSprite.Offset(Texture2D, PAC.DataStructures.IntVector2)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Tex2DSprite.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: Offset
+    path: ../Assets/Scripts/Tex2DSprite.cs
+    startLine: 258
+  namespace: PAC
+  syntax:
+    content: public static Texture2D Offset(Texture2D texture, IntVector2 offset)
+    parameters:
+    - id: texture
+      type: Global.Texture2D
+    - id: offset
+      type: PAC.DataStructures.IntVector2
+    return:
+      type: Global.Texture2D
+    content.vb: Public Shared Function Offset(texture As Texture2D, offset As IntVector2) As Texture2D
+  overload: PAC.Tex2DSprite.Offset*
+- uid: PAC.Tex2DSprite.Extend(Texture2D,System.Int32,System.Int32,System.Int32,System.Int32)
+  commentId: M:PAC.Tex2DSprite.Extend(Texture2D,System.Int32,System.Int32,System.Int32,System.Int32)
+  id: Extend(Texture2D,System.Int32,System.Int32,System.Int32,System.Int32)
+  parent: PAC.Tex2DSprite
+  langs:
+  - csharp
+  - vb
+  name: Extend(Texture2D, int, int, int, int)
+  nameWithType: Tex2DSprite.Extend(Texture2D, int, int, int, int)
+  fullName: PAC.Tex2DSprite.Extend(Texture2D, int, int, int, int)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Tex2DSprite.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: Extend
+    path: ../Assets/Scripts/Tex2DSprite.cs
+    startLine: 291
+  namespace: PAC
+  summary: Adds the given number of transparent pixels to each side of the texture. Negative amounts will crop the image.
+  example: []
+  syntax:
+    content: public static Texture2D Extend(Texture2D texture, int left, int right, int up, int down)
+    parameters:
+    - id: texture
+      type: Global.Texture2D
+      description: ''
+    - id: left
+      type: System.Int32
+      description: ''
+    - id: right
+      type: System.Int32
+      description: ''
+    - id: up
+      type: System.Int32
+      description: ''
+    - id: down
+      type: System.Int32
+      description: ''
+    return:
+      type: Global.Texture2D
+      description: ''
+    content.vb: Public Shared Function Extend(texture As Texture2D, left As Integer, right As Integer, up As Integer, down As Integer) As Texture2D
+  overload: PAC.Tex2DSprite.Extend*
+  nameWithType.vb: Tex2DSprite.Extend(Texture2D, Integer, Integer, Integer, Integer)
+  fullName.vb: PAC.Tex2DSprite.Extend(Texture2D, Integer, Integer, Integer, Integer)
+  name.vb: Extend(Texture2D, Integer, Integer, Integer, Integer)
+- uid: PAC.Tex2DSprite.ChangeRect(Texture2D,PAC.DataStructures.IntRect)
+  commentId: M:PAC.Tex2DSprite.ChangeRect(Texture2D,PAC.DataStructures.IntRect)
+  id: ChangeRect(Texture2D,PAC.DataStructures.IntRect)
+  parent: PAC.Tex2DSprite
+  langs:
+  - csharp
+  - vb
+  name: ChangeRect(Texture2D, IntRect)
+  nameWithType: Tex2DSprite.ChangeRect(Texture2D, IntRect)
+  fullName: PAC.Tex2DSprite.ChangeRect(Texture2D, PAC.DataStructures.IntRect)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Tex2DSprite.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: ChangeRect
+    path: ../Assets/Scripts/Tex2DSprite.cs
+    startLine: 308
+  namespace: PAC
+  summary: Changes the dimensions of the texture to the new rect.
+  example: []
+  syntax:
+    content: public static Texture2D ChangeRect(Texture2D texture, IntRect newRect)
+    parameters:
+    - id: texture
+      type: Global.Texture2D
+      description: ''
+    - id: newRect
+      type: PAC.DataStructures.IntRect
+      description: The coords of the new rect relative to the coords of the old rect.
+    return:
+      type: Global.Texture2D
+      description: ''
+    content.vb: Public Shared Function ChangeRect(texture As Texture2D, newRect As IntRect) As Texture2D
+  overload: PAC.Tex2DSprite.ChangeRect*
+- uid: PAC.Tex2DSprite.Blend(Texture2D,Texture2D,PAC.Colour.BlendMode)
+  commentId: M:PAC.Tex2DSprite.Blend(Texture2D,Texture2D,PAC.Colour.BlendMode)
+  id: Blend(Texture2D,Texture2D,PAC.Colour.BlendMode)
+  parent: PAC.Tex2DSprite
+  langs:
+  - csharp
+  - vb
+  name: Blend(Texture2D, Texture2D, BlendMode)
+  nameWithType: Tex2DSprite.Blend(Texture2D, Texture2D, BlendMode)
+  fullName: PAC.Tex2DSprite.Blend(Texture2D, Texture2D, PAC.Colour.BlendMode)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Tex2DSprite.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: Blend
+    path: ../Assets/Scripts/Tex2DSprite.cs
+    startLine: 316
+  namespace: PAC
+  summary: Overlays topTex onto bottomTex using the given blend mode, placing the bottom-left corner on the bottom-left corner.
+  example: []
+  syntax:
+    content: public static Texture2D Blend(Texture2D topTex, Texture2D bottomTex, BlendMode blendMode)
+    parameters:
+    - id: topTex
+      type: Global.Texture2D
+    - id: bottomTex
+      type: Global.Texture2D
+    - id: blendMode
+      type: PAC.Colour.BlendMode
+    return:
+      type: Global.Texture2D
+    content.vb: Public Shared Function Blend(topTex As Texture2D, bottomTex As Texture2D, blendMode As BlendMode) As Texture2D
+  overload: PAC.Tex2DSprite.Blend*
+- uid: PAC.Tex2DSprite.Blend(Texture2D,Texture2D,PAC.DataStructures.IntVector2,PAC.Colour.BlendMode)
+  commentId: M:PAC.Tex2DSprite.Blend(Texture2D,Texture2D,PAC.DataStructures.IntVector2,PAC.Colour.BlendMode)
+  id: Blend(Texture2D,Texture2D,PAC.DataStructures.IntVector2,PAC.Colour.BlendMode)
+  parent: PAC.Tex2DSprite
+  langs:
+  - csharp
+  - vb
+  name: Blend(Texture2D, Texture2D, IntVector2, BlendMode)
+  nameWithType: Tex2DSprite.Blend(Texture2D, Texture2D, IntVector2, BlendMode)
+  fullName: PAC.Tex2DSprite.Blend(Texture2D, Texture2D, PAC.DataStructures.IntVector2, PAC.Colour.BlendMode)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Tex2DSprite.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: Blend
+    path: ../Assets/Scripts/Tex2DSprite.cs
+    startLine: 323
+  namespace: PAC
+  summary: Overlays topTex onto bottomTex using the given blend mode, placing the bottom-left corner at the coordinates topTexOffset (which don't have to be within the image).
+  example: []
+  syntax:
+    content: public static Texture2D Blend(Texture2D topTex, Texture2D bottomTex, IntVector2 topTexOffset, BlendMode blendMode)
+    parameters:
+    - id: topTex
+      type: Global.Texture2D
+    - id: bottomTex
+      type: Global.Texture2D
+    - id: topTexOffset
+      type: PAC.DataStructures.IntVector2
+    - id: blendMode
+      type: PAC.Colour.BlendMode
+    return:
+      type: Global.Texture2D
+    content.vb: Public Shared Function Blend(topTex As Texture2D, bottomTex As Texture2D, topTexOffset As IntVector2, blendMode As BlendMode) As Texture2D
+  overload: PAC.Tex2DSprite.Blend*
+- uid: PAC.Tex2DSprite.Blend(Color,Texture2D,PAC.Colour.BlendMode)
+  commentId: M:PAC.Tex2DSprite.Blend(Color,Texture2D,PAC.Colour.BlendMode)
+  id: Blend(Color,Texture2D,PAC.Colour.BlendMode)
+  parent: PAC.Tex2DSprite
+  langs:
+  - csharp
+  - vb
+  name: Blend(Color, Texture2D, BlendMode)
+  nameWithType: Tex2DSprite.Blend(Color, Texture2D, BlendMode)
+  fullName: PAC.Tex2DSprite.Blend(Color, Texture2D, PAC.Colour.BlendMode)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Tex2DSprite.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: Blend
+    path: ../Assets/Scripts/Tex2DSprite.cs
+    startLine: 349
+  namespace: PAC
+  summary: Overlays topColour onto each pixel of bottomTex using the given blend mode.
+  example: []
+  syntax:
+    content: public static Texture2D Blend(Color topColour, Texture2D bottomTex, BlendMode blendMode)
+    parameters:
+    - id: topColour
+      type: Global.Color
+    - id: bottomTex
+      type: Global.Texture2D
+    - id: blendMode
+      type: PAC.Colour.BlendMode
+    return:
+      type: Global.Texture2D
+    content.vb: Public Shared Function Blend(topColour As Color, bottomTex As Texture2D, blendMode As BlendMode) As Texture2D
+  overload: PAC.Tex2DSprite.Blend*
+- uid: PAC.Tex2DSprite.Overlay(Texture2D,Texture2D)
+  commentId: M:PAC.Tex2DSprite.Overlay(Texture2D,Texture2D)
+  id: Overlay(Texture2D,Texture2D)
+  parent: PAC.Tex2DSprite
+  langs:
+  - csharp
+  - vb
+  name: Overlay(Texture2D, Texture2D)
+  nameWithType: Tex2DSprite.Overlay(Texture2D, Texture2D)
+  fullName: PAC.Tex2DSprite.Overlay(Texture2D, Texture2D)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Tex2DSprite.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: Overlay
+    path: ../Assets/Scripts/Tex2DSprite.cs
+    startLine: 371
+  namespace: PAC
+  summary: Overlays topTex onto bottomTex, placing the bottom-left corner on the bottom-left corner. Uses Normal blend mode.
+  example: []
+  syntax:
+    content: public static Texture2D Overlay(Texture2D topTex, Texture2D bottomTex)
+    parameters:
+    - id: topTex
+      type: Global.Texture2D
+      description: ''
+    - id: bottomTex
+      type: Global.Texture2D
+      description: ''
+    return:
+      type: Global.Texture2D
+      description: ''
+    content.vb: Public Shared Function Overlay(topTex As Texture2D, bottomTex As Texture2D) As Texture2D
+  overload: PAC.Tex2DSprite.Overlay*
+- uid: PAC.Tex2DSprite.Overlay(Texture2D,Texture2D,PAC.DataStructures.IntVector2)
+  commentId: M:PAC.Tex2DSprite.Overlay(Texture2D,Texture2D,PAC.DataStructures.IntVector2)
+  id: Overlay(Texture2D,Texture2D,PAC.DataStructures.IntVector2)
+  parent: PAC.Tex2DSprite
+  langs:
+  - csharp
+  - vb
+  name: Overlay(Texture2D, Texture2D, IntVector2)
+  nameWithType: Tex2DSprite.Overlay(Texture2D, Texture2D, IntVector2)
+  fullName: PAC.Tex2DSprite.Overlay(Texture2D, Texture2D, PAC.DataStructures.IntVector2)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Tex2DSprite.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: Overlay
+    path: ../Assets/Scripts/Tex2DSprite.cs
+    startLine: 381
+  namespace: PAC
+  summary: Overlays topTex onto bottomTex, placing the bottom-left corner at the coordinates topTexOffset (which don't have to be within the image). Uses Normal blend mode.
+  example: []
+  syntax:
+    content: public static Texture2D Overlay(Texture2D topTex, Texture2D bottomTex, IntVector2 topTexOffset)
+    parameters:
+    - id: topTex
+      type: Global.Texture2D
+      description: ''
+    - id: bottomTex
+      type: Global.Texture2D
+      description: ''
+    - id: topTexOffset
+      type: PAC.DataStructures.IntVector2
+    return:
+      type: Global.Texture2D
+      description: ''
+    content.vb: Public Shared Function Overlay(topTex As Texture2D, bottomTex As Texture2D, topTexOffset As IntVector2) As Texture2D
+  overload: PAC.Tex2DSprite.Overlay*
+- uid: PAC.Tex2DSprite.Multiply(Texture2D,Color)
+  commentId: M:PAC.Tex2DSprite.Multiply(Texture2D,Color)
+  id: Multiply(Texture2D,Color)
+  parent: PAC.Tex2DSprite
+  langs:
+  - csharp
+  - vb
+  name: Multiply(Texture2D, Color)
+  nameWithType: Tex2DSprite.Multiply(Texture2D, Color)
+  fullName: PAC.Tex2DSprite.Multiply(Texture2D, Color)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Tex2DSprite.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: Multiply
+    path: ../Assets/Scripts/Tex2DSprite.cs
+    startLine: 386
+  namespace: PAC
+  syntax:
+    content: public static Texture2D Multiply(Texture2D texture, Color colour)
+    parameters:
+    - id: texture
+      type: Global.Texture2D
+    - id: colour
+      type: Global.Color
+    return:
+      type: Global.Texture2D
+    content.vb: Public Shared Function Multiply(texture As Texture2D, colour As Color) As Texture2D
+  overload: PAC.Tex2DSprite.Multiply*
+- uid: PAC.Tex2DSprite.Scale(Texture2D,System.Single)
+  commentId: M:PAC.Tex2DSprite.Scale(Texture2D,System.Single)
+  id: Scale(Texture2D,System.Single)
+  parent: PAC.Tex2DSprite
+  langs:
+  - csharp
+  - vb
+  name: Scale(Texture2D, float)
+  nameWithType: Tex2DSprite.Scale(Texture2D, float)
+  fullName: PAC.Tex2DSprite.Scale(Texture2D, float)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Tex2DSprite.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: Scale
+    path: ../Assets/Scripts/Tex2DSprite.cs
+    startLine: 400
+  namespace: PAC
+  syntax:
+    content: public static Texture2D Scale(Texture2D texture, float scaleFactor)
+    parameters:
+    - id: texture
+      type: Global.Texture2D
+    - id: scaleFactor
+      type: System.Single
+    return:
+      type: Global.Texture2D
+    content.vb: Public Shared Function Scale(texture As Texture2D, scaleFactor As Single) As Texture2D
+  overload: PAC.Tex2DSprite.Scale*
+  nameWithType.vb: Tex2DSprite.Scale(Texture2D, Single)
+  fullName.vb: PAC.Tex2DSprite.Scale(Texture2D, Single)
+  name.vb: Scale(Texture2D, Single)
+- uid: PAC.Tex2DSprite.Scale(Texture2D,System.Single,System.Single)
+  commentId: M:PAC.Tex2DSprite.Scale(Texture2D,System.Single,System.Single)
+  id: Scale(Texture2D,System.Single,System.Single)
+  parent: PAC.Tex2DSprite
+  langs:
+  - csharp
+  - vb
+  name: Scale(Texture2D, float, float)
+  nameWithType: Tex2DSprite.Scale(Texture2D, float, float)
+  fullName: PAC.Tex2DSprite.Scale(Texture2D, float, float)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Tex2DSprite.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: Scale
+    path: ../Assets/Scripts/Tex2DSprite.cs
+    startLine: 409
+  namespace: PAC
+  syntax:
+    content: public static Texture2D Scale(Texture2D texture, float xScaleFactor, float yScaleFactor)
+    parameters:
+    - id: texture
+      type: Global.Texture2D
+    - id: xScaleFactor
+      type: System.Single
+    - id: yScaleFactor
+      type: System.Single
+    return:
+      type: Global.Texture2D
+    content.vb: Public Shared Function Scale(texture As Texture2D, xScaleFactor As Single, yScaleFactor As Single) As Texture2D
+  overload: PAC.Tex2DSprite.Scale*
+  nameWithType.vb: Tex2DSprite.Scale(Texture2D, Single, Single)
+  fullName.vb: PAC.Tex2DSprite.Scale(Texture2D, Single, Single)
+  name.vb: Scale(Texture2D, Single, Single)
+- uid: PAC.Tex2DSprite.Scale(Texture2D,System.Int32,System.Int32)
+  commentId: M:PAC.Tex2DSprite.Scale(Texture2D,System.Int32,System.Int32)
+  id: Scale(Texture2D,System.Int32,System.Int32)
+  parent: PAC.Tex2DSprite
+  langs:
+  - csharp
+  - vb
+  name: Scale(Texture2D, int, int)
+  nameWithType: Tex2DSprite.Scale(Texture2D, int, int)
+  fullName: PAC.Tex2DSprite.Scale(Texture2D, int, int)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Tex2DSprite.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: Scale
+    path: ../Assets/Scripts/Tex2DSprite.cs
+    startLine: 422
+  namespace: PAC
+  syntax:
+    content: public static Texture2D Scale(Texture2D texture, int newWidth, int newHeight)
+    parameters:
+    - id: texture
+      type: Global.Texture2D
+    - id: newWidth
+      type: System.Int32
+    - id: newHeight
+      type: System.Int32
+    return:
+      type: Global.Texture2D
+    content.vb: Public Shared Function Scale(texture As Texture2D, newWidth As Integer, newHeight As Integer) As Texture2D
+  overload: PAC.Tex2DSprite.Scale*
+  nameWithType.vb: Tex2DSprite.Scale(Texture2D, Integer, Integer)
+  fullName.vb: PAC.Tex2DSprite.Scale(Texture2D, Integer, Integer)
+  name.vb: Scale(Texture2D, Integer, Integer)
+- uid: PAC.Tex2DSprite.Subtract(Texture2D,Texture2D)
+  commentId: M:PAC.Tex2DSprite.Subtract(Texture2D,Texture2D)
+  id: Subtract(Texture2D,Texture2D)
+  parent: PAC.Tex2DSprite
+  langs:
+  - csharp
+  - vb
+  name: Subtract(Texture2D, Texture2D)
+  nameWithType: Tex2DSprite.Subtract(Texture2D, Texture2D)
+  fullName: PAC.Tex2DSprite.Subtract(Texture2D, Texture2D)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Tex2DSprite.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: Subtract
+    path: ../Assets/Scripts/Tex2DSprite.cs
+    startLine: 445
+  namespace: PAC
+  syntax:
+    content: public static Texture2D Subtract(Texture2D topTex, Texture2D bottomTex)
+    parameters:
+    - id: topTex
+      type: Global.Texture2D
+    - id: bottomTex
+      type: Global.Texture2D
+    return:
+      type: Global.Texture2D
+    content.vb: Public Shared Function Subtract(topTex As Texture2D, bottomTex As Texture2D) As Texture2D
+  overload: PAC.Tex2DSprite.Subtract*
+- uid: PAC.Tex2DSprite.ApplyMask(Texture2D,Texture2D)
+  commentId: M:PAC.Tex2DSprite.ApplyMask(Texture2D,Texture2D)
+  id: ApplyMask(Texture2D,Texture2D)
+  parent: PAC.Tex2DSprite
+  langs:
+  - csharp
+  - vb
+  name: ApplyMask(Texture2D, Texture2D)
+  nameWithType: Tex2DSprite.ApplyMask(Texture2D, Texture2D)
+  fullName: PAC.Tex2DSprite.ApplyMask(Texture2D, Texture2D)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Tex2DSprite.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: ApplyMask
+    path: ../Assets/Scripts/Tex2DSprite.cs
+    startLine: 466
+  namespace: PAC
+  syntax:
+    content: public static Texture2D ApplyMask(Texture2D texture, Texture2D mask)
+    parameters:
+    - id: texture
+      type: Global.Texture2D
+    - id: mask
+      type: Global.Texture2D
+    return:
+      type: Global.Texture2D
+    content.vb: Public Shared Function ApplyMask(texture As Texture2D, mask As Texture2D) As Texture2D
+  overload: PAC.Tex2DSprite.ApplyMask*
+- uid: PAC.Tex2DSprite.ApplyMask(Texture2D,PAC.DataStructures.IntVector2[])
+  commentId: M:PAC.Tex2DSprite.ApplyMask(Texture2D,PAC.DataStructures.IntVector2[])
+  id: ApplyMask(Texture2D,PAC.DataStructures.IntVector2[])
+  parent: PAC.Tex2DSprite
+  langs:
+  - csharp
+  - vb
+  name: ApplyMask(Texture2D, IntVector2[])
+  nameWithType: Tex2DSprite.ApplyMask(Texture2D, IntVector2[])
+  fullName: PAC.Tex2DSprite.ApplyMask(Texture2D, PAC.DataStructures.IntVector2[])
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Tex2DSprite.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: ApplyMask
+    path: ../Assets/Scripts/Tex2DSprite.cs
+    startLine: 493
+  namespace: PAC
+  syntax:
+    content: public static Texture2D ApplyMask(Texture2D texture, IntVector2[] mask)
+    parameters:
+    - id: texture
+      type: Global.Texture2D
+    - id: mask
+      type: PAC.DataStructures.IntVector2[]
+    return:
+      type: Global.Texture2D
+    content.vb: Public Shared Function ApplyMask(texture As Texture2D, mask As IntVector2()) As Texture2D
+  overload: PAC.Tex2DSprite.ApplyMask*
+  nameWithType.vb: Tex2DSprite.ApplyMask(Texture2D, IntVector2())
+  fullName.vb: PAC.Tex2DSprite.ApplyMask(Texture2D, PAC.DataStructures.IntVector2())
+  name.vb: ApplyMask(Texture2D, IntVector2())
+- uid: PAC.Tex2DSprite.Fill(Texture2D,PAC.DataStructures.IntVector2,Color,System.Int32)
+  commentId: M:PAC.Tex2DSprite.Fill(Texture2D,PAC.DataStructures.IntVector2,Color,System.Int32)
+  id: Fill(Texture2D,PAC.DataStructures.IntVector2,Color,System.Int32)
+  parent: PAC.Tex2DSprite
+  langs:
+  - csharp
+  - vb
+  name: Fill(Texture2D, IntVector2, Color, int)
+  nameWithType: Tex2DSprite.Fill(Texture2D, IntVector2, Color, int)
+  fullName: PAC.Tex2DSprite.Fill(Texture2D, PAC.DataStructures.IntVector2, Color, int)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Tex2DSprite.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: Fill
+    path: ../Assets/Scripts/Tex2DSprite.cs
+    startLine: 516
+  namespace: PAC
+  syntax:
+    content: public static Texture2D Fill(Texture2D texture, IntVector2 startPoint, Color colour, int maxNumOfIterations = 1000000)
+    parameters:
+    - id: texture
+      type: Global.Texture2D
+    - id: startPoint
+      type: PAC.DataStructures.IntVector2
+    - id: colour
+      type: Global.Color
+    - id: maxNumOfIterations
+      type: System.Int32
+    return:
+      type: Global.Texture2D
+    content.vb: Public Shared Function Fill(texture As Texture2D, startPoint As IntVector2, colour As Color, maxNumOfIterations As Integer = 1000000) As Texture2D
+  overload: PAC.Tex2DSprite.Fill*
+  nameWithType.vb: Tex2DSprite.Fill(Texture2D, IntVector2, Color, Integer)
+  fullName.vb: PAC.Tex2DSprite.Fill(Texture2D, PAC.DataStructures.IntVector2, Color, Integer)
+  name.vb: Fill(Texture2D, IntVector2, Color, Integer)
+- uid: PAC.Tex2DSprite.GetFillMask(Texture2D,PAC.DataStructures.IntVector2,System.Int32)
+  commentId: M:PAC.Tex2DSprite.GetFillMask(Texture2D,PAC.DataStructures.IntVector2,System.Int32)
+  id: GetFillMask(Texture2D,PAC.DataStructures.IntVector2,System.Int32)
+  parent: PAC.Tex2DSprite
+  langs:
+  - csharp
+  - vb
+  name: GetFillMask(Texture2D, IntVector2, int)
+  nameWithType: Tex2DSprite.GetFillMask(Texture2D, IntVector2, int)
+  fullName: PAC.Tex2DSprite.GetFillMask(Texture2D, PAC.DataStructures.IntVector2, int)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Tex2DSprite.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: GetFillMask
+    path: ../Assets/Scripts/Tex2DSprite.cs
+    startLine: 529
+  namespace: PAC
+  syntax:
+    content: public static Texture2D GetFillMask(Texture2D texture, IntVector2 startPoint, int maxNumOfIterations = 100000)
+    parameters:
+    - id: texture
+      type: Global.Texture2D
+    - id: startPoint
+      type: PAC.DataStructures.IntVector2
+    - id: maxNumOfIterations
+      type: System.Int32
+    return:
+      type: Global.Texture2D
+    content.vb: Public Shared Function GetFillMask(texture As Texture2D, startPoint As IntVector2, maxNumOfIterations As Integer = 100000) As Texture2D
+  overload: PAC.Tex2DSprite.GetFillMask*
+  nameWithType.vb: Tex2DSprite.GetFillMask(Texture2D, IntVector2, Integer)
+  fullName.vb: PAC.Tex2DSprite.GetFillMask(Texture2D, PAC.DataStructures.IntVector2, Integer)
+  name.vb: GetFillMask(Texture2D, IntVector2, Integer)
+- uid: PAC.Tex2DSprite.GetPixelsToFill(Texture2D,PAC.DataStructures.IntVector2,System.Int32)
+  commentId: M:PAC.Tex2DSprite.GetPixelsToFill(Texture2D,PAC.DataStructures.IntVector2,System.Int32)
+  id: GetPixelsToFill(Texture2D,PAC.DataStructures.IntVector2,System.Int32)
+  parent: PAC.Tex2DSprite
+  langs:
+  - csharp
+  - vb
+  name: GetPixelsToFill(Texture2D, IntVector2, int)
+  nameWithType: Tex2DSprite.GetPixelsToFill(Texture2D, IntVector2, int)
+  fullName: PAC.Tex2DSprite.GetPixelsToFill(Texture2D, PAC.DataStructures.IntVector2, int)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Tex2DSprite.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: GetPixelsToFill
+    path: ../Assets/Scripts/Tex2DSprite.cs
+    startLine: 542
+  namespace: PAC
+  syntax:
+    content: public static IntVector2[] GetPixelsToFill(Texture2D texture, IntVector2 startPoint, int maxNumOfIterations = 100000)
+    parameters:
+    - id: texture
+      type: Global.Texture2D
+    - id: startPoint
+      type: PAC.DataStructures.IntVector2
+    - id: maxNumOfIterations
+      type: System.Int32
+    return:
+      type: PAC.DataStructures.IntVector2[]
+    content.vb: Public Shared Function GetPixelsToFill(texture As Texture2D, startPoint As IntVector2, maxNumOfIterations As Integer = 100000) As IntVector2()
+  overload: PAC.Tex2DSprite.GetPixelsToFill*
+  nameWithType.vb: Tex2DSprite.GetPixelsToFill(Texture2D, IntVector2, Integer)
+  fullName.vb: PAC.Tex2DSprite.GetPixelsToFill(Texture2D, PAC.DataStructures.IntVector2, Integer)
+  name.vb: GetPixelsToFill(Texture2D, IntVector2, Integer)
+- uid: PAC.Tex2DSprite.Copy(Texture2D)
+  commentId: M:PAC.Tex2DSprite.Copy(Texture2D)
+  id: Copy(Texture2D)
+  parent: PAC.Tex2DSprite
+  langs:
+  - csharp
+  - vb
+  name: Copy(Texture2D)
+  nameWithType: Tex2DSprite.Copy(Texture2D)
+  fullName: PAC.Tex2DSprite.Copy(Texture2D)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Tex2DSprite.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: Copy
+    path: ../Assets/Scripts/Tex2DSprite.cs
+    startLine: 575
+  namespace: PAC
+  syntax:
+    content: public static Texture2D Copy(Texture2D texture)
+    parameters:
+    - id: texture
+      type: Global.Texture2D
+    return:
+      type: Global.Texture2D
+    content.vb: Public Shared Function Copy(texture As Texture2D) As Texture2D
+  overload: PAC.Tex2DSprite.Copy*
+- uid: PAC.Tex2DSprite.LoadFromFile(System.String)
+  commentId: M:PAC.Tex2DSprite.LoadFromFile(System.String)
+  id: LoadFromFile(System.String)
+  parent: PAC.Tex2DSprite
+  langs:
+  - csharp
+  - vb
+  name: LoadFromFile(string)
+  nameWithType: Tex2DSprite.LoadFromFile(string)
+  fullName: PAC.Tex2DSprite.LoadFromFile(string)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Tex2DSprite.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: LoadFromFile
+    path: ../Assets/Scripts/Tex2DSprite.cs
+    startLine: 591
+  namespace: PAC
+  syntax:
+    content: public static Texture2D LoadFromFile(string filePath)
+    parameters:
+    - id: filePath
+      type: System.String
+    return:
+      type: Global.Texture2D
+    content.vb: Public Shared Function LoadFromFile(filePath As String) As Texture2D
+  overload: PAC.Tex2DSprite.LoadFromFile*
+  nameWithType.vb: Tex2DSprite.LoadFromFile(String)
+  fullName.vb: PAC.Tex2DSprite.LoadFromFile(String)
+  name.vb: LoadFromFile(String)
+- uid: PAC.Tex2DSprite.Outline(Texture2D,Color,System.Boolean,PAC.OutlineSideFill)
+  commentId: M:PAC.Tex2DSprite.Outline(Texture2D,Color,System.Boolean,PAC.OutlineSideFill)
+  id: Outline(Texture2D,Color,System.Boolean,PAC.OutlineSideFill)
+  parent: PAC.Tex2DSprite
+  langs:
+  - csharp
+  - vb
+  name: Outline(Texture2D, Color, bool, OutlineSideFill)
+  nameWithType: Tex2DSprite.Outline(Texture2D, Color, bool, OutlineSideFill)
+  fullName: PAC.Tex2DSprite.Outline(Texture2D, Color, bool, PAC.OutlineSideFill)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Tex2DSprite.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: Outline
+    path: ../Assets/Scripts/Tex2DSprite.cs
+    startLine: 613
+  namespace: PAC
+  summary: Makes an outline around the non-transparent pixels of the given texture.
+  example: []
+  syntax:
+    content: public static Texture2D Outline(Texture2D texture, Color outlineColour, bool outlineOutside, OutlineSideFill outlineSideFill)
+    parameters:
+    - id: texture
+      type: Global.Texture2D
+      description: ''
+    - id: outlineColour
+      type: Global.Color
+      description: ''
+    - id: outlineOutside
+      type: System.Boolean
+      description: 'When true: the outline is created next to existing pixels (widens the sprite). When false: replaces the outer pixels.'
+    - id: outlineSideFill
+      type: PAC.OutlineSideFill
+    return:
+      type: Global.Texture2D
+      description: ''
+    content.vb: Public Shared Function Outline(texture As Texture2D, outlineColour As Color, outlineOutside As Boolean, outlineSideFill As OutlineSideFill) As Texture2D
+  overload: PAC.Tex2DSprite.Outline*
+  nameWithType.vb: Tex2DSprite.Outline(Texture2D, Color, Boolean, OutlineSideFill)
+  fullName.vb: PAC.Tex2DSprite.Outline(Texture2D, Color, Boolean, PAC.OutlineSideFill)
+  name.vb: Outline(Texture2D, Color, Boolean, OutlineSideFill)
+- uid: PAC.Tex2DSprite.ReplaceColour(Texture2D,Color,Color)
+  commentId: M:PAC.Tex2DSprite.ReplaceColour(Texture2D,Color,Color)
+  id: ReplaceColour(Texture2D,Color,Color)
+  parent: PAC.Tex2DSprite
+  langs:
+  - csharp
+  - vb
+  name: ReplaceColour(Texture2D, Color, Color)
+  nameWithType: Tex2DSprite.ReplaceColour(Texture2D, Color, Color)
+  fullName: PAC.Tex2DSprite.ReplaceColour(Texture2D, Color, Color)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Tex2DSprite.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: ReplaceColour
+    path: ../Assets/Scripts/Tex2DSprite.cs
+    startLine: 691
+  namespace: PAC
+  syntax:
+    content: public static Texture2D ReplaceColour(Texture2D texture, Color toReplace, Color replaceWith)
+    parameters:
+    - id: texture
+      type: Global.Texture2D
+    - id: toReplace
+      type: Global.Color
+    - id: replaceWith
+      type: Global.Color
+    return:
+      type: Global.Texture2D
+    content.vb: Public Shared Function ReplaceColour(texture As Texture2D, toReplace As Color, replaceWith As Color) As Texture2D
+  overload: PAC.Tex2DSprite.ReplaceColour*
+- uid: PAC.Tex2DSprite.ContainsPixel(Texture2D,System.Int32,System.Int32)
+  commentId: M:PAC.Tex2DSprite.ContainsPixel(Texture2D,System.Int32,System.Int32)
+  id: ContainsPixel(Texture2D,System.Int32,System.Int32)
+  isExtensionMethod: true
+  parent: PAC.Tex2DSprite
+  langs:
+  - csharp
+  - vb
+  name: ContainsPixel(Texture2D, int, int)
+  nameWithType: Tex2DSprite.ContainsPixel(Texture2D, int, int)
+  fullName: PAC.Tex2DSprite.ContainsPixel(Texture2D, int, int)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Tex2DSprite.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: ContainsPixel
+    path: ../Assets/Scripts/Tex2DSprite.cs
+    startLine: 715
+  namespace: PAC
+  syntax:
+    content: public static bool ContainsPixel(this Texture2D texture, int x, int y)
+    parameters:
+    - id: texture
+      type: Global.Texture2D
+    - id: x
+      type: System.Int32
+    - id: y
+      type: System.Int32
+    return:
+      type: System.Boolean
+    content.vb: Public Shared Function ContainsPixel(texture As Texture2D, x As Integer, y As Integer) As Boolean
+  overload: PAC.Tex2DSprite.ContainsPixel*
+  nameWithType.vb: Tex2DSprite.ContainsPixel(Texture2D, Integer, Integer)
+  fullName.vb: PAC.Tex2DSprite.ContainsPixel(Texture2D, Integer, Integer)
+  name.vb: ContainsPixel(Texture2D, Integer, Integer)
+- uid: PAC.Tex2DSprite.ContainsPixel(Texture2D,PAC.DataStructures.IntVector2)
+  commentId: M:PAC.Tex2DSprite.ContainsPixel(Texture2D,PAC.DataStructures.IntVector2)
+  id: ContainsPixel(Texture2D,PAC.DataStructures.IntVector2)
+  isExtensionMethod: true
+  parent: PAC.Tex2DSprite
+  langs:
+  - csharp
+  - vb
+  name: ContainsPixel(Texture2D, IntVector2)
+  nameWithType: Tex2DSprite.ContainsPixel(Texture2D, IntVector2)
+  fullName: PAC.Tex2DSprite.ContainsPixel(Texture2D, PAC.DataStructures.IntVector2)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Tex2DSprite.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: ContainsPixel
+    path: ../Assets/Scripts/Tex2DSprite.cs
+    startLine: 719
+  namespace: PAC
+  syntax:
+    content: public static bool ContainsPixel(this Texture2D texture, IntVector2 pixel)
+    parameters:
+    - id: texture
+      type: Global.Texture2D
+    - id: pixel
+      type: PAC.DataStructures.IntVector2
+    return:
+      type: System.Boolean
+    content.vb: Public Shared Function ContainsPixel(texture As Texture2D, pixel As IntVector2) As Boolean
+  overload: PAC.Tex2DSprite.ContainsPixel*
+- uid: PAC.Tex2DSprite.SetPixel(Texture2D,PAC.DataStructures.IntVector2,Color)
+  commentId: M:PAC.Tex2DSprite.SetPixel(Texture2D,PAC.DataStructures.IntVector2,Color)
+  id: SetPixel(Texture2D,PAC.DataStructures.IntVector2,Color)
+  isExtensionMethod: true
+  parent: PAC.Tex2DSprite
+  langs:
+  - csharp
+  - vb
+  name: SetPixel(Texture2D, IntVector2, Color)
+  nameWithType: Tex2DSprite.SetPixel(Texture2D, IntVector2, Color)
+  fullName: PAC.Tex2DSprite.SetPixel(Texture2D, PAC.DataStructures.IntVector2, Color)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Tex2DSprite.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: SetPixel
+    path: ../Assets/Scripts/Tex2DSprite.cs
+    startLine: 724
+  namespace: PAC
+  syntax:
+    content: public static void SetPixel(this Texture2D texture, IntVector2 coords, Color colour)
+    parameters:
+    - id: texture
+      type: Global.Texture2D
+    - id: coords
+      type: PAC.DataStructures.IntVector2
+    - id: colour
+      type: Global.Color
+    content.vb: Public Shared Sub SetPixel(texture As Texture2D, coords As IntVector2, colour As Color)
+  overload: PAC.Tex2DSprite.SetPixel*
+- uid: PAC.Tex2DSprite.GetPixel(Texture2D,PAC.DataStructures.IntVector2)
+  commentId: M:PAC.Tex2DSprite.GetPixel(Texture2D,PAC.DataStructures.IntVector2)
+  id: GetPixel(Texture2D,PAC.DataStructures.IntVector2)
+  isExtensionMethod: true
+  parent: PAC.Tex2DSprite
+  langs:
+  - csharp
+  - vb
+  name: GetPixel(Texture2D, IntVector2)
+  nameWithType: Tex2DSprite.GetPixel(Texture2D, IntVector2)
+  fullName: PAC.Tex2DSprite.GetPixel(Texture2D, PAC.DataStructures.IntVector2)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Tex2DSprite.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: GetPixel
+    path: ../Assets/Scripts/Tex2DSprite.cs
+    startLine: 728
+  namespace: PAC
+  syntax:
+    content: public static Color GetPixel(this Texture2D texture, IntVector2 coords)
+    parameters:
+    - id: texture
+      type: Global.Texture2D
+    - id: coords
+      type: PAC.DataStructures.IntVector2
+    return:
+      type: Global.Color
+    content.vb: Public Shared Function GetPixel(texture As Texture2D, coords As IntVector2) As Color
+  overload: PAC.Tex2DSprite.GetPixel*
+references:
+- uid: PAC
+  commentId: N:PAC
+  href: PAC.html
+  name: PAC
+  nameWithType: PAC
+  fullName: PAC
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: PAC.Tex2DSprite.Tex2DToSprite*
+  commentId: Overload:PAC.Tex2DSprite.Tex2DToSprite
+  href: PAC.Tex2DSprite.html#PAC_Tex2DSprite_Tex2DToSprite_Texture2D_
+  name: Tex2DToSprite
+  nameWithType: Tex2DSprite.Tex2DToSprite
+  fullName: PAC.Tex2DSprite.Tex2DToSprite
+- uid: Global.Texture2D
+  isExternal: true
+  name: Texture2D
+  nameWithType: Texture2D
+  fullName: Texture2D
+- uid: Global.Sprite
+  isExternal: true
+  name: Sprite
+  nameWithType: Sprite
+  fullName: Sprite
+- uid: PAC.Tex2DSprite.BlankTexture*
+  commentId: Overload:PAC.Tex2DSprite.BlankTexture
+  href: PAC.Tex2DSprite.html#PAC_Tex2DSprite_BlankTexture_System_Int32_System_Int32_
+  name: BlankTexture
+  nameWithType: Tex2DSprite.BlankTexture
+  fullName: PAC.Tex2DSprite.BlankTexture
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: PAC.Tex2DSprite.SolidTexture*
+  commentId: Overload:PAC.Tex2DSprite.SolidTexture
+  href: PAC.Tex2DSprite.html#PAC_Tex2DSprite_SolidTexture_System_Int32_System_Int32_Color_
+  name: SolidTexture
+  nameWithType: Tex2DSprite.SolidTexture
+  fullName: PAC.Tex2DSprite.SolidTexture
+- uid: Global.Color
+  isExternal: true
+  name: Color
+  nameWithType: Color
+  fullName: Color
+- uid: PAC.Tex2DSprite.CheckerboardBackground*
+  commentId: Overload:PAC.Tex2DSprite.CheckerboardBackground
+  href: PAC.Tex2DSprite.html#PAC_Tex2DSprite_CheckerboardBackground_System_Int32_System_Int32_
+  name: CheckerboardBackground
+  nameWithType: Tex2DSprite.CheckerboardBackground
+  fullName: PAC.Tex2DSprite.CheckerboardBackground
+- uid: PAC.Tex2DSprite.HSLHueSaturationGrid*
+  commentId: Overload:PAC.Tex2DSprite.HSLHueSaturationGrid
+  href: PAC.Tex2DSprite.html#PAC_Tex2DSprite_HSLHueSaturationGrid_System_Int32_System_Int32_
+  name: HSLHueSaturationGrid
+  nameWithType: Tex2DSprite.HSLHueSaturationGrid
+  fullName: PAC.Tex2DSprite.HSLHueSaturationGrid
+- uid: PAC.Tex2DSprite.Flip*
+  commentId: Overload:PAC.Tex2DSprite.Flip
+  href: PAC.Tex2DSprite.html#PAC_Tex2DSprite_Flip_Texture2D_PAC_FlipDirection_
+  name: Flip
+  nameWithType: Tex2DSprite.Flip
+  fullName: PAC.Tex2DSprite.Flip
+- uid: PAC.FlipDirection
+  commentId: T:PAC.FlipDirection
+  parent: PAC
+  href: PAC.FlipDirection.html
+  name: FlipDirection
+  nameWithType: FlipDirection
+  fullName: PAC.FlipDirection
+- uid: PAC.Tex2DSprite.FlipX*
+  commentId: Overload:PAC.Tex2DSprite.FlipX
+  href: PAC.Tex2DSprite.html#PAC_Tex2DSprite_FlipX_Texture2D_
+  name: FlipX
+  nameWithType: Tex2DSprite.FlipX
+  fullName: PAC.Tex2DSprite.FlipX
+- uid: PAC.Tex2DSprite.FlipY*
+  commentId: Overload:PAC.Tex2DSprite.FlipY
+  href: PAC.Tex2DSprite.html#PAC_Tex2DSprite_FlipY_Texture2D_
+  name: FlipY
+  nameWithType: Tex2DSprite.FlipY
+  fullName: PAC.Tex2DSprite.FlipY
+- uid: PAC.Tex2DSprite.Rotate*
+  commentId: Overload:PAC.Tex2DSprite.Rotate
+  href: PAC.Tex2DSprite.html#PAC_Tex2DSprite_Rotate_Texture2D_PAC_RotationAngle_
+  name: Rotate
+  nameWithType: Tex2DSprite.Rotate
+  fullName: PAC.Tex2DSprite.Rotate
+- uid: PAC.RotationAngle
+  commentId: T:PAC.RotationAngle
+  parent: PAC
+  href: PAC.RotationAngle.html
+  name: RotationAngle
+  nameWithType: RotationAngle
+  fullName: PAC.RotationAngle
+- uid: PAC.Tex2DSprite.Rotate90*
+  commentId: Overload:PAC.Tex2DSprite.Rotate90
+  href: PAC.Tex2DSprite.html#PAC_Tex2DSprite_Rotate90_Texture2D_
+  name: Rotate90
+  nameWithType: Tex2DSprite.Rotate90
+  fullName: PAC.Tex2DSprite.Rotate90
+- uid: PAC.Tex2DSprite.RotateMinus90*
+  commentId: Overload:PAC.Tex2DSprite.RotateMinus90
+  href: PAC.Tex2DSprite.html#PAC_Tex2DSprite_RotateMinus90_Texture2D_
+  name: RotateMinus90
+  nameWithType: Tex2DSprite.RotateMinus90
+  fullName: PAC.Tex2DSprite.RotateMinus90
+- uid: PAC.Tex2DSprite.Rotate180*
+  commentId: Overload:PAC.Tex2DSprite.Rotate180
+  href: PAC.Tex2DSprite.html#PAC_Tex2DSprite_Rotate180_Texture2D_
+  name: Rotate180
+  nameWithType: Tex2DSprite.Rotate180
+  fullName: PAC.Tex2DSprite.Rotate180
+- uid: PAC.Tex2DSprite.Offset*
+  commentId: Overload:PAC.Tex2DSprite.Offset
+  href: PAC.Tex2DSprite.html#PAC_Tex2DSprite_Offset_Texture2D_PAC_DataStructures_IntVector2_
+  name: Offset
+  nameWithType: Tex2DSprite.Offset
+  fullName: PAC.Tex2DSprite.Offset
+- uid: PAC.DataStructures.IntVector2
+  commentId: T:PAC.DataStructures.IntVector2
+  parent: PAC.DataStructures
+  href: PAC.DataStructures.IntVector2.html
+  name: IntVector2
+  nameWithType: IntVector2
+  fullName: PAC.DataStructures.IntVector2
+- uid: PAC.DataStructures
+  commentId: N:PAC.DataStructures
+  href: PAC.html
+  name: PAC.DataStructures
+  nameWithType: PAC.DataStructures
+  fullName: PAC.DataStructures
+  spec.csharp:
+  - uid: PAC
+    name: PAC
+    href: PAC.html
+  - name: .
+  - uid: PAC.DataStructures
+    name: DataStructures
+    href: PAC.DataStructures.html
+  spec.vb:
+  - uid: PAC
+    name: PAC
+    href: PAC.html
+  - name: .
+  - uid: PAC.DataStructures
+    name: DataStructures
+    href: PAC.DataStructures.html
+- uid: PAC.Tex2DSprite.Extend*
+  commentId: Overload:PAC.Tex2DSprite.Extend
+  href: PAC.Tex2DSprite.html#PAC_Tex2DSprite_Extend_Texture2D_System_Int32_System_Int32_System_Int32_System_Int32_
+  name: Extend
+  nameWithType: Tex2DSprite.Extend
+  fullName: PAC.Tex2DSprite.Extend
+- uid: PAC.Tex2DSprite.ChangeRect*
+  commentId: Overload:PAC.Tex2DSprite.ChangeRect
+  href: PAC.Tex2DSprite.html#PAC_Tex2DSprite_ChangeRect_Texture2D_PAC_DataStructures_IntRect_
+  name: ChangeRect
+  nameWithType: Tex2DSprite.ChangeRect
+  fullName: PAC.Tex2DSprite.ChangeRect
+- uid: PAC.DataStructures.IntRect
+  commentId: T:PAC.DataStructures.IntRect
+  parent: PAC.DataStructures
+  href: PAC.DataStructures.IntRect.html
+  name: IntRect
+  nameWithType: IntRect
+  fullName: PAC.DataStructures.IntRect
+- uid: PAC.Tex2DSprite.Blend*
+  commentId: Overload:PAC.Tex2DSprite.Blend
+  href: PAC.Tex2DSprite.html#PAC_Tex2DSprite_Blend_Texture2D_Texture2D_PAC_Colour_BlendMode_
+  name: Blend
+  nameWithType: Tex2DSprite.Blend
+  fullName: PAC.Tex2DSprite.Blend
+- uid: PAC.Colour.BlendMode
+  commentId: T:PAC.Colour.BlendMode
+  parent: PAC.Colour
+  href: PAC.Colour.BlendMode.html
+  name: BlendMode
+  nameWithType: BlendMode
+  fullName: PAC.Colour.BlendMode
+- uid: PAC.Colour
+  commentId: N:PAC.Colour
+  href: PAC.html
+  name: PAC.Colour
+  nameWithType: PAC.Colour
+  fullName: PAC.Colour
+  spec.csharp:
+  - uid: PAC
+    name: PAC
+    href: PAC.html
+  - name: .
+  - uid: PAC.Colour
+    name: Colour
+    href: PAC.Colour.html
+  spec.vb:
+  - uid: PAC
+    name: PAC
+    href: PAC.html
+  - name: .
+  - uid: PAC.Colour
+    name: Colour
+    href: PAC.Colour.html
+- uid: PAC.Tex2DSprite.Overlay*
+  commentId: Overload:PAC.Tex2DSprite.Overlay
+  href: PAC.Tex2DSprite.html#PAC_Tex2DSprite_Overlay_Texture2D_Texture2D_
+  name: Overlay
+  nameWithType: Tex2DSprite.Overlay
+  fullName: PAC.Tex2DSprite.Overlay
+- uid: PAC.Tex2DSprite.Multiply*
+  commentId: Overload:PAC.Tex2DSprite.Multiply
+  href: PAC.Tex2DSprite.html#PAC_Tex2DSprite_Multiply_Texture2D_Color_
+  name: Multiply
+  nameWithType: Tex2DSprite.Multiply
+  fullName: PAC.Tex2DSprite.Multiply
+- uid: PAC.Tex2DSprite.Scale*
+  commentId: Overload:PAC.Tex2DSprite.Scale
+  href: PAC.Tex2DSprite.html#PAC_Tex2DSprite_Scale_Texture2D_System_Single_
+  name: Scale
+  nameWithType: Tex2DSprite.Scale
+  fullName: PAC.Tex2DSprite.Scale
+- uid: System.Single
+  commentId: T:System.Single
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.single
+  name: float
+  nameWithType: float
+  fullName: float
+  nameWithType.vb: Single
+  fullName.vb: Single
+  name.vb: Single
+- uid: PAC.Tex2DSprite.Subtract*
+  commentId: Overload:PAC.Tex2DSprite.Subtract
+  href: PAC.Tex2DSprite.html#PAC_Tex2DSprite_Subtract_Texture2D_Texture2D_
+  name: Subtract
+  nameWithType: Tex2DSprite.Subtract
+  fullName: PAC.Tex2DSprite.Subtract
+- uid: PAC.Tex2DSprite.ApplyMask*
+  commentId: Overload:PAC.Tex2DSprite.ApplyMask
+  href: PAC.Tex2DSprite.html#PAC_Tex2DSprite_ApplyMask_Texture2D_Texture2D_
+  name: ApplyMask
+  nameWithType: Tex2DSprite.ApplyMask
+  fullName: PAC.Tex2DSprite.ApplyMask
+- uid: PAC.DataStructures.IntVector2[]
+  isExternal: true
+  href: PAC.DataStructures.IntVector2.html
+  name: IntVector2[]
+  nameWithType: IntVector2[]
+  fullName: PAC.DataStructures.IntVector2[]
+  nameWithType.vb: IntVector2()
+  fullName.vb: PAC.DataStructures.IntVector2()
+  name.vb: IntVector2()
+  spec.csharp:
+  - uid: PAC.DataStructures.IntVector2
+    name: IntVector2
+    href: PAC.DataStructures.IntVector2.html
+  - name: '['
+  - name: ']'
+  spec.vb:
+  - uid: PAC.DataStructures.IntVector2
+    name: IntVector2
+    href: PAC.DataStructures.IntVector2.html
+  - name: (
+  - name: )
+- uid: PAC.Tex2DSprite.Fill*
+  commentId: Overload:PAC.Tex2DSprite.Fill
+  href: PAC.Tex2DSprite.html#PAC_Tex2DSprite_Fill_Texture2D_PAC_DataStructures_IntVector2_Color_System_Int32_
+  name: Fill
+  nameWithType: Tex2DSprite.Fill
+  fullName: PAC.Tex2DSprite.Fill
+- uid: PAC.Tex2DSprite.GetFillMask*
+  commentId: Overload:PAC.Tex2DSprite.GetFillMask
+  href: PAC.Tex2DSprite.html#PAC_Tex2DSprite_GetFillMask_Texture2D_PAC_DataStructures_IntVector2_System_Int32_
+  name: GetFillMask
+  nameWithType: Tex2DSprite.GetFillMask
+  fullName: PAC.Tex2DSprite.GetFillMask
+- uid: PAC.Tex2DSprite.GetPixelsToFill*
+  commentId: Overload:PAC.Tex2DSprite.GetPixelsToFill
+  href: PAC.Tex2DSprite.html#PAC_Tex2DSprite_GetPixelsToFill_Texture2D_PAC_DataStructures_IntVector2_System_Int32_
+  name: GetPixelsToFill
+  nameWithType: Tex2DSprite.GetPixelsToFill
+  fullName: PAC.Tex2DSprite.GetPixelsToFill
+- uid: PAC.Tex2DSprite.Copy*
+  commentId: Overload:PAC.Tex2DSprite.Copy
+  href: PAC.Tex2DSprite.html#PAC_Tex2DSprite_Copy_Texture2D_
+  name: Copy
+  nameWithType: Tex2DSprite.Copy
+  fullName: PAC.Tex2DSprite.Copy
+- uid: PAC.Tex2DSprite.LoadFromFile*
+  commentId: Overload:PAC.Tex2DSprite.LoadFromFile
+  href: PAC.Tex2DSprite.html#PAC_Tex2DSprite_LoadFromFile_System_String_
+  name: LoadFromFile
+  nameWithType: Tex2DSprite.LoadFromFile
+  fullName: PAC.Tex2DSprite.LoadFromFile
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: PAC.Tex2DSprite.Outline*
+  commentId: Overload:PAC.Tex2DSprite.Outline
+  href: PAC.Tex2DSprite.html#PAC_Tex2DSprite_Outline_Texture2D_Color_System_Boolean_PAC_OutlineSideFill_
+  name: Outline
+  nameWithType: Tex2DSprite.Outline
+  fullName: PAC.Tex2DSprite.Outline
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: PAC.OutlineSideFill
+  commentId: T:PAC.OutlineSideFill
+  parent: PAC
+  href: PAC.OutlineSideFill.html
+  name: OutlineSideFill
+  nameWithType: OutlineSideFill
+  fullName: PAC.OutlineSideFill
+- uid: PAC.Tex2DSprite.ReplaceColour*
+  commentId: Overload:PAC.Tex2DSprite.ReplaceColour
+  href: PAC.Tex2DSprite.html#PAC_Tex2DSprite_ReplaceColour_Texture2D_Color_Color_
+  name: ReplaceColour
+  nameWithType: Tex2DSprite.ReplaceColour
+  fullName: PAC.Tex2DSprite.ReplaceColour
+- uid: PAC.Tex2DSprite.ContainsPixel*
+  commentId: Overload:PAC.Tex2DSprite.ContainsPixel
+  href: PAC.Tex2DSprite.html#PAC_Tex2DSprite_ContainsPixel_Texture2D_System_Int32_System_Int32_
+  name: ContainsPixel
+  nameWithType: Tex2DSprite.ContainsPixel
+  fullName: PAC.Tex2DSprite.ContainsPixel
+- uid: PAC.Tex2DSprite.SetPixel*
+  commentId: Overload:PAC.Tex2DSprite.SetPixel
+  href: PAC.Tex2DSprite.html#PAC_Tex2DSprite_SetPixel_Texture2D_PAC_DataStructures_IntVector2_Color_
+  name: SetPixel
+  nameWithType: Tex2DSprite.SetPixel
+  fullName: PAC.Tex2DSprite.SetPixel
+- uid: PAC.Tex2DSprite.GetPixel*
+  commentId: Overload:PAC.Tex2DSprite.GetPixel
+  href: PAC.Tex2DSprite.html#PAC_Tex2DSprite_GetPixel_Texture2D_PAC_DataStructures_IntVector2_
+  name: GetPixel
+  nameWithType: Tex2DSprite.GetPixel
+  fullName: PAC.Tex2DSprite.GetPixel

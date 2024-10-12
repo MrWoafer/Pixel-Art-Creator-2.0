@@ -1,0 +1,1500 @@
+### YamlMime:ManagedReference
+items:
+- uid: PAC.Input.MouseTarget
+  commentId: T:PAC.Input.MouseTarget
+  id: MouseTarget
+  parent: PAC.Input
+  children:
+  - PAC.Input.MouseTarget.Deselect
+  - PAC.Input.MouseTarget.Hover
+  - PAC.Input.MouseTarget.Idle
+  - PAC.Input.MouseTarget.Press
+  - PAC.Input.MouseTarget.Scroll
+  - PAC.Input.MouseTarget.Select
+  - PAC.Input.MouseTarget.SubscribeToClick(UnityAction)
+  - PAC.Input.MouseTarget.SubscribeToDeselect(UnityAction)
+  - PAC.Input.MouseTarget.SubscribeToHover(UnityAction)
+  - PAC.Input.MouseTarget.SubscribeToIdle(UnityAction)
+  - PAC.Input.MouseTarget.SubscribeToLeftClick(UnityAction)
+  - PAC.Input.MouseTarget.SubscribeToLeftUnclick(UnityAction)
+  - PAC.Input.MouseTarget.SubscribeToMiddleClick(UnityAction)
+  - PAC.Input.MouseTarget.SubscribeToMiddleUnclick(UnityAction)
+  - PAC.Input.MouseTarget.SubscribeToPress(UnityAction)
+  - PAC.Input.MouseTarget.SubscribeToRightClick(UnityAction)
+  - PAC.Input.MouseTarget.SubscribeToRightUnclick(UnityAction)
+  - PAC.Input.MouseTarget.SubscribeToScroll(UnityAction)
+  - PAC.Input.MouseTarget.SubscribeToSelect(UnityAction)
+  - PAC.Input.MouseTarget.SubscribeToStateChange(UnityAction)
+  - PAC.Input.MouseTarget.SubscribeToUnclick(UnityAction)
+  - PAC.Input.MouseTarget.SubscribeToUntarget(UnityAction)
+  - PAC.Input.MouseTarget.Untarget
+  - PAC.Input.MouseTarget.allowLeftClick
+  - PAC.Input.MouseTarget.allowMiddleClick
+  - PAC.Input.MouseTarget.allowRightClick
+  - PAC.Input.MouseTarget.allowScroll
+  - PAC.Input.MouseTarget.buttonTargetedWith
+  - PAC.Input.MouseTarget.cursorHover
+  - PAC.Input.MouseTarget.cursorPress
+  - PAC.Input.MouseTarget.cursorScroll
+  - PAC.Input.MouseTarget.cursorSelected
+  - PAC.Input.MouseTarget.deselectMode
+  - PAC.Input.MouseTarget.isHoverTrigger
+  - PAC.Input.MouseTarget.selected
+  - PAC.Input.MouseTarget.state
+  - PAC.Input.MouseTarget.timeHovered
+  langs:
+  - csharp
+  - vb
+  name: MouseTarget
+  nameWithType: MouseTarget
+  fullName: PAC.Input.MouseTarget
+  type: Class
+  source:
+    remote:
+      path: Assets/Scripts/Input/MouseTarget.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: MouseTarget
+    path: ../Assets/Scripts/Input/MouseTarget.cs
+    startLine: 19
+  namespace: PAC.Input
+  syntax:
+    content: public class MouseTarget
+    content.vb: Public Class MouseTarget
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: PAC.Input.MouseTarget.isHoverTrigger
+  commentId: F:PAC.Input.MouseTarget.isHoverTrigger
+  id: isHoverTrigger
+  parent: PAC.Input.MouseTarget
+  langs:
+  - csharp
+  - vb
+  name: isHoverTrigger
+  nameWithType: MouseTarget.isHoverTrigger
+  fullName: PAC.Input.MouseTarget.isHoverTrigger
+  type: Field
+  source:
+    remote:
+      path: Assets/Scripts/Input/MouseTarget.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: isHoverTrigger
+    path: ../Assets/Scripts/Input/MouseTarget.cs
+    startLine: 21
+  namespace: PAC.Input
+  syntax:
+    content: public bool isHoverTrigger
+    return:
+      type: System.Boolean
+    content.vb: Public isHoverTrigger As Boolean
+- uid: PAC.Input.MouseTarget.allowLeftClick
+  commentId: F:PAC.Input.MouseTarget.allowLeftClick
+  id: allowLeftClick
+  parent: PAC.Input.MouseTarget
+  langs:
+  - csharp
+  - vb
+  name: allowLeftClick
+  nameWithType: MouseTarget.allowLeftClick
+  fullName: PAC.Input.MouseTarget.allowLeftClick
+  type: Field
+  source:
+    remote:
+      path: Assets/Scripts/Input/MouseTarget.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: allowLeftClick
+    path: ../Assets/Scripts/Input/MouseTarget.cs
+    startLine: 22
+  namespace: PAC.Input
+  syntax:
+    content: public bool allowLeftClick
+    return:
+      type: System.Boolean
+    content.vb: Public allowLeftClick As Boolean
+- uid: PAC.Input.MouseTarget.allowRightClick
+  commentId: F:PAC.Input.MouseTarget.allowRightClick
+  id: allowRightClick
+  parent: PAC.Input.MouseTarget
+  langs:
+  - csharp
+  - vb
+  name: allowRightClick
+  nameWithType: MouseTarget.allowRightClick
+  fullName: PAC.Input.MouseTarget.allowRightClick
+  type: Field
+  source:
+    remote:
+      path: Assets/Scripts/Input/MouseTarget.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: allowRightClick
+    path: ../Assets/Scripts/Input/MouseTarget.cs
+    startLine: 23
+  namespace: PAC.Input
+  syntax:
+    content: public bool allowRightClick
+    return:
+      type: System.Boolean
+    content.vb: Public allowRightClick As Boolean
+- uid: PAC.Input.MouseTarget.allowMiddleClick
+  commentId: F:PAC.Input.MouseTarget.allowMiddleClick
+  id: allowMiddleClick
+  parent: PAC.Input.MouseTarget
+  langs:
+  - csharp
+  - vb
+  name: allowMiddleClick
+  nameWithType: MouseTarget.allowMiddleClick
+  fullName: PAC.Input.MouseTarget.allowMiddleClick
+  type: Field
+  source:
+    remote:
+      path: Assets/Scripts/Input/MouseTarget.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: allowMiddleClick
+    path: ../Assets/Scripts/Input/MouseTarget.cs
+    startLine: 24
+  namespace: PAC.Input
+  syntax:
+    content: public bool allowMiddleClick
+    return:
+      type: System.Boolean
+    content.vb: Public allowMiddleClick As Boolean
+- uid: PAC.Input.MouseTarget.allowScroll
+  commentId: F:PAC.Input.MouseTarget.allowScroll
+  id: allowScroll
+  parent: PAC.Input.MouseTarget
+  langs:
+  - csharp
+  - vb
+  name: allowScroll
+  nameWithType: MouseTarget.allowScroll
+  fullName: PAC.Input.MouseTarget.allowScroll
+  type: Field
+  source:
+    remote:
+      path: Assets/Scripts/Input/MouseTarget.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: allowScroll
+    path: ../Assets/Scripts/Input/MouseTarget.cs
+    startLine: 25
+  namespace: PAC.Input
+  syntax:
+    content: public bool allowScroll
+    return:
+      type: System.Boolean
+    content.vb: Public allowScroll As Boolean
+- uid: PAC.Input.MouseTarget.cursorHover
+  commentId: F:PAC.Input.MouseTarget.cursorHover
+  id: cursorHover
+  parent: PAC.Input.MouseTarget
+  langs:
+  - csharp
+  - vb
+  name: cursorHover
+  nameWithType: MouseTarget.cursorHover
+  fullName: PAC.Input.MouseTarget.cursorHover
+  type: Field
+  source:
+    remote:
+      path: Assets/Scripts/Input/MouseTarget.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: cursorHover
+    path: ../Assets/Scripts/Input/MouseTarget.cs
+    startLine: 27
+  namespace: PAC.Input
+  syntax:
+    content: public CursorState cursorHover
+    return:
+      type: PAC.Input.CursorState
+    content.vb: Public cursorHover As CursorState
+- uid: PAC.Input.MouseTarget.cursorPress
+  commentId: F:PAC.Input.MouseTarget.cursorPress
+  id: cursorPress
+  parent: PAC.Input.MouseTarget
+  langs:
+  - csharp
+  - vb
+  name: cursorPress
+  nameWithType: MouseTarget.cursorPress
+  fullName: PAC.Input.MouseTarget.cursorPress
+  type: Field
+  source:
+    remote:
+      path: Assets/Scripts/Input/MouseTarget.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: cursorPress
+    path: ../Assets/Scripts/Input/MouseTarget.cs
+    startLine: 28
+  namespace: PAC.Input
+  syntax:
+    content: public CursorState cursorPress
+    return:
+      type: PAC.Input.CursorState
+    content.vb: Public cursorPress As CursorState
+- uid: PAC.Input.MouseTarget.cursorSelected
+  commentId: F:PAC.Input.MouseTarget.cursorSelected
+  id: cursorSelected
+  parent: PAC.Input.MouseTarget
+  langs:
+  - csharp
+  - vb
+  name: cursorSelected
+  nameWithType: MouseTarget.cursorSelected
+  fullName: PAC.Input.MouseTarget.cursorSelected
+  type: Field
+  source:
+    remote:
+      path: Assets/Scripts/Input/MouseTarget.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: cursorSelected
+    path: ../Assets/Scripts/Input/MouseTarget.cs
+    startLine: 29
+  namespace: PAC.Input
+  syntax:
+    content: public CursorState cursorSelected
+    return:
+      type: PAC.Input.CursorState
+    content.vb: Public cursorSelected As CursorState
+- uid: PAC.Input.MouseTarget.cursorScroll
+  commentId: F:PAC.Input.MouseTarget.cursorScroll
+  id: cursorScroll
+  parent: PAC.Input.MouseTarget
+  langs:
+  - csharp
+  - vb
+  name: cursorScroll
+  nameWithType: MouseTarget.cursorScroll
+  fullName: PAC.Input.MouseTarget.cursorScroll
+  type: Field
+  source:
+    remote:
+      path: Assets/Scripts/Input/MouseTarget.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: cursorScroll
+    path: ../Assets/Scripts/Input/MouseTarget.cs
+    startLine: 30
+  namespace: PAC.Input
+  syntax:
+    content: public CursorState cursorScroll
+    return:
+      type: PAC.Input.CursorState
+    content.vb: Public cursorScroll As CursorState
+- uid: PAC.Input.MouseTarget.deselectMode
+  commentId: F:PAC.Input.MouseTarget.deselectMode
+  id: deselectMode
+  parent: PAC.Input.MouseTarget
+  langs:
+  - csharp
+  - vb
+  name: deselectMode
+  nameWithType: MouseTarget.deselectMode
+  fullName: PAC.Input.MouseTarget.deselectMode
+  type: Field
+  source:
+    remote:
+      path: Assets/Scripts/Input/MouseTarget.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: deselectMode
+    path: ../Assets/Scripts/Input/MouseTarget.cs
+    startLine: 32
+  namespace: PAC.Input
+  syntax:
+    content: public MouseTargetDeselectMode deselectMode
+    return:
+      type: PAC.Input.MouseTargetDeselectMode
+    content.vb: Public deselectMode As MouseTargetDeselectMode
+- uid: PAC.Input.MouseTarget.state
+  commentId: P:PAC.Input.MouseTarget.state
+  id: state
+  parent: PAC.Input.MouseTarget
+  langs:
+  - csharp
+  - vb
+  name: state
+  nameWithType: MouseTarget.state
+  fullName: PAC.Input.MouseTarget.state
+  type: Property
+  source:
+    remote:
+      path: Assets/Scripts/Input/MouseTarget.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: state
+    path: ../Assets/Scripts/Input/MouseTarget.cs
+    startLine: 35
+  namespace: PAC.Input
+  syntax:
+    content: public MouseTargetState state { get; }
+    parameters: []
+    return:
+      type: PAC.Input.MouseTargetState
+    content.vb: Public ReadOnly Property state As MouseTargetState
+  overload: PAC.Input.MouseTarget.state*
+- uid: PAC.Input.MouseTarget.selected
+  commentId: P:PAC.Input.MouseTarget.selected
+  id: selected
+  parent: PAC.Input.MouseTarget
+  langs:
+  - csharp
+  - vb
+  name: selected
+  nameWithType: MouseTarget.selected
+  fullName: PAC.Input.MouseTarget.selected
+  type: Property
+  source:
+    remote:
+      path: Assets/Scripts/Input/MouseTarget.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: selected
+    path: ../Assets/Scripts/Input/MouseTarget.cs
+    startLine: 62
+  namespace: PAC.Input
+  syntax:
+    content: public bool selected { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property selected As Boolean
+  overload: PAC.Input.MouseTarget.selected*
+- uid: PAC.Input.MouseTarget.timeHovered
+  commentId: P:PAC.Input.MouseTarget.timeHovered
+  id: timeHovered
+  parent: PAC.Input.MouseTarget
+  langs:
+  - csharp
+  - vb
+  name: timeHovered
+  nameWithType: MouseTarget.timeHovered
+  fullName: PAC.Input.MouseTarget.timeHovered
+  type: Property
+  source:
+    remote:
+      path: Assets/Scripts/Input/MouseTarget.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: timeHovered
+    path: ../Assets/Scripts/Input/MouseTarget.cs
+    startLine: 64
+  namespace: PAC.Input
+  syntax:
+    content: public float timeHovered { get; }
+    parameters: []
+    return:
+      type: System.Single
+    content.vb: Public ReadOnly Property timeHovered As Single
+  overload: PAC.Input.MouseTarget.timeHovered*
+- uid: PAC.Input.MouseTarget.buttonTargetedWith
+  commentId: F:PAC.Input.MouseTarget.buttonTargetedWith
+  id: buttonTargetedWith
+  parent: PAC.Input.MouseTarget
+  langs:
+  - csharp
+  - vb
+  name: buttonTargetedWith
+  nameWithType: MouseTarget.buttonTargetedWith
+  fullName: PAC.Input.MouseTarget.buttonTargetedWith
+  type: Field
+  source:
+    remote:
+      path: Assets/Scripts/Input/MouseTarget.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: buttonTargetedWith
+    path: ../Assets/Scripts/Input/MouseTarget.cs
+    startLine: 73
+  namespace: PAC.Input
+  syntax:
+    content: public MouseButton buttonTargetedWith
+    return:
+      type: PAC.Input.MouseButton
+    content.vb: Public buttonTargetedWith As MouseButton
+- uid: PAC.Input.MouseTarget.Idle
+  commentId: M:PAC.Input.MouseTarget.Idle
+  id: Idle
+  parent: PAC.Input.MouseTarget
+  langs:
+  - csharp
+  - vb
+  name: Idle()
+  nameWithType: MouseTarget.Idle()
+  fullName: PAC.Input.MouseTarget.Idle()
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Input/MouseTarget.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: Idle
+    path: ../Assets/Scripts/Input/MouseTarget.cs
+    startLine: 75
+  namespace: PAC.Input
+  syntax:
+    content: public void Idle()
+    content.vb: Public Sub Idle()
+  overload: PAC.Input.MouseTarget.Idle*
+- uid: PAC.Input.MouseTarget.Hover
+  commentId: M:PAC.Input.MouseTarget.Hover
+  id: Hover
+  parent: PAC.Input.MouseTarget
+  langs:
+  - csharp
+  - vb
+  name: Hover()
+  nameWithType: MouseTarget.Hover()
+  fullName: PAC.Input.MouseTarget.Hover()
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Input/MouseTarget.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: Hover
+    path: ../Assets/Scripts/Input/MouseTarget.cs
+    startLine: 85
+  namespace: PAC.Input
+  syntax:
+    content: public void Hover()
+    content.vb: Public Sub Hover()
+  overload: PAC.Input.MouseTarget.Hover*
+- uid: PAC.Input.MouseTarget.Press
+  commentId: M:PAC.Input.MouseTarget.Press
+  id: Press
+  parent: PAC.Input.MouseTarget
+  langs:
+  - csharp
+  - vb
+  name: Press()
+  nameWithType: MouseTarget.Press()
+  fullName: PAC.Input.MouseTarget.Press()
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Input/MouseTarget.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: Press
+    path: ../Assets/Scripts/Input/MouseTarget.cs
+    startLine: 97
+  namespace: PAC.Input
+  syntax:
+    content: public void Press()
+    content.vb: Public Sub Press()
+  overload: PAC.Input.MouseTarget.Press*
+- uid: PAC.Input.MouseTarget.Select
+  commentId: M:PAC.Input.MouseTarget.Select
+  id: Select
+  parent: PAC.Input.MouseTarget
+  langs:
+  - csharp
+  - vb
+  name: Select()
+  nameWithType: MouseTarget.Select()
+  fullName: PAC.Input.MouseTarget.Select()
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Input/MouseTarget.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: Select
+    path: ../Assets/Scripts/Input/MouseTarget.cs
+    startLine: 121
+  namespace: PAC.Input
+  syntax:
+    content: public void Select()
+    content.vb: Public Sub [Select]()
+  overload: PAC.Input.MouseTarget.Select*
+- uid: PAC.Input.MouseTarget.Deselect
+  commentId: M:PAC.Input.MouseTarget.Deselect
+  id: Deselect
+  parent: PAC.Input.MouseTarget
+  langs:
+  - csharp
+  - vb
+  name: Deselect()
+  nameWithType: MouseTarget.Deselect()
+  fullName: PAC.Input.MouseTarget.Deselect()
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Input/MouseTarget.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: Deselect
+    path: ../Assets/Scripts/Input/MouseTarget.cs
+    startLine: 129
+  namespace: PAC.Input
+  syntax:
+    content: public void Deselect()
+    content.vb: Public Sub Deselect()
+  overload: PAC.Input.MouseTarget.Deselect*
+- uid: PAC.Input.MouseTarget.Scroll
+  commentId: M:PAC.Input.MouseTarget.Scroll
+  id: Scroll
+  parent: PAC.Input.MouseTarget
+  langs:
+  - csharp
+  - vb
+  name: Scroll()
+  nameWithType: MouseTarget.Scroll()
+  fullName: PAC.Input.MouseTarget.Scroll()
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Input/MouseTarget.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: Scroll
+    path: ../Assets/Scripts/Input/MouseTarget.cs
+    startLine: 138
+  namespace: PAC.Input
+  syntax:
+    content: public void Scroll()
+    content.vb: Public Sub Scroll()
+  overload: PAC.Input.MouseTarget.Scroll*
+- uid: PAC.Input.MouseTarget.Untarget
+  commentId: M:PAC.Input.MouseTarget.Untarget
+  id: Untarget
+  parent: PAC.Input.MouseTarget
+  langs:
+  - csharp
+  - vb
+  name: Untarget()
+  nameWithType: MouseTarget.Untarget()
+  fullName: PAC.Input.MouseTarget.Untarget()
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Input/MouseTarget.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: Untarget
+    path: ../Assets/Scripts/Input/MouseTarget.cs
+    startLine: 143
+  namespace: PAC.Input
+  syntax:
+    content: public void Untarget()
+    content.vb: Public Sub Untarget()
+  overload: PAC.Input.MouseTarget.Untarget*
+- uid: PAC.Input.MouseTarget.SubscribeToIdle(UnityAction)
+  commentId: M:PAC.Input.MouseTarget.SubscribeToIdle(UnityAction)
+  id: SubscribeToIdle(UnityAction)
+  parent: PAC.Input.MouseTarget
+  langs:
+  - csharp
+  - vb
+  name: SubscribeToIdle(UnityAction)
+  nameWithType: MouseTarget.SubscribeToIdle(UnityAction)
+  fullName: PAC.Input.MouseTarget.SubscribeToIdle(UnityAction)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Input/MouseTarget.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: SubscribeToIdle
+    path: ../Assets/Scripts/Input/MouseTarget.cs
+    startLine: 150
+  namespace: PAC.Input
+  syntax:
+    content: public void SubscribeToIdle(UnityAction call)
+    parameters:
+    - id: call
+      type: Global.UnityAction
+    content.vb: Public Sub SubscribeToIdle([call] As UnityAction)
+  overload: PAC.Input.MouseTarget.SubscribeToIdle*
+- uid: PAC.Input.MouseTarget.SubscribeToHover(UnityAction)
+  commentId: M:PAC.Input.MouseTarget.SubscribeToHover(UnityAction)
+  id: SubscribeToHover(UnityAction)
+  parent: PAC.Input.MouseTarget
+  langs:
+  - csharp
+  - vb
+  name: SubscribeToHover(UnityAction)
+  nameWithType: MouseTarget.SubscribeToHover(UnityAction)
+  fullName: PAC.Input.MouseTarget.SubscribeToHover(UnityAction)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Input/MouseTarget.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: SubscribeToHover
+    path: ../Assets/Scripts/Input/MouseTarget.cs
+    startLine: 155
+  namespace: PAC.Input
+  syntax:
+    content: public void SubscribeToHover(UnityAction call)
+    parameters:
+    - id: call
+      type: Global.UnityAction
+    content.vb: Public Sub SubscribeToHover([call] As UnityAction)
+  overload: PAC.Input.MouseTarget.SubscribeToHover*
+- uid: PAC.Input.MouseTarget.SubscribeToPress(UnityAction)
+  commentId: M:PAC.Input.MouseTarget.SubscribeToPress(UnityAction)
+  id: SubscribeToPress(UnityAction)
+  parent: PAC.Input.MouseTarget
+  langs:
+  - csharp
+  - vb
+  name: SubscribeToPress(UnityAction)
+  nameWithType: MouseTarget.SubscribeToPress(UnityAction)
+  fullName: PAC.Input.MouseTarget.SubscribeToPress(UnityAction)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Input/MouseTarget.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: SubscribeToPress
+    path: ../Assets/Scripts/Input/MouseTarget.cs
+    startLine: 160
+  namespace: PAC.Input
+  syntax:
+    content: public void SubscribeToPress(UnityAction call)
+    parameters:
+    - id: call
+      type: Global.UnityAction
+    content.vb: Public Sub SubscribeToPress([call] As UnityAction)
+  overload: PAC.Input.MouseTarget.SubscribeToPress*
+- uid: PAC.Input.MouseTarget.SubscribeToSelect(UnityAction)
+  commentId: M:PAC.Input.MouseTarget.SubscribeToSelect(UnityAction)
+  id: SubscribeToSelect(UnityAction)
+  parent: PAC.Input.MouseTarget
+  langs:
+  - csharp
+  - vb
+  name: SubscribeToSelect(UnityAction)
+  nameWithType: MouseTarget.SubscribeToSelect(UnityAction)
+  fullName: PAC.Input.MouseTarget.SubscribeToSelect(UnityAction)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Input/MouseTarget.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: SubscribeToSelect
+    path: ../Assets/Scripts/Input/MouseTarget.cs
+    startLine: 165
+  namespace: PAC.Input
+  syntax:
+    content: public void SubscribeToSelect(UnityAction call)
+    parameters:
+    - id: call
+      type: Global.UnityAction
+    content.vb: Public Sub SubscribeToSelect([call] As UnityAction)
+  overload: PAC.Input.MouseTarget.SubscribeToSelect*
+- uid: PAC.Input.MouseTarget.SubscribeToDeselect(UnityAction)
+  commentId: M:PAC.Input.MouseTarget.SubscribeToDeselect(UnityAction)
+  id: SubscribeToDeselect(UnityAction)
+  parent: PAC.Input.MouseTarget
+  langs:
+  - csharp
+  - vb
+  name: SubscribeToDeselect(UnityAction)
+  nameWithType: MouseTarget.SubscribeToDeselect(UnityAction)
+  fullName: PAC.Input.MouseTarget.SubscribeToDeselect(UnityAction)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Input/MouseTarget.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: SubscribeToDeselect
+    path: ../Assets/Scripts/Input/MouseTarget.cs
+    startLine: 169
+  namespace: PAC.Input
+  syntax:
+    content: public void SubscribeToDeselect(UnityAction call)
+    parameters:
+    - id: call
+      type: Global.UnityAction
+    content.vb: Public Sub SubscribeToDeselect([call] As UnityAction)
+  overload: PAC.Input.MouseTarget.SubscribeToDeselect*
+- uid: PAC.Input.MouseTarget.SubscribeToStateChange(UnityAction)
+  commentId: M:PAC.Input.MouseTarget.SubscribeToStateChange(UnityAction)
+  id: SubscribeToStateChange(UnityAction)
+  parent: PAC.Input.MouseTarget
+  langs:
+  - csharp
+  - vb
+  name: SubscribeToStateChange(UnityAction)
+  nameWithType: MouseTarget.SubscribeToStateChange(UnityAction)
+  fullName: PAC.Input.MouseTarget.SubscribeToStateChange(UnityAction)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Input/MouseTarget.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: SubscribeToStateChange
+    path: ../Assets/Scripts/Input/MouseTarget.cs
+    startLine: 174
+  namespace: PAC.Input
+  syntax:
+    content: public void SubscribeToStateChange(UnityAction call)
+    parameters:
+    - id: call
+      type: Global.UnityAction
+    content.vb: Public Sub SubscribeToStateChange([call] As UnityAction)
+  overload: PAC.Input.MouseTarget.SubscribeToStateChange*
+- uid: PAC.Input.MouseTarget.SubscribeToScroll(UnityAction)
+  commentId: M:PAC.Input.MouseTarget.SubscribeToScroll(UnityAction)
+  id: SubscribeToScroll(UnityAction)
+  parent: PAC.Input.MouseTarget
+  langs:
+  - csharp
+  - vb
+  name: SubscribeToScroll(UnityAction)
+  nameWithType: MouseTarget.SubscribeToScroll(UnityAction)
+  fullName: PAC.Input.MouseTarget.SubscribeToScroll(UnityAction)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Input/MouseTarget.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: SubscribeToScroll
+    path: ../Assets/Scripts/Input/MouseTarget.cs
+    startLine: 179
+  namespace: PAC.Input
+  syntax:
+    content: public void SubscribeToScroll(UnityAction call)
+    parameters:
+    - id: call
+      type: Global.UnityAction
+    content.vb: Public Sub SubscribeToScroll([call] As UnityAction)
+  overload: PAC.Input.MouseTarget.SubscribeToScroll*
+- uid: PAC.Input.MouseTarget.SubscribeToClick(UnityAction)
+  commentId: M:PAC.Input.MouseTarget.SubscribeToClick(UnityAction)
+  id: SubscribeToClick(UnityAction)
+  parent: PAC.Input.MouseTarget
+  langs:
+  - csharp
+  - vb
+  name: SubscribeToClick(UnityAction)
+  nameWithType: MouseTarget.SubscribeToClick(UnityAction)
+  fullName: PAC.Input.MouseTarget.SubscribeToClick(UnityAction)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Input/MouseTarget.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: SubscribeToClick
+    path: ../Assets/Scripts/Input/MouseTarget.cs
+    startLine: 184
+  namespace: PAC.Input
+  syntax:
+    content: public void SubscribeToClick(UnityAction call)
+    parameters:
+    - id: call
+      type: Global.UnityAction
+    content.vb: Public Sub SubscribeToClick([call] As UnityAction)
+  overload: PAC.Input.MouseTarget.SubscribeToClick*
+- uid: PAC.Input.MouseTarget.SubscribeToLeftClick(UnityAction)
+  commentId: M:PAC.Input.MouseTarget.SubscribeToLeftClick(UnityAction)
+  id: SubscribeToLeftClick(UnityAction)
+  parent: PAC.Input.MouseTarget
+  langs:
+  - csharp
+  - vb
+  name: SubscribeToLeftClick(UnityAction)
+  nameWithType: MouseTarget.SubscribeToLeftClick(UnityAction)
+  fullName: PAC.Input.MouseTarget.SubscribeToLeftClick(UnityAction)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Input/MouseTarget.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: SubscribeToLeftClick
+    path: ../Assets/Scripts/Input/MouseTarget.cs
+    startLine: 188
+  namespace: PAC.Input
+  syntax:
+    content: public void SubscribeToLeftClick(UnityAction call)
+    parameters:
+    - id: call
+      type: Global.UnityAction
+    content.vb: Public Sub SubscribeToLeftClick([call] As UnityAction)
+  overload: PAC.Input.MouseTarget.SubscribeToLeftClick*
+- uid: PAC.Input.MouseTarget.SubscribeToRightClick(UnityAction)
+  commentId: M:PAC.Input.MouseTarget.SubscribeToRightClick(UnityAction)
+  id: SubscribeToRightClick(UnityAction)
+  parent: PAC.Input.MouseTarget
+  langs:
+  - csharp
+  - vb
+  name: SubscribeToRightClick(UnityAction)
+  nameWithType: MouseTarget.SubscribeToRightClick(UnityAction)
+  fullName: PAC.Input.MouseTarget.SubscribeToRightClick(UnityAction)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Input/MouseTarget.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: SubscribeToRightClick
+    path: ../Assets/Scripts/Input/MouseTarget.cs
+    startLine: 192
+  namespace: PAC.Input
+  syntax:
+    content: public void SubscribeToRightClick(UnityAction call)
+    parameters:
+    - id: call
+      type: Global.UnityAction
+    content.vb: Public Sub SubscribeToRightClick([call] As UnityAction)
+  overload: PAC.Input.MouseTarget.SubscribeToRightClick*
+- uid: PAC.Input.MouseTarget.SubscribeToMiddleClick(UnityAction)
+  commentId: M:PAC.Input.MouseTarget.SubscribeToMiddleClick(UnityAction)
+  id: SubscribeToMiddleClick(UnityAction)
+  parent: PAC.Input.MouseTarget
+  langs:
+  - csharp
+  - vb
+  name: SubscribeToMiddleClick(UnityAction)
+  nameWithType: MouseTarget.SubscribeToMiddleClick(UnityAction)
+  fullName: PAC.Input.MouseTarget.SubscribeToMiddleClick(UnityAction)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Input/MouseTarget.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: SubscribeToMiddleClick
+    path: ../Assets/Scripts/Input/MouseTarget.cs
+    startLine: 196
+  namespace: PAC.Input
+  syntax:
+    content: public void SubscribeToMiddleClick(UnityAction call)
+    parameters:
+    - id: call
+      type: Global.UnityAction
+    content.vb: Public Sub SubscribeToMiddleClick([call] As UnityAction)
+  overload: PAC.Input.MouseTarget.SubscribeToMiddleClick*
+- uid: PAC.Input.MouseTarget.SubscribeToUnclick(UnityAction)
+  commentId: M:PAC.Input.MouseTarget.SubscribeToUnclick(UnityAction)
+  id: SubscribeToUnclick(UnityAction)
+  parent: PAC.Input.MouseTarget
+  langs:
+  - csharp
+  - vb
+  name: SubscribeToUnclick(UnityAction)
+  nameWithType: MouseTarget.SubscribeToUnclick(UnityAction)
+  fullName: PAC.Input.MouseTarget.SubscribeToUnclick(UnityAction)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Input/MouseTarget.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: SubscribeToUnclick
+    path: ../Assets/Scripts/Input/MouseTarget.cs
+    startLine: 200
+  namespace: PAC.Input
+  syntax:
+    content: public void SubscribeToUnclick(UnityAction call)
+    parameters:
+    - id: call
+      type: Global.UnityAction
+    content.vb: Public Sub SubscribeToUnclick([call] As UnityAction)
+  overload: PAC.Input.MouseTarget.SubscribeToUnclick*
+- uid: PAC.Input.MouseTarget.SubscribeToLeftUnclick(UnityAction)
+  commentId: M:PAC.Input.MouseTarget.SubscribeToLeftUnclick(UnityAction)
+  id: SubscribeToLeftUnclick(UnityAction)
+  parent: PAC.Input.MouseTarget
+  langs:
+  - csharp
+  - vb
+  name: SubscribeToLeftUnclick(UnityAction)
+  nameWithType: MouseTarget.SubscribeToLeftUnclick(UnityAction)
+  fullName: PAC.Input.MouseTarget.SubscribeToLeftUnclick(UnityAction)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Input/MouseTarget.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: SubscribeToLeftUnclick
+    path: ../Assets/Scripts/Input/MouseTarget.cs
+    startLine: 204
+  namespace: PAC.Input
+  syntax:
+    content: public void SubscribeToLeftUnclick(UnityAction call)
+    parameters:
+    - id: call
+      type: Global.UnityAction
+    content.vb: Public Sub SubscribeToLeftUnclick([call] As UnityAction)
+  overload: PAC.Input.MouseTarget.SubscribeToLeftUnclick*
+- uid: PAC.Input.MouseTarget.SubscribeToRightUnclick(UnityAction)
+  commentId: M:PAC.Input.MouseTarget.SubscribeToRightUnclick(UnityAction)
+  id: SubscribeToRightUnclick(UnityAction)
+  parent: PAC.Input.MouseTarget
+  langs:
+  - csharp
+  - vb
+  name: SubscribeToRightUnclick(UnityAction)
+  nameWithType: MouseTarget.SubscribeToRightUnclick(UnityAction)
+  fullName: PAC.Input.MouseTarget.SubscribeToRightUnclick(UnityAction)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Input/MouseTarget.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: SubscribeToRightUnclick
+    path: ../Assets/Scripts/Input/MouseTarget.cs
+    startLine: 208
+  namespace: PAC.Input
+  syntax:
+    content: public void SubscribeToRightUnclick(UnityAction call)
+    parameters:
+    - id: call
+      type: Global.UnityAction
+    content.vb: Public Sub SubscribeToRightUnclick([call] As UnityAction)
+  overload: PAC.Input.MouseTarget.SubscribeToRightUnclick*
+- uid: PAC.Input.MouseTarget.SubscribeToMiddleUnclick(UnityAction)
+  commentId: M:PAC.Input.MouseTarget.SubscribeToMiddleUnclick(UnityAction)
+  id: SubscribeToMiddleUnclick(UnityAction)
+  parent: PAC.Input.MouseTarget
+  langs:
+  - csharp
+  - vb
+  name: SubscribeToMiddleUnclick(UnityAction)
+  nameWithType: MouseTarget.SubscribeToMiddleUnclick(UnityAction)
+  fullName: PAC.Input.MouseTarget.SubscribeToMiddleUnclick(UnityAction)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Input/MouseTarget.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: SubscribeToMiddleUnclick
+    path: ../Assets/Scripts/Input/MouseTarget.cs
+    startLine: 212
+  namespace: PAC.Input
+  syntax:
+    content: public void SubscribeToMiddleUnclick(UnityAction call)
+    parameters:
+    - id: call
+      type: Global.UnityAction
+    content.vb: Public Sub SubscribeToMiddleUnclick([call] As UnityAction)
+  overload: PAC.Input.MouseTarget.SubscribeToMiddleUnclick*
+- uid: PAC.Input.MouseTarget.SubscribeToUntarget(UnityAction)
+  commentId: M:PAC.Input.MouseTarget.SubscribeToUntarget(UnityAction)
+  id: SubscribeToUntarget(UnityAction)
+  parent: PAC.Input.MouseTarget
+  langs:
+  - csharp
+  - vb
+  name: SubscribeToUntarget(UnityAction)
+  nameWithType: MouseTarget.SubscribeToUntarget(UnityAction)
+  fullName: PAC.Input.MouseTarget.SubscribeToUntarget(UnityAction)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Input/MouseTarget.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: SubscribeToUntarget
+    path: ../Assets/Scripts/Input/MouseTarget.cs
+    startLine: 217
+  namespace: PAC.Input
+  syntax:
+    content: public void SubscribeToUntarget(UnityAction call)
+    parameters:
+    - id: call
+      type: Global.UnityAction
+    content.vb: Public Sub SubscribeToUntarget([call] As UnityAction)
+  overload: PAC.Input.MouseTarget.SubscribeToUntarget*
+references:
+- uid: PAC.Input
+  commentId: N:PAC.Input
+  href: PAC.html
+  name: PAC.Input
+  nameWithType: PAC.Input
+  fullName: PAC.Input
+  spec.csharp:
+  - uid: PAC
+    name: PAC
+    href: PAC.html
+  - name: .
+  - uid: PAC.Input
+    name: Input
+    href: PAC.Input.html
+  spec.vb:
+  - uid: PAC
+    name: PAC
+    href: PAC.html
+  - name: .
+  - uid: PAC.Input
+    name: Input
+    href: PAC.Input.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: PAC.Input.CursorState
+  commentId: T:PAC.Input.CursorState
+  parent: PAC.Input
+  href: PAC.Input.CursorState.html
+  name: CursorState
+  nameWithType: CursorState
+  fullName: PAC.Input.CursorState
+- uid: PAC.Input.MouseTargetDeselectMode
+  commentId: T:PAC.Input.MouseTargetDeselectMode
+  parent: PAC.Input
+  href: PAC.Input.MouseTargetDeselectMode.html
+  name: MouseTargetDeselectMode
+  nameWithType: MouseTargetDeselectMode
+  fullName: PAC.Input.MouseTargetDeselectMode
+- uid: PAC.Input.MouseTarget.state*
+  commentId: Overload:PAC.Input.MouseTarget.state
+  href: PAC.Input.MouseTarget.html#PAC_Input_MouseTarget_state
+  name: state
+  nameWithType: MouseTarget.state
+  fullName: PAC.Input.MouseTarget.state
+- uid: PAC.Input.MouseTargetState
+  commentId: T:PAC.Input.MouseTargetState
+  parent: PAC.Input
+  href: PAC.Input.MouseTargetState.html
+  name: MouseTargetState
+  nameWithType: MouseTargetState
+  fullName: PAC.Input.MouseTargetState
+- uid: PAC.Input.MouseTarget.selected*
+  commentId: Overload:PAC.Input.MouseTarget.selected
+  href: PAC.Input.MouseTarget.html#PAC_Input_MouseTarget_selected
+  name: selected
+  nameWithType: MouseTarget.selected
+  fullName: PAC.Input.MouseTarget.selected
+- uid: PAC.Input.MouseTarget.timeHovered*
+  commentId: Overload:PAC.Input.MouseTarget.timeHovered
+  href: PAC.Input.MouseTarget.html#PAC_Input_MouseTarget_timeHovered
+  name: timeHovered
+  nameWithType: MouseTarget.timeHovered
+  fullName: PAC.Input.MouseTarget.timeHovered
+- uid: System.Single
+  commentId: T:System.Single
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.single
+  name: float
+  nameWithType: float
+  fullName: float
+  nameWithType.vb: Single
+  fullName.vb: Single
+  name.vb: Single
+- uid: PAC.Input.MouseButton
+  commentId: T:PAC.Input.MouseButton
+  parent: PAC.Input
+  href: PAC.Input.MouseButton.html
+  name: MouseButton
+  nameWithType: MouseButton
+  fullName: PAC.Input.MouseButton
+- uid: PAC.Input.MouseTarget.Idle*
+  commentId: Overload:PAC.Input.MouseTarget.Idle
+  href: PAC.Input.MouseTarget.html#PAC_Input_MouseTarget_Idle
+  name: Idle
+  nameWithType: MouseTarget.Idle
+  fullName: PAC.Input.MouseTarget.Idle
+- uid: PAC.Input.MouseTarget.Hover*
+  commentId: Overload:PAC.Input.MouseTarget.Hover
+  href: PAC.Input.MouseTarget.html#PAC_Input_MouseTarget_Hover
+  name: Hover
+  nameWithType: MouseTarget.Hover
+  fullName: PAC.Input.MouseTarget.Hover
+- uid: PAC.Input.MouseTarget.Press*
+  commentId: Overload:PAC.Input.MouseTarget.Press
+  href: PAC.Input.MouseTarget.html#PAC_Input_MouseTarget_Press
+  name: Press
+  nameWithType: MouseTarget.Press
+  fullName: PAC.Input.MouseTarget.Press
+- uid: PAC.Input.MouseTarget.Select*
+  commentId: Overload:PAC.Input.MouseTarget.Select
+  href: PAC.Input.MouseTarget.html#PAC_Input_MouseTarget_Select
+  name: Select
+  nameWithType: MouseTarget.Select
+  fullName: PAC.Input.MouseTarget.Select
+- uid: PAC.Input.MouseTarget.Deselect*
+  commentId: Overload:PAC.Input.MouseTarget.Deselect
+  href: PAC.Input.MouseTarget.html#PAC_Input_MouseTarget_Deselect
+  name: Deselect
+  nameWithType: MouseTarget.Deselect
+  fullName: PAC.Input.MouseTarget.Deselect
+- uid: PAC.Input.MouseTarget.Scroll*
+  commentId: Overload:PAC.Input.MouseTarget.Scroll
+  href: PAC.Input.MouseTarget.html#PAC_Input_MouseTarget_Scroll
+  name: Scroll
+  nameWithType: MouseTarget.Scroll
+  fullName: PAC.Input.MouseTarget.Scroll
+- uid: PAC.Input.MouseTarget.Untarget*
+  commentId: Overload:PAC.Input.MouseTarget.Untarget
+  href: PAC.Input.MouseTarget.html#PAC_Input_MouseTarget_Untarget
+  name: Untarget
+  nameWithType: MouseTarget.Untarget
+  fullName: PAC.Input.MouseTarget.Untarget
+- uid: PAC.Input.MouseTarget.SubscribeToIdle*
+  commentId: Overload:PAC.Input.MouseTarget.SubscribeToIdle
+  href: PAC.Input.MouseTarget.html#PAC_Input_MouseTarget_SubscribeToIdle_UnityAction_
+  name: SubscribeToIdle
+  nameWithType: MouseTarget.SubscribeToIdle
+  fullName: PAC.Input.MouseTarget.SubscribeToIdle
+- uid: Global.UnityAction
+  isExternal: true
+  name: UnityAction
+  nameWithType: UnityAction
+  fullName: UnityAction
+- uid: PAC.Input.MouseTarget.SubscribeToHover*
+  commentId: Overload:PAC.Input.MouseTarget.SubscribeToHover
+  href: PAC.Input.MouseTarget.html#PAC_Input_MouseTarget_SubscribeToHover_UnityAction_
+  name: SubscribeToHover
+  nameWithType: MouseTarget.SubscribeToHover
+  fullName: PAC.Input.MouseTarget.SubscribeToHover
+- uid: PAC.Input.MouseTarget.SubscribeToPress*
+  commentId: Overload:PAC.Input.MouseTarget.SubscribeToPress
+  href: PAC.Input.MouseTarget.html#PAC_Input_MouseTarget_SubscribeToPress_UnityAction_
+  name: SubscribeToPress
+  nameWithType: MouseTarget.SubscribeToPress
+  fullName: PAC.Input.MouseTarget.SubscribeToPress
+- uid: PAC.Input.MouseTarget.SubscribeToSelect*
+  commentId: Overload:PAC.Input.MouseTarget.SubscribeToSelect
+  href: PAC.Input.MouseTarget.html#PAC_Input_MouseTarget_SubscribeToSelect_UnityAction_
+  name: SubscribeToSelect
+  nameWithType: MouseTarget.SubscribeToSelect
+  fullName: PAC.Input.MouseTarget.SubscribeToSelect
+- uid: PAC.Input.MouseTarget.SubscribeToDeselect*
+  commentId: Overload:PAC.Input.MouseTarget.SubscribeToDeselect
+  href: PAC.Input.MouseTarget.html#PAC_Input_MouseTarget_SubscribeToDeselect_UnityAction_
+  name: SubscribeToDeselect
+  nameWithType: MouseTarget.SubscribeToDeselect
+  fullName: PAC.Input.MouseTarget.SubscribeToDeselect
+- uid: PAC.Input.MouseTarget.SubscribeToStateChange*
+  commentId: Overload:PAC.Input.MouseTarget.SubscribeToStateChange
+  href: PAC.Input.MouseTarget.html#PAC_Input_MouseTarget_SubscribeToStateChange_UnityAction_
+  name: SubscribeToStateChange
+  nameWithType: MouseTarget.SubscribeToStateChange
+  fullName: PAC.Input.MouseTarget.SubscribeToStateChange
+- uid: PAC.Input.MouseTarget.SubscribeToScroll*
+  commentId: Overload:PAC.Input.MouseTarget.SubscribeToScroll
+  href: PAC.Input.MouseTarget.html#PAC_Input_MouseTarget_SubscribeToScroll_UnityAction_
+  name: SubscribeToScroll
+  nameWithType: MouseTarget.SubscribeToScroll
+  fullName: PAC.Input.MouseTarget.SubscribeToScroll
+- uid: PAC.Input.MouseTarget.SubscribeToClick*
+  commentId: Overload:PAC.Input.MouseTarget.SubscribeToClick
+  href: PAC.Input.MouseTarget.html#PAC_Input_MouseTarget_SubscribeToClick_UnityAction_
+  name: SubscribeToClick
+  nameWithType: MouseTarget.SubscribeToClick
+  fullName: PAC.Input.MouseTarget.SubscribeToClick
+- uid: PAC.Input.MouseTarget.SubscribeToLeftClick*
+  commentId: Overload:PAC.Input.MouseTarget.SubscribeToLeftClick
+  href: PAC.Input.MouseTarget.html#PAC_Input_MouseTarget_SubscribeToLeftClick_UnityAction_
+  name: SubscribeToLeftClick
+  nameWithType: MouseTarget.SubscribeToLeftClick
+  fullName: PAC.Input.MouseTarget.SubscribeToLeftClick
+- uid: PAC.Input.MouseTarget.SubscribeToRightClick*
+  commentId: Overload:PAC.Input.MouseTarget.SubscribeToRightClick
+  href: PAC.Input.MouseTarget.html#PAC_Input_MouseTarget_SubscribeToRightClick_UnityAction_
+  name: SubscribeToRightClick
+  nameWithType: MouseTarget.SubscribeToRightClick
+  fullName: PAC.Input.MouseTarget.SubscribeToRightClick
+- uid: PAC.Input.MouseTarget.SubscribeToMiddleClick*
+  commentId: Overload:PAC.Input.MouseTarget.SubscribeToMiddleClick
+  href: PAC.Input.MouseTarget.html#PAC_Input_MouseTarget_SubscribeToMiddleClick_UnityAction_
+  name: SubscribeToMiddleClick
+  nameWithType: MouseTarget.SubscribeToMiddleClick
+  fullName: PAC.Input.MouseTarget.SubscribeToMiddleClick
+- uid: PAC.Input.MouseTarget.SubscribeToUnclick*
+  commentId: Overload:PAC.Input.MouseTarget.SubscribeToUnclick
+  href: PAC.Input.MouseTarget.html#PAC_Input_MouseTarget_SubscribeToUnclick_UnityAction_
+  name: SubscribeToUnclick
+  nameWithType: MouseTarget.SubscribeToUnclick
+  fullName: PAC.Input.MouseTarget.SubscribeToUnclick
+- uid: PAC.Input.MouseTarget.SubscribeToLeftUnclick*
+  commentId: Overload:PAC.Input.MouseTarget.SubscribeToLeftUnclick
+  href: PAC.Input.MouseTarget.html#PAC_Input_MouseTarget_SubscribeToLeftUnclick_UnityAction_
+  name: SubscribeToLeftUnclick
+  nameWithType: MouseTarget.SubscribeToLeftUnclick
+  fullName: PAC.Input.MouseTarget.SubscribeToLeftUnclick
+- uid: PAC.Input.MouseTarget.SubscribeToRightUnclick*
+  commentId: Overload:PAC.Input.MouseTarget.SubscribeToRightUnclick
+  href: PAC.Input.MouseTarget.html#PAC_Input_MouseTarget_SubscribeToRightUnclick_UnityAction_
+  name: SubscribeToRightUnclick
+  nameWithType: MouseTarget.SubscribeToRightUnclick
+  fullName: PAC.Input.MouseTarget.SubscribeToRightUnclick
+- uid: PAC.Input.MouseTarget.SubscribeToMiddleUnclick*
+  commentId: Overload:PAC.Input.MouseTarget.SubscribeToMiddleUnclick
+  href: PAC.Input.MouseTarget.html#PAC_Input_MouseTarget_SubscribeToMiddleUnclick_UnityAction_
+  name: SubscribeToMiddleUnclick
+  nameWithType: MouseTarget.SubscribeToMiddleUnclick
+  fullName: PAC.Input.MouseTarget.SubscribeToMiddleUnclick
+- uid: PAC.Input.MouseTarget.SubscribeToUntarget*
+  commentId: Overload:PAC.Input.MouseTarget.SubscribeToUntarget
+  href: PAC.Input.MouseTarget.html#PAC_Input_MouseTarget_SubscribeToUntarget_UnityAction_
+  name: SubscribeToUntarget
+  nameWithType: MouseTarget.SubscribeToUntarget
+  fullName: PAC.Input.MouseTarget.SubscribeToUntarget

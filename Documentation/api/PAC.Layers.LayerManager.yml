@@ -1,0 +1,958 @@
+### YamlMime:ManagedReference
+items:
+- uid: PAC.Layers.LayerManager
+  commentId: T:PAC.Layers.LayerManager
+  id: LayerManager
+  parent: PAC.Layers
+  children:
+  - PAC.Layers.LayerManager.AddLayer
+  - PAC.Layers.LayerManager.AddLayer(Texture2D)
+  - PAC.Layers.LayerManager.AddTileLayer
+  - PAC.Layers.LayerManager.DuplicateSelectedLayers
+  - PAC.Layers.LayerManager.FlattenSelectedLayers
+  - PAC.Layers.LayerManager.HideAllBut(PAC.Layers.Layer)
+  - PAC.Layers.LayerManager.MoveSelectedLayersDown
+  - PAC.Layers.LayerManager.MoveSelectedLayersUp
+  - PAC.Layers.LayerManager.OnFileSwitched
+  - PAC.Layers.LayerManager.OnLayersChanged
+  - PAC.Layers.LayerManager.RemoveSelectedLayers
+  - PAC.Layers.LayerManager.SetLayerBlendMode(System.Int32,PAC.Colour.BlendMode)
+  - PAC.Layers.LayerManager.SetLayerName(System.Int32,System.String)
+  - PAC.Layers.LayerManager.SetLayerOpacity(System.Int32,System.Single)
+  - PAC.Layers.LayerManager.SubscribeToLayerChange(UnityAction)
+  - PAC.Layers.LayerManager.SubscribeToVisibilityChange(UnityAction)
+  - PAC.Layers.LayerManager.WorldYCoordOfLayerTile(System.Int32)
+  - PAC.Layers.LayerManager.layerTypeSprite
+  - PAC.Layers.LayerManager.selectedLayer
+  - PAC.Layers.LayerManager.selectedLayerIndex
+  - PAC.Layers.LayerManager.selectedLayerIndices
+  - PAC.Layers.LayerManager.selectedLayers
+  - PAC.Layers.LayerManager.tileLayerTypeSprite
+  langs:
+  - csharp
+  - vb
+  name: LayerManager
+  nameWithType: LayerManager
+  fullName: PAC.Layers.LayerManager
+  type: Class
+  source:
+    remote:
+      path: Assets/Scripts/Layers/LayerManager.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: LayerManager
+    path: ../Assets/Scripts/Layers/LayerManager.cs
+    startLine: 12
+  namespace: PAC.Layers
+  syntax:
+    content: 'public class LayerManager : MonoBehaviour'
+    content.vb: Public Class LayerManager Inherits MonoBehaviour
+  inheritance:
+  - System.Object
+- uid: PAC.Layers.LayerManager.layerTypeSprite
+  commentId: F:PAC.Layers.LayerManager.layerTypeSprite
+  id: layerTypeSprite
+  parent: PAC.Layers.LayerManager
+  langs:
+  - csharp
+  - vb
+  name: layerTypeSprite
+  nameWithType: LayerManager.layerTypeSprite
+  fullName: PAC.Layers.LayerManager.layerTypeSprite
+  type: Field
+  source:
+    remote:
+      path: Assets/Scripts/Layers/LayerManager.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: layerTypeSprite
+    path: ../Assets/Scripts/Layers/LayerManager.cs
+    startLine: 24
+  namespace: PAC.Layers
+  syntax:
+    content: public Sprite layerTypeSprite
+    return:
+      type: Global.Sprite
+    content.vb: Public layerTypeSprite As Sprite
+- uid: PAC.Layers.LayerManager.tileLayerTypeSprite
+  commentId: F:PAC.Layers.LayerManager.tileLayerTypeSprite
+  id: tileLayerTypeSprite
+  parent: PAC.Layers.LayerManager
+  langs:
+  - csharp
+  - vb
+  name: tileLayerTypeSprite
+  nameWithType: LayerManager.tileLayerTypeSprite
+  fullName: PAC.Layers.LayerManager.tileLayerTypeSprite
+  type: Field
+  source:
+    remote:
+      path: Assets/Scripts/Layers/LayerManager.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: tileLayerTypeSprite
+    path: ../Assets/Scripts/Layers/LayerManager.cs
+    startLine: 25
+  namespace: PAC.Layers
+  syntax:
+    content: public Sprite tileLayerTypeSprite
+    return:
+      type: Global.Sprite
+    content.vb: Public tileLayerTypeSprite As Sprite
+- uid: PAC.Layers.LayerManager.selectedLayerIndex
+  commentId: P:PAC.Layers.LayerManager.selectedLayerIndex
+  id: selectedLayerIndex
+  parent: PAC.Layers.LayerManager
+  langs:
+  - csharp
+  - vb
+  name: selectedLayerIndex
+  nameWithType: LayerManager.selectedLayerIndex
+  fullName: PAC.Layers.LayerManager.selectedLayerIndex
+  type: Property
+  source:
+    remote:
+      path: Assets/Scripts/Layers/LayerManager.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: selectedLayerIndex
+    path: ../Assets/Scripts/Layers/LayerManager.cs
+    startLine: 46
+  namespace: PAC.Layers
+  summary: The index of the last layer that was selected.
+  example: []
+  syntax:
+    content: public int selectedLayerIndex { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public ReadOnly Property selectedLayerIndex As Integer
+  overload: PAC.Layers.LayerManager.selectedLayerIndex*
+- uid: PAC.Layers.LayerManager.selectedLayer
+  commentId: P:PAC.Layers.LayerManager.selectedLayer
+  id: selectedLayer
+  parent: PAC.Layers.LayerManager
+  langs:
+  - csharp
+  - vb
+  name: selectedLayer
+  nameWithType: LayerManager.selectedLayer
+  fullName: PAC.Layers.LayerManager.selectedLayer
+  type: Property
+  source:
+    remote:
+      path: Assets/Scripts/Layers/LayerManager.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: selectedLayer
+    path: ../Assets/Scripts/Layers/LayerManager.cs
+    startLine: 56
+  namespace: PAC.Layers
+  summary: The last layer that was selected.
+  example: []
+  syntax:
+    content: public Layer selectedLayer { get; }
+    parameters: []
+    return:
+      type: PAC.Layers.Layer
+    content.vb: Public ReadOnly Property selectedLayer As Layer
+  overload: PAC.Layers.LayerManager.selectedLayer*
+- uid: PAC.Layers.LayerManager.selectedLayerIndices
+  commentId: P:PAC.Layers.LayerManager.selectedLayerIndices
+  id: selectedLayerIndices
+  parent: PAC.Layers.LayerManager
+  langs:
+  - csharp
+  - vb
+  name: selectedLayerIndices
+  nameWithType: LayerManager.selectedLayerIndices
+  fullName: PAC.Layers.LayerManager.selectedLayerIndices
+  type: Property
+  source:
+    remote:
+      path: Assets/Scripts/Layers/LayerManager.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: selectedLayerIndices
+    path: ../Assets/Scripts/Layers/LayerManager.cs
+    startLine: 67
+  namespace: PAC.Layers
+  summary: The indices of all selected layers, in increasing order.
+  example: []
+  syntax:
+    content: public int[] selectedLayerIndices { get; }
+    parameters: []
+    return:
+      type: System.Int32[]
+    content.vb: Public ReadOnly Property selectedLayerIndices As Integer()
+  overload: PAC.Layers.LayerManager.selectedLayerIndices*
+- uid: PAC.Layers.LayerManager.selectedLayers
+  commentId: P:PAC.Layers.LayerManager.selectedLayers
+  id: selectedLayers
+  parent: PAC.Layers.LayerManager
+  langs:
+  - csharp
+  - vb
+  name: selectedLayers
+  nameWithType: LayerManager.selectedLayers
+  fullName: PAC.Layers.LayerManager.selectedLayers
+  type: Property
+  source:
+    remote:
+      path: Assets/Scripts/Layers/LayerManager.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: selectedLayers
+    path: ../Assets/Scripts/Layers/LayerManager.cs
+    startLine: 77
+  namespace: PAC.Layers
+  summary: The selected layers, in order (highest layer first etc).
+  example: []
+  syntax:
+    content: public Layer[] selectedLayers { get; }
+    parameters: []
+    return:
+      type: PAC.Layers.Layer[]
+    content.vb: Public ReadOnly Property selectedLayers As Layer()
+  overload: PAC.Layers.LayerManager.selectedLayers*
+- uid: PAC.Layers.LayerManager.OnLayersChanged
+  commentId: M:PAC.Layers.LayerManager.OnLayersChanged
+  id: OnLayersChanged
+  parent: PAC.Layers.LayerManager
+  langs:
+  - csharp
+  - vb
+  name: OnLayersChanged()
+  nameWithType: LayerManager.OnLayersChanged()
+  fullName: PAC.Layers.LayerManager.OnLayersChanged()
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Layers/LayerManager.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: OnLayersChanged
+    path: ../Assets/Scripts/Layers/LayerManager.cs
+    startLine: 106
+  namespace: PAC.Layers
+  syntax:
+    content: public void OnLayersChanged()
+    content.vb: Public Sub OnLayersChanged()
+  overload: PAC.Layers.LayerManager.OnLayersChanged*
+- uid: PAC.Layers.LayerManager.OnFileSwitched
+  commentId: M:PAC.Layers.LayerManager.OnFileSwitched
+  id: OnFileSwitched
+  parent: PAC.Layers.LayerManager
+  langs:
+  - csharp
+  - vb
+  name: OnFileSwitched()
+  nameWithType: LayerManager.OnFileSwitched()
+  fullName: PAC.Layers.LayerManager.OnFileSwitched()
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Layers/LayerManager.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: OnFileSwitched
+    path: ../Assets/Scripts/Layers/LayerManager.cs
+    startLine: 112
+  namespace: PAC.Layers
+  syntax:
+    content: public void OnFileSwitched()
+    content.vb: Public Sub OnFileSwitched()
+  overload: PAC.Layers.LayerManager.OnFileSwitched*
+- uid: PAC.Layers.LayerManager.AddLayer
+  commentId: M:PAC.Layers.LayerManager.AddLayer
+  id: AddLayer
+  parent: PAC.Layers.LayerManager
+  langs:
+  - csharp
+  - vb
+  name: AddLayer()
+  nameWithType: LayerManager.AddLayer()
+  fullName: PAC.Layers.LayerManager.AddLayer()
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Layers/LayerManager.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: AddLayer
+    path: ../Assets/Scripts/Layers/LayerManager.cs
+    startLine: 197
+  namespace: PAC.Layers
+  syntax:
+    content: public void AddLayer()
+    content.vb: Public Sub AddLayer()
+  overload: PAC.Layers.LayerManager.AddLayer*
+- uid: PAC.Layers.LayerManager.AddLayer(Texture2D)
+  commentId: M:PAC.Layers.LayerManager.AddLayer(Texture2D)
+  id: AddLayer(Texture2D)
+  parent: PAC.Layers.LayerManager
+  langs:
+  - csharp
+  - vb
+  name: AddLayer(Texture2D)
+  nameWithType: LayerManager.AddLayer(Texture2D)
+  fullName: PAC.Layers.LayerManager.AddLayer(Texture2D)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Layers/LayerManager.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: AddLayer
+    path: ../Assets/Scripts/Layers/LayerManager.cs
+    startLine: 204
+  namespace: PAC.Layers
+  syntax:
+    content: public void AddLayer(Texture2D texture)
+    parameters:
+    - id: texture
+      type: Global.Texture2D
+    content.vb: Public Sub AddLayer(texture As Texture2D)
+  overload: PAC.Layers.LayerManager.AddLayer*
+- uid: PAC.Layers.LayerManager.AddTileLayer
+  commentId: M:PAC.Layers.LayerManager.AddTileLayer
+  id: AddTileLayer
+  parent: PAC.Layers.LayerManager
+  langs:
+  - csharp
+  - vb
+  name: AddTileLayer()
+  nameWithType: LayerManager.AddTileLayer()
+  fullName: PAC.Layers.LayerManager.AddTileLayer()
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Layers/LayerManager.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: AddTileLayer
+    path: ../Assets/Scripts/Layers/LayerManager.cs
+    startLine: 212
+  namespace: PAC.Layers
+  syntax:
+    content: public void AddTileLayer()
+    content.vb: Public Sub AddTileLayer()
+  overload: PAC.Layers.LayerManager.AddTileLayer*
+- uid: PAC.Layers.LayerManager.RemoveSelectedLayers
+  commentId: M:PAC.Layers.LayerManager.RemoveSelectedLayers
+  id: RemoveSelectedLayers
+  parent: PAC.Layers.LayerManager
+  langs:
+  - csharp
+  - vb
+  name: RemoveSelectedLayers()
+  nameWithType: LayerManager.RemoveSelectedLayers()
+  fullName: PAC.Layers.LayerManager.RemoveSelectedLayers()
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Layers/LayerManager.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: RemoveSelectedLayers
+    path: ../Assets/Scripts/Layers/LayerManager.cs
+    startLine: 220
+  namespace: PAC.Layers
+  syntax:
+    content: public void RemoveSelectedLayers()
+    content.vb: Public Sub RemoveSelectedLayers()
+  overload: PAC.Layers.LayerManager.RemoveSelectedLayers*
+- uid: PAC.Layers.LayerManager.DuplicateSelectedLayers
+  commentId: M:PAC.Layers.LayerManager.DuplicateSelectedLayers
+  id: DuplicateSelectedLayers
+  parent: PAC.Layers.LayerManager
+  langs:
+  - csharp
+  - vb
+  name: DuplicateSelectedLayers()
+  nameWithType: LayerManager.DuplicateSelectedLayers()
+  fullName: PAC.Layers.LayerManager.DuplicateSelectedLayers()
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Layers/LayerManager.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: DuplicateSelectedLayers
+    path: ../Assets/Scripts/Layers/LayerManager.cs
+    startLine: 227
+  namespace: PAC.Layers
+  syntax:
+    content: public void DuplicateSelectedLayers()
+    content.vb: Public Sub DuplicateSelectedLayers()
+  overload: PAC.Layers.LayerManager.DuplicateSelectedLayers*
+- uid: PAC.Layers.LayerManager.FlattenSelectedLayers
+  commentId: M:PAC.Layers.LayerManager.FlattenSelectedLayers
+  id: FlattenSelectedLayers
+  parent: PAC.Layers.LayerManager
+  langs:
+  - csharp
+  - vb
+  name: FlattenSelectedLayers()
+  nameWithType: LayerManager.FlattenSelectedLayers()
+  fullName: PAC.Layers.LayerManager.FlattenSelectedLayers()
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Layers/LayerManager.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: FlattenSelectedLayers
+    path: ../Assets/Scripts/Layers/LayerManager.cs
+    startLine: 245
+  namespace: PAC.Layers
+  syntax:
+    content: public void FlattenSelectedLayers()
+    content.vb: Public Sub FlattenSelectedLayers()
+  overload: PAC.Layers.LayerManager.FlattenSelectedLayers*
+- uid: PAC.Layers.LayerManager.MoveSelectedLayersUp
+  commentId: M:PAC.Layers.LayerManager.MoveSelectedLayersUp
+  id: MoveSelectedLayersUp
+  parent: PAC.Layers.LayerManager
+  langs:
+  - csharp
+  - vb
+  name: MoveSelectedLayersUp()
+  nameWithType: LayerManager.MoveSelectedLayersUp()
+  fullName: PAC.Layers.LayerManager.MoveSelectedLayersUp()
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Layers/LayerManager.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: MoveSelectedLayersUp
+    path: ../Assets/Scripts/Layers/LayerManager.cs
+    startLine: 285
+  namespace: PAC.Layers
+  syntax:
+    content: public void MoveSelectedLayersUp()
+    content.vb: Public Sub MoveSelectedLayersUp()
+  overload: PAC.Layers.LayerManager.MoveSelectedLayersUp*
+- uid: PAC.Layers.LayerManager.MoveSelectedLayersDown
+  commentId: M:PAC.Layers.LayerManager.MoveSelectedLayersDown
+  id: MoveSelectedLayersDown
+  parent: PAC.Layers.LayerManager
+  langs:
+  - csharp
+  - vb
+  name: MoveSelectedLayersDown()
+  nameWithType: LayerManager.MoveSelectedLayersDown()
+  fullName: PAC.Layers.LayerManager.MoveSelectedLayersDown()
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Layers/LayerManager.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: MoveSelectedLayersDown
+    path: ../Assets/Scripts/Layers/LayerManager.cs
+    startLine: 311
+  namespace: PAC.Layers
+  syntax:
+    content: public void MoveSelectedLayersDown()
+    content.vb: Public Sub MoveSelectedLayersDown()
+  overload: PAC.Layers.LayerManager.MoveSelectedLayersDown*
+- uid: PAC.Layers.LayerManager.HideAllBut(PAC.Layers.Layer)
+  commentId: M:PAC.Layers.LayerManager.HideAllBut(PAC.Layers.Layer)
+  id: HideAllBut(PAC.Layers.Layer)
+  parent: PAC.Layers.LayerManager
+  langs:
+  - csharp
+  - vb
+  name: HideAllBut(Layer)
+  nameWithType: LayerManager.HideAllBut(Layer)
+  fullName: PAC.Layers.LayerManager.HideAllBut(PAC.Layers.Layer)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Layers/LayerManager.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: HideAllBut
+    path: ../Assets/Scripts/Layers/LayerManager.cs
+    startLine: 337
+  namespace: PAC.Layers
+  syntax:
+    content: public void HideAllBut(Layer layer)
+    parameters:
+    - id: layer
+      type: PAC.Layers.Layer
+    content.vb: Public Sub HideAllBut(layer As Layer)
+  overload: PAC.Layers.LayerManager.HideAllBut*
+- uid: PAC.Layers.LayerManager.WorldYCoordOfLayerTile(System.Int32)
+  commentId: M:PAC.Layers.LayerManager.WorldYCoordOfLayerTile(System.Int32)
+  id: WorldYCoordOfLayerTile(System.Int32)
+  parent: PAC.Layers.LayerManager
+  langs:
+  - csharp
+  - vb
+  name: WorldYCoordOfLayerTile(int)
+  nameWithType: LayerManager.WorldYCoordOfLayerTile(int)
+  fullName: PAC.Layers.LayerManager.WorldYCoordOfLayerTile(int)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Layers/LayerManager.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: WorldYCoordOfLayerTile
+    path: ../Assets/Scripts/Layers/LayerManager.cs
+    startLine: 360
+  namespace: PAC.Layers
+  syntax:
+    content: public float WorldYCoordOfLayerTile(int layerTileIndex)
+    parameters:
+    - id: layerTileIndex
+      type: System.Int32
+    return:
+      type: System.Single
+    content.vb: Public Function WorldYCoordOfLayerTile(layerTileIndex As Integer) As Single
+  overload: PAC.Layers.LayerManager.WorldYCoordOfLayerTile*
+  nameWithType.vb: LayerManager.WorldYCoordOfLayerTile(Integer)
+  fullName.vb: PAC.Layers.LayerManager.WorldYCoordOfLayerTile(Integer)
+  name.vb: WorldYCoordOfLayerTile(Integer)
+- uid: PAC.Layers.LayerManager.SetLayerName(System.Int32,System.String)
+  commentId: M:PAC.Layers.LayerManager.SetLayerName(System.Int32,System.String)
+  id: SetLayerName(System.Int32,System.String)
+  parent: PAC.Layers.LayerManager
+  langs:
+  - csharp
+  - vb
+  name: SetLayerName(int, string)
+  nameWithType: LayerManager.SetLayerName(int, string)
+  fullName: PAC.Layers.LayerManager.SetLayerName(int, string)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Layers/LayerManager.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: SetLayerName
+    path: ../Assets/Scripts/Layers/LayerManager.cs
+    startLine: 370
+  namespace: PAC.Layers
+  syntax:
+    content: public void SetLayerName(int layerIndex, string layerName)
+    parameters:
+    - id: layerIndex
+      type: System.Int32
+    - id: layerName
+      type: System.String
+    content.vb: Public Sub SetLayerName(layerIndex As Integer, layerName As String)
+  overload: PAC.Layers.LayerManager.SetLayerName*
+  nameWithType.vb: LayerManager.SetLayerName(Integer, String)
+  fullName.vb: PAC.Layers.LayerManager.SetLayerName(Integer, String)
+  name.vb: SetLayerName(Integer, String)
+- uid: PAC.Layers.LayerManager.SetLayerOpacity(System.Int32,System.Single)
+  commentId: M:PAC.Layers.LayerManager.SetLayerOpacity(System.Int32,System.Single)
+  id: SetLayerOpacity(System.Int32,System.Single)
+  parent: PAC.Layers.LayerManager
+  langs:
+  - csharp
+  - vb
+  name: SetLayerOpacity(int, float)
+  nameWithType: LayerManager.SetLayerOpacity(int, float)
+  fullName: PAC.Layers.LayerManager.SetLayerOpacity(int, float)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Layers/LayerManager.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: SetLayerOpacity
+    path: ../Assets/Scripts/Layers/LayerManager.cs
+    startLine: 383
+  namespace: PAC.Layers
+  syntax:
+    content: public void SetLayerOpacity(int layerIndex, float opacity)
+    parameters:
+    - id: layerIndex
+      type: System.Int32
+    - id: opacity
+      type: System.Single
+    content.vb: Public Sub SetLayerOpacity(layerIndex As Integer, opacity As Single)
+  overload: PAC.Layers.LayerManager.SetLayerOpacity*
+  nameWithType.vb: LayerManager.SetLayerOpacity(Integer, Single)
+  fullName.vb: PAC.Layers.LayerManager.SetLayerOpacity(Integer, Single)
+  name.vb: SetLayerOpacity(Integer, Single)
+- uid: PAC.Layers.LayerManager.SetLayerBlendMode(System.Int32,PAC.Colour.BlendMode)
+  commentId: M:PAC.Layers.LayerManager.SetLayerBlendMode(System.Int32,PAC.Colour.BlendMode)
+  id: SetLayerBlendMode(System.Int32,PAC.Colour.BlendMode)
+  parent: PAC.Layers.LayerManager
+  langs:
+  - csharp
+  - vb
+  name: SetLayerBlendMode(int, BlendMode)
+  nameWithType: LayerManager.SetLayerBlendMode(int, BlendMode)
+  fullName: PAC.Layers.LayerManager.SetLayerBlendMode(int, PAC.Colour.BlendMode)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Layers/LayerManager.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: SetLayerBlendMode
+    path: ../Assets/Scripts/Layers/LayerManager.cs
+    startLine: 400
+  namespace: PAC.Layers
+  syntax:
+    content: public void SetLayerBlendMode(int layerIndex, BlendMode blendMode)
+    parameters:
+    - id: layerIndex
+      type: System.Int32
+    - id: blendMode
+      type: PAC.Colour.BlendMode
+    content.vb: Public Sub SetLayerBlendMode(layerIndex As Integer, blendMode As BlendMode)
+  overload: PAC.Layers.LayerManager.SetLayerBlendMode*
+  nameWithType.vb: LayerManager.SetLayerBlendMode(Integer, BlendMode)
+  fullName.vb: PAC.Layers.LayerManager.SetLayerBlendMode(Integer, PAC.Colour.BlendMode)
+  name.vb: SetLayerBlendMode(Integer, BlendMode)
+- uid: PAC.Layers.LayerManager.SubscribeToLayerChange(UnityAction)
+  commentId: M:PAC.Layers.LayerManager.SubscribeToLayerChange(UnityAction)
+  id: SubscribeToLayerChange(UnityAction)
+  parent: PAC.Layers.LayerManager
+  langs:
+  - csharp
+  - vb
+  name: SubscribeToLayerChange(UnityAction)
+  nameWithType: LayerManager.SubscribeToLayerChange(UnityAction)
+  fullName: PAC.Layers.LayerManager.SubscribeToLayerChange(UnityAction)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Layers/LayerManager.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: SubscribeToLayerChange
+    path: ../Assets/Scripts/Layers/LayerManager.cs
+    startLine: 418
+  namespace: PAC.Layers
+  syntax:
+    content: public void SubscribeToLayerChange(UnityAction call)
+    parameters:
+    - id: call
+      type: Global.UnityAction
+    content.vb: Public Sub SubscribeToLayerChange([call] As UnityAction)
+  overload: PAC.Layers.LayerManager.SubscribeToLayerChange*
+- uid: PAC.Layers.LayerManager.SubscribeToVisibilityChange(UnityAction)
+  commentId: M:PAC.Layers.LayerManager.SubscribeToVisibilityChange(UnityAction)
+  id: SubscribeToVisibilityChange(UnityAction)
+  parent: PAC.Layers.LayerManager
+  langs:
+  - csharp
+  - vb
+  name: SubscribeToVisibilityChange(UnityAction)
+  nameWithType: LayerManager.SubscribeToVisibilityChange(UnityAction)
+  fullName: PAC.Layers.LayerManager.SubscribeToVisibilityChange(UnityAction)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Layers/LayerManager.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: SubscribeToVisibilityChange
+    path: ../Assets/Scripts/Layers/LayerManager.cs
+    startLine: 422
+  namespace: PAC.Layers
+  syntax:
+    content: public void SubscribeToVisibilityChange(UnityAction call)
+    parameters:
+    - id: call
+      type: Global.UnityAction
+    content.vb: Public Sub SubscribeToVisibilityChange([call] As UnityAction)
+  overload: PAC.Layers.LayerManager.SubscribeToVisibilityChange*
+references:
+- uid: PAC.Layers
+  commentId: N:PAC.Layers
+  href: PAC.html
+  name: PAC.Layers
+  nameWithType: PAC.Layers
+  fullName: PAC.Layers
+  spec.csharp:
+  - uid: PAC
+    name: PAC
+    href: PAC.html
+  - name: .
+  - uid: PAC.Layers
+    name: Layers
+    href: PAC.Layers.html
+  spec.vb:
+  - uid: PAC
+    name: PAC
+    href: PAC.html
+  - name: .
+  - uid: PAC.Layers
+    name: Layers
+    href: PAC.Layers.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Global.Sprite
+  isExternal: true
+  name: Sprite
+  nameWithType: Sprite
+  fullName: Sprite
+- uid: PAC.Layers.LayerManager.selectedLayerIndex*
+  commentId: Overload:PAC.Layers.LayerManager.selectedLayerIndex
+  href: PAC.Layers.LayerManager.html#PAC_Layers_LayerManager_selectedLayerIndex
+  name: selectedLayerIndex
+  nameWithType: LayerManager.selectedLayerIndex
+  fullName: PAC.Layers.LayerManager.selectedLayerIndex
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: PAC.Layers.LayerManager.selectedLayer*
+  commentId: Overload:PAC.Layers.LayerManager.selectedLayer
+  href: PAC.Layers.LayerManager.html#PAC_Layers_LayerManager_selectedLayer
+  name: selectedLayer
+  nameWithType: LayerManager.selectedLayer
+  fullName: PAC.Layers.LayerManager.selectedLayer
+- uid: PAC.Layers.Layer
+  commentId: T:PAC.Layers.Layer
+  parent: PAC.Layers
+  href: PAC.Layers.Layer.html
+  name: Layer
+  nameWithType: Layer
+  fullName: PAC.Layers.Layer
+- uid: PAC.Layers.LayerManager.selectedLayerIndices*
+  commentId: Overload:PAC.Layers.LayerManager.selectedLayerIndices
+  href: PAC.Layers.LayerManager.html#PAC_Layers_LayerManager_selectedLayerIndices
+  name: selectedLayerIndices
+  nameWithType: LayerManager.selectedLayerIndices
+  fullName: PAC.Layers.LayerManager.selectedLayerIndices
+- uid: System.Int32[]
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int[]
+  nameWithType: int[]
+  fullName: int[]
+  nameWithType.vb: Integer()
+  fullName.vb: Integer()
+  name.vb: Integer()
+  spec.csharp:
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: '['
+  - name: ']'
+  spec.vb:
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: (
+  - name: )
+- uid: PAC.Layers.LayerManager.selectedLayers*
+  commentId: Overload:PAC.Layers.LayerManager.selectedLayers
+  href: PAC.Layers.LayerManager.html#PAC_Layers_LayerManager_selectedLayers
+  name: selectedLayers
+  nameWithType: LayerManager.selectedLayers
+  fullName: PAC.Layers.LayerManager.selectedLayers
+- uid: PAC.Layers.Layer[]
+  isExternal: true
+  href: PAC.Layers.Layer.html
+  name: Layer[]
+  nameWithType: Layer[]
+  fullName: PAC.Layers.Layer[]
+  nameWithType.vb: Layer()
+  fullName.vb: PAC.Layers.Layer()
+  name.vb: Layer()
+  spec.csharp:
+  - uid: PAC.Layers.Layer
+    name: Layer
+    href: PAC.Layers.Layer.html
+  - name: '['
+  - name: ']'
+  spec.vb:
+  - uid: PAC.Layers.Layer
+    name: Layer
+    href: PAC.Layers.Layer.html
+  - name: (
+  - name: )
+- uid: PAC.Layers.LayerManager.OnLayersChanged*
+  commentId: Overload:PAC.Layers.LayerManager.OnLayersChanged
+  href: PAC.Layers.LayerManager.html#PAC_Layers_LayerManager_OnLayersChanged
+  name: OnLayersChanged
+  nameWithType: LayerManager.OnLayersChanged
+  fullName: PAC.Layers.LayerManager.OnLayersChanged
+- uid: PAC.Layers.LayerManager.OnFileSwitched*
+  commentId: Overload:PAC.Layers.LayerManager.OnFileSwitched
+  href: PAC.Layers.LayerManager.html#PAC_Layers_LayerManager_OnFileSwitched
+  name: OnFileSwitched
+  nameWithType: LayerManager.OnFileSwitched
+  fullName: PAC.Layers.LayerManager.OnFileSwitched
+- uid: PAC.Layers.LayerManager.AddLayer*
+  commentId: Overload:PAC.Layers.LayerManager.AddLayer
+  href: PAC.Layers.LayerManager.html#PAC_Layers_LayerManager_AddLayer
+  name: AddLayer
+  nameWithType: LayerManager.AddLayer
+  fullName: PAC.Layers.LayerManager.AddLayer
+- uid: Global.Texture2D
+  isExternal: true
+  name: Texture2D
+  nameWithType: Texture2D
+  fullName: Texture2D
+- uid: PAC.Layers.LayerManager.AddTileLayer*
+  commentId: Overload:PAC.Layers.LayerManager.AddTileLayer
+  href: PAC.Layers.LayerManager.html#PAC_Layers_LayerManager_AddTileLayer
+  name: AddTileLayer
+  nameWithType: LayerManager.AddTileLayer
+  fullName: PAC.Layers.LayerManager.AddTileLayer
+- uid: PAC.Layers.LayerManager.RemoveSelectedLayers*
+  commentId: Overload:PAC.Layers.LayerManager.RemoveSelectedLayers
+  href: PAC.Layers.LayerManager.html#PAC_Layers_LayerManager_RemoveSelectedLayers
+  name: RemoveSelectedLayers
+  nameWithType: LayerManager.RemoveSelectedLayers
+  fullName: PAC.Layers.LayerManager.RemoveSelectedLayers
+- uid: PAC.Layers.LayerManager.DuplicateSelectedLayers*
+  commentId: Overload:PAC.Layers.LayerManager.DuplicateSelectedLayers
+  href: PAC.Layers.LayerManager.html#PAC_Layers_LayerManager_DuplicateSelectedLayers
+  name: DuplicateSelectedLayers
+  nameWithType: LayerManager.DuplicateSelectedLayers
+  fullName: PAC.Layers.LayerManager.DuplicateSelectedLayers
+- uid: PAC.Layers.LayerManager.FlattenSelectedLayers*
+  commentId: Overload:PAC.Layers.LayerManager.FlattenSelectedLayers
+  href: PAC.Layers.LayerManager.html#PAC_Layers_LayerManager_FlattenSelectedLayers
+  name: FlattenSelectedLayers
+  nameWithType: LayerManager.FlattenSelectedLayers
+  fullName: PAC.Layers.LayerManager.FlattenSelectedLayers
+- uid: PAC.Layers.LayerManager.MoveSelectedLayersUp*
+  commentId: Overload:PAC.Layers.LayerManager.MoveSelectedLayersUp
+  href: PAC.Layers.LayerManager.html#PAC_Layers_LayerManager_MoveSelectedLayersUp
+  name: MoveSelectedLayersUp
+  nameWithType: LayerManager.MoveSelectedLayersUp
+  fullName: PAC.Layers.LayerManager.MoveSelectedLayersUp
+- uid: PAC.Layers.LayerManager.MoveSelectedLayersDown*
+  commentId: Overload:PAC.Layers.LayerManager.MoveSelectedLayersDown
+  href: PAC.Layers.LayerManager.html#PAC_Layers_LayerManager_MoveSelectedLayersDown
+  name: MoveSelectedLayersDown
+  nameWithType: LayerManager.MoveSelectedLayersDown
+  fullName: PAC.Layers.LayerManager.MoveSelectedLayersDown
+- uid: PAC.Layers.LayerManager.HideAllBut*
+  commentId: Overload:PAC.Layers.LayerManager.HideAllBut
+  href: PAC.Layers.LayerManager.html#PAC_Layers_LayerManager_HideAllBut_PAC_Layers_Layer_
+  name: HideAllBut
+  nameWithType: LayerManager.HideAllBut
+  fullName: PAC.Layers.LayerManager.HideAllBut
+- uid: PAC.Layers.LayerManager.WorldYCoordOfLayerTile*
+  commentId: Overload:PAC.Layers.LayerManager.WorldYCoordOfLayerTile
+  href: PAC.Layers.LayerManager.html#PAC_Layers_LayerManager_WorldYCoordOfLayerTile_System_Int32_
+  name: WorldYCoordOfLayerTile
+  nameWithType: LayerManager.WorldYCoordOfLayerTile
+  fullName: PAC.Layers.LayerManager.WorldYCoordOfLayerTile
+- uid: System.Single
+  commentId: T:System.Single
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.single
+  name: float
+  nameWithType: float
+  fullName: float
+  nameWithType.vb: Single
+  fullName.vb: Single
+  name.vb: Single
+- uid: PAC.Layers.LayerManager.SetLayerName*
+  commentId: Overload:PAC.Layers.LayerManager.SetLayerName
+  href: PAC.Layers.LayerManager.html#PAC_Layers_LayerManager_SetLayerName_System_Int32_System_String_
+  name: SetLayerName
+  nameWithType: LayerManager.SetLayerName
+  fullName: PAC.Layers.LayerManager.SetLayerName
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: PAC.Layers.LayerManager.SetLayerOpacity*
+  commentId: Overload:PAC.Layers.LayerManager.SetLayerOpacity
+  href: PAC.Layers.LayerManager.html#PAC_Layers_LayerManager_SetLayerOpacity_System_Int32_System_Single_
+  name: SetLayerOpacity
+  nameWithType: LayerManager.SetLayerOpacity
+  fullName: PAC.Layers.LayerManager.SetLayerOpacity
+- uid: PAC.Layers.LayerManager.SetLayerBlendMode*
+  commentId: Overload:PAC.Layers.LayerManager.SetLayerBlendMode
+  href: PAC.Layers.LayerManager.html#PAC_Layers_LayerManager_SetLayerBlendMode_System_Int32_PAC_Colour_BlendMode_
+  name: SetLayerBlendMode
+  nameWithType: LayerManager.SetLayerBlendMode
+  fullName: PAC.Layers.LayerManager.SetLayerBlendMode
+- uid: PAC.Colour.BlendMode
+  commentId: T:PAC.Colour.BlendMode
+  parent: PAC.Colour
+  href: PAC.Colour.BlendMode.html
+  name: BlendMode
+  nameWithType: BlendMode
+  fullName: PAC.Colour.BlendMode
+- uid: PAC.Colour
+  commentId: N:PAC.Colour
+  href: PAC.html
+  name: PAC.Colour
+  nameWithType: PAC.Colour
+  fullName: PAC.Colour
+  spec.csharp:
+  - uid: PAC
+    name: PAC
+    href: PAC.html
+  - name: .
+  - uid: PAC.Colour
+    name: Colour
+    href: PAC.Colour.html
+  spec.vb:
+  - uid: PAC
+    name: PAC
+    href: PAC.html
+  - name: .
+  - uid: PAC.Colour
+    name: Colour
+    href: PAC.Colour.html
+- uid: PAC.Layers.LayerManager.SubscribeToLayerChange*
+  commentId: Overload:PAC.Layers.LayerManager.SubscribeToLayerChange
+  href: PAC.Layers.LayerManager.html#PAC_Layers_LayerManager_SubscribeToLayerChange_UnityAction_
+  name: SubscribeToLayerChange
+  nameWithType: LayerManager.SubscribeToLayerChange
+  fullName: PAC.Layers.LayerManager.SubscribeToLayerChange
+- uid: Global.UnityAction
+  isExternal: true
+  name: UnityAction
+  nameWithType: UnityAction
+  fullName: UnityAction
+- uid: PAC.Layers.LayerManager.SubscribeToVisibilityChange*
+  commentId: Overload:PAC.Layers.LayerManager.SubscribeToVisibilityChange
+  href: PAC.Layers.LayerManager.html#PAC_Layers_LayerManager_SubscribeToVisibilityChange_UnityAction_
+  name: SubscribeToVisibilityChange
+  nameWithType: LayerManager.SubscribeToVisibilityChange
+  fullName: PAC.Layers.LayerManager.SubscribeToVisibilityChange

@@ -1,0 +1,100 @@
+### YamlMime:ManagedReference
+items:
+- uid: PAC.UI.UIGridPacker
+  commentId: T:PAC.UI.UIGridPacker
+  id: UIGridPacker
+  parent: PAC.UI
+  children:
+  - PAC.UI.UIGridPacker.Repack
+  langs:
+  - csharp
+  - vb
+  name: UIGridPacker
+  nameWithType: UIGridPacker
+  fullName: PAC.UI.UIGridPacker
+  type: Class
+  source:
+    remote:
+      path: Assets/Scripts/UI/UIGridPacker.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: UIGridPacker
+    path: ../Assets/Scripts/UI/UIGridPacker.cs
+    startLine: 11
+  namespace: PAC.UI
+  syntax:
+    content: 'public class UIGridPacker : MonoBehaviour'
+    content.vb: Public Class UIGridPacker Inherits MonoBehaviour
+  inheritance:
+  - System.Object
+- uid: PAC.UI.UIGridPacker.Repack
+  commentId: M:PAC.UI.UIGridPacker.Repack
+  id: Repack
+  parent: PAC.UI.UIGridPacker
+  langs:
+  - csharp
+  - vb
+  name: Repack()
+  nameWithType: UIGridPacker.Repack()
+  fullName: PAC.UI.UIGridPacker.Repack()
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/UI/UIGridPacker.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: Repack
+    path: ../Assets/Scripts/UI/UIGridPacker.cs
+    startLine: 42
+  namespace: PAC.UI
+  syntax:
+    content: public void Repack()
+    content.vb: Public Sub Repack()
+  overload: PAC.UI.UIGridPacker.Repack*
+references:
+- uid: PAC.UI
+  commentId: N:PAC.UI
+  href: PAC.html
+  name: PAC.UI
+  nameWithType: PAC.UI
+  fullName: PAC.UI
+  spec.csharp:
+  - uid: PAC
+    name: PAC
+    href: PAC.html
+  - name: .
+  - uid: PAC.UI
+    name: UI
+    href: PAC.UI.html
+  spec.vb:
+  - uid: PAC
+    name: PAC
+    href: PAC.html
+  - name: .
+  - uid: PAC.UI
+    name: UI
+    href: PAC.UI.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: PAC.UI.UIGridPacker.Repack*
+  commentId: Overload:PAC.UI.UIGridPacker.Repack
+  href: PAC.UI.UIGridPacker.html#PAC_UI_UIGridPacker_Repack
+  name: Repack
+  nameWithType: UIGridPacker.Repack
+  fullName: PAC.UI.UIGridPacker.Repack

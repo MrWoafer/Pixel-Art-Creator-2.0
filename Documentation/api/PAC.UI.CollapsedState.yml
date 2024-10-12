@@ -1,0 +1,106 @@
+### YamlMime:ManagedReference
+items:
+- uid: PAC.UI.CollapsedState
+  commentId: T:PAC.UI.CollapsedState
+  id: CollapsedState
+  parent: PAC.UI
+  children:
+  - PAC.UI.CollapsedState.Collapsed
+  - PAC.UI.CollapsedState.Uncollapsed
+  langs:
+  - csharp
+  - vb
+  name: CollapsedState
+  nameWithType: CollapsedState
+  fullName: PAC.UI.CollapsedState
+  type: Enum
+  source:
+    remote:
+      path: Assets/Scripts/UI/UICollapser.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: CollapsedState
+    path: ../Assets/Scripts/UI/UICollapser.cs
+    startLine: 4
+  namespace: PAC.UI
+  syntax:
+    content: public enum CollapsedState
+    content.vb: Public Enum CollapsedState
+- uid: PAC.UI.CollapsedState.Uncollapsed
+  commentId: F:PAC.UI.CollapsedState.Uncollapsed
+  id: Uncollapsed
+  parent: PAC.UI.CollapsedState
+  langs:
+  - csharp
+  - vb
+  name: Uncollapsed
+  nameWithType: CollapsedState.Uncollapsed
+  fullName: PAC.UI.CollapsedState.Uncollapsed
+  type: Field
+  source:
+    remote:
+      path: Assets/Scripts/UI/UICollapser.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: Uncollapsed
+    path: ../Assets/Scripts/UI/UICollapser.cs
+    startLine: 6
+  namespace: PAC.UI
+  syntax:
+    content: Uncollapsed = 0
+    return:
+      type: PAC.UI.CollapsedState
+- uid: PAC.UI.CollapsedState.Collapsed
+  commentId: F:PAC.UI.CollapsedState.Collapsed
+  id: Collapsed
+  parent: PAC.UI.CollapsedState
+  langs:
+  - csharp
+  - vb
+  name: Collapsed
+  nameWithType: CollapsedState.Collapsed
+  fullName: PAC.UI.CollapsedState.Collapsed
+  type: Field
+  source:
+    remote:
+      path: Assets/Scripts/UI/UICollapser.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: Collapsed
+    path: ../Assets/Scripts/UI/UICollapser.cs
+    startLine: 7
+  namespace: PAC.UI
+  syntax:
+    content: Collapsed = 1
+    return:
+      type: PAC.UI.CollapsedState
+references:
+- uid: PAC.UI
+  commentId: N:PAC.UI
+  href: PAC.html
+  name: PAC.UI
+  nameWithType: PAC.UI
+  fullName: PAC.UI
+  spec.csharp:
+  - uid: PAC
+    name: PAC
+    href: PAC.html
+  - name: .
+  - uid: PAC.UI
+    name: UI
+    href: PAC.UI.html
+  spec.vb:
+  - uid: PAC
+    name: PAC
+    href: PAC.html
+  - name: .
+  - uid: PAC.UI
+    name: UI
+    href: PAC.UI.html
+- uid: PAC.UI.CollapsedState
+  commentId: T:PAC.UI.CollapsedState
+  parent: PAC.UI
+  href: PAC.UI.CollapsedState.html
+  name: CollapsedState
+  nameWithType: CollapsedState
+  fullName: PAC.UI.CollapsedState

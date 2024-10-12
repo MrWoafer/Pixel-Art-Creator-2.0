@@ -1,0 +1,224 @@
+### YamlMime:ManagedReference
+items:
+- uid: PAC.Shaders.RainbowOutline
+  commentId: T:PAC.Shaders.RainbowOutline
+  id: RainbowOutline
+  parent: PAC.Shaders
+  children:
+  - PAC.Shaders.RainbowOutline.keepExistingTexture
+  - PAC.Shaders.RainbowOutline.outlineEnabled
+  - PAC.Shaders.RainbowOutline.rainbowOutlineMaterial
+  - PAC.Shaders.RainbowOutline.thickness
+  langs:
+  - csharp
+  - vb
+  name: RainbowOutline
+  nameWithType: RainbowOutline
+  fullName: PAC.Shaders.RainbowOutline
+  type: Class
+  source:
+    remote:
+      path: Assets/Scripts/Shaders/RainbowOutline.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: RainbowOutline
+    path: ../Assets/Scripts/Shaders/RainbowOutline.cs
+    startLine: 4
+  namespace: PAC.Shaders
+  syntax:
+    content: 'public class RainbowOutline : MonoBehaviour'
+    content.vb: Public Class RainbowOutline Inherits MonoBehaviour
+  inheritance:
+  - System.Object
+- uid: PAC.Shaders.RainbowOutline.outlineEnabled
+  commentId: P:PAC.Shaders.RainbowOutline.outlineEnabled
+  id: outlineEnabled
+  parent: PAC.Shaders.RainbowOutline
+  langs:
+  - csharp
+  - vb
+  name: outlineEnabled
+  nameWithType: RainbowOutline.outlineEnabled
+  fullName: PAC.Shaders.RainbowOutline.outlineEnabled
+  type: Property
+  source:
+    remote:
+      path: Assets/Scripts/Shaders/RainbowOutline.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: outlineEnabled
+    path: ../Assets/Scripts/Shaders/RainbowOutline.cs
+    startLine: 9
+  namespace: PAC.Shaders
+  syntax:
+    content: public bool outlineEnabled { get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property outlineEnabled As Boolean
+  overload: PAC.Shaders.RainbowOutline.outlineEnabled*
+- uid: PAC.Shaders.RainbowOutline.thickness
+  commentId: P:PAC.Shaders.RainbowOutline.thickness
+  id: thickness
+  parent: PAC.Shaders.RainbowOutline
+  langs:
+  - csharp
+  - vb
+  name: thickness
+  nameWithType: RainbowOutline.thickness
+  fullName: PAC.Shaders.RainbowOutline.thickness
+  type: Property
+  source:
+    remote:
+      path: Assets/Scripts/Shaders/RainbowOutline.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: thickness
+    path: ../Assets/Scripts/Shaders/RainbowOutline.cs
+    startLine: 29
+  namespace: PAC.Shaders
+  syntax:
+    content: public float thickness { get; set; }
+    parameters: []
+    return:
+      type: System.Single
+    content.vb: Public Property thickness As Single
+  overload: PAC.Shaders.RainbowOutline.thickness*
+- uid: PAC.Shaders.RainbowOutline.keepExistingTexture
+  commentId: P:PAC.Shaders.RainbowOutline.keepExistingTexture
+  id: keepExistingTexture
+  parent: PAC.Shaders.RainbowOutline
+  langs:
+  - csharp
+  - vb
+  name: keepExistingTexture
+  nameWithType: RainbowOutline.keepExistingTexture
+  fullName: PAC.Shaders.RainbowOutline.keepExistingTexture
+  type: Property
+  source:
+    remote:
+      path: Assets/Scripts/Shaders/RainbowOutline.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: keepExistingTexture
+    path: ../Assets/Scripts/Shaders/RainbowOutline.cs
+    startLine: 48
+  namespace: PAC.Shaders
+  syntax:
+    content: public bool keepExistingTexture { get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property keepExistingTexture As Boolean
+  overload: PAC.Shaders.RainbowOutline.keepExistingTexture*
+- uid: PAC.Shaders.RainbowOutline.rainbowOutlineMaterial
+  commentId: F:PAC.Shaders.RainbowOutline.rainbowOutlineMaterial
+  id: rainbowOutlineMaterial
+  parent: PAC.Shaders.RainbowOutline
+  langs:
+  - csharp
+  - vb
+  name: rainbowOutlineMaterial
+  nameWithType: RainbowOutline.rainbowOutlineMaterial
+  fullName: PAC.Shaders.RainbowOutline.rainbowOutlineMaterial
+  type: Field
+  source:
+    remote:
+      path: Assets/Scripts/Shaders/RainbowOutline.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: rainbowOutlineMaterial
+    path: ../Assets/Scripts/Shaders/RainbowOutline.cs
+    startLine: 67
+  namespace: PAC.Shaders
+  syntax:
+    content: public Material rainbowOutlineMaterial
+    return:
+      type: Global.Material
+    content.vb: Public rainbowOutlineMaterial As Material
+references:
+- uid: PAC.Shaders
+  commentId: N:PAC.Shaders
+  href: PAC.html
+  name: PAC.Shaders
+  nameWithType: PAC.Shaders
+  fullName: PAC.Shaders
+  spec.csharp:
+  - uid: PAC
+    name: PAC
+    href: PAC.html
+  - name: .
+  - uid: PAC.Shaders
+    name: Shaders
+    href: PAC.Shaders.html
+  spec.vb:
+  - uid: PAC
+    name: PAC
+    href: PAC.html
+  - name: .
+  - uid: PAC.Shaders
+    name: Shaders
+    href: PAC.Shaders.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: PAC.Shaders.RainbowOutline.outlineEnabled*
+  commentId: Overload:PAC.Shaders.RainbowOutline.outlineEnabled
+  href: PAC.Shaders.RainbowOutline.html#PAC_Shaders_RainbowOutline_outlineEnabled
+  name: outlineEnabled
+  nameWithType: RainbowOutline.outlineEnabled
+  fullName: PAC.Shaders.RainbowOutline.outlineEnabled
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: PAC.Shaders.RainbowOutline.thickness*
+  commentId: Overload:PAC.Shaders.RainbowOutline.thickness
+  href: PAC.Shaders.RainbowOutline.html#PAC_Shaders_RainbowOutline_thickness
+  name: thickness
+  nameWithType: RainbowOutline.thickness
+  fullName: PAC.Shaders.RainbowOutline.thickness
+- uid: System.Single
+  commentId: T:System.Single
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.single
+  name: float
+  nameWithType: float
+  fullName: float
+  nameWithType.vb: Single
+  fullName.vb: Single
+  name.vb: Single
+- uid: PAC.Shaders.RainbowOutline.keepExistingTexture*
+  commentId: Overload:PAC.Shaders.RainbowOutline.keepExistingTexture
+  href: PAC.Shaders.RainbowOutline.html#PAC_Shaders_RainbowOutline_keepExistingTexture
+  name: keepExistingTexture
+  nameWithType: RainbowOutline.keepExistingTexture
+  fullName: PAC.Shaders.RainbowOutline.keepExistingTexture
+- uid: Global.Material
+  isExternal: true
+  name: Material
+  nameWithType: Material
+  fullName: Material

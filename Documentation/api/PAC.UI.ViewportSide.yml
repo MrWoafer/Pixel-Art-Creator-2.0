@@ -1,0 +1,131 @@
+### YamlMime:ManagedReference
+items:
+- uid: PAC.UI.ViewportSide
+  commentId: T:PAC.UI.ViewportSide
+  id: ViewportSide
+  parent: PAC.UI
+  children:
+  - PAC.UI.ViewportSide.Centre
+  - PAC.UI.ViewportSide.Negative
+  - PAC.UI.ViewportSide.Positive
+  langs:
+  - csharp
+  - vb
+  name: ViewportSide
+  nameWithType: ViewportSide
+  fullName: PAC.UI.ViewportSide
+  type: Enum
+  source:
+    remote:
+      path: Assets/Scripts/UI/UIViewport.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: ViewportSide
+    path: ../Assets/Scripts/UI/UIViewport.cs
+    startLine: 7
+  namespace: PAC.UI
+  syntax:
+    content: public enum ViewportSide
+    content.vb: Public Enum ViewportSide
+- uid: PAC.UI.ViewportSide.Negative
+  commentId: F:PAC.UI.ViewportSide.Negative
+  id: Negative
+  parent: PAC.UI.ViewportSide
+  langs:
+  - csharp
+  - vb
+  name: Negative
+  nameWithType: ViewportSide.Negative
+  fullName: PAC.UI.ViewportSide.Negative
+  type: Field
+  source:
+    remote:
+      path: Assets/Scripts/UI/UIViewport.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: Negative
+    path: ../Assets/Scripts/UI/UIViewport.cs
+    startLine: 9
+  namespace: PAC.UI
+  syntax:
+    content: Negative = -1
+    return:
+      type: PAC.UI.ViewportSide
+- uid: PAC.UI.ViewportSide.Centre
+  commentId: F:PAC.UI.ViewportSide.Centre
+  id: Centre
+  parent: PAC.UI.ViewportSide
+  langs:
+  - csharp
+  - vb
+  name: Centre
+  nameWithType: ViewportSide.Centre
+  fullName: PAC.UI.ViewportSide.Centre
+  type: Field
+  source:
+    remote:
+      path: Assets/Scripts/UI/UIViewport.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: Centre
+    path: ../Assets/Scripts/UI/UIViewport.cs
+    startLine: 10
+  namespace: PAC.UI
+  syntax:
+    content: Centre = 0
+    return:
+      type: PAC.UI.ViewportSide
+- uid: PAC.UI.ViewportSide.Positive
+  commentId: F:PAC.UI.ViewportSide.Positive
+  id: Positive
+  parent: PAC.UI.ViewportSide
+  langs:
+  - csharp
+  - vb
+  name: Positive
+  nameWithType: ViewportSide.Positive
+  fullName: PAC.UI.ViewportSide.Positive
+  type: Field
+  source:
+    remote:
+      path: Assets/Scripts/UI/UIViewport.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: Positive
+    path: ../Assets/Scripts/UI/UIViewport.cs
+    startLine: 11
+  namespace: PAC.UI
+  syntax:
+    content: Positive = 1
+    return:
+      type: PAC.UI.ViewportSide
+references:
+- uid: PAC.UI
+  commentId: N:PAC.UI
+  href: PAC.html
+  name: PAC.UI
+  nameWithType: PAC.UI
+  fullName: PAC.UI
+  spec.csharp:
+  - uid: PAC
+    name: PAC
+    href: PAC.html
+  - name: .
+  - uid: PAC.UI
+    name: UI
+    href: PAC.UI.html
+  spec.vb:
+  - uid: PAC
+    name: PAC
+    href: PAC.html
+  - name: .
+  - uid: PAC.UI
+    name: UI
+    href: PAC.UI.html
+- uid: PAC.UI.ViewportSide
+  commentId: T:PAC.UI.ViewportSide
+  parent: PAC.UI
+  href: PAC.UI.ViewportSide.html
+  name: ViewportSide
+  nameWithType: ViewportSide
+  fullName: PAC.UI.ViewportSide

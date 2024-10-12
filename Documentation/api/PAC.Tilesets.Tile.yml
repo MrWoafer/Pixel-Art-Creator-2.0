@@ -1,0 +1,990 @@
+### YamlMime:ManagedReference
+items:
+- uid: PAC.Tilesets.Tile
+  commentId: T:PAC.Tilesets.Tile
+  id: Tile
+  parent: PAC.Tilesets
+  children:
+  - PAC.Tilesets.Tile.#ctor(PAC.Files.File,PAC.DataStructures.IntVector2,PAC.Layers.TileLayer[])
+  - PAC.Tilesets.Tile.LayerInTileToTileLayer(PAC.Layers.Layer)
+  - PAC.Tilesets.Tile.SubscribeToOnMoved(UnityAction{PAC.DataStructures.IntRect})
+  - PAC.Tilesets.Tile.TileLayerToLayerInTile(PAC.Layers.TileLayer)
+  - PAC.Tilesets.Tile.bottomLeft
+  - PAC.Tilesets.Tile.bottomRight
+  - PAC.Tilesets.Tile.centre
+  - PAC.Tilesets.Tile.file
+  - PAC.Tilesets.Tile.height
+  - PAC.Tilesets.Tile.rect
+  - PAC.Tilesets.Tile.tileLayersAppearsOn
+  - PAC.Tilesets.Tile.topLeft
+  - PAC.Tilesets.Tile.topRight
+  - PAC.Tilesets.Tile.width
+  langs:
+  - csharp
+  - vb
+  name: Tile
+  nameWithType: Tile
+  fullName: PAC.Tilesets.Tile
+  type: Class
+  source:
+    remote:
+      path: Assets/Scripts/Tilesets/Tile.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: Tile
+    path: ../Assets/Scripts/Tilesets/Tile.cs
+    startLine: 10
+  namespace: PAC.Tilesets
+  syntax:
+    content: public class Tile
+    content.vb: Public Class Tile
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: PAC.Tilesets.Tile.file
+  commentId: P:PAC.Tilesets.Tile.file
+  id: file
+  parent: PAC.Tilesets.Tile
+  langs:
+  - csharp
+  - vb
+  name: file
+  nameWithType: Tile.file
+  fullName: PAC.Tilesets.Tile.file
+  type: Property
+  source:
+    remote:
+      path: Assets/Scripts/Tilesets/Tile.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: file
+    path: ../Assets/Scripts/Tilesets/Tile.cs
+    startLine: 12
+  namespace: PAC.Tilesets
+  syntax:
+    content: public File file { get; }
+    parameters: []
+    return:
+      type: PAC.Files.File
+    content.vb: Public Property file As File
+  overload: PAC.Tilesets.Tile.file*
+- uid: PAC.Tilesets.Tile.tileLayersAppearsOn
+  commentId: P:PAC.Tilesets.Tile.tileLayersAppearsOn
+  id: tileLayersAppearsOn
+  parent: PAC.Tilesets.Tile
+  langs:
+  - csharp
+  - vb
+  name: tileLayersAppearsOn
+  nameWithType: Tile.tileLayersAppearsOn
+  fullName: PAC.Tilesets.Tile.tileLayersAppearsOn
+  type: Property
+  source:
+    remote:
+      path: Assets/Scripts/Tilesets/Tile.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: tileLayersAppearsOn
+    path: ../Assets/Scripts/Tilesets/Tile.cs
+    startLine: 22
+  namespace: PAC.Tilesets
+  syntax:
+    content: public TileLayer[] tileLayersAppearsOn { get; }
+    parameters: []
+    return:
+      type: PAC.Layers.TileLayer[]
+    content.vb: Public ReadOnly Property tileLayersAppearsOn As TileLayer()
+  overload: PAC.Tilesets.Tile.tileLayersAppearsOn*
+- uid: PAC.Tilesets.Tile.width
+  commentId: P:PAC.Tilesets.Tile.width
+  id: width
+  parent: PAC.Tilesets.Tile
+  langs:
+  - csharp
+  - vb
+  name: width
+  nameWithType: Tile.width
+  fullName: PAC.Tilesets.Tile.width
+  type: Property
+  source:
+    remote:
+      path: Assets/Scripts/Tilesets/Tile.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: width
+    path: ../Assets/Scripts/Tilesets/Tile.cs
+    startLine: 24
+  namespace: PAC.Tilesets
+  syntax:
+    content: public int width { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public ReadOnly Property width As Integer
+  overload: PAC.Tilesets.Tile.width*
+- uid: PAC.Tilesets.Tile.height
+  commentId: P:PAC.Tilesets.Tile.height
+  id: height
+  parent: PAC.Tilesets.Tile
+  langs:
+  - csharp
+  - vb
+  name: height
+  nameWithType: Tile.height
+  fullName: PAC.Tilesets.Tile.height
+  type: Property
+  source:
+    remote:
+      path: Assets/Scripts/Tilesets/Tile.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: height
+    path: ../Assets/Scripts/Tilesets/Tile.cs
+    startLine: 25
+  namespace: PAC.Tilesets
+  syntax:
+    content: public int height { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public ReadOnly Property height As Integer
+  overload: PAC.Tilesets.Tile.height*
+- uid: PAC.Tilesets.Tile.bottomLeft
+  commentId: P:PAC.Tilesets.Tile.bottomLeft
+  id: bottomLeft
+  parent: PAC.Tilesets.Tile
+  langs:
+  - csharp
+  - vb
+  name: bottomLeft
+  nameWithType: Tile.bottomLeft
+  fullName: PAC.Tilesets.Tile.bottomLeft
+  type: Property
+  source:
+    remote:
+      path: Assets/Scripts/Tilesets/Tile.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: bottomLeft
+    path: ../Assets/Scripts/Tilesets/Tile.cs
+    startLine: 28
+  namespace: PAC.Tilesets
+  syntax:
+    content: public IntVector2 bottomLeft { get; set; }
+    parameters: []
+    return:
+      type: PAC.DataStructures.IntVector2
+    content.vb: Public Property bottomLeft As IntVector2
+  overload: PAC.Tilesets.Tile.bottomLeft*
+- uid: PAC.Tilesets.Tile.bottomRight
+  commentId: P:PAC.Tilesets.Tile.bottomRight
+  id: bottomRight
+  parent: PAC.Tilesets.Tile
+  langs:
+  - csharp
+  - vb
+  name: bottomRight
+  nameWithType: Tile.bottomRight
+  fullName: PAC.Tilesets.Tile.bottomRight
+  type: Property
+  source:
+    remote:
+      path: Assets/Scripts/Tilesets/Tile.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: bottomRight
+    path: ../Assets/Scripts/Tilesets/Tile.cs
+    startLine: 38
+  namespace: PAC.Tilesets
+  syntax:
+    content: public IntVector2 bottomRight { get; set; }
+    parameters: []
+    return:
+      type: PAC.DataStructures.IntVector2
+    content.vb: Public Property bottomRight As IntVector2
+  overload: PAC.Tilesets.Tile.bottomRight*
+- uid: PAC.Tilesets.Tile.topLeft
+  commentId: P:PAC.Tilesets.Tile.topLeft
+  id: topLeft
+  parent: PAC.Tilesets.Tile
+  langs:
+  - csharp
+  - vb
+  name: topLeft
+  nameWithType: Tile.topLeft
+  fullName: PAC.Tilesets.Tile.topLeft
+  type: Property
+  source:
+    remote:
+      path: Assets/Scripts/Tilesets/Tile.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: topLeft
+    path: ../Assets/Scripts/Tilesets/Tile.cs
+    startLine: 46
+  namespace: PAC.Tilesets
+  syntax:
+    content: public IntVector2 topLeft { get; set; }
+    parameters: []
+    return:
+      type: PAC.DataStructures.IntVector2
+    content.vb: Public Property topLeft As IntVector2
+  overload: PAC.Tilesets.Tile.topLeft*
+- uid: PAC.Tilesets.Tile.topRight
+  commentId: P:PAC.Tilesets.Tile.topRight
+  id: topRight
+  parent: PAC.Tilesets.Tile
+  langs:
+  - csharp
+  - vb
+  name: topRight
+  nameWithType: Tile.topRight
+  fullName: PAC.Tilesets.Tile.topRight
+  type: Property
+  source:
+    remote:
+      path: Assets/Scripts/Tilesets/Tile.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: topRight
+    path: ../Assets/Scripts/Tilesets/Tile.cs
+    startLine: 54
+  namespace: PAC.Tilesets
+  syntax:
+    content: public IntVector2 topRight { get; set; }
+    parameters: []
+    return:
+      type: PAC.DataStructures.IntVector2
+    content.vb: Public Property topRight As IntVector2
+  overload: PAC.Tilesets.Tile.topRight*
+- uid: PAC.Tilesets.Tile.centre
+  commentId: P:PAC.Tilesets.Tile.centre
+  id: centre
+  parent: PAC.Tilesets.Tile
+  langs:
+  - csharp
+  - vb
+  name: centre
+  nameWithType: Tile.centre
+  fullName: PAC.Tilesets.Tile.centre
+  type: Property
+  source:
+    remote:
+      path: Assets/Scripts/Tilesets/Tile.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: centre
+    path: ../Assets/Scripts/Tilesets/Tile.cs
+    startLine: 62
+  namespace: PAC.Tilesets
+  syntax:
+    content: public Vector2 centre { get; }
+    parameters: []
+    return:
+      type: Global.Vector2
+    content.vb: Public ReadOnly Property centre As Vector2
+  overload: PAC.Tilesets.Tile.centre*
+- uid: PAC.Tilesets.Tile.rect
+  commentId: P:PAC.Tilesets.Tile.rect
+  id: rect
+  parent: PAC.Tilesets.Tile
+  langs:
+  - csharp
+  - vb
+  name: rect
+  nameWithType: Tile.rect
+  fullName: PAC.Tilesets.Tile.rect
+  type: Property
+  source:
+    remote:
+      path: Assets/Scripts/Tilesets/Tile.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: rect
+    path: ../Assets/Scripts/Tilesets/Tile.cs
+    startLine: 63
+  namespace: PAC.Tilesets
+  syntax:
+    content: public IntRect rect { get; }
+    parameters: []
+    return:
+      type: PAC.DataStructures.IntRect
+    content.vb: Public ReadOnly Property rect As IntRect
+  overload: PAC.Tilesets.Tile.rect*
+- uid: PAC.Tilesets.Tile.#ctor(PAC.Files.File,PAC.DataStructures.IntVector2,PAC.Layers.TileLayer[])
+  commentId: M:PAC.Tilesets.Tile.#ctor(PAC.Files.File,PAC.DataStructures.IntVector2,PAC.Layers.TileLayer[])
+  id: '#ctor(PAC.Files.File,PAC.DataStructures.IntVector2,PAC.Layers.TileLayer[])'
+  parent: PAC.Tilesets.Tile
+  langs:
+  - csharp
+  - vb
+  name: Tile(File, IntVector2, TileLayer[])
+  nameWithType: Tile.Tile(File, IntVector2, TileLayer[])
+  fullName: PAC.Tilesets.Tile.Tile(PAC.Files.File, PAC.DataStructures.IntVector2, PAC.Layers.TileLayer[])
+  type: Constructor
+  source:
+    remote:
+      path: Assets/Scripts/Tilesets/Tile.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: .ctor
+    path: ../Assets/Scripts/Tilesets/Tile.cs
+    startLine: 75
+  namespace: PAC.Tilesets
+  example: []
+  syntax:
+    content: public Tile(File file, IntVector2 bottomLeft, TileLayer[] linkedTileLayers)
+    parameters:
+    - id: file
+      type: PAC.Files.File
+    - id: bottomLeft
+      type: PAC.DataStructures.IntVector2
+    - id: linkedTileLayers
+      type: PAC.Layers.TileLayer[]
+      description: >-
+        The tile layers that the tile is on that are associated with each of the layers in the tile's file.
+
+        Given in the same order as the layers in the tile's file.
+    content.vb: Public Sub New(file As File, bottomLeft As IntVector2, linkedTileLayers As TileLayer())
+  overload: PAC.Tilesets.Tile.#ctor*
+  nameWithType.vb: Tile.New(File, IntVector2, TileLayer())
+  fullName.vb: PAC.Tilesets.Tile.New(PAC.Files.File, PAC.DataStructures.IntVector2, PAC.Layers.TileLayer())
+  name.vb: New(File, IntVector2, TileLayer())
+- uid: PAC.Tilesets.Tile.TileLayerToLayerInTile(PAC.Layers.TileLayer)
+  commentId: M:PAC.Tilesets.Tile.TileLayerToLayerInTile(PAC.Layers.TileLayer)
+  id: TileLayerToLayerInTile(PAC.Layers.TileLayer)
+  parent: PAC.Tilesets.Tile
+  langs:
+  - csharp
+  - vb
+  name: TileLayerToLayerInTile(TileLayer)
+  nameWithType: Tile.TileLayerToLayerInTile(TileLayer)
+  fullName: PAC.Tilesets.Tile.TileLayerToLayerInTile(PAC.Layers.TileLayer)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Tilesets/Tile.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: TileLayerToLayerInTile
+    path: ../Assets/Scripts/Tilesets/Tile.cs
+    startLine: 105
+  namespace: PAC.Tilesets
+  summary: Takes in the tile layer (that this tile must be on) and returns the layer it is associated with in the tile's file.
+  example: []
+  syntax:
+    content: public Layer TileLayerToLayerInTile(TileLayer tileLayer)
+    parameters:
+    - id: tileLayer
+      type: PAC.Layers.TileLayer
+    return:
+      type: PAC.Layers.Layer
+    content.vb: Public Function TileLayerToLayerInTile(tileLayer As TileLayer) As Layer
+  overload: PAC.Tilesets.Tile.TileLayerToLayerInTile*
+- uid: PAC.Tilesets.Tile.LayerInTileToTileLayer(PAC.Layers.Layer)
+  commentId: M:PAC.Tilesets.Tile.LayerInTileToTileLayer(PAC.Layers.Layer)
+  id: LayerInTileToTileLayer(PAC.Layers.Layer)
+  parent: PAC.Tilesets.Tile
+  langs:
+  - csharp
+  - vb
+  name: LayerInTileToTileLayer(Layer)
+  nameWithType: Tile.LayerInTileToTileLayer(Layer)
+  fullName: PAC.Tilesets.Tile.LayerInTileToTileLayer(PAC.Layers.Layer)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Tilesets/Tile.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: LayerInTileToTileLayer
+    path: ../Assets/Scripts/Tilesets/Tile.cs
+    startLine: 116
+  namespace: PAC.Tilesets
+  summary: Takes in the layer (that must be in the tile's file) and returns the tile layer (that the tile is on) that the layer is associated with.
+  example: []
+  syntax:
+    content: public TileLayer LayerInTileToTileLayer(Layer layer)
+    parameters:
+    - id: layer
+      type: PAC.Layers.Layer
+    return:
+      type: PAC.Layers.TileLayer
+    content.vb: Public Function LayerInTileToTileLayer(layer As Layer) As TileLayer
+  overload: PAC.Tilesets.Tile.LayerInTileToTileLayer*
+- uid: PAC.Tilesets.Tile.SubscribeToOnMoved(UnityAction{PAC.DataStructures.IntRect})
+  commentId: M:PAC.Tilesets.Tile.SubscribeToOnMoved(UnityAction{PAC.DataStructures.IntRect})
+  id: SubscribeToOnMoved(UnityAction{PAC.DataStructures.IntRect})
+  parent: PAC.Tilesets.Tile
+  langs:
+  - csharp
+  - vb
+  name: SubscribeToOnMoved(UnityAction<IntRect>)
+  nameWithType: Tile.SubscribeToOnMoved(UnityAction<IntRect>)
+  fullName: PAC.Tilesets.Tile.SubscribeToOnMoved(UnityAction<PAC.DataStructures.IntRect>)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Tilesets/Tile.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: SubscribeToOnMoved
+    path: ../Assets/Scripts/Tilesets/Tile.cs
+    startLine: 127
+  namespace: PAC.Tilesets
+  syntax:
+    content: public void SubscribeToOnMoved(UnityAction<IntRect> call)
+    parameters:
+    - id: call
+      type: Global.UnityAction{PAC.DataStructures.IntRect}
+    content.vb: Public Sub SubscribeToOnMoved([call] As UnityAction(Of IntRect))
+  overload: PAC.Tilesets.Tile.SubscribeToOnMoved*
+  nameWithType.vb: Tile.SubscribeToOnMoved(UnityAction(Of IntRect))
+  fullName.vb: PAC.Tilesets.Tile.SubscribeToOnMoved(UnityAction(Of PAC.DataStructures.IntRect))
+  name.vb: SubscribeToOnMoved(UnityAction(Of IntRect))
+references:
+- uid: PAC.Tilesets
+  commentId: N:PAC.Tilesets
+  href: PAC.html
+  name: PAC.Tilesets
+  nameWithType: PAC.Tilesets
+  fullName: PAC.Tilesets
+  spec.csharp:
+  - uid: PAC
+    name: PAC
+    href: PAC.html
+  - name: .
+  - uid: PAC.Tilesets
+    name: Tilesets
+    href: PAC.Tilesets.html
+  spec.vb:
+  - uid: PAC
+    name: PAC
+    href: PAC.html
+  - name: .
+  - uid: PAC.Tilesets
+    name: Tilesets
+    href: PAC.Tilesets.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: PAC.Tilesets.Tile.file*
+  commentId: Overload:PAC.Tilesets.Tile.file
+  href: PAC.Tilesets.Tile.html#PAC_Tilesets_Tile_file
+  name: file
+  nameWithType: Tile.file
+  fullName: PAC.Tilesets.Tile.file
+- uid: PAC.Files.File
+  commentId: T:PAC.Files.File
+  parent: PAC.Files
+  href: PAC.Files.File.html
+  name: File
+  nameWithType: File
+  fullName: PAC.Files.File
+- uid: PAC.Files
+  commentId: N:PAC.Files
+  href: PAC.html
+  name: PAC.Files
+  nameWithType: PAC.Files
+  fullName: PAC.Files
+  spec.csharp:
+  - uid: PAC
+    name: PAC
+    href: PAC.html
+  - name: .
+  - uid: PAC.Files
+    name: Files
+    href: PAC.Files.html
+  spec.vb:
+  - uid: PAC
+    name: PAC
+    href: PAC.html
+  - name: .
+  - uid: PAC.Files
+    name: Files
+    href: PAC.Files.html
+- uid: PAC.Tilesets.Tile.tileLayersAppearsOn*
+  commentId: Overload:PAC.Tilesets.Tile.tileLayersAppearsOn
+  href: PAC.Tilesets.Tile.html#PAC_Tilesets_Tile_tileLayersAppearsOn
+  name: tileLayersAppearsOn
+  nameWithType: Tile.tileLayersAppearsOn
+  fullName: PAC.Tilesets.Tile.tileLayersAppearsOn
+- uid: PAC.Layers.TileLayer[]
+  isExternal: true
+  href: PAC.Layers.TileLayer.html
+  name: TileLayer[]
+  nameWithType: TileLayer[]
+  fullName: PAC.Layers.TileLayer[]
+  nameWithType.vb: TileLayer()
+  fullName.vb: PAC.Layers.TileLayer()
+  name.vb: TileLayer()
+  spec.csharp:
+  - uid: PAC.Layers.TileLayer
+    name: TileLayer
+    href: PAC.Layers.TileLayer.html
+  - name: '['
+  - name: ']'
+  spec.vb:
+  - uid: PAC.Layers.TileLayer
+    name: TileLayer
+    href: PAC.Layers.TileLayer.html
+  - name: (
+  - name: )
+- uid: PAC.Tilesets.Tile.width*
+  commentId: Overload:PAC.Tilesets.Tile.width
+  href: PAC.Tilesets.Tile.html#PAC_Tilesets_Tile_width
+  name: width
+  nameWithType: Tile.width
+  fullName: PAC.Tilesets.Tile.width
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: PAC.Tilesets.Tile.height*
+  commentId: Overload:PAC.Tilesets.Tile.height
+  href: PAC.Tilesets.Tile.html#PAC_Tilesets_Tile_height
+  name: height
+  nameWithType: Tile.height
+  fullName: PAC.Tilesets.Tile.height
+- uid: PAC.Tilesets.Tile.bottomLeft*
+  commentId: Overload:PAC.Tilesets.Tile.bottomLeft
+  href: PAC.Tilesets.Tile.html#PAC_Tilesets_Tile_bottomLeft
+  name: bottomLeft
+  nameWithType: Tile.bottomLeft
+  fullName: PAC.Tilesets.Tile.bottomLeft
+- uid: PAC.DataStructures.IntVector2
+  commentId: T:PAC.DataStructures.IntVector2
+  parent: PAC.DataStructures
+  href: PAC.DataStructures.IntVector2.html
+  name: IntVector2
+  nameWithType: IntVector2
+  fullName: PAC.DataStructures.IntVector2
+- uid: PAC.DataStructures
+  commentId: N:PAC.DataStructures
+  href: PAC.html
+  name: PAC.DataStructures
+  nameWithType: PAC.DataStructures
+  fullName: PAC.DataStructures
+  spec.csharp:
+  - uid: PAC
+    name: PAC
+    href: PAC.html
+  - name: .
+  - uid: PAC.DataStructures
+    name: DataStructures
+    href: PAC.DataStructures.html
+  spec.vb:
+  - uid: PAC
+    name: PAC
+    href: PAC.html
+  - name: .
+  - uid: PAC.DataStructures
+    name: DataStructures
+    href: PAC.DataStructures.html
+- uid: PAC.Tilesets.Tile.bottomRight*
+  commentId: Overload:PAC.Tilesets.Tile.bottomRight
+  href: PAC.Tilesets.Tile.html#PAC_Tilesets_Tile_bottomRight
+  name: bottomRight
+  nameWithType: Tile.bottomRight
+  fullName: PAC.Tilesets.Tile.bottomRight
+- uid: PAC.Tilesets.Tile.topLeft*
+  commentId: Overload:PAC.Tilesets.Tile.topLeft
+  href: PAC.Tilesets.Tile.html#PAC_Tilesets_Tile_topLeft
+  name: topLeft
+  nameWithType: Tile.topLeft
+  fullName: PAC.Tilesets.Tile.topLeft
+- uid: PAC.Tilesets.Tile.topRight*
+  commentId: Overload:PAC.Tilesets.Tile.topRight
+  href: PAC.Tilesets.Tile.html#PAC_Tilesets_Tile_topRight
+  name: topRight
+  nameWithType: Tile.topRight
+  fullName: PAC.Tilesets.Tile.topRight
+- uid: PAC.Tilesets.Tile.centre*
+  commentId: Overload:PAC.Tilesets.Tile.centre
+  href: PAC.Tilesets.Tile.html#PAC_Tilesets_Tile_centre
+  name: centre
+  nameWithType: Tile.centre
+  fullName: PAC.Tilesets.Tile.centre
+- uid: Global.Vector2
+  isExternal: true
+  name: Vector2
+  nameWithType: Vector2
+  fullName: Vector2
+- uid: PAC.Tilesets.Tile.rect*
+  commentId: Overload:PAC.Tilesets.Tile.rect
+  href: PAC.Tilesets.Tile.html#PAC_Tilesets_Tile_rect
+  name: rect
+  nameWithType: Tile.rect
+  fullName: PAC.Tilesets.Tile.rect
+- uid: PAC.DataStructures.IntRect
+  commentId: T:PAC.DataStructures.IntRect
+  parent: PAC.DataStructures
+  href: PAC.DataStructures.IntRect.html
+  name: IntRect
+  nameWithType: IntRect
+  fullName: PAC.DataStructures.IntRect
+- uid: PAC.Tilesets.Tile.#ctor*
+  commentId: Overload:PAC.Tilesets.Tile.#ctor
+  href: PAC.Tilesets.Tile.html#PAC_Tilesets_Tile__ctor_PAC_Files_File_PAC_DataStructures_IntVector2_PAC_Layers_TileLayer___
+  name: Tile
+  nameWithType: Tile.Tile
+  fullName: PAC.Tilesets.Tile.Tile
+  nameWithType.vb: Tile.New
+  fullName.vb: PAC.Tilesets.Tile.New
+  name.vb: New
+- uid: PAC.Tilesets.Tile.TileLayerToLayerInTile*
+  commentId: Overload:PAC.Tilesets.Tile.TileLayerToLayerInTile
+  href: PAC.Tilesets.Tile.html#PAC_Tilesets_Tile_TileLayerToLayerInTile_PAC_Layers_TileLayer_
+  name: TileLayerToLayerInTile
+  nameWithType: Tile.TileLayerToLayerInTile
+  fullName: PAC.Tilesets.Tile.TileLayerToLayerInTile
+- uid: PAC.Layers.TileLayer
+  commentId: T:PAC.Layers.TileLayer
+  parent: PAC.Layers
+  href: PAC.Layers.TileLayer.html
+  name: TileLayer
+  nameWithType: TileLayer
+  fullName: PAC.Layers.TileLayer
+- uid: PAC.Layers.Layer
+  commentId: T:PAC.Layers.Layer
+  parent: PAC.Layers
+  href: PAC.Layers.Layer.html
+  name: Layer
+  nameWithType: Layer
+  fullName: PAC.Layers.Layer
+- uid: PAC.Layers
+  commentId: N:PAC.Layers
+  href: PAC.html
+  name: PAC.Layers
+  nameWithType: PAC.Layers
+  fullName: PAC.Layers
+  spec.csharp:
+  - uid: PAC
+    name: PAC
+    href: PAC.html
+  - name: .
+  - uid: PAC.Layers
+    name: Layers
+    href: PAC.Layers.html
+  spec.vb:
+  - uid: PAC
+    name: PAC
+    href: PAC.html
+  - name: .
+  - uid: PAC.Layers
+    name: Layers
+    href: PAC.Layers.html
+- uid: PAC.Tilesets.Tile.LayerInTileToTileLayer*
+  commentId: Overload:PAC.Tilesets.Tile.LayerInTileToTileLayer
+  href: PAC.Tilesets.Tile.html#PAC_Tilesets_Tile_LayerInTileToTileLayer_PAC_Layers_Layer_
+  name: LayerInTileToTileLayer
+  nameWithType: Tile.LayerInTileToTileLayer
+  fullName: PAC.Tilesets.Tile.LayerInTileToTileLayer
+- uid: PAC.Tilesets.Tile.SubscribeToOnMoved*
+  commentId: Overload:PAC.Tilesets.Tile.SubscribeToOnMoved
+  href: PAC.Tilesets.Tile.html#PAC_Tilesets_Tile_SubscribeToOnMoved_UnityAction_PAC_DataStructures_IntRect__
+  name: SubscribeToOnMoved
+  nameWithType: Tile.SubscribeToOnMoved
+  fullName: PAC.Tilesets.Tile.SubscribeToOnMoved
+- uid: Global.UnityAction{PAC.DataStructures.IntRect}
+  commentId: '!:Global.UnityAction{PAC.DataStructures.IntRect}'
+  definition: Global.UnityAction`1
+  href: PAC.DataStructures.IntRect.html
+  name: UnityAction<IntRect>
+  nameWithType: UnityAction<IntRect>
+  fullName: UnityAction<PAC.DataStructures.IntRect>
+  nameWithType.vb: UnityAction(Of IntRect)
+  fullName.vb: UnityAction(Of PAC.DataStructures.IntRect)
+  name.vb: UnityAction(Of IntRect)
+  spec.csharp:
+  - uid: Global.UnityAction`1
+    name: UnityAction
+    isExternal: true
+  - name: <
+  - uid: PAC.DataStructures.IntRect
+    name: IntRect
+    href: PAC.DataStructures.IntRect.html
+  - name: '>'
+  spec.vb:
+  - uid: Global.UnityAction`1
+    name: UnityAction
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: PAC.DataStructures.IntRect
+    name: IntRect
+    href: PAC.DataStructures.IntRect.html
+  - name: )
+- uid: Global.UnityAction`1
+  isExternal: true
+  name: UnityAction<>
+  nameWithType: UnityAction<>
+  fullName: UnityAction<>
+  nameWithType.vb: UnityAction(Of )
+  fullName.vb: UnityAction(Of )
+  name.vb: UnityAction(Of )
+  spec.csharp:
+  - uid: Global.UnityAction`1
+    name: UnityAction
+    isExternal: true
+  - name: <
+  - name: ''
+  - name: '>'
+  spec.vb:
+  - uid: Global.UnityAction`1
+    name: UnityAction
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - name: ''
+  - name: )

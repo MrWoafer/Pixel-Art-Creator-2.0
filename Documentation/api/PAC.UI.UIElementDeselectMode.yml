@@ -1,0 +1,106 @@
+### YamlMime:ManagedReference
+items:
+- uid: PAC.UI.UIElementDeselectMode
+  commentId: T:PAC.UI.UIElementDeselectMode
+  id: UIElementDeselectMode
+  parent: PAC.UI
+  children:
+  - PAC.UI.UIElementDeselectMode.Manual
+  - PAC.UI.UIElementDeselectMode.OnInputTargetUntargeted
+  langs:
+  - csharp
+  - vb
+  name: UIElementDeselectMode
+  nameWithType: UIElementDeselectMode
+  fullName: PAC.UI.UIElementDeselectMode
+  type: Enum
+  source:
+    remote:
+      path: Assets/Scripts/UI/UIElement.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: UIElementDeselectMode
+    path: ../Assets/Scripts/UI/UIElement.cs
+    startLine: 11
+  namespace: PAC.UI
+  syntax:
+    content: public enum UIElementDeselectMode
+    content.vb: Public Enum UIElementDeselectMode
+- uid: PAC.UI.UIElementDeselectMode.Manual
+  commentId: F:PAC.UI.UIElementDeselectMode.Manual
+  id: Manual
+  parent: PAC.UI.UIElementDeselectMode
+  langs:
+  - csharp
+  - vb
+  name: Manual
+  nameWithType: UIElementDeselectMode.Manual
+  fullName: PAC.UI.UIElementDeselectMode.Manual
+  type: Field
+  source:
+    remote:
+      path: Assets/Scripts/UI/UIElement.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: Manual
+    path: ../Assets/Scripts/UI/UIElement.cs
+    startLine: 13
+  namespace: PAC.UI
+  syntax:
+    content: Manual = 0
+    return:
+      type: PAC.UI.UIElementDeselectMode
+- uid: PAC.UI.UIElementDeselectMode.OnInputTargetUntargeted
+  commentId: F:PAC.UI.UIElementDeselectMode.OnInputTargetUntargeted
+  id: OnInputTargetUntargeted
+  parent: PAC.UI.UIElementDeselectMode
+  langs:
+  - csharp
+  - vb
+  name: OnInputTargetUntargeted
+  nameWithType: UIElementDeselectMode.OnInputTargetUntargeted
+  fullName: PAC.UI.UIElementDeselectMode.OnInputTargetUntargeted
+  type: Field
+  source:
+    remote:
+      path: Assets/Scripts/UI/UIElement.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: OnInputTargetUntargeted
+    path: ../Assets/Scripts/UI/UIElement.cs
+    startLine: 14
+  namespace: PAC.UI
+  syntax:
+    content: OnInputTargetUntargeted = 1
+    return:
+      type: PAC.UI.UIElementDeselectMode
+references:
+- uid: PAC.UI
+  commentId: N:PAC.UI
+  href: PAC.html
+  name: PAC.UI
+  nameWithType: PAC.UI
+  fullName: PAC.UI
+  spec.csharp:
+  - uid: PAC
+    name: PAC
+    href: PAC.html
+  - name: .
+  - uid: PAC.UI
+    name: UI
+    href: PAC.UI.html
+  spec.vb:
+  - uid: PAC
+    name: PAC
+    href: PAC.html
+  - name: .
+  - uid: PAC.UI
+    name: UI
+    href: PAC.UI.html
+- uid: PAC.UI.UIElementDeselectMode
+  commentId: T:PAC.UI.UIElementDeselectMode
+  parent: PAC.UI
+  href: PAC.UI.UIElementDeselectMode.html
+  name: UIElementDeselectMode
+  nameWithType: UIElementDeselectMode
+  fullName: PAC.UI.UIElementDeselectMode

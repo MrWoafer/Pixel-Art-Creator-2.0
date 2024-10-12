@@ -1,0 +1,67 @@
+### YamlMime:ManagedReference
+items:
+- uid: PAC.Colour
+  commentId: N:PAC.Colour
+  id: PAC.Colour
+  children:
+  - PAC.Colour.BlendMode
+  - PAC.Colour.ColorExtensions
+  - PAC.Colour.HSL
+  - PAC.Colour.HSV
+  langs:
+  - csharp
+  - vb
+  name: PAC.Colour
+  nameWithType: PAC.Colour
+  fullName: PAC.Colour
+  type: Namespace
+references:
+- uid: PAC.Colour.BlendMode
+  commentId: T:PAC.Colour.BlendMode
+  parent: PAC.Colour
+  href: PAC.Colour.BlendMode.html
+  name: BlendMode
+  nameWithType: BlendMode
+  fullName: PAC.Colour.BlendMode
+- uid: PAC.Colour.ColorExtensions
+  commentId: T:PAC.Colour.ColorExtensions
+  href: PAC.Colour.ColorExtensions.html
+  name: ColorExtensions
+  nameWithType: ColorExtensions
+  fullName: PAC.Colour.ColorExtensions
+- uid: PAC.Colour.HSL
+  commentId: T:PAC.Colour.HSL
+  parent: PAC.Colour
+  href: PAC.Colour.HSL.html
+  name: HSL
+  nameWithType: HSL
+  fullName: PAC.Colour.HSL
+- uid: PAC.Colour.HSV
+  commentId: T:PAC.Colour.HSV
+  parent: PAC.Colour
+  href: PAC.Colour.HSV.html
+  name: HSV
+  nameWithType: HSV
+  fullName: PAC.Colour.HSV
+- uid: PAC.Colour
+  commentId: N:PAC.Colour
+  href: PAC.html
+  name: PAC.Colour
+  nameWithType: PAC.Colour
+  fullName: PAC.Colour
+  spec.csharp:
+  - uid: PAC
+    name: PAC
+    href: PAC.html
+  - name: .
+  - uid: PAC.Colour
+    name: Colour
+    href: PAC.Colour.html
+  spec.vb:
+  - uid: PAC
+    name: PAC
+    href: PAC.html
+  - name: .
+  - uid: PAC.Colour
+    name: Colour
+    href: PAC.Colour.html

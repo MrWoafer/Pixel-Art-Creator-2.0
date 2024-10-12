@@ -1,0 +1,559 @@
+### YamlMime:ManagedReference
+items:
+- uid: PAC.Animation.AnimationManager
+  commentId: T:PAC.Animation.AnimationManager
+  id: AnimationManager
+  parent: PAC.Animation
+  children:
+  - PAC.Animation.AnimationManager.AddKeyFrame
+  - PAC.Animation.AnimationManager.DebugLogKeyFrames
+  - PAC.Animation.AnimationManager.DeleteSelectedKeyFrame
+  - PAC.Animation.AnimationManager.Pause
+  - PAC.Animation.AnimationManager.Play
+  - PAC.Animation.AnimationManager.RemoveKeyFrame
+  - PAC.Animation.AnimationManager.Stop
+  - PAC.Animation.AnimationManager.SubscribeToOnCurrentFrameIndexChange(UnityAction)
+  - PAC.Animation.AnimationManager.SubscribeToOnKeyFrameAdded(UnityAction)
+  - PAC.Animation.AnimationManager.SubscribeToOnKeyFrameDeleted(UnityAction)
+  - PAC.Animation.AnimationManager.currentFrameIndex
+  - PAC.Animation.AnimationManager.framerate
+  - PAC.Animation.AnimationManager.onionSkinColour
+  - PAC.Animation.AnimationManager.showOnionSkin
+  langs:
+  - csharp
+  - vb
+  name: AnimationManager
+  nameWithType: AnimationManager
+  fullName: PAC.Animation.AnimationManager
+  type: Class
+  source:
+    remote:
+      path: Assets/Scripts/Animation/AnimationManager.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: AnimationManager
+    path: ../Assets/Scripts/Animation/AnimationManager.cs
+    startLine: 15
+  namespace: PAC.Animation
+  summary: >-
+    Handles the animation timeline and playback of animations.
+
+    The animation system is still a work in progress.
+  example: []
+  syntax:
+    content: 'public class AnimationManager : MonoBehaviour'
+    content.vb: Public Class AnimationManager Inherits MonoBehaviour
+  inheritance:
+  - System.Object
+- uid: PAC.Animation.AnimationManager.currentFrameIndex
+  commentId: P:PAC.Animation.AnimationManager.currentFrameIndex
+  id: currentFrameIndex
+  parent: PAC.Animation.AnimationManager
+  langs:
+  - csharp
+  - vb
+  name: currentFrameIndex
+  nameWithType: AnimationManager.currentFrameIndex
+  fullName: PAC.Animation.AnimationManager.currentFrameIndex
+  type: Property
+  source:
+    remote:
+      path: Assets/Scripts/Animation/AnimationManager.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: currentFrameIndex
+    path: ../Assets/Scripts/Animation/AnimationManager.cs
+    startLine: 22
+  namespace: PAC.Animation
+  summary: The number of the frame currently being displayed.
+  example: []
+  syntax:
+    content: public int currentFrameIndex { get; set; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public Property currentFrameIndex As Integer
+  overload: PAC.Animation.AnimationManager.currentFrameIndex*
+- uid: PAC.Animation.AnimationManager.framerate
+  commentId: F:PAC.Animation.AnimationManager.framerate
+  id: framerate
+  parent: PAC.Animation.AnimationManager
+  langs:
+  - csharp
+  - vb
+  name: framerate
+  nameWithType: AnimationManager.framerate
+  fullName: PAC.Animation.AnimationManager.framerate
+  type: Field
+  source:
+    remote:
+      path: Assets/Scripts/Animation/AnimationManager.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: framerate
+    path: ../Assets/Scripts/Animation/AnimationManager.cs
+    startLine: 37
+  namespace: PAC.Animation
+  syntax:
+    content: public int framerate
+    return:
+      type: System.Int32
+    content.vb: Public framerate As Integer
+- uid: PAC.Animation.AnimationManager.showOnionSkin
+  commentId: F:PAC.Animation.AnimationManager.showOnionSkin
+  id: showOnionSkin
+  parent: PAC.Animation.AnimationManager
+  langs:
+  - csharp
+  - vb
+  name: showOnionSkin
+  nameWithType: AnimationManager.showOnionSkin
+  fullName: PAC.Animation.AnimationManager.showOnionSkin
+  type: Field
+  source:
+    remote:
+      path: Assets/Scripts/Animation/AnimationManager.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: showOnionSkin
+    path: ../Assets/Scripts/Animation/AnimationManager.cs
+    startLine: 40
+  namespace: PAC.Animation
+  syntax:
+    content: public bool showOnionSkin
+    return:
+      type: System.Boolean
+    content.vb: Public showOnionSkin As Boolean
+- uid: PAC.Animation.AnimationManager.onionSkinColour
+  commentId: F:PAC.Animation.AnimationManager.onionSkinColour
+  id: onionSkinColour
+  parent: PAC.Animation.AnimationManager
+  langs:
+  - csharp
+  - vb
+  name: onionSkinColour
+  nameWithType: AnimationManager.onionSkinColour
+  fullName: PAC.Animation.AnimationManager.onionSkinColour
+  type: Field
+  source:
+    remote:
+      path: Assets/Scripts/Animation/AnimationManager.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: onionSkinColour
+    path: ../Assets/Scripts/Animation/AnimationManager.cs
+    startLine: 42
+  namespace: PAC.Animation
+  syntax:
+    content: public Color onionSkinColour
+    return:
+      type: Global.Color
+    content.vb: Public onionSkinColour As Color
+- uid: PAC.Animation.AnimationManager.Play
+  commentId: M:PAC.Animation.AnimationManager.Play
+  id: Play
+  parent: PAC.Animation.AnimationManager
+  langs:
+  - csharp
+  - vb
+  name: Play()
+  nameWithType: AnimationManager.Play()
+  fullName: PAC.Animation.AnimationManager.Play()
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Animation/AnimationManager.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: Play
+    path: ../Assets/Scripts/Animation/AnimationManager.cs
+    startLine: 245
+  namespace: PAC.Animation
+  summary: Starts/resumes the animation playback.
+  example: []
+  syntax:
+    content: public void Play()
+    content.vb: Public Sub Play()
+  overload: PAC.Animation.AnimationManager.Play*
+- uid: PAC.Animation.AnimationManager.Pause
+  commentId: M:PAC.Animation.AnimationManager.Pause
+  id: Pause
+  parent: PAC.Animation.AnimationManager
+  langs:
+  - csharp
+  - vb
+  name: Pause()
+  nameWithType: AnimationManager.Pause()
+  fullName: PAC.Animation.AnimationManager.Pause()
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Animation/AnimationManager.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: Pause
+    path: ../Assets/Scripts/Animation/AnimationManager.cs
+    startLine: 253
+  namespace: PAC.Animation
+  summary: Pauses the animation playback.
+  example: []
+  syntax:
+    content: public void Pause()
+    content.vb: Public Sub Pause()
+  overload: PAC.Animation.AnimationManager.Pause*
+- uid: PAC.Animation.AnimationManager.Stop
+  commentId: M:PAC.Animation.AnimationManager.Stop
+  id: Stop
+  parent: PAC.Animation.AnimationManager
+  langs:
+  - csharp
+  - vb
+  name: Stop()
+  nameWithType: AnimationManager.Stop()
+  fullName: PAC.Animation.AnimationManager.Stop()
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Animation/AnimationManager.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: Stop
+    path: ../Assets/Scripts/Animation/AnimationManager.cs
+    startLine: 261
+  namespace: PAC.Animation
+  summary: Stops the animation playback and resets the current frame number back to the start.
+  example: []
+  syntax:
+    content: public void Stop()
+    content.vb: Public Sub [Stop]()
+  overload: PAC.Animation.AnimationManager.Stop*
+- uid: PAC.Animation.AnimationManager.AddKeyFrame
+  commentId: M:PAC.Animation.AnimationManager.AddKeyFrame
+  id: AddKeyFrame
+  parent: PAC.Animation.AnimationManager
+  langs:
+  - csharp
+  - vb
+  name: AddKeyFrame()
+  nameWithType: AnimationManager.AddKeyFrame()
+  fullName: PAC.Animation.AnimationManager.AddKeyFrame()
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Animation/AnimationManager.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: AddKeyFrame
+    path: ../Assets/Scripts/Animation/AnimationManager.cs
+    startLine: 390
+  namespace: PAC.Animation
+  summary: Extends the length of the animation by adding one frame to the end.
+  example: []
+  syntax:
+    content: public void AddKeyFrame()
+    content.vb: Public Sub AddKeyFrame()
+  overload: PAC.Animation.AnimationManager.AddKeyFrame*
+- uid: PAC.Animation.AnimationManager.RemoveKeyFrame
+  commentId: M:PAC.Animation.AnimationManager.RemoveKeyFrame
+  id: RemoveKeyFrame
+  parent: PAC.Animation.AnimationManager
+  langs:
+  - csharp
+  - vb
+  name: RemoveKeyFrame()
+  nameWithType: AnimationManager.RemoveKeyFrame()
+  fullName: PAC.Animation.AnimationManager.RemoveKeyFrame()
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Animation/AnimationManager.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: RemoveKeyFrame
+    path: ../Assets/Scripts/Animation/AnimationManager.cs
+    startLine: 402
+  namespace: PAC.Animation
+  summary: Reduces the length of the animation by removing the final frame.
+  example: []
+  syntax:
+    content: public void RemoveKeyFrame()
+    content.vb: Public Sub RemoveKeyFrame()
+  overload: PAC.Animation.AnimationManager.RemoveKeyFrame*
+- uid: PAC.Animation.AnimationManager.DeleteSelectedKeyFrame
+  commentId: M:PAC.Animation.AnimationManager.DeleteSelectedKeyFrame
+  id: DeleteSelectedKeyFrame
+  parent: PAC.Animation.AnimationManager
+  langs:
+  - csharp
+  - vb
+  name: DeleteSelectedKeyFrame()
+  nameWithType: AnimationManager.DeleteSelectedKeyFrame()
+  fullName: PAC.Animation.AnimationManager.DeleteSelectedKeyFrame()
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Animation/AnimationManager.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: DeleteSelectedKeyFrame
+    path: ../Assets/Scripts/Animation/AnimationManager.cs
+    startLine: 422
+  namespace: PAC.Animation
+  summary: Deletes the selected key frame.
+  example: []
+  syntax:
+    content: public void DeleteSelectedKeyFrame()
+    content.vb: Public Sub DeleteSelectedKeyFrame()
+  overload: PAC.Animation.AnimationManager.DeleteSelectedKeyFrame*
+- uid: PAC.Animation.AnimationManager.DebugLogKeyFrames
+  commentId: M:PAC.Animation.AnimationManager.DebugLogKeyFrames
+  id: DebugLogKeyFrames
+  parent: PAC.Animation.AnimationManager
+  langs:
+  - csharp
+  - vb
+  name: DebugLogKeyFrames()
+  nameWithType: AnimationManager.DebugLogKeyFrames()
+  fullName: PAC.Animation.AnimationManager.DebugLogKeyFrames()
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Animation/AnimationManager.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: DebugLogKeyFrames
+    path: ../Assets/Scripts/Animation/AnimationManager.cs
+    startLine: 437
+  namespace: PAC.Animation
+  summary: For debugging purposes. Prints the current frame number and the frame numbers of each keyframe.
+  example: []
+  syntax:
+    content: public void DebugLogKeyFrames()
+    content.vb: Public Sub DebugLogKeyFrames()
+  overload: PAC.Animation.AnimationManager.DebugLogKeyFrames*
+- uid: PAC.Animation.AnimationManager.SubscribeToOnCurrentFrameIndexChange(UnityAction)
+  commentId: M:PAC.Animation.AnimationManager.SubscribeToOnCurrentFrameIndexChange(UnityAction)
+  id: SubscribeToOnCurrentFrameIndexChange(UnityAction)
+  parent: PAC.Animation.AnimationManager
+  langs:
+  - csharp
+  - vb
+  name: SubscribeToOnCurrentFrameIndexChange(UnityAction)
+  nameWithType: AnimationManager.SubscribeToOnCurrentFrameIndexChange(UnityAction)
+  fullName: PAC.Animation.AnimationManager.SubscribeToOnCurrentFrameIndexChange(UnityAction)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Animation/AnimationManager.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: SubscribeToOnCurrentFrameIndexChange
+    path: ../Assets/Scripts/Animation/AnimationManager.cs
+    startLine: 512
+  namespace: PAC.Animation
+  summary: Event is invoked when the current frame number changes.
+  example: []
+  syntax:
+    content: public void SubscribeToOnCurrentFrameIndexChange(UnityAction call)
+    parameters:
+    - id: call
+      type: Global.UnityAction
+    content.vb: Public Sub SubscribeToOnCurrentFrameIndexChange([call] As UnityAction)
+  overload: PAC.Animation.AnimationManager.SubscribeToOnCurrentFrameIndexChange*
+- uid: PAC.Animation.AnimationManager.SubscribeToOnKeyFrameAdded(UnityAction)
+  commentId: M:PAC.Animation.AnimationManager.SubscribeToOnKeyFrameAdded(UnityAction)
+  id: SubscribeToOnKeyFrameAdded(UnityAction)
+  parent: PAC.Animation.AnimationManager
+  langs:
+  - csharp
+  - vb
+  name: SubscribeToOnKeyFrameAdded(UnityAction)
+  nameWithType: AnimationManager.SubscribeToOnKeyFrameAdded(UnityAction)
+  fullName: PAC.Animation.AnimationManager.SubscribeToOnKeyFrameAdded(UnityAction)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Animation/AnimationManager.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: SubscribeToOnKeyFrameAdded
+    path: ../Assets/Scripts/Animation/AnimationManager.cs
+    startLine: 519
+  namespace: PAC.Animation
+  summary: Event is invoked when a keyframe is added.
+  example: []
+  syntax:
+    content: public void SubscribeToOnKeyFrameAdded(UnityAction call)
+    parameters:
+    - id: call
+      type: Global.UnityAction
+    content.vb: Public Sub SubscribeToOnKeyFrameAdded([call] As UnityAction)
+  overload: PAC.Animation.AnimationManager.SubscribeToOnKeyFrameAdded*
+- uid: PAC.Animation.AnimationManager.SubscribeToOnKeyFrameDeleted(UnityAction)
+  commentId: M:PAC.Animation.AnimationManager.SubscribeToOnKeyFrameDeleted(UnityAction)
+  id: SubscribeToOnKeyFrameDeleted(UnityAction)
+  parent: PAC.Animation.AnimationManager
+  langs:
+  - csharp
+  - vb
+  name: SubscribeToOnKeyFrameDeleted(UnityAction)
+  nameWithType: AnimationManager.SubscribeToOnKeyFrameDeleted(UnityAction)
+  fullName: PAC.Animation.AnimationManager.SubscribeToOnKeyFrameDeleted(UnityAction)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Animation/AnimationManager.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: SubscribeToOnKeyFrameDeleted
+    path: ../Assets/Scripts/Animation/AnimationManager.cs
+    startLine: 526
+  namespace: PAC.Animation
+  summary: Event is invoked when a keyframe is deleted.
+  example: []
+  syntax:
+    content: public void SubscribeToOnKeyFrameDeleted(UnityAction call)
+    parameters:
+    - id: call
+      type: Global.UnityAction
+    content.vb: Public Sub SubscribeToOnKeyFrameDeleted([call] As UnityAction)
+  overload: PAC.Animation.AnimationManager.SubscribeToOnKeyFrameDeleted*
+references:
+- uid: PAC.Animation
+  commentId: N:PAC.Animation
+  href: PAC.html
+  name: PAC.Animation
+  nameWithType: PAC.Animation
+  fullName: PAC.Animation
+  spec.csharp:
+  - uid: PAC
+    name: PAC
+    href: PAC.html
+  - name: .
+  - uid: PAC.Animation
+    name: Animation
+    href: PAC.Animation.html
+  spec.vb:
+  - uid: PAC
+    name: PAC
+    href: PAC.html
+  - name: .
+  - uid: PAC.Animation
+    name: Animation
+    href: PAC.Animation.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: PAC.Animation.AnimationManager.currentFrameIndex*
+  commentId: Overload:PAC.Animation.AnimationManager.currentFrameIndex
+  href: PAC.Animation.AnimationManager.html#PAC_Animation_AnimationManager_currentFrameIndex
+  name: currentFrameIndex
+  nameWithType: AnimationManager.currentFrameIndex
+  fullName: PAC.Animation.AnimationManager.currentFrameIndex
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: Global.Color
+  isExternal: true
+  name: Color
+  nameWithType: Color
+  fullName: Color
+- uid: PAC.Animation.AnimationManager.Play*
+  commentId: Overload:PAC.Animation.AnimationManager.Play
+  href: PAC.Animation.AnimationManager.html#PAC_Animation_AnimationManager_Play
+  name: Play
+  nameWithType: AnimationManager.Play
+  fullName: PAC.Animation.AnimationManager.Play
+- uid: PAC.Animation.AnimationManager.Pause*
+  commentId: Overload:PAC.Animation.AnimationManager.Pause
+  href: PAC.Animation.AnimationManager.html#PAC_Animation_AnimationManager_Pause
+  name: Pause
+  nameWithType: AnimationManager.Pause
+  fullName: PAC.Animation.AnimationManager.Pause
+- uid: PAC.Animation.AnimationManager.Stop*
+  commentId: Overload:PAC.Animation.AnimationManager.Stop
+  href: PAC.Animation.AnimationManager.html#PAC_Animation_AnimationManager_Stop
+  name: Stop
+  nameWithType: AnimationManager.Stop
+  fullName: PAC.Animation.AnimationManager.Stop
+- uid: PAC.Animation.AnimationManager.AddKeyFrame*
+  commentId: Overload:PAC.Animation.AnimationManager.AddKeyFrame
+  href: PAC.Animation.AnimationManager.html#PAC_Animation_AnimationManager_AddKeyFrame
+  name: AddKeyFrame
+  nameWithType: AnimationManager.AddKeyFrame
+  fullName: PAC.Animation.AnimationManager.AddKeyFrame
+- uid: PAC.Animation.AnimationManager.RemoveKeyFrame*
+  commentId: Overload:PAC.Animation.AnimationManager.RemoveKeyFrame
+  href: PAC.Animation.AnimationManager.html#PAC_Animation_AnimationManager_RemoveKeyFrame
+  name: RemoveKeyFrame
+  nameWithType: AnimationManager.RemoveKeyFrame
+  fullName: PAC.Animation.AnimationManager.RemoveKeyFrame
+- uid: PAC.Animation.AnimationManager.DeleteSelectedKeyFrame*
+  commentId: Overload:PAC.Animation.AnimationManager.DeleteSelectedKeyFrame
+  href: PAC.Animation.AnimationManager.html#PAC_Animation_AnimationManager_DeleteSelectedKeyFrame
+  name: DeleteSelectedKeyFrame
+  nameWithType: AnimationManager.DeleteSelectedKeyFrame
+  fullName: PAC.Animation.AnimationManager.DeleteSelectedKeyFrame
+- uid: PAC.Animation.AnimationManager.DebugLogKeyFrames*
+  commentId: Overload:PAC.Animation.AnimationManager.DebugLogKeyFrames
+  href: PAC.Animation.AnimationManager.html#PAC_Animation_AnimationManager_DebugLogKeyFrames
+  name: DebugLogKeyFrames
+  nameWithType: AnimationManager.DebugLogKeyFrames
+  fullName: PAC.Animation.AnimationManager.DebugLogKeyFrames
+- uid: PAC.Animation.AnimationManager.SubscribeToOnCurrentFrameIndexChange*
+  commentId: Overload:PAC.Animation.AnimationManager.SubscribeToOnCurrentFrameIndexChange
+  href: PAC.Animation.AnimationManager.html#PAC_Animation_AnimationManager_SubscribeToOnCurrentFrameIndexChange_UnityAction_
+  name: SubscribeToOnCurrentFrameIndexChange
+  nameWithType: AnimationManager.SubscribeToOnCurrentFrameIndexChange
+  fullName: PAC.Animation.AnimationManager.SubscribeToOnCurrentFrameIndexChange
+- uid: Global.UnityAction
+  isExternal: true
+  name: UnityAction
+  nameWithType: UnityAction
+  fullName: UnityAction
+- uid: PAC.Animation.AnimationManager.SubscribeToOnKeyFrameAdded*
+  commentId: Overload:PAC.Animation.AnimationManager.SubscribeToOnKeyFrameAdded
+  href: PAC.Animation.AnimationManager.html#PAC_Animation_AnimationManager_SubscribeToOnKeyFrameAdded_UnityAction_
+  name: SubscribeToOnKeyFrameAdded
+  nameWithType: AnimationManager.SubscribeToOnKeyFrameAdded
+  fullName: PAC.Animation.AnimationManager.SubscribeToOnKeyFrameAdded
+- uid: PAC.Animation.AnimationManager.SubscribeToOnKeyFrameDeleted*
+  commentId: Overload:PAC.Animation.AnimationManager.SubscribeToOnKeyFrameDeleted
+  href: PAC.Animation.AnimationManager.html#PAC_Animation_AnimationManager_SubscribeToOnKeyFrameDeleted_UnityAction_
+  name: SubscribeToOnKeyFrameDeleted
+  nameWithType: AnimationManager.SubscribeToOnKeyFrameDeleted
+  fullName: PAC.Animation.AnimationManager.SubscribeToOnKeyFrameDeleted

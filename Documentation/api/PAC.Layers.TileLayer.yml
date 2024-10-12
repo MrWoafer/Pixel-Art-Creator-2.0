@@ -1,0 +1,3498 @@
+### YamlMime:ManagedReference
+items:
+- uid: PAC.Layers.TileLayer
+  commentId: T:PAC.Layers.TileLayer
+  id: TileLayer
+  parent: PAC.Layers
+  children:
+  - PAC.Layers.TileLayer.#ctor(PAC.Layers.TileLayer)
+  - PAC.Layers.TileLayer.#ctor(System.String,System.Int32,System.Int32)
+  - PAC.Layers.TileLayer.AddTile(PAC.Tilesets.Tile)
+  - PAC.Layers.TileLayer.ClearFrames
+  - PAC.Layers.TileLayer.ClearTiles
+  - PAC.Layers.TileLayer.ContainsTile(PAC.Tilesets.Tile)
+  - PAC.Layers.TileLayer.DeepCopy
+  - PAC.Layers.TileLayer.DeleteKeyFrameNoEvent(System.Int32)
+  - PAC.Layers.TileLayer.ExtendNoEvent(System.Int32,System.Int32,System.Int32,System.Int32)
+  - PAC.Layers.TileLayer.FlipNoEvent(PAC.FlipDirection)
+  - PAC.Layers.TileLayer.GetLinkedPixels(PAC.DataStructures.IntVector2)
+  - PAC.Layers.TileLayer.GetLinkedPixels(PAC.DataStructures.IntVector2[])
+  - PAC.Layers.TileLayer.GetPixel(PAC.DataStructures.IntVector2,System.Int32,System.Boolean)
+  - PAC.Layers.TileLayer.LoadJSON(PAC.JSON.JSON)
+  - PAC.Layers.TileLayer.PixelToTile(PAC.DataStructures.IntVector2)
+  - PAC.Layers.TileLayer.PixelToTile(System.Int32,System.Int32)
+  - PAC.Layers.TileLayer.RemoveTile(PAC.Tilesets.Tile)
+  - PAC.Layers.TileLayer.RerenderKeyFrame(System.Int32)
+  - PAC.Layers.TileLayer.RerenderKeyFrame(System.Int32,PAC.DataStructures.IntRect)
+  - PAC.Layers.TileLayer.RerenderKeyFrame(System.Int32,PAC.DataStructures.IntVector2[])
+  - PAC.Layers.TileLayer.RerenderKeyFrames
+  - PAC.Layers.TileLayer.RerenderKeyFrames(PAC.DataStructures.IntRect)
+  - PAC.Layers.TileLayer.RerenderKeyFrames(PAC.DataStructures.IntVector2[])
+  - PAC.Layers.TileLayer.RerenderKeyFrames(System.Int32[])
+  - PAC.Layers.TileLayer.RerenderKeyFrames(System.Int32[],PAC.DataStructures.IntRect)
+  - PAC.Layers.TileLayer.RerenderKeyFrames(System.Int32[],PAC.DataStructures.IntVector2[])
+  - PAC.Layers.TileLayer.RotateNoEvent(PAC.RotationAngle)
+  - PAC.Layers.TileLayer.ScaleNoEvent(System.Int32,System.Int32)
+  - PAC.Layers.TileLayer.ScaleNoEvent(System.Single,System.Single)
+  - PAC.Layers.TileLayer.SetPixelsNoEvent(PAC.DataStructures.IntVector2[],System.Int32,Color,PAC.Layers.AnimFrameRefMode)
+  - PAC.Layers.TileLayer.ToJSON
+  - PAC.Layers.TileLayer.layerType
+  - PAC.Layers.TileLayer.tiles
+  langs:
+  - csharp
+  - vb
+  name: TileLayer
+  nameWithType: TileLayer
+  fullName: PAC.Layers.TileLayer
+  type: Class
+  source:
+    remote:
+      path: Assets/Scripts/Layers/TileLayer.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: TileLayer
+    path: ../Assets/Scripts/Layers/TileLayer.cs
+    startLine: 13
+  namespace: PAC.Layers
+  summary: A class to represent a tile layer - one for placing and editing tileset tiles.
+  example: []
+  syntax:
+    content: 'public class TileLayer : Layer, IJSONable'
+    content.vb: Public Class TileLayer Inherits Layer Implements IJSONable
+  inheritance:
+  - System.Object
+  - PAC.Layers.Layer
+  implements:
+  - PAC.JSON.IJSONable
+  inheritedMembers:
+  - PAC.Layers.Layer.name
+  - PAC.Layers.Layer.width
+  - PAC.Layers.Layer.height
+  - PAC.Layers.Layer.rect
+  - PAC.Layers.Layer._visible
+  - PAC.Layers.Layer.visible
+  - PAC.Layers.Layer.locked
+  - PAC.Layers.Layer.opacity
+  - PAC.Layers.Layer._blendMode
+  - PAC.Layers.Layer.blendMode
+  - PAC.Layers.Layer.keyFrames
+  - PAC.Layers.Layer.keyFrameIndices
+  - PAC.Layers.Layer.keyFrameTextures
+  - PAC.Layers.Layer.onPixelsChanged
+  - PAC.Layers.Layer.SetPixel(System.Int32,System.Int32,System.Int32,Color,PAC.Layers.AnimFrameRefMode)
+  - PAC.Layers.Layer.SetPixel(PAC.DataStructures.IntVector2,System.Int32,Color,PAC.Layers.AnimFrameRefMode)
+  - PAC.Layers.Layer.SetPixels(PAC.DataStructures.IntVector2[],System.Int32,Color,PAC.Layers.AnimFrameRefMode)
+  - PAC.Layers.Layer.GetPixel(System.Int32,System.Int32,System.Int32,System.Boolean)
+  - PAC.Layers.Layer.IsBlank
+  - PAC.Layers.Layer.Flip(PAC.FlipDirection)
+  - PAC.Layers.Layer.Rotate(PAC.RotationAngle)
+  - PAC.Layers.Layer.Extend(System.Int32,System.Int32,System.Int32,System.Int32)
+  - PAC.Layers.Layer.Scale(System.Single)
+  - PAC.Layers.Layer.Scale(System.Single,System.Single)
+  - PAC.Layers.Layer.Scale(System.Int32,System.Int32)
+  - PAC.Layers.Layer.FromJSON(PAC.JSON.JSON)
+  - PAC.Layers.Layer.Item(System.Int32)
+  - PAC.Layers.Layer.GetKeyFrame(System.Int32)
+  - PAC.Layers.Layer.HasKeyFrameAt(System.Int32)
+  - PAC.Layers.Layer.AddKeyFrame(System.Int32)
+  - PAC.Layers.Layer.AddKeyFrame(System.Int32,Texture2D)
+  - PAC.Layers.Layer.AddKeyFrame(PAC.Animation.AnimationKeyFrame)
+  - PAC.Layers.Layer.DeleteMostRecentKeyFrame(System.Int32)
+  - PAC.Layers.Layer.DeleteKeyFrame(System.Int32)
+  - PAC.Layers.Layer.DeleteKeyFrame(PAC.Animation.AnimationKeyFrame)
+  - PAC.Layers.Layer.SubscribeToOnPixelsChanged(UnityAction{PAC.DataStructures.IntVector2[],System.Int32[]})
+  - PAC.Layers.Layer.SubscribeToOnVisibilityChanged(UnityAction)
+  - PAC.Layers.Layer.SubscribeToOnBlendModeChanged(UnityAction)
+  - PAC.Layers.Layer.SubscribeToOnKeyFrameAdded(UnityAction{System.Int32})
+  - PAC.Layers.Layer.SubscribeToOnKeyFrameRemoved(UnityAction{System.Int32})
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: PAC.Layers.TileLayer.layerType
+  commentId: P:PAC.Layers.TileLayer.layerType
+  id: layerType
+  parent: PAC.Layers.TileLayer
+  langs:
+  - csharp
+  - vb
+  name: layerType
+  nameWithType: TileLayer.layerType
+  fullName: PAC.Layers.TileLayer.layerType
+  type: Property
+  source:
+    remote:
+      path: Assets/Scripts/Layers/TileLayer.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: layerType
+    path: ../Assets/Scripts/Layers/TileLayer.cs
+    startLine: 15
+  namespace: PAC.Layers
+  example: []
+  syntax:
+    content: public override LayerType layerType { get; }
+    parameters: []
+    return:
+      type: PAC.Layers.LayerType
+    content.vb: Public Overrides ReadOnly Property layerType As LayerType
+  overridden: PAC.Layers.Layer.layerType
+  overload: PAC.Layers.TileLayer.layerType*
+- uid: PAC.Layers.TileLayer.tiles
+  commentId: P:PAC.Layers.TileLayer.tiles
+  id: tiles
+  parent: PAC.Layers.TileLayer
+  langs:
+  - csharp
+  - vb
+  name: tiles
+  nameWithType: TileLayer.tiles
+  fullName: PAC.Layers.TileLayer.tiles
+  type: Property
+  source:
+    remote:
+      path: Assets/Scripts/Layers/TileLayer.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: tiles
+    path: ../Assets/Scripts/Layers/TileLayer.cs
+    startLine: 18
+  namespace: PAC.Layers
+  summary: The tiles on this layer.
+  example: []
+  syntax:
+    content: public List<Tile> tiles { get; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.List{PAC.Tilesets.Tile}
+    content.vb: Public Property tiles As List(Of Tile)
+  overload: PAC.Layers.TileLayer.tiles*
+- uid: PAC.Layers.TileLayer.#ctor(System.String,System.Int32,System.Int32)
+  commentId: M:PAC.Layers.TileLayer.#ctor(System.String,System.Int32,System.Int32)
+  id: '#ctor(System.String,System.Int32,System.Int32)'
+  parent: PAC.Layers.TileLayer
+  langs:
+  - csharp
+  - vb
+  name: TileLayer(string, int, int)
+  nameWithType: TileLayer.TileLayer(string, int, int)
+  fullName: PAC.Layers.TileLayer.TileLayer(string, int, int)
+  type: Constructor
+  source:
+    remote:
+      path: Assets/Scripts/Layers/TileLayer.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: .ctor
+    path: ../Assets/Scripts/Layers/TileLayer.cs
+    startLine: 30
+  namespace: PAC.Layers
+  syntax:
+    content: public TileLayer(string name, int width, int height)
+    parameters:
+    - id: name
+      type: System.String
+    - id: width
+      type: System.Int32
+    - id: height
+      type: System.Int32
+    content.vb: Public Sub New(name As String, width As Integer, height As Integer)
+  overload: PAC.Layers.TileLayer.#ctor*
+  nameWithType.vb: TileLayer.New(String, Integer, Integer)
+  fullName.vb: PAC.Layers.TileLayer.New(String, Integer, Integer)
+  name.vb: New(String, Integer, Integer)
+- uid: PAC.Layers.TileLayer.#ctor(PAC.Layers.TileLayer)
+  commentId: M:PAC.Layers.TileLayer.#ctor(PAC.Layers.TileLayer)
+  id: '#ctor(PAC.Layers.TileLayer)'
+  parent: PAC.Layers.TileLayer
+  langs:
+  - csharp
+  - vb
+  name: TileLayer(TileLayer)
+  nameWithType: TileLayer.TileLayer(TileLayer)
+  fullName: PAC.Layers.TileLayer.TileLayer(PAC.Layers.TileLayer)
+  type: Constructor
+  source:
+    remote:
+      path: Assets/Scripts/Layers/TileLayer.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: .ctor
+    path: ../Assets/Scripts/Layers/TileLayer.cs
+    startLine: 35
+  namespace: PAC.Layers
+  summary: Creates a deep copy of the TileLayer.
+  example: []
+  syntax:
+    content: public TileLayer(TileLayer layer)
+    parameters:
+    - id: layer
+      type: PAC.Layers.TileLayer
+    content.vb: Public Sub New(layer As TileLayer)
+  overload: PAC.Layers.TileLayer.#ctor*
+  nameWithType.vb: TileLayer.New(TileLayer)
+  fullName.vb: PAC.Layers.TileLayer.New(PAC.Layers.TileLayer)
+  name.vb: New(TileLayer)
+- uid: PAC.Layers.TileLayer.DeepCopy
+  commentId: M:PAC.Layers.TileLayer.DeepCopy
+  id: DeepCopy
+  parent: PAC.Layers.TileLayer
+  langs:
+  - csharp
+  - vb
+  name: DeepCopy()
+  nameWithType: TileLayer.DeepCopy()
+  fullName: PAC.Layers.TileLayer.DeepCopy()
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Layers/TileLayer.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: DeepCopy
+    path: ../Assets/Scripts/Layers/TileLayer.cs
+    startLine: 41
+  namespace: PAC.Layers
+  summary: Creates a deep copy of the Layer.
+  example: []
+  syntax:
+    content: public override Layer DeepCopy()
+    return:
+      type: PAC.Layers.Layer
+    content.vb: Public Overrides Function DeepCopy() As Layer
+  overridden: PAC.Layers.Layer.DeepCopy
+  overload: PAC.Layers.TileLayer.DeepCopy*
+- uid: PAC.Layers.TileLayer.AddTile(PAC.Tilesets.Tile)
+  commentId: M:PAC.Layers.TileLayer.AddTile(PAC.Tilesets.Tile)
+  id: AddTile(PAC.Tilesets.Tile)
+  parent: PAC.Layers.TileLayer
+  langs:
+  - csharp
+  - vb
+  name: AddTile(Tile)
+  nameWithType: TileLayer.AddTile(Tile)
+  fullName: PAC.Layers.TileLayer.AddTile(PAC.Tilesets.Tile)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Layers/TileLayer.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: AddTile
+    path: ../Assets/Scripts/Layers/TileLayer.cs
+    startLine: 49
+  namespace: PAC.Layers
+  summary: Adds the tile to the layer.
+  example: []
+  syntax:
+    content: public void AddTile(Tile tile)
+    parameters:
+    - id: tile
+      type: PAC.Tilesets.Tile
+    content.vb: Public Sub AddTile(tile As Tile)
+  overload: PAC.Layers.TileLayer.AddTile*
+- uid: PAC.Layers.TileLayer.RemoveTile(PAC.Tilesets.Tile)
+  commentId: M:PAC.Layers.TileLayer.RemoveTile(PAC.Tilesets.Tile)
+  id: RemoveTile(PAC.Tilesets.Tile)
+  parent: PAC.Layers.TileLayer
+  langs:
+  - csharp
+  - vb
+  name: RemoveTile(Tile)
+  nameWithType: TileLayer.RemoveTile(Tile)
+  fullName: PAC.Layers.TileLayer.RemoveTile(PAC.Tilesets.Tile)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Layers/TileLayer.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: RemoveTile
+    path: ../Assets/Scripts/Layers/TileLayer.cs
+    startLine: 97
+  namespace: PAC.Layers
+  summary: Removes the tile from the layer. Throws an error if the tile is not in the layer.
+  example: []
+  syntax:
+    content: public void RemoveTile(Tile tile)
+    parameters:
+    - id: tile
+      type: PAC.Tilesets.Tile
+    content.vb: Public Sub RemoveTile(tile As Tile)
+  overload: PAC.Layers.TileLayer.RemoveTile*
+- uid: PAC.Layers.TileLayer.ClearTiles
+  commentId: M:PAC.Layers.TileLayer.ClearTiles
+  id: ClearTiles
+  parent: PAC.Layers.TileLayer
+  langs:
+  - csharp
+  - vb
+  name: ClearTiles()
+  nameWithType: TileLayer.ClearTiles()
+  fullName: PAC.Layers.TileLayer.ClearTiles()
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Layers/TileLayer.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: ClearTiles
+    path: ../Assets/Scripts/Layers/TileLayer.cs
+    startLine: 120
+  namespace: PAC.Layers
+  summary: Removes all tiles.
+  example: []
+  syntax:
+    content: public void ClearTiles()
+    content.vb: Public Sub ClearTiles()
+  overload: PAC.Layers.TileLayer.ClearTiles*
+- uid: PAC.Layers.TileLayer.ContainsTile(PAC.Tilesets.Tile)
+  commentId: M:PAC.Layers.TileLayer.ContainsTile(PAC.Tilesets.Tile)
+  id: ContainsTile(PAC.Tilesets.Tile)
+  parent: PAC.Layers.TileLayer
+  langs:
+  - csharp
+  - vb
+  name: ContainsTile(Tile)
+  nameWithType: TileLayer.ContainsTile(Tile)
+  fullName: PAC.Layers.TileLayer.ContainsTile(PAC.Tilesets.Tile)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Layers/TileLayer.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: ContainsTile
+    path: ../Assets/Scripts/Layers/TileLayer.cs
+    startLine: 129
+  namespace: PAC.Layers
+  summary: Returns true if the tile appears on this layer.
+  example: []
+  syntax:
+    content: public bool ContainsTile(Tile tile)
+    parameters:
+    - id: tile
+      type: PAC.Tilesets.Tile
+    return:
+      type: System.Boolean
+    content.vb: Public Function ContainsTile(tile As Tile) As Boolean
+  overload: PAC.Layers.TileLayer.ContainsTile*
+- uid: PAC.Layers.TileLayer.SetPixelsNoEvent(PAC.DataStructures.IntVector2[],System.Int32,Color,PAC.Layers.AnimFrameRefMode)
+  commentId: M:PAC.Layers.TileLayer.SetPixelsNoEvent(PAC.DataStructures.IntVector2[],System.Int32,Color,PAC.Layers.AnimFrameRefMode)
+  id: SetPixelsNoEvent(PAC.DataStructures.IntVector2[],System.Int32,Color,PAC.Layers.AnimFrameRefMode)
+  parent: PAC.Layers.TileLayer
+  langs:
+  - csharp
+  - vb
+  name: SetPixelsNoEvent(IntVector2[], int, Color, AnimFrameRefMode)
+  nameWithType: TileLayer.SetPixelsNoEvent(IntVector2[], int, Color, AnimFrameRefMode)
+  fullName: PAC.Layers.TileLayer.SetPixelsNoEvent(PAC.DataStructures.IntVector2[], int, Color, PAC.Layers.AnimFrameRefMode)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Layers/TileLayer.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: SetPixelsNoEvent
+    path: ../Assets/Scripts/Layers/TileLayer.cs
+    startLine: 134
+  namespace: PAC.Layers
+  summary: >-
+    Sets the colour of the pixels.
+
+    You do not need to check the pixels are in the layer as this check is done in Layer.SetPixels(), which is the only way this method is called.
+  example: []
+  syntax:
+    content: protected override IntVector2[] SetPixelsNoEvent(IntVector2[] pixels, int frame, Color colour, AnimFrameRefMode frameRefMode)
+    parameters:
+    - id: pixels
+      type: PAC.DataStructures.IntVector2[]
+    - id: frame
+      type: System.Int32
+    - id: colour
+      type: Global.Color
+    - id: frameRefMode
+      type: PAC.Layers.AnimFrameRefMode
+    return:
+      type: PAC.DataStructures.IntVector2[]
+    content.vb: Protected Overrides Function SetPixelsNoEvent(pixels As IntVector2(), frame As Integer, colour As Color, frameRefMode As AnimFrameRefMode) As IntVector2()
+  overridden: PAC.Layers.Layer.SetPixelsNoEvent(PAC.DataStructures.IntVector2[],System.Int32,Color,PAC.Layers.AnimFrameRefMode)
+  overload: PAC.Layers.TileLayer.SetPixelsNoEvent*
+  nameWithType.vb: TileLayer.SetPixelsNoEvent(IntVector2(), Integer, Color, AnimFrameRefMode)
+  fullName.vb: PAC.Layers.TileLayer.SetPixelsNoEvent(PAC.DataStructures.IntVector2(), Integer, Color, PAC.Layers.AnimFrameRefMode)
+  name.vb: SetPixelsNoEvent(IntVector2(), Integer, Color, AnimFrameRefMode)
+- uid: PAC.Layers.TileLayer.GetPixel(PAC.DataStructures.IntVector2,System.Int32,System.Boolean)
+  commentId: M:PAC.Layers.TileLayer.GetPixel(PAC.DataStructures.IntVector2,System.Int32,System.Boolean)
+  id: GetPixel(PAC.DataStructures.IntVector2,System.Int32,System.Boolean)
+  parent: PAC.Layers.TileLayer
+  langs:
+  - csharp
+  - vb
+  name: GetPixel(IntVector2, int, bool)
+  nameWithType: TileLayer.GetPixel(IntVector2, int, bool)
+  fullName: PAC.Layers.TileLayer.GetPixel(PAC.DataStructures.IntVector2, int, bool)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Layers/TileLayer.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: GetPixel
+    path: ../Assets/Scripts/Layers/TileLayer.cs
+    startLine: 166
+  namespace: PAC.Layers
+  summary: Gets the colour of the pixel.
+  example: []
+  syntax:
+    content: public override Color GetPixel(IntVector2 pixel, int frame, bool useLayerOpacity = true)
+    parameters:
+    - id: pixel
+      type: PAC.DataStructures.IntVector2
+    - id: frame
+      type: System.Int32
+    - id: useLayerOpacity
+      type: System.Boolean
+    return:
+      type: Global.Color
+    content.vb: Public Overrides Function GetPixel(pixel As IntVector2, frame As Integer, useLayerOpacity As Boolean = True) As Color
+  overridden: PAC.Layers.Layer.GetPixel(PAC.DataStructures.IntVector2,System.Int32,System.Boolean)
+  overload: PAC.Layers.TileLayer.GetPixel*
+  nameWithType.vb: TileLayer.GetPixel(IntVector2, Integer, Boolean)
+  fullName.vb: PAC.Layers.TileLayer.GetPixel(PAC.DataStructures.IntVector2, Integer, Boolean)
+  name.vb: GetPixel(IntVector2, Integer, Boolean)
+- uid: PAC.Layers.TileLayer.PixelToTile(System.Int32,System.Int32)
+  commentId: M:PAC.Layers.TileLayer.PixelToTile(System.Int32,System.Int32)
+  id: PixelToTile(System.Int32,System.Int32)
+  parent: PAC.Layers.TileLayer
+  langs:
+  - csharp
+  - vb
+  name: PixelToTile(int, int)
+  nameWithType: TileLayer.PixelToTile(int, int)
+  fullName: PAC.Layers.TileLayer.PixelToTile(int, int)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Layers/TileLayer.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: PixelToTile
+    path: ../Assets/Scripts/Layers/TileLayer.cs
+    startLine: 179
+  namespace: PAC.Layers
+  summary: Gets the tile that the pixel (x, y) lands in, or null if there isn't one.
+  example: []
+  syntax:
+    content: public Tile PixelToTile(int x, int y)
+    parameters:
+    - id: x
+      type: System.Int32
+    - id: y
+      type: System.Int32
+    return:
+      type: PAC.Tilesets.Tile
+    content.vb: Public Function PixelToTile(x As Integer, y As Integer) As Tile
+  overload: PAC.Layers.TileLayer.PixelToTile*
+  nameWithType.vb: TileLayer.PixelToTile(Integer, Integer)
+  fullName.vb: PAC.Layers.TileLayer.PixelToTile(Integer, Integer)
+  name.vb: PixelToTile(Integer, Integer)
+- uid: PAC.Layers.TileLayer.PixelToTile(PAC.DataStructures.IntVector2)
+  commentId: M:PAC.Layers.TileLayer.PixelToTile(PAC.DataStructures.IntVector2)
+  id: PixelToTile(PAC.DataStructures.IntVector2)
+  parent: PAC.Layers.TileLayer
+  langs:
+  - csharp
+  - vb
+  name: PixelToTile(IntVector2)
+  nameWithType: TileLayer.PixelToTile(IntVector2)
+  fullName: PAC.Layers.TileLayer.PixelToTile(PAC.DataStructures.IntVector2)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Layers/TileLayer.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: PixelToTile
+    path: ../Assets/Scripts/Layers/TileLayer.cs
+    startLine: 183
+  namespace: PAC.Layers
+  summary: Gets the tile that the pixel lands in, or null if there isn't one.
+  example: []
+  syntax:
+    content: public Tile PixelToTile(IntVector2 pixel)
+    parameters:
+    - id: pixel
+      type: PAC.DataStructures.IntVector2
+    return:
+      type: PAC.Tilesets.Tile
+    content.vb: Public Function PixelToTile(pixel As IntVector2) As Tile
+  overload: PAC.Layers.TileLayer.PixelToTile*
+- uid: PAC.Layers.TileLayer.GetLinkedPixels(PAC.DataStructures.IntVector2)
+  commentId: M:PAC.Layers.TileLayer.GetLinkedPixels(PAC.DataStructures.IntVector2)
+  id: GetLinkedPixels(PAC.DataStructures.IntVector2)
+  parent: PAC.Layers.TileLayer
+  langs:
+  - csharp
+  - vb
+  name: GetLinkedPixels(IntVector2)
+  nameWithType: TileLayer.GetLinkedPixels(IntVector2)
+  fullName: PAC.Layers.TileLayer.GetLinkedPixels(PAC.DataStructures.IntVector2)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Layers/TileLayer.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: GetLinkedPixels
+    path: ../Assets/Scripts/Layers/TileLayer.cs
+    startLine: 207
+  namespace: PAC.Layers
+  summary: Get the pixels that are linked to the given pixel due to multiple tiles having the same file - i.e. they point to the same pixel within the tiles' file.
+  example: []
+  syntax:
+    content: public IntVector2[] GetLinkedPixels(IntVector2 pixel)
+    parameters:
+    - id: pixel
+      type: PAC.DataStructures.IntVector2
+    return:
+      type: PAC.DataStructures.IntVector2[]
+    content.vb: Public Function GetLinkedPixels(pixel As IntVector2) As IntVector2()
+  overload: PAC.Layers.TileLayer.GetLinkedPixels*
+- uid: PAC.Layers.TileLayer.GetLinkedPixels(PAC.DataStructures.IntVector2[])
+  commentId: M:PAC.Layers.TileLayer.GetLinkedPixels(PAC.DataStructures.IntVector2[])
+  id: GetLinkedPixels(PAC.DataStructures.IntVector2[])
+  parent: PAC.Layers.TileLayer
+  langs:
+  - csharp
+  - vb
+  name: GetLinkedPixels(IntVector2[])
+  nameWithType: TileLayer.GetLinkedPixels(IntVector2[])
+  fullName: PAC.Layers.TileLayer.GetLinkedPixels(PAC.DataStructures.IntVector2[])
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Layers/TileLayer.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: GetLinkedPixels
+    path: ../Assets/Scripts/Layers/TileLayer.cs
+    startLine: 211
+  namespace: PAC.Layers
+  summary: Get the pixels that are linked to the given pixels due to multiple tiles having the same file - i.e. they point to the same pixels within the tiles' file.
+  example: []
+  syntax:
+    content: public IntVector2[] GetLinkedPixels(IntVector2[] pixels)
+    parameters:
+    - id: pixels
+      type: PAC.DataStructures.IntVector2[]
+    return:
+      type: PAC.DataStructures.IntVector2[]
+    content.vb: Public Function GetLinkedPixels(pixels As IntVector2()) As IntVector2()
+  overload: PAC.Layers.TileLayer.GetLinkedPixels*
+  nameWithType.vb: TileLayer.GetLinkedPixels(IntVector2())
+  fullName.vb: PAC.Layers.TileLayer.GetLinkedPixels(PAC.DataStructures.IntVector2())
+  name.vb: GetLinkedPixels(IntVector2())
+- uid: PAC.Layers.TileLayer.FlipNoEvent(PAC.FlipDirection)
+  commentId: M:PAC.Layers.TileLayer.FlipNoEvent(PAC.FlipDirection)
+  id: FlipNoEvent(PAC.FlipDirection)
+  parent: PAC.Layers.TileLayer
+  langs:
+  - csharp
+  - vb
+  name: FlipNoEvent(FlipDirection)
+  nameWithType: TileLayer.FlipNoEvent(FlipDirection)
+  fullName: PAC.Layers.TileLayer.FlipNoEvent(PAC.FlipDirection)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Layers/TileLayer.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: FlipNoEvent
+    path: ../Assets/Scripts/Layers/TileLayer.cs
+    startLine: 244
+  namespace: PAC.Layers
+  summary: Flips the layer, but does not invoke the onPixelsChanged event.
+  example: []
+  syntax:
+    content: protected override void FlipNoEvent(FlipDirection direction)
+    parameters:
+    - id: direction
+      type: PAC.FlipDirection
+    content.vb: Protected Overrides Sub FlipNoEvent(direction As FlipDirection)
+  overridden: PAC.Layers.Layer.FlipNoEvent(PAC.FlipDirection)
+  overload: PAC.Layers.TileLayer.FlipNoEvent*
+- uid: PAC.Layers.TileLayer.RotateNoEvent(PAC.RotationAngle)
+  commentId: M:PAC.Layers.TileLayer.RotateNoEvent(PAC.RotationAngle)
+  id: RotateNoEvent(PAC.RotationAngle)
+  parent: PAC.Layers.TileLayer
+  langs:
+  - csharp
+  - vb
+  name: RotateNoEvent(RotationAngle)
+  nameWithType: TileLayer.RotateNoEvent(RotationAngle)
+  fullName: PAC.Layers.TileLayer.RotateNoEvent(PAC.RotationAngle)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Layers/TileLayer.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: RotateNoEvent
+    path: ../Assets/Scripts/Layers/TileLayer.cs
+    startLine: 270
+  namespace: PAC.Layers
+  summary: >-
+    Rotates the layer, but does not invoke the onPixelsChanged event.
+
+    Rotation is clockwise.
+  example: []
+  syntax:
+    content: protected override void RotateNoEvent(RotationAngle angle)
+    parameters:
+    - id: angle
+      type: PAC.RotationAngle
+    content.vb: Protected Overrides Sub RotateNoEvent(angle As RotationAngle)
+  overridden: PAC.Layers.Layer.RotateNoEvent(PAC.RotationAngle)
+  overload: PAC.Layers.TileLayer.RotateNoEvent*
+- uid: PAC.Layers.TileLayer.ExtendNoEvent(System.Int32,System.Int32,System.Int32,System.Int32)
+  commentId: M:PAC.Layers.TileLayer.ExtendNoEvent(System.Int32,System.Int32,System.Int32,System.Int32)
+  id: ExtendNoEvent(System.Int32,System.Int32,System.Int32,System.Int32)
+  parent: PAC.Layers.TileLayer
+  langs:
+  - csharp
+  - vb
+  name: ExtendNoEvent(int, int, int, int)
+  nameWithType: TileLayer.ExtendNoEvent(int, int, int, int)
+  fullName: PAC.Layers.TileLayer.ExtendNoEvent(int, int, int, int)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Layers/TileLayer.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: ExtendNoEvent
+    path: ../Assets/Scripts/Layers/TileLayer.cs
+    startLine: 313
+  namespace: PAC.Layers
+  summary: Extends the dimensions of the layer in each direction by the given amounts, but does not invoke the onPixelsChanged event.
+  example: []
+  syntax:
+    content: protected override void ExtendNoEvent(int left, int right, int up, int down)
+    parameters:
+    - id: left
+      type: System.Int32
+    - id: right
+      type: System.Int32
+    - id: up
+      type: System.Int32
+    - id: down
+      type: System.Int32
+    content.vb: Protected Overrides Sub ExtendNoEvent(left As Integer, right As Integer, up As Integer, down As Integer)
+  overridden: PAC.Layers.Layer.ExtendNoEvent(System.Int32,System.Int32,System.Int32,System.Int32)
+  overload: PAC.Layers.TileLayer.ExtendNoEvent*
+  nameWithType.vb: TileLayer.ExtendNoEvent(Integer, Integer, Integer, Integer)
+  fullName.vb: PAC.Layers.TileLayer.ExtendNoEvent(Integer, Integer, Integer, Integer)
+  name.vb: ExtendNoEvent(Integer, Integer, Integer, Integer)
+- uid: PAC.Layers.TileLayer.ScaleNoEvent(System.Single,System.Single)
+  commentId: M:PAC.Layers.TileLayer.ScaleNoEvent(System.Single,System.Single)
+  id: ScaleNoEvent(System.Single,System.Single)
+  parent: PAC.Layers.TileLayer
+  langs:
+  - csharp
+  - vb
+  name: ScaleNoEvent(float, float)
+  nameWithType: TileLayer.ScaleNoEvent(float, float)
+  fullName: PAC.Layers.TileLayer.ScaleNoEvent(float, float)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Layers/TileLayer.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: ScaleNoEvent
+    path: ../Assets/Scripts/Layers/TileLayer.cs
+    startLine: 333
+  namespace: PAC.Layers
+  summary: Resizes the dimensions of the file by the scale factors, but does not invoke the onPixelsChanged event.
+  example: []
+  syntax:
+    content: protected override void ScaleNoEvent(float xScaleFactor, float yScaleFactor)
+    parameters:
+    - id: xScaleFactor
+      type: System.Single
+    - id: yScaleFactor
+      type: System.Single
+    content.vb: Protected Overrides Sub ScaleNoEvent(xScaleFactor As Single, yScaleFactor As Single)
+  overridden: PAC.Layers.Layer.ScaleNoEvent(System.Single,System.Single)
+  overload: PAC.Layers.TileLayer.ScaleNoEvent*
+  nameWithType.vb: TileLayer.ScaleNoEvent(Single, Single)
+  fullName.vb: PAC.Layers.TileLayer.ScaleNoEvent(Single, Single)
+  name.vb: ScaleNoEvent(Single, Single)
+- uid: PAC.Layers.TileLayer.ScaleNoEvent(System.Int32,System.Int32)
+  commentId: M:PAC.Layers.TileLayer.ScaleNoEvent(System.Int32,System.Int32)
+  id: ScaleNoEvent(System.Int32,System.Int32)
+  parent: PAC.Layers.TileLayer
+  langs:
+  - csharp
+  - vb
+  name: ScaleNoEvent(int, int)
+  nameWithType: TileLayer.ScaleNoEvent(int, int)
+  fullName: PAC.Layers.TileLayer.ScaleNoEvent(int, int)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Layers/TileLayer.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: ScaleNoEvent
+    path: ../Assets/Scripts/Layers/TileLayer.cs
+    startLine: 359
+  namespace: PAC.Layers
+  summary: Resizes the dimensions to the new width and height, but does not invoke the onPixelsChanged event.
+  example: []
+  syntax:
+    content: protected override void ScaleNoEvent(int newWidth, int newHeight)
+    parameters:
+    - id: newWidth
+      type: System.Int32
+    - id: newHeight
+      type: System.Int32
+    content.vb: Protected Overrides Sub ScaleNoEvent(newWidth As Integer, newHeight As Integer)
+  overridden: PAC.Layers.Layer.ScaleNoEvent(System.Int32,System.Int32)
+  overload: PAC.Layers.TileLayer.ScaleNoEvent*
+  nameWithType.vb: TileLayer.ScaleNoEvent(Integer, Integer)
+  fullName.vb: PAC.Layers.TileLayer.ScaleNoEvent(Integer, Integer)
+  name.vb: ScaleNoEvent(Integer, Integer)
+- uid: PAC.Layers.TileLayer.ToJSON
+  commentId: M:PAC.Layers.TileLayer.ToJSON
+  id: ToJSON
+  parent: PAC.Layers.TileLayer
+  langs:
+  - csharp
+  - vb
+  name: ToJSON()
+  nameWithType: TileLayer.ToJSON()
+  fullName: PAC.Layers.TileLayer.ToJSON()
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Layers/TileLayer.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: ToJSON
+    path: ../Assets/Scripts/Layers/TileLayer.cs
+    startLine: 386
+  namespace: PAC.Layers
+  example: []
+  syntax:
+    content: public override JSON ToJSON()
+    return:
+      type: PAC.JSON.JSON
+    content.vb: Public Overrides Function ToJSON() As JSON
+  overridden: PAC.Layers.Layer.ToJSON
+  overload: PAC.Layers.TileLayer.ToJSON*
+- uid: PAC.Layers.TileLayer.LoadJSON(PAC.JSON.JSON)
+  commentId: M:PAC.Layers.TileLayer.LoadJSON(PAC.JSON.JSON)
+  id: LoadJSON(PAC.JSON.JSON)
+  parent: PAC.Layers.TileLayer
+  langs:
+  - csharp
+  - vb
+  name: LoadJSON(JSON)
+  nameWithType: TileLayer.LoadJSON(JSON)
+  fullName: PAC.Layers.TileLayer.LoadJSON(PAC.JSON.JSON)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Layers/TileLayer.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: LoadJSON
+    path: ../Assets/Scripts/Layers/TileLayer.cs
+    startLine: 387
+  namespace: PAC.Layers
+  example: []
+  syntax:
+    content: protected override void LoadJSON(JSON json)
+    parameters:
+    - id: json
+      type: PAC.JSON.JSON
+    content.vb: Protected Overrides Sub LoadJSON(json As JSON)
+  overridden: PAC.Layers.Layer.LoadJSON(PAC.JSON.JSON)
+  overload: PAC.Layers.TileLayer.LoadJSON*
+- uid: PAC.Layers.TileLayer.DeleteKeyFrameNoEvent(System.Int32)
+  commentId: M:PAC.Layers.TileLayer.DeleteKeyFrameNoEvent(System.Int32)
+  id: DeleteKeyFrameNoEvent(System.Int32)
+  parent: PAC.Layers.TileLayer
+  langs:
+  - csharp
+  - vb
+  name: DeleteKeyFrameNoEvent(int)
+  nameWithType: TileLayer.DeleteKeyFrameNoEvent(int)
+  fullName: PAC.Layers.TileLayer.DeleteKeyFrameNoEvent(int)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Layers/TileLayer.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: DeleteKeyFrameNoEvent
+    path: ../Assets/Scripts/Layers/TileLayer.cs
+    startLine: 389
+  namespace: PAC.Layers
+  summary: Deletes the key frame at the given frame index, if there is one, in which case it returns that key frame. Otherwise it returns null.
+  example: []
+  syntax:
+    content: protected override AnimationKeyFrame DeleteKeyFrameNoEvent(int keyframe)
+    parameters:
+    - id: keyframe
+      type: System.Int32
+    return:
+      type: PAC.Animation.AnimationKeyFrame
+    content.vb: Protected Overrides Function DeleteKeyFrameNoEvent(keyframe As Integer) As AnimationKeyFrame
+  overridden: PAC.Layers.Layer.DeleteKeyFrameNoEvent(System.Int32)
+  overload: PAC.Layers.TileLayer.DeleteKeyFrameNoEvent*
+  nameWithType.vb: TileLayer.DeleteKeyFrameNoEvent(Integer)
+  fullName.vb: PAC.Layers.TileLayer.DeleteKeyFrameNoEvent(Integer)
+  name.vb: DeleteKeyFrameNoEvent(Integer)
+- uid: PAC.Layers.TileLayer.ClearFrames
+  commentId: M:PAC.Layers.TileLayer.ClearFrames
+  id: ClearFrames
+  parent: PAC.Layers.TileLayer
+  langs:
+  - csharp
+  - vb
+  name: ClearFrames()
+  nameWithType: TileLayer.ClearFrames()
+  fullName: PAC.Layers.TileLayer.ClearFrames()
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Layers/TileLayer.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: ClearFrames
+    path: ../Assets/Scripts/Layers/TileLayer.cs
+    startLine: 414
+  namespace: PAC.Layers
+  summary: Deletes all key frames.
+  example: []
+  syntax:
+    content: public override void ClearFrames()
+    content.vb: Public Overrides Sub ClearFrames()
+  overridden: PAC.Layers.Layer.ClearFrames
+  overload: PAC.Layers.TileLayer.ClearFrames*
+- uid: PAC.Layers.TileLayer.RerenderKeyFrames
+  commentId: M:PAC.Layers.TileLayer.RerenderKeyFrames
+  id: RerenderKeyFrames
+  parent: PAC.Layers.TileLayer
+  langs:
+  - csharp
+  - vb
+  name: RerenderKeyFrames()
+  nameWithType: TileLayer.RerenderKeyFrames()
+  fullName: PAC.Layers.TileLayer.RerenderKeyFrames()
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Layers/TileLayer.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: RerenderKeyFrames
+    path: ../Assets/Scripts/Layers/TileLayer.cs
+    startLine: 428
+  namespace: PAC.Layers
+  summary: Rerenders all keyframes.
+  example: []
+  syntax:
+    content: public void RerenderKeyFrames()
+    content.vb: Public Sub RerenderKeyFrames()
+  overload: PAC.Layers.TileLayer.RerenderKeyFrames*
+- uid: PAC.Layers.TileLayer.RerenderKeyFrames(PAC.DataStructures.IntRect)
+  commentId: M:PAC.Layers.TileLayer.RerenderKeyFrames(PAC.DataStructures.IntRect)
+  id: RerenderKeyFrames(PAC.DataStructures.IntRect)
+  parent: PAC.Layers.TileLayer
+  langs:
+  - csharp
+  - vb
+  name: RerenderKeyFrames(IntRect)
+  nameWithType: TileLayer.RerenderKeyFrames(IntRect)
+  fullName: PAC.Layers.TileLayer.RerenderKeyFrames(PAC.DataStructures.IntRect)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Layers/TileLayer.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: RerenderKeyFrames
+    path: ../Assets/Scripts/Layers/TileLayer.cs
+    startLine: 432
+  namespace: PAC.Layers
+  summary: Rerenders the section of every keyframe within the given rect.
+  example: []
+  syntax:
+    content: public void RerenderKeyFrames(IntRect rect)
+    parameters:
+    - id: rect
+      type: PAC.DataStructures.IntRect
+    content.vb: Public Sub RerenderKeyFrames(rect As IntRect)
+  overload: PAC.Layers.TileLayer.RerenderKeyFrames*
+- uid: PAC.Layers.TileLayer.RerenderKeyFrames(PAC.DataStructures.IntVector2[])
+  commentId: M:PAC.Layers.TileLayer.RerenderKeyFrames(PAC.DataStructures.IntVector2[])
+  id: RerenderKeyFrames(PAC.DataStructures.IntVector2[])
+  parent: PAC.Layers.TileLayer
+  langs:
+  - csharp
+  - vb
+  name: RerenderKeyFrames(IntVector2[])
+  nameWithType: TileLayer.RerenderKeyFrames(IntVector2[])
+  fullName: PAC.Layers.TileLayer.RerenderKeyFrames(PAC.DataStructures.IntVector2[])
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Layers/TileLayer.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: RerenderKeyFrames
+    path: ../Assets/Scripts/Layers/TileLayer.cs
+    startLine: 436
+  namespace: PAC.Layers
+  summary: Rerenders the given pixels of every keyframe.
+  example: []
+  syntax:
+    content: public void RerenderKeyFrames(IntVector2[] pixels)
+    parameters:
+    - id: pixels
+      type: PAC.DataStructures.IntVector2[]
+    content.vb: Public Sub RerenderKeyFrames(pixels As IntVector2())
+  overload: PAC.Layers.TileLayer.RerenderKeyFrames*
+  nameWithType.vb: TileLayer.RerenderKeyFrames(IntVector2())
+  fullName.vb: PAC.Layers.TileLayer.RerenderKeyFrames(PAC.DataStructures.IntVector2())
+  name.vb: RerenderKeyFrames(IntVector2())
+- uid: PAC.Layers.TileLayer.RerenderKeyFrames(System.Int32[])
+  commentId: M:PAC.Layers.TileLayer.RerenderKeyFrames(System.Int32[])
+  id: RerenderKeyFrames(System.Int32[])
+  parent: PAC.Layers.TileLayer
+  langs:
+  - csharp
+  - vb
+  name: RerenderKeyFrames(int[])
+  nameWithType: TileLayer.RerenderKeyFrames(int[])
+  fullName: PAC.Layers.TileLayer.RerenderKeyFrames(int[])
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Layers/TileLayer.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: RerenderKeyFrames
+    path: ../Assets/Scripts/Layers/TileLayer.cs
+    startLine: 440
+  namespace: PAC.Layers
+  summary: Rerenders the given keyframes.
+  example: []
+  syntax:
+    content: public void RerenderKeyFrames(int[] keyFrames)
+    parameters:
+    - id: keyFrames
+      type: System.Int32[]
+    content.vb: Public Sub RerenderKeyFrames(keyFrames As Integer())
+  overload: PAC.Layers.TileLayer.RerenderKeyFrames*
+  nameWithType.vb: TileLayer.RerenderKeyFrames(Integer())
+  fullName.vb: PAC.Layers.TileLayer.RerenderKeyFrames(Integer())
+  name.vb: RerenderKeyFrames(Integer())
+- uid: PAC.Layers.TileLayer.RerenderKeyFrames(System.Int32[],PAC.DataStructures.IntRect)
+  commentId: M:PAC.Layers.TileLayer.RerenderKeyFrames(System.Int32[],PAC.DataStructures.IntRect)
+  id: RerenderKeyFrames(System.Int32[],PAC.DataStructures.IntRect)
+  parent: PAC.Layers.TileLayer
+  langs:
+  - csharp
+  - vb
+  name: RerenderKeyFrames(int[], IntRect)
+  nameWithType: TileLayer.RerenderKeyFrames(int[], IntRect)
+  fullName: PAC.Layers.TileLayer.RerenderKeyFrames(int[], PAC.DataStructures.IntRect)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Layers/TileLayer.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: RerenderKeyFrames
+    path: ../Assets/Scripts/Layers/TileLayer.cs
+    startLine: 444
+  namespace: PAC.Layers
+  summary: Rerenders the section of the given keyframes within the given rect.
+  example: []
+  syntax:
+    content: public void RerenderKeyFrames(int[] keyFrames, IntRect rect)
+    parameters:
+    - id: keyFrames
+      type: System.Int32[]
+    - id: rect
+      type: PAC.DataStructures.IntRect
+    content.vb: Public Sub RerenderKeyFrames(keyFrames As Integer(), rect As IntRect)
+  overload: PAC.Layers.TileLayer.RerenderKeyFrames*
+  nameWithType.vb: TileLayer.RerenderKeyFrames(Integer(), IntRect)
+  fullName.vb: PAC.Layers.TileLayer.RerenderKeyFrames(Integer(), PAC.DataStructures.IntRect)
+  name.vb: RerenderKeyFrames(Integer(), IntRect)
+- uid: PAC.Layers.TileLayer.RerenderKeyFrames(System.Int32[],PAC.DataStructures.IntVector2[])
+  commentId: M:PAC.Layers.TileLayer.RerenderKeyFrames(System.Int32[],PAC.DataStructures.IntVector2[])
+  id: RerenderKeyFrames(System.Int32[],PAC.DataStructures.IntVector2[])
+  parent: PAC.Layers.TileLayer
+  langs:
+  - csharp
+  - vb
+  name: RerenderKeyFrames(int[], IntVector2[])
+  nameWithType: TileLayer.RerenderKeyFrames(int[], IntVector2[])
+  fullName: PAC.Layers.TileLayer.RerenderKeyFrames(int[], PAC.DataStructures.IntVector2[])
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Layers/TileLayer.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: RerenderKeyFrames
+    path: ../Assets/Scripts/Layers/TileLayer.cs
+    startLine: 448
+  namespace: PAC.Layers
+  summary: Rerenders the given pixels of the given keyframes.
+  example: []
+  syntax:
+    content: public void RerenderKeyFrames(int[] keyFrames, IntVector2[] pixels)
+    parameters:
+    - id: keyFrames
+      type: System.Int32[]
+    - id: pixels
+      type: PAC.DataStructures.IntVector2[]
+    content.vb: Public Sub RerenderKeyFrames(keyFrames As Integer(), pixels As IntVector2())
+  overload: PAC.Layers.TileLayer.RerenderKeyFrames*
+  nameWithType.vb: TileLayer.RerenderKeyFrames(Integer(), IntVector2())
+  fullName.vb: PAC.Layers.TileLayer.RerenderKeyFrames(Integer(), PAC.DataStructures.IntVector2())
+  name.vb: RerenderKeyFrames(Integer(), IntVector2())
+- uid: PAC.Layers.TileLayer.RerenderKeyFrame(System.Int32)
+  commentId: M:PAC.Layers.TileLayer.RerenderKeyFrame(System.Int32)
+  id: RerenderKeyFrame(System.Int32)
+  parent: PAC.Layers.TileLayer
+  langs:
+  - csharp
+  - vb
+  name: RerenderKeyFrame(int)
+  nameWithType: TileLayer.RerenderKeyFrame(int)
+  fullName: PAC.Layers.TileLayer.RerenderKeyFrame(int)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Layers/TileLayer.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: RerenderKeyFrame
+    path: ../Assets/Scripts/Layers/TileLayer.cs
+    startLine: 458
+  namespace: PAC.Layers
+  summary: Rerenders the keyframe.
+  example: []
+  syntax:
+    content: public void RerenderKeyFrame(int frame)
+    parameters:
+    - id: frame
+      type: System.Int32
+    content.vb: Public Sub RerenderKeyFrame(frame As Integer)
+  overload: PAC.Layers.TileLayer.RerenderKeyFrame*
+  nameWithType.vb: TileLayer.RerenderKeyFrame(Integer)
+  fullName.vb: PAC.Layers.TileLayer.RerenderKeyFrame(Integer)
+  name.vb: RerenderKeyFrame(Integer)
+- uid: PAC.Layers.TileLayer.RerenderKeyFrame(System.Int32,PAC.DataStructures.IntRect)
+  commentId: M:PAC.Layers.TileLayer.RerenderKeyFrame(System.Int32,PAC.DataStructures.IntRect)
+  id: RerenderKeyFrame(System.Int32,PAC.DataStructures.IntRect)
+  parent: PAC.Layers.TileLayer
+  langs:
+  - csharp
+  - vb
+  name: RerenderKeyFrame(int, IntRect)
+  nameWithType: TileLayer.RerenderKeyFrame(int, IntRect)
+  fullName: PAC.Layers.TileLayer.RerenderKeyFrame(int, PAC.DataStructures.IntRect)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Layers/TileLayer.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: RerenderKeyFrame
+    path: ../Assets/Scripts/Layers/TileLayer.cs
+    startLine: 462
+  namespace: PAC.Layers
+  summary: Rerenders the section of the keyframe within the given rect.
+  example: []
+  syntax:
+    content: public void RerenderKeyFrame(int frame, IntRect rect)
+    parameters:
+    - id: frame
+      type: System.Int32
+    - id: rect
+      type: PAC.DataStructures.IntRect
+    content.vb: Public Sub RerenderKeyFrame(frame As Integer, rect As IntRect)
+  overload: PAC.Layers.TileLayer.RerenderKeyFrame*
+  nameWithType.vb: TileLayer.RerenderKeyFrame(Integer, IntRect)
+  fullName.vb: PAC.Layers.TileLayer.RerenderKeyFrame(Integer, PAC.DataStructures.IntRect)
+  name.vb: RerenderKeyFrame(Integer, IntRect)
+- uid: PAC.Layers.TileLayer.RerenderKeyFrame(System.Int32,PAC.DataStructures.IntVector2[])
+  commentId: M:PAC.Layers.TileLayer.RerenderKeyFrame(System.Int32,PAC.DataStructures.IntVector2[])
+  id: RerenderKeyFrame(System.Int32,PAC.DataStructures.IntVector2[])
+  parent: PAC.Layers.TileLayer
+  langs:
+  - csharp
+  - vb
+  name: RerenderKeyFrame(int, IntVector2[])
+  nameWithType: TileLayer.RerenderKeyFrame(int, IntVector2[])
+  fullName: PAC.Layers.TileLayer.RerenderKeyFrame(int, PAC.DataStructures.IntVector2[])
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Layers/TileLayer.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: RerenderKeyFrame
+    path: ../Assets/Scripts/Layers/TileLayer.cs
+    startLine: 466
+  namespace: PAC.Layers
+  summary: Rerenders the given pixels of the keyframe.
+  example: []
+  syntax:
+    content: public void RerenderKeyFrame(int frame, IntVector2[] pixels)
+    parameters:
+    - id: frame
+      type: System.Int32
+    - id: pixels
+      type: PAC.DataStructures.IntVector2[]
+    content.vb: Public Sub RerenderKeyFrame(frame As Integer, pixels As IntVector2())
+  overload: PAC.Layers.TileLayer.RerenderKeyFrame*
+  nameWithType.vb: TileLayer.RerenderKeyFrame(Integer, IntVector2())
+  fullName.vb: PAC.Layers.TileLayer.RerenderKeyFrame(Integer, PAC.DataStructures.IntVector2())
+  name.vb: RerenderKeyFrame(Integer, IntVector2())
+references:
+- uid: PAC.Layers
+  commentId: N:PAC.Layers
+  href: PAC.html
+  name: PAC.Layers
+  nameWithType: PAC.Layers
+  fullName: PAC.Layers
+  spec.csharp:
+  - uid: PAC
+    name: PAC
+    href: PAC.html
+  - name: .
+  - uid: PAC.Layers
+    name: Layers
+    href: PAC.Layers.html
+  spec.vb:
+  - uid: PAC
+    name: PAC
+    href: PAC.html
+  - name: .
+  - uid: PAC.Layers
+    name: Layers
+    href: PAC.Layers.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: PAC.Layers.Layer
+  commentId: T:PAC.Layers.Layer
+  parent: PAC.Layers
+  href: PAC.Layers.Layer.html
+  name: Layer
+  nameWithType: Layer
+  fullName: PAC.Layers.Layer
+- uid: PAC.JSON.IJSONable
+  commentId: T:PAC.JSON.IJSONable
+  parent: PAC.JSON
+  href: PAC.JSON.IJSONable.html
+  name: IJSONable
+  nameWithType: IJSONable
+  fullName: PAC.JSON.IJSONable
+- uid: PAC.Layers.Layer.name
+  commentId: P:PAC.Layers.Layer.name
+  parent: PAC.Layers.Layer
+  href: PAC.Layers.Layer.html#PAC_Layers_Layer_name
+  name: name
+  nameWithType: Layer.name
+  fullName: PAC.Layers.Layer.name
+- uid: PAC.Layers.Layer.width
+  commentId: P:PAC.Layers.Layer.width
+  parent: PAC.Layers.Layer
+  href: PAC.Layers.Layer.html#PAC_Layers_Layer_width
+  name: width
+  nameWithType: Layer.width
+  fullName: PAC.Layers.Layer.width
+- uid: PAC.Layers.Layer.height
+  commentId: P:PAC.Layers.Layer.height
+  parent: PAC.Layers.Layer
+  href: PAC.Layers.Layer.html#PAC_Layers_Layer_height
+  name: height
+  nameWithType: Layer.height
+  fullName: PAC.Layers.Layer.height
+- uid: PAC.Layers.Layer.rect
+  commentId: P:PAC.Layers.Layer.rect
+  parent: PAC.Layers.Layer
+  href: PAC.Layers.Layer.html#PAC_Layers_Layer_rect
+  name: rect
+  nameWithType: Layer.rect
+  fullName: PAC.Layers.Layer.rect
+- uid: PAC.Layers.Layer._visible
+  commentId: F:PAC.Layers.Layer._visible
+  parent: PAC.Layers.Layer
+  href: PAC.Layers.Layer.html#PAC_Layers_Layer__visible
+  name: _visible
+  nameWithType: Layer._visible
+  fullName: PAC.Layers.Layer._visible
+- uid: PAC.Layers.Layer.visible
+  commentId: P:PAC.Layers.Layer.visible
+  parent: PAC.Layers.Layer
+  href: PAC.Layers.Layer.html#PAC_Layers_Layer_visible
+  name: visible
+  nameWithType: Layer.visible
+  fullName: PAC.Layers.Layer.visible
+- uid: PAC.Layers.Layer.locked
+  commentId: P:PAC.Layers.Layer.locked
+  parent: PAC.Layers.Layer
+  href: PAC.Layers.Layer.html#PAC_Layers_Layer_locked
+  name: locked
+  nameWithType: Layer.locked
+  fullName: PAC.Layers.Layer.locked
+- uid: PAC.Layers.Layer.opacity
+  commentId: P:PAC.Layers.Layer.opacity
+  parent: PAC.Layers.Layer
+  href: PAC.Layers.Layer.html#PAC_Layers_Layer_opacity
+  name: opacity
+  nameWithType: Layer.opacity
+  fullName: PAC.Layers.Layer.opacity
+- uid: PAC.Layers.Layer._blendMode
+  commentId: F:PAC.Layers.Layer._blendMode
+  parent: PAC.Layers.Layer
+  href: PAC.Layers.Layer.html#PAC_Layers_Layer__blendMode
+  name: _blendMode
+  nameWithType: Layer._blendMode
+  fullName: PAC.Layers.Layer._blendMode
+- uid: PAC.Layers.Layer.blendMode
+  commentId: P:PAC.Layers.Layer.blendMode
+  parent: PAC.Layers.Layer
+  href: PAC.Layers.Layer.html#PAC_Layers_Layer_blendMode
+  name: blendMode
+  nameWithType: Layer.blendMode
+  fullName: PAC.Layers.Layer.blendMode
+- uid: PAC.Layers.Layer.keyFrames
+  commentId: P:PAC.Layers.Layer.keyFrames
+  parent: PAC.Layers.Layer
+  href: PAC.Layers.Layer.html#PAC_Layers_Layer_keyFrames
+  name: keyFrames
+  nameWithType: Layer.keyFrames
+  fullName: PAC.Layers.Layer.keyFrames
+- uid: PAC.Layers.Layer.keyFrameIndices
+  commentId: P:PAC.Layers.Layer.keyFrameIndices
+  parent: PAC.Layers.Layer
+  href: PAC.Layers.Layer.html#PAC_Layers_Layer_keyFrameIndices
+  name: keyFrameIndices
+  nameWithType: Layer.keyFrameIndices
+  fullName: PAC.Layers.Layer.keyFrameIndices
+- uid: PAC.Layers.Layer.keyFrameTextures
+  commentId: P:PAC.Layers.Layer.keyFrameTextures
+  parent: PAC.Layers.Layer
+  href: PAC.Layers.Layer.html#PAC_Layers_Layer_keyFrameTextures
+  name: keyFrameTextures
+  nameWithType: Layer.keyFrameTextures
+  fullName: PAC.Layers.Layer.keyFrameTextures
+- uid: PAC.Layers.Layer.onPixelsChanged
+  commentId: F:PAC.Layers.Layer.onPixelsChanged
+  parent: PAC.Layers.Layer
+  href: PAC.Layers.Layer.html#PAC_Layers_Layer_onPixelsChanged
+  name: onPixelsChanged
+  nameWithType: Layer.onPixelsChanged
+  fullName: PAC.Layers.Layer.onPixelsChanged
+- uid: PAC.Layers.Layer.SetPixel(System.Int32,System.Int32,System.Int32,Color,PAC.Layers.AnimFrameRefMode)
+  commentId: M:PAC.Layers.Layer.SetPixel(System.Int32,System.Int32,System.Int32,Color,PAC.Layers.AnimFrameRefMode)
+  parent: PAC.Layers.Layer
+  isExternal: true
+  href: PAC.Layers.Layer.html#PAC_Layers_Layer_SetPixel_System_Int32_System_Int32_System_Int32_Color_PAC_Layers_AnimFrameRefMode_
+  name: SetPixel(int, int, int, Color, AnimFrameRefMode)
+  nameWithType: Layer.SetPixel(int, int, int, Color, AnimFrameRefMode)
+  fullName: PAC.Layers.Layer.SetPixel(int, int, int, Color, PAC.Layers.AnimFrameRefMode)
+  nameWithType.vb: Layer.SetPixel(Integer, Integer, Integer, Color, AnimFrameRefMode)
+  fullName.vb: PAC.Layers.Layer.SetPixel(Integer, Integer, Integer, Color, PAC.Layers.AnimFrameRefMode)
+  name.vb: SetPixel(Integer, Integer, Integer, Color, AnimFrameRefMode)
+  spec.csharp:
+  - uid: PAC.Layers.Layer.SetPixel(System.Int32,System.Int32,System.Int32,Color,PAC.Layers.AnimFrameRefMode)
+    name: SetPixel
+    href: PAC.Layers.Layer.html#PAC_Layers_Layer_SetPixel_System_Int32_System_Int32_System_Int32_Color_PAC_Layers_AnimFrameRefMode_
+  - name: (
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: Global.Color
+    name: Color
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: PAC.Layers.AnimFrameRefMode
+    name: AnimFrameRefMode
+    href: PAC.Layers.AnimFrameRefMode.html
+  - name: )
+  spec.vb:
+  - uid: PAC.Layers.Layer.SetPixel(System.Int32,System.Int32,System.Int32,Color,PAC.Layers.AnimFrameRefMode)
+    name: SetPixel
+    href: PAC.Layers.Layer.html#PAC_Layers_Layer_SetPixel_System_Int32_System_Int32_System_Int32_Color_PAC_Layers_AnimFrameRefMode_
+  - name: (
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: Global.Color
+    name: Color
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: PAC.Layers.AnimFrameRefMode
+    name: AnimFrameRefMode
+    href: PAC.Layers.AnimFrameRefMode.html
+  - name: )
+- uid: PAC.Layers.Layer.SetPixel(PAC.DataStructures.IntVector2,System.Int32,Color,PAC.Layers.AnimFrameRefMode)
+  commentId: M:PAC.Layers.Layer.SetPixel(PAC.DataStructures.IntVector2,System.Int32,Color,PAC.Layers.AnimFrameRefMode)
+  parent: PAC.Layers.Layer
+  isExternal: true
+  href: PAC.Layers.Layer.html#PAC_Layers_Layer_SetPixel_PAC_DataStructures_IntVector2_System_Int32_Color_PAC_Layers_AnimFrameRefMode_
+  name: SetPixel(IntVector2, int, Color, AnimFrameRefMode)
+  nameWithType: Layer.SetPixel(IntVector2, int, Color, AnimFrameRefMode)
+  fullName: PAC.Layers.Layer.SetPixel(PAC.DataStructures.IntVector2, int, Color, PAC.Layers.AnimFrameRefMode)
+  nameWithType.vb: Layer.SetPixel(IntVector2, Integer, Color, AnimFrameRefMode)
+  fullName.vb: PAC.Layers.Layer.SetPixel(PAC.DataStructures.IntVector2, Integer, Color, PAC.Layers.AnimFrameRefMode)
+  name.vb: SetPixel(IntVector2, Integer, Color, AnimFrameRefMode)
+  spec.csharp:
+  - uid: PAC.Layers.Layer.SetPixel(PAC.DataStructures.IntVector2,System.Int32,Color,PAC.Layers.AnimFrameRefMode)
+    name: SetPixel
+    href: PAC.Layers.Layer.html#PAC_Layers_Layer_SetPixel_PAC_DataStructures_IntVector2_System_Int32_Color_PAC_Layers_AnimFrameRefMode_
+  - name: (
+  - uid: PAC.DataStructures.IntVector2
+    name: IntVector2
+    href: PAC.DataStructures.IntVector2.html
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: Global.Color
+    name: Color
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: PAC.Layers.AnimFrameRefMode
+    name: AnimFrameRefMode
+    href: PAC.Layers.AnimFrameRefMode.html
+  - name: )
+  spec.vb:
+  - uid: PAC.Layers.Layer.SetPixel(PAC.DataStructures.IntVector2,System.Int32,Color,PAC.Layers.AnimFrameRefMode)
+    name: SetPixel
+    href: PAC.Layers.Layer.html#PAC_Layers_Layer_SetPixel_PAC_DataStructures_IntVector2_System_Int32_Color_PAC_Layers_AnimFrameRefMode_
+  - name: (
+  - uid: PAC.DataStructures.IntVector2
+    name: IntVector2
+    href: PAC.DataStructures.IntVector2.html
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: Global.Color
+    name: Color
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: PAC.Layers.AnimFrameRefMode
+    name: AnimFrameRefMode
+    href: PAC.Layers.AnimFrameRefMode.html
+  - name: )
+- uid: PAC.Layers.Layer.SetPixels(PAC.DataStructures.IntVector2[],System.Int32,Color,PAC.Layers.AnimFrameRefMode)
+  commentId: M:PAC.Layers.Layer.SetPixels(PAC.DataStructures.IntVector2[],System.Int32,Color,PAC.Layers.AnimFrameRefMode)
+  parent: PAC.Layers.Layer
+  isExternal: true
+  href: PAC.Layers.Layer.html#PAC_Layers_Layer_SetPixels_PAC_DataStructures_IntVector2___System_Int32_Color_PAC_Layers_AnimFrameRefMode_
+  name: SetPixels(IntVector2[], int, Color, AnimFrameRefMode)
+  nameWithType: Layer.SetPixels(IntVector2[], int, Color, AnimFrameRefMode)
+  fullName: PAC.Layers.Layer.SetPixels(PAC.DataStructures.IntVector2[], int, Color, PAC.Layers.AnimFrameRefMode)
+  nameWithType.vb: Layer.SetPixels(IntVector2(), Integer, Color, AnimFrameRefMode)
+  fullName.vb: PAC.Layers.Layer.SetPixels(PAC.DataStructures.IntVector2(), Integer, Color, PAC.Layers.AnimFrameRefMode)
+  name.vb: SetPixels(IntVector2(), Integer, Color, AnimFrameRefMode)
+  spec.csharp:
+  - uid: PAC.Layers.Layer.SetPixels(PAC.DataStructures.IntVector2[],System.Int32,Color,PAC.Layers.AnimFrameRefMode)
+    name: SetPixels
+    href: PAC.Layers.Layer.html#PAC_Layers_Layer_SetPixels_PAC_DataStructures_IntVector2___System_Int32_Color_PAC_Layers_AnimFrameRefMode_
+  - name: (
+  - uid: PAC.DataStructures.IntVector2
+    name: IntVector2
+    href: PAC.DataStructures.IntVector2.html
+  - name: '['
+  - name: ']'
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: Global.Color
+    name: Color
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: PAC.Layers.AnimFrameRefMode
+    name: AnimFrameRefMode
+    href: PAC.Layers.AnimFrameRefMode.html
+  - name: )
+  spec.vb:
+  - uid: PAC.Layers.Layer.SetPixels(PAC.DataStructures.IntVector2[],System.Int32,Color,PAC.Layers.AnimFrameRefMode)
+    name: SetPixels
+    href: PAC.Layers.Layer.html#PAC_Layers_Layer_SetPixels_PAC_DataStructures_IntVector2___System_Int32_Color_PAC_Layers_AnimFrameRefMode_
+  - name: (
+  - uid: PAC.DataStructures.IntVector2
+    name: IntVector2
+    href: PAC.DataStructures.IntVector2.html
+  - name: (
+  - name: )
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: Global.Color
+    name: Color
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: PAC.Layers.AnimFrameRefMode
+    name: AnimFrameRefMode
+    href: PAC.Layers.AnimFrameRefMode.html
+  - name: )
+- uid: PAC.Layers.Layer.GetPixel(System.Int32,System.Int32,System.Int32,System.Boolean)
+  commentId: M:PAC.Layers.Layer.GetPixel(System.Int32,System.Int32,System.Int32,System.Boolean)
+  parent: PAC.Layers.Layer
+  isExternal: true
+  href: PAC.Layers.Layer.html#PAC_Layers_Layer_GetPixel_System_Int32_System_Int32_System_Int32_System_Boolean_
+  name: GetPixel(int, int, int, bool)
+  nameWithType: Layer.GetPixel(int, int, int, bool)
+  fullName: PAC.Layers.Layer.GetPixel(int, int, int, bool)
+  nameWithType.vb: Layer.GetPixel(Integer, Integer, Integer, Boolean)
+  fullName.vb: PAC.Layers.Layer.GetPixel(Integer, Integer, Integer, Boolean)
+  name.vb: GetPixel(Integer, Integer, Integer, Boolean)
+  spec.csharp:
+  - uid: PAC.Layers.Layer.GetPixel(System.Int32,System.Int32,System.Int32,System.Boolean)
+    name: GetPixel
+    href: PAC.Layers.Layer.html#PAC_Layers_Layer_GetPixel_System_Int32_System_Int32_System_Int32_System_Boolean_
+  - name: (
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: System.Boolean
+    name: bool
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: )
+  spec.vb:
+  - uid: PAC.Layers.Layer.GetPixel(System.Int32,System.Int32,System.Int32,System.Boolean)
+    name: GetPixel
+    href: PAC.Layers.Layer.html#PAC_Layers_Layer_GetPixel_System_Int32_System_Int32_System_Int32_System_Boolean_
+  - name: (
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: System.Boolean
+    name: Boolean
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: )
+- uid: PAC.Layers.Layer.IsBlank
+  commentId: M:PAC.Layers.Layer.IsBlank
+  parent: PAC.Layers.Layer
+  href: PAC.Layers.Layer.html#PAC_Layers_Layer_IsBlank
+  name: IsBlank()
+  nameWithType: Layer.IsBlank()
+  fullName: PAC.Layers.Layer.IsBlank()
+  spec.csharp:
+  - uid: PAC.Layers.Layer.IsBlank
+    name: IsBlank
+    href: PAC.Layers.Layer.html#PAC_Layers_Layer_IsBlank
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: PAC.Layers.Layer.IsBlank
+    name: IsBlank
+    href: PAC.Layers.Layer.html#PAC_Layers_Layer_IsBlank
+  - name: (
+  - name: )
+- uid: PAC.Layers.Layer.Flip(PAC.FlipDirection)
+  commentId: M:PAC.Layers.Layer.Flip(PAC.FlipDirection)
+  parent: PAC.Layers.Layer
+  href: PAC.Layers.Layer.html#PAC_Layers_Layer_Flip_PAC_FlipDirection_
+  name: Flip(FlipDirection)
+  nameWithType: Layer.Flip(FlipDirection)
+  fullName: PAC.Layers.Layer.Flip(PAC.FlipDirection)
+  spec.csharp:
+  - uid: PAC.Layers.Layer.Flip(PAC.FlipDirection)
+    name: Flip
+    href: PAC.Layers.Layer.html#PAC_Layers_Layer_Flip_PAC_FlipDirection_
+  - name: (
+  - uid: PAC.FlipDirection
+    name: FlipDirection
+    href: PAC.FlipDirection.html
+  - name: )
+  spec.vb:
+  - uid: PAC.Layers.Layer.Flip(PAC.FlipDirection)
+    name: Flip
+    href: PAC.Layers.Layer.html#PAC_Layers_Layer_Flip_PAC_FlipDirection_
+  - name: (
+  - uid: PAC.FlipDirection
+    name: FlipDirection
+    href: PAC.FlipDirection.html
+  - name: )
+- uid: PAC.Layers.Layer.Rotate(PAC.RotationAngle)
+  commentId: M:PAC.Layers.Layer.Rotate(PAC.RotationAngle)
+  parent: PAC.Layers.Layer
+  href: PAC.Layers.Layer.html#PAC_Layers_Layer_Rotate_PAC_RotationAngle_
+  name: Rotate(RotationAngle)
+  nameWithType: Layer.Rotate(RotationAngle)
+  fullName: PAC.Layers.Layer.Rotate(PAC.RotationAngle)
+  spec.csharp:
+  - uid: PAC.Layers.Layer.Rotate(PAC.RotationAngle)
+    name: Rotate
+    href: PAC.Layers.Layer.html#PAC_Layers_Layer_Rotate_PAC_RotationAngle_
+  - name: (
+  - uid: PAC.RotationAngle
+    name: RotationAngle
+    href: PAC.RotationAngle.html
+  - name: )
+  spec.vb:
+  - uid: PAC.Layers.Layer.Rotate(PAC.RotationAngle)
+    name: Rotate
+    href: PAC.Layers.Layer.html#PAC_Layers_Layer_Rotate_PAC_RotationAngle_
+  - name: (
+  - uid: PAC.RotationAngle
+    name: RotationAngle
+    href: PAC.RotationAngle.html
+  - name: )
+- uid: PAC.Layers.Layer.Extend(System.Int32,System.Int32,System.Int32,System.Int32)
+  commentId: M:PAC.Layers.Layer.Extend(System.Int32,System.Int32,System.Int32,System.Int32)
+  parent: PAC.Layers.Layer
+  isExternal: true
+  href: PAC.Layers.Layer.html#PAC_Layers_Layer_Extend_System_Int32_System_Int32_System_Int32_System_Int32_
+  name: Extend(int, int, int, int)
+  nameWithType: Layer.Extend(int, int, int, int)
+  fullName: PAC.Layers.Layer.Extend(int, int, int, int)
+  nameWithType.vb: Layer.Extend(Integer, Integer, Integer, Integer)
+  fullName.vb: PAC.Layers.Layer.Extend(Integer, Integer, Integer, Integer)
+  name.vb: Extend(Integer, Integer, Integer, Integer)
+  spec.csharp:
+  - uid: PAC.Layers.Layer.Extend(System.Int32,System.Int32,System.Int32,System.Int32)
+    name: Extend
+    href: PAC.Layers.Layer.html#PAC_Layers_Layer_Extend_System_Int32_System_Int32_System_Int32_System_Int32_
+  - name: (
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+  spec.vb:
+  - uid: PAC.Layers.Layer.Extend(System.Int32,System.Int32,System.Int32,System.Int32)
+    name: Extend
+    href: PAC.Layers.Layer.html#PAC_Layers_Layer_Extend_System_Int32_System_Int32_System_Int32_System_Int32_
+  - name: (
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+- uid: PAC.Layers.Layer.Scale(System.Single)
+  commentId: M:PAC.Layers.Layer.Scale(System.Single)
+  parent: PAC.Layers.Layer
+  isExternal: true
+  href: PAC.Layers.Layer.html#PAC_Layers_Layer_Scale_System_Single_
+  name: Scale(float)
+  nameWithType: Layer.Scale(float)
+  fullName: PAC.Layers.Layer.Scale(float)
+  nameWithType.vb: Layer.Scale(Single)
+  fullName.vb: PAC.Layers.Layer.Scale(Single)
+  name.vb: Scale(Single)
+  spec.csharp:
+  - uid: PAC.Layers.Layer.Scale(System.Single)
+    name: Scale
+    href: PAC.Layers.Layer.html#PAC_Layers_Layer_Scale_System_Single_
+  - name: (
+  - uid: System.Single
+    name: float
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.single
+  - name: )
+  spec.vb:
+  - uid: PAC.Layers.Layer.Scale(System.Single)
+    name: Scale
+    href: PAC.Layers.Layer.html#PAC_Layers_Layer_Scale_System_Single_
+  - name: (
+  - uid: System.Single
+    name: Single
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.single
+  - name: )
+- uid: PAC.Layers.Layer.Scale(System.Single,System.Single)
+  commentId: M:PAC.Layers.Layer.Scale(System.Single,System.Single)
+  parent: PAC.Layers.Layer
+  isExternal: true
+  href: PAC.Layers.Layer.html#PAC_Layers_Layer_Scale_System_Single_System_Single_
+  name: Scale(float, float)
+  nameWithType: Layer.Scale(float, float)
+  fullName: PAC.Layers.Layer.Scale(float, float)
+  nameWithType.vb: Layer.Scale(Single, Single)
+  fullName.vb: PAC.Layers.Layer.Scale(Single, Single)
+  name.vb: Scale(Single, Single)
+  spec.csharp:
+  - uid: PAC.Layers.Layer.Scale(System.Single,System.Single)
+    name: Scale
+    href: PAC.Layers.Layer.html#PAC_Layers_Layer_Scale_System_Single_System_Single_
+  - name: (
+  - uid: System.Single
+    name: float
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.single
+  - name: ','
+  - name: " "
+  - uid: System.Single
+    name: float
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.single
+  - name: )
+  spec.vb:
+  - uid: PAC.Layers.Layer.Scale(System.Single,System.Single)
+    name: Scale
+    href: PAC.Layers.Layer.html#PAC_Layers_Layer_Scale_System_Single_System_Single_
+  - name: (
+  - uid: System.Single
+    name: Single
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.single
+  - name: ','
+  - name: " "
+  - uid: System.Single
+    name: Single
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.single
+  - name: )
+- uid: PAC.Layers.Layer.Scale(System.Int32,System.Int32)
+  commentId: M:PAC.Layers.Layer.Scale(System.Int32,System.Int32)
+  parent: PAC.Layers.Layer
+  isExternal: true
+  href: PAC.Layers.Layer.html#PAC_Layers_Layer_Scale_System_Int32_System_Int32_
+  name: Scale(int, int)
+  nameWithType: Layer.Scale(int, int)
+  fullName: PAC.Layers.Layer.Scale(int, int)
+  nameWithType.vb: Layer.Scale(Integer, Integer)
+  fullName.vb: PAC.Layers.Layer.Scale(Integer, Integer)
+  name.vb: Scale(Integer, Integer)
+  spec.csharp:
+  - uid: PAC.Layers.Layer.Scale(System.Int32,System.Int32)
+    name: Scale
+    href: PAC.Layers.Layer.html#PAC_Layers_Layer_Scale_System_Int32_System_Int32_
+  - name: (
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+  spec.vb:
+  - uid: PAC.Layers.Layer.Scale(System.Int32,System.Int32)
+    name: Scale
+    href: PAC.Layers.Layer.html#PAC_Layers_Layer_Scale_System_Int32_System_Int32_
+  - name: (
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+- uid: PAC.Layers.Layer.FromJSON(PAC.JSON.JSON)
+  commentId: M:PAC.Layers.Layer.FromJSON(PAC.JSON.JSON)
+  parent: PAC.Layers.Layer
+  href: PAC.Layers.Layer.html#PAC_Layers_Layer_FromJSON_PAC_JSON_JSON_
+  name: FromJSON(JSON)
+  nameWithType: Layer.FromJSON(JSON)
+  fullName: PAC.Layers.Layer.FromJSON(PAC.JSON.JSON)
+  spec.csharp:
+  - uid: PAC.Layers.Layer.FromJSON(PAC.JSON.JSON)
+    name: FromJSON
+    href: PAC.Layers.Layer.html#PAC_Layers_Layer_FromJSON_PAC_JSON_JSON_
+  - name: (
+  - uid: PAC.JSON.JSON
+    name: JSON
+    href: PAC.JSON.JSON.html
+  - name: )
+  spec.vb:
+  - uid: PAC.Layers.Layer.FromJSON(PAC.JSON.JSON)
+    name: FromJSON
+    href: PAC.Layers.Layer.html#PAC_Layers_Layer_FromJSON_PAC_JSON_JSON_
+  - name: (
+  - uid: PAC.JSON.JSON
+    name: JSON
+    href: PAC.JSON.JSON.html
+  - name: )
+- uid: PAC.Layers.Layer.Item(System.Int32)
+  commentId: P:PAC.Layers.Layer.Item(System.Int32)
+  parent: PAC.Layers.Layer
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: this[int]
+  nameWithType: Layer.this[int]
+  fullName: PAC.Layers.Layer.this[int]
+  nameWithType.vb: Layer.this[](Integer)
+  fullName.vb: PAC.Layers.Layer.this[](Integer)
+  name.vb: this[](Integer)
+  spec.csharp:
+  - name: this
+  - name: '['
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ']'
+  spec.vb:
+  - uid: PAC.Layers.Layer.Item(System.Int32)
+    name: this[]
+    href: PAC.Layers.Layer.html#PAC_Layers_Layer_Item_System_Int32_
+  - name: (
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+- uid: PAC.Layers.Layer.GetKeyFrame(System.Int32)
+  commentId: M:PAC.Layers.Layer.GetKeyFrame(System.Int32)
+  parent: PAC.Layers.Layer
+  isExternal: true
+  href: PAC.Layers.Layer.html#PAC_Layers_Layer_GetKeyFrame_System_Int32_
+  name: GetKeyFrame(int)
+  nameWithType: Layer.GetKeyFrame(int)
+  fullName: PAC.Layers.Layer.GetKeyFrame(int)
+  nameWithType.vb: Layer.GetKeyFrame(Integer)
+  fullName.vb: PAC.Layers.Layer.GetKeyFrame(Integer)
+  name.vb: GetKeyFrame(Integer)
+  spec.csharp:
+  - uid: PAC.Layers.Layer.GetKeyFrame(System.Int32)
+    name: GetKeyFrame
+    href: PAC.Layers.Layer.html#PAC_Layers_Layer_GetKeyFrame_System_Int32_
+  - name: (
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+  spec.vb:
+  - uid: PAC.Layers.Layer.GetKeyFrame(System.Int32)
+    name: GetKeyFrame
+    href: PAC.Layers.Layer.html#PAC_Layers_Layer_GetKeyFrame_System_Int32_
+  - name: (
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+- uid: PAC.Layers.Layer.HasKeyFrameAt(System.Int32)
+  commentId: M:PAC.Layers.Layer.HasKeyFrameAt(System.Int32)
+  parent: PAC.Layers.Layer
+  isExternal: true
+  href: PAC.Layers.Layer.html#PAC_Layers_Layer_HasKeyFrameAt_System_Int32_
+  name: HasKeyFrameAt(int)
+  nameWithType: Layer.HasKeyFrameAt(int)
+  fullName: PAC.Layers.Layer.HasKeyFrameAt(int)
+  nameWithType.vb: Layer.HasKeyFrameAt(Integer)
+  fullName.vb: PAC.Layers.Layer.HasKeyFrameAt(Integer)
+  name.vb: HasKeyFrameAt(Integer)
+  spec.csharp:
+  - uid: PAC.Layers.Layer.HasKeyFrameAt(System.Int32)
+    name: HasKeyFrameAt
+    href: PAC.Layers.Layer.html#PAC_Layers_Layer_HasKeyFrameAt_System_Int32_
+  - name: (
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+  spec.vb:
+  - uid: PAC.Layers.Layer.HasKeyFrameAt(System.Int32)
+    name: HasKeyFrameAt
+    href: PAC.Layers.Layer.html#PAC_Layers_Layer_HasKeyFrameAt_System_Int32_
+  - name: (
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+- uid: PAC.Layers.Layer.AddKeyFrame(System.Int32)
+  commentId: M:PAC.Layers.Layer.AddKeyFrame(System.Int32)
+  parent: PAC.Layers.Layer
+  isExternal: true
+  href: PAC.Layers.Layer.html#PAC_Layers_Layer_AddKeyFrame_System_Int32_
+  name: AddKeyFrame(int)
+  nameWithType: Layer.AddKeyFrame(int)
+  fullName: PAC.Layers.Layer.AddKeyFrame(int)
+  nameWithType.vb: Layer.AddKeyFrame(Integer)
+  fullName.vb: PAC.Layers.Layer.AddKeyFrame(Integer)
+  name.vb: AddKeyFrame(Integer)
+  spec.csharp:
+  - uid: PAC.Layers.Layer.AddKeyFrame(System.Int32)
+    name: AddKeyFrame
+    href: PAC.Layers.Layer.html#PAC_Layers_Layer_AddKeyFrame_System_Int32_
+  - name: (
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+  spec.vb:
+  - uid: PAC.Layers.Layer.AddKeyFrame(System.Int32)
+    name: AddKeyFrame
+    href: PAC.Layers.Layer.html#PAC_Layers_Layer_AddKeyFrame_System_Int32_
+  - name: (
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+- uid: PAC.Layers.Layer.AddKeyFrame(System.Int32,Texture2D)
+  commentId: M:PAC.Layers.Layer.AddKeyFrame(System.Int32,Texture2D)
+  parent: PAC.Layers.Layer
+  isExternal: true
+  href: PAC.Layers.Layer.html#PAC_Layers_Layer_AddKeyFrame_System_Int32_Texture2D_
+  name: AddKeyFrame(int, Texture2D)
+  nameWithType: Layer.AddKeyFrame(int, Texture2D)
+  fullName: PAC.Layers.Layer.AddKeyFrame(int, Texture2D)
+  nameWithType.vb: Layer.AddKeyFrame(Integer, Texture2D)
+  fullName.vb: PAC.Layers.Layer.AddKeyFrame(Integer, Texture2D)
+  name.vb: AddKeyFrame(Integer, Texture2D)
+  spec.csharp:
+  - uid: PAC.Layers.Layer.AddKeyFrame(System.Int32,Texture2D)
+    name: AddKeyFrame
+    href: PAC.Layers.Layer.html#PAC_Layers_Layer_AddKeyFrame_System_Int32_Texture2D_
+  - name: (
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: Global.Texture2D
+    name: Texture2D
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: PAC.Layers.Layer.AddKeyFrame(System.Int32,Texture2D)
+    name: AddKeyFrame
+    href: PAC.Layers.Layer.html#PAC_Layers_Layer_AddKeyFrame_System_Int32_Texture2D_
+  - name: (
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: Global.Texture2D
+    name: Texture2D
+    isExternal: true
+  - name: )
+- uid: PAC.Layers.Layer.AddKeyFrame(PAC.Animation.AnimationKeyFrame)
+  commentId: M:PAC.Layers.Layer.AddKeyFrame(PAC.Animation.AnimationKeyFrame)
+  parent: PAC.Layers.Layer
+  href: PAC.Layers.Layer.html#PAC_Layers_Layer_AddKeyFrame_PAC_Animation_AnimationKeyFrame_
+  name: AddKeyFrame(AnimationKeyFrame)
+  nameWithType: Layer.AddKeyFrame(AnimationKeyFrame)
+  fullName: PAC.Layers.Layer.AddKeyFrame(PAC.Animation.AnimationKeyFrame)
+  spec.csharp:
+  - uid: PAC.Layers.Layer.AddKeyFrame(PAC.Animation.AnimationKeyFrame)
+    name: AddKeyFrame
+    href: PAC.Layers.Layer.html#PAC_Layers_Layer_AddKeyFrame_PAC_Animation_AnimationKeyFrame_
+  - name: (
+  - uid: PAC.Animation.AnimationKeyFrame
+    name: AnimationKeyFrame
+    href: PAC.Animation.AnimationKeyFrame.html
+  - name: )
+  spec.vb:
+  - uid: PAC.Layers.Layer.AddKeyFrame(PAC.Animation.AnimationKeyFrame)
+    name: AddKeyFrame
+    href: PAC.Layers.Layer.html#PAC_Layers_Layer_AddKeyFrame_PAC_Animation_AnimationKeyFrame_
+  - name: (
+  - uid: PAC.Animation.AnimationKeyFrame
+    name: AnimationKeyFrame
+    href: PAC.Animation.AnimationKeyFrame.html
+  - name: )
+- uid: PAC.Layers.Layer.DeleteMostRecentKeyFrame(System.Int32)
+  commentId: M:PAC.Layers.Layer.DeleteMostRecentKeyFrame(System.Int32)
+  parent: PAC.Layers.Layer
+  isExternal: true
+  href: PAC.Layers.Layer.html#PAC_Layers_Layer_DeleteMostRecentKeyFrame_System_Int32_
+  name: DeleteMostRecentKeyFrame(int)
+  nameWithType: Layer.DeleteMostRecentKeyFrame(int)
+  fullName: PAC.Layers.Layer.DeleteMostRecentKeyFrame(int)
+  nameWithType.vb: Layer.DeleteMostRecentKeyFrame(Integer)
+  fullName.vb: PAC.Layers.Layer.DeleteMostRecentKeyFrame(Integer)
+  name.vb: DeleteMostRecentKeyFrame(Integer)
+  spec.csharp:
+  - uid: PAC.Layers.Layer.DeleteMostRecentKeyFrame(System.Int32)
+    name: DeleteMostRecentKeyFrame
+    href: PAC.Layers.Layer.html#PAC_Layers_Layer_DeleteMostRecentKeyFrame_System_Int32_
+  - name: (
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+  spec.vb:
+  - uid: PAC.Layers.Layer.DeleteMostRecentKeyFrame(System.Int32)
+    name: DeleteMostRecentKeyFrame
+    href: PAC.Layers.Layer.html#PAC_Layers_Layer_DeleteMostRecentKeyFrame_System_Int32_
+  - name: (
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+- uid: PAC.Layers.Layer.DeleteKeyFrame(System.Int32)
+  commentId: M:PAC.Layers.Layer.DeleteKeyFrame(System.Int32)
+  parent: PAC.Layers.Layer
+  isExternal: true
+  href: PAC.Layers.Layer.html#PAC_Layers_Layer_DeleteKeyFrame_System_Int32_
+  name: DeleteKeyFrame(int)
+  nameWithType: Layer.DeleteKeyFrame(int)
+  fullName: PAC.Layers.Layer.DeleteKeyFrame(int)
+  nameWithType.vb: Layer.DeleteKeyFrame(Integer)
+  fullName.vb: PAC.Layers.Layer.DeleteKeyFrame(Integer)
+  name.vb: DeleteKeyFrame(Integer)
+  spec.csharp:
+  - uid: PAC.Layers.Layer.DeleteKeyFrame(System.Int32)
+    name: DeleteKeyFrame
+    href: PAC.Layers.Layer.html#PAC_Layers_Layer_DeleteKeyFrame_System_Int32_
+  - name: (
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+  spec.vb:
+  - uid: PAC.Layers.Layer.DeleteKeyFrame(System.Int32)
+    name: DeleteKeyFrame
+    href: PAC.Layers.Layer.html#PAC_Layers_Layer_DeleteKeyFrame_System_Int32_
+  - name: (
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+- uid: PAC.Layers.Layer.DeleteKeyFrame(PAC.Animation.AnimationKeyFrame)
+  commentId: M:PAC.Layers.Layer.DeleteKeyFrame(PAC.Animation.AnimationKeyFrame)
+  parent: PAC.Layers.Layer
+  href: PAC.Layers.Layer.html#PAC_Layers_Layer_DeleteKeyFrame_PAC_Animation_AnimationKeyFrame_
+  name: DeleteKeyFrame(AnimationKeyFrame)
+  nameWithType: Layer.DeleteKeyFrame(AnimationKeyFrame)
+  fullName: PAC.Layers.Layer.DeleteKeyFrame(PAC.Animation.AnimationKeyFrame)
+  spec.csharp:
+  - uid: PAC.Layers.Layer.DeleteKeyFrame(PAC.Animation.AnimationKeyFrame)
+    name: DeleteKeyFrame
+    href: PAC.Layers.Layer.html#PAC_Layers_Layer_DeleteKeyFrame_PAC_Animation_AnimationKeyFrame_
+  - name: (
+  - uid: PAC.Animation.AnimationKeyFrame
+    name: AnimationKeyFrame
+    href: PAC.Animation.AnimationKeyFrame.html
+  - name: )
+  spec.vb:
+  - uid: PAC.Layers.Layer.DeleteKeyFrame(PAC.Animation.AnimationKeyFrame)
+    name: DeleteKeyFrame
+    href: PAC.Layers.Layer.html#PAC_Layers_Layer_DeleteKeyFrame_PAC_Animation_AnimationKeyFrame_
+  - name: (
+  - uid: PAC.Animation.AnimationKeyFrame
+    name: AnimationKeyFrame
+    href: PAC.Animation.AnimationKeyFrame.html
+  - name: )
+- uid: PAC.Layers.Layer.SubscribeToOnPixelsChanged(UnityAction{PAC.DataStructures.IntVector2[],System.Int32[]})
+  commentId: M:PAC.Layers.Layer.SubscribeToOnPixelsChanged(UnityAction{PAC.DataStructures.IntVector2[],System.Int32[]})
+  parent: PAC.Layers.Layer
+  isExternal: true
+  href: PAC.Layers.Layer.html#PAC_Layers_Layer_SubscribeToOnPixelsChanged_UnityAction_PAC_DataStructures_IntVector2___System_Int32____
+  name: SubscribeToOnPixelsChanged(UnityAction<IntVector2[], int[]>)
+  nameWithType: Layer.SubscribeToOnPixelsChanged(UnityAction<IntVector2[], int[]>)
+  fullName: PAC.Layers.Layer.SubscribeToOnPixelsChanged(UnityAction<PAC.DataStructures.IntVector2[], int[]>)
+  nameWithType.vb: Layer.SubscribeToOnPixelsChanged(UnityAction(Of IntVector2(), Integer()))
+  fullName.vb: PAC.Layers.Layer.SubscribeToOnPixelsChanged(UnityAction(Of PAC.DataStructures.IntVector2(), Integer()))
+  name.vb: SubscribeToOnPixelsChanged(UnityAction(Of IntVector2(), Integer()))
+  spec.csharp:
+  - uid: PAC.Layers.Layer.SubscribeToOnPixelsChanged(UnityAction{PAC.DataStructures.IntVector2[],System.Int32[]})
+    name: SubscribeToOnPixelsChanged
+    href: PAC.Layers.Layer.html#PAC_Layers_Layer_SubscribeToOnPixelsChanged_UnityAction_PAC_DataStructures_IntVector2___System_Int32____
+  - name: (
+  - uid: Global.UnityAction`2
+    name: UnityAction
+    isExternal: true
+  - name: <
+  - uid: PAC.DataStructures.IntVector2
+    name: IntVector2
+    href: PAC.DataStructures.IntVector2.html
+  - name: '['
+  - name: ']'
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: '['
+  - name: ']'
+  - name: '>'
+  - name: )
+  spec.vb:
+  - uid: PAC.Layers.Layer.SubscribeToOnPixelsChanged(UnityAction{PAC.DataStructures.IntVector2[],System.Int32[]})
+    name: SubscribeToOnPixelsChanged
+    href: PAC.Layers.Layer.html#PAC_Layers_Layer_SubscribeToOnPixelsChanged_UnityAction_PAC_DataStructures_IntVector2___System_Int32____
+  - name: (
+  - uid: Global.UnityAction`2
+    name: UnityAction
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: PAC.DataStructures.IntVector2
+    name: IntVector2
+    href: PAC.DataStructures.IntVector2.html
+  - name: (
+  - name: )
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: (
+  - name: )
+  - name: )
+  - name: )
+- uid: PAC.Layers.Layer.SubscribeToOnVisibilityChanged(UnityAction)
+  commentId: M:PAC.Layers.Layer.SubscribeToOnVisibilityChanged(UnityAction)
+  parent: PAC.Layers.Layer
+  isExternal: true
+  href: PAC.Layers.Layer.html#PAC_Layers_Layer_SubscribeToOnVisibilityChanged_UnityAction_
+  name: SubscribeToOnVisibilityChanged(UnityAction)
+  nameWithType: Layer.SubscribeToOnVisibilityChanged(UnityAction)
+  fullName: PAC.Layers.Layer.SubscribeToOnVisibilityChanged(UnityAction)
+  spec.csharp:
+  - uid: PAC.Layers.Layer.SubscribeToOnVisibilityChanged(UnityAction)
+    name: SubscribeToOnVisibilityChanged
+    href: PAC.Layers.Layer.html#PAC_Layers_Layer_SubscribeToOnVisibilityChanged_UnityAction_
+  - name: (
+  - uid: Global.UnityAction
+    name: UnityAction
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: PAC.Layers.Layer.SubscribeToOnVisibilityChanged(UnityAction)
+    name: SubscribeToOnVisibilityChanged
+    href: PAC.Layers.Layer.html#PAC_Layers_Layer_SubscribeToOnVisibilityChanged_UnityAction_
+  - name: (
+  - uid: Global.UnityAction
+    name: UnityAction
+    isExternal: true
+  - name: )
+- uid: PAC.Layers.Layer.SubscribeToOnBlendModeChanged(UnityAction)
+  commentId: M:PAC.Layers.Layer.SubscribeToOnBlendModeChanged(UnityAction)
+  parent: PAC.Layers.Layer
+  isExternal: true
+  href: PAC.Layers.Layer.html#PAC_Layers_Layer_SubscribeToOnBlendModeChanged_UnityAction_
+  name: SubscribeToOnBlendModeChanged(UnityAction)
+  nameWithType: Layer.SubscribeToOnBlendModeChanged(UnityAction)
+  fullName: PAC.Layers.Layer.SubscribeToOnBlendModeChanged(UnityAction)
+  spec.csharp:
+  - uid: PAC.Layers.Layer.SubscribeToOnBlendModeChanged(UnityAction)
+    name: SubscribeToOnBlendModeChanged
+    href: PAC.Layers.Layer.html#PAC_Layers_Layer_SubscribeToOnBlendModeChanged_UnityAction_
+  - name: (
+  - uid: Global.UnityAction
+    name: UnityAction
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: PAC.Layers.Layer.SubscribeToOnBlendModeChanged(UnityAction)
+    name: SubscribeToOnBlendModeChanged
+    href: PAC.Layers.Layer.html#PAC_Layers_Layer_SubscribeToOnBlendModeChanged_UnityAction_
+  - name: (
+  - uid: Global.UnityAction
+    name: UnityAction
+    isExternal: true
+  - name: )
+- uid: PAC.Layers.Layer.SubscribeToOnKeyFrameAdded(UnityAction{System.Int32})
+  commentId: M:PAC.Layers.Layer.SubscribeToOnKeyFrameAdded(UnityAction{System.Int32})
+  parent: PAC.Layers.Layer
+  isExternal: true
+  href: PAC.Layers.Layer.html#PAC_Layers_Layer_SubscribeToOnKeyFrameAdded_UnityAction_System_Int32__
+  name: SubscribeToOnKeyFrameAdded(UnityAction<int>)
+  nameWithType: Layer.SubscribeToOnKeyFrameAdded(UnityAction<int>)
+  fullName: PAC.Layers.Layer.SubscribeToOnKeyFrameAdded(UnityAction<int>)
+  nameWithType.vb: Layer.SubscribeToOnKeyFrameAdded(UnityAction(Of Integer))
+  fullName.vb: PAC.Layers.Layer.SubscribeToOnKeyFrameAdded(UnityAction(Of Integer))
+  name.vb: SubscribeToOnKeyFrameAdded(UnityAction(Of Integer))
+  spec.csharp:
+  - uid: PAC.Layers.Layer.SubscribeToOnKeyFrameAdded(UnityAction{System.Int32})
+    name: SubscribeToOnKeyFrameAdded
+    href: PAC.Layers.Layer.html#PAC_Layers_Layer_SubscribeToOnKeyFrameAdded_UnityAction_System_Int32__
+  - name: (
+  - uid: Global.UnityAction`1
+    name: UnityAction
+    isExternal: true
+  - name: <
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: '>'
+  - name: )
+  spec.vb:
+  - uid: PAC.Layers.Layer.SubscribeToOnKeyFrameAdded(UnityAction{System.Int32})
+    name: SubscribeToOnKeyFrameAdded
+    href: PAC.Layers.Layer.html#PAC_Layers_Layer_SubscribeToOnKeyFrameAdded_UnityAction_System_Int32__
+  - name: (
+  - uid: Global.UnityAction`1
+    name: UnityAction
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+  - name: )
+- uid: PAC.Layers.Layer.SubscribeToOnKeyFrameRemoved(UnityAction{System.Int32})
+  commentId: M:PAC.Layers.Layer.SubscribeToOnKeyFrameRemoved(UnityAction{System.Int32})
+  parent: PAC.Layers.Layer
+  isExternal: true
+  href: PAC.Layers.Layer.html#PAC_Layers_Layer_SubscribeToOnKeyFrameRemoved_UnityAction_System_Int32__
+  name: SubscribeToOnKeyFrameRemoved(UnityAction<int>)
+  nameWithType: Layer.SubscribeToOnKeyFrameRemoved(UnityAction<int>)
+  fullName: PAC.Layers.Layer.SubscribeToOnKeyFrameRemoved(UnityAction<int>)
+  nameWithType.vb: Layer.SubscribeToOnKeyFrameRemoved(UnityAction(Of Integer))
+  fullName.vb: PAC.Layers.Layer.SubscribeToOnKeyFrameRemoved(UnityAction(Of Integer))
+  name.vb: SubscribeToOnKeyFrameRemoved(UnityAction(Of Integer))
+  spec.csharp:
+  - uid: PAC.Layers.Layer.SubscribeToOnKeyFrameRemoved(UnityAction{System.Int32})
+    name: SubscribeToOnKeyFrameRemoved
+    href: PAC.Layers.Layer.html#PAC_Layers_Layer_SubscribeToOnKeyFrameRemoved_UnityAction_System_Int32__
+  - name: (
+  - uid: Global.UnityAction`1
+    name: UnityAction
+    isExternal: true
+  - name: <
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: '>'
+  - name: )
+  spec.vb:
+  - uid: PAC.Layers.Layer.SubscribeToOnKeyFrameRemoved(UnityAction{System.Int32})
+    name: SubscribeToOnKeyFrameRemoved
+    href: PAC.Layers.Layer.html#PAC_Layers_Layer_SubscribeToOnKeyFrameRemoved_UnityAction_System_Int32__
+  - name: (
+  - uid: Global.UnityAction`1
+    name: UnityAction
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: PAC.JSON
+  commentId: N:PAC.JSON
+  href: PAC.html
+  name: PAC.JSON
+  nameWithType: PAC.JSON
+  fullName: PAC.JSON
+  spec.csharp:
+  - uid: PAC
+    name: PAC
+    href: PAC.html
+  - name: .
+  - uid: PAC.JSON
+    name: JSON
+    href: PAC.JSON.html
+  spec.vb:
+  - uid: PAC
+    name: PAC
+    href: PAC.html
+  - name: .
+  - uid: PAC.JSON
+    name: JSON
+    href: PAC.JSON.html
+- uid: PAC.Layers.Layer.layerType
+  commentId: P:PAC.Layers.Layer.layerType
+  parent: PAC.Layers.Layer
+  href: PAC.Layers.Layer.html#PAC_Layers_Layer_layerType
+  name: layerType
+  nameWithType: Layer.layerType
+  fullName: PAC.Layers.Layer.layerType
+- uid: PAC.Layers.TileLayer.layerType*
+  commentId: Overload:PAC.Layers.TileLayer.layerType
+  href: PAC.Layers.TileLayer.html#PAC_Layers_TileLayer_layerType
+  name: layerType
+  nameWithType: TileLayer.layerType
+  fullName: PAC.Layers.TileLayer.layerType
+- uid: PAC.Layers.LayerType
+  commentId: T:PAC.Layers.LayerType
+  parent: PAC.Layers
+  href: PAC.Layers.LayerType.html
+  name: LayerType
+  nameWithType: LayerType
+  fullName: PAC.Layers.LayerType
+- uid: PAC.Layers.TileLayer.tiles*
+  commentId: Overload:PAC.Layers.TileLayer.tiles
+  href: PAC.Layers.TileLayer.html#PAC_Layers_TileLayer_tiles
+  name: tiles
+  nameWithType: TileLayer.tiles
+  fullName: PAC.Layers.TileLayer.tiles
+- uid: System.Collections.Generic.List{PAC.Tilesets.Tile}
+  commentId: T:System.Collections.Generic.List{PAC.Tilesets.Tile}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<Tile>
+  nameWithType: List<Tile>
+  fullName: System.Collections.Generic.List<PAC.Tilesets.Tile>
+  nameWithType.vb: List(Of Tile)
+  fullName.vb: System.Collections.Generic.List(Of PAC.Tilesets.Tile)
+  name.vb: List(Of Tile)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: PAC.Tilesets.Tile
+    name: Tile
+    href: PAC.Tilesets.Tile.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: PAC.Tilesets.Tile
+    name: Tile
+    href: PAC.Tilesets.Tile.html
+  - name: )
+- uid: System.Collections.Generic.List`1
+  commentId: T:System.Collections.Generic.List`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<T>
+  nameWithType: List<T>
+  fullName: System.Collections.Generic.List<T>
+  nameWithType.vb: List(Of T)
+  fullName.vb: System.Collections.Generic.List(Of T)
+  name.vb: List(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: PAC.Layers.TileLayer.#ctor*
+  commentId: Overload:PAC.Layers.TileLayer.#ctor
+  href: PAC.Layers.TileLayer.html#PAC_Layers_TileLayer__ctor_System_String_System_Int32_System_Int32_
+  name: TileLayer
+  nameWithType: TileLayer.TileLayer
+  fullName: PAC.Layers.TileLayer.TileLayer
+  nameWithType.vb: TileLayer.New
+  fullName.vb: PAC.Layers.TileLayer.New
+  name.vb: New
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: PAC.Layers.TileLayer
+  commentId: T:PAC.Layers.TileLayer
+  parent: PAC.Layers
+  href: PAC.Layers.TileLayer.html
+  name: TileLayer
+  nameWithType: TileLayer
+  fullName: PAC.Layers.TileLayer
+- uid: PAC.Layers.Layer.DeepCopy
+  commentId: M:PAC.Layers.Layer.DeepCopy
+  parent: PAC.Layers.Layer
+  href: PAC.Layers.Layer.html#PAC_Layers_Layer_DeepCopy
+  name: DeepCopy()
+  nameWithType: Layer.DeepCopy()
+  fullName: PAC.Layers.Layer.DeepCopy()
+  spec.csharp:
+  - uid: PAC.Layers.Layer.DeepCopy
+    name: DeepCopy
+    href: PAC.Layers.Layer.html#PAC_Layers_Layer_DeepCopy
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: PAC.Layers.Layer.DeepCopy
+    name: DeepCopy
+    href: PAC.Layers.Layer.html#PAC_Layers_Layer_DeepCopy
+  - name: (
+  - name: )
+- uid: PAC.Layers.TileLayer.DeepCopy*
+  commentId: Overload:PAC.Layers.TileLayer.DeepCopy
+  href: PAC.Layers.TileLayer.html#PAC_Layers_TileLayer_DeepCopy
+  name: DeepCopy
+  nameWithType: TileLayer.DeepCopy
+  fullName: PAC.Layers.TileLayer.DeepCopy
+- uid: PAC.Layers.TileLayer.AddTile*
+  commentId: Overload:PAC.Layers.TileLayer.AddTile
+  href: PAC.Layers.TileLayer.html#PAC_Layers_TileLayer_AddTile_PAC_Tilesets_Tile_
+  name: AddTile
+  nameWithType: TileLayer.AddTile
+  fullName: PAC.Layers.TileLayer.AddTile
+- uid: PAC.Tilesets.Tile
+  commentId: T:PAC.Tilesets.Tile
+  parent: PAC.Tilesets
+  href: PAC.Tilesets.Tile.html
+  name: Tile
+  nameWithType: Tile
+  fullName: PAC.Tilesets.Tile
+- uid: PAC.Tilesets
+  commentId: N:PAC.Tilesets
+  href: PAC.html
+  name: PAC.Tilesets
+  nameWithType: PAC.Tilesets
+  fullName: PAC.Tilesets
+  spec.csharp:
+  - uid: PAC
+    name: PAC
+    href: PAC.html
+  - name: .
+  - uid: PAC.Tilesets
+    name: Tilesets
+    href: PAC.Tilesets.html
+  spec.vb:
+  - uid: PAC
+    name: PAC
+    href: PAC.html
+  - name: .
+  - uid: PAC.Tilesets
+    name: Tilesets
+    href: PAC.Tilesets.html
+- uid: PAC.Layers.TileLayer.RemoveTile*
+  commentId: Overload:PAC.Layers.TileLayer.RemoveTile
+  href: PAC.Layers.TileLayer.html#PAC_Layers_TileLayer_RemoveTile_PAC_Tilesets_Tile_
+  name: RemoveTile
+  nameWithType: TileLayer.RemoveTile
+  fullName: PAC.Layers.TileLayer.RemoveTile
+- uid: PAC.Layers.TileLayer.ClearTiles*
+  commentId: Overload:PAC.Layers.TileLayer.ClearTiles
+  href: PAC.Layers.TileLayer.html#PAC_Layers_TileLayer_ClearTiles
+  name: ClearTiles
+  nameWithType: TileLayer.ClearTiles
+  fullName: PAC.Layers.TileLayer.ClearTiles
+- uid: PAC.Layers.TileLayer.ContainsTile*
+  commentId: Overload:PAC.Layers.TileLayer.ContainsTile
+  href: PAC.Layers.TileLayer.html#PAC_Layers_TileLayer_ContainsTile_PAC_Tilesets_Tile_
+  name: ContainsTile
+  nameWithType: TileLayer.ContainsTile
+  fullName: PAC.Layers.TileLayer.ContainsTile
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: PAC.Layers.Layer.SetPixelsNoEvent(PAC.DataStructures.IntVector2[],System.Int32,Color,PAC.Layers.AnimFrameRefMode)
+  commentId: M:PAC.Layers.Layer.SetPixelsNoEvent(PAC.DataStructures.IntVector2[],System.Int32,Color,PAC.Layers.AnimFrameRefMode)
+  parent: PAC.Layers.Layer
+  isExternal: true
+  href: PAC.Layers.Layer.html#PAC_Layers_Layer_SetPixelsNoEvent_PAC_DataStructures_IntVector2___System_Int32_Color_PAC_Layers_AnimFrameRefMode_
+  name: SetPixelsNoEvent(IntVector2[], int, Color, AnimFrameRefMode)
+  nameWithType: Layer.SetPixelsNoEvent(IntVector2[], int, Color, AnimFrameRefMode)
+  fullName: PAC.Layers.Layer.SetPixelsNoEvent(PAC.DataStructures.IntVector2[], int, Color, PAC.Layers.AnimFrameRefMode)
+  nameWithType.vb: Layer.SetPixelsNoEvent(IntVector2(), Integer, Color, AnimFrameRefMode)
+  fullName.vb: PAC.Layers.Layer.SetPixelsNoEvent(PAC.DataStructures.IntVector2(), Integer, Color, PAC.Layers.AnimFrameRefMode)
+  name.vb: SetPixelsNoEvent(IntVector2(), Integer, Color, AnimFrameRefMode)
+  spec.csharp:
+  - uid: PAC.Layers.Layer.SetPixelsNoEvent(PAC.DataStructures.IntVector2[],System.Int32,Color,PAC.Layers.AnimFrameRefMode)
+    name: SetPixelsNoEvent
+    href: PAC.Layers.Layer.html#PAC_Layers_Layer_SetPixelsNoEvent_PAC_DataStructures_IntVector2___System_Int32_Color_PAC_Layers_AnimFrameRefMode_
+  - name: (
+  - uid: PAC.DataStructures.IntVector2
+    name: IntVector2
+    href: PAC.DataStructures.IntVector2.html
+  - name: '['
+  - name: ']'
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: Global.Color
+    name: Color
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: PAC.Layers.AnimFrameRefMode
+    name: AnimFrameRefMode
+    href: PAC.Layers.AnimFrameRefMode.html
+  - name: )
+  spec.vb:
+  - uid: PAC.Layers.Layer.SetPixelsNoEvent(PAC.DataStructures.IntVector2[],System.Int32,Color,PAC.Layers.AnimFrameRefMode)
+    name: SetPixelsNoEvent
+    href: PAC.Layers.Layer.html#PAC_Layers_Layer_SetPixelsNoEvent_PAC_DataStructures_IntVector2___System_Int32_Color_PAC_Layers_AnimFrameRefMode_
+  - name: (
+  - uid: PAC.DataStructures.IntVector2
+    name: IntVector2
+    href: PAC.DataStructures.IntVector2.html
+  - name: (
+  - name: )
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: Global.Color
+    name: Color
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: PAC.Layers.AnimFrameRefMode
+    name: AnimFrameRefMode
+    href: PAC.Layers.AnimFrameRefMode.html
+  - name: )
+- uid: PAC.Layers.TileLayer.SetPixelsNoEvent*
+  commentId: Overload:PAC.Layers.TileLayer.SetPixelsNoEvent
+  href: PAC.Layers.TileLayer.html#PAC_Layers_TileLayer_SetPixelsNoEvent_PAC_DataStructures_IntVector2___System_Int32_Color_PAC_Layers_AnimFrameRefMode_
+  name: SetPixelsNoEvent
+  nameWithType: TileLayer.SetPixelsNoEvent
+  fullName: PAC.Layers.TileLayer.SetPixelsNoEvent
+- uid: PAC.DataStructures.IntVector2[]
+  isExternal: true
+  href: PAC.DataStructures.IntVector2.html
+  name: IntVector2[]
+  nameWithType: IntVector2[]
+  fullName: PAC.DataStructures.IntVector2[]
+  nameWithType.vb: IntVector2()
+  fullName.vb: PAC.DataStructures.IntVector2()
+  name.vb: IntVector2()
+  spec.csharp:
+  - uid: PAC.DataStructures.IntVector2
+    name: IntVector2
+    href: PAC.DataStructures.IntVector2.html
+  - name: '['
+  - name: ']'
+  spec.vb:
+  - uid: PAC.DataStructures.IntVector2
+    name: IntVector2
+    href: PAC.DataStructures.IntVector2.html
+  - name: (
+  - name: )
+- uid: Global.Color
+  isExternal: true
+  name: Color
+  nameWithType: Color
+  fullName: Color
+- uid: PAC.Layers.AnimFrameRefMode
+  commentId: T:PAC.Layers.AnimFrameRefMode
+  parent: PAC.Layers
+  href: PAC.Layers.AnimFrameRefMode.html
+  name: AnimFrameRefMode
+  nameWithType: AnimFrameRefMode
+  fullName: PAC.Layers.AnimFrameRefMode
+- uid: PAC.Layers.Layer.GetPixel(PAC.DataStructures.IntVector2,System.Int32,System.Boolean)
+  commentId: M:PAC.Layers.Layer.GetPixel(PAC.DataStructures.IntVector2,System.Int32,System.Boolean)
+  parent: PAC.Layers.Layer
+  isExternal: true
+  href: PAC.Layers.Layer.html#PAC_Layers_Layer_GetPixel_PAC_DataStructures_IntVector2_System_Int32_System_Boolean_
+  name: GetPixel(IntVector2, int, bool)
+  nameWithType: Layer.GetPixel(IntVector2, int, bool)
+  fullName: PAC.Layers.Layer.GetPixel(PAC.DataStructures.IntVector2, int, bool)
+  nameWithType.vb: Layer.GetPixel(IntVector2, Integer, Boolean)
+  fullName.vb: PAC.Layers.Layer.GetPixel(PAC.DataStructures.IntVector2, Integer, Boolean)
+  name.vb: GetPixel(IntVector2, Integer, Boolean)
+  spec.csharp:
+  - uid: PAC.Layers.Layer.GetPixel(PAC.DataStructures.IntVector2,System.Int32,System.Boolean)
+    name: GetPixel
+    href: PAC.Layers.Layer.html#PAC_Layers_Layer_GetPixel_PAC_DataStructures_IntVector2_System_Int32_System_Boolean_
+  - name: (
+  - uid: PAC.DataStructures.IntVector2
+    name: IntVector2
+    href: PAC.DataStructures.IntVector2.html
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: System.Boolean
+    name: bool
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: )
+  spec.vb:
+  - uid: PAC.Layers.Layer.GetPixel(PAC.DataStructures.IntVector2,System.Int32,System.Boolean)
+    name: GetPixel
+    href: PAC.Layers.Layer.html#PAC_Layers_Layer_GetPixel_PAC_DataStructures_IntVector2_System_Int32_System_Boolean_
+  - name: (
+  - uid: PAC.DataStructures.IntVector2
+    name: IntVector2
+    href: PAC.DataStructures.IntVector2.html
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: System.Boolean
+    name: Boolean
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: )
+- uid: PAC.Layers.TileLayer.GetPixel*
+  commentId: Overload:PAC.Layers.TileLayer.GetPixel
+  href: PAC.Layers.TileLayer.html#PAC_Layers_TileLayer_GetPixel_PAC_DataStructures_IntVector2_System_Int32_System_Boolean_
+  name: GetPixel
+  nameWithType: TileLayer.GetPixel
+  fullName: PAC.Layers.TileLayer.GetPixel
+- uid: PAC.DataStructures.IntVector2
+  commentId: T:PAC.DataStructures.IntVector2
+  parent: PAC.DataStructures
+  href: PAC.DataStructures.IntVector2.html
+  name: IntVector2
+  nameWithType: IntVector2
+  fullName: PAC.DataStructures.IntVector2
+- uid: PAC.DataStructures
+  commentId: N:PAC.DataStructures
+  href: PAC.html
+  name: PAC.DataStructures
+  nameWithType: PAC.DataStructures
+  fullName: PAC.DataStructures
+  spec.csharp:
+  - uid: PAC
+    name: PAC
+    href: PAC.html
+  - name: .
+  - uid: PAC.DataStructures
+    name: DataStructures
+    href: PAC.DataStructures.html
+  spec.vb:
+  - uid: PAC
+    name: PAC
+    href: PAC.html
+  - name: .
+  - uid: PAC.DataStructures
+    name: DataStructures
+    href: PAC.DataStructures.html
+- uid: PAC.Layers.TileLayer.PixelToTile*
+  commentId: Overload:PAC.Layers.TileLayer.PixelToTile
+  href: PAC.Layers.TileLayer.html#PAC_Layers_TileLayer_PixelToTile_System_Int32_System_Int32_
+  name: PixelToTile
+  nameWithType: TileLayer.PixelToTile
+  fullName: PAC.Layers.TileLayer.PixelToTile
+- uid: PAC.Layers.TileLayer.GetLinkedPixels*
+  commentId: Overload:PAC.Layers.TileLayer.GetLinkedPixels
+  href: PAC.Layers.TileLayer.html#PAC_Layers_TileLayer_GetLinkedPixels_PAC_DataStructures_IntVector2_
+  name: GetLinkedPixels
+  nameWithType: TileLayer.GetLinkedPixels
+  fullName: PAC.Layers.TileLayer.GetLinkedPixels
+- uid: PAC.Layers.Layer.FlipNoEvent(PAC.FlipDirection)
+  commentId: M:PAC.Layers.Layer.FlipNoEvent(PAC.FlipDirection)
+  parent: PAC.Layers.Layer
+  href: PAC.Layers.Layer.html#PAC_Layers_Layer_FlipNoEvent_PAC_FlipDirection_
+  name: FlipNoEvent(FlipDirection)
+  nameWithType: Layer.FlipNoEvent(FlipDirection)
+  fullName: PAC.Layers.Layer.FlipNoEvent(PAC.FlipDirection)
+  spec.csharp:
+  - uid: PAC.Layers.Layer.FlipNoEvent(PAC.FlipDirection)
+    name: FlipNoEvent
+    href: PAC.Layers.Layer.html#PAC_Layers_Layer_FlipNoEvent_PAC_FlipDirection_
+  - name: (
+  - uid: PAC.FlipDirection
+    name: FlipDirection
+    href: PAC.FlipDirection.html
+  - name: )
+  spec.vb:
+  - uid: PAC.Layers.Layer.FlipNoEvent(PAC.FlipDirection)
+    name: FlipNoEvent
+    href: PAC.Layers.Layer.html#PAC_Layers_Layer_FlipNoEvent_PAC_FlipDirection_
+  - name: (
+  - uid: PAC.FlipDirection
+    name: FlipDirection
+    href: PAC.FlipDirection.html
+  - name: )
+- uid: PAC.Layers.TileLayer.FlipNoEvent*
+  commentId: Overload:PAC.Layers.TileLayer.FlipNoEvent
+  href: PAC.Layers.TileLayer.html#PAC_Layers_TileLayer_FlipNoEvent_PAC_FlipDirection_
+  name: FlipNoEvent
+  nameWithType: TileLayer.FlipNoEvent
+  fullName: PAC.Layers.TileLayer.FlipNoEvent
+- uid: PAC.FlipDirection
+  commentId: T:PAC.FlipDirection
+  parent: PAC
+  href: PAC.FlipDirection.html
+  name: FlipDirection
+  nameWithType: FlipDirection
+  fullName: PAC.FlipDirection
+- uid: PAC
+  commentId: N:PAC
+  href: PAC.html
+  name: PAC
+  nameWithType: PAC
+  fullName: PAC
+- uid: PAC.Layers.Layer.RotateNoEvent(PAC.RotationAngle)
+  commentId: M:PAC.Layers.Layer.RotateNoEvent(PAC.RotationAngle)
+  parent: PAC.Layers.Layer
+  href: PAC.Layers.Layer.html#PAC_Layers_Layer_RotateNoEvent_PAC_RotationAngle_
+  name: RotateNoEvent(RotationAngle)
+  nameWithType: Layer.RotateNoEvent(RotationAngle)
+  fullName: PAC.Layers.Layer.RotateNoEvent(PAC.RotationAngle)
+  spec.csharp:
+  - uid: PAC.Layers.Layer.RotateNoEvent(PAC.RotationAngle)
+    name: RotateNoEvent
+    href: PAC.Layers.Layer.html#PAC_Layers_Layer_RotateNoEvent_PAC_RotationAngle_
+  - name: (
+  - uid: PAC.RotationAngle
+    name: RotationAngle
+    href: PAC.RotationAngle.html
+  - name: )
+  spec.vb:
+  - uid: PAC.Layers.Layer.RotateNoEvent(PAC.RotationAngle)
+    name: RotateNoEvent
+    href: PAC.Layers.Layer.html#PAC_Layers_Layer_RotateNoEvent_PAC_RotationAngle_
+  - name: (
+  - uid: PAC.RotationAngle
+    name: RotationAngle
+    href: PAC.RotationAngle.html
+  - name: )
+- uid: PAC.Layers.TileLayer.RotateNoEvent*
+  commentId: Overload:PAC.Layers.TileLayer.RotateNoEvent
+  href: PAC.Layers.TileLayer.html#PAC_Layers_TileLayer_RotateNoEvent_PAC_RotationAngle_
+  name: RotateNoEvent
+  nameWithType: TileLayer.RotateNoEvent
+  fullName: PAC.Layers.TileLayer.RotateNoEvent
+- uid: PAC.RotationAngle
+  commentId: T:PAC.RotationAngle
+  parent: PAC
+  href: PAC.RotationAngle.html
+  name: RotationAngle
+  nameWithType: RotationAngle
+  fullName: PAC.RotationAngle
+- uid: PAC.Layers.Layer.ExtendNoEvent(System.Int32,System.Int32,System.Int32,System.Int32)
+  commentId: M:PAC.Layers.Layer.ExtendNoEvent(System.Int32,System.Int32,System.Int32,System.Int32)
+  parent: PAC.Layers.Layer
+  isExternal: true
+  href: PAC.Layers.Layer.html#PAC_Layers_Layer_ExtendNoEvent_System_Int32_System_Int32_System_Int32_System_Int32_
+  name: ExtendNoEvent(int, int, int, int)
+  nameWithType: Layer.ExtendNoEvent(int, int, int, int)
+  fullName: PAC.Layers.Layer.ExtendNoEvent(int, int, int, int)
+  nameWithType.vb: Layer.ExtendNoEvent(Integer, Integer, Integer, Integer)
+  fullName.vb: PAC.Layers.Layer.ExtendNoEvent(Integer, Integer, Integer, Integer)
+  name.vb: ExtendNoEvent(Integer, Integer, Integer, Integer)
+  spec.csharp:
+  - uid: PAC.Layers.Layer.ExtendNoEvent(System.Int32,System.Int32,System.Int32,System.Int32)
+    name: ExtendNoEvent
+    href: PAC.Layers.Layer.html#PAC_Layers_Layer_ExtendNoEvent_System_Int32_System_Int32_System_Int32_System_Int32_
+  - name: (
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+  spec.vb:
+  - uid: PAC.Layers.Layer.ExtendNoEvent(System.Int32,System.Int32,System.Int32,System.Int32)
+    name: ExtendNoEvent
+    href: PAC.Layers.Layer.html#PAC_Layers_Layer_ExtendNoEvent_System_Int32_System_Int32_System_Int32_System_Int32_
+  - name: (
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+- uid: PAC.Layers.TileLayer.ExtendNoEvent*
+  commentId: Overload:PAC.Layers.TileLayer.ExtendNoEvent
+  href: PAC.Layers.TileLayer.html#PAC_Layers_TileLayer_ExtendNoEvent_System_Int32_System_Int32_System_Int32_System_Int32_
+  name: ExtendNoEvent
+  nameWithType: TileLayer.ExtendNoEvent
+  fullName: PAC.Layers.TileLayer.ExtendNoEvent
+- uid: PAC.Layers.Layer.ScaleNoEvent(System.Single,System.Single)
+  commentId: M:PAC.Layers.Layer.ScaleNoEvent(System.Single,System.Single)
+  parent: PAC.Layers.Layer
+  isExternal: true
+  href: PAC.Layers.Layer.html#PAC_Layers_Layer_ScaleNoEvent_System_Single_System_Single_
+  name: ScaleNoEvent(float, float)
+  nameWithType: Layer.ScaleNoEvent(float, float)
+  fullName: PAC.Layers.Layer.ScaleNoEvent(float, float)
+  nameWithType.vb: Layer.ScaleNoEvent(Single, Single)
+  fullName.vb: PAC.Layers.Layer.ScaleNoEvent(Single, Single)
+  name.vb: ScaleNoEvent(Single, Single)
+  spec.csharp:
+  - uid: PAC.Layers.Layer.ScaleNoEvent(System.Single,System.Single)
+    name: ScaleNoEvent
+    href: PAC.Layers.Layer.html#PAC_Layers_Layer_ScaleNoEvent_System_Single_System_Single_
+  - name: (
+  - uid: System.Single
+    name: float
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.single
+  - name: ','
+  - name: " "
+  - uid: System.Single
+    name: float
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.single
+  - name: )
+  spec.vb:
+  - uid: PAC.Layers.Layer.ScaleNoEvent(System.Single,System.Single)
+    name: ScaleNoEvent
+    href: PAC.Layers.Layer.html#PAC_Layers_Layer_ScaleNoEvent_System_Single_System_Single_
+  - name: (
+  - uid: System.Single
+    name: Single
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.single
+  - name: ','
+  - name: " "
+  - uid: System.Single
+    name: Single
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.single
+  - name: )
+- uid: PAC.Layers.TileLayer.ScaleNoEvent*
+  commentId: Overload:PAC.Layers.TileLayer.ScaleNoEvent
+  href: PAC.Layers.TileLayer.html#PAC_Layers_TileLayer_ScaleNoEvent_System_Single_System_Single_
+  name: ScaleNoEvent
+  nameWithType: TileLayer.ScaleNoEvent
+  fullName: PAC.Layers.TileLayer.ScaleNoEvent
+- uid: System.Single
+  commentId: T:System.Single
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.single
+  name: float
+  nameWithType: float
+  fullName: float
+  nameWithType.vb: Single
+  fullName.vb: Single
+  name.vb: Single
+- uid: PAC.Layers.Layer.ScaleNoEvent(System.Int32,System.Int32)
+  commentId: M:PAC.Layers.Layer.ScaleNoEvent(System.Int32,System.Int32)
+  parent: PAC.Layers.Layer
+  isExternal: true
+  href: PAC.Layers.Layer.html#PAC_Layers_Layer_ScaleNoEvent_System_Int32_System_Int32_
+  name: ScaleNoEvent(int, int)
+  nameWithType: Layer.ScaleNoEvent(int, int)
+  fullName: PAC.Layers.Layer.ScaleNoEvent(int, int)
+  nameWithType.vb: Layer.ScaleNoEvent(Integer, Integer)
+  fullName.vb: PAC.Layers.Layer.ScaleNoEvent(Integer, Integer)
+  name.vb: ScaleNoEvent(Integer, Integer)
+  spec.csharp:
+  - uid: PAC.Layers.Layer.ScaleNoEvent(System.Int32,System.Int32)
+    name: ScaleNoEvent
+    href: PAC.Layers.Layer.html#PAC_Layers_Layer_ScaleNoEvent_System_Int32_System_Int32_
+  - name: (
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+  spec.vb:
+  - uid: PAC.Layers.Layer.ScaleNoEvent(System.Int32,System.Int32)
+    name: ScaleNoEvent
+    href: PAC.Layers.Layer.html#PAC_Layers_Layer_ScaleNoEvent_System_Int32_System_Int32_
+  - name: (
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+- uid: PAC.Layers.Layer.ToJSON
+  commentId: M:PAC.Layers.Layer.ToJSON
+  parent: PAC.Layers.Layer
+  href: PAC.Layers.Layer.html#PAC_Layers_Layer_ToJSON
+  name: ToJSON()
+  nameWithType: Layer.ToJSON()
+  fullName: PAC.Layers.Layer.ToJSON()
+  spec.csharp:
+  - uid: PAC.Layers.Layer.ToJSON
+    name: ToJSON
+    href: PAC.Layers.Layer.html#PAC_Layers_Layer_ToJSON
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: PAC.Layers.Layer.ToJSON
+    name: ToJSON
+    href: PAC.Layers.Layer.html#PAC_Layers_Layer_ToJSON
+  - name: (
+  - name: )
+- uid: PAC.Layers.TileLayer.ToJSON*
+  commentId: Overload:PAC.Layers.TileLayer.ToJSON
+  href: PAC.Layers.TileLayer.html#PAC_Layers_TileLayer_ToJSON
+  name: ToJSON
+  nameWithType: TileLayer.ToJSON
+  fullName: PAC.Layers.TileLayer.ToJSON
+- uid: PAC.JSON.JSON
+  commentId: T:PAC.JSON.JSON
+  parent: PAC.JSON
+  href: PAC.JSON.JSON.html
+  name: JSON
+  nameWithType: JSON
+  fullName: PAC.JSON.JSON
+- uid: PAC.Layers.Layer.LoadJSON(PAC.JSON.JSON)
+  commentId: M:PAC.Layers.Layer.LoadJSON(PAC.JSON.JSON)
+  parent: PAC.Layers.Layer
+  href: PAC.Layers.Layer.html#PAC_Layers_Layer_LoadJSON_PAC_JSON_JSON_
+  name: LoadJSON(JSON)
+  nameWithType: Layer.LoadJSON(JSON)
+  fullName: PAC.Layers.Layer.LoadJSON(PAC.JSON.JSON)
+  spec.csharp:
+  - uid: PAC.Layers.Layer.LoadJSON(PAC.JSON.JSON)
+    name: LoadJSON
+    href: PAC.Layers.Layer.html#PAC_Layers_Layer_LoadJSON_PAC_JSON_JSON_
+  - name: (
+  - uid: PAC.JSON.JSON
+    name: JSON
+    href: PAC.JSON.JSON.html
+  - name: )
+  spec.vb:
+  - uid: PAC.Layers.Layer.LoadJSON(PAC.JSON.JSON)
+    name: LoadJSON
+    href: PAC.Layers.Layer.html#PAC_Layers_Layer_LoadJSON_PAC_JSON_JSON_
+  - name: (
+  - uid: PAC.JSON.JSON
+    name: JSON
+    href: PAC.JSON.JSON.html
+  - name: )
+- uid: PAC.Layers.TileLayer.LoadJSON*
+  commentId: Overload:PAC.Layers.TileLayer.LoadJSON
+  href: PAC.Layers.TileLayer.html#PAC_Layers_TileLayer_LoadJSON_PAC_JSON_JSON_
+  name: LoadJSON
+  nameWithType: TileLayer.LoadJSON
+  fullName: PAC.Layers.TileLayer.LoadJSON
+- uid: PAC.Layers.Layer.DeleteKeyFrameNoEvent(System.Int32)
+  commentId: M:PAC.Layers.Layer.DeleteKeyFrameNoEvent(System.Int32)
+  parent: PAC.Layers.Layer
+  isExternal: true
+  href: PAC.Layers.Layer.html#PAC_Layers_Layer_DeleteKeyFrameNoEvent_System_Int32_
+  name: DeleteKeyFrameNoEvent(int)
+  nameWithType: Layer.DeleteKeyFrameNoEvent(int)
+  fullName: PAC.Layers.Layer.DeleteKeyFrameNoEvent(int)
+  nameWithType.vb: Layer.DeleteKeyFrameNoEvent(Integer)
+  fullName.vb: PAC.Layers.Layer.DeleteKeyFrameNoEvent(Integer)
+  name.vb: DeleteKeyFrameNoEvent(Integer)
+  spec.csharp:
+  - uid: PAC.Layers.Layer.DeleteKeyFrameNoEvent(System.Int32)
+    name: DeleteKeyFrameNoEvent
+    href: PAC.Layers.Layer.html#PAC_Layers_Layer_DeleteKeyFrameNoEvent_System_Int32_
+  - name: (
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+  spec.vb:
+  - uid: PAC.Layers.Layer.DeleteKeyFrameNoEvent(System.Int32)
+    name: DeleteKeyFrameNoEvent
+    href: PAC.Layers.Layer.html#PAC_Layers_Layer_DeleteKeyFrameNoEvent_System_Int32_
+  - name: (
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+- uid: PAC.Layers.TileLayer.DeleteKeyFrameNoEvent*
+  commentId: Overload:PAC.Layers.TileLayer.DeleteKeyFrameNoEvent
+  href: PAC.Layers.TileLayer.html#PAC_Layers_TileLayer_DeleteKeyFrameNoEvent_System_Int32_
+  name: DeleteKeyFrameNoEvent
+  nameWithType: TileLayer.DeleteKeyFrameNoEvent
+  fullName: PAC.Layers.TileLayer.DeleteKeyFrameNoEvent
+- uid: PAC.Animation.AnimationKeyFrame
+  commentId: T:PAC.Animation.AnimationKeyFrame
+  parent: PAC.Animation
+  href: PAC.Animation.AnimationKeyFrame.html
+  name: AnimationKeyFrame
+  nameWithType: AnimationKeyFrame
+  fullName: PAC.Animation.AnimationKeyFrame
+- uid: PAC.Animation
+  commentId: N:PAC.Animation
+  href: PAC.html
+  name: PAC.Animation
+  nameWithType: PAC.Animation
+  fullName: PAC.Animation
+  spec.csharp:
+  - uid: PAC
+    name: PAC
+    href: PAC.html
+  - name: .
+  - uid: PAC.Animation
+    name: Animation
+    href: PAC.Animation.html
+  spec.vb:
+  - uid: PAC
+    name: PAC
+    href: PAC.html
+  - name: .
+  - uid: PAC.Animation
+    name: Animation
+    href: PAC.Animation.html
+- uid: PAC.Layers.Layer.ClearFrames
+  commentId: M:PAC.Layers.Layer.ClearFrames
+  parent: PAC.Layers.Layer
+  href: PAC.Layers.Layer.html#PAC_Layers_Layer_ClearFrames
+  name: ClearFrames()
+  nameWithType: Layer.ClearFrames()
+  fullName: PAC.Layers.Layer.ClearFrames()
+  spec.csharp:
+  - uid: PAC.Layers.Layer.ClearFrames
+    name: ClearFrames
+    href: PAC.Layers.Layer.html#PAC_Layers_Layer_ClearFrames
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: PAC.Layers.Layer.ClearFrames
+    name: ClearFrames
+    href: PAC.Layers.Layer.html#PAC_Layers_Layer_ClearFrames
+  - name: (
+  - name: )
+- uid: PAC.Layers.TileLayer.ClearFrames*
+  commentId: Overload:PAC.Layers.TileLayer.ClearFrames
+  href: PAC.Layers.TileLayer.html#PAC_Layers_TileLayer_ClearFrames
+  name: ClearFrames
+  nameWithType: TileLayer.ClearFrames
+  fullName: PAC.Layers.TileLayer.ClearFrames
+- uid: PAC.Layers.TileLayer.RerenderKeyFrames*
+  commentId: Overload:PAC.Layers.TileLayer.RerenderKeyFrames
+  href: PAC.Layers.TileLayer.html#PAC_Layers_TileLayer_RerenderKeyFrames
+  name: RerenderKeyFrames
+  nameWithType: TileLayer.RerenderKeyFrames
+  fullName: PAC.Layers.TileLayer.RerenderKeyFrames
+- uid: PAC.DataStructures.IntRect
+  commentId: T:PAC.DataStructures.IntRect
+  parent: PAC.DataStructures
+  href: PAC.DataStructures.IntRect.html
+  name: IntRect
+  nameWithType: IntRect
+  fullName: PAC.DataStructures.IntRect
+- uid: System.Int32[]
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int[]
+  nameWithType: int[]
+  fullName: int[]
+  nameWithType.vb: Integer()
+  fullName.vb: Integer()
+  name.vb: Integer()
+  spec.csharp:
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: '['
+  - name: ']'
+  spec.vb:
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: (
+  - name: )
+- uid: PAC.Layers.TileLayer.RerenderKeyFrame*
+  commentId: Overload:PAC.Layers.TileLayer.RerenderKeyFrame
+  href: PAC.Layers.TileLayer.html#PAC_Layers_TileLayer_RerenderKeyFrame_System_Int32_
+  name: RerenderKeyFrame
+  nameWithType: TileLayer.RerenderKeyFrame
+  fullName: PAC.Layers.TileLayer.RerenderKeyFrame

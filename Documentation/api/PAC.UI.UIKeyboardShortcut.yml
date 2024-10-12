@@ -1,0 +1,260 @@
+### YamlMime:ManagedReference
+items:
+- uid: PAC.UI.UIKeyboardShortcut
+  commentId: T:PAC.UI.UIKeyboardShortcut
+  id: UIKeyboardShortcut
+  parent: PAC.UI
+  children:
+  - PAC.UI.UIKeyboardShortcut.SubscribeToOnShortcutSet(UnityAction{PAC.KeyboardShortcuts.KeyboardShortcut})
+  - PAC.UI.UIKeyboardShortcut.actionName
+  - PAC.UI.UIKeyboardShortcut.shortcut
+  langs:
+  - csharp
+  - vb
+  name: UIKeyboardShortcut
+  nameWithType: UIKeyboardShortcut
+  fullName: PAC.UI.UIKeyboardShortcut
+  type: Class
+  source:
+    remote:
+      path: Assets/Scripts/UI/UIKeyboardShortcut.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: UIKeyboardShortcut
+    path: ../Assets/Scripts/UI/UIKeyboardShortcut.cs
+    startLine: 7
+  namespace: PAC.UI
+  syntax:
+    content: 'public class UIKeyboardShortcut : MonoBehaviour'
+    content.vb: Public Class UIKeyboardShortcut Inherits MonoBehaviour
+  inheritance:
+  - System.Object
+- uid: PAC.UI.UIKeyboardShortcut.actionName
+  commentId: F:PAC.UI.UIKeyboardShortcut.actionName
+  id: actionName
+  parent: PAC.UI.UIKeyboardShortcut
+  langs:
+  - csharp
+  - vb
+  name: actionName
+  nameWithType: UIKeyboardShortcut.actionName
+  fullName: PAC.UI.UIKeyboardShortcut.actionName
+  type: Field
+  source:
+    remote:
+      path: Assets/Scripts/UI/UIKeyboardShortcut.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: actionName
+    path: ../Assets/Scripts/UI/UIKeyboardShortcut.cs
+    startLine: 10
+  namespace: PAC.UI
+  syntax:
+    content: public string actionName
+    return:
+      type: System.String
+    content.vb: Public actionName As String
+- uid: PAC.UI.UIKeyboardShortcut.shortcut
+  commentId: P:PAC.UI.UIKeyboardShortcut.shortcut
+  id: shortcut
+  parent: PAC.UI.UIKeyboardShortcut
+  langs:
+  - csharp
+  - vb
+  name: shortcut
+  nameWithType: UIKeyboardShortcut.shortcut
+  fullName: PAC.UI.UIKeyboardShortcut.shortcut
+  type: Property
+  source:
+    remote:
+      path: Assets/Scripts/UI/UIKeyboardShortcut.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: shortcut
+    path: ../Assets/Scripts/UI/UIKeyboardShortcut.cs
+    startLine: 13
+  namespace: PAC.UI
+  syntax:
+    content: public KeyboardShortcut shortcut { get; set; }
+    parameters: []
+    return:
+      type: PAC.KeyboardShortcuts.KeyboardShortcut
+    content.vb: Public Property shortcut As KeyboardShortcut
+  overload: PAC.UI.UIKeyboardShortcut.shortcut*
+- uid: PAC.UI.UIKeyboardShortcut.SubscribeToOnShortcutSet(UnityAction{PAC.KeyboardShortcuts.KeyboardShortcut})
+  commentId: M:PAC.UI.UIKeyboardShortcut.SubscribeToOnShortcutSet(UnityAction{PAC.KeyboardShortcuts.KeyboardShortcut})
+  id: SubscribeToOnShortcutSet(UnityAction{PAC.KeyboardShortcuts.KeyboardShortcut})
+  parent: PAC.UI.UIKeyboardShortcut
+  langs:
+  - csharp
+  - vb
+  name: SubscribeToOnShortcutSet(UnityAction<KeyboardShortcut>)
+  nameWithType: UIKeyboardShortcut.SubscribeToOnShortcutSet(UnityAction<KeyboardShortcut>)
+  fullName: PAC.UI.UIKeyboardShortcut.SubscribeToOnShortcutSet(UnityAction<PAC.KeyboardShortcuts.KeyboardShortcut>)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/UI/UIKeyboardShortcut.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: SubscribeToOnShortcutSet
+    path: ../Assets/Scripts/UI/UIKeyboardShortcut.cs
+    startLine: 66
+  namespace: PAC.UI
+  syntax:
+    content: public void SubscribeToOnShortcutSet(UnityAction<KeyboardShortcut> call)
+    parameters:
+    - id: call
+      type: Global.UnityAction{PAC.KeyboardShortcuts.KeyboardShortcut}
+    content.vb: Public Sub SubscribeToOnShortcutSet([call] As UnityAction(Of KeyboardShortcut))
+  overload: PAC.UI.UIKeyboardShortcut.SubscribeToOnShortcutSet*
+  nameWithType.vb: UIKeyboardShortcut.SubscribeToOnShortcutSet(UnityAction(Of KeyboardShortcut))
+  fullName.vb: PAC.UI.UIKeyboardShortcut.SubscribeToOnShortcutSet(UnityAction(Of PAC.KeyboardShortcuts.KeyboardShortcut))
+  name.vb: SubscribeToOnShortcutSet(UnityAction(Of KeyboardShortcut))
+references:
+- uid: PAC.UI
+  commentId: N:PAC.UI
+  href: PAC.html
+  name: PAC.UI
+  nameWithType: PAC.UI
+  fullName: PAC.UI
+  spec.csharp:
+  - uid: PAC
+    name: PAC
+    href: PAC.html
+  - name: .
+  - uid: PAC.UI
+    name: UI
+    href: PAC.UI.html
+  spec.vb:
+  - uid: PAC
+    name: PAC
+    href: PAC.html
+  - name: .
+  - uid: PAC.UI
+    name: UI
+    href: PAC.UI.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: PAC.UI.UIKeyboardShortcut.shortcut*
+  commentId: Overload:PAC.UI.UIKeyboardShortcut.shortcut
+  href: PAC.UI.UIKeyboardShortcut.html#PAC_UI_UIKeyboardShortcut_shortcut
+  name: shortcut
+  nameWithType: UIKeyboardShortcut.shortcut
+  fullName: PAC.UI.UIKeyboardShortcut.shortcut
+- uid: PAC.KeyboardShortcuts.KeyboardShortcut
+  commentId: T:PAC.KeyboardShortcuts.KeyboardShortcut
+  parent: PAC.KeyboardShortcuts
+  href: PAC.KeyboardShortcuts.KeyboardShortcut.html
+  name: KeyboardShortcut
+  nameWithType: KeyboardShortcut
+  fullName: PAC.KeyboardShortcuts.KeyboardShortcut
+- uid: PAC.KeyboardShortcuts
+  commentId: N:PAC.KeyboardShortcuts
+  href: PAC.html
+  name: PAC.KeyboardShortcuts
+  nameWithType: PAC.KeyboardShortcuts
+  fullName: PAC.KeyboardShortcuts
+  spec.csharp:
+  - uid: PAC
+    name: PAC
+    href: PAC.html
+  - name: .
+  - uid: PAC.KeyboardShortcuts
+    name: KeyboardShortcuts
+    href: PAC.KeyboardShortcuts.html
+  spec.vb:
+  - uid: PAC
+    name: PAC
+    href: PAC.html
+  - name: .
+  - uid: PAC.KeyboardShortcuts
+    name: KeyboardShortcuts
+    href: PAC.KeyboardShortcuts.html
+- uid: PAC.UI.UIKeyboardShortcut.SubscribeToOnShortcutSet*
+  commentId: Overload:PAC.UI.UIKeyboardShortcut.SubscribeToOnShortcutSet
+  href: PAC.UI.UIKeyboardShortcut.html#PAC_UI_UIKeyboardShortcut_SubscribeToOnShortcutSet_UnityAction_PAC_KeyboardShortcuts_KeyboardShortcut__
+  name: SubscribeToOnShortcutSet
+  nameWithType: UIKeyboardShortcut.SubscribeToOnShortcutSet
+  fullName: PAC.UI.UIKeyboardShortcut.SubscribeToOnShortcutSet
+- uid: Global.UnityAction{PAC.KeyboardShortcuts.KeyboardShortcut}
+  commentId: '!:Global.UnityAction{PAC.KeyboardShortcuts.KeyboardShortcut}'
+  definition: Global.UnityAction`1
+  href: PAC.KeyboardShortcuts.KeyboardShortcut.html
+  name: UnityAction<KeyboardShortcut>
+  nameWithType: UnityAction<KeyboardShortcut>
+  fullName: UnityAction<PAC.KeyboardShortcuts.KeyboardShortcut>
+  nameWithType.vb: UnityAction(Of KeyboardShortcut)
+  fullName.vb: UnityAction(Of PAC.KeyboardShortcuts.KeyboardShortcut)
+  name.vb: UnityAction(Of KeyboardShortcut)
+  spec.csharp:
+  - uid: Global.UnityAction`1
+    name: UnityAction
+    isExternal: true
+  - name: <
+  - uid: PAC.KeyboardShortcuts.KeyboardShortcut
+    name: KeyboardShortcut
+    href: PAC.KeyboardShortcuts.KeyboardShortcut.html
+  - name: '>'
+  spec.vb:
+  - uid: Global.UnityAction`1
+    name: UnityAction
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: PAC.KeyboardShortcuts.KeyboardShortcut
+    name: KeyboardShortcut
+    href: PAC.KeyboardShortcuts.KeyboardShortcut.html
+  - name: )
+- uid: Global.UnityAction`1
+  isExternal: true
+  name: UnityAction<>
+  nameWithType: UnityAction<>
+  fullName: UnityAction<>
+  nameWithType.vb: UnityAction(Of )
+  fullName.vb: UnityAction(Of )
+  name.vb: UnityAction(Of )
+  spec.csharp:
+  - uid: Global.UnityAction`1
+    name: UnityAction
+    isExternal: true
+  - name: <
+  - name: ''
+  - name: '>'
+  spec.vb:
+  - uid: Global.UnityAction`1
+    name: UnityAction
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - name: ''
+  - name: )

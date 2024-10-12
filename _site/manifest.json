@@ -1211,6 +1211,1416 @@
       "version": ""
     },
     {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.Animation.AnimationKeyFrame.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.Animation.AnimationKeyFrame.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.Animation.AnimationManager.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.Animation.AnimationManager.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.Animation.FrameNotch.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.Animation.FrameNotch.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.Animation.KeyFrameIcon.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.Animation.KeyFrameIcon.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.Animation.LayerAnimation.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.Animation.LayerAnimation.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.Animation.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.Animation.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.Clipboard.Clipboard.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.Clipboard.Clipboard.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.Clipboard.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.Clipboard.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.Colour.BlendMode.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.Colour.BlendMode.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.Colour.ColorExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.Colour.ColorExtensions.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.Colour.HSL.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.Colour.HSL.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.Colour.HSV.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.Colour.HSV.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.Colour.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.Colour.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.ColourPicker.ColourPreview.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.ColourPicker.ColourPreview.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.ColourPicker.GlobalColourPicker.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.ColourPicker.GlobalColourPicker.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.ColourPicker.HSLColourPicker.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.ColourPicker.HSLColourPicker.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.ColourPicker.HSLHueSaturationBox.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.ColourPicker.HSLHueSaturationBox.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.ColourPicker.HSLLightnessSlider.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.ColourPicker.HSLLightnessSlider.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.ColourPicker.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.ColourPicker.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.DataStructures.CustomStack-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.DataStructures.CustomStack-1.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.DataStructures.IntRect.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.DataStructures.IntRect.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.DataStructures.IntVector2.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.DataStructures.IntVector2.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.DataStructures.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.DataStructures.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.Drawing.BrushShape.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.Drawing.BrushShape.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.Drawing.DrawingArea.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.Drawing.DrawingArea.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.Drawing.GradientMode.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.Drawing.GradientMode.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.Drawing.GridManager.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.Drawing.GridManager.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.Drawing.SelectionMode.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.Drawing.SelectionMode.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.Drawing.Shape.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.Drawing.Shape.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.Drawing.Shapes.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.Drawing.Shapes.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.Drawing.Tool.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.Drawing.Tool.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.Drawing.Toolbar.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.Drawing.Toolbar.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.Drawing.Tools.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.Drawing.Tools.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.Drawing.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.Drawing.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.EffectPanels.BlurPanel.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.EffectPanels.BlurPanel.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.EffectPanels.EffectPanel.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.EffectPanels.EffectPanel.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.EffectPanels.PixellatePanel.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.EffectPanels.PixellatePanel.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.EffectPanels.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.EffectPanels.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.Files.File.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.Files.File.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.Files.FileManager.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.Files.FileManager.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.Files.FileTab.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.Files.FileTab.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.Files.FileTabsManager.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.Files.FileTabsManager.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.Files.ImageEditManager.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.Files.ImageEditManager.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.Files.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.Files.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.Finder.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.Finder.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.FlipDirection.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.FlipDirection.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.Functions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.Functions.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.ImageConverter.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.ImageConverter.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.Input.CursorState.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.Input.CursorState.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.Input.InputSystem.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.Input.InputSystem.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.Input.InputTarget.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.Input.InputTarget.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.Input.Keyboard.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.Input.Keyboard.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.Input.KeyboardTarget.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.Input.KeyboardTarget.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.Input.Mouse.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.Input.Mouse.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.Input.MouseButton.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.Input.MouseButton.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.Input.MouseTarget.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.Input.MouseTarget.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.Input.MouseTargetDeselectMode.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.Input.MouseTargetDeselectMode.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.Input.MouseTargetState.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.Input.MouseTargetState.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.Input.Tooltip.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.Input.Tooltip.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.Input.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.Input.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.JSON.IJSONable.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.JSON.IJSONable.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.JSON.JSON.JSONProperty.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.JSON.JSON.JSONProperty.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.JSON.JSON.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.JSON.JSON.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.JSON.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.JSON.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.KeyCodeFunctions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.KeyCodeFunctions.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.KeyboardShortcuts.CustomKeyCode.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.KeyboardShortcuts.CustomKeyCode.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.KeyboardShortcuts.KeyboardShortcut.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.KeyboardShortcuts.KeyboardShortcut.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.KeyboardShortcuts.KeyboardShortcutOptionsManager.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.KeyboardShortcuts.KeyboardShortcutOptionsManager.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.KeyboardShortcuts.KeyboardShortcuts.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.KeyboardShortcuts.KeyboardShortcuts.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.KeyboardShortcuts.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.KeyboardShortcuts.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.Layers.AnimFrameRefMode.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.Layers.AnimFrameRefMode.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.Layers.Layer.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.Layers.Layer.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.Layers.LayerManager.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.Layers.LayerManager.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.Layers.LayerTile.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.Layers.LayerTile.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.Layers.LayerType.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.Layers.LayerType.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.Layers.NormalLayer.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.Layers.NormalLayer.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.Layers.TileLayer.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.Layers.TileLayer.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.Layers.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.Layers.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.OutlineSideFill.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.OutlineSideFill.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.RotationAngle.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.RotationAngle.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.Screen.MaximiseWindow.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.Screen.MaximiseWindow.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.Screen.ScreenInfo.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.Screen.ScreenInfo.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.Screen.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.Screen.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.Serialization.LayerSerializationSurrogate.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.Serialization.LayerSerializationSurrogate.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.Serialization.Texture2DSerializationSurrogate.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.Serialization.Texture2DSerializationSurrogate.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.Serialization.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.Serialization.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.Shaders.HueSaturationBoxShader.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.Shaders.HueSaturationBoxShader.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.Shaders.LightnessSliderShader.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.Shaders.LightnessSliderShader.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.Shaders.Outline.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.Shaders.Outline.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.Shaders.RainbowOutline.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.Shaders.RainbowOutline.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.Shaders.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.Shaders.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.Tex2DSprite.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.Tex2DSprite.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.Themes.Theme.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.Themes.Theme.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.Themes.ThemeManager.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.Themes.ThemeManager.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.Themes.ThemeObjectType.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.Themes.ThemeObjectType.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.Themes.UITheme.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.Themes.UITheme.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.Themes.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.Themes.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.Tilesets.Tile.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.Tilesets.Tile.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.Tilesets.TileOutlineManager.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.Tilesets.TileOutlineManager.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.Tilesets.Tileset.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.Tilesets.Tileset.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.Tilesets.TilesetManager.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.Tilesets.TilesetManager.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.Tilesets.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.Tilesets.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.UI.CollapsedState.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.UI.CollapsedState.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.UI.DropdownCloseMode.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.UI.DropdownCloseMode.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.UI.DropdownDirection.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.UI.DropdownDirection.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.UI.GridAlignment.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.UI.GridAlignment.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.UI.ScrollDirection.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.UI.ScrollDirection.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.UI.UIAnchorPoint.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.UI.UIAnchorPoint.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.UI.UIButton.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.UI.UIButton.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.UI.UICollapser.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.UI.UICollapser.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.UI.UIColourField.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.UI.UIColourField.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.UI.UIColourFieldGroup.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.UI.UIColourFieldGroup.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.UI.UIColourPicker.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.UI.UIColourPicker.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.UI.UIDropdown.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.UI.UIDropdown.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.UI.UIDropdownChoice.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.UI.UIDropdownChoice.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.UI.UIElement.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.UI.UIElement.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.UI.UIElementDeselectMode.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.UI.UIElementDeselectMode.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.UI.UIElementSelectMode.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.UI.UIElementSelectMode.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.UI.UIGridPacker.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.UI.UIGridPacker.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.UI.UIKeyboardShortcut.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.UI.UIKeyboardShortcut.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.UI.UIManager.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.UI.UIManager.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.UI.UIModalWindow.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.UI.UIModalWindow.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.UI.UINumberField.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.UI.UINumberField.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.UI.UIScale.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.UI.UIScale.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.UI.UIScrollbar.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.UI.UIScrollbar.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.UI.UITabManager.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.UI.UITabManager.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.UI.UITextbox.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.UI.UITextbox.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.UI.UITextboxAnchorPoint.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.UI.UITextboxAnchorPoint.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.UI.UITileIcon.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.UI.UITileIcon.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.UI.UIToggleButton.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.UI.UIToggleButton.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.UI.UIToggleGroup.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.UI.UIToggleGroup.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.UI.UIToolButton.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.UI.UIToolButton.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.UI.UITooltip.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.UI.UITooltip.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.UI.UIViewport.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.UI.UIViewport.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.UI.ViewportSide.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.UI.ViewportSide.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.UI.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.UI.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.UndoRedo.UndoRedoAction.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.UndoRedo.UndoRedoAction.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.UndoRedo.UndoRedoManager.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.UndoRedo.UndoRedoManager.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.UndoRedo.UndoRedoState.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.UndoRedo.UndoRedoState.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.UndoRedo.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.UndoRedo.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.html"
+        }
+      },
+      "version": ""
+    },
+    {
       "type": "Toc",
       "source_relative_path": "api/toc.yml",
       "output": {

@@ -1,0 +1,224 @@
+### YamlMime:ManagedReference
+items:
+- uid: PAC.ColourPicker.HSLHueSaturationBox
+  commentId: T:PAC.ColourPicker.HSLHueSaturationBox
+  id: HSLHueSaturationBox
+  parent: PAC.ColourPicker
+  children:
+  - PAC.ColourPicker.HSLHueSaturationBox.SetHue(System.Single)
+  - PAC.ColourPicker.HSLHueSaturationBox.SetSaturation(System.Single)
+  - PAC.ColourPicker.HSLHueSaturationBox.hue
+  - PAC.ColourPicker.HSLHueSaturationBox.saturation
+  langs:
+  - csharp
+  - vb
+  name: HSLHueSaturationBox
+  nameWithType: HSLHueSaturationBox
+  fullName: PAC.ColourPicker.HSLHueSaturationBox
+  type: Class
+  source:
+    remote:
+      path: Assets/Scripts/Colour Picker/HSLHueSaturationBox.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: HSLHueSaturationBox
+    path: ../Assets/Scripts/Colour Picker/HSLHueSaturationBox.cs
+    startLine: 9
+  namespace: PAC.ColourPicker
+  summary: A class for the hue/saturation box of the HSL colour picker.
+  example: []
+  syntax:
+    content: 'public class HSLHueSaturationBox : MonoBehaviour'
+    content.vb: Public Class HSLHueSaturationBox Inherits MonoBehaviour
+  inheritance:
+  - System.Object
+- uid: PAC.ColourPicker.HSLHueSaturationBox.hue
+  commentId: P:PAC.ColourPicker.HSLHueSaturationBox.hue
+  id: hue
+  parent: PAC.ColourPicker.HSLHueSaturationBox
+  langs:
+  - csharp
+  - vb
+  name: hue
+  nameWithType: HSLHueSaturationBox.hue
+  fullName: PAC.ColourPicker.HSLHueSaturationBox.hue
+  type: Property
+  source:
+    remote:
+      path: Assets/Scripts/Colour Picker/HSLHueSaturationBox.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: hue
+    path: ../Assets/Scripts/Colour Picker/HSLHueSaturationBox.cs
+    startLine: 12
+  namespace: PAC.ColourPicker
+  syntax:
+    content: public float hue { get; }
+    parameters: []
+    return:
+      type: System.Single
+    content.vb: Public Property hue As Single
+  overload: PAC.ColourPicker.HSLHueSaturationBox.hue*
+- uid: PAC.ColourPicker.HSLHueSaturationBox.saturation
+  commentId: P:PAC.ColourPicker.HSLHueSaturationBox.saturation
+  id: saturation
+  parent: PAC.ColourPicker.HSLHueSaturationBox
+  langs:
+  - csharp
+  - vb
+  name: saturation
+  nameWithType: HSLHueSaturationBox.saturation
+  fullName: PAC.ColourPicker.HSLHueSaturationBox.saturation
+  type: Property
+  source:
+    remote:
+      path: Assets/Scripts/Colour Picker/HSLHueSaturationBox.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: saturation
+    path: ../Assets/Scripts/Colour Picker/HSLHueSaturationBox.cs
+    startLine: 22
+  namespace: PAC.ColourPicker
+  syntax:
+    content: public float saturation { get; }
+    parameters: []
+    return:
+      type: System.Single
+    content.vb: Public Property saturation As Single
+  overload: PAC.ColourPicker.HSLHueSaturationBox.saturation*
+- uid: PAC.ColourPicker.HSLHueSaturationBox.SetHue(System.Single)
+  commentId: M:PAC.ColourPicker.HSLHueSaturationBox.SetHue(System.Single)
+  id: SetHue(System.Single)
+  parent: PAC.ColourPicker.HSLHueSaturationBox
+  langs:
+  - csharp
+  - vb
+  name: SetHue(float)
+  nameWithType: HSLHueSaturationBox.SetHue(float)
+  fullName: PAC.ColourPicker.HSLHueSaturationBox.SetHue(float)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Colour Picker/HSLHueSaturationBox.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: SetHue
+    path: ../Assets/Scripts/Colour Picker/HSLHueSaturationBox.cs
+    startLine: 64
+  namespace: PAC.ColourPicker
+  syntax:
+    content: public void SetHue(float hue)
+    parameters:
+    - id: hue
+      type: System.Single
+    content.vb: Public Sub SetHue(hue As Single)
+  overload: PAC.ColourPicker.HSLHueSaturationBox.SetHue*
+  nameWithType.vb: HSLHueSaturationBox.SetHue(Single)
+  fullName.vb: PAC.ColourPicker.HSLHueSaturationBox.SetHue(Single)
+  name.vb: SetHue(Single)
+- uid: PAC.ColourPicker.HSLHueSaturationBox.SetSaturation(System.Single)
+  commentId: M:PAC.ColourPicker.HSLHueSaturationBox.SetSaturation(System.Single)
+  id: SetSaturation(System.Single)
+  parent: PAC.ColourPicker.HSLHueSaturationBox
+  langs:
+  - csharp
+  - vb
+  name: SetSaturation(float)
+  nameWithType: HSLHueSaturationBox.SetSaturation(float)
+  fullName: PAC.ColourPicker.HSLHueSaturationBox.SetSaturation(float)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Colour Picker/HSLHueSaturationBox.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: SetSaturation
+    path: ../Assets/Scripts/Colour Picker/HSLHueSaturationBox.cs
+    startLine: 69
+  namespace: PAC.ColourPicker
+  syntax:
+    content: public void SetSaturation(float saturation)
+    parameters:
+    - id: saturation
+      type: System.Single
+    content.vb: Public Sub SetSaturation(saturation As Single)
+  overload: PAC.ColourPicker.HSLHueSaturationBox.SetSaturation*
+  nameWithType.vb: HSLHueSaturationBox.SetSaturation(Single)
+  fullName.vb: PAC.ColourPicker.HSLHueSaturationBox.SetSaturation(Single)
+  name.vb: SetSaturation(Single)
+references:
+- uid: PAC.ColourPicker
+  commentId: N:PAC.ColourPicker
+  href: PAC.html
+  name: PAC.ColourPicker
+  nameWithType: PAC.ColourPicker
+  fullName: PAC.ColourPicker
+  spec.csharp:
+  - uid: PAC
+    name: PAC
+    href: PAC.html
+  - name: .
+  - uid: PAC.ColourPicker
+    name: ColourPicker
+    href: PAC.ColourPicker.html
+  spec.vb:
+  - uid: PAC
+    name: PAC
+    href: PAC.html
+  - name: .
+  - uid: PAC.ColourPicker
+    name: ColourPicker
+    href: PAC.ColourPicker.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: PAC.ColourPicker.HSLHueSaturationBox.hue*
+  commentId: Overload:PAC.ColourPicker.HSLHueSaturationBox.hue
+  href: PAC.ColourPicker.HSLHueSaturationBox.html#PAC_ColourPicker_HSLHueSaturationBox_hue
+  name: hue
+  nameWithType: HSLHueSaturationBox.hue
+  fullName: PAC.ColourPicker.HSLHueSaturationBox.hue
+- uid: System.Single
+  commentId: T:System.Single
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.single
+  name: float
+  nameWithType: float
+  fullName: float
+  nameWithType.vb: Single
+  fullName.vb: Single
+  name.vb: Single
+- uid: PAC.ColourPicker.HSLHueSaturationBox.saturation*
+  commentId: Overload:PAC.ColourPicker.HSLHueSaturationBox.saturation
+  href: PAC.ColourPicker.HSLHueSaturationBox.html#PAC_ColourPicker_HSLHueSaturationBox_saturation
+  name: saturation
+  nameWithType: HSLHueSaturationBox.saturation
+  fullName: PAC.ColourPicker.HSLHueSaturationBox.saturation
+- uid: PAC.ColourPicker.HSLHueSaturationBox.SetHue*
+  commentId: Overload:PAC.ColourPicker.HSLHueSaturationBox.SetHue
+  href: PAC.ColourPicker.HSLHueSaturationBox.html#PAC_ColourPicker_HSLHueSaturationBox_SetHue_System_Single_
+  name: SetHue
+  nameWithType: HSLHueSaturationBox.SetHue
+  fullName: PAC.ColourPicker.HSLHueSaturationBox.SetHue
+- uid: PAC.ColourPicker.HSLHueSaturationBox.SetSaturation*
+  commentId: Overload:PAC.ColourPicker.HSLHueSaturationBox.SetSaturation
+  href: PAC.ColourPicker.HSLHueSaturationBox.html#PAC_ColourPicker_HSLHueSaturationBox_SetSaturation_System_Single_
+  name: SetSaturation
+  nameWithType: HSLHueSaturationBox.SetSaturation
+  fullName: PAC.ColourPicker.HSLHueSaturationBox.SetSaturation

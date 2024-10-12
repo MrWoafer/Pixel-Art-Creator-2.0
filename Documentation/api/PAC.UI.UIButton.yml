@@ -1,0 +1,855 @@
+### YamlMime:ManagedReference
+items:
+- uid: PAC.UI.UIButton
+  commentId: T:PAC.UI.UIButton
+  id: UIButton
+  parent: PAC.UI
+  children:
+  - PAC.UI.UIButton.Press
+  - PAC.UI.UIButton.RightClick
+  - PAC.UI.UIButton.SetImages(Sprite,Sprite,Sprite)
+  - PAC.UI.UIButton.SetSortingLayer(System.String)
+  - PAC.UI.UIButton.SetSortingLayer(System.String,System.Int32)
+  - PAC.UI.UIButton.SetSortingOrder(System.Int32)
+  - PAC.UI.UIButton.SetText(System.String)
+  - PAC.UI.UIButton.SubscribeToClick(UnityAction)
+  - PAC.UI.UIButton.SubscribeToHover(UnityAction)
+  - PAC.UI.UIButton.SubscribeToIdle(UnityAction)
+  - PAC.UI.UIButton.SubscribeToLeftClick(UnityAction)
+  - PAC.UI.UIButton.SubscribeToRightClick(UnityAction)
+  - PAC.UI.UIButton.UpdateDisplay
+  - PAC.UI.UIButton.backgroundColour
+  - PAC.UI.UIButton.backgroundHoverColour
+  - PAC.UI.UIButton.backgroundPressedColour
+  - PAC.UI.UIButton.height
+  - PAC.UI.UIButton.hoverImage
+  - PAC.UI.UIButton.image
+  - PAC.UI.UIButton.isPressed
+  - PAC.UI.UIButton.pressedImage
+  - PAC.UI.UIButton.width
+  langs:
+  - csharp
+  - vb
+  name: UIButton
+  nameWithType: UIButton
+  fullName: PAC.UI.UIButton
+  type: Class
+  source:
+    remote:
+      path: Assets/Scripts/UI/UIButton.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: UIButton
+    path: ../Assets/Scripts/UI/UIButton.cs
+    startLine: 7
+  namespace: PAC.UI
+  syntax:
+    content: 'public class UIButton : MonoBehaviour'
+    content.vb: Public Class UIButton Inherits MonoBehaviour
+  inheritance:
+  - System.Object
+- uid: PAC.UI.UIButton.width
+  commentId: P:PAC.UI.UIButton.width
+  id: width
+  parent: PAC.UI.UIButton
+  langs:
+  - csharp
+  - vb
+  name: width
+  nameWithType: UIButton.width
+  fullName: PAC.UI.UIButton.width
+  type: Property
+  source:
+    remote:
+      path: Assets/Scripts/UI/UIButton.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: width
+    path: ../Assets/Scripts/UI/UIButton.cs
+    startLine: 15
+  namespace: PAC.UI
+  syntax:
+    content: public float width { get; set; }
+    parameters: []
+    return:
+      type: System.Single
+    content.vb: Public Property width As Single
+  overload: PAC.UI.UIButton.width*
+- uid: PAC.UI.UIButton.height
+  commentId: P:PAC.UI.UIButton.height
+  id: height
+  parent: PAC.UI.UIButton
+  langs:
+  - csharp
+  - vb
+  name: height
+  nameWithType: UIButton.height
+  fullName: PAC.UI.UIButton.height
+  type: Property
+  source:
+    remote:
+      path: Assets/Scripts/UI/UIButton.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: height
+    path: ../Assets/Scripts/UI/UIButton.cs
+    startLine: 30
+  namespace: PAC.UI
+  syntax:
+    content: public float height { get; set; }
+    parameters: []
+    return:
+      type: System.Single
+    content.vb: Public Property height As Single
+  overload: PAC.UI.UIButton.height*
+- uid: PAC.UI.UIButton.image
+  commentId: P:PAC.UI.UIButton.image
+  id: image
+  parent: PAC.UI.UIButton
+  langs:
+  - csharp
+  - vb
+  name: image
+  nameWithType: UIButton.image
+  fullName: PAC.UI.UIButton.image
+  type: Property
+  source:
+    remote:
+      path: Assets/Scripts/UI/UIButton.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: image
+    path: ../Assets/Scripts/UI/UIButton.cs
+    startLine: 46
+  namespace: PAC.UI
+  syntax:
+    content: public Sprite image { get; }
+    parameters: []
+    return:
+      type: Global.Sprite
+    content.vb: Public Property image As Sprite
+  overload: PAC.UI.UIButton.image*
+- uid: PAC.UI.UIButton.hoverImage
+  commentId: P:PAC.UI.UIButton.hoverImage
+  id: hoverImage
+  parent: PAC.UI.UIButton
+  langs:
+  - csharp
+  - vb
+  name: hoverImage
+  nameWithType: UIButton.hoverImage
+  fullName: PAC.UI.UIButton.hoverImage
+  type: Property
+  source:
+    remote:
+      path: Assets/Scripts/UI/UIButton.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: hoverImage
+    path: ../Assets/Scripts/UI/UIButton.cs
+    startLine: 59
+  namespace: PAC.UI
+  syntax:
+    content: public Sprite hoverImage { get; }
+    parameters: []
+    return:
+      type: Global.Sprite
+    content.vb: Public Property hoverImage As Sprite
+  overload: PAC.UI.UIButton.hoverImage*
+- uid: PAC.UI.UIButton.pressedImage
+  commentId: P:PAC.UI.UIButton.pressedImage
+  id: pressedImage
+  parent: PAC.UI.UIButton
+  langs:
+  - csharp
+  - vb
+  name: pressedImage
+  nameWithType: UIButton.pressedImage
+  fullName: PAC.UI.UIButton.pressedImage
+  type: Property
+  source:
+    remote:
+      path: Assets/Scripts/UI/UIButton.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: pressedImage
+    path: ../Assets/Scripts/UI/UIButton.cs
+    startLine: 72
+  namespace: PAC.UI
+  syntax:
+    content: public Sprite pressedImage { get; }
+    parameters: []
+    return:
+      type: Global.Sprite
+    content.vb: Public Property pressedImage As Sprite
+  overload: PAC.UI.UIButton.pressedImage*
+- uid: PAC.UI.UIButton.backgroundColour
+  commentId: F:PAC.UI.UIButton.backgroundColour
+  id: backgroundColour
+  parent: PAC.UI.UIButton
+  langs:
+  - csharp
+  - vb
+  name: backgroundColour
+  nameWithType: UIButton.backgroundColour
+  fullName: PAC.UI.UIButton.backgroundColour
+  type: Field
+  source:
+    remote:
+      path: Assets/Scripts/UI/UIButton.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: backgroundColour
+    path: ../Assets/Scripts/UI/UIButton.cs
+    startLine: 87
+  namespace: PAC.UI
+  syntax:
+    content: public Color backgroundColour
+    return:
+      type: Global.Color
+    content.vb: Public backgroundColour As Color
+- uid: PAC.UI.UIButton.backgroundHoverColour
+  commentId: F:PAC.UI.UIButton.backgroundHoverColour
+  id: backgroundHoverColour
+  parent: PAC.UI.UIButton
+  langs:
+  - csharp
+  - vb
+  name: backgroundHoverColour
+  nameWithType: UIButton.backgroundHoverColour
+  fullName: PAC.UI.UIButton.backgroundHoverColour
+  type: Field
+  source:
+    remote:
+      path: Assets/Scripts/UI/UIButton.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: backgroundHoverColour
+    path: ../Assets/Scripts/UI/UIButton.cs
+    startLine: 88
+  namespace: PAC.UI
+  syntax:
+    content: public Color backgroundHoverColour
+    return:
+      type: Global.Color
+    content.vb: Public backgroundHoverColour As Color
+- uid: PAC.UI.UIButton.backgroundPressedColour
+  commentId: F:PAC.UI.UIButton.backgroundPressedColour
+  id: backgroundPressedColour
+  parent: PAC.UI.UIButton
+  langs:
+  - csharp
+  - vb
+  name: backgroundPressedColour
+  nameWithType: UIButton.backgroundPressedColour
+  fullName: PAC.UI.UIButton.backgroundPressedColour
+  type: Field
+  source:
+    remote:
+      path: Assets/Scripts/UI/UIButton.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: backgroundPressedColour
+    path: ../Assets/Scripts/UI/UIButton.cs
+    startLine: 89
+  namespace: PAC.UI
+  syntax:
+    content: public Color backgroundPressedColour
+    return:
+      type: Global.Color
+    content.vb: Public backgroundPressedColour As Color
+- uid: PAC.UI.UIButton.isPressed
+  commentId: P:PAC.UI.UIButton.isPressed
+  id: isPressed
+  parent: PAC.UI.UIButton
+  langs:
+  - csharp
+  - vb
+  name: isPressed
+  nameWithType: UIButton.isPressed
+  fullName: PAC.UI.UIButton.isPressed
+  type: Property
+  source:
+    remote:
+      path: Assets/Scripts/UI/UIButton.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: isPressed
+    path: ../Assets/Scripts/UI/UIButton.cs
+    startLine: 122
+  namespace: PAC.UI
+  syntax:
+    content: public bool isPressed { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public ReadOnly Property isPressed As Boolean
+  overload: PAC.UI.UIButton.isPressed*
+- uid: PAC.UI.UIButton.UpdateDisplay
+  commentId: M:PAC.UI.UIButton.UpdateDisplay
+  id: UpdateDisplay
+  parent: PAC.UI.UIButton
+  langs:
+  - csharp
+  - vb
+  name: UpdateDisplay()
+  nameWithType: UIButton.UpdateDisplay()
+  fullName: PAC.UI.UIButton.UpdateDisplay()
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/UI/UIButton.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: UpdateDisplay
+    path: ../Assets/Scripts/UI/UIButton.cs
+    startLine: 171
+  namespace: PAC.UI
+  syntax:
+    content: public void UpdateDisplay()
+    content.vb: Public Sub UpdateDisplay()
+  overload: PAC.UI.UIButton.UpdateDisplay*
+- uid: PAC.UI.UIButton.Press
+  commentId: M:PAC.UI.UIButton.Press
+  id: Press
+  parent: PAC.UI.UIButton
+  langs:
+  - csharp
+  - vb
+  name: Press()
+  nameWithType: UIButton.Press()
+  fullName: PAC.UI.UIButton.Press()
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/UI/UIButton.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: Press
+    path: ../Assets/Scripts/UI/UIButton.cs
+    startLine: 214
+  namespace: PAC.UI
+  syntax:
+    content: public void Press()
+    content.vb: Public Sub Press()
+  overload: PAC.UI.UIButton.Press*
+- uid: PAC.UI.UIButton.RightClick
+  commentId: M:PAC.UI.UIButton.RightClick
+  id: RightClick
+  parent: PAC.UI.UIButton
+  langs:
+  - csharp
+  - vb
+  name: RightClick()
+  nameWithType: UIButton.RightClick()
+  fullName: PAC.UI.UIButton.RightClick()
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/UI/UIButton.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: RightClick
+    path: ../Assets/Scripts/UI/UIButton.cs
+    startLine: 227
+  namespace: PAC.UI
+  syntax:
+    content: public void RightClick()
+    content.vb: Public Sub RightClick()
+  overload: PAC.UI.UIButton.RightClick*
+- uid: PAC.UI.UIButton.SetImages(Sprite,Sprite,Sprite)
+  commentId: M:PAC.UI.UIButton.SetImages(Sprite,Sprite,Sprite)
+  id: SetImages(Sprite,Sprite,Sprite)
+  parent: PAC.UI.UIButton
+  langs:
+  - csharp
+  - vb
+  name: SetImages(Sprite, Sprite, Sprite)
+  nameWithType: UIButton.SetImages(Sprite, Sprite, Sprite)
+  fullName: PAC.UI.UIButton.SetImages(Sprite, Sprite, Sprite)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/UI/UIButton.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: SetImages
+    path: ../Assets/Scripts/UI/UIButton.cs
+    startLine: 282
+  namespace: PAC.UI
+  syntax:
+    content: public void SetImages(Sprite image, Sprite hoverImage, Sprite pressedImage)
+    parameters:
+    - id: image
+      type: Global.Sprite
+    - id: hoverImage
+      type: Global.Sprite
+    - id: pressedImage
+      type: Global.Sprite
+    content.vb: Public Sub SetImages(image As Sprite, hoverImage As Sprite, pressedImage As Sprite)
+  overload: PAC.UI.UIButton.SetImages*
+- uid: PAC.UI.UIButton.SetText(System.String)
+  commentId: M:PAC.UI.UIButton.SetText(System.String)
+  id: SetText(System.String)
+  parent: PAC.UI.UIButton
+  langs:
+  - csharp
+  - vb
+  name: SetText(string)
+  nameWithType: UIButton.SetText(string)
+  fullName: PAC.UI.UIButton.SetText(string)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/UI/UIButton.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: SetText
+    path: ../Assets/Scripts/UI/UIButton.cs
+    startLine: 302
+  namespace: PAC.UI
+  syntax:
+    content: public void SetText(string text)
+    parameters:
+    - id: text
+      type: System.String
+    content.vb: Public Sub SetText(text As String)
+  overload: PAC.UI.UIButton.SetText*
+  nameWithType.vb: UIButton.SetText(String)
+  fullName.vb: PAC.UI.UIButton.SetText(String)
+  name.vb: SetText(String)
+- uid: PAC.UI.UIButton.SetSortingLayer(System.String,System.Int32)
+  commentId: M:PAC.UI.UIButton.SetSortingLayer(System.String,System.Int32)
+  id: SetSortingLayer(System.String,System.Int32)
+  parent: PAC.UI.UIButton
+  langs:
+  - csharp
+  - vb
+  name: SetSortingLayer(string, int)
+  nameWithType: UIButton.SetSortingLayer(string, int)
+  fullName: PAC.UI.UIButton.SetSortingLayer(string, int)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/UI/UIButton.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: SetSortingLayer
+    path: ../Assets/Scripts/UI/UIButton.cs
+    startLine: 309
+  namespace: PAC.UI
+  syntax:
+    content: public void SetSortingLayer(string sortingLayer, int sortingOrder)
+    parameters:
+    - id: sortingLayer
+      type: System.String
+    - id: sortingOrder
+      type: System.Int32
+    content.vb: Public Sub SetSortingLayer(sortingLayer As String, sortingOrder As Integer)
+  overload: PAC.UI.UIButton.SetSortingLayer*
+  nameWithType.vb: UIButton.SetSortingLayer(String, Integer)
+  fullName.vb: PAC.UI.UIButton.SetSortingLayer(String, Integer)
+  name.vb: SetSortingLayer(String, Integer)
+- uid: PAC.UI.UIButton.SetSortingLayer(System.String)
+  commentId: M:PAC.UI.UIButton.SetSortingLayer(System.String)
+  id: SetSortingLayer(System.String)
+  parent: PAC.UI.UIButton
+  langs:
+  - csharp
+  - vb
+  name: SetSortingLayer(string)
+  nameWithType: UIButton.SetSortingLayer(string)
+  fullName: PAC.UI.UIButton.SetSortingLayer(string)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/UI/UIButton.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: SetSortingLayer
+    path: ../Assets/Scripts/UI/UIButton.cs
+    startLine: 314
+  namespace: PAC.UI
+  syntax:
+    content: public void SetSortingLayer(string sortingLayer)
+    parameters:
+    - id: sortingLayer
+      type: System.String
+    content.vb: Public Sub SetSortingLayer(sortingLayer As String)
+  overload: PAC.UI.UIButton.SetSortingLayer*
+  nameWithType.vb: UIButton.SetSortingLayer(String)
+  fullName.vb: PAC.UI.UIButton.SetSortingLayer(String)
+  name.vb: SetSortingLayer(String)
+- uid: PAC.UI.UIButton.SetSortingOrder(System.Int32)
+  commentId: M:PAC.UI.UIButton.SetSortingOrder(System.Int32)
+  id: SetSortingOrder(System.Int32)
+  parent: PAC.UI.UIButton
+  langs:
+  - csharp
+  - vb
+  name: SetSortingOrder(int)
+  nameWithType: UIButton.SetSortingOrder(int)
+  fullName: PAC.UI.UIButton.SetSortingOrder(int)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/UI/UIButton.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: SetSortingOrder
+    path: ../Assets/Scripts/UI/UIButton.cs
+    startLine: 318
+  namespace: PAC.UI
+  syntax:
+    content: public void SetSortingOrder(int sortingOrder)
+    parameters:
+    - id: sortingOrder
+      type: System.Int32
+    content.vb: Public Sub SetSortingOrder(sortingOrder As Integer)
+  overload: PAC.UI.UIButton.SetSortingOrder*
+  nameWithType.vb: UIButton.SetSortingOrder(Integer)
+  fullName.vb: PAC.UI.UIButton.SetSortingOrder(Integer)
+  name.vb: SetSortingOrder(Integer)
+- uid: PAC.UI.UIButton.SubscribeToIdle(UnityAction)
+  commentId: M:PAC.UI.UIButton.SubscribeToIdle(UnityAction)
+  id: SubscribeToIdle(UnityAction)
+  parent: PAC.UI.UIButton
+  langs:
+  - csharp
+  - vb
+  name: SubscribeToIdle(UnityAction)
+  nameWithType: UIButton.SubscribeToIdle(UnityAction)
+  fullName: PAC.UI.UIButton.SubscribeToIdle(UnityAction)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/UI/UIButton.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: SubscribeToIdle
+    path: ../Assets/Scripts/UI/UIButton.cs
+    startLine: 323
+  namespace: PAC.UI
+  syntax:
+    content: public void SubscribeToIdle(UnityAction call)
+    parameters:
+    - id: call
+      type: Global.UnityAction
+    content.vb: Public Sub SubscribeToIdle([call] As UnityAction)
+  overload: PAC.UI.UIButton.SubscribeToIdle*
+- uid: PAC.UI.UIButton.SubscribeToHover(UnityAction)
+  commentId: M:PAC.UI.UIButton.SubscribeToHover(UnityAction)
+  id: SubscribeToHover(UnityAction)
+  parent: PAC.UI.UIButton
+  langs:
+  - csharp
+  - vb
+  name: SubscribeToHover(UnityAction)
+  nameWithType: UIButton.SubscribeToHover(UnityAction)
+  fullName: PAC.UI.UIButton.SubscribeToHover(UnityAction)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/UI/UIButton.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: SubscribeToHover
+    path: ../Assets/Scripts/UI/UIButton.cs
+    startLine: 327
+  namespace: PAC.UI
+  syntax:
+    content: public void SubscribeToHover(UnityAction call)
+    parameters:
+    - id: call
+      type: Global.UnityAction
+    content.vb: Public Sub SubscribeToHover([call] As UnityAction)
+  overload: PAC.UI.UIButton.SubscribeToHover*
+- uid: PAC.UI.UIButton.SubscribeToClick(UnityAction)
+  commentId: M:PAC.UI.UIButton.SubscribeToClick(UnityAction)
+  id: SubscribeToClick(UnityAction)
+  parent: PAC.UI.UIButton
+  langs:
+  - csharp
+  - vb
+  name: SubscribeToClick(UnityAction)
+  nameWithType: UIButton.SubscribeToClick(UnityAction)
+  fullName: PAC.UI.UIButton.SubscribeToClick(UnityAction)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/UI/UIButton.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: SubscribeToClick
+    path: ../Assets/Scripts/UI/UIButton.cs
+    startLine: 331
+  namespace: PAC.UI
+  syntax:
+    content: public void SubscribeToClick(UnityAction call)
+    parameters:
+    - id: call
+      type: Global.UnityAction
+    content.vb: Public Sub SubscribeToClick([call] As UnityAction)
+  overload: PAC.UI.UIButton.SubscribeToClick*
+- uid: PAC.UI.UIButton.SubscribeToLeftClick(UnityAction)
+  commentId: M:PAC.UI.UIButton.SubscribeToLeftClick(UnityAction)
+  id: SubscribeToLeftClick(UnityAction)
+  parent: PAC.UI.UIButton
+  langs:
+  - csharp
+  - vb
+  name: SubscribeToLeftClick(UnityAction)
+  nameWithType: UIButton.SubscribeToLeftClick(UnityAction)
+  fullName: PAC.UI.UIButton.SubscribeToLeftClick(UnityAction)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/UI/UIButton.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: SubscribeToLeftClick
+    path: ../Assets/Scripts/UI/UIButton.cs
+    startLine: 335
+  namespace: PAC.UI
+  syntax:
+    content: public void SubscribeToLeftClick(UnityAction call)
+    parameters:
+    - id: call
+      type: Global.UnityAction
+    content.vb: Public Sub SubscribeToLeftClick([call] As UnityAction)
+  overload: PAC.UI.UIButton.SubscribeToLeftClick*
+- uid: PAC.UI.UIButton.SubscribeToRightClick(UnityAction)
+  commentId: M:PAC.UI.UIButton.SubscribeToRightClick(UnityAction)
+  id: SubscribeToRightClick(UnityAction)
+  parent: PAC.UI.UIButton
+  langs:
+  - csharp
+  - vb
+  name: SubscribeToRightClick(UnityAction)
+  nameWithType: UIButton.SubscribeToRightClick(UnityAction)
+  fullName: PAC.UI.UIButton.SubscribeToRightClick(UnityAction)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/UI/UIButton.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: SubscribeToRightClick
+    path: ../Assets/Scripts/UI/UIButton.cs
+    startLine: 339
+  namespace: PAC.UI
+  syntax:
+    content: public void SubscribeToRightClick(UnityAction call)
+    parameters:
+    - id: call
+      type: Global.UnityAction
+    content.vb: Public Sub SubscribeToRightClick([call] As UnityAction)
+  overload: PAC.UI.UIButton.SubscribeToRightClick*
+references:
+- uid: PAC.UI
+  commentId: N:PAC.UI
+  href: PAC.html
+  name: PAC.UI
+  nameWithType: PAC.UI
+  fullName: PAC.UI
+  spec.csharp:
+  - uid: PAC
+    name: PAC
+    href: PAC.html
+  - name: .
+  - uid: PAC.UI
+    name: UI
+    href: PAC.UI.html
+  spec.vb:
+  - uid: PAC
+    name: PAC
+    href: PAC.html
+  - name: .
+  - uid: PAC.UI
+    name: UI
+    href: PAC.UI.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: PAC.UI.UIButton.width*
+  commentId: Overload:PAC.UI.UIButton.width
+  href: PAC.UI.UIButton.html#PAC_UI_UIButton_width
+  name: width
+  nameWithType: UIButton.width
+  fullName: PAC.UI.UIButton.width
+- uid: System.Single
+  commentId: T:System.Single
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.single
+  name: float
+  nameWithType: float
+  fullName: float
+  nameWithType.vb: Single
+  fullName.vb: Single
+  name.vb: Single
+- uid: PAC.UI.UIButton.height*
+  commentId: Overload:PAC.UI.UIButton.height
+  href: PAC.UI.UIButton.html#PAC_UI_UIButton_height
+  name: height
+  nameWithType: UIButton.height
+  fullName: PAC.UI.UIButton.height
+- uid: PAC.UI.UIButton.image*
+  commentId: Overload:PAC.UI.UIButton.image
+  href: PAC.UI.UIButton.html#PAC_UI_UIButton_image
+  name: image
+  nameWithType: UIButton.image
+  fullName: PAC.UI.UIButton.image
+- uid: Global.Sprite
+  isExternal: true
+  name: Sprite
+  nameWithType: Sprite
+  fullName: Sprite
+- uid: PAC.UI.UIButton.hoverImage*
+  commentId: Overload:PAC.UI.UIButton.hoverImage
+  href: PAC.UI.UIButton.html#PAC_UI_UIButton_hoverImage
+  name: hoverImage
+  nameWithType: UIButton.hoverImage
+  fullName: PAC.UI.UIButton.hoverImage
+- uid: PAC.UI.UIButton.pressedImage*
+  commentId: Overload:PAC.UI.UIButton.pressedImage
+  href: PAC.UI.UIButton.html#PAC_UI_UIButton_pressedImage
+  name: pressedImage
+  nameWithType: UIButton.pressedImage
+  fullName: PAC.UI.UIButton.pressedImage
+- uid: Global.Color
+  isExternal: true
+  name: Color
+  nameWithType: Color
+  fullName: Color
+- uid: PAC.UI.UIButton.isPressed*
+  commentId: Overload:PAC.UI.UIButton.isPressed
+  href: PAC.UI.UIButton.html#PAC_UI_UIButton_isPressed
+  name: isPressed
+  nameWithType: UIButton.isPressed
+  fullName: PAC.UI.UIButton.isPressed
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: PAC.UI.UIButton.UpdateDisplay*
+  commentId: Overload:PAC.UI.UIButton.UpdateDisplay
+  href: PAC.UI.UIButton.html#PAC_UI_UIButton_UpdateDisplay
+  name: UpdateDisplay
+  nameWithType: UIButton.UpdateDisplay
+  fullName: PAC.UI.UIButton.UpdateDisplay
+- uid: PAC.UI.UIButton.Press*
+  commentId: Overload:PAC.UI.UIButton.Press
+  href: PAC.UI.UIButton.html#PAC_UI_UIButton_Press
+  name: Press
+  nameWithType: UIButton.Press
+  fullName: PAC.UI.UIButton.Press
+- uid: PAC.UI.UIButton.RightClick*
+  commentId: Overload:PAC.UI.UIButton.RightClick
+  href: PAC.UI.UIButton.html#PAC_UI_UIButton_RightClick
+  name: RightClick
+  nameWithType: UIButton.RightClick
+  fullName: PAC.UI.UIButton.RightClick
+- uid: PAC.UI.UIButton.SetImages*
+  commentId: Overload:PAC.UI.UIButton.SetImages
+  href: PAC.UI.UIButton.html#PAC_UI_UIButton_SetImages_Sprite_Sprite_Sprite_
+  name: SetImages
+  nameWithType: UIButton.SetImages
+  fullName: PAC.UI.UIButton.SetImages
+- uid: PAC.UI.UIButton.SetText*
+  commentId: Overload:PAC.UI.UIButton.SetText
+  href: PAC.UI.UIButton.html#PAC_UI_UIButton_SetText_System_String_
+  name: SetText
+  nameWithType: UIButton.SetText
+  fullName: PAC.UI.UIButton.SetText
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: PAC.UI.UIButton.SetSortingLayer*
+  commentId: Overload:PAC.UI.UIButton.SetSortingLayer
+  href: PAC.UI.UIButton.html#PAC_UI_UIButton_SetSortingLayer_System_String_System_Int32_
+  name: SetSortingLayer
+  nameWithType: UIButton.SetSortingLayer
+  fullName: PAC.UI.UIButton.SetSortingLayer
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: PAC.UI.UIButton.SetSortingOrder*
+  commentId: Overload:PAC.UI.UIButton.SetSortingOrder
+  href: PAC.UI.UIButton.html#PAC_UI_UIButton_SetSortingOrder_System_Int32_
+  name: SetSortingOrder
+  nameWithType: UIButton.SetSortingOrder
+  fullName: PAC.UI.UIButton.SetSortingOrder
+- uid: PAC.UI.UIButton.SubscribeToIdle*
+  commentId: Overload:PAC.UI.UIButton.SubscribeToIdle
+  href: PAC.UI.UIButton.html#PAC_UI_UIButton_SubscribeToIdle_UnityAction_
+  name: SubscribeToIdle
+  nameWithType: UIButton.SubscribeToIdle
+  fullName: PAC.UI.UIButton.SubscribeToIdle
+- uid: Global.UnityAction
+  isExternal: true
+  name: UnityAction
+  nameWithType: UnityAction
+  fullName: UnityAction
+- uid: PAC.UI.UIButton.SubscribeToHover*
+  commentId: Overload:PAC.UI.UIButton.SubscribeToHover
+  href: PAC.UI.UIButton.html#PAC_UI_UIButton_SubscribeToHover_UnityAction_
+  name: SubscribeToHover
+  nameWithType: UIButton.SubscribeToHover
+  fullName: PAC.UI.UIButton.SubscribeToHover
+- uid: PAC.UI.UIButton.SubscribeToClick*
+  commentId: Overload:PAC.UI.UIButton.SubscribeToClick
+  href: PAC.UI.UIButton.html#PAC_UI_UIButton_SubscribeToClick_UnityAction_
+  name: SubscribeToClick
+  nameWithType: UIButton.SubscribeToClick
+  fullName: PAC.UI.UIButton.SubscribeToClick
+- uid: PAC.UI.UIButton.SubscribeToLeftClick*
+  commentId: Overload:PAC.UI.UIButton.SubscribeToLeftClick
+  href: PAC.UI.UIButton.html#PAC_UI_UIButton_SubscribeToLeftClick_UnityAction_
+  name: SubscribeToLeftClick
+  nameWithType: UIButton.SubscribeToLeftClick
+  fullName: PAC.UI.UIButton.SubscribeToLeftClick
+- uid: PAC.UI.UIButton.SubscribeToRightClick*
+  commentId: Overload:PAC.UI.UIButton.SubscribeToRightClick
+  href: PAC.UI.UIButton.html#PAC_UI_UIButton_SubscribeToRightClick_UnityAction_
+  name: SubscribeToRightClick
+  nameWithType: UIButton.SubscribeToRightClick
+  fullName: PAC.UI.UIButton.SubscribeToRightClick

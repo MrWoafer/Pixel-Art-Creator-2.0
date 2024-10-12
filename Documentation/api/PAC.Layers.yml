@@ -1,0 +1,91 @@
+### YamlMime:ManagedReference
+items:
+- uid: PAC.Layers
+  commentId: N:PAC.Layers
+  id: PAC.Layers
+  children:
+  - PAC.Layers.AnimFrameRefMode
+  - PAC.Layers.Layer
+  - PAC.Layers.LayerManager
+  - PAC.Layers.LayerTile
+  - PAC.Layers.LayerType
+  - PAC.Layers.NormalLayer
+  - PAC.Layers.TileLayer
+  langs:
+  - csharp
+  - vb
+  name: PAC.Layers
+  nameWithType: PAC.Layers
+  fullName: PAC.Layers
+  type: Namespace
+references:
+- uid: PAC.Layers.AnimFrameRefMode
+  commentId: T:PAC.Layers.AnimFrameRefMode
+  parent: PAC.Layers
+  href: PAC.Layers.AnimFrameRefMode.html
+  name: AnimFrameRefMode
+  nameWithType: AnimFrameRefMode
+  fullName: PAC.Layers.AnimFrameRefMode
+- uid: PAC.Layers.LayerType
+  commentId: T:PAC.Layers.LayerType
+  parent: PAC.Layers
+  href: PAC.Layers.LayerType.html
+  name: LayerType
+  nameWithType: LayerType
+  fullName: PAC.Layers.LayerType
+- uid: PAC.Layers.Layer
+  commentId: T:PAC.Layers.Layer
+  parent: PAC.Layers
+  href: PAC.Layers.Layer.html
+  name: Layer
+  nameWithType: Layer
+  fullName: PAC.Layers.Layer
+- uid: PAC.Layers.LayerManager
+  commentId: T:PAC.Layers.LayerManager
+  parent: PAC.Layers
+  href: PAC.Layers.LayerManager.html
+  name: LayerManager
+  nameWithType: LayerManager
+  fullName: PAC.Layers.LayerManager
+- uid: PAC.Layers.LayerTile
+  commentId: T:PAC.Layers.LayerTile
+  href: PAC.Layers.LayerTile.html
+  name: LayerTile
+  nameWithType: LayerTile
+  fullName: PAC.Layers.LayerTile
+- uid: PAC.Layers.NormalLayer
+  commentId: T:PAC.Layers.NormalLayer
+  parent: PAC.Layers
+  href: PAC.Layers.NormalLayer.html
+  name: NormalLayer
+  nameWithType: NormalLayer
+  fullName: PAC.Layers.NormalLayer
+- uid: PAC.Layers.TileLayer
+  commentId: T:PAC.Layers.TileLayer
+  parent: PAC.Layers
+  href: PAC.Layers.TileLayer.html
+  name: TileLayer
+  nameWithType: TileLayer
+  fullName: PAC.Layers.TileLayer
+- uid: PAC.Layers
+  commentId: N:PAC.Layers
+  href: PAC.html
+  name: PAC.Layers
+  nameWithType: PAC.Layers
+  fullName: PAC.Layers
+  spec.csharp:
+  - uid: PAC
+    name: PAC
+    href: PAC.html
+  - name: .
+  - uid: PAC.Layers
+    name: Layers
+    href: PAC.Layers.html
+  spec.vb:
+  - uid: PAC
+    name: PAC
+    href: PAC.html
+  - name: .
+  - uid: PAC.Layers
+    name: Layers
+    href: PAC.Layers.html

@@ -1,0 +1,156 @@
+### YamlMime:ManagedReference
+items:
+- uid: PAC.UndoRedo.UndoRedoAction
+  commentId: T:PAC.UndoRedo.UndoRedoAction
+  id: UndoRedoAction
+  parent: PAC.UndoRedo
+  children:
+  - PAC.UndoRedo.UndoRedoAction.Draw
+  - PAC.UndoRedo.UndoRedoAction.None
+  - PAC.UndoRedo.UndoRedoAction.ReorderLayers
+  - PAC.UndoRedo.UndoRedoAction.Undefined
+  langs:
+  - csharp
+  - vb
+  name: UndoRedoAction
+  nameWithType: UndoRedoAction
+  fullName: PAC.UndoRedo.UndoRedoAction
+  type: Enum
+  source:
+    remote:
+      path: Assets/Scripts/Undo Redo/UndoRedoState.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: UndoRedoAction
+    path: ../Assets/Scripts/Undo Redo/UndoRedoState.cs
+    startLine: 4
+  namespace: PAC.UndoRedo
+  syntax:
+    content: public enum UndoRedoAction
+    content.vb: Public Enum UndoRedoAction
+- uid: PAC.UndoRedo.UndoRedoAction.None
+  commentId: F:PAC.UndoRedo.UndoRedoAction.None
+  id: None
+  parent: PAC.UndoRedo.UndoRedoAction
+  langs:
+  - csharp
+  - vb
+  name: None
+  nameWithType: UndoRedoAction.None
+  fullName: PAC.UndoRedo.UndoRedoAction.None
+  type: Field
+  source:
+    remote:
+      path: Assets/Scripts/Undo Redo/UndoRedoState.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: None
+    path: ../Assets/Scripts/Undo Redo/UndoRedoState.cs
+    startLine: 6
+  namespace: PAC.UndoRedo
+  syntax:
+    content: None = -1
+    return:
+      type: PAC.UndoRedo.UndoRedoAction
+- uid: PAC.UndoRedo.UndoRedoAction.Undefined
+  commentId: F:PAC.UndoRedo.UndoRedoAction.Undefined
+  id: Undefined
+  parent: PAC.UndoRedo.UndoRedoAction
+  langs:
+  - csharp
+  - vb
+  name: Undefined
+  nameWithType: UndoRedoAction.Undefined
+  fullName: PAC.UndoRedo.UndoRedoAction.Undefined
+  type: Field
+  source:
+    remote:
+      path: Assets/Scripts/Undo Redo/UndoRedoState.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: Undefined
+    path: ../Assets/Scripts/Undo Redo/UndoRedoState.cs
+    startLine: 7
+  namespace: PAC.UndoRedo
+  syntax:
+    content: Undefined = 0
+    return:
+      type: PAC.UndoRedo.UndoRedoAction
+- uid: PAC.UndoRedo.UndoRedoAction.Draw
+  commentId: F:PAC.UndoRedo.UndoRedoAction.Draw
+  id: Draw
+  parent: PAC.UndoRedo.UndoRedoAction
+  langs:
+  - csharp
+  - vb
+  name: Draw
+  nameWithType: UndoRedoAction.Draw
+  fullName: PAC.UndoRedo.UndoRedoAction.Draw
+  type: Field
+  source:
+    remote:
+      path: Assets/Scripts/Undo Redo/UndoRedoState.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: Draw
+    path: ../Assets/Scripts/Undo Redo/UndoRedoState.cs
+    startLine: 8
+  namespace: PAC.UndoRedo
+  syntax:
+    content: Draw = 1
+    return:
+      type: PAC.UndoRedo.UndoRedoAction
+- uid: PAC.UndoRedo.UndoRedoAction.ReorderLayers
+  commentId: F:PAC.UndoRedo.UndoRedoAction.ReorderLayers
+  id: ReorderLayers
+  parent: PAC.UndoRedo.UndoRedoAction
+  langs:
+  - csharp
+  - vb
+  name: ReorderLayers
+  nameWithType: UndoRedoAction.ReorderLayers
+  fullName: PAC.UndoRedo.UndoRedoAction.ReorderLayers
+  type: Field
+  source:
+    remote:
+      path: Assets/Scripts/Undo Redo/UndoRedoState.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: ReorderLayers
+    path: ../Assets/Scripts/Undo Redo/UndoRedoState.cs
+    startLine: 9
+  namespace: PAC.UndoRedo
+  syntax:
+    content: ReorderLayers = 2
+    return:
+      type: PAC.UndoRedo.UndoRedoAction
+references:
+- uid: PAC.UndoRedo
+  commentId: N:PAC.UndoRedo
+  href: PAC.html
+  name: PAC.UndoRedo
+  nameWithType: PAC.UndoRedo
+  fullName: PAC.UndoRedo
+  spec.csharp:
+  - uid: PAC
+    name: PAC
+    href: PAC.html
+  - name: .
+  - uid: PAC.UndoRedo
+    name: UndoRedo
+    href: PAC.UndoRedo.html
+  spec.vb:
+  - uid: PAC
+    name: PAC
+    href: PAC.html
+  - name: .
+  - uid: PAC.UndoRedo
+    name: UndoRedo
+    href: PAC.UndoRedo.html
+- uid: PAC.UndoRedo.UndoRedoAction
+  commentId: T:PAC.UndoRedo.UndoRedoAction
+  parent: PAC.UndoRedo
+  href: PAC.UndoRedo.UndoRedoAction.html
+  name: UndoRedoAction
+  nameWithType: UndoRedoAction
+  fullName: PAC.UndoRedo.UndoRedoAction

@@ -1,0 +1,91 @@
+### YamlMime:ManagedReference
+items:
+- uid: PAC.JSON.IJSONable
+  commentId: T:PAC.JSON.IJSONable
+  id: IJSONable
+  parent: PAC.JSON
+  children:
+  - PAC.JSON.IJSONable.ToJSON
+  langs:
+  - csharp
+  - vb
+  name: IJSONable
+  nameWithType: IJSONable
+  fullName: PAC.JSON.IJSONable
+  type: Interface
+  source:
+    remote:
+      path: Assets/Scripts/JSON/IJSONable.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: IJSONable
+    path: ../Assets/Scripts/JSON/IJSONable.cs
+    startLine: 5
+  namespace: PAC.JSON
+  summary: An interface for objects that can be converted to JSON.
+  example: []
+  syntax:
+    content: public interface IJSONable
+    content.vb: Public Interface IJSONable
+- uid: PAC.JSON.IJSONable.ToJSON
+  commentId: M:PAC.JSON.IJSONable.ToJSON
+  id: ToJSON
+  parent: PAC.JSON.IJSONable
+  langs:
+  - csharp
+  - vb
+  name: ToJSON()
+  nameWithType: IJSONable.ToJSON()
+  fullName: PAC.JSON.IJSONable.ToJSON()
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/JSON/IJSONable.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: ToJSON
+    path: ../Assets/Scripts/JSON/IJSONable.cs
+    startLine: 7
+  namespace: PAC.JSON
+  syntax:
+    content: JSON ToJSON()
+    return:
+      type: PAC.JSON.JSON
+    content.vb: Function ToJSON() As JSON
+  overload: PAC.JSON.IJSONable.ToJSON*
+references:
+- uid: PAC.JSON
+  commentId: N:PAC.JSON
+  href: PAC.html
+  name: PAC.JSON
+  nameWithType: PAC.JSON
+  fullName: PAC.JSON
+  spec.csharp:
+  - uid: PAC
+    name: PAC
+    href: PAC.html
+  - name: .
+  - uid: PAC.JSON
+    name: JSON
+    href: PAC.JSON.html
+  spec.vb:
+  - uid: PAC
+    name: PAC
+    href: PAC.html
+  - name: .
+  - uid: PAC.JSON
+    name: JSON
+    href: PAC.JSON.html
+- uid: PAC.JSON.IJSONable.ToJSON*
+  commentId: Overload:PAC.JSON.IJSONable.ToJSON
+  href: PAC.JSON.IJSONable.html#PAC_JSON_IJSONable_ToJSON
+  name: ToJSON
+  nameWithType: IJSONable.ToJSON
+  fullName: PAC.JSON.IJSONable.ToJSON
+- uid: PAC.JSON.JSON
+  commentId: T:PAC.JSON.JSON
+  parent: PAC.JSON
+  href: PAC.JSON.JSON.html
+  name: JSON
+  nameWithType: JSON
+  fullName: PAC.JSON.JSON

@@ -1,0 +1,165 @@
+### YamlMime:ManagedReference
+items:
+- uid: PAC.UI.UIToolButton
+  commentId: T:PAC.UI.UIToolButton
+  id: UIToolButton
+  parent: PAC.UI
+  children:
+  - PAC.UI.UIToolButton.buttons
+  - PAC.UI.UIToolButton.currentButton
+  langs:
+  - csharp
+  - vb
+  name: UIToolButton
+  nameWithType: UIToolButton
+  fullName: PAC.UI.UIToolButton
+  type: Class
+  source:
+    remote:
+      path: Assets/Scripts/UI/UIToolButton.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: UIToolButton
+    path: ../Assets/Scripts/UI/UIToolButton.cs
+    startLine: 6
+  namespace: PAC.UI
+  syntax:
+    content: 'public class UIToolButton : MonoBehaviour'
+    content.vb: Public Class UIToolButton Inherits MonoBehaviour
+  inheritance:
+  - System.Object
+- uid: PAC.UI.UIToolButton.buttons
+  commentId: P:PAC.UI.UIToolButton.buttons
+  id: buttons
+  parent: PAC.UI.UIToolButton
+  langs:
+  - csharp
+  - vb
+  name: buttons
+  nameWithType: UIToolButton.buttons
+  fullName: PAC.UI.UIToolButton.buttons
+  type: Property
+  source:
+    remote:
+      path: Assets/Scripts/UI/UIToolButton.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: buttons
+    path: ../Assets/Scripts/UI/UIToolButton.cs
+    startLine: 8
+  namespace: PAC.UI
+  syntax:
+    content: public UIButton[] buttons { get; }
+    parameters: []
+    return:
+      type: PAC.UI.UIButton[]
+    content.vb: Public Property buttons As UIButton()
+  overload: PAC.UI.UIToolButton.buttons*
+- uid: PAC.UI.UIToolButton.currentButton
+  commentId: P:PAC.UI.UIToolButton.currentButton
+  id: currentButton
+  parent: PAC.UI.UIToolButton
+  langs:
+  - csharp
+  - vb
+  name: currentButton
+  nameWithType: UIToolButton.currentButton
+  fullName: PAC.UI.UIToolButton.currentButton
+  type: Property
+  source:
+    remote:
+      path: Assets/Scripts/UI/UIToolButton.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: currentButton
+    path: ../Assets/Scripts/UI/UIToolButton.cs
+    startLine: 9
+  namespace: PAC.UI
+  syntax:
+    content: public UIButton currentButton { get; }
+    parameters: []
+    return:
+      type: PAC.UI.UIButton
+    content.vb: Public Property currentButton As UIButton
+  overload: PAC.UI.UIToolButton.currentButton*
+references:
+- uid: PAC.UI
+  commentId: N:PAC.UI
+  href: PAC.html
+  name: PAC.UI
+  nameWithType: PAC.UI
+  fullName: PAC.UI
+  spec.csharp:
+  - uid: PAC
+    name: PAC
+    href: PAC.html
+  - name: .
+  - uid: PAC.UI
+    name: UI
+    href: PAC.UI.html
+  spec.vb:
+  - uid: PAC
+    name: PAC
+    href: PAC.html
+  - name: .
+  - uid: PAC.UI
+    name: UI
+    href: PAC.UI.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: PAC.UI.UIToolButton.buttons*
+  commentId: Overload:PAC.UI.UIToolButton.buttons
+  href: PAC.UI.UIToolButton.html#PAC_UI_UIToolButton_buttons
+  name: buttons
+  nameWithType: UIToolButton.buttons
+  fullName: PAC.UI.UIToolButton.buttons
+- uid: PAC.UI.UIButton[]
+  isExternal: true
+  href: PAC.UI.UIButton.html
+  name: UIButton[]
+  nameWithType: UIButton[]
+  fullName: PAC.UI.UIButton[]
+  nameWithType.vb: UIButton()
+  fullName.vb: PAC.UI.UIButton()
+  name.vb: UIButton()
+  spec.csharp:
+  - uid: PAC.UI.UIButton
+    name: UIButton
+    href: PAC.UI.UIButton.html
+  - name: '['
+  - name: ']'
+  spec.vb:
+  - uid: PAC.UI.UIButton
+    name: UIButton
+    href: PAC.UI.UIButton.html
+  - name: (
+  - name: )
+- uid: PAC.UI.UIToolButton.currentButton*
+  commentId: Overload:PAC.UI.UIToolButton.currentButton
+  href: PAC.UI.UIToolButton.html#PAC_UI_UIToolButton_currentButton
+  name: currentButton
+  nameWithType: UIToolButton.currentButton
+  fullName: PAC.UI.UIToolButton.currentButton
+- uid: PAC.UI.UIButton
+  commentId: T:PAC.UI.UIButton
+  parent: PAC.UI
+  href: PAC.UI.UIButton.html
+  name: UIButton
+  nameWithType: UIButton
+  fullName: PAC.UI.UIButton

@@ -1,0 +1,138 @@
+### YamlMime:ManagedReference
+items:
+- uid: PAC.Animation.KeyFrameIcon
+  commentId: T:PAC.Animation.KeyFrameIcon
+  id: KeyFrameIcon
+  parent: PAC.Animation
+  children:
+  - PAC.Animation.KeyFrameIcon.frameIndex
+  - PAC.Animation.KeyFrameIcon.layerIndex
+  langs:
+  - csharp
+  - vb
+  name: KeyFrameIcon
+  nameWithType: KeyFrameIcon
+  fullName: PAC.Animation.KeyFrameIcon
+  type: Class
+  source:
+    remote:
+      path: Assets/Scripts/Animation/KeyFrameIcon.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: KeyFrameIcon
+    path: ../Assets/Scripts/Animation/KeyFrameIcon.cs
+    startLine: 7
+  namespace: PAC.Animation
+  summary: Stores the data about a keyframe icon on the animation timeline.
+  example: []
+  syntax:
+    content: 'public class KeyFrameIcon : MonoBehaviour'
+    content.vb: Public Class KeyFrameIcon Inherits MonoBehaviour
+  inheritance:
+  - System.Object
+- uid: PAC.Animation.KeyFrameIcon.frameIndex
+  commentId: F:PAC.Animation.KeyFrameIcon.frameIndex
+  id: frameIndex
+  parent: PAC.Animation.KeyFrameIcon
+  langs:
+  - csharp
+  - vb
+  name: frameIndex
+  nameWithType: KeyFrameIcon.frameIndex
+  fullName: PAC.Animation.KeyFrameIcon.frameIndex
+  type: Field
+  source:
+    remote:
+      path: Assets/Scripts/Animation/KeyFrameIcon.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: frameIndex
+    path: ../Assets/Scripts/Animation/KeyFrameIcon.cs
+    startLine: 10
+  namespace: PAC.Animation
+  summary: The frame number this keyframe is on.
+  example: []
+  syntax:
+    content: public int frameIndex
+    return:
+      type: System.Int32
+    content.vb: Public frameIndex As Integer
+- uid: PAC.Animation.KeyFrameIcon.layerIndex
+  commentId: F:PAC.Animation.KeyFrameIcon.layerIndex
+  id: layerIndex
+  parent: PAC.Animation.KeyFrameIcon
+  langs:
+  - csharp
+  - vb
+  name: layerIndex
+  nameWithType: KeyFrameIcon.layerIndex
+  fullName: PAC.Animation.KeyFrameIcon.layerIndex
+  type: Field
+  source:
+    remote:
+      path: Assets/Scripts/Animation/KeyFrameIcon.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: layerIndex
+    path: ../Assets/Scripts/Animation/KeyFrameIcon.cs
+    startLine: 12
+  namespace: PAC.Animation
+  summary: The layer index this keyframe is on.
+  example: []
+  syntax:
+    content: public int layerIndex
+    return:
+      type: System.Int32
+    content.vb: Public layerIndex As Integer
+references:
+- uid: PAC.Animation
+  commentId: N:PAC.Animation
+  href: PAC.html
+  name: PAC.Animation
+  nameWithType: PAC.Animation
+  fullName: PAC.Animation
+  spec.csharp:
+  - uid: PAC
+    name: PAC
+    href: PAC.html
+  - name: .
+  - uid: PAC.Animation
+    name: Animation
+    href: PAC.Animation.html
+  spec.vb:
+  - uid: PAC
+    name: PAC
+    href: PAC.html
+  - name: .
+  - uid: PAC.Animation
+    name: Animation
+    href: PAC.Animation.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer

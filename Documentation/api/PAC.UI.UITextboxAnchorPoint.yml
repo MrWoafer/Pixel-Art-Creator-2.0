@@ -1,0 +1,131 @@
+### YamlMime:ManagedReference
+items:
+- uid: PAC.UI.UITextboxAnchorPoint
+  commentId: T:PAC.UI.UITextboxAnchorPoint
+  id: UITextboxAnchorPoint
+  parent: PAC.UI
+  children:
+  - PAC.UI.UITextboxAnchorPoint.Centre
+  - PAC.UI.UITextboxAnchorPoint.Left
+  - PAC.UI.UITextboxAnchorPoint.Right
+  langs:
+  - csharp
+  - vb
+  name: UITextboxAnchorPoint
+  nameWithType: UITextboxAnchorPoint
+  fullName: PAC.UI.UITextboxAnchorPoint
+  type: Enum
+  source:
+    remote:
+      path: Assets/Scripts/UI/UITextbox.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: UITextboxAnchorPoint
+    path: ../Assets/Scripts/UI/UITextbox.cs
+    startLine: 7
+  namespace: PAC.UI
+  syntax:
+    content: public enum UITextboxAnchorPoint
+    content.vb: Public Enum UITextboxAnchorPoint
+- uid: PAC.UI.UITextboxAnchorPoint.Left
+  commentId: F:PAC.UI.UITextboxAnchorPoint.Left
+  id: Left
+  parent: PAC.UI.UITextboxAnchorPoint
+  langs:
+  - csharp
+  - vb
+  name: Left
+  nameWithType: UITextboxAnchorPoint.Left
+  fullName: PAC.UI.UITextboxAnchorPoint.Left
+  type: Field
+  source:
+    remote:
+      path: Assets/Scripts/UI/UITextbox.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: Left
+    path: ../Assets/Scripts/UI/UITextbox.cs
+    startLine: 9
+  namespace: PAC.UI
+  syntax:
+    content: Left = 3
+    return:
+      type: PAC.UI.UITextboxAnchorPoint
+- uid: PAC.UI.UITextboxAnchorPoint.Centre
+  commentId: F:PAC.UI.UITextboxAnchorPoint.Centre
+  id: Centre
+  parent: PAC.UI.UITextboxAnchorPoint
+  langs:
+  - csharp
+  - vb
+  name: Centre
+  nameWithType: UITextboxAnchorPoint.Centre
+  fullName: PAC.UI.UITextboxAnchorPoint.Centre
+  type: Field
+  source:
+    remote:
+      path: Assets/Scripts/UI/UITextbox.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: Centre
+    path: ../Assets/Scripts/UI/UITextbox.cs
+    startLine: 10
+  namespace: PAC.UI
+  syntax:
+    content: Centre = 4
+    return:
+      type: PAC.UI.UITextboxAnchorPoint
+- uid: PAC.UI.UITextboxAnchorPoint.Right
+  commentId: F:PAC.UI.UITextboxAnchorPoint.Right
+  id: Right
+  parent: PAC.UI.UITextboxAnchorPoint
+  langs:
+  - csharp
+  - vb
+  name: Right
+  nameWithType: UITextboxAnchorPoint.Right
+  fullName: PAC.UI.UITextboxAnchorPoint.Right
+  type: Field
+  source:
+    remote:
+      path: Assets/Scripts/UI/UITextbox.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: Right
+    path: ../Assets/Scripts/UI/UITextbox.cs
+    startLine: 11
+  namespace: PAC.UI
+  syntax:
+    content: Right = 5
+    return:
+      type: PAC.UI.UITextboxAnchorPoint
+references:
+- uid: PAC.UI
+  commentId: N:PAC.UI
+  href: PAC.html
+  name: PAC.UI
+  nameWithType: PAC.UI
+  fullName: PAC.UI
+  spec.csharp:
+  - uid: PAC
+    name: PAC
+    href: PAC.html
+  - name: .
+  - uid: PAC.UI
+    name: UI
+    href: PAC.UI.html
+  spec.vb:
+  - uid: PAC
+    name: PAC
+    href: PAC.html
+  - name: .
+  - uid: PAC.UI
+    name: UI
+    href: PAC.UI.html
+- uid: PAC.UI.UITextboxAnchorPoint
+  commentId: T:PAC.UI.UITextboxAnchorPoint
+  parent: PAC.UI
+  href: PAC.UI.UITextboxAnchorPoint.html
+  name: UITextboxAnchorPoint
+  nameWithType: UITextboxAnchorPoint
+  fullName: PAC.UI.UITextboxAnchorPoint

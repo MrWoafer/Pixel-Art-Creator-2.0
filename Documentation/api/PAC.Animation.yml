@@ -1,0 +1,74 @@
+### YamlMime:ManagedReference
+items:
+- uid: PAC.Animation
+  commentId: N:PAC.Animation
+  id: PAC.Animation
+  children:
+  - PAC.Animation.AnimationKeyFrame
+  - PAC.Animation.AnimationManager
+  - PAC.Animation.FrameNotch
+  - PAC.Animation.KeyFrameIcon
+  - PAC.Animation.LayerAnimation
+  langs:
+  - csharp
+  - vb
+  name: PAC.Animation
+  nameWithType: PAC.Animation
+  fullName: PAC.Animation
+  type: Namespace
+references:
+- uid: PAC.Animation.AnimationKeyFrame
+  commentId: T:PAC.Animation.AnimationKeyFrame
+  parent: PAC.Animation
+  href: PAC.Animation.AnimationKeyFrame.html
+  name: AnimationKeyFrame
+  nameWithType: AnimationKeyFrame
+  fullName: PAC.Animation.AnimationKeyFrame
+- uid: PAC.Animation.AnimationManager
+  commentId: T:PAC.Animation.AnimationManager
+  parent: PAC.Animation
+  href: PAC.Animation.AnimationManager.html
+  name: AnimationManager
+  nameWithType: AnimationManager
+  fullName: PAC.Animation.AnimationManager
+- uid: PAC.Animation.FrameNotch
+  commentId: T:PAC.Animation.FrameNotch
+  href: PAC.Animation.FrameNotch.html
+  name: FrameNotch
+  nameWithType: FrameNotch
+  fullName: PAC.Animation.FrameNotch
+- uid: PAC.Animation.KeyFrameIcon
+  commentId: T:PAC.Animation.KeyFrameIcon
+  href: PAC.Animation.KeyFrameIcon.html
+  name: KeyFrameIcon
+  nameWithType: KeyFrameIcon
+  fullName: PAC.Animation.KeyFrameIcon
+- uid: PAC.Animation.LayerAnimation
+  commentId: T:PAC.Animation.LayerAnimation
+  parent: PAC.Animation
+  href: PAC.Animation.LayerAnimation.html
+  name: LayerAnimation
+  nameWithType: LayerAnimation
+  fullName: PAC.Animation.LayerAnimation
+- uid: PAC.Animation
+  commentId: N:PAC.Animation
+  href: PAC.html
+  name: PAC.Animation
+  nameWithType: PAC.Animation
+  fullName: PAC.Animation
+  spec.csharp:
+  - uid: PAC
+    name: PAC
+    href: PAC.html
+  - name: .
+  - uid: PAC.Animation
+    name: Animation
+    href: PAC.Animation.html
+  spec.vb:
+  - uid: PAC
+    name: PAC
+    href: PAC.html
+  - name: .
+  - uid: PAC.Animation
+    name: Animation
+    href: PAC.Animation.html

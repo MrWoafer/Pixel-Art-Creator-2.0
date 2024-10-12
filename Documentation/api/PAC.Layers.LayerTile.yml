@@ -1,0 +1,393 @@
+### YamlMime:ManagedReference
+items:
+- uid: PAC.Layers.LayerTile
+  commentId: T:PAC.Layers.LayerTile
+  id: LayerTile
+  parent: PAC.Layers
+  children:
+  - PAC.Layers.LayerTile.SetLayer(PAC.Layers.Layer)
+  - PAC.Layers.LayerTile.SubscribeToLockChange(UnityAction)
+  - PAC.Layers.LayerTile.SubscribeToNameChange(UnityAction)
+  - PAC.Layers.LayerTile.SubscribeToRightClick(UnityAction)
+  - PAC.Layers.LayerTile.SubscribeToVisibilityChange(UnityAction)
+  - PAC.Layers.LayerTile.layer
+  - PAC.Layers.LayerTile.selected
+  - PAC.Layers.LayerTile.tileToggle
+  langs:
+  - csharp
+  - vb
+  name: LayerTile
+  nameWithType: LayerTile
+  fullName: PAC.Layers.LayerTile
+  type: Class
+  source:
+    remote:
+      path: Assets/Scripts/Layers/LayerTile.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: LayerTile
+    path: ../Assets/Scripts/Layers/LayerTile.cs
+    startLine: 8
+  namespace: PAC.Layers
+  syntax:
+    content: 'public class LayerTile : MonoBehaviour'
+    content.vb: Public Class LayerTile Inherits MonoBehaviour
+  inheritance:
+  - System.Object
+- uid: PAC.Layers.LayerTile.layer
+  commentId: P:PAC.Layers.LayerTile.layer
+  id: layer
+  parent: PAC.Layers.LayerTile
+  langs:
+  - csharp
+  - vb
+  name: layer
+  nameWithType: LayerTile.layer
+  fullName: PAC.Layers.LayerTile.layer
+  type: Property
+  source:
+    remote:
+      path: Assets/Scripts/Layers/LayerTile.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: layer
+    path: ../Assets/Scripts/Layers/LayerTile.cs
+    startLine: 10
+  namespace: PAC.Layers
+  syntax:
+    content: public Layer layer { get; }
+    parameters: []
+    return:
+      type: PAC.Layers.Layer
+    content.vb: Public Property layer As Layer
+  overload: PAC.Layers.LayerTile.layer*
+- uid: PAC.Layers.LayerTile.selected
+  commentId: P:PAC.Layers.LayerTile.selected
+  id: selected
+  parent: PAC.Layers.LayerTile
+  langs:
+  - csharp
+  - vb
+  name: selected
+  nameWithType: LayerTile.selected
+  fullName: PAC.Layers.LayerTile.selected
+  type: Property
+  source:
+    remote:
+      path: Assets/Scripts/Layers/LayerTile.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: selected
+    path: ../Assets/Scripts/Layers/LayerTile.cs
+    startLine: 11
+  namespace: PAC.Layers
+  syntax:
+    content: public bool selected { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public ReadOnly Property selected As Boolean
+  overload: PAC.Layers.LayerTile.selected*
+- uid: PAC.Layers.LayerTile.tileToggle
+  commentId: P:PAC.Layers.LayerTile.tileToggle
+  id: tileToggle
+  parent: PAC.Layers.LayerTile
+  langs:
+  - csharp
+  - vb
+  name: tileToggle
+  nameWithType: LayerTile.tileToggle
+  fullName: PAC.Layers.LayerTile.tileToggle
+  type: Property
+  source:
+    remote:
+      path: Assets/Scripts/Layers/LayerTile.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: tileToggle
+    path: ../Assets/Scripts/Layers/LayerTile.cs
+    startLine: 19
+  namespace: PAC.Layers
+  syntax:
+    content: public UIToggleButton tileToggle { get; }
+    parameters: []
+    return:
+      type: PAC.UI.UIToggleButton
+    content.vb: Public Property tileToggle As UIToggleButton
+  overload: PAC.Layers.LayerTile.tileToggle*
+- uid: PAC.Layers.LayerTile.SetLayer(PAC.Layers.Layer)
+  commentId: M:PAC.Layers.LayerTile.SetLayer(PAC.Layers.Layer)
+  id: SetLayer(PAC.Layers.Layer)
+  parent: PAC.Layers.LayerTile
+  langs:
+  - csharp
+  - vb
+  name: SetLayer(Layer)
+  nameWithType: LayerTile.SetLayer(Layer)
+  fullName: PAC.Layers.LayerTile.SetLayer(PAC.Layers.Layer)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Layers/LayerTile.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: SetLayer
+    path: ../Assets/Scripts/Layers/LayerTile.cs
+    startLine: 54
+  namespace: PAC.Layers
+  syntax:
+    content: public void SetLayer(Layer layer)
+    parameters:
+    - id: layer
+      type: PAC.Layers.Layer
+    content.vb: Public Sub SetLayer(layer As Layer)
+  overload: PAC.Layers.LayerTile.SetLayer*
+- uid: PAC.Layers.LayerTile.SubscribeToVisibilityChange(UnityAction)
+  commentId: M:PAC.Layers.LayerTile.SubscribeToVisibilityChange(UnityAction)
+  id: SubscribeToVisibilityChange(UnityAction)
+  parent: PAC.Layers.LayerTile
+  langs:
+  - csharp
+  - vb
+  name: SubscribeToVisibilityChange(UnityAction)
+  nameWithType: LayerTile.SubscribeToVisibilityChange(UnityAction)
+  fullName: PAC.Layers.LayerTile.SubscribeToVisibilityChange(UnityAction)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Layers/LayerTile.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: SubscribeToVisibilityChange
+    path: ../Assets/Scripts/Layers/LayerTile.cs
+    startLine: 107
+  namespace: PAC.Layers
+  syntax:
+    content: public void SubscribeToVisibilityChange(UnityAction call)
+    parameters:
+    - id: call
+      type: Global.UnityAction
+    content.vb: Public Sub SubscribeToVisibilityChange([call] As UnityAction)
+  overload: PAC.Layers.LayerTile.SubscribeToVisibilityChange*
+- uid: PAC.Layers.LayerTile.SubscribeToLockChange(UnityAction)
+  commentId: M:PAC.Layers.LayerTile.SubscribeToLockChange(UnityAction)
+  id: SubscribeToLockChange(UnityAction)
+  parent: PAC.Layers.LayerTile
+  langs:
+  - csharp
+  - vb
+  name: SubscribeToLockChange(UnityAction)
+  nameWithType: LayerTile.SubscribeToLockChange(UnityAction)
+  fullName: PAC.Layers.LayerTile.SubscribeToLockChange(UnityAction)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Layers/LayerTile.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: SubscribeToLockChange
+    path: ../Assets/Scripts/Layers/LayerTile.cs
+    startLine: 111
+  namespace: PAC.Layers
+  syntax:
+    content: public void SubscribeToLockChange(UnityAction call)
+    parameters:
+    - id: call
+      type: Global.UnityAction
+    content.vb: Public Sub SubscribeToLockChange([call] As UnityAction)
+  overload: PAC.Layers.LayerTile.SubscribeToLockChange*
+- uid: PAC.Layers.LayerTile.SubscribeToNameChange(UnityAction)
+  commentId: M:PAC.Layers.LayerTile.SubscribeToNameChange(UnityAction)
+  id: SubscribeToNameChange(UnityAction)
+  parent: PAC.Layers.LayerTile
+  langs:
+  - csharp
+  - vb
+  name: SubscribeToNameChange(UnityAction)
+  nameWithType: LayerTile.SubscribeToNameChange(UnityAction)
+  fullName: PAC.Layers.LayerTile.SubscribeToNameChange(UnityAction)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Layers/LayerTile.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: SubscribeToNameChange
+    path: ../Assets/Scripts/Layers/LayerTile.cs
+    startLine: 115
+  namespace: PAC.Layers
+  syntax:
+    content: public void SubscribeToNameChange(UnityAction call)
+    parameters:
+    - id: call
+      type: Global.UnityAction
+    content.vb: Public Sub SubscribeToNameChange([call] As UnityAction)
+  overload: PAC.Layers.LayerTile.SubscribeToNameChange*
+- uid: PAC.Layers.LayerTile.SubscribeToRightClick(UnityAction)
+  commentId: M:PAC.Layers.LayerTile.SubscribeToRightClick(UnityAction)
+  id: SubscribeToRightClick(UnityAction)
+  parent: PAC.Layers.LayerTile
+  langs:
+  - csharp
+  - vb
+  name: SubscribeToRightClick(UnityAction)
+  nameWithType: LayerTile.SubscribeToRightClick(UnityAction)
+  fullName: PAC.Layers.LayerTile.SubscribeToRightClick(UnityAction)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Layers/LayerTile.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: SubscribeToRightClick
+    path: ../Assets/Scripts/Layers/LayerTile.cs
+    startLine: 119
+  namespace: PAC.Layers
+  syntax:
+    content: public void SubscribeToRightClick(UnityAction call)
+    parameters:
+    - id: call
+      type: Global.UnityAction
+    content.vb: Public Sub SubscribeToRightClick([call] As UnityAction)
+  overload: PAC.Layers.LayerTile.SubscribeToRightClick*
+references:
+- uid: PAC.Layers
+  commentId: N:PAC.Layers
+  href: PAC.html
+  name: PAC.Layers
+  nameWithType: PAC.Layers
+  fullName: PAC.Layers
+  spec.csharp:
+  - uid: PAC
+    name: PAC
+    href: PAC.html
+  - name: .
+  - uid: PAC.Layers
+    name: Layers
+    href: PAC.Layers.html
+  spec.vb:
+  - uid: PAC
+    name: PAC
+    href: PAC.html
+  - name: .
+  - uid: PAC.Layers
+    name: Layers
+    href: PAC.Layers.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: PAC.Layers.LayerTile.layer*
+  commentId: Overload:PAC.Layers.LayerTile.layer
+  href: PAC.Layers.LayerTile.html#PAC_Layers_LayerTile_layer
+  name: layer
+  nameWithType: LayerTile.layer
+  fullName: PAC.Layers.LayerTile.layer
+- uid: PAC.Layers.Layer
+  commentId: T:PAC.Layers.Layer
+  parent: PAC.Layers
+  href: PAC.Layers.Layer.html
+  name: Layer
+  nameWithType: Layer
+  fullName: PAC.Layers.Layer
+- uid: PAC.Layers.LayerTile.selected*
+  commentId: Overload:PAC.Layers.LayerTile.selected
+  href: PAC.Layers.LayerTile.html#PAC_Layers_LayerTile_selected
+  name: selected
+  nameWithType: LayerTile.selected
+  fullName: PAC.Layers.LayerTile.selected
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: PAC.Layers.LayerTile.tileToggle*
+  commentId: Overload:PAC.Layers.LayerTile.tileToggle
+  href: PAC.Layers.LayerTile.html#PAC_Layers_LayerTile_tileToggle
+  name: tileToggle
+  nameWithType: LayerTile.tileToggle
+  fullName: PAC.Layers.LayerTile.tileToggle
+- uid: PAC.UI.UIToggleButton
+  commentId: T:PAC.UI.UIToggleButton
+  parent: PAC.UI
+  href: PAC.UI.UIToggleButton.html
+  name: UIToggleButton
+  nameWithType: UIToggleButton
+  fullName: PAC.UI.UIToggleButton
+- uid: PAC.UI
+  commentId: N:PAC.UI
+  href: PAC.html
+  name: PAC.UI
+  nameWithType: PAC.UI
+  fullName: PAC.UI
+  spec.csharp:
+  - uid: PAC
+    name: PAC
+    href: PAC.html
+  - name: .
+  - uid: PAC.UI
+    name: UI
+    href: PAC.UI.html
+  spec.vb:
+  - uid: PAC
+    name: PAC
+    href: PAC.html
+  - name: .
+  - uid: PAC.UI
+    name: UI
+    href: PAC.UI.html
+- uid: PAC.Layers.LayerTile.SetLayer*
+  commentId: Overload:PAC.Layers.LayerTile.SetLayer
+  href: PAC.Layers.LayerTile.html#PAC_Layers_LayerTile_SetLayer_PAC_Layers_Layer_
+  name: SetLayer
+  nameWithType: LayerTile.SetLayer
+  fullName: PAC.Layers.LayerTile.SetLayer
+- uid: PAC.Layers.LayerTile.SubscribeToVisibilityChange*
+  commentId: Overload:PAC.Layers.LayerTile.SubscribeToVisibilityChange
+  href: PAC.Layers.LayerTile.html#PAC_Layers_LayerTile_SubscribeToVisibilityChange_UnityAction_
+  name: SubscribeToVisibilityChange
+  nameWithType: LayerTile.SubscribeToVisibilityChange
+  fullName: PAC.Layers.LayerTile.SubscribeToVisibilityChange
+- uid: Global.UnityAction
+  isExternal: true
+  name: UnityAction
+  nameWithType: UnityAction
+  fullName: UnityAction
+- uid: PAC.Layers.LayerTile.SubscribeToLockChange*
+  commentId: Overload:PAC.Layers.LayerTile.SubscribeToLockChange
+  href: PAC.Layers.LayerTile.html#PAC_Layers_LayerTile_SubscribeToLockChange_UnityAction_
+  name: SubscribeToLockChange
+  nameWithType: LayerTile.SubscribeToLockChange
+  fullName: PAC.Layers.LayerTile.SubscribeToLockChange
+- uid: PAC.Layers.LayerTile.SubscribeToNameChange*
+  commentId: Overload:PAC.Layers.LayerTile.SubscribeToNameChange
+  href: PAC.Layers.LayerTile.html#PAC_Layers_LayerTile_SubscribeToNameChange_UnityAction_
+  name: SubscribeToNameChange
+  nameWithType: LayerTile.SubscribeToNameChange
+  fullName: PAC.Layers.LayerTile.SubscribeToNameChange
+- uid: PAC.Layers.LayerTile.SubscribeToRightClick*
+  commentId: Overload:PAC.Layers.LayerTile.SubscribeToRightClick
+  href: PAC.Layers.LayerTile.html#PAC_Layers_LayerTile_SubscribeToRightClick_UnityAction_
+  name: SubscribeToRightClick
+  nameWithType: LayerTile.SubscribeToRightClick
+  fullName: PAC.Layers.LayerTile.SubscribeToRightClick

@@ -1,0 +1,160 @@
+### YamlMime:ManagedReference
+items:
+- uid: PAC.Tilesets.TilesetManager
+  commentId: T:PAC.Tilesets.TilesetManager
+  id: TilesetManager
+  parent: PAC.Tilesets
+  children:
+  - PAC.Tilesets.TilesetManager.SubscribeToOnTileIconSelected(UnityAction{PAC.Files.File})
+  langs:
+  - csharp
+  - vb
+  name: TilesetManager
+  nameWithType: TilesetManager
+  fullName: PAC.Tilesets.TilesetManager
+  type: Class
+  source:
+    remote:
+      path: Assets/Scripts/Tilesets/TilesetManager.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: TilesetManager
+    path: ../Assets/Scripts/Tilesets/TilesetManager.cs
+    startLine: 7
+  namespace: PAC.Tilesets
+  syntax:
+    content: 'public class TilesetManager : MonoBehaviour'
+    content.vb: Public Class TilesetManager Inherits MonoBehaviour
+  inheritance:
+  - System.Object
+- uid: PAC.Tilesets.TilesetManager.SubscribeToOnTileIconSelected(UnityAction{PAC.Files.File})
+  commentId: M:PAC.Tilesets.TilesetManager.SubscribeToOnTileIconSelected(UnityAction{PAC.Files.File})
+  id: SubscribeToOnTileIconSelected(UnityAction{PAC.Files.File})
+  parent: PAC.Tilesets.TilesetManager
+  langs:
+  - csharp
+  - vb
+  name: SubscribeToOnTileIconSelected(UnityAction<File>)
+  nameWithType: TilesetManager.SubscribeToOnTileIconSelected(UnityAction<File>)
+  fullName: PAC.Tilesets.TilesetManager.SubscribeToOnTileIconSelected(UnityAction<PAC.Files.File>)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Tilesets/TilesetManager.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: SubscribeToOnTileIconSelected
+    path: ../Assets/Scripts/Tilesets/TilesetManager.cs
+    startLine: 31
+  namespace: PAC.Tilesets
+  syntax:
+    content: public void SubscribeToOnTileIconSelected(UnityAction<File> call)
+    parameters:
+    - id: call
+      type: Global.UnityAction{PAC.Files.File}
+    content.vb: Public Sub SubscribeToOnTileIconSelected([call] As UnityAction(Of File))
+  overload: PAC.Tilesets.TilesetManager.SubscribeToOnTileIconSelected*
+  nameWithType.vb: TilesetManager.SubscribeToOnTileIconSelected(UnityAction(Of File))
+  fullName.vb: PAC.Tilesets.TilesetManager.SubscribeToOnTileIconSelected(UnityAction(Of PAC.Files.File))
+  name.vb: SubscribeToOnTileIconSelected(UnityAction(Of File))
+references:
+- uid: PAC.Tilesets
+  commentId: N:PAC.Tilesets
+  href: PAC.html
+  name: PAC.Tilesets
+  nameWithType: PAC.Tilesets
+  fullName: PAC.Tilesets
+  spec.csharp:
+  - uid: PAC
+    name: PAC
+    href: PAC.html
+  - name: .
+  - uid: PAC.Tilesets
+    name: Tilesets
+    href: PAC.Tilesets.html
+  spec.vb:
+  - uid: PAC
+    name: PAC
+    href: PAC.html
+  - name: .
+  - uid: PAC.Tilesets
+    name: Tilesets
+    href: PAC.Tilesets.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: PAC.Tilesets.TilesetManager.SubscribeToOnTileIconSelected*
+  commentId: Overload:PAC.Tilesets.TilesetManager.SubscribeToOnTileIconSelected
+  href: PAC.Tilesets.TilesetManager.html#PAC_Tilesets_TilesetManager_SubscribeToOnTileIconSelected_UnityAction_PAC_Files_File__
+  name: SubscribeToOnTileIconSelected
+  nameWithType: TilesetManager.SubscribeToOnTileIconSelected
+  fullName: PAC.Tilesets.TilesetManager.SubscribeToOnTileIconSelected
+- uid: Global.UnityAction{PAC.Files.File}
+  commentId: '!:Global.UnityAction{PAC.Files.File}'
+  definition: Global.UnityAction`1
+  href: PAC.Files.File.html
+  name: UnityAction<File>
+  nameWithType: UnityAction<File>
+  fullName: UnityAction<PAC.Files.File>
+  nameWithType.vb: UnityAction(Of File)
+  fullName.vb: UnityAction(Of PAC.Files.File)
+  name.vb: UnityAction(Of File)
+  spec.csharp:
+  - uid: Global.UnityAction`1
+    name: UnityAction
+    isExternal: true
+  - name: <
+  - uid: PAC.Files.File
+    name: File
+    href: PAC.Files.File.html
+  - name: '>'
+  spec.vb:
+  - uid: Global.UnityAction`1
+    name: UnityAction
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: PAC.Files.File
+    name: File
+    href: PAC.Files.File.html
+  - name: )
+- uid: Global.UnityAction`1
+  isExternal: true
+  name: UnityAction<>
+  nameWithType: UnityAction<>
+  fullName: UnityAction<>
+  nameWithType.vb: UnityAction(Of )
+  fullName.vb: UnityAction(Of )
+  name.vb: UnityAction(Of )
+  spec.csharp:
+  - uid: Global.UnityAction`1
+    name: UnityAction
+    isExternal: true
+  - name: <
+  - name: ''
+  - name: '>'
+  spec.vb:
+  - uid: Global.UnityAction`1
+    name: UnityAction
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - name: ''
+  - name: )

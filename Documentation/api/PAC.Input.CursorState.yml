@@ -1,0 +1,506 @@
+### YamlMime:ManagedReference
+items:
+- uid: PAC.Input.CursorState
+  commentId: T:PAC.Input.CursorState
+  id: CursorState
+  parent: PAC.Input
+  children:
+  - PAC.Input.CursorState.CrossArrows
+  - PAC.Input.CursorState.CurrentTool
+  - PAC.Input.CursorState.EyeDropper
+  - PAC.Input.CursorState.Grab
+  - PAC.Input.CursorState.Hover
+  - PAC.Input.CursorState.Invisible
+  - PAC.Input.CursorState.LeftRightArrow
+  - PAC.Input.CursorState.LinearGradient
+  - PAC.Input.CursorState.MagicWand
+  - PAC.Input.CursorState.MagnifyingGlass
+  - PAC.Input.CursorState.Normal
+  - PAC.Input.CursorState.Press
+  - PAC.Input.CursorState.RadialGradient
+  - PAC.Input.CursorState.SelectionEllipse
+  - PAC.Input.CursorState.SelectionRectangle
+  - PAC.Input.CursorState.Text
+  - PAC.Input.CursorState.Unspecified
+  - PAC.Input.CursorState.UpDownArrow
+  langs:
+  - csharp
+  - vb
+  name: CursorState
+  nameWithType: CursorState
+  fullName: PAC.Input.CursorState
+  type: Enum
+  source:
+    remote:
+      path: Assets/Scripts/Input/Mouse.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: CursorState
+    path: ../Assets/Scripts/Input/Mouse.cs
+    startLine: 10
+  namespace: PAC.Input
+  syntax:
+    content: public enum CursorState
+    content.vb: Public Enum CursorState
+- uid: PAC.Input.CursorState.CurrentTool
+  commentId: F:PAC.Input.CursorState.CurrentTool
+  id: CurrentTool
+  parent: PAC.Input.CursorState
+  langs:
+  - csharp
+  - vb
+  name: CurrentTool
+  nameWithType: CursorState.CurrentTool
+  fullName: PAC.Input.CursorState.CurrentTool
+  type: Field
+  source:
+    remote:
+      path: Assets/Scripts/Input/Mouse.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: CurrentTool
+    path: ../Assets/Scripts/Input/Mouse.cs
+    startLine: 12
+  namespace: PAC.Input
+  syntax:
+    content: CurrentTool = -1
+    return:
+      type: PAC.Input.CursorState
+- uid: PAC.Input.CursorState.Unspecified
+  commentId: F:PAC.Input.CursorState.Unspecified
+  id: Unspecified
+  parent: PAC.Input.CursorState
+  langs:
+  - csharp
+  - vb
+  name: Unspecified
+  nameWithType: CursorState.Unspecified
+  fullName: PAC.Input.CursorState.Unspecified
+  type: Field
+  source:
+    remote:
+      path: Assets/Scripts/Input/Mouse.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: Unspecified
+    path: ../Assets/Scripts/Input/Mouse.cs
+    startLine: 13
+  namespace: PAC.Input
+  syntax:
+    content: Unspecified = 0
+    return:
+      type: PAC.Input.CursorState
+- uid: PAC.Input.CursorState.Normal
+  commentId: F:PAC.Input.CursorState.Normal
+  id: Normal
+  parent: PAC.Input.CursorState
+  langs:
+  - csharp
+  - vb
+  name: Normal
+  nameWithType: CursorState.Normal
+  fullName: PAC.Input.CursorState.Normal
+  type: Field
+  source:
+    remote:
+      path: Assets/Scripts/Input/Mouse.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: Normal
+    path: ../Assets/Scripts/Input/Mouse.cs
+    startLine: 14
+  namespace: PAC.Input
+  syntax:
+    content: Normal = 1
+    return:
+      type: PAC.Input.CursorState
+- uid: PAC.Input.CursorState.Hover
+  commentId: F:PAC.Input.CursorState.Hover
+  id: Hover
+  parent: PAC.Input.CursorState
+  langs:
+  - csharp
+  - vb
+  name: Hover
+  nameWithType: CursorState.Hover
+  fullName: PAC.Input.CursorState.Hover
+  type: Field
+  source:
+    remote:
+      path: Assets/Scripts/Input/Mouse.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: Hover
+    path: ../Assets/Scripts/Input/Mouse.cs
+    startLine: 15
+  namespace: PAC.Input
+  syntax:
+    content: Hover = 2
+    return:
+      type: PAC.Input.CursorState
+- uid: PAC.Input.CursorState.Press
+  commentId: F:PAC.Input.CursorState.Press
+  id: Press
+  parent: PAC.Input.CursorState
+  langs:
+  - csharp
+  - vb
+  name: Press
+  nameWithType: CursorState.Press
+  fullName: PAC.Input.CursorState.Press
+  type: Field
+  source:
+    remote:
+      path: Assets/Scripts/Input/Mouse.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: Press
+    path: ../Assets/Scripts/Input/Mouse.cs
+    startLine: 16
+  namespace: PAC.Input
+  syntax:
+    content: Press = 3
+    return:
+      type: PAC.Input.CursorState
+- uid: PAC.Input.CursorState.Grab
+  commentId: F:PAC.Input.CursorState.Grab
+  id: Grab
+  parent: PAC.Input.CursorState
+  langs:
+  - csharp
+  - vb
+  name: Grab
+  nameWithType: CursorState.Grab
+  fullName: PAC.Input.CursorState.Grab
+  type: Field
+  source:
+    remote:
+      path: Assets/Scripts/Input/Mouse.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: Grab
+    path: ../Assets/Scripts/Input/Mouse.cs
+    startLine: 17
+  namespace: PAC.Input
+  syntax:
+    content: Grab = 12
+    return:
+      type: PAC.Input.CursorState
+- uid: PAC.Input.CursorState.Invisible
+  commentId: F:PAC.Input.CursorState.Invisible
+  id: Invisible
+  parent: PAC.Input.CursorState
+  langs:
+  - csharp
+  - vb
+  name: Invisible
+  nameWithType: CursorState.Invisible
+  fullName: PAC.Input.CursorState.Invisible
+  type: Field
+  source:
+    remote:
+      path: Assets/Scripts/Input/Mouse.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: Invisible
+    path: ../Assets/Scripts/Input/Mouse.cs
+    startLine: 18
+  namespace: PAC.Input
+  syntax:
+    content: Invisible = 4
+    return:
+      type: PAC.Input.CursorState
+- uid: PAC.Input.CursorState.EyeDropper
+  commentId: F:PAC.Input.CursorState.EyeDropper
+  id: EyeDropper
+  parent: PAC.Input.CursorState
+  langs:
+  - csharp
+  - vb
+  name: EyeDropper
+  nameWithType: CursorState.EyeDropper
+  fullName: PAC.Input.CursorState.EyeDropper
+  type: Field
+  source:
+    remote:
+      path: Assets/Scripts/Input/Mouse.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: EyeDropper
+    path: ../Assets/Scripts/Input/Mouse.cs
+    startLine: 19
+  namespace: PAC.Input
+  syntax:
+    content: EyeDropper = 5
+    return:
+      type: PAC.Input.CursorState
+- uid: PAC.Input.CursorState.Text
+  commentId: F:PAC.Input.CursorState.Text
+  id: Text
+  parent: PAC.Input.CursorState
+  langs:
+  - csharp
+  - vb
+  name: Text
+  nameWithType: CursorState.Text
+  fullName: PAC.Input.CursorState.Text
+  type: Field
+  source:
+    remote:
+      path: Assets/Scripts/Input/Mouse.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: Text
+    path: ../Assets/Scripts/Input/Mouse.cs
+    startLine: 20
+  namespace: PAC.Input
+  syntax:
+    content: Text = 6
+    return:
+      type: PAC.Input.CursorState
+- uid: PAC.Input.CursorState.CrossArrows
+  commentId: F:PAC.Input.CursorState.CrossArrows
+  id: CrossArrows
+  parent: PAC.Input.CursorState
+  langs:
+  - csharp
+  - vb
+  name: CrossArrows
+  nameWithType: CursorState.CrossArrows
+  fullName: PAC.Input.CursorState.CrossArrows
+  type: Field
+  source:
+    remote:
+      path: Assets/Scripts/Input/Mouse.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: CrossArrows
+    path: ../Assets/Scripts/Input/Mouse.cs
+    startLine: 21
+  namespace: PAC.Input
+  syntax:
+    content: CrossArrows = 7
+    return:
+      type: PAC.Input.CursorState
+- uid: PAC.Input.CursorState.UpDownArrow
+  commentId: F:PAC.Input.CursorState.UpDownArrow
+  id: UpDownArrow
+  parent: PAC.Input.CursorState
+  langs:
+  - csharp
+  - vb
+  name: UpDownArrow
+  nameWithType: CursorState.UpDownArrow
+  fullName: PAC.Input.CursorState.UpDownArrow
+  type: Field
+  source:
+    remote:
+      path: Assets/Scripts/Input/Mouse.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: UpDownArrow
+    path: ../Assets/Scripts/Input/Mouse.cs
+    startLine: 22
+  namespace: PAC.Input
+  syntax:
+    content: UpDownArrow = 8
+    return:
+      type: PAC.Input.CursorState
+- uid: PAC.Input.CursorState.LeftRightArrow
+  commentId: F:PAC.Input.CursorState.LeftRightArrow
+  id: LeftRightArrow
+  parent: PAC.Input.CursorState
+  langs:
+  - csharp
+  - vb
+  name: LeftRightArrow
+  nameWithType: CursorState.LeftRightArrow
+  fullName: PAC.Input.CursorState.LeftRightArrow
+  type: Field
+  source:
+    remote:
+      path: Assets/Scripts/Input/Mouse.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: LeftRightArrow
+    path: ../Assets/Scripts/Input/Mouse.cs
+    startLine: 23
+  namespace: PAC.Input
+  syntax:
+    content: LeftRightArrow = 9
+    return:
+      type: PAC.Input.CursorState
+- uid: PAC.Input.CursorState.MagnifyingGlass
+  commentId: F:PAC.Input.CursorState.MagnifyingGlass
+  id: MagnifyingGlass
+  parent: PAC.Input.CursorState
+  langs:
+  - csharp
+  - vb
+  name: MagnifyingGlass
+  nameWithType: CursorState.MagnifyingGlass
+  fullName: PAC.Input.CursorState.MagnifyingGlass
+  type: Field
+  source:
+    remote:
+      path: Assets/Scripts/Input/Mouse.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: MagnifyingGlass
+    path: ../Assets/Scripts/Input/Mouse.cs
+    startLine: 24
+  namespace: PAC.Input
+  syntax:
+    content: MagnifyingGlass = 10
+    return:
+      type: PAC.Input.CursorState
+- uid: PAC.Input.CursorState.MagicWand
+  commentId: F:PAC.Input.CursorState.MagicWand
+  id: MagicWand
+  parent: PAC.Input.CursorState
+  langs:
+  - csharp
+  - vb
+  name: MagicWand
+  nameWithType: CursorState.MagicWand
+  fullName: PAC.Input.CursorState.MagicWand
+  type: Field
+  source:
+    remote:
+      path: Assets/Scripts/Input/Mouse.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: MagicWand
+    path: ../Assets/Scripts/Input/Mouse.cs
+    startLine: 25
+  namespace: PAC.Input
+  syntax:
+    content: MagicWand = 11
+    return:
+      type: PAC.Input.CursorState
+- uid: PAC.Input.CursorState.LinearGradient
+  commentId: F:PAC.Input.CursorState.LinearGradient
+  id: LinearGradient
+  parent: PAC.Input.CursorState
+  langs:
+  - csharp
+  - vb
+  name: LinearGradient
+  nameWithType: CursorState.LinearGradient
+  fullName: PAC.Input.CursorState.LinearGradient
+  type: Field
+  source:
+    remote:
+      path: Assets/Scripts/Input/Mouse.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: LinearGradient
+    path: ../Assets/Scripts/Input/Mouse.cs
+    startLine: 26
+  namespace: PAC.Input
+  syntax:
+    content: LinearGradient = 30
+    return:
+      type: PAC.Input.CursorState
+- uid: PAC.Input.CursorState.RadialGradient
+  commentId: F:PAC.Input.CursorState.RadialGradient
+  id: RadialGradient
+  parent: PAC.Input.CursorState
+  langs:
+  - csharp
+  - vb
+  name: RadialGradient
+  nameWithType: CursorState.RadialGradient
+  fullName: PAC.Input.CursorState.RadialGradient
+  type: Field
+  source:
+    remote:
+      path: Assets/Scripts/Input/Mouse.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: RadialGradient
+    path: ../Assets/Scripts/Input/Mouse.cs
+    startLine: 27
+  namespace: PAC.Input
+  syntax:
+    content: RadialGradient = 31
+    return:
+      type: PAC.Input.CursorState
+- uid: PAC.Input.CursorState.SelectionRectangle
+  commentId: F:PAC.Input.CursorState.SelectionRectangle
+  id: SelectionRectangle
+  parent: PAC.Input.CursorState
+  langs:
+  - csharp
+  - vb
+  name: SelectionRectangle
+  nameWithType: CursorState.SelectionRectangle
+  fullName: PAC.Input.CursorState.SelectionRectangle
+  type: Field
+  source:
+    remote:
+      path: Assets/Scripts/Input/Mouse.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: SelectionRectangle
+    path: ../Assets/Scripts/Input/Mouse.cs
+    startLine: 28
+  namespace: PAC.Input
+  syntax:
+    content: SelectionRectangle = 100
+    return:
+      type: PAC.Input.CursorState
+- uid: PAC.Input.CursorState.SelectionEllipse
+  commentId: F:PAC.Input.CursorState.SelectionEllipse
+  id: SelectionEllipse
+  parent: PAC.Input.CursorState
+  langs:
+  - csharp
+  - vb
+  name: SelectionEllipse
+  nameWithType: CursorState.SelectionEllipse
+  fullName: PAC.Input.CursorState.SelectionEllipse
+  type: Field
+  source:
+    remote:
+      path: Assets/Scripts/Input/Mouse.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: SelectionEllipse
+    path: ../Assets/Scripts/Input/Mouse.cs
+    startLine: 29
+  namespace: PAC.Input
+  syntax:
+    content: SelectionEllipse = 101
+    return:
+      type: PAC.Input.CursorState
+references:
+- uid: PAC.Input
+  commentId: N:PAC.Input
+  href: PAC.html
+  name: PAC.Input
+  nameWithType: PAC.Input
+  fullName: PAC.Input
+  spec.csharp:
+  - uid: PAC
+    name: PAC
+    href: PAC.html
+  - name: .
+  - uid: PAC.Input
+    name: Input
+    href: PAC.Input.html
+  spec.vb:
+  - uid: PAC
+    name: PAC
+    href: PAC.html
+  - name: .
+  - uid: PAC.Input
+    name: Input
+    href: PAC.Input.html
+- uid: PAC.Input.CursorState
+  commentId: T:PAC.Input.CursorState
+  parent: PAC.Input
+  href: PAC.Input.CursorState.html
+  name: CursorState
+  nameWithType: CursorState
+  fullName: PAC.Input.CursorState

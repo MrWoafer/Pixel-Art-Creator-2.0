@@ -1,0 +1,1737 @@
+### YamlMime:ManagedReference
+items:
+- uid: PAC.JSON.JSON
+  commentId: T:PAC.JSON.JSON
+  id: JSON
+  parent: PAC.JSON
+  children:
+  - PAC.JSON.JSON.#ctor
+  - PAC.JSON.JSON.#ctor(System.String)
+  - PAC.JSON.JSON.Add(System.String,PAC.JSON.IJSONable)
+  - PAC.JSON.JSON.Add(System.String,PAC.JSON.JSON)
+  - PAC.JSON.JSON.Add(System.String,PAC.JSON.JSON.JSONProperty)
+  - PAC.JSON.JSON.Add(System.String,System.Boolean)
+  - PAC.JSON.JSON.Add(System.String,System.Collections.Generic.IEnumerable{PAC.JSON.IJSONable})
+  - PAC.JSON.JSON.Add(System.String,System.Collections.Generic.IEnumerable{System.String},System.Boolean)
+  - PAC.JSON.JSON.Add(System.String,System.Collections.Generic.IEnumerable{System.String},System.Boolean,System.Boolean)
+  - PAC.JSON.JSON.Add(System.String,System.Collections.IEnumerable,System.Boolean)
+  - PAC.JSON.JSON.Add(System.String,System.Collections.IEnumerable,System.Boolean,System.Boolean)
+  - PAC.JSON.JSON.Add(System.String,System.Object)
+  - PAC.JSON.JSON.Add(System.String,System.Object,System.Boolean)
+  - PAC.JSON.JSON.Add(System.String,System.String)
+  - PAC.JSON.JSON.Add(System.String,System.String,System.Boolean)
+  - PAC.JSON.JSON.AddParse(System.String)
+  - PAC.JSON.JSON.Append(PAC.JSON.JSON)
+  - PAC.JSON.JSON.ContainsKey(System.String)
+  - PAC.JSON.JSON.Get(System.String)
+  - PAC.JSON.JSON.GetJSONProperty(System.String)
+  - PAC.JSON.JSON.Item(System.String)
+  - PAC.JSON.JSON.Keys
+  - PAC.JSON.JSON.Parse(System.String)
+  - PAC.JSON.JSON.SplitArray(System.String)
+  - PAC.JSON.JSON.StripQuotationMarks(System.String)
+  - PAC.JSON.JSON.ToJSONString(System.Collections.Generic.IEnumerable{PAC.JSON.IJSONable})
+  - PAC.JSON.JSON.ToJSONString(System.Collections.Generic.IEnumerable{System.String},System.Boolean)
+  - PAC.JSON.JSON.ToJSONString(System.Collections.Generic.IEnumerable{System.String},System.Boolean,System.Boolean)
+  - PAC.JSON.JSON.ToJSONString(System.Collections.IEnumerable,System.Boolean)
+  - PAC.JSON.JSON.ToJSONString(System.Collections.IEnumerable,System.Boolean,System.Boolean)
+  - PAC.JSON.JSON.ToString
+  langs:
+  - csharp
+  - vb
+  name: JSON
+  nameWithType: JSON
+  fullName: PAC.JSON.JSON
+  type: Class
+  source:
+    remote:
+      path: Assets/Scripts/JSON/JSON.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: JSON
+    path: ../Assets/Scripts/JSON/JSON.cs
+    startLine: 9
+  namespace: PAC.JSON
+  summary: A class to represent data in a JSON format.
+  example: []
+  syntax:
+    content: public class JSON
+    content.vb: Public Class JSON
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+- uid: PAC.JSON.JSON.#ctor
+  commentId: M:PAC.JSON.JSON.#ctor
+  id: '#ctor'
+  parent: PAC.JSON.JSON
+  langs:
+  - csharp
+  - vb
+  name: JSON()
+  nameWithType: JSON.JSON()
+  fullName: PAC.JSON.JSON.JSON()
+  type: Constructor
+  source:
+    remote:
+      path: Assets/Scripts/JSON/JSON.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: .ctor
+    path: ../Assets/Scripts/JSON/JSON.cs
+    startLine: 19
+  namespace: PAC.JSON
+  summary: Create an empty JSON object.
+  example: []
+  syntax:
+    content: public JSON()
+    content.vb: Public Sub New()
+  overload: PAC.JSON.JSON.#ctor*
+  nameWithType.vb: JSON.New()
+  fullName.vb: PAC.JSON.JSON.New()
+  name.vb: New()
+- uid: PAC.JSON.JSON.#ctor(System.String)
+  commentId: M:PAC.JSON.JSON.#ctor(System.String)
+  id: '#ctor(System.String)'
+  parent: PAC.JSON.JSON
+  langs:
+  - csharp
+  - vb
+  name: JSON(string)
+  nameWithType: JSON.JSON(string)
+  fullName: PAC.JSON.JSON.JSON(string)
+  type: Constructor
+  source:
+    remote:
+      path: Assets/Scripts/JSON/JSON.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: .ctor
+    path: ../Assets/Scripts/JSON/JSON.cs
+    startLine: 23
+  namespace: PAC.JSON
+  summary: Parse the JSON-format string into a JSON object.
+  example: []
+  syntax:
+    content: public JSON(string jsonToParse)
+    parameters:
+    - id: jsonToParse
+      type: System.String
+    content.vb: Public Sub New(jsonToParse As String)
+  overload: PAC.JSON.JSON.#ctor*
+  nameWithType.vb: JSON.New(String)
+  fullName.vb: PAC.JSON.JSON.New(String)
+  name.vb: New(String)
+- uid: PAC.JSON.JSON.Keys
+  commentId: P:PAC.JSON.JSON.Keys
+  id: Keys
+  parent: PAC.JSON.JSON
+  langs:
+  - csharp
+  - vb
+  name: Keys
+  nameWithType: JSON.Keys
+  fullName: PAC.JSON.JSON.Keys
+  type: Property
+  source:
+    remote:
+      path: Assets/Scripts/JSON/JSON.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: Keys
+    path: ../Assets/Scripts/JSON/JSON.cs
+    startLine: 29
+  namespace: PAC.JSON
+  summary: The keys appearing in the outermost scope of the JSON data.
+  example: []
+  syntax:
+    content: public string[] Keys { get; }
+    parameters: []
+    return:
+      type: System.String[]
+    content.vb: Public ReadOnly Property Keys As String()
+  overload: PAC.JSON.JSON.Keys*
+- uid: PAC.JSON.JSON.Item(System.String)
+  commentId: P:PAC.JSON.JSON.Item(System.String)
+  id: Item(System.String)
+  parent: PAC.JSON.JSON
+  langs:
+  - csharp
+  - vb
+  name: this[string]
+  nameWithType: JSON.this[string]
+  fullName: PAC.JSON.JSON.this[string]
+  type: Property
+  source:
+    remote:
+      path: Assets/Scripts/JSON/JSON.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: this[]
+    path: ../Assets/Scripts/JSON/JSON.cs
+    startLine: 63
+  namespace: PAC.JSON
+  summary: Accesses the string form of the data for the given key - the same as Get(key) and Add(key, value). To access the JSONProperty for the key, use GetJSONProperty(key).
+  example: []
+  syntax:
+    content: public string this[string key] { get; set; }
+    parameters:
+    - id: key
+      type: System.String
+    return:
+      type: System.String
+    content.vb: Public Default Property this[](key As String) As String
+  overload: PAC.JSON.JSON.Item*
+  nameWithType.vb: JSON.this[](String)
+  fullName.vb: PAC.JSON.JSON.this[](String)
+  name.vb: this[](String)
+- uid: PAC.JSON.JSON.ContainsKey(System.String)
+  commentId: M:PAC.JSON.JSON.ContainsKey(System.String)
+  id: ContainsKey(System.String)
+  parent: PAC.JSON.JSON
+  langs:
+  - csharp
+  - vb
+  name: ContainsKey(string)
+  nameWithType: JSON.ContainsKey(string)
+  fullName: PAC.JSON.JSON.ContainsKey(string)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/JSON/JSON.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: ContainsKey
+    path: ../Assets/Scripts/JSON/JSON.cs
+    startLine: 78
+  namespace: PAC.JSON
+  summary: Returns true if this JSON object has the given key.
+  example: []
+  syntax:
+    content: public bool ContainsKey(string key)
+    parameters:
+    - id: key
+      type: System.String
+    return:
+      type: System.Boolean
+    content.vb: Public Function ContainsKey(key As String) As Boolean
+  overload: PAC.JSON.JSON.ContainsKey*
+  nameWithType.vb: JSON.ContainsKey(String)
+  fullName.vb: PAC.JSON.JSON.ContainsKey(String)
+  name.vb: ContainsKey(String)
+- uid: PAC.JSON.JSON.Get(System.String)
+  commentId: M:PAC.JSON.JSON.Get(System.String)
+  id: Get(System.String)
+  parent: PAC.JSON.JSON
+  langs:
+  - csharp
+  - vb
+  name: Get(string)
+  nameWithType: JSON.Get(string)
+  fullName: PAC.JSON.JSON.Get(string)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/JSON/JSON.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: Get
+    path: ../Assets/Scripts/JSON/JSON.cs
+    startLine: 86
+  namespace: PAC.JSON
+  summary: Returns the string form of the data at the given key.
+  example: []
+  syntax:
+    content: public string Get(string key)
+    parameters:
+    - id: key
+      type: System.String
+    return:
+      type: System.String
+    content.vb: Public Function [Get](key As String) As String
+  overload: PAC.JSON.JSON.Get*
+  nameWithType.vb: JSON.Get(String)
+  fullName.vb: PAC.JSON.JSON.Get(String)
+  name.vb: Get(String)
+- uid: PAC.JSON.JSON.GetJSONProperty(System.String)
+  commentId: M:PAC.JSON.JSON.GetJSONProperty(System.String)
+  id: GetJSONProperty(System.String)
+  parent: PAC.JSON.JSON
+  langs:
+  - csharp
+  - vb
+  name: GetJSONProperty(string)
+  nameWithType: JSON.GetJSONProperty(string)
+  fullName: PAC.JSON.JSON.GetJSONProperty(string)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/JSON/JSON.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: GetJSONProperty
+    path: ../Assets/Scripts/JSON/JSON.cs
+    startLine: 98
+  namespace: PAC.JSON
+  summary: Returns the JSONProperty at the given key.
+  example: []
+  syntax:
+    content: public JSON.JSONProperty GetJSONProperty(string key)
+    parameters:
+    - id: key
+      type: System.String
+    return:
+      type: PAC.JSON.JSON.JSONProperty
+    content.vb: Public Function GetJSONProperty(key As String) As JSON.JSONProperty
+  overload: PAC.JSON.JSON.GetJSONProperty*
+  nameWithType.vb: JSON.GetJSONProperty(String)
+  fullName.vb: PAC.JSON.JSON.GetJSONProperty(String)
+  name.vb: GetJSONProperty(String)
+- uid: PAC.JSON.JSON.Add(System.String,PAC.JSON.JSON.JSONProperty)
+  commentId: M:PAC.JSON.JSON.Add(System.String,PAC.JSON.JSON.JSONProperty)
+  id: Add(System.String,PAC.JSON.JSON.JSONProperty)
+  parent: PAC.JSON.JSON
+  langs:
+  - csharp
+  - vb
+  name: Add(string, JSONProperty)
+  nameWithType: JSON.Add(string, JSON.JSONProperty)
+  fullName: PAC.JSON.JSON.Add(string, PAC.JSON.JSON.JSONProperty)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/JSON/JSON.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: Add
+    path: ../Assets/Scripts/JSON/JSON.cs
+    startLine: 110
+  namespace: PAC.JSON
+  summary: Adds the given data at the given key, overriding any existing data.
+  example: []
+  syntax:
+    content: public void Add(string key, JSON.JSONProperty data)
+    parameters:
+    - id: key
+      type: System.String
+    - id: data
+      type: PAC.JSON.JSON.JSONProperty
+    content.vb: Public Sub Add(key As String, data As JSON.JSONProperty)
+  overload: PAC.JSON.JSON.Add*
+  nameWithType.vb: JSON.Add(String, JSON.JSONProperty)
+  fullName.vb: PAC.JSON.JSON.Add(String, PAC.JSON.JSON.JSONProperty)
+  name.vb: Add(String, JSONProperty)
+- uid: PAC.JSON.JSON.Add(System.String,System.String)
+  commentId: M:PAC.JSON.JSON.Add(System.String,System.String)
+  id: Add(System.String,System.String)
+  parent: PAC.JSON.JSON
+  langs:
+  - csharp
+  - vb
+  name: Add(string, string)
+  nameWithType: JSON.Add(string, string)
+  fullName: PAC.JSON.JSON.Add(string, string)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/JSON/JSON.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: Add
+    path: ../Assets/Scripts/JSON/JSON.cs
+    startLine: 118
+  namespace: PAC.JSON
+  summary: Adds the given string to the JSON, adding quotation marks around the string.
+  example: []
+  syntax:
+    content: public void Add(string key, string str)
+    parameters:
+    - id: key
+      type: System.String
+    - id: str
+      type: System.String
+    content.vb: Public Sub Add(key As String, str As String)
+  overload: PAC.JSON.JSON.Add*
+  nameWithType.vb: JSON.Add(String, String)
+  fullName.vb: PAC.JSON.JSON.Add(String, String)
+  name.vb: Add(String, String)
+- uid: PAC.JSON.JSON.Add(System.String,System.String,System.Boolean)
+  commentId: M:PAC.JSON.JSON.Add(System.String,System.String,System.Boolean)
+  id: Add(System.String,System.String,System.Boolean)
+  parent: PAC.JSON.JSON
+  langs:
+  - csharp
+  - vb
+  name: Add(string, string, bool)
+  nameWithType: JSON.Add(string, string, bool)
+  fullName: PAC.JSON.JSON.Add(string, string, bool)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/JSON/JSON.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: Add
+    path: ../Assets/Scripts/JSON/JSON.cs
+    startLine: 122
+  namespace: PAC.JSON
+  summary: Adds the given data (given in string form) to the JSON.
+  example: []
+  syntax:
+    content: public void Add(string key, string str, bool addQuotationMarks)
+    parameters:
+    - id: key
+      type: System.String
+    - id: str
+      type: System.String
+    - id: addQuotationMarks
+      type: System.Boolean
+    content.vb: Public Sub Add(key As String, str As String, addQuotationMarks As Boolean)
+  overload: PAC.JSON.JSON.Add*
+  nameWithType.vb: JSON.Add(String, String, Boolean)
+  fullName.vb: PAC.JSON.JSON.Add(String, String, Boolean)
+  name.vb: Add(String, String, Boolean)
+- uid: PAC.JSON.JSON.Add(System.String,System.Collections.Generic.IEnumerable{System.String},System.Boolean)
+  commentId: M:PAC.JSON.JSON.Add(System.String,System.Collections.Generic.IEnumerable{System.String},System.Boolean)
+  id: Add(System.String,System.Collections.Generic.IEnumerable{System.String},System.Boolean)
+  parent: PAC.JSON.JSON
+  langs:
+  - csharp
+  - vb
+  name: Add(string, IEnumerable<string>, bool)
+  nameWithType: JSON.Add(string, IEnumerable<string>, bool)
+  fullName: PAC.JSON.JSON.Add(string, System.Collections.Generic.IEnumerable<string>, bool)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/JSON/JSON.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: Add
+    path: ../Assets/Scripts/JSON/JSON.cs
+    startLine: 127
+  namespace: PAC.JSON
+  summary: Adds the given strings to the JSON in the format of a JSON array, adding quotation marks around each string.
+  example: []
+  syntax:
+    content: public void Add(string key, IEnumerable<string> strings, bool separateLines)
+    parameters:
+    - id: key
+      type: System.String
+    - id: strings
+      type: System.Collections.Generic.IEnumerable{System.String}
+    - id: separateLines
+      type: System.Boolean
+      description: Whether to start a new line for each element of the array.
+    content.vb: Public Sub Add(key As String, strings As IEnumerable(Of String), separateLines As Boolean)
+  overload: PAC.JSON.JSON.Add*
+  nameWithType.vb: JSON.Add(String, IEnumerable(Of String), Boolean)
+  fullName.vb: PAC.JSON.JSON.Add(String, System.Collections.Generic.IEnumerable(Of String), Boolean)
+  name.vb: Add(String, IEnumerable(Of String), Boolean)
+- uid: PAC.JSON.JSON.Add(System.String,System.Collections.Generic.IEnumerable{System.String},System.Boolean,System.Boolean)
+  commentId: M:PAC.JSON.JSON.Add(System.String,System.Collections.Generic.IEnumerable{System.String},System.Boolean,System.Boolean)
+  id: Add(System.String,System.Collections.Generic.IEnumerable{System.String},System.Boolean,System.Boolean)
+  parent: PAC.JSON.JSON
+  langs:
+  - csharp
+  - vb
+  name: Add(string, IEnumerable<string>, bool, bool)
+  nameWithType: JSON.Add(string, IEnumerable<string>, bool, bool)
+  fullName: PAC.JSON.JSON.Add(string, System.Collections.Generic.IEnumerable<string>, bool, bool)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/JSON/JSON.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: Add
+    path: ../Assets/Scripts/JSON/JSON.cs
+    startLine: 133
+  namespace: PAC.JSON
+  summary: Adds the given data (given in string form) to the JSON in the format of a JSON array.
+  example: []
+  syntax:
+    content: public void Add(string key, IEnumerable<string> strings, bool separateLines, bool addQuotationMarks)
+    parameters:
+    - id: key
+      type: System.String
+    - id: strings
+      type: System.Collections.Generic.IEnumerable{System.String}
+    - id: separateLines
+      type: System.Boolean
+      description: Whether to start a new line for each element of the array.
+    - id: addQuotationMarks
+      type: System.Boolean
+      description: Whether to add quotation marks around each element of the array.
+    content.vb: Public Sub Add(key As String, strings As IEnumerable(Of String), separateLines As Boolean, addQuotationMarks As Boolean)
+  overload: PAC.JSON.JSON.Add*
+  nameWithType.vb: JSON.Add(String, IEnumerable(Of String), Boolean, Boolean)
+  fullName.vb: PAC.JSON.JSON.Add(String, System.Collections.Generic.IEnumerable(Of String), Boolean, Boolean)
+  name.vb: Add(String, IEnumerable(Of String), Boolean, Boolean)
+- uid: PAC.JSON.JSON.Add(System.String,System.Boolean)
+  commentId: M:PAC.JSON.JSON.Add(System.String,System.Boolean)
+  id: Add(System.String,System.Boolean)
+  parent: PAC.JSON.JSON
+  langs:
+  - csharp
+  - vb
+  name: Add(string, bool)
+  nameWithType: JSON.Add(string, bool)
+  fullName: PAC.JSON.JSON.Add(string, bool)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/JSON/JSON.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: Add
+    path: ../Assets/Scripts/JSON/JSON.cs
+    startLine: 138
+  namespace: PAC.JSON
+  summary: Adds the given bool to the JSON.
+  example: []
+  syntax:
+    content: public void Add(string key, bool boolean)
+    parameters:
+    - id: key
+      type: System.String
+    - id: boolean
+      type: System.Boolean
+    content.vb: Public Sub Add(key As String, [boolean] As Boolean)
+  overload: PAC.JSON.JSON.Add*
+  nameWithType.vb: JSON.Add(String, Boolean)
+  fullName.vb: PAC.JSON.JSON.Add(String, Boolean)
+  name.vb: Add(String, Boolean)
+- uid: PAC.JSON.JSON.Add(System.String,PAC.JSON.JSON)
+  commentId: M:PAC.JSON.JSON.Add(System.String,PAC.JSON.JSON)
+  id: Add(System.String,PAC.JSON.JSON)
+  parent: PAC.JSON.JSON
+  langs:
+  - csharp
+  - vb
+  name: Add(string, JSON)
+  nameWithType: JSON.Add(string, JSON)
+  fullName: PAC.JSON.JSON.Add(string, PAC.JSON.JSON)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/JSON/JSON.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: Add
+    path: ../Assets/Scripts/JSON/JSON.cs
+    startLine: 143
+  namespace: PAC.JSON
+  summary: Adds the string form of the given JSON to this JSON object.
+  example: []
+  syntax:
+    content: public void Add(string key, JSON json)
+    parameters:
+    - id: key
+      type: System.String
+    - id: json
+      type: PAC.JSON.JSON
+    content.vb: Public Sub Add(key As String, json As JSON)
+  overload: PAC.JSON.JSON.Add*
+  nameWithType.vb: JSON.Add(String, JSON)
+  fullName.vb: PAC.JSON.JSON.Add(String, PAC.JSON.JSON)
+  name.vb: Add(String, JSON)
+- uid: PAC.JSON.JSON.Add(System.String,PAC.JSON.IJSONable)
+  commentId: M:PAC.JSON.JSON.Add(System.String,PAC.JSON.IJSONable)
+  id: Add(System.String,PAC.JSON.IJSONable)
+  parent: PAC.JSON.JSON
+  langs:
+  - csharp
+  - vb
+  name: Add(string, IJSONable)
+  nameWithType: JSON.Add(string, IJSONable)
+  fullName: PAC.JSON.JSON.Add(string, PAC.JSON.IJSONable)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/JSON/JSON.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: Add
+    path: ../Assets/Scripts/JSON/JSON.cs
+    startLine: 147
+  namespace: PAC.JSON
+  summary: Adds the string form of the JSON of the given object to this JSON object.
+  example: []
+  syntax:
+    content: public void Add(string key, IJSONable jsonableObject)
+    parameters:
+    - id: key
+      type: System.String
+    - id: jsonableObject
+      type: PAC.JSON.IJSONable
+    content.vb: Public Sub Add(key As String, jsonableObject As IJSONable)
+  overload: PAC.JSON.JSON.Add*
+  nameWithType.vb: JSON.Add(String, IJSONable)
+  fullName.vb: PAC.JSON.JSON.Add(String, PAC.JSON.IJSONable)
+  name.vb: Add(String, IJSONable)
+- uid: PAC.JSON.JSON.Add(System.String,System.Collections.Generic.IEnumerable{PAC.JSON.IJSONable})
+  commentId: M:PAC.JSON.JSON.Add(System.String,System.Collections.Generic.IEnumerable{PAC.JSON.IJSONable})
+  id: Add(System.String,System.Collections.Generic.IEnumerable{PAC.JSON.IJSONable})
+  parent: PAC.JSON.JSON
+  langs:
+  - csharp
+  - vb
+  name: Add(string, IEnumerable<IJSONable>)
+  nameWithType: JSON.Add(string, IEnumerable<IJSONable>)
+  fullName: PAC.JSON.JSON.Add(string, System.Collections.Generic.IEnumerable<PAC.JSON.IJSONable>)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/JSON/JSON.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: Add
+    path: ../Assets/Scripts/JSON/JSON.cs
+    startLine: 151
+  namespace: PAC.JSON
+  summary: Adds the string forms of the JSON of the given objects to this JSON object in the format of a JSON array.
+  example: []
+  syntax:
+    content: public void Add(string key, IEnumerable<IJSONable> jsonableObjects)
+    parameters:
+    - id: key
+      type: System.String
+    - id: jsonableObjects
+      type: System.Collections.Generic.IEnumerable{PAC.JSON.IJSONable}
+    content.vb: Public Sub Add(key As String, jsonableObjects As IEnumerable(Of IJSONable))
+  overload: PAC.JSON.JSON.Add*
+  nameWithType.vb: JSON.Add(String, IEnumerable(Of IJSONable))
+  fullName.vb: PAC.JSON.JSON.Add(String, System.Collections.Generic.IEnumerable(Of PAC.JSON.IJSONable))
+  name.vb: Add(String, IEnumerable(Of IJSONable))
+- uid: PAC.JSON.JSON.Add(System.String,System.Object)
+  commentId: M:PAC.JSON.JSON.Add(System.String,System.Object)
+  id: Add(System.String,System.Object)
+  parent: PAC.JSON.JSON
+  langs:
+  - csharp
+  - vb
+  name: Add(string, object)
+  nameWithType: JSON.Add(string, object)
+  fullName: PAC.JSON.JSON.Add(string, object)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/JSON/JSON.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: Add
+    path: ../Assets/Scripts/JSON/JSON.cs
+    startLine: 156
+  namespace: PAC.JSON
+  summary: Adds the string form of the given object to the JSON, adding no quotation marks.
+  example: []
+  syntax:
+    content: public void Add(string key, object obj)
+    parameters:
+    - id: key
+      type: System.String
+    - id: obj
+      type: System.Object
+    content.vb: Public Sub Add(key As String, obj As Object)
+  overload: PAC.JSON.JSON.Add*
+  nameWithType.vb: JSON.Add(String, Object)
+  fullName.vb: PAC.JSON.JSON.Add(String, Object)
+  name.vb: Add(String, Object)
+- uid: PAC.JSON.JSON.Add(System.String,System.Object,System.Boolean)
+  commentId: M:PAC.JSON.JSON.Add(System.String,System.Object,System.Boolean)
+  id: Add(System.String,System.Object,System.Boolean)
+  parent: PAC.JSON.JSON
+  langs:
+  - csharp
+  - vb
+  name: Add(string, object, bool)
+  nameWithType: JSON.Add(string, object, bool)
+  fullName: PAC.JSON.JSON.Add(string, object, bool)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/JSON/JSON.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: Add
+    path: ../Assets/Scripts/JSON/JSON.cs
+    startLine: 160
+  namespace: PAC.JSON
+  summary: Adds the string form of the given object to the JSON.
+  example: []
+  syntax:
+    content: public void Add(string key, object obj, bool addQuotationMarks)
+    parameters:
+    - id: key
+      type: System.String
+    - id: obj
+      type: System.Object
+    - id: addQuotationMarks
+      type: System.Boolean
+    content.vb: Public Sub Add(key As String, obj As Object, addQuotationMarks As Boolean)
+  overload: PAC.JSON.JSON.Add*
+  nameWithType.vb: JSON.Add(String, Object, Boolean)
+  fullName.vb: PAC.JSON.JSON.Add(String, Object, Boolean)
+  name.vb: Add(String, Object, Boolean)
+- uid: PAC.JSON.JSON.Add(System.String,System.Collections.IEnumerable,System.Boolean)
+  commentId: M:PAC.JSON.JSON.Add(System.String,System.Collections.IEnumerable,System.Boolean)
+  id: Add(System.String,System.Collections.IEnumerable,System.Boolean)
+  parent: PAC.JSON.JSON
+  langs:
+  - csharp
+  - vb
+  name: Add(string, IEnumerable, bool)
+  nameWithType: JSON.Add(string, IEnumerable, bool)
+  fullName: PAC.JSON.JSON.Add(string, System.Collections.IEnumerable, bool)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/JSON/JSON.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: Add
+    path: ../Assets/Scripts/JSON/JSON.cs
+    startLine: 165
+  namespace: PAC.JSON
+  summary: Adds the string form of the given objects to the JSON in the format of a JSON array, adding no quotation marks.
+  example: []
+  syntax:
+    content: public void Add(string key, IEnumerable objects, bool separateLines)
+    parameters:
+    - id: key
+      type: System.String
+    - id: objects
+      type: System.Collections.IEnumerable
+    - id: separateLines
+      type: System.Boolean
+      description: Whether to start a new line for each element of the array.
+    content.vb: Public Sub Add(key As String, objects As IEnumerable, separateLines As Boolean)
+  overload: PAC.JSON.JSON.Add*
+  nameWithType.vb: JSON.Add(String, IEnumerable, Boolean)
+  fullName.vb: PAC.JSON.JSON.Add(String, System.Collections.IEnumerable, Boolean)
+  name.vb: Add(String, IEnumerable, Boolean)
+- uid: PAC.JSON.JSON.Add(System.String,System.Collections.IEnumerable,System.Boolean,System.Boolean)
+  commentId: M:PAC.JSON.JSON.Add(System.String,System.Collections.IEnumerable,System.Boolean,System.Boolean)
+  id: Add(System.String,System.Collections.IEnumerable,System.Boolean,System.Boolean)
+  parent: PAC.JSON.JSON
+  langs:
+  - csharp
+  - vb
+  name: Add(string, IEnumerable, bool, bool)
+  nameWithType: JSON.Add(string, IEnumerable, bool, bool)
+  fullName: PAC.JSON.JSON.Add(string, System.Collections.IEnumerable, bool, bool)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/JSON/JSON.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: Add
+    path: ../Assets/Scripts/JSON/JSON.cs
+    startLine: 171
+  namespace: PAC.JSON
+  summary: Adds the string form of the given objects to the JSON in the format of a JSON array.
+  example: []
+  syntax:
+    content: public void Add(string key, IEnumerable objects, bool separateLines, bool addQuotationMarks)
+    parameters:
+    - id: key
+      type: System.String
+    - id: objects
+      type: System.Collections.IEnumerable
+    - id: separateLines
+      type: System.Boolean
+      description: Whether to start a new line for each element of the array.
+    - id: addQuotationMarks
+      type: System.Boolean
+      description: Whether to add quotation marks around each element of the array.
+    content.vb: Public Sub Add(key As String, objects As IEnumerable, separateLines As Boolean, addQuotationMarks As Boolean)
+  overload: PAC.JSON.JSON.Add*
+  nameWithType.vb: JSON.Add(String, IEnumerable, Boolean, Boolean)
+  fullName.vb: PAC.JSON.JSON.Add(String, System.Collections.IEnumerable, Boolean, Boolean)
+  name.vb: Add(String, IEnumerable, Boolean, Boolean)
+- uid: PAC.JSON.JSON.Append(PAC.JSON.JSON)
+  commentId: M:PAC.JSON.JSON.Append(PAC.JSON.JSON)
+  id: Append(PAC.JSON.JSON)
+  parent: PAC.JSON.JSON
+  langs:
+  - csharp
+  - vb
+  name: Append(JSON)
+  nameWithType: JSON.Append(JSON)
+  fullName: PAC.JSON.JSON.Append(PAC.JSON.JSON)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/JSON/JSON.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: Append
+    path: ../Assets/Scripts/JSON/JSON.cs
+    startLine: 176
+  namespace: PAC.JSON
+  summary: Adds the data of the given JSON object to the end of this JSON object. Throws error if they have a key in common.
+  example: []
+  syntax:
+    content: public void Append(JSON json)
+    parameters:
+    - id: json
+      type: PAC.JSON.JSON
+    content.vb: Public Sub Append(json As JSON)
+  overload: PAC.JSON.JSON.Append*
+- uid: PAC.JSON.JSON.Parse(System.String)
+  commentId: M:PAC.JSON.JSON.Parse(System.String)
+  id: Parse(System.String)
+  parent: PAC.JSON.JSON
+  langs:
+  - csharp
+  - vb
+  name: Parse(string)
+  nameWithType: JSON.Parse(string)
+  fullName: PAC.JSON.JSON.Parse(string)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/JSON/JSON.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: Parse
+    path: ../Assets/Scripts/JSON/JSON.cs
+    startLine: 192
+  namespace: PAC.JSON
+  summary: Parses the JSON string into a new JSON object.
+  example: []
+  syntax:
+    content: public static JSON Parse(string jsonToParse)
+    parameters:
+    - id: jsonToParse
+      type: System.String
+    return:
+      type: PAC.JSON.JSON
+    content.vb: Public Shared Function Parse(jsonToParse As String) As JSON
+  overload: PAC.JSON.JSON.Parse*
+  nameWithType.vb: JSON.Parse(String)
+  fullName.vb: PAC.JSON.JSON.Parse(String)
+  name.vb: Parse(String)
+- uid: PAC.JSON.JSON.AddParse(System.String)
+  commentId: M:PAC.JSON.JSON.AddParse(System.String)
+  id: AddParse(System.String)
+  parent: PAC.JSON.JSON
+  langs:
+  - csharp
+  - vb
+  name: AddParse(string)
+  nameWithType: JSON.AddParse(string)
+  fullName: PAC.JSON.JSON.AddParse(string)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/JSON/JSON.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: AddParse
+    path: ../Assets/Scripts/JSON/JSON.cs
+    startLine: 199
+  namespace: PAC.JSON
+  summary: Parses the JSON string and adds all data to this JSON object. Does not delete any existing data in this object, except when keys collide, in which case new data will override old data.
+  example: []
+  syntax:
+    content: public void AddParse(string jsonToParse)
+    parameters:
+    - id: jsonToParse
+      type: System.String
+    content.vb: Public Sub AddParse(jsonToParse As String)
+  overload: PAC.JSON.JSON.AddParse*
+  nameWithType.vb: JSON.AddParse(String)
+  fullName.vb: PAC.JSON.JSON.AddParse(String)
+  name.vb: AddParse(String)
+- uid: PAC.JSON.JSON.StripQuotationMarks(System.String)
+  commentId: M:PAC.JSON.JSON.StripQuotationMarks(System.String)
+  id: StripQuotationMarks(System.String)
+  parent: PAC.JSON.JSON
+  langs:
+  - csharp
+  - vb
+  name: StripQuotationMarks(string)
+  nameWithType: JSON.StripQuotationMarks(string)
+  fullName: PAC.JSON.JSON.StripQuotationMarks(string)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/JSON/JSON.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: StripQuotationMarks
+    path: ../Assets/Scripts/JSON/JSON.cs
+    startLine: 309
+  namespace: PAC.JSON
+  summary: Removes the " " pair enclosing a string, if there is one; otherwise throws an error.
+  example: []
+  syntax:
+    content: public static string StripQuotationMarks(string str)
+    parameters:
+    - id: str
+      type: System.String
+      description: ''
+    return:
+      type: System.String
+      description: ''
+    content.vb: Public Shared Function StripQuotationMarks(str As String) As String
+  overload: PAC.JSON.JSON.StripQuotationMarks*
+  nameWithType.vb: JSON.StripQuotationMarks(String)
+  fullName.vb: PAC.JSON.JSON.StripQuotationMarks(String)
+  name.vb: StripQuotationMarks(String)
+- uid: PAC.JSON.JSON.ToString
+  commentId: M:PAC.JSON.JSON.ToString
+  id: ToString
+  parent: PAC.JSON.JSON
+  langs:
+  - csharp
+  - vb
+  name: ToString()
+  nameWithType: JSON.ToString()
+  fullName: PAC.JSON.JSON.ToString()
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/JSON/JSON.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: ToString
+    path: ../Assets/Scripts/JSON/JSON.cs
+    startLine: 323
+  namespace: PAC.JSON
+  summary: Returns the data as a string in JSON format.
+  example: []
+  syntax:
+    content: public override string ToString()
+    return:
+      type: System.String
+    content.vb: Public Overrides Function ToString() As String
+  overridden: System.Object.ToString
+  overload: PAC.JSON.JSON.ToString*
+- uid: PAC.JSON.JSON.ToJSONString(System.Collections.Generic.IEnumerable{PAC.JSON.IJSONable})
+  commentId: M:PAC.JSON.JSON.ToJSONString(System.Collections.Generic.IEnumerable{PAC.JSON.IJSONable})
+  id: ToJSONString(System.Collections.Generic.IEnumerable{PAC.JSON.IJSONable})
+  parent: PAC.JSON.JSON
+  langs:
+  - csharp
+  - vb
+  name: ToJSONString(IEnumerable<IJSONable>)
+  nameWithType: JSON.ToJSONString(IEnumerable<IJSONable>)
+  fullName: PAC.JSON.JSON.ToJSONString(System.Collections.Generic.IEnumerable<PAC.JSON.IJSONable>)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/JSON/JSON.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: ToJSONString
+    path: ../Assets/Scripts/JSON/JSON.cs
+    startLine: 370
+  namespace: PAC.JSON
+  summary: Returns the JSON of the given objects in a JSON-format array in string form.
+  example: []
+  syntax:
+    content: public static string ToJSONString(IEnumerable<IJSONable> jsonableObjects)
+    parameters:
+    - id: jsonableObjects
+      type: System.Collections.Generic.IEnumerable{PAC.JSON.IJSONable}
+    return:
+      type: System.String
+    content.vb: Public Shared Function ToJSONString(jsonableObjects As IEnumerable(Of IJSONable)) As String
+  overload: PAC.JSON.JSON.ToJSONString*
+  nameWithType.vb: JSON.ToJSONString(IEnumerable(Of IJSONable))
+  fullName.vb: PAC.JSON.JSON.ToJSONString(System.Collections.Generic.IEnumerable(Of PAC.JSON.IJSONable))
+  name.vb: ToJSONString(IEnumerable(Of IJSONable))
+- uid: PAC.JSON.JSON.ToJSONString(System.Collections.IEnumerable,System.Boolean)
+  commentId: M:PAC.JSON.JSON.ToJSONString(System.Collections.IEnumerable,System.Boolean)
+  id: ToJSONString(System.Collections.IEnumerable,System.Boolean)
+  parent: PAC.JSON.JSON
+  langs:
+  - csharp
+  - vb
+  name: ToJSONString(IEnumerable, bool)
+  nameWithType: JSON.ToJSONString(IEnumerable, bool)
+  fullName: PAC.JSON.JSON.ToJSONString(System.Collections.IEnumerable, bool)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/JSON/JSON.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: ToJSONString
+    path: ../Assets/Scripts/JSON/JSON.cs
+    startLine: 377
+  namespace: PAC.JSON
+  summary: Returns the JSON of the given objects in a JSON-format array in string form, adding no quotation marks.
+  example: []
+  syntax:
+    content: public static string ToJSONString(IEnumerable objects, bool separateLines)
+    parameters:
+    - id: objects
+      type: System.Collections.IEnumerable
+    - id: separateLines
+      type: System.Boolean
+    return:
+      type: System.String
+    content.vb: Public Shared Function ToJSONString(objects As IEnumerable, separateLines As Boolean) As String
+  overload: PAC.JSON.JSON.ToJSONString*
+  nameWithType.vb: JSON.ToJSONString(IEnumerable, Boolean)
+  fullName.vb: PAC.JSON.JSON.ToJSONString(System.Collections.IEnumerable, Boolean)
+  name.vb: ToJSONString(IEnumerable, Boolean)
+- uid: PAC.JSON.JSON.ToJSONString(System.Collections.IEnumerable,System.Boolean,System.Boolean)
+  commentId: M:PAC.JSON.JSON.ToJSONString(System.Collections.IEnumerable,System.Boolean,System.Boolean)
+  id: ToJSONString(System.Collections.IEnumerable,System.Boolean,System.Boolean)
+  parent: PAC.JSON.JSON
+  langs:
+  - csharp
+  - vb
+  name: ToJSONString(IEnumerable, bool, bool)
+  nameWithType: JSON.ToJSONString(IEnumerable, bool, bool)
+  fullName: PAC.JSON.JSON.ToJSONString(System.Collections.IEnumerable, bool, bool)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/JSON/JSON.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: ToJSONString
+    path: ../Assets/Scripts/JSON/JSON.cs
+    startLine: 382
+  namespace: PAC.JSON
+  summary: Returns the JSON of the given objects in a JSON-format array in string form.
+  example: []
+  syntax:
+    content: public static string ToJSONString(IEnumerable objects, bool separateLines, bool addQuotationMarks)
+    parameters:
+    - id: objects
+      type: System.Collections.IEnumerable
+    - id: separateLines
+      type: System.Boolean
+    - id: addQuotationMarks
+      type: System.Boolean
+      description: Whether to add quotation marks around each element of the array.
+    return:
+      type: System.String
+    content.vb: Public Shared Function ToJSONString(objects As IEnumerable, separateLines As Boolean, addQuotationMarks As Boolean) As String
+  overload: PAC.JSON.JSON.ToJSONString*
+  nameWithType.vb: JSON.ToJSONString(IEnumerable, Boolean, Boolean)
+  fullName.vb: PAC.JSON.JSON.ToJSONString(System.Collections.IEnumerable, Boolean, Boolean)
+  name.vb: ToJSONString(IEnumerable, Boolean, Boolean)
+- uid: PAC.JSON.JSON.ToJSONString(System.Collections.Generic.IEnumerable{System.String},System.Boolean)
+  commentId: M:PAC.JSON.JSON.ToJSONString(System.Collections.Generic.IEnumerable{System.String},System.Boolean)
+  id: ToJSONString(System.Collections.Generic.IEnumerable{System.String},System.Boolean)
+  parent: PAC.JSON.JSON
+  langs:
+  - csharp
+  - vb
+  name: ToJSONString(IEnumerable<string>, bool)
+  nameWithType: JSON.ToJSONString(IEnumerable<string>, bool)
+  fullName: PAC.JSON.JSON.ToJSONString(System.Collections.Generic.IEnumerable<string>, bool)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/JSON/JSON.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: ToJSONString
+    path: ../Assets/Scripts/JSON/JSON.cs
+    startLine: 394
+  namespace: PAC.JSON
+  summary: Returns the given strings in a JSON-format array in string form, adding quotation marks around each element.
+  example: []
+  syntax:
+    content: public static string ToJSONString(IEnumerable<string> strings, bool separateLines)
+    parameters:
+    - id: strings
+      type: System.Collections.Generic.IEnumerable{System.String}
+    - id: separateLines
+      type: System.Boolean
+    return:
+      type: System.String
+    content.vb: Public Shared Function ToJSONString(strings As IEnumerable(Of String), separateLines As Boolean) As String
+  overload: PAC.JSON.JSON.ToJSONString*
+  nameWithType.vb: JSON.ToJSONString(IEnumerable(Of String), Boolean)
+  fullName.vb: PAC.JSON.JSON.ToJSONString(System.Collections.Generic.IEnumerable(Of String), Boolean)
+  name.vb: ToJSONString(IEnumerable(Of String), Boolean)
+- uid: PAC.JSON.JSON.ToJSONString(System.Collections.Generic.IEnumerable{System.String},System.Boolean,System.Boolean)
+  commentId: M:PAC.JSON.JSON.ToJSONString(System.Collections.Generic.IEnumerable{System.String},System.Boolean,System.Boolean)
+  id: ToJSONString(System.Collections.Generic.IEnumerable{System.String},System.Boolean,System.Boolean)
+  parent: PAC.JSON.JSON
+  langs:
+  - csharp
+  - vb
+  name: ToJSONString(IEnumerable<string>, bool, bool)
+  nameWithType: JSON.ToJSONString(IEnumerable<string>, bool, bool)
+  fullName: PAC.JSON.JSON.ToJSONString(System.Collections.Generic.IEnumerable<string>, bool, bool)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/JSON/JSON.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: ToJSONString
+    path: ../Assets/Scripts/JSON/JSON.cs
+    startLine: 399
+  namespace: PAC.JSON
+  summary: Returns the given strings in a JSON-format array in string form.
+  example: []
+  syntax:
+    content: public static string ToJSONString(IEnumerable<string> strings, bool separateLines, bool addQuotationMarks)
+    parameters:
+    - id: strings
+      type: System.Collections.Generic.IEnumerable{System.String}
+    - id: separateLines
+      type: System.Boolean
+    - id: addQuotationMarks
+      type: System.Boolean
+      description: Whether to add quotation marks around each element of the array.
+    return:
+      type: System.String
+    content.vb: Public Shared Function ToJSONString(strings As IEnumerable(Of String), separateLines As Boolean, addQuotationMarks As Boolean) As String
+  overload: PAC.JSON.JSON.ToJSONString*
+  nameWithType.vb: JSON.ToJSONString(IEnumerable(Of String), Boolean, Boolean)
+  fullName.vb: PAC.JSON.JSON.ToJSONString(System.Collections.Generic.IEnumerable(Of String), Boolean, Boolean)
+  name.vb: ToJSONString(IEnumerable(Of String), Boolean, Boolean)
+- uid: PAC.JSON.JSON.SplitArray(System.String)
+  commentId: M:PAC.JSON.JSON.SplitArray(System.String)
+  id: SplitArray(System.String)
+  parent: PAC.JSON.JSON
+  langs:
+  - csharp
+  - vb
+  name: SplitArray(string)
+  nameWithType: JSON.SplitArray(string)
+  fullName: PAC.JSON.JSON.SplitArray(string)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/JSON/JSON.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: SplitArray
+    path: ../Assets/Scripts/JSON/JSON.cs
+    startLine: 449
+  namespace: PAC.JSON
+  summary: Splits a JSON string representing an array into a string[] of the data.
+  example: []
+  syntax:
+    content: public static string[] SplitArray(string jsonString)
+    parameters:
+    - id: jsonString
+      type: System.String
+      description: Include the start/end square brackets in the string.
+    return:
+      type: System.String[]
+    content.vb: Public Shared Function SplitArray(jsonString As String) As String()
+  overload: PAC.JSON.JSON.SplitArray*
+  nameWithType.vb: JSON.SplitArray(String)
+  fullName.vb: PAC.JSON.JSON.SplitArray(String)
+  name.vb: SplitArray(String)
+references:
+- uid: PAC.JSON
+  commentId: N:PAC.JSON
+  href: PAC.html
+  name: PAC.JSON
+  nameWithType: PAC.JSON
+  fullName: PAC.JSON
+  spec.csharp:
+  - uid: PAC
+    name: PAC
+    href: PAC.html
+  - name: .
+  - uid: PAC.JSON
+    name: JSON
+    href: PAC.JSON.html
+  spec.vb:
+  - uid: PAC
+    name: PAC
+    href: PAC.html
+  - name: .
+  - uid: PAC.JSON
+    name: JSON
+    href: PAC.JSON.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: PAC.JSON.JSON.#ctor*
+  commentId: Overload:PAC.JSON.JSON.#ctor
+  href: PAC.JSON.JSON.html#PAC_JSON_JSON__ctor
+  name: JSON
+  nameWithType: JSON.JSON
+  fullName: PAC.JSON.JSON.JSON
+  nameWithType.vb: JSON.New
+  fullName.vb: PAC.JSON.JSON.New
+  name.vb: New
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: PAC.JSON.JSON.Keys*
+  commentId: Overload:PAC.JSON.JSON.Keys
+  href: PAC.JSON.JSON.html#PAC_JSON_JSON_Keys
+  name: Keys
+  nameWithType: JSON.Keys
+  fullName: PAC.JSON.JSON.Keys
+- uid: System.String[]
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string[]
+  nameWithType: string[]
+  fullName: string[]
+  nameWithType.vb: String()
+  fullName.vb: String()
+  name.vb: String()
+  spec.csharp:
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: '['
+  - name: ']'
+  spec.vb:
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: (
+  - name: )
+- uid: PAC.JSON.JSON.Item*
+  commentId: Overload:PAC.JSON.JSON.Item
+  href: PAC.JSON.JSON.html#PAC_JSON_JSON_Item_System_String_
+  name: this
+  nameWithType: JSON.this
+  fullName: PAC.JSON.JSON.this
+  nameWithType.vb: JSON.this[]
+  fullName.vb: PAC.JSON.JSON.this[]
+  name.vb: this[]
+- uid: PAC.JSON.JSON.ContainsKey*
+  commentId: Overload:PAC.JSON.JSON.ContainsKey
+  href: PAC.JSON.JSON.html#PAC_JSON_JSON_ContainsKey_System_String_
+  name: ContainsKey
+  nameWithType: JSON.ContainsKey
+  fullName: PAC.JSON.JSON.ContainsKey
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: PAC.JSON.JSON.Get*
+  commentId: Overload:PAC.JSON.JSON.Get
+  href: PAC.JSON.JSON.html#PAC_JSON_JSON_Get_System_String_
+  name: Get
+  nameWithType: JSON.Get
+  fullName: PAC.JSON.JSON.Get
+- uid: PAC.JSON.JSON.GetJSONProperty*
+  commentId: Overload:PAC.JSON.JSON.GetJSONProperty
+  href: PAC.JSON.JSON.html#PAC_JSON_JSON_GetJSONProperty_System_String_
+  name: GetJSONProperty
+  nameWithType: JSON.GetJSONProperty
+  fullName: PAC.JSON.JSON.GetJSONProperty
+- uid: PAC.JSON.JSON.JSONProperty
+  commentId: T:PAC.JSON.JSON.JSONProperty
+  parent: PAC.JSON
+  href: PAC.JSON.JSON.html
+  name: JSON.JSONProperty
+  nameWithType: JSON.JSONProperty
+  fullName: PAC.JSON.JSON.JSONProperty
+  spec.csharp:
+  - uid: PAC.JSON.JSON
+    name: JSON
+    href: PAC.JSON.JSON.html
+  - name: .
+  - uid: PAC.JSON.JSON.JSONProperty
+    name: JSONProperty
+    href: PAC.JSON.JSON.JSONProperty.html
+  spec.vb:
+  - uid: PAC.JSON.JSON
+    name: JSON
+    href: PAC.JSON.JSON.html
+  - name: .
+  - uid: PAC.JSON.JSON.JSONProperty
+    name: JSONProperty
+    href: PAC.JSON.JSON.JSONProperty.html
+- uid: PAC.JSON.JSON.Add*
+  commentId: Overload:PAC.JSON.JSON.Add
+  href: PAC.JSON.JSON.html#PAC_JSON_JSON_Add_System_String_PAC_JSON_JSON_JSONProperty_
+  name: Add
+  nameWithType: JSON.Add
+  fullName: PAC.JSON.JSON.Add
+- uid: System.Collections.Generic.IEnumerable{System.String}
+  commentId: T:System.Collections.Generic.IEnumerable{System.String}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IEnumerable`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  name: IEnumerable<string>
+  nameWithType: IEnumerable<string>
+  fullName: System.Collections.Generic.IEnumerable<string>
+  nameWithType.vb: IEnumerable(Of String)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of String)
+  name.vb: IEnumerable(Of String)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: <
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: System.Collections.Generic.IEnumerable`1
+  commentId: T:System.Collections.Generic.IEnumerable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  name: IEnumerable<T>
+  nameWithType: IEnumerable<T>
+  fullName: System.Collections.Generic.IEnumerable<T>
+  nameWithType.vb: IEnumerable(Of T)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of T)
+  name.vb: IEnumerable(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: PAC.JSON.JSON
+  commentId: T:PAC.JSON.JSON
+  parent: PAC.JSON
+  href: PAC.JSON.JSON.html
+  name: JSON
+  nameWithType: JSON
+  fullName: PAC.JSON.JSON
+- uid: PAC.JSON.IJSONable
+  commentId: T:PAC.JSON.IJSONable
+  parent: PAC.JSON
+  href: PAC.JSON.IJSONable.html
+  name: IJSONable
+  nameWithType: IJSONable
+  fullName: PAC.JSON.IJSONable
+- uid: System.Collections.Generic.IEnumerable{PAC.JSON.IJSONable}
+  commentId: T:System.Collections.Generic.IEnumerable{PAC.JSON.IJSONable}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IEnumerable`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  name: IEnumerable<IJSONable>
+  nameWithType: IEnumerable<IJSONable>
+  fullName: System.Collections.Generic.IEnumerable<PAC.JSON.IJSONable>
+  nameWithType.vb: IEnumerable(Of IJSONable)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of PAC.JSON.IJSONable)
+  name.vb: IEnumerable(Of IJSONable)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: <
+  - uid: PAC.JSON.IJSONable
+    name: IJSONable
+    href: PAC.JSON.IJSONable.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: PAC.JSON.IJSONable
+    name: IJSONable
+    href: PAC.JSON.IJSONable.html
+  - name: )
+- uid: System.Collections.IEnumerable
+  commentId: T:System.Collections.IEnumerable
+  parent: System.Collections
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.ienumerable
+  name: IEnumerable
+  nameWithType: IEnumerable
+  fullName: System.Collections.IEnumerable
+- uid: System.Collections
+  commentId: N:System.Collections
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections
+  nameWithType: System.Collections
+  fullName: System.Collections
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+- uid: PAC.JSON.JSON.Append*
+  commentId: Overload:PAC.JSON.JSON.Append
+  href: PAC.JSON.JSON.html#PAC_JSON_JSON_Append_PAC_JSON_JSON_
+  name: Append
+  nameWithType: JSON.Append
+  fullName: PAC.JSON.JSON.Append
+- uid: PAC.JSON.JSON.Parse*
+  commentId: Overload:PAC.JSON.JSON.Parse
+  href: PAC.JSON.JSON.html#PAC_JSON_JSON_Parse_System_String_
+  name: Parse
+  nameWithType: JSON.Parse
+  fullName: PAC.JSON.JSON.Parse
+- uid: PAC.JSON.JSON.AddParse*
+  commentId: Overload:PAC.JSON.JSON.AddParse
+  href: PAC.JSON.JSON.html#PAC_JSON_JSON_AddParse_System_String_
+  name: AddParse
+  nameWithType: JSON.AddParse
+  fullName: PAC.JSON.JSON.AddParse
+- uid: PAC.JSON.JSON.StripQuotationMarks*
+  commentId: Overload:PAC.JSON.JSON.StripQuotationMarks
+  href: PAC.JSON.JSON.html#PAC_JSON_JSON_StripQuotationMarks_System_String_
+  name: StripQuotationMarks
+  nameWithType: JSON.StripQuotationMarks
+  fullName: PAC.JSON.JSON.StripQuotationMarks
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: PAC.JSON.JSON.ToString*
+  commentId: Overload:PAC.JSON.JSON.ToString
+  href: PAC.JSON.JSON.html#PAC_JSON_JSON_ToString
+  name: ToString
+  nameWithType: JSON.ToString
+  fullName: PAC.JSON.JSON.ToString
+- uid: PAC.JSON.JSON.ToJSONString*
+  commentId: Overload:PAC.JSON.JSON.ToJSONString
+  href: PAC.JSON.JSON.html#PAC_JSON_JSON_ToJSONString_System_Collections_Generic_IEnumerable_PAC_JSON_IJSONable__
+  name: ToJSONString
+  nameWithType: JSON.ToJSONString
+  fullName: PAC.JSON.JSON.ToJSONString
+- uid: PAC.JSON.JSON.SplitArray*
+  commentId: Overload:PAC.JSON.JSON.SplitArray
+  href: PAC.JSON.JSON.html#PAC_JSON_JSON_SplitArray_System_String_
+  name: SplitArray
+  nameWithType: JSON.SplitArray
+  fullName: PAC.JSON.JSON.SplitArray

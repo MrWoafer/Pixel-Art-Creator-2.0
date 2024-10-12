@@ -1,0 +1,75 @@
+### YamlMime:ManagedReference
+items:
+- uid: PAC.Files
+  commentId: N:PAC.Files
+  id: PAC.Files
+  children:
+  - PAC.Files.File
+  - PAC.Files.FileManager
+  - PAC.Files.FileTab
+  - PAC.Files.FileTabsManager
+  - PAC.Files.ImageEditManager
+  langs:
+  - csharp
+  - vb
+  name: PAC.Files
+  nameWithType: PAC.Files
+  fullName: PAC.Files
+  type: Namespace
+references:
+- uid: PAC.Files.File
+  commentId: T:PAC.Files.File
+  parent: PAC.Files
+  href: PAC.Files.File.html
+  name: File
+  nameWithType: File
+  fullName: PAC.Files.File
+- uid: PAC.Files.FileManager
+  commentId: T:PAC.Files.FileManager
+  parent: PAC.Files
+  href: PAC.Files.FileManager.html
+  name: FileManager
+  nameWithType: FileManager
+  fullName: PAC.Files.FileManager
+- uid: PAC.Files.FileTab
+  commentId: T:PAC.Files.FileTab
+  href: PAC.Files.FileTab.html
+  name: FileTab
+  nameWithType: FileTab
+  fullName: PAC.Files.FileTab
+- uid: PAC.Files.FileTabsManager
+  commentId: T:PAC.Files.FileTabsManager
+  parent: PAC.Files
+  href: PAC.Files.FileTabsManager.html
+  name: FileTabsManager
+  nameWithType: FileTabsManager
+  fullName: PAC.Files.FileTabsManager
+- uid: PAC.Files.ImageEditManager
+  commentId: T:PAC.Files.ImageEditManager
+  parent: PAC.Files
+  href: PAC.Files.ImageEditManager.html
+  name: ImageEditManager
+  nameWithType: ImageEditManager
+  fullName: PAC.Files.ImageEditManager
+- uid: PAC.Files
+  commentId: N:PAC.Files
+  href: PAC.html
+  name: PAC.Files
+  nameWithType: PAC.Files
+  fullName: PAC.Files
+  spec.csharp:
+  - uid: PAC
+    name: PAC
+    href: PAC.html
+  - name: .
+  - uid: PAC.Files
+    name: Files
+    href: PAC.Files.html
+  spec.vb:
+  - uid: PAC
+    name: PAC
+    href: PAC.html
+  - name: .
+  - uid: PAC.Files
+    name: Files
+    href: PAC.Files.html

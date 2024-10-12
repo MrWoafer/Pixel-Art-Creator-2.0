@@ -1,0 +1,206 @@
+### YamlMime:ManagedReference
+items:
+- uid: PAC.Themes.ThemeObjectType
+  commentId: T:PAC.Themes.ThemeObjectType
+  id: ThemeObjectType
+  parent: PAC.Themes
+  children:
+  - PAC.Themes.ThemeObjectType.Background
+  - PAC.Themes.ThemeObjectType.None
+  - PAC.Themes.ThemeObjectType.Panel
+  - PAC.Themes.ThemeObjectType.RadioButton
+  - PAC.Themes.ThemeObjectType.Shadow
+  - PAC.Themes.ThemeObjectType.SubPanel
+  langs:
+  - csharp
+  - vb
+  name: ThemeObjectType
+  nameWithType: ThemeObjectType
+  fullName: PAC.Themes.ThemeObjectType
+  type: Enum
+  source:
+    remote:
+      path: Assets/Scripts/Themes/UITheme.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: ThemeObjectType
+    path: ../Assets/Scripts/Themes/UITheme.cs
+    startLine: 7
+  namespace: PAC.Themes
+  syntax:
+    content: public enum ThemeObjectType
+    content.vb: Public Enum ThemeObjectType
+- uid: PAC.Themes.ThemeObjectType.None
+  commentId: F:PAC.Themes.ThemeObjectType.None
+  id: None
+  parent: PAC.Themes.ThemeObjectType
+  langs:
+  - csharp
+  - vb
+  name: None
+  nameWithType: ThemeObjectType.None
+  fullName: PAC.Themes.ThemeObjectType.None
+  type: Field
+  source:
+    remote:
+      path: Assets/Scripts/Themes/UITheme.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: None
+    path: ../Assets/Scripts/Themes/UITheme.cs
+    startLine: 9
+  namespace: PAC.Themes
+  syntax:
+    content: None = 0
+    return:
+      type: PAC.Themes.ThemeObjectType
+- uid: PAC.Themes.ThemeObjectType.Background
+  commentId: F:PAC.Themes.ThemeObjectType.Background
+  id: Background
+  parent: PAC.Themes.ThemeObjectType
+  langs:
+  - csharp
+  - vb
+  name: Background
+  nameWithType: ThemeObjectType.Background
+  fullName: PAC.Themes.ThemeObjectType.Background
+  type: Field
+  source:
+    remote:
+      path: Assets/Scripts/Themes/UITheme.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: Background
+    path: ../Assets/Scripts/Themes/UITheme.cs
+    startLine: 10
+  namespace: PAC.Themes
+  syntax:
+    content: Background = 1
+    return:
+      type: PAC.Themes.ThemeObjectType
+- uid: PAC.Themes.ThemeObjectType.Panel
+  commentId: F:PAC.Themes.ThemeObjectType.Panel
+  id: Panel
+  parent: PAC.Themes.ThemeObjectType
+  langs:
+  - csharp
+  - vb
+  name: Panel
+  nameWithType: ThemeObjectType.Panel
+  fullName: PAC.Themes.ThemeObjectType.Panel
+  type: Field
+  source:
+    remote:
+      path: Assets/Scripts/Themes/UITheme.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: Panel
+    path: ../Assets/Scripts/Themes/UITheme.cs
+    startLine: 11
+  namespace: PAC.Themes
+  syntax:
+    content: Panel = 2
+    return:
+      type: PAC.Themes.ThemeObjectType
+- uid: PAC.Themes.ThemeObjectType.SubPanel
+  commentId: F:PAC.Themes.ThemeObjectType.SubPanel
+  id: SubPanel
+  parent: PAC.Themes.ThemeObjectType
+  langs:
+  - csharp
+  - vb
+  name: SubPanel
+  nameWithType: ThemeObjectType.SubPanel
+  fullName: PAC.Themes.ThemeObjectType.SubPanel
+  type: Field
+  source:
+    remote:
+      path: Assets/Scripts/Themes/UITheme.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: SubPanel
+    path: ../Assets/Scripts/Themes/UITheme.cs
+    startLine: 12
+  namespace: PAC.Themes
+  syntax:
+    content: SubPanel = 3
+    return:
+      type: PAC.Themes.ThemeObjectType
+- uid: PAC.Themes.ThemeObjectType.Shadow
+  commentId: F:PAC.Themes.ThemeObjectType.Shadow
+  id: Shadow
+  parent: PAC.Themes.ThemeObjectType
+  langs:
+  - csharp
+  - vb
+  name: Shadow
+  nameWithType: ThemeObjectType.Shadow
+  fullName: PAC.Themes.ThemeObjectType.Shadow
+  type: Field
+  source:
+    remote:
+      path: Assets/Scripts/Themes/UITheme.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: Shadow
+    path: ../Assets/Scripts/Themes/UITheme.cs
+    startLine: 13
+  namespace: PAC.Themes
+  syntax:
+    content: Shadow = 4
+    return:
+      type: PAC.Themes.ThemeObjectType
+- uid: PAC.Themes.ThemeObjectType.RadioButton
+  commentId: F:PAC.Themes.ThemeObjectType.RadioButton
+  id: RadioButton
+  parent: PAC.Themes.ThemeObjectType
+  langs:
+  - csharp
+  - vb
+  name: RadioButton
+  nameWithType: ThemeObjectType.RadioButton
+  fullName: PAC.Themes.ThemeObjectType.RadioButton
+  type: Field
+  source:
+    remote:
+      path: Assets/Scripts/Themes/UITheme.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: RadioButton
+    path: ../Assets/Scripts/Themes/UITheme.cs
+    startLine: 14
+  namespace: PAC.Themes
+  syntax:
+    content: RadioButton = 5
+    return:
+      type: PAC.Themes.ThemeObjectType
+references:
+- uid: PAC.Themes
+  commentId: N:PAC.Themes
+  href: PAC.html
+  name: PAC.Themes
+  nameWithType: PAC.Themes
+  fullName: PAC.Themes
+  spec.csharp:
+  - uid: PAC
+    name: PAC
+    href: PAC.html
+  - name: .
+  - uid: PAC.Themes
+    name: Themes
+    href: PAC.Themes.html
+  spec.vb:
+  - uid: PAC
+    name: PAC
+    href: PAC.html
+  - name: .
+  - uid: PAC.Themes
+    name: Themes
+    href: PAC.Themes.html
+- uid: PAC.Themes.ThemeObjectType
+  commentId: T:PAC.Themes.ThemeObjectType
+  parent: PAC.Themes
+  href: PAC.Themes.ThemeObjectType.html
+  name: ThemeObjectType
+  nameWithType: ThemeObjectType
+  fullName: PAC.Themes.ThemeObjectType

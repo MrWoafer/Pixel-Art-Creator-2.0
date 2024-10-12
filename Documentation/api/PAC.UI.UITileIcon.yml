@@ -1,0 +1,352 @@
+### YamlMime:ManagedReference
+items:
+- uid: PAC.UI.UITileIcon
+  commentId: T:PAC.UI.UITileIcon
+  id: UITileIcon
+  parent: PAC.UI
+  children:
+  - PAC.UI.UITileIcon.SetFile(PAC.Files.File)
+  - PAC.UI.UITileIcon.SubscribeToOnClick(UnityAction)
+  - PAC.UI.UITileIcon.SubscribeToOnLeftClick(UnityAction)
+  - PAC.UI.UITileIcon.SubscribeToOnRightClick(UnityAction)
+  - PAC.UI.UITileIcon.file
+  - PAC.UI.UITileIcon.height
+  - PAC.UI.UITileIcon.width
+  langs:
+  - csharp
+  - vb
+  name: UITileIcon
+  nameWithType: UITileIcon
+  fullName: PAC.UI.UITileIcon
+  type: Class
+  source:
+    remote:
+      path: Assets/Scripts/UI/UITileIcon.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: UITileIcon
+    path: ../Assets/Scripts/UI/UITileIcon.cs
+    startLine: 7
+  namespace: PAC.UI
+  syntax:
+    content: 'public class UITileIcon : MonoBehaviour'
+    content.vb: Public Class UITileIcon Inherits MonoBehaviour
+  inheritance:
+  - System.Object
+- uid: PAC.UI.UITileIcon.file
+  commentId: P:PAC.UI.UITileIcon.file
+  id: file
+  parent: PAC.UI.UITileIcon
+  langs:
+  - csharp
+  - vb
+  name: file
+  nameWithType: UITileIcon.file
+  fullName: PAC.UI.UITileIcon.file
+  type: Property
+  source:
+    remote:
+      path: Assets/Scripts/UI/UITileIcon.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: file
+    path: ../Assets/Scripts/UI/UITileIcon.cs
+    startLine: 11
+  namespace: PAC.UI
+  syntax:
+    content: public File file { get; }
+    parameters: []
+    return:
+      type: PAC.Files.File
+    content.vb: Public Property file As File
+  overload: PAC.UI.UITileIcon.file*
+- uid: PAC.UI.UITileIcon.width
+  commentId: P:PAC.UI.UITileIcon.width
+  id: width
+  parent: PAC.UI.UITileIcon
+  langs:
+  - csharp
+  - vb
+  name: width
+  nameWithType: UITileIcon.width
+  fullName: PAC.UI.UITileIcon.width
+  type: Property
+  source:
+    remote:
+      path: Assets/Scripts/UI/UITileIcon.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: width
+    path: ../Assets/Scripts/UI/UITileIcon.cs
+    startLine: 20
+  namespace: PAC.UI
+  syntax:
+    content: public float width { get; }
+    parameters: []
+    return:
+      type: System.Single
+    content.vb: Public ReadOnly Property width As Single
+  overload: PAC.UI.UITileIcon.width*
+- uid: PAC.UI.UITileIcon.height
+  commentId: P:PAC.UI.UITileIcon.height
+  id: height
+  parent: PAC.UI.UITileIcon
+  langs:
+  - csharp
+  - vb
+  name: height
+  nameWithType: UITileIcon.height
+  fullName: PAC.UI.UITileIcon.height
+  type: Property
+  source:
+    remote:
+      path: Assets/Scripts/UI/UITileIcon.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: height
+    path: ../Assets/Scripts/UI/UITileIcon.cs
+    startLine: 31
+  namespace: PAC.UI
+  syntax:
+    content: public float height { get; }
+    parameters: []
+    return:
+      type: System.Single
+    content.vb: Public ReadOnly Property height As Single
+  overload: PAC.UI.UITileIcon.height*
+- uid: PAC.UI.UITileIcon.SetFile(PAC.Files.File)
+  commentId: M:PAC.UI.UITileIcon.SetFile(PAC.Files.File)
+  id: SetFile(PAC.Files.File)
+  parent: PAC.UI.UITileIcon
+  langs:
+  - csharp
+  - vb
+  name: SetFile(File)
+  nameWithType: UITileIcon.SetFile(File)
+  fullName: PAC.UI.UITileIcon.SetFile(PAC.Files.File)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/UI/UITileIcon.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: SetFile
+    path: ../Assets/Scripts/UI/UITileIcon.cs
+    startLine: 78
+  namespace: PAC.UI
+  syntax:
+    content: public void SetFile(File file)
+    parameters:
+    - id: file
+      type: PAC.Files.File
+    content.vb: Public Sub SetFile(file As File)
+  overload: PAC.UI.UITileIcon.SetFile*
+- uid: PAC.UI.UITileIcon.SubscribeToOnClick(UnityAction)
+  commentId: M:PAC.UI.UITileIcon.SubscribeToOnClick(UnityAction)
+  id: SubscribeToOnClick(UnityAction)
+  parent: PAC.UI.UITileIcon
+  langs:
+  - csharp
+  - vb
+  name: SubscribeToOnClick(UnityAction)
+  nameWithType: UITileIcon.SubscribeToOnClick(UnityAction)
+  fullName: PAC.UI.UITileIcon.SubscribeToOnClick(UnityAction)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/UI/UITileIcon.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: SubscribeToOnClick
+    path: ../Assets/Scripts/UI/UITileIcon.cs
+    startLine: 88
+  namespace: PAC.UI
+  syntax:
+    content: public void SubscribeToOnClick(UnityAction call)
+    parameters:
+    - id: call
+      type: Global.UnityAction
+    content.vb: Public Sub SubscribeToOnClick([call] As UnityAction)
+  overload: PAC.UI.UITileIcon.SubscribeToOnClick*
+- uid: PAC.UI.UITileIcon.SubscribeToOnLeftClick(UnityAction)
+  commentId: M:PAC.UI.UITileIcon.SubscribeToOnLeftClick(UnityAction)
+  id: SubscribeToOnLeftClick(UnityAction)
+  parent: PAC.UI.UITileIcon
+  langs:
+  - csharp
+  - vb
+  name: SubscribeToOnLeftClick(UnityAction)
+  nameWithType: UITileIcon.SubscribeToOnLeftClick(UnityAction)
+  fullName: PAC.UI.UITileIcon.SubscribeToOnLeftClick(UnityAction)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/UI/UITileIcon.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: SubscribeToOnLeftClick
+    path: ../Assets/Scripts/UI/UITileIcon.cs
+    startLine: 92
+  namespace: PAC.UI
+  syntax:
+    content: public void SubscribeToOnLeftClick(UnityAction call)
+    parameters:
+    - id: call
+      type: Global.UnityAction
+    content.vb: Public Sub SubscribeToOnLeftClick([call] As UnityAction)
+  overload: PAC.UI.UITileIcon.SubscribeToOnLeftClick*
+- uid: PAC.UI.UITileIcon.SubscribeToOnRightClick(UnityAction)
+  commentId: M:PAC.UI.UITileIcon.SubscribeToOnRightClick(UnityAction)
+  id: SubscribeToOnRightClick(UnityAction)
+  parent: PAC.UI.UITileIcon
+  langs:
+  - csharp
+  - vb
+  name: SubscribeToOnRightClick(UnityAction)
+  nameWithType: UITileIcon.SubscribeToOnRightClick(UnityAction)
+  fullName: PAC.UI.UITileIcon.SubscribeToOnRightClick(UnityAction)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/UI/UITileIcon.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: SubscribeToOnRightClick
+    path: ../Assets/Scripts/UI/UITileIcon.cs
+    startLine: 96
+  namespace: PAC.UI
+  syntax:
+    content: public void SubscribeToOnRightClick(UnityAction call)
+    parameters:
+    - id: call
+      type: Global.UnityAction
+    content.vb: Public Sub SubscribeToOnRightClick([call] As UnityAction)
+  overload: PAC.UI.UITileIcon.SubscribeToOnRightClick*
+references:
+- uid: PAC.UI
+  commentId: N:PAC.UI
+  href: PAC.html
+  name: PAC.UI
+  nameWithType: PAC.UI
+  fullName: PAC.UI
+  spec.csharp:
+  - uid: PAC
+    name: PAC
+    href: PAC.html
+  - name: .
+  - uid: PAC.UI
+    name: UI
+    href: PAC.UI.html
+  spec.vb:
+  - uid: PAC
+    name: PAC
+    href: PAC.html
+  - name: .
+  - uid: PAC.UI
+    name: UI
+    href: PAC.UI.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: PAC.UI.UITileIcon.file*
+  commentId: Overload:PAC.UI.UITileIcon.file
+  href: PAC.UI.UITileIcon.html#PAC_UI_UITileIcon_file
+  name: file
+  nameWithType: UITileIcon.file
+  fullName: PAC.UI.UITileIcon.file
+- uid: PAC.Files.File
+  commentId: T:PAC.Files.File
+  parent: PAC.Files
+  href: PAC.Files.File.html
+  name: File
+  nameWithType: File
+  fullName: PAC.Files.File
+- uid: PAC.Files
+  commentId: N:PAC.Files
+  href: PAC.html
+  name: PAC.Files
+  nameWithType: PAC.Files
+  fullName: PAC.Files
+  spec.csharp:
+  - uid: PAC
+    name: PAC
+    href: PAC.html
+  - name: .
+  - uid: PAC.Files
+    name: Files
+    href: PAC.Files.html
+  spec.vb:
+  - uid: PAC
+    name: PAC
+    href: PAC.html
+  - name: .
+  - uid: PAC.Files
+    name: Files
+    href: PAC.Files.html
+- uid: PAC.UI.UITileIcon.width*
+  commentId: Overload:PAC.UI.UITileIcon.width
+  href: PAC.UI.UITileIcon.html#PAC_UI_UITileIcon_width
+  name: width
+  nameWithType: UITileIcon.width
+  fullName: PAC.UI.UITileIcon.width
+- uid: System.Single
+  commentId: T:System.Single
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.single
+  name: float
+  nameWithType: float
+  fullName: float
+  nameWithType.vb: Single
+  fullName.vb: Single
+  name.vb: Single
+- uid: PAC.UI.UITileIcon.height*
+  commentId: Overload:PAC.UI.UITileIcon.height
+  href: PAC.UI.UITileIcon.html#PAC_UI_UITileIcon_height
+  name: height
+  nameWithType: UITileIcon.height
+  fullName: PAC.UI.UITileIcon.height
+- uid: PAC.UI.UITileIcon.SetFile*
+  commentId: Overload:PAC.UI.UITileIcon.SetFile
+  href: PAC.UI.UITileIcon.html#PAC_UI_UITileIcon_SetFile_PAC_Files_File_
+  name: SetFile
+  nameWithType: UITileIcon.SetFile
+  fullName: PAC.UI.UITileIcon.SetFile
+- uid: PAC.UI.UITileIcon.SubscribeToOnClick*
+  commentId: Overload:PAC.UI.UITileIcon.SubscribeToOnClick
+  href: PAC.UI.UITileIcon.html#PAC_UI_UITileIcon_SubscribeToOnClick_UnityAction_
+  name: SubscribeToOnClick
+  nameWithType: UITileIcon.SubscribeToOnClick
+  fullName: PAC.UI.UITileIcon.SubscribeToOnClick
+- uid: Global.UnityAction
+  isExternal: true
+  name: UnityAction
+  nameWithType: UnityAction
+  fullName: UnityAction
+- uid: PAC.UI.UITileIcon.SubscribeToOnLeftClick*
+  commentId: Overload:PAC.UI.UITileIcon.SubscribeToOnLeftClick
+  href: PAC.UI.UITileIcon.html#PAC_UI_UITileIcon_SubscribeToOnLeftClick_UnityAction_
+  name: SubscribeToOnLeftClick
+  nameWithType: UITileIcon.SubscribeToOnLeftClick
+  fullName: PAC.UI.UITileIcon.SubscribeToOnLeftClick
+- uid: PAC.UI.UITileIcon.SubscribeToOnRightClick*
+  commentId: Overload:PAC.UI.UITileIcon.SubscribeToOnRightClick
+  href: PAC.UI.UITileIcon.html#PAC_UI_UITileIcon_SubscribeToOnRightClick_UnityAction_
+  name: SubscribeToOnRightClick
+  nameWithType: UITileIcon.SubscribeToOnRightClick
+  fullName: PAC.UI.UITileIcon.SubscribeToOnRightClick

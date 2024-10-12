@@ -1,0 +1,28 @@
+### YamlMime:ManagedReference
+items:
+- uid: PAC.Screen
+  commentId: N:PAC.Screen
+  id: PAC.Screen
+  children:
+  - PAC.Screen.MaximiseWindow
+  - PAC.Screen.ScreenInfo
+  langs:
+  - csharp
+  - vb
+  name: PAC.Screen
+  nameWithType: PAC.Screen
+  fullName: PAC.Screen
+  type: Namespace
+references:
+- uid: PAC.Screen.MaximiseWindow
+  commentId: T:PAC.Screen.MaximiseWindow
+  href: PAC.Screen.MaximiseWindow.html
+  name: MaximiseWindow
+  nameWithType: MaximiseWindow
+  fullName: PAC.Screen.MaximiseWindow
+- uid: PAC.Screen.ScreenInfo
+  commentId: T:PAC.Screen.ScreenInfo
+  href: PAC.Screen.ScreenInfo.html
+  name: ScreenInfo
+  nameWithType: ScreenInfo
+  fullName: PAC.Screen.ScreenInfo

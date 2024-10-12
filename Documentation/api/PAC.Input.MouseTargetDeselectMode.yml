@@ -1,0 +1,131 @@
+### YamlMime:ManagedReference
+items:
+- uid: PAC.Input.MouseTargetDeselectMode
+  commentId: T:PAC.Input.MouseTargetDeselectMode
+  id: MouseTargetDeselectMode
+  parent: PAC.Input
+  children:
+  - PAC.Input.MouseTargetDeselectMode.ClickAgain
+  - PAC.Input.MouseTargetDeselectMode.Manual
+  - PAC.Input.MouseTargetDeselectMode.Unclick
+  langs:
+  - csharp
+  - vb
+  name: MouseTargetDeselectMode
+  nameWithType: MouseTargetDeselectMode
+  fullName: PAC.Input.MouseTargetDeselectMode
+  type: Enum
+  source:
+    remote:
+      path: Assets/Scripts/Input/MouseTarget.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: MouseTargetDeselectMode
+    path: ../Assets/Scripts/Input/MouseTarget.cs
+    startLine: 12
+  namespace: PAC.Input
+  syntax:
+    content: public enum MouseTargetDeselectMode
+    content.vb: Public Enum MouseTargetDeselectMode
+- uid: PAC.Input.MouseTargetDeselectMode.Unclick
+  commentId: F:PAC.Input.MouseTargetDeselectMode.Unclick
+  id: Unclick
+  parent: PAC.Input.MouseTargetDeselectMode
+  langs:
+  - csharp
+  - vb
+  name: Unclick
+  nameWithType: MouseTargetDeselectMode.Unclick
+  fullName: PAC.Input.MouseTargetDeselectMode.Unclick
+  type: Field
+  source:
+    remote:
+      path: Assets/Scripts/Input/MouseTarget.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: Unclick
+    path: ../Assets/Scripts/Input/MouseTarget.cs
+    startLine: 14
+  namespace: PAC.Input
+  syntax:
+    content: Unclick = 0
+    return:
+      type: PAC.Input.MouseTargetDeselectMode
+- uid: PAC.Input.MouseTargetDeselectMode.ClickAgain
+  commentId: F:PAC.Input.MouseTargetDeselectMode.ClickAgain
+  id: ClickAgain
+  parent: PAC.Input.MouseTargetDeselectMode
+  langs:
+  - csharp
+  - vb
+  name: ClickAgain
+  nameWithType: MouseTargetDeselectMode.ClickAgain
+  fullName: PAC.Input.MouseTargetDeselectMode.ClickAgain
+  type: Field
+  source:
+    remote:
+      path: Assets/Scripts/Input/MouseTarget.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: ClickAgain
+    path: ../Assets/Scripts/Input/MouseTarget.cs
+    startLine: 15
+  namespace: PAC.Input
+  syntax:
+    content: ClickAgain = 1
+    return:
+      type: PAC.Input.MouseTargetDeselectMode
+- uid: PAC.Input.MouseTargetDeselectMode.Manual
+  commentId: F:PAC.Input.MouseTargetDeselectMode.Manual
+  id: Manual
+  parent: PAC.Input.MouseTargetDeselectMode
+  langs:
+  - csharp
+  - vb
+  name: Manual
+  nameWithType: MouseTargetDeselectMode.Manual
+  fullName: PAC.Input.MouseTargetDeselectMode.Manual
+  type: Field
+  source:
+    remote:
+      path: Assets/Scripts/Input/MouseTarget.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: Manual
+    path: ../Assets/Scripts/Input/MouseTarget.cs
+    startLine: 16
+  namespace: PAC.Input
+  syntax:
+    content: Manual = 100
+    return:
+      type: PAC.Input.MouseTargetDeselectMode
+references:
+- uid: PAC.Input
+  commentId: N:PAC.Input
+  href: PAC.html
+  name: PAC.Input
+  nameWithType: PAC.Input
+  fullName: PAC.Input
+  spec.csharp:
+  - uid: PAC
+    name: PAC
+    href: PAC.html
+  - name: .
+  - uid: PAC.Input
+    name: Input
+    href: PAC.Input.html
+  spec.vb:
+  - uid: PAC
+    name: PAC
+    href: PAC.html
+  - name: .
+  - uid: PAC.Input
+    name: Input
+    href: PAC.Input.html
+- uid: PAC.Input.MouseTargetDeselectMode
+  commentId: T:PAC.Input.MouseTargetDeselectMode
+  parent: PAC.Input
+  href: PAC.Input.MouseTargetDeselectMode.html
+  name: MouseTargetDeselectMode
+  nameWithType: MouseTargetDeselectMode
+  fullName: PAC.Input.MouseTargetDeselectMode

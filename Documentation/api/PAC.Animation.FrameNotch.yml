@@ -1,0 +1,153 @@
+### YamlMime:ManagedReference
+items:
+- uid: PAC.Animation.FrameNotch
+  commentId: T:PAC.Animation.FrameNotch
+  id: FrameNotch
+  parent: PAC.Animation
+  children:
+  - PAC.Animation.FrameNotch.SetFrameNumber(System.Int32)
+  - PAC.Animation.FrameNotch.frameNum
+  langs:
+  - csharp
+  - vb
+  name: FrameNotch
+  nameWithType: FrameNotch
+  fullName: PAC.Animation.FrameNotch
+  type: Class
+  source:
+    remote:
+      path: Assets/Scripts/Animation/FrameNotch.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: FrameNotch
+    path: ../Assets/Scripts/Animation/FrameNotch.cs
+    startLine: 8
+  namespace: PAC.Animation
+  summary: A class for the frame number markers on the animation timeline.
+  example: []
+  syntax:
+    content: 'public class FrameNotch : MonoBehaviour'
+    content.vb: Public Class FrameNotch Inherits MonoBehaviour
+  inheritance:
+  - System.Object
+- uid: PAC.Animation.FrameNotch.frameNum
+  commentId: P:PAC.Animation.FrameNotch.frameNum
+  id: frameNum
+  parent: PAC.Animation.FrameNotch
+  langs:
+  - csharp
+  - vb
+  name: frameNum
+  nameWithType: FrameNotch.frameNum
+  fullName: PAC.Animation.FrameNotch.frameNum
+  type: Property
+  source:
+    remote:
+      path: Assets/Scripts/Animation/FrameNotch.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: frameNum
+    path: ../Assets/Scripts/Animation/FrameNotch.cs
+    startLine: 12
+  namespace: PAC.Animation
+  syntax:
+    content: public int frameNum { get; set; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public Property frameNum As Integer
+  overload: PAC.Animation.FrameNotch.frameNum*
+- uid: PAC.Animation.FrameNotch.SetFrameNumber(System.Int32)
+  commentId: M:PAC.Animation.FrameNotch.SetFrameNumber(System.Int32)
+  id: SetFrameNumber(System.Int32)
+  parent: PAC.Animation.FrameNotch
+  langs:
+  - csharp
+  - vb
+  name: SetFrameNumber(int)
+  nameWithType: FrameNotch.SetFrameNumber(int)
+  fullName: PAC.Animation.FrameNotch.SetFrameNumber(int)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Animation/FrameNotch.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: SetFrameNumber
+    path: ../Assets/Scripts/Animation/FrameNotch.cs
+    startLine: 29
+  namespace: PAC.Animation
+  syntax:
+    content: public void SetFrameNumber(int num)
+    parameters:
+    - id: num
+      type: System.Int32
+    content.vb: Public Sub SetFrameNumber(num As Integer)
+  overload: PAC.Animation.FrameNotch.SetFrameNumber*
+  nameWithType.vb: FrameNotch.SetFrameNumber(Integer)
+  fullName.vb: PAC.Animation.FrameNotch.SetFrameNumber(Integer)
+  name.vb: SetFrameNumber(Integer)
+references:
+- uid: PAC.Animation
+  commentId: N:PAC.Animation
+  href: PAC.html
+  name: PAC.Animation
+  nameWithType: PAC.Animation
+  fullName: PAC.Animation
+  spec.csharp:
+  - uid: PAC
+    name: PAC
+    href: PAC.html
+  - name: .
+  - uid: PAC.Animation
+    name: Animation
+    href: PAC.Animation.html
+  spec.vb:
+  - uid: PAC
+    name: PAC
+    href: PAC.html
+  - name: .
+  - uid: PAC.Animation
+    name: Animation
+    href: PAC.Animation.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: PAC.Animation.FrameNotch.frameNum*
+  commentId: Overload:PAC.Animation.FrameNotch.frameNum
+  href: PAC.Animation.FrameNotch.html#PAC_Animation_FrameNotch_frameNum
+  name: frameNum
+  nameWithType: FrameNotch.frameNum
+  fullName: PAC.Animation.FrameNotch.frameNum
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: PAC.Animation.FrameNotch.SetFrameNumber*
+  commentId: Overload:PAC.Animation.FrameNotch.SetFrameNumber
+  href: PAC.Animation.FrameNotch.html#PAC_Animation_FrameNotch_SetFrameNumber_System_Int32_
+  name: SetFrameNumber
+  nameWithType: FrameNotch.SetFrameNumber
+  fullName: PAC.Animation.FrameNotch.SetFrameNumber

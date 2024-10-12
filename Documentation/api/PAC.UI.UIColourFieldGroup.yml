@@ -1,0 +1,541 @@
+### YamlMime:ManagedReference
+items:
+- uid: PAC.UI.UIColourFieldGroup
+  commentId: T:PAC.UI.UIColourFieldGroup
+  id: UIColourFieldGroup
+  parent: PAC.UI
+  children:
+  - PAC.UI.UIColourFieldGroup.Add(PAC.UI.UIColourField)
+  - PAC.UI.UIColourFieldGroup.Clear
+  - PAC.UI.UIColourFieldGroup.Contains(PAC.UI.UIColourField)
+  - PAC.UI.UIColourFieldGroup.Count
+  - PAC.UI.UIColourFieldGroup.DestroyColourFields
+  - PAC.UI.UIColourFieldGroup.Opened(PAC.UI.UIColourField)
+  - PAC.UI.UIColourFieldGroup.Remove(PAC.UI.UIColourField)
+  - PAC.UI.UIColourFieldGroup.SubscribeToColourFieldOpen(UnityAction)
+  - PAC.UI.UIColourFieldGroup.colourFields
+  - PAC.UI.UIColourFieldGroup.currentOpenColourField
+  langs:
+  - csharp
+  - vb
+  name: UIColourFieldGroup
+  nameWithType: UIColourFieldGroup
+  fullName: PAC.UI.UIColourFieldGroup
+  type: Class
+  source:
+    remote:
+      path: Assets/Scripts/UI/UIColourFieldGroup.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: UIColourFieldGroup
+    path: ../Assets/Scripts/UI/UIColourFieldGroup.cs
+    startLine: 6
+  namespace: PAC.UI
+  syntax:
+    content: 'public class UIColourFieldGroup : MonoBehaviour'
+    content.vb: Public Class UIColourFieldGroup Inherits MonoBehaviour
+  inheritance:
+  - System.Object
+- uid: PAC.UI.UIColourFieldGroup.colourFields
+  commentId: P:PAC.UI.UIColourFieldGroup.colourFields
+  id: colourFields
+  parent: PAC.UI.UIColourFieldGroup
+  langs:
+  - csharp
+  - vb
+  name: colourFields
+  nameWithType: UIColourFieldGroup.colourFields
+  fullName: PAC.UI.UIColourFieldGroup.colourFields
+  type: Property
+  source:
+    remote:
+      path: Assets/Scripts/UI/UIColourFieldGroup.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: colourFields
+    path: ../Assets/Scripts/UI/UIColourFieldGroup.cs
+    startLine: 11
+  namespace: PAC.UI
+  syntax:
+    content: public List<UIColourField> colourFields { get; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.List{PAC.UI.UIColourField}
+    content.vb: Public ReadOnly Property colourFields As List(Of UIColourField)
+  overload: PAC.UI.UIColourFieldGroup.colourFields*
+- uid: PAC.UI.UIColourFieldGroup.currentOpenColourField
+  commentId: P:PAC.UI.UIColourFieldGroup.currentOpenColourField
+  id: currentOpenColourField
+  parent: PAC.UI.UIColourFieldGroup
+  langs:
+  - csharp
+  - vb
+  name: currentOpenColourField
+  nameWithType: UIColourFieldGroup.currentOpenColourField
+  fullName: PAC.UI.UIColourFieldGroup.currentOpenColourField
+  type: Property
+  source:
+    remote:
+      path: Assets/Scripts/UI/UIColourFieldGroup.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: currentOpenColourField
+    path: ../Assets/Scripts/UI/UIColourFieldGroup.cs
+    startLine: 19
+  namespace: PAC.UI
+  syntax:
+    content: public UIColourField currentOpenColourField { get; }
+    parameters: []
+    return:
+      type: PAC.UI.UIColourField
+    content.vb: Public ReadOnly Property currentOpenColourField As UIColourField
+  overload: PAC.UI.UIColourFieldGroup.currentOpenColourField*
+- uid: PAC.UI.UIColourFieldGroup.Count
+  commentId: P:PAC.UI.UIColourFieldGroup.Count
+  id: Count
+  parent: PAC.UI.UIColourFieldGroup
+  langs:
+  - csharp
+  - vb
+  name: Count
+  nameWithType: UIColourFieldGroup.Count
+  fullName: PAC.UI.UIColourFieldGroup.Count
+  type: Property
+  source:
+    remote:
+      path: Assets/Scripts/UI/UIColourFieldGroup.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: Count
+    path: ../Assets/Scripts/UI/UIColourFieldGroup.cs
+    startLine: 34
+  namespace: PAC.UI
+  syntax:
+    content: public int Count { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public ReadOnly Property Count As Integer
+  overload: PAC.UI.UIColourFieldGroup.Count*
+- uid: PAC.UI.UIColourFieldGroup.Add(PAC.UI.UIColourField)
+  commentId: M:PAC.UI.UIColourFieldGroup.Add(PAC.UI.UIColourField)
+  id: Add(PAC.UI.UIColourField)
+  parent: PAC.UI.UIColourFieldGroup
+  langs:
+  - csharp
+  - vb
+  name: Add(UIColourField)
+  nameWithType: UIColourFieldGroup.Add(UIColourField)
+  fullName: PAC.UI.UIColourFieldGroup.Add(PAC.UI.UIColourField)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/UI/UIColourFieldGroup.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: Add
+    path: ../Assets/Scripts/UI/UIColourFieldGroup.cs
+    startLine: 61
+  namespace: PAC.UI
+  syntax:
+    content: public bool Add(UIColourField colourField)
+    parameters:
+    - id: colourField
+      type: PAC.UI.UIColourField
+    return:
+      type: System.Boolean
+    content.vb: Public Function Add(colourField As UIColourField) As Boolean
+  overload: PAC.UI.UIColourFieldGroup.Add*
+- uid: PAC.UI.UIColourFieldGroup.Remove(PAC.UI.UIColourField)
+  commentId: M:PAC.UI.UIColourFieldGroup.Remove(PAC.UI.UIColourField)
+  id: Remove(PAC.UI.UIColourField)
+  parent: PAC.UI.UIColourFieldGroup
+  langs:
+  - csharp
+  - vb
+  name: Remove(UIColourField)
+  nameWithType: UIColourFieldGroup.Remove(UIColourField)
+  fullName: PAC.UI.UIColourFieldGroup.Remove(PAC.UI.UIColourField)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/UI/UIColourFieldGroup.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: Remove
+    path: ../Assets/Scripts/UI/UIColourFieldGroup.cs
+    startLine: 68
+  namespace: PAC.UI
+  syntax:
+    content: public bool Remove(UIColourField colourField)
+    parameters:
+    - id: colourField
+      type: PAC.UI.UIColourField
+    return:
+      type: System.Boolean
+    content.vb: Public Function Remove(colourField As UIColourField) As Boolean
+  overload: PAC.UI.UIColourFieldGroup.Remove*
+- uid: PAC.UI.UIColourFieldGroup.Contains(PAC.UI.UIColourField)
+  commentId: M:PAC.UI.UIColourFieldGroup.Contains(PAC.UI.UIColourField)
+  id: Contains(PAC.UI.UIColourField)
+  parent: PAC.UI.UIColourFieldGroup
+  langs:
+  - csharp
+  - vb
+  name: Contains(UIColourField)
+  nameWithType: UIColourFieldGroup.Contains(UIColourField)
+  fullName: PAC.UI.UIColourFieldGroup.Contains(PAC.UI.UIColourField)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/UI/UIColourFieldGroup.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: Contains
+    path: ../Assets/Scripts/UI/UIColourFieldGroup.cs
+    startLine: 77
+  namespace: PAC.UI
+  syntax:
+    content: public bool Contains(UIColourField colourField)
+    parameters:
+    - id: colourField
+      type: PAC.UI.UIColourField
+    return:
+      type: System.Boolean
+    content.vb: Public Function Contains(colourField As UIColourField) As Boolean
+  overload: PAC.UI.UIColourFieldGroup.Contains*
+- uid: PAC.UI.UIColourFieldGroup.Clear
+  commentId: M:PAC.UI.UIColourFieldGroup.Clear
+  id: Clear
+  parent: PAC.UI.UIColourFieldGroup
+  langs:
+  - csharp
+  - vb
+  name: Clear()
+  nameWithType: UIColourFieldGroup.Clear()
+  fullName: PAC.UI.UIColourFieldGroup.Clear()
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/UI/UIColourFieldGroup.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: Clear
+    path: ../Assets/Scripts/UI/UIColourFieldGroup.cs
+    startLine: 82
+  namespace: PAC.UI
+  syntax:
+    content: public void Clear()
+    content.vb: Public Sub Clear()
+  overload: PAC.UI.UIColourFieldGroup.Clear*
+- uid: PAC.UI.UIColourFieldGroup.DestroyColourFields
+  commentId: M:PAC.UI.UIColourFieldGroup.DestroyColourFields
+  id: DestroyColourFields
+  parent: PAC.UI.UIColourFieldGroup
+  langs:
+  - csharp
+  - vb
+  name: DestroyColourFields()
+  nameWithType: UIColourFieldGroup.DestroyColourFields()
+  fullName: PAC.UI.UIColourFieldGroup.DestroyColourFields()
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/UI/UIColourFieldGroup.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: DestroyColourFields
+    path: ../Assets/Scripts/UI/UIColourFieldGroup.cs
+    startLine: 87
+  namespace: PAC.UI
+  syntax:
+    content: public void DestroyColourFields()
+    content.vb: Public Sub DestroyColourFields()
+  overload: PAC.UI.UIColourFieldGroup.DestroyColourFields*
+- uid: PAC.UI.UIColourFieldGroup.Opened(PAC.UI.UIColourField)
+  commentId: M:PAC.UI.UIColourFieldGroup.Opened(PAC.UI.UIColourField)
+  id: Opened(PAC.UI.UIColourField)
+  parent: PAC.UI.UIColourFieldGroup
+  langs:
+  - csharp
+  - vb
+  name: Opened(UIColourField)
+  nameWithType: UIColourFieldGroup.Opened(UIColourField)
+  fullName: PAC.UI.UIColourFieldGroup.Opened(PAC.UI.UIColourField)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/UI/UIColourFieldGroup.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: Opened
+    path: ../Assets/Scripts/UI/UIColourFieldGroup.cs
+    startLine: 97
+  namespace: PAC.UI
+  syntax:
+    content: public void Opened(UIColourField openedColourField)
+    parameters:
+    - id: openedColourField
+      type: PAC.UI.UIColourField
+    content.vb: Public Sub Opened(openedColourField As UIColourField)
+  overload: PAC.UI.UIColourFieldGroup.Opened*
+- uid: PAC.UI.UIColourFieldGroup.SubscribeToColourFieldOpen(UnityAction)
+  commentId: M:PAC.UI.UIColourFieldGroup.SubscribeToColourFieldOpen(UnityAction)
+  id: SubscribeToColourFieldOpen(UnityAction)
+  parent: PAC.UI.UIColourFieldGroup
+  langs:
+  - csharp
+  - vb
+  name: SubscribeToColourFieldOpen(UnityAction)
+  nameWithType: UIColourFieldGroup.SubscribeToColourFieldOpen(UnityAction)
+  fullName: PAC.UI.UIColourFieldGroup.SubscribeToColourFieldOpen(UnityAction)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/UI/UIColourFieldGroup.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: SubscribeToColourFieldOpen
+    path: ../Assets/Scripts/UI/UIColourFieldGroup.cs
+    startLine: 108
+  namespace: PAC.UI
+  syntax:
+    content: public void SubscribeToColourFieldOpen(UnityAction call)
+    parameters:
+    - id: call
+      type: Global.UnityAction
+    content.vb: Public Sub SubscribeToColourFieldOpen([call] As UnityAction)
+  overload: PAC.UI.UIColourFieldGroup.SubscribeToColourFieldOpen*
+references:
+- uid: PAC.UI
+  commentId: N:PAC.UI
+  href: PAC.html
+  name: PAC.UI
+  nameWithType: PAC.UI
+  fullName: PAC.UI
+  spec.csharp:
+  - uid: PAC
+    name: PAC
+    href: PAC.html
+  - name: .
+  - uid: PAC.UI
+    name: UI
+    href: PAC.UI.html
+  spec.vb:
+  - uid: PAC
+    name: PAC
+    href: PAC.html
+  - name: .
+  - uid: PAC.UI
+    name: UI
+    href: PAC.UI.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: PAC.UI.UIColourFieldGroup.colourFields*
+  commentId: Overload:PAC.UI.UIColourFieldGroup.colourFields
+  href: PAC.UI.UIColourFieldGroup.html#PAC_UI_UIColourFieldGroup_colourFields
+  name: colourFields
+  nameWithType: UIColourFieldGroup.colourFields
+  fullName: PAC.UI.UIColourFieldGroup.colourFields
+- uid: System.Collections.Generic.List{PAC.UI.UIColourField}
+  commentId: T:System.Collections.Generic.List{PAC.UI.UIColourField}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<UIColourField>
+  nameWithType: List<UIColourField>
+  fullName: System.Collections.Generic.List<PAC.UI.UIColourField>
+  nameWithType.vb: List(Of UIColourField)
+  fullName.vb: System.Collections.Generic.List(Of PAC.UI.UIColourField)
+  name.vb: List(Of UIColourField)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: PAC.UI.UIColourField
+    name: UIColourField
+    href: PAC.UI.UIColourField.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: PAC.UI.UIColourField
+    name: UIColourField
+    href: PAC.UI.UIColourField.html
+  - name: )
+- uid: System.Collections.Generic.List`1
+  commentId: T:System.Collections.Generic.List`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<T>
+  nameWithType: List<T>
+  fullName: System.Collections.Generic.List<T>
+  nameWithType.vb: List(Of T)
+  fullName.vb: System.Collections.Generic.List(Of T)
+  name.vb: List(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: PAC.UI.UIColourFieldGroup.currentOpenColourField*
+  commentId: Overload:PAC.UI.UIColourFieldGroup.currentOpenColourField
+  href: PAC.UI.UIColourFieldGroup.html#PAC_UI_UIColourFieldGroup_currentOpenColourField
+  name: currentOpenColourField
+  nameWithType: UIColourFieldGroup.currentOpenColourField
+  fullName: PAC.UI.UIColourFieldGroup.currentOpenColourField
+- uid: PAC.UI.UIColourField
+  commentId: T:PAC.UI.UIColourField
+  parent: PAC.UI
+  href: PAC.UI.UIColourField.html
+  name: UIColourField
+  nameWithType: UIColourField
+  fullName: PAC.UI.UIColourField
+- uid: PAC.UI.UIColourFieldGroup.Count*
+  commentId: Overload:PAC.UI.UIColourFieldGroup.Count
+  href: PAC.UI.UIColourFieldGroup.html#PAC_UI_UIColourFieldGroup_Count
+  name: Count
+  nameWithType: UIColourFieldGroup.Count
+  fullName: PAC.UI.UIColourFieldGroup.Count
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: PAC.UI.UIColourFieldGroup.Add*
+  commentId: Overload:PAC.UI.UIColourFieldGroup.Add
+  href: PAC.UI.UIColourFieldGroup.html#PAC_UI_UIColourFieldGroup_Add_PAC_UI_UIColourField_
+  name: Add
+  nameWithType: UIColourFieldGroup.Add
+  fullName: PAC.UI.UIColourFieldGroup.Add
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: PAC.UI.UIColourFieldGroup.Remove*
+  commentId: Overload:PAC.UI.UIColourFieldGroup.Remove
+  href: PAC.UI.UIColourFieldGroup.html#PAC_UI_UIColourFieldGroup_Remove_PAC_UI_UIColourField_
+  name: Remove
+  nameWithType: UIColourFieldGroup.Remove
+  fullName: PAC.UI.UIColourFieldGroup.Remove
+- uid: PAC.UI.UIColourFieldGroup.Contains*
+  commentId: Overload:PAC.UI.UIColourFieldGroup.Contains
+  href: PAC.UI.UIColourFieldGroup.html#PAC_UI_UIColourFieldGroup_Contains_PAC_UI_UIColourField_
+  name: Contains
+  nameWithType: UIColourFieldGroup.Contains
+  fullName: PAC.UI.UIColourFieldGroup.Contains
+- uid: PAC.UI.UIColourFieldGroup.Clear*
+  commentId: Overload:PAC.UI.UIColourFieldGroup.Clear
+  href: PAC.UI.UIColourFieldGroup.html#PAC_UI_UIColourFieldGroup_Clear
+  name: Clear
+  nameWithType: UIColourFieldGroup.Clear
+  fullName: PAC.UI.UIColourFieldGroup.Clear
+- uid: PAC.UI.UIColourFieldGroup.DestroyColourFields*
+  commentId: Overload:PAC.UI.UIColourFieldGroup.DestroyColourFields
+  href: PAC.UI.UIColourFieldGroup.html#PAC_UI_UIColourFieldGroup_DestroyColourFields
+  name: DestroyColourFields
+  nameWithType: UIColourFieldGroup.DestroyColourFields
+  fullName: PAC.UI.UIColourFieldGroup.DestroyColourFields
+- uid: PAC.UI.UIColourFieldGroup.Opened*
+  commentId: Overload:PAC.UI.UIColourFieldGroup.Opened
+  href: PAC.UI.UIColourFieldGroup.html#PAC_UI_UIColourFieldGroup_Opened_PAC_UI_UIColourField_
+  name: Opened
+  nameWithType: UIColourFieldGroup.Opened
+  fullName: PAC.UI.UIColourFieldGroup.Opened
+- uid: PAC.UI.UIColourFieldGroup.SubscribeToColourFieldOpen*
+  commentId: Overload:PAC.UI.UIColourFieldGroup.SubscribeToColourFieldOpen
+  href: PAC.UI.UIColourFieldGroup.html#PAC_UI_UIColourFieldGroup_SubscribeToColourFieldOpen_UnityAction_
+  name: SubscribeToColourFieldOpen
+  nameWithType: UIColourFieldGroup.SubscribeToColourFieldOpen
+  fullName: PAC.UI.UIColourFieldGroup.SubscribeToColourFieldOpen
+- uid: Global.UnityAction
+  isExternal: true
+  name: UnityAction
+  nameWithType: UnityAction
+  fullName: UnityAction

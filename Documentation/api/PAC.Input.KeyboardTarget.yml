@@ -1,0 +1,1551 @@
+### YamlMime:ManagedReference
+items:
+- uid: PAC.Input.KeyboardTarget
+  commentId: T:PAC.Input.KeyboardTarget
+  id: KeyboardTarget
+  parent: PAC.Input
+  children:
+  - PAC.Input.KeyboardTarget.#ctor
+  - PAC.Input.KeyboardTarget.IsHeld(PAC.KeyboardShortcuts.CustomKeyCode)
+  - PAC.Input.KeyboardTarget.IsHeld(PAC.KeyboardShortcuts.CustomKeyCode[])
+  - PAC.Input.KeyboardTarget.IsHeld(PAC.KeyboardShortcuts.KeyboardShortcut)
+  - PAC.Input.KeyboardTarget.IsHeldExactly(PAC.KeyboardShortcuts.CustomKeyCode[])
+  - PAC.Input.KeyboardTarget.IsHeldExactly(PAC.KeyboardShortcuts.KeyboardShortcut)
+  - PAC.Input.KeyboardTarget.IsPressed(PAC.KeyboardShortcuts.CustomKeyCode)
+  - PAC.Input.KeyboardTarget.IsPressed(PAC.KeyboardShortcuts.CustomKeyCode[])
+  - PAC.Input.KeyboardTarget.IsPressed(PAC.KeyboardShortcuts.KeyboardShortcut)
+  - PAC.Input.KeyboardTarget.KeyDown(PAC.KeyboardShortcuts.CustomKeyCode)
+  - PAC.Input.KeyboardTarget.KeyDownNoSpamReset(PAC.KeyboardShortcuts.CustomKeyCode)
+  - PAC.Input.KeyboardTarget.KeyUp(PAC.KeyboardShortcuts.CustomKeyCode)
+  - PAC.Input.KeyboardTarget.KeysDown(PAC.KeyboardShortcuts.CustomKeyCode[])
+  - PAC.Input.KeyboardTarget.KeysDownNoSpamReset(PAC.KeyboardShortcuts.CustomKeyCode[])
+  - PAC.Input.KeyboardTarget.KeysUp(PAC.KeyboardShortcuts.CustomKeyCode[])
+  - PAC.Input.KeyboardTarget.ManualUpdate
+  - PAC.Input.KeyboardTarget.OneIsHeld(System.Collections.Generic.IEnumerable{PAC.KeyboardShortcuts.KeyboardShortcut})
+  - PAC.Input.KeyboardTarget.OneIsHeldExactly(System.Collections.Generic.IEnumerable{PAC.KeyboardShortcuts.KeyboardShortcut})
+  - PAC.Input.KeyboardTarget.OneIsPressed(System.Collections.Generic.IEnumerable{PAC.KeyboardShortcuts.KeyboardShortcut})
+  - PAC.Input.KeyboardTarget.SubscribeToOnInput(UnityAction)
+  - PAC.Input.KeyboardTarget.SubscribeToOnKeyDown(UnityAction{PAC.KeyboardShortcuts.CustomKeyCode})
+  - PAC.Input.KeyboardTarget.SubscribeToOnKeyUp(UnityAction{PAC.KeyboardShortcuts.CustomKeyCode})
+  - PAC.Input.KeyboardTarget.SubscribeToUntarget(UnityAction)
+  - PAC.Input.KeyboardTarget.Untarget
+  - PAC.Input.KeyboardTarget.allowHoldingKeySpam
+  - PAC.Input.KeyboardTarget.inputThisFrame
+  - PAC.Input.KeyboardTarget.keysHeld
+  - PAC.Input.KeyboardTarget.keysPressed
+  - PAC.Input.KeyboardTarget.receiveAlreadyHeldKeys
+  langs:
+  - csharp
+  - vb
+  name: KeyboardTarget
+  nameWithType: KeyboardTarget
+  fullName: PAC.Input.KeyboardTarget
+  type: Class
+  source:
+    remote:
+      path: Assets/Scripts/Input/KeyboardTarget.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: KeyboardTarget
+    path: ../Assets/Scripts/Input/KeyboardTarget.cs
+    startLine: 9
+  namespace: PAC.Input
+  syntax:
+    content: public class KeyboardTarget
+    content.vb: Public Class KeyboardTarget
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: PAC.Input.KeyboardTarget.keysHeld
+  commentId: P:PAC.Input.KeyboardTarget.keysHeld
+  id: keysHeld
+  parent: PAC.Input.KeyboardTarget
+  langs:
+  - csharp
+  - vb
+  name: keysHeld
+  nameWithType: KeyboardTarget.keysHeld
+  fullName: PAC.Input.KeyboardTarget.keysHeld
+  type: Property
+  source:
+    remote:
+      path: Assets/Scripts/Input/KeyboardTarget.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: keysHeld
+    path: ../Assets/Scripts/Input/KeyboardTarget.cs
+    startLine: 16
+  namespace: PAC.Input
+  summary: The keys that are currently held down, in order of when they were pressed (most recent first).
+  example: []
+  syntax:
+    content: public CustomKeyCode[] keysHeld { get; }
+    parameters: []
+    return:
+      type: PAC.KeyboardShortcuts.CustomKeyCode[]
+    content.vb: Public ReadOnly Property keysHeld As CustomKeyCode()
+  overload: PAC.Input.KeyboardTarget.keysHeld*
+- uid: PAC.Input.KeyboardTarget.keysPressed
+  commentId: P:PAC.Input.KeyboardTarget.keysPressed
+  id: keysPressed
+  parent: PAC.Input.KeyboardTarget
+  langs:
+  - csharp
+  - vb
+  name: keysPressed
+  nameWithType: KeyboardTarget.keysPressed
+  fullName: PAC.Input.KeyboardTarget.keysPressed
+  type: Property
+  source:
+    remote:
+      path: Assets/Scripts/Input/KeyboardTarget.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: keysPressed
+    path: ../Assets/Scripts/Input/KeyboardTarget.cs
+    startLine: 22
+  namespace: PAC.Input
+  syntax:
+    content: public CustomKeyCode[] keysPressed { get; }
+    parameters: []
+    return:
+      type: PAC.KeyboardShortcuts.CustomKeyCode[]
+    content.vb: Public ReadOnly Property keysPressed As CustomKeyCode()
+  overload: PAC.Input.KeyboardTarget.keysPressed*
+- uid: PAC.Input.KeyboardTarget.receiveAlreadyHeldKeys
+  commentId: F:PAC.Input.KeyboardTarget.receiveAlreadyHeldKeys
+  id: receiveAlreadyHeldKeys
+  parent: PAC.Input.KeyboardTarget
+  langs:
+  - csharp
+  - vb
+  name: receiveAlreadyHeldKeys
+  nameWithType: KeyboardTarget.receiveAlreadyHeldKeys
+  fullName: PAC.Input.KeyboardTarget.receiveAlreadyHeldKeys
+  type: Field
+  source:
+    remote:
+      path: Assets/Scripts/Input/KeyboardTarget.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: receiveAlreadyHeldKeys
+    path: ../Assets/Scripts/Input/KeyboardTarget.cs
+    startLine: 24
+  namespace: PAC.Input
+  syntax:
+    content: public bool receiveAlreadyHeldKeys
+    return:
+      type: System.Boolean
+    content.vb: Public receiveAlreadyHeldKeys As Boolean
+- uid: PAC.Input.KeyboardTarget.allowHoldingKeySpam
+  commentId: F:PAC.Input.KeyboardTarget.allowHoldingKeySpam
+  id: allowHoldingKeySpam
+  parent: PAC.Input.KeyboardTarget
+  langs:
+  - csharp
+  - vb
+  name: allowHoldingKeySpam
+  nameWithType: KeyboardTarget.allowHoldingKeySpam
+  fullName: PAC.Input.KeyboardTarget.allowHoldingKeySpam
+  type: Field
+  source:
+    remote:
+      path: Assets/Scripts/Input/KeyboardTarget.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: allowHoldingKeySpam
+    path: ../Assets/Scripts/Input/KeyboardTarget.cs
+    startLine: 26
+  namespace: PAC.Input
+  syntax:
+    content: public bool allowHoldingKeySpam
+    return:
+      type: System.Boolean
+    content.vb: Public allowHoldingKeySpam As Boolean
+- uid: PAC.Input.KeyboardTarget.inputThisFrame
+  commentId: P:PAC.Input.KeyboardTarget.inputThisFrame
+  id: inputThisFrame
+  parent: PAC.Input.KeyboardTarget
+  langs:
+  - csharp
+  - vb
+  name: inputThisFrame
+  nameWithType: KeyboardTarget.inputThisFrame
+  fullName: PAC.Input.KeyboardTarget.inputThisFrame
+  type: Property
+  source:
+    remote:
+      path: Assets/Scripts/Input/KeyboardTarget.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: inputThisFrame
+    path: ../Assets/Scripts/Input/KeyboardTarget.cs
+    startLine: 30
+  namespace: PAC.Input
+  syntax:
+    content: public bool inputThisFrame { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property inputThisFrame As Boolean
+  overload: PAC.Input.KeyboardTarget.inputThisFrame*
+- uid: PAC.Input.KeyboardTarget.#ctor
+  commentId: M:PAC.Input.KeyboardTarget.#ctor
+  id: '#ctor'
+  parent: PAC.Input.KeyboardTarget
+  langs:
+  - csharp
+  - vb
+  name: KeyboardTarget()
+  nameWithType: KeyboardTarget.KeyboardTarget()
+  fullName: PAC.Input.KeyboardTarget.KeyboardTarget()
+  type: Constructor
+  source:
+    remote:
+      path: Assets/Scripts/Input/KeyboardTarget.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: .ctor
+    path: ../Assets/Scripts/Input/KeyboardTarget.cs
+    startLine: 40
+  namespace: PAC.Input
+  syntax:
+    content: public KeyboardTarget()
+    content.vb: Public Sub New()
+  overload: PAC.Input.KeyboardTarget.#ctor*
+  nameWithType.vb: KeyboardTarget.New()
+  fullName.vb: PAC.Input.KeyboardTarget.New()
+  name.vb: New()
+- uid: PAC.Input.KeyboardTarget.ManualUpdate
+  commentId: M:PAC.Input.KeyboardTarget.ManualUpdate
+  id: ManualUpdate
+  parent: PAC.Input.KeyboardTarget
+  langs:
+  - csharp
+  - vb
+  name: ManualUpdate()
+  nameWithType: KeyboardTarget.ManualUpdate()
+  fullName: PAC.Input.KeyboardTarget.ManualUpdate()
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Input/KeyboardTarget.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: ManualUpdate
+    path: ../Assets/Scripts/Input/KeyboardTarget.cs
+    startLine: 78
+  namespace: PAC.Input
+  summary: Only to be called in InputTarget's Update() method.
+  example: []
+  syntax:
+    content: public void ManualUpdate()
+    content.vb: Public Sub ManualUpdate()
+  overload: PAC.Input.KeyboardTarget.ManualUpdate*
+- uid: PAC.Input.KeyboardTarget.KeyDownNoSpamReset(PAC.KeyboardShortcuts.CustomKeyCode)
+  commentId: M:PAC.Input.KeyboardTarget.KeyDownNoSpamReset(PAC.KeyboardShortcuts.CustomKeyCode)
+  id: KeyDownNoSpamReset(PAC.KeyboardShortcuts.CustomKeyCode)
+  parent: PAC.Input.KeyboardTarget
+  langs:
+  - csharp
+  - vb
+  name: KeyDownNoSpamReset(CustomKeyCode)
+  nameWithType: KeyboardTarget.KeyDownNoSpamReset(CustomKeyCode)
+  fullName: PAC.Input.KeyboardTarget.KeyDownNoSpamReset(PAC.KeyboardShortcuts.CustomKeyCode)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Input/KeyboardTarget.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: KeyDownNoSpamReset
+    path: ../Assets/Scripts/Input/KeyboardTarget.cs
+    startLine: 104
+  namespace: PAC.Input
+  summary: Simulates the key being pressed, if it is a key detectable by KeyboardTarget, without restting the timer until key spamming occurs.
+  example: []
+  syntax:
+    content: public void KeyDownNoSpamReset(CustomKeyCode key)
+    parameters:
+    - id: key
+      type: PAC.KeyboardShortcuts.CustomKeyCode
+    content.vb: Public Sub KeyDownNoSpamReset(key As CustomKeyCode)
+  overload: PAC.Input.KeyboardTarget.KeyDownNoSpamReset*
+- uid: PAC.Input.KeyboardTarget.KeysDownNoSpamReset(PAC.KeyboardShortcuts.CustomKeyCode[])
+  commentId: M:PAC.Input.KeyboardTarget.KeysDownNoSpamReset(PAC.KeyboardShortcuts.CustomKeyCode[])
+  id: KeysDownNoSpamReset(PAC.KeyboardShortcuts.CustomKeyCode[])
+  parent: PAC.Input.KeyboardTarget
+  langs:
+  - csharp
+  - vb
+  name: KeysDownNoSpamReset(params CustomKeyCode[])
+  nameWithType: KeyboardTarget.KeysDownNoSpamReset(params CustomKeyCode[])
+  fullName: PAC.Input.KeyboardTarget.KeysDownNoSpamReset(params PAC.KeyboardShortcuts.CustomKeyCode[])
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Input/KeyboardTarget.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: KeysDownNoSpamReset
+    path: ../Assets/Scripts/Input/KeyboardTarget.cs
+    startLine: 117
+  namespace: PAC.Input
+  summary: Simulates the keys being pressed, if they are keys detectable by KeyboardTarget, without restting the timer until key spamming occurs.
+  example: []
+  syntax:
+    content: public void KeysDownNoSpamReset(params CustomKeyCode[] keys)
+    parameters:
+    - id: keys
+      type: PAC.KeyboardShortcuts.CustomKeyCode[]
+    content.vb: Public Sub KeysDownNoSpamReset(ParamArray keys As CustomKeyCode())
+  overload: PAC.Input.KeyboardTarget.KeysDownNoSpamReset*
+  nameWithType.vb: KeyboardTarget.KeysDownNoSpamReset(ParamArray CustomKeyCode())
+  fullName.vb: PAC.Input.KeyboardTarget.KeysDownNoSpamReset(ParamArray PAC.KeyboardShortcuts.CustomKeyCode())
+  name.vb: KeysDownNoSpamReset(ParamArray CustomKeyCode())
+- uid: PAC.Input.KeyboardTarget.KeyDown(PAC.KeyboardShortcuts.CustomKeyCode)
+  commentId: M:PAC.Input.KeyboardTarget.KeyDown(PAC.KeyboardShortcuts.CustomKeyCode)
+  id: KeyDown(PAC.KeyboardShortcuts.CustomKeyCode)
+  parent: PAC.Input.KeyboardTarget
+  langs:
+  - csharp
+  - vb
+  name: KeyDown(CustomKeyCode)
+  nameWithType: KeyboardTarget.KeyDown(CustomKeyCode)
+  fullName: PAC.Input.KeyboardTarget.KeyDown(PAC.KeyboardShortcuts.CustomKeyCode)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Input/KeyboardTarget.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: KeyDown
+    path: ../Assets/Scripts/Input/KeyboardTarget.cs
+    startLine: 127
+  namespace: PAC.Input
+  summary: Simulates the key being pressed, if it is a key detectable by KeyboardTarget.
+  example: []
+  syntax:
+    content: public void KeyDown(CustomKeyCode key)
+    parameters:
+    - id: key
+      type: PAC.KeyboardShortcuts.CustomKeyCode
+    content.vb: Public Sub KeyDown(key As CustomKeyCode)
+  overload: PAC.Input.KeyboardTarget.KeyDown*
+- uid: PAC.Input.KeyboardTarget.KeysDown(PAC.KeyboardShortcuts.CustomKeyCode[])
+  commentId: M:PAC.Input.KeyboardTarget.KeysDown(PAC.KeyboardShortcuts.CustomKeyCode[])
+  id: KeysDown(PAC.KeyboardShortcuts.CustomKeyCode[])
+  parent: PAC.Input.KeyboardTarget
+  langs:
+  - csharp
+  - vb
+  name: KeysDown(params CustomKeyCode[])
+  nameWithType: KeyboardTarget.KeysDown(params CustomKeyCode[])
+  fullName: PAC.Input.KeyboardTarget.KeysDown(params PAC.KeyboardShortcuts.CustomKeyCode[])
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Input/KeyboardTarget.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: KeysDown
+    path: ../Assets/Scripts/Input/KeyboardTarget.cs
+    startLine: 142
+  namespace: PAC.Input
+  summary: Simulates the keys being pressed, if they are keys detectable by KeyboardTarget.
+  example: []
+  syntax:
+    content: public void KeysDown(params CustomKeyCode[] keys)
+    parameters:
+    - id: keys
+      type: PAC.KeyboardShortcuts.CustomKeyCode[]
+    content.vb: Public Sub KeysDown(ParamArray keys As CustomKeyCode())
+  overload: PAC.Input.KeyboardTarget.KeysDown*
+  nameWithType.vb: KeyboardTarget.KeysDown(ParamArray CustomKeyCode())
+  fullName.vb: PAC.Input.KeyboardTarget.KeysDown(ParamArray PAC.KeyboardShortcuts.CustomKeyCode())
+  name.vb: KeysDown(ParamArray CustomKeyCode())
+- uid: PAC.Input.KeyboardTarget.KeyUp(PAC.KeyboardShortcuts.CustomKeyCode)
+  commentId: M:PAC.Input.KeyboardTarget.KeyUp(PAC.KeyboardShortcuts.CustomKeyCode)
+  id: KeyUp(PAC.KeyboardShortcuts.CustomKeyCode)
+  parent: PAC.Input.KeyboardTarget
+  langs:
+  - csharp
+  - vb
+  name: KeyUp(CustomKeyCode)
+  nameWithType: KeyboardTarget.KeyUp(CustomKeyCode)
+  fullName: PAC.Input.KeyboardTarget.KeyUp(PAC.KeyboardShortcuts.CustomKeyCode)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Input/KeyboardTarget.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: KeyUp
+    path: ../Assets/Scripts/Input/KeyboardTarget.cs
+    startLine: 152
+  namespace: PAC.Input
+  summary: Simulates the key being unpressed.
+  example: []
+  syntax:
+    content: public void KeyUp(CustomKeyCode key)
+    parameters:
+    - id: key
+      type: PAC.KeyboardShortcuts.CustomKeyCode
+    content.vb: Public Sub KeyUp(key As CustomKeyCode)
+  overload: PAC.Input.KeyboardTarget.KeyUp*
+- uid: PAC.Input.KeyboardTarget.KeysUp(PAC.KeyboardShortcuts.CustomKeyCode[])
+  commentId: M:PAC.Input.KeyboardTarget.KeysUp(PAC.KeyboardShortcuts.CustomKeyCode[])
+  id: KeysUp(PAC.KeyboardShortcuts.CustomKeyCode[])
+  parent: PAC.Input.KeyboardTarget
+  langs:
+  - csharp
+  - vb
+  name: KeysUp(params CustomKeyCode[])
+  nameWithType: KeyboardTarget.KeysUp(params CustomKeyCode[])
+  fullName: PAC.Input.KeyboardTarget.KeysUp(params PAC.KeyboardShortcuts.CustomKeyCode[])
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Input/KeyboardTarget.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: KeysUp
+    path: ../Assets/Scripts/Input/KeyboardTarget.cs
+    startLine: 168
+  namespace: PAC.Input
+  summary: Simulates the keys being unpressed.
+  example: []
+  syntax:
+    content: public void KeysUp(params CustomKeyCode[] keys)
+    parameters:
+    - id: keys
+      type: PAC.KeyboardShortcuts.CustomKeyCode[]
+    content.vb: Public Sub KeysUp(ParamArray keys As CustomKeyCode())
+  overload: PAC.Input.KeyboardTarget.KeysUp*
+  nameWithType.vb: KeyboardTarget.KeysUp(ParamArray CustomKeyCode())
+  fullName.vb: PAC.Input.KeyboardTarget.KeysUp(ParamArray PAC.KeyboardShortcuts.CustomKeyCode())
+  name.vb: KeysUp(ParamArray CustomKeyCode())
+- uid: PAC.Input.KeyboardTarget.IsPressed(PAC.KeyboardShortcuts.CustomKeyCode)
+  commentId: M:PAC.Input.KeyboardTarget.IsPressed(PAC.KeyboardShortcuts.CustomKeyCode)
+  id: IsPressed(PAC.KeyboardShortcuts.CustomKeyCode)
+  parent: PAC.Input.KeyboardTarget
+  langs:
+  - csharp
+  - vb
+  name: IsPressed(CustomKeyCode)
+  nameWithType: KeyboardTarget.IsPressed(CustomKeyCode)
+  fullName: PAC.Input.KeyboardTarget.IsPressed(PAC.KeyboardShortcuts.CustomKeyCode)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Input/KeyboardTarget.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: IsPressed
+    path: ../Assets/Scripts/Input/KeyboardTarget.cs
+    startLine: 185
+  namespace: PAC.Input
+  summary: Returns true if all the given key (and potentially some other keys) has been pressed this frame (and is a key detectable by KeyboardTarget).
+  example: []
+  syntax:
+    content: public bool IsPressed(CustomKeyCode key)
+    parameters:
+    - id: key
+      type: PAC.KeyboardShortcuts.CustomKeyCode
+    return:
+      type: System.Boolean
+    content.vb: Public Function IsPressed(key As CustomKeyCode) As Boolean
+  overload: PAC.Input.KeyboardTarget.IsPressed*
+- uid: PAC.Input.KeyboardTarget.IsPressed(PAC.KeyboardShortcuts.KeyboardShortcut)
+  commentId: M:PAC.Input.KeyboardTarget.IsPressed(PAC.KeyboardShortcuts.KeyboardShortcut)
+  id: IsPressed(PAC.KeyboardShortcuts.KeyboardShortcut)
+  parent: PAC.Input.KeyboardTarget
+  langs:
+  - csharp
+  - vb
+  name: IsPressed(KeyboardShortcut)
+  nameWithType: KeyboardTarget.IsPressed(KeyboardShortcut)
+  fullName: PAC.Input.KeyboardTarget.IsPressed(PAC.KeyboardShortcuts.KeyboardShortcut)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Input/KeyboardTarget.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: IsPressed
+    path: ../Assets/Scripts/Input/KeyboardTarget.cs
+    startLine: 192
+  namespace: PAC.Input
+  summary: Returns true if all the given keys (and potentially some other keys) have been pressed this frame (and are keys detectable by KeyboardTarget).
+  example: []
+  syntax:
+    content: public bool IsPressed(KeyboardShortcut shortcut)
+    parameters:
+    - id: shortcut
+      type: PAC.KeyboardShortcuts.KeyboardShortcut
+    return:
+      type: System.Boolean
+    content.vb: Public Function IsPressed(shortcut As KeyboardShortcut) As Boolean
+  overload: PAC.Input.KeyboardTarget.IsPressed*
+- uid: PAC.Input.KeyboardTarget.IsPressed(PAC.KeyboardShortcuts.CustomKeyCode[])
+  commentId: M:PAC.Input.KeyboardTarget.IsPressed(PAC.KeyboardShortcuts.CustomKeyCode[])
+  id: IsPressed(PAC.KeyboardShortcuts.CustomKeyCode[])
+  parent: PAC.Input.KeyboardTarget
+  langs:
+  - csharp
+  - vb
+  name: IsPressed(params CustomKeyCode[])
+  nameWithType: KeyboardTarget.IsPressed(params CustomKeyCode[])
+  fullName: PAC.Input.KeyboardTarget.IsPressed(params PAC.KeyboardShortcuts.CustomKeyCode[])
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Input/KeyboardTarget.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: IsPressed
+    path: ../Assets/Scripts/Input/KeyboardTarget.cs
+    startLine: 196
+  namespace: PAC.Input
+  summary: Returns true if all the given keys (and potentially some other keys) have been pressed this frame (and are keys detectable by KeyboardTarget).
+  example: []
+  syntax:
+    content: public bool IsPressed(params CustomKeyCode[] keys)
+    parameters:
+    - id: keys
+      type: PAC.KeyboardShortcuts.CustomKeyCode[]
+    return:
+      type: System.Boolean
+    content.vb: Public Function IsPressed(ParamArray keys As CustomKeyCode()) As Boolean
+  overload: PAC.Input.KeyboardTarget.IsPressed*
+  nameWithType.vb: KeyboardTarget.IsPressed(ParamArray CustomKeyCode())
+  fullName.vb: PAC.Input.KeyboardTarget.IsPressed(ParamArray PAC.KeyboardShortcuts.CustomKeyCode())
+  name.vb: IsPressed(ParamArray CustomKeyCode())
+- uid: PAC.Input.KeyboardTarget.OneIsPressed(System.Collections.Generic.IEnumerable{PAC.KeyboardShortcuts.KeyboardShortcut})
+  commentId: M:PAC.Input.KeyboardTarget.OneIsPressed(System.Collections.Generic.IEnumerable{PAC.KeyboardShortcuts.KeyboardShortcut})
+  id: OneIsPressed(System.Collections.Generic.IEnumerable{PAC.KeyboardShortcuts.KeyboardShortcut})
+  parent: PAC.Input.KeyboardTarget
+  langs:
+  - csharp
+  - vb
+  name: OneIsPressed(IEnumerable<KeyboardShortcut>)
+  nameWithType: KeyboardTarget.OneIsPressed(IEnumerable<KeyboardShortcut>)
+  fullName: PAC.Input.KeyboardTarget.OneIsPressed(System.Collections.Generic.IEnumerable<PAC.KeyboardShortcuts.KeyboardShortcut>)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Input/KeyboardTarget.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: OneIsPressed
+    path: ../Assets/Scripts/Input/KeyboardTarget.cs
+    startLine: 210
+  namespace: PAC.Input
+  summary: Returns true if all the given keys (and potentially some other keys) have been pressed this frame (and are keys detectable by KeyboardTarget) for one of the given keyboard shortcuts.
+  example: []
+  syntax:
+    content: public bool OneIsPressed(IEnumerable<KeyboardShortcut> shortcuts)
+    parameters:
+    - id: shortcuts
+      type: System.Collections.Generic.IEnumerable{PAC.KeyboardShortcuts.KeyboardShortcut}
+    return:
+      type: System.Boolean
+    content.vb: Public Function OneIsPressed(shortcuts As IEnumerable(Of KeyboardShortcut)) As Boolean
+  overload: PAC.Input.KeyboardTarget.OneIsPressed*
+  nameWithType.vb: KeyboardTarget.OneIsPressed(IEnumerable(Of KeyboardShortcut))
+  fullName.vb: PAC.Input.KeyboardTarget.OneIsPressed(System.Collections.Generic.IEnumerable(Of PAC.KeyboardShortcuts.KeyboardShortcut))
+  name.vb: OneIsPressed(IEnumerable(Of KeyboardShortcut))
+- uid: PAC.Input.KeyboardTarget.IsHeld(PAC.KeyboardShortcuts.KeyboardShortcut)
+  commentId: M:PAC.Input.KeyboardTarget.IsHeld(PAC.KeyboardShortcuts.KeyboardShortcut)
+  id: IsHeld(PAC.KeyboardShortcuts.KeyboardShortcut)
+  parent: PAC.Input.KeyboardTarget
+  langs:
+  - csharp
+  - vb
+  name: IsHeld(KeyboardShortcut)
+  nameWithType: KeyboardTarget.IsHeld(KeyboardShortcut)
+  fullName: PAC.Input.KeyboardTarget.IsHeld(PAC.KeyboardShortcuts.KeyboardShortcut)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Input/KeyboardTarget.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: IsHeld
+    path: ../Assets/Scripts/Input/KeyboardTarget.cs
+    startLine: 225
+  namespace: PAC.Input
+  summary: Returns true if all the given key (and potentially some other keys) is held (and is a key detectable by KeyboardTarget).
+  example: []
+  syntax:
+    content: public bool IsHeld(KeyboardShortcut shortcut)
+    parameters:
+    - id: shortcut
+      type: PAC.KeyboardShortcuts.KeyboardShortcut
+    return:
+      type: System.Boolean
+    content.vb: Public Function IsHeld(shortcut As KeyboardShortcut) As Boolean
+  overload: PAC.Input.KeyboardTarget.IsHeld*
+- uid: PAC.Input.KeyboardTarget.IsHeld(PAC.KeyboardShortcuts.CustomKeyCode)
+  commentId: M:PAC.Input.KeyboardTarget.IsHeld(PAC.KeyboardShortcuts.CustomKeyCode)
+  id: IsHeld(PAC.KeyboardShortcuts.CustomKeyCode)
+  parent: PAC.Input.KeyboardTarget
+  langs:
+  - csharp
+  - vb
+  name: IsHeld(CustomKeyCode)
+  nameWithType: KeyboardTarget.IsHeld(CustomKeyCode)
+  fullName: PAC.Input.KeyboardTarget.IsHeld(PAC.KeyboardShortcuts.CustomKeyCode)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Input/KeyboardTarget.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: IsHeld
+    path: ../Assets/Scripts/Input/KeyboardTarget.cs
+    startLine: 229
+  namespace: PAC.Input
+  summary: Returns true if all the given key (and potentially some other keys) is held (and is a key detectable by KeyboardTarget).
+  example: []
+  syntax:
+    content: public bool IsHeld(CustomKeyCode key)
+    parameters:
+    - id: key
+      type: PAC.KeyboardShortcuts.CustomKeyCode
+    return:
+      type: System.Boolean
+    content.vb: Public Function IsHeld(key As CustomKeyCode) As Boolean
+  overload: PAC.Input.KeyboardTarget.IsHeld*
+- uid: PAC.Input.KeyboardTarget.IsHeld(PAC.KeyboardShortcuts.CustomKeyCode[])
+  commentId: M:PAC.Input.KeyboardTarget.IsHeld(PAC.KeyboardShortcuts.CustomKeyCode[])
+  id: IsHeld(PAC.KeyboardShortcuts.CustomKeyCode[])
+  parent: PAC.Input.KeyboardTarget
+  langs:
+  - csharp
+  - vb
+  name: IsHeld(params CustomKeyCode[])
+  nameWithType: KeyboardTarget.IsHeld(params CustomKeyCode[])
+  fullName: PAC.Input.KeyboardTarget.IsHeld(params PAC.KeyboardShortcuts.CustomKeyCode[])
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Input/KeyboardTarget.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: IsHeld
+    path: ../Assets/Scripts/Input/KeyboardTarget.cs
+    startLine: 236
+  namespace: PAC.Input
+  summary: Returns true if all the given keys (and potentially some other keys) are held (and are keys detectable by KeyboardTarget).
+  example: []
+  syntax:
+    content: public bool IsHeld(params CustomKeyCode[] keys)
+    parameters:
+    - id: keys
+      type: PAC.KeyboardShortcuts.CustomKeyCode[]
+    return:
+      type: System.Boolean
+    content.vb: Public Function IsHeld(ParamArray keys As CustomKeyCode()) As Boolean
+  overload: PAC.Input.KeyboardTarget.IsHeld*
+  nameWithType.vb: KeyboardTarget.IsHeld(ParamArray CustomKeyCode())
+  fullName.vb: PAC.Input.KeyboardTarget.IsHeld(ParamArray PAC.KeyboardShortcuts.CustomKeyCode())
+  name.vb: IsHeld(ParamArray CustomKeyCode())
+- uid: PAC.Input.KeyboardTarget.OneIsHeld(System.Collections.Generic.IEnumerable{PAC.KeyboardShortcuts.KeyboardShortcut})
+  commentId: M:PAC.Input.KeyboardTarget.OneIsHeld(System.Collections.Generic.IEnumerable{PAC.KeyboardShortcuts.KeyboardShortcut})
+  id: OneIsHeld(System.Collections.Generic.IEnumerable{PAC.KeyboardShortcuts.KeyboardShortcut})
+  parent: PAC.Input.KeyboardTarget
+  langs:
+  - csharp
+  - vb
+  name: OneIsHeld(IEnumerable<KeyboardShortcut>)
+  nameWithType: KeyboardTarget.OneIsHeld(IEnumerable<KeyboardShortcut>)
+  fullName: PAC.Input.KeyboardTarget.OneIsHeld(System.Collections.Generic.IEnumerable<PAC.KeyboardShortcuts.KeyboardShortcut>)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Input/KeyboardTarget.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: OneIsHeld
+    path: ../Assets/Scripts/Input/KeyboardTarget.cs
+    startLine: 250
+  namespace: PAC.Input
+  summary: Returns true if all the given keys (and potentially some other keys) are held (and are keys detectable by KeyboardTarget) for one of the given keyboard shortcuts.
+  example: []
+  syntax:
+    content: public bool OneIsHeld(IEnumerable<KeyboardShortcut> shortcuts)
+    parameters:
+    - id: shortcuts
+      type: System.Collections.Generic.IEnumerable{PAC.KeyboardShortcuts.KeyboardShortcut}
+    return:
+      type: System.Boolean
+    content.vb: Public Function OneIsHeld(shortcuts As IEnumerable(Of KeyboardShortcut)) As Boolean
+  overload: PAC.Input.KeyboardTarget.OneIsHeld*
+  nameWithType.vb: KeyboardTarget.OneIsHeld(IEnumerable(Of KeyboardShortcut))
+  fullName.vb: PAC.Input.KeyboardTarget.OneIsHeld(System.Collections.Generic.IEnumerable(Of PAC.KeyboardShortcuts.KeyboardShortcut))
+  name.vb: OneIsHeld(IEnumerable(Of KeyboardShortcut))
+- uid: PAC.Input.KeyboardTarget.IsHeldExactly(PAC.KeyboardShortcuts.KeyboardShortcut)
+  commentId: M:PAC.Input.KeyboardTarget.IsHeldExactly(PAC.KeyboardShortcuts.KeyboardShortcut)
+  id: IsHeldExactly(PAC.KeyboardShortcuts.KeyboardShortcut)
+  parent: PAC.Input.KeyboardTarget
+  langs:
+  - csharp
+  - vb
+  name: IsHeldExactly(KeyboardShortcut)
+  nameWithType: KeyboardTarget.IsHeldExactly(KeyboardShortcut)
+  fullName: PAC.Input.KeyboardTarget.IsHeldExactly(PAC.KeyboardShortcuts.KeyboardShortcut)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Input/KeyboardTarget.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: IsHeldExactly
+    path: ../Assets/Scripts/Input/KeyboardTarget.cs
+    startLine: 265
+  namespace: PAC.Input
+  summary: Returns true if all and only the given keys are held (and are keys detectable by KeyboardTarget).
+  example: []
+  syntax:
+    content: public bool IsHeldExactly(KeyboardShortcut shortcut)
+    parameters:
+    - id: shortcut
+      type: PAC.KeyboardShortcuts.KeyboardShortcut
+    return:
+      type: System.Boolean
+    content.vb: Public Function IsHeldExactly(shortcut As KeyboardShortcut) As Boolean
+  overload: PAC.Input.KeyboardTarget.IsHeldExactly*
+- uid: PAC.Input.KeyboardTarget.IsHeldExactly(PAC.KeyboardShortcuts.CustomKeyCode[])
+  commentId: M:PAC.Input.KeyboardTarget.IsHeldExactly(PAC.KeyboardShortcuts.CustomKeyCode[])
+  id: IsHeldExactly(PAC.KeyboardShortcuts.CustomKeyCode[])
+  parent: PAC.Input.KeyboardTarget
+  langs:
+  - csharp
+  - vb
+  name: IsHeldExactly(params CustomKeyCode[])
+  nameWithType: KeyboardTarget.IsHeldExactly(params CustomKeyCode[])
+  fullName: PAC.Input.KeyboardTarget.IsHeldExactly(params PAC.KeyboardShortcuts.CustomKeyCode[])
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Input/KeyboardTarget.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: IsHeldExactly
+    path: ../Assets/Scripts/Input/KeyboardTarget.cs
+    startLine: 269
+  namespace: PAC.Input
+  summary: Returns true if all and only the given keys are held (and are keys detectable by KeyboardTarget).
+  example: []
+  syntax:
+    content: public bool IsHeldExactly(params CustomKeyCode[] keys)
+    parameters:
+    - id: keys
+      type: PAC.KeyboardShortcuts.CustomKeyCode[]
+    return:
+      type: System.Boolean
+    content.vb: Public Function IsHeldExactly(ParamArray keys As CustomKeyCode()) As Boolean
+  overload: PAC.Input.KeyboardTarget.IsHeldExactly*
+  nameWithType.vb: KeyboardTarget.IsHeldExactly(ParamArray CustomKeyCode())
+  fullName.vb: PAC.Input.KeyboardTarget.IsHeldExactly(ParamArray PAC.KeyboardShortcuts.CustomKeyCode())
+  name.vb: IsHeldExactly(ParamArray CustomKeyCode())
+- uid: PAC.Input.KeyboardTarget.OneIsHeldExactly(System.Collections.Generic.IEnumerable{PAC.KeyboardShortcuts.KeyboardShortcut})
+  commentId: M:PAC.Input.KeyboardTarget.OneIsHeldExactly(System.Collections.Generic.IEnumerable{PAC.KeyboardShortcuts.KeyboardShortcut})
+  id: OneIsHeldExactly(System.Collections.Generic.IEnumerable{PAC.KeyboardShortcuts.KeyboardShortcut})
+  parent: PAC.Input.KeyboardTarget
+  langs:
+  - csharp
+  - vb
+  name: OneIsHeldExactly(IEnumerable<KeyboardShortcut>)
+  nameWithType: KeyboardTarget.OneIsHeldExactly(IEnumerable<KeyboardShortcut>)
+  fullName: PAC.Input.KeyboardTarget.OneIsHeldExactly(System.Collections.Generic.IEnumerable<PAC.KeyboardShortcuts.KeyboardShortcut>)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Input/KeyboardTarget.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: OneIsHeldExactly
+    path: ../Assets/Scripts/Input/KeyboardTarget.cs
+    startLine: 291
+  namespace: PAC.Input
+  summary: Returns true if all and only the given keys are held (and are keys detectable by KeyboardTarget) for one of the given keyboard shortcuts.
+  example: []
+  syntax:
+    content: public bool OneIsHeldExactly(IEnumerable<KeyboardShortcut> shortcuts)
+    parameters:
+    - id: shortcuts
+      type: System.Collections.Generic.IEnumerable{PAC.KeyboardShortcuts.KeyboardShortcut}
+    return:
+      type: System.Boolean
+    content.vb: Public Function OneIsHeldExactly(shortcuts As IEnumerable(Of KeyboardShortcut)) As Boolean
+  overload: PAC.Input.KeyboardTarget.OneIsHeldExactly*
+  nameWithType.vb: KeyboardTarget.OneIsHeldExactly(IEnumerable(Of KeyboardShortcut))
+  fullName.vb: PAC.Input.KeyboardTarget.OneIsHeldExactly(System.Collections.Generic.IEnumerable(Of PAC.KeyboardShortcuts.KeyboardShortcut))
+  name.vb: OneIsHeldExactly(IEnumerable(Of KeyboardShortcut))
+- uid: PAC.Input.KeyboardTarget.Untarget
+  commentId: M:PAC.Input.KeyboardTarget.Untarget
+  id: Untarget
+  parent: PAC.Input.KeyboardTarget
+  langs:
+  - csharp
+  - vb
+  name: Untarget()
+  nameWithType: KeyboardTarget.Untarget()
+  fullName: PAC.Input.KeyboardTarget.Untarget()
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Input/KeyboardTarget.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: Untarget
+    path: ../Assets/Scripts/Input/KeyboardTarget.cs
+    startLine: 303
+  namespace: PAC.Input
+  syntax:
+    content: public void Untarget()
+    content.vb: Public Sub Untarget()
+  overload: PAC.Input.KeyboardTarget.Untarget*
+- uid: PAC.Input.KeyboardTarget.SubscribeToOnInput(UnityAction)
+  commentId: M:PAC.Input.KeyboardTarget.SubscribeToOnInput(UnityAction)
+  id: SubscribeToOnInput(UnityAction)
+  parent: PAC.Input.KeyboardTarget
+  langs:
+  - csharp
+  - vb
+  name: SubscribeToOnInput(UnityAction)
+  nameWithType: KeyboardTarget.SubscribeToOnInput(UnityAction)
+  fullName: PAC.Input.KeyboardTarget.SubscribeToOnInput(UnityAction)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Input/KeyboardTarget.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: SubscribeToOnInput
+    path: ../Assets/Scripts/Input/KeyboardTarget.cs
+    startLine: 316
+  namespace: PAC.Input
+  syntax:
+    content: public void SubscribeToOnInput(UnityAction call)
+    parameters:
+    - id: call
+      type: Global.UnityAction
+    content.vb: Public Sub SubscribeToOnInput([call] As UnityAction)
+  overload: PAC.Input.KeyboardTarget.SubscribeToOnInput*
+- uid: PAC.Input.KeyboardTarget.SubscribeToOnKeyDown(UnityAction{PAC.KeyboardShortcuts.CustomKeyCode})
+  commentId: M:PAC.Input.KeyboardTarget.SubscribeToOnKeyDown(UnityAction{PAC.KeyboardShortcuts.CustomKeyCode})
+  id: SubscribeToOnKeyDown(UnityAction{PAC.KeyboardShortcuts.CustomKeyCode})
+  parent: PAC.Input.KeyboardTarget
+  langs:
+  - csharp
+  - vb
+  name: SubscribeToOnKeyDown(UnityAction<CustomKeyCode>)
+  nameWithType: KeyboardTarget.SubscribeToOnKeyDown(UnityAction<CustomKeyCode>)
+  fullName: PAC.Input.KeyboardTarget.SubscribeToOnKeyDown(UnityAction<PAC.KeyboardShortcuts.CustomKeyCode>)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Input/KeyboardTarget.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: SubscribeToOnKeyDown
+    path: ../Assets/Scripts/Input/KeyboardTarget.cs
+    startLine: 320
+  namespace: PAC.Input
+  syntax:
+    content: public void SubscribeToOnKeyDown(UnityAction<CustomKeyCode> call)
+    parameters:
+    - id: call
+      type: Global.UnityAction{PAC.KeyboardShortcuts.CustomKeyCode}
+    content.vb: Public Sub SubscribeToOnKeyDown([call] As UnityAction(Of CustomKeyCode))
+  overload: PAC.Input.KeyboardTarget.SubscribeToOnKeyDown*
+  nameWithType.vb: KeyboardTarget.SubscribeToOnKeyDown(UnityAction(Of CustomKeyCode))
+  fullName.vb: PAC.Input.KeyboardTarget.SubscribeToOnKeyDown(UnityAction(Of PAC.KeyboardShortcuts.CustomKeyCode))
+  name.vb: SubscribeToOnKeyDown(UnityAction(Of CustomKeyCode))
+- uid: PAC.Input.KeyboardTarget.SubscribeToOnKeyUp(UnityAction{PAC.KeyboardShortcuts.CustomKeyCode})
+  commentId: M:PAC.Input.KeyboardTarget.SubscribeToOnKeyUp(UnityAction{PAC.KeyboardShortcuts.CustomKeyCode})
+  id: SubscribeToOnKeyUp(UnityAction{PAC.KeyboardShortcuts.CustomKeyCode})
+  parent: PAC.Input.KeyboardTarget
+  langs:
+  - csharp
+  - vb
+  name: SubscribeToOnKeyUp(UnityAction<CustomKeyCode>)
+  nameWithType: KeyboardTarget.SubscribeToOnKeyUp(UnityAction<CustomKeyCode>)
+  fullName: PAC.Input.KeyboardTarget.SubscribeToOnKeyUp(UnityAction<PAC.KeyboardShortcuts.CustomKeyCode>)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Input/KeyboardTarget.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: SubscribeToOnKeyUp
+    path: ../Assets/Scripts/Input/KeyboardTarget.cs
+    startLine: 324
+  namespace: PAC.Input
+  syntax:
+    content: public void SubscribeToOnKeyUp(UnityAction<CustomKeyCode> call)
+    parameters:
+    - id: call
+      type: Global.UnityAction{PAC.KeyboardShortcuts.CustomKeyCode}
+    content.vb: Public Sub SubscribeToOnKeyUp([call] As UnityAction(Of CustomKeyCode))
+  overload: PAC.Input.KeyboardTarget.SubscribeToOnKeyUp*
+  nameWithType.vb: KeyboardTarget.SubscribeToOnKeyUp(UnityAction(Of CustomKeyCode))
+  fullName.vb: PAC.Input.KeyboardTarget.SubscribeToOnKeyUp(UnityAction(Of PAC.KeyboardShortcuts.CustomKeyCode))
+  name.vb: SubscribeToOnKeyUp(UnityAction(Of CustomKeyCode))
+- uid: PAC.Input.KeyboardTarget.SubscribeToUntarget(UnityAction)
+  commentId: M:PAC.Input.KeyboardTarget.SubscribeToUntarget(UnityAction)
+  id: SubscribeToUntarget(UnityAction)
+  parent: PAC.Input.KeyboardTarget
+  langs:
+  - csharp
+  - vb
+  name: SubscribeToUntarget(UnityAction)
+  nameWithType: KeyboardTarget.SubscribeToUntarget(UnityAction)
+  fullName: PAC.Input.KeyboardTarget.SubscribeToUntarget(UnityAction)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Input/KeyboardTarget.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: SubscribeToUntarget
+    path: ../Assets/Scripts/Input/KeyboardTarget.cs
+    startLine: 329
+  namespace: PAC.Input
+  syntax:
+    content: public void SubscribeToUntarget(UnityAction call)
+    parameters:
+    - id: call
+      type: Global.UnityAction
+    content.vb: Public Sub SubscribeToUntarget([call] As UnityAction)
+  overload: PAC.Input.KeyboardTarget.SubscribeToUntarget*
+references:
+- uid: PAC.Input
+  commentId: N:PAC.Input
+  href: PAC.html
+  name: PAC.Input
+  nameWithType: PAC.Input
+  fullName: PAC.Input
+  spec.csharp:
+  - uid: PAC
+    name: PAC
+    href: PAC.html
+  - name: .
+  - uid: PAC.Input
+    name: Input
+    href: PAC.Input.html
+  spec.vb:
+  - uid: PAC
+    name: PAC
+    href: PAC.html
+  - name: .
+  - uid: PAC.Input
+    name: Input
+    href: PAC.Input.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: PAC.Input.KeyboardTarget.keysHeld*
+  commentId: Overload:PAC.Input.KeyboardTarget.keysHeld
+  href: PAC.Input.KeyboardTarget.html#PAC_Input_KeyboardTarget_keysHeld
+  name: keysHeld
+  nameWithType: KeyboardTarget.keysHeld
+  fullName: PAC.Input.KeyboardTarget.keysHeld
+- uid: PAC.KeyboardShortcuts.CustomKeyCode[]
+  isExternal: true
+  href: PAC.KeyboardShortcuts.CustomKeyCode.html
+  name: CustomKeyCode[]
+  nameWithType: CustomKeyCode[]
+  fullName: PAC.KeyboardShortcuts.CustomKeyCode[]
+  nameWithType.vb: CustomKeyCode()
+  fullName.vb: PAC.KeyboardShortcuts.CustomKeyCode()
+  name.vb: CustomKeyCode()
+  spec.csharp:
+  - uid: PAC.KeyboardShortcuts.CustomKeyCode
+    name: CustomKeyCode
+    href: PAC.KeyboardShortcuts.CustomKeyCode.html
+  - name: '['
+  - name: ']'
+  spec.vb:
+  - uid: PAC.KeyboardShortcuts.CustomKeyCode
+    name: CustomKeyCode
+    href: PAC.KeyboardShortcuts.CustomKeyCode.html
+  - name: (
+  - name: )
+- uid: PAC.Input.KeyboardTarget.keysPressed*
+  commentId: Overload:PAC.Input.KeyboardTarget.keysPressed
+  href: PAC.Input.KeyboardTarget.html#PAC_Input_KeyboardTarget_keysPressed
+  name: keysPressed
+  nameWithType: KeyboardTarget.keysPressed
+  fullName: PAC.Input.KeyboardTarget.keysPressed
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: PAC.Input.KeyboardTarget.inputThisFrame*
+  commentId: Overload:PAC.Input.KeyboardTarget.inputThisFrame
+  href: PAC.Input.KeyboardTarget.html#PAC_Input_KeyboardTarget_inputThisFrame
+  name: inputThisFrame
+  nameWithType: KeyboardTarget.inputThisFrame
+  fullName: PAC.Input.KeyboardTarget.inputThisFrame
+- uid: PAC.Input.KeyboardTarget.#ctor*
+  commentId: Overload:PAC.Input.KeyboardTarget.#ctor
+  href: PAC.Input.KeyboardTarget.html#PAC_Input_KeyboardTarget__ctor
+  name: KeyboardTarget
+  nameWithType: KeyboardTarget.KeyboardTarget
+  fullName: PAC.Input.KeyboardTarget.KeyboardTarget
+  nameWithType.vb: KeyboardTarget.New
+  fullName.vb: PAC.Input.KeyboardTarget.New
+  name.vb: New
+- uid: PAC.Input.KeyboardTarget.ManualUpdate*
+  commentId: Overload:PAC.Input.KeyboardTarget.ManualUpdate
+  href: PAC.Input.KeyboardTarget.html#PAC_Input_KeyboardTarget_ManualUpdate
+  name: ManualUpdate
+  nameWithType: KeyboardTarget.ManualUpdate
+  fullName: PAC.Input.KeyboardTarget.ManualUpdate
+- uid: PAC.Input.KeyboardTarget.KeyDownNoSpamReset*
+  commentId: Overload:PAC.Input.KeyboardTarget.KeyDownNoSpamReset
+  href: PAC.Input.KeyboardTarget.html#PAC_Input_KeyboardTarget_KeyDownNoSpamReset_PAC_KeyboardShortcuts_CustomKeyCode_
+  name: KeyDownNoSpamReset
+  nameWithType: KeyboardTarget.KeyDownNoSpamReset
+  fullName: PAC.Input.KeyboardTarget.KeyDownNoSpamReset
+- uid: PAC.KeyboardShortcuts.CustomKeyCode
+  commentId: T:PAC.KeyboardShortcuts.CustomKeyCode
+  parent: PAC.KeyboardShortcuts
+  href: PAC.KeyboardShortcuts.CustomKeyCode.html
+  name: CustomKeyCode
+  nameWithType: CustomKeyCode
+  fullName: PAC.KeyboardShortcuts.CustomKeyCode
+- uid: PAC.KeyboardShortcuts
+  commentId: N:PAC.KeyboardShortcuts
+  href: PAC.html
+  name: PAC.KeyboardShortcuts
+  nameWithType: PAC.KeyboardShortcuts
+  fullName: PAC.KeyboardShortcuts
+  spec.csharp:
+  - uid: PAC
+    name: PAC
+    href: PAC.html
+  - name: .
+  - uid: PAC.KeyboardShortcuts
+    name: KeyboardShortcuts
+    href: PAC.KeyboardShortcuts.html
+  spec.vb:
+  - uid: PAC
+    name: PAC
+    href: PAC.html
+  - name: .
+  - uid: PAC.KeyboardShortcuts
+    name: KeyboardShortcuts
+    href: PAC.KeyboardShortcuts.html
+- uid: PAC.Input.KeyboardTarget.KeysDownNoSpamReset*
+  commentId: Overload:PAC.Input.KeyboardTarget.KeysDownNoSpamReset
+  href: PAC.Input.KeyboardTarget.html#PAC_Input_KeyboardTarget_KeysDownNoSpamReset_PAC_KeyboardShortcuts_CustomKeyCode___
+  name: KeysDownNoSpamReset
+  nameWithType: KeyboardTarget.KeysDownNoSpamReset
+  fullName: PAC.Input.KeyboardTarget.KeysDownNoSpamReset
+- uid: PAC.Input.KeyboardTarget.KeyDown*
+  commentId: Overload:PAC.Input.KeyboardTarget.KeyDown
+  href: PAC.Input.KeyboardTarget.html#PAC_Input_KeyboardTarget_KeyDown_PAC_KeyboardShortcuts_CustomKeyCode_
+  name: KeyDown
+  nameWithType: KeyboardTarget.KeyDown
+  fullName: PAC.Input.KeyboardTarget.KeyDown
+- uid: PAC.Input.KeyboardTarget.KeysDown*
+  commentId: Overload:PAC.Input.KeyboardTarget.KeysDown
+  href: PAC.Input.KeyboardTarget.html#PAC_Input_KeyboardTarget_KeysDown_PAC_KeyboardShortcuts_CustomKeyCode___
+  name: KeysDown
+  nameWithType: KeyboardTarget.KeysDown
+  fullName: PAC.Input.KeyboardTarget.KeysDown
+- uid: PAC.Input.KeyboardTarget.KeyUp*
+  commentId: Overload:PAC.Input.KeyboardTarget.KeyUp
+  href: PAC.Input.KeyboardTarget.html#PAC_Input_KeyboardTarget_KeyUp_PAC_KeyboardShortcuts_CustomKeyCode_
+  name: KeyUp
+  nameWithType: KeyboardTarget.KeyUp
+  fullName: PAC.Input.KeyboardTarget.KeyUp
+- uid: PAC.Input.KeyboardTarget.KeysUp*
+  commentId: Overload:PAC.Input.KeyboardTarget.KeysUp
+  href: PAC.Input.KeyboardTarget.html#PAC_Input_KeyboardTarget_KeysUp_PAC_KeyboardShortcuts_CustomKeyCode___
+  name: KeysUp
+  nameWithType: KeyboardTarget.KeysUp
+  fullName: PAC.Input.KeyboardTarget.KeysUp
+- uid: PAC.Input.KeyboardTarget.IsPressed*
+  commentId: Overload:PAC.Input.KeyboardTarget.IsPressed
+  href: PAC.Input.KeyboardTarget.html#PAC_Input_KeyboardTarget_IsPressed_PAC_KeyboardShortcuts_CustomKeyCode_
+  name: IsPressed
+  nameWithType: KeyboardTarget.IsPressed
+  fullName: PAC.Input.KeyboardTarget.IsPressed
+- uid: PAC.KeyboardShortcuts.KeyboardShortcut
+  commentId: T:PAC.KeyboardShortcuts.KeyboardShortcut
+  parent: PAC.KeyboardShortcuts
+  href: PAC.KeyboardShortcuts.KeyboardShortcut.html
+  name: KeyboardShortcut
+  nameWithType: KeyboardShortcut
+  fullName: PAC.KeyboardShortcuts.KeyboardShortcut
+- uid: PAC.Input.KeyboardTarget.OneIsPressed*
+  commentId: Overload:PAC.Input.KeyboardTarget.OneIsPressed
+  href: PAC.Input.KeyboardTarget.html#PAC_Input_KeyboardTarget_OneIsPressed_System_Collections_Generic_IEnumerable_PAC_KeyboardShortcuts_KeyboardShortcut__
+  name: OneIsPressed
+  nameWithType: KeyboardTarget.OneIsPressed
+  fullName: PAC.Input.KeyboardTarget.OneIsPressed
+- uid: System.Collections.Generic.IEnumerable{PAC.KeyboardShortcuts.KeyboardShortcut}
+  commentId: T:System.Collections.Generic.IEnumerable{PAC.KeyboardShortcuts.KeyboardShortcut}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IEnumerable`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  name: IEnumerable<KeyboardShortcut>
+  nameWithType: IEnumerable<KeyboardShortcut>
+  fullName: System.Collections.Generic.IEnumerable<PAC.KeyboardShortcuts.KeyboardShortcut>
+  nameWithType.vb: IEnumerable(Of KeyboardShortcut)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of PAC.KeyboardShortcuts.KeyboardShortcut)
+  name.vb: IEnumerable(Of KeyboardShortcut)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: <
+  - uid: PAC.KeyboardShortcuts.KeyboardShortcut
+    name: KeyboardShortcut
+    href: PAC.KeyboardShortcuts.KeyboardShortcut.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: PAC.KeyboardShortcuts.KeyboardShortcut
+    name: KeyboardShortcut
+    href: PAC.KeyboardShortcuts.KeyboardShortcut.html
+  - name: )
+- uid: System.Collections.Generic.IEnumerable`1
+  commentId: T:System.Collections.Generic.IEnumerable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  name: IEnumerable<T>
+  nameWithType: IEnumerable<T>
+  fullName: System.Collections.Generic.IEnumerable<T>
+  nameWithType.vb: IEnumerable(Of T)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of T)
+  name.vb: IEnumerable(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: PAC.Input.KeyboardTarget.IsHeld*
+  commentId: Overload:PAC.Input.KeyboardTarget.IsHeld
+  href: PAC.Input.KeyboardTarget.html#PAC_Input_KeyboardTarget_IsHeld_PAC_KeyboardShortcuts_KeyboardShortcut_
+  name: IsHeld
+  nameWithType: KeyboardTarget.IsHeld
+  fullName: PAC.Input.KeyboardTarget.IsHeld
+- uid: PAC.Input.KeyboardTarget.OneIsHeld*
+  commentId: Overload:PAC.Input.KeyboardTarget.OneIsHeld
+  href: PAC.Input.KeyboardTarget.html#PAC_Input_KeyboardTarget_OneIsHeld_System_Collections_Generic_IEnumerable_PAC_KeyboardShortcuts_KeyboardShortcut__
+  name: OneIsHeld
+  nameWithType: KeyboardTarget.OneIsHeld
+  fullName: PAC.Input.KeyboardTarget.OneIsHeld
+- uid: PAC.Input.KeyboardTarget.IsHeldExactly*
+  commentId: Overload:PAC.Input.KeyboardTarget.IsHeldExactly
+  href: PAC.Input.KeyboardTarget.html#PAC_Input_KeyboardTarget_IsHeldExactly_PAC_KeyboardShortcuts_KeyboardShortcut_
+  name: IsHeldExactly
+  nameWithType: KeyboardTarget.IsHeldExactly
+  fullName: PAC.Input.KeyboardTarget.IsHeldExactly
+- uid: PAC.Input.KeyboardTarget.OneIsHeldExactly*
+  commentId: Overload:PAC.Input.KeyboardTarget.OneIsHeldExactly
+  href: PAC.Input.KeyboardTarget.html#PAC_Input_KeyboardTarget_OneIsHeldExactly_System_Collections_Generic_IEnumerable_PAC_KeyboardShortcuts_KeyboardShortcut__
+  name: OneIsHeldExactly
+  nameWithType: KeyboardTarget.OneIsHeldExactly
+  fullName: PAC.Input.KeyboardTarget.OneIsHeldExactly
+- uid: PAC.Input.KeyboardTarget.Untarget*
+  commentId: Overload:PAC.Input.KeyboardTarget.Untarget
+  href: PAC.Input.KeyboardTarget.html#PAC_Input_KeyboardTarget_Untarget
+  name: Untarget
+  nameWithType: KeyboardTarget.Untarget
+  fullName: PAC.Input.KeyboardTarget.Untarget
+- uid: PAC.Input.KeyboardTarget.SubscribeToOnInput*
+  commentId: Overload:PAC.Input.KeyboardTarget.SubscribeToOnInput
+  href: PAC.Input.KeyboardTarget.html#PAC_Input_KeyboardTarget_SubscribeToOnInput_UnityAction_
+  name: SubscribeToOnInput
+  nameWithType: KeyboardTarget.SubscribeToOnInput
+  fullName: PAC.Input.KeyboardTarget.SubscribeToOnInput
+- uid: Global.UnityAction
+  isExternal: true
+  name: UnityAction
+  nameWithType: UnityAction
+  fullName: UnityAction
+- uid: PAC.Input.KeyboardTarget.SubscribeToOnKeyDown*
+  commentId: Overload:PAC.Input.KeyboardTarget.SubscribeToOnKeyDown
+  href: PAC.Input.KeyboardTarget.html#PAC_Input_KeyboardTarget_SubscribeToOnKeyDown_UnityAction_PAC_KeyboardShortcuts_CustomKeyCode__
+  name: SubscribeToOnKeyDown
+  nameWithType: KeyboardTarget.SubscribeToOnKeyDown
+  fullName: PAC.Input.KeyboardTarget.SubscribeToOnKeyDown
+- uid: Global.UnityAction{PAC.KeyboardShortcuts.CustomKeyCode}
+  commentId: '!:Global.UnityAction{PAC.KeyboardShortcuts.CustomKeyCode}'
+  definition: Global.UnityAction`1
+  href: PAC.KeyboardShortcuts.CustomKeyCode.html
+  name: UnityAction<CustomKeyCode>
+  nameWithType: UnityAction<CustomKeyCode>
+  fullName: UnityAction<PAC.KeyboardShortcuts.CustomKeyCode>
+  nameWithType.vb: UnityAction(Of CustomKeyCode)
+  fullName.vb: UnityAction(Of PAC.KeyboardShortcuts.CustomKeyCode)
+  name.vb: UnityAction(Of CustomKeyCode)
+  spec.csharp:
+  - uid: Global.UnityAction`1
+    name: UnityAction
+    isExternal: true
+  - name: <
+  - uid: PAC.KeyboardShortcuts.CustomKeyCode
+    name: CustomKeyCode
+    href: PAC.KeyboardShortcuts.CustomKeyCode.html
+  - name: '>'
+  spec.vb:
+  - uid: Global.UnityAction`1
+    name: UnityAction
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: PAC.KeyboardShortcuts.CustomKeyCode
+    name: CustomKeyCode
+    href: PAC.KeyboardShortcuts.CustomKeyCode.html
+  - name: )
+- uid: Global.UnityAction`1
+  isExternal: true
+  name: UnityAction<>
+  nameWithType: UnityAction<>
+  fullName: UnityAction<>
+  nameWithType.vb: UnityAction(Of )
+  fullName.vb: UnityAction(Of )
+  name.vb: UnityAction(Of )
+  spec.csharp:
+  - uid: Global.UnityAction`1
+    name: UnityAction
+    isExternal: true
+  - name: <
+  - name: ''
+  - name: '>'
+  spec.vb:
+  - uid: Global.UnityAction`1
+    name: UnityAction
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - name: ''
+  - name: )
+- uid: PAC.Input.KeyboardTarget.SubscribeToOnKeyUp*
+  commentId: Overload:PAC.Input.KeyboardTarget.SubscribeToOnKeyUp
+  href: PAC.Input.KeyboardTarget.html#PAC_Input_KeyboardTarget_SubscribeToOnKeyUp_UnityAction_PAC_KeyboardShortcuts_CustomKeyCode__
+  name: SubscribeToOnKeyUp
+  nameWithType: KeyboardTarget.SubscribeToOnKeyUp
+  fullName: PAC.Input.KeyboardTarget.SubscribeToOnKeyUp
+- uid: PAC.Input.KeyboardTarget.SubscribeToUntarget*
+  commentId: Overload:PAC.Input.KeyboardTarget.SubscribeToUntarget
+  href: PAC.Input.KeyboardTarget.html#PAC_Input_KeyboardTarget_SubscribeToUntarget_UnityAction_
+  name: SubscribeToUntarget
+  nameWithType: KeyboardTarget.SubscribeToUntarget
+  fullName: PAC.Input.KeyboardTarget.SubscribeToUntarget

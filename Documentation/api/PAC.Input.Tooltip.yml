@@ -1,0 +1,292 @@
+### YamlMime:ManagedReference
+items:
+- uid: PAC.Input.Tooltip
+  commentId: T:PAC.Input.Tooltip
+  id: Tooltip
+  parent: PAC.Input
+  children:
+  - PAC.Input.Tooltip.HideTooltip
+  - PAC.Input.Tooltip.ShowTooltip(Vector2)
+  - PAC.Input.Tooltip.hoverTimeUntilTooltip
+  - PAC.Input.Tooltip.padding
+  - PAC.Input.Tooltip.text
+  - PAC.Input.Tooltip.tooltipVisible
+  langs:
+  - csharp
+  - vb
+  name: Tooltip
+  nameWithType: Tooltip
+  fullName: PAC.Input.Tooltip
+  type: Class
+  source:
+    remote:
+      path: Assets/Scripts/Input/Tooltip.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: Tooltip
+    path: ../Assets/Scripts/Input/Tooltip.cs
+    startLine: 5
+  namespace: PAC.Input
+  syntax:
+    content: 'public class Tooltip : MonoBehaviour'
+    content.vb: Public Class Tooltip Inherits MonoBehaviour
+  inheritance:
+  - System.Object
+- uid: PAC.Input.Tooltip.text
+  commentId: P:PAC.Input.Tooltip.text
+  id: text
+  parent: PAC.Input.Tooltip
+  langs:
+  - csharp
+  - vb
+  name: text
+  nameWithType: Tooltip.text
+  fullName: PAC.Input.Tooltip.text
+  type: Property
+  source:
+    remote:
+      path: Assets/Scripts/Input/Tooltip.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: text
+    path: ../Assets/Scripts/Input/Tooltip.cs
+    startLine: 11
+  namespace: PAC.Input
+  syntax:
+    content: public string text { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property text As String
+  overload: PAC.Input.Tooltip.text*
+- uid: PAC.Input.Tooltip.hoverTimeUntilTooltip
+  commentId: F:PAC.Input.Tooltip.hoverTimeUntilTooltip
+  id: hoverTimeUntilTooltip
+  parent: PAC.Input.Tooltip
+  langs:
+  - csharp
+  - vb
+  name: hoverTimeUntilTooltip
+  nameWithType: Tooltip.hoverTimeUntilTooltip
+  fullName: PAC.Input.Tooltip.hoverTimeUntilTooltip
+  type: Field
+  source:
+    remote:
+      path: Assets/Scripts/Input/Tooltip.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: hoverTimeUntilTooltip
+    path: ../Assets/Scripts/Input/Tooltip.cs
+    startLine: 23
+  namespace: PAC.Input
+  syntax:
+    content: public float hoverTimeUntilTooltip
+    return:
+      type: System.Single
+    content.vb: Public hoverTimeUntilTooltip As Single
+- uid: PAC.Input.Tooltip.padding
+  commentId: F:PAC.Input.Tooltip.padding
+  id: padding
+  parent: PAC.Input.Tooltip
+  langs:
+  - csharp
+  - vb
+  name: padding
+  nameWithType: Tooltip.padding
+  fullName: PAC.Input.Tooltip.padding
+  type: Field
+  source:
+    remote:
+      path: Assets/Scripts/Input/Tooltip.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: padding
+    path: ../Assets/Scripts/Input/Tooltip.cs
+    startLine: 24
+  namespace: PAC.Input
+  syntax:
+    content: public Vector2 padding
+    return:
+      type: Global.Vector2
+    content.vb: Public padding As Vector2
+- uid: PAC.Input.Tooltip.tooltipVisible
+  commentId: P:PAC.Input.Tooltip.tooltipVisible
+  id: tooltipVisible
+  parent: PAC.Input.Tooltip
+  langs:
+  - csharp
+  - vb
+  name: tooltipVisible
+  nameWithType: Tooltip.tooltipVisible
+  fullName: PAC.Input.Tooltip.tooltipVisible
+  type: Property
+  source:
+    remote:
+      path: Assets/Scripts/Input/Tooltip.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: tooltipVisible
+    path: ../Assets/Scripts/Input/Tooltip.cs
+    startLine: 30
+  namespace: PAC.Input
+  syntax:
+    content: public bool tooltipVisible { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property tooltipVisible As Boolean
+  overload: PAC.Input.Tooltip.tooltipVisible*
+- uid: PAC.Input.Tooltip.ShowTooltip(Vector2)
+  commentId: M:PAC.Input.Tooltip.ShowTooltip(Vector2)
+  id: ShowTooltip(Vector2)
+  parent: PAC.Input.Tooltip
+  langs:
+  - csharp
+  - vb
+  name: ShowTooltip(Vector2)
+  nameWithType: Tooltip.ShowTooltip(Vector2)
+  fullName: PAC.Input.Tooltip.ShowTooltip(Vector2)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Input/Tooltip.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: ShowTooltip
+    path: ../Assets/Scripts/Input/Tooltip.cs
+    startLine: 70
+  namespace: PAC.Input
+  syntax:
+    content: public void ShowTooltip(Vector2 worldCoords)
+    parameters:
+    - id: worldCoords
+      type: Global.Vector2
+    content.vb: Public Sub ShowTooltip(worldCoords As Vector2)
+  overload: PAC.Input.Tooltip.ShowTooltip*
+- uid: PAC.Input.Tooltip.HideTooltip
+  commentId: M:PAC.Input.Tooltip.HideTooltip
+  id: HideTooltip
+  parent: PAC.Input.Tooltip
+  langs:
+  - csharp
+  - vb
+  name: HideTooltip()
+  nameWithType: Tooltip.HideTooltip()
+  fullName: PAC.Input.Tooltip.HideTooltip()
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Input/Tooltip.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: HideTooltip
+    path: ../Assets/Scripts/Input/Tooltip.cs
+    startLine: 105
+  namespace: PAC.Input
+  syntax:
+    content: public void HideTooltip()
+    content.vb: Public Sub HideTooltip()
+  overload: PAC.Input.Tooltip.HideTooltip*
+references:
+- uid: PAC.Input
+  commentId: N:PAC.Input
+  href: PAC.html
+  name: PAC.Input
+  nameWithType: PAC.Input
+  fullName: PAC.Input
+  spec.csharp:
+  - uid: PAC
+    name: PAC
+    href: PAC.html
+  - name: .
+  - uid: PAC.Input
+    name: Input
+    href: PAC.Input.html
+  spec.vb:
+  - uid: PAC
+    name: PAC
+    href: PAC.html
+  - name: .
+  - uid: PAC.Input
+    name: Input
+    href: PAC.Input.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: PAC.Input.Tooltip.text*
+  commentId: Overload:PAC.Input.Tooltip.text
+  href: PAC.Input.Tooltip.html#PAC_Input_Tooltip_text
+  name: text
+  nameWithType: Tooltip.text
+  fullName: PAC.Input.Tooltip.text
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: System.Single
+  commentId: T:System.Single
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.single
+  name: float
+  nameWithType: float
+  fullName: float
+  nameWithType.vb: Single
+  fullName.vb: Single
+  name.vb: Single
+- uid: Global.Vector2
+  isExternal: true
+  name: Vector2
+  nameWithType: Vector2
+  fullName: Vector2
+- uid: PAC.Input.Tooltip.tooltipVisible*
+  commentId: Overload:PAC.Input.Tooltip.tooltipVisible
+  href: PAC.Input.Tooltip.html#PAC_Input_Tooltip_tooltipVisible
+  name: tooltipVisible
+  nameWithType: Tooltip.tooltipVisible
+  fullName: PAC.Input.Tooltip.tooltipVisible
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: PAC.Input.Tooltip.ShowTooltip*
+  commentId: Overload:PAC.Input.Tooltip.ShowTooltip
+  href: PAC.Input.Tooltip.html#PAC_Input_Tooltip_ShowTooltip_Vector2_
+  name: ShowTooltip
+  nameWithType: Tooltip.ShowTooltip
+  fullName: PAC.Input.Tooltip.ShowTooltip
+- uid: PAC.Input.Tooltip.HideTooltip*
+  commentId: Overload:PAC.Input.Tooltip.HideTooltip
+  href: PAC.Input.Tooltip.html#PAC_Input_Tooltip_HideTooltip
+  name: HideTooltip
+  nameWithType: Tooltip.HideTooltip
+  fullName: PAC.Input.Tooltip.HideTooltip

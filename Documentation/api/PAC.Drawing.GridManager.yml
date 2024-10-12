@@ -1,0 +1,417 @@
+### YamlMime:ManagedReference
+items:
+- uid: PAC.Drawing.GridManager
+  commentId: T:PAC.Drawing.GridManager
+  id: GridManager
+  parent: PAC.Drawing
+  children:
+  - PAC.Drawing.GridManager.SetGrid(System.Int32,System.Int32,System.Int32,System.Int32)
+  - PAC.Drawing.GridManager.SetOnOff(System.Boolean)
+  - PAC.Drawing.GridManager.SetOnOffNoDisplayUpdate(System.Boolean)
+  - PAC.Drawing.GridManager.height
+  - PAC.Drawing.GridManager.lineThickness
+  - PAC.Drawing.GridManager.on
+  - PAC.Drawing.GridManager.width
+  - PAC.Drawing.GridManager.xOffset
+  - PAC.Drawing.GridManager.yOffset
+  langs:
+  - csharp
+  - vb
+  name: GridManager
+  nameWithType: GridManager
+  fullName: PAC.Drawing.GridManager
+  type: Class
+  source:
+    remote:
+      path: Assets/Scripts/Drawing/GridManager.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: GridManager
+    path: ../Assets/Scripts/Drawing/GridManager.cs
+    startLine: 9
+  namespace: PAC.Drawing
+  summary: Handles drawing a grid over the image when the grid is enabled.
+  example: []
+  syntax:
+    content: 'public class GridManager : MonoBehaviour'
+    content.vb: Public Class GridManager Inherits MonoBehaviour
+  inheritance:
+  - System.Object
+- uid: PAC.Drawing.GridManager.lineThickness
+  commentId: F:PAC.Drawing.GridManager.lineThickness
+  id: lineThickness
+  parent: PAC.Drawing.GridManager
+  langs:
+  - csharp
+  - vb
+  name: lineThickness
+  nameWithType: GridManager.lineThickness
+  fullName: PAC.Drawing.GridManager.lineThickness
+  type: Field
+  source:
+    remote:
+      path: Assets/Scripts/Drawing/GridManager.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: lineThickness
+    path: ../Assets/Scripts/Drawing/GridManager.cs
+    startLine: 15
+  namespace: PAC.Drawing
+  syntax:
+    content: public float lineThickness
+    return:
+      type: System.Single
+    content.vb: Public lineThickness As Single
+- uid: PAC.Drawing.GridManager.width
+  commentId: P:PAC.Drawing.GridManager.width
+  id: width
+  parent: PAC.Drawing.GridManager
+  langs:
+  - csharp
+  - vb
+  name: width
+  nameWithType: GridManager.width
+  fullName: PAC.Drawing.GridManager.width
+  type: Property
+  source:
+    remote:
+      path: Assets/Scripts/Drawing/GridManager.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: width
+    path: ../Assets/Scripts/Drawing/GridManager.cs
+    startLine: 21
+  namespace: PAC.Drawing
+  syntax:
+    content: public int width { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public Property width As Integer
+  overload: PAC.Drawing.GridManager.width*
+- uid: PAC.Drawing.GridManager.height
+  commentId: P:PAC.Drawing.GridManager.height
+  id: height
+  parent: PAC.Drawing.GridManager
+  langs:
+  - csharp
+  - vb
+  name: height
+  nameWithType: GridManager.height
+  fullName: PAC.Drawing.GridManager.height
+  type: Property
+  source:
+    remote:
+      path: Assets/Scripts/Drawing/GridManager.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: height
+    path: ../Assets/Scripts/Drawing/GridManager.cs
+    startLine: 22
+  namespace: PAC.Drawing
+  syntax:
+    content: public int height { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public Property height As Integer
+  overload: PAC.Drawing.GridManager.height*
+- uid: PAC.Drawing.GridManager.xOffset
+  commentId: P:PAC.Drawing.GridManager.xOffset
+  id: xOffset
+  parent: PAC.Drawing.GridManager
+  langs:
+  - csharp
+  - vb
+  name: xOffset
+  nameWithType: GridManager.xOffset
+  fullName: PAC.Drawing.GridManager.xOffset
+  type: Property
+  source:
+    remote:
+      path: Assets/Scripts/Drawing/GridManager.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: xOffset
+    path: ../Assets/Scripts/Drawing/GridManager.cs
+    startLine: 23
+  namespace: PAC.Drawing
+  syntax:
+    content: public int xOffset { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public Property xOffset As Integer
+  overload: PAC.Drawing.GridManager.xOffset*
+- uid: PAC.Drawing.GridManager.yOffset
+  commentId: P:PAC.Drawing.GridManager.yOffset
+  id: yOffset
+  parent: PAC.Drawing.GridManager
+  langs:
+  - csharp
+  - vb
+  name: yOffset
+  nameWithType: GridManager.yOffset
+  fullName: PAC.Drawing.GridManager.yOffset
+  type: Property
+  source:
+    remote:
+      path: Assets/Scripts/Drawing/GridManager.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: yOffset
+    path: ../Assets/Scripts/Drawing/GridManager.cs
+    startLine: 24
+  namespace: PAC.Drawing
+  syntax:
+    content: public int yOffset { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public Property yOffset As Integer
+  overload: PAC.Drawing.GridManager.yOffset*
+- uid: PAC.Drawing.GridManager.on
+  commentId: P:PAC.Drawing.GridManager.on
+  id: on
+  parent: PAC.Drawing.GridManager
+  langs:
+  - csharp
+  - vb
+  name: on
+  nameWithType: GridManager.on
+  fullName: PAC.Drawing.GridManager.on
+  type: Property
+  source:
+    remote:
+      path: Assets/Scripts/Drawing/GridManager.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: on
+    path: ../Assets/Scripts/Drawing/GridManager.cs
+    startLine: 26
+  namespace: PAC.Drawing
+  syntax:
+    content: public bool on { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property [on] As Boolean
+  overload: PAC.Drawing.GridManager.on*
+- uid: PAC.Drawing.GridManager.SetGrid(System.Int32,System.Int32,System.Int32,System.Int32)
+  commentId: M:PAC.Drawing.GridManager.SetGrid(System.Int32,System.Int32,System.Int32,System.Int32)
+  id: SetGrid(System.Int32,System.Int32,System.Int32,System.Int32)
+  parent: PAC.Drawing.GridManager
+  langs:
+  - csharp
+  - vb
+  name: SetGrid(int, int, int, int)
+  nameWithType: GridManager.SetGrid(int, int, int, int)
+  fullName: PAC.Drawing.GridManager.SetGrid(int, int, int, int)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Drawing/GridManager.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: SetGrid
+    path: ../Assets/Scripts/Drawing/GridManager.cs
+    startLine: 113
+  namespace: PAC.Drawing
+  syntax:
+    content: public void SetGrid(int width, int height, int xOffset, int yOffset)
+    parameters:
+    - id: width
+      type: System.Int32
+    - id: height
+      type: System.Int32
+    - id: xOffset
+      type: System.Int32
+    - id: yOffset
+      type: System.Int32
+    content.vb: Public Sub SetGrid(width As Integer, height As Integer, xOffset As Integer, yOffset As Integer)
+  overload: PAC.Drawing.GridManager.SetGrid*
+  nameWithType.vb: GridManager.SetGrid(Integer, Integer, Integer, Integer)
+  fullName.vb: PAC.Drawing.GridManager.SetGrid(Integer, Integer, Integer, Integer)
+  name.vb: SetGrid(Integer, Integer, Integer, Integer)
+- uid: PAC.Drawing.GridManager.SetOnOff(System.Boolean)
+  commentId: M:PAC.Drawing.GridManager.SetOnOff(System.Boolean)
+  id: SetOnOff(System.Boolean)
+  parent: PAC.Drawing.GridManager
+  langs:
+  - csharp
+  - vb
+  name: SetOnOff(bool)
+  nameWithType: GridManager.SetOnOff(bool)
+  fullName: PAC.Drawing.GridManager.SetOnOff(bool)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Drawing/GridManager.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: SetOnOff
+    path: ../Assets/Scripts/Drawing/GridManager.cs
+    startLine: 125
+  namespace: PAC.Drawing
+  syntax:
+    content: public void SetOnOff(bool on)
+    parameters:
+    - id: on
+      type: System.Boolean
+    content.vb: Public Sub SetOnOff([on] As Boolean)
+  overload: PAC.Drawing.GridManager.SetOnOff*
+  nameWithType.vb: GridManager.SetOnOff(Boolean)
+  fullName.vb: PAC.Drawing.GridManager.SetOnOff(Boolean)
+  name.vb: SetOnOff(Boolean)
+- uid: PAC.Drawing.GridManager.SetOnOffNoDisplayUpdate(System.Boolean)
+  commentId: M:PAC.Drawing.GridManager.SetOnOffNoDisplayUpdate(System.Boolean)
+  id: SetOnOffNoDisplayUpdate(System.Boolean)
+  parent: PAC.Drawing.GridManager
+  langs:
+  - csharp
+  - vb
+  name: SetOnOffNoDisplayUpdate(bool)
+  nameWithType: GridManager.SetOnOffNoDisplayUpdate(bool)
+  fullName: PAC.Drawing.GridManager.SetOnOffNoDisplayUpdate(bool)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Drawing/GridManager.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: SetOnOffNoDisplayUpdate
+    path: ../Assets/Scripts/Drawing/GridManager.cs
+    startLine: 139
+  namespace: PAC.Drawing
+  syntax:
+    content: public void SetOnOffNoDisplayUpdate(bool on)
+    parameters:
+    - id: on
+      type: System.Boolean
+    content.vb: Public Sub SetOnOffNoDisplayUpdate([on] As Boolean)
+  overload: PAC.Drawing.GridManager.SetOnOffNoDisplayUpdate*
+  nameWithType.vb: GridManager.SetOnOffNoDisplayUpdate(Boolean)
+  fullName.vb: PAC.Drawing.GridManager.SetOnOffNoDisplayUpdate(Boolean)
+  name.vb: SetOnOffNoDisplayUpdate(Boolean)
+references:
+- uid: PAC.Drawing
+  commentId: N:PAC.Drawing
+  href: PAC.html
+  name: PAC.Drawing
+  nameWithType: PAC.Drawing
+  fullName: PAC.Drawing
+  spec.csharp:
+  - uid: PAC
+    name: PAC
+    href: PAC.html
+  - name: .
+  - uid: PAC.Drawing
+    name: Drawing
+    href: PAC.Drawing.html
+  spec.vb:
+  - uid: PAC
+    name: PAC
+    href: PAC.html
+  - name: .
+  - uid: PAC.Drawing
+    name: Drawing
+    href: PAC.Drawing.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.Single
+  commentId: T:System.Single
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.single
+  name: float
+  nameWithType: float
+  fullName: float
+  nameWithType.vb: Single
+  fullName.vb: Single
+  name.vb: Single
+- uid: PAC.Drawing.GridManager.width*
+  commentId: Overload:PAC.Drawing.GridManager.width
+  href: PAC.Drawing.GridManager.html#PAC_Drawing_GridManager_width
+  name: width
+  nameWithType: GridManager.width
+  fullName: PAC.Drawing.GridManager.width
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: PAC.Drawing.GridManager.height*
+  commentId: Overload:PAC.Drawing.GridManager.height
+  href: PAC.Drawing.GridManager.html#PAC_Drawing_GridManager_height
+  name: height
+  nameWithType: GridManager.height
+  fullName: PAC.Drawing.GridManager.height
+- uid: PAC.Drawing.GridManager.xOffset*
+  commentId: Overload:PAC.Drawing.GridManager.xOffset
+  href: PAC.Drawing.GridManager.html#PAC_Drawing_GridManager_xOffset
+  name: xOffset
+  nameWithType: GridManager.xOffset
+  fullName: PAC.Drawing.GridManager.xOffset
+- uid: PAC.Drawing.GridManager.yOffset*
+  commentId: Overload:PAC.Drawing.GridManager.yOffset
+  href: PAC.Drawing.GridManager.html#PAC_Drawing_GridManager_yOffset
+  name: yOffset
+  nameWithType: GridManager.yOffset
+  fullName: PAC.Drawing.GridManager.yOffset
+- uid: PAC.Drawing.GridManager.on*
+  commentId: Overload:PAC.Drawing.GridManager.on
+  href: PAC.Drawing.GridManager.html#PAC_Drawing_GridManager_on
+  name: on
+  nameWithType: GridManager.on
+  fullName: PAC.Drawing.GridManager.on
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: PAC.Drawing.GridManager.SetGrid*
+  commentId: Overload:PAC.Drawing.GridManager.SetGrid
+  href: PAC.Drawing.GridManager.html#PAC_Drawing_GridManager_SetGrid_System_Int32_System_Int32_System_Int32_System_Int32_
+  name: SetGrid
+  nameWithType: GridManager.SetGrid
+  fullName: PAC.Drawing.GridManager.SetGrid
+- uid: PAC.Drawing.GridManager.SetOnOff*
+  commentId: Overload:PAC.Drawing.GridManager.SetOnOff
+  href: PAC.Drawing.GridManager.html#PAC_Drawing_GridManager_SetOnOff_System_Boolean_
+  name: SetOnOff
+  nameWithType: GridManager.SetOnOff
+  fullName: PAC.Drawing.GridManager.SetOnOff
+- uid: PAC.Drawing.GridManager.SetOnOffNoDisplayUpdate*
+  commentId: Overload:PAC.Drawing.GridManager.SetOnOffNoDisplayUpdate
+  href: PAC.Drawing.GridManager.html#PAC_Drawing_GridManager_SetOnOffNoDisplayUpdate_System_Boolean_
+  name: SetOnOffNoDisplayUpdate
+  nameWithType: GridManager.SetOnOffNoDisplayUpdate
+  fullName: PAC.Drawing.GridManager.SetOnOffNoDisplayUpdate

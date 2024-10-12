@@ -1,0 +1,667 @@
+### YamlMime:ManagedReference
+items:
+- uid: PAC.Tilesets.Tileset
+  commentId: T:PAC.Tilesets.Tileset
+  id: Tileset
+  parent: PAC.Tilesets
+  children:
+  - PAC.Tilesets.Tileset.#ctor(System.String)
+  - PAC.Tilesets.Tileset.#ctor(System.String,System.Collections.Generic.List{PAC.Files.File})
+  - PAC.Tilesets.Tileset.AddTile(PAC.Files.File)
+  - PAC.Tilesets.Tileset.Count
+  - PAC.Tilesets.Tileset.RemoveTile(PAC.Files.File)
+  - PAC.Tilesets.Tileset.tilesetName
+  langs:
+  - csharp
+  - vb
+  name: Tileset
+  nameWithType: Tileset
+  fullName: PAC.Tilesets.Tileset
+  type: Class
+  source:
+    remote:
+      path: Assets/Scripts/Tilesets/Tileset.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: Tileset
+    path: ../Assets/Scripts/Tilesets/Tileset.cs
+    startLine: 5
+  namespace: PAC.Tilesets
+  syntax:
+    content: public class Tileset
+    content.vb: Public Class Tileset
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: PAC.Tilesets.Tileset.tilesetName
+  commentId: P:PAC.Tilesets.Tileset.tilesetName
+  id: tilesetName
+  parent: PAC.Tilesets.Tileset
+  langs:
+  - csharp
+  - vb
+  name: tilesetName
+  nameWithType: Tileset.tilesetName
+  fullName: PAC.Tilesets.Tileset.tilesetName
+  type: Property
+  source:
+    remote:
+      path: Assets/Scripts/Tilesets/Tileset.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: tilesetName
+    path: ../Assets/Scripts/Tilesets/Tileset.cs
+    startLine: 7
+  namespace: PAC.Tilesets
+  syntax:
+    content: public string tilesetName { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property tilesetName As String
+  overload: PAC.Tilesets.Tileset.tilesetName*
+- uid: PAC.Tilesets.Tileset.Count
+  commentId: P:PAC.Tilesets.Tileset.Count
+  id: Count
+  parent: PAC.Tilesets.Tileset
+  langs:
+  - csharp
+  - vb
+  name: Count
+  nameWithType: Tileset.Count
+  fullName: PAC.Tilesets.Tileset.Count
+  type: Property
+  source:
+    remote:
+      path: Assets/Scripts/Tilesets/Tileset.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: Count
+    path: ../Assets/Scripts/Tilesets/Tileset.cs
+    startLine: 11
+  namespace: PAC.Tilesets
+  syntax:
+    content: public int Count { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public ReadOnly Property Count As Integer
+  overload: PAC.Tilesets.Tileset.Count*
+- uid: PAC.Tilesets.Tileset.#ctor(System.String)
+  commentId: M:PAC.Tilesets.Tileset.#ctor(System.String)
+  id: '#ctor(System.String)'
+  parent: PAC.Tilesets.Tileset
+  langs:
+  - csharp
+  - vb
+  name: Tileset(string)
+  nameWithType: Tileset.Tileset(string)
+  fullName: PAC.Tilesets.Tileset.Tileset(string)
+  type: Constructor
+  source:
+    remote:
+      path: Assets/Scripts/Tilesets/Tileset.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: .ctor
+    path: ../Assets/Scripts/Tilesets/Tileset.cs
+    startLine: 17
+  namespace: PAC.Tilesets
+  syntax:
+    content: public Tileset(string name)
+    parameters:
+    - id: name
+      type: System.String
+    content.vb: Public Sub New(name As String)
+  overload: PAC.Tilesets.Tileset.#ctor*
+  nameWithType.vb: Tileset.New(String)
+  fullName.vb: PAC.Tilesets.Tileset.New(String)
+  name.vb: New(String)
+- uid: PAC.Tilesets.Tileset.#ctor(System.String,System.Collections.Generic.List{PAC.Files.File})
+  commentId: M:PAC.Tilesets.Tileset.#ctor(System.String,System.Collections.Generic.List{PAC.Files.File})
+  id: '#ctor(System.String,System.Collections.Generic.List{PAC.Files.File})'
+  parent: PAC.Tilesets.Tileset
+  langs:
+  - csharp
+  - vb
+  name: Tileset(string, List<File>)
+  nameWithType: Tileset.Tileset(string, List<File>)
+  fullName: PAC.Tilesets.Tileset.Tileset(string, System.Collections.Generic.List<PAC.Files.File>)
+  type: Constructor
+  source:
+    remote:
+      path: Assets/Scripts/Tilesets/Tileset.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: .ctor
+    path: ../Assets/Scripts/Tilesets/Tileset.cs
+    startLine: 19
+  namespace: PAC.Tilesets
+  syntax:
+    content: public Tileset(string name, List<File> tiles)
+    parameters:
+    - id: name
+      type: System.String
+    - id: tiles
+      type: System.Collections.Generic.List{PAC.Files.File}
+    content.vb: Public Sub New(name As String, tiles As List(Of File))
+  overload: PAC.Tilesets.Tileset.#ctor*
+  nameWithType.vb: Tileset.New(String, List(Of File))
+  fullName.vb: PAC.Tilesets.Tileset.New(String, System.Collections.Generic.List(Of PAC.Files.File))
+  name.vb: New(String, List(Of File))
+- uid: PAC.Tilesets.Tileset.AddTile(PAC.Files.File)
+  commentId: M:PAC.Tilesets.Tileset.AddTile(PAC.Files.File)
+  id: AddTile(PAC.Files.File)
+  parent: PAC.Tilesets.Tileset
+  langs:
+  - csharp
+  - vb
+  name: AddTile(File)
+  nameWithType: Tileset.AddTile(File)
+  fullName: PAC.Tilesets.Tileset.AddTile(PAC.Files.File)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Tilesets/Tileset.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: AddTile
+    path: ../Assets/Scripts/Tilesets/Tileset.cs
+    startLine: 26
+  namespace: PAC.Tilesets
+  syntax:
+    content: public void AddTile(File tile)
+    parameters:
+    - id: tile
+      type: PAC.Files.File
+    content.vb: Public Sub AddTile(tile As File)
+  overload: PAC.Tilesets.Tileset.AddTile*
+- uid: PAC.Tilesets.Tileset.RemoveTile(PAC.Files.File)
+  commentId: M:PAC.Tilesets.Tileset.RemoveTile(PAC.Files.File)
+  id: RemoveTile(PAC.Files.File)
+  parent: PAC.Tilesets.Tileset
+  langs:
+  - csharp
+  - vb
+  name: RemoveTile(File)
+  nameWithType: Tileset.RemoveTile(File)
+  fullName: PAC.Tilesets.Tileset.RemoveTile(PAC.Files.File)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Tilesets/Tileset.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: RemoveTile
+    path: ../Assets/Scripts/Tilesets/Tileset.cs
+    startLine: 33
+  namespace: PAC.Tilesets
+  syntax:
+    content: public bool RemoveTile(File tile)
+    parameters:
+    - id: tile
+      type: PAC.Files.File
+    return:
+      type: System.Boolean
+    content.vb: Public Function RemoveTile(tile As File) As Boolean
+  overload: PAC.Tilesets.Tileset.RemoveTile*
+references:
+- uid: PAC.Tilesets
+  commentId: N:PAC.Tilesets
+  href: PAC.html
+  name: PAC.Tilesets
+  nameWithType: PAC.Tilesets
+  fullName: PAC.Tilesets
+  spec.csharp:
+  - uid: PAC
+    name: PAC
+    href: PAC.html
+  - name: .
+  - uid: PAC.Tilesets
+    name: Tilesets
+    href: PAC.Tilesets.html
+  spec.vb:
+  - uid: PAC
+    name: PAC
+    href: PAC.html
+  - name: .
+  - uid: PAC.Tilesets
+    name: Tilesets
+    href: PAC.Tilesets.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: PAC.Tilesets.Tileset.tilesetName*
+  commentId: Overload:PAC.Tilesets.Tileset.tilesetName
+  href: PAC.Tilesets.Tileset.html#PAC_Tilesets_Tileset_tilesetName
+  name: tilesetName
+  nameWithType: Tileset.tilesetName
+  fullName: PAC.Tilesets.Tileset.tilesetName
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: PAC.Tilesets.Tileset.Count*
+  commentId: Overload:PAC.Tilesets.Tileset.Count
+  href: PAC.Tilesets.Tileset.html#PAC_Tilesets_Tileset_Count
+  name: Count
+  nameWithType: Tileset.Count
+  fullName: PAC.Tilesets.Tileset.Count
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: PAC.Tilesets.Tileset.#ctor*
+  commentId: Overload:PAC.Tilesets.Tileset.#ctor
+  href: PAC.Tilesets.Tileset.html#PAC_Tilesets_Tileset__ctor_System_String_
+  name: Tileset
+  nameWithType: Tileset.Tileset
+  fullName: PAC.Tilesets.Tileset.Tileset
+  nameWithType.vb: Tileset.New
+  fullName.vb: PAC.Tilesets.Tileset.New
+  name.vb: New
+- uid: System.Collections.Generic.List{PAC.Files.File}
+  commentId: T:System.Collections.Generic.List{PAC.Files.File}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<File>
+  nameWithType: List<File>
+  fullName: System.Collections.Generic.List<PAC.Files.File>
+  nameWithType.vb: List(Of File)
+  fullName.vb: System.Collections.Generic.List(Of PAC.Files.File)
+  name.vb: List(Of File)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: PAC.Files.File
+    name: File
+    href: PAC.Files.File.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: PAC.Files.File
+    name: File
+    href: PAC.Files.File.html
+  - name: )
+- uid: System.Collections.Generic.List`1
+  commentId: T:System.Collections.Generic.List`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<T>
+  nameWithType: List<T>
+  fullName: System.Collections.Generic.List<T>
+  nameWithType.vb: List(Of T)
+  fullName.vb: System.Collections.Generic.List(Of T)
+  name.vb: List(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: PAC.Tilesets.Tileset.AddTile*
+  commentId: Overload:PAC.Tilesets.Tileset.AddTile
+  href: PAC.Tilesets.Tileset.html#PAC_Tilesets_Tileset_AddTile_PAC_Files_File_
+  name: AddTile
+  nameWithType: Tileset.AddTile
+  fullName: PAC.Tilesets.Tileset.AddTile
+- uid: PAC.Files.File
+  commentId: T:PAC.Files.File
+  parent: PAC.Files
+  href: PAC.Files.File.html
+  name: File
+  nameWithType: File
+  fullName: PAC.Files.File
+- uid: PAC.Files
+  commentId: N:PAC.Files
+  href: PAC.html
+  name: PAC.Files
+  nameWithType: PAC.Files
+  fullName: PAC.Files
+  spec.csharp:
+  - uid: PAC
+    name: PAC
+    href: PAC.html
+  - name: .
+  - uid: PAC.Files
+    name: Files
+    href: PAC.Files.html
+  spec.vb:
+  - uid: PAC
+    name: PAC
+    href: PAC.html
+  - name: .
+  - uid: PAC.Files
+    name: Files
+    href: PAC.Files.html
+- uid: PAC.Tilesets.Tileset.RemoveTile*
+  commentId: Overload:PAC.Tilesets.Tileset.RemoveTile
+  href: PAC.Tilesets.Tileset.html#PAC_Tilesets_Tileset_RemoveTile_PAC_Files_File_
+  name: RemoveTile
+  nameWithType: Tileset.RemoveTile
+  fullName: PAC.Tilesets.Tileset.RemoveTile
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean

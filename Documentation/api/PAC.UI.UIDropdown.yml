@@ -1,0 +1,543 @@
+### YamlMime:ManagedReference
+items:
+- uid: PAC.UI.UIDropdown
+  commentId: T:PAC.UI.UIDropdown
+  id: UIDropdown
+  parent: PAC.UI
+  children:
+  - PAC.UI.UIDropdown.Close
+  - PAC.UI.UIDropdown.CloseRoot
+  - PAC.UI.UIDropdown.FullyOpen
+  - PAC.UI.UIDropdown.Initialise
+  - PAC.UI.UIDropdown.MouseOff
+  - PAC.UI.UIDropdown.Open
+  - PAC.UI.UIDropdown.SetOpen(System.Boolean)
+  - PAC.UI.UIDropdown.SetOpenEditor(System.Boolean)
+  - PAC.UI.UIDropdown.ToggleOpen
+  - PAC.UI.UIDropdown.isRootDropdown
+  - PAC.UI.UIDropdown.open
+  - PAC.UI.UIDropdown.openingButton
+  - PAC.UI.UIDropdown.parentDropdown
+  - PAC.UI.UIDropdown.rootDropdown
+  langs:
+  - csharp
+  - vb
+  name: UIDropdown
+  nameWithType: UIDropdown
+  fullName: PAC.UI.UIDropdown
+  type: Class
+  source:
+    remote:
+      path: Assets/Scripts/UI/UIDropdown.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: UIDropdown
+    path: ../Assets/Scripts/UI/UIDropdown.cs
+    startLine: 11
+  namespace: PAC.UI
+  syntax:
+    content: 'public class UIDropdown : MonoBehaviour'
+    content.vb: Public Class UIDropdown Inherits MonoBehaviour
+  inheritance:
+  - System.Object
+- uid: PAC.UI.UIDropdown.open
+  commentId: P:PAC.UI.UIDropdown.open
+  id: open
+  parent: PAC.UI.UIDropdown
+  langs:
+  - csharp
+  - vb
+  name: open
+  nameWithType: UIDropdown.open
+  fullName: PAC.UI.UIDropdown.open
+  type: Property
+  source:
+    remote:
+      path: Assets/Scripts/UI/UIDropdown.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: open
+    path: ../Assets/Scripts/UI/UIDropdown.cs
+    startLine: 17
+  namespace: PAC.UI
+  syntax:
+    content: public bool open { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property open As Boolean
+  overload: PAC.UI.UIDropdown.open*
+- uid: PAC.UI.UIDropdown.openingButton
+  commentId: F:PAC.UI.UIDropdown.openingButton
+  id: openingButton
+  parent: PAC.UI.UIDropdown
+  langs:
+  - csharp
+  - vb
+  name: openingButton
+  nameWithType: UIDropdown.openingButton
+  fullName: PAC.UI.UIDropdown.openingButton
+  type: Field
+  source:
+    remote:
+      path: Assets/Scripts/UI/UIDropdown.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: openingButton
+    path: ../Assets/Scripts/UI/UIDropdown.cs
+    startLine: 32
+  namespace: PAC.UI
+  syntax:
+    content: public GameObject openingButton
+    return:
+      type: Global.GameObject
+    content.vb: Public openingButton As GameObject
+- uid: PAC.UI.UIDropdown.parentDropdown
+  commentId: F:PAC.UI.UIDropdown.parentDropdown
+  id: parentDropdown
+  parent: PAC.UI.UIDropdown
+  langs:
+  - csharp
+  - vb
+  name: parentDropdown
+  nameWithType: UIDropdown.parentDropdown
+  fullName: PAC.UI.UIDropdown.parentDropdown
+  type: Field
+  source:
+    remote:
+      path: Assets/Scripts/UI/UIDropdown.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: parentDropdown
+    path: ../Assets/Scripts/UI/UIDropdown.cs
+    startLine: 35
+  namespace: PAC.UI
+  syntax:
+    content: public UIDropdown parentDropdown
+    return:
+      type: PAC.UI.UIDropdown
+    content.vb: Public parentDropdown As UIDropdown
+- uid: PAC.UI.UIDropdown.rootDropdown
+  commentId: P:PAC.UI.UIDropdown.rootDropdown
+  id: rootDropdown
+  parent: PAC.UI.UIDropdown
+  langs:
+  - csharp
+  - vb
+  name: rootDropdown
+  nameWithType: UIDropdown.rootDropdown
+  fullName: PAC.UI.UIDropdown.rootDropdown
+  type: Property
+  source:
+    remote:
+      path: Assets/Scripts/UI/UIDropdown.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: rootDropdown
+    path: ../Assets/Scripts/UI/UIDropdown.cs
+    startLine: 36
+  namespace: PAC.UI
+  syntax:
+    content: public UIDropdown rootDropdown { get; }
+    parameters: []
+    return:
+      type: PAC.UI.UIDropdown
+    content.vb: Public ReadOnly Property rootDropdown As UIDropdown
+  overload: PAC.UI.UIDropdown.rootDropdown*
+- uid: PAC.UI.UIDropdown.isRootDropdown
+  commentId: P:PAC.UI.UIDropdown.isRootDropdown
+  id: isRootDropdown
+  parent: PAC.UI.UIDropdown
+  langs:
+  - csharp
+  - vb
+  name: isRootDropdown
+  nameWithType: UIDropdown.isRootDropdown
+  fullName: PAC.UI.UIDropdown.isRootDropdown
+  type: Property
+  source:
+    remote:
+      path: Assets/Scripts/UI/UIDropdown.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: isRootDropdown
+    path: ../Assets/Scripts/UI/UIDropdown.cs
+    startLine: 44
+  namespace: PAC.UI
+  syntax:
+    content: public bool isRootDropdown { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public ReadOnly Property isRootDropdown As Boolean
+  overload: PAC.UI.UIDropdown.isRootDropdown*
+- uid: PAC.UI.UIDropdown.Initialise
+  commentId: M:PAC.UI.UIDropdown.Initialise
+  id: Initialise
+  parent: PAC.UI.UIDropdown
+  langs:
+  - csharp
+  - vb
+  name: Initialise()
+  nameWithType: UIDropdown.Initialise()
+  fullName: PAC.UI.UIDropdown.Initialise()
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/UI/UIDropdown.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: Initialise
+    path: ../Assets/Scripts/UI/UIDropdown.cs
+    startLine: 84
+  namespace: PAC.UI
+  syntax:
+    content: public void Initialise()
+    content.vb: Public Sub Initialise()
+  overload: PAC.UI.UIDropdown.Initialise*
+- uid: PAC.UI.UIDropdown.Open
+  commentId: M:PAC.UI.UIDropdown.Open
+  id: Open
+  parent: PAC.UI.UIDropdown
+  langs:
+  - csharp
+  - vb
+  name: Open()
+  nameWithType: UIDropdown.Open()
+  fullName: PAC.UI.UIDropdown.Open()
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/UI/UIDropdown.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: Open
+    path: ../Assets/Scripts/UI/UIDropdown.cs
+    startLine: 168
+  namespace: PAC.UI
+  syntax:
+    content: public void Open()
+    content.vb: Public Sub Open()
+  overload: PAC.UI.UIDropdown.Open*
+- uid: PAC.UI.UIDropdown.Close
+  commentId: M:PAC.UI.UIDropdown.Close
+  id: Close
+  parent: PAC.UI.UIDropdown
+  langs:
+  - csharp
+  - vb
+  name: Close()
+  nameWithType: UIDropdown.Close()
+  fullName: PAC.UI.UIDropdown.Close()
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/UI/UIDropdown.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: Close
+    path: ../Assets/Scripts/UI/UIDropdown.cs
+    startLine: 172
+  namespace: PAC.UI
+  syntax:
+    content: public void Close()
+    content.vb: Public Sub Close()
+  overload: PAC.UI.UIDropdown.Close*
+- uid: PAC.UI.UIDropdown.ToggleOpen
+  commentId: M:PAC.UI.UIDropdown.ToggleOpen
+  id: ToggleOpen
+  parent: PAC.UI.UIDropdown
+  langs:
+  - csharp
+  - vb
+  name: ToggleOpen()
+  nameWithType: UIDropdown.ToggleOpen()
+  fullName: PAC.UI.UIDropdown.ToggleOpen()
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/UI/UIDropdown.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: ToggleOpen
+    path: ../Assets/Scripts/UI/UIDropdown.cs
+    startLine: 176
+  namespace: PAC.UI
+  syntax:
+    content: public void ToggleOpen()
+    content.vb: Public Sub ToggleOpen()
+  overload: PAC.UI.UIDropdown.ToggleOpen*
+- uid: PAC.UI.UIDropdown.SetOpen(System.Boolean)
+  commentId: M:PAC.UI.UIDropdown.SetOpen(System.Boolean)
+  id: SetOpen(System.Boolean)
+  parent: PAC.UI.UIDropdown
+  langs:
+  - csharp
+  - vb
+  name: SetOpen(bool)
+  nameWithType: UIDropdown.SetOpen(bool)
+  fullName: PAC.UI.UIDropdown.SetOpen(bool)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/UI/UIDropdown.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: SetOpen
+    path: ../Assets/Scripts/UI/UIDropdown.cs
+    startLine: 181
+  namespace: PAC.UI
+  syntax:
+    content: public void SetOpen(bool open)
+    parameters:
+    - id: open
+      type: System.Boolean
+    content.vb: Public Sub SetOpen(open As Boolean)
+  overload: PAC.UI.UIDropdown.SetOpen*
+  nameWithType.vb: UIDropdown.SetOpen(Boolean)
+  fullName.vb: PAC.UI.UIDropdown.SetOpen(Boolean)
+  name.vb: SetOpen(Boolean)
+- uid: PAC.UI.UIDropdown.SetOpenEditor(System.Boolean)
+  commentId: M:PAC.UI.UIDropdown.SetOpenEditor(System.Boolean)
+  id: SetOpenEditor(System.Boolean)
+  parent: PAC.UI.UIDropdown
+  langs:
+  - csharp
+  - vb
+  name: SetOpenEditor(bool)
+  nameWithType: UIDropdown.SetOpenEditor(bool)
+  fullName: PAC.UI.UIDropdown.SetOpenEditor(bool)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/UI/UIDropdown.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: SetOpenEditor
+    path: ../Assets/Scripts/UI/UIDropdown.cs
+    startLine: 232
+  namespace: PAC.UI
+  syntax:
+    content: public void SetOpenEditor(bool open)
+    parameters:
+    - id: open
+      type: System.Boolean
+    content.vb: Public Sub SetOpenEditor(open As Boolean)
+  overload: PAC.UI.UIDropdown.SetOpenEditor*
+  nameWithType.vb: UIDropdown.SetOpenEditor(Boolean)
+  fullName.vb: PAC.UI.UIDropdown.SetOpenEditor(Boolean)
+  name.vb: SetOpenEditor(Boolean)
+- uid: PAC.UI.UIDropdown.FullyOpen
+  commentId: M:PAC.UI.UIDropdown.FullyOpen
+  id: FullyOpen
+  parent: PAC.UI.UIDropdown
+  langs:
+  - csharp
+  - vb
+  name: FullyOpen()
+  nameWithType: UIDropdown.FullyOpen()
+  fullName: PAC.UI.UIDropdown.FullyOpen()
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/UI/UIDropdown.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: FullyOpen
+    path: ../Assets/Scripts/UI/UIDropdown.cs
+    startLine: 268
+  namespace: PAC.UI
+  summary: Opens this dropdown and all child dropdowns, and all their child dropdowns, etc.
+  example: []
+  syntax:
+    content: public void FullyOpen()
+    content.vb: Public Sub FullyOpen()
+  overload: PAC.UI.UIDropdown.FullyOpen*
+- uid: PAC.UI.UIDropdown.CloseRoot
+  commentId: M:PAC.UI.UIDropdown.CloseRoot
+  id: CloseRoot
+  parent: PAC.UI.UIDropdown
+  langs:
+  - csharp
+  - vb
+  name: CloseRoot()
+  nameWithType: UIDropdown.CloseRoot()
+  fullName: PAC.UI.UIDropdown.CloseRoot()
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/UI/UIDropdown.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: CloseRoot
+    path: ../Assets/Scripts/UI/UIDropdown.cs
+    startLine: 286
+  namespace: PAC.UI
+  summary: Closes the highest-level dropdown containing this one.
+  example: []
+  syntax:
+    content: public void CloseRoot()
+    content.vb: Public Sub CloseRoot()
+  overload: PAC.UI.UIDropdown.CloseRoot*
+- uid: PAC.UI.UIDropdown.MouseOff
+  commentId: M:PAC.UI.UIDropdown.MouseOff
+  id: MouseOff
+  parent: PAC.UI.UIDropdown
+  langs:
+  - csharp
+  - vb
+  name: MouseOff()
+  nameWithType: UIDropdown.MouseOff()
+  fullName: PAC.UI.UIDropdown.MouseOff()
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/UI/UIDropdown.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: MouseOff
+    path: ../Assets/Scripts/UI/UIDropdown.cs
+    startLine: 291
+  namespace: PAC.UI
+  syntax:
+    content: public bool MouseOff()
+    return:
+      type: System.Boolean
+    content.vb: Public Function MouseOff() As Boolean
+  overload: PAC.UI.UIDropdown.MouseOff*
+references:
+- uid: PAC.UI
+  commentId: N:PAC.UI
+  href: PAC.html
+  name: PAC.UI
+  nameWithType: PAC.UI
+  fullName: PAC.UI
+  spec.csharp:
+  - uid: PAC
+    name: PAC
+    href: PAC.html
+  - name: .
+  - uid: PAC.UI
+    name: UI
+    href: PAC.UI.html
+  spec.vb:
+  - uid: PAC
+    name: PAC
+    href: PAC.html
+  - name: .
+  - uid: PAC.UI
+    name: UI
+    href: PAC.UI.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: PAC.UI.UIDropdown.open*
+  commentId: Overload:PAC.UI.UIDropdown.open
+  href: PAC.UI.UIDropdown.html#PAC_UI_UIDropdown_open
+  name: open
+  nameWithType: UIDropdown.open
+  fullName: PAC.UI.UIDropdown.open
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: Global.GameObject
+  isExternal: true
+  name: GameObject
+  nameWithType: GameObject
+  fullName: GameObject
+- uid: PAC.UI.UIDropdown
+  commentId: T:PAC.UI.UIDropdown
+  parent: PAC.UI
+  href: PAC.UI.UIDropdown.html
+  name: UIDropdown
+  nameWithType: UIDropdown
+  fullName: PAC.UI.UIDropdown
+- uid: PAC.UI.UIDropdown.rootDropdown*
+  commentId: Overload:PAC.UI.UIDropdown.rootDropdown
+  href: PAC.UI.UIDropdown.html#PAC_UI_UIDropdown_rootDropdown
+  name: rootDropdown
+  nameWithType: UIDropdown.rootDropdown
+  fullName: PAC.UI.UIDropdown.rootDropdown
+- uid: PAC.UI.UIDropdown.isRootDropdown*
+  commentId: Overload:PAC.UI.UIDropdown.isRootDropdown
+  href: PAC.UI.UIDropdown.html#PAC_UI_UIDropdown_isRootDropdown
+  name: isRootDropdown
+  nameWithType: UIDropdown.isRootDropdown
+  fullName: PAC.UI.UIDropdown.isRootDropdown
+- uid: PAC.UI.UIDropdown.Initialise*
+  commentId: Overload:PAC.UI.UIDropdown.Initialise
+  href: PAC.UI.UIDropdown.html#PAC_UI_UIDropdown_Initialise
+  name: Initialise
+  nameWithType: UIDropdown.Initialise
+  fullName: PAC.UI.UIDropdown.Initialise
+- uid: PAC.UI.UIDropdown.Open*
+  commentId: Overload:PAC.UI.UIDropdown.Open
+  href: PAC.UI.UIDropdown.html#PAC_UI_UIDropdown_Open
+  name: Open
+  nameWithType: UIDropdown.Open
+  fullName: PAC.UI.UIDropdown.Open
+- uid: PAC.UI.UIDropdown.Close*
+  commentId: Overload:PAC.UI.UIDropdown.Close
+  href: PAC.UI.UIDropdown.html#PAC_UI_UIDropdown_Close
+  name: Close
+  nameWithType: UIDropdown.Close
+  fullName: PAC.UI.UIDropdown.Close
+- uid: PAC.UI.UIDropdown.ToggleOpen*
+  commentId: Overload:PAC.UI.UIDropdown.ToggleOpen
+  href: PAC.UI.UIDropdown.html#PAC_UI_UIDropdown_ToggleOpen
+  name: ToggleOpen
+  nameWithType: UIDropdown.ToggleOpen
+  fullName: PAC.UI.UIDropdown.ToggleOpen
+- uid: PAC.UI.UIDropdown.SetOpen*
+  commentId: Overload:PAC.UI.UIDropdown.SetOpen
+  href: PAC.UI.UIDropdown.html#PAC_UI_UIDropdown_SetOpen_System_Boolean_
+  name: SetOpen
+  nameWithType: UIDropdown.SetOpen
+  fullName: PAC.UI.UIDropdown.SetOpen
+- uid: PAC.UI.UIDropdown.SetOpenEditor*
+  commentId: Overload:PAC.UI.UIDropdown.SetOpenEditor
+  href: PAC.UI.UIDropdown.html#PAC_UI_UIDropdown_SetOpenEditor_System_Boolean_
+  name: SetOpenEditor
+  nameWithType: UIDropdown.SetOpenEditor
+  fullName: PAC.UI.UIDropdown.SetOpenEditor
+- uid: PAC.UI.UIDropdown.FullyOpen*
+  commentId: Overload:PAC.UI.UIDropdown.FullyOpen
+  href: PAC.UI.UIDropdown.html#PAC_UI_UIDropdown_FullyOpen
+  name: FullyOpen
+  nameWithType: UIDropdown.FullyOpen
+  fullName: PAC.UI.UIDropdown.FullyOpen
+- uid: PAC.UI.UIDropdown.CloseRoot*
+  commentId: Overload:PAC.UI.UIDropdown.CloseRoot
+  href: PAC.UI.UIDropdown.html#PAC_UI_UIDropdown_CloseRoot
+  name: CloseRoot
+  nameWithType: UIDropdown.CloseRoot
+  fullName: PAC.UI.UIDropdown.CloseRoot
+- uid: PAC.UI.UIDropdown.MouseOff*
+  commentId: Overload:PAC.UI.UIDropdown.MouseOff
+  href: PAC.UI.UIDropdown.html#PAC_UI_UIDropdown_MouseOff
+  name: MouseOff
+  nameWithType: UIDropdown.MouseOff
+  fullName: PAC.UI.UIDropdown.MouseOff

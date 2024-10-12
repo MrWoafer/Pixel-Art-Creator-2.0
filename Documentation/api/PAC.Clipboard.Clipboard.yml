@@ -1,0 +1,167 @@
+### YamlMime:ManagedReference
+items:
+- uid: PAC.Clipboard.Clipboard
+  commentId: T:PAC.Clipboard.Clipboard
+  id: Clipboard
+  parent: PAC.Clipboard
+  children:
+  - PAC.Clipboard.Clipboard.Copy
+  - PAC.Clipboard.Clipboard.Cut
+  - PAC.Clipboard.Clipboard.Paste
+  langs:
+  - csharp
+  - vb
+  name: Clipboard
+  nameWithType: Clipboard
+  fullName: PAC.Clipboard.Clipboard
+  type: Class
+  source:
+    remote:
+      path: Assets/Scripts/Clipboard/Clipboard.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: Clipboard
+    path: ../Assets/Scripts/Clipboard/Clipboard.cs
+    startLine: 13
+  namespace: PAC.Clipboard
+  summary: >-
+    A class to handle copy/paste functionality.
+
+    Not yet properly implemented.
+  example: []
+  syntax:
+    content: 'public class Clipboard : MonoBehaviour'
+    content.vb: Public Class Clipboard Inherits MonoBehaviour
+  inheritance:
+  - System.Object
+- uid: PAC.Clipboard.Clipboard.Cut
+  commentId: M:PAC.Clipboard.Clipboard.Cut
+  id: Cut
+  parent: PAC.Clipboard.Clipboard
+  langs:
+  - csharp
+  - vb
+  name: Cut()
+  nameWithType: Clipboard.Cut()
+  fullName: PAC.Clipboard.Clipboard.Cut()
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Clipboard/Clipboard.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: Cut
+    path: ../Assets/Scripts/Clipboard/Clipboard.cs
+    startLine: 37
+  namespace: PAC.Clipboard
+  syntax:
+    content: public void Cut()
+    content.vb: Public Sub Cut()
+  overload: PAC.Clipboard.Clipboard.Cut*
+- uid: PAC.Clipboard.Clipboard.Copy
+  commentId: M:PAC.Clipboard.Clipboard.Copy
+  id: Copy
+  parent: PAC.Clipboard.Clipboard
+  langs:
+  - csharp
+  - vb
+  name: Copy()
+  nameWithType: Clipboard.Copy()
+  fullName: PAC.Clipboard.Clipboard.Copy()
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Clipboard/Clipboard.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: Copy
+    path: ../Assets/Scripts/Clipboard/Clipboard.cs
+    startLine: 43
+  namespace: PAC.Clipboard
+  syntax:
+    content: public void Copy()
+    content.vb: Public Sub Copy()
+  overload: PAC.Clipboard.Clipboard.Copy*
+- uid: PAC.Clipboard.Clipboard.Paste
+  commentId: M:PAC.Clipboard.Clipboard.Paste
+  id: Paste
+  parent: PAC.Clipboard.Clipboard
+  langs:
+  - csharp
+  - vb
+  name: Paste()
+  nameWithType: Clipboard.Paste()
+  fullName: PAC.Clipboard.Clipboard.Paste()
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Clipboard/Clipboard.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: Paste
+    path: ../Assets/Scripts/Clipboard/Clipboard.cs
+    startLine: 54
+  namespace: PAC.Clipboard
+  syntax:
+    content: public void Paste()
+    content.vb: Public Sub Paste()
+  overload: PAC.Clipboard.Clipboard.Paste*
+references:
+- uid: PAC.Clipboard
+  commentId: N:PAC.Clipboard
+  href: PAC.html
+  name: PAC.Clipboard
+  nameWithType: PAC.Clipboard
+  fullName: PAC.Clipboard
+  spec.csharp:
+  - uid: PAC
+    name: PAC
+    href: PAC.html
+  - name: .
+  - uid: PAC.Clipboard
+    name: Clipboard
+    href: PAC.Clipboard.html
+  spec.vb:
+  - uid: PAC
+    name: PAC
+    href: PAC.html
+  - name: .
+  - uid: PAC.Clipboard
+    name: Clipboard
+    href: PAC.Clipboard.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: PAC.Clipboard.Clipboard.Cut*
+  commentId: Overload:PAC.Clipboard.Clipboard.Cut
+  href: PAC.Clipboard.Clipboard.html#PAC_Clipboard_Clipboard_Cut
+  name: Cut
+  nameWithType: Clipboard.Cut
+  fullName: PAC.Clipboard.Clipboard.Cut
+- uid: PAC.Clipboard.Clipboard.Copy*
+  commentId: Overload:PAC.Clipboard.Clipboard.Copy
+  href: PAC.Clipboard.Clipboard.html#PAC_Clipboard_Clipboard_Copy
+  name: Copy
+  nameWithType: Clipboard.Copy
+  fullName: PAC.Clipboard.Clipboard.Copy
+- uid: PAC.Clipboard.Clipboard.Paste*
+  commentId: Overload:PAC.Clipboard.Clipboard.Paste
+  href: PAC.Clipboard.Clipboard.html#PAC_Clipboard_Clipboard_Paste
+  name: Paste
+  nameWithType: Clipboard.Paste
+  fullName: PAC.Clipboard.Clipboard.Paste

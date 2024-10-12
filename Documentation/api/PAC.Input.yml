@@ -1,0 +1,123 @@
+### YamlMime:ManagedReference
+items:
+- uid: PAC.Input
+  commentId: N:PAC.Input
+  id: PAC.Input
+  children:
+  - PAC.Input.CursorState
+  - PAC.Input.InputSystem
+  - PAC.Input.InputTarget
+  - PAC.Input.Keyboard
+  - PAC.Input.KeyboardTarget
+  - PAC.Input.Mouse
+  - PAC.Input.MouseButton
+  - PAC.Input.MouseTarget
+  - PAC.Input.MouseTargetDeselectMode
+  - PAC.Input.MouseTargetState
+  - PAC.Input.Tooltip
+  langs:
+  - csharp
+  - vb
+  name: PAC.Input
+  nameWithType: PAC.Input
+  fullName: PAC.Input
+  type: Namespace
+references:
+- uid: PAC.Input.InputSystem
+  commentId: T:PAC.Input.InputSystem
+  parent: PAC.Input
+  href: PAC.Input.InputSystem.html
+  name: InputSystem
+  nameWithType: InputSystem
+  fullName: PAC.Input.InputSystem
+- uid: PAC.Input.InputTarget
+  commentId: T:PAC.Input.InputTarget
+  parent: PAC.Input
+  href: PAC.Input.InputTarget.html
+  name: InputTarget
+  nameWithType: InputTarget
+  fullName: PAC.Input.InputTarget
+- uid: PAC.Input.Keyboard
+  commentId: T:PAC.Input.Keyboard
+  parent: PAC.Input
+  href: PAC.Input.Keyboard.html
+  name: Keyboard
+  nameWithType: Keyboard
+  fullName: PAC.Input.Keyboard
+- uid: PAC.Input.KeyboardTarget
+  commentId: T:PAC.Input.KeyboardTarget
+  parent: PAC.Input
+  href: PAC.Input.KeyboardTarget.html
+  name: KeyboardTarget
+  nameWithType: KeyboardTarget
+  fullName: PAC.Input.KeyboardTarget
+- uid: PAC.Input.CursorState
+  commentId: T:PAC.Input.CursorState
+  parent: PAC.Input
+  href: PAC.Input.CursorState.html
+  name: CursorState
+  nameWithType: CursorState
+  fullName: PAC.Input.CursorState
+- uid: PAC.Input.MouseButton
+  commentId: T:PAC.Input.MouseButton
+  parent: PAC.Input
+  href: PAC.Input.MouseButton.html
+  name: MouseButton
+  nameWithType: MouseButton
+  fullName: PAC.Input.MouseButton
+- uid: PAC.Input.Mouse
+  commentId: T:PAC.Input.Mouse
+  parent: PAC.Input
+  href: PAC.Input.Mouse.html
+  name: Mouse
+  nameWithType: Mouse
+  fullName: PAC.Input.Mouse
+- uid: PAC.Input.MouseTargetState
+  commentId: T:PAC.Input.MouseTargetState
+  parent: PAC.Input
+  href: PAC.Input.MouseTargetState.html
+  name: MouseTargetState
+  nameWithType: MouseTargetState
+  fullName: PAC.Input.MouseTargetState
+- uid: PAC.Input.MouseTargetDeselectMode
+  commentId: T:PAC.Input.MouseTargetDeselectMode
+  parent: PAC.Input
+  href: PAC.Input.MouseTargetDeselectMode.html
+  name: MouseTargetDeselectMode
+  nameWithType: MouseTargetDeselectMode
+  fullName: PAC.Input.MouseTargetDeselectMode
+- uid: PAC.Input.MouseTarget
+  commentId: T:PAC.Input.MouseTarget
+  parent: PAC.Input
+  href: PAC.Input.MouseTarget.html
+  name: MouseTarget
+  nameWithType: MouseTarget
+  fullName: PAC.Input.MouseTarget
+- uid: PAC.Input.Tooltip
+  commentId: T:PAC.Input.Tooltip
+  href: PAC.Input.Tooltip.html
+  name: Tooltip
+  nameWithType: Tooltip
+  fullName: PAC.Input.Tooltip
+- uid: PAC.Input
+  commentId: N:PAC.Input
+  href: PAC.html
+  name: PAC.Input
+  nameWithType: PAC.Input
+  fullName: PAC.Input
+  spec.csharp:
+  - uid: PAC
+    name: PAC
+    href: PAC.html
+  - name: .
+  - uid: PAC.Input
+    name: Input
+    href: PAC.Input.html
+  spec.vb:
+  - uid: PAC
+    name: PAC
+    href: PAC.html
+  - name: .
+  - uid: PAC.Input
+    name: Input
+    href: PAC.Input.html

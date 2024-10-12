@@ -1,0 +1,1319 @@
+### YamlMime:ManagedReference
+items:
+- uid: PAC.Files.FileManager
+  commentId: T:PAC.Files.FileManager
+  id: FileManager
+  parent: PAC.Files
+  children:
+  - PAC.Files.FileManager.AddFile(PAC.Files.File)
+  - PAC.Files.FileManager.CloseFile(PAC.Files.File)
+  - PAC.Files.FileManager.CloseFile(System.Int32)
+  - PAC.Files.FileManager.ExportAnimation(System.Int32,System.String)
+  - PAC.Files.FileManager.ExportCurrentAnimation(System.String)
+  - PAC.Files.FileManager.ExportCurrentAnimationDialog
+  - PAC.Files.FileManager.ExportCurrentFrame(System.Int32,System.String)
+  - PAC.Files.FileManager.ExportCurrentFrameDialog
+  - PAC.Files.FileManager.ExportFrame(System.Int32,System.Int32,System.String)
+  - PAC.Files.FileManager.ImportDialog
+  - PAC.Files.FileManager.NewFile(System.Int32,System.Int32)
+  - PAC.Files.FileManager.OpenFile(PAC.Files.File)
+  - PAC.Files.FileManager.OpenFile(System.String)
+  - PAC.Files.FileManager.OpenFileDialog
+  - PAC.Files.FileManager.ReloadFile
+  - PAC.Files.FileManager.SaveAsCurrentFile(System.String)
+  - PAC.Files.FileManager.SaveAsCurrentFileDialog
+  - PAC.Files.FileManager.SaveAsFile(PAC.Files.File,System.String)
+  - PAC.Files.FileManager.SaveAsFile(System.Int32,System.String)
+  - PAC.Files.FileManager.SaveAsFileDialog(PAC.Files.File)
+  - PAC.Files.FileManager.SaveCurrentFileDialog
+  - PAC.Files.FileManager.SaveFileDialog(PAC.Files.File)
+  - PAC.Files.FileManager.SubscribeToFileSwitched(UnityAction)
+  - PAC.Files.FileManager.SubscribeToFilesChanged(UnityAction)
+  - PAC.Files.FileManager.SwitchToFile(System.Int32)
+  - PAC.Files.FileManager.TryCloseFile(PAC.Files.File)
+  - PAC.Files.FileManager.TryCloseFile(System.Int32)
+  - PAC.Files.FileManager.currentFile
+  - PAC.Files.FileManager.currentFileIndex
+  - PAC.Files.FileManager.defaultFileName
+  - PAC.Files.FileManager.files
+  - PAC.Files.FileManager.previousFile
+  langs:
+  - csharp
+  - vb
+  name: FileManager
+  nameWithType: FileManager
+  fullName: PAC.Files.FileManager
+  type: Class
+  source:
+    remote:
+      path: Assets/Scripts/Files/FileManager.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: FileManager
+    path: ../Assets/Scripts/Files/FileManager.cs
+    startLine: 14
+  namespace: PAC.Files
+  syntax:
+    content: 'public class FileManager : MonoBehaviour'
+    content.vb: Public Class FileManager Inherits MonoBehaviour
+  inheritance:
+  - System.Object
+- uid: PAC.Files.FileManager.defaultFileName
+  commentId: F:PAC.Files.FileManager.defaultFileName
+  id: defaultFileName
+  parent: PAC.Files.FileManager
+  langs:
+  - csharp
+  - vb
+  name: defaultFileName
+  nameWithType: FileManager.defaultFileName
+  fullName: PAC.Files.FileManager.defaultFileName
+  type: Field
+  source:
+    remote:
+      path: Assets/Scripts/Files/FileManager.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: defaultFileName
+    path: ../Assets/Scripts/Files/FileManager.cs
+    startLine: 24
+  namespace: PAC.Files
+  syntax:
+    content: public const string defaultFileName = "Untitled Image"
+    return:
+      type: System.String
+    content.vb: Public Const defaultFileName As String = "Untitled Image"
+- uid: PAC.Files.FileManager.files
+  commentId: P:PAC.Files.FileManager.files
+  id: files
+  parent: PAC.Files.FileManager
+  langs:
+  - csharp
+  - vb
+  name: files
+  nameWithType: FileManager.files
+  fullName: PAC.Files.FileManager.files
+  type: Property
+  source:
+    remote:
+      path: Assets/Scripts/Files/FileManager.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: files
+    path: ../Assets/Scripts/Files/FileManager.cs
+    startLine: 26
+  namespace: PAC.Files
+  syntax:
+    content: public List<File> files { get; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.List{PAC.Files.File}
+    content.vb: Public Property files As List(Of File)
+  overload: PAC.Files.FileManager.files*
+- uid: PAC.Files.FileManager.currentFileIndex
+  commentId: P:PAC.Files.FileManager.currentFileIndex
+  id: currentFileIndex
+  parent: PAC.Files.FileManager
+  langs:
+  - csharp
+  - vb
+  name: currentFileIndex
+  nameWithType: FileManager.currentFileIndex
+  fullName: PAC.Files.FileManager.currentFileIndex
+  type: Property
+  source:
+    remote:
+      path: Assets/Scripts/Files/FileManager.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: currentFileIndex
+    path: ../Assets/Scripts/Files/FileManager.cs
+    startLine: 27
+  namespace: PAC.Files
+  syntax:
+    content: public int currentFileIndex { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public Property currentFileIndex As Integer
+  overload: PAC.Files.FileManager.currentFileIndex*
+- uid: PAC.Files.FileManager.currentFile
+  commentId: P:PAC.Files.FileManager.currentFile
+  id: currentFile
+  parent: PAC.Files.FileManager
+  langs:
+  - csharp
+  - vb
+  name: currentFile
+  nameWithType: FileManager.currentFile
+  fullName: PAC.Files.FileManager.currentFile
+  type: Property
+  source:
+    remote:
+      path: Assets/Scripts/Files/FileManager.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: currentFile
+    path: ../Assets/Scripts/Files/FileManager.cs
+    startLine: 28
+  namespace: PAC.Files
+  syntax:
+    content: public File currentFile { get; }
+    parameters: []
+    return:
+      type: PAC.Files.File
+    content.vb: Public ReadOnly Property currentFile As File
+  overload: PAC.Files.FileManager.currentFile*
+- uid: PAC.Files.FileManager.previousFile
+  commentId: F:PAC.Files.FileManager.previousFile
+  id: previousFile
+  parent: PAC.Files.FileManager
+  langs:
+  - csharp
+  - vb
+  name: previousFile
+  nameWithType: FileManager.previousFile
+  fullName: PAC.Files.FileManager.previousFile
+  type: Field
+  source:
+    remote:
+      path: Assets/Scripts/Files/FileManager.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: previousFile
+    path: ../Assets/Scripts/Files/FileManager.cs
+    startLine: 30
+  namespace: PAC.Files
+  syntax:
+    content: public File previousFile
+    return:
+      type: PAC.Files.File
+    content.vb: Public previousFile As File
+- uid: PAC.Files.FileManager.AddFile(PAC.Files.File)
+  commentId: M:PAC.Files.FileManager.AddFile(PAC.Files.File)
+  id: AddFile(PAC.Files.File)
+  parent: PAC.Files.FileManager
+  langs:
+  - csharp
+  - vb
+  name: AddFile(File)
+  nameWithType: FileManager.AddFile(File)
+  fullName: PAC.Files.FileManager.AddFile(PAC.Files.File)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Files/FileManager.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: AddFile
+    path: ../Assets/Scripts/Files/FileManager.cs
+    startLine: 83
+  namespace: PAC.Files
+  syntax:
+    content: public bool AddFile(File file)
+    parameters:
+    - id: file
+      type: PAC.Files.File
+    return:
+      type: System.Boolean
+    content.vb: Public Function AddFile(file As File) As Boolean
+  overload: PAC.Files.FileManager.AddFile*
+- uid: PAC.Files.FileManager.TryCloseFile(PAC.Files.File)
+  commentId: M:PAC.Files.FileManager.TryCloseFile(PAC.Files.File)
+  id: TryCloseFile(PAC.Files.File)
+  parent: PAC.Files.FileManager
+  langs:
+  - csharp
+  - vb
+  name: TryCloseFile(File)
+  nameWithType: FileManager.TryCloseFile(File)
+  fullName: PAC.Files.FileManager.TryCloseFile(PAC.Files.File)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Files/FileManager.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: TryCloseFile
+    path: ../Assets/Scripts/Files/FileManager.cs
+    startLine: 104
+  namespace: PAC.Files
+  summary: Will close the file if there are no unsaved changes. Otherwise it will open a dialog box asking if you want to save.
+  example: []
+  syntax:
+    content: public bool TryCloseFile(File file)
+    parameters:
+    - id: file
+      type: PAC.Files.File
+    return:
+      type: System.Boolean
+    content.vb: Public Function TryCloseFile(file As File) As Boolean
+  overload: PAC.Files.FileManager.TryCloseFile*
+- uid: PAC.Files.FileManager.TryCloseFile(System.Int32)
+  commentId: M:PAC.Files.FileManager.TryCloseFile(System.Int32)
+  id: TryCloseFile(System.Int32)
+  parent: PAC.Files.FileManager
+  langs:
+  - csharp
+  - vb
+  name: TryCloseFile(int)
+  nameWithType: FileManager.TryCloseFile(int)
+  fullName: PAC.Files.FileManager.TryCloseFile(int)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Files/FileManager.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: TryCloseFile
+    path: ../Assets/Scripts/Files/FileManager.cs
+    startLine: 118
+  namespace: PAC.Files
+  summary: Will close the file if there are no unsaved changes. Otherwise it will open a dialog box asking if you want to save.
+  example: []
+  syntax:
+    content: public bool TryCloseFile(int fileIndex)
+    parameters:
+    - id: fileIndex
+      type: System.Int32
+    return:
+      type: System.Boolean
+    content.vb: Public Function TryCloseFile(fileIndex As Integer) As Boolean
+  overload: PAC.Files.FileManager.TryCloseFile*
+  nameWithType.vb: FileManager.TryCloseFile(Integer)
+  fullName.vb: PAC.Files.FileManager.TryCloseFile(Integer)
+  name.vb: TryCloseFile(Integer)
+- uid: PAC.Files.FileManager.CloseFile(PAC.Files.File)
+  commentId: M:PAC.Files.FileManager.CloseFile(PAC.Files.File)
+  id: CloseFile(PAC.Files.File)
+  parent: PAC.Files.FileManager
+  langs:
+  - csharp
+  - vb
+  name: CloseFile(File)
+  nameWithType: FileManager.CloseFile(File)
+  fullName: PAC.Files.FileManager.CloseFile(PAC.Files.File)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Files/FileManager.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: CloseFile
+    path: ../Assets/Scripts/Files/FileManager.cs
+    startLine: 132
+  namespace: PAC.Files
+  summary: Closes the file, with no checks for unsaved changes.
+  example: []
+  syntax:
+    content: public bool CloseFile(File file)
+    parameters:
+    - id: file
+      type: PAC.Files.File
+    return:
+      type: System.Boolean
+    content.vb: Public Function CloseFile(file As File) As Boolean
+  overload: PAC.Files.FileManager.CloseFile*
+- uid: PAC.Files.FileManager.CloseFile(System.Int32)
+  commentId: M:PAC.Files.FileManager.CloseFile(System.Int32)
+  id: CloseFile(System.Int32)
+  parent: PAC.Files.FileManager
+  langs:
+  - csharp
+  - vb
+  name: CloseFile(int)
+  nameWithType: FileManager.CloseFile(int)
+  fullName: PAC.Files.FileManager.CloseFile(int)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Files/FileManager.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: CloseFile
+    path: ../Assets/Scripts/Files/FileManager.cs
+    startLine: 146
+  namespace: PAC.Files
+  summary: Closes the file, with no checks for unsaved changes.
+  example: []
+  syntax:
+    content: public File CloseFile(int fileIndex)
+    parameters:
+    - id: fileIndex
+      type: System.Int32
+    return:
+      type: PAC.Files.File
+    content.vb: Public Function CloseFile(fileIndex As Integer) As File
+  overload: PAC.Files.FileManager.CloseFile*
+  nameWithType.vb: FileManager.CloseFile(Integer)
+  fullName.vb: PAC.Files.FileManager.CloseFile(Integer)
+  name.vb: CloseFile(Integer)
+- uid: PAC.Files.FileManager.NewFile(System.Int32,System.Int32)
+  commentId: M:PAC.Files.FileManager.NewFile(System.Int32,System.Int32)
+  id: NewFile(System.Int32,System.Int32)
+  parent: PAC.Files.FileManager
+  langs:
+  - csharp
+  - vb
+  name: NewFile(int, int)
+  nameWithType: FileManager.NewFile(int, int)
+  fullName: PAC.Files.FileManager.NewFile(int, int)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Files/FileManager.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: NewFile
+    path: ../Assets/Scripts/Files/FileManager.cs
+    startLine: 171
+  namespace: PAC.Files
+  syntax:
+    content: public void NewFile(int width, int height)
+    parameters:
+    - id: width
+      type: System.Int32
+    - id: height
+      type: System.Int32
+    content.vb: Public Sub NewFile(width As Integer, height As Integer)
+  overload: PAC.Files.FileManager.NewFile*
+  nameWithType.vb: FileManager.NewFile(Integer, Integer)
+  fullName.vb: PAC.Files.FileManager.NewFile(Integer, Integer)
+  name.vb: NewFile(Integer, Integer)
+- uid: PAC.Files.FileManager.OpenFileDialog
+  commentId: M:PAC.Files.FileManager.OpenFileDialog
+  id: OpenFileDialog
+  parent: PAC.Files.FileManager
+  langs:
+  - csharp
+  - vb
+  name: OpenFileDialog()
+  nameWithType: FileManager.OpenFileDialog()
+  fullName: PAC.Files.FileManager.OpenFileDialog()
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Files/FileManager.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: OpenFileDialog
+    path: ../Assets/Scripts/Files/FileManager.cs
+    startLine: 177
+  namespace: PAC.Files
+  syntax:
+    content: public void OpenFileDialog()
+    content.vb: Public Sub OpenFileDialog()
+  overload: PAC.Files.FileManager.OpenFileDialog*
+- uid: PAC.Files.FileManager.OpenFile(PAC.Files.File)
+  commentId: M:PAC.Files.FileManager.OpenFile(PAC.Files.File)
+  id: OpenFile(PAC.Files.File)
+  parent: PAC.Files.FileManager
+  langs:
+  - csharp
+  - vb
+  name: OpenFile(File)
+  nameWithType: FileManager.OpenFile(File)
+  fullName: PAC.Files.FileManager.OpenFile(PAC.Files.File)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Files/FileManager.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: OpenFile
+    path: ../Assets/Scripts/Files/FileManager.cs
+    startLine: 187
+  namespace: PAC.Files
+  syntax:
+    content: public bool OpenFile(File file)
+    parameters:
+    - id: file
+      type: PAC.Files.File
+    return:
+      type: System.Boolean
+    content.vb: Public Function OpenFile(file As File) As Boolean
+  overload: PAC.Files.FileManager.OpenFile*
+- uid: PAC.Files.FileManager.OpenFile(System.String)
+  commentId: M:PAC.Files.FileManager.OpenFile(System.String)
+  id: OpenFile(System.String)
+  parent: PAC.Files.FileManager
+  langs:
+  - csharp
+  - vb
+  name: OpenFile(string)
+  nameWithType: FileManager.OpenFile(string)
+  fullName: PAC.Files.FileManager.OpenFile(string)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Files/FileManager.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: OpenFile
+    path: ../Assets/Scripts/Files/FileManager.cs
+    startLine: 208
+  namespace: PAC.Files
+  syntax:
+    content: public bool OpenFile(string filePath)
+    parameters:
+    - id: filePath
+      type: System.String
+    return:
+      type: System.Boolean
+    content.vb: Public Function OpenFile(filePath As String) As Boolean
+  overload: PAC.Files.FileManager.OpenFile*
+  nameWithType.vb: FileManager.OpenFile(String)
+  fullName.vb: PAC.Files.FileManager.OpenFile(String)
+  name.vb: OpenFile(String)
+- uid: PAC.Files.FileManager.ImportDialog
+  commentId: M:PAC.Files.FileManager.ImportDialog
+  id: ImportDialog
+  parent: PAC.Files.FileManager
+  langs:
+  - csharp
+  - vb
+  name: ImportDialog()
+  nameWithType: FileManager.ImportDialog()
+  fullName: PAC.Files.FileManager.ImportDialog()
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Files/FileManager.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: ImportDialog
+    path: ../Assets/Scripts/Files/FileManager.cs
+    startLine: 218
+  namespace: PAC.Files
+  syntax:
+    content: public void ImportDialog()
+    content.vb: Public Sub ImportDialog()
+  overload: PAC.Files.FileManager.ImportDialog*
+- uid: PAC.Files.FileManager.ExportCurrentFrameDialog
+  commentId: M:PAC.Files.FileManager.ExportCurrentFrameDialog
+  id: ExportCurrentFrameDialog
+  parent: PAC.Files.FileManager
+  langs:
+  - csharp
+  - vb
+  name: ExportCurrentFrameDialog()
+  nameWithType: FileManager.ExportCurrentFrameDialog()
+  fullName: PAC.Files.FileManager.ExportCurrentFrameDialog()
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Files/FileManager.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: ExportCurrentFrameDialog
+    path: ../Assets/Scripts/Files/FileManager.cs
+    startLine: 253
+  namespace: PAC.Files
+  syntax:
+    content: public void ExportCurrentFrameDialog()
+    content.vb: Public Sub ExportCurrentFrameDialog()
+  overload: PAC.Files.FileManager.ExportCurrentFrameDialog*
+- uid: PAC.Files.FileManager.ExportCurrentFrame(System.Int32,System.String)
+  commentId: M:PAC.Files.FileManager.ExportCurrentFrame(System.Int32,System.String)
+  id: ExportCurrentFrame(System.Int32,System.String)
+  parent: PAC.Files.FileManager
+  langs:
+  - csharp
+  - vb
+  name: ExportCurrentFrame(int, string)
+  nameWithType: FileManager.ExportCurrentFrame(int, string)
+  fullName: PAC.Files.FileManager.ExportCurrentFrame(int, string)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Files/FileManager.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: ExportCurrentFrame
+    path: ../Assets/Scripts/Files/FileManager.cs
+    startLine: 265
+  namespace: PAC.Files
+  syntax:
+    content: public bool ExportCurrentFrame(int frameIndex, string filePath)
+    parameters:
+    - id: frameIndex
+      type: System.Int32
+    - id: filePath
+      type: System.String
+    return:
+      type: System.Boolean
+    content.vb: Public Function ExportCurrentFrame(frameIndex As Integer, filePath As String) As Boolean
+  overload: PAC.Files.FileManager.ExportCurrentFrame*
+  nameWithType.vb: FileManager.ExportCurrentFrame(Integer, String)
+  fullName.vb: PAC.Files.FileManager.ExportCurrentFrame(Integer, String)
+  name.vb: ExportCurrentFrame(Integer, String)
+- uid: PAC.Files.FileManager.ExportFrame(System.Int32,System.Int32,System.String)
+  commentId: M:PAC.Files.FileManager.ExportFrame(System.Int32,System.Int32,System.String)
+  id: ExportFrame(System.Int32,System.Int32,System.String)
+  parent: PAC.Files.FileManager
+  langs:
+  - csharp
+  - vb
+  name: ExportFrame(int, int, string)
+  nameWithType: FileManager.ExportFrame(int, int, string)
+  fullName: PAC.Files.FileManager.ExportFrame(int, int, string)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Files/FileManager.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: ExportFrame
+    path: ../Assets/Scripts/Files/FileManager.cs
+    startLine: 269
+  namespace: PAC.Files
+  syntax:
+    content: public bool ExportFrame(int frameIndex, int fileIndex, string filePath)
+    parameters:
+    - id: frameIndex
+      type: System.Int32
+    - id: fileIndex
+      type: System.Int32
+    - id: filePath
+      type: System.String
+    return:
+      type: System.Boolean
+    content.vb: Public Function ExportFrame(frameIndex As Integer, fileIndex As Integer, filePath As String) As Boolean
+  overload: PAC.Files.FileManager.ExportFrame*
+  nameWithType.vb: FileManager.ExportFrame(Integer, Integer, String)
+  fullName.vb: PAC.Files.FileManager.ExportFrame(Integer, Integer, String)
+  name.vb: ExportFrame(Integer, Integer, String)
+- uid: PAC.Files.FileManager.ExportCurrentAnimationDialog
+  commentId: M:PAC.Files.FileManager.ExportCurrentAnimationDialog
+  id: ExportCurrentAnimationDialog
+  parent: PAC.Files.FileManager
+  langs:
+  - csharp
+  - vb
+  name: ExportCurrentAnimationDialog()
+  nameWithType: FileManager.ExportCurrentAnimationDialog()
+  fullName: PAC.Files.FileManager.ExportCurrentAnimationDialog()
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Files/FileManager.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: ExportCurrentAnimationDialog
+    path: ../Assets/Scripts/Files/FileManager.cs
+    startLine: 278
+  namespace: PAC.Files
+  syntax:
+    content: public void ExportCurrentAnimationDialog()
+    content.vb: Public Sub ExportCurrentAnimationDialog()
+  overload: PAC.Files.FileManager.ExportCurrentAnimationDialog*
+- uid: PAC.Files.FileManager.ExportCurrentAnimation(System.String)
+  commentId: M:PAC.Files.FileManager.ExportCurrentAnimation(System.String)
+  id: ExportCurrentAnimation(System.String)
+  parent: PAC.Files.FileManager
+  langs:
+  - csharp
+  - vb
+  name: ExportCurrentAnimation(string)
+  nameWithType: FileManager.ExportCurrentAnimation(string)
+  fullName: PAC.Files.FileManager.ExportCurrentAnimation(string)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Files/FileManager.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: ExportCurrentAnimation
+    path: ../Assets/Scripts/Files/FileManager.cs
+    startLine: 290
+  namespace: PAC.Files
+  syntax:
+    content: public bool ExportCurrentAnimation(string filePath)
+    parameters:
+    - id: filePath
+      type: System.String
+    return:
+      type: System.Boolean
+    content.vb: Public Function ExportCurrentAnimation(filePath As String) As Boolean
+  overload: PAC.Files.FileManager.ExportCurrentAnimation*
+  nameWithType.vb: FileManager.ExportCurrentAnimation(String)
+  fullName.vb: PAC.Files.FileManager.ExportCurrentAnimation(String)
+  name.vb: ExportCurrentAnimation(String)
+- uid: PAC.Files.FileManager.ExportAnimation(System.Int32,System.String)
+  commentId: M:PAC.Files.FileManager.ExportAnimation(System.Int32,System.String)
+  id: ExportAnimation(System.Int32,System.String)
+  parent: PAC.Files.FileManager
+  langs:
+  - csharp
+  - vb
+  name: ExportAnimation(int, string)
+  nameWithType: FileManager.ExportAnimation(int, string)
+  fullName: PAC.Files.FileManager.ExportAnimation(int, string)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Files/FileManager.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: ExportAnimation
+    path: ../Assets/Scripts/Files/FileManager.cs
+    startLine: 294
+  namespace: PAC.Files
+  syntax:
+    content: public bool ExportAnimation(int fileIndex, string filePath)
+    parameters:
+    - id: fileIndex
+      type: System.Int32
+    - id: filePath
+      type: System.String
+    return:
+      type: System.Boolean
+    content.vb: Public Function ExportAnimation(fileIndex As Integer, filePath As String) As Boolean
+  overload: PAC.Files.FileManager.ExportAnimation*
+  nameWithType.vb: FileManager.ExportAnimation(Integer, String)
+  fullName.vb: PAC.Files.FileManager.ExportAnimation(Integer, String)
+  name.vb: ExportAnimation(Integer, String)
+- uid: PAC.Files.FileManager.SaveCurrentFileDialog
+  commentId: M:PAC.Files.FileManager.SaveCurrentFileDialog
+  id: SaveCurrentFileDialog
+  parent: PAC.Files.FileManager
+  langs:
+  - csharp
+  - vb
+  name: SaveCurrentFileDialog()
+  nameWithType: FileManager.SaveCurrentFileDialog()
+  fullName: PAC.Files.FileManager.SaveCurrentFileDialog()
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Files/FileManager.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: SaveCurrentFileDialog
+    path: ../Assets/Scripts/Files/FileManager.cs
+    startLine: 303
+  namespace: PAC.Files
+  syntax:
+    content: public void SaveCurrentFileDialog()
+    content.vb: Public Sub SaveCurrentFileDialog()
+  overload: PAC.Files.FileManager.SaveCurrentFileDialog*
+- uid: PAC.Files.FileManager.SaveFileDialog(PAC.Files.File)
+  commentId: M:PAC.Files.FileManager.SaveFileDialog(PAC.Files.File)
+  id: SaveFileDialog(PAC.Files.File)
+  parent: PAC.Files.FileManager
+  langs:
+  - csharp
+  - vb
+  name: SaveFileDialog(File)
+  nameWithType: FileManager.SaveFileDialog(File)
+  fullName: PAC.Files.FileManager.SaveFileDialog(PAC.Files.File)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Files/FileManager.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: SaveFileDialog
+    path: ../Assets/Scripts/Files/FileManager.cs
+    startLine: 307
+  namespace: PAC.Files
+  syntax:
+    content: public void SaveFileDialog(File file)
+    parameters:
+    - id: file
+      type: PAC.Files.File
+    content.vb: Public Sub SaveFileDialog(file As File)
+  overload: PAC.Files.FileManager.SaveFileDialog*
+- uid: PAC.Files.FileManager.SaveAsCurrentFileDialog
+  commentId: M:PAC.Files.FileManager.SaveAsCurrentFileDialog
+  id: SaveAsCurrentFileDialog
+  parent: PAC.Files.FileManager
+  langs:
+  - csharp
+  - vb
+  name: SaveAsCurrentFileDialog()
+  nameWithType: FileManager.SaveAsCurrentFileDialog()
+  fullName: PAC.Files.FileManager.SaveAsCurrentFileDialog()
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Files/FileManager.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: SaveAsCurrentFileDialog
+    path: ../Assets/Scripts/Files/FileManager.cs
+    startLine: 327
+  namespace: PAC.Files
+  syntax:
+    content: public void SaveAsCurrentFileDialog()
+    content.vb: Public Sub SaveAsCurrentFileDialog()
+  overload: PAC.Files.FileManager.SaveAsCurrentFileDialog*
+- uid: PAC.Files.FileManager.SaveAsFileDialog(PAC.Files.File)
+  commentId: M:PAC.Files.FileManager.SaveAsFileDialog(PAC.Files.File)
+  id: SaveAsFileDialog(PAC.Files.File)
+  parent: PAC.Files.FileManager
+  langs:
+  - csharp
+  - vb
+  name: SaveAsFileDialog(File)
+  nameWithType: FileManager.SaveAsFileDialog(File)
+  fullName: PAC.Files.FileManager.SaveAsFileDialog(PAC.Files.File)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Files/FileManager.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: SaveAsFileDialog
+    path: ../Assets/Scripts/Files/FileManager.cs
+    startLine: 331
+  namespace: PAC.Files
+  syntax:
+    content: public void SaveAsFileDialog(File file)
+    parameters:
+    - id: file
+      type: PAC.Files.File
+    content.vb: Public Sub SaveAsFileDialog(file As File)
+  overload: PAC.Files.FileManager.SaveAsFileDialog*
+- uid: PAC.Files.FileManager.SaveAsCurrentFile(System.String)
+  commentId: M:PAC.Files.FileManager.SaveAsCurrentFile(System.String)
+  id: SaveAsCurrentFile(System.String)
+  parent: PAC.Files.FileManager
+  langs:
+  - csharp
+  - vb
+  name: SaveAsCurrentFile(string)
+  nameWithType: FileManager.SaveAsCurrentFile(string)
+  fullName: PAC.Files.FileManager.SaveAsCurrentFile(string)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Files/FileManager.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: SaveAsCurrentFile
+    path: ../Assets/Scripts/Files/FileManager.cs
+    startLine: 344
+  namespace: PAC.Files
+  syntax:
+    content: public void SaveAsCurrentFile(string filePath)
+    parameters:
+    - id: filePath
+      type: System.String
+    content.vb: Public Sub SaveAsCurrentFile(filePath As String)
+  overload: PAC.Files.FileManager.SaveAsCurrentFile*
+  nameWithType.vb: FileManager.SaveAsCurrentFile(String)
+  fullName.vb: PAC.Files.FileManager.SaveAsCurrentFile(String)
+  name.vb: SaveAsCurrentFile(String)
+- uid: PAC.Files.FileManager.SaveAsFile(PAC.Files.File,System.String)
+  commentId: M:PAC.Files.FileManager.SaveAsFile(PAC.Files.File,System.String)
+  id: SaveAsFile(PAC.Files.File,System.String)
+  parent: PAC.Files.FileManager
+  langs:
+  - csharp
+  - vb
+  name: SaveAsFile(File, string)
+  nameWithType: FileManager.SaveAsFile(File, string)
+  fullName: PAC.Files.FileManager.SaveAsFile(PAC.Files.File, string)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Files/FileManager.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: SaveAsFile
+    path: ../Assets/Scripts/Files/FileManager.cs
+    startLine: 348
+  namespace: PAC.Files
+  syntax:
+    content: public void SaveAsFile(File file, string filePath)
+    parameters:
+    - id: file
+      type: PAC.Files.File
+    - id: filePath
+      type: System.String
+    content.vb: Public Sub SaveAsFile(file As File, filePath As String)
+  overload: PAC.Files.FileManager.SaveAsFile*
+  nameWithType.vb: FileManager.SaveAsFile(File, String)
+  fullName.vb: PAC.Files.FileManager.SaveAsFile(PAC.Files.File, String)
+  name.vb: SaveAsFile(File, String)
+- uid: PAC.Files.FileManager.SaveAsFile(System.Int32,System.String)
+  commentId: M:PAC.Files.FileManager.SaveAsFile(System.Int32,System.String)
+  id: SaveAsFile(System.Int32,System.String)
+  parent: PAC.Files.FileManager
+  langs:
+  - csharp
+  - vb
+  name: SaveAsFile(int, string)
+  nameWithType: FileManager.SaveAsFile(int, string)
+  fullName: PAC.Files.FileManager.SaveAsFile(int, string)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Files/FileManager.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: SaveAsFile
+    path: ../Assets/Scripts/Files/FileManager.cs
+    startLine: 352
+  namespace: PAC.Files
+  syntax:
+    content: public void SaveAsFile(int fileIndex, string filePath)
+    parameters:
+    - id: fileIndex
+      type: System.Int32
+    - id: filePath
+      type: System.String
+    content.vb: Public Sub SaveAsFile(fileIndex As Integer, filePath As String)
+  overload: PAC.Files.FileManager.SaveAsFile*
+  nameWithType.vb: FileManager.SaveAsFile(Integer, String)
+  fullName.vb: PAC.Files.FileManager.SaveAsFile(Integer, String)
+  name.vb: SaveAsFile(Integer, String)
+- uid: PAC.Files.FileManager.ReloadFile
+  commentId: M:PAC.Files.FileManager.ReloadFile
+  id: ReloadFile
+  parent: PAC.Files.FileManager
+  langs:
+  - csharp
+  - vb
+  name: ReloadFile()
+  nameWithType: FileManager.ReloadFile()
+  fullName: PAC.Files.FileManager.ReloadFile()
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Files/FileManager.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: ReloadFile
+    path: ../Assets/Scripts/Files/FileManager.cs
+    startLine: 361
+  namespace: PAC.Files
+  syntax:
+    content: public void ReloadFile()
+    content.vb: Public Sub ReloadFile()
+  overload: PAC.Files.FileManager.ReloadFile*
+- uid: PAC.Files.FileManager.SwitchToFile(System.Int32)
+  commentId: M:PAC.Files.FileManager.SwitchToFile(System.Int32)
+  id: SwitchToFile(System.Int32)
+  parent: PAC.Files.FileManager
+  langs:
+  - csharp
+  - vb
+  name: SwitchToFile(int)
+  nameWithType: FileManager.SwitchToFile(int)
+  fullName: PAC.Files.FileManager.SwitchToFile(int)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Files/FileManager.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: SwitchToFile
+    path: ../Assets/Scripts/Files/FileManager.cs
+    startLine: 365
+  namespace: PAC.Files
+  syntax:
+    content: public void SwitchToFile(int fileIndex)
+    parameters:
+    - id: fileIndex
+      type: System.Int32
+    content.vb: Public Sub SwitchToFile(fileIndex As Integer)
+  overload: PAC.Files.FileManager.SwitchToFile*
+  nameWithType.vb: FileManager.SwitchToFile(Integer)
+  fullName.vb: PAC.Files.FileManager.SwitchToFile(Integer)
+  name.vb: SwitchToFile(Integer)
+- uid: PAC.Files.FileManager.SubscribeToFileSwitched(UnityAction)
+  commentId: M:PAC.Files.FileManager.SubscribeToFileSwitched(UnityAction)
+  id: SubscribeToFileSwitched(UnityAction)
+  parent: PAC.Files.FileManager
+  langs:
+  - csharp
+  - vb
+  name: SubscribeToFileSwitched(UnityAction)
+  nameWithType: FileManager.SubscribeToFileSwitched(UnityAction)
+  fullName: PAC.Files.FileManager.SubscribeToFileSwitched(UnityAction)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Files/FileManager.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: SubscribeToFileSwitched
+    path: ../Assets/Scripts/Files/FileManager.cs
+    startLine: 408
+  namespace: PAC.Files
+  syntax:
+    content: public void SubscribeToFileSwitched(UnityAction call)
+    parameters:
+    - id: call
+      type: Global.UnityAction
+    content.vb: Public Sub SubscribeToFileSwitched([call] As UnityAction)
+  overload: PAC.Files.FileManager.SubscribeToFileSwitched*
+- uid: PAC.Files.FileManager.SubscribeToFilesChanged(UnityAction)
+  commentId: M:PAC.Files.FileManager.SubscribeToFilesChanged(UnityAction)
+  id: SubscribeToFilesChanged(UnityAction)
+  parent: PAC.Files.FileManager
+  langs:
+  - csharp
+  - vb
+  name: SubscribeToFilesChanged(UnityAction)
+  nameWithType: FileManager.SubscribeToFilesChanged(UnityAction)
+  fullName: PAC.Files.FileManager.SubscribeToFilesChanged(UnityAction)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Files/FileManager.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: SubscribeToFilesChanged
+    path: ../Assets/Scripts/Files/FileManager.cs
+    startLine: 412
+  namespace: PAC.Files
+  syntax:
+    content: public void SubscribeToFilesChanged(UnityAction call)
+    parameters:
+    - id: call
+      type: Global.UnityAction
+    content.vb: Public Sub SubscribeToFilesChanged([call] As UnityAction)
+  overload: PAC.Files.FileManager.SubscribeToFilesChanged*
+references:
+- uid: PAC.Files
+  commentId: N:PAC.Files
+  href: PAC.html
+  name: PAC.Files
+  nameWithType: PAC.Files
+  fullName: PAC.Files
+  spec.csharp:
+  - uid: PAC
+    name: PAC
+    href: PAC.html
+  - name: .
+  - uid: PAC.Files
+    name: Files
+    href: PAC.Files.html
+  spec.vb:
+  - uid: PAC
+    name: PAC
+    href: PAC.html
+  - name: .
+  - uid: PAC.Files
+    name: Files
+    href: PAC.Files.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: PAC.Files.FileManager.files*
+  commentId: Overload:PAC.Files.FileManager.files
+  href: PAC.Files.FileManager.html#PAC_Files_FileManager_files
+  name: files
+  nameWithType: FileManager.files
+  fullName: PAC.Files.FileManager.files
+- uid: System.Collections.Generic.List{PAC.Files.File}
+  commentId: T:System.Collections.Generic.List{PAC.Files.File}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<File>
+  nameWithType: List<File>
+  fullName: System.Collections.Generic.List<PAC.Files.File>
+  nameWithType.vb: List(Of File)
+  fullName.vb: System.Collections.Generic.List(Of PAC.Files.File)
+  name.vb: List(Of File)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: PAC.Files.File
+    name: File
+    href: PAC.Files.File.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: PAC.Files.File
+    name: File
+    href: PAC.Files.File.html
+  - name: )
+- uid: System.Collections.Generic.List`1
+  commentId: T:System.Collections.Generic.List`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<T>
+  nameWithType: List<T>
+  fullName: System.Collections.Generic.List<T>
+  nameWithType.vb: List(Of T)
+  fullName.vb: System.Collections.Generic.List(Of T)
+  name.vb: List(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: PAC.Files.FileManager.currentFileIndex*
+  commentId: Overload:PAC.Files.FileManager.currentFileIndex
+  href: PAC.Files.FileManager.html#PAC_Files_FileManager_currentFileIndex
+  name: currentFileIndex
+  nameWithType: FileManager.currentFileIndex
+  fullName: PAC.Files.FileManager.currentFileIndex
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: PAC.Files.FileManager.currentFile*
+  commentId: Overload:PAC.Files.FileManager.currentFile
+  href: PAC.Files.FileManager.html#PAC_Files_FileManager_currentFile
+  name: currentFile
+  nameWithType: FileManager.currentFile
+  fullName: PAC.Files.FileManager.currentFile
+- uid: PAC.Files.File
+  commentId: T:PAC.Files.File
+  parent: PAC.Files
+  href: PAC.Files.File.html
+  name: File
+  nameWithType: File
+  fullName: PAC.Files.File
+- uid: PAC.Files.FileManager.AddFile*
+  commentId: Overload:PAC.Files.FileManager.AddFile
+  href: PAC.Files.FileManager.html#PAC_Files_FileManager_AddFile_PAC_Files_File_
+  name: AddFile
+  nameWithType: FileManager.AddFile
+  fullName: PAC.Files.FileManager.AddFile
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: PAC.Files.FileManager.TryCloseFile*
+  commentId: Overload:PAC.Files.FileManager.TryCloseFile
+  href: PAC.Files.FileManager.html#PAC_Files_FileManager_TryCloseFile_PAC_Files_File_
+  name: TryCloseFile
+  nameWithType: FileManager.TryCloseFile
+  fullName: PAC.Files.FileManager.TryCloseFile
+- uid: PAC.Files.FileManager.CloseFile*
+  commentId: Overload:PAC.Files.FileManager.CloseFile
+  href: PAC.Files.FileManager.html#PAC_Files_FileManager_CloseFile_PAC_Files_File_
+  name: CloseFile
+  nameWithType: FileManager.CloseFile
+  fullName: PAC.Files.FileManager.CloseFile
+- uid: PAC.Files.FileManager.NewFile*
+  commentId: Overload:PAC.Files.FileManager.NewFile
+  href: PAC.Files.FileManager.html#PAC_Files_FileManager_NewFile_System_Int32_System_Int32_
+  name: NewFile
+  nameWithType: FileManager.NewFile
+  fullName: PAC.Files.FileManager.NewFile
+- uid: PAC.Files.FileManager.OpenFileDialog*
+  commentId: Overload:PAC.Files.FileManager.OpenFileDialog
+  href: PAC.Files.FileManager.html#PAC_Files_FileManager_OpenFileDialog
+  name: OpenFileDialog
+  nameWithType: FileManager.OpenFileDialog
+  fullName: PAC.Files.FileManager.OpenFileDialog
+- uid: PAC.Files.FileManager.OpenFile*
+  commentId: Overload:PAC.Files.FileManager.OpenFile
+  href: PAC.Files.FileManager.html#PAC_Files_FileManager_OpenFile_PAC_Files_File_
+  name: OpenFile
+  nameWithType: FileManager.OpenFile
+  fullName: PAC.Files.FileManager.OpenFile
+- uid: PAC.Files.FileManager.ImportDialog*
+  commentId: Overload:PAC.Files.FileManager.ImportDialog
+  href: PAC.Files.FileManager.html#PAC_Files_FileManager_ImportDialog
+  name: ImportDialog
+  nameWithType: FileManager.ImportDialog
+  fullName: PAC.Files.FileManager.ImportDialog
+- uid: PAC.Files.FileManager.ExportCurrentFrameDialog*
+  commentId: Overload:PAC.Files.FileManager.ExportCurrentFrameDialog
+  href: PAC.Files.FileManager.html#PAC_Files_FileManager_ExportCurrentFrameDialog
+  name: ExportCurrentFrameDialog
+  nameWithType: FileManager.ExportCurrentFrameDialog
+  fullName: PAC.Files.FileManager.ExportCurrentFrameDialog
+- uid: PAC.Files.FileManager.ExportCurrentFrame*
+  commentId: Overload:PAC.Files.FileManager.ExportCurrentFrame
+  href: PAC.Files.FileManager.html#PAC_Files_FileManager_ExportCurrentFrame_System_Int32_System_String_
+  name: ExportCurrentFrame
+  nameWithType: FileManager.ExportCurrentFrame
+  fullName: PAC.Files.FileManager.ExportCurrentFrame
+- uid: PAC.Files.FileManager.ExportFrame*
+  commentId: Overload:PAC.Files.FileManager.ExportFrame
+  href: PAC.Files.FileManager.html#PAC_Files_FileManager_ExportFrame_System_Int32_System_Int32_System_String_
+  name: ExportFrame
+  nameWithType: FileManager.ExportFrame
+  fullName: PAC.Files.FileManager.ExportFrame
+- uid: PAC.Files.FileManager.ExportCurrentAnimationDialog*
+  commentId: Overload:PAC.Files.FileManager.ExportCurrentAnimationDialog
+  href: PAC.Files.FileManager.html#PAC_Files_FileManager_ExportCurrentAnimationDialog
+  name: ExportCurrentAnimationDialog
+  nameWithType: FileManager.ExportCurrentAnimationDialog
+  fullName: PAC.Files.FileManager.ExportCurrentAnimationDialog
+- uid: PAC.Files.FileManager.ExportCurrentAnimation*
+  commentId: Overload:PAC.Files.FileManager.ExportCurrentAnimation
+  href: PAC.Files.FileManager.html#PAC_Files_FileManager_ExportCurrentAnimation_System_String_
+  name: ExportCurrentAnimation
+  nameWithType: FileManager.ExportCurrentAnimation
+  fullName: PAC.Files.FileManager.ExportCurrentAnimation
+- uid: PAC.Files.FileManager.ExportAnimation*
+  commentId: Overload:PAC.Files.FileManager.ExportAnimation
+  href: PAC.Files.FileManager.html#PAC_Files_FileManager_ExportAnimation_System_Int32_System_String_
+  name: ExportAnimation
+  nameWithType: FileManager.ExportAnimation
+  fullName: PAC.Files.FileManager.ExportAnimation
+- uid: PAC.Files.FileManager.SaveCurrentFileDialog*
+  commentId: Overload:PAC.Files.FileManager.SaveCurrentFileDialog
+  href: PAC.Files.FileManager.html#PAC_Files_FileManager_SaveCurrentFileDialog
+  name: SaveCurrentFileDialog
+  nameWithType: FileManager.SaveCurrentFileDialog
+  fullName: PAC.Files.FileManager.SaveCurrentFileDialog
+- uid: PAC.Files.FileManager.SaveFileDialog*
+  commentId: Overload:PAC.Files.FileManager.SaveFileDialog
+  href: PAC.Files.FileManager.html#PAC_Files_FileManager_SaveFileDialog_PAC_Files_File_
+  name: SaveFileDialog
+  nameWithType: FileManager.SaveFileDialog
+  fullName: PAC.Files.FileManager.SaveFileDialog
+- uid: PAC.Files.FileManager.SaveAsCurrentFileDialog*
+  commentId: Overload:PAC.Files.FileManager.SaveAsCurrentFileDialog
+  href: PAC.Files.FileManager.html#PAC_Files_FileManager_SaveAsCurrentFileDialog
+  name: SaveAsCurrentFileDialog
+  nameWithType: FileManager.SaveAsCurrentFileDialog
+  fullName: PAC.Files.FileManager.SaveAsCurrentFileDialog
+- uid: PAC.Files.FileManager.SaveAsFileDialog*
+  commentId: Overload:PAC.Files.FileManager.SaveAsFileDialog
+  href: PAC.Files.FileManager.html#PAC_Files_FileManager_SaveAsFileDialog_PAC_Files_File_
+  name: SaveAsFileDialog
+  nameWithType: FileManager.SaveAsFileDialog
+  fullName: PAC.Files.FileManager.SaveAsFileDialog
+- uid: PAC.Files.FileManager.SaveAsCurrentFile*
+  commentId: Overload:PAC.Files.FileManager.SaveAsCurrentFile
+  href: PAC.Files.FileManager.html#PAC_Files_FileManager_SaveAsCurrentFile_System_String_
+  name: SaveAsCurrentFile
+  nameWithType: FileManager.SaveAsCurrentFile
+  fullName: PAC.Files.FileManager.SaveAsCurrentFile
+- uid: PAC.Files.FileManager.SaveAsFile*
+  commentId: Overload:PAC.Files.FileManager.SaveAsFile
+  href: PAC.Files.FileManager.html#PAC_Files_FileManager_SaveAsFile_PAC_Files_File_System_String_
+  name: SaveAsFile
+  nameWithType: FileManager.SaveAsFile
+  fullName: PAC.Files.FileManager.SaveAsFile
+- uid: PAC.Files.FileManager.ReloadFile*
+  commentId: Overload:PAC.Files.FileManager.ReloadFile
+  href: PAC.Files.FileManager.html#PAC_Files_FileManager_ReloadFile
+  name: ReloadFile
+  nameWithType: FileManager.ReloadFile
+  fullName: PAC.Files.FileManager.ReloadFile
+- uid: PAC.Files.FileManager.SwitchToFile*
+  commentId: Overload:PAC.Files.FileManager.SwitchToFile
+  href: PAC.Files.FileManager.html#PAC_Files_FileManager_SwitchToFile_System_Int32_
+  name: SwitchToFile
+  nameWithType: FileManager.SwitchToFile
+  fullName: PAC.Files.FileManager.SwitchToFile
+- uid: PAC.Files.FileManager.SubscribeToFileSwitched*
+  commentId: Overload:PAC.Files.FileManager.SubscribeToFileSwitched
+  href: PAC.Files.FileManager.html#PAC_Files_FileManager_SubscribeToFileSwitched_UnityAction_
+  name: SubscribeToFileSwitched
+  nameWithType: FileManager.SubscribeToFileSwitched
+  fullName: PAC.Files.FileManager.SubscribeToFileSwitched
+- uid: Global.UnityAction
+  isExternal: true
+  name: UnityAction
+  nameWithType: UnityAction
+  fullName: UnityAction
+- uid: PAC.Files.FileManager.SubscribeToFilesChanged*
+  commentId: Overload:PAC.Files.FileManager.SubscribeToFilesChanged
+  href: PAC.Files.FileManager.html#PAC_Files_FileManager_SubscribeToFilesChanged_UnityAction_
+  name: SubscribeToFilesChanged
+  nameWithType: FileManager.SubscribeToFilesChanged
+  fullName: PAC.Files.FileManager.SubscribeToFilesChanged

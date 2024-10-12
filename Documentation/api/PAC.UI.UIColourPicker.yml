@@ -1,0 +1,366 @@
+### YamlMime:ManagedReference
+items:
+- uid: PAC.UI.UIColourPicker
+  commentId: T:PAC.UI.UIColourPicker
+  id: UIColourPicker
+  parent: PAC.UI
+  children:
+  - PAC.UI.UIColourPicker.Close
+  - PAC.UI.UIColourPicker.SelectDeselectEyeDropper
+  - PAC.UI.UIColourPicker.SetColour(Color)
+  - PAC.UI.UIColourPicker.SubscribeToClose(UnityAction)
+  - PAC.UI.UIColourPicker.SubscribeToColourChange(UnityAction)
+  - PAC.UI.UIColourPicker.UpdateColour(Color)
+  - PAC.UI.UIColourPicker.colour
+  - PAC.UI.UIColourPicker.colourPreview
+  langs:
+  - csharp
+  - vb
+  name: UIColourPicker
+  nameWithType: UIColourPicker
+  fullName: PAC.UI.UIColourPicker
+  type: Class
+  source:
+    remote:
+      path: Assets/Scripts/UI/UIColourPicker.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: UIColourPicker
+    path: ../Assets/Scripts/UI/UIColourPicker.cs
+    startLine: 10
+  namespace: PAC.UI
+  syntax:
+    content: 'public class UIColourPicker : MonoBehaviour'
+    content.vb: Public Class UIColourPicker Inherits MonoBehaviour
+  inheritance:
+  - System.Object
+- uid: PAC.UI.UIColourPicker.colour
+  commentId: P:PAC.UI.UIColourPicker.colour
+  id: colour
+  parent: PAC.UI.UIColourPicker
+  langs:
+  - csharp
+  - vb
+  name: colour
+  nameWithType: UIColourPicker.colour
+  fullName: PAC.UI.UIColourPicker.colour
+  type: Property
+  source:
+    remote:
+      path: Assets/Scripts/UI/UIColourPicker.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: colour
+    path: ../Assets/Scripts/UI/UIColourPicker.cs
+    startLine: 18
+  namespace: PAC.UI
+  syntax:
+    content: public Color colour { get; }
+    parameters: []
+    return:
+      type: Global.Color
+    content.vb: Public ReadOnly Property colour As Color
+  overload: PAC.UI.UIColourPicker.colour*
+- uid: PAC.UI.UIColourPicker.colourPreview
+  commentId: F:PAC.UI.UIColourPicker.colourPreview
+  id: colourPreview
+  parent: PAC.UI.UIColourPicker
+  langs:
+  - csharp
+  - vb
+  name: colourPreview
+  nameWithType: UIColourPicker.colourPreview
+  fullName: PAC.UI.UIColourPicker.colourPreview
+  type: Field
+  source:
+    remote:
+      path: Assets/Scripts/UI/UIColourPicker.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: colourPreview
+    path: ../Assets/Scripts/UI/UIColourPicker.cs
+    startLine: 28
+  namespace: PAC.UI
+  syntax:
+    content: public ColourPreview colourPreview
+    return:
+      type: PAC.ColourPicker.ColourPreview
+    content.vb: Public colourPreview As ColourPreview
+- uid: PAC.UI.UIColourPicker.UpdateColour(Color)
+  commentId: M:PAC.UI.UIColourPicker.UpdateColour(Color)
+  id: UpdateColour(Color)
+  parent: PAC.UI.UIColourPicker
+  langs:
+  - csharp
+  - vb
+  name: UpdateColour(Color)
+  nameWithType: UIColourPicker.UpdateColour(Color)
+  fullName: PAC.UI.UIColourPicker.UpdateColour(Color)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/UI/UIColourPicker.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: UpdateColour
+    path: ../Assets/Scripts/UI/UIColourPicker.cs
+    startLine: 109
+  namespace: PAC.UI
+  syntax:
+    content: public void UpdateColour(Color colour)
+    parameters:
+    - id: colour
+      type: Global.Color
+    content.vb: Public Sub UpdateColour(colour As Color)
+  overload: PAC.UI.UIColourPicker.UpdateColour*
+- uid: PAC.UI.UIColourPicker.SetColour(Color)
+  commentId: M:PAC.UI.UIColourPicker.SetColour(Color)
+  id: SetColour(Color)
+  parent: PAC.UI.UIColourPicker
+  langs:
+  - csharp
+  - vb
+  name: SetColour(Color)
+  nameWithType: UIColourPicker.SetColour(Color)
+  fullName: PAC.UI.UIColourPicker.SetColour(Color)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/UI/UIColourPicker.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: SetColour
+    path: ../Assets/Scripts/UI/UIColourPicker.cs
+    startLine: 126
+  namespace: PAC.UI
+  syntax:
+    content: public void SetColour(Color colour)
+    parameters:
+    - id: colour
+      type: Global.Color
+    content.vb: Public Sub SetColour(colour As Color)
+  overload: PAC.UI.UIColourPicker.SetColour*
+- uid: PAC.UI.UIColourPicker.Close
+  commentId: M:PAC.UI.UIColourPicker.Close
+  id: Close
+  parent: PAC.UI.UIColourPicker
+  langs:
+  - csharp
+  - vb
+  name: Close()
+  nameWithType: UIColourPicker.Close()
+  fullName: PAC.UI.UIColourPicker.Close()
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/UI/UIColourPicker.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: Close
+    path: ../Assets/Scripts/UI/UIColourPicker.cs
+    startLine: 137
+  namespace: PAC.UI
+  syntax:
+    content: public void Close()
+    content.vb: Public Sub Close()
+  overload: PAC.UI.UIColourPicker.Close*
+- uid: PAC.UI.UIColourPicker.SelectDeselectEyeDropper
+  commentId: M:PAC.UI.UIColourPicker.SelectDeselectEyeDropper
+  id: SelectDeselectEyeDropper
+  parent: PAC.UI.UIColourPicker
+  langs:
+  - csharp
+  - vb
+  name: SelectDeselectEyeDropper()
+  nameWithType: UIColourPicker.SelectDeselectEyeDropper()
+  fullName: PAC.UI.UIColourPicker.SelectDeselectEyeDropper()
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/UI/UIColourPicker.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: SelectDeselectEyeDropper
+    path: ../Assets/Scripts/UI/UIColourPicker.cs
+    startLine: 142
+  namespace: PAC.UI
+  syntax:
+    content: public void SelectDeselectEyeDropper()
+    content.vb: Public Sub SelectDeselectEyeDropper()
+  overload: PAC.UI.UIColourPicker.SelectDeselectEyeDropper*
+- uid: PAC.UI.UIColourPicker.SubscribeToColourChange(UnityAction)
+  commentId: M:PAC.UI.UIColourPicker.SubscribeToColourChange(UnityAction)
+  id: SubscribeToColourChange(UnityAction)
+  parent: PAC.UI.UIColourPicker
+  langs:
+  - csharp
+  - vb
+  name: SubscribeToColourChange(UnityAction)
+  nameWithType: UIColourPicker.SubscribeToColourChange(UnityAction)
+  fullName: PAC.UI.UIColourPicker.SubscribeToColourChange(UnityAction)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/UI/UIColourPicker.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: SubscribeToColourChange
+    path: ../Assets/Scripts/UI/UIColourPicker.cs
+    startLine: 175
+  namespace: PAC.UI
+  syntax:
+    content: public void SubscribeToColourChange(UnityAction call)
+    parameters:
+    - id: call
+      type: Global.UnityAction
+    content.vb: Public Sub SubscribeToColourChange([call] As UnityAction)
+  overload: PAC.UI.UIColourPicker.SubscribeToColourChange*
+- uid: PAC.UI.UIColourPicker.SubscribeToClose(UnityAction)
+  commentId: M:PAC.UI.UIColourPicker.SubscribeToClose(UnityAction)
+  id: SubscribeToClose(UnityAction)
+  parent: PAC.UI.UIColourPicker
+  langs:
+  - csharp
+  - vb
+  name: SubscribeToClose(UnityAction)
+  nameWithType: UIColourPicker.SubscribeToClose(UnityAction)
+  fullName: PAC.UI.UIColourPicker.SubscribeToClose(UnityAction)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/UI/UIColourPicker.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: SubscribeToClose
+    path: ../Assets/Scripts/UI/UIColourPicker.cs
+    startLine: 180
+  namespace: PAC.UI
+  syntax:
+    content: public void SubscribeToClose(UnityAction call)
+    parameters:
+    - id: call
+      type: Global.UnityAction
+    content.vb: Public Sub SubscribeToClose([call] As UnityAction)
+  overload: PAC.UI.UIColourPicker.SubscribeToClose*
+references:
+- uid: PAC.UI
+  commentId: N:PAC.UI
+  href: PAC.html
+  name: PAC.UI
+  nameWithType: PAC.UI
+  fullName: PAC.UI
+  spec.csharp:
+  - uid: PAC
+    name: PAC
+    href: PAC.html
+  - name: .
+  - uid: PAC.UI
+    name: UI
+    href: PAC.UI.html
+  spec.vb:
+  - uid: PAC
+    name: PAC
+    href: PAC.html
+  - name: .
+  - uid: PAC.UI
+    name: UI
+    href: PAC.UI.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: PAC.UI.UIColourPicker.colour*
+  commentId: Overload:PAC.UI.UIColourPicker.colour
+  href: PAC.UI.UIColourPicker.html#PAC_UI_UIColourPicker_colour
+  name: colour
+  nameWithType: UIColourPicker.colour
+  fullName: PAC.UI.UIColourPicker.colour
+- uid: Global.Color
+  isExternal: true
+  name: Color
+  nameWithType: Color
+  fullName: Color
+- uid: PAC.ColourPicker.ColourPreview
+  commentId: T:PAC.ColourPicker.ColourPreview
+  parent: PAC.ColourPicker
+  href: PAC.ColourPicker.ColourPreview.html
+  name: ColourPreview
+  nameWithType: ColourPreview
+  fullName: PAC.ColourPicker.ColourPreview
+- uid: PAC.ColourPicker
+  commentId: N:PAC.ColourPicker
+  href: PAC.html
+  name: PAC.ColourPicker
+  nameWithType: PAC.ColourPicker
+  fullName: PAC.ColourPicker
+  spec.csharp:
+  - uid: PAC
+    name: PAC
+    href: PAC.html
+  - name: .
+  - uid: PAC.ColourPicker
+    name: ColourPicker
+    href: PAC.ColourPicker.html
+  spec.vb:
+  - uid: PAC
+    name: PAC
+    href: PAC.html
+  - name: .
+  - uid: PAC.ColourPicker
+    name: ColourPicker
+    href: PAC.ColourPicker.html
+- uid: PAC.UI.UIColourPicker.UpdateColour*
+  commentId: Overload:PAC.UI.UIColourPicker.UpdateColour
+  href: PAC.UI.UIColourPicker.html#PAC_UI_UIColourPicker_UpdateColour_Color_
+  name: UpdateColour
+  nameWithType: UIColourPicker.UpdateColour
+  fullName: PAC.UI.UIColourPicker.UpdateColour
+- uid: PAC.UI.UIColourPicker.SetColour*
+  commentId: Overload:PAC.UI.UIColourPicker.SetColour
+  href: PAC.UI.UIColourPicker.html#PAC_UI_UIColourPicker_SetColour_Color_
+  name: SetColour
+  nameWithType: UIColourPicker.SetColour
+  fullName: PAC.UI.UIColourPicker.SetColour
+- uid: PAC.UI.UIColourPicker.Close*
+  commentId: Overload:PAC.UI.UIColourPicker.Close
+  href: PAC.UI.UIColourPicker.html#PAC_UI_UIColourPicker_Close
+  name: Close
+  nameWithType: UIColourPicker.Close
+  fullName: PAC.UI.UIColourPicker.Close
+- uid: PAC.UI.UIColourPicker.SelectDeselectEyeDropper*
+  commentId: Overload:PAC.UI.UIColourPicker.SelectDeselectEyeDropper
+  href: PAC.UI.UIColourPicker.html#PAC_UI_UIColourPicker_SelectDeselectEyeDropper
+  name: SelectDeselectEyeDropper
+  nameWithType: UIColourPicker.SelectDeselectEyeDropper
+  fullName: PAC.UI.UIColourPicker.SelectDeselectEyeDropper
+- uid: PAC.UI.UIColourPicker.SubscribeToColourChange*
+  commentId: Overload:PAC.UI.UIColourPicker.SubscribeToColourChange
+  href: PAC.UI.UIColourPicker.html#PAC_UI_UIColourPicker_SubscribeToColourChange_UnityAction_
+  name: SubscribeToColourChange
+  nameWithType: UIColourPicker.SubscribeToColourChange
+  fullName: PAC.UI.UIColourPicker.SubscribeToColourChange
+- uid: Global.UnityAction
+  isExternal: true
+  name: UnityAction
+  nameWithType: UnityAction
+  fullName: UnityAction
+- uid: PAC.UI.UIColourPicker.SubscribeToClose*
+  commentId: Overload:PAC.UI.UIColourPicker.SubscribeToClose
+  href: PAC.UI.UIColourPicker.html#PAC_UI_UIColourPicker_SubscribeToClose_UnityAction_
+  name: SubscribeToClose
+  nameWithType: UIColourPicker.SubscribeToClose
+  fullName: PAC.UI.UIColourPicker.SubscribeToClose

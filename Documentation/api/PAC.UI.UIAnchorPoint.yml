@@ -1,0 +1,281 @@
+### YamlMime:ManagedReference
+items:
+- uid: PAC.UI.UIAnchorPoint
+  commentId: T:PAC.UI.UIAnchorPoint
+  id: UIAnchorPoint
+  parent: PAC.UI
+  children:
+  - PAC.UI.UIAnchorPoint.bottomCentre
+  - PAC.UI.UIAnchorPoint.bottomLeft
+  - PAC.UI.UIAnchorPoint.bottomRight
+  - PAC.UI.UIAnchorPoint.centre
+  - PAC.UI.UIAnchorPoint.leftCentre
+  - PAC.UI.UIAnchorPoint.rightCentre
+  - PAC.UI.UIAnchorPoint.topCentre
+  - PAC.UI.UIAnchorPoint.topLeft
+  - PAC.UI.UIAnchorPoint.topRight
+  langs:
+  - csharp
+  - vb
+  name: UIAnchorPoint
+  nameWithType: UIAnchorPoint
+  fullName: PAC.UI.UIAnchorPoint
+  type: Enum
+  source:
+    remote:
+      path: Assets/Scripts/UI/UIAnchorPoint.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: UIAnchorPoint
+    path: ../Assets/Scripts/UI/UIAnchorPoint.cs
+    startLine: 2
+  namespace: PAC.UI
+  syntax:
+    content: public enum UIAnchorPoint
+    content.vb: Public Enum UIAnchorPoint
+- uid: PAC.UI.UIAnchorPoint.topLeft
+  commentId: F:PAC.UI.UIAnchorPoint.topLeft
+  id: topLeft
+  parent: PAC.UI.UIAnchorPoint
+  langs:
+  - csharp
+  - vb
+  name: topLeft
+  nameWithType: UIAnchorPoint.topLeft
+  fullName: PAC.UI.UIAnchorPoint.topLeft
+  type: Field
+  source:
+    remote:
+      path: Assets/Scripts/UI/UIAnchorPoint.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: topLeft
+    path: ../Assets/Scripts/UI/UIAnchorPoint.cs
+    startLine: 4
+  namespace: PAC.UI
+  syntax:
+    content: topLeft = 0
+    return:
+      type: PAC.UI.UIAnchorPoint
+- uid: PAC.UI.UIAnchorPoint.topCentre
+  commentId: F:PAC.UI.UIAnchorPoint.topCentre
+  id: topCentre
+  parent: PAC.UI.UIAnchorPoint
+  langs:
+  - csharp
+  - vb
+  name: topCentre
+  nameWithType: UIAnchorPoint.topCentre
+  fullName: PAC.UI.UIAnchorPoint.topCentre
+  type: Field
+  source:
+    remote:
+      path: Assets/Scripts/UI/UIAnchorPoint.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: topCentre
+    path: ../Assets/Scripts/UI/UIAnchorPoint.cs
+    startLine: 5
+  namespace: PAC.UI
+  syntax:
+    content: topCentre = 1
+    return:
+      type: PAC.UI.UIAnchorPoint
+- uid: PAC.UI.UIAnchorPoint.topRight
+  commentId: F:PAC.UI.UIAnchorPoint.topRight
+  id: topRight
+  parent: PAC.UI.UIAnchorPoint
+  langs:
+  - csharp
+  - vb
+  name: topRight
+  nameWithType: UIAnchorPoint.topRight
+  fullName: PAC.UI.UIAnchorPoint.topRight
+  type: Field
+  source:
+    remote:
+      path: Assets/Scripts/UI/UIAnchorPoint.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: topRight
+    path: ../Assets/Scripts/UI/UIAnchorPoint.cs
+    startLine: 6
+  namespace: PAC.UI
+  syntax:
+    content: topRight = 2
+    return:
+      type: PAC.UI.UIAnchorPoint
+- uid: PAC.UI.UIAnchorPoint.leftCentre
+  commentId: F:PAC.UI.UIAnchorPoint.leftCentre
+  id: leftCentre
+  parent: PAC.UI.UIAnchorPoint
+  langs:
+  - csharp
+  - vb
+  name: leftCentre
+  nameWithType: UIAnchorPoint.leftCentre
+  fullName: PAC.UI.UIAnchorPoint.leftCentre
+  type: Field
+  source:
+    remote:
+      path: Assets/Scripts/UI/UIAnchorPoint.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: leftCentre
+    path: ../Assets/Scripts/UI/UIAnchorPoint.cs
+    startLine: 7
+  namespace: PAC.UI
+  syntax:
+    content: leftCentre = 3
+    return:
+      type: PAC.UI.UIAnchorPoint
+- uid: PAC.UI.UIAnchorPoint.centre
+  commentId: F:PAC.UI.UIAnchorPoint.centre
+  id: centre
+  parent: PAC.UI.UIAnchorPoint
+  langs:
+  - csharp
+  - vb
+  name: centre
+  nameWithType: UIAnchorPoint.centre
+  fullName: PAC.UI.UIAnchorPoint.centre
+  type: Field
+  source:
+    remote:
+      path: Assets/Scripts/UI/UIAnchorPoint.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: centre
+    path: ../Assets/Scripts/UI/UIAnchorPoint.cs
+    startLine: 8
+  namespace: PAC.UI
+  syntax:
+    content: centre = 4
+    return:
+      type: PAC.UI.UIAnchorPoint
+- uid: PAC.UI.UIAnchorPoint.rightCentre
+  commentId: F:PAC.UI.UIAnchorPoint.rightCentre
+  id: rightCentre
+  parent: PAC.UI.UIAnchorPoint
+  langs:
+  - csharp
+  - vb
+  name: rightCentre
+  nameWithType: UIAnchorPoint.rightCentre
+  fullName: PAC.UI.UIAnchorPoint.rightCentre
+  type: Field
+  source:
+    remote:
+      path: Assets/Scripts/UI/UIAnchorPoint.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: rightCentre
+    path: ../Assets/Scripts/UI/UIAnchorPoint.cs
+    startLine: 9
+  namespace: PAC.UI
+  syntax:
+    content: rightCentre = 5
+    return:
+      type: PAC.UI.UIAnchorPoint
+- uid: PAC.UI.UIAnchorPoint.bottomLeft
+  commentId: F:PAC.UI.UIAnchorPoint.bottomLeft
+  id: bottomLeft
+  parent: PAC.UI.UIAnchorPoint
+  langs:
+  - csharp
+  - vb
+  name: bottomLeft
+  nameWithType: UIAnchorPoint.bottomLeft
+  fullName: PAC.UI.UIAnchorPoint.bottomLeft
+  type: Field
+  source:
+    remote:
+      path: Assets/Scripts/UI/UIAnchorPoint.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: bottomLeft
+    path: ../Assets/Scripts/UI/UIAnchorPoint.cs
+    startLine: 10
+  namespace: PAC.UI
+  syntax:
+    content: bottomLeft = 6
+    return:
+      type: PAC.UI.UIAnchorPoint
+- uid: PAC.UI.UIAnchorPoint.bottomCentre
+  commentId: F:PAC.UI.UIAnchorPoint.bottomCentre
+  id: bottomCentre
+  parent: PAC.UI.UIAnchorPoint
+  langs:
+  - csharp
+  - vb
+  name: bottomCentre
+  nameWithType: UIAnchorPoint.bottomCentre
+  fullName: PAC.UI.UIAnchorPoint.bottomCentre
+  type: Field
+  source:
+    remote:
+      path: Assets/Scripts/UI/UIAnchorPoint.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: bottomCentre
+    path: ../Assets/Scripts/UI/UIAnchorPoint.cs
+    startLine: 11
+  namespace: PAC.UI
+  syntax:
+    content: bottomCentre = 7
+    return:
+      type: PAC.UI.UIAnchorPoint
+- uid: PAC.UI.UIAnchorPoint.bottomRight
+  commentId: F:PAC.UI.UIAnchorPoint.bottomRight
+  id: bottomRight
+  parent: PAC.UI.UIAnchorPoint
+  langs:
+  - csharp
+  - vb
+  name: bottomRight
+  nameWithType: UIAnchorPoint.bottomRight
+  fullName: PAC.UI.UIAnchorPoint.bottomRight
+  type: Field
+  source:
+    remote:
+      path: Assets/Scripts/UI/UIAnchorPoint.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: bottomRight
+    path: ../Assets/Scripts/UI/UIAnchorPoint.cs
+    startLine: 12
+  namespace: PAC.UI
+  syntax:
+    content: bottomRight = 8
+    return:
+      type: PAC.UI.UIAnchorPoint
+references:
+- uid: PAC.UI
+  commentId: N:PAC.UI
+  href: PAC.html
+  name: PAC.UI
+  nameWithType: PAC.UI
+  fullName: PAC.UI
+  spec.csharp:
+  - uid: PAC
+    name: PAC
+    href: PAC.html
+  - name: .
+  - uid: PAC.UI
+    name: UI
+    href: PAC.UI.html
+  spec.vb:
+  - uid: PAC
+    name: PAC
+    href: PAC.html
+  - name: .
+  - uid: PAC.UI
+    name: UI
+    href: PAC.UI.html
+- uid: PAC.UI.UIAnchorPoint
+  commentId: T:PAC.UI.UIAnchorPoint
+  parent: PAC.UI
+  href: PAC.UI.UIAnchorPoint.html
+  name: UIAnchorPoint
+  nameWithType: UIAnchorPoint
+  fullName: PAC.UI.UIAnchorPoint

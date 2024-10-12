@@ -1,0 +1,1806 @@
+### YamlMime:ManagedReference
+items:
+- uid: PAC.DataStructures.IntRect
+  commentId: T:PAC.DataStructures.IntRect
+  id: IntRect
+  parent: PAC.DataStructures
+  children:
+  - PAC.DataStructures.IntRect.#ctor(PAC.DataStructures.IntVector2,PAC.DataStructures.IntVector2)
+  - PAC.DataStructures.IntRect.Area(PAC.DataStructures.IntRect)
+  - PAC.DataStructures.IntRect.Clamp(PAC.DataStructures.IntRect)
+  - PAC.DataStructures.IntRect.Clamp(PAC.DataStructures.IntVector2)
+  - PAC.DataStructures.IntRect.Contains(PAC.DataStructures.IntRect)
+  - PAC.DataStructures.IntRect.Contains(PAC.DataStructures.IntVector2)
+  - PAC.DataStructures.IntRect.Contains(System.Int32,System.Int32)
+  - PAC.DataStructures.IntRect.Contains(System.Single,System.Single)
+  - PAC.DataStructures.IntRect.Contains(Vector2)
+  - PAC.DataStructures.IntRect.Equals(System.Object)
+  - PAC.DataStructures.IntRect.FilterPointsInside(PAC.DataStructures.IntVector2[])
+  - PAC.DataStructures.IntRect.FilterPointsOutside(PAC.DataStructures.IntVector2[])
+  - PAC.DataStructures.IntRect.GetEnumerator
+  - PAC.DataStructures.IntRect.GetHashCode
+  - PAC.DataStructures.IntRect.IsContainedIn(PAC.DataStructures.IntRect)
+  - PAC.DataStructures.IntRect.IsSquare(PAC.DataStructures.IntRect)
+  - PAC.DataStructures.IntRect.Overlap(PAC.DataStructures.IntRect,PAC.DataStructures.IntRect)
+  - PAC.DataStructures.IntRect.Overlaps(PAC.DataStructures.IntRect)
+  - PAC.DataStructures.IntRect.ToRect
+  - PAC.DataStructures.IntRect.ToString
+  - PAC.DataStructures.IntRect.area
+  - PAC.DataStructures.IntRect.bottomLeft
+  - PAC.DataStructures.IntRect.bottomRight
+  - PAC.DataStructures.IntRect.centre
+  - PAC.DataStructures.IntRect.height
+  - PAC.DataStructures.IntRect.isSquare
+  - PAC.DataStructures.IntRect.op_Addition(PAC.DataStructures.IntRect,PAC.DataStructures.IntVector2)
+  - PAC.DataStructures.IntRect.op_Addition(PAC.DataStructures.IntVector2,PAC.DataStructures.IntRect)
+  - PAC.DataStructures.IntRect.op_Equality(PAC.DataStructures.IntRect,PAC.DataStructures.IntRect)
+  - PAC.DataStructures.IntRect.op_Explicit(PAC.DataStructures.IntRect)~Rect
+  - PAC.DataStructures.IntRect.op_Inequality(PAC.DataStructures.IntRect,PAC.DataStructures.IntRect)
+  - PAC.DataStructures.IntRect.op_Subtraction(PAC.DataStructures.IntRect,PAC.DataStructures.IntVector2)
+  - PAC.DataStructures.IntRect.points
+  - PAC.DataStructures.IntRect.topLeft
+  - PAC.DataStructures.IntRect.topRight
+  - PAC.DataStructures.IntRect.width
+  langs:
+  - csharp
+  - vb
+  name: IntRect
+  nameWithType: IntRect
+  fullName: PAC.DataStructures.IntRect
+  type: Struct
+  source:
+    remote:
+      path: Assets/Scripts/Data Structures/IntRect.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: IntRect
+    path: ../Assets/Scripts/Data Structures/IntRect.cs
+    startLine: 9
+  namespace: PAC.DataStructures
+  summary: A struct to represent a rectangular region of integer coordinates.
+  example: []
+  syntax:
+    content: 'public struct IntRect : IEnumerable'
+    content.vb: Public Structure IntRect Implements IEnumerable
+  implements:
+  - System.Collections.IEnumerable
+  inheritedMembers:
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetType
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+- uid: PAC.DataStructures.IntRect.bottomLeft
+  commentId: P:PAC.DataStructures.IntRect.bottomLeft
+  id: bottomLeft
+  parent: PAC.DataStructures.IntRect
+  langs:
+  - csharp
+  - vb
+  name: bottomLeft
+  nameWithType: IntRect.bottomLeft
+  fullName: PAC.DataStructures.IntRect.bottomLeft
+  type: Property
+  source:
+    remote:
+      path: Assets/Scripts/Data Structures/IntRect.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: bottomLeft
+    path: ../Assets/Scripts/Data Structures/IntRect.cs
+    startLine: 12
+  namespace: PAC.DataStructures
+  syntax:
+    content: public IntVector2 bottomLeft { get; set; }
+    parameters: []
+    return:
+      type: PAC.DataStructures.IntVector2
+    content.vb: Public Property bottomLeft As IntVector2
+  overload: PAC.DataStructures.IntRect.bottomLeft*
+- uid: PAC.DataStructures.IntRect.topRight
+  commentId: P:PAC.DataStructures.IntRect.topRight
+  id: topRight
+  parent: PAC.DataStructures.IntRect
+  langs:
+  - csharp
+  - vb
+  name: topRight
+  nameWithType: IntRect.topRight
+  fullName: PAC.DataStructures.IntRect.topRight
+  type: Property
+  source:
+    remote:
+      path: Assets/Scripts/Data Structures/IntRect.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: topRight
+    path: ../Assets/Scripts/Data Structures/IntRect.cs
+    startLine: 22
+  namespace: PAC.DataStructures
+  syntax:
+    content: public IntVector2 topRight { get; set; }
+    parameters: []
+    return:
+      type: PAC.DataStructures.IntVector2
+    content.vb: Public Property topRight As IntVector2
+  overload: PAC.DataStructures.IntRect.topRight*
+- uid: PAC.DataStructures.IntRect.bottomRight
+  commentId: P:PAC.DataStructures.IntRect.bottomRight
+  id: bottomRight
+  parent: PAC.DataStructures.IntRect
+  langs:
+  - csharp
+  - vb
+  name: bottomRight
+  nameWithType: IntRect.bottomRight
+  fullName: PAC.DataStructures.IntRect.bottomRight
+  type: Property
+  source:
+    remote:
+      path: Assets/Scripts/Data Structures/IntRect.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: bottomRight
+    path: ../Assets/Scripts/Data Structures/IntRect.cs
+    startLine: 31
+  namespace: PAC.DataStructures
+  syntax:
+    content: public IntVector2 bottomRight { get; set; }
+    parameters: []
+    return:
+      type: PAC.DataStructures.IntVector2
+    content.vb: Public Property bottomRight As IntVector2
+  overload: PAC.DataStructures.IntRect.bottomRight*
+- uid: PAC.DataStructures.IntRect.topLeft
+  commentId: P:PAC.DataStructures.IntRect.topLeft
+  id: topLeft
+  parent: PAC.DataStructures.IntRect
+  langs:
+  - csharp
+  - vb
+  name: topLeft
+  nameWithType: IntRect.topLeft
+  fullName: PAC.DataStructures.IntRect.topLeft
+  type: Property
+  source:
+    remote:
+      path: Assets/Scripts/Data Structures/IntRect.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: topLeft
+    path: ../Assets/Scripts/Data Structures/IntRect.cs
+    startLine: 41
+  namespace: PAC.DataStructures
+  syntax:
+    content: public IntVector2 topLeft { get; set; }
+    parameters: []
+    return:
+      type: PAC.DataStructures.IntVector2
+    content.vb: Public Property topLeft As IntVector2
+  overload: PAC.DataStructures.IntRect.topLeft*
+- uid: PAC.DataStructures.IntRect.centre
+  commentId: P:PAC.DataStructures.IntRect.centre
+  id: centre
+  parent: PAC.DataStructures.IntRect
+  langs:
+  - csharp
+  - vb
+  name: centre
+  nameWithType: IntRect.centre
+  fullName: PAC.DataStructures.IntRect.centre
+  type: Property
+  source:
+    remote:
+      path: Assets/Scripts/Data Structures/IntRect.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: centre
+    path: ../Assets/Scripts/Data Structures/IntRect.cs
+    startLine: 51
+  namespace: PAC.DataStructures
+  syntax:
+    content: public Vector2 centre { get; }
+    parameters: []
+    return:
+      type: Global.Vector2
+    content.vb: Public ReadOnly Property centre As Vector2
+  overload: PAC.DataStructures.IntRect.centre*
+- uid: PAC.DataStructures.IntRect.points
+  commentId: P:PAC.DataStructures.IntRect.points
+  id: points
+  parent: PAC.DataStructures.IntRect
+  langs:
+  - csharp
+  - vb
+  name: points
+  nameWithType: IntRect.points
+  fullName: PAC.DataStructures.IntRect.points
+  type: Property
+  source:
+    remote:
+      path: Assets/Scripts/Data Structures/IntRect.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: points
+    path: ../Assets/Scripts/Data Structures/IntRect.cs
+    startLine: 54
+  namespace: PAC.DataStructures
+  summary: The points in the rect, starting with the bottom row, read left to right, then the next row, etc.
+  example: []
+  syntax:
+    content: public readonly IntVector2[] points { get; }
+    parameters: []
+    return:
+      type: PAC.DataStructures.IntVector2[]
+    content.vb: Public Property points As IntVector2()
+  overload: PAC.DataStructures.IntRect.points*
+- uid: PAC.DataStructures.IntRect.width
+  commentId: P:PAC.DataStructures.IntRect.width
+  id: width
+  parent: PAC.DataStructures.IntRect
+  langs:
+  - csharp
+  - vb
+  name: width
+  nameWithType: IntRect.width
+  fullName: PAC.DataStructures.IntRect.width
+  type: Property
+  source:
+    remote:
+      path: Assets/Scripts/Data Structures/IntRect.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: width
+    path: ../Assets/Scripts/Data Structures/IntRect.cs
+    startLine: 56
+  namespace: PAC.DataStructures
+  syntax:
+    content: public int width { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public ReadOnly Property width As Integer
+  overload: PAC.DataStructures.IntRect.width*
+- uid: PAC.DataStructures.IntRect.height
+  commentId: P:PAC.DataStructures.IntRect.height
+  id: height
+  parent: PAC.DataStructures.IntRect
+  langs:
+  - csharp
+  - vb
+  name: height
+  nameWithType: IntRect.height
+  fullName: PAC.DataStructures.IntRect.height
+  type: Property
+  source:
+    remote:
+      path: Assets/Scripts/Data Structures/IntRect.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: height
+    path: ../Assets/Scripts/Data Structures/IntRect.cs
+    startLine: 57
+  namespace: PAC.DataStructures
+  syntax:
+    content: public int height { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public ReadOnly Property height As Integer
+  overload: PAC.DataStructures.IntRect.height*
+- uid: PAC.DataStructures.IntRect.area
+  commentId: P:PAC.DataStructures.IntRect.area
+  id: area
+  parent: PAC.DataStructures.IntRect
+  langs:
+  - csharp
+  - vb
+  name: area
+  nameWithType: IntRect.area
+  fullName: PAC.DataStructures.IntRect.area
+  type: Property
+  source:
+    remote:
+      path: Assets/Scripts/Data Structures/IntRect.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: area
+    path: ../Assets/Scripts/Data Structures/IntRect.cs
+    startLine: 59
+  namespace: PAC.DataStructures
+  syntax:
+    content: public int area { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public ReadOnly Property area As Integer
+  overload: PAC.DataStructures.IntRect.area*
+- uid: PAC.DataStructures.IntRect.isSquare
+  commentId: P:PAC.DataStructures.IntRect.isSquare
+  id: isSquare
+  parent: PAC.DataStructures.IntRect
+  langs:
+  - csharp
+  - vb
+  name: isSquare
+  nameWithType: IntRect.isSquare
+  fullName: PAC.DataStructures.IntRect.isSquare
+  type: Property
+  source:
+    remote:
+      path: Assets/Scripts/Data Structures/IntRect.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: isSquare
+    path: ../Assets/Scripts/Data Structures/IntRect.cs
+    startLine: 62
+  namespace: PAC.DataStructures
+  summary: True if the rect is a square.
+  example: []
+  syntax:
+    content: public bool isSquare { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public ReadOnly Property isSquare As Boolean
+  overload: PAC.DataStructures.IntRect.isSquare*
+- uid: PAC.DataStructures.IntRect.#ctor(PAC.DataStructures.IntVector2,PAC.DataStructures.IntVector2)
+  commentId: M:PAC.DataStructures.IntRect.#ctor(PAC.DataStructures.IntVector2,PAC.DataStructures.IntVector2)
+  id: '#ctor(PAC.DataStructures.IntVector2,PAC.DataStructures.IntVector2)'
+  parent: PAC.DataStructures.IntRect
+  langs:
+  - csharp
+  - vb
+  name: IntRect(IntVector2, IntVector2)
+  nameWithType: IntRect.IntRect(IntVector2, IntVector2)
+  fullName: PAC.DataStructures.IntRect.IntRect(PAC.DataStructures.IntVector2, PAC.DataStructures.IntVector2)
+  type: Constructor
+  source:
+    remote:
+      path: Assets/Scripts/Data Structures/IntRect.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: .ctor
+    path: ../Assets/Scripts/Data Structures/IntRect.cs
+    startLine: 65
+  namespace: PAC.DataStructures
+  syntax:
+    content: public IntRect(IntVector2 corner, IntVector2 oppositeCorner)
+    parameters:
+    - id: corner
+      type: PAC.DataStructures.IntVector2
+    - id: oppositeCorner
+      type: PAC.DataStructures.IntVector2
+    content.vb: Public Sub New(corner As IntVector2, oppositeCorner As IntVector2)
+  overload: PAC.DataStructures.IntRect.#ctor*
+  nameWithType.vb: IntRect.New(IntVector2, IntVector2)
+  fullName.vb: PAC.DataStructures.IntRect.New(PAC.DataStructures.IntVector2, PAC.DataStructures.IntVector2)
+  name.vb: New(IntVector2, IntVector2)
+- uid: PAC.DataStructures.IntRect.op_Equality(PAC.DataStructures.IntRect,PAC.DataStructures.IntRect)
+  commentId: M:PAC.DataStructures.IntRect.op_Equality(PAC.DataStructures.IntRect,PAC.DataStructures.IntRect)
+  id: op_Equality(PAC.DataStructures.IntRect,PAC.DataStructures.IntRect)
+  parent: PAC.DataStructures.IntRect
+  langs:
+  - csharp
+  - vb
+  name: operator ==(IntRect, IntRect)
+  nameWithType: IntRect.operator ==(IntRect, IntRect)
+  fullName: PAC.DataStructures.IntRect.operator ==(PAC.DataStructures.IntRect, PAC.DataStructures.IntRect)
+  type: Operator
+  source:
+    remote:
+      path: Assets/Scripts/Data Structures/IntRect.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: op_Equality
+    path: ../Assets/Scripts/Data Structures/IntRect.cs
+    startLine: 74
+  namespace: PAC.DataStructures
+  syntax:
+    content: public static bool operator ==(IntRect rect1, IntRect rect2)
+    parameters:
+    - id: rect1
+      type: PAC.DataStructures.IntRect
+    - id: rect2
+      type: PAC.DataStructures.IntRect
+    return:
+      type: System.Boolean
+    content.vb: Public Shared Operator =(rect1 As IntRect, rect2 As IntRect) As Boolean
+  overload: PAC.DataStructures.IntRect.op_Equality*
+  nameWithType.vb: IntRect.=(IntRect, IntRect)
+  fullName.vb: PAC.DataStructures.IntRect.=(PAC.DataStructures.IntRect, PAC.DataStructures.IntRect)
+  name.vb: =(IntRect, IntRect)
+- uid: PAC.DataStructures.IntRect.op_Inequality(PAC.DataStructures.IntRect,PAC.DataStructures.IntRect)
+  commentId: M:PAC.DataStructures.IntRect.op_Inequality(PAC.DataStructures.IntRect,PAC.DataStructures.IntRect)
+  id: op_Inequality(PAC.DataStructures.IntRect,PAC.DataStructures.IntRect)
+  parent: PAC.DataStructures.IntRect
+  langs:
+  - csharp
+  - vb
+  name: operator !=(IntRect, IntRect)
+  nameWithType: IntRect.operator !=(IntRect, IntRect)
+  fullName: PAC.DataStructures.IntRect.operator !=(PAC.DataStructures.IntRect, PAC.DataStructures.IntRect)
+  type: Operator
+  source:
+    remote:
+      path: Assets/Scripts/Data Structures/IntRect.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: op_Inequality
+    path: ../Assets/Scripts/Data Structures/IntRect.cs
+    startLine: 78
+  namespace: PAC.DataStructures
+  syntax:
+    content: public static bool operator !=(IntRect a, IntRect b)
+    parameters:
+    - id: a
+      type: PAC.DataStructures.IntRect
+    - id: b
+      type: PAC.DataStructures.IntRect
+    return:
+      type: System.Boolean
+    content.vb: Public Shared Operator <>(a As IntRect, b As IntRect) As Boolean
+  overload: PAC.DataStructures.IntRect.op_Inequality*
+  nameWithType.vb: IntRect.<>(IntRect, IntRect)
+  fullName.vb: PAC.DataStructures.IntRect.<>(PAC.DataStructures.IntRect, PAC.DataStructures.IntRect)
+  name.vb: <>(IntRect, IntRect)
+- uid: PAC.DataStructures.IntRect.Equals(System.Object)
+  commentId: M:PAC.DataStructures.IntRect.Equals(System.Object)
+  id: Equals(System.Object)
+  parent: PAC.DataStructures.IntRect
+  langs:
+  - csharp
+  - vb
+  name: Equals(object)
+  nameWithType: IntRect.Equals(object)
+  fullName: PAC.DataStructures.IntRect.Equals(object)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Data Structures/IntRect.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: Equals
+    path: ../Assets/Scripts/Data Structures/IntRect.cs
+    startLine: 82
+  namespace: PAC.DataStructures
+  summary: Indicates whether this instance and a specified object are equal.
+  example: []
+  syntax:
+    content: public override bool Equals(object obj)
+    parameters:
+    - id: obj
+      type: System.Object
+      description: The object to compare with the current instance.
+    return:
+      type: System.Boolean
+      description: <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if <code class="paramref">obj</code> and this instance are the same type and represent the same value; otherwise, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.
+    content.vb: Public Overrides Function Equals(obj As Object) As Boolean
+  overridden: System.ValueType.Equals(System.Object)
+  overload: PAC.DataStructures.IntRect.Equals*
+  nameWithType.vb: IntRect.Equals(Object)
+  fullName.vb: PAC.DataStructures.IntRect.Equals(Object)
+  name.vb: Equals(Object)
+- uid: PAC.DataStructures.IntRect.GetHashCode
+  commentId: M:PAC.DataStructures.IntRect.GetHashCode
+  id: GetHashCode
+  parent: PAC.DataStructures.IntRect
+  langs:
+  - csharp
+  - vb
+  name: GetHashCode()
+  nameWithType: IntRect.GetHashCode()
+  fullName: PAC.DataStructures.IntRect.GetHashCode()
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Data Structures/IntRect.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: GetHashCode
+    path: ../Assets/Scripts/Data Structures/IntRect.cs
+    startLine: 95
+  namespace: PAC.DataStructures
+  summary: Returns the hash code for this instance.
+  example: []
+  syntax:
+    content: public override int GetHashCode()
+    return:
+      type: System.Int32
+      description: A 32-bit signed integer that is the hash code for this instance.
+    content.vb: Public Overrides Function GetHashCode() As Integer
+  overridden: System.ValueType.GetHashCode
+  overload: PAC.DataStructures.IntRect.GetHashCode*
+- uid: PAC.DataStructures.IntRect.ToString
+  commentId: M:PAC.DataStructures.IntRect.ToString
+  id: ToString
+  parent: PAC.DataStructures.IntRect
+  langs:
+  - csharp
+  - vb
+  name: ToString()
+  nameWithType: IntRect.ToString()
+  fullName: PAC.DataStructures.IntRect.ToString()
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Data Structures/IntRect.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: ToString
+    path: ../Assets/Scripts/Data Structures/IntRect.cs
+    startLine: 100
+  namespace: PAC.DataStructures
+  summary: Returns the fully qualified type name of this instance.
+  example: []
+  syntax:
+    content: public override string ToString()
+    return:
+      type: System.String
+      description: The fully qualified type name.
+    content.vb: Public Overrides Function ToString() As String
+  overridden: System.ValueType.ToString
+  overload: PAC.DataStructures.IntRect.ToString*
+- uid: PAC.DataStructures.IntRect.op_Addition(PAC.DataStructures.IntVector2,PAC.DataStructures.IntRect)
+  commentId: M:PAC.DataStructures.IntRect.op_Addition(PAC.DataStructures.IntVector2,PAC.DataStructures.IntRect)
+  id: op_Addition(PAC.DataStructures.IntVector2,PAC.DataStructures.IntRect)
+  parent: PAC.DataStructures.IntRect
+  langs:
+  - csharp
+  - vb
+  name: operator +(IntVector2, IntRect)
+  nameWithType: IntRect.operator +(IntVector2, IntRect)
+  fullName: PAC.DataStructures.IntRect.operator +(PAC.DataStructures.IntVector2, PAC.DataStructures.IntRect)
+  type: Operator
+  source:
+    remote:
+      path: Assets/Scripts/Data Structures/IntRect.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: op_Addition
+    path: ../Assets/Scripts/Data Structures/IntRect.cs
+    startLine: 108
+  namespace: PAC.DataStructures
+  summary: Shifts the whole rect by the given vector.
+  example: []
+  syntax:
+    content: public static IntRect operator +(IntVector2 intVector, IntRect intRect)
+    parameters:
+    - id: intVector
+      type: PAC.DataStructures.IntVector2
+    - id: intRect
+      type: PAC.DataStructures.IntRect
+    return:
+      type: PAC.DataStructures.IntRect
+    content.vb: Public Shared Operator +(intVector As IntVector2, intRect As IntRect) As IntRect
+  overload: PAC.DataStructures.IntRect.op_Addition*
+  nameWithType.vb: IntRect.+(IntVector2, IntRect)
+  fullName.vb: PAC.DataStructures.IntRect.+(PAC.DataStructures.IntVector2, PAC.DataStructures.IntRect)
+  name.vb: +(IntVector2, IntRect)
+- uid: PAC.DataStructures.IntRect.op_Addition(PAC.DataStructures.IntRect,PAC.DataStructures.IntVector2)
+  commentId: M:PAC.DataStructures.IntRect.op_Addition(PAC.DataStructures.IntRect,PAC.DataStructures.IntVector2)
+  id: op_Addition(PAC.DataStructures.IntRect,PAC.DataStructures.IntVector2)
+  parent: PAC.DataStructures.IntRect
+  langs:
+  - csharp
+  - vb
+  name: operator +(IntRect, IntVector2)
+  nameWithType: IntRect.operator +(IntRect, IntVector2)
+  fullName: PAC.DataStructures.IntRect.operator +(PAC.DataStructures.IntRect, PAC.DataStructures.IntVector2)
+  type: Operator
+  source:
+    remote:
+      path: Assets/Scripts/Data Structures/IntRect.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: op_Addition
+    path: ../Assets/Scripts/Data Structures/IntRect.cs
+    startLine: 112
+  namespace: PAC.DataStructures
+  summary: Shifts the whole rect by the given vector.
+  example: []
+  syntax:
+    content: public static IntRect operator +(IntRect intRect, IntVector2 intVector)
+    parameters:
+    - id: intRect
+      type: PAC.DataStructures.IntRect
+    - id: intVector
+      type: PAC.DataStructures.IntVector2
+    return:
+      type: PAC.DataStructures.IntRect
+    content.vb: Public Shared Operator +(intRect As IntRect, intVector As IntVector2) As IntRect
+  overload: PAC.DataStructures.IntRect.op_Addition*
+  nameWithType.vb: IntRect.+(IntRect, IntVector2)
+  fullName.vb: PAC.DataStructures.IntRect.+(PAC.DataStructures.IntRect, PAC.DataStructures.IntVector2)
+  name.vb: +(IntRect, IntVector2)
+- uid: PAC.DataStructures.IntRect.op_Subtraction(PAC.DataStructures.IntRect,PAC.DataStructures.IntVector2)
+  commentId: M:PAC.DataStructures.IntRect.op_Subtraction(PAC.DataStructures.IntRect,PAC.DataStructures.IntVector2)
+  id: op_Subtraction(PAC.DataStructures.IntRect,PAC.DataStructures.IntVector2)
+  parent: PAC.DataStructures.IntRect
+  langs:
+  - csharp
+  - vb
+  name: operator -(IntRect, IntVector2)
+  nameWithType: IntRect.operator -(IntRect, IntVector2)
+  fullName: PAC.DataStructures.IntRect.operator -(PAC.DataStructures.IntRect, PAC.DataStructures.IntVector2)
+  type: Operator
+  source:
+    remote:
+      path: Assets/Scripts/Data Structures/IntRect.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: op_Subtraction
+    path: ../Assets/Scripts/Data Structures/IntRect.cs
+    startLine: 120
+  namespace: PAC.DataStructures
+  summary: Shifts the whole rect by the given vector.
+  example: []
+  syntax:
+    content: public static IntRect operator -(IntRect intRect, IntVector2 intVector)
+    parameters:
+    - id: intRect
+      type: PAC.DataStructures.IntRect
+    - id: intVector
+      type: PAC.DataStructures.IntVector2
+    return:
+      type: PAC.DataStructures.IntRect
+    content.vb: Public Shared Operator -(intRect As IntRect, intVector As IntVector2) As IntRect
+  overload: PAC.DataStructures.IntRect.op_Subtraction*
+  nameWithType.vb: IntRect.-(IntRect, IntVector2)
+  fullName.vb: PAC.DataStructures.IntRect.-(PAC.DataStructures.IntRect, PAC.DataStructures.IntVector2)
+  name.vb: -(IntRect, IntVector2)
+- uid: PAC.DataStructures.IntRect.op_Explicit(PAC.DataStructures.IntRect)~Rect
+  commentId: M:PAC.DataStructures.IntRect.op_Explicit(PAC.DataStructures.IntRect)~Rect
+  id: op_Explicit(PAC.DataStructures.IntRect)~Rect
+  parent: PAC.DataStructures.IntRect
+  langs:
+  - csharp
+  - vb
+  name: explicit operator Rect(IntRect)
+  nameWithType: IntRect.explicit operator Rect(IntRect)
+  fullName: PAC.DataStructures.IntRect.explicit operator Rect(PAC.DataStructures.IntRect)
+  type: Operator
+  source:
+    remote:
+      path: Assets/Scripts/Data Structures/IntRect.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: op_Explicit
+    path: ../Assets/Scripts/Data Structures/IntRect.cs
+    startLine: 125
+  namespace: PAC.DataStructures
+  summary: Cast to Unity Rect.
+  example: []
+  syntax:
+    content: public static explicit operator Rect(IntRect intRect)
+    parameters:
+    - id: intRect
+      type: PAC.DataStructures.IntRect
+    return:
+      type: Global.Rect
+    content.vb: Public Shared Narrowing Operator CType(intRect As IntRect) As Rect
+  overload: PAC.DataStructures.IntRect.op_Explicit*
+  nameWithType.vb: IntRect.CType(IntRect)
+  fullName.vb: PAC.DataStructures.IntRect.CType(PAC.DataStructures.IntRect)
+  name.vb: CType(IntRect)
+- uid: PAC.DataStructures.IntRect.ToRect
+  commentId: M:PAC.DataStructures.IntRect.ToRect
+  id: ToRect
+  parent: PAC.DataStructures.IntRect
+  langs:
+  - csharp
+  - vb
+  name: ToRect()
+  nameWithType: IntRect.ToRect()
+  fullName: PAC.DataStructures.IntRect.ToRect()
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Data Structures/IntRect.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: ToRect
+    path: ../Assets/Scripts/Data Structures/IntRect.cs
+    startLine: 129
+  namespace: PAC.DataStructures
+  summary: Cast to Unity Rect.
+  example: []
+  syntax:
+    content: public Rect ToRect()
+    return:
+      type: Global.Rect
+    content.vb: Public Function ToRect() As Rect
+  overload: PAC.DataStructures.IntRect.ToRect*
+- uid: PAC.DataStructures.IntRect.IsSquare(PAC.DataStructures.IntRect)
+  commentId: M:PAC.DataStructures.IntRect.IsSquare(PAC.DataStructures.IntRect)
+  id: IsSquare(PAC.DataStructures.IntRect)
+  parent: PAC.DataStructures.IntRect
+  langs:
+  - csharp
+  - vb
+  name: IsSquare(IntRect)
+  nameWithType: IntRect.IsSquare(IntRect)
+  fullName: PAC.DataStructures.IntRect.IsSquare(PAC.DataStructures.IntRect)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Data Structures/IntRect.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: IsSquare
+    path: ../Assets/Scripts/Data Structures/IntRect.cs
+    startLine: 137
+  namespace: PAC.DataStructures
+  summary: Returns true if the rect is a square.
+  example: []
+  syntax:
+    content: public static bool IsSquare(IntRect intRect)
+    parameters:
+    - id: intRect
+      type: PAC.DataStructures.IntRect
+    return:
+      type: System.Boolean
+    content.vb: Public Shared Function IsSquare(intRect As IntRect) As Boolean
+  overload: PAC.DataStructures.IntRect.IsSquare*
+- uid: PAC.DataStructures.IntRect.Area(PAC.DataStructures.IntRect)
+  commentId: M:PAC.DataStructures.IntRect.Area(PAC.DataStructures.IntRect)
+  id: Area(PAC.DataStructures.IntRect)
+  parent: PAC.DataStructures.IntRect
+  langs:
+  - csharp
+  - vb
+  name: Area(IntRect)
+  nameWithType: IntRect.Area(IntRect)
+  fullName: PAC.DataStructures.IntRect.Area(PAC.DataStructures.IntRect)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Data Structures/IntRect.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: Area
+    path: ../Assets/Scripts/Data Structures/IntRect.cs
+    startLine: 142
+  namespace: PAC.DataStructures
+  syntax:
+    content: public static int Area(IntRect rect)
+    parameters:
+    - id: rect
+      type: PAC.DataStructures.IntRect
+    return:
+      type: System.Int32
+    content.vb: Public Shared Function Area(rect As IntRect) As Integer
+  overload: PAC.DataStructures.IntRect.Area*
+- uid: PAC.DataStructures.IntRect.Contains(PAC.DataStructures.IntVector2)
+  commentId: M:PAC.DataStructures.IntRect.Contains(PAC.DataStructures.IntVector2)
+  id: Contains(PAC.DataStructures.IntVector2)
+  parent: PAC.DataStructures.IntRect
+  langs:
+  - csharp
+  - vb
+  name: Contains(IntVector2)
+  nameWithType: IntRect.Contains(IntVector2)
+  fullName: PAC.DataStructures.IntRect.Contains(PAC.DataStructures.IntVector2)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Data Structures/IntRect.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: Contains
+    path: ../Assets/Scripts/Data Structures/IntRect.cs
+    startLine: 150
+  namespace: PAC.DataStructures
+  summary: Returns true if the point is in the rect.
+  example: []
+  syntax:
+    content: public bool Contains(IntVector2 point)
+    parameters:
+    - id: point
+      type: PAC.DataStructures.IntVector2
+    return:
+      type: System.Boolean
+    content.vb: Public Function Contains(point As IntVector2) As Boolean
+  overload: PAC.DataStructures.IntRect.Contains*
+- uid: PAC.DataStructures.IntRect.Contains(System.Int32,System.Int32)
+  commentId: M:PAC.DataStructures.IntRect.Contains(System.Int32,System.Int32)
+  id: Contains(System.Int32,System.Int32)
+  parent: PAC.DataStructures.IntRect
+  langs:
+  - csharp
+  - vb
+  name: Contains(int, int)
+  nameWithType: IntRect.Contains(int, int)
+  fullName: PAC.DataStructures.IntRect.Contains(int, int)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Data Structures/IntRect.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: Contains
+    path: ../Assets/Scripts/Data Structures/IntRect.cs
+    startLine: 154
+  namespace: PAC.DataStructures
+  summary: Returns true if the point is in the rect.
+  example: []
+  syntax:
+    content: public bool Contains(int x, int y)
+    parameters:
+    - id: x
+      type: System.Int32
+    - id: y
+      type: System.Int32
+    return:
+      type: System.Boolean
+    content.vb: Public Function Contains(x As Integer, y As Integer) As Boolean
+  overload: PAC.DataStructures.IntRect.Contains*
+  nameWithType.vb: IntRect.Contains(Integer, Integer)
+  fullName.vb: PAC.DataStructures.IntRect.Contains(Integer, Integer)
+  name.vb: Contains(Integer, Integer)
+- uid: PAC.DataStructures.IntRect.Contains(Vector2)
+  commentId: M:PAC.DataStructures.IntRect.Contains(Vector2)
+  id: Contains(Vector2)
+  parent: PAC.DataStructures.IntRect
+  langs:
+  - csharp
+  - vb
+  name: Contains(Vector2)
+  nameWithType: IntRect.Contains(Vector2)
+  fullName: PAC.DataStructures.IntRect.Contains(Vector2)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Data Structures/IntRect.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: Contains
+    path: ../Assets/Scripts/Data Structures/IntRect.cs
+    startLine: 163
+  namespace: PAC.DataStructures
+  syntax:
+    content: public bool Contains(Vector2 point)
+    parameters:
+    - id: point
+      type: Global.Vector2
+    return:
+      type: System.Boolean
+    content.vb: Public Function Contains(point As Vector2) As Boolean
+  overload: PAC.DataStructures.IntRect.Contains*
+- uid: PAC.DataStructures.IntRect.Contains(System.Single,System.Single)
+  commentId: M:PAC.DataStructures.IntRect.Contains(System.Single,System.Single)
+  id: Contains(System.Single,System.Single)
+  parent: PAC.DataStructures.IntRect
+  langs:
+  - csharp
+  - vb
+  name: Contains(float, float)
+  nameWithType: IntRect.Contains(float, float)
+  fullName: PAC.DataStructures.IntRect.Contains(float, float)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Data Structures/IntRect.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: Contains
+    path: ../Assets/Scripts/Data Structures/IntRect.cs
+    startLine: 169
+  namespace: PAC.DataStructures
+  syntax:
+    content: public bool Contains(float x, float y)
+    parameters:
+    - id: x
+      type: System.Single
+    - id: y
+      type: System.Single
+    return:
+      type: System.Boolean
+    content.vb: Public Function Contains(x As Single, y As Single) As Boolean
+  overload: PAC.DataStructures.IntRect.Contains*
+  nameWithType.vb: IntRect.Contains(Single, Single)
+  fullName.vb: PAC.DataStructures.IntRect.Contains(Single, Single)
+  name.vb: Contains(Single, Single)
+- uid: PAC.DataStructures.IntRect.Contains(PAC.DataStructures.IntRect)
+  commentId: M:PAC.DataStructures.IntRect.Contains(PAC.DataStructures.IntRect)
+  id: Contains(PAC.DataStructures.IntRect)
+  parent: PAC.DataStructures.IntRect
+  langs:
+  - csharp
+  - vb
+  name: Contains(IntRect)
+  nameWithType: IntRect.Contains(IntRect)
+  fullName: PAC.DataStructures.IntRect.Contains(PAC.DataStructures.IntRect)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Data Structures/IntRect.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: Contains
+    path: ../Assets/Scripts/Data Structures/IntRect.cs
+    startLine: 177
+  namespace: PAC.DataStructures
+  summary: Returns true if the given rect is (weakly) contained in this rect.
+  example: []
+  syntax:
+    content: public bool Contains(IntRect intRect)
+    parameters:
+    - id: intRect
+      type: PAC.DataStructures.IntRect
+    return:
+      type: System.Boolean
+    content.vb: Public Function Contains(intRect As IntRect) As Boolean
+  overload: PAC.DataStructures.IntRect.Contains*
+- uid: PAC.DataStructures.IntRect.IsContainedIn(PAC.DataStructures.IntRect)
+  commentId: M:PAC.DataStructures.IntRect.IsContainedIn(PAC.DataStructures.IntRect)
+  id: IsContainedIn(PAC.DataStructures.IntRect)
+  parent: PAC.DataStructures.IntRect
+  langs:
+  - csharp
+  - vb
+  name: IsContainedIn(IntRect)
+  nameWithType: IntRect.IsContainedIn(IntRect)
+  fullName: PAC.DataStructures.IntRect.IsContainedIn(PAC.DataStructures.IntRect)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Data Structures/IntRect.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: IsContainedIn
+    path: ../Assets/Scripts/Data Structures/IntRect.cs
+    startLine: 184
+  namespace: PAC.DataStructures
+  summary: Returns true if this rect is (weakly) contained in the given rect.
+  example: []
+  syntax:
+    content: public bool IsContainedIn(IntRect intRect)
+    parameters:
+    - id: intRect
+      type: PAC.DataStructures.IntRect
+    return:
+      type: System.Boolean
+    content.vb: Public Function IsContainedIn(intRect As IntRect) As Boolean
+  overload: PAC.DataStructures.IntRect.IsContainedIn*
+- uid: PAC.DataStructures.IntRect.Overlap(PAC.DataStructures.IntRect,PAC.DataStructures.IntRect)
+  commentId: M:PAC.DataStructures.IntRect.Overlap(PAC.DataStructures.IntRect,PAC.DataStructures.IntRect)
+  id: Overlap(PAC.DataStructures.IntRect,PAC.DataStructures.IntRect)
+  parent: PAC.DataStructures.IntRect
+  langs:
+  - csharp
+  - vb
+  name: Overlap(IntRect, IntRect)
+  nameWithType: IntRect.Overlap(IntRect, IntRect)
+  fullName: PAC.DataStructures.IntRect.Overlap(PAC.DataStructures.IntRect, PAC.DataStructures.IntRect)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Data Structures/IntRect.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: Overlap
+    path: ../Assets/Scripts/Data Structures/IntRect.cs
+    startLine: 192
+  namespace: PAC.DataStructures
+  summary: Returns true if the two rects overlap at all.
+  example: []
+  syntax:
+    content: public static bool Overlap(IntRect rect1, IntRect rect2)
+    parameters:
+    - id: rect1
+      type: PAC.DataStructures.IntRect
+    - id: rect2
+      type: PAC.DataStructures.IntRect
+    return:
+      type: System.Boolean
+    content.vb: Public Shared Function Overlap(rect1 As IntRect, rect2 As IntRect) As Boolean
+  overload: PAC.DataStructures.IntRect.Overlap*
+- uid: PAC.DataStructures.IntRect.Overlaps(PAC.DataStructures.IntRect)
+  commentId: M:PAC.DataStructures.IntRect.Overlaps(PAC.DataStructures.IntRect)
+  id: Overlaps(PAC.DataStructures.IntRect)
+  parent: PAC.DataStructures.IntRect
+  langs:
+  - csharp
+  - vb
+  name: Overlaps(IntRect)
+  nameWithType: IntRect.Overlaps(IntRect)
+  fullName: PAC.DataStructures.IntRect.Overlaps(PAC.DataStructures.IntRect)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Data Structures/IntRect.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: Overlaps
+    path: ../Assets/Scripts/Data Structures/IntRect.cs
+    startLine: 207
+  namespace: PAC.DataStructures
+  summary: Returns true if this rect overlaps the given rect at all.
+  example: []
+  syntax:
+    content: public bool Overlaps(IntRect intRect)
+    parameters:
+    - id: intRect
+      type: PAC.DataStructures.IntRect
+    return:
+      type: System.Boolean
+    content.vb: Public Function Overlaps(intRect As IntRect) As Boolean
+  overload: PAC.DataStructures.IntRect.Overlaps*
+- uid: PAC.DataStructures.IntRect.Clamp(PAC.DataStructures.IntVector2)
+  commentId: M:PAC.DataStructures.IntRect.Clamp(PAC.DataStructures.IntVector2)
+  id: Clamp(PAC.DataStructures.IntVector2)
+  parent: PAC.DataStructures.IntRect
+  langs:
+  - csharp
+  - vb
+  name: Clamp(IntVector2)
+  nameWithType: IntRect.Clamp(IntVector2)
+  fullName: PAC.DataStructures.IntRect.Clamp(PAC.DataStructures.IntVector2)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Data Structures/IntRect.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: Clamp
+    path: ../Assets/Scripts/Data Structures/IntRect.cs
+    startLine: 215
+  namespace: PAC.DataStructures
+  summary: Clamps the vector component-wise so its coordinates are within the rect.
+  example: []
+  syntax:
+    content: public IntVector2 Clamp(IntVector2 intVector)
+    parameters:
+    - id: intVector
+      type: PAC.DataStructures.IntVector2
+    return:
+      type: PAC.DataStructures.IntVector2
+    content.vb: Public Function Clamp(intVector As IntVector2) As IntVector2
+  overload: PAC.DataStructures.IntRect.Clamp*
+- uid: PAC.DataStructures.IntRect.Clamp(PAC.DataStructures.IntRect)
+  commentId: M:PAC.DataStructures.IntRect.Clamp(PAC.DataStructures.IntRect)
+  id: Clamp(PAC.DataStructures.IntRect)
+  parent: PAC.DataStructures.IntRect
+  langs:
+  - csharp
+  - vb
+  name: Clamp(IntRect)
+  nameWithType: IntRect.Clamp(IntRect)
+  fullName: PAC.DataStructures.IntRect.Clamp(PAC.DataStructures.IntRect)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Data Structures/IntRect.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: Clamp
+    path: ../Assets/Scripts/Data Structures/IntRect.cs
+    startLine: 222
+  namespace: PAC.DataStructures
+  summary: Shifts the given rect so it is (weakly) contained within the rect.
+  example: []
+  syntax:
+    content: public IntRect Clamp(IntRect intRect)
+    parameters:
+    - id: intRect
+      type: PAC.DataStructures.IntRect
+    return:
+      type: PAC.DataStructures.IntRect
+    content.vb: Public Function Clamp(intRect As IntRect) As IntRect
+  overload: PAC.DataStructures.IntRect.Clamp*
+- uid: PAC.DataStructures.IntRect.FilterPointsInside(PAC.DataStructures.IntVector2[])
+  commentId: M:PAC.DataStructures.IntRect.FilterPointsInside(PAC.DataStructures.IntVector2[])
+  id: FilterPointsInside(PAC.DataStructures.IntVector2[])
+  parent: PAC.DataStructures.IntRect
+  langs:
+  - csharp
+  - vb
+  name: FilterPointsInside(IntVector2[])
+  nameWithType: IntRect.FilterPointsInside(IntVector2[])
+  fullName: PAC.DataStructures.IntRect.FilterPointsInside(PAC.DataStructures.IntVector2[])
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Data Structures/IntRect.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: FilterPointsInside
+    path: ../Assets/Scripts/Data Structures/IntRect.cs
+    startLine: 255
+  namespace: PAC.DataStructures
+  summary: Removes all IntVector2s outside the rect.
+  example: []
+  syntax:
+    content: public IntVector2[] FilterPointsInside(IntVector2[] intVectors)
+    parameters:
+    - id: intVectors
+      type: PAC.DataStructures.IntVector2[]
+    return:
+      type: PAC.DataStructures.IntVector2[]
+    content.vb: Public Function FilterPointsInside(intVectors As IntVector2()) As IntVector2()
+  overload: PAC.DataStructures.IntRect.FilterPointsInside*
+  nameWithType.vb: IntRect.FilterPointsInside(IntVector2())
+  fullName.vb: PAC.DataStructures.IntRect.FilterPointsInside(PAC.DataStructures.IntVector2())
+  name.vb: FilterPointsInside(IntVector2())
+- uid: PAC.DataStructures.IntRect.FilterPointsOutside(PAC.DataStructures.IntVector2[])
+  commentId: M:PAC.DataStructures.IntRect.FilterPointsOutside(PAC.DataStructures.IntVector2[])
+  id: FilterPointsOutside(PAC.DataStructures.IntVector2[])
+  parent: PAC.DataStructures.IntRect
+  langs:
+  - csharp
+  - vb
+  name: FilterPointsOutside(IntVector2[])
+  nameWithType: IntRect.FilterPointsOutside(IntVector2[])
+  fullName: PAC.DataStructures.IntRect.FilterPointsOutside(PAC.DataStructures.IntVector2[])
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Data Structures/IntRect.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: FilterPointsOutside
+    path: ../Assets/Scripts/Data Structures/IntRect.cs
+    startLine: 264
+  namespace: PAC.DataStructures
+  summary: Removes all IntVector2s inside the rect.
+  example: []
+  syntax:
+    content: public IntVector2[] FilterPointsOutside(IntVector2[] intVectors)
+    parameters:
+    - id: intVectors
+      type: PAC.DataStructures.IntVector2[]
+    return:
+      type: PAC.DataStructures.IntVector2[]
+    content.vb: Public Function FilterPointsOutside(intVectors As IntVector2()) As IntVector2()
+  overload: PAC.DataStructures.IntRect.FilterPointsOutside*
+  nameWithType.vb: IntRect.FilterPointsOutside(IntVector2())
+  fullName.vb: PAC.DataStructures.IntRect.FilterPointsOutside(PAC.DataStructures.IntVector2())
+  name.vb: FilterPointsOutside(IntVector2())
+- uid: PAC.DataStructures.IntRect.GetEnumerator
+  commentId: M:PAC.DataStructures.IntRect.GetEnumerator
+  id: GetEnumerator
+  parent: PAC.DataStructures.IntRect
+  langs:
+  - csharp
+  - vb
+  name: GetEnumerator()
+  nameWithType: IntRect.GetEnumerator()
+  fullName: PAC.DataStructures.IntRect.GetEnumerator()
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Data Structures/IntRect.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: GetEnumerator
+    path: ../Assets/Scripts/Data Structures/IntRect.cs
+    startLine: 287
+  namespace: PAC.DataStructures
+  summary: Enumerates the points in the rect, starting with the bottom row, read left to right, then the next row, etc.
+  example: []
+  syntax:
+    content: public IEnumerator GetEnumerator()
+    return:
+      type: System.Collections.IEnumerator
+    content.vb: Public Function GetEnumerator() As IEnumerator
+  overload: PAC.DataStructures.IntRect.GetEnumerator*
+  implements:
+  - System.Collections.IEnumerable.GetEnumerator
+references:
+- uid: PAC.DataStructures
+  commentId: N:PAC.DataStructures
+  href: PAC.html
+  name: PAC.DataStructures
+  nameWithType: PAC.DataStructures
+  fullName: PAC.DataStructures
+  spec.csharp:
+  - uid: PAC
+    name: PAC
+    href: PAC.html
+  - name: .
+  - uid: PAC.DataStructures
+    name: DataStructures
+    href: PAC.DataStructures.html
+  spec.vb:
+  - uid: PAC
+    name: PAC
+    href: PAC.html
+  - name: .
+  - uid: PAC.DataStructures
+    name: DataStructures
+    href: PAC.DataStructures.html
+- uid: System.Collections.IEnumerable
+  commentId: T:System.Collections.IEnumerable
+  parent: System.Collections
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.ienumerable
+  name: IEnumerable
+  nameWithType: IEnumerable
+  fullName: System.Collections.IEnumerable
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Collections
+  commentId: N:System.Collections
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections
+  nameWithType: System.Collections
+  fullName: System.Collections
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: PAC.DataStructures.IntRect.bottomLeft*
+  commentId: Overload:PAC.DataStructures.IntRect.bottomLeft
+  href: PAC.DataStructures.IntRect.html#PAC_DataStructures_IntRect_bottomLeft
+  name: bottomLeft
+  nameWithType: IntRect.bottomLeft
+  fullName: PAC.DataStructures.IntRect.bottomLeft
+- uid: PAC.DataStructures.IntVector2
+  commentId: T:PAC.DataStructures.IntVector2
+  parent: PAC.DataStructures
+  href: PAC.DataStructures.IntVector2.html
+  name: IntVector2
+  nameWithType: IntVector2
+  fullName: PAC.DataStructures.IntVector2
+- uid: PAC.DataStructures.IntRect.topRight*
+  commentId: Overload:PAC.DataStructures.IntRect.topRight
+  href: PAC.DataStructures.IntRect.html#PAC_DataStructures_IntRect_topRight
+  name: topRight
+  nameWithType: IntRect.topRight
+  fullName: PAC.DataStructures.IntRect.topRight
+- uid: PAC.DataStructures.IntRect.bottomRight*
+  commentId: Overload:PAC.DataStructures.IntRect.bottomRight
+  href: PAC.DataStructures.IntRect.html#PAC_DataStructures_IntRect_bottomRight
+  name: bottomRight
+  nameWithType: IntRect.bottomRight
+  fullName: PAC.DataStructures.IntRect.bottomRight
+- uid: PAC.DataStructures.IntRect.topLeft*
+  commentId: Overload:PAC.DataStructures.IntRect.topLeft
+  href: PAC.DataStructures.IntRect.html#PAC_DataStructures_IntRect_topLeft
+  name: topLeft
+  nameWithType: IntRect.topLeft
+  fullName: PAC.DataStructures.IntRect.topLeft
+- uid: PAC.DataStructures.IntRect.centre*
+  commentId: Overload:PAC.DataStructures.IntRect.centre
+  href: PAC.DataStructures.IntRect.html#PAC_DataStructures_IntRect_centre
+  name: centre
+  nameWithType: IntRect.centre
+  fullName: PAC.DataStructures.IntRect.centre
+- uid: Global.Vector2
+  isExternal: true
+  name: Vector2
+  nameWithType: Vector2
+  fullName: Vector2
+- uid: PAC.DataStructures.IntRect.points*
+  commentId: Overload:PAC.DataStructures.IntRect.points
+  href: PAC.DataStructures.IntRect.html#PAC_DataStructures_IntRect_points
+  name: points
+  nameWithType: IntRect.points
+  fullName: PAC.DataStructures.IntRect.points
+- uid: PAC.DataStructures.IntVector2[]
+  isExternal: true
+  href: PAC.DataStructures.IntVector2.html
+  name: IntVector2[]
+  nameWithType: IntVector2[]
+  fullName: PAC.DataStructures.IntVector2[]
+  nameWithType.vb: IntVector2()
+  fullName.vb: PAC.DataStructures.IntVector2()
+  name.vb: IntVector2()
+  spec.csharp:
+  - uid: PAC.DataStructures.IntVector2
+    name: IntVector2
+    href: PAC.DataStructures.IntVector2.html
+  - name: '['
+  - name: ']'
+  spec.vb:
+  - uid: PAC.DataStructures.IntVector2
+    name: IntVector2
+    href: PAC.DataStructures.IntVector2.html
+  - name: (
+  - name: )
+- uid: PAC.DataStructures.IntRect.width*
+  commentId: Overload:PAC.DataStructures.IntRect.width
+  href: PAC.DataStructures.IntRect.html#PAC_DataStructures_IntRect_width
+  name: width
+  nameWithType: IntRect.width
+  fullName: PAC.DataStructures.IntRect.width
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: PAC.DataStructures.IntRect.height*
+  commentId: Overload:PAC.DataStructures.IntRect.height
+  href: PAC.DataStructures.IntRect.html#PAC_DataStructures_IntRect_height
+  name: height
+  nameWithType: IntRect.height
+  fullName: PAC.DataStructures.IntRect.height
+- uid: PAC.DataStructures.IntRect.area*
+  commentId: Overload:PAC.DataStructures.IntRect.area
+  href: PAC.DataStructures.IntRect.html#PAC_DataStructures_IntRect_area
+  name: area
+  nameWithType: IntRect.area
+  fullName: PAC.DataStructures.IntRect.area
+- uid: PAC.DataStructures.IntRect.isSquare*
+  commentId: Overload:PAC.DataStructures.IntRect.isSquare
+  href: PAC.DataStructures.IntRect.html#PAC_DataStructures_IntRect_isSquare
+  name: isSquare
+  nameWithType: IntRect.isSquare
+  fullName: PAC.DataStructures.IntRect.isSquare
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: PAC.DataStructures.IntRect.#ctor*
+  commentId: Overload:PAC.DataStructures.IntRect.#ctor
+  href: PAC.DataStructures.IntRect.html#PAC_DataStructures_IntRect__ctor_PAC_DataStructures_IntVector2_PAC_DataStructures_IntVector2_
+  name: IntRect
+  nameWithType: IntRect.IntRect
+  fullName: PAC.DataStructures.IntRect.IntRect
+  nameWithType.vb: IntRect.New
+  fullName.vb: PAC.DataStructures.IntRect.New
+  name.vb: New
+- uid: PAC.DataStructures.IntRect.op_Equality*
+  commentId: Overload:PAC.DataStructures.IntRect.op_Equality
+  href: PAC.DataStructures.IntRect.html#PAC_DataStructures_IntRect_op_Equality_PAC_DataStructures_IntRect_PAC_DataStructures_IntRect_
+  name: operator ==
+  nameWithType: IntRect.operator ==
+  fullName: PAC.DataStructures.IntRect.operator ==
+  nameWithType.vb: IntRect.=
+  fullName.vb: PAC.DataStructures.IntRect.=
+  name.vb: =
+  spec.csharp:
+  - name: operator
+  - name: " "
+  - uid: PAC.DataStructures.IntRect.op_Equality*
+    name: ==
+    href: PAC.DataStructures.IntRect.html#PAC_DataStructures_IntRect_op_Equality_PAC_DataStructures_IntRect_PAC_DataStructures_IntRect_
+- uid: PAC.DataStructures.IntRect
+  commentId: T:PAC.DataStructures.IntRect
+  parent: PAC.DataStructures
+  href: PAC.DataStructures.IntRect.html
+  name: IntRect
+  nameWithType: IntRect
+  fullName: PAC.DataStructures.IntRect
+- uid: PAC.DataStructures.IntRect.op_Inequality*
+  commentId: Overload:PAC.DataStructures.IntRect.op_Inequality
+  href: PAC.DataStructures.IntRect.html#PAC_DataStructures_IntRect_op_Inequality_PAC_DataStructures_IntRect_PAC_DataStructures_IntRect_
+  name: operator !=
+  nameWithType: IntRect.operator !=
+  fullName: PAC.DataStructures.IntRect.operator !=
+  nameWithType.vb: IntRect.<>
+  fullName.vb: PAC.DataStructures.IntRect.<>
+  name.vb: <>
+  spec.csharp:
+  - name: operator
+  - name: " "
+  - uid: PAC.DataStructures.IntRect.op_Inequality*
+    name: '!='
+    href: PAC.DataStructures.IntRect.html#PAC_DataStructures_IntRect_op_Inequality_PAC_DataStructures_IntRect_PAC_DataStructures_IntRect_
+- uid: System.ValueType.Equals(System.Object)
+  commentId: M:System.ValueType.Equals(System.Object)
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  name: Equals(object)
+  nameWithType: ValueType.Equals(object)
+  fullName: System.ValueType.Equals(object)
+  nameWithType.vb: ValueType.Equals(Object)
+  fullName.vb: System.ValueType.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: PAC.DataStructures.IntRect.Equals*
+  commentId: Overload:PAC.DataStructures.IntRect.Equals
+  href: PAC.DataStructures.IntRect.html#PAC_DataStructures_IntRect_Equals_System_Object_
+  name: Equals
+  nameWithType: IntRect.Equals
+  fullName: PAC.DataStructures.IntRect.Equals
+- uid: System.ValueType
+  commentId: T:System.ValueType
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype
+  name: ValueType
+  nameWithType: ValueType
+  fullName: System.ValueType
+- uid: System.ValueType.GetHashCode
+  commentId: M:System.ValueType.GetHashCode
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  name: GetHashCode()
+  nameWithType: ValueType.GetHashCode()
+  fullName: System.ValueType.GetHashCode()
+  spec.csharp:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  - name: (
+  - name: )
+- uid: PAC.DataStructures.IntRect.GetHashCode*
+  commentId: Overload:PAC.DataStructures.IntRect.GetHashCode
+  href: PAC.DataStructures.IntRect.html#PAC_DataStructures_IntRect_GetHashCode
+  name: GetHashCode
+  nameWithType: IntRect.GetHashCode
+  fullName: PAC.DataStructures.IntRect.GetHashCode
+- uid: System.ValueType.ToString
+  commentId: M:System.ValueType.ToString
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  name: ToString()
+  nameWithType: ValueType.ToString()
+  fullName: System.ValueType.ToString()
+  spec.csharp:
+  - uid: System.ValueType.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  - name: (
+  - name: )
+- uid: PAC.DataStructures.IntRect.ToString*
+  commentId: Overload:PAC.DataStructures.IntRect.ToString
+  href: PAC.DataStructures.IntRect.html#PAC_DataStructures_IntRect_ToString
+  name: ToString
+  nameWithType: IntRect.ToString
+  fullName: PAC.DataStructures.IntRect.ToString
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: PAC.DataStructures.IntRect.op_Addition*
+  commentId: Overload:PAC.DataStructures.IntRect.op_Addition
+  href: PAC.DataStructures.IntRect.html#PAC_DataStructures_IntRect_op_Addition_PAC_DataStructures_IntVector2_PAC_DataStructures_IntRect_
+  name: operator +
+  nameWithType: IntRect.operator +
+  fullName: PAC.DataStructures.IntRect.operator +
+  nameWithType.vb: IntRect.+
+  fullName.vb: PAC.DataStructures.IntRect.+
+  name.vb: +
+  spec.csharp:
+  - name: operator
+  - name: " "
+  - uid: PAC.DataStructures.IntRect.op_Addition*
+    name: +
+    href: PAC.DataStructures.IntRect.html#PAC_DataStructures_IntRect_op_Addition_PAC_DataStructures_IntVector2_PAC_DataStructures_IntRect_
+- uid: PAC.DataStructures.IntRect.op_Subtraction*
+  commentId: Overload:PAC.DataStructures.IntRect.op_Subtraction
+  href: PAC.DataStructures.IntRect.html#PAC_DataStructures_IntRect_op_Subtraction_PAC_DataStructures_IntRect_PAC_DataStructures_IntVector2_
+  name: operator -
+  nameWithType: IntRect.operator -
+  fullName: PAC.DataStructures.IntRect.operator -
+  nameWithType.vb: IntRect.-
+  fullName.vb: PAC.DataStructures.IntRect.-
+  name.vb: '-'
+  spec.csharp:
+  - name: operator
+  - name: " "
+  - uid: PAC.DataStructures.IntRect.op_Subtraction*
+    name: '-'
+    href: PAC.DataStructures.IntRect.html#PAC_DataStructures_IntRect_op_Subtraction_PAC_DataStructures_IntRect_PAC_DataStructures_IntVector2_
+- uid: PAC.DataStructures.IntRect.op_Explicit*
+  commentId: Overload:PAC.DataStructures.IntRect.op_Explicit
+  name: explicit operator
+  nameWithType: IntRect.explicit operator
+  fullName: PAC.DataStructures.IntRect.explicit operator
+  nameWithType.vb: IntRect.CType
+  fullName.vb: PAC.DataStructures.IntRect.CType
+  name.vb: CType
+  spec.csharp:
+  - name: explicit
+  - name: " "
+  - name: operator
+- uid: Global.Rect
+  isExternal: true
+  name: Rect
+  nameWithType: Rect
+  fullName: Rect
+- uid: PAC.DataStructures.IntRect.ToRect*
+  commentId: Overload:PAC.DataStructures.IntRect.ToRect
+  href: PAC.DataStructures.IntRect.html#PAC_DataStructures_IntRect_ToRect
+  name: ToRect
+  nameWithType: IntRect.ToRect
+  fullName: PAC.DataStructures.IntRect.ToRect
+- uid: PAC.DataStructures.IntRect.IsSquare*
+  commentId: Overload:PAC.DataStructures.IntRect.IsSquare
+  href: PAC.DataStructures.IntRect.html#PAC_DataStructures_IntRect_IsSquare_PAC_DataStructures_IntRect_
+  name: IsSquare
+  nameWithType: IntRect.IsSquare
+  fullName: PAC.DataStructures.IntRect.IsSquare
+- uid: PAC.DataStructures.IntRect.Area*
+  commentId: Overload:PAC.DataStructures.IntRect.Area
+  href: PAC.DataStructures.IntRect.html#PAC_DataStructures_IntRect_Area_PAC_DataStructures_IntRect_
+  name: Area
+  nameWithType: IntRect.Area
+  fullName: PAC.DataStructures.IntRect.Area
+- uid: PAC.DataStructures.IntRect.Contains*
+  commentId: Overload:PAC.DataStructures.IntRect.Contains
+  href: PAC.DataStructures.IntRect.html#PAC_DataStructures_IntRect_Contains_PAC_DataStructures_IntVector2_
+  name: Contains
+  nameWithType: IntRect.Contains
+  fullName: PAC.DataStructures.IntRect.Contains
+- uid: System.Single
+  commentId: T:System.Single
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.single
+  name: float
+  nameWithType: float
+  fullName: float
+  nameWithType.vb: Single
+  fullName.vb: Single
+  name.vb: Single
+- uid: PAC.DataStructures.IntRect.IsContainedIn*
+  commentId: Overload:PAC.DataStructures.IntRect.IsContainedIn
+  href: PAC.DataStructures.IntRect.html#PAC_DataStructures_IntRect_IsContainedIn_PAC_DataStructures_IntRect_
+  name: IsContainedIn
+  nameWithType: IntRect.IsContainedIn
+  fullName: PAC.DataStructures.IntRect.IsContainedIn
+- uid: PAC.DataStructures.IntRect.Overlap*
+  commentId: Overload:PAC.DataStructures.IntRect.Overlap
+  href: PAC.DataStructures.IntRect.html#PAC_DataStructures_IntRect_Overlap_PAC_DataStructures_IntRect_PAC_DataStructures_IntRect_
+  name: Overlap
+  nameWithType: IntRect.Overlap
+  fullName: PAC.DataStructures.IntRect.Overlap
+- uid: PAC.DataStructures.IntRect.Overlaps*
+  commentId: Overload:PAC.DataStructures.IntRect.Overlaps
+  href: PAC.DataStructures.IntRect.html#PAC_DataStructures_IntRect_Overlaps_PAC_DataStructures_IntRect_
+  name: Overlaps
+  nameWithType: IntRect.Overlaps
+  fullName: PAC.DataStructures.IntRect.Overlaps
+- uid: PAC.DataStructures.IntRect.Clamp*
+  commentId: Overload:PAC.DataStructures.IntRect.Clamp
+  href: PAC.DataStructures.IntRect.html#PAC_DataStructures_IntRect_Clamp_PAC_DataStructures_IntVector2_
+  name: Clamp
+  nameWithType: IntRect.Clamp
+  fullName: PAC.DataStructures.IntRect.Clamp
+- uid: PAC.DataStructures.IntRect.FilterPointsInside*
+  commentId: Overload:PAC.DataStructures.IntRect.FilterPointsInside
+  href: PAC.DataStructures.IntRect.html#PAC_DataStructures_IntRect_FilterPointsInside_PAC_DataStructures_IntVector2___
+  name: FilterPointsInside
+  nameWithType: IntRect.FilterPointsInside
+  fullName: PAC.DataStructures.IntRect.FilterPointsInside
+- uid: PAC.DataStructures.IntRect.FilterPointsOutside*
+  commentId: Overload:PAC.DataStructures.IntRect.FilterPointsOutside
+  href: PAC.DataStructures.IntRect.html#PAC_DataStructures_IntRect_FilterPointsOutside_PAC_DataStructures_IntVector2___
+  name: FilterPointsOutside
+  nameWithType: IntRect.FilterPointsOutside
+  fullName: PAC.DataStructures.IntRect.FilterPointsOutside
+- uid: PAC.DataStructures.IntRect.GetEnumerator*
+  commentId: Overload:PAC.DataStructures.IntRect.GetEnumerator
+  href: PAC.DataStructures.IntRect.html#PAC_DataStructures_IntRect_GetEnumerator
+  name: GetEnumerator
+  nameWithType: IntRect.GetEnumerator
+  fullName: PAC.DataStructures.IntRect.GetEnumerator
+- uid: System.Collections.IEnumerable.GetEnumerator
+  commentId: M:System.Collections.IEnumerable.GetEnumerator
+  parent: System.Collections.IEnumerable
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.ienumerable.getenumerator
+  name: GetEnumerator()
+  nameWithType: IEnumerable.GetEnumerator()
+  fullName: System.Collections.IEnumerable.GetEnumerator()
+  spec.csharp:
+  - uid: System.Collections.IEnumerable.GetEnumerator
+    name: GetEnumerator
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.ienumerable.getenumerator
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Collections.IEnumerable.GetEnumerator
+    name: GetEnumerator
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.ienumerable.getenumerator
+  - name: (
+  - name: )
+- uid: System.Collections.IEnumerator
+  commentId: T:System.Collections.IEnumerator
+  parent: System.Collections
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.ienumerator
+  name: IEnumerator
+  nameWithType: IEnumerator
+  fullName: System.Collections.IEnumerator

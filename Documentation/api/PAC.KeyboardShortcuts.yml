@@ -1,0 +1,66 @@
+### YamlMime:ManagedReference
+items:
+- uid: PAC.KeyboardShortcuts
+  commentId: N:PAC.KeyboardShortcuts
+  id: PAC.KeyboardShortcuts
+  children:
+  - PAC.KeyboardShortcuts.CustomKeyCode
+  - PAC.KeyboardShortcuts.KeyboardShortcut
+  - PAC.KeyboardShortcuts.KeyboardShortcutOptionsManager
+  - PAC.KeyboardShortcuts.KeyboardShortcuts
+  langs:
+  - csharp
+  - vb
+  name: PAC.KeyboardShortcuts
+  nameWithType: PAC.KeyboardShortcuts
+  fullName: PAC.KeyboardShortcuts
+  type: Namespace
+references:
+- uid: PAC.KeyboardShortcuts.CustomKeyCode
+  commentId: T:PAC.KeyboardShortcuts.CustomKeyCode
+  parent: PAC.KeyboardShortcuts
+  href: PAC.KeyboardShortcuts.CustomKeyCode.html
+  name: CustomKeyCode
+  nameWithType: CustomKeyCode
+  fullName: PAC.KeyboardShortcuts.CustomKeyCode
+- uid: PAC.KeyboardShortcuts.KeyboardShortcut
+  commentId: T:PAC.KeyboardShortcuts.KeyboardShortcut
+  parent: PAC.KeyboardShortcuts
+  href: PAC.KeyboardShortcuts.KeyboardShortcut.html
+  name: KeyboardShortcut
+  nameWithType: KeyboardShortcut
+  fullName: PAC.KeyboardShortcuts.KeyboardShortcut
+- uid: PAC.KeyboardShortcuts.KeyboardShortcutOptionsManager
+  commentId: T:PAC.KeyboardShortcuts.KeyboardShortcutOptionsManager
+  href: PAC.KeyboardShortcuts.KeyboardShortcutOptionsManager.html
+  name: KeyboardShortcutOptionsManager
+  nameWithType: KeyboardShortcutOptionsManager
+  fullName: PAC.KeyboardShortcuts.KeyboardShortcutOptionsManager
+- uid: PAC.KeyboardShortcuts.KeyboardShortcuts
+  commentId: T:PAC.KeyboardShortcuts.KeyboardShortcuts
+  href: PAC.KeyboardShortcuts.KeyboardShortcuts.html
+  name: KeyboardShortcuts
+  nameWithType: KeyboardShortcuts
+  fullName: PAC.KeyboardShortcuts.KeyboardShortcuts
+- uid: PAC.KeyboardShortcuts
+  commentId: N:PAC.KeyboardShortcuts
+  href: PAC.html
+  name: PAC.KeyboardShortcuts
+  nameWithType: PAC.KeyboardShortcuts
+  fullName: PAC.KeyboardShortcuts
+  spec.csharp:
+  - uid: PAC
+    name: PAC
+    href: PAC.html
+  - name: .
+  - uid: PAC.KeyboardShortcuts
+    name: KeyboardShortcuts
+    href: PAC.KeyboardShortcuts.html
+  spec.vb:
+  - uid: PAC
+    name: PAC
+    href: PAC.html
+  - name: .
+  - uid: PAC.KeyboardShortcuts
+    name: KeyboardShortcuts
+    href: PAC.KeyboardShortcuts.html

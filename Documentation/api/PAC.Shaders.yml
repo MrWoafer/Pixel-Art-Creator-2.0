@@ -1,0 +1,42 @@
+### YamlMime:ManagedReference
+items:
+- uid: PAC.Shaders
+  commentId: N:PAC.Shaders
+  id: PAC.Shaders
+  children:
+  - PAC.Shaders.HueSaturationBoxShader
+  - PAC.Shaders.LightnessSliderShader
+  - PAC.Shaders.Outline
+  - PAC.Shaders.RainbowOutline
+  langs:
+  - csharp
+  - vb
+  name: PAC.Shaders
+  nameWithType: PAC.Shaders
+  fullName: PAC.Shaders
+  type: Namespace
+references:
+- uid: PAC.Shaders.HueSaturationBoxShader
+  commentId: T:PAC.Shaders.HueSaturationBoxShader
+  href: PAC.Shaders.HueSaturationBoxShader.html
+  name: HueSaturationBoxShader
+  nameWithType: HueSaturationBoxShader
+  fullName: PAC.Shaders.HueSaturationBoxShader
+- uid: PAC.Shaders.LightnessSliderShader
+  commentId: T:PAC.Shaders.LightnessSliderShader
+  href: PAC.Shaders.LightnessSliderShader.html
+  name: LightnessSliderShader
+  nameWithType: LightnessSliderShader
+  fullName: PAC.Shaders.LightnessSliderShader
+- uid: PAC.Shaders.Outline
+  commentId: T:PAC.Shaders.Outline
+  href: PAC.Shaders.Outline.html
+  name: Outline
+  nameWithType: Outline
+  fullName: PAC.Shaders.Outline
+- uid: PAC.Shaders.RainbowOutline
+  commentId: T:PAC.Shaders.RainbowOutline
+  href: PAC.Shaders.RainbowOutline.html
+  name: RainbowOutline
+  nameWithType: RainbowOutline
+  fullName: PAC.Shaders.RainbowOutline
