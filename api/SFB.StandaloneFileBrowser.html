@@ -1,0 +1,634 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class StandaloneFileBrowser |  |  </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class StandaloneFileBrowser |  |  ">
+      
+      
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      <meta name="docfx:disablenewtab" content="true">
+      
+      <meta name="docfx:docurl" content="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/new/main/apiSpec/new?filename=SFB_StandaloneFileBrowser.md&amp;value=---%0Auid%3A%20SFB.StandaloneFileBrowser%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="SFB.StandaloneFileBrowser">
+
+
+
+  <h1 id="SFB_StandaloneFileBrowser" data-uid="SFB.StandaloneFileBrowser" class="text-break">
+Class StandaloneFileBrowser  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/StandaloneFileBrowser/StandaloneFileBrowser.cs/#L14"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="SFB.html">SFB</a></dd></dl>
+  
+  </div>
+
+  <div class="markdown summary"></div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class StandaloneFileBrowser</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">StandaloneFileBrowser</span></div>
+    </dd>
+  </dl>
+
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="SFB_StandaloneFileBrowser_OpenFilePanel_" data-uid="SFB.StandaloneFileBrowser.OpenFilePanel*"></a>
+
+  <h3 id="SFB_StandaloneFileBrowser_OpenFilePanel_System_String_System_String_SFB_ExtensionFilter___System_Boolean_" data-uid="SFB.StandaloneFileBrowser.OpenFilePanel(System.String,System.String,SFB.ExtensionFilter[],System.Boolean)">
+  OpenFilePanel(string, string, ExtensionFilter[], bool)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/StandaloneFileBrowser/StandaloneFileBrowser.cs/#L50"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Native open file dialog</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static string[] OpenFilePanel(string title, string directory, ExtensionFilter[] extensions, bool multiselect)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>title</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>Dialog title</p>
+</dd>
+    <dt><code>directory</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>Root directory</p>
+</dd>
+    <dt><code>extensions</code> <a class="xref" href="SFB.ExtensionFilter.html">ExtensionFilter</a>[]</dt>
+    <dd><p>List of extension filters. Filter Example: new ExtensionFilter(&quot;Image Files&quot;, &quot;jpg&quot;, &quot;png&quot;)</p>
+</dd>
+    <dt><code>multiselect</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>Allow multiple file selection</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>[]</dt>
+    <dd><p>Returns array of chosen paths. Zero length array when cancelled</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="SFB_StandaloneFileBrowser_OpenFilePanel_" data-uid="SFB.StandaloneFileBrowser.OpenFilePanel*"></a>
+
+  <h3 id="SFB_StandaloneFileBrowser_OpenFilePanel_System_String_System_String_System_String_System_Boolean_" data-uid="SFB.StandaloneFileBrowser.OpenFilePanel(System.String,System.String,System.String,System.Boolean)">
+  OpenFilePanel(string, string, string, bool)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/StandaloneFileBrowser/StandaloneFileBrowser.cs/#L37"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Native open file dialog</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static string[] OpenFilePanel(string title, string directory, string extension, bool multiselect)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>title</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>Dialog title</p>
+</dd>
+    <dt><code>directory</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>Root directory</p>
+</dd>
+    <dt><code>extension</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>Allowed extension</p>
+</dd>
+    <dt><code>multiselect</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>Allow multiple file selection</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>[]</dt>
+    <dd><p>Returns array of chosen paths. Zero length array when cancelled</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="SFB_StandaloneFileBrowser_OpenFilePanelAsync_" data-uid="SFB.StandaloneFileBrowser.OpenFilePanelAsync*"></a>
+
+  <h3 id="SFB_StandaloneFileBrowser_OpenFilePanelAsync_System_String_System_String_SFB_ExtensionFilter___System_Boolean_System_Action_System_String____" data-uid="SFB.StandaloneFileBrowser.OpenFilePanelAsync(System.String,System.String,SFB.ExtensionFilter[],System.Boolean,System.Action{System.String[]})">
+  OpenFilePanelAsync(string, string, ExtensionFilter[], bool, Action&lt;string[]&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/StandaloneFileBrowser/StandaloneFileBrowser.cs/#L75"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Native open file dialog async</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void OpenFilePanelAsync(string title, string directory, ExtensionFilter[] extensions, bool multiselect, Action&lt;string[]&gt; cb)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>title</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>Dialog title</p>
+</dd>
+    <dt><code>directory</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>Root directory</p>
+</dd>
+    <dt><code>extensions</code> <a class="xref" href="SFB.ExtensionFilter.html">ExtensionFilter</a>[]</dt>
+    <dd><p>List of extension filters. Filter Example: new ExtensionFilter(&quot;Image Files&quot;, &quot;jpg&quot;, &quot;png&quot;)</p>
+</dd>
+    <dt><code>multiselect</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>Allow multiple file selection</p>
+</dd>
+    <dt><code>cb</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action-1">Action</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>[]&gt;</dt>
+    <dd><p>Callback&quot;)</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="SFB_StandaloneFileBrowser_OpenFilePanelAsync_" data-uid="SFB.StandaloneFileBrowser.OpenFilePanelAsync*"></a>
+
+  <h3 id="SFB_StandaloneFileBrowser_OpenFilePanelAsync_System_String_System_String_System_String_System_Boolean_System_Action_System_String____" data-uid="SFB.StandaloneFileBrowser.OpenFilePanelAsync(System.String,System.String,System.String,System.Boolean,System.Action{System.String[]})">
+  OpenFilePanelAsync(string, string, string, bool, Action&lt;string[]&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/StandaloneFileBrowser/StandaloneFileBrowser.cs/#L62"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Native open file dialog async</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void OpenFilePanelAsync(string title, string directory, string extension, bool multiselect, Action&lt;string[]&gt; cb)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>title</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>Dialog title</p>
+</dd>
+    <dt><code>directory</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>Root directory</p>
+</dd>
+    <dt><code>extension</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>Allowed extension</p>
+</dd>
+    <dt><code>multiselect</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>Allow multiple file selection</p>
+</dd>
+    <dt><code>cb</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action-1">Action</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>[]&gt;</dt>
+    <dd><p>Callback&quot;)</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="SFB_StandaloneFileBrowser_OpenFolderPanel_" data-uid="SFB.StandaloneFileBrowser.OpenFolderPanel*"></a>
+
+  <h3 id="SFB_StandaloneFileBrowser_OpenFolderPanel_System_String_System_String_System_Boolean_" data-uid="SFB.StandaloneFileBrowser.OpenFolderPanel(System.String,System.String,System.Boolean)">
+  OpenFolderPanel(string, string, bool)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/StandaloneFileBrowser/StandaloneFileBrowser.cs/#L87"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Native open folder dialog
+NOTE: Multiple folder selection doesn't supported on Windows</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static string[] OpenFolderPanel(string title, string directory, bool multiselect)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>title</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>directory</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>Root directory</p>
+</dd>
+    <dt><code>multiselect</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>[]</dt>
+    <dd><p>Returns array of chosen paths. Zero length array when cancelled</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="SFB_StandaloneFileBrowser_OpenFolderPanelAsync_" data-uid="SFB.StandaloneFileBrowser.OpenFolderPanelAsync*"></a>
+
+  <h3 id="SFB_StandaloneFileBrowser_OpenFolderPanelAsync_System_String_System_String_System_Boolean_System_Action_System_String____" data-uid="SFB.StandaloneFileBrowser.OpenFolderPanelAsync(System.String,System.String,System.Boolean,System.Action{System.String[]})">
+  OpenFolderPanelAsync(string, string, bool, Action&lt;string[]&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/StandaloneFileBrowser/StandaloneFileBrowser.cs/#L99"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Native open folder dialog async
+NOTE: Multiple folder selection doesn't supported on Windows</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void OpenFolderPanelAsync(string title, string directory, bool multiselect, Action&lt;string[]&gt; cb)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>title</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>directory</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>Root directory</p>
+</dd>
+    <dt><code>multiselect</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+    <dt><code>cb</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action-1">Action</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>[]&gt;</dt>
+    <dd><p>Callback&quot;)</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="SFB_StandaloneFileBrowser_SaveFilePanel_" data-uid="SFB.StandaloneFileBrowser.SaveFilePanel*"></a>
+
+  <h3 id="SFB_StandaloneFileBrowser_SaveFilePanel_System_String_System_String_System_String_SFB_ExtensionFilter___" data-uid="SFB.StandaloneFileBrowser.SaveFilePanel(System.String,System.String,System.String,SFB.ExtensionFilter[])">
+  SaveFilePanel(string, string, string, ExtensionFilter[])
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/StandaloneFileBrowser/StandaloneFileBrowser.cs/#L124"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Native save file dialog</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static string SaveFilePanel(string title, string directory, string defaultName, ExtensionFilter[] extensions)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>title</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>Dialog title</p>
+</dd>
+    <dt><code>directory</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>Root directory</p>
+</dd>
+    <dt><code>defaultName</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>Default file name</p>
+</dd>
+    <dt><code>extensions</code> <a class="xref" href="SFB.ExtensionFilter.html">ExtensionFilter</a>[]</dt>
+    <dd><p>List of extension filters. Filter Example: new ExtensionFilter(&quot;Image Files&quot;, &quot;jpg&quot;, &quot;png&quot;)</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>Returns chosen path. Empty string when cancelled</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="SFB_StandaloneFileBrowser_SaveFilePanel_" data-uid="SFB.StandaloneFileBrowser.SaveFilePanel*"></a>
+
+  <h3 id="SFB_StandaloneFileBrowser_SaveFilePanel_System_String_System_String_System_String_System_String_" data-uid="SFB.StandaloneFileBrowser.SaveFilePanel(System.String,System.String,System.String,System.String)">
+  SaveFilePanel(string, string, string, string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/StandaloneFileBrowser/StandaloneFileBrowser.cs/#L111"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Native save file dialog</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static string SaveFilePanel(string title, string directory, string defaultName, string extension)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>title</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>Dialog title</p>
+</dd>
+    <dt><code>directory</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>Root directory</p>
+</dd>
+    <dt><code>defaultName</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>Default file name</p>
+</dd>
+    <dt><code>extension</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>File extension</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>Returns chosen path. Empty string when cancelled</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="SFB_StandaloneFileBrowser_SaveFilePanelAsync_" data-uid="SFB.StandaloneFileBrowser.SaveFilePanelAsync*"></a>
+
+  <h3 id="SFB_StandaloneFileBrowser_SaveFilePanelAsync_System_String_System_String_System_String_SFB_ExtensionFilter___System_Action_System_String__" data-uid="SFB.StandaloneFileBrowser.SaveFilePanelAsync(System.String,System.String,System.String,SFB.ExtensionFilter[],System.Action{System.String})">
+  SaveFilePanelAsync(string, string, string, ExtensionFilter[], Action&lt;string&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/StandaloneFileBrowser/StandaloneFileBrowser.cs/#L149"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Native save file dialog async</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void SaveFilePanelAsync(string title, string directory, string defaultName, ExtensionFilter[] extensions, Action&lt;string&gt; cb)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>title</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>Dialog title</p>
+</dd>
+    <dt><code>directory</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>Root directory</p>
+</dd>
+    <dt><code>defaultName</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>Default file name</p>
+</dd>
+    <dt><code>extensions</code> <a class="xref" href="SFB.ExtensionFilter.html">ExtensionFilter</a>[]</dt>
+    <dd><p>List of extension filters. Filter Example: new ExtensionFilter(&quot;Image Files&quot;, &quot;jpg&quot;, &quot;png&quot;)</p>
+</dd>
+    <dt><code>cb</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action-1">Action</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>&gt;</dt>
+    <dd><p>Callback&quot;)</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="SFB_StandaloneFileBrowser_SaveFilePanelAsync_" data-uid="SFB.StandaloneFileBrowser.SaveFilePanelAsync*"></a>
+
+  <h3 id="SFB_StandaloneFileBrowser_SaveFilePanelAsync_System_String_System_String_System_String_System_String_System_Action_System_String__" data-uid="SFB.StandaloneFileBrowser.SaveFilePanelAsync(System.String,System.String,System.String,System.String,System.Action{System.String})">
+  SaveFilePanelAsync(string, string, string, string, Action&lt;string&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/StandaloneFileBrowser/StandaloneFileBrowser.cs/#L136"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Native save file dialog async</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void SaveFilePanelAsync(string title, string directory, string defaultName, string extension, Action&lt;string&gt; cb)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>title</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>Dialog title</p>
+</dd>
+    <dt><code>directory</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>Root directory</p>
+</dd>
+    <dt><code>defaultName</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>Default file name</p>
+</dd>
+    <dt><code>extension</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>File extension</p>
+</dd>
+    <dt><code>cb</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action-1">Action</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>&gt;</dt>
+    <dd><p>Callback&quot;)</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made by <a href="https://github.com/MrWoafer" target="_blank">MrWoafer</a> using <a href="https://dotnet.github.io/docfx" target="_blank">DocFX</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
