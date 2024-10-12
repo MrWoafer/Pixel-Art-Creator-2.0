@@ -1,45 +1,24 @@
-name: 'DocFX Publish'
-description: 'Generate and publish DocFX documentation to GitHub Pages'
+name: Documentation
 on:
   push:
     branches:
       - main
-inputs:
-  dotnetVersion:
-    description: '.NET SDK version for DocFX'
-    required: true
-    default: '8.0.x'
-  docfxJson:
-    description: 'Path to the docfx.json file'
-    required: true
-    default: 'Documentation/docfx.json'
-  publishDir:
-    description: 'Directory to publish documentation to'
-    required: true
-    default: '_site'
-runs:
-  using: 'composite'
-  steps:
-    - name: Checkout Repository
-      uses: actions/checkout@v3
-      with:
-        fetch-depth: 0
-
-    - name: Setup .NET Core
-      uses: actions/setup-dotnet@v3
-      with:
-        dotnet-version: ${{ inputs.dotnetVersion }}
-
-    - name: Install DocFX
-      run: |
-        dotnet tool install -g docfx
-        echo "$HOME/.dotnet/tools" >> $GITHUB_PATH
-
-    - name: Build Documentation
-      run: docfx build ${{ inputs.docfxJson }}
-
-    - name: Deploy to GitHub Pages
-      uses: peaceiris/actions-gh-pages@v3
-      with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: ${{ inputs.publishDir }}
+  pull_request:
+  workflow_dispatch:
+jobs:
+  Build:
+    name: Documentation
+    runs-on: ubuntu-latest
+    steps:
+      - name: Build
+        uses: Zeugwerk/zkdoc-action@1.0.0
+        with:
+          username: ${{ secrets.ACTIONS_ZGWK_USERNAME }}
+          password: ${{ secrets.ACTIONS_ZGWK_PASSWORD }}
+          filepath: "."
+          doc-folder: "Documentation"
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          deploy_key: ${{ secrets.ACTIONS_DEPLOY_KEY }}
+          publish_dir: archive/docs/html
