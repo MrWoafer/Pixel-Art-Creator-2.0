@@ -78,7 +78,7 @@ Test Images/
 Test Build/
 
 # Ignore Documentation
-#Documentation/api/
-#Documentation/index.*
-#_site/
-#Assets/**/obj*
+Documentation/api/
+Documentation/index.*
+_site/
+Assets/**/obj*
