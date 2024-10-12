@@ -1,5 +1,9 @@
 name: 'DocFX Publish'
 description: 'Generate and publish DocFX documentation to GitHub Pages'
+on:
+  push:
+    branches:
+      - main
 inputs:
   dotnetVersion:
     description: '.NET SDK version for DocFX'
