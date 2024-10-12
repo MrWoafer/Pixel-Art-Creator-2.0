@@ -1,4 +1,4 @@
-name: docfx-unitypackage
+name: docfx-build-deploy-github-pages
 
 on:
   workflow_dispatch:
