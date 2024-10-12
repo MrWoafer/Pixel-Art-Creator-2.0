@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           submodules: true
       
@@ -30,7 +30,7 @@ jobs:
         shell: bash
       
       - name: Install DocFX
-        run: choco install -y docfx
+        run: dotnet tool install -g docfx
 
       - name: Use README.md as index.md
         run: cp README.md Documentation/index.md
