@@ -1,44 +1,41 @@
-# Your GitHub workflow file under .github/workflows/
-# Trigger the action on push to main
-on:
-  push:
-    branches:
-      - main
-
-# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
-permissions:
-  actions: read
-  pages: write
-  id-token: write
-
-# Allow only one concurrent deployment, skipping runs queued between the run in-progress and latest queued.
-# However, do NOT cancel in-progress runs as we want to allow these production deployments to complete.
-concurrency:
-  group: "pages"
-  cancel-in-progress: false
-  
-jobs:
-  publish-docs:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    runs-on: ubuntu-latest
-    steps:
-    - name: Checkout
-      uses: actions/checkout@v4
-    - name: Dotnet Setup
-      uses: actions/setup-dotnet@v4
+name: 'DocFX Publish'
+description: 'Generate and publish DocFX documentation to GitHub Pages'
+inputs:
+  dotnetVersion:
+    description: '.NET SDK version for DocFX'
+    required: true
+    default: '8.0.x'
+  docfxJson:
+    description: 'Path to the docfx.json file'
+    required: true
+    default: 'Documentation/docfx.json'
+  publishDir:
+    description: 'Directory to publish documentation to'
+    required: true
+    default: '_site'
+runs:
+  using: 'composite'
+  steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v3
       with:
-        dotnet-version: 8.x
+        fetch-depth: 0
 
-    - run: dotnet tool update -g docfx
-    - run: docfx Documentation/docfx.json
-
-    - name: Upload artifact
-      uses: actions/upload-pages-artifact@v3
+    - name: Setup .NET Core
+      uses: actions/setup-dotnet@v3
       with:
-        # Upload entire repository
-        path: '_site'
+        dotnet-version: ${{ inputs.dotnetVersion }}
+
+    - name: Install DocFX
+      run: |
+        dotnet tool install -g docfx
+        echo "$HOME/.dotnet/tools" >> $GITHUB_PATH
+
+    - name: Build Documentation
+      run: docfx build ${{ inputs.docfxJson }}
+
     - name: Deploy to GitHub Pages
-      id: deployment
-      uses: actions/deploy-pages@v4
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: ${{ inputs.publishDir }}
