@@ -1,127 +1,95 @@
 ﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
 <html>
+
   <head>
     <meta charset="utf-8">
-      <title>Class LayerAnimation |  |  </title>
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <meta name="title" content="Class LayerAnimation |  |  ">
-      
-      
-      <link rel="icon" href="../favicon.ico">
-      <link rel="stylesheet" href="../public/docfx.min.css">
-      <link rel="stylesheet" href="../public/main.css">
-      <meta name="docfx:navrel" content="../toc.html">
-      <meta name="docfx:tocrel" content="toc.html">
-      
-      <meta name="docfx:rel" content="../">
-      <meta name="docfx:disablenewtab" content="true">
-      
-      <meta name="docfx:docurl" content="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/new/main/apiSpec/new?filename=PAC_Animation_LayerAnimation.md&amp;value=---%0Auid%3A%20PAC.Animation.LayerAnimation%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
-      <meta name="loc:inThisArticle" content="In this article">
-      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
-      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
-      <meta name="loc:tocFilter" content="Filter by title">
-      <meta name="loc:nextArticle" content="Next">
-      <meta name="loc:prevArticle" content="Previous">
-      <meta name="loc:themeLight" content="Light">
-      <meta name="loc:themeDark" content="Dark">
-      <meta name="loc:themeAuto" content="Auto">
-      <meta name="loc:changeTheme" content="Change theme">
-      <meta name="loc:copy" content="Copy">
-      <meta name="loc:downloadPdf" content="Download PDF">
-
-      <script type="module" src="./../public/docfx.min.js"></script>
-
-      <script>
-        const theme = localStorage.getItem('theme') || 'auto'
-        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
-      </script>
-
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <title>Class LayerAnimation | Pixel Art Creator 2.0 Docs </title>
+      <meta name="viewport" content="width=device-width">
+      <meta name="title" content="Class LayerAnimation | Pixel Art Creator 2.0 Docs ">
+    
+    
+      <link rel="shortcut icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
+      <link rel="stylesheet" href="../styles/docfx.css">
+      <link rel="stylesheet" href="../styles/main.css">
+      <meta property="docfx:navrel" content="../toc.html">
+      <meta property="docfx:tocrel" content="toc.html">
+    
+    <meta property="docfx:rel" content="../">
+    
   </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
 
-  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
-    <header class="bg-body border-bottom">
-      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
-        <div class="container-xxl flex-nowrap">
-          <a class="navbar-brand" href="../index.html">
-            <img id="logo" class="svg" src="../logo.svg" alt="">
-            
-          </a>
-          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
-            <i class="bi bi-three-dots"></i>
-          </button>
-          <div class="collapse navbar-collapse" id="navpanel">
-            <div id="navbar">
-              <form class="search" role="search" id="search">
-                <i class="bi bi-search"></i>
-                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
               </form>
             </div>
           </div>
-        </div>
-      </nav>
-    </header>
+        </nav>
 
-    <main class="container-xxl">
-      <div class="toc-offcanvas">
-        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
-          <div class="offcanvas-header">
-            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
           </div>
-          <div class="offcanvas-body">
-            <nav class="toc" id="toc"></nav>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
           </div>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
         </div>
       </div>
+      <div role="main" class="container body-content hide-when-search">
 
-      <div class="content">
-        <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
-            <i class="bi bi-list"></i>
-          </button>
-
-          <nav id="breadcrumb"></nav>
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
         </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="PAC.Animation.LayerAnimation">
 
-        <article data-uid="PAC.Animation.LayerAnimation">
 
 
-
-  <h1 id="PAC_Animation_LayerAnimation" data-uid="PAC.Animation.LayerAnimation" class="text-break">
-Class LayerAnimation  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Animation/LayerAnimation.cs/#L7"><i class="bi bi-code-slash"></i></a>
-  </h1>
-
-  <div class="facts text-secondary">
-    <dl><dt>Namespace</dt><dd><a class="xref" href="PAC.html">PAC</a>.<a class="xref" href="PAC.Animation.html">Animation</a></dd></dl>
-  
+  <h1 id="PAC_Animation_LayerAnimation" data-uid="PAC.Animation.LayerAnimation" class="text-break">Class LayerAnimation</h1>
+  <div class="markdown level0 summary"></div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+    <div class="level1"><span class="xref">LayerAnimation</span></div>
   </div>
-
-  <div class="markdown summary"></div>
-  <div class="markdown conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Serializable]
-[Obsolete(&quot;LayerAnimation has now been moved directly into the Layer class.&quot;)]
-public class LayerAnimation</code></pre>
-  </div>
-
-
-
-
-  <dl class="typelist inheritance">
-    <dt>Inheritance</dt>
-    <dd>
-      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
-      <div><span class="xref">LayerAnimation</span></div>
-    </dd>
-  </dl>
-
-
-
-  <dl class="typelist inheritedMembers">
-    <dt>Inherited Members</dt>
-    <dd>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
     <div>
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
     </div>
@@ -143,764 +111,882 @@ public class LayerAnimation</code></pre>
     <div>
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
     </div>
-  </dd></dl>
-
-
-
-
-
-
-  <h2 class="section" id="constructors">Constructors
-</h2>
-
-
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="PAC.html">PAC</a>.<a class="xref" href="PAC.Animation.html">Animation</a></h6>
+  <h6><strong>Assembly</strong>: .dll</h6>
+  <h5 id="PAC_Animation_LayerAnimation_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Serializable]
+[Obsolete(&quot;LayerAnimation has now been moved directly into the Layer class.&quot;)]
+public class LayerAnimation</code></pre>
+  </div>
+  <h3 id="constructors">Constructors
+</h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/new/main/apiSpec/new?filename=PAC_Animation_LayerAnimation__ctor_PAC_Animation_LayerAnimation_.md&amp;value=---%0Auid%3A%20PAC.Animation.LayerAnimation.%23ctor(PAC.Animation.LayerAnimation)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Animation/LayerAnimation.cs/#L84">View Source</a>
+  </span>
   <a id="PAC_Animation_LayerAnimation__ctor_" data-uid="PAC.Animation.LayerAnimation.#ctor*"></a>
-
-  <h3 id="PAC_Animation_LayerAnimation__ctor_PAC_Animation_LayerAnimation_" data-uid="PAC.Animation.LayerAnimation.#ctor(PAC.Animation.LayerAnimation)">
-  LayerAnimation(LayerAnimation)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Animation/LayerAnimation.cs/#L84"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
+  <h4 id="PAC_Animation_LayerAnimation__ctor_PAC_Animation_LayerAnimation_" data-uid="PAC.Animation.LayerAnimation.#ctor(PAC.Animation.LayerAnimation)">LayerAnimation(LayerAnimation)</h4>
   <div class="markdown level1 summary"><p>Creates a deep copy of the given layer animation, including deep copies of the key frames.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-
+  <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public LayerAnimation(LayerAnimation layerAnimation)</code></pre>
   </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>layerAnimation</code> <a class="xref" href="PAC.Animation.LayerAnimation.html">LayerAnimation</a></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
-
-
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="PAC.Animation.LayerAnimation.html">LayerAnimation</a></td>
+        <td><span class="parametername">layerAnimation</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/new/main/apiSpec/new?filename=PAC_Animation_LayerAnimation__ctor_System_Int32_System_Int32_.md&amp;value=---%0Auid%3A%20PAC.Animation.LayerAnimation.%23ctor(System.Int32%2CSystem.Int32)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Animation/LayerAnimation.cs/#L54">View Source</a>
+  </span>
   <a id="PAC_Animation_LayerAnimation__ctor_" data-uid="PAC.Animation.LayerAnimation.#ctor*"></a>
-
-  <h3 id="PAC_Animation_LayerAnimation__ctor_System_Int32_System_Int32_" data-uid="PAC.Animation.LayerAnimation.#ctor(System.Int32,System.Int32)">
-  LayerAnimation(int, int)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Animation/LayerAnimation.cs/#L54"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
+  <h4 id="PAC_Animation_LayerAnimation__ctor_System_Int32_System_Int32_" data-uid="PAC.Animation.LayerAnimation.#ctor(System.Int32,System.Int32)">LayerAnimation(int, int)</h4>
   <div class="markdown level1 summary"><p>Create an animation with a blank starting key frame.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-
+  <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public LayerAnimation(int width, int height)</code></pre>
   </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>width</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
-    <dd><p>The width of the frames.</p>
-</dd>
-    <dt><code>height</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
-    <dd><p>The height of the frames.</p>
-</dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
-
-
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td><span class="parametername">width</span></td>
+        <td><p>The width of the frames.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td><span class="parametername">height</span></td>
+        <td><p>The height of the frames.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/new/main/apiSpec/new?filename=PAC_Animation_LayerAnimation__ctor_Texture2D_.md&amp;value=---%0Auid%3A%20PAC.Animation.LayerAnimation.%23ctor(Texture2D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Animation/LayerAnimation.cs/#L62">View Source</a>
+  </span>
   <a id="PAC_Animation_LayerAnimation__ctor_" data-uid="PAC.Animation.LayerAnimation.#ctor*"></a>
-
-  <h3 id="PAC_Animation_LayerAnimation__ctor_Texture2D_" data-uid="PAC.Animation.LayerAnimation.#ctor(Texture2D)">
-  LayerAnimation(Texture2D)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Animation/LayerAnimation.cs/#L62"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
+  <h4 id="PAC_Animation_LayerAnimation__ctor_Texture2D_" data-uid="PAC.Animation.LayerAnimation.#ctor(Texture2D)">LayerAnimation(Texture2D)</h4>
   <div class="markdown level1 summary"><p>Create an animation with the given texture as the starting key frame.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-
+  <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public LayerAnimation(Texture2D texture)</code></pre>
   </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>texture</code> <span class="xref">Texture2D</span></dt>
-    <dd><p>The texture for the starting key frame.</p>
-</dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
-
-
-  <h2 class="section" id="properties">Properties
-</h2>
-
-
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Texture2D</span></td>
+        <td><span class="parametername">texture</span></td>
+        <td><p>The texture for the starting key frame.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="properties">Properties
+</h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/new/main/apiSpec/new?filename=PAC_Animation_LayerAnimation_Item_System_Int32_.md&amp;value=---%0Auid%3A%20PAC.Animation.LayerAnimation.Item(System.Int32)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Animation/LayerAnimation.cs/#L101">View Source</a>
+  </span>
   <a id="PAC_Animation_LayerAnimation_Item_" data-uid="PAC.Animation.LayerAnimation.Item*"></a>
-
-  <h3 id="PAC_Animation_LayerAnimation_Item_System_Int32_" data-uid="PAC.Animation.LayerAnimation.Item(System.Int32)">
-  this[int]
-  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Animation/LayerAnimation.cs/#L101"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
+  <h4 id="PAC_Animation_LayerAnimation_Item_System_Int32_" data-uid="PAC.Animation.LayerAnimation.Item(System.Int32)">this[int]</h4>
   <div class="markdown level1 summary"><p>Returns the most recent key frame before or at frame frame - i.e. the frame the animation will play at frame frame. Same as GetKeyFrame(i).</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-
+  <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public AnimationKeyFrame this[int i] { get; }</code></pre>
   </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>i</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-  <h4 class="section">Property Value</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="PAC.Animation.AnimationKeyFrame.html">AnimationKeyFrame</a></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td><span class="parametername">i</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="PAC.Animation.AnimationKeyFrame.html">AnimationKeyFrame</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/new/main/apiSpec/new?filename=PAC_Animation_LayerAnimation_height.md&amp;value=---%0Auid%3A%20PAC.Animation.LayerAnimation.height%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Animation/LayerAnimation.cs/#L12">View Source</a>
+  </span>
   <a id="PAC_Animation_LayerAnimation_height_" data-uid="PAC.Animation.LayerAnimation.height*"></a>
-
-  <h3 id="PAC_Animation_LayerAnimation_height" data-uid="PAC.Animation.LayerAnimation.height">
-  height
-  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Animation/LayerAnimation.cs/#L12"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
+  <h4 id="PAC_Animation_LayerAnimation_height" data-uid="PAC.Animation.LayerAnimation.height">height</h4>
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
-
+  <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public int height { get; }</code></pre>
   </div>
-
-
-
-
-
-  <h4 class="section">Property Value</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/new/main/apiSpec/new?filename=PAC_Animation_LayerAnimation_keyFrameCount.md&amp;value=---%0Auid%3A%20PAC.Animation.LayerAnimation.keyFrameCount%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Animation/LayerAnimation.cs/#L24">View Source</a>
+  </span>
   <a id="PAC_Animation_LayerAnimation_keyFrameCount_" data-uid="PAC.Animation.LayerAnimation.keyFrameCount*"></a>
-
-  <h3 id="PAC_Animation_LayerAnimation_keyFrameCount" data-uid="PAC.Animation.LayerAnimation.keyFrameCount">
-  keyFrameCount
-  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Animation/LayerAnimation.cs/#L24"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
+  <h4 id="PAC_Animation_LayerAnimation_keyFrameCount" data-uid="PAC.Animation.LayerAnimation.keyFrameCount">keyFrameCount</h4>
   <div class="markdown level1 summary"><p>The number of key frames in the animation.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-
+  <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public int keyFrameCount { get; }</code></pre>
   </div>
-
-
-
-
-
-  <h4 class="section">Property Value</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/new/main/apiSpec/new?filename=PAC_Animation_LayerAnimation_keyFrameIndices.md&amp;value=---%0Auid%3A%20PAC.Animation.LayerAnimation.keyFrameIndices%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Animation/LayerAnimation.cs/#L35">View Source</a>
+  </span>
   <a id="PAC_Animation_LayerAnimation_keyFrameIndices_" data-uid="PAC.Animation.LayerAnimation.keyFrameIndices*"></a>
-
-  <h3 id="PAC_Animation_LayerAnimation_keyFrameIndices" data-uid="PAC.Animation.LayerAnimation.keyFrameIndices">
-  keyFrameIndices
-  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Animation/LayerAnimation.cs/#L35"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
+  <h4 id="PAC_Animation_LayerAnimation_keyFrameIndices" data-uid="PAC.Animation.LayerAnimation.keyFrameIndices">keyFrameIndices</h4>
   <div class="markdown level1 summary"><p>The frame indices of the key frames in the animation.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-
+  <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public int[] keyFrameIndices { get; }</code></pre>
   </div>
-
-
-
-
-
-  <h4 class="section">Property Value</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>[]</dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>[]</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/new/main/apiSpec/new?filename=PAC_Animation_LayerAnimation_keyFrames.md&amp;value=---%0Auid%3A%20PAC.Animation.LayerAnimation.keyFrames%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Animation/LayerAnimation.cs/#L19">View Source</a>
+  </span>
   <a id="PAC_Animation_LayerAnimation_keyFrames_" data-uid="PAC.Animation.LayerAnimation.keyFrames*"></a>
-
-  <h3 id="PAC_Animation_LayerAnimation_keyFrames" data-uid="PAC.Animation.LayerAnimation.keyFrames">
-  keyFrames
-  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Animation/LayerAnimation.cs/#L19"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
+  <h4 id="PAC_Animation_LayerAnimation_keyFrames" data-uid="PAC.Animation.LayerAnimation.keyFrames">keyFrames</h4>
   <div class="markdown level1 summary"><p>The key frames of the animation, in order of frame number.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-
+  <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public List&lt;AnimationKeyFrame&gt; keyFrames { get; }</code></pre>
   </div>
-
-
-
-
-
-  <h4 class="section">Property Value</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="PAC.Animation.AnimationKeyFrame.html">AnimationKeyFrame</a>&gt;</dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="PAC.Animation.AnimationKeyFrame.html">AnimationKeyFrame</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/new/main/apiSpec/new?filename=PAC_Animation_LayerAnimation_numOfFrames.md&amp;value=---%0Auid%3A%20PAC.Animation.LayerAnimation.numOfFrames%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Animation/LayerAnimation.cs/#L14">View Source</a>
+  </span>
   <a id="PAC_Animation_LayerAnimation_numOfFrames_" data-uid="PAC.Animation.LayerAnimation.numOfFrames*"></a>
-
-  <h3 id="PAC_Animation_LayerAnimation_numOfFrames" data-uid="PAC.Animation.LayerAnimation.numOfFrames">
-  numOfFrames
-  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Animation/LayerAnimation.cs/#L14"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
+  <h4 id="PAC_Animation_LayerAnimation_numOfFrames" data-uid="PAC.Animation.LayerAnimation.numOfFrames">numOfFrames</h4>
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
-
+  <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public int numOfFrames { get; }</code></pre>
   </div>
-
-
-
-
-
-  <h4 class="section">Property Value</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/new/main/apiSpec/new?filename=PAC_Animation_LayerAnimation_width.md&amp;value=---%0Auid%3A%20PAC.Animation.LayerAnimation.width%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Animation/LayerAnimation.cs/#L11">View Source</a>
+  </span>
   <a id="PAC_Animation_LayerAnimation_width_" data-uid="PAC.Animation.LayerAnimation.width*"></a>
-
-  <h3 id="PAC_Animation_LayerAnimation_width" data-uid="PAC.Animation.LayerAnimation.width">
-  width
-  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Animation/LayerAnimation.cs/#L11"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
+  <h4 id="PAC_Animation_LayerAnimation_width" data-uid="PAC.Animation.LayerAnimation.width">width</h4>
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
-
+  <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public int width { get; }</code></pre>
   </div>
-
-
-
-
-
-  <h4 class="section">Property Value</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-  <h2 class="section" id="methods">Methods
-</h2>
-
-
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="methods">Methods
+</h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/new/main/apiSpec/new?filename=PAC_Animation_LayerAnimation_AddKeyFrame_PAC_Animation_AnimationKeyFrame_.md&amp;value=---%0Auid%3A%20PAC.Animation.LayerAnimation.AddKeyFrame(PAC.Animation.AnimationKeyFrame)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Animation/LayerAnimation.cs/#L240">View Source</a>
+  </span>
   <a id="PAC_Animation_LayerAnimation_AddKeyFrame_" data-uid="PAC.Animation.LayerAnimation.AddKeyFrame*"></a>
-
-  <h3 id="PAC_Animation_LayerAnimation_AddKeyFrame_PAC_Animation_AnimationKeyFrame_" data-uid="PAC.Animation.LayerAnimation.AddKeyFrame(PAC.Animation.AnimationKeyFrame)">
-  AddKeyFrame(AnimationKeyFrame)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Animation/LayerAnimation.cs/#L240"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
+  <h4 id="PAC_Animation_LayerAnimation_AddKeyFrame_PAC_Animation_AnimationKeyFrame_" data-uid="PAC.Animation.LayerAnimation.AddKeyFrame(PAC.Animation.AnimationKeyFrame)">AddKeyFrame(AnimationKeyFrame)</h4>
   <div class="markdown level1 summary"><p>Adds the given key frame. Returns true if it replaces an existing key frame, and false otherwise.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-
+  <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public bool AddKeyFrame(AnimationKeyFrame keyFrame)</code></pre>
   </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>keyFrame</code> <a class="xref" href="PAC.Animation.AnimationKeyFrame.html">AnimationKeyFrame</a></dt>
-    <dd></dd>
-  </dl>
-
-  <h4 class="section">Returns</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
-
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="PAC.Animation.AnimationKeyFrame.html">AnimationKeyFrame</a></td>
+        <td><span class="parametername">keyFrame</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/new/main/apiSpec/new?filename=PAC_Animation_LayerAnimation_AddKeyFrame_System_Int32_.md&amp;value=---%0Auid%3A%20PAC.Animation.LayerAnimation.AddKeyFrame(System.Int32)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Animation/LayerAnimation.cs/#L217">View Source</a>
+  </span>
   <a id="PAC_Animation_LayerAnimation_AddKeyFrame_" data-uid="PAC.Animation.LayerAnimation.AddKeyFrame*"></a>
-
-  <h3 id="PAC_Animation_LayerAnimation_AddKeyFrame_System_Int32_" data-uid="PAC.Animation.LayerAnimation.AddKeyFrame(System.Int32)">
-  AddKeyFrame(int)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Animation/LayerAnimation.cs/#L217"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
+  <h4 id="PAC_Animation_LayerAnimation_AddKeyFrame_System_Int32_" data-uid="PAC.Animation.LayerAnimation.AddKeyFrame(System.Int32)">AddKeyFrame(int)</h4>
   <div class="markdown level1 summary"><p>Adds a key frame at frame frame. The texture will be that of the most recent key frame. Returns true if it replaces an existing key frame, and false otherwise.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-
+  <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public bool AddKeyFrame(int frame)</code></pre>
   </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>frame</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
-    <dd></dd>
-  </dl>
-
-  <h4 class="section">Returns</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
-
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td><span class="parametername">frame</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/new/main/apiSpec/new?filename=PAC_Animation_LayerAnimation_AddKeyFrame_System_Int32_Texture2D_.md&amp;value=---%0Auid%3A%20PAC.Animation.LayerAnimation.AddKeyFrame(System.Int32%2CTexture2D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Animation/LayerAnimation.cs/#L231">View Source</a>
+  </span>
   <a id="PAC_Animation_LayerAnimation_AddKeyFrame_" data-uid="PAC.Animation.LayerAnimation.AddKeyFrame*"></a>
-
-  <h3 id="PAC_Animation_LayerAnimation_AddKeyFrame_System_Int32_Texture2D_" data-uid="PAC.Animation.LayerAnimation.AddKeyFrame(System.Int32,Texture2D)">
-  AddKeyFrame(int, Texture2D)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Animation/LayerAnimation.cs/#L231"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
+  <h4 id="PAC_Animation_LayerAnimation_AddKeyFrame_System_Int32_Texture2D_" data-uid="PAC.Animation.LayerAnimation.AddKeyFrame(System.Int32,Texture2D)">AddKeyFrame(int, Texture2D)</h4>
   <div class="markdown level1 summary"><p>Adds a key frame with the given texture at frame frame. Returns true if it replaces an existing key frame, and false otherwise.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-
+  <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public bool AddKeyFrame(int frame, Texture2D texture)</code></pre>
   </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>frame</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
-    <dd></dd>
-    <dt><code>texture</code> <span class="xref">Texture2D</span></dt>
-    <dd></dd>
-  </dl>
-
-  <h4 class="section">Returns</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
-
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td><span class="parametername">frame</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">Texture2D</span></td>
+        <td><span class="parametername">texture</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/new/main/apiSpec/new?filename=PAC_Animation_LayerAnimation_Clear.md&amp;value=---%0Auid%3A%20PAC.Animation.LayerAnimation.Clear%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Animation/LayerAnimation.cs/#L205">View Source</a>
+  </span>
   <a id="PAC_Animation_LayerAnimation_Clear_" data-uid="PAC.Animation.LayerAnimation.Clear*"></a>
-
-  <h3 id="PAC_Animation_LayerAnimation_Clear" data-uid="PAC.Animation.LayerAnimation.Clear">
-  Clear()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Animation/LayerAnimation.cs/#L205"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
+  <h4 id="PAC_Animation_LayerAnimation_Clear" data-uid="PAC.Animation.LayerAnimation.Clear">Clear()</h4>
   <div class="markdown level1 summary"><p>Deletes all key frames.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-
+  <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void Clear()</code></pre>
   </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/new/main/apiSpec/new?filename=PAC_Animation_LayerAnimation_DeleteKeyFrame_PAC_Animation_AnimationKeyFrame_.md&amp;value=---%0Auid%3A%20PAC.Animation.LayerAnimation.DeleteKeyFrame(PAC.Animation.AnimationKeyFrame)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Animation/LayerAnimation.cs/#L189">View Source</a>
+  </span>
   <a id="PAC_Animation_LayerAnimation_DeleteKeyFrame_" data-uid="PAC.Animation.LayerAnimation.DeleteKeyFrame*"></a>
-
-  <h3 id="PAC_Animation_LayerAnimation_DeleteKeyFrame_PAC_Animation_AnimationKeyFrame_" data-uid="PAC.Animation.LayerAnimation.DeleteKeyFrame(PAC.Animation.AnimationKeyFrame)">
-  DeleteKeyFrame(AnimationKeyFrame)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Animation/LayerAnimation.cs/#L189"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
+  <h4 id="PAC_Animation_LayerAnimation_DeleteKeyFrame_PAC_Animation_AnimationKeyFrame_" data-uid="PAC.Animation.LayerAnimation.DeleteKeyFrame(PAC.Animation.AnimationKeyFrame)">DeleteKeyFrame(AnimationKeyFrame)</h4>
   <div class="markdown level1 summary"><p>Deletes the given key frame, if it's in the animation, in which case it returns true. Otherwise it returns false.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-
+  <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public bool DeleteKeyFrame(AnimationKeyFrame keyFrame)</code></pre>
   </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>keyFrame</code> <a class="xref" href="PAC.Animation.AnimationKeyFrame.html">AnimationKeyFrame</a></dt>
-    <dd></dd>
-  </dl>
-
-  <h4 class="section">Returns</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
-
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="PAC.Animation.AnimationKeyFrame.html">AnimationKeyFrame</a></td>
+        <td><span class="parametername">keyFrame</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/new/main/apiSpec/new?filename=PAC_Animation_LayerAnimation_DeleteKeyFrame_System_Int32_.md&amp;value=---%0Auid%3A%20PAC.Animation.LayerAnimation.DeleteKeyFrame(System.Int32)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Animation/LayerAnimation.cs/#L168">View Source</a>
+  </span>
   <a id="PAC_Animation_LayerAnimation_DeleteKeyFrame_" data-uid="PAC.Animation.LayerAnimation.DeleteKeyFrame*"></a>
-
-  <h3 id="PAC_Animation_LayerAnimation_DeleteKeyFrame_System_Int32_" data-uid="PAC.Animation.LayerAnimation.DeleteKeyFrame(System.Int32)">
-  DeleteKeyFrame(int)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Animation/LayerAnimation.cs/#L168"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
+  <h4 id="PAC_Animation_LayerAnimation_DeleteKeyFrame_System_Int32_" data-uid="PAC.Animation.LayerAnimation.DeleteKeyFrame(System.Int32)">DeleteKeyFrame(int)</h4>
   <div class="markdown level1 summary"><p>Deletes the key frame at the given frame index, if there is one, in which case it returns that key frame. Otherwise it returns null.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-
+  <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public AnimationKeyFrame DeleteKeyFrame(int keyframe)</code></pre>
   </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>keyframe</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
-    <dd></dd>
-  </dl>
-
-  <h4 class="section">Returns</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="PAC.Animation.AnimationKeyFrame.html">AnimationKeyFrame</a></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
-
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td><span class="parametername">keyframe</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="PAC.Animation.AnimationKeyFrame.html">AnimationKeyFrame</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/new/main/apiSpec/new?filename=PAC_Animation_LayerAnimation_DeleteMostRecentKeyFrame_System_Int32_.md&amp;value=---%0Auid%3A%20PAC.Animation.LayerAnimation.DeleteMostRecentKeyFrame(System.Int32)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Animation/LayerAnimation.cs/#L159">View Source</a>
+  </span>
   <a id="PAC_Animation_LayerAnimation_DeleteMostRecentKeyFrame_" data-uid="PAC.Animation.LayerAnimation.DeleteMostRecentKeyFrame*"></a>
-
-  <h3 id="PAC_Animation_LayerAnimation_DeleteMostRecentKeyFrame_System_Int32_" data-uid="PAC.Animation.LayerAnimation.DeleteMostRecentKeyFrame(System.Int32)">
-  DeleteMostRecentKeyFrame(int)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Animation/LayerAnimation.cs/#L159"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
+  <h4 id="PAC_Animation_LayerAnimation_DeleteMostRecentKeyFrame_System_Int32_" data-uid="PAC.Animation.LayerAnimation.DeleteMostRecentKeyFrame(System.Int32)">DeleteMostRecentKeyFrame(int)</h4>
   <div class="markdown level1 summary"><p>Deletes the most recent key frame before or at the given frame index and returns that key frame.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-
+  <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public AnimationKeyFrame DeleteMostRecentKeyFrame(int frame)</code></pre>
   </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>frame</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
-    <dd></dd>
-  </dl>
-
-  <h4 class="section">Returns</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="PAC.Animation.AnimationKeyFrame.html">AnimationKeyFrame</a></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
-
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td><span class="parametername">frame</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="PAC.Animation.AnimationKeyFrame.html">AnimationKeyFrame</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/new/main/apiSpec/new?filename=PAC_Animation_LayerAnimation_FromJSON_PAC_JSON_JSON_.md&amp;value=---%0Auid%3A%20PAC.Animation.LayerAnimation.FromJSON(PAC.JSON.JSON)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Animation/LayerAnimation.cs/#L452">View Source</a>
+  </span>
   <a id="PAC_Animation_LayerAnimation_FromJSON_" data-uid="PAC.Animation.LayerAnimation.FromJSON*"></a>
-
-  <h3 id="PAC_Animation_LayerAnimation_FromJSON_PAC_JSON_JSON_" data-uid="PAC.Animation.LayerAnimation.FromJSON(PAC.JSON.JSON)">
-  FromJSON(JSON)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Animation/LayerAnimation.cs/#L452"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
+  <h4 id="PAC_Animation_LayerAnimation_FromJSON_PAC_JSON_JSON_" data-uid="PAC.Animation.LayerAnimation.FromJSON(PAC.JSON.JSON)">FromJSON(JSON)</h4>
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
-
+  <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public static LayerAnimation FromJSON(JSON json)</code></pre>
   </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>json</code> <a class="xref" href="PAC.JSON.JSON.html">JSON</a></dt>
-    <dd></dd>
-  </dl>
-
-  <h4 class="section">Returns</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="PAC.Animation.LayerAnimation.html">LayerAnimation</a></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
-
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="PAC.JSON.JSON.html">JSON</a></td>
+        <td><span class="parametername">json</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="PAC.Animation.LayerAnimation.html">LayerAnimation</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/new/main/apiSpec/new?filename=PAC_Animation_LayerAnimation_GetKeyFrame_System_Int32_.md&amp;value=---%0Auid%3A%20PAC.Animation.LayerAnimation.GetKeyFrame(System.Int32)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Animation/LayerAnimation.cs/#L114">View Source</a>
+  </span>
   <a id="PAC_Animation_LayerAnimation_GetKeyFrame_" data-uid="PAC.Animation.LayerAnimation.GetKeyFrame*"></a>
-
-  <h3 id="PAC_Animation_LayerAnimation_GetKeyFrame_System_Int32_" data-uid="PAC.Animation.LayerAnimation.GetKeyFrame(System.Int32)">
-  GetKeyFrame(int)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Animation/LayerAnimation.cs/#L114"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
+  <h4 id="PAC_Animation_LayerAnimation_GetKeyFrame_System_Int32_" data-uid="PAC.Animation.LayerAnimation.GetKeyFrame(System.Int32)">GetKeyFrame(int)</h4>
   <div class="markdown level1 summary"><p>Returns the most recent key frame before or at frame frame - i.e. the frame the animation will play at frame frame.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-
+  <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public AnimationKeyFrame GetKeyFrame(int frame)</code></pre>
   </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>frame</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
-    <dd></dd>
-  </dl>
-
-  <h4 class="section">Returns</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="PAC.Animation.AnimationKeyFrame.html">AnimationKeyFrame</a></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
-
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td><span class="parametername">frame</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="PAC.Animation.AnimationKeyFrame.html">AnimationKeyFrame</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/new/main/apiSpec/new?filename=PAC_Animation_LayerAnimation_HasKeyFrameAt_System_Int32_.md&amp;value=---%0Auid%3A%20PAC.Animation.LayerAnimation.HasKeyFrameAt(System.Int32)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Animation/LayerAnimation.cs/#L142">View Source</a>
+  </span>
   <a id="PAC_Animation_LayerAnimation_HasKeyFrameAt_" data-uid="PAC.Animation.LayerAnimation.HasKeyFrameAt*"></a>
-
-  <h3 id="PAC_Animation_LayerAnimation_HasKeyFrameAt_System_Int32_" data-uid="PAC.Animation.LayerAnimation.HasKeyFrameAt(System.Int32)">
-  HasKeyFrameAt(int)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Animation/LayerAnimation.cs/#L142"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
+  <h4 id="PAC_Animation_LayerAnimation_HasKeyFrameAt_System_Int32_" data-uid="PAC.Animation.LayerAnimation.HasKeyFrameAt(System.Int32)">HasKeyFrameAt(int)</h4>
   <div class="markdown level1 summary"><p>Returns whether or not there is a key frame at the given frame index.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-
+  <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public bool HasKeyFrameAt(int frame)</code></pre>
   </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>frame</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
-    <dd></dd>
-  </dl>
-
-  <h4 class="section">Returns</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
-
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td><span class="parametername">frame</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/new/main/apiSpec/new?filename=PAC_Animation_LayerAnimation_ToJSON.md&amp;value=---%0Auid%3A%20PAC.Animation.LayerAnimation.ToJSON%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Animation/LayerAnimation.cs/#L421">View Source</a>
+  </span>
   <a id="PAC_Animation_LayerAnimation_ToJSON_" data-uid="PAC.Animation.LayerAnimation.ToJSON*"></a>
-
-  <h3 id="PAC_Animation_LayerAnimation_ToJSON" data-uid="PAC.Animation.LayerAnimation.ToJSON">
-  ToJSON()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Animation/LayerAnimation.cs/#L421"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
+  <h4 id="PAC_Animation_LayerAnimation_ToJSON" data-uid="PAC.Animation.LayerAnimation.ToJSON">ToJSON()</h4>
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
-
+  <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public JSON ToJSON()</code></pre>
   </div>
-
-
-  <h4 class="section">Returns</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="PAC.JSON.JSON.html">JSON</a></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
-
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="PAC.JSON.JSON.html">JSON</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
 
 </article>
+          </div>
 
-
-
-      </div>
-
-      <div class="affix">
-        <nav id="affix"></nav>
-      </div>
-    </main>
-
-    <div class="container-xxl search-results" id="search-results"></div>
-
-    <footer class="border-top text-secondary">
-      <div class="container-xxl">
-        <div class="flex-fill">
-          <span>Made by <a href="https://github.com/MrWoafer" target="_blank">MrWoafer</a> using <a href="https://dotnet.github.io/docfx" target="_blank">DocFX</a></span>
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/new/main/apiSpec/new?filename=PAC_Animation_LayerAnimation.md&amp;value=---%0Auid%3A%20PAC.Animation.LayerAnimation%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Edit this page</a>
+                  </li>
+                  <li>
+                    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Animation/LayerAnimation.cs/#L7" class="contribution-link">View Source</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In this article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
         </div>
       </div>
-    </footer>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      Pixel Art Creator 2.0 Docs
+      
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
   </body>
 </html>
