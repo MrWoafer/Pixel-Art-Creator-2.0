@@ -1488,20 +1488,20 @@
     },
     {
       "type": "Resource",
-      "source_relative_path": "resources/ExampleManual.png",
+      "source_relative_path": "resources/icon.ico",
       "output": {
         "resource": {
-          "relative_path": "resources/ExampleManual.png"
+          "relative_path": "resources/icon.ico"
         }
       },
       "version": ""
     },
     {
       "type": "Resource",
-      "source_relative_path": "resources/ExampleScriptingApi.png",
+      "source_relative_path": "resources/logo.svg",
       "output": {
         "resource": {
-          "relative_path": "resources/ExampleScriptingApi.png"
+          "relative_path": "resources/logo.svg"
         }
       },
       "version": ""
