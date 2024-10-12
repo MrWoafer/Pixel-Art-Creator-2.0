@@ -21,6 +21,8 @@
         "globalMetadata": {
             "_appTitle": "Pixel Art Creator 2.0 Docs",
             "_appFooter": "Pixel Art Creator 2.0 Docs",
+	    "_appLogoPath": "resources/logo.svg",
+	    "_appFaviconPath": "resources/icon.ico",
             "_enableSearch": true
         },
         "content": [
