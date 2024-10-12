@@ -1,0 +1,308 @@
+### YamlMime:ManagedReference
+items:
+- uid: Global.UITileIcon
+  commentId: T:Global.UITileIcon
+  id: UITileIcon
+  parent: Global
+  children:
+  - Global.UITileIcon.SetFile(File)
+  - Global.UITileIcon.SubscribeToOnClick(UnityAction)
+  - Global.UITileIcon.SubscribeToOnLeftClick(UnityAction)
+  - Global.UITileIcon.SubscribeToOnRightClick(UnityAction)
+  - Global.UITileIcon.file
+  - Global.UITileIcon.height
+  - Global.UITileIcon.width
+  langs:
+  - csharp
+  - vb
+  name: UITileIcon
+  nameWithType: UITileIcon
+  fullName: UITileIcon
+  type: Class
+  source:
+    remote:
+      path: Assets/Scripts/UI/UITileIcon.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: UITileIcon
+    path: ../Assets/Scripts/UI/UITileIcon.cs
+    startLine: 6
+  namespace: Global
+  syntax:
+    content: 'public class UITileIcon : MonoBehaviour'
+    content.vb: Public Class UITileIcon Inherits MonoBehaviour
+  inheritance:
+  - System.Object
+- uid: Global.UITileIcon.file
+  commentId: P:Global.UITileIcon.file
+  id: file
+  parent: Global.UITileIcon
+  langs:
+  - csharp
+  - vb
+  name: file
+  nameWithType: UITileIcon.file
+  fullName: UITileIcon.file
+  type: Property
+  source:
+    remote:
+      path: Assets/Scripts/UI/UITileIcon.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: file
+    path: ../Assets/Scripts/UI/UITileIcon.cs
+    startLine: 10
+  namespace: Global
+  syntax:
+    content: public File file { get; }
+    parameters: []
+    return:
+      type: Global.File
+    content.vb: Public Property file As File
+  overload: Global.UITileIcon.file*
+- uid: Global.UITileIcon.width
+  commentId: P:Global.UITileIcon.width
+  id: width
+  parent: Global.UITileIcon
+  langs:
+  - csharp
+  - vb
+  name: width
+  nameWithType: UITileIcon.width
+  fullName: UITileIcon.width
+  type: Property
+  source:
+    remote:
+      path: Assets/Scripts/UI/UITileIcon.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: width
+    path: ../Assets/Scripts/UI/UITileIcon.cs
+    startLine: 19
+  namespace: Global
+  syntax:
+    content: public float width { get; }
+    parameters: []
+    return:
+      type: System.Single
+    content.vb: Public ReadOnly Property width As Single
+  overload: Global.UITileIcon.width*
+- uid: Global.UITileIcon.height
+  commentId: P:Global.UITileIcon.height
+  id: height
+  parent: Global.UITileIcon
+  langs:
+  - csharp
+  - vb
+  name: height
+  nameWithType: UITileIcon.height
+  fullName: UITileIcon.height
+  type: Property
+  source:
+    remote:
+      path: Assets/Scripts/UI/UITileIcon.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: height
+    path: ../Assets/Scripts/UI/UITileIcon.cs
+    startLine: 30
+  namespace: Global
+  syntax:
+    content: public float height { get; }
+    parameters: []
+    return:
+      type: System.Single
+    content.vb: Public ReadOnly Property height As Single
+  overload: Global.UITileIcon.height*
+- uid: Global.UITileIcon.SetFile(File)
+  commentId: M:Global.UITileIcon.SetFile(File)
+  id: SetFile(File)
+  parent: Global.UITileIcon
+  langs:
+  - csharp
+  - vb
+  name: SetFile(File)
+  nameWithType: UITileIcon.SetFile(File)
+  fullName: UITileIcon.SetFile(File)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/UI/UITileIcon.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: SetFile
+    path: ../Assets/Scripts/UI/UITileIcon.cs
+    startLine: 77
+  namespace: Global
+  syntax:
+    content: public void SetFile(File file)
+    parameters:
+    - id: file
+      type: Global.File
+    content.vb: Public Sub SetFile(file As File)
+  overload: Global.UITileIcon.SetFile*
+- uid: Global.UITileIcon.SubscribeToOnClick(UnityAction)
+  commentId: M:Global.UITileIcon.SubscribeToOnClick(UnityAction)
+  id: SubscribeToOnClick(UnityAction)
+  parent: Global.UITileIcon
+  langs:
+  - csharp
+  - vb
+  name: SubscribeToOnClick(UnityAction)
+  nameWithType: UITileIcon.SubscribeToOnClick(UnityAction)
+  fullName: UITileIcon.SubscribeToOnClick(UnityAction)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/UI/UITileIcon.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: SubscribeToOnClick
+    path: ../Assets/Scripts/UI/UITileIcon.cs
+    startLine: 87
+  namespace: Global
+  syntax:
+    content: public void SubscribeToOnClick(UnityAction call)
+    parameters:
+    - id: call
+      type: Global.UnityAction
+    content.vb: Public Sub SubscribeToOnClick([call] As UnityAction)
+  overload: Global.UITileIcon.SubscribeToOnClick*
+- uid: Global.UITileIcon.SubscribeToOnLeftClick(UnityAction)
+  commentId: M:Global.UITileIcon.SubscribeToOnLeftClick(UnityAction)
+  id: SubscribeToOnLeftClick(UnityAction)
+  parent: Global.UITileIcon
+  langs:
+  - csharp
+  - vb
+  name: SubscribeToOnLeftClick(UnityAction)
+  nameWithType: UITileIcon.SubscribeToOnLeftClick(UnityAction)
+  fullName: UITileIcon.SubscribeToOnLeftClick(UnityAction)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/UI/UITileIcon.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: SubscribeToOnLeftClick
+    path: ../Assets/Scripts/UI/UITileIcon.cs
+    startLine: 91
+  namespace: Global
+  syntax:
+    content: public void SubscribeToOnLeftClick(UnityAction call)
+    parameters:
+    - id: call
+      type: Global.UnityAction
+    content.vb: Public Sub SubscribeToOnLeftClick([call] As UnityAction)
+  overload: Global.UITileIcon.SubscribeToOnLeftClick*
+- uid: Global.UITileIcon.SubscribeToOnRightClick(UnityAction)
+  commentId: M:Global.UITileIcon.SubscribeToOnRightClick(UnityAction)
+  id: SubscribeToOnRightClick(UnityAction)
+  parent: Global.UITileIcon
+  langs:
+  - csharp
+  - vb
+  name: SubscribeToOnRightClick(UnityAction)
+  nameWithType: UITileIcon.SubscribeToOnRightClick(UnityAction)
+  fullName: UITileIcon.SubscribeToOnRightClick(UnityAction)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/UI/UITileIcon.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: SubscribeToOnRightClick
+    path: ../Assets/Scripts/UI/UITileIcon.cs
+    startLine: 95
+  namespace: Global
+  syntax:
+    content: public void SubscribeToOnRightClick(UnityAction call)
+    parameters:
+    - id: call
+      type: Global.UnityAction
+    content.vb: Public Sub SubscribeToOnRightClick([call] As UnityAction)
+  overload: Global.UITileIcon.SubscribeToOnRightClick*
+references:
+- uid: Global
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Global.UITileIcon.file*
+  commentId: Overload:Global.UITileIcon.file
+  href: Global.UITileIcon.html#UITileIcon_file
+  name: file
+  nameWithType: UITileIcon.file
+  fullName: UITileIcon.file
+- uid: Global.File
+  commentId: T:Global.File
+  href: File.html
+  name: File
+  nameWithType: File
+  fullName: File
+- uid: Global.UITileIcon.width*
+  commentId: Overload:Global.UITileIcon.width
+  href: Global.UITileIcon.html#UITileIcon_width
+  name: width
+  nameWithType: UITileIcon.width
+  fullName: UITileIcon.width
+- uid: System.Single
+  commentId: T:System.Single
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.single
+  name: float
+  nameWithType: float
+  fullName: float
+  nameWithType.vb: Single
+  fullName.vb: Single
+  name.vb: Single
+- uid: Global.UITileIcon.height*
+  commentId: Overload:Global.UITileIcon.height
+  href: Global.UITileIcon.html#UITileIcon_height
+  name: height
+  nameWithType: UITileIcon.height
+  fullName: UITileIcon.height
+- uid: Global.UITileIcon.SetFile*
+  commentId: Overload:Global.UITileIcon.SetFile
+  href: Global.UITileIcon.html#UITileIcon_SetFile_File_
+  name: SetFile
+  nameWithType: UITileIcon.SetFile
+  fullName: UITileIcon.SetFile
+- uid: Global.UITileIcon.SubscribeToOnClick*
+  commentId: Overload:Global.UITileIcon.SubscribeToOnClick
+  href: Global.UITileIcon.html#UITileIcon_SubscribeToOnClick_UnityAction_
+  name: SubscribeToOnClick
+  nameWithType: UITileIcon.SubscribeToOnClick
+  fullName: UITileIcon.SubscribeToOnClick
+- uid: Global.UnityAction
+  isExternal: true
+  name: UnityAction
+  nameWithType: UnityAction
+  fullName: UnityAction
+- uid: Global.UITileIcon.SubscribeToOnLeftClick*
+  commentId: Overload:Global.UITileIcon.SubscribeToOnLeftClick
+  href: Global.UITileIcon.html#UITileIcon_SubscribeToOnLeftClick_UnityAction_
+  name: SubscribeToOnLeftClick
+  nameWithType: UITileIcon.SubscribeToOnLeftClick
+  fullName: UITileIcon.SubscribeToOnLeftClick
+- uid: Global.UITileIcon.SubscribeToOnRightClick*
+  commentId: Overload:Global.UITileIcon.SubscribeToOnRightClick
+  href: Global.UITileIcon.html#UITileIcon_SubscribeToOnRightClick_UnityAction_
+  name: SubscribeToOnRightClick
+  nameWithType: UITileIcon.SubscribeToOnRightClick
+  fullName: UITileIcon.SubscribeToOnRightClick

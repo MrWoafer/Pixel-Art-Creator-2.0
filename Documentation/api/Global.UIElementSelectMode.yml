@@ -1,0 +1,84 @@
+### YamlMime:ManagedReference
+items:
+- uid: Global.UIElementSelectMode
+  commentId: T:Global.UIElementSelectMode
+  id: UIElementSelectMode
+  parent: Global
+  children:
+  - Global.UIElementSelectMode.Manual
+  - Global.UIElementSelectMode.OnInputTargetTargeted
+  langs:
+  - csharp
+  - vb
+  name: UIElementSelectMode
+  nameWithType: UIElementSelectMode
+  fullName: UIElementSelectMode
+  type: Enum
+  source:
+    remote:
+      path: Assets/Scripts/UI/UIElement.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: UIElementSelectMode
+    path: ../Assets/Scripts/UI/UIElement.cs
+    startLine: 4
+  namespace: Global
+  syntax:
+    content: public enum UIElementSelectMode
+    content.vb: Public Enum UIElementSelectMode
+- uid: Global.UIElementSelectMode.Manual
+  commentId: F:Global.UIElementSelectMode.Manual
+  id: Manual
+  parent: Global.UIElementSelectMode
+  langs:
+  - csharp
+  - vb
+  name: Manual
+  nameWithType: UIElementSelectMode.Manual
+  fullName: UIElementSelectMode.Manual
+  type: Field
+  source:
+    remote:
+      path: Assets/Scripts/UI/UIElement.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: Manual
+    path: ../Assets/Scripts/UI/UIElement.cs
+    startLine: 6
+  namespace: Global
+  syntax:
+    content: Manual = 0
+    return:
+      type: Global.UIElementSelectMode
+- uid: Global.UIElementSelectMode.OnInputTargetTargeted
+  commentId: F:Global.UIElementSelectMode.OnInputTargetTargeted
+  id: OnInputTargetTargeted
+  parent: Global.UIElementSelectMode
+  langs:
+  - csharp
+  - vb
+  name: OnInputTargetTargeted
+  nameWithType: UIElementSelectMode.OnInputTargetTargeted
+  fullName: UIElementSelectMode.OnInputTargetTargeted
+  type: Field
+  source:
+    remote:
+      path: Assets/Scripts/UI/UIElement.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: OnInputTargetTargeted
+    path: ../Assets/Scripts/UI/UIElement.cs
+    startLine: 7
+  namespace: Global
+  syntax:
+    content: OnInputTargetTargeted = 1
+    return:
+      type: Global.UIElementSelectMode
+references:
+- uid: Global
+- uid: Global.UIElementSelectMode
+  commentId: T:Global.UIElementSelectMode
+  href: UIElementSelectMode.html
+  name: UIElementSelectMode
+  nameWithType: UIElementSelectMode
+  fullName: UIElementSelectMode

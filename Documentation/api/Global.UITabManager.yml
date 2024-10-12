@@ -1,0 +1,172 @@
+### YamlMime:ManagedReference
+items:
+- uid: Global.UITabManager
+  commentId: T:Global.UITabManager
+  id: UITabManager
+  parent: Global
+  children:
+  - Global.UITabManager.AddTab(GameObject)
+  - Global.UITabManager.SelectTab(System.Int32)
+  - Global.UITabManager.SelectTabEditor(System.Int32)
+  langs:
+  - csharp
+  - vb
+  name: UITabManager
+  nameWithType: UITabManager
+  fullName: UITabManager
+  type: Class
+  source:
+    remote:
+      path: Assets/Scripts/UI/UITabManager.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: UITabManager
+    path: ../Assets/Scripts/UI/UITabManager.cs
+    startLine: 4
+  namespace: Global
+  syntax:
+    content: 'public class UITabManager : MonoBehaviour'
+    content.vb: Public Class UITabManager Inherits MonoBehaviour
+  inheritance:
+  - System.Object
+- uid: Global.UITabManager.AddTab(GameObject)
+  commentId: M:Global.UITabManager.AddTab(GameObject)
+  id: AddTab(GameObject)
+  parent: Global.UITabManager
+  langs:
+  - csharp
+  - vb
+  name: AddTab(GameObject)
+  nameWithType: UITabManager.AddTab(GameObject)
+  fullName: UITabManager.AddTab(GameObject)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/UI/UITabManager.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: AddTab
+    path: ../Assets/Scripts/UI/UITabManager.cs
+    startLine: 44
+  namespace: Global
+  syntax:
+    content: public void AddTab(GameObject tab)
+    parameters:
+    - id: tab
+      type: Global.GameObject
+    content.vb: Public Sub AddTab(tab As GameObject)
+  overload: Global.UITabManager.AddTab*
+- uid: Global.UITabManager.SelectTab(System.Int32)
+  commentId: M:Global.UITabManager.SelectTab(System.Int32)
+  id: SelectTab(System.Int32)
+  parent: Global.UITabManager
+  langs:
+  - csharp
+  - vb
+  name: SelectTab(int)
+  nameWithType: UITabManager.SelectTab(int)
+  fullName: UITabManager.SelectTab(int)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/UI/UITabManager.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: SelectTab
+    path: ../Assets/Scripts/UI/UITabManager.cs
+    startLine: 49
+  namespace: Global
+  syntax:
+    content: public void SelectTab(int tabIndex)
+    parameters:
+    - id: tabIndex
+      type: System.Int32
+    content.vb: Public Sub SelectTab(tabIndex As Integer)
+  overload: Global.UITabManager.SelectTab*
+  nameWithType.vb: UITabManager.SelectTab(Integer)
+  fullName.vb: UITabManager.SelectTab(Integer)
+  name.vb: SelectTab(Integer)
+- uid: Global.UITabManager.SelectTabEditor(System.Int32)
+  commentId: M:Global.UITabManager.SelectTabEditor(System.Int32)
+  id: SelectTabEditor(System.Int32)
+  parent: Global.UITabManager
+  langs:
+  - csharp
+  - vb
+  name: SelectTabEditor(int)
+  nameWithType: UITabManager.SelectTabEditor(int)
+  fullName: UITabManager.SelectTabEditor(int)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/UI/UITabManager.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: SelectTabEditor
+    path: ../Assets/Scripts/UI/UITabManager.cs
+    startLine: 71
+  namespace: Global
+  syntax:
+    content: public void SelectTabEditor(int tabIndex)
+    parameters:
+    - id: tabIndex
+      type: System.Int32
+    content.vb: Public Sub SelectTabEditor(tabIndex As Integer)
+  overload: Global.UITabManager.SelectTabEditor*
+  nameWithType.vb: UITabManager.SelectTabEditor(Integer)
+  fullName.vb: UITabManager.SelectTabEditor(Integer)
+  name.vb: SelectTabEditor(Integer)
+references:
+- uid: Global
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Global.UITabManager.AddTab*
+  commentId: Overload:Global.UITabManager.AddTab
+  href: Global.UITabManager.html#UITabManager_AddTab_GameObject_
+  name: AddTab
+  nameWithType: UITabManager.AddTab
+  fullName: UITabManager.AddTab
+- uid: Global.GameObject
+  isExternal: true
+  name: GameObject
+  nameWithType: GameObject
+  fullName: GameObject
+- uid: Global.UITabManager.SelectTab*
+  commentId: Overload:Global.UITabManager.SelectTab
+  href: Global.UITabManager.html#UITabManager_SelectTab_System_Int32_
+  name: SelectTab
+  nameWithType: UITabManager.SelectTab
+  fullName: UITabManager.SelectTab
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: Global.UITabManager.SelectTabEditor*
+  commentId: Overload:Global.UITabManager.SelectTabEditor
+  href: Global.UITabManager.html#UITabManager_SelectTabEditor_System_Int32_
+  name: SelectTabEditor
+  nameWithType: UITabManager.SelectTabEditor
+  fullName: UITabManager.SelectTabEditor

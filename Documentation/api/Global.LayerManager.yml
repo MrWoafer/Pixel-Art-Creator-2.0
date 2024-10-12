@@ -1,0 +1,913 @@
+### YamlMime:ManagedReference
+items:
+- uid: Global.LayerManager
+  commentId: T:Global.LayerManager
+  id: LayerManager
+  parent: Global
+  children:
+  - Global.LayerManager.AddLayer
+  - Global.LayerManager.AddLayer(Texture2D)
+  - Global.LayerManager.AddTileLayer
+  - Global.LayerManager.DuplicateSelectedLayers
+  - Global.LayerManager.FlattenSelectedLayers
+  - Global.LayerManager.HideAllBut(Layer)
+  - Global.LayerManager.MoveSelectedLayersDown
+  - Global.LayerManager.MoveSelectedLayersUp
+  - Global.LayerManager.OnFileSwitched
+  - Global.LayerManager.OnLayersChanged
+  - Global.LayerManager.RemoveSelectedLayers
+  - Global.LayerManager.SetLayerBlendMode(System.Int32,BlendMode)
+  - Global.LayerManager.SetLayerName(System.Int32,System.String)
+  - Global.LayerManager.SetLayerOpacity(System.Int32,System.Single)
+  - Global.LayerManager.SubscribeToLayerChange(UnityAction)
+  - Global.LayerManager.SubscribeToVisibilityChange(UnityAction)
+  - Global.LayerManager.WorldYCoordOfLayerTile(System.Int32)
+  - Global.LayerManager.layerTypeSprite
+  - Global.LayerManager.selectedLayer
+  - Global.LayerManager.selectedLayerIndex
+  - Global.LayerManager.selectedLayerIndices
+  - Global.LayerManager.selectedLayers
+  - Global.LayerManager.tileLayerTypeSprite
+  langs:
+  - csharp
+  - vb
+  name: LayerManager
+  nameWithType: LayerManager
+  fullName: LayerManager
+  type: Class
+  source:
+    remote:
+      path: Assets/Scripts/Layers/LayerManager.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: LayerManager
+    path: ../Assets/Scripts/Layers/LayerManager.cs
+    startLine: 6
+  namespace: Global
+  syntax:
+    content: 'public class LayerManager : MonoBehaviour'
+    content.vb: Public Class LayerManager Inherits MonoBehaviour
+  inheritance:
+  - System.Object
+- uid: Global.LayerManager.layerTypeSprite
+  commentId: F:Global.LayerManager.layerTypeSprite
+  id: layerTypeSprite
+  parent: Global.LayerManager
+  langs:
+  - csharp
+  - vb
+  name: layerTypeSprite
+  nameWithType: LayerManager.layerTypeSprite
+  fullName: LayerManager.layerTypeSprite
+  type: Field
+  source:
+    remote:
+      path: Assets/Scripts/Layers/LayerManager.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: layerTypeSprite
+    path: ../Assets/Scripts/Layers/LayerManager.cs
+    startLine: 18
+  namespace: Global
+  syntax:
+    content: public Sprite layerTypeSprite
+    return:
+      type: Global.Sprite
+    content.vb: Public layerTypeSprite As Sprite
+- uid: Global.LayerManager.tileLayerTypeSprite
+  commentId: F:Global.LayerManager.tileLayerTypeSprite
+  id: tileLayerTypeSprite
+  parent: Global.LayerManager
+  langs:
+  - csharp
+  - vb
+  name: tileLayerTypeSprite
+  nameWithType: LayerManager.tileLayerTypeSprite
+  fullName: LayerManager.tileLayerTypeSprite
+  type: Field
+  source:
+    remote:
+      path: Assets/Scripts/Layers/LayerManager.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: tileLayerTypeSprite
+    path: ../Assets/Scripts/Layers/LayerManager.cs
+    startLine: 19
+  namespace: Global
+  syntax:
+    content: public Sprite tileLayerTypeSprite
+    return:
+      type: Global.Sprite
+    content.vb: Public tileLayerTypeSprite As Sprite
+- uid: Global.LayerManager.selectedLayerIndex
+  commentId: P:Global.LayerManager.selectedLayerIndex
+  id: selectedLayerIndex
+  parent: Global.LayerManager
+  langs:
+  - csharp
+  - vb
+  name: selectedLayerIndex
+  nameWithType: LayerManager.selectedLayerIndex
+  fullName: LayerManager.selectedLayerIndex
+  type: Property
+  source:
+    remote:
+      path: Assets/Scripts/Layers/LayerManager.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: selectedLayerIndex
+    path: ../Assets/Scripts/Layers/LayerManager.cs
+    startLine: 40
+  namespace: Global
+  summary: The index of the last layer that was selected.
+  example: []
+  syntax:
+    content: public int selectedLayerIndex { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public ReadOnly Property selectedLayerIndex As Integer
+  overload: Global.LayerManager.selectedLayerIndex*
+- uid: Global.LayerManager.selectedLayer
+  commentId: P:Global.LayerManager.selectedLayer
+  id: selectedLayer
+  parent: Global.LayerManager
+  langs:
+  - csharp
+  - vb
+  name: selectedLayer
+  nameWithType: LayerManager.selectedLayer
+  fullName: LayerManager.selectedLayer
+  type: Property
+  source:
+    remote:
+      path: Assets/Scripts/Layers/LayerManager.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: selectedLayer
+    path: ../Assets/Scripts/Layers/LayerManager.cs
+    startLine: 50
+  namespace: Global
+  summary: The last layer that was selected.
+  example: []
+  syntax:
+    content: public Layer selectedLayer { get; }
+    parameters: []
+    return:
+      type: Global.Layer
+    content.vb: Public ReadOnly Property selectedLayer As Layer
+  overload: Global.LayerManager.selectedLayer*
+- uid: Global.LayerManager.selectedLayerIndices
+  commentId: P:Global.LayerManager.selectedLayerIndices
+  id: selectedLayerIndices
+  parent: Global.LayerManager
+  langs:
+  - csharp
+  - vb
+  name: selectedLayerIndices
+  nameWithType: LayerManager.selectedLayerIndices
+  fullName: LayerManager.selectedLayerIndices
+  type: Property
+  source:
+    remote:
+      path: Assets/Scripts/Layers/LayerManager.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: selectedLayerIndices
+    path: ../Assets/Scripts/Layers/LayerManager.cs
+    startLine: 61
+  namespace: Global
+  summary: The indices of all selected layers, in increasing order.
+  example: []
+  syntax:
+    content: public int[] selectedLayerIndices { get; }
+    parameters: []
+    return:
+      type: System.Int32[]
+    content.vb: Public ReadOnly Property selectedLayerIndices As Integer()
+  overload: Global.LayerManager.selectedLayerIndices*
+- uid: Global.LayerManager.selectedLayers
+  commentId: P:Global.LayerManager.selectedLayers
+  id: selectedLayers
+  parent: Global.LayerManager
+  langs:
+  - csharp
+  - vb
+  name: selectedLayers
+  nameWithType: LayerManager.selectedLayers
+  fullName: LayerManager.selectedLayers
+  type: Property
+  source:
+    remote:
+      path: Assets/Scripts/Layers/LayerManager.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: selectedLayers
+    path: ../Assets/Scripts/Layers/LayerManager.cs
+    startLine: 71
+  namespace: Global
+  summary: The selected layers, in order (highest layer first etc).
+  example: []
+  syntax:
+    content: public Layer[] selectedLayers { get; }
+    parameters: []
+    return:
+      type: Global.Layer[]
+    content.vb: Public ReadOnly Property selectedLayers As Layer()
+  overload: Global.LayerManager.selectedLayers*
+- uid: Global.LayerManager.OnLayersChanged
+  commentId: M:Global.LayerManager.OnLayersChanged
+  id: OnLayersChanged
+  parent: Global.LayerManager
+  langs:
+  - csharp
+  - vb
+  name: OnLayersChanged()
+  nameWithType: LayerManager.OnLayersChanged()
+  fullName: LayerManager.OnLayersChanged()
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Layers/LayerManager.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: OnLayersChanged
+    path: ../Assets/Scripts/Layers/LayerManager.cs
+    startLine: 100
+  namespace: Global
+  syntax:
+    content: public void OnLayersChanged()
+    content.vb: Public Sub OnLayersChanged()
+  overload: Global.LayerManager.OnLayersChanged*
+- uid: Global.LayerManager.OnFileSwitched
+  commentId: M:Global.LayerManager.OnFileSwitched
+  id: OnFileSwitched
+  parent: Global.LayerManager
+  langs:
+  - csharp
+  - vb
+  name: OnFileSwitched()
+  nameWithType: LayerManager.OnFileSwitched()
+  fullName: LayerManager.OnFileSwitched()
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Layers/LayerManager.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: OnFileSwitched
+    path: ../Assets/Scripts/Layers/LayerManager.cs
+    startLine: 106
+  namespace: Global
+  syntax:
+    content: public void OnFileSwitched()
+    content.vb: Public Sub OnFileSwitched()
+  overload: Global.LayerManager.OnFileSwitched*
+- uid: Global.LayerManager.AddLayer
+  commentId: M:Global.LayerManager.AddLayer
+  id: AddLayer
+  parent: Global.LayerManager
+  langs:
+  - csharp
+  - vb
+  name: AddLayer()
+  nameWithType: LayerManager.AddLayer()
+  fullName: LayerManager.AddLayer()
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Layers/LayerManager.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: AddLayer
+    path: ../Assets/Scripts/Layers/LayerManager.cs
+    startLine: 191
+  namespace: Global
+  syntax:
+    content: public void AddLayer()
+    content.vb: Public Sub AddLayer()
+  overload: Global.LayerManager.AddLayer*
+- uid: Global.LayerManager.AddLayer(Texture2D)
+  commentId: M:Global.LayerManager.AddLayer(Texture2D)
+  id: AddLayer(Texture2D)
+  parent: Global.LayerManager
+  langs:
+  - csharp
+  - vb
+  name: AddLayer(Texture2D)
+  nameWithType: LayerManager.AddLayer(Texture2D)
+  fullName: LayerManager.AddLayer(Texture2D)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Layers/LayerManager.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: AddLayer
+    path: ../Assets/Scripts/Layers/LayerManager.cs
+    startLine: 198
+  namespace: Global
+  syntax:
+    content: public void AddLayer(Texture2D texture)
+    parameters:
+    - id: texture
+      type: Global.Texture2D
+    content.vb: Public Sub AddLayer(texture As Texture2D)
+  overload: Global.LayerManager.AddLayer*
+- uid: Global.LayerManager.AddTileLayer
+  commentId: M:Global.LayerManager.AddTileLayer
+  id: AddTileLayer
+  parent: Global.LayerManager
+  langs:
+  - csharp
+  - vb
+  name: AddTileLayer()
+  nameWithType: LayerManager.AddTileLayer()
+  fullName: LayerManager.AddTileLayer()
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Layers/LayerManager.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: AddTileLayer
+    path: ../Assets/Scripts/Layers/LayerManager.cs
+    startLine: 206
+  namespace: Global
+  syntax:
+    content: public void AddTileLayer()
+    content.vb: Public Sub AddTileLayer()
+  overload: Global.LayerManager.AddTileLayer*
+- uid: Global.LayerManager.RemoveSelectedLayers
+  commentId: M:Global.LayerManager.RemoveSelectedLayers
+  id: RemoveSelectedLayers
+  parent: Global.LayerManager
+  langs:
+  - csharp
+  - vb
+  name: RemoveSelectedLayers()
+  nameWithType: LayerManager.RemoveSelectedLayers()
+  fullName: LayerManager.RemoveSelectedLayers()
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Layers/LayerManager.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: RemoveSelectedLayers
+    path: ../Assets/Scripts/Layers/LayerManager.cs
+    startLine: 214
+  namespace: Global
+  syntax:
+    content: public void RemoveSelectedLayers()
+    content.vb: Public Sub RemoveSelectedLayers()
+  overload: Global.LayerManager.RemoveSelectedLayers*
+- uid: Global.LayerManager.DuplicateSelectedLayers
+  commentId: M:Global.LayerManager.DuplicateSelectedLayers
+  id: DuplicateSelectedLayers
+  parent: Global.LayerManager
+  langs:
+  - csharp
+  - vb
+  name: DuplicateSelectedLayers()
+  nameWithType: LayerManager.DuplicateSelectedLayers()
+  fullName: LayerManager.DuplicateSelectedLayers()
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Layers/LayerManager.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: DuplicateSelectedLayers
+    path: ../Assets/Scripts/Layers/LayerManager.cs
+    startLine: 221
+  namespace: Global
+  syntax:
+    content: public void DuplicateSelectedLayers()
+    content.vb: Public Sub DuplicateSelectedLayers()
+  overload: Global.LayerManager.DuplicateSelectedLayers*
+- uid: Global.LayerManager.FlattenSelectedLayers
+  commentId: M:Global.LayerManager.FlattenSelectedLayers
+  id: FlattenSelectedLayers
+  parent: Global.LayerManager
+  langs:
+  - csharp
+  - vb
+  name: FlattenSelectedLayers()
+  nameWithType: LayerManager.FlattenSelectedLayers()
+  fullName: LayerManager.FlattenSelectedLayers()
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Layers/LayerManager.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: FlattenSelectedLayers
+    path: ../Assets/Scripts/Layers/LayerManager.cs
+    startLine: 239
+  namespace: Global
+  syntax:
+    content: public void FlattenSelectedLayers()
+    content.vb: Public Sub FlattenSelectedLayers()
+  overload: Global.LayerManager.FlattenSelectedLayers*
+- uid: Global.LayerManager.MoveSelectedLayersUp
+  commentId: M:Global.LayerManager.MoveSelectedLayersUp
+  id: MoveSelectedLayersUp
+  parent: Global.LayerManager
+  langs:
+  - csharp
+  - vb
+  name: MoveSelectedLayersUp()
+  nameWithType: LayerManager.MoveSelectedLayersUp()
+  fullName: LayerManager.MoveSelectedLayersUp()
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Layers/LayerManager.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: MoveSelectedLayersUp
+    path: ../Assets/Scripts/Layers/LayerManager.cs
+    startLine: 279
+  namespace: Global
+  syntax:
+    content: public void MoveSelectedLayersUp()
+    content.vb: Public Sub MoveSelectedLayersUp()
+  overload: Global.LayerManager.MoveSelectedLayersUp*
+- uid: Global.LayerManager.MoveSelectedLayersDown
+  commentId: M:Global.LayerManager.MoveSelectedLayersDown
+  id: MoveSelectedLayersDown
+  parent: Global.LayerManager
+  langs:
+  - csharp
+  - vb
+  name: MoveSelectedLayersDown()
+  nameWithType: LayerManager.MoveSelectedLayersDown()
+  fullName: LayerManager.MoveSelectedLayersDown()
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Layers/LayerManager.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: MoveSelectedLayersDown
+    path: ../Assets/Scripts/Layers/LayerManager.cs
+    startLine: 305
+  namespace: Global
+  syntax:
+    content: public void MoveSelectedLayersDown()
+    content.vb: Public Sub MoveSelectedLayersDown()
+  overload: Global.LayerManager.MoveSelectedLayersDown*
+- uid: Global.LayerManager.HideAllBut(Layer)
+  commentId: M:Global.LayerManager.HideAllBut(Layer)
+  id: HideAllBut(Layer)
+  parent: Global.LayerManager
+  langs:
+  - csharp
+  - vb
+  name: HideAllBut(Layer)
+  nameWithType: LayerManager.HideAllBut(Layer)
+  fullName: LayerManager.HideAllBut(Layer)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Layers/LayerManager.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: HideAllBut
+    path: ../Assets/Scripts/Layers/LayerManager.cs
+    startLine: 331
+  namespace: Global
+  syntax:
+    content: public void HideAllBut(Layer layer)
+    parameters:
+    - id: layer
+      type: Global.Layer
+    content.vb: Public Sub HideAllBut(layer As Layer)
+  overload: Global.LayerManager.HideAllBut*
+- uid: Global.LayerManager.WorldYCoordOfLayerTile(System.Int32)
+  commentId: M:Global.LayerManager.WorldYCoordOfLayerTile(System.Int32)
+  id: WorldYCoordOfLayerTile(System.Int32)
+  parent: Global.LayerManager
+  langs:
+  - csharp
+  - vb
+  name: WorldYCoordOfLayerTile(int)
+  nameWithType: LayerManager.WorldYCoordOfLayerTile(int)
+  fullName: LayerManager.WorldYCoordOfLayerTile(int)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Layers/LayerManager.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: WorldYCoordOfLayerTile
+    path: ../Assets/Scripts/Layers/LayerManager.cs
+    startLine: 354
+  namespace: Global
+  syntax:
+    content: public float WorldYCoordOfLayerTile(int layerTileIndex)
+    parameters:
+    - id: layerTileIndex
+      type: System.Int32
+    return:
+      type: System.Single
+    content.vb: Public Function WorldYCoordOfLayerTile(layerTileIndex As Integer) As Single
+  overload: Global.LayerManager.WorldYCoordOfLayerTile*
+  nameWithType.vb: LayerManager.WorldYCoordOfLayerTile(Integer)
+  fullName.vb: LayerManager.WorldYCoordOfLayerTile(Integer)
+  name.vb: WorldYCoordOfLayerTile(Integer)
+- uid: Global.LayerManager.SetLayerName(System.Int32,System.String)
+  commentId: M:Global.LayerManager.SetLayerName(System.Int32,System.String)
+  id: SetLayerName(System.Int32,System.String)
+  parent: Global.LayerManager
+  langs:
+  - csharp
+  - vb
+  name: SetLayerName(int, string)
+  nameWithType: LayerManager.SetLayerName(int, string)
+  fullName: LayerManager.SetLayerName(int, string)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Layers/LayerManager.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: SetLayerName
+    path: ../Assets/Scripts/Layers/LayerManager.cs
+    startLine: 364
+  namespace: Global
+  syntax:
+    content: public void SetLayerName(int layerIndex, string layerName)
+    parameters:
+    - id: layerIndex
+      type: System.Int32
+    - id: layerName
+      type: System.String
+    content.vb: Public Sub SetLayerName(layerIndex As Integer, layerName As String)
+  overload: Global.LayerManager.SetLayerName*
+  nameWithType.vb: LayerManager.SetLayerName(Integer, String)
+  fullName.vb: LayerManager.SetLayerName(Integer, String)
+  name.vb: SetLayerName(Integer, String)
+- uid: Global.LayerManager.SetLayerOpacity(System.Int32,System.Single)
+  commentId: M:Global.LayerManager.SetLayerOpacity(System.Int32,System.Single)
+  id: SetLayerOpacity(System.Int32,System.Single)
+  parent: Global.LayerManager
+  langs:
+  - csharp
+  - vb
+  name: SetLayerOpacity(int, float)
+  nameWithType: LayerManager.SetLayerOpacity(int, float)
+  fullName: LayerManager.SetLayerOpacity(int, float)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Layers/LayerManager.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: SetLayerOpacity
+    path: ../Assets/Scripts/Layers/LayerManager.cs
+    startLine: 377
+  namespace: Global
+  syntax:
+    content: public void SetLayerOpacity(int layerIndex, float opacity)
+    parameters:
+    - id: layerIndex
+      type: System.Int32
+    - id: opacity
+      type: System.Single
+    content.vb: Public Sub SetLayerOpacity(layerIndex As Integer, opacity As Single)
+  overload: Global.LayerManager.SetLayerOpacity*
+  nameWithType.vb: LayerManager.SetLayerOpacity(Integer, Single)
+  fullName.vb: LayerManager.SetLayerOpacity(Integer, Single)
+  name.vb: SetLayerOpacity(Integer, Single)
+- uid: Global.LayerManager.SetLayerBlendMode(System.Int32,BlendMode)
+  commentId: M:Global.LayerManager.SetLayerBlendMode(System.Int32,BlendMode)
+  id: SetLayerBlendMode(System.Int32,BlendMode)
+  parent: Global.LayerManager
+  langs:
+  - csharp
+  - vb
+  name: SetLayerBlendMode(int, BlendMode)
+  nameWithType: LayerManager.SetLayerBlendMode(int, BlendMode)
+  fullName: LayerManager.SetLayerBlendMode(int, BlendMode)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Layers/LayerManager.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: SetLayerBlendMode
+    path: ../Assets/Scripts/Layers/LayerManager.cs
+    startLine: 394
+  namespace: Global
+  syntax:
+    content: public void SetLayerBlendMode(int layerIndex, BlendMode blendMode)
+    parameters:
+    - id: layerIndex
+      type: System.Int32
+    - id: blendMode
+      type: Global.BlendMode
+    content.vb: Public Sub SetLayerBlendMode(layerIndex As Integer, blendMode As BlendMode)
+  overload: Global.LayerManager.SetLayerBlendMode*
+  nameWithType.vb: LayerManager.SetLayerBlendMode(Integer, BlendMode)
+  fullName.vb: LayerManager.SetLayerBlendMode(Integer, BlendMode)
+  name.vb: SetLayerBlendMode(Integer, BlendMode)
+- uid: Global.LayerManager.SubscribeToLayerChange(UnityAction)
+  commentId: M:Global.LayerManager.SubscribeToLayerChange(UnityAction)
+  id: SubscribeToLayerChange(UnityAction)
+  parent: Global.LayerManager
+  langs:
+  - csharp
+  - vb
+  name: SubscribeToLayerChange(UnityAction)
+  nameWithType: LayerManager.SubscribeToLayerChange(UnityAction)
+  fullName: LayerManager.SubscribeToLayerChange(UnityAction)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Layers/LayerManager.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: SubscribeToLayerChange
+    path: ../Assets/Scripts/Layers/LayerManager.cs
+    startLine: 412
+  namespace: Global
+  syntax:
+    content: public void SubscribeToLayerChange(UnityAction call)
+    parameters:
+    - id: call
+      type: Global.UnityAction
+    content.vb: Public Sub SubscribeToLayerChange([call] As UnityAction)
+  overload: Global.LayerManager.SubscribeToLayerChange*
+- uid: Global.LayerManager.SubscribeToVisibilityChange(UnityAction)
+  commentId: M:Global.LayerManager.SubscribeToVisibilityChange(UnityAction)
+  id: SubscribeToVisibilityChange(UnityAction)
+  parent: Global.LayerManager
+  langs:
+  - csharp
+  - vb
+  name: SubscribeToVisibilityChange(UnityAction)
+  nameWithType: LayerManager.SubscribeToVisibilityChange(UnityAction)
+  fullName: LayerManager.SubscribeToVisibilityChange(UnityAction)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Layers/LayerManager.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: SubscribeToVisibilityChange
+    path: ../Assets/Scripts/Layers/LayerManager.cs
+    startLine: 416
+  namespace: Global
+  syntax:
+    content: public void SubscribeToVisibilityChange(UnityAction call)
+    parameters:
+    - id: call
+      type: Global.UnityAction
+    content.vb: Public Sub SubscribeToVisibilityChange([call] As UnityAction)
+  overload: Global.LayerManager.SubscribeToVisibilityChange*
+references:
+- uid: Global
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Global.Sprite
+  isExternal: true
+  name: Sprite
+  nameWithType: Sprite
+  fullName: Sprite
+- uid: Global.LayerManager.selectedLayerIndex*
+  commentId: Overload:Global.LayerManager.selectedLayerIndex
+  href: Global.LayerManager.html#LayerManager_selectedLayerIndex
+  name: selectedLayerIndex
+  nameWithType: LayerManager.selectedLayerIndex
+  fullName: LayerManager.selectedLayerIndex
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: Global.LayerManager.selectedLayer*
+  commentId: Overload:Global.LayerManager.selectedLayer
+  href: Global.LayerManager.html#LayerManager_selectedLayer
+  name: selectedLayer
+  nameWithType: LayerManager.selectedLayer
+  fullName: LayerManager.selectedLayer
+- uid: Global.Layer
+  commentId: T:Global.Layer
+  href: Layer.html
+  name: Layer
+  nameWithType: Layer
+  fullName: Layer
+- uid: Global.LayerManager.selectedLayerIndices*
+  commentId: Overload:Global.LayerManager.selectedLayerIndices
+  href: Global.LayerManager.html#LayerManager_selectedLayerIndices
+  name: selectedLayerIndices
+  nameWithType: LayerManager.selectedLayerIndices
+  fullName: LayerManager.selectedLayerIndices
+- uid: System.Int32[]
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int[]
+  nameWithType: int[]
+  fullName: int[]
+  nameWithType.vb: Integer()
+  fullName.vb: Integer()
+  name.vb: Integer()
+  spec.csharp:
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: '['
+  - name: ']'
+  spec.vb:
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: (
+  - name: )
+- uid: Global.LayerManager.selectedLayers*
+  commentId: Overload:Global.LayerManager.selectedLayers
+  href: Global.LayerManager.html#LayerManager_selectedLayers
+  name: selectedLayers
+  nameWithType: LayerManager.selectedLayers
+  fullName: LayerManager.selectedLayers
+- uid: Global.Layer[]
+  isExternal: true
+  href: Layer.html
+  name: Layer[]
+  nameWithType: Layer[]
+  fullName: Layer[]
+  nameWithType.vb: Layer()
+  fullName.vb: Layer()
+  name.vb: Layer()
+  spec.csharp:
+  - uid: Global.Layer
+    name: Layer
+    href: Layer.html
+  - name: '['
+  - name: ']'
+  spec.vb:
+  - uid: Global.Layer
+    name: Layer
+    href: Layer.html
+  - name: (
+  - name: )
+- uid: Global.LayerManager.OnLayersChanged*
+  commentId: Overload:Global.LayerManager.OnLayersChanged
+  href: Global.LayerManager.html#LayerManager_OnLayersChanged
+  name: OnLayersChanged
+  nameWithType: LayerManager.OnLayersChanged
+  fullName: LayerManager.OnLayersChanged
+- uid: Global.LayerManager.OnFileSwitched*
+  commentId: Overload:Global.LayerManager.OnFileSwitched
+  href: Global.LayerManager.html#LayerManager_OnFileSwitched
+  name: OnFileSwitched
+  nameWithType: LayerManager.OnFileSwitched
+  fullName: LayerManager.OnFileSwitched
+- uid: Global.LayerManager.AddLayer*
+  commentId: Overload:Global.LayerManager.AddLayer
+  href: Global.LayerManager.html#LayerManager_AddLayer
+  name: AddLayer
+  nameWithType: LayerManager.AddLayer
+  fullName: LayerManager.AddLayer
+- uid: Global.Texture2D
+  isExternal: true
+  name: Texture2D
+  nameWithType: Texture2D
+  fullName: Texture2D
+- uid: Global.LayerManager.AddTileLayer*
+  commentId: Overload:Global.LayerManager.AddTileLayer
+  href: Global.LayerManager.html#LayerManager_AddTileLayer
+  name: AddTileLayer
+  nameWithType: LayerManager.AddTileLayer
+  fullName: LayerManager.AddTileLayer
+- uid: Global.LayerManager.RemoveSelectedLayers*
+  commentId: Overload:Global.LayerManager.RemoveSelectedLayers
+  href: Global.LayerManager.html#LayerManager_RemoveSelectedLayers
+  name: RemoveSelectedLayers
+  nameWithType: LayerManager.RemoveSelectedLayers
+  fullName: LayerManager.RemoveSelectedLayers
+- uid: Global.LayerManager.DuplicateSelectedLayers*
+  commentId: Overload:Global.LayerManager.DuplicateSelectedLayers
+  href: Global.LayerManager.html#LayerManager_DuplicateSelectedLayers
+  name: DuplicateSelectedLayers
+  nameWithType: LayerManager.DuplicateSelectedLayers
+  fullName: LayerManager.DuplicateSelectedLayers
+- uid: Global.LayerManager.FlattenSelectedLayers*
+  commentId: Overload:Global.LayerManager.FlattenSelectedLayers
+  href: Global.LayerManager.html#LayerManager_FlattenSelectedLayers
+  name: FlattenSelectedLayers
+  nameWithType: LayerManager.FlattenSelectedLayers
+  fullName: LayerManager.FlattenSelectedLayers
+- uid: Global.LayerManager.MoveSelectedLayersUp*
+  commentId: Overload:Global.LayerManager.MoveSelectedLayersUp
+  href: Global.LayerManager.html#LayerManager_MoveSelectedLayersUp
+  name: MoveSelectedLayersUp
+  nameWithType: LayerManager.MoveSelectedLayersUp
+  fullName: LayerManager.MoveSelectedLayersUp
+- uid: Global.LayerManager.MoveSelectedLayersDown*
+  commentId: Overload:Global.LayerManager.MoveSelectedLayersDown
+  href: Global.LayerManager.html#LayerManager_MoveSelectedLayersDown
+  name: MoveSelectedLayersDown
+  nameWithType: LayerManager.MoveSelectedLayersDown
+  fullName: LayerManager.MoveSelectedLayersDown
+- uid: Global.LayerManager.HideAllBut*
+  commentId: Overload:Global.LayerManager.HideAllBut
+  href: Global.LayerManager.html#LayerManager_HideAllBut_Layer_
+  name: HideAllBut
+  nameWithType: LayerManager.HideAllBut
+  fullName: LayerManager.HideAllBut
+- uid: Global.LayerManager.WorldYCoordOfLayerTile*
+  commentId: Overload:Global.LayerManager.WorldYCoordOfLayerTile
+  href: Global.LayerManager.html#LayerManager_WorldYCoordOfLayerTile_System_Int32_
+  name: WorldYCoordOfLayerTile
+  nameWithType: LayerManager.WorldYCoordOfLayerTile
+  fullName: LayerManager.WorldYCoordOfLayerTile
+- uid: System.Single
+  commentId: T:System.Single
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.single
+  name: float
+  nameWithType: float
+  fullName: float
+  nameWithType.vb: Single
+  fullName.vb: Single
+  name.vb: Single
+- uid: Global.LayerManager.SetLayerName*
+  commentId: Overload:Global.LayerManager.SetLayerName
+  href: Global.LayerManager.html#LayerManager_SetLayerName_System_Int32_System_String_
+  name: SetLayerName
+  nameWithType: LayerManager.SetLayerName
+  fullName: LayerManager.SetLayerName
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: Global.LayerManager.SetLayerOpacity*
+  commentId: Overload:Global.LayerManager.SetLayerOpacity
+  href: Global.LayerManager.html#LayerManager_SetLayerOpacity_System_Int32_System_Single_
+  name: SetLayerOpacity
+  nameWithType: LayerManager.SetLayerOpacity
+  fullName: LayerManager.SetLayerOpacity
+- uid: Global.LayerManager.SetLayerBlendMode*
+  commentId: Overload:Global.LayerManager.SetLayerBlendMode
+  href: Global.LayerManager.html#LayerManager_SetLayerBlendMode_System_Int32_BlendMode_
+  name: SetLayerBlendMode
+  nameWithType: LayerManager.SetLayerBlendMode
+  fullName: LayerManager.SetLayerBlendMode
+- uid: Global.BlendMode
+  commentId: T:Global.BlendMode
+  href: BlendMode.html
+  name: BlendMode
+  nameWithType: BlendMode
+  fullName: BlendMode
+- uid: Global.LayerManager.SubscribeToLayerChange*
+  commentId: Overload:Global.LayerManager.SubscribeToLayerChange
+  href: Global.LayerManager.html#LayerManager_SubscribeToLayerChange_UnityAction_
+  name: SubscribeToLayerChange
+  nameWithType: LayerManager.SubscribeToLayerChange
+  fullName: LayerManager.SubscribeToLayerChange
+- uid: Global.UnityAction
+  isExternal: true
+  name: UnityAction
+  nameWithType: UnityAction
+  fullName: UnityAction
+- uid: Global.LayerManager.SubscribeToVisibilityChange*
+  commentId: Overload:Global.LayerManager.SubscribeToVisibilityChange
+  href: Global.LayerManager.html#LayerManager_SubscribeToVisibilityChange_UnityAction_
+  name: SubscribeToVisibilityChange
+  nameWithType: LayerManager.SubscribeToVisibilityChange
+  fullName: LayerManager.SubscribeToVisibilityChange

@@ -1,0 +1,84 @@
+### YamlMime:ManagedReference
+items:
+- uid: Global.AnimFrameRefMode
+  commentId: T:Global.AnimFrameRefMode
+  id: AnimFrameRefMode
+  parent: Global
+  children:
+  - Global.AnimFrameRefMode.MostRecentKeyFrame
+  - Global.AnimFrameRefMode.NewKeyFrame
+  langs:
+  - csharp
+  - vb
+  name: AnimFrameRefMode
+  nameWithType: AnimFrameRefMode
+  fullName: AnimFrameRefMode
+  type: Enum
+  source:
+    remote:
+      path: Assets/Scripts/Layers/Layer.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: AnimFrameRefMode
+    path: ../Assets/Scripts/Layers/Layer.cs
+    startLine: 5
+  namespace: Global
+  syntax:
+    content: public enum AnimFrameRefMode
+    content.vb: Public Enum AnimFrameRefMode
+- uid: Global.AnimFrameRefMode.NewKeyFrame
+  commentId: F:Global.AnimFrameRefMode.NewKeyFrame
+  id: NewKeyFrame
+  parent: Global.AnimFrameRefMode
+  langs:
+  - csharp
+  - vb
+  name: NewKeyFrame
+  nameWithType: AnimFrameRefMode.NewKeyFrame
+  fullName: AnimFrameRefMode.NewKeyFrame
+  type: Field
+  source:
+    remote:
+      path: Assets/Scripts/Layers/Layer.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: NewKeyFrame
+    path: ../Assets/Scripts/Layers/Layer.cs
+    startLine: 7
+  namespace: Global
+  syntax:
+    content: NewKeyFrame = 0
+    return:
+      type: Global.AnimFrameRefMode
+- uid: Global.AnimFrameRefMode.MostRecentKeyFrame
+  commentId: F:Global.AnimFrameRefMode.MostRecentKeyFrame
+  id: MostRecentKeyFrame
+  parent: Global.AnimFrameRefMode
+  langs:
+  - csharp
+  - vb
+  name: MostRecentKeyFrame
+  nameWithType: AnimFrameRefMode.MostRecentKeyFrame
+  fullName: AnimFrameRefMode.MostRecentKeyFrame
+  type: Field
+  source:
+    remote:
+      path: Assets/Scripts/Layers/Layer.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: MostRecentKeyFrame
+    path: ../Assets/Scripts/Layers/Layer.cs
+    startLine: 8
+  namespace: Global
+  syntax:
+    content: MostRecentKeyFrame = 1
+    return:
+      type: Global.AnimFrameRefMode
+references:
+- uid: Global
+- uid: Global.AnimFrameRefMode
+  commentId: T:Global.AnimFrameRefMode
+  href: AnimFrameRefMode.html
+  name: AnimFrameRefMode
+  nameWithType: AnimFrameRefMode
+  fullName: AnimFrameRefMode

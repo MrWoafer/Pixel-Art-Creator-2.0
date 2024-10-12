@@ -1,0 +1,271 @@
+### YamlMime:ManagedReference
+items:
+- uid: Global.Tooltip
+  commentId: T:Global.Tooltip
+  id: Tooltip
+  parent: Global
+  children:
+  - Global.Tooltip.HideTooltip
+  - Global.Tooltip.ShowTooltip(Vector2)
+  - Global.Tooltip.hoverTimeUntilTooltip
+  - Global.Tooltip.padding
+  - Global.Tooltip.text
+  - Global.Tooltip.tooltipVisible
+  langs:
+  - csharp
+  - vb
+  name: Tooltip
+  nameWithType: Tooltip
+  fullName: Tooltip
+  type: Class
+  source:
+    remote:
+      path: Assets/Scripts/Input/Tooltip.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: Tooltip
+    path: ../Assets/Scripts/Input/Tooltip.cs
+    startLine: 4
+  namespace: Global
+  syntax:
+    content: 'public class Tooltip : MonoBehaviour'
+    content.vb: Public Class Tooltip Inherits MonoBehaviour
+  inheritance:
+  - System.Object
+- uid: Global.Tooltip.text
+  commentId: P:Global.Tooltip.text
+  id: text
+  parent: Global.Tooltip
+  langs:
+  - csharp
+  - vb
+  name: text
+  nameWithType: Tooltip.text
+  fullName: Tooltip.text
+  type: Property
+  source:
+    remote:
+      path: Assets/Scripts/Input/Tooltip.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: text
+    path: ../Assets/Scripts/Input/Tooltip.cs
+    startLine: 10
+  namespace: Global
+  syntax:
+    content: public string text { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property text As String
+  overload: Global.Tooltip.text*
+- uid: Global.Tooltip.hoverTimeUntilTooltip
+  commentId: F:Global.Tooltip.hoverTimeUntilTooltip
+  id: hoverTimeUntilTooltip
+  parent: Global.Tooltip
+  langs:
+  - csharp
+  - vb
+  name: hoverTimeUntilTooltip
+  nameWithType: Tooltip.hoverTimeUntilTooltip
+  fullName: Tooltip.hoverTimeUntilTooltip
+  type: Field
+  source:
+    remote:
+      path: Assets/Scripts/Input/Tooltip.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: hoverTimeUntilTooltip
+    path: ../Assets/Scripts/Input/Tooltip.cs
+    startLine: 22
+  namespace: Global
+  syntax:
+    content: public float hoverTimeUntilTooltip
+    return:
+      type: System.Single
+    content.vb: Public hoverTimeUntilTooltip As Single
+- uid: Global.Tooltip.padding
+  commentId: F:Global.Tooltip.padding
+  id: padding
+  parent: Global.Tooltip
+  langs:
+  - csharp
+  - vb
+  name: padding
+  nameWithType: Tooltip.padding
+  fullName: Tooltip.padding
+  type: Field
+  source:
+    remote:
+      path: Assets/Scripts/Input/Tooltip.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: padding
+    path: ../Assets/Scripts/Input/Tooltip.cs
+    startLine: 23
+  namespace: Global
+  syntax:
+    content: public Vector2 padding
+    return:
+      type: Global.Vector2
+    content.vb: Public padding As Vector2
+- uid: Global.Tooltip.tooltipVisible
+  commentId: P:Global.Tooltip.tooltipVisible
+  id: tooltipVisible
+  parent: Global.Tooltip
+  langs:
+  - csharp
+  - vb
+  name: tooltipVisible
+  nameWithType: Tooltip.tooltipVisible
+  fullName: Tooltip.tooltipVisible
+  type: Property
+  source:
+    remote:
+      path: Assets/Scripts/Input/Tooltip.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: tooltipVisible
+    path: ../Assets/Scripts/Input/Tooltip.cs
+    startLine: 29
+  namespace: Global
+  syntax:
+    content: public bool tooltipVisible { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property tooltipVisible As Boolean
+  overload: Global.Tooltip.tooltipVisible*
+- uid: Global.Tooltip.ShowTooltip(Vector2)
+  commentId: M:Global.Tooltip.ShowTooltip(Vector2)
+  id: ShowTooltip(Vector2)
+  parent: Global.Tooltip
+  langs:
+  - csharp
+  - vb
+  name: ShowTooltip(Vector2)
+  nameWithType: Tooltip.ShowTooltip(Vector2)
+  fullName: Tooltip.ShowTooltip(Vector2)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Input/Tooltip.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: ShowTooltip
+    path: ../Assets/Scripts/Input/Tooltip.cs
+    startLine: 69
+  namespace: Global
+  syntax:
+    content: public void ShowTooltip(Vector2 worldCoords)
+    parameters:
+    - id: worldCoords
+      type: Global.Vector2
+    content.vb: Public Sub ShowTooltip(worldCoords As Vector2)
+  overload: Global.Tooltip.ShowTooltip*
+- uid: Global.Tooltip.HideTooltip
+  commentId: M:Global.Tooltip.HideTooltip
+  id: HideTooltip
+  parent: Global.Tooltip
+  langs:
+  - csharp
+  - vb
+  name: HideTooltip()
+  nameWithType: Tooltip.HideTooltip()
+  fullName: Tooltip.HideTooltip()
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Input/Tooltip.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: HideTooltip
+    path: ../Assets/Scripts/Input/Tooltip.cs
+    startLine: 104
+  namespace: Global
+  syntax:
+    content: public void HideTooltip()
+    content.vb: Public Sub HideTooltip()
+  overload: Global.Tooltip.HideTooltip*
+references:
+- uid: Global
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Global.Tooltip.text*
+  commentId: Overload:Global.Tooltip.text
+  href: Global.Tooltip.html#Tooltip_text
+  name: text
+  nameWithType: Tooltip.text
+  fullName: Tooltip.text
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: System.Single
+  commentId: T:System.Single
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.single
+  name: float
+  nameWithType: float
+  fullName: float
+  nameWithType.vb: Single
+  fullName.vb: Single
+  name.vb: Single
+- uid: Global.Vector2
+  isExternal: true
+  name: Vector2
+  nameWithType: Vector2
+  fullName: Vector2
+- uid: Global.Tooltip.tooltipVisible*
+  commentId: Overload:Global.Tooltip.tooltipVisible
+  href: Global.Tooltip.html#Tooltip_tooltipVisible
+  name: tooltipVisible
+  nameWithType: Tooltip.tooltipVisible
+  fullName: Tooltip.tooltipVisible
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: Global.Tooltip.ShowTooltip*
+  commentId: Overload:Global.Tooltip.ShowTooltip
+  href: Global.Tooltip.html#Tooltip_ShowTooltip_Vector2_
+  name: ShowTooltip
+  nameWithType: Tooltip.ShowTooltip
+  fullName: Tooltip.ShowTooltip
+- uid: Global.Tooltip.HideTooltip*
+  commentId: Overload:Global.Tooltip.HideTooltip
+  href: Global.Tooltip.html#Tooltip_HideTooltip
+  name: HideTooltip
+  nameWithType: Tooltip.HideTooltip
+  fullName: Tooltip.HideTooltip

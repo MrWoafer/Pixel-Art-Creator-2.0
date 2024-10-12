@@ -1,0 +1,1036 @@
+### YamlMime:ManagedReference
+items:
+- uid: Global.UIToggleButton
+  commentId: T:Global.UIToggleButton
+  id: UIToggleButton
+  parent: Global
+  children:
+  - Global.UIToggleButton.JoinToggleGroup(UIToggleGroup)
+  - Global.UIToggleButton.LeaveToggleGroup
+  - Global.UIToggleButton.Press
+  - Global.UIToggleButton.RightClick
+  - Global.UIToggleButton.SetImages(Sprite,Sprite,Sprite,Sprite)
+  - Global.UIToggleButton.SetOnOff(System.Boolean)
+  - Global.UIToggleButton.SetText(System.String)
+  - Global.UIToggleButton.SetTextAlignment(TextAnchor)
+  - Global.UIToggleButton.SubscribeToHover(UnityAction)
+  - Global.UIToggleButton.SubscribeToLeftClick(UnityAction)
+  - Global.UIToggleButton.SubscribeToRightClick(UnityAction)
+  - Global.UIToggleButton.SubscribeToTurnOff(UnityAction)
+  - Global.UIToggleButton.SubscribeToTurnOn(UnityAction)
+  - Global.UIToggleButton.UpdateDisplay
+  - Global.UIToggleButton.height
+  - Global.UIToggleButton.hoverBackgroundTint
+  - Global.UIToggleButton.hoverImage
+  - Global.UIToggleButton.inToggleGroup
+  - Global.UIToggleButton.offBackgroundColour
+  - Global.UIToggleButton.offImage
+  - Global.UIToggleButton.on
+  - Global.UIToggleButton.onBackgroundColour
+  - Global.UIToggleButton.onImage
+  - Global.UIToggleButton.pressedBackgroundColour
+  - Global.UIToggleButton.pressedImage
+  - Global.UIToggleButton.toggleGroup
+  - Global.UIToggleButton.toggleName
+  - Global.UIToggleButton.width
+  langs:
+  - csharp
+  - vb
+  name: UIToggleButton
+  nameWithType: UIToggleButton
+  fullName: UIToggleButton
+  type: Class
+  source:
+    remote:
+      path: Assets/Scripts/UI/UIToggleButton.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: UIToggleButton
+    path: ../Assets/Scripts/UI/UIToggleButton.cs
+    startLine: 6
+  namespace: Global
+  syntax:
+    content: 'public class UIToggleButton : MonoBehaviour'
+    content.vb: Public Class UIToggleButton Inherits MonoBehaviour
+  inheritance:
+  - System.Object
+- uid: Global.UIToggleButton.on
+  commentId: P:Global.UIToggleButton.on
+  id: on
+  parent: Global.UIToggleButton
+  langs:
+  - csharp
+  - vb
+  name: on
+  nameWithType: UIToggleButton.on
+  fullName: UIToggleButton.on
+  type: Property
+  source:
+    remote:
+      path: Assets/Scripts/UI/UIToggleButton.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: on
+    path: ../Assets/Scripts/UI/UIToggleButton.cs
+    startLine: 13
+  namespace: Global
+  syntax:
+    content: public bool on { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public ReadOnly Property [on] As Boolean
+  overload: Global.UIToggleButton.on*
+- uid: Global.UIToggleButton.toggleName
+  commentId: P:Global.UIToggleButton.toggleName
+  id: toggleName
+  parent: Global.UIToggleButton
+  langs:
+  - csharp
+  - vb
+  name: toggleName
+  nameWithType: UIToggleButton.toggleName
+  fullName: UIToggleButton.toggleName
+  type: Property
+  source:
+    remote:
+      path: Assets/Scripts/UI/UIToggleButton.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: toggleName
+    path: ../Assets/Scripts/UI/UIToggleButton.cs
+    startLine: 24
+  namespace: Global
+  syntax:
+    content: public string toggleName { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property toggleName As String
+  overload: Global.UIToggleButton.toggleName*
+- uid: Global.UIToggleButton.toggleGroup
+  commentId: P:Global.UIToggleButton.toggleGroup
+  id: toggleGroup
+  parent: Global.UIToggleButton
+  langs:
+  - csharp
+  - vb
+  name: toggleGroup
+  nameWithType: UIToggleButton.toggleGroup
+  fullName: UIToggleButton.toggleGroup
+  type: Property
+  source:
+    remote:
+      path: Assets/Scripts/UI/UIToggleButton.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: toggleGroup
+    path: ../Assets/Scripts/UI/UIToggleButton.cs
+    startLine: 35
+  namespace: Global
+  syntax:
+    content: public UIToggleGroup toggleGroup { get; }
+    parameters: []
+    return:
+      type: Global.UIToggleGroup
+    content.vb: Public Property toggleGroup As UIToggleGroup
+  overload: Global.UIToggleButton.toggleGroup*
+- uid: Global.UIToggleButton.inToggleGroup
+  commentId: P:Global.UIToggleButton.inToggleGroup
+  id: inToggleGroup
+  parent: Global.UIToggleButton
+  langs:
+  - csharp
+  - vb
+  name: inToggleGroup
+  nameWithType: UIToggleButton.inToggleGroup
+  fullName: UIToggleButton.inToggleGroup
+  type: Property
+  source:
+    remote:
+      path: Assets/Scripts/UI/UIToggleButton.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: inToggleGroup
+    path: ../Assets/Scripts/UI/UIToggleButton.cs
+    startLine: 37
+  namespace: Global
+  syntax:
+    content: public bool inToggleGroup { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public ReadOnly Property inToggleGroup As Boolean
+  overload: Global.UIToggleButton.inToggleGroup*
+- uid: Global.UIToggleButton.width
+  commentId: F:Global.UIToggleButton.width
+  id: width
+  parent: Global.UIToggleButton
+  langs:
+  - csharp
+  - vb
+  name: width
+  nameWithType: UIToggleButton.width
+  fullName: UIToggleButton.width
+  type: Field
+  source:
+    remote:
+      path: Assets/Scripts/UI/UIToggleButton.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: width
+    path: ../Assets/Scripts/UI/UIToggleButton.cs
+    startLine: 47
+  namespace: Global
+  syntax:
+    content: public float width
+    return:
+      type: System.Single
+    content.vb: Public width As Single
+- uid: Global.UIToggleButton.height
+  commentId: F:Global.UIToggleButton.height
+  id: height
+  parent: Global.UIToggleButton
+  langs:
+  - csharp
+  - vb
+  name: height
+  nameWithType: UIToggleButton.height
+  fullName: UIToggleButton.height
+  type: Field
+  source:
+    remote:
+      path: Assets/Scripts/UI/UIToggleButton.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: height
+    path: ../Assets/Scripts/UI/UIToggleButton.cs
+    startLine: 49
+  namespace: Global
+  syntax:
+    content: public float height
+    return:
+      type: System.Single
+    content.vb: Public height As Single
+- uid: Global.UIToggleButton.offImage
+  commentId: P:Global.UIToggleButton.offImage
+  id: offImage
+  parent: Global.UIToggleButton
+  langs:
+  - csharp
+  - vb
+  name: offImage
+  nameWithType: UIToggleButton.offImage
+  fullName: UIToggleButton.offImage
+  type: Property
+  source:
+    remote:
+      path: Assets/Scripts/UI/UIToggleButton.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: offImage
+    path: ../Assets/Scripts/UI/UIToggleButton.cs
+    startLine: 54
+  namespace: Global
+  syntax:
+    content: public Sprite offImage { get; }
+    parameters: []
+    return:
+      type: Global.Sprite
+    content.vb: Public Property offImage As Sprite
+  overload: Global.UIToggleButton.offImage*
+- uid: Global.UIToggleButton.onImage
+  commentId: P:Global.UIToggleButton.onImage
+  id: onImage
+  parent: Global.UIToggleButton
+  langs:
+  - csharp
+  - vb
+  name: onImage
+  nameWithType: UIToggleButton.onImage
+  fullName: UIToggleButton.onImage
+  type: Property
+  source:
+    remote:
+      path: Assets/Scripts/UI/UIToggleButton.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: onImage
+    path: ../Assets/Scripts/UI/UIToggleButton.cs
+    startLine: 67
+  namespace: Global
+  syntax:
+    content: public Sprite onImage { get; }
+    parameters: []
+    return:
+      type: Global.Sprite
+    content.vb: Public Property onImage As Sprite
+  overload: Global.UIToggleButton.onImage*
+- uid: Global.UIToggleButton.hoverImage
+  commentId: P:Global.UIToggleButton.hoverImage
+  id: hoverImage
+  parent: Global.UIToggleButton
+  langs:
+  - csharp
+  - vb
+  name: hoverImage
+  nameWithType: UIToggleButton.hoverImage
+  fullName: UIToggleButton.hoverImage
+  type: Property
+  source:
+    remote:
+      path: Assets/Scripts/UI/UIToggleButton.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: hoverImage
+    path: ../Assets/Scripts/UI/UIToggleButton.cs
+    startLine: 80
+  namespace: Global
+  syntax:
+    content: public Sprite hoverImage { get; }
+    parameters: []
+    return:
+      type: Global.Sprite
+    content.vb: Public Property hoverImage As Sprite
+  overload: Global.UIToggleButton.hoverImage*
+- uid: Global.UIToggleButton.pressedImage
+  commentId: P:Global.UIToggleButton.pressedImage
+  id: pressedImage
+  parent: Global.UIToggleButton
+  langs:
+  - csharp
+  - vb
+  name: pressedImage
+  nameWithType: UIToggleButton.pressedImage
+  fullName: UIToggleButton.pressedImage
+  type: Property
+  source:
+    remote:
+      path: Assets/Scripts/UI/UIToggleButton.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: pressedImage
+    path: ../Assets/Scripts/UI/UIToggleButton.cs
+    startLine: 96
+  namespace: Global
+  syntax:
+    content: public Sprite pressedImage { get; }
+    parameters: []
+    return:
+      type: Global.Sprite
+    content.vb: Public Property pressedImage As Sprite
+  overload: Global.UIToggleButton.pressedImage*
+- uid: Global.UIToggleButton.offBackgroundColour
+  commentId: P:Global.UIToggleButton.offBackgroundColour
+  id: offBackgroundColour
+  parent: Global.UIToggleButton
+  langs:
+  - csharp
+  - vb
+  name: offBackgroundColour
+  nameWithType: UIToggleButton.offBackgroundColour
+  fullName: UIToggleButton.offBackgroundColour
+  type: Property
+  source:
+    remote:
+      path: Assets/Scripts/UI/UIToggleButton.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: offBackgroundColour
+    path: ../Assets/Scripts/UI/UIToggleButton.cs
+    startLine: 114
+  namespace: Global
+  syntax:
+    content: public Color offBackgroundColour { get; set; }
+    parameters: []
+    return:
+      type: Global.Color
+    content.vb: Public Property offBackgroundColour As Color
+  overload: Global.UIToggleButton.offBackgroundColour*
+- uid: Global.UIToggleButton.onBackgroundColour
+  commentId: P:Global.UIToggleButton.onBackgroundColour
+  id: onBackgroundColour
+  parent: Global.UIToggleButton
+  langs:
+  - csharp
+  - vb
+  name: onBackgroundColour
+  nameWithType: UIToggleButton.onBackgroundColour
+  fullName: UIToggleButton.onBackgroundColour
+  type: Property
+  source:
+    remote:
+      path: Assets/Scripts/UI/UIToggleButton.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: onBackgroundColour
+    path: ../Assets/Scripts/UI/UIToggleButton.cs
+    startLine: 128
+  namespace: Global
+  syntax:
+    content: public Color onBackgroundColour { get; set; }
+    parameters: []
+    return:
+      type: Global.Color
+    content.vb: Public Property onBackgroundColour As Color
+  overload: Global.UIToggleButton.onBackgroundColour*
+- uid: Global.UIToggleButton.hoverBackgroundTint
+  commentId: F:Global.UIToggleButton.hoverBackgroundTint
+  id: hoverBackgroundTint
+  parent: Global.UIToggleButton
+  langs:
+  - csharp
+  - vb
+  name: hoverBackgroundTint
+  nameWithType: UIToggleButton.hoverBackgroundTint
+  fullName: UIToggleButton.hoverBackgroundTint
+  type: Field
+  source:
+    remote:
+      path: Assets/Scripts/UI/UIToggleButton.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: hoverBackgroundTint
+    path: ../Assets/Scripts/UI/UIToggleButton.cs
+    startLine: 140
+  namespace: Global
+  syntax:
+    content: public Color hoverBackgroundTint
+    return:
+      type: Global.Color
+    content.vb: Public hoverBackgroundTint As Color
+- uid: Global.UIToggleButton.pressedBackgroundColour
+  commentId: P:Global.UIToggleButton.pressedBackgroundColour
+  id: pressedBackgroundColour
+  parent: Global.UIToggleButton
+  langs:
+  - csharp
+  - vb
+  name: pressedBackgroundColour
+  nameWithType: UIToggleButton.pressedBackgroundColour
+  fullName: UIToggleButton.pressedBackgroundColour
+  type: Property
+  source:
+    remote:
+      path: Assets/Scripts/UI/UIToggleButton.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: pressedBackgroundColour
+    path: ../Assets/Scripts/UI/UIToggleButton.cs
+    startLine: 143
+  namespace: Global
+  syntax:
+    content: public Color pressedBackgroundColour { get; set; }
+    parameters: []
+    return:
+      type: Global.Color
+    content.vb: Public Property pressedBackgroundColour As Color
+  overload: Global.UIToggleButton.pressedBackgroundColour*
+- uid: Global.UIToggleButton.UpdateDisplay
+  commentId: M:Global.UIToggleButton.UpdateDisplay
+  id: UpdateDisplay
+  parent: Global.UIToggleButton
+  langs:
+  - csharp
+  - vb
+  name: UpdateDisplay()
+  nameWithType: UIToggleButton.UpdateDisplay()
+  fullName: UIToggleButton.UpdateDisplay()
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/UI/UIToggleButton.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: UpdateDisplay
+    path: ../Assets/Scripts/UI/UIToggleButton.cs
+    startLine: 231
+  namespace: Global
+  syntax:
+    content: public void UpdateDisplay()
+    content.vb: Public Sub UpdateDisplay()
+  overload: Global.UIToggleButton.UpdateDisplay*
+- uid: Global.UIToggleButton.Press
+  commentId: M:Global.UIToggleButton.Press
+  id: Press
+  parent: Global.UIToggleButton
+  langs:
+  - csharp
+  - vb
+  name: Press()
+  nameWithType: UIToggleButton.Press()
+  fullName: UIToggleButton.Press()
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/UI/UIToggleButton.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: Press
+    path: ../Assets/Scripts/UI/UIToggleButton.cs
+    startLine: 282
+  namespace: Global
+  syntax:
+    content: public void Press()
+    content.vb: Public Sub Press()
+  overload: Global.UIToggleButton.Press*
+- uid: Global.UIToggleButton.RightClick
+  commentId: M:Global.UIToggleButton.RightClick
+  id: RightClick
+  parent: Global.UIToggleButton
+  langs:
+  - csharp
+  - vb
+  name: RightClick()
+  nameWithType: UIToggleButton.RightClick()
+  fullName: UIToggleButton.RightClick()
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/UI/UIToggleButton.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: RightClick
+    path: ../Assets/Scripts/UI/UIToggleButton.cs
+    startLine: 322
+  namespace: Global
+  syntax:
+    content: public void RightClick()
+    content.vb: Public Sub RightClick()
+  overload: Global.UIToggleButton.RightClick*
+- uid: Global.UIToggleButton.SetImages(Sprite,Sprite,Sprite,Sprite)
+  commentId: M:Global.UIToggleButton.SetImages(Sprite,Sprite,Sprite,Sprite)
+  id: SetImages(Sprite,Sprite,Sprite,Sprite)
+  parent: Global.UIToggleButton
+  langs:
+  - csharp
+  - vb
+  name: SetImages(Sprite, Sprite, Sprite, Sprite)
+  nameWithType: UIToggleButton.SetImages(Sprite, Sprite, Sprite, Sprite)
+  fullName: UIToggleButton.SetImages(Sprite, Sprite, Sprite, Sprite)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/UI/UIToggleButton.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: SetImages
+    path: ../Assets/Scripts/UI/UIToggleButton.cs
+    startLine: 377
+  namespace: Global
+  syntax:
+    content: public void SetImages(Sprite offImage, Sprite onImage, Sprite hoverImage, Sprite pressedImage)
+    parameters:
+    - id: offImage
+      type: Global.Sprite
+    - id: onImage
+      type: Global.Sprite
+    - id: hoverImage
+      type: Global.Sprite
+    - id: pressedImage
+      type: Global.Sprite
+    content.vb: Public Sub SetImages(offImage As Sprite, onImage As Sprite, hoverImage As Sprite, pressedImage As Sprite)
+  overload: Global.UIToggleButton.SetImages*
+- uid: Global.UIToggleButton.SetOnOff(System.Boolean)
+  commentId: M:Global.UIToggleButton.SetOnOff(System.Boolean)
+  id: SetOnOff(System.Boolean)
+  parent: Global.UIToggleButton
+  langs:
+  - csharp
+  - vb
+  name: SetOnOff(bool)
+  nameWithType: UIToggleButton.SetOnOff(bool)
+  fullName: UIToggleButton.SetOnOff(bool)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/UI/UIToggleButton.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: SetOnOff
+    path: ../Assets/Scripts/UI/UIToggleButton.cs
+    startLine: 398
+  namespace: Global
+  syntax:
+    content: public void SetOnOff(bool on)
+    parameters:
+    - id: on
+      type: System.Boolean
+    content.vb: Public Sub SetOnOff([on] As Boolean)
+  overload: Global.UIToggleButton.SetOnOff*
+  nameWithType.vb: UIToggleButton.SetOnOff(Boolean)
+  fullName.vb: UIToggleButton.SetOnOff(Boolean)
+  name.vb: SetOnOff(Boolean)
+- uid: Global.UIToggleButton.SetText(System.String)
+  commentId: M:Global.UIToggleButton.SetText(System.String)
+  id: SetText(System.String)
+  parent: Global.UIToggleButton
+  langs:
+  - csharp
+  - vb
+  name: SetText(string)
+  nameWithType: UIToggleButton.SetText(string)
+  fullName: UIToggleButton.SetText(string)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/UI/UIToggleButton.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: SetText
+    path: ../Assets/Scripts/UI/UIToggleButton.cs
+    startLine: 407
+  namespace: Global
+  syntax:
+    content: public void SetText(string text)
+    parameters:
+    - id: text
+      type: System.String
+    content.vb: Public Sub SetText(text As String)
+  overload: Global.UIToggleButton.SetText*
+  nameWithType.vb: UIToggleButton.SetText(String)
+  fullName.vb: UIToggleButton.SetText(String)
+  name.vb: SetText(String)
+- uid: Global.UIToggleButton.SetTextAlignment(TextAnchor)
+  commentId: M:Global.UIToggleButton.SetTextAlignment(TextAnchor)
+  id: SetTextAlignment(TextAnchor)
+  parent: Global.UIToggleButton
+  langs:
+  - csharp
+  - vb
+  name: SetTextAlignment(TextAnchor)
+  nameWithType: UIToggleButton.SetTextAlignment(TextAnchor)
+  fullName: UIToggleButton.SetTextAlignment(TextAnchor)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/UI/UIToggleButton.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: SetTextAlignment
+    path: ../Assets/Scripts/UI/UIToggleButton.cs
+    startLine: 414
+  namespace: Global
+  syntax:
+    content: public void SetTextAlignment(TextAnchor textAlignment)
+    parameters:
+    - id: textAlignment
+      type: Global.TextAnchor
+    content.vb: Public Sub SetTextAlignment(textAlignment As TextAnchor)
+  overload: Global.UIToggleButton.SetTextAlignment*
+- uid: Global.UIToggleButton.JoinToggleGroup(UIToggleGroup)
+  commentId: M:Global.UIToggleButton.JoinToggleGroup(UIToggleGroup)
+  id: JoinToggleGroup(UIToggleGroup)
+  parent: Global.UIToggleButton
+  langs:
+  - csharp
+  - vb
+  name: JoinToggleGroup(UIToggleGroup)
+  nameWithType: UIToggleButton.JoinToggleGroup(UIToggleGroup)
+  fullName: UIToggleButton.JoinToggleGroup(UIToggleGroup)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/UI/UIToggleButton.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: JoinToggleGroup
+    path: ../Assets/Scripts/UI/UIToggleButton.cs
+    startLine: 421
+  namespace: Global
+  syntax:
+    content: public void JoinToggleGroup(UIToggleGroup toggleGroup)
+    parameters:
+    - id: toggleGroup
+      type: Global.UIToggleGroup
+    content.vb: Public Sub JoinToggleGroup(toggleGroup As UIToggleGroup)
+  overload: Global.UIToggleButton.JoinToggleGroup*
+- uid: Global.UIToggleButton.LeaveToggleGroup
+  commentId: M:Global.UIToggleButton.LeaveToggleGroup
+  id: LeaveToggleGroup
+  parent: Global.UIToggleButton
+  langs:
+  - csharp
+  - vb
+  name: LeaveToggleGroup()
+  nameWithType: UIToggleButton.LeaveToggleGroup()
+  fullName: UIToggleButton.LeaveToggleGroup()
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/UI/UIToggleButton.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: LeaveToggleGroup
+    path: ../Assets/Scripts/UI/UIToggleButton.cs
+    startLine: 425
+  namespace: Global
+  syntax:
+    content: public void LeaveToggleGroup()
+    content.vb: Public Sub LeaveToggleGroup()
+  overload: Global.UIToggleButton.LeaveToggleGroup*
+- uid: Global.UIToggleButton.SubscribeToTurnOn(UnityAction)
+  commentId: M:Global.UIToggleButton.SubscribeToTurnOn(UnityAction)
+  id: SubscribeToTurnOn(UnityAction)
+  parent: Global.UIToggleButton
+  langs:
+  - csharp
+  - vb
+  name: SubscribeToTurnOn(UnityAction)
+  nameWithType: UIToggleButton.SubscribeToTurnOn(UnityAction)
+  fullName: UIToggleButton.SubscribeToTurnOn(UnityAction)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/UI/UIToggleButton.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: SubscribeToTurnOn
+    path: ../Assets/Scripts/UI/UIToggleButton.cs
+    startLine: 430
+  namespace: Global
+  syntax:
+    content: public void SubscribeToTurnOn(UnityAction call)
+    parameters:
+    - id: call
+      type: Global.UnityAction
+    content.vb: Public Sub SubscribeToTurnOn([call] As UnityAction)
+  overload: Global.UIToggleButton.SubscribeToTurnOn*
+- uid: Global.UIToggleButton.SubscribeToTurnOff(UnityAction)
+  commentId: M:Global.UIToggleButton.SubscribeToTurnOff(UnityAction)
+  id: SubscribeToTurnOff(UnityAction)
+  parent: Global.UIToggleButton
+  langs:
+  - csharp
+  - vb
+  name: SubscribeToTurnOff(UnityAction)
+  nameWithType: UIToggleButton.SubscribeToTurnOff(UnityAction)
+  fullName: UIToggleButton.SubscribeToTurnOff(UnityAction)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/UI/UIToggleButton.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: SubscribeToTurnOff
+    path: ../Assets/Scripts/UI/UIToggleButton.cs
+    startLine: 434
+  namespace: Global
+  syntax:
+    content: public void SubscribeToTurnOff(UnityAction call)
+    parameters:
+    - id: call
+      type: Global.UnityAction
+    content.vb: Public Sub SubscribeToTurnOff([call] As UnityAction)
+  overload: Global.UIToggleButton.SubscribeToTurnOff*
+- uid: Global.UIToggleButton.SubscribeToHover(UnityAction)
+  commentId: M:Global.UIToggleButton.SubscribeToHover(UnityAction)
+  id: SubscribeToHover(UnityAction)
+  parent: Global.UIToggleButton
+  langs:
+  - csharp
+  - vb
+  name: SubscribeToHover(UnityAction)
+  nameWithType: UIToggleButton.SubscribeToHover(UnityAction)
+  fullName: UIToggleButton.SubscribeToHover(UnityAction)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/UI/UIToggleButton.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: SubscribeToHover
+    path: ../Assets/Scripts/UI/UIToggleButton.cs
+    startLine: 438
+  namespace: Global
+  syntax:
+    content: public void SubscribeToHover(UnityAction call)
+    parameters:
+    - id: call
+      type: Global.UnityAction
+    content.vb: Public Sub SubscribeToHover([call] As UnityAction)
+  overload: Global.UIToggleButton.SubscribeToHover*
+- uid: Global.UIToggleButton.SubscribeToLeftClick(UnityAction)
+  commentId: M:Global.UIToggleButton.SubscribeToLeftClick(UnityAction)
+  id: SubscribeToLeftClick(UnityAction)
+  parent: Global.UIToggleButton
+  langs:
+  - csharp
+  - vb
+  name: SubscribeToLeftClick(UnityAction)
+  nameWithType: UIToggleButton.SubscribeToLeftClick(UnityAction)
+  fullName: UIToggleButton.SubscribeToLeftClick(UnityAction)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/UI/UIToggleButton.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: SubscribeToLeftClick
+    path: ../Assets/Scripts/UI/UIToggleButton.cs
+    startLine: 442
+  namespace: Global
+  syntax:
+    content: public void SubscribeToLeftClick(UnityAction call)
+    parameters:
+    - id: call
+      type: Global.UnityAction
+    content.vb: Public Sub SubscribeToLeftClick([call] As UnityAction)
+  overload: Global.UIToggleButton.SubscribeToLeftClick*
+- uid: Global.UIToggleButton.SubscribeToRightClick(UnityAction)
+  commentId: M:Global.UIToggleButton.SubscribeToRightClick(UnityAction)
+  id: SubscribeToRightClick(UnityAction)
+  parent: Global.UIToggleButton
+  langs:
+  - csharp
+  - vb
+  name: SubscribeToRightClick(UnityAction)
+  nameWithType: UIToggleButton.SubscribeToRightClick(UnityAction)
+  fullName: UIToggleButton.SubscribeToRightClick(UnityAction)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/UI/UIToggleButton.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: SubscribeToRightClick
+    path: ../Assets/Scripts/UI/UIToggleButton.cs
+    startLine: 446
+  namespace: Global
+  syntax:
+    content: public void SubscribeToRightClick(UnityAction call)
+    parameters:
+    - id: call
+      type: Global.UnityAction
+    content.vb: Public Sub SubscribeToRightClick([call] As UnityAction)
+  overload: Global.UIToggleButton.SubscribeToRightClick*
+references:
+- uid: Global
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Global.UIToggleButton.on*
+  commentId: Overload:Global.UIToggleButton.on
+  href: Global.UIToggleButton.html#UIToggleButton_on
+  name: on
+  nameWithType: UIToggleButton.on
+  fullName: UIToggleButton.on
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: Global.UIToggleButton.toggleName*
+  commentId: Overload:Global.UIToggleButton.toggleName
+  href: Global.UIToggleButton.html#UIToggleButton_toggleName
+  name: toggleName
+  nameWithType: UIToggleButton.toggleName
+  fullName: UIToggleButton.toggleName
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: Global.UIToggleButton.toggleGroup*
+  commentId: Overload:Global.UIToggleButton.toggleGroup
+  href: Global.UIToggleButton.html#UIToggleButton_toggleGroup
+  name: toggleGroup
+  nameWithType: UIToggleButton.toggleGroup
+  fullName: UIToggleButton.toggleGroup
+- uid: Global.UIToggleGroup
+  commentId: T:Global.UIToggleGroup
+  href: UIToggleGroup.html
+  name: UIToggleGroup
+  nameWithType: UIToggleGroup
+  fullName: UIToggleGroup
+- uid: Global.UIToggleButton.inToggleGroup*
+  commentId: Overload:Global.UIToggleButton.inToggleGroup
+  href: Global.UIToggleButton.html#UIToggleButton_inToggleGroup
+  name: inToggleGroup
+  nameWithType: UIToggleButton.inToggleGroup
+  fullName: UIToggleButton.inToggleGroup
+- uid: System.Single
+  commentId: T:System.Single
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.single
+  name: float
+  nameWithType: float
+  fullName: float
+  nameWithType.vb: Single
+  fullName.vb: Single
+  name.vb: Single
+- uid: Global.UIToggleButton.offImage*
+  commentId: Overload:Global.UIToggleButton.offImage
+  href: Global.UIToggleButton.html#UIToggleButton_offImage
+  name: offImage
+  nameWithType: UIToggleButton.offImage
+  fullName: UIToggleButton.offImage
+- uid: Global.Sprite
+  isExternal: true
+  name: Sprite
+  nameWithType: Sprite
+  fullName: Sprite
+- uid: Global.UIToggleButton.onImage*
+  commentId: Overload:Global.UIToggleButton.onImage
+  href: Global.UIToggleButton.html#UIToggleButton_onImage
+  name: onImage
+  nameWithType: UIToggleButton.onImage
+  fullName: UIToggleButton.onImage
+- uid: Global.UIToggleButton.hoverImage*
+  commentId: Overload:Global.UIToggleButton.hoverImage
+  href: Global.UIToggleButton.html#UIToggleButton_hoverImage
+  name: hoverImage
+  nameWithType: UIToggleButton.hoverImage
+  fullName: UIToggleButton.hoverImage
+- uid: Global.UIToggleButton.pressedImage*
+  commentId: Overload:Global.UIToggleButton.pressedImage
+  href: Global.UIToggleButton.html#UIToggleButton_pressedImage
+  name: pressedImage
+  nameWithType: UIToggleButton.pressedImage
+  fullName: UIToggleButton.pressedImage
+- uid: Global.UIToggleButton.offBackgroundColour*
+  commentId: Overload:Global.UIToggleButton.offBackgroundColour
+  href: Global.UIToggleButton.html#UIToggleButton_offBackgroundColour
+  name: offBackgroundColour
+  nameWithType: UIToggleButton.offBackgroundColour
+  fullName: UIToggleButton.offBackgroundColour
+- uid: Global.Color
+  isExternal: true
+  name: Color
+  nameWithType: Color
+  fullName: Color
+- uid: Global.UIToggleButton.onBackgroundColour*
+  commentId: Overload:Global.UIToggleButton.onBackgroundColour
+  href: Global.UIToggleButton.html#UIToggleButton_onBackgroundColour
+  name: onBackgroundColour
+  nameWithType: UIToggleButton.onBackgroundColour
+  fullName: UIToggleButton.onBackgroundColour
+- uid: Global.UIToggleButton.pressedBackgroundColour*
+  commentId: Overload:Global.UIToggleButton.pressedBackgroundColour
+  href: Global.UIToggleButton.html#UIToggleButton_pressedBackgroundColour
+  name: pressedBackgroundColour
+  nameWithType: UIToggleButton.pressedBackgroundColour
+  fullName: UIToggleButton.pressedBackgroundColour
+- uid: Global.UIToggleButton.UpdateDisplay*
+  commentId: Overload:Global.UIToggleButton.UpdateDisplay
+  href: Global.UIToggleButton.html#UIToggleButton_UpdateDisplay
+  name: UpdateDisplay
+  nameWithType: UIToggleButton.UpdateDisplay
+  fullName: UIToggleButton.UpdateDisplay
+- uid: Global.UIToggleButton.Press*
+  commentId: Overload:Global.UIToggleButton.Press
+  href: Global.UIToggleButton.html#UIToggleButton_Press
+  name: Press
+  nameWithType: UIToggleButton.Press
+  fullName: UIToggleButton.Press
+- uid: Global.UIToggleButton.RightClick*
+  commentId: Overload:Global.UIToggleButton.RightClick
+  href: Global.UIToggleButton.html#UIToggleButton_RightClick
+  name: RightClick
+  nameWithType: UIToggleButton.RightClick
+  fullName: UIToggleButton.RightClick
+- uid: Global.UIToggleButton.SetImages*
+  commentId: Overload:Global.UIToggleButton.SetImages
+  href: Global.UIToggleButton.html#UIToggleButton_SetImages_Sprite_Sprite_Sprite_Sprite_
+  name: SetImages
+  nameWithType: UIToggleButton.SetImages
+  fullName: UIToggleButton.SetImages
+- uid: Global.UIToggleButton.SetOnOff*
+  commentId: Overload:Global.UIToggleButton.SetOnOff
+  href: Global.UIToggleButton.html#UIToggleButton_SetOnOff_System_Boolean_
+  name: SetOnOff
+  nameWithType: UIToggleButton.SetOnOff
+  fullName: UIToggleButton.SetOnOff
+- uid: Global.UIToggleButton.SetText*
+  commentId: Overload:Global.UIToggleButton.SetText
+  href: Global.UIToggleButton.html#UIToggleButton_SetText_System_String_
+  name: SetText
+  nameWithType: UIToggleButton.SetText
+  fullName: UIToggleButton.SetText
+- uid: Global.UIToggleButton.SetTextAlignment*
+  commentId: Overload:Global.UIToggleButton.SetTextAlignment
+  href: Global.UIToggleButton.html#UIToggleButton_SetTextAlignment_TextAnchor_
+  name: SetTextAlignment
+  nameWithType: UIToggleButton.SetTextAlignment
+  fullName: UIToggleButton.SetTextAlignment
+- uid: Global.TextAnchor
+  commentId: '!:Global.TextAnchor'
+  isExternal: true
+  name: TextAnchor
+  nameWithType: TextAnchor
+  fullName: TextAnchor
+- uid: Global.UIToggleButton.JoinToggleGroup*
+  commentId: Overload:Global.UIToggleButton.JoinToggleGroup
+  href: Global.UIToggleButton.html#UIToggleButton_JoinToggleGroup_UIToggleGroup_
+  name: JoinToggleGroup
+  nameWithType: UIToggleButton.JoinToggleGroup
+  fullName: UIToggleButton.JoinToggleGroup
+- uid: Global.UIToggleButton.LeaveToggleGroup*
+  commentId: Overload:Global.UIToggleButton.LeaveToggleGroup
+  href: Global.UIToggleButton.html#UIToggleButton_LeaveToggleGroup
+  name: LeaveToggleGroup
+  nameWithType: UIToggleButton.LeaveToggleGroup
+  fullName: UIToggleButton.LeaveToggleGroup
+- uid: Global.UIToggleButton.SubscribeToTurnOn*
+  commentId: Overload:Global.UIToggleButton.SubscribeToTurnOn
+  href: Global.UIToggleButton.html#UIToggleButton_SubscribeToTurnOn_UnityAction_
+  name: SubscribeToTurnOn
+  nameWithType: UIToggleButton.SubscribeToTurnOn
+  fullName: UIToggleButton.SubscribeToTurnOn
+- uid: Global.UnityAction
+  isExternal: true
+  name: UnityAction
+  nameWithType: UnityAction
+  fullName: UnityAction
+- uid: Global.UIToggleButton.SubscribeToTurnOff*
+  commentId: Overload:Global.UIToggleButton.SubscribeToTurnOff
+  href: Global.UIToggleButton.html#UIToggleButton_SubscribeToTurnOff_UnityAction_
+  name: SubscribeToTurnOff
+  nameWithType: UIToggleButton.SubscribeToTurnOff
+  fullName: UIToggleButton.SubscribeToTurnOff
+- uid: Global.UIToggleButton.SubscribeToHover*
+  commentId: Overload:Global.UIToggleButton.SubscribeToHover
+  href: Global.UIToggleButton.html#UIToggleButton_SubscribeToHover_UnityAction_
+  name: SubscribeToHover
+  nameWithType: UIToggleButton.SubscribeToHover
+  fullName: UIToggleButton.SubscribeToHover
+- uid: Global.UIToggleButton.SubscribeToLeftClick*
+  commentId: Overload:Global.UIToggleButton.SubscribeToLeftClick
+  href: Global.UIToggleButton.html#UIToggleButton_SubscribeToLeftClick_UnityAction_
+  name: SubscribeToLeftClick
+  nameWithType: UIToggleButton.SubscribeToLeftClick
+  fullName: UIToggleButton.SubscribeToLeftClick
+- uid: Global.UIToggleButton.SubscribeToRightClick*
+  commentId: Overload:Global.UIToggleButton.SubscribeToRightClick
+  href: Global.UIToggleButton.html#UIToggleButton_SubscribeToRightClick_UnityAction_
+  name: SubscribeToRightClick
+  nameWithType: UIToggleButton.SubscribeToRightClick
+  fullName: UIToggleButton.SubscribeToRightClick

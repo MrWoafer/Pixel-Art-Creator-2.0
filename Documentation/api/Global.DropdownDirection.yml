@@ -1,0 +1,84 @@
+### YamlMime:ManagedReference
+items:
+- uid: Global.DropdownDirection
+  commentId: T:Global.DropdownDirection
+  id: DropdownDirection
+  parent: Global
+  children:
+  - Global.DropdownDirection.down
+  - Global.DropdownDirection.up
+  langs:
+  - csharp
+  - vb
+  name: DropdownDirection
+  nameWithType: DropdownDirection
+  fullName: DropdownDirection
+  type: Enum
+  source:
+    remote:
+      path: Assets/Scripts/UI/UIDropdownChoice.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: DropdownDirection
+    path: ../Assets/Scripts/UI/UIDropdownChoice.cs
+    startLine: 5
+  namespace: Global
+  syntax:
+    content: public enum DropdownDirection
+    content.vb: Public Enum DropdownDirection
+- uid: Global.DropdownDirection.up
+  commentId: F:Global.DropdownDirection.up
+  id: up
+  parent: Global.DropdownDirection
+  langs:
+  - csharp
+  - vb
+  name: up
+  nameWithType: DropdownDirection.up
+  fullName: DropdownDirection.up
+  type: Field
+  source:
+    remote:
+      path: Assets/Scripts/UI/UIDropdownChoice.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: up
+    path: ../Assets/Scripts/UI/UIDropdownChoice.cs
+    startLine: 7
+  namespace: Global
+  syntax:
+    content: up = 1
+    return:
+      type: Global.DropdownDirection
+- uid: Global.DropdownDirection.down
+  commentId: F:Global.DropdownDirection.down
+  id: down
+  parent: Global.DropdownDirection
+  langs:
+  - csharp
+  - vb
+  name: down
+  nameWithType: DropdownDirection.down
+  fullName: DropdownDirection.down
+  type: Field
+  source:
+    remote:
+      path: Assets/Scripts/UI/UIDropdownChoice.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: down
+    path: ../Assets/Scripts/UI/UIDropdownChoice.cs
+    startLine: 8
+  namespace: Global
+  syntax:
+    content: down = -1
+    return:
+      type: Global.DropdownDirection
+references:
+- uid: Global
+- uid: Global.DropdownDirection
+  commentId: T:Global.DropdownDirection
+  href: DropdownDirection.html
+  name: DropdownDirection
+  nameWithType: DropdownDirection
+  fullName: DropdownDirection

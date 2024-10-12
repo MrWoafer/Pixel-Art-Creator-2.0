@@ -1,0 +1,242 @@
+### YamlMime:TableOfContent
+items:
+- uid: Global
+  name: ''
+  items:
+  - uid: Global.AnimFrameRefMode
+    name: AnimFrameRefMode
+  - uid: Global.AnimationKeyFrame
+    name: AnimationKeyFrame
+  - uid: Global.AnimationManager
+    name: AnimationManager
+  - uid: Global.BlendMode
+    name: BlendMode
+  - uid: Global.BrushShape
+    name: BrushShape
+  - uid: Global.Clipboard
+    name: Clipboard
+  - uid: Global.CollapsedState
+    name: CollapsedState
+  - uid: Global.ColorExtensions
+    name: ColorExtensions
+  - uid: Global.ColourPreview
+    name: ColourPreview
+  - uid: Global.CursorState
+    name: CursorState
+  - uid: Global.CustomKeyCode
+    name: CustomKeyCode
+  - uid: Global.CustomStack`1
+    name: CustomStack<T>
+  - uid: Global.DrawingArea
+    name: DrawingArea
+  - uid: Global.DropdownCloseMode
+    name: DropdownCloseMode
+  - uid: Global.DropdownDirection
+    name: DropdownDirection
+  - uid: Global.File
+    name: File
+  - uid: Global.FileManager
+    name: FileManager
+  - uid: Global.FileTab
+    name: FileTab
+  - uid: Global.FileTabsManager
+    name: FileTabsManager
+  - uid: Global.Finder
+    name: Finder
+  - uid: Global.FlipDirection
+    name: FlipDirection
+  - uid: Global.FrameNotch
+    name: FrameNotch
+  - uid: Global.Functions
+    name: Functions
+  - uid: Global.GlobalColourPicker
+    name: GlobalColourPicker
+  - uid: Global.GradientMode
+    name: GradientMode
+  - uid: Global.GridAlignment
+    name: GridAlignment
+  - uid: Global.GridManager
+    name: GridManager
+  - uid: Global.HSL
+    name: HSL
+  - uid: Global.HSLColourPicker
+    name: HSLColourPicker
+  - uid: Global.HSLHueSaturationBox
+    name: HSLHueSaturationBox
+  - uid: Global.HSLLightnessSlider
+    name: HSLLightnessSlider
+  - uid: Global.HSV
+    name: HSV
+  - uid: Global.HueSaturationBoxShader
+    name: HueSaturationBoxShader
+  - uid: Global.IJSONable
+    name: IJSONable
+  - uid: Global.ImageConverter
+    name: ImageConverter
+  - uid: Global.ImageEditManager
+    name: ImageEditManager
+  - uid: Global.InputSystem
+    name: InputSystem
+  - uid: Global.InputTarget
+    name: InputTarget
+  - uid: Global.IntRect
+    name: IntRect
+  - uid: Global.IntVector2
+    name: IntVector2
+  - uid: Global.JSON
+    name: JSON
+  - uid: Global.JSON.JSONProperty
+    name: JSON.JSONProperty
+  - uid: Global.KeyCodeFunctions
+    name: KeyCodeFunctions
+  - uid: Global.KeyFrameIcon
+    name: KeyFrameIcon
+  - uid: Global.Keyboard
+    name: Keyboard
+  - uid: Global.KeyboardShortcut
+    name: KeyboardShortcut
+  - uid: Global.KeyboardShortcutOptionsManager
+    name: KeyboardShortcutOptionsManager
+  - uid: Global.KeyboardShortcuts
+    name: KeyboardShortcuts
+  - uid: Global.KeyboardTarget
+    name: KeyboardTarget
+  - uid: Global.Layer
+    name: Layer
+  - uid: Global.LayerAnimation
+    name: LayerAnimation
+  - uid: Global.LayerManager
+    name: LayerManager
+  - uid: Global.LayerSerializationSurrogate
+    name: LayerSerializationSurrogate
+  - uid: Global.LayerTile
+    name: LayerTile
+  - uid: Global.LayerType
+    name: LayerType
+  - uid: Global.LightnessSliderShader
+    name: LightnessSliderShader
+  - uid: Global.MaximiseWindow
+    name: MaximiseWindow
+  - uid: Global.Mouse
+    name: Mouse
+  - uid: Global.MouseButton
+    name: MouseButton
+  - uid: Global.MouseTarget
+    name: MouseTarget
+  - uid: Global.MouseTargetDeselectMode
+    name: MouseTargetDeselectMode
+  - uid: Global.MouseTargetState
+    name: MouseTargetState
+  - uid: Global.NormalLayer
+    name: NormalLayer
+  - uid: Global.Outline
+    name: Outline
+  - uid: Global.OutlineSideFill
+    name: OutlineSideFill
+  - uid: Global.RainbowOutline
+    name: RainbowOutline
+  - uid: Global.RotationAngle
+    name: RotationAngle
+  - uid: Global.ScreenInfo
+    name: ScreenInfo
+  - uid: Global.ScrollDirection
+    name: ScrollDirection
+  - uid: Global.SelectionMode
+    name: SelectionMode
+  - uid: Global.Shape
+    name: Shape
+  - uid: Global.Shapes
+    name: Shapes
+  - uid: Global.Tex2DSprite
+    name: Tex2DSprite
+  - uid: Global.Texture2DSerializationSurrogate
+    name: Texture2DSerializationSurrogate
+  - uid: Global.Theme
+    name: Theme
+  - uid: Global.ThemeManager
+    name: ThemeManager
+  - uid: Global.ThemeObjectType
+    name: ThemeObjectType
+  - uid: Global.Tile
+    name: Tile
+  - uid: Global.TileLayer
+    name: TileLayer
+  - uid: Global.TileOutlineManager
+    name: TileOutlineManager
+  - uid: Global.Tileset
+    name: Tileset
+  - uid: Global.TilesetManager
+    name: TilesetManager
+  - uid: Global.Tool
+    name: Tool
+  - uid: Global.Toolbar
+    name: Toolbar
+  - uid: Global.Tools
+    name: Tools
+  - uid: Global.Tooltip
+    name: Tooltip
+  - uid: Global.UIAnchorPoint
+    name: UIAnchorPoint
+  - uid: Global.UIButton
+    name: UIButton
+  - uid: Global.UICollapser
+    name: UICollapser
+  - uid: Global.UIColourField
+    name: UIColourField
+  - uid: Global.UIColourFieldGroup
+    name: UIColourFieldGroup
+  - uid: Global.UIColourPicker
+    name: UIColourPicker
+  - uid: Global.UIDropdown
+    name: UIDropdown
+  - uid: Global.UIDropdownChoice
+    name: UIDropdownChoice
+  - uid: Global.UIElement
+    name: UIElement
+  - uid: Global.UIElementDeselectMode
+    name: UIElementDeselectMode
+  - uid: Global.UIElementSelectMode
+    name: UIElementSelectMode
+  - uid: Global.UIGridPacker
+    name: UIGridPacker
+  - uid: Global.UIKeyboardShortcut
+    name: UIKeyboardShortcut
+  - uid: Global.UIManager
+    name: UIManager
+  - uid: Global.UIModalWindow
+    name: UIModalWindow
+  - uid: Global.UINumberField
+    name: UINumberField
+  - uid: Global.UIScale
+    name: UIScale
+  - uid: Global.UIScrollbar
+    name: UIScrollbar
+  - uid: Global.UITabManager
+    name: UITabManager
+  - uid: Global.UITextbox
+    name: UITextbox
+  - uid: Global.UITextboxAnchorPoint
+    name: UITextboxAnchorPoint
+  - uid: Global.UITheme
+    name: UITheme
+  - uid: Global.UITileIcon
+    name: UITileIcon
+  - uid: Global.UIToggleButton
+    name: UIToggleButton
+  - uid: Global.UIToggleGroup
+    name: UIToggleGroup
+  - uid: Global.UIToolButton
+    name: UIToolButton
+  - uid: Global.UITooltip
+    name: UITooltip
+  - uid: Global.UIViewport
+    name: UIViewport
+  - uid: Global.UndoRedoAction
+    name: UndoRedoAction
+  - uid: Global.UndoRedoManager
+    name: UndoRedoManager
+  - uid: Global.UndoRedoState
+    name: UndoRedoState
+  - uid: Global.ViewportSide
+    name: ViewportSide
+memberLayout: SamePage

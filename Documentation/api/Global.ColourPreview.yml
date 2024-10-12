@@ -1,0 +1,283 @@
+### YamlMime:ManagedReference
+items:
+- uid: Global.ColourPreview
+  commentId: T:Global.ColourPreview
+  id: ColourPreview
+  parent: Global
+  children:
+  - Global.ColourPreview.SetColour(Color)
+  - Global.ColourPreview.SubscribeToOnDeselect(UnityAction)
+  - Global.ColourPreview.SubscribeToOnSelect(UnityAction)
+  - Global.ColourPreview.SubscribeToOnToggle(UnityAction)
+  - Global.ColourPreview.colour
+  - Global.ColourPreview.outlineThickness
+  langs:
+  - csharp
+  - vb
+  name: ColourPreview
+  nameWithType: ColourPreview
+  fullName: ColourPreview
+  type: Class
+  source:
+    remote:
+      path: Assets/Scripts/Colour Picker/ColourPreview.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: ColourPreview
+    path: ../Assets/Scripts/Colour Picker/ColourPreview.cs
+    startLine: 9
+  namespace: Global
+  summary: A class to represent colour previews - the boxes on colour pickers that show what colours you have selected.
+  example: []
+  syntax:
+    content: 'public class ColourPreview : MonoBehaviour'
+    content.vb: Public Class ColourPreview Inherits MonoBehaviour
+  inheritance:
+  - System.Object
+- uid: Global.ColourPreview.colour
+  commentId: P:Global.ColourPreview.colour
+  id: colour
+  parent: Global.ColourPreview
+  langs:
+  - csharp
+  - vb
+  name: colour
+  nameWithType: ColourPreview.colour
+  fullName: ColourPreview.colour
+  type: Property
+  source:
+    remote:
+      path: Assets/Scripts/Colour Picker/ColourPreview.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: colour
+    path: ../Assets/Scripts/Colour Picker/ColourPreview.cs
+    startLine: 15
+  namespace: Global
+  summary: The colour displayed in the colour preview.
+  example: []
+  syntax:
+    content: public Color colour { get; }
+    parameters: []
+    return:
+      type: Global.Color
+    content.vb: Public Property colour As Color
+  overload: Global.ColourPreview.colour*
+- uid: Global.ColourPreview.outlineThickness
+  commentId: P:Global.ColourPreview.outlineThickness
+  id: outlineThickness
+  parent: Global.ColourPreview
+  langs:
+  - csharp
+  - vb
+  name: outlineThickness
+  nameWithType: ColourPreview.outlineThickness
+  fullName: ColourPreview.outlineThickness
+  type: Property
+  source:
+    remote:
+      path: Assets/Scripts/Colour Picker/ColourPreview.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: outlineThickness
+    path: ../Assets/Scripts/Colour Picker/ColourPreview.cs
+    startLine: 33
+  namespace: Global
+  syntax:
+    content: public float outlineThickness { get; }
+    parameters: []
+    return:
+      type: System.Single
+    content.vb: Public Property outlineThickness As Single
+  overload: Global.ColourPreview.outlineThickness*
+- uid: Global.ColourPreview.SetColour(Color)
+  commentId: M:Global.ColourPreview.SetColour(Color)
+  id: SetColour(Color)
+  parent: Global.ColourPreview
+  langs:
+  - csharp
+  - vb
+  name: SetColour(Color)
+  nameWithType: ColourPreview.SetColour(Color)
+  fullName: ColourPreview.SetColour(Color)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Colour Picker/ColourPreview.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: SetColour
+    path: ../Assets/Scripts/Colour Picker/ColourPreview.cs
+    startLine: 116
+  namespace: Global
+  syntax:
+    content: public void SetColour(Color colour)
+    parameters:
+    - id: colour
+      type: Global.Color
+    content.vb: Public Sub SetColour(colour As Color)
+  overload: Global.ColourPreview.SetColour*
+- uid: Global.ColourPreview.SubscribeToOnSelect(UnityAction)
+  commentId: M:Global.ColourPreview.SubscribeToOnSelect(UnityAction)
+  id: SubscribeToOnSelect(UnityAction)
+  parent: Global.ColourPreview
+  langs:
+  - csharp
+  - vb
+  name: SubscribeToOnSelect(UnityAction)
+  nameWithType: ColourPreview.SubscribeToOnSelect(UnityAction)
+  fullName: ColourPreview.SubscribeToOnSelect(UnityAction)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Colour Picker/ColourPreview.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: SubscribeToOnSelect
+    path: ../Assets/Scripts/Colour Picker/ColourPreview.cs
+    startLine: 145
+  namespace: Global
+  summary: Event invoked when colour preview is selected.
+  example: []
+  syntax:
+    content: public void SubscribeToOnSelect(UnityAction call)
+    parameters:
+    - id: call
+      type: Global.UnityAction
+    content.vb: Public Sub SubscribeToOnSelect([call] As UnityAction)
+  overload: Global.ColourPreview.SubscribeToOnSelect*
+- uid: Global.ColourPreview.SubscribeToOnDeselect(UnityAction)
+  commentId: M:Global.ColourPreview.SubscribeToOnDeselect(UnityAction)
+  id: SubscribeToOnDeselect(UnityAction)
+  parent: Global.ColourPreview
+  langs:
+  - csharp
+  - vb
+  name: SubscribeToOnDeselect(UnityAction)
+  nameWithType: ColourPreview.SubscribeToOnDeselect(UnityAction)
+  fullName: ColourPreview.SubscribeToOnDeselect(UnityAction)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Colour Picker/ColourPreview.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: SubscribeToOnDeselect
+    path: ../Assets/Scripts/Colour Picker/ColourPreview.cs
+    startLine: 152
+  namespace: Global
+  summary: Event invoked when colour preview is deselected.
+  example: []
+  syntax:
+    content: public void SubscribeToOnDeselect(UnityAction call)
+    parameters:
+    - id: call
+      type: Global.UnityAction
+    content.vb: Public Sub SubscribeToOnDeselect([call] As UnityAction)
+  overload: Global.ColourPreview.SubscribeToOnDeselect*
+- uid: Global.ColourPreview.SubscribeToOnToggle(UnityAction)
+  commentId: M:Global.ColourPreview.SubscribeToOnToggle(UnityAction)
+  id: SubscribeToOnToggle(UnityAction)
+  parent: Global.ColourPreview
+  langs:
+  - csharp
+  - vb
+  name: SubscribeToOnToggle(UnityAction)
+  nameWithType: ColourPreview.SubscribeToOnToggle(UnityAction)
+  fullName: ColourPreview.SubscribeToOnToggle(UnityAction)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Colour Picker/ColourPreview.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: SubscribeToOnToggle
+    path: ../Assets/Scripts/Colour Picker/ColourPreview.cs
+    startLine: 159
+  namespace: Global
+  summary: Event invoked when colour preview is selected or deselected.
+  example: []
+  syntax:
+    content: public void SubscribeToOnToggle(UnityAction call)
+    parameters:
+    - id: call
+      type: Global.UnityAction
+    content.vb: Public Sub SubscribeToOnToggle([call] As UnityAction)
+  overload: Global.ColourPreview.SubscribeToOnToggle*
+references:
+- uid: Global
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Global.ColourPreview.colour*
+  commentId: Overload:Global.ColourPreview.colour
+  href: Global.ColourPreview.html#ColourPreview_colour
+  name: colour
+  nameWithType: ColourPreview.colour
+  fullName: ColourPreview.colour
+- uid: Global.Color
+  isExternal: true
+  name: Color
+  nameWithType: Color
+  fullName: Color
+- uid: Global.ColourPreview.outlineThickness*
+  commentId: Overload:Global.ColourPreview.outlineThickness
+  href: Global.ColourPreview.html#ColourPreview_outlineThickness
+  name: outlineThickness
+  nameWithType: ColourPreview.outlineThickness
+  fullName: ColourPreview.outlineThickness
+- uid: System.Single
+  commentId: T:System.Single
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.single
+  name: float
+  nameWithType: float
+  fullName: float
+  nameWithType.vb: Single
+  fullName.vb: Single
+  name.vb: Single
+- uid: Global.ColourPreview.SetColour*
+  commentId: Overload:Global.ColourPreview.SetColour
+  href: Global.ColourPreview.html#ColourPreview_SetColour_Color_
+  name: SetColour
+  nameWithType: ColourPreview.SetColour
+  fullName: ColourPreview.SetColour
+- uid: Global.ColourPreview.SubscribeToOnSelect*
+  commentId: Overload:Global.ColourPreview.SubscribeToOnSelect
+  href: Global.ColourPreview.html#ColourPreview_SubscribeToOnSelect_UnityAction_
+  name: SubscribeToOnSelect
+  nameWithType: ColourPreview.SubscribeToOnSelect
+  fullName: ColourPreview.SubscribeToOnSelect
+- uid: Global.UnityAction
+  isExternal: true
+  name: UnityAction
+  nameWithType: UnityAction
+  fullName: UnityAction
+- uid: Global.ColourPreview.SubscribeToOnDeselect*
+  commentId: Overload:Global.ColourPreview.SubscribeToOnDeselect
+  href: Global.ColourPreview.html#ColourPreview_SubscribeToOnDeselect_UnityAction_
+  name: SubscribeToOnDeselect
+  nameWithType: ColourPreview.SubscribeToOnDeselect
+  fullName: ColourPreview.SubscribeToOnDeselect
+- uid: Global.ColourPreview.SubscribeToOnToggle*
+  commentId: Overload:Global.ColourPreview.SubscribeToOnToggle
+  href: Global.ColourPreview.html#ColourPreview_SubscribeToOnToggle_UnityAction_
+  name: SubscribeToOnToggle
+  nameWithType: ColourPreview.SubscribeToOnToggle
+  fullName: ColourPreview.SubscribeToOnToggle

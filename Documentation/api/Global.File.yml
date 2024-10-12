@@ -1,0 +1,3399 @@
+### YamlMime:ManagedReference
+items:
+- uid: Global.File
+  commentId: T:Global.File
+  id: File
+  parent: Global
+  children:
+  - Global.File.#ctor(File)
+  - Global.File.#ctor(System.String,System.Int32,System.Int32)
+  - Global.File.AddLayer(Layer)
+  - Global.File.AddLayer(Layer,System.Int32)
+  - Global.File.AddLayers(Layer[])
+  - Global.File.AddNormalLayer
+  - Global.File.AddNormalLayer(System.Int32)
+  - Global.File.AddNormalLayer(Texture2D,System.Int32)
+  - Global.File.AddTile(File,IntVector2,System.Int32)
+  - Global.File.AddTile(Tile)
+  - Global.File.AddTileLayer
+  - Global.File.AddTileLayer(System.Int32)
+  - Global.File.ContainsTile(Tile)
+  - Global.File.DeepCopy
+  - Global.File.ExportAnimation(System.String)
+  - Global.File.ExportFrame(System.Int32,System.String)
+  - Global.File.Extend(System.Int32,System.Int32,System.Int32,System.Int32)
+  - Global.File.Flip(FlipDirection)
+  - Global.File.FromJSON(JSON)
+  - Global.File.ImportImage(System.String)
+  - Global.File.ImportLayers(Layer[])
+  - Global.File.IndexOfLayer(Layer)
+  - Global.File.IsBlank
+  - Global.File.MoveLayer(Layer,System.Int32)
+  - Global.File.MoveLayer(System.Int32,System.Int32)
+  - Global.File.OpenFile(System.String)
+  - Global.File.OpenImage(System.String)
+  - Global.File.OpenJPEG(System.String)
+  - Global.File.OpenPAC(System.String)
+  - Global.File.OpenPNG(System.String)
+  - Global.File.RemoveAllLayers
+  - Global.File.RemoveLayer(Layer)
+  - Global.File.RemoveLayer(System.Int32)
+  - Global.File.RemoveLayers(Layer[])
+  - Global.File.RemoveLayers(System.Int32[])
+  - Global.File.RemoveTile(Tile)
+  - Global.File.Render(System.Int32)
+  - Global.File.RenderLayers(System.Int32,System.Int32,System.Int32,System.Boolean)
+  - Global.File.RenderLayers(System.Int32[],System.Int32)
+  - Global.File.RenderLayersAbove(System.Int32,System.Int32,System.Boolean)
+  - Global.File.RenderLayersBelow(System.Int32,System.Int32,System.Boolean)
+  - Global.File.RenderPixel(IntVector2,System.Int32)
+  - Global.File.RenderPixel(IntVector2,System.Int32,System.Int32,System.Int32,System.Boolean)
+  - Global.File.RenderPixel(IntVector2,System.Int32[],System.Int32)
+  - Global.File.RenderPixel(System.Int32,System.Int32,System.Int32)
+  - Global.File.RenderPixel(System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Boolean)
+  - Global.File.RenderPixel(System.Int32,System.Int32,System.Int32[],System.Int32)
+  - Global.File.ReplaceLayer(Layer,Layer)
+  - Global.File.ReplaceLayer(System.Int32,Layer)
+  - Global.File.Rotate(RotationAngle)
+  - Global.File.SaveAsPAC(System.String)
+  - Global.File.SavePAC
+  - Global.File.Scale(System.Int32,System.Int32)
+  - Global.File.Scale(System.Single)
+  - Global.File.Scale(System.Single,System.Single)
+  - Global.File.SetLiveRenderFrame(System.Int32)
+  - Global.File.SubscribeToOnPixelsChanged(UnityAction{IntVector2[],Layer[],System.Int32[]})
+  - Global.File.SubscribeToOnSavedSinceEditChanged(UnityAction)
+  - Global.File.SubscribeToOnTileAdded(UnityAction)
+  - Global.File.SubscribeToOnTileRemoved(UnityAction)
+  - Global.File.ToJSON
+  - Global.File.height
+  - Global.File.keyFrameIndices
+  - Global.File.layers
+  - Global.File.liveRender
+  - Global.File.mostRecentSavePath
+  - Global.File.name
+  - Global.File.numOfFrames
+  - Global.File.rect
+  - Global.File.savedSinceLastEdit
+  - Global.File.tiles
+  - Global.File.width
+  langs:
+  - csharp
+  - vb
+  name: File
+  nameWithType: File
+  fullName: File
+  type: Class
+  source:
+    remote:
+      path: Assets/Scripts/Files/File.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: File
+    path: ../Assets/Scripts/Files/File.cs
+    startLine: 11
+  namespace: Global
+  summary: A class to represent a single Pixel Art Creator file.
+  example: []
+  syntax:
+    content: 'public class File : IJSONable'
+    content.vb: Public Class File Implements IJSONable
+  inheritance:
+  - System.Object
+  implements:
+  - Global.IJSONable
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: Global.File.name
+  commentId: P:Global.File.name
+  id: name
+  parent: Global.File
+  langs:
+  - csharp
+  - vb
+  name: name
+  nameWithType: File.name
+  fullName: File.name
+  type: Property
+  source:
+    remote:
+      path: Assets/Scripts/Files/File.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: name
+    path: ../Assets/Scripts/Files/File.cs
+    startLine: 13
+  namespace: Global
+  syntax:
+    content: public string name { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property name As String
+  overload: Global.File.name*
+- uid: Global.File.mostRecentSavePath
+  commentId: P:Global.File.mostRecentSavePath
+  id: mostRecentSavePath
+  parent: Global.File
+  langs:
+  - csharp
+  - vb
+  name: mostRecentSavePath
+  nameWithType: File.mostRecentSavePath
+  fullName: File.mostRecentSavePath
+  type: Property
+  source:
+    remote:
+      path: Assets/Scripts/Files/File.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: mostRecentSavePath
+    path: ../Assets/Scripts/Files/File.cs
+    startLine: 15
+  namespace: Global
+  syntax:
+    content: public string mostRecentSavePath { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property mostRecentSavePath As String
+  overload: Global.File.mostRecentSavePath*
+- uid: Global.File.savedSinceLastEdit
+  commentId: P:Global.File.savedSinceLastEdit
+  id: savedSinceLastEdit
+  parent: Global.File
+  langs:
+  - csharp
+  - vb
+  name: savedSinceLastEdit
+  nameWithType: File.savedSinceLastEdit
+  fullName: File.savedSinceLastEdit
+  type: Property
+  source:
+    remote:
+      path: Assets/Scripts/Files/File.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: savedSinceLastEdit
+    path: ../Assets/Scripts/Files/File.cs
+    startLine: 17
+  namespace: Global
+  syntax:
+    content: public bool savedSinceLastEdit { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property savedSinceLastEdit As Boolean
+  overload: Global.File.savedSinceLastEdit*
+- uid: Global.File.width
+  commentId: P:Global.File.width
+  id: width
+  parent: Global.File
+  langs:
+  - csharp
+  - vb
+  name: width
+  nameWithType: File.width
+  fullName: File.width
+  type: Property
+  source:
+    remote:
+      path: Assets/Scripts/Files/File.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: width
+    path: ../Assets/Scripts/Files/File.cs
+    startLine: 27
+  namespace: Global
+  syntax:
+    content: public int width { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public Property width As Integer
+  overload: Global.File.width*
+- uid: Global.File.height
+  commentId: P:Global.File.height
+  id: height
+  parent: Global.File
+  langs:
+  - csharp
+  - vb
+  name: height
+  nameWithType: File.height
+  fullName: File.height
+  type: Property
+  source:
+    remote:
+      path: Assets/Scripts/Files/File.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: height
+    path: ../Assets/Scripts/Files/File.cs
+    startLine: 28
+  namespace: Global
+  syntax:
+    content: public int height { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public Property height As Integer
+  overload: Global.File.height*
+- uid: Global.File.rect
+  commentId: P:Global.File.rect
+  id: rect
+  parent: Global.File
+  langs:
+  - csharp
+  - vb
+  name: rect
+  nameWithType: File.rect
+  fullName: File.rect
+  type: Property
+  source:
+    remote:
+      path: Assets/Scripts/Files/File.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: rect
+    path: ../Assets/Scripts/Files/File.cs
+    startLine: 29
+  namespace: Global
+  syntax:
+    content: public IntRect rect { get; }
+    parameters: []
+    return:
+      type: Global.IntRect
+    content.vb: Public ReadOnly Property rect As IntRect
+  overload: Global.File.rect*
+- uid: Global.File.layers
+  commentId: P:Global.File.layers
+  id: layers
+  parent: Global.File
+  langs:
+  - csharp
+  - vb
+  name: layers
+  nameWithType: File.layers
+  fullName: File.layers
+  type: Property
+  source:
+    remote:
+      path: Assets/Scripts/Files/File.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: layers
+    path: ../Assets/Scripts/Files/File.cs
+    startLine: 31
+  namespace: Global
+  syntax:
+    content: public List<Layer> layers { get; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.List{Layer}
+    content.vb: Public Property layers As List(Of Layer)
+  overload: Global.File.layers*
+- uid: Global.File.numOfFrames
+  commentId: P:Global.File.numOfFrames
+  id: numOfFrames
+  parent: Global.File
+  langs:
+  - csharp
+  - vb
+  name: numOfFrames
+  nameWithType: File.numOfFrames
+  fullName: File.numOfFrames
+  type: Property
+  source:
+    remote:
+      path: Assets/Scripts/Files/File.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: numOfFrames
+    path: ../Assets/Scripts/Files/File.cs
+    startLine: 70
+  namespace: Global
+  summary: The number of frames the animation lasts for.
+  example: []
+  syntax:
+    content: public int numOfFrames { get; set; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public Property numOfFrames As Integer
+  overload: Global.File.numOfFrames*
+- uid: Global.File.keyFrameIndices
+  commentId: P:Global.File.keyFrameIndices
+  id: keyFrameIndices
+  parent: Global.File
+  langs:
+  - csharp
+  - vb
+  name: keyFrameIndices
+  nameWithType: File.keyFrameIndices
+  fullName: File.keyFrameIndices
+  type: Property
+  source:
+    remote:
+      path: Assets/Scripts/Files/File.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: keyFrameIndices
+    path: ../Assets/Scripts/Files/File.cs
+    startLine: 72
+  namespace: Global
+  summary: The frame indices at which some layer has a key frame.
+  example: []
+  syntax:
+    content: public int[] keyFrameIndices { get; }
+    parameters: []
+    return:
+      type: System.Int32[]
+    content.vb: Public ReadOnly Property keyFrameIndices As Integer()
+  overload: Global.File.keyFrameIndices*
+- uid: Global.File.liveRender
+  commentId: P:Global.File.liveRender
+  id: liveRender
+  parent: Global.File
+  langs:
+  - csharp
+  - vb
+  name: liveRender
+  nameWithType: File.liveRender
+  fullName: File.liveRender
+  type: Property
+  source:
+    remote:
+      path: Assets/Scripts/Files/File.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: liveRender
+    path: ../Assets/Scripts/Files/File.cs
+    startLine: 74
+  namespace: Global
+  syntax:
+    content: public Texture2D liveRender { get; }
+    parameters: []
+    return:
+      type: Global.Texture2D
+    content.vb: Public Property liveRender As Texture2D
+  overload: Global.File.liveRender*
+- uid: Global.File.tiles
+  commentId: P:Global.File.tiles
+  id: tiles
+  parent: Global.File
+  langs:
+  - csharp
+  - vb
+  name: tiles
+  nameWithType: File.tiles
+  fullName: File.tiles
+  type: Property
+  source:
+    remote:
+      path: Assets/Scripts/Files/File.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: tiles
+    path: ../Assets/Scripts/Files/File.cs
+    startLine: 80
+  namespace: Global
+  summary: All the tile objects currently in the file.
+  example: []
+  syntax:
+    content: public Tile[] tiles { get; }
+    parameters: []
+    return:
+      type: Global.Tile[]
+    content.vb: Public ReadOnly Property tiles As Tile()
+  overload: Global.File.tiles*
+- uid: Global.File.#ctor(System.String,System.Int32,System.Int32)
+  commentId: M:Global.File.#ctor(System.String,System.Int32,System.Int32)
+  id: '#ctor(System.String,System.Int32,System.Int32)'
+  parent: Global.File
+  langs:
+  - csharp
+  - vb
+  name: File(string, int, int)
+  nameWithType: File.File(string, int, int)
+  fullName: File.File(string, int, int)
+  type: Constructor
+  source:
+    remote:
+      path: Assets/Scripts/Files/File.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: .ctor
+    path: ../Assets/Scripts/Files/File.cs
+    startLine: 102
+  namespace: Global
+  summary: Creates a blank file.
+  example: []
+  syntax:
+    content: public File(string name, int width, int height)
+    parameters:
+    - id: name
+      type: System.String
+    - id: width
+      type: System.Int32
+    - id: height
+      type: System.Int32
+    content.vb: Public Sub New(name As String, width As Integer, height As Integer)
+  overload: Global.File.#ctor*
+  nameWithType.vb: File.New(String, Integer, Integer)
+  fullName.vb: File.New(String, Integer, Integer)
+  name.vb: New(String, Integer, Integer)
+- uid: Global.File.#ctor(File)
+  commentId: M:Global.File.#ctor(File)
+  id: '#ctor(File)'
+  parent: Global.File
+  langs:
+  - csharp
+  - vb
+  name: File(File)
+  nameWithType: File.File(File)
+  fullName: File.File(File)
+  type: Constructor
+  source:
+    remote:
+      path: Assets/Scripts/Files/File.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: .ctor
+    path: ../Assets/Scripts/Files/File.cs
+    startLine: 118
+  namespace: Global
+  summary: Creates a deep copy of the File.
+  example: []
+  syntax:
+    content: public File(File file)
+    parameters:
+    - id: file
+      type: Global.File
+    content.vb: Public Sub New(file As File)
+  overload: Global.File.#ctor*
+  nameWithType.vb: File.New(File)
+  fullName.vb: File.New(File)
+  name.vb: New(File)
+- uid: Global.File.DeepCopy
+  commentId: M:Global.File.DeepCopy
+  id: DeepCopy
+  parent: Global.File
+  langs:
+  - csharp
+  - vb
+  name: DeepCopy()
+  nameWithType: File.DeepCopy()
+  fullName: File.DeepCopy()
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Files/File.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: DeepCopy
+    path: ../Assets/Scripts/Files/File.cs
+    startLine: 138
+  namespace: Global
+  summary: Creates a deep copy of the File.
+  example: []
+  syntax:
+    content: public File DeepCopy()
+    return:
+      type: Global.File
+    content.vb: Public Function DeepCopy() As File
+  overload: Global.File.DeepCopy*
+- uid: Global.File.OpenFile(System.String)
+  commentId: M:Global.File.OpenFile(System.String)
+  id: OpenFile(System.String)
+  parent: Global.File
+  langs:
+  - csharp
+  - vb
+  name: OpenFile(string)
+  nameWithType: File.OpenFile(string)
+  fullName: File.OpenFile(string)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Files/File.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: OpenFile
+    path: ../Assets/Scripts/Files/File.cs
+    startLine: 146
+  namespace: Global
+  summary: Opens the file according to its file extension.
+  example: []
+  syntax:
+    content: public static File OpenFile(string filePath)
+    parameters:
+    - id: filePath
+      type: System.String
+    return:
+      type: Global.File
+    content.vb: Public Shared Function OpenFile(filePath As String) As File
+  overload: Global.File.OpenFile*
+  nameWithType.vb: File.OpenFile(String)
+  fullName.vb: File.OpenFile(String)
+  name.vb: OpenFile(String)
+- uid: Global.File.OpenPNG(System.String)
+  commentId: M:Global.File.OpenPNG(System.String)
+  id: OpenPNG(System.String)
+  parent: Global.File
+  langs:
+  - csharp
+  - vb
+  name: OpenPNG(string)
+  nameWithType: File.OpenPNG(string)
+  fullName: File.OpenPNG(string)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Files/File.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: OpenPNG
+    path: ../Assets/Scripts/Files/File.cs
+    startLine: 178
+  namespace: Global
+  summary: Opens the PNG file. Throws an error if the file is not a PNG file.
+  example: []
+  syntax:
+    content: public static File OpenPNG(string filePath)
+    parameters:
+    - id: filePath
+      type: System.String
+    return:
+      type: Global.File
+    content.vb: Public Shared Function OpenPNG(filePath As String) As File
+  overload: Global.File.OpenPNG*
+  nameWithType.vb: File.OpenPNG(String)
+  fullName.vb: File.OpenPNG(String)
+  name.vb: OpenPNG(String)
+- uid: Global.File.OpenJPEG(System.String)
+  commentId: M:Global.File.OpenJPEG(System.String)
+  id: OpenJPEG(System.String)
+  parent: Global.File
+  langs:
+  - csharp
+  - vb
+  name: OpenJPEG(string)
+  nameWithType: File.OpenJPEG(string)
+  fullName: File.OpenJPEG(string)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Files/File.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: OpenJPEG
+    path: ../Assets/Scripts/Files/File.cs
+    startLine: 189
+  namespace: Global
+  summary: Opens the JPEG/JPG file. Throws an error if the file is not a JPEG/JPG file.
+  example: []
+  syntax:
+    content: public static File OpenJPEG(string filePath)
+    parameters:
+    - id: filePath
+      type: System.String
+    return:
+      type: Global.File
+    content.vb: Public Shared Function OpenJPEG(filePath As String) As File
+  overload: Global.File.OpenJPEG*
+  nameWithType.vb: File.OpenJPEG(String)
+  fullName.vb: File.OpenJPEG(String)
+  name.vb: OpenJPEG(String)
+- uid: Global.File.OpenImage(System.String)
+  commentId: M:Global.File.OpenImage(System.String)
+  id: OpenImage(System.String)
+  parent: Global.File
+  langs:
+  - csharp
+  - vb
+  name: OpenImage(string)
+  nameWithType: File.OpenImage(string)
+  fullName: File.OpenImage(string)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Files/File.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: OpenImage
+    path: ../Assets/Scripts/Files/File.cs
+    startLine: 200
+  namespace: Global
+  summary: Opens the file at the file path if it is an image file type, e.g. PNG or JPEG.
+  example: []
+  syntax:
+    content: public static File OpenImage(string filePath)
+    parameters:
+    - id: filePath
+      type: System.String
+    return:
+      type: Global.File
+    content.vb: Public Shared Function OpenImage(filePath As String) As File
+  overload: Global.File.OpenImage*
+  nameWithType.vb: File.OpenImage(String)
+  fullName.vb: File.OpenImage(String)
+  name.vb: OpenImage(String)
+- uid: Global.File.OpenPAC(System.String)
+  commentId: M:Global.File.OpenPAC(System.String)
+  id: OpenPAC(System.String)
+  parent: Global.File
+  langs:
+  - csharp
+  - vb
+  name: OpenPAC(string)
+  nameWithType: File.OpenPAC(string)
+  fullName: File.OpenPAC(string)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Files/File.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: OpenPAC
+    path: ../Assets/Scripts/Files/File.cs
+    startLine: 228
+  namespace: Global
+  summary: Opens the PAC file. Throws an error if the file is not a PAC file.
+  example: []
+  syntax:
+    content: public static File OpenPAC(string filePath)
+    parameters:
+    - id: filePath
+      type: System.String
+    return:
+      type: Global.File
+    content.vb: Public Shared Function OpenPAC(filePath As String) As File
+  overload: Global.File.OpenPAC*
+  nameWithType.vb: File.OpenPAC(String)
+  fullName.vb: File.OpenPAC(String)
+  name.vb: OpenPAC(String)
+- uid: Global.File.ImportImage(System.String)
+  commentId: M:Global.File.ImportImage(System.String)
+  id: ImportImage(System.String)
+  parent: Global.File
+  langs:
+  - csharp
+  - vb
+  name: ImportImage(string)
+  nameWithType: File.ImportImage(string)
+  fullName: File.ImportImage(string)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Files/File.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: ImportImage
+    path: ../Assets/Scripts/Files/File.cs
+    startLine: 254
+  namespace: Global
+  summary: Adds the image at the file path as a new layer.
+  example: []
+  syntax:
+    content: public void ImportImage(string filePath)
+    parameters:
+    - id: filePath
+      type: System.String
+      description: ''
+    content.vb: Public Sub ImportImage(filePath As String)
+  overload: Global.File.ImportImage*
+  nameWithType.vb: File.ImportImage(String)
+  fullName.vb: File.ImportImage(String)
+  name.vb: ImportImage(String)
+- uid: Global.File.SavePAC
+  commentId: M:Global.File.SavePAC
+  id: SavePAC
+  parent: Global.File
+  langs:
+  - csharp
+  - vb
+  name: SavePAC()
+  nameWithType: File.SavePAC()
+  fullName: File.SavePAC()
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Files/File.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: SavePAC
+    path: ../Assets/Scripts/Files/File.cs
+    startLine: 282
+  namespace: Global
+  summary: Saves the file as a PAC file at the location it was most recently saved at. Throws an error if the file hasn't been saved before.
+  example: []
+  syntax:
+    content: public void SavePAC()
+    content.vb: Public Sub SavePAC()
+  overload: Global.File.SavePAC*
+- uid: Global.File.SaveAsPAC(System.String)
+  commentId: M:Global.File.SaveAsPAC(System.String)
+  id: SaveAsPAC(System.String)
+  parent: Global.File
+  langs:
+  - csharp
+  - vb
+  name: SaveAsPAC(string)
+  nameWithType: File.SaveAsPAC(string)
+  fullName: File.SaveAsPAC(string)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Files/File.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: SaveAsPAC
+    path: ../Assets/Scripts/Files/File.cs
+    startLine: 294
+  namespace: Global
+  summary: Saves the file as a PAC file at the given file path. Throws an error if the file is not a PAC file.
+  example: []
+  syntax:
+    content: public void SaveAsPAC(string filePath)
+    parameters:
+    - id: filePath
+      type: System.String
+    content.vb: Public Sub SaveAsPAC(filePath As String)
+  overload: Global.File.SaveAsPAC*
+  nameWithType.vb: File.SaveAsPAC(String)
+  fullName.vb: File.SaveAsPAC(String)
+  name.vb: SaveAsPAC(String)
+- uid: Global.File.ToJSON
+  commentId: M:Global.File.ToJSON
+  id: ToJSON
+  parent: Global.File
+  langs:
+  - csharp
+  - vb
+  name: ToJSON()
+  nameWithType: File.ToJSON()
+  fullName: File.ToJSON()
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Files/File.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: ToJSON
+    path: ../Assets/Scripts/Files/File.cs
+    startLine: 317
+  namespace: Global
+  summary: Gets a JSON representation of the file.
+  example: []
+  syntax:
+    content: public JSON ToJSON()
+    return:
+      type: Global.JSON
+    content.vb: Public Function ToJSON() As JSON
+  overload: Global.File.ToJSON*
+  implements:
+  - Global.IJSONable.ToJSON
+- uid: Global.File.FromJSON(JSON)
+  commentId: M:Global.File.FromJSON(JSON)
+  id: FromJSON(JSON)
+  parent: Global.File
+  langs:
+  - csharp
+  - vb
+  name: FromJSON(JSON)
+  nameWithType: File.FromJSON(JSON)
+  fullName: File.FromJSON(JSON)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Files/File.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: FromJSON
+    path: ../Assets/Scripts/Files/File.cs
+    startLine: 338
+  namespace: Global
+  summary: Gets a file from its JSON representation.
+  example: []
+  syntax:
+    content: public static File FromJSON(JSON json)
+    parameters:
+    - id: json
+      type: Global.JSON
+    return:
+      type: Global.File
+    content.vb: Public Shared Function FromJSON(json As JSON) As File
+  overload: Global.File.FromJSON*
+- uid: Global.File.ExportFrame(System.Int32,System.String)
+  commentId: M:Global.File.ExportFrame(System.Int32,System.String)
+  id: ExportFrame(System.Int32,System.String)
+  parent: Global.File
+  langs:
+  - csharp
+  - vb
+  name: ExportFrame(int, string)
+  nameWithType: File.ExportFrame(int, string)
+  fullName: File.ExportFrame(int, string)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Files/File.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: ExportFrame
+    path: ../Assets/Scripts/Files/File.cs
+    startLine: 402
+  namespace: Global
+  summary: Exports the frame to the file path, according to the file extension.
+  example: []
+  syntax:
+    content: public bool ExportFrame(int frame, string filePath)
+    parameters:
+    - id: frame
+      type: System.Int32
+    - id: filePath
+      type: System.String
+    return:
+      type: System.Boolean
+    content.vb: Public Function ExportFrame(frame As Integer, filePath As String) As Boolean
+  overload: Global.File.ExportFrame*
+  nameWithType.vb: File.ExportFrame(Integer, String)
+  fullName.vb: File.ExportFrame(Integer, String)
+  name.vb: ExportFrame(Integer, String)
+- uid: Global.File.ExportAnimation(System.String)
+  commentId: M:Global.File.ExportAnimation(System.String)
+  id: ExportAnimation(System.String)
+  parent: Global.File
+  langs:
+  - csharp
+  - vb
+  name: ExportAnimation(string)
+  nameWithType: File.ExportAnimation(string)
+  fullName: File.ExportAnimation(string)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Files/File.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: ExportAnimation
+    path: ../Assets/Scripts/Files/File.cs
+    startLine: 434
+  namespace: Global
+  summary: Exports each frame of the animation and puts them in a folder. The file path specifies the folder name and location, and the file extension to export each frame as.
+  example: []
+  syntax:
+    content: public bool ExportAnimation(string filePath)
+    parameters:
+    - id: filePath
+      type: System.String
+    return:
+      type: System.Boolean
+    content.vb: Public Function ExportAnimation(filePath As String) As Boolean
+  overload: Global.File.ExportAnimation*
+  nameWithType.vb: File.ExportAnimation(String)
+  fullName.vb: File.ExportAnimation(String)
+  name.vb: ExportAnimation(String)
+- uid: Global.File.IsBlank
+  commentId: M:Global.File.IsBlank
+  id: IsBlank
+  parent: Global.File
+  langs:
+  - csharp
+  - vb
+  name: IsBlank()
+  nameWithType: File.IsBlank()
+  fullName: File.IsBlank()
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Files/File.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: IsBlank
+    path: ../Assets/Scripts/Files/File.cs
+    startLine: 502
+  namespace: Global
+  summary: Returns true if and only if all pixels on all layers are completely transparent.
+  example: []
+  syntax:
+    content: public bool IsBlank()
+    return:
+      type: System.Boolean
+    content.vb: Public Function IsBlank() As Boolean
+  overload: Global.File.IsBlank*
+- uid: Global.File.IndexOfLayer(Layer)
+  commentId: M:Global.File.IndexOfLayer(Layer)
+  id: IndexOfLayer(Layer)
+  parent: Global.File
+  langs:
+  - csharp
+  - vb
+  name: IndexOfLayer(Layer)
+  nameWithType: File.IndexOfLayer(Layer)
+  fullName: File.IndexOfLayer(Layer)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Files/File.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: IndexOfLayer
+    path: ../Assets/Scripts/Files/File.cs
+    startLine: 518
+  namespace: Global
+  summary: Gets the index of the layer within the file.
+  example: []
+  syntax:
+    content: public int IndexOfLayer(Layer layer)
+    parameters:
+    - id: layer
+      type: Global.Layer
+    return:
+      type: System.Int32
+      description: The index of the layer, or -1 if the layer is not in the file.
+    content.vb: Public Function IndexOfLayer(layer As Layer) As Integer
+  overload: Global.File.IndexOfLayer*
+- uid: Global.File.AddLayer(Layer)
+  commentId: M:Global.File.AddLayer(Layer)
+  id: AddLayer(Layer)
+  parent: Global.File
+  langs:
+  - csharp
+  - vb
+  name: AddLayer(Layer)
+  nameWithType: File.AddLayer(Layer)
+  fullName: File.AddLayer(Layer)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Files/File.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: AddLayer
+    path: ../Assets/Scripts/Files/File.cs
+    startLine: 526
+  namespace: Global
+  summary: Adds the given layer on top of all existing layers.
+  example: []
+  syntax:
+    content: public void AddLayer(Layer layer)
+    parameters:
+    - id: layer
+      type: Global.Layer
+    content.vb: Public Sub AddLayer(layer As Layer)
+  overload: Global.File.AddLayer*
+- uid: Global.File.AddLayer(Layer,System.Int32)
+  commentId: M:Global.File.AddLayer(Layer,System.Int32)
+  id: AddLayer(Layer,System.Int32)
+  parent: Global.File
+  langs:
+  - csharp
+  - vb
+  name: AddLayer(Layer, int)
+  nameWithType: File.AddLayer(Layer, int)
+  fullName: File.AddLayer(Layer, int)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Files/File.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: AddLayer
+    path: ../Assets/Scripts/Files/File.cs
+    startLine: 530
+  namespace: Global
+  summary: Adds the given layer at the given index. Throws an error if the layer is already in the file.
+  example: []
+  syntax:
+    content: public void AddLayer(Layer layer, int index)
+    parameters:
+    - id: layer
+      type: Global.Layer
+    - id: index
+      type: System.Int32
+    content.vb: Public Sub AddLayer(layer As Layer, index As Integer)
+  overload: Global.File.AddLayer*
+  nameWithType.vb: File.AddLayer(Layer, Integer)
+  fullName.vb: File.AddLayer(Layer, Integer)
+  name.vb: AddLayer(Layer, Integer)
+- uid: Global.File.AddLayers(Layer[])
+  commentId: M:Global.File.AddLayers(Layer[])
+  id: AddLayers(Layer[])
+  parent: Global.File
+  langs:
+  - csharp
+  - vb
+  name: AddLayers(params Layer[])
+  nameWithType: File.AddLayers(params Layer[])
+  fullName: File.AddLayers(params Layer[])
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Files/File.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: AddLayers
+    path: ../Assets/Scripts/Files/File.cs
+    startLine: 549
+  namespace: Global
+  summary: Adds the layers on top of all existing layers, retaining the order they have in the array - i.e. first layer in the array is the one on top, etc.
+  example: []
+  syntax:
+    content: public void AddLayers(params Layer[] layers)
+    parameters:
+    - id: layers
+      type: Global.Layer[]
+    content.vb: Public Sub AddLayers(ParamArray layers As Layer())
+  overload: Global.File.AddLayers*
+  nameWithType.vb: File.AddLayers(ParamArray Layer())
+  fullName.vb: File.AddLayers(ParamArray Layer())
+  name.vb: AddLayers(ParamArray Layer())
+- uid: Global.File.ImportLayers(Layer[])
+  commentId: M:Global.File.ImportLayers(Layer[])
+  id: ImportLayers(Layer[])
+  parent: Global.File
+  langs:
+  - csharp
+  - vb
+  name: ImportLayers(params Layer[])
+  nameWithType: File.ImportLayers(params Layer[])
+  fullName: File.ImportLayers(params Layer[])
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Files/File.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: ImportLayers
+    path: ../Assets/Scripts/Files/File.cs
+    startLine: 559
+  namespace: Global
+  summary: Adds deep copies of the layers on top of all existing layers, retaining the order they have in the array - i.e. first layer in the array is the one on top, etc.
+  example: []
+  syntax:
+    content: public void ImportLayers(params Layer[] layers)
+    parameters:
+    - id: layers
+      type: Global.Layer[]
+    content.vb: Public Sub ImportLayers(ParamArray layers As Layer())
+  overload: Global.File.ImportLayers*
+  nameWithType.vb: File.ImportLayers(ParamArray Layer())
+  fullName.vb: File.ImportLayers(ParamArray Layer())
+  name.vb: ImportLayers(ParamArray Layer())
+- uid: Global.File.AddNormalLayer
+  commentId: M:Global.File.AddNormalLayer
+  id: AddNormalLayer
+  parent: Global.File
+  langs:
+  - csharp
+  - vb
+  name: AddNormalLayer()
+  nameWithType: File.AddNormalLayer()
+  fullName: File.AddNormalLayer()
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Files/File.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: AddNormalLayer
+    path: ../Assets/Scripts/Files/File.cs
+    startLine: 569
+  namespace: Global
+  summary: Adds a blank normal layer on top of all existing layers.
+  example: []
+  syntax:
+    content: public void AddNormalLayer()
+    content.vb: Public Sub AddNormalLayer()
+  overload: Global.File.AddNormalLayer*
+- uid: Global.File.AddNormalLayer(System.Int32)
+  commentId: M:Global.File.AddNormalLayer(System.Int32)
+  id: AddNormalLayer(System.Int32)
+  parent: Global.File
+  langs:
+  - csharp
+  - vb
+  name: AddNormalLayer(int)
+  nameWithType: File.AddNormalLayer(int)
+  fullName: File.AddNormalLayer(int)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Files/File.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: AddNormalLayer
+    path: ../Assets/Scripts/Files/File.cs
+    startLine: 573
+  namespace: Global
+  summary: Adds a blank normal layer at the given index.
+  example: []
+  syntax:
+    content: public void AddNormalLayer(int index)
+    parameters:
+    - id: index
+      type: System.Int32
+    content.vb: Public Sub AddNormalLayer(index As Integer)
+  overload: Global.File.AddNormalLayer*
+  nameWithType.vb: File.AddNormalLayer(Integer)
+  fullName.vb: File.AddNormalLayer(Integer)
+  name.vb: AddNormalLayer(Integer)
+- uid: Global.File.AddNormalLayer(Texture2D,System.Int32)
+  commentId: M:Global.File.AddNormalLayer(Texture2D,System.Int32)
+  id: AddNormalLayer(Texture2D,System.Int32)
+  parent: Global.File
+  langs:
+  - csharp
+  - vb
+  name: AddNormalLayer(Texture2D, int)
+  nameWithType: File.AddNormalLayer(Texture2D, int)
+  fullName: File.AddNormalLayer(Texture2D, int)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Files/File.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: AddNormalLayer
+    path: ../Assets/Scripts/Files/File.cs
+    startLine: 577
+  namespace: Global
+  summary: Adds a normal layer at the given index with the given texture.
+  example: []
+  syntax:
+    content: public void AddNormalLayer(Texture2D texture, int index = 0)
+    parameters:
+    - id: texture
+      type: Global.Texture2D
+    - id: index
+      type: System.Int32
+    content.vb: Public Sub AddNormalLayer(texture As Texture2D, index As Integer = 0)
+  overload: Global.File.AddNormalLayer*
+  nameWithType.vb: File.AddNormalLayer(Texture2D, Integer)
+  fullName.vb: File.AddNormalLayer(Texture2D, Integer)
+  name.vb: AddNormalLayer(Texture2D, Integer)
+- uid: Global.File.AddTileLayer
+  commentId: M:Global.File.AddTileLayer
+  id: AddTileLayer
+  parent: Global.File
+  langs:
+  - csharp
+  - vb
+  name: AddTileLayer()
+  nameWithType: File.AddTileLayer()
+  fullName: File.AddTileLayer()
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Files/File.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: AddTileLayer
+    path: ../Assets/Scripts/Files/File.cs
+    startLine: 593
+  namespace: Global
+  summary: Adds a blank tile layer on top of all existing layers.
+  example: []
+  syntax:
+    content: public void AddTileLayer()
+    content.vb: Public Sub AddTileLayer()
+  overload: Global.File.AddTileLayer*
+- uid: Global.File.AddTileLayer(System.Int32)
+  commentId: M:Global.File.AddTileLayer(System.Int32)
+  id: AddTileLayer(System.Int32)
+  parent: Global.File
+  langs:
+  - csharp
+  - vb
+  name: AddTileLayer(int)
+  nameWithType: File.AddTileLayer(int)
+  fullName: File.AddTileLayer(int)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Files/File.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: AddTileLayer
+    path: ../Assets/Scripts/Files/File.cs
+    startLine: 597
+  namespace: Global
+  summary: Adds a blank tile layer at the given index.
+  example: []
+  syntax:
+    content: public void AddTileLayer(int index)
+    parameters:
+    - id: index
+      type: System.Int32
+    content.vb: Public Sub AddTileLayer(index As Integer)
+  overload: Global.File.AddTileLayer*
+  nameWithType.vb: File.AddTileLayer(Integer)
+  fullName.vb: File.AddTileLayer(Integer)
+  name.vb: AddTileLayer(Integer)
+- uid: Global.File.RemoveLayer(System.Int32)
+  commentId: M:Global.File.RemoveLayer(System.Int32)
+  id: RemoveLayer(System.Int32)
+  parent: Global.File
+  langs:
+  - csharp
+  - vb
+  name: RemoveLayer(int)
+  nameWithType: File.RemoveLayer(int)
+  fullName: File.RemoveLayer(int)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Files/File.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: RemoveLayer
+    path: ../Assets/Scripts/Files/File.cs
+    startLine: 608
+  namespace: Global
+  summary: Removes the layer at the given index.
+  example: []
+  syntax:
+    content: public void RemoveLayer(int layer)
+    parameters:
+    - id: layer
+      type: System.Int32
+    content.vb: Public Sub RemoveLayer(layer As Integer)
+  overload: Global.File.RemoveLayer*
+  nameWithType.vb: File.RemoveLayer(Integer)
+  fullName.vb: File.RemoveLayer(Integer)
+  name.vb: RemoveLayer(Integer)
+- uid: Global.File.RemoveLayer(Layer)
+  commentId: M:Global.File.RemoveLayer(Layer)
+  id: RemoveLayer(Layer)
+  parent: Global.File
+  langs:
+  - csharp
+  - vb
+  name: RemoveLayer(Layer)
+  nameWithType: File.RemoveLayer(Layer)
+  fullName: File.RemoveLayer(Layer)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Files/File.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: RemoveLayer
+    path: ../Assets/Scripts/Files/File.cs
+    startLine: 612
+  namespace: Global
+  summary: Removes the layer from the file. Throws an error if the layer is not in the file.
+  example: []
+  syntax:
+    content: public void RemoveLayer(Layer layer)
+    parameters:
+    - id: layer
+      type: Global.Layer
+    content.vb: Public Sub RemoveLayer(layer As Layer)
+  overload: Global.File.RemoveLayer*
+- uid: Global.File.RemoveLayers(System.Int32[])
+  commentId: M:Global.File.RemoveLayers(System.Int32[])
+  id: RemoveLayers(System.Int32[])
+  parent: Global.File
+  langs:
+  - csharp
+  - vb
+  name: RemoveLayers(int[])
+  nameWithType: File.RemoveLayers(int[])
+  fullName: File.RemoveLayers(int[])
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Files/File.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: RemoveLayers
+    path: ../Assets/Scripts/Files/File.cs
+    startLine: 616
+  namespace: Global
+  summary: Removes the layers at the given indices.
+  example: []
+  syntax:
+    content: public void RemoveLayers(int[] layers)
+    parameters:
+    - id: layers
+      type: System.Int32[]
+    content.vb: Public Sub RemoveLayers(layers As Integer())
+  overload: Global.File.RemoveLayers*
+  nameWithType.vb: File.RemoveLayers(Integer())
+  fullName.vb: File.RemoveLayers(Integer())
+  name.vb: RemoveLayers(Integer())
+- uid: Global.File.RemoveLayers(Layer[])
+  commentId: M:Global.File.RemoveLayers(Layer[])
+  id: RemoveLayers(Layer[])
+  parent: Global.File
+  langs:
+  - csharp
+  - vb
+  name: RemoveLayers(Layer[])
+  nameWithType: File.RemoveLayers(Layer[])
+  fullName: File.RemoveLayers(Layer[])
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Files/File.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: RemoveLayers
+    path: ../Assets/Scripts/Files/File.cs
+    startLine: 643
+  namespace: Global
+  summary: Removes the given layers from the file. Throws an error if a layer is not in the file.
+  example: []
+  syntax:
+    content: public void RemoveLayers(Layer[] layers)
+    parameters:
+    - id: layers
+      type: Global.Layer[]
+    content.vb: Public Sub RemoveLayers(layers As Layer())
+  overload: Global.File.RemoveLayers*
+  nameWithType.vb: File.RemoveLayers(Layer())
+  fullName.vb: File.RemoveLayers(Layer())
+  name.vb: RemoveLayers(Layer())
+- uid: Global.File.RemoveAllLayers
+  commentId: M:Global.File.RemoveAllLayers
+  id: RemoveAllLayers
+  parent: Global.File
+  langs:
+  - csharp
+  - vb
+  name: RemoveAllLayers()
+  nameWithType: File.RemoveAllLayers()
+  fullName: File.RemoveAllLayers()
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Files/File.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: RemoveAllLayers
+    path: ../Assets/Scripts/Files/File.cs
+    startLine: 659
+  namespace: Global
+  summary: Removes all layers, then adds a blank normal layer.
+  example: []
+  syntax:
+    content: public void RemoveAllLayers()
+    content.vb: Public Sub RemoveAllLayers()
+  overload: Global.File.RemoveAllLayers*
+- uid: Global.File.ReplaceLayer(System.Int32,Layer)
+  commentId: M:Global.File.ReplaceLayer(System.Int32,Layer)
+  id: ReplaceLayer(System.Int32,Layer)
+  parent: Global.File
+  langs:
+  - csharp
+  - vb
+  name: ReplaceLayer(int, Layer)
+  nameWithType: File.ReplaceLayer(int, Layer)
+  fullName: File.ReplaceLayer(int, Layer)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Files/File.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: ReplaceLayer
+    path: ../Assets/Scripts/Files/File.cs
+    startLine: 674
+  namespace: Global
+  summary: Replaces the layer at the given index with the given layer. Throws an error if the layer to replace with is already in the file.
+  example: []
+  syntax:
+    content: public void ReplaceLayer(int layerToReplace, Layer layerToReplaceWith)
+    parameters:
+    - id: layerToReplace
+      type: System.Int32
+    - id: layerToReplaceWith
+      type: Global.Layer
+    content.vb: Public Sub ReplaceLayer(layerToReplace As Integer, layerToReplaceWith As Layer)
+  overload: Global.File.ReplaceLayer*
+  nameWithType.vb: File.ReplaceLayer(Integer, Layer)
+  fullName.vb: File.ReplaceLayer(Integer, Layer)
+  name.vb: ReplaceLayer(Integer, Layer)
+- uid: Global.File.ReplaceLayer(Layer,Layer)
+  commentId: M:Global.File.ReplaceLayer(Layer,Layer)
+  id: ReplaceLayer(Layer,Layer)
+  parent: Global.File
+  langs:
+  - csharp
+  - vb
+  name: ReplaceLayer(Layer, Layer)
+  nameWithType: File.ReplaceLayer(Layer, Layer)
+  fullName: File.ReplaceLayer(Layer, Layer)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Files/File.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: ReplaceLayer
+    path: ../Assets/Scripts/Files/File.cs
+    startLine: 699
+  namespace: Global
+  summary: Replaces the layer with the given layer. Throws an error if the layer to replace is not in the file, or if the layer to replace with is already in the file.
+  example: []
+  syntax:
+    content: public void ReplaceLayer(Layer layerToReplace, Layer layerToReplaceWith)
+    parameters:
+    - id: layerToReplace
+      type: Global.Layer
+    - id: layerToReplaceWith
+      type: Global.Layer
+    content.vb: Public Sub ReplaceLayer(layerToReplace As Layer, layerToReplaceWith As Layer)
+  overload: Global.File.ReplaceLayer*
+- uid: Global.File.MoveLayer(System.Int32,System.Int32)
+  commentId: M:Global.File.MoveLayer(System.Int32,System.Int32)
+  id: MoveLayer(System.Int32,System.Int32)
+  parent: Global.File
+  langs:
+  - csharp
+  - vb
+  name: MoveLayer(int, int)
+  nameWithType: File.MoveLayer(int, int)
+  fullName: File.MoveLayer(int, int)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Files/File.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: MoveLayer
+    path: ../Assets/Scripts/Files/File.cs
+    startLine: 715
+  namespace: Global
+  summary: Moves the layer at indexToMove to indexToMoveTo.
+  example: []
+  syntax:
+    content: public void MoveLayer(int layerToMove, int indexToMoveTo)
+    parameters:
+    - id: layerToMove
+      type: System.Int32
+    - id: indexToMoveTo
+      type: System.Int32
+    content.vb: Public Sub MoveLayer(layerToMove As Integer, indexToMoveTo As Integer)
+  overload: Global.File.MoveLayer*
+  nameWithType.vb: File.MoveLayer(Integer, Integer)
+  fullName.vb: File.MoveLayer(Integer, Integer)
+  name.vb: MoveLayer(Integer, Integer)
+- uid: Global.File.MoveLayer(Layer,System.Int32)
+  commentId: M:Global.File.MoveLayer(Layer,System.Int32)
+  id: MoveLayer(Layer,System.Int32)
+  parent: Global.File
+  langs:
+  - csharp
+  - vb
+  name: MoveLayer(Layer, int)
+  nameWithType: File.MoveLayer(Layer, int)
+  fullName: File.MoveLayer(Layer, int)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Files/File.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: MoveLayer
+    path: ../Assets/Scripts/Files/File.cs
+    startLine: 742
+  namespace: Global
+  summary: Moves the layer to indexToMoveTo. Throws an error if the layer is not in the file.
+  example: []
+  syntax:
+    content: public void MoveLayer(Layer layerToMove, int indexToMoveTo)
+    parameters:
+    - id: layerToMove
+      type: Global.Layer
+    - id: indexToMoveTo
+      type: System.Int32
+    content.vb: Public Sub MoveLayer(layerToMove As Layer, indexToMoveTo As Integer)
+  overload: Global.File.MoveLayer*
+  nameWithType.vb: File.MoveLayer(Layer, Integer)
+  fullName.vb: File.MoveLayer(Layer, Integer)
+  name.vb: MoveLayer(Layer, Integer)
+- uid: Global.File.Render(System.Int32)
+  commentId: M:Global.File.Render(System.Int32)
+  id: Render(System.Int32)
+  parent: Global.File
+  langs:
+  - csharp
+  - vb
+  name: Render(int)
+  nameWithType: File.Render(int)
+  fullName: File.Render(int)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Files/File.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: Render
+    path: ../Assets/Scripts/Files/File.cs
+    startLine: 759
+  namespace: Global
+  summary: >-
+    Renders all layers down to a Texture2D.
+
+    Does not apply the texture.
+  example: []
+  syntax:
+    content: public Texture2D Render(int frame)
+    parameters:
+    - id: frame
+      type: System.Int32
+    return:
+      type: Global.Texture2D
+    content.vb: Public Function Render(frame As Integer) As Texture2D
+  overload: Global.File.Render*
+  nameWithType.vb: File.Render(Integer)
+  fullName.vb: File.Render(Integer)
+  name.vb: Render(Integer)
+- uid: Global.File.RenderLayers(System.Int32,System.Int32,System.Int32,System.Boolean)
+  commentId: M:Global.File.RenderLayers(System.Int32,System.Int32,System.Int32,System.Boolean)
+  id: RenderLayers(System.Int32,System.Int32,System.Int32,System.Boolean)
+  parent: Global.File
+  langs:
+  - csharp
+  - vb
+  name: RenderLayers(int, int, int, bool)
+  nameWithType: File.RenderLayers(int, int, int, bool)
+  fullName: File.RenderLayers(int, int, int, bool)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Files/File.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: RenderLayers
+    path: ../Assets/Scripts/Files/File.cs
+    startLine: 771
+  namespace: Global
+  summary: >-
+    Renders all the layers with index between lowestLayer and highestLayer (inclusive iff inclusive == true) down to a Texture2D.
+
+    highestLayer and lowestLayer are automatically clamped to be in the valid range of layers.
+
+    Does not apply the texture.
+  example: []
+  syntax:
+    content: public Texture2D RenderLayers(int highestLayer, int lowestLayer, int frame, bool inclusive = true)
+    parameters:
+    - id: highestLayer
+      type: System.Int32
+      description: The higher layer (so lower index).
+    - id: lowestLayer
+      type: System.Int32
+      description: The lower layer (so higher index).
+    - id: frame
+      type: System.Int32
+    - id: inclusive
+      type: System.Boolean
+    return:
+      type: Global.Texture2D
+    content.vb: Public Function RenderLayers(highestLayer As Integer, lowestLayer As Integer, frame As Integer, inclusive As Boolean = True) As Texture2D
+  overload: Global.File.RenderLayers*
+  nameWithType.vb: File.RenderLayers(Integer, Integer, Integer, Boolean)
+  fullName.vb: File.RenderLayers(Integer, Integer, Integer, Boolean)
+  name.vb: RenderLayers(Integer, Integer, Integer, Boolean)
+- uid: Global.File.RenderLayers(System.Int32[],System.Int32)
+  commentId: M:Global.File.RenderLayers(System.Int32[],System.Int32)
+  id: RenderLayers(System.Int32[],System.Int32)
+  parent: Global.File
+  langs:
+  - csharp
+  - vb
+  name: RenderLayers(int[], int)
+  nameWithType: File.RenderLayers(int[], int)
+  fullName: File.RenderLayers(int[], int)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Files/File.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: RenderLayers
+    path: ../Assets/Scripts/Files/File.cs
+    startLine: 820
+  namespace: Global
+  summary: >-
+    Renders the layers at the given layer indices down to a Texture2D.
+
+    Does not apply the texture.
+  example: []
+  syntax:
+    content: public Texture2D RenderLayers(int[] layerIndices, int frame)
+    parameters:
+    - id: layerIndices
+      type: System.Int32[]
+      description: The layer indices in the order you want them to be rendered, from highest layer (so lowest index) to lowest.
+    - id: frame
+      type: System.Int32
+    return:
+      type: Global.Texture2D
+    content.vb: Public Function RenderLayers(layerIndices As Integer(), frame As Integer) As Texture2D
+  overload: Global.File.RenderLayers*
+  nameWithType.vb: File.RenderLayers(Integer(), Integer)
+  fullName.vb: File.RenderLayers(Integer(), Integer)
+  name.vb: RenderLayers(Integer(), Integer)
+- uid: Global.File.RenderLayersAbove(System.Int32,System.Int32,System.Boolean)
+  commentId: M:Global.File.RenderLayersAbove(System.Int32,System.Int32,System.Boolean)
+  id: RenderLayersAbove(System.Int32,System.Int32,System.Boolean)
+  parent: Global.File
+  langs:
+  - csharp
+  - vb
+  name: RenderLayersAbove(int, int, bool)
+  nameWithType: File.RenderLayersAbove(int, int, bool)
+  fullName: File.RenderLayersAbove(int, int, bool)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Files/File.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: RenderLayersAbove
+    path: ../Assets/Scripts/Files/File.cs
+    startLine: 844
+  namespace: Global
+  summary: >-
+    Renders all layers that appear above the given layer (includes the layer iff inclusive == true) down to a Texture2D. Returns a blank texture if there are none.
+
+    Does not apply the texture.
+  example: []
+  syntax:
+    content: public Texture2D RenderLayersAbove(int layer, int frame, bool inclusive = false)
+    parameters:
+    - id: layer
+      type: System.Int32
+    - id: frame
+      type: System.Int32
+    - id: inclusive
+      type: System.Boolean
+    return:
+      type: Global.Texture2D
+    content.vb: Public Function RenderLayersAbove(layer As Integer, frame As Integer, inclusive As Boolean = False) As Texture2D
+  overload: Global.File.RenderLayersAbove*
+  nameWithType.vb: File.RenderLayersAbove(Integer, Integer, Boolean)
+  fullName.vb: File.RenderLayersAbove(Integer, Integer, Boolean)
+  name.vb: RenderLayersAbove(Integer, Integer, Boolean)
+- uid: Global.File.RenderLayersBelow(System.Int32,System.Int32,System.Boolean)
+  commentId: M:Global.File.RenderLayersBelow(System.Int32,System.Int32,System.Boolean)
+  id: RenderLayersBelow(System.Int32,System.Int32,System.Boolean)
+  parent: Global.File
+  langs:
+  - csharp
+  - vb
+  name: RenderLayersBelow(int, int, bool)
+  nameWithType: File.RenderLayersBelow(int, int, bool)
+  fullName: File.RenderLayersBelow(int, int, bool)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Files/File.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: RenderLayersBelow
+    path: ../Assets/Scripts/Files/File.cs
+    startLine: 857
+  namespace: Global
+  summary: >-
+    Renders all layers that appear strictly beneath the given layer (includes the layer iff inclusive == true) down to a Texture2D. Returns a blank texture if there are none.
+
+    Does not apply the texture.
+  example: []
+  syntax:
+    content: public Texture2D RenderLayersBelow(int layer, int frame, bool inclusive = false)
+    parameters:
+    - id: layer
+      type: System.Int32
+    - id: frame
+      type: System.Int32
+    - id: inclusive
+      type: System.Boolean
+    return:
+      type: Global.Texture2D
+    content.vb: Public Function RenderLayersBelow(layer As Integer, frame As Integer, inclusive As Boolean = False) As Texture2D
+  overload: Global.File.RenderLayersBelow*
+  nameWithType.vb: File.RenderLayersBelow(Integer, Integer, Boolean)
+  fullName.vb: File.RenderLayersBelow(Integer, Integer, Boolean)
+  name.vb: RenderLayersBelow(Integer, Integer, Boolean)
+- uid: Global.File.RenderPixel(IntVector2,System.Int32)
+  commentId: M:Global.File.RenderPixel(IntVector2,System.Int32)
+  id: RenderPixel(IntVector2,System.Int32)
+  parent: Global.File
+  langs:
+  - csharp
+  - vb
+  name: RenderPixel(IntVector2, int)
+  nameWithType: File.RenderPixel(IntVector2, int)
+  fullName: File.RenderPixel(IntVector2, int)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Files/File.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: RenderPixel
+    path: ../Assets/Scripts/Files/File.cs
+    startLine: 869
+  namespace: Global
+  summary: Renders the colour of the given pixel.
+  example: []
+  syntax:
+    content: public Color RenderPixel(IntVector2 pixel, int frame)
+    parameters:
+    - id: pixel
+      type: Global.IntVector2
+    - id: frame
+      type: System.Int32
+    return:
+      type: Global.Color
+    content.vb: Public Function RenderPixel(pixel As IntVector2, frame As Integer) As Color
+  overload: Global.File.RenderPixel*
+  nameWithType.vb: File.RenderPixel(IntVector2, Integer)
+  fullName.vb: File.RenderPixel(IntVector2, Integer)
+  name.vb: RenderPixel(IntVector2, Integer)
+- uid: Global.File.RenderPixel(System.Int32,System.Int32,System.Int32)
+  commentId: M:Global.File.RenderPixel(System.Int32,System.Int32,System.Int32)
+  id: RenderPixel(System.Int32,System.Int32,System.Int32)
+  parent: Global.File
+  langs:
+  - csharp
+  - vb
+  name: RenderPixel(int, int, int)
+  nameWithType: File.RenderPixel(int, int, int)
+  fullName: File.RenderPixel(int, int, int)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Files/File.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: RenderPixel
+    path: ../Assets/Scripts/Files/File.cs
+    startLine: 873
+  namespace: Global
+  summary: Renders the colour of the given pixel.
+  example: []
+  syntax:
+    content: public Color RenderPixel(int x, int y, int frame)
+    parameters:
+    - id: x
+      type: System.Int32
+    - id: y
+      type: System.Int32
+    - id: frame
+      type: System.Int32
+    return:
+      type: Global.Color
+    content.vb: Public Function RenderPixel(x As Integer, y As Integer, frame As Integer) As Color
+  overload: Global.File.RenderPixel*
+  nameWithType.vb: File.RenderPixel(Integer, Integer, Integer)
+  fullName.vb: File.RenderPixel(Integer, Integer, Integer)
+  name.vb: RenderPixel(Integer, Integer, Integer)
+- uid: Global.File.RenderPixel(IntVector2,System.Int32,System.Int32,System.Int32,System.Boolean)
+  commentId: M:Global.File.RenderPixel(IntVector2,System.Int32,System.Int32,System.Int32,System.Boolean)
+  id: RenderPixel(IntVector2,System.Int32,System.Int32,System.Int32,System.Boolean)
+  parent: Global.File
+  langs:
+  - csharp
+  - vb
+  name: RenderPixel(IntVector2, int, int, int, bool)
+  nameWithType: File.RenderPixel(IntVector2, int, int, int, bool)
+  fullName: File.RenderPixel(IntVector2, int, int, int, bool)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Files/File.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: RenderPixel
+    path: ../Assets/Scripts/Files/File.cs
+    startLine: 881
+  namespace: Global
+  syntax:
+    content: public Color RenderPixel(IntVector2 pixel, int highestLayer, int lowestLayer, int frame, bool inclusive = true)
+    parameters:
+    - id: pixel
+      type: Global.IntVector2
+    - id: highestLayer
+      type: System.Int32
+    - id: lowestLayer
+      type: System.Int32
+    - id: frame
+      type: System.Int32
+    - id: inclusive
+      type: System.Boolean
+    return:
+      type: Global.Color
+    content.vb: Public Function RenderPixel(pixel As IntVector2, highestLayer As Integer, lowestLayer As Integer, frame As Integer, inclusive As Boolean = True) As Color
+  overload: Global.File.RenderPixel*
+  nameWithType.vb: File.RenderPixel(IntVector2, Integer, Integer, Integer, Boolean)
+  fullName.vb: File.RenderPixel(IntVector2, Integer, Integer, Integer, Boolean)
+  name.vb: RenderPixel(IntVector2, Integer, Integer, Integer, Boolean)
+- uid: Global.File.RenderPixel(System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Boolean)
+  commentId: M:Global.File.RenderPixel(System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Boolean)
+  id: RenderPixel(System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Boolean)
+  parent: Global.File
+  langs:
+  - csharp
+  - vb
+  name: RenderPixel(int, int, int, int, int, bool)
+  nameWithType: File.RenderPixel(int, int, int, int, int, bool)
+  fullName: File.RenderPixel(int, int, int, int, int, bool)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Files/File.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: RenderPixel
+    path: ../Assets/Scripts/Files/File.cs
+    startLine: 889
+  namespace: Global
+  syntax:
+    content: public Color RenderPixel(int x, int y, int highestLayer, int lowestLayer, int frame, bool inclusive = true)
+    parameters:
+    - id: x
+      type: System.Int32
+    - id: y
+      type: System.Int32
+    - id: highestLayer
+      type: System.Int32
+    - id: lowestLayer
+      type: System.Int32
+    - id: frame
+      type: System.Int32
+    - id: inclusive
+      type: System.Boolean
+    return:
+      type: Global.Color
+    content.vb: Public Function RenderPixel(x As Integer, y As Integer, highestLayer As Integer, lowestLayer As Integer, frame As Integer, inclusive As Boolean = True) As Color
+  overload: Global.File.RenderPixel*
+  nameWithType.vb: File.RenderPixel(Integer, Integer, Integer, Integer, Integer, Boolean)
+  fullName.vb: File.RenderPixel(Integer, Integer, Integer, Integer, Integer, Boolean)
+  name.vb: RenderPixel(Integer, Integer, Integer, Integer, Integer, Boolean)
+- uid: Global.File.RenderPixel(IntVector2,System.Int32[],System.Int32)
+  commentId: M:Global.File.RenderPixel(IntVector2,System.Int32[],System.Int32)
+  id: RenderPixel(IntVector2,System.Int32[],System.Int32)
+  parent: Global.File
+  langs:
+  - csharp
+  - vb
+  name: RenderPixel(IntVector2, int[], int)
+  nameWithType: File.RenderPixel(IntVector2, int[], int)
+  fullName: File.RenderPixel(IntVector2, int[], int)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Files/File.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: RenderPixel
+    path: ../Assets/Scripts/Files/File.cs
+    startLine: 909
+  namespace: Global
+  summary: Renders the colour of the pixel on the layers at the given layer indices. Throws an error if there are no layer indices.
+  example: []
+  syntax:
+    content: public Color RenderPixel(IntVector2 pixel, int[] layerIndices, int frame)
+    parameters:
+    - id: pixel
+      type: Global.IntVector2
+    - id: layerIndices
+      type: System.Int32[]
+    - id: frame
+      type: System.Int32
+    return:
+      type: Global.Color
+    content.vb: Public Function RenderPixel(pixel As IntVector2, layerIndices As Integer(), frame As Integer) As Color
+  overload: Global.File.RenderPixel*
+  nameWithType.vb: File.RenderPixel(IntVector2, Integer(), Integer)
+  fullName.vb: File.RenderPixel(IntVector2, Integer(), Integer)
+  name.vb: RenderPixel(IntVector2, Integer(), Integer)
+- uid: Global.File.RenderPixel(System.Int32,System.Int32,System.Int32[],System.Int32)
+  commentId: M:Global.File.RenderPixel(System.Int32,System.Int32,System.Int32[],System.Int32)
+  id: RenderPixel(System.Int32,System.Int32,System.Int32[],System.Int32)
+  parent: Global.File
+  langs:
+  - csharp
+  - vb
+  name: RenderPixel(int, int, int[], int)
+  nameWithType: File.RenderPixel(int, int, int[], int)
+  fullName: File.RenderPixel(int, int, int[], int)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Files/File.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: RenderPixel
+    path: ../Assets/Scripts/Files/File.cs
+    startLine: 913
+  namespace: Global
+  summary: Renders the colour of pixel (x, y) on the layers at the given layer indices. Throws an error if there are no layer indices.
+  example: []
+  syntax:
+    content: public Color RenderPixel(int x, int y, int[] layerIndices, int frame)
+    parameters:
+    - id: x
+      type: System.Int32
+    - id: y
+      type: System.Int32
+    - id: layerIndices
+      type: System.Int32[]
+    - id: frame
+      type: System.Int32
+    return:
+      type: Global.Color
+    content.vb: Public Function RenderPixel(x As Integer, y As Integer, layerIndices As Integer(), frame As Integer) As Color
+  overload: Global.File.RenderPixel*
+  nameWithType.vb: File.RenderPixel(Integer, Integer, Integer(), Integer)
+  fullName.vb: File.RenderPixel(Integer, Integer, Integer(), Integer)
+  name.vb: RenderPixel(Integer, Integer, Integer(), Integer)
+- uid: Global.File.SetLiveRenderFrame(System.Int32)
+  commentId: M:Global.File.SetLiveRenderFrame(System.Int32)
+  id: SetLiveRenderFrame(System.Int32)
+  parent: Global.File
+  langs:
+  - csharp
+  - vb
+  name: SetLiveRenderFrame(int)
+  nameWithType: File.SetLiveRenderFrame(int)
+  fullName: File.SetLiveRenderFrame(int)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Files/File.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: SetLiveRenderFrame
+    path: ../Assets/Scripts/Files/File.cs
+    startLine: 964
+  namespace: Global
+  summary: Sets the frame that the live render will be for.
+  example: []
+  syntax:
+    content: public void SetLiveRenderFrame(int frame)
+    parameters:
+    - id: frame
+      type: System.Int32
+    content.vb: Public Sub SetLiveRenderFrame(frame As Integer)
+  overload: Global.File.SetLiveRenderFrame*
+  nameWithType.vb: File.SetLiveRenderFrame(Integer)
+  fullName.vb: File.SetLiveRenderFrame(Integer)
+  name.vb: SetLiveRenderFrame(Integer)
+- uid: Global.File.Flip(FlipDirection)
+  commentId: M:Global.File.Flip(FlipDirection)
+  id: Flip(FlipDirection)
+  parent: Global.File
+  langs:
+  - csharp
+  - vb
+  name: Flip(FlipDirection)
+  nameWithType: File.Flip(FlipDirection)
+  fullName: File.Flip(FlipDirection)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Files/File.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: Flip
+    path: ../Assets/Scripts/Files/File.cs
+    startLine: 981
+  namespace: Global
+  summary: Flips the file.
+  example: []
+  syntax:
+    content: public void Flip(FlipDirection direction)
+    parameters:
+    - id: direction
+      type: Global.FlipDirection
+    content.vb: Public Sub Flip(direction As FlipDirection)
+  overload: Global.File.Flip*
+- uid: Global.File.Rotate(RotationAngle)
+  commentId: M:Global.File.Rotate(RotationAngle)
+  id: Rotate(RotationAngle)
+  parent: Global.File
+  langs:
+  - csharp
+  - vb
+  name: Rotate(RotationAngle)
+  nameWithType: File.Rotate(RotationAngle)
+  fullName: File.Rotate(RotationAngle)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Files/File.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: Rotate
+    path: ../Assets/Scripts/Files/File.cs
+    startLine: 999
+  namespace: Global
+  summary: Rotates the file. Rotation is clockwise.
+  example: []
+  syntax:
+    content: public void Rotate(RotationAngle angle)
+    parameters:
+    - id: angle
+      type: Global.RotationAngle
+    content.vb: Public Sub Rotate(angle As RotationAngle)
+  overload: Global.File.Rotate*
+- uid: Global.File.Extend(System.Int32,System.Int32,System.Int32,System.Int32)
+  commentId: M:Global.File.Extend(System.Int32,System.Int32,System.Int32,System.Int32)
+  id: Extend(System.Int32,System.Int32,System.Int32,System.Int32)
+  parent: Global.File
+  langs:
+  - csharp
+  - vb
+  name: Extend(int, int, int, int)
+  nameWithType: File.Extend(int, int, int, int)
+  fullName: File.Extend(int, int, int, int)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Files/File.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: Extend
+    path: ../Assets/Scripts/Files/File.cs
+    startLine: 1029
+  namespace: Global
+  summary: Extends the dimensions of the file in each direction by the given amounts.
+  example: []
+  syntax:
+    content: public void Extend(int left, int right, int up, int down)
+    parameters:
+    - id: left
+      type: System.Int32
+    - id: right
+      type: System.Int32
+    - id: up
+      type: System.Int32
+    - id: down
+      type: System.Int32
+    content.vb: Public Sub Extend(left As Integer, right As Integer, up As Integer, down As Integer)
+  overload: Global.File.Extend*
+  nameWithType.vb: File.Extend(Integer, Integer, Integer, Integer)
+  fullName.vb: File.Extend(Integer, Integer, Integer, Integer)
+  name.vb: Extend(Integer, Integer, Integer, Integer)
+- uid: Global.File.Scale(System.Single)
+  commentId: M:Global.File.Scale(System.Single)
+  id: Scale(System.Single)
+  parent: Global.File
+  langs:
+  - csharp
+  - vb
+  name: Scale(float)
+  nameWithType: File.Scale(float)
+  fullName: File.Scale(float)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Files/File.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: Scale
+    path: ../Assets/Scripts/Files/File.cs
+    startLine: 1051
+  namespace: Global
+  summary: Resizes the dimensions of the file by the scale factor.
+  example: []
+  syntax:
+    content: public void Scale(float scaleFactor)
+    parameters:
+    - id: scaleFactor
+      type: System.Single
+    content.vb: Public Sub Scale(scaleFactor As Single)
+  overload: Global.File.Scale*
+  nameWithType.vb: File.Scale(Single)
+  fullName.vb: File.Scale(Single)
+  name.vb: Scale(Single)
+- uid: Global.File.Scale(System.Single,System.Single)
+  commentId: M:Global.File.Scale(System.Single,System.Single)
+  id: Scale(System.Single,System.Single)
+  parent: Global.File
+  langs:
+  - csharp
+  - vb
+  name: Scale(float, float)
+  nameWithType: File.Scale(float, float)
+  fullName: File.Scale(float, float)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Files/File.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: Scale
+    path: ../Assets/Scripts/Files/File.cs
+    startLine: 1055
+  namespace: Global
+  summary: Resizes the dimensions of the file by the scale factors.
+  example: []
+  syntax:
+    content: public void Scale(float xScaleFactor, float yScaleFactor)
+    parameters:
+    - id: xScaleFactor
+      type: System.Single
+    - id: yScaleFactor
+      type: System.Single
+    content.vb: Public Sub Scale(xScaleFactor As Single, yScaleFactor As Single)
+  overload: Global.File.Scale*
+  nameWithType.vb: File.Scale(Single, Single)
+  fullName.vb: File.Scale(Single, Single)
+  name.vb: Scale(Single, Single)
+- uid: Global.File.Scale(System.Int32,System.Int32)
+  commentId: M:Global.File.Scale(System.Int32,System.Int32)
+  id: Scale(System.Int32,System.Int32)
+  parent: Global.File
+  langs:
+  - csharp
+  - vb
+  name: Scale(int, int)
+  nameWithType: File.Scale(int, int)
+  fullName: File.Scale(int, int)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Files/File.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: Scale
+    path: ../Assets/Scripts/Files/File.cs
+    startLine: 1079
+  namespace: Global
+  summary: Resizes the file to the new width and height.
+  example: []
+  syntax:
+    content: public void Scale(int newWidth, int newHeight)
+    parameters:
+    - id: newWidth
+      type: System.Int32
+    - id: newHeight
+      type: System.Int32
+    content.vb: Public Sub Scale(newWidth As Integer, newHeight As Integer)
+  overload: Global.File.Scale*
+  nameWithType.vb: File.Scale(Integer, Integer)
+  fullName.vb: File.Scale(Integer, Integer)
+  name.vb: Scale(Integer, Integer)
+- uid: Global.File.AddTile(File,IntVector2,System.Int32)
+  commentId: M:Global.File.AddTile(File,IntVector2,System.Int32)
+  id: AddTile(File,IntVector2,System.Int32)
+  parent: Global.File
+  langs:
+  - csharp
+  - vb
+  name: AddTile(File, IntVector2, int)
+  nameWithType: File.AddTile(File, IntVector2, int)
+  fullName: File.AddTile(File, IntVector2, int)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Files/File.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: AddTile
+    path: ../Assets/Scripts/Files/File.cs
+    startLine: 1149
+  namespace: Global
+  summary: Adds the given file as a tile.
+  example: []
+  syntax:
+    content: public void AddTile(File file, IntVector2 bottomLeft, int lowestLayer)
+    parameters:
+    - id: file
+      type: Global.File
+    - id: bottomLeft
+      type: Global.IntVector2
+    - id: lowestLayer
+      type: System.Int32
+    content.vb: Public Sub AddTile(file As File, bottomLeft As IntVector2, lowestLayer As Integer)
+  overload: Global.File.AddTile*
+  nameWithType.vb: File.AddTile(File, IntVector2, Integer)
+  fullName.vb: File.AddTile(File, IntVector2, Integer)
+  name.vb: AddTile(File, IntVector2, Integer)
+- uid: Global.File.AddTile(Tile)
+  commentId: M:Global.File.AddTile(Tile)
+  id: AddTile(Tile)
+  parent: Global.File
+  langs:
+  - csharp
+  - vb
+  name: AddTile(Tile)
+  nameWithType: File.AddTile(Tile)
+  fullName: File.AddTile(Tile)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Files/File.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: AddTile
+    path: ../Assets/Scripts/Files/File.cs
+    startLine: 1180
+  namespace: Global
+  summary: Adds the tile to the file.
+  example: []
+  syntax:
+    content: public void AddTile(Tile tile)
+    parameters:
+    - id: tile
+      type: Global.Tile
+    content.vb: Public Sub AddTile(tile As Tile)
+  overload: Global.File.AddTile*
+- uid: Global.File.RemoveTile(Tile)
+  commentId: M:Global.File.RemoveTile(Tile)
+  id: RemoveTile(Tile)
+  parent: Global.File
+  langs:
+  - csharp
+  - vb
+  name: RemoveTile(Tile)
+  nameWithType: File.RemoveTile(Tile)
+  fullName: File.RemoveTile(Tile)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Files/File.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: RemoveTile
+    path: ../Assets/Scripts/Files/File.cs
+    startLine: 1208
+  namespace: Global
+  summary: Removes the tile. Throws an error if the tile is not in the file.
+  example: []
+  syntax:
+    content: public void RemoveTile(Tile tile)
+    parameters:
+    - id: tile
+      type: Global.Tile
+    content.vb: Public Sub RemoveTile(tile As Tile)
+  overload: Global.File.RemoveTile*
+- uid: Global.File.ContainsTile(Tile)
+  commentId: M:Global.File.ContainsTile(Tile)
+  id: ContainsTile(Tile)
+  parent: Global.File
+  langs:
+  - csharp
+  - vb
+  name: ContainsTile(Tile)
+  nameWithType: File.ContainsTile(Tile)
+  fullName: File.ContainsTile(Tile)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Files/File.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: ContainsTile
+    path: ../Assets/Scripts/Files/File.cs
+    startLine: 1226
+  namespace: Global
+  syntax:
+    content: public bool ContainsTile(Tile tile)
+    parameters:
+    - id: tile
+      type: Global.Tile
+    return:
+      type: System.Boolean
+    content.vb: Public Function ContainsTile(tile As Tile) As Boolean
+  overload: Global.File.ContainsTile*
+- uid: Global.File.SubscribeToOnPixelsChanged(UnityAction{IntVector2[],Layer[],System.Int32[]})
+  commentId: M:Global.File.SubscribeToOnPixelsChanged(UnityAction{IntVector2[],Layer[],System.Int32[]})
+  id: SubscribeToOnPixelsChanged(UnityAction{IntVector2[],Layer[],System.Int32[]})
+  parent: Global.File
+  langs:
+  - csharp
+  - vb
+  name: SubscribeToOnPixelsChanged(UnityAction<IntVector2[], Layer[], int[]>)
+  nameWithType: File.SubscribeToOnPixelsChanged(UnityAction<IntVector2[], Layer[], int[]>)
+  fullName: File.SubscribeToOnPixelsChanged(UnityAction<IntVector2[], Layer[], int[]>)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Files/File.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: SubscribeToOnPixelsChanged
+    path: ../Assets/Scripts/Files/File.cs
+    startLine: 1252
+  namespace: Global
+  summary: >-
+    Event invoked when some pixels have been changed on a layer.
+
+    Passes the pixels, layers and frames that were affected.
+  example: []
+  syntax:
+    content: public void SubscribeToOnPixelsChanged(UnityAction<IntVector2[], Layer[], int[]> call)
+    parameters:
+    - id: call
+      type: Global.UnityAction{IntVector2[],Layer[],System.Int32[]}
+    content.vb: Public Sub SubscribeToOnPixelsChanged([call] As UnityAction(Of IntVector2(), Layer(), Integer()))
+  overload: Global.File.SubscribeToOnPixelsChanged*
+  nameWithType.vb: File.SubscribeToOnPixelsChanged(UnityAction(Of IntVector2(), Layer(), Integer()))
+  fullName.vb: File.SubscribeToOnPixelsChanged(UnityAction(Of IntVector2(), Layer(), Integer()))
+  name.vb: SubscribeToOnPixelsChanged(UnityAction(Of IntVector2(), Layer(), Integer()))
+- uid: Global.File.SubscribeToOnTileAdded(UnityAction)
+  commentId: M:Global.File.SubscribeToOnTileAdded(UnityAction)
+  id: SubscribeToOnTileAdded(UnityAction)
+  parent: Global.File
+  langs:
+  - csharp
+  - vb
+  name: SubscribeToOnTileAdded(UnityAction)
+  nameWithType: File.SubscribeToOnTileAdded(UnityAction)
+  fullName: File.SubscribeToOnTileAdded(UnityAction)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Files/File.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: SubscribeToOnTileAdded
+    path: ../Assets/Scripts/Files/File.cs
+    startLine: 1259
+  namespace: Global
+  summary: Event invoked when a tile is added to the file.
+  example: []
+  syntax:
+    content: public void SubscribeToOnTileAdded(UnityAction call)
+    parameters:
+    - id: call
+      type: Global.UnityAction
+    content.vb: Public Sub SubscribeToOnTileAdded([call] As UnityAction)
+  overload: Global.File.SubscribeToOnTileAdded*
+- uid: Global.File.SubscribeToOnTileRemoved(UnityAction)
+  commentId: M:Global.File.SubscribeToOnTileRemoved(UnityAction)
+  id: SubscribeToOnTileRemoved(UnityAction)
+  parent: Global.File
+  langs:
+  - csharp
+  - vb
+  name: SubscribeToOnTileRemoved(UnityAction)
+  nameWithType: File.SubscribeToOnTileRemoved(UnityAction)
+  fullName: File.SubscribeToOnTileRemoved(UnityAction)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Files/File.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: SubscribeToOnTileRemoved
+    path: ../Assets/Scripts/Files/File.cs
+    startLine: 1266
+  namespace: Global
+  summary: Event invoked when a tile is removed from the file.
+  example: []
+  syntax:
+    content: public void SubscribeToOnTileRemoved(UnityAction call)
+    parameters:
+    - id: call
+      type: Global.UnityAction
+    content.vb: Public Sub SubscribeToOnTileRemoved([call] As UnityAction)
+  overload: Global.File.SubscribeToOnTileRemoved*
+- uid: Global.File.SubscribeToOnSavedSinceEditChanged(UnityAction)
+  commentId: M:Global.File.SubscribeToOnSavedSinceEditChanged(UnityAction)
+  id: SubscribeToOnSavedSinceEditChanged(UnityAction)
+  parent: Global.File
+  langs:
+  - csharp
+  - vb
+  name: SubscribeToOnSavedSinceEditChanged(UnityAction)
+  nameWithType: File.SubscribeToOnSavedSinceEditChanged(UnityAction)
+  fullName: File.SubscribeToOnSavedSinceEditChanged(UnityAction)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Files/File.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: SubscribeToOnSavedSinceEditChanged
+    path: ../Assets/Scripts/Files/File.cs
+    startLine: 1273
+  namespace: Global
+  summary: Event invoked when the a change to file is made or when the file is saved.
+  example: []
+  syntax:
+    content: public void SubscribeToOnSavedSinceEditChanged(UnityAction call)
+    parameters:
+    - id: call
+      type: Global.UnityAction
+    content.vb: Public Sub SubscribeToOnSavedSinceEditChanged([call] As UnityAction)
+  overload: Global.File.SubscribeToOnSavedSinceEditChanged*
+references:
+- uid: Global
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: Global.IJSONable
+  commentId: T:Global.IJSONable
+  href: IJSONable.html
+  name: IJSONable
+  nameWithType: IJSONable
+  fullName: IJSONable
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Global.File.name*
+  commentId: Overload:Global.File.name
+  href: Global.File.html#File_name
+  name: name
+  nameWithType: File.name
+  fullName: File.name
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: Global.File.mostRecentSavePath*
+  commentId: Overload:Global.File.mostRecentSavePath
+  href: Global.File.html#File_mostRecentSavePath
+  name: mostRecentSavePath
+  nameWithType: File.mostRecentSavePath
+  fullName: File.mostRecentSavePath
+- uid: Global.File.savedSinceLastEdit*
+  commentId: Overload:Global.File.savedSinceLastEdit
+  href: Global.File.html#File_savedSinceLastEdit
+  name: savedSinceLastEdit
+  nameWithType: File.savedSinceLastEdit
+  fullName: File.savedSinceLastEdit
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: Global.File.width*
+  commentId: Overload:Global.File.width
+  href: Global.File.html#File_width
+  name: width
+  nameWithType: File.width
+  fullName: File.width
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: Global.File.height*
+  commentId: Overload:Global.File.height
+  href: Global.File.html#File_height
+  name: height
+  nameWithType: File.height
+  fullName: File.height
+- uid: Global.File.rect*
+  commentId: Overload:Global.File.rect
+  href: Global.File.html#File_rect
+  name: rect
+  nameWithType: File.rect
+  fullName: File.rect
+- uid: Global.IntRect
+  commentId: T:Global.IntRect
+  href: IntRect.html
+  name: IntRect
+  nameWithType: IntRect
+  fullName: IntRect
+- uid: Global.File.layers*
+  commentId: Overload:Global.File.layers
+  href: Global.File.html#File_layers
+  name: layers
+  nameWithType: File.layers
+  fullName: File.layers
+- uid: System.Collections.Generic.List{Layer}
+  commentId: T:System.Collections.Generic.List{Layer}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<Layer>
+  nameWithType: List<Layer>
+  fullName: System.Collections.Generic.List<Layer>
+  nameWithType.vb: List(Of Layer)
+  fullName.vb: System.Collections.Generic.List(Of Layer)
+  name.vb: List(Of Layer)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: Global.Layer
+    name: Layer
+    href: Layer.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Global.Layer
+    name: Layer
+    href: Layer.html
+  - name: )
+- uid: System.Collections.Generic.List`1
+  commentId: T:System.Collections.Generic.List`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<T>
+  nameWithType: List<T>
+  fullName: System.Collections.Generic.List<T>
+  nameWithType.vb: List(Of T)
+  fullName.vb: System.Collections.Generic.List(Of T)
+  name.vb: List(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: Global.File.numOfFrames*
+  commentId: Overload:Global.File.numOfFrames
+  href: Global.File.html#File_numOfFrames
+  name: numOfFrames
+  nameWithType: File.numOfFrames
+  fullName: File.numOfFrames
+- uid: Global.File.keyFrameIndices*
+  commentId: Overload:Global.File.keyFrameIndices
+  href: Global.File.html#File_keyFrameIndices
+  name: keyFrameIndices
+  nameWithType: File.keyFrameIndices
+  fullName: File.keyFrameIndices
+- uid: System.Int32[]
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int[]
+  nameWithType: int[]
+  fullName: int[]
+  nameWithType.vb: Integer()
+  fullName.vb: Integer()
+  name.vb: Integer()
+  spec.csharp:
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: '['
+  - name: ']'
+  spec.vb:
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: (
+  - name: )
+- uid: Global.File.liveRender*
+  commentId: Overload:Global.File.liveRender
+  href: Global.File.html#File_liveRender
+  name: liveRender
+  nameWithType: File.liveRender
+  fullName: File.liveRender
+- uid: Global.Texture2D
+  isExternal: true
+  name: Texture2D
+  nameWithType: Texture2D
+  fullName: Texture2D
+- uid: Global.File.tiles*
+  commentId: Overload:Global.File.tiles
+  href: Global.File.html#File_tiles
+  name: tiles
+  nameWithType: File.tiles
+  fullName: File.tiles
+- uid: Global.Tile[]
+  isExternal: true
+  href: Tile.html
+  name: Tile[]
+  nameWithType: Tile[]
+  fullName: Tile[]
+  nameWithType.vb: Tile()
+  fullName.vb: Tile()
+  name.vb: Tile()
+  spec.csharp:
+  - uid: Global.Tile
+    name: Tile
+    href: Tile.html
+  - name: '['
+  - name: ']'
+  spec.vb:
+  - uid: Global.Tile
+    name: Tile
+    href: Tile.html
+  - name: (
+  - name: )
+- uid: Global.File.#ctor*
+  commentId: Overload:Global.File.#ctor
+  href: Global.File.html#File__ctor_System_String_System_Int32_System_Int32_
+  name: File
+  nameWithType: File.File
+  fullName: File.File
+  nameWithType.vb: File.New
+  fullName.vb: File.New
+  name.vb: New
+- uid: Global.File
+  commentId: T:Global.File
+  href: File.html
+  name: File
+  nameWithType: File
+  fullName: File
+- uid: Global.File.DeepCopy*
+  commentId: Overload:Global.File.DeepCopy
+  href: Global.File.html#File_DeepCopy
+  name: DeepCopy
+  nameWithType: File.DeepCopy
+  fullName: File.DeepCopy
+- uid: Global.File.OpenFile*
+  commentId: Overload:Global.File.OpenFile
+  href: Global.File.html#File_OpenFile_System_String_
+  name: OpenFile
+  nameWithType: File.OpenFile
+  fullName: File.OpenFile
+- uid: Global.File.OpenPNG*
+  commentId: Overload:Global.File.OpenPNG
+  href: Global.File.html#File_OpenPNG_System_String_
+  name: OpenPNG
+  nameWithType: File.OpenPNG
+  fullName: File.OpenPNG
+- uid: Global.File.OpenJPEG*
+  commentId: Overload:Global.File.OpenJPEG
+  href: Global.File.html#File_OpenJPEG_System_String_
+  name: OpenJPEG
+  nameWithType: File.OpenJPEG
+  fullName: File.OpenJPEG
+- uid: Global.File.OpenImage*
+  commentId: Overload:Global.File.OpenImage
+  href: Global.File.html#File_OpenImage_System_String_
+  name: OpenImage
+  nameWithType: File.OpenImage
+  fullName: File.OpenImage
+- uid: Global.File.OpenPAC*
+  commentId: Overload:Global.File.OpenPAC
+  href: Global.File.html#File_OpenPAC_System_String_
+  name: OpenPAC
+  nameWithType: File.OpenPAC
+  fullName: File.OpenPAC
+- uid: Global.File.ImportImage*
+  commentId: Overload:Global.File.ImportImage
+  href: Global.File.html#File_ImportImage_System_String_
+  name: ImportImage
+  nameWithType: File.ImportImage
+  fullName: File.ImportImage
+- uid: Global.File.SavePAC*
+  commentId: Overload:Global.File.SavePAC
+  href: Global.File.html#File_SavePAC
+  name: SavePAC
+  nameWithType: File.SavePAC
+  fullName: File.SavePAC
+- uid: Global.File.SaveAsPAC*
+  commentId: Overload:Global.File.SaveAsPAC
+  href: Global.File.html#File_SaveAsPAC_System_String_
+  name: SaveAsPAC
+  nameWithType: File.SaveAsPAC
+  fullName: File.SaveAsPAC
+- uid: Global.File.ToJSON*
+  commentId: Overload:Global.File.ToJSON
+  href: Global.File.html#File_ToJSON
+  name: ToJSON
+  nameWithType: File.ToJSON
+  fullName: File.ToJSON
+- uid: Global.IJSONable.ToJSON
+  commentId: M:Global.IJSONable.ToJSON
+  parent: Global.IJSONable
+  href: Global.IJSONable.html#IJSONable_ToJSON
+  name: ToJSON()
+  nameWithType: IJSONable.ToJSON()
+  fullName: IJSONable.ToJSON()
+  spec.csharp:
+  - uid: Global.IJSONable.ToJSON
+    name: ToJSON
+    href: Global.IJSONable.html#IJSONable_ToJSON
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Global.IJSONable.ToJSON
+    name: ToJSON
+    href: Global.IJSONable.html#IJSONable_ToJSON
+  - name: (
+  - name: )
+- uid: Global.JSON
+  commentId: T:Global.JSON
+  href: JSON.html
+  name: JSON
+  nameWithType: JSON
+  fullName: JSON
+- uid: Global.File.FromJSON*
+  commentId: Overload:Global.File.FromJSON
+  href: Global.File.html#File_FromJSON_JSON_
+  name: FromJSON
+  nameWithType: File.FromJSON
+  fullName: File.FromJSON
+- uid: Global.File.ExportFrame*
+  commentId: Overload:Global.File.ExportFrame
+  href: Global.File.html#File_ExportFrame_System_Int32_System_String_
+  name: ExportFrame
+  nameWithType: File.ExportFrame
+  fullName: File.ExportFrame
+- uid: Global.File.ExportAnimation*
+  commentId: Overload:Global.File.ExportAnimation
+  href: Global.File.html#File_ExportAnimation_System_String_
+  name: ExportAnimation
+  nameWithType: File.ExportAnimation
+  fullName: File.ExportAnimation
+- uid: Global.File.IsBlank*
+  commentId: Overload:Global.File.IsBlank
+  href: Global.File.html#File_IsBlank
+  name: IsBlank
+  nameWithType: File.IsBlank
+  fullName: File.IsBlank
+- uid: Global.File.IndexOfLayer*
+  commentId: Overload:Global.File.IndexOfLayer
+  href: Global.File.html#File_IndexOfLayer_Layer_
+  name: IndexOfLayer
+  nameWithType: File.IndexOfLayer
+  fullName: File.IndexOfLayer
+- uid: Global.Layer
+  commentId: T:Global.Layer
+  href: Layer.html
+  name: Layer
+  nameWithType: Layer
+  fullName: Layer
+- uid: Global.File.AddLayer*
+  commentId: Overload:Global.File.AddLayer
+  href: Global.File.html#File_AddLayer_Layer_
+  name: AddLayer
+  nameWithType: File.AddLayer
+  fullName: File.AddLayer
+- uid: Global.File.AddLayers*
+  commentId: Overload:Global.File.AddLayers
+  href: Global.File.html#File_AddLayers_Layer___
+  name: AddLayers
+  nameWithType: File.AddLayers
+  fullName: File.AddLayers
+- uid: Global.Layer[]
+  isExternal: true
+  href: Layer.html
+  name: Layer[]
+  nameWithType: Layer[]
+  fullName: Layer[]
+  nameWithType.vb: Layer()
+  fullName.vb: Layer()
+  name.vb: Layer()
+  spec.csharp:
+  - uid: Global.Layer
+    name: Layer
+    href: Layer.html
+  - name: '['
+  - name: ']'
+  spec.vb:
+  - uid: Global.Layer
+    name: Layer
+    href: Layer.html
+  - name: (
+  - name: )
+- uid: Global.File.ImportLayers*
+  commentId: Overload:Global.File.ImportLayers
+  href: Global.File.html#File_ImportLayers_Layer___
+  name: ImportLayers
+  nameWithType: File.ImportLayers
+  fullName: File.ImportLayers
+- uid: Global.File.AddNormalLayer*
+  commentId: Overload:Global.File.AddNormalLayer
+  href: Global.File.html#File_AddNormalLayer
+  name: AddNormalLayer
+  nameWithType: File.AddNormalLayer
+  fullName: File.AddNormalLayer
+- uid: Global.File.AddTileLayer*
+  commentId: Overload:Global.File.AddTileLayer
+  href: Global.File.html#File_AddTileLayer
+  name: AddTileLayer
+  nameWithType: File.AddTileLayer
+  fullName: File.AddTileLayer
+- uid: Global.File.RemoveLayer*
+  commentId: Overload:Global.File.RemoveLayer
+  href: Global.File.html#File_RemoveLayer_System_Int32_
+  name: RemoveLayer
+  nameWithType: File.RemoveLayer
+  fullName: File.RemoveLayer
+- uid: Global.File.RemoveLayers*
+  commentId: Overload:Global.File.RemoveLayers
+  href: Global.File.html#File_RemoveLayers_System_Int32___
+  name: RemoveLayers
+  nameWithType: File.RemoveLayers
+  fullName: File.RemoveLayers
+- uid: Global.File.RemoveAllLayers*
+  commentId: Overload:Global.File.RemoveAllLayers
+  href: Global.File.html#File_RemoveAllLayers
+  name: RemoveAllLayers
+  nameWithType: File.RemoveAllLayers
+  fullName: File.RemoveAllLayers
+- uid: Global.File.ReplaceLayer*
+  commentId: Overload:Global.File.ReplaceLayer
+  href: Global.File.html#File_ReplaceLayer_System_Int32_Layer_
+  name: ReplaceLayer
+  nameWithType: File.ReplaceLayer
+  fullName: File.ReplaceLayer
+- uid: Global.File.MoveLayer*
+  commentId: Overload:Global.File.MoveLayer
+  href: Global.File.html#File_MoveLayer_System_Int32_System_Int32_
+  name: MoveLayer
+  nameWithType: File.MoveLayer
+  fullName: File.MoveLayer
+- uid: Global.File.Render*
+  commentId: Overload:Global.File.Render
+  href: Global.File.html#File_Render_System_Int32_
+  name: Render
+  nameWithType: File.Render
+  fullName: File.Render
+- uid: Global.File.RenderLayers*
+  commentId: Overload:Global.File.RenderLayers
+  href: Global.File.html#File_RenderLayers_System_Int32_System_Int32_System_Int32_System_Boolean_
+  name: RenderLayers
+  nameWithType: File.RenderLayers
+  fullName: File.RenderLayers
+- uid: Global.File.RenderLayersAbove*
+  commentId: Overload:Global.File.RenderLayersAbove
+  href: Global.File.html#File_RenderLayersAbove_System_Int32_System_Int32_System_Boolean_
+  name: RenderLayersAbove
+  nameWithType: File.RenderLayersAbove
+  fullName: File.RenderLayersAbove
+- uid: Global.File.RenderLayersBelow*
+  commentId: Overload:Global.File.RenderLayersBelow
+  href: Global.File.html#File_RenderLayersBelow_System_Int32_System_Int32_System_Boolean_
+  name: RenderLayersBelow
+  nameWithType: File.RenderLayersBelow
+  fullName: File.RenderLayersBelow
+- uid: Global.File.RenderPixel*
+  commentId: Overload:Global.File.RenderPixel
+  href: Global.File.html#File_RenderPixel_IntVector2_System_Int32_
+  name: RenderPixel
+  nameWithType: File.RenderPixel
+  fullName: File.RenderPixel
+- uid: Global.IntVector2
+  commentId: T:Global.IntVector2
+  href: IntVector2.html
+  name: IntVector2
+  nameWithType: IntVector2
+  fullName: IntVector2
+- uid: Global.Color
+  isExternal: true
+  name: Color
+  nameWithType: Color
+  fullName: Color
+- uid: Global.File.SetLiveRenderFrame*
+  commentId: Overload:Global.File.SetLiveRenderFrame
+  href: Global.File.html#File_SetLiveRenderFrame_System_Int32_
+  name: SetLiveRenderFrame
+  nameWithType: File.SetLiveRenderFrame
+  fullName: File.SetLiveRenderFrame
+- uid: Global.File.Flip*
+  commentId: Overload:Global.File.Flip
+  href: Global.File.html#File_Flip_FlipDirection_
+  name: Flip
+  nameWithType: File.Flip
+  fullName: File.Flip
+- uid: Global.FlipDirection
+  commentId: T:Global.FlipDirection
+  href: FlipDirection.html
+  name: FlipDirection
+  nameWithType: FlipDirection
+  fullName: FlipDirection
+- uid: Global.File.Rotate*
+  commentId: Overload:Global.File.Rotate
+  href: Global.File.html#File_Rotate_RotationAngle_
+  name: Rotate
+  nameWithType: File.Rotate
+  fullName: File.Rotate
+- uid: Global.RotationAngle
+  commentId: T:Global.RotationAngle
+  href: RotationAngle.html
+  name: RotationAngle
+  nameWithType: RotationAngle
+  fullName: RotationAngle
+- uid: Global.File.Extend*
+  commentId: Overload:Global.File.Extend
+  href: Global.File.html#File_Extend_System_Int32_System_Int32_System_Int32_System_Int32_
+  name: Extend
+  nameWithType: File.Extend
+  fullName: File.Extend
+- uid: Global.File.Scale*
+  commentId: Overload:Global.File.Scale
+  href: Global.File.html#File_Scale_System_Single_
+  name: Scale
+  nameWithType: File.Scale
+  fullName: File.Scale
+- uid: System.Single
+  commentId: T:System.Single
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.single
+  name: float
+  nameWithType: float
+  fullName: float
+  nameWithType.vb: Single
+  fullName.vb: Single
+  name.vb: Single
+- uid: Global.File.AddTile*
+  commentId: Overload:Global.File.AddTile
+  href: Global.File.html#File_AddTile_File_IntVector2_System_Int32_
+  name: AddTile
+  nameWithType: File.AddTile
+  fullName: File.AddTile
+- uid: Global.Tile
+  commentId: T:Global.Tile
+  href: Tile.html
+  name: Tile
+  nameWithType: Tile
+  fullName: Tile
+- uid: Global.File.RemoveTile*
+  commentId: Overload:Global.File.RemoveTile
+  href: Global.File.html#File_RemoveTile_Tile_
+  name: RemoveTile
+  nameWithType: File.RemoveTile
+  fullName: File.RemoveTile
+- uid: Global.File.ContainsTile*
+  commentId: Overload:Global.File.ContainsTile
+  href: Global.File.html#File_ContainsTile_Tile_
+  name: ContainsTile
+  nameWithType: File.ContainsTile
+  fullName: File.ContainsTile
+- uid: Global.File.SubscribeToOnPixelsChanged*
+  commentId: Overload:Global.File.SubscribeToOnPixelsChanged
+  href: Global.File.html#File_SubscribeToOnPixelsChanged_UnityAction_IntVector2___Layer___System_Int32____
+  name: SubscribeToOnPixelsChanged
+  nameWithType: File.SubscribeToOnPixelsChanged
+  fullName: File.SubscribeToOnPixelsChanged
+- uid: Global.UnityAction{IntVector2[],Layer[],System.Int32[]}
+  commentId: '!:Global.UnityAction{IntVector2[],Layer[],System.Int32[]}'
+  definition: Global.UnityAction`3
+  href: IntVector2.html
+  name: UnityAction<IntVector2[], Layer[], int[]>
+  nameWithType: UnityAction<IntVector2[], Layer[], int[]>
+  fullName: UnityAction<IntVector2[], Layer[], int[]>
+  nameWithType.vb: UnityAction(Of IntVector2(), Layer(), Integer())
+  fullName.vb: UnityAction(Of IntVector2(), Layer(), Integer())
+  name.vb: UnityAction(Of IntVector2(), Layer(), Integer())
+  spec.csharp:
+  - uid: Global.UnityAction`3
+    name: UnityAction
+    isExternal: true
+  - name: <
+  - uid: Global.IntVector2
+    name: IntVector2
+    href: IntVector2.html
+  - name: '['
+  - name: ']'
+  - name: ','
+  - name: " "
+  - uid: Global.Layer
+    name: Layer
+    href: Layer.html
+  - name: '['
+  - name: ']'
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: '['
+  - name: ']'
+  - name: '>'
+  spec.vb:
+  - uid: Global.UnityAction`3
+    name: UnityAction
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Global.IntVector2
+    name: IntVector2
+    href: IntVector2.html
+  - name: (
+  - name: )
+  - name: ','
+  - name: " "
+  - uid: Global.Layer
+    name: Layer
+    href: Layer.html
+  - name: (
+  - name: )
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: (
+  - name: )
+  - name: )
+- uid: Global.UnityAction`3
+  commentId: '!:Global.UnityAction`3'
+  isExternal: true
+  name: UnityAction<, , >
+  nameWithType: UnityAction<, , >
+  fullName: UnityAction<, , >
+  nameWithType.vb: UnityAction(Of , , )
+  fullName.vb: UnityAction(Of , , )
+  name.vb: UnityAction(Of , , )
+  spec.csharp:
+  - uid: Global.UnityAction`3
+    name: UnityAction
+    isExternal: true
+  - name: <
+  - name: ''
+  - name: ','
+  - name: " "
+  - name: ''
+  - name: ','
+  - name: " "
+  - name: ''
+  - name: '>'
+  spec.vb:
+  - uid: Global.UnityAction`3
+    name: UnityAction
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - name: ''
+  - name: ','
+  - name: " "
+  - name: ''
+  - name: ','
+  - name: " "
+  - name: ''
+  - name: )
+- uid: Global.File.SubscribeToOnTileAdded*
+  commentId: Overload:Global.File.SubscribeToOnTileAdded
+  href: Global.File.html#File_SubscribeToOnTileAdded_UnityAction_
+  name: SubscribeToOnTileAdded
+  nameWithType: File.SubscribeToOnTileAdded
+  fullName: File.SubscribeToOnTileAdded
+- uid: Global.UnityAction
+  isExternal: true
+  name: UnityAction
+  nameWithType: UnityAction
+  fullName: UnityAction
+- uid: Global.File.SubscribeToOnTileRemoved*
+  commentId: Overload:Global.File.SubscribeToOnTileRemoved
+  href: Global.File.html#File_SubscribeToOnTileRemoved_UnityAction_
+  name: SubscribeToOnTileRemoved
+  nameWithType: File.SubscribeToOnTileRemoved
+  fullName: File.SubscribeToOnTileRemoved
+- uid: Global.File.SubscribeToOnSavedSinceEditChanged*
+  commentId: Overload:Global.File.SubscribeToOnSavedSinceEditChanged
+  href: Global.File.html#File_SubscribeToOnSavedSinceEditChanged_UnityAction_
+  name: SubscribeToOnSavedSinceEditChanged
+  nameWithType: File.SubscribeToOnSavedSinceEditChanged
+  fullName: File.SubscribeToOnSavedSinceEditChanged

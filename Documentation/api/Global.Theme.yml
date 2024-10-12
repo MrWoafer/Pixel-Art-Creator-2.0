@@ -1,0 +1,857 @@
+### YamlMime:ManagedReference
+items:
+- uid: Global.Theme
+  commentId: T:Global.Theme
+  id: Theme
+  parent: Global
+  children:
+  - Global.Theme.SubscribeToOnChanged(UnityAction)
+  - Global.Theme.backgroundColour
+  - Global.Theme.buttonColour
+  - Global.Theme.buttonHoverColour
+  - Global.Theme.buttonPressedColour
+  - Global.Theme.layerTileHoverTint
+  - Global.Theme.layerTileOffColour
+  - Global.Theme.layerTileOnColour
+  - Global.Theme.layerTilePressedColour
+  - Global.Theme.panelColour
+  - Global.Theme.scaleColour
+  - Global.Theme.scaleHoverColour
+  - Global.Theme.scalePressedColour
+  - Global.Theme.scrollbarBackgroundColour
+  - Global.Theme.scrollbarBackgroundHoverColour
+  - Global.Theme.scrollbarBackgroundPressedColour
+  - Global.Theme.scrollbarHandleColour
+  - Global.Theme.scrollbarHandleHoverColour
+  - Global.Theme.scrollbarHandlePressedColour
+  - Global.Theme.shadowColour
+  - Global.Theme.subPanelColour
+  - Global.Theme.textboxColour
+  - Global.Theme.textboxHoverColour
+  - Global.Theme.textboxPressedColour
+  - Global.Theme.textboxSelectedColour
+  - Global.Theme.themeName
+  - Global.Theme.toggleButtonHoverTint
+  - Global.Theme.toggleButtonOffColour
+  - Global.Theme.toggleButtonOnColour
+  - Global.Theme.toggleButtonPressedColour
+  langs:
+  - csharp
+  - vb
+  name: Theme
+  nameWithType: Theme
+  fullName: Theme
+  type: Class
+  source:
+    remote:
+      path: Assets/Scripts/Themes/Theme.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: Theme
+    path: ../Assets/Scripts/Themes/Theme.cs
+    startLine: 5
+  namespace: Global
+  syntax:
+    content: 'public class Theme : ScriptableObject'
+    content.vb: Public Class Theme Inherits ScriptableObject
+  inheritance:
+  - System.Object
+- uid: Global.Theme.themeName
+  commentId: F:Global.Theme.themeName
+  id: themeName
+  parent: Global.Theme
+  langs:
+  - csharp
+  - vb
+  name: themeName
+  nameWithType: Theme.themeName
+  fullName: Theme.themeName
+  type: Field
+  source:
+    remote:
+      path: Assets/Scripts/Themes/Theme.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: themeName
+    path: ../Assets/Scripts/Themes/Theme.cs
+    startLine: 9
+  namespace: Global
+  syntax:
+    content: public string themeName
+    return:
+      type: System.String
+    content.vb: Public themeName As String
+- uid: Global.Theme.backgroundColour
+  commentId: F:Global.Theme.backgroundColour
+  id: backgroundColour
+  parent: Global.Theme
+  langs:
+  - csharp
+  - vb
+  name: backgroundColour
+  nameWithType: Theme.backgroundColour
+  fullName: Theme.backgroundColour
+  type: Field
+  source:
+    remote:
+      path: Assets/Scripts/Themes/Theme.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: backgroundColour
+    path: ../Assets/Scripts/Themes/Theme.cs
+    startLine: 12
+  namespace: Global
+  syntax:
+    content: public Color backgroundColour
+    return:
+      type: Global.Color
+    content.vb: Public backgroundColour As Color
+- uid: Global.Theme.panelColour
+  commentId: F:Global.Theme.panelColour
+  id: panelColour
+  parent: Global.Theme
+  langs:
+  - csharp
+  - vb
+  name: panelColour
+  nameWithType: Theme.panelColour
+  fullName: Theme.panelColour
+  type: Field
+  source:
+    remote:
+      path: Assets/Scripts/Themes/Theme.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: panelColour
+    path: ../Assets/Scripts/Themes/Theme.cs
+    startLine: 13
+  namespace: Global
+  syntax:
+    content: public Color panelColour
+    return:
+      type: Global.Color
+    content.vb: Public panelColour As Color
+- uid: Global.Theme.subPanelColour
+  commentId: F:Global.Theme.subPanelColour
+  id: subPanelColour
+  parent: Global.Theme
+  langs:
+  - csharp
+  - vb
+  name: subPanelColour
+  nameWithType: Theme.subPanelColour
+  fullName: Theme.subPanelColour
+  type: Field
+  source:
+    remote:
+      path: Assets/Scripts/Themes/Theme.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: subPanelColour
+    path: ../Assets/Scripts/Themes/Theme.cs
+    startLine: 14
+  namespace: Global
+  syntax:
+    content: public Color subPanelColour
+    return:
+      type: Global.Color
+    content.vb: Public subPanelColour As Color
+- uid: Global.Theme.shadowColour
+  commentId: F:Global.Theme.shadowColour
+  id: shadowColour
+  parent: Global.Theme
+  langs:
+  - csharp
+  - vb
+  name: shadowColour
+  nameWithType: Theme.shadowColour
+  fullName: Theme.shadowColour
+  type: Field
+  source:
+    remote:
+      path: Assets/Scripts/Themes/Theme.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: shadowColour
+    path: ../Assets/Scripts/Themes/Theme.cs
+    startLine: 15
+  namespace: Global
+  syntax:
+    content: public Color shadowColour
+    return:
+      type: Global.Color
+    content.vb: Public shadowColour As Color
+- uid: Global.Theme.buttonColour
+  commentId: F:Global.Theme.buttonColour
+  id: buttonColour
+  parent: Global.Theme
+  langs:
+  - csharp
+  - vb
+  name: buttonColour
+  nameWithType: Theme.buttonColour
+  fullName: Theme.buttonColour
+  type: Field
+  source:
+    remote:
+      path: Assets/Scripts/Themes/Theme.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: buttonColour
+    path: ../Assets/Scripts/Themes/Theme.cs
+    startLine: 18
+  namespace: Global
+  syntax:
+    content: public Color buttonColour
+    return:
+      type: Global.Color
+    content.vb: Public buttonColour As Color
+- uid: Global.Theme.buttonHoverColour
+  commentId: F:Global.Theme.buttonHoverColour
+  id: buttonHoverColour
+  parent: Global.Theme
+  langs:
+  - csharp
+  - vb
+  name: buttonHoverColour
+  nameWithType: Theme.buttonHoverColour
+  fullName: Theme.buttonHoverColour
+  type: Field
+  source:
+    remote:
+      path: Assets/Scripts/Themes/Theme.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: buttonHoverColour
+    path: ../Assets/Scripts/Themes/Theme.cs
+    startLine: 19
+  namespace: Global
+  syntax:
+    content: public Color buttonHoverColour
+    return:
+      type: Global.Color
+    content.vb: Public buttonHoverColour As Color
+- uid: Global.Theme.buttonPressedColour
+  commentId: F:Global.Theme.buttonPressedColour
+  id: buttonPressedColour
+  parent: Global.Theme
+  langs:
+  - csharp
+  - vb
+  name: buttonPressedColour
+  nameWithType: Theme.buttonPressedColour
+  fullName: Theme.buttonPressedColour
+  type: Field
+  source:
+    remote:
+      path: Assets/Scripts/Themes/Theme.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: buttonPressedColour
+    path: ../Assets/Scripts/Themes/Theme.cs
+    startLine: 20
+  namespace: Global
+  syntax:
+    content: public Color buttonPressedColour
+    return:
+      type: Global.Color
+    content.vb: Public buttonPressedColour As Color
+- uid: Global.Theme.toggleButtonOffColour
+  commentId: F:Global.Theme.toggleButtonOffColour
+  id: toggleButtonOffColour
+  parent: Global.Theme
+  langs:
+  - csharp
+  - vb
+  name: toggleButtonOffColour
+  nameWithType: Theme.toggleButtonOffColour
+  fullName: Theme.toggleButtonOffColour
+  type: Field
+  source:
+    remote:
+      path: Assets/Scripts/Themes/Theme.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: toggleButtonOffColour
+    path: ../Assets/Scripts/Themes/Theme.cs
+    startLine: 23
+  namespace: Global
+  syntax:
+    content: public Color toggleButtonOffColour
+    return:
+      type: Global.Color
+    content.vb: Public toggleButtonOffColour As Color
+- uid: Global.Theme.toggleButtonOnColour
+  commentId: F:Global.Theme.toggleButtonOnColour
+  id: toggleButtonOnColour
+  parent: Global.Theme
+  langs:
+  - csharp
+  - vb
+  name: toggleButtonOnColour
+  nameWithType: Theme.toggleButtonOnColour
+  fullName: Theme.toggleButtonOnColour
+  type: Field
+  source:
+    remote:
+      path: Assets/Scripts/Themes/Theme.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: toggleButtonOnColour
+    path: ../Assets/Scripts/Themes/Theme.cs
+    startLine: 24
+  namespace: Global
+  syntax:
+    content: public Color toggleButtonOnColour
+    return:
+      type: Global.Color
+    content.vb: Public toggleButtonOnColour As Color
+- uid: Global.Theme.toggleButtonHoverTint
+  commentId: F:Global.Theme.toggleButtonHoverTint
+  id: toggleButtonHoverTint
+  parent: Global.Theme
+  langs:
+  - csharp
+  - vb
+  name: toggleButtonHoverTint
+  nameWithType: Theme.toggleButtonHoverTint
+  fullName: Theme.toggleButtonHoverTint
+  type: Field
+  source:
+    remote:
+      path: Assets/Scripts/Themes/Theme.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: toggleButtonHoverTint
+    path: ../Assets/Scripts/Themes/Theme.cs
+    startLine: 25
+  namespace: Global
+  syntax:
+    content: public Color toggleButtonHoverTint
+    return:
+      type: Global.Color
+    content.vb: Public toggleButtonHoverTint As Color
+- uid: Global.Theme.toggleButtonPressedColour
+  commentId: F:Global.Theme.toggleButtonPressedColour
+  id: toggleButtonPressedColour
+  parent: Global.Theme
+  langs:
+  - csharp
+  - vb
+  name: toggleButtonPressedColour
+  nameWithType: Theme.toggleButtonPressedColour
+  fullName: Theme.toggleButtonPressedColour
+  type: Field
+  source:
+    remote:
+      path: Assets/Scripts/Themes/Theme.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: toggleButtonPressedColour
+    path: ../Assets/Scripts/Themes/Theme.cs
+    startLine: 26
+  namespace: Global
+  syntax:
+    content: public Color toggleButtonPressedColour
+    return:
+      type: Global.Color
+    content.vb: Public toggleButtonPressedColour As Color
+- uid: Global.Theme.textboxColour
+  commentId: F:Global.Theme.textboxColour
+  id: textboxColour
+  parent: Global.Theme
+  langs:
+  - csharp
+  - vb
+  name: textboxColour
+  nameWithType: Theme.textboxColour
+  fullName: Theme.textboxColour
+  type: Field
+  source:
+    remote:
+      path: Assets/Scripts/Themes/Theme.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: textboxColour
+    path: ../Assets/Scripts/Themes/Theme.cs
+    startLine: 29
+  namespace: Global
+  syntax:
+    content: public Color textboxColour
+    return:
+      type: Global.Color
+    content.vb: Public textboxColour As Color
+- uid: Global.Theme.textboxHoverColour
+  commentId: F:Global.Theme.textboxHoverColour
+  id: textboxHoverColour
+  parent: Global.Theme
+  langs:
+  - csharp
+  - vb
+  name: textboxHoverColour
+  nameWithType: Theme.textboxHoverColour
+  fullName: Theme.textboxHoverColour
+  type: Field
+  source:
+    remote:
+      path: Assets/Scripts/Themes/Theme.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: textboxHoverColour
+    path: ../Assets/Scripts/Themes/Theme.cs
+    startLine: 30
+  namespace: Global
+  syntax:
+    content: public Color textboxHoverColour
+    return:
+      type: Global.Color
+    content.vb: Public textboxHoverColour As Color
+- uid: Global.Theme.textboxPressedColour
+  commentId: F:Global.Theme.textboxPressedColour
+  id: textboxPressedColour
+  parent: Global.Theme
+  langs:
+  - csharp
+  - vb
+  name: textboxPressedColour
+  nameWithType: Theme.textboxPressedColour
+  fullName: Theme.textboxPressedColour
+  type: Field
+  source:
+    remote:
+      path: Assets/Scripts/Themes/Theme.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: textboxPressedColour
+    path: ../Assets/Scripts/Themes/Theme.cs
+    startLine: 31
+  namespace: Global
+  syntax:
+    content: public Color textboxPressedColour
+    return:
+      type: Global.Color
+    content.vb: Public textboxPressedColour As Color
+- uid: Global.Theme.textboxSelectedColour
+  commentId: F:Global.Theme.textboxSelectedColour
+  id: textboxSelectedColour
+  parent: Global.Theme
+  langs:
+  - csharp
+  - vb
+  name: textboxSelectedColour
+  nameWithType: Theme.textboxSelectedColour
+  fullName: Theme.textboxSelectedColour
+  type: Field
+  source:
+    remote:
+      path: Assets/Scripts/Themes/Theme.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: textboxSelectedColour
+    path: ../Assets/Scripts/Themes/Theme.cs
+    startLine: 32
+  namespace: Global
+  syntax:
+    content: public Color textboxSelectedColour
+    return:
+      type: Global.Color
+    content.vb: Public textboxSelectedColour As Color
+- uid: Global.Theme.scaleColour
+  commentId: F:Global.Theme.scaleColour
+  id: scaleColour
+  parent: Global.Theme
+  langs:
+  - csharp
+  - vb
+  name: scaleColour
+  nameWithType: Theme.scaleColour
+  fullName: Theme.scaleColour
+  type: Field
+  source:
+    remote:
+      path: Assets/Scripts/Themes/Theme.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: scaleColour
+    path: ../Assets/Scripts/Themes/Theme.cs
+    startLine: 35
+  namespace: Global
+  syntax:
+    content: public Color scaleColour
+    return:
+      type: Global.Color
+    content.vb: Public scaleColour As Color
+- uid: Global.Theme.scaleHoverColour
+  commentId: F:Global.Theme.scaleHoverColour
+  id: scaleHoverColour
+  parent: Global.Theme
+  langs:
+  - csharp
+  - vb
+  name: scaleHoverColour
+  nameWithType: Theme.scaleHoverColour
+  fullName: Theme.scaleHoverColour
+  type: Field
+  source:
+    remote:
+      path: Assets/Scripts/Themes/Theme.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: scaleHoverColour
+    path: ../Assets/Scripts/Themes/Theme.cs
+    startLine: 36
+  namespace: Global
+  syntax:
+    content: public Color scaleHoverColour
+    return:
+      type: Global.Color
+    content.vb: Public scaleHoverColour As Color
+- uid: Global.Theme.scalePressedColour
+  commentId: F:Global.Theme.scalePressedColour
+  id: scalePressedColour
+  parent: Global.Theme
+  langs:
+  - csharp
+  - vb
+  name: scalePressedColour
+  nameWithType: Theme.scalePressedColour
+  fullName: Theme.scalePressedColour
+  type: Field
+  source:
+    remote:
+      path: Assets/Scripts/Themes/Theme.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: scalePressedColour
+    path: ../Assets/Scripts/Themes/Theme.cs
+    startLine: 37
+  namespace: Global
+  syntax:
+    content: public Color scalePressedColour
+    return:
+      type: Global.Color
+    content.vb: Public scalePressedColour As Color
+- uid: Global.Theme.scrollbarHandleColour
+  commentId: F:Global.Theme.scrollbarHandleColour
+  id: scrollbarHandleColour
+  parent: Global.Theme
+  langs:
+  - csharp
+  - vb
+  name: scrollbarHandleColour
+  nameWithType: Theme.scrollbarHandleColour
+  fullName: Theme.scrollbarHandleColour
+  type: Field
+  source:
+    remote:
+      path: Assets/Scripts/Themes/Theme.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: scrollbarHandleColour
+    path: ../Assets/Scripts/Themes/Theme.cs
+    startLine: 40
+  namespace: Global
+  syntax:
+    content: public Color scrollbarHandleColour
+    return:
+      type: Global.Color
+    content.vb: Public scrollbarHandleColour As Color
+- uid: Global.Theme.scrollbarHandleHoverColour
+  commentId: F:Global.Theme.scrollbarHandleHoverColour
+  id: scrollbarHandleHoverColour
+  parent: Global.Theme
+  langs:
+  - csharp
+  - vb
+  name: scrollbarHandleHoverColour
+  nameWithType: Theme.scrollbarHandleHoverColour
+  fullName: Theme.scrollbarHandleHoverColour
+  type: Field
+  source:
+    remote:
+      path: Assets/Scripts/Themes/Theme.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: scrollbarHandleHoverColour
+    path: ../Assets/Scripts/Themes/Theme.cs
+    startLine: 41
+  namespace: Global
+  syntax:
+    content: public Color scrollbarHandleHoverColour
+    return:
+      type: Global.Color
+    content.vb: Public scrollbarHandleHoverColour As Color
+- uid: Global.Theme.scrollbarHandlePressedColour
+  commentId: F:Global.Theme.scrollbarHandlePressedColour
+  id: scrollbarHandlePressedColour
+  parent: Global.Theme
+  langs:
+  - csharp
+  - vb
+  name: scrollbarHandlePressedColour
+  nameWithType: Theme.scrollbarHandlePressedColour
+  fullName: Theme.scrollbarHandlePressedColour
+  type: Field
+  source:
+    remote:
+      path: Assets/Scripts/Themes/Theme.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: scrollbarHandlePressedColour
+    path: ../Assets/Scripts/Themes/Theme.cs
+    startLine: 42
+  namespace: Global
+  syntax:
+    content: public Color scrollbarHandlePressedColour
+    return:
+      type: Global.Color
+    content.vb: Public scrollbarHandlePressedColour As Color
+- uid: Global.Theme.scrollbarBackgroundColour
+  commentId: F:Global.Theme.scrollbarBackgroundColour
+  id: scrollbarBackgroundColour
+  parent: Global.Theme
+  langs:
+  - csharp
+  - vb
+  name: scrollbarBackgroundColour
+  nameWithType: Theme.scrollbarBackgroundColour
+  fullName: Theme.scrollbarBackgroundColour
+  type: Field
+  source:
+    remote:
+      path: Assets/Scripts/Themes/Theme.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: scrollbarBackgroundColour
+    path: ../Assets/Scripts/Themes/Theme.cs
+    startLine: 44
+  namespace: Global
+  syntax:
+    content: public Color scrollbarBackgroundColour
+    return:
+      type: Global.Color
+    content.vb: Public scrollbarBackgroundColour As Color
+- uid: Global.Theme.scrollbarBackgroundHoverColour
+  commentId: F:Global.Theme.scrollbarBackgroundHoverColour
+  id: scrollbarBackgroundHoverColour
+  parent: Global.Theme
+  langs:
+  - csharp
+  - vb
+  name: scrollbarBackgroundHoverColour
+  nameWithType: Theme.scrollbarBackgroundHoverColour
+  fullName: Theme.scrollbarBackgroundHoverColour
+  type: Field
+  source:
+    remote:
+      path: Assets/Scripts/Themes/Theme.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: scrollbarBackgroundHoverColour
+    path: ../Assets/Scripts/Themes/Theme.cs
+    startLine: 45
+  namespace: Global
+  syntax:
+    content: public Color scrollbarBackgroundHoverColour
+    return:
+      type: Global.Color
+    content.vb: Public scrollbarBackgroundHoverColour As Color
+- uid: Global.Theme.scrollbarBackgroundPressedColour
+  commentId: F:Global.Theme.scrollbarBackgroundPressedColour
+  id: scrollbarBackgroundPressedColour
+  parent: Global.Theme
+  langs:
+  - csharp
+  - vb
+  name: scrollbarBackgroundPressedColour
+  nameWithType: Theme.scrollbarBackgroundPressedColour
+  fullName: Theme.scrollbarBackgroundPressedColour
+  type: Field
+  source:
+    remote:
+      path: Assets/Scripts/Themes/Theme.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: scrollbarBackgroundPressedColour
+    path: ../Assets/Scripts/Themes/Theme.cs
+    startLine: 46
+  namespace: Global
+  syntax:
+    content: public Color scrollbarBackgroundPressedColour
+    return:
+      type: Global.Color
+    content.vb: Public scrollbarBackgroundPressedColour As Color
+- uid: Global.Theme.layerTileOffColour
+  commentId: F:Global.Theme.layerTileOffColour
+  id: layerTileOffColour
+  parent: Global.Theme
+  langs:
+  - csharp
+  - vb
+  name: layerTileOffColour
+  nameWithType: Theme.layerTileOffColour
+  fullName: Theme.layerTileOffColour
+  type: Field
+  source:
+    remote:
+      path: Assets/Scripts/Themes/Theme.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: layerTileOffColour
+    path: ../Assets/Scripts/Themes/Theme.cs
+    startLine: 49
+  namespace: Global
+  syntax:
+    content: public Color layerTileOffColour
+    return:
+      type: Global.Color
+    content.vb: Public layerTileOffColour As Color
+- uid: Global.Theme.layerTileOnColour
+  commentId: F:Global.Theme.layerTileOnColour
+  id: layerTileOnColour
+  parent: Global.Theme
+  langs:
+  - csharp
+  - vb
+  name: layerTileOnColour
+  nameWithType: Theme.layerTileOnColour
+  fullName: Theme.layerTileOnColour
+  type: Field
+  source:
+    remote:
+      path: Assets/Scripts/Themes/Theme.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: layerTileOnColour
+    path: ../Assets/Scripts/Themes/Theme.cs
+    startLine: 50
+  namespace: Global
+  syntax:
+    content: public Color layerTileOnColour
+    return:
+      type: Global.Color
+    content.vb: Public layerTileOnColour As Color
+- uid: Global.Theme.layerTileHoverTint
+  commentId: F:Global.Theme.layerTileHoverTint
+  id: layerTileHoverTint
+  parent: Global.Theme
+  langs:
+  - csharp
+  - vb
+  name: layerTileHoverTint
+  nameWithType: Theme.layerTileHoverTint
+  fullName: Theme.layerTileHoverTint
+  type: Field
+  source:
+    remote:
+      path: Assets/Scripts/Themes/Theme.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: layerTileHoverTint
+    path: ../Assets/Scripts/Themes/Theme.cs
+    startLine: 51
+  namespace: Global
+  syntax:
+    content: public Color layerTileHoverTint
+    return:
+      type: Global.Color
+    content.vb: Public layerTileHoverTint As Color
+- uid: Global.Theme.layerTilePressedColour
+  commentId: F:Global.Theme.layerTilePressedColour
+  id: layerTilePressedColour
+  parent: Global.Theme
+  langs:
+  - csharp
+  - vb
+  name: layerTilePressedColour
+  nameWithType: Theme.layerTilePressedColour
+  fullName: Theme.layerTilePressedColour
+  type: Field
+  source:
+    remote:
+      path: Assets/Scripts/Themes/Theme.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: layerTilePressedColour
+    path: ../Assets/Scripts/Themes/Theme.cs
+    startLine: 52
+  namespace: Global
+  syntax:
+    content: public Color layerTilePressedColour
+    return:
+      type: Global.Color
+    content.vb: Public layerTilePressedColour As Color
+- uid: Global.Theme.SubscribeToOnChanged(UnityAction)
+  commentId: M:Global.Theme.SubscribeToOnChanged(UnityAction)
+  id: SubscribeToOnChanged(UnityAction)
+  parent: Global.Theme
+  langs:
+  - csharp
+  - vb
+  name: SubscribeToOnChanged(UnityAction)
+  nameWithType: Theme.SubscribeToOnChanged(UnityAction)
+  fullName: Theme.SubscribeToOnChanged(UnityAction)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Themes/Theme.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: SubscribeToOnChanged
+    path: ../Assets/Scripts/Themes/Theme.cs
+    startLine: 62
+  namespace: Global
+  syntax:
+    content: public void SubscribeToOnChanged(UnityAction call)
+    parameters:
+    - id: call
+      type: Global.UnityAction
+    content.vb: Public Sub SubscribeToOnChanged([call] As UnityAction)
+  overload: Global.Theme.SubscribeToOnChanged*
+references:
+- uid: Global
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: Global.Color
+  isExternal: true
+  name: Color
+  nameWithType: Color
+  fullName: Color
+- uid: Global.Theme.SubscribeToOnChanged*
+  commentId: Overload:Global.Theme.SubscribeToOnChanged
+  href: Global.Theme.html#Theme_SubscribeToOnChanged_UnityAction_
+  name: SubscribeToOnChanged
+  nameWithType: Theme.SubscribeToOnChanged
+  fullName: Theme.SubscribeToOnChanged
+- uid: Global.UnityAction
+  isExternal: true
+  name: UnityAction
+  nameWithType: UnityAction
+  fullName: UnityAction

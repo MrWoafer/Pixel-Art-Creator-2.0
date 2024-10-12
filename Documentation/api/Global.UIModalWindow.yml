@@ -1,0 +1,259 @@
+### YamlMime:ManagedReference
+items:
+- uid: Global.UIModalWindow
+  commentId: T:Global.UIModalWindow
+  id: UIModalWindow
+  parent: Global
+  children:
+  - Global.UIModalWindow.AddButton(System.String,UnityAction)
+  - Global.UIModalWindow.AddCloseButton(System.String)
+  - Global.UIModalWindow.Close
+  - Global.UIModalWindow.SetMessage(System.String)
+  - Global.UIModalWindow.SetTitle(System.String)
+  langs:
+  - csharp
+  - vb
+  name: UIModalWindow
+  nameWithType: UIModalWindow
+  fullName: UIModalWindow
+  type: Class
+  source:
+    remote:
+      path: Assets/Scripts/UI/UIModalWindow.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: UIModalWindow
+    path: ../Assets/Scripts/UI/UIModalWindow.cs
+    startLine: 6
+  namespace: Global
+  syntax:
+    content: 'public class UIModalWindow : MonoBehaviour'
+    content.vb: Public Class UIModalWindow Inherits MonoBehaviour
+  inheritance:
+  - System.Object
+- uid: Global.UIModalWindow.SetTitle(System.String)
+  commentId: M:Global.UIModalWindow.SetTitle(System.String)
+  id: SetTitle(System.String)
+  parent: Global.UIModalWindow
+  langs:
+  - csharp
+  - vb
+  name: SetTitle(string)
+  nameWithType: UIModalWindow.SetTitle(string)
+  fullName: UIModalWindow.SetTitle(string)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/UI/UIModalWindow.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: SetTitle
+    path: ../Assets/Scripts/UI/UIModalWindow.cs
+    startLine: 64
+  namespace: Global
+  syntax:
+    content: public UIModalWindow SetTitle(string title)
+    parameters:
+    - id: title
+      type: System.String
+    return:
+      type: Global.UIModalWindow
+    content.vb: Public Function SetTitle(title As String) As UIModalWindow
+  overload: Global.UIModalWindow.SetTitle*
+  nameWithType.vb: UIModalWindow.SetTitle(String)
+  fullName.vb: UIModalWindow.SetTitle(String)
+  name.vb: SetTitle(String)
+- uid: Global.UIModalWindow.SetMessage(System.String)
+  commentId: M:Global.UIModalWindow.SetMessage(System.String)
+  id: SetMessage(System.String)
+  parent: Global.UIModalWindow
+  langs:
+  - csharp
+  - vb
+  name: SetMessage(string)
+  nameWithType: UIModalWindow.SetMessage(string)
+  fullName: UIModalWindow.SetMessage(string)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/UI/UIModalWindow.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: SetMessage
+    path: ../Assets/Scripts/UI/UIModalWindow.cs
+    startLine: 80
+  namespace: Global
+  syntax:
+    content: public UIModalWindow SetMessage(string message)
+    parameters:
+    - id: message
+      type: System.String
+    return:
+      type: Global.UIModalWindow
+    content.vb: Public Function SetMessage(message As String) As UIModalWindow
+  overload: Global.UIModalWindow.SetMessage*
+  nameWithType.vb: UIModalWindow.SetMessage(String)
+  fullName.vb: UIModalWindow.SetMessage(String)
+  name.vb: SetMessage(String)
+- uid: Global.UIModalWindow.AddButton(System.String,UnityAction)
+  commentId: M:Global.UIModalWindow.AddButton(System.String,UnityAction)
+  id: AddButton(System.String,UnityAction)
+  parent: Global.UIModalWindow
+  langs:
+  - csharp
+  - vb
+  name: AddButton(string, UnityAction)
+  nameWithType: UIModalWindow.AddButton(string, UnityAction)
+  fullName: UIModalWindow.AddButton(string, UnityAction)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/UI/UIModalWindow.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: AddButton
+    path: ../Assets/Scripts/UI/UIModalWindow.cs
+    startLine: 89
+  namespace: Global
+  syntax:
+    content: public UIModalWindow AddButton(string text, UnityAction onClick)
+    parameters:
+    - id: text
+      type: System.String
+    - id: onClick
+      type: Global.UnityAction
+    return:
+      type: Global.UIModalWindow
+    content.vb: Public Function AddButton(text As String, onClick As UnityAction) As UIModalWindow
+  overload: Global.UIModalWindow.AddButton*
+  nameWithType.vb: UIModalWindow.AddButton(String, UnityAction)
+  fullName.vb: UIModalWindow.AddButton(String, UnityAction)
+  name.vb: AddButton(String, UnityAction)
+- uid: Global.UIModalWindow.AddCloseButton(System.String)
+  commentId: M:Global.UIModalWindow.AddCloseButton(System.String)
+  id: AddCloseButton(System.String)
+  parent: Global.UIModalWindow
+  langs:
+  - csharp
+  - vb
+  name: AddCloseButton(string)
+  nameWithType: UIModalWindow.AddCloseButton(string)
+  fullName: UIModalWindow.AddCloseButton(string)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/UI/UIModalWindow.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: AddCloseButton
+    path: ../Assets/Scripts/UI/UIModalWindow.cs
+    startLine: 108
+  namespace: Global
+  syntax:
+    content: public UIModalWindow AddCloseButton(string text)
+    parameters:
+    - id: text
+      type: System.String
+    return:
+      type: Global.UIModalWindow
+    content.vb: Public Function AddCloseButton(text As String) As UIModalWindow
+  overload: Global.UIModalWindow.AddCloseButton*
+  nameWithType.vb: UIModalWindow.AddCloseButton(String)
+  fullName.vb: UIModalWindow.AddCloseButton(String)
+  name.vb: AddCloseButton(String)
+- uid: Global.UIModalWindow.Close
+  commentId: M:Global.UIModalWindow.Close
+  id: Close
+  parent: Global.UIModalWindow
+  langs:
+  - csharp
+  - vb
+  name: Close()
+  nameWithType: UIModalWindow.Close()
+  fullName: UIModalWindow.Close()
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/UI/UIModalWindow.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: Close
+    path: ../Assets/Scripts/UI/UIModalWindow.cs
+    startLine: 113
+  namespace: Global
+  syntax:
+    content: public void Close()
+    content.vb: Public Sub Close()
+  overload: Global.UIModalWindow.Close*
+references:
+- uid: Global
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Global.UIModalWindow.SetTitle*
+  commentId: Overload:Global.UIModalWindow.SetTitle
+  href: Global.UIModalWindow.html#UIModalWindow_SetTitle_System_String_
+  name: SetTitle
+  nameWithType: UIModalWindow.SetTitle
+  fullName: UIModalWindow.SetTitle
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: Global.UIModalWindow
+  commentId: T:Global.UIModalWindow
+  href: UIModalWindow.html
+  name: UIModalWindow
+  nameWithType: UIModalWindow
+  fullName: UIModalWindow
+- uid: Global.UIModalWindow.SetMessage*
+  commentId: Overload:Global.UIModalWindow.SetMessage
+  href: Global.UIModalWindow.html#UIModalWindow_SetMessage_System_String_
+  name: SetMessage
+  nameWithType: UIModalWindow.SetMessage
+  fullName: UIModalWindow.SetMessage
+- uid: Global.UIModalWindow.AddButton*
+  commentId: Overload:Global.UIModalWindow.AddButton
+  href: Global.UIModalWindow.html#UIModalWindow_AddButton_System_String_UnityAction_
+  name: AddButton
+  nameWithType: UIModalWindow.AddButton
+  fullName: UIModalWindow.AddButton
+- uid: Global.UnityAction
+  isExternal: true
+  name: UnityAction
+  nameWithType: UnityAction
+  fullName: UnityAction
+- uid: Global.UIModalWindow.AddCloseButton*
+  commentId: Overload:Global.UIModalWindow.AddCloseButton
+  href: Global.UIModalWindow.html#UIModalWindow_AddCloseButton_System_String_
+  name: AddCloseButton
+  nameWithType: UIModalWindow.AddCloseButton
+  fullName: UIModalWindow.AddCloseButton
+- uid: Global.UIModalWindow.Close*
+  commentId: Overload:Global.UIModalWindow.Close
+  href: Global.UIModalWindow.html#UIModalWindow_Close
+  name: Close
+  nameWithType: UIModalWindow.Close
+  fullName: UIModalWindow.Close

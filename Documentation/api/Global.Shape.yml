@@ -1,0 +1,109 @@
+### YamlMime:ManagedReference
+items:
+- uid: Global.Shape
+  commentId: T:Global.Shape
+  id: Shape
+  parent: Global
+  children:
+  - Global.Shape.Ellipse
+  - Global.Shape.Rectangle
+  - Global.Shape.Triangle
+  langs:
+  - csharp
+  - vb
+  name: Shape
+  nameWithType: Shape
+  fullName: Shape
+  type: Enum
+  source:
+    remote:
+      path: Assets/Scripts/Drawing/Toolbar.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: Shape
+    path: ../Assets/Scripts/Drawing/Toolbar.cs
+    startLine: 6
+  namespace: Global
+  syntax:
+    content: public enum Shape
+    content.vb: Public Enum Shape
+- uid: Global.Shape.Rectangle
+  commentId: F:Global.Shape.Rectangle
+  id: Rectangle
+  parent: Global.Shape
+  langs:
+  - csharp
+  - vb
+  name: Rectangle
+  nameWithType: Shape.Rectangle
+  fullName: Shape.Rectangle
+  type: Field
+  source:
+    remote:
+      path: Assets/Scripts/Drawing/Toolbar.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: Rectangle
+    path: ../Assets/Scripts/Drawing/Toolbar.cs
+    startLine: 8
+  namespace: Global
+  syntax:
+    content: Rectangle = 0
+    return:
+      type: Global.Shape
+- uid: Global.Shape.Ellipse
+  commentId: F:Global.Shape.Ellipse
+  id: Ellipse
+  parent: Global.Shape
+  langs:
+  - csharp
+  - vb
+  name: Ellipse
+  nameWithType: Shape.Ellipse
+  fullName: Shape.Ellipse
+  type: Field
+  source:
+    remote:
+      path: Assets/Scripts/Drawing/Toolbar.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: Ellipse
+    path: ../Assets/Scripts/Drawing/Toolbar.cs
+    startLine: 9
+  namespace: Global
+  syntax:
+    content: Ellipse = 1
+    return:
+      type: Global.Shape
+- uid: Global.Shape.Triangle
+  commentId: F:Global.Shape.Triangle
+  id: Triangle
+  parent: Global.Shape
+  langs:
+  - csharp
+  - vb
+  name: Triangle
+  nameWithType: Shape.Triangle
+  fullName: Shape.Triangle
+  type: Field
+  source:
+    remote:
+      path: Assets/Scripts/Drawing/Toolbar.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: Triangle
+    path: ../Assets/Scripts/Drawing/Toolbar.cs
+    startLine: 10
+  namespace: Global
+  syntax:
+    content: Triangle = 2
+    return:
+      type: Global.Shape
+references:
+- uid: Global
+- uid: Global.Shape
+  commentId: T:Global.Shape
+  href: Shape.html
+  name: Shape
+  nameWithType: Shape
+  fullName: Shape

@@ -1,0 +1,84 @@
+### YamlMime:ManagedReference
+items:
+- uid: Global.LayerType
+  commentId: T:Global.LayerType
+  id: LayerType
+  parent: Global
+  children:
+  - Global.LayerType.Normal
+  - Global.LayerType.Tile
+  langs:
+  - csharp
+  - vb
+  name: LayerType
+  nameWithType: LayerType
+  fullName: LayerType
+  type: Enum
+  source:
+    remote:
+      path: Assets/Scripts/Layers/Layer.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: LayerType
+    path: ../Assets/Scripts/Layers/Layer.cs
+    startLine: 11
+  namespace: Global
+  syntax:
+    content: public enum LayerType
+    content.vb: Public Enum LayerType
+- uid: Global.LayerType.Normal
+  commentId: F:Global.LayerType.Normal
+  id: Normal
+  parent: Global.LayerType
+  langs:
+  - csharp
+  - vb
+  name: Normal
+  nameWithType: LayerType.Normal
+  fullName: LayerType.Normal
+  type: Field
+  source:
+    remote:
+      path: Assets/Scripts/Layers/Layer.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: Normal
+    path: ../Assets/Scripts/Layers/Layer.cs
+    startLine: 13
+  namespace: Global
+  syntax:
+    content: Normal = 0
+    return:
+      type: Global.LayerType
+- uid: Global.LayerType.Tile
+  commentId: F:Global.LayerType.Tile
+  id: Tile
+  parent: Global.LayerType
+  langs:
+  - csharp
+  - vb
+  name: Tile
+  nameWithType: LayerType.Tile
+  fullName: LayerType.Tile
+  type: Field
+  source:
+    remote:
+      path: Assets/Scripts/Layers/Layer.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: Tile
+    path: ../Assets/Scripts/Layers/Layer.cs
+    startLine: 14
+  namespace: Global
+  syntax:
+    content: Tile = 1
+    return:
+      type: Global.LayerType
+references:
+- uid: Global
+- uid: Global.LayerType
+  commentId: T:Global.LayerType
+  href: LayerType.html
+  name: LayerType
+  nameWithType: LayerType
+  fullName: LayerType

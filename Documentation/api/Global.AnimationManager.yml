@@ -1,0 +1,538 @@
+### YamlMime:ManagedReference
+items:
+- uid: Global.AnimationManager
+  commentId: T:Global.AnimationManager
+  id: AnimationManager
+  parent: Global
+  children:
+  - Global.AnimationManager.AddKeyFrame
+  - Global.AnimationManager.DebugLogKeyFrames
+  - Global.AnimationManager.DeleteSelectedKeyFrame
+  - Global.AnimationManager.Pause
+  - Global.AnimationManager.Play
+  - Global.AnimationManager.RemoveKeyFrame
+  - Global.AnimationManager.Stop
+  - Global.AnimationManager.SubscribeToOnCurrentFrameIndexChange(UnityAction)
+  - Global.AnimationManager.SubscribeToOnKeyFrameAdded(UnityAction)
+  - Global.AnimationManager.SubscribeToOnKeyFrameDeleted(UnityAction)
+  - Global.AnimationManager.currentFrameIndex
+  - Global.AnimationManager.framerate
+  - Global.AnimationManager.onionSkinColour
+  - Global.AnimationManager.showOnionSkin
+  langs:
+  - csharp
+  - vb
+  name: AnimationManager
+  nameWithType: AnimationManager
+  fullName: AnimationManager
+  type: Class
+  source:
+    remote:
+      path: Assets/Scripts/Animation/AnimationManager.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: AnimationManager
+    path: ../Assets/Scripts/Animation/AnimationManager.cs
+    startLine: 9
+  namespace: Global
+  summary: >-
+    Handles the animation timeline and playback of animations.
+
+    The animation system is still a work in progress.
+  example: []
+  syntax:
+    content: 'public class AnimationManager : MonoBehaviour'
+    content.vb: Public Class AnimationManager Inherits MonoBehaviour
+  inheritance:
+  - System.Object
+- uid: Global.AnimationManager.currentFrameIndex
+  commentId: P:Global.AnimationManager.currentFrameIndex
+  id: currentFrameIndex
+  parent: Global.AnimationManager
+  langs:
+  - csharp
+  - vb
+  name: currentFrameIndex
+  nameWithType: AnimationManager.currentFrameIndex
+  fullName: AnimationManager.currentFrameIndex
+  type: Property
+  source:
+    remote:
+      path: Assets/Scripts/Animation/AnimationManager.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: currentFrameIndex
+    path: ../Assets/Scripts/Animation/AnimationManager.cs
+    startLine: 16
+  namespace: Global
+  summary: The number of the frame currently being displayed.
+  example: []
+  syntax:
+    content: public int currentFrameIndex { get; set; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public Property currentFrameIndex As Integer
+  overload: Global.AnimationManager.currentFrameIndex*
+- uid: Global.AnimationManager.framerate
+  commentId: F:Global.AnimationManager.framerate
+  id: framerate
+  parent: Global.AnimationManager
+  langs:
+  - csharp
+  - vb
+  name: framerate
+  nameWithType: AnimationManager.framerate
+  fullName: AnimationManager.framerate
+  type: Field
+  source:
+    remote:
+      path: Assets/Scripts/Animation/AnimationManager.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: framerate
+    path: ../Assets/Scripts/Animation/AnimationManager.cs
+    startLine: 31
+  namespace: Global
+  syntax:
+    content: public int framerate
+    return:
+      type: System.Int32
+    content.vb: Public framerate As Integer
+- uid: Global.AnimationManager.showOnionSkin
+  commentId: F:Global.AnimationManager.showOnionSkin
+  id: showOnionSkin
+  parent: Global.AnimationManager
+  langs:
+  - csharp
+  - vb
+  name: showOnionSkin
+  nameWithType: AnimationManager.showOnionSkin
+  fullName: AnimationManager.showOnionSkin
+  type: Field
+  source:
+    remote:
+      path: Assets/Scripts/Animation/AnimationManager.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: showOnionSkin
+    path: ../Assets/Scripts/Animation/AnimationManager.cs
+    startLine: 34
+  namespace: Global
+  syntax:
+    content: public bool showOnionSkin
+    return:
+      type: System.Boolean
+    content.vb: Public showOnionSkin As Boolean
+- uid: Global.AnimationManager.onionSkinColour
+  commentId: F:Global.AnimationManager.onionSkinColour
+  id: onionSkinColour
+  parent: Global.AnimationManager
+  langs:
+  - csharp
+  - vb
+  name: onionSkinColour
+  nameWithType: AnimationManager.onionSkinColour
+  fullName: AnimationManager.onionSkinColour
+  type: Field
+  source:
+    remote:
+      path: Assets/Scripts/Animation/AnimationManager.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: onionSkinColour
+    path: ../Assets/Scripts/Animation/AnimationManager.cs
+    startLine: 36
+  namespace: Global
+  syntax:
+    content: public Color onionSkinColour
+    return:
+      type: Global.Color
+    content.vb: Public onionSkinColour As Color
+- uid: Global.AnimationManager.Play
+  commentId: M:Global.AnimationManager.Play
+  id: Play
+  parent: Global.AnimationManager
+  langs:
+  - csharp
+  - vb
+  name: Play()
+  nameWithType: AnimationManager.Play()
+  fullName: AnimationManager.Play()
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Animation/AnimationManager.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: Play
+    path: ../Assets/Scripts/Animation/AnimationManager.cs
+    startLine: 239
+  namespace: Global
+  summary: Starts/resumes the animation playback.
+  example: []
+  syntax:
+    content: public void Play()
+    content.vb: Public Sub Play()
+  overload: Global.AnimationManager.Play*
+- uid: Global.AnimationManager.Pause
+  commentId: M:Global.AnimationManager.Pause
+  id: Pause
+  parent: Global.AnimationManager
+  langs:
+  - csharp
+  - vb
+  name: Pause()
+  nameWithType: AnimationManager.Pause()
+  fullName: AnimationManager.Pause()
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Animation/AnimationManager.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: Pause
+    path: ../Assets/Scripts/Animation/AnimationManager.cs
+    startLine: 247
+  namespace: Global
+  summary: Pauses the animation playback.
+  example: []
+  syntax:
+    content: public void Pause()
+    content.vb: Public Sub Pause()
+  overload: Global.AnimationManager.Pause*
+- uid: Global.AnimationManager.Stop
+  commentId: M:Global.AnimationManager.Stop
+  id: Stop
+  parent: Global.AnimationManager
+  langs:
+  - csharp
+  - vb
+  name: Stop()
+  nameWithType: AnimationManager.Stop()
+  fullName: AnimationManager.Stop()
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Animation/AnimationManager.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: Stop
+    path: ../Assets/Scripts/Animation/AnimationManager.cs
+    startLine: 255
+  namespace: Global
+  summary: Stops the animation playback and resets the current frame number back to the start.
+  example: []
+  syntax:
+    content: public void Stop()
+    content.vb: Public Sub [Stop]()
+  overload: Global.AnimationManager.Stop*
+- uid: Global.AnimationManager.AddKeyFrame
+  commentId: M:Global.AnimationManager.AddKeyFrame
+  id: AddKeyFrame
+  parent: Global.AnimationManager
+  langs:
+  - csharp
+  - vb
+  name: AddKeyFrame()
+  nameWithType: AnimationManager.AddKeyFrame()
+  fullName: AnimationManager.AddKeyFrame()
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Animation/AnimationManager.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: AddKeyFrame
+    path: ../Assets/Scripts/Animation/AnimationManager.cs
+    startLine: 384
+  namespace: Global
+  summary: Extends the length of the animation by adding one frame to the end.
+  example: []
+  syntax:
+    content: public void AddKeyFrame()
+    content.vb: Public Sub AddKeyFrame()
+  overload: Global.AnimationManager.AddKeyFrame*
+- uid: Global.AnimationManager.RemoveKeyFrame
+  commentId: M:Global.AnimationManager.RemoveKeyFrame
+  id: RemoveKeyFrame
+  parent: Global.AnimationManager
+  langs:
+  - csharp
+  - vb
+  name: RemoveKeyFrame()
+  nameWithType: AnimationManager.RemoveKeyFrame()
+  fullName: AnimationManager.RemoveKeyFrame()
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Animation/AnimationManager.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: RemoveKeyFrame
+    path: ../Assets/Scripts/Animation/AnimationManager.cs
+    startLine: 396
+  namespace: Global
+  summary: Reduces the length of the animation by removing the final frame.
+  example: []
+  syntax:
+    content: public void RemoveKeyFrame()
+    content.vb: Public Sub RemoveKeyFrame()
+  overload: Global.AnimationManager.RemoveKeyFrame*
+- uid: Global.AnimationManager.DeleteSelectedKeyFrame
+  commentId: M:Global.AnimationManager.DeleteSelectedKeyFrame
+  id: DeleteSelectedKeyFrame
+  parent: Global.AnimationManager
+  langs:
+  - csharp
+  - vb
+  name: DeleteSelectedKeyFrame()
+  nameWithType: AnimationManager.DeleteSelectedKeyFrame()
+  fullName: AnimationManager.DeleteSelectedKeyFrame()
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Animation/AnimationManager.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: DeleteSelectedKeyFrame
+    path: ../Assets/Scripts/Animation/AnimationManager.cs
+    startLine: 416
+  namespace: Global
+  summary: Deletes the selected key frame.
+  example: []
+  syntax:
+    content: public void DeleteSelectedKeyFrame()
+    content.vb: Public Sub DeleteSelectedKeyFrame()
+  overload: Global.AnimationManager.DeleteSelectedKeyFrame*
+- uid: Global.AnimationManager.DebugLogKeyFrames
+  commentId: M:Global.AnimationManager.DebugLogKeyFrames
+  id: DebugLogKeyFrames
+  parent: Global.AnimationManager
+  langs:
+  - csharp
+  - vb
+  name: DebugLogKeyFrames()
+  nameWithType: AnimationManager.DebugLogKeyFrames()
+  fullName: AnimationManager.DebugLogKeyFrames()
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Animation/AnimationManager.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: DebugLogKeyFrames
+    path: ../Assets/Scripts/Animation/AnimationManager.cs
+    startLine: 431
+  namespace: Global
+  summary: For debugging purposes. Prints the current frame number and the frame numbers of each keyframe.
+  example: []
+  syntax:
+    content: public void DebugLogKeyFrames()
+    content.vb: Public Sub DebugLogKeyFrames()
+  overload: Global.AnimationManager.DebugLogKeyFrames*
+- uid: Global.AnimationManager.SubscribeToOnCurrentFrameIndexChange(UnityAction)
+  commentId: M:Global.AnimationManager.SubscribeToOnCurrentFrameIndexChange(UnityAction)
+  id: SubscribeToOnCurrentFrameIndexChange(UnityAction)
+  parent: Global.AnimationManager
+  langs:
+  - csharp
+  - vb
+  name: SubscribeToOnCurrentFrameIndexChange(UnityAction)
+  nameWithType: AnimationManager.SubscribeToOnCurrentFrameIndexChange(UnityAction)
+  fullName: AnimationManager.SubscribeToOnCurrentFrameIndexChange(UnityAction)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Animation/AnimationManager.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: SubscribeToOnCurrentFrameIndexChange
+    path: ../Assets/Scripts/Animation/AnimationManager.cs
+    startLine: 506
+  namespace: Global
+  summary: Event is invoked when the current frame number changes.
+  example: []
+  syntax:
+    content: public void SubscribeToOnCurrentFrameIndexChange(UnityAction call)
+    parameters:
+    - id: call
+      type: Global.UnityAction
+    content.vb: Public Sub SubscribeToOnCurrentFrameIndexChange([call] As UnityAction)
+  overload: Global.AnimationManager.SubscribeToOnCurrentFrameIndexChange*
+- uid: Global.AnimationManager.SubscribeToOnKeyFrameAdded(UnityAction)
+  commentId: M:Global.AnimationManager.SubscribeToOnKeyFrameAdded(UnityAction)
+  id: SubscribeToOnKeyFrameAdded(UnityAction)
+  parent: Global.AnimationManager
+  langs:
+  - csharp
+  - vb
+  name: SubscribeToOnKeyFrameAdded(UnityAction)
+  nameWithType: AnimationManager.SubscribeToOnKeyFrameAdded(UnityAction)
+  fullName: AnimationManager.SubscribeToOnKeyFrameAdded(UnityAction)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Animation/AnimationManager.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: SubscribeToOnKeyFrameAdded
+    path: ../Assets/Scripts/Animation/AnimationManager.cs
+    startLine: 513
+  namespace: Global
+  summary: Event is invoked when a keyframe is added.
+  example: []
+  syntax:
+    content: public void SubscribeToOnKeyFrameAdded(UnityAction call)
+    parameters:
+    - id: call
+      type: Global.UnityAction
+    content.vb: Public Sub SubscribeToOnKeyFrameAdded([call] As UnityAction)
+  overload: Global.AnimationManager.SubscribeToOnKeyFrameAdded*
+- uid: Global.AnimationManager.SubscribeToOnKeyFrameDeleted(UnityAction)
+  commentId: M:Global.AnimationManager.SubscribeToOnKeyFrameDeleted(UnityAction)
+  id: SubscribeToOnKeyFrameDeleted(UnityAction)
+  parent: Global.AnimationManager
+  langs:
+  - csharp
+  - vb
+  name: SubscribeToOnKeyFrameDeleted(UnityAction)
+  nameWithType: AnimationManager.SubscribeToOnKeyFrameDeleted(UnityAction)
+  fullName: AnimationManager.SubscribeToOnKeyFrameDeleted(UnityAction)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Animation/AnimationManager.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: SubscribeToOnKeyFrameDeleted
+    path: ../Assets/Scripts/Animation/AnimationManager.cs
+    startLine: 520
+  namespace: Global
+  summary: Event is invoked when a keyframe is deleted.
+  example: []
+  syntax:
+    content: public void SubscribeToOnKeyFrameDeleted(UnityAction call)
+    parameters:
+    - id: call
+      type: Global.UnityAction
+    content.vb: Public Sub SubscribeToOnKeyFrameDeleted([call] As UnityAction)
+  overload: Global.AnimationManager.SubscribeToOnKeyFrameDeleted*
+references:
+- uid: Global
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Global.AnimationManager.currentFrameIndex*
+  commentId: Overload:Global.AnimationManager.currentFrameIndex
+  href: Global.AnimationManager.html#AnimationManager_currentFrameIndex
+  name: currentFrameIndex
+  nameWithType: AnimationManager.currentFrameIndex
+  fullName: AnimationManager.currentFrameIndex
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: Global.Color
+  isExternal: true
+  name: Color
+  nameWithType: Color
+  fullName: Color
+- uid: Global.AnimationManager.Play*
+  commentId: Overload:Global.AnimationManager.Play
+  href: Global.AnimationManager.html#AnimationManager_Play
+  name: Play
+  nameWithType: AnimationManager.Play
+  fullName: AnimationManager.Play
+- uid: Global.AnimationManager.Pause*
+  commentId: Overload:Global.AnimationManager.Pause
+  href: Global.AnimationManager.html#AnimationManager_Pause
+  name: Pause
+  nameWithType: AnimationManager.Pause
+  fullName: AnimationManager.Pause
+- uid: Global.AnimationManager.Stop*
+  commentId: Overload:Global.AnimationManager.Stop
+  href: Global.AnimationManager.html#AnimationManager_Stop
+  name: Stop
+  nameWithType: AnimationManager.Stop
+  fullName: AnimationManager.Stop
+- uid: Global.AnimationManager.AddKeyFrame*
+  commentId: Overload:Global.AnimationManager.AddKeyFrame
+  href: Global.AnimationManager.html#AnimationManager_AddKeyFrame
+  name: AddKeyFrame
+  nameWithType: AnimationManager.AddKeyFrame
+  fullName: AnimationManager.AddKeyFrame
+- uid: Global.AnimationManager.RemoveKeyFrame*
+  commentId: Overload:Global.AnimationManager.RemoveKeyFrame
+  href: Global.AnimationManager.html#AnimationManager_RemoveKeyFrame
+  name: RemoveKeyFrame
+  nameWithType: AnimationManager.RemoveKeyFrame
+  fullName: AnimationManager.RemoveKeyFrame
+- uid: Global.AnimationManager.DeleteSelectedKeyFrame*
+  commentId: Overload:Global.AnimationManager.DeleteSelectedKeyFrame
+  href: Global.AnimationManager.html#AnimationManager_DeleteSelectedKeyFrame
+  name: DeleteSelectedKeyFrame
+  nameWithType: AnimationManager.DeleteSelectedKeyFrame
+  fullName: AnimationManager.DeleteSelectedKeyFrame
+- uid: Global.AnimationManager.DebugLogKeyFrames*
+  commentId: Overload:Global.AnimationManager.DebugLogKeyFrames
+  href: Global.AnimationManager.html#AnimationManager_DebugLogKeyFrames
+  name: DebugLogKeyFrames
+  nameWithType: AnimationManager.DebugLogKeyFrames
+  fullName: AnimationManager.DebugLogKeyFrames
+- uid: Global.AnimationManager.SubscribeToOnCurrentFrameIndexChange*
+  commentId: Overload:Global.AnimationManager.SubscribeToOnCurrentFrameIndexChange
+  href: Global.AnimationManager.html#AnimationManager_SubscribeToOnCurrentFrameIndexChange_UnityAction_
+  name: SubscribeToOnCurrentFrameIndexChange
+  nameWithType: AnimationManager.SubscribeToOnCurrentFrameIndexChange
+  fullName: AnimationManager.SubscribeToOnCurrentFrameIndexChange
+- uid: Global.UnityAction
+  isExternal: true
+  name: UnityAction
+  nameWithType: UnityAction
+  fullName: UnityAction
+- uid: Global.AnimationManager.SubscribeToOnKeyFrameAdded*
+  commentId: Overload:Global.AnimationManager.SubscribeToOnKeyFrameAdded
+  href: Global.AnimationManager.html#AnimationManager_SubscribeToOnKeyFrameAdded_UnityAction_
+  name: SubscribeToOnKeyFrameAdded
+  nameWithType: AnimationManager.SubscribeToOnKeyFrameAdded
+  fullName: AnimationManager.SubscribeToOnKeyFrameAdded
+- uid: Global.AnimationManager.SubscribeToOnKeyFrameDeleted*
+  commentId: Overload:Global.AnimationManager.SubscribeToOnKeyFrameDeleted
+  href: Global.AnimationManager.html#AnimationManager_SubscribeToOnKeyFrameDeleted_UnityAction_
+  name: SubscribeToOnKeyFrameDeleted
+  nameWithType: AnimationManager.SubscribeToOnKeyFrameDeleted
+  fullName: AnimationManager.SubscribeToOnKeyFrameDeleted

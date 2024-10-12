@@ -1,0 +1,125 @@
+### YamlMime:ManagedReference
+items:
+- uid: Global.UIElement
+  commentId: T:Global.UIElement
+  id: UIElement
+  parent: Global
+  children:
+  - Global.UIElement.elementName
+  - Global.UIElement.viewport
+  langs:
+  - csharp
+  - vb
+  name: UIElement
+  nameWithType: UIElement
+  fullName: UIElement
+  type: Class
+  source:
+    remote:
+      path: Assets/Scripts/UI/UIElement.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: UIElement
+    path: ../Assets/Scripts/UI/UIElement.cs
+    startLine: 16
+  namespace: Global
+  syntax:
+    content: 'public class UIElement : MonoBehaviour'
+    content.vb: Public Class UIElement Inherits MonoBehaviour
+  inheritance:
+  - System.Object
+- uid: Global.UIElement.elementName
+  commentId: P:Global.UIElement.elementName
+  id: elementName
+  parent: Global.UIElement
+  langs:
+  - csharp
+  - vb
+  name: elementName
+  nameWithType: UIElement.elementName
+  fullName: UIElement.elementName
+  type: Property
+  source:
+    remote:
+      path: Assets/Scripts/UI/UIElement.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: elementName
+    path: ../Assets/Scripts/UI/UIElement.cs
+    startLine: 21
+  namespace: Global
+  syntax:
+    content: public string elementName { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public ReadOnly Property elementName As String
+  overload: Global.UIElement.elementName*
+- uid: Global.UIElement.viewport
+  commentId: F:Global.UIElement.viewport
+  id: viewport
+  parent: Global.UIElement
+  langs:
+  - csharp
+  - vb
+  name: viewport
+  nameWithType: UIElement.viewport
+  fullName: UIElement.viewport
+  type: Field
+  source:
+    remote:
+      path: Assets/Scripts/UI/UIElement.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: viewport
+    path: ../Assets/Scripts/UI/UIElement.cs
+    startLine: 34
+  namespace: Global
+  syntax:
+    content: public UIViewport viewport
+    return:
+      type: Global.UIViewport
+    content.vb: Public viewport As UIViewport
+references:
+- uid: Global
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Global.UIElement.elementName*
+  commentId: Overload:Global.UIElement.elementName
+  href: Global.UIElement.html#UIElement_elementName
+  name: elementName
+  nameWithType: UIElement.elementName
+  fullName: UIElement.elementName
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: Global.UIViewport
+  commentId: T:Global.UIViewport
+  href: UIViewport.html
+  name: UIViewport
+  nameWithType: UIViewport
+  fullName: UIViewport

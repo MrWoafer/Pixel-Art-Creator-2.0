@@ -1,0 +1,712 @@
+### YamlMime:ManagedReference
+items:
+- uid: Global.KeyboardShortcuts
+  commentId: T:Global.KeyboardShortcuts
+  id: KeyboardShortcuts
+  parent: Global
+  children:
+  - Global.KeyboardShortcuts.AddShortcut(System.String,CustomKeyCode[])
+  - Global.KeyboardShortcuts.AddShortcut(System.String,KeyboardShortcut)
+  - Global.KeyboardShortcuts.ClearShortcutsFor(System.String)
+  - Global.KeyboardShortcuts.ContainsKey(System.String)
+  - Global.KeyboardShortcuts.ContainsShortcutFor(System.String)
+  - Global.KeyboardShortcuts.GetShortcutsFor(System.String)
+  - Global.KeyboardShortcuts.LoadShortcuts
+  - Global.KeyboardShortcuts.SaveShortcuts
+  - Global.KeyboardShortcuts.SetShortcut(System.String,KeyboardShortcut)
+  - Global.KeyboardShortcuts.ToJSON
+  - Global.KeyboardShortcuts.shortcuts
+  langs:
+  - csharp
+  - vb
+  name: KeyboardShortcuts
+  nameWithType: KeyboardShortcuts
+  fullName: KeyboardShortcuts
+  type: Class
+  source:
+    remote:
+      path: Assets/Scripts/Keyboard Shortcuts/KeyboardShortcuts.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: KeyboardShortcuts
+    path: ../Assets/Scripts/Keyboard Shortcuts/KeyboardShortcuts.cs
+    startLine: 9
+  namespace: Global
+  summary: A class for storing, loading and accessing keyboard shortcuts for defined actions.
+  example: []
+  syntax:
+    content: 'public class KeyboardShortcuts : MonoBehaviour'
+    content.vb: Public Class KeyboardShortcuts Inherits MonoBehaviour
+  inheritance:
+  - System.Object
+- uid: Global.KeyboardShortcuts.shortcuts
+  commentId: P:Global.KeyboardShortcuts.shortcuts
+  id: shortcuts
+  parent: Global.KeyboardShortcuts
+  langs:
+  - csharp
+  - vb
+  name: shortcuts
+  nameWithType: KeyboardShortcuts.shortcuts
+  fullName: KeyboardShortcuts.shortcuts
+  type: Property
+  source:
+    remote:
+      path: Assets/Scripts/Keyboard Shortcuts/KeyboardShortcuts.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: shortcuts
+    path: ../Assets/Scripts/Keyboard Shortcuts/KeyboardShortcuts.cs
+    startLine: 17
+  namespace: Global
+  summary: A key is an action name. A value is a list of the keyboard shortcuts for that action.
+  example: []
+  syntax:
+    content: public static Dictionary<string, List<KeyboardShortcut>> shortcuts { get; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.Dictionary{System.String,System.Collections.Generic.List{KeyboardShortcut}}
+    content.vb: Public Shared Property shortcuts As Dictionary(Of String, List(Of KeyboardShortcut))
+  overload: Global.KeyboardShortcuts.shortcuts*
+- uid: Global.KeyboardShortcuts.LoadShortcuts
+  commentId: M:Global.KeyboardShortcuts.LoadShortcuts
+  id: LoadShortcuts
+  parent: Global.KeyboardShortcuts
+  langs:
+  - csharp
+  - vb
+  name: LoadShortcuts()
+  nameWithType: KeyboardShortcuts.LoadShortcuts()
+  fullName: KeyboardShortcuts.LoadShortcuts()
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Keyboard Shortcuts/KeyboardShortcuts.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: LoadShortcuts
+    path: ../Assets/Scripts/Keyboard Shortcuts/KeyboardShortcuts.cs
+    startLine: 39
+  namespace: Global
+  summary: Loads saved shortcuts from the disk.
+  example: []
+  syntax:
+    content: public static void LoadShortcuts()
+    content.vb: Public Shared Sub LoadShortcuts()
+  overload: Global.KeyboardShortcuts.LoadShortcuts*
+- uid: Global.KeyboardShortcuts.SaveShortcuts
+  commentId: M:Global.KeyboardShortcuts.SaveShortcuts
+  id: SaveShortcuts
+  parent: Global.KeyboardShortcuts
+  langs:
+  - csharp
+  - vb
+  name: SaveShortcuts()
+  nameWithType: KeyboardShortcuts.SaveShortcuts()
+  fullName: KeyboardShortcuts.SaveShortcuts()
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Keyboard Shortcuts/KeyboardShortcuts.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: SaveShortcuts
+    path: ../Assets/Scripts/Keyboard Shortcuts/KeyboardShortcuts.cs
+    startLine: 63
+  namespace: Global
+  summary: Saves the current assignment of each shortcut to the disk.
+  example: []
+  syntax:
+    content: public static void SaveShortcuts()
+    content.vb: Public Shared Sub SaveShortcuts()
+  overload: Global.KeyboardShortcuts.SaveShortcuts*
+- uid: Global.KeyboardShortcuts.ToJSON
+  commentId: M:Global.KeyboardShortcuts.ToJSON
+  id: ToJSON
+  parent: Global.KeyboardShortcuts
+  langs:
+  - csharp
+  - vb
+  name: ToJSON()
+  nameWithType: KeyboardShortcuts.ToJSON()
+  fullName: KeyboardShortcuts.ToJSON()
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Keyboard Shortcuts/KeyboardShortcuts.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: ToJSON
+    path: ../Assets/Scripts/Keyboard Shortcuts/KeyboardShortcuts.cs
+    startLine: 74
+  namespace: Global
+  summary: Returns the list of keyboard shortcuts as a JSON object.
+  example: []
+  syntax:
+    content: public static JSON ToJSON()
+    return:
+      type: Global.JSON
+    content.vb: Public Shared Function ToJSON() As JSON
+  overload: Global.KeyboardShortcuts.ToJSON*
+- uid: Global.KeyboardShortcuts.AddShortcut(System.String,CustomKeyCode[])
+  commentId: M:Global.KeyboardShortcuts.AddShortcut(System.String,CustomKeyCode[])
+  id: AddShortcut(System.String,CustomKeyCode[])
+  parent: Global.KeyboardShortcuts
+  langs:
+  - csharp
+  - vb
+  name: AddShortcut(string, params CustomKeyCode[])
+  nameWithType: KeyboardShortcuts.AddShortcut(string, params CustomKeyCode[])
+  fullName: KeyboardShortcuts.AddShortcut(string, params CustomKeyCode[])
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Keyboard Shortcuts/KeyboardShortcuts.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: AddShortcut
+    path: ../Assets/Scripts/Keyboard Shortcuts/KeyboardShortcuts.cs
+    startLine: 118
+  namespace: Global
+  summary: Combines the given keycodes into a single shortcut and adds it for the given action.
+  example: []
+  syntax:
+    content: public static void AddShortcut(string actionName, params CustomKeyCode[] keyCodes)
+    parameters:
+    - id: actionName
+      type: System.String
+    - id: keyCodes
+      type: Global.CustomKeyCode[]
+    content.vb: Public Shared Sub AddShortcut(actionName As String, ParamArray keyCodes As CustomKeyCode())
+  overload: Global.KeyboardShortcuts.AddShortcut*
+  nameWithType.vb: KeyboardShortcuts.AddShortcut(String, ParamArray CustomKeyCode())
+  fullName.vb: KeyboardShortcuts.AddShortcut(String, ParamArray CustomKeyCode())
+  name.vb: AddShortcut(String, ParamArray CustomKeyCode())
+- uid: Global.KeyboardShortcuts.AddShortcut(System.String,KeyboardShortcut)
+  commentId: M:Global.KeyboardShortcuts.AddShortcut(System.String,KeyboardShortcut)
+  id: AddShortcut(System.String,KeyboardShortcut)
+  parent: Global.KeyboardShortcuts
+  langs:
+  - csharp
+  - vb
+  name: AddShortcut(string, KeyboardShortcut)
+  nameWithType: KeyboardShortcuts.AddShortcut(string, KeyboardShortcut)
+  fullName: KeyboardShortcuts.AddShortcut(string, KeyboardShortcut)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Keyboard Shortcuts/KeyboardShortcuts.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: AddShortcut
+    path: ../Assets/Scripts/Keyboard Shortcuts/KeyboardShortcuts.cs
+    startLine: 122
+  namespace: Global
+  summary: Adds the given shortcut for the given action.
+  example: []
+  syntax:
+    content: public static void AddShortcut(string actionName, KeyboardShortcut shortcut)
+    parameters:
+    - id: actionName
+      type: System.String
+    - id: shortcut
+      type: Global.KeyboardShortcut
+    content.vb: Public Shared Sub AddShortcut(actionName As String, shortcut As KeyboardShortcut)
+  overload: Global.KeyboardShortcuts.AddShortcut*
+  nameWithType.vb: KeyboardShortcuts.AddShortcut(String, KeyboardShortcut)
+  fullName.vb: KeyboardShortcuts.AddShortcut(String, KeyboardShortcut)
+  name.vb: AddShortcut(String, KeyboardShortcut)
+- uid: Global.KeyboardShortcuts.SetShortcut(System.String,KeyboardShortcut)
+  commentId: M:Global.KeyboardShortcuts.SetShortcut(System.String,KeyboardShortcut)
+  id: SetShortcut(System.String,KeyboardShortcut)
+  parent: Global.KeyboardShortcuts
+  langs:
+  - csharp
+  - vb
+  name: SetShortcut(string, KeyboardShortcut)
+  nameWithType: KeyboardShortcuts.SetShortcut(string, KeyboardShortcut)
+  fullName: KeyboardShortcuts.SetShortcut(string, KeyboardShortcut)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Keyboard Shortcuts/KeyboardShortcuts.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: SetShortcut
+    path: ../Assets/Scripts/Keyboard Shortcuts/KeyboardShortcuts.cs
+    startLine: 134
+  namespace: Global
+  summary: Removes any existing shortcuts for the action then adds the given shortcut.
+  example: []
+  syntax:
+    content: public static void SetShortcut(string actionName, KeyboardShortcut shortcut)
+    parameters:
+    - id: actionName
+      type: System.String
+    - id: shortcut
+      type: Global.KeyboardShortcut
+    content.vb: Public Shared Sub SetShortcut(actionName As String, shortcut As KeyboardShortcut)
+  overload: Global.KeyboardShortcuts.SetShortcut*
+  nameWithType.vb: KeyboardShortcuts.SetShortcut(String, KeyboardShortcut)
+  fullName.vb: KeyboardShortcuts.SetShortcut(String, KeyboardShortcut)
+  name.vb: SetShortcut(String, KeyboardShortcut)
+- uid: Global.KeyboardShortcuts.ClearShortcutsFor(System.String)
+  commentId: M:Global.KeyboardShortcuts.ClearShortcutsFor(System.String)
+  id: ClearShortcutsFor(System.String)
+  parent: Global.KeyboardShortcuts
+  langs:
+  - csharp
+  - vb
+  name: ClearShortcutsFor(string)
+  nameWithType: KeyboardShortcuts.ClearShortcutsFor(string)
+  fullName: KeyboardShortcuts.ClearShortcutsFor(string)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Keyboard Shortcuts/KeyboardShortcuts.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: ClearShortcutsFor
+    path: ../Assets/Scripts/Keyboard Shortcuts/KeyboardShortcuts.cs
+    startLine: 143
+  namespace: Global
+  summary: Removes all shortcuts for the action.
+  example: []
+  syntax:
+    content: public static void ClearShortcutsFor(string actionName)
+    parameters:
+    - id: actionName
+      type: System.String
+    content.vb: Public Shared Sub ClearShortcutsFor(actionName As String)
+  overload: Global.KeyboardShortcuts.ClearShortcutsFor*
+  nameWithType.vb: KeyboardShortcuts.ClearShortcutsFor(String)
+  fullName.vb: KeyboardShortcuts.ClearShortcutsFor(String)
+  name.vb: ClearShortcutsFor(String)
+- uid: Global.KeyboardShortcuts.GetShortcutsFor(System.String)
+  commentId: M:Global.KeyboardShortcuts.GetShortcutsFor(System.String)
+  id: GetShortcutsFor(System.String)
+  parent: Global.KeyboardShortcuts
+  langs:
+  - csharp
+  - vb
+  name: GetShortcutsFor(string)
+  nameWithType: KeyboardShortcuts.GetShortcutsFor(string)
+  fullName: KeyboardShortcuts.GetShortcutsFor(string)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Keyboard Shortcuts/KeyboardShortcuts.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: GetShortcutsFor
+    path: ../Assets/Scripts/Keyboard Shortcuts/KeyboardShortcuts.cs
+    startLine: 155
+  namespace: Global
+  summary: Returns all shortcuts for the action.
+  example: []
+  syntax:
+    content: public static List<KeyboardShortcut> GetShortcutsFor(string actionName)
+    parameters:
+    - id: actionName
+      type: System.String
+    return:
+      type: System.Collections.Generic.List{KeyboardShortcut}
+    content.vb: Public Shared Function GetShortcutsFor(actionName As String) As List(Of KeyboardShortcut)
+  overload: Global.KeyboardShortcuts.GetShortcutsFor*
+  nameWithType.vb: KeyboardShortcuts.GetShortcutsFor(String)
+  fullName.vb: KeyboardShortcuts.GetShortcutsFor(String)
+  name.vb: GetShortcutsFor(String)
+- uid: Global.KeyboardShortcuts.ContainsShortcutFor(System.String)
+  commentId: M:Global.KeyboardShortcuts.ContainsShortcutFor(System.String)
+  id: ContainsShortcutFor(System.String)
+  parent: Global.KeyboardShortcuts
+  langs:
+  - csharp
+  - vb
+  name: ContainsShortcutFor(string)
+  nameWithType: KeyboardShortcuts.ContainsShortcutFor(string)
+  fullName: KeyboardShortcuts.ContainsShortcutFor(string)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Keyboard Shortcuts/KeyboardShortcuts.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: ContainsShortcutFor
+    path: ../Assets/Scripts/Keyboard Shortcuts/KeyboardShortcuts.cs
+    startLine: 167
+  namespace: Global
+  summary: Returns true if the action has a shortcut.
+  example: []
+  syntax:
+    content: public static bool ContainsShortcutFor(string actionName)
+    parameters:
+    - id: actionName
+      type: System.String
+    return:
+      type: System.Boolean
+    content.vb: Public Shared Function ContainsShortcutFor(actionName As String) As Boolean
+  overload: Global.KeyboardShortcuts.ContainsShortcutFor*
+  nameWithType.vb: KeyboardShortcuts.ContainsShortcutFor(String)
+  fullName.vb: KeyboardShortcuts.ContainsShortcutFor(String)
+  name.vb: ContainsShortcutFor(String)
+- uid: Global.KeyboardShortcuts.ContainsKey(System.String)
+  commentId: M:Global.KeyboardShortcuts.ContainsKey(System.String)
+  id: ContainsKey(System.String)
+  parent: Global.KeyboardShortcuts
+  langs:
+  - csharp
+  - vb
+  name: ContainsKey(string)
+  nameWithType: KeyboardShortcuts.ContainsKey(string)
+  fullName: KeyboardShortcuts.ContainsKey(string)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Keyboard Shortcuts/KeyboardShortcuts.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: ContainsKey
+    path: ../Assets/Scripts/Keyboard Shortcuts/KeyboardShortcuts.cs
+    startLine: 175
+  namespace: Global
+  summary: Returns true if the action is defined for having keyboard shortcuts.
+  example: []
+  syntax:
+    content: public static bool ContainsKey(string actionName)
+    parameters:
+    - id: actionName
+      type: System.String
+    return:
+      type: System.Boolean
+    content.vb: Public Shared Function ContainsKey(actionName As String) As Boolean
+  overload: Global.KeyboardShortcuts.ContainsKey*
+  nameWithType.vb: KeyboardShortcuts.ContainsKey(String)
+  fullName.vb: KeyboardShortcuts.ContainsKey(String)
+  name.vb: ContainsKey(String)
+references:
+- uid: Global
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Global.KeyboardShortcuts.shortcuts*
+  commentId: Overload:Global.KeyboardShortcuts.shortcuts
+  href: Global.KeyboardShortcuts.html#KeyboardShortcuts_shortcuts
+  name: shortcuts
+  nameWithType: KeyboardShortcuts.shortcuts
+  fullName: KeyboardShortcuts.shortcuts
+- uid: System.Collections.Generic.Dictionary{System.String,System.Collections.Generic.List{KeyboardShortcut}}
+  commentId: T:System.Collections.Generic.Dictionary{System.String,System.Collections.Generic.List{KeyboardShortcut}}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.Dictionary`2
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  name: Dictionary<string, List<KeyboardShortcut>>
+  nameWithType: Dictionary<string, List<KeyboardShortcut>>
+  fullName: System.Collections.Generic.Dictionary<string, System.Collections.Generic.List<KeyboardShortcut>>
+  nameWithType.vb: Dictionary(Of String, List(Of KeyboardShortcut))
+  fullName.vb: System.Collections.Generic.Dictionary(Of String, System.Collections.Generic.List(Of KeyboardShortcut))
+  name.vb: Dictionary(Of String, List(Of KeyboardShortcut))
+  spec.csharp:
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  - name: <
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: Global.KeyboardShortcut
+    name: KeyboardShortcut
+    href: KeyboardShortcut.html
+  - name: '>'
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Global.KeyboardShortcut
+    name: KeyboardShortcut
+    href: KeyboardShortcut.html
+  - name: )
+  - name: )
+- uid: System.Collections.Generic.Dictionary`2
+  commentId: T:System.Collections.Generic.Dictionary`2
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  name: Dictionary<TKey, TValue>
+  nameWithType: Dictionary<TKey, TValue>
+  fullName: System.Collections.Generic.Dictionary<TKey, TValue>
+  nameWithType.vb: Dictionary(Of TKey, TValue)
+  fullName.vb: System.Collections.Generic.Dictionary(Of TKey, TValue)
+  name.vb: Dictionary(Of TKey, TValue)
+  spec.csharp:
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  - name: <
+  - name: TKey
+  - name: ','
+  - name: " "
+  - name: TValue
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TKey
+  - name: ','
+  - name: " "
+  - name: TValue
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: Global.KeyboardShortcuts.LoadShortcuts*
+  commentId: Overload:Global.KeyboardShortcuts.LoadShortcuts
+  href: Global.KeyboardShortcuts.html#KeyboardShortcuts_LoadShortcuts
+  name: LoadShortcuts
+  nameWithType: KeyboardShortcuts.LoadShortcuts
+  fullName: KeyboardShortcuts.LoadShortcuts
+- uid: Global.KeyboardShortcuts.SaveShortcuts*
+  commentId: Overload:Global.KeyboardShortcuts.SaveShortcuts
+  href: Global.KeyboardShortcuts.html#KeyboardShortcuts_SaveShortcuts
+  name: SaveShortcuts
+  nameWithType: KeyboardShortcuts.SaveShortcuts
+  fullName: KeyboardShortcuts.SaveShortcuts
+- uid: Global.KeyboardShortcuts.ToJSON*
+  commentId: Overload:Global.KeyboardShortcuts.ToJSON
+  href: Global.KeyboardShortcuts.html#KeyboardShortcuts_ToJSON
+  name: ToJSON
+  nameWithType: KeyboardShortcuts.ToJSON
+  fullName: KeyboardShortcuts.ToJSON
+- uid: Global.JSON
+  commentId: T:Global.JSON
+  href: JSON.html
+  name: JSON
+  nameWithType: JSON
+  fullName: JSON
+- uid: Global.KeyboardShortcuts.AddShortcut*
+  commentId: Overload:Global.KeyboardShortcuts.AddShortcut
+  href: Global.KeyboardShortcuts.html#KeyboardShortcuts_AddShortcut_System_String_CustomKeyCode___
+  name: AddShortcut
+  nameWithType: KeyboardShortcuts.AddShortcut
+  fullName: KeyboardShortcuts.AddShortcut
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: Global.CustomKeyCode[]
+  isExternal: true
+  href: CustomKeyCode.html
+  name: CustomKeyCode[]
+  nameWithType: CustomKeyCode[]
+  fullName: CustomKeyCode[]
+  nameWithType.vb: CustomKeyCode()
+  fullName.vb: CustomKeyCode()
+  name.vb: CustomKeyCode()
+  spec.csharp:
+  - uid: Global.CustomKeyCode
+    name: CustomKeyCode
+    href: CustomKeyCode.html
+  - name: '['
+  - name: ']'
+  spec.vb:
+  - uid: Global.CustomKeyCode
+    name: CustomKeyCode
+    href: CustomKeyCode.html
+  - name: (
+  - name: )
+- uid: Global.KeyboardShortcut
+  commentId: T:Global.KeyboardShortcut
+  href: KeyboardShortcut.html
+  name: KeyboardShortcut
+  nameWithType: KeyboardShortcut
+  fullName: KeyboardShortcut
+- uid: Global.KeyboardShortcuts.SetShortcut*
+  commentId: Overload:Global.KeyboardShortcuts.SetShortcut
+  href: Global.KeyboardShortcuts.html#KeyboardShortcuts_SetShortcut_System_String_KeyboardShortcut_
+  name: SetShortcut
+  nameWithType: KeyboardShortcuts.SetShortcut
+  fullName: KeyboardShortcuts.SetShortcut
+- uid: Global.KeyboardShortcuts.ClearShortcutsFor*
+  commentId: Overload:Global.KeyboardShortcuts.ClearShortcutsFor
+  href: Global.KeyboardShortcuts.html#KeyboardShortcuts_ClearShortcutsFor_System_String_
+  name: ClearShortcutsFor
+  nameWithType: KeyboardShortcuts.ClearShortcutsFor
+  fullName: KeyboardShortcuts.ClearShortcutsFor
+- uid: Global.KeyboardShortcuts.GetShortcutsFor*
+  commentId: Overload:Global.KeyboardShortcuts.GetShortcutsFor
+  href: Global.KeyboardShortcuts.html#KeyboardShortcuts_GetShortcutsFor_System_String_
+  name: GetShortcutsFor
+  nameWithType: KeyboardShortcuts.GetShortcutsFor
+  fullName: KeyboardShortcuts.GetShortcutsFor
+- uid: System.Collections.Generic.List{KeyboardShortcut}
+  commentId: T:System.Collections.Generic.List{KeyboardShortcut}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<KeyboardShortcut>
+  nameWithType: List<KeyboardShortcut>
+  fullName: System.Collections.Generic.List<KeyboardShortcut>
+  nameWithType.vb: List(Of KeyboardShortcut)
+  fullName.vb: System.Collections.Generic.List(Of KeyboardShortcut)
+  name.vb: List(Of KeyboardShortcut)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: Global.KeyboardShortcut
+    name: KeyboardShortcut
+    href: KeyboardShortcut.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Global.KeyboardShortcut
+    name: KeyboardShortcut
+    href: KeyboardShortcut.html
+  - name: )
+- uid: System.Collections.Generic.List`1
+  commentId: T:System.Collections.Generic.List`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<T>
+  nameWithType: List<T>
+  fullName: System.Collections.Generic.List<T>
+  nameWithType.vb: List(Of T)
+  fullName.vb: System.Collections.Generic.List(Of T)
+  name.vb: List(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: Global.KeyboardShortcuts.ContainsShortcutFor*
+  commentId: Overload:Global.KeyboardShortcuts.ContainsShortcutFor
+  href: Global.KeyboardShortcuts.html#KeyboardShortcuts_ContainsShortcutFor_System_String_
+  name: ContainsShortcutFor
+  nameWithType: KeyboardShortcuts.ContainsShortcutFor
+  fullName: KeyboardShortcuts.ContainsShortcutFor
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: Global.KeyboardShortcuts.ContainsKey*
+  commentId: Overload:Global.KeyboardShortcuts.ContainsKey
+  href: Global.KeyboardShortcuts.html#KeyboardShortcuts_ContainsKey_System_String_
+  name: ContainsKey
+  nameWithType: KeyboardShortcuts.ContainsKey
+  fullName: KeyboardShortcuts.ContainsKey

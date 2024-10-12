@@ -1,0 +1,802 @@
+### YamlMime:ManagedReference
+items:
+- uid: Global.ImageEditManager
+  commentId: T:Global.ImageEditManager
+  id: ImageEditManager
+  parent: Global
+  children:
+  - Global.ImageEditManager.ExtendFile(System.Int32,System.Int32,System.Int32,System.Int32)
+  - Global.ImageEditManager.ExtendFileDown(System.Int32)
+  - Global.ImageEditManager.ExtendFileLeft(System.Int32)
+  - Global.ImageEditManager.ExtendFileRight(System.Int32)
+  - Global.ImageEditManager.ExtendFileUp(System.Int32)
+  - Global.ImageEditManager.FlipFile(FlipDirection)
+  - Global.ImageEditManager.FlipFileX
+  - Global.ImageEditManager.FlipFileY
+  - Global.ImageEditManager.FlipSelectedLayers(FlipDirection)
+  - Global.ImageEditManager.FlipSelectedLayersX
+  - Global.ImageEditManager.FlipSelectedLayersY
+  - Global.ImageEditManager.RotateFile(RotationAngle)
+  - Global.ImageEditManager.RotateSelectedLayers(RotationAngle)
+  - Global.ImageEditManager.RotateSelectedLayers180
+  - Global.ImageEditManager.RotateSelectedLayers90
+  - Global.ImageEditManager.RotateSelectedLayersMinus90
+  - Global.ImageEditManager.ScaleFile(System.Int32,System.Int32)
+  - Global.ImageEditManager.ScaleFile(System.Single)
+  - Global.ImageEditManager.ScaleFile(System.Single,System.Single)
+  - Global.ImageEditManager.SubscribeToEdit(UnityAction)
+  - Global.ImageEditManager.SubscribeToImageSizeChanged(UnityAction)
+  langs:
+  - csharp
+  - vb
+  name: ImageEditManager
+  nameWithType: ImageEditManager
+  fullName: ImageEditManager
+  type: Class
+  source:
+    remote:
+      path: Assets/Scripts/Files/ImageEditManager.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: ImageEditManager
+    path: ../Assets/Scripts/Files/ImageEditManager.cs
+    startLine: 5
+  namespace: Global
+  syntax:
+    content: 'public class ImageEditManager : MonoBehaviour'
+    content.vb: Public Class ImageEditManager Inherits MonoBehaviour
+  inheritance:
+  - System.Object
+- uid: Global.ImageEditManager.FlipSelectedLayers(FlipDirection)
+  commentId: M:Global.ImageEditManager.FlipSelectedLayers(FlipDirection)
+  id: FlipSelectedLayers(FlipDirection)
+  parent: Global.ImageEditManager
+  langs:
+  - csharp
+  - vb
+  name: FlipSelectedLayers(FlipDirection)
+  nameWithType: ImageEditManager.FlipSelectedLayers(FlipDirection)
+  fullName: ImageEditManager.FlipSelectedLayers(FlipDirection)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Files/ImageEditManager.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: FlipSelectedLayers
+    path: ../Assets/Scripts/Files/ImageEditManager.cs
+    startLine: 24
+  namespace: Global
+  syntax:
+    content: public void FlipSelectedLayers(FlipDirection direction)
+    parameters:
+    - id: direction
+      type: Global.FlipDirection
+    content.vb: Public Sub FlipSelectedLayers(direction As FlipDirection)
+  overload: Global.ImageEditManager.FlipSelectedLayers*
+- uid: Global.ImageEditManager.FlipSelectedLayersX
+  commentId: M:Global.ImageEditManager.FlipSelectedLayersX
+  id: FlipSelectedLayersX
+  parent: Global.ImageEditManager
+  langs:
+  - csharp
+  - vb
+  name: FlipSelectedLayersX()
+  nameWithType: ImageEditManager.FlipSelectedLayersX()
+  fullName: ImageEditManager.FlipSelectedLayersX()
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Files/ImageEditManager.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: FlipSelectedLayersX
+    path: ../Assets/Scripts/Files/ImageEditManager.cs
+    startLine: 32
+  namespace: Global
+  syntax:
+    content: public void FlipSelectedLayersX()
+    content.vb: Public Sub FlipSelectedLayersX()
+  overload: Global.ImageEditManager.FlipSelectedLayersX*
+- uid: Global.ImageEditManager.FlipSelectedLayersY
+  commentId: M:Global.ImageEditManager.FlipSelectedLayersY
+  id: FlipSelectedLayersY
+  parent: Global.ImageEditManager
+  langs:
+  - csharp
+  - vb
+  name: FlipSelectedLayersY()
+  nameWithType: ImageEditManager.FlipSelectedLayersY()
+  fullName: ImageEditManager.FlipSelectedLayersY()
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Files/ImageEditManager.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: FlipSelectedLayersY
+    path: ../Assets/Scripts/Files/ImageEditManager.cs
+    startLine: 33
+  namespace: Global
+  syntax:
+    content: public void FlipSelectedLayersY()
+    content.vb: Public Sub FlipSelectedLayersY()
+  overload: Global.ImageEditManager.FlipSelectedLayersY*
+- uid: Global.ImageEditManager.FlipFile(FlipDirection)
+  commentId: M:Global.ImageEditManager.FlipFile(FlipDirection)
+  id: FlipFile(FlipDirection)
+  parent: Global.ImageEditManager
+  langs:
+  - csharp
+  - vb
+  name: FlipFile(FlipDirection)
+  nameWithType: ImageEditManager.FlipFile(FlipDirection)
+  fullName: ImageEditManager.FlipFile(FlipDirection)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Files/ImageEditManager.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: FlipFile
+    path: ../Assets/Scripts/Files/ImageEditManager.cs
+    startLine: 35
+  namespace: Global
+  syntax:
+    content: public void FlipFile(FlipDirection direction)
+    parameters:
+    - id: direction
+      type: Global.FlipDirection
+    content.vb: Public Sub FlipFile(direction As FlipDirection)
+  overload: Global.ImageEditManager.FlipFile*
+- uid: Global.ImageEditManager.FlipFileX
+  commentId: M:Global.ImageEditManager.FlipFileX
+  id: FlipFileX
+  parent: Global.ImageEditManager
+  langs:
+  - csharp
+  - vb
+  name: FlipFileX()
+  nameWithType: ImageEditManager.FlipFileX()
+  fullName: ImageEditManager.FlipFileX()
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Files/ImageEditManager.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: FlipFileX
+    path: ../Assets/Scripts/Files/ImageEditManager.cs
+    startLine: 40
+  namespace: Global
+  syntax:
+    content: public void FlipFileX()
+    content.vb: Public Sub FlipFileX()
+  overload: Global.ImageEditManager.FlipFileX*
+- uid: Global.ImageEditManager.FlipFileY
+  commentId: M:Global.ImageEditManager.FlipFileY
+  id: FlipFileY
+  parent: Global.ImageEditManager
+  langs:
+  - csharp
+  - vb
+  name: FlipFileY()
+  nameWithType: ImageEditManager.FlipFileY()
+  fullName: ImageEditManager.FlipFileY()
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Files/ImageEditManager.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: FlipFileY
+    path: ../Assets/Scripts/Files/ImageEditManager.cs
+    startLine: 41
+  namespace: Global
+  syntax:
+    content: public void FlipFileY()
+    content.vb: Public Sub FlipFileY()
+  overload: Global.ImageEditManager.FlipFileY*
+- uid: Global.ImageEditManager.RotateFile(RotationAngle)
+  commentId: M:Global.ImageEditManager.RotateFile(RotationAngle)
+  id: RotateFile(RotationAngle)
+  parent: Global.ImageEditManager
+  langs:
+  - csharp
+  - vb
+  name: RotateFile(RotationAngle)
+  nameWithType: ImageEditManager.RotateFile(RotationAngle)
+  fullName: ImageEditManager.RotateFile(RotationAngle)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Files/ImageEditManager.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: RotateFile
+    path: ../Assets/Scripts/Files/ImageEditManager.cs
+    startLine: 43
+  namespace: Global
+  syntax:
+    content: public void RotateFile(RotationAngle angle)
+    parameters:
+    - id: angle
+      type: Global.RotationAngle
+    content.vb: Public Sub RotateFile(angle As RotationAngle)
+  overload: Global.ImageEditManager.RotateFile*
+- uid: Global.ImageEditManager.RotateSelectedLayers(RotationAngle)
+  commentId: M:Global.ImageEditManager.RotateSelectedLayers(RotationAngle)
+  id: RotateSelectedLayers(RotationAngle)
+  parent: Global.ImageEditManager
+  langs:
+  - csharp
+  - vb
+  name: RotateSelectedLayers(RotationAngle)
+  nameWithType: ImageEditManager.RotateSelectedLayers(RotationAngle)
+  fullName: ImageEditManager.RotateSelectedLayers(RotationAngle)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Files/ImageEditManager.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: RotateSelectedLayers
+    path: ../Assets/Scripts/Files/ImageEditManager.cs
+    startLine: 53
+  namespace: Global
+  syntax:
+    content: public void RotateSelectedLayers(RotationAngle angle)
+    parameters:
+    - id: angle
+      type: Global.RotationAngle
+    content.vb: Public Sub RotateSelectedLayers(angle As RotationAngle)
+  overload: Global.ImageEditManager.RotateSelectedLayers*
+- uid: Global.ImageEditManager.RotateSelectedLayers90
+  commentId: M:Global.ImageEditManager.RotateSelectedLayers90
+  id: RotateSelectedLayers90
+  parent: Global.ImageEditManager
+  langs:
+  - csharp
+  - vb
+  name: RotateSelectedLayers90()
+  nameWithType: ImageEditManager.RotateSelectedLayers90()
+  fullName: ImageEditManager.RotateSelectedLayers90()
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Files/ImageEditManager.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: RotateSelectedLayers90
+    path: ../Assets/Scripts/Files/ImageEditManager.cs
+    startLine: 82
+  namespace: Global
+  syntax:
+    content: public void RotateSelectedLayers90()
+    content.vb: Public Sub RotateSelectedLayers90()
+  overload: Global.ImageEditManager.RotateSelectedLayers90*
+- uid: Global.ImageEditManager.RotateSelectedLayersMinus90
+  commentId: M:Global.ImageEditManager.RotateSelectedLayersMinus90
+  id: RotateSelectedLayersMinus90
+  parent: Global.ImageEditManager
+  langs:
+  - csharp
+  - vb
+  name: RotateSelectedLayersMinus90()
+  nameWithType: ImageEditManager.RotateSelectedLayersMinus90()
+  fullName: ImageEditManager.RotateSelectedLayersMinus90()
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Files/ImageEditManager.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: RotateSelectedLayersMinus90
+    path: ../Assets/Scripts/Files/ImageEditManager.cs
+    startLine: 83
+  namespace: Global
+  syntax:
+    content: public void RotateSelectedLayersMinus90()
+    content.vb: Public Sub RotateSelectedLayersMinus90()
+  overload: Global.ImageEditManager.RotateSelectedLayersMinus90*
+- uid: Global.ImageEditManager.RotateSelectedLayers180
+  commentId: M:Global.ImageEditManager.RotateSelectedLayers180
+  id: RotateSelectedLayers180
+  parent: Global.ImageEditManager
+  langs:
+  - csharp
+  - vb
+  name: RotateSelectedLayers180()
+  nameWithType: ImageEditManager.RotateSelectedLayers180()
+  fullName: ImageEditManager.RotateSelectedLayers180()
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Files/ImageEditManager.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: RotateSelectedLayers180
+    path: ../Assets/Scripts/Files/ImageEditManager.cs
+    startLine: 84
+  namespace: Global
+  syntax:
+    content: public void RotateSelectedLayers180()
+    content.vb: Public Sub RotateSelectedLayers180()
+  overload: Global.ImageEditManager.RotateSelectedLayers180*
+- uid: Global.ImageEditManager.ExtendFile(System.Int32,System.Int32,System.Int32,System.Int32)
+  commentId: M:Global.ImageEditManager.ExtendFile(System.Int32,System.Int32,System.Int32,System.Int32)
+  id: ExtendFile(System.Int32,System.Int32,System.Int32,System.Int32)
+  parent: Global.ImageEditManager
+  langs:
+  - csharp
+  - vb
+  name: ExtendFile(int, int, int, int)
+  nameWithType: ImageEditManager.ExtendFile(int, int, int, int)
+  fullName: ImageEditManager.ExtendFile(int, int, int, int)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Files/ImageEditManager.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: ExtendFile
+    path: ../Assets/Scripts/Files/ImageEditManager.cs
+    startLine: 86
+  namespace: Global
+  syntax:
+    content: public void ExtendFile(int left, int right, int up, int down)
+    parameters:
+    - id: left
+      type: System.Int32
+    - id: right
+      type: System.Int32
+    - id: up
+      type: System.Int32
+    - id: down
+      type: System.Int32
+    content.vb: Public Sub ExtendFile(left As Integer, right As Integer, up As Integer, down As Integer)
+  overload: Global.ImageEditManager.ExtendFile*
+  nameWithType.vb: ImageEditManager.ExtendFile(Integer, Integer, Integer, Integer)
+  fullName.vb: ImageEditManager.ExtendFile(Integer, Integer, Integer, Integer)
+  name.vb: ExtendFile(Integer, Integer, Integer, Integer)
+- uid: Global.ImageEditManager.ExtendFileLeft(System.Int32)
+  commentId: M:Global.ImageEditManager.ExtendFileLeft(System.Int32)
+  id: ExtendFileLeft(System.Int32)
+  parent: Global.ImageEditManager
+  langs:
+  - csharp
+  - vb
+  name: ExtendFileLeft(int)
+  nameWithType: ImageEditManager.ExtendFileLeft(int)
+  fullName: ImageEditManager.ExtendFileLeft(int)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Files/ImageEditManager.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: ExtendFileLeft
+    path: ../Assets/Scripts/Files/ImageEditManager.cs
+    startLine: 96
+  namespace: Global
+  syntax:
+    content: public void ExtendFileLeft(int amount)
+    parameters:
+    - id: amount
+      type: System.Int32
+    content.vb: Public Sub ExtendFileLeft(amount As Integer)
+  overload: Global.ImageEditManager.ExtendFileLeft*
+  nameWithType.vb: ImageEditManager.ExtendFileLeft(Integer)
+  fullName.vb: ImageEditManager.ExtendFileLeft(Integer)
+  name.vb: ExtendFileLeft(Integer)
+- uid: Global.ImageEditManager.ExtendFileRight(System.Int32)
+  commentId: M:Global.ImageEditManager.ExtendFileRight(System.Int32)
+  id: ExtendFileRight(System.Int32)
+  parent: Global.ImageEditManager
+  langs:
+  - csharp
+  - vb
+  name: ExtendFileRight(int)
+  nameWithType: ImageEditManager.ExtendFileRight(int)
+  fullName: ImageEditManager.ExtendFileRight(int)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Files/ImageEditManager.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: ExtendFileRight
+    path: ../Assets/Scripts/Files/ImageEditManager.cs
+    startLine: 97
+  namespace: Global
+  syntax:
+    content: public void ExtendFileRight(int amount)
+    parameters:
+    - id: amount
+      type: System.Int32
+    content.vb: Public Sub ExtendFileRight(amount As Integer)
+  overload: Global.ImageEditManager.ExtendFileRight*
+  nameWithType.vb: ImageEditManager.ExtendFileRight(Integer)
+  fullName.vb: ImageEditManager.ExtendFileRight(Integer)
+  name.vb: ExtendFileRight(Integer)
+- uid: Global.ImageEditManager.ExtendFileUp(System.Int32)
+  commentId: M:Global.ImageEditManager.ExtendFileUp(System.Int32)
+  id: ExtendFileUp(System.Int32)
+  parent: Global.ImageEditManager
+  langs:
+  - csharp
+  - vb
+  name: ExtendFileUp(int)
+  nameWithType: ImageEditManager.ExtendFileUp(int)
+  fullName: ImageEditManager.ExtendFileUp(int)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Files/ImageEditManager.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: ExtendFileUp
+    path: ../Assets/Scripts/Files/ImageEditManager.cs
+    startLine: 98
+  namespace: Global
+  syntax:
+    content: public void ExtendFileUp(int amount)
+    parameters:
+    - id: amount
+      type: System.Int32
+    content.vb: Public Sub ExtendFileUp(amount As Integer)
+  overload: Global.ImageEditManager.ExtendFileUp*
+  nameWithType.vb: ImageEditManager.ExtendFileUp(Integer)
+  fullName.vb: ImageEditManager.ExtendFileUp(Integer)
+  name.vb: ExtendFileUp(Integer)
+- uid: Global.ImageEditManager.ExtendFileDown(System.Int32)
+  commentId: M:Global.ImageEditManager.ExtendFileDown(System.Int32)
+  id: ExtendFileDown(System.Int32)
+  parent: Global.ImageEditManager
+  langs:
+  - csharp
+  - vb
+  name: ExtendFileDown(int)
+  nameWithType: ImageEditManager.ExtendFileDown(int)
+  fullName: ImageEditManager.ExtendFileDown(int)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Files/ImageEditManager.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: ExtendFileDown
+    path: ../Assets/Scripts/Files/ImageEditManager.cs
+    startLine: 99
+  namespace: Global
+  syntax:
+    content: public void ExtendFileDown(int amount)
+    parameters:
+    - id: amount
+      type: System.Int32
+    content.vb: Public Sub ExtendFileDown(amount As Integer)
+  overload: Global.ImageEditManager.ExtendFileDown*
+  nameWithType.vb: ImageEditManager.ExtendFileDown(Integer)
+  fullName.vb: ImageEditManager.ExtendFileDown(Integer)
+  name.vb: ExtendFileDown(Integer)
+- uid: Global.ImageEditManager.ScaleFile(System.Single)
+  commentId: M:Global.ImageEditManager.ScaleFile(System.Single)
+  id: ScaleFile(System.Single)
+  parent: Global.ImageEditManager
+  langs:
+  - csharp
+  - vb
+  name: ScaleFile(float)
+  nameWithType: ImageEditManager.ScaleFile(float)
+  fullName: ImageEditManager.ScaleFile(float)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Files/ImageEditManager.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: ScaleFile
+    path: ../Assets/Scripts/Files/ImageEditManager.cs
+    startLine: 101
+  namespace: Global
+  syntax:
+    content: public void ScaleFile(float scaleFactor)
+    parameters:
+    - id: scaleFactor
+      type: System.Single
+    content.vb: Public Sub ScaleFile(scaleFactor As Single)
+  overload: Global.ImageEditManager.ScaleFile*
+  nameWithType.vb: ImageEditManager.ScaleFile(Single)
+  fullName.vb: ImageEditManager.ScaleFile(Single)
+  name.vb: ScaleFile(Single)
+- uid: Global.ImageEditManager.ScaleFile(System.Single,System.Single)
+  commentId: M:Global.ImageEditManager.ScaleFile(System.Single,System.Single)
+  id: ScaleFile(System.Single,System.Single)
+  parent: Global.ImageEditManager
+  langs:
+  - csharp
+  - vb
+  name: ScaleFile(float, float)
+  nameWithType: ImageEditManager.ScaleFile(float, float)
+  fullName: ImageEditManager.ScaleFile(float, float)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Files/ImageEditManager.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: ScaleFile
+    path: ../Assets/Scripts/Files/ImageEditManager.cs
+    startLine: 111
+  namespace: Global
+  syntax:
+    content: public void ScaleFile(float xScaleFactor, float yScaleFactor)
+    parameters:
+    - id: xScaleFactor
+      type: System.Single
+    - id: yScaleFactor
+      type: System.Single
+    content.vb: Public Sub ScaleFile(xScaleFactor As Single, yScaleFactor As Single)
+  overload: Global.ImageEditManager.ScaleFile*
+  nameWithType.vb: ImageEditManager.ScaleFile(Single, Single)
+  fullName.vb: ImageEditManager.ScaleFile(Single, Single)
+  name.vb: ScaleFile(Single, Single)
+- uid: Global.ImageEditManager.ScaleFile(System.Int32,System.Int32)
+  commentId: M:Global.ImageEditManager.ScaleFile(System.Int32,System.Int32)
+  id: ScaleFile(System.Int32,System.Int32)
+  parent: Global.ImageEditManager
+  langs:
+  - csharp
+  - vb
+  name: ScaleFile(int, int)
+  nameWithType: ImageEditManager.ScaleFile(int, int)
+  fullName: ImageEditManager.ScaleFile(int, int)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Files/ImageEditManager.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: ScaleFile
+    path: ../Assets/Scripts/Files/ImageEditManager.cs
+    startLine: 121
+  namespace: Global
+  syntax:
+    content: public void ScaleFile(int newWidth, int newHeight)
+    parameters:
+    - id: newWidth
+      type: System.Int32
+    - id: newHeight
+      type: System.Int32
+    content.vb: Public Sub ScaleFile(newWidth As Integer, newHeight As Integer)
+  overload: Global.ImageEditManager.ScaleFile*
+  nameWithType.vb: ImageEditManager.ScaleFile(Integer, Integer)
+  fullName.vb: ImageEditManager.ScaleFile(Integer, Integer)
+  name.vb: ScaleFile(Integer, Integer)
+- uid: Global.ImageEditManager.SubscribeToEdit(UnityAction)
+  commentId: M:Global.ImageEditManager.SubscribeToEdit(UnityAction)
+  id: SubscribeToEdit(UnityAction)
+  parent: Global.ImageEditManager
+  langs:
+  - csharp
+  - vb
+  name: SubscribeToEdit(UnityAction)
+  nameWithType: ImageEditManager.SubscribeToEdit(UnityAction)
+  fullName: ImageEditManager.SubscribeToEdit(UnityAction)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Files/ImageEditManager.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: SubscribeToEdit
+    path: ../Assets/Scripts/Files/ImageEditManager.cs
+    startLine: 135
+  namespace: Global
+  syntax:
+    content: public void SubscribeToEdit(UnityAction call)
+    parameters:
+    - id: call
+      type: Global.UnityAction
+    content.vb: Public Sub SubscribeToEdit([call] As UnityAction)
+  overload: Global.ImageEditManager.SubscribeToEdit*
+- uid: Global.ImageEditManager.SubscribeToImageSizeChanged(UnityAction)
+  commentId: M:Global.ImageEditManager.SubscribeToImageSizeChanged(UnityAction)
+  id: SubscribeToImageSizeChanged(UnityAction)
+  parent: Global.ImageEditManager
+  langs:
+  - csharp
+  - vb
+  name: SubscribeToImageSizeChanged(UnityAction)
+  nameWithType: ImageEditManager.SubscribeToImageSizeChanged(UnityAction)
+  fullName: ImageEditManager.SubscribeToImageSizeChanged(UnityAction)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Files/ImageEditManager.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: SubscribeToImageSizeChanged
+    path: ../Assets/Scripts/Files/ImageEditManager.cs
+    startLine: 139
+  namespace: Global
+  syntax:
+    content: public void SubscribeToImageSizeChanged(UnityAction call)
+    parameters:
+    - id: call
+      type: Global.UnityAction
+    content.vb: Public Sub SubscribeToImageSizeChanged([call] As UnityAction)
+  overload: Global.ImageEditManager.SubscribeToImageSizeChanged*
+references:
+- uid: Global
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Global.ImageEditManager.FlipSelectedLayers*
+  commentId: Overload:Global.ImageEditManager.FlipSelectedLayers
+  href: Global.ImageEditManager.html#ImageEditManager_FlipSelectedLayers_FlipDirection_
+  name: FlipSelectedLayers
+  nameWithType: ImageEditManager.FlipSelectedLayers
+  fullName: ImageEditManager.FlipSelectedLayers
+- uid: Global.FlipDirection
+  commentId: T:Global.FlipDirection
+  href: FlipDirection.html
+  name: FlipDirection
+  nameWithType: FlipDirection
+  fullName: FlipDirection
+- uid: Global.ImageEditManager.FlipSelectedLayersX*
+  commentId: Overload:Global.ImageEditManager.FlipSelectedLayersX
+  href: Global.ImageEditManager.html#ImageEditManager_FlipSelectedLayersX
+  name: FlipSelectedLayersX
+  nameWithType: ImageEditManager.FlipSelectedLayersX
+  fullName: ImageEditManager.FlipSelectedLayersX
+- uid: Global.ImageEditManager.FlipSelectedLayersY*
+  commentId: Overload:Global.ImageEditManager.FlipSelectedLayersY
+  href: Global.ImageEditManager.html#ImageEditManager_FlipSelectedLayersY
+  name: FlipSelectedLayersY
+  nameWithType: ImageEditManager.FlipSelectedLayersY
+  fullName: ImageEditManager.FlipSelectedLayersY
+- uid: Global.ImageEditManager.FlipFile*
+  commentId: Overload:Global.ImageEditManager.FlipFile
+  href: Global.ImageEditManager.html#ImageEditManager_FlipFile_FlipDirection_
+  name: FlipFile
+  nameWithType: ImageEditManager.FlipFile
+  fullName: ImageEditManager.FlipFile
+- uid: Global.ImageEditManager.FlipFileX*
+  commentId: Overload:Global.ImageEditManager.FlipFileX
+  href: Global.ImageEditManager.html#ImageEditManager_FlipFileX
+  name: FlipFileX
+  nameWithType: ImageEditManager.FlipFileX
+  fullName: ImageEditManager.FlipFileX
+- uid: Global.ImageEditManager.FlipFileY*
+  commentId: Overload:Global.ImageEditManager.FlipFileY
+  href: Global.ImageEditManager.html#ImageEditManager_FlipFileY
+  name: FlipFileY
+  nameWithType: ImageEditManager.FlipFileY
+  fullName: ImageEditManager.FlipFileY
+- uid: Global.ImageEditManager.RotateFile*
+  commentId: Overload:Global.ImageEditManager.RotateFile
+  href: Global.ImageEditManager.html#ImageEditManager_RotateFile_RotationAngle_
+  name: RotateFile
+  nameWithType: ImageEditManager.RotateFile
+  fullName: ImageEditManager.RotateFile
+- uid: Global.RotationAngle
+  commentId: T:Global.RotationAngle
+  href: RotationAngle.html
+  name: RotationAngle
+  nameWithType: RotationAngle
+  fullName: RotationAngle
+- uid: Global.ImageEditManager.RotateSelectedLayers*
+  commentId: Overload:Global.ImageEditManager.RotateSelectedLayers
+  href: Global.ImageEditManager.html#ImageEditManager_RotateSelectedLayers_RotationAngle_
+  name: RotateSelectedLayers
+  nameWithType: ImageEditManager.RotateSelectedLayers
+  fullName: ImageEditManager.RotateSelectedLayers
+- uid: Global.ImageEditManager.RotateSelectedLayers90*
+  commentId: Overload:Global.ImageEditManager.RotateSelectedLayers90
+  href: Global.ImageEditManager.html#ImageEditManager_RotateSelectedLayers90
+  name: RotateSelectedLayers90
+  nameWithType: ImageEditManager.RotateSelectedLayers90
+  fullName: ImageEditManager.RotateSelectedLayers90
+- uid: Global.ImageEditManager.RotateSelectedLayersMinus90*
+  commentId: Overload:Global.ImageEditManager.RotateSelectedLayersMinus90
+  href: Global.ImageEditManager.html#ImageEditManager_RotateSelectedLayersMinus90
+  name: RotateSelectedLayersMinus90
+  nameWithType: ImageEditManager.RotateSelectedLayersMinus90
+  fullName: ImageEditManager.RotateSelectedLayersMinus90
+- uid: Global.ImageEditManager.RotateSelectedLayers180*
+  commentId: Overload:Global.ImageEditManager.RotateSelectedLayers180
+  href: Global.ImageEditManager.html#ImageEditManager_RotateSelectedLayers180
+  name: RotateSelectedLayers180
+  nameWithType: ImageEditManager.RotateSelectedLayers180
+  fullName: ImageEditManager.RotateSelectedLayers180
+- uid: Global.ImageEditManager.ExtendFile*
+  commentId: Overload:Global.ImageEditManager.ExtendFile
+  href: Global.ImageEditManager.html#ImageEditManager_ExtendFile_System_Int32_System_Int32_System_Int32_System_Int32_
+  name: ExtendFile
+  nameWithType: ImageEditManager.ExtendFile
+  fullName: ImageEditManager.ExtendFile
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: Global.ImageEditManager.ExtendFileLeft*
+  commentId: Overload:Global.ImageEditManager.ExtendFileLeft
+  href: Global.ImageEditManager.html#ImageEditManager_ExtendFileLeft_System_Int32_
+  name: ExtendFileLeft
+  nameWithType: ImageEditManager.ExtendFileLeft
+  fullName: ImageEditManager.ExtendFileLeft
+- uid: Global.ImageEditManager.ExtendFileRight*
+  commentId: Overload:Global.ImageEditManager.ExtendFileRight
+  href: Global.ImageEditManager.html#ImageEditManager_ExtendFileRight_System_Int32_
+  name: ExtendFileRight
+  nameWithType: ImageEditManager.ExtendFileRight
+  fullName: ImageEditManager.ExtendFileRight
+- uid: Global.ImageEditManager.ExtendFileUp*
+  commentId: Overload:Global.ImageEditManager.ExtendFileUp
+  href: Global.ImageEditManager.html#ImageEditManager_ExtendFileUp_System_Int32_
+  name: ExtendFileUp
+  nameWithType: ImageEditManager.ExtendFileUp
+  fullName: ImageEditManager.ExtendFileUp
+- uid: Global.ImageEditManager.ExtendFileDown*
+  commentId: Overload:Global.ImageEditManager.ExtendFileDown
+  href: Global.ImageEditManager.html#ImageEditManager_ExtendFileDown_System_Int32_
+  name: ExtendFileDown
+  nameWithType: ImageEditManager.ExtendFileDown
+  fullName: ImageEditManager.ExtendFileDown
+- uid: Global.ImageEditManager.ScaleFile*
+  commentId: Overload:Global.ImageEditManager.ScaleFile
+  href: Global.ImageEditManager.html#ImageEditManager_ScaleFile_System_Single_
+  name: ScaleFile
+  nameWithType: ImageEditManager.ScaleFile
+  fullName: ImageEditManager.ScaleFile
+- uid: System.Single
+  commentId: T:System.Single
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.single
+  name: float
+  nameWithType: float
+  fullName: float
+  nameWithType.vb: Single
+  fullName.vb: Single
+  name.vb: Single
+- uid: Global.ImageEditManager.SubscribeToEdit*
+  commentId: Overload:Global.ImageEditManager.SubscribeToEdit
+  href: Global.ImageEditManager.html#ImageEditManager_SubscribeToEdit_UnityAction_
+  name: SubscribeToEdit
+  nameWithType: ImageEditManager.SubscribeToEdit
+  fullName: ImageEditManager.SubscribeToEdit
+- uid: Global.UnityAction
+  isExternal: true
+  name: UnityAction
+  nameWithType: UnityAction
+  fullName: UnityAction
+- uid: Global.ImageEditManager.SubscribeToImageSizeChanged*
+  commentId: Overload:Global.ImageEditManager.SubscribeToImageSizeChanged
+  href: Global.ImageEditManager.html#ImageEditManager_SubscribeToImageSizeChanged_UnityAction_
+  name: SubscribeToImageSizeChanged
+  nameWithType: ImageEditManager.SubscribeToImageSizeChanged
+  fullName: ImageEditManager.SubscribeToImageSizeChanged

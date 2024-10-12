@@ -1,0 +1,242 @@
+### YamlMime:ManagedReference
+items:
+- uid: Global.Outline
+  commentId: T:Global.Outline
+  id: Outline
+  parent: Global
+  children:
+  - Global.Outline.colour
+  - Global.Outline.keepExistingTexture
+  - Global.Outline.outlineEnabled
+  - Global.Outline.outlineMaterial
+  - Global.Outline.thickness
+  langs:
+  - csharp
+  - vb
+  name: Outline
+  nameWithType: Outline
+  fullName: Outline
+  type: Class
+  source:
+    remote:
+      path: Assets/Scripts/Shaders/Outline.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: Outline
+    path: ../Assets/Scripts/Shaders/Outline.cs
+    startLine: 4
+  namespace: Global
+  syntax:
+    content: 'public class Outline : MonoBehaviour'
+    content.vb: Public Class Outline Inherits MonoBehaviour
+  inheritance:
+  - System.Object
+- uid: Global.Outline.outlineEnabled
+  commentId: P:Global.Outline.outlineEnabled
+  id: outlineEnabled
+  parent: Global.Outline
+  langs:
+  - csharp
+  - vb
+  name: outlineEnabled
+  nameWithType: Outline.outlineEnabled
+  fullName: Outline.outlineEnabled
+  type: Property
+  source:
+    remote:
+      path: Assets/Scripts/Shaders/Outline.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: outlineEnabled
+    path: ../Assets/Scripts/Shaders/Outline.cs
+    startLine: 9
+  namespace: Global
+  syntax:
+    content: public bool outlineEnabled { get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property outlineEnabled As Boolean
+  overload: Global.Outline.outlineEnabled*
+- uid: Global.Outline.colour
+  commentId: P:Global.Outline.colour
+  id: colour
+  parent: Global.Outline
+  langs:
+  - csharp
+  - vb
+  name: colour
+  nameWithType: Outline.colour
+  fullName: Outline.colour
+  type: Property
+  source:
+    remote:
+      path: Assets/Scripts/Shaders/Outline.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: colour
+    path: ../Assets/Scripts/Shaders/Outline.cs
+    startLine: 28
+  namespace: Global
+  syntax:
+    content: public Color colour { get; set; }
+    parameters: []
+    return:
+      type: Global.Color
+    content.vb: Public Property colour As Color
+  overload: Global.Outline.colour*
+- uid: Global.Outline.thickness
+  commentId: P:Global.Outline.thickness
+  id: thickness
+  parent: Global.Outline
+  langs:
+  - csharp
+  - vb
+  name: thickness
+  nameWithType: Outline.thickness
+  fullName: Outline.thickness
+  type: Property
+  source:
+    remote:
+      path: Assets/Scripts/Shaders/Outline.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: thickness
+    path: ../Assets/Scripts/Shaders/Outline.cs
+    startLine: 48
+  namespace: Global
+  syntax:
+    content: public float thickness { get; set; }
+    parameters: []
+    return:
+      type: System.Single
+    content.vb: Public Property thickness As Single
+  overload: Global.Outline.thickness*
+- uid: Global.Outline.keepExistingTexture
+  commentId: P:Global.Outline.keepExistingTexture
+  id: keepExistingTexture
+  parent: Global.Outline
+  langs:
+  - csharp
+  - vb
+  name: keepExistingTexture
+  nameWithType: Outline.keepExistingTexture
+  fullName: Outline.keepExistingTexture
+  type: Property
+  source:
+    remote:
+      path: Assets/Scripts/Shaders/Outline.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: keepExistingTexture
+    path: ../Assets/Scripts/Shaders/Outline.cs
+    startLine: 67
+  namespace: Global
+  syntax:
+    content: public bool keepExistingTexture { get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property keepExistingTexture As Boolean
+  overload: Global.Outline.keepExistingTexture*
+- uid: Global.Outline.outlineMaterial
+  commentId: F:Global.Outline.outlineMaterial
+  id: outlineMaterial
+  parent: Global.Outline
+  langs:
+  - csharp
+  - vb
+  name: outlineMaterial
+  nameWithType: Outline.outlineMaterial
+  fullName: Outline.outlineMaterial
+  type: Field
+  source:
+    remote:
+      path: Assets/Scripts/Shaders/Outline.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: outlineMaterial
+    path: ../Assets/Scripts/Shaders/Outline.cs
+    startLine: 86
+  namespace: Global
+  syntax:
+    content: public Material outlineMaterial
+    return:
+      type: Global.Material
+    content.vb: Public outlineMaterial As Material
+references:
+- uid: Global
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Global.Outline.outlineEnabled*
+  commentId: Overload:Global.Outline.outlineEnabled
+  href: Global.Outline.html#Outline_outlineEnabled
+  name: outlineEnabled
+  nameWithType: Outline.outlineEnabled
+  fullName: Outline.outlineEnabled
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: Global.Outline.colour*
+  commentId: Overload:Global.Outline.colour
+  href: Global.Outline.html#Outline_colour
+  name: colour
+  nameWithType: Outline.colour
+  fullName: Outline.colour
+- uid: Global.Color
+  isExternal: true
+  name: Color
+  nameWithType: Color
+  fullName: Color
+- uid: Global.Outline.thickness*
+  commentId: Overload:Global.Outline.thickness
+  href: Global.Outline.html#Outline_thickness
+  name: thickness
+  nameWithType: Outline.thickness
+  fullName: Outline.thickness
+- uid: System.Single
+  commentId: T:System.Single
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.single
+  name: float
+  nameWithType: float
+  fullName: float
+  nameWithType.vb: Single
+  fullName.vb: Single
+  name.vb: Single
+- uid: Global.Outline.keepExistingTexture*
+  commentId: Overload:Global.Outline.keepExistingTexture
+  href: Global.Outline.html#Outline_keepExistingTexture
+  name: keepExistingTexture
+  nameWithType: Outline.keepExistingTexture
+  fullName: Outline.keepExistingTexture
+- uid: Global.Material
+  isExternal: true
+  name: Material
+  nameWithType: Material
+  fullName: Material

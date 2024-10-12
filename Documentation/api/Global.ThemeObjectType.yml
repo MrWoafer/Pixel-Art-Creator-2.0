@@ -1,0 +1,184 @@
+### YamlMime:ManagedReference
+items:
+- uid: Global.ThemeObjectType
+  commentId: T:Global.ThemeObjectType
+  id: ThemeObjectType
+  parent: Global
+  children:
+  - Global.ThemeObjectType.Background
+  - Global.ThemeObjectType.None
+  - Global.ThemeObjectType.Panel
+  - Global.ThemeObjectType.RadioButton
+  - Global.ThemeObjectType.Shadow
+  - Global.ThemeObjectType.SubPanel
+  langs:
+  - csharp
+  - vb
+  name: ThemeObjectType
+  nameWithType: ThemeObjectType
+  fullName: ThemeObjectType
+  type: Enum
+  source:
+    remote:
+      path: Assets/Scripts/Themes/UITheme.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: ThemeObjectType
+    path: ../Assets/Scripts/Themes/UITheme.cs
+    startLine: 5
+  namespace: Global
+  syntax:
+    content: public enum ThemeObjectType
+    content.vb: Public Enum ThemeObjectType
+- uid: Global.ThemeObjectType.None
+  commentId: F:Global.ThemeObjectType.None
+  id: None
+  parent: Global.ThemeObjectType
+  langs:
+  - csharp
+  - vb
+  name: None
+  nameWithType: ThemeObjectType.None
+  fullName: ThemeObjectType.None
+  type: Field
+  source:
+    remote:
+      path: Assets/Scripts/Themes/UITheme.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: None
+    path: ../Assets/Scripts/Themes/UITheme.cs
+    startLine: 7
+  namespace: Global
+  syntax:
+    content: None = 0
+    return:
+      type: Global.ThemeObjectType
+- uid: Global.ThemeObjectType.Background
+  commentId: F:Global.ThemeObjectType.Background
+  id: Background
+  parent: Global.ThemeObjectType
+  langs:
+  - csharp
+  - vb
+  name: Background
+  nameWithType: ThemeObjectType.Background
+  fullName: ThemeObjectType.Background
+  type: Field
+  source:
+    remote:
+      path: Assets/Scripts/Themes/UITheme.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: Background
+    path: ../Assets/Scripts/Themes/UITheme.cs
+    startLine: 8
+  namespace: Global
+  syntax:
+    content: Background = 1
+    return:
+      type: Global.ThemeObjectType
+- uid: Global.ThemeObjectType.Panel
+  commentId: F:Global.ThemeObjectType.Panel
+  id: Panel
+  parent: Global.ThemeObjectType
+  langs:
+  - csharp
+  - vb
+  name: Panel
+  nameWithType: ThemeObjectType.Panel
+  fullName: ThemeObjectType.Panel
+  type: Field
+  source:
+    remote:
+      path: Assets/Scripts/Themes/UITheme.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: Panel
+    path: ../Assets/Scripts/Themes/UITheme.cs
+    startLine: 9
+  namespace: Global
+  syntax:
+    content: Panel = 2
+    return:
+      type: Global.ThemeObjectType
+- uid: Global.ThemeObjectType.SubPanel
+  commentId: F:Global.ThemeObjectType.SubPanel
+  id: SubPanel
+  parent: Global.ThemeObjectType
+  langs:
+  - csharp
+  - vb
+  name: SubPanel
+  nameWithType: ThemeObjectType.SubPanel
+  fullName: ThemeObjectType.SubPanel
+  type: Field
+  source:
+    remote:
+      path: Assets/Scripts/Themes/UITheme.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: SubPanel
+    path: ../Assets/Scripts/Themes/UITheme.cs
+    startLine: 10
+  namespace: Global
+  syntax:
+    content: SubPanel = 3
+    return:
+      type: Global.ThemeObjectType
+- uid: Global.ThemeObjectType.Shadow
+  commentId: F:Global.ThemeObjectType.Shadow
+  id: Shadow
+  parent: Global.ThemeObjectType
+  langs:
+  - csharp
+  - vb
+  name: Shadow
+  nameWithType: ThemeObjectType.Shadow
+  fullName: ThemeObjectType.Shadow
+  type: Field
+  source:
+    remote:
+      path: Assets/Scripts/Themes/UITheme.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: Shadow
+    path: ../Assets/Scripts/Themes/UITheme.cs
+    startLine: 11
+  namespace: Global
+  syntax:
+    content: Shadow = 4
+    return:
+      type: Global.ThemeObjectType
+- uid: Global.ThemeObjectType.RadioButton
+  commentId: F:Global.ThemeObjectType.RadioButton
+  id: RadioButton
+  parent: Global.ThemeObjectType
+  langs:
+  - csharp
+  - vb
+  name: RadioButton
+  nameWithType: ThemeObjectType.RadioButton
+  fullName: ThemeObjectType.RadioButton
+  type: Field
+  source:
+    remote:
+      path: Assets/Scripts/Themes/UITheme.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: RadioButton
+    path: ../Assets/Scripts/Themes/UITheme.cs
+    startLine: 12
+  namespace: Global
+  syntax:
+    content: RadioButton = 5
+    return:
+      type: Global.ThemeObjectType
+references:
+- uid: Global
+- uid: Global.ThemeObjectType
+  commentId: T:Global.ThemeObjectType
+  href: ThemeObjectType.html
+  name: ThemeObjectType
+  nameWithType: ThemeObjectType
+  fullName: ThemeObjectType

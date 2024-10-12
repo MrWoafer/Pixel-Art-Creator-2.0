@@ -1,0 +1,3371 @@
+### YamlMime:ManagedReference
+items:
+- uid: Global.TileLayer
+  commentId: T:Global.TileLayer
+  id: TileLayer
+  parent: Global
+  children:
+  - Global.TileLayer.#ctor(System.String,System.Int32,System.Int32)
+  - Global.TileLayer.#ctor(TileLayer)
+  - Global.TileLayer.AddTile(Tile)
+  - Global.TileLayer.ClearFrames
+  - Global.TileLayer.ClearTiles
+  - Global.TileLayer.ContainsTile(Tile)
+  - Global.TileLayer.DeepCopy
+  - Global.TileLayer.DeleteKeyFrameNoEvent(System.Int32)
+  - Global.TileLayer.ExtendNoEvent(System.Int32,System.Int32,System.Int32,System.Int32)
+  - Global.TileLayer.FlipNoEvent(FlipDirection)
+  - Global.TileLayer.GetLinkedPixels(IntVector2)
+  - Global.TileLayer.GetLinkedPixels(IntVector2[])
+  - Global.TileLayer.GetPixel(IntVector2,System.Int32,System.Boolean)
+  - Global.TileLayer.LoadJSON(JSON)
+  - Global.TileLayer.PixelToTile(IntVector2)
+  - Global.TileLayer.PixelToTile(System.Int32,System.Int32)
+  - Global.TileLayer.RemoveTile(Tile)
+  - Global.TileLayer.RerenderKeyFrame(System.Int32)
+  - Global.TileLayer.RerenderKeyFrame(System.Int32,IntRect)
+  - Global.TileLayer.RerenderKeyFrame(System.Int32,IntVector2[])
+  - Global.TileLayer.RerenderKeyFrames
+  - Global.TileLayer.RerenderKeyFrames(IntRect)
+  - Global.TileLayer.RerenderKeyFrames(IntVector2[])
+  - Global.TileLayer.RerenderKeyFrames(System.Int32[])
+  - Global.TileLayer.RerenderKeyFrames(System.Int32[],IntRect)
+  - Global.TileLayer.RerenderKeyFrames(System.Int32[],IntVector2[])
+  - Global.TileLayer.RotateNoEvent(RotationAngle)
+  - Global.TileLayer.ScaleNoEvent(System.Int32,System.Int32)
+  - Global.TileLayer.ScaleNoEvent(System.Single,System.Single)
+  - Global.TileLayer.SetPixelsNoEvent(IntVector2[],System.Int32,Color,AnimFrameRefMode)
+  - Global.TileLayer.ToJSON
+  - Global.TileLayer.layerType
+  - Global.TileLayer.tiles
+  langs:
+  - csharp
+  - vb
+  name: TileLayer
+  nameWithType: TileLayer
+  fullName: TileLayer
+  type: Class
+  source:
+    remote:
+      path: Assets/Scripts/Layers/TileLayer.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: TileLayer
+    path: ../Assets/Scripts/Layers/TileLayer.cs
+    startLine: 8
+  namespace: Global
+  summary: A class to represent a tile layer - one for placing and editing tileset tiles.
+  example: []
+  syntax:
+    content: 'public class TileLayer : Layer, IJSONable'
+    content.vb: Public Class TileLayer Inherits Layer Implements IJSONable
+  inheritance:
+  - System.Object
+  - Global.Layer
+  implements:
+  - Global.IJSONable
+  inheritedMembers:
+  - Global.Layer.name
+  - Global.Layer.width
+  - Global.Layer.height
+  - Global.Layer.rect
+  - Global.Layer._visible
+  - Global.Layer.visible
+  - Global.Layer.locked
+  - Global.Layer.opacity
+  - Global.Layer._blendMode
+  - Global.Layer.blendMode
+  - Global.Layer.keyFrames
+  - Global.Layer.keyFrameIndices
+  - Global.Layer.keyFrameTextures
+  - Global.Layer.onPixelsChanged
+  - Global.Layer.SetPixel(System.Int32,System.Int32,System.Int32,Color,AnimFrameRefMode)
+  - Global.Layer.SetPixel(IntVector2,System.Int32,Color,AnimFrameRefMode)
+  - Global.Layer.SetPixels(IntVector2[],System.Int32,Color,AnimFrameRefMode)
+  - Global.Layer.GetPixel(System.Int32,System.Int32,System.Int32,System.Boolean)
+  - Global.Layer.IsBlank
+  - Global.Layer.Flip(FlipDirection)
+  - Global.Layer.Rotate(RotationAngle)
+  - Global.Layer.Extend(System.Int32,System.Int32,System.Int32,System.Int32)
+  - Global.Layer.Scale(System.Single)
+  - Global.Layer.Scale(System.Single,System.Single)
+  - Global.Layer.Scale(System.Int32,System.Int32)
+  - Global.Layer.FromJSON(JSON)
+  - Global.Layer.Item(System.Int32)
+  - Global.Layer.GetKeyFrame(System.Int32)
+  - Global.Layer.HasKeyFrameAt(System.Int32)
+  - Global.Layer.AddKeyFrame(System.Int32)
+  - Global.Layer.AddKeyFrame(System.Int32,Texture2D)
+  - Global.Layer.AddKeyFrame(AnimationKeyFrame)
+  - Global.Layer.DeleteMostRecentKeyFrame(System.Int32)
+  - Global.Layer.DeleteKeyFrame(System.Int32)
+  - Global.Layer.DeleteKeyFrame(AnimationKeyFrame)
+  - Global.Layer.SubscribeToOnPixelsChanged(UnityAction{IntVector2[],System.Int32[]})
+  - Global.Layer.SubscribeToOnVisibilityChanged(UnityAction)
+  - Global.Layer.SubscribeToOnBlendModeChanged(UnityAction)
+  - Global.Layer.SubscribeToOnKeyFrameAdded(UnityAction{System.Int32})
+  - Global.Layer.SubscribeToOnKeyFrameRemoved(UnityAction{System.Int32})
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: Global.TileLayer.layerType
+  commentId: P:Global.TileLayer.layerType
+  id: layerType
+  parent: Global.TileLayer
+  langs:
+  - csharp
+  - vb
+  name: layerType
+  nameWithType: TileLayer.layerType
+  fullName: TileLayer.layerType
+  type: Property
+  source:
+    remote:
+      path: Assets/Scripts/Layers/TileLayer.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: layerType
+    path: ../Assets/Scripts/Layers/TileLayer.cs
+    startLine: 10
+  namespace: Global
+  example: []
+  syntax:
+    content: public override LayerType layerType { get; }
+    parameters: []
+    return:
+      type: Global.LayerType
+    content.vb: Public Overrides ReadOnly Property layerType As LayerType
+  overridden: Global.Layer.layerType
+  overload: Global.TileLayer.layerType*
+- uid: Global.TileLayer.tiles
+  commentId: P:Global.TileLayer.tiles
+  id: tiles
+  parent: Global.TileLayer
+  langs:
+  - csharp
+  - vb
+  name: tiles
+  nameWithType: TileLayer.tiles
+  fullName: TileLayer.tiles
+  type: Property
+  source:
+    remote:
+      path: Assets/Scripts/Layers/TileLayer.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: tiles
+    path: ../Assets/Scripts/Layers/TileLayer.cs
+    startLine: 13
+  namespace: Global
+  summary: The tiles on this layer.
+  example: []
+  syntax:
+    content: public List<Tile> tiles { get; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.List{Tile}
+    content.vb: Public Property tiles As List(Of Tile)
+  overload: Global.TileLayer.tiles*
+- uid: Global.TileLayer.#ctor(System.String,System.Int32,System.Int32)
+  commentId: M:Global.TileLayer.#ctor(System.String,System.Int32,System.Int32)
+  id: '#ctor(System.String,System.Int32,System.Int32)'
+  parent: Global.TileLayer
+  langs:
+  - csharp
+  - vb
+  name: TileLayer(string, int, int)
+  nameWithType: TileLayer.TileLayer(string, int, int)
+  fullName: TileLayer.TileLayer(string, int, int)
+  type: Constructor
+  source:
+    remote:
+      path: Assets/Scripts/Layers/TileLayer.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: .ctor
+    path: ../Assets/Scripts/Layers/TileLayer.cs
+    startLine: 25
+  namespace: Global
+  syntax:
+    content: public TileLayer(string name, int width, int height)
+    parameters:
+    - id: name
+      type: System.String
+    - id: width
+      type: System.Int32
+    - id: height
+      type: System.Int32
+    content.vb: Public Sub New(name As String, width As Integer, height As Integer)
+  overload: Global.TileLayer.#ctor*
+  nameWithType.vb: TileLayer.New(String, Integer, Integer)
+  fullName.vb: TileLayer.New(String, Integer, Integer)
+  name.vb: New(String, Integer, Integer)
+- uid: Global.TileLayer.#ctor(TileLayer)
+  commentId: M:Global.TileLayer.#ctor(TileLayer)
+  id: '#ctor(TileLayer)'
+  parent: Global.TileLayer
+  langs:
+  - csharp
+  - vb
+  name: TileLayer(TileLayer)
+  nameWithType: TileLayer.TileLayer(TileLayer)
+  fullName: TileLayer.TileLayer(TileLayer)
+  type: Constructor
+  source:
+    remote:
+      path: Assets/Scripts/Layers/TileLayer.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: .ctor
+    path: ../Assets/Scripts/Layers/TileLayer.cs
+    startLine: 30
+  namespace: Global
+  summary: Creates a deep copy of the TileLayer.
+  example: []
+  syntax:
+    content: public TileLayer(TileLayer layer)
+    parameters:
+    - id: layer
+      type: Global.TileLayer
+    content.vb: Public Sub New(layer As TileLayer)
+  overload: Global.TileLayer.#ctor*
+  nameWithType.vb: TileLayer.New(TileLayer)
+  fullName.vb: TileLayer.New(TileLayer)
+  name.vb: New(TileLayer)
+- uid: Global.TileLayer.DeepCopy
+  commentId: M:Global.TileLayer.DeepCopy
+  id: DeepCopy
+  parent: Global.TileLayer
+  langs:
+  - csharp
+  - vb
+  name: DeepCopy()
+  nameWithType: TileLayer.DeepCopy()
+  fullName: TileLayer.DeepCopy()
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Layers/TileLayer.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: DeepCopy
+    path: ../Assets/Scripts/Layers/TileLayer.cs
+    startLine: 36
+  namespace: Global
+  summary: Creates a deep copy of the Layer.
+  example: []
+  syntax:
+    content: public override Layer DeepCopy()
+    return:
+      type: Global.Layer
+    content.vb: Public Overrides Function DeepCopy() As Layer
+  overridden: Global.Layer.DeepCopy
+  overload: Global.TileLayer.DeepCopy*
+- uid: Global.TileLayer.AddTile(Tile)
+  commentId: M:Global.TileLayer.AddTile(Tile)
+  id: AddTile(Tile)
+  parent: Global.TileLayer
+  langs:
+  - csharp
+  - vb
+  name: AddTile(Tile)
+  nameWithType: TileLayer.AddTile(Tile)
+  fullName: TileLayer.AddTile(Tile)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Layers/TileLayer.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: AddTile
+    path: ../Assets/Scripts/Layers/TileLayer.cs
+    startLine: 44
+  namespace: Global
+  summary: Adds the tile to the layer.
+  example: []
+  syntax:
+    content: public void AddTile(Tile tile)
+    parameters:
+    - id: tile
+      type: Global.Tile
+    content.vb: Public Sub AddTile(tile As Tile)
+  overload: Global.TileLayer.AddTile*
+- uid: Global.TileLayer.RemoveTile(Tile)
+  commentId: M:Global.TileLayer.RemoveTile(Tile)
+  id: RemoveTile(Tile)
+  parent: Global.TileLayer
+  langs:
+  - csharp
+  - vb
+  name: RemoveTile(Tile)
+  nameWithType: TileLayer.RemoveTile(Tile)
+  fullName: TileLayer.RemoveTile(Tile)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Layers/TileLayer.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: RemoveTile
+    path: ../Assets/Scripts/Layers/TileLayer.cs
+    startLine: 92
+  namespace: Global
+  summary: Removes the tile from the layer. Throws an error if the tile is not in the layer.
+  example: []
+  syntax:
+    content: public void RemoveTile(Tile tile)
+    parameters:
+    - id: tile
+      type: Global.Tile
+    content.vb: Public Sub RemoveTile(tile As Tile)
+  overload: Global.TileLayer.RemoveTile*
+- uid: Global.TileLayer.ClearTiles
+  commentId: M:Global.TileLayer.ClearTiles
+  id: ClearTiles
+  parent: Global.TileLayer
+  langs:
+  - csharp
+  - vb
+  name: ClearTiles()
+  nameWithType: TileLayer.ClearTiles()
+  fullName: TileLayer.ClearTiles()
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Layers/TileLayer.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: ClearTiles
+    path: ../Assets/Scripts/Layers/TileLayer.cs
+    startLine: 115
+  namespace: Global
+  summary: Removes all tiles.
+  example: []
+  syntax:
+    content: public void ClearTiles()
+    content.vb: Public Sub ClearTiles()
+  overload: Global.TileLayer.ClearTiles*
+- uid: Global.TileLayer.ContainsTile(Tile)
+  commentId: M:Global.TileLayer.ContainsTile(Tile)
+  id: ContainsTile(Tile)
+  parent: Global.TileLayer
+  langs:
+  - csharp
+  - vb
+  name: ContainsTile(Tile)
+  nameWithType: TileLayer.ContainsTile(Tile)
+  fullName: TileLayer.ContainsTile(Tile)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Layers/TileLayer.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: ContainsTile
+    path: ../Assets/Scripts/Layers/TileLayer.cs
+    startLine: 124
+  namespace: Global
+  summary: Returns true if the tile appears on this layer.
+  example: []
+  syntax:
+    content: public bool ContainsTile(Tile tile)
+    parameters:
+    - id: tile
+      type: Global.Tile
+    return:
+      type: System.Boolean
+    content.vb: Public Function ContainsTile(tile As Tile) As Boolean
+  overload: Global.TileLayer.ContainsTile*
+- uid: Global.TileLayer.SetPixelsNoEvent(IntVector2[],System.Int32,Color,AnimFrameRefMode)
+  commentId: M:Global.TileLayer.SetPixelsNoEvent(IntVector2[],System.Int32,Color,AnimFrameRefMode)
+  id: SetPixelsNoEvent(IntVector2[],System.Int32,Color,AnimFrameRefMode)
+  parent: Global.TileLayer
+  langs:
+  - csharp
+  - vb
+  name: SetPixelsNoEvent(IntVector2[], int, Color, AnimFrameRefMode)
+  nameWithType: TileLayer.SetPixelsNoEvent(IntVector2[], int, Color, AnimFrameRefMode)
+  fullName: TileLayer.SetPixelsNoEvent(IntVector2[], int, Color, AnimFrameRefMode)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Layers/TileLayer.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: SetPixelsNoEvent
+    path: ../Assets/Scripts/Layers/TileLayer.cs
+    startLine: 129
+  namespace: Global
+  summary: >-
+    Sets the colour of the pixels.
+
+    You do not need to check the pixels are in the layer as this check is done in Layer.SetPixels(), which is the only way this method is called.
+  example: []
+  syntax:
+    content: protected override IntVector2[] SetPixelsNoEvent(IntVector2[] pixels, int frame, Color colour, AnimFrameRefMode frameRefMode)
+    parameters:
+    - id: pixels
+      type: Global.IntVector2[]
+    - id: frame
+      type: System.Int32
+    - id: colour
+      type: Global.Color
+    - id: frameRefMode
+      type: Global.AnimFrameRefMode
+    return:
+      type: Global.IntVector2[]
+    content.vb: Protected Overrides Function SetPixelsNoEvent(pixels As IntVector2(), frame As Integer, colour As Color, frameRefMode As AnimFrameRefMode) As IntVector2()
+  overridden: Global.Layer.SetPixelsNoEvent(IntVector2[],System.Int32,Color,AnimFrameRefMode)
+  overload: Global.TileLayer.SetPixelsNoEvent*
+  nameWithType.vb: TileLayer.SetPixelsNoEvent(IntVector2(), Integer, Color, AnimFrameRefMode)
+  fullName.vb: TileLayer.SetPixelsNoEvent(IntVector2(), Integer, Color, AnimFrameRefMode)
+  name.vb: SetPixelsNoEvent(IntVector2(), Integer, Color, AnimFrameRefMode)
+- uid: Global.TileLayer.GetPixel(IntVector2,System.Int32,System.Boolean)
+  commentId: M:Global.TileLayer.GetPixel(IntVector2,System.Int32,System.Boolean)
+  id: GetPixel(IntVector2,System.Int32,System.Boolean)
+  parent: Global.TileLayer
+  langs:
+  - csharp
+  - vb
+  name: GetPixel(IntVector2, int, bool)
+  nameWithType: TileLayer.GetPixel(IntVector2, int, bool)
+  fullName: TileLayer.GetPixel(IntVector2, int, bool)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Layers/TileLayer.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: GetPixel
+    path: ../Assets/Scripts/Layers/TileLayer.cs
+    startLine: 161
+  namespace: Global
+  summary: Gets the colour of the pixel.
+  example: []
+  syntax:
+    content: public override Color GetPixel(IntVector2 pixel, int frame, bool useLayerOpacity = true)
+    parameters:
+    - id: pixel
+      type: Global.IntVector2
+    - id: frame
+      type: System.Int32
+    - id: useLayerOpacity
+      type: System.Boolean
+    return:
+      type: Global.Color
+    content.vb: Public Overrides Function GetPixel(pixel As IntVector2, frame As Integer, useLayerOpacity As Boolean = True) As Color
+  overridden: Global.Layer.GetPixel(IntVector2,System.Int32,System.Boolean)
+  overload: Global.TileLayer.GetPixel*
+  nameWithType.vb: TileLayer.GetPixel(IntVector2, Integer, Boolean)
+  fullName.vb: TileLayer.GetPixel(IntVector2, Integer, Boolean)
+  name.vb: GetPixel(IntVector2, Integer, Boolean)
+- uid: Global.TileLayer.PixelToTile(System.Int32,System.Int32)
+  commentId: M:Global.TileLayer.PixelToTile(System.Int32,System.Int32)
+  id: PixelToTile(System.Int32,System.Int32)
+  parent: Global.TileLayer
+  langs:
+  - csharp
+  - vb
+  name: PixelToTile(int, int)
+  nameWithType: TileLayer.PixelToTile(int, int)
+  fullName: TileLayer.PixelToTile(int, int)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Layers/TileLayer.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: PixelToTile
+    path: ../Assets/Scripts/Layers/TileLayer.cs
+    startLine: 174
+  namespace: Global
+  summary: Gets the tile that the pixel (x, y) lands in, or null if there isn't one.
+  example: []
+  syntax:
+    content: public Tile PixelToTile(int x, int y)
+    parameters:
+    - id: x
+      type: System.Int32
+    - id: y
+      type: System.Int32
+    return:
+      type: Global.Tile
+    content.vb: Public Function PixelToTile(x As Integer, y As Integer) As Tile
+  overload: Global.TileLayer.PixelToTile*
+  nameWithType.vb: TileLayer.PixelToTile(Integer, Integer)
+  fullName.vb: TileLayer.PixelToTile(Integer, Integer)
+  name.vb: PixelToTile(Integer, Integer)
+- uid: Global.TileLayer.PixelToTile(IntVector2)
+  commentId: M:Global.TileLayer.PixelToTile(IntVector2)
+  id: PixelToTile(IntVector2)
+  parent: Global.TileLayer
+  langs:
+  - csharp
+  - vb
+  name: PixelToTile(IntVector2)
+  nameWithType: TileLayer.PixelToTile(IntVector2)
+  fullName: TileLayer.PixelToTile(IntVector2)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Layers/TileLayer.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: PixelToTile
+    path: ../Assets/Scripts/Layers/TileLayer.cs
+    startLine: 178
+  namespace: Global
+  summary: Gets the tile that the pixel lands in, or null if there isn't one.
+  example: []
+  syntax:
+    content: public Tile PixelToTile(IntVector2 pixel)
+    parameters:
+    - id: pixel
+      type: Global.IntVector2
+    return:
+      type: Global.Tile
+    content.vb: Public Function PixelToTile(pixel As IntVector2) As Tile
+  overload: Global.TileLayer.PixelToTile*
+- uid: Global.TileLayer.GetLinkedPixels(IntVector2)
+  commentId: M:Global.TileLayer.GetLinkedPixels(IntVector2)
+  id: GetLinkedPixels(IntVector2)
+  parent: Global.TileLayer
+  langs:
+  - csharp
+  - vb
+  name: GetLinkedPixels(IntVector2)
+  nameWithType: TileLayer.GetLinkedPixels(IntVector2)
+  fullName: TileLayer.GetLinkedPixels(IntVector2)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Layers/TileLayer.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: GetLinkedPixels
+    path: ../Assets/Scripts/Layers/TileLayer.cs
+    startLine: 202
+  namespace: Global
+  summary: Get the pixels that are linked to the given pixel due to multiple tiles having the same file - i.e. they point to the same pixel within the tiles' file.
+  example: []
+  syntax:
+    content: public IntVector2[] GetLinkedPixels(IntVector2 pixel)
+    parameters:
+    - id: pixel
+      type: Global.IntVector2
+    return:
+      type: Global.IntVector2[]
+    content.vb: Public Function GetLinkedPixels(pixel As IntVector2) As IntVector2()
+  overload: Global.TileLayer.GetLinkedPixels*
+- uid: Global.TileLayer.GetLinkedPixels(IntVector2[])
+  commentId: M:Global.TileLayer.GetLinkedPixels(IntVector2[])
+  id: GetLinkedPixels(IntVector2[])
+  parent: Global.TileLayer
+  langs:
+  - csharp
+  - vb
+  name: GetLinkedPixels(IntVector2[])
+  nameWithType: TileLayer.GetLinkedPixels(IntVector2[])
+  fullName: TileLayer.GetLinkedPixels(IntVector2[])
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Layers/TileLayer.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: GetLinkedPixels
+    path: ../Assets/Scripts/Layers/TileLayer.cs
+    startLine: 206
+  namespace: Global
+  summary: Get the pixels that are linked to the given pixels due to multiple tiles having the same file - i.e. they point to the same pixels within the tiles' file.
+  example: []
+  syntax:
+    content: public IntVector2[] GetLinkedPixels(IntVector2[] pixels)
+    parameters:
+    - id: pixels
+      type: Global.IntVector2[]
+    return:
+      type: Global.IntVector2[]
+    content.vb: Public Function GetLinkedPixels(pixels As IntVector2()) As IntVector2()
+  overload: Global.TileLayer.GetLinkedPixels*
+  nameWithType.vb: TileLayer.GetLinkedPixels(IntVector2())
+  fullName.vb: TileLayer.GetLinkedPixels(IntVector2())
+  name.vb: GetLinkedPixels(IntVector2())
+- uid: Global.TileLayer.FlipNoEvent(FlipDirection)
+  commentId: M:Global.TileLayer.FlipNoEvent(FlipDirection)
+  id: FlipNoEvent(FlipDirection)
+  parent: Global.TileLayer
+  langs:
+  - csharp
+  - vb
+  name: FlipNoEvent(FlipDirection)
+  nameWithType: TileLayer.FlipNoEvent(FlipDirection)
+  fullName: TileLayer.FlipNoEvent(FlipDirection)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Layers/TileLayer.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: FlipNoEvent
+    path: ../Assets/Scripts/Layers/TileLayer.cs
+    startLine: 239
+  namespace: Global
+  summary: Flips the layer, but does not invoke the onPixelsChanged event.
+  example: []
+  syntax:
+    content: protected override void FlipNoEvent(FlipDirection direction)
+    parameters:
+    - id: direction
+      type: Global.FlipDirection
+    content.vb: Protected Overrides Sub FlipNoEvent(direction As FlipDirection)
+  overridden: Global.Layer.FlipNoEvent(FlipDirection)
+  overload: Global.TileLayer.FlipNoEvent*
+- uid: Global.TileLayer.RotateNoEvent(RotationAngle)
+  commentId: M:Global.TileLayer.RotateNoEvent(RotationAngle)
+  id: RotateNoEvent(RotationAngle)
+  parent: Global.TileLayer
+  langs:
+  - csharp
+  - vb
+  name: RotateNoEvent(RotationAngle)
+  nameWithType: TileLayer.RotateNoEvent(RotationAngle)
+  fullName: TileLayer.RotateNoEvent(RotationAngle)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Layers/TileLayer.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: RotateNoEvent
+    path: ../Assets/Scripts/Layers/TileLayer.cs
+    startLine: 265
+  namespace: Global
+  summary: >-
+    Rotates the layer, but does not invoke the onPixelsChanged event.
+
+    Rotation is clockwise.
+  example: []
+  syntax:
+    content: protected override void RotateNoEvent(RotationAngle angle)
+    parameters:
+    - id: angle
+      type: Global.RotationAngle
+    content.vb: Protected Overrides Sub RotateNoEvent(angle As RotationAngle)
+  overridden: Global.Layer.RotateNoEvent(RotationAngle)
+  overload: Global.TileLayer.RotateNoEvent*
+- uid: Global.TileLayer.ExtendNoEvent(System.Int32,System.Int32,System.Int32,System.Int32)
+  commentId: M:Global.TileLayer.ExtendNoEvent(System.Int32,System.Int32,System.Int32,System.Int32)
+  id: ExtendNoEvent(System.Int32,System.Int32,System.Int32,System.Int32)
+  parent: Global.TileLayer
+  langs:
+  - csharp
+  - vb
+  name: ExtendNoEvent(int, int, int, int)
+  nameWithType: TileLayer.ExtendNoEvent(int, int, int, int)
+  fullName: TileLayer.ExtendNoEvent(int, int, int, int)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Layers/TileLayer.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: ExtendNoEvent
+    path: ../Assets/Scripts/Layers/TileLayer.cs
+    startLine: 308
+  namespace: Global
+  summary: Extends the dimensions of the layer in each direction by the given amounts, but does not invoke the onPixelsChanged event.
+  example: []
+  syntax:
+    content: protected override void ExtendNoEvent(int left, int right, int up, int down)
+    parameters:
+    - id: left
+      type: System.Int32
+    - id: right
+      type: System.Int32
+    - id: up
+      type: System.Int32
+    - id: down
+      type: System.Int32
+    content.vb: Protected Overrides Sub ExtendNoEvent(left As Integer, right As Integer, up As Integer, down As Integer)
+  overridden: Global.Layer.ExtendNoEvent(System.Int32,System.Int32,System.Int32,System.Int32)
+  overload: Global.TileLayer.ExtendNoEvent*
+  nameWithType.vb: TileLayer.ExtendNoEvent(Integer, Integer, Integer, Integer)
+  fullName.vb: TileLayer.ExtendNoEvent(Integer, Integer, Integer, Integer)
+  name.vb: ExtendNoEvent(Integer, Integer, Integer, Integer)
+- uid: Global.TileLayer.ScaleNoEvent(System.Single,System.Single)
+  commentId: M:Global.TileLayer.ScaleNoEvent(System.Single,System.Single)
+  id: ScaleNoEvent(System.Single,System.Single)
+  parent: Global.TileLayer
+  langs:
+  - csharp
+  - vb
+  name: ScaleNoEvent(float, float)
+  nameWithType: TileLayer.ScaleNoEvent(float, float)
+  fullName: TileLayer.ScaleNoEvent(float, float)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Layers/TileLayer.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: ScaleNoEvent
+    path: ../Assets/Scripts/Layers/TileLayer.cs
+    startLine: 328
+  namespace: Global
+  summary: Resizes the dimensions of the file by the scale factors, but does not invoke the onPixelsChanged event.
+  example: []
+  syntax:
+    content: protected override void ScaleNoEvent(float xScaleFactor, float yScaleFactor)
+    parameters:
+    - id: xScaleFactor
+      type: System.Single
+    - id: yScaleFactor
+      type: System.Single
+    content.vb: Protected Overrides Sub ScaleNoEvent(xScaleFactor As Single, yScaleFactor As Single)
+  overridden: Global.Layer.ScaleNoEvent(System.Single,System.Single)
+  overload: Global.TileLayer.ScaleNoEvent*
+  nameWithType.vb: TileLayer.ScaleNoEvent(Single, Single)
+  fullName.vb: TileLayer.ScaleNoEvent(Single, Single)
+  name.vb: ScaleNoEvent(Single, Single)
+- uid: Global.TileLayer.ScaleNoEvent(System.Int32,System.Int32)
+  commentId: M:Global.TileLayer.ScaleNoEvent(System.Int32,System.Int32)
+  id: ScaleNoEvent(System.Int32,System.Int32)
+  parent: Global.TileLayer
+  langs:
+  - csharp
+  - vb
+  name: ScaleNoEvent(int, int)
+  nameWithType: TileLayer.ScaleNoEvent(int, int)
+  fullName: TileLayer.ScaleNoEvent(int, int)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Layers/TileLayer.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: ScaleNoEvent
+    path: ../Assets/Scripts/Layers/TileLayer.cs
+    startLine: 354
+  namespace: Global
+  summary: Resizes the dimensions to the new width and height, but does not invoke the onPixelsChanged event.
+  example: []
+  syntax:
+    content: protected override void ScaleNoEvent(int newWidth, int newHeight)
+    parameters:
+    - id: newWidth
+      type: System.Int32
+    - id: newHeight
+      type: System.Int32
+    content.vb: Protected Overrides Sub ScaleNoEvent(newWidth As Integer, newHeight As Integer)
+  overridden: Global.Layer.ScaleNoEvent(System.Int32,System.Int32)
+  overload: Global.TileLayer.ScaleNoEvent*
+  nameWithType.vb: TileLayer.ScaleNoEvent(Integer, Integer)
+  fullName.vb: TileLayer.ScaleNoEvent(Integer, Integer)
+  name.vb: ScaleNoEvent(Integer, Integer)
+- uid: Global.TileLayer.ToJSON
+  commentId: M:Global.TileLayer.ToJSON
+  id: ToJSON
+  parent: Global.TileLayer
+  langs:
+  - csharp
+  - vb
+  name: ToJSON()
+  nameWithType: TileLayer.ToJSON()
+  fullName: TileLayer.ToJSON()
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Layers/TileLayer.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: ToJSON
+    path: ../Assets/Scripts/Layers/TileLayer.cs
+    startLine: 381
+  namespace: Global
+  example: []
+  syntax:
+    content: public override JSON ToJSON()
+    return:
+      type: Global.JSON
+    content.vb: Public Overrides Function ToJSON() As JSON
+  overridden: Global.Layer.ToJSON
+  overload: Global.TileLayer.ToJSON*
+- uid: Global.TileLayer.LoadJSON(JSON)
+  commentId: M:Global.TileLayer.LoadJSON(JSON)
+  id: LoadJSON(JSON)
+  parent: Global.TileLayer
+  langs:
+  - csharp
+  - vb
+  name: LoadJSON(JSON)
+  nameWithType: TileLayer.LoadJSON(JSON)
+  fullName: TileLayer.LoadJSON(JSON)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Layers/TileLayer.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: LoadJSON
+    path: ../Assets/Scripts/Layers/TileLayer.cs
+    startLine: 382
+  namespace: Global
+  example: []
+  syntax:
+    content: protected override void LoadJSON(JSON json)
+    parameters:
+    - id: json
+      type: Global.JSON
+    content.vb: Protected Overrides Sub LoadJSON(json As JSON)
+  overridden: Global.Layer.LoadJSON(JSON)
+  overload: Global.TileLayer.LoadJSON*
+- uid: Global.TileLayer.DeleteKeyFrameNoEvent(System.Int32)
+  commentId: M:Global.TileLayer.DeleteKeyFrameNoEvent(System.Int32)
+  id: DeleteKeyFrameNoEvent(System.Int32)
+  parent: Global.TileLayer
+  langs:
+  - csharp
+  - vb
+  name: DeleteKeyFrameNoEvent(int)
+  nameWithType: TileLayer.DeleteKeyFrameNoEvent(int)
+  fullName: TileLayer.DeleteKeyFrameNoEvent(int)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Layers/TileLayer.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: DeleteKeyFrameNoEvent
+    path: ../Assets/Scripts/Layers/TileLayer.cs
+    startLine: 384
+  namespace: Global
+  summary: Deletes the key frame at the given frame index, if there is one, in which case it returns that key frame. Otherwise it returns null.
+  example: []
+  syntax:
+    content: protected override AnimationKeyFrame DeleteKeyFrameNoEvent(int keyframe)
+    parameters:
+    - id: keyframe
+      type: System.Int32
+    return:
+      type: Global.AnimationKeyFrame
+    content.vb: Protected Overrides Function DeleteKeyFrameNoEvent(keyframe As Integer) As AnimationKeyFrame
+  overridden: Global.Layer.DeleteKeyFrameNoEvent(System.Int32)
+  overload: Global.TileLayer.DeleteKeyFrameNoEvent*
+  nameWithType.vb: TileLayer.DeleteKeyFrameNoEvent(Integer)
+  fullName.vb: TileLayer.DeleteKeyFrameNoEvent(Integer)
+  name.vb: DeleteKeyFrameNoEvent(Integer)
+- uid: Global.TileLayer.ClearFrames
+  commentId: M:Global.TileLayer.ClearFrames
+  id: ClearFrames
+  parent: Global.TileLayer
+  langs:
+  - csharp
+  - vb
+  name: ClearFrames()
+  nameWithType: TileLayer.ClearFrames()
+  fullName: TileLayer.ClearFrames()
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Layers/TileLayer.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: ClearFrames
+    path: ../Assets/Scripts/Layers/TileLayer.cs
+    startLine: 409
+  namespace: Global
+  summary: Deletes all key frames.
+  example: []
+  syntax:
+    content: public override void ClearFrames()
+    content.vb: Public Overrides Sub ClearFrames()
+  overridden: Global.Layer.ClearFrames
+  overload: Global.TileLayer.ClearFrames*
+- uid: Global.TileLayer.RerenderKeyFrames
+  commentId: M:Global.TileLayer.RerenderKeyFrames
+  id: RerenderKeyFrames
+  parent: Global.TileLayer
+  langs:
+  - csharp
+  - vb
+  name: RerenderKeyFrames()
+  nameWithType: TileLayer.RerenderKeyFrames()
+  fullName: TileLayer.RerenderKeyFrames()
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Layers/TileLayer.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: RerenderKeyFrames
+    path: ../Assets/Scripts/Layers/TileLayer.cs
+    startLine: 423
+  namespace: Global
+  summary: Rerenders all keyframes.
+  example: []
+  syntax:
+    content: public void RerenderKeyFrames()
+    content.vb: Public Sub RerenderKeyFrames()
+  overload: Global.TileLayer.RerenderKeyFrames*
+- uid: Global.TileLayer.RerenderKeyFrames(IntRect)
+  commentId: M:Global.TileLayer.RerenderKeyFrames(IntRect)
+  id: RerenderKeyFrames(IntRect)
+  parent: Global.TileLayer
+  langs:
+  - csharp
+  - vb
+  name: RerenderKeyFrames(IntRect)
+  nameWithType: TileLayer.RerenderKeyFrames(IntRect)
+  fullName: TileLayer.RerenderKeyFrames(IntRect)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Layers/TileLayer.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: RerenderKeyFrames
+    path: ../Assets/Scripts/Layers/TileLayer.cs
+    startLine: 427
+  namespace: Global
+  summary: Rerenders the section of every keyframe within the given rect.
+  example: []
+  syntax:
+    content: public void RerenderKeyFrames(IntRect rect)
+    parameters:
+    - id: rect
+      type: Global.IntRect
+    content.vb: Public Sub RerenderKeyFrames(rect As IntRect)
+  overload: Global.TileLayer.RerenderKeyFrames*
+- uid: Global.TileLayer.RerenderKeyFrames(IntVector2[])
+  commentId: M:Global.TileLayer.RerenderKeyFrames(IntVector2[])
+  id: RerenderKeyFrames(IntVector2[])
+  parent: Global.TileLayer
+  langs:
+  - csharp
+  - vb
+  name: RerenderKeyFrames(IntVector2[])
+  nameWithType: TileLayer.RerenderKeyFrames(IntVector2[])
+  fullName: TileLayer.RerenderKeyFrames(IntVector2[])
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Layers/TileLayer.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: RerenderKeyFrames
+    path: ../Assets/Scripts/Layers/TileLayer.cs
+    startLine: 431
+  namespace: Global
+  summary: Rerenders the given pixels of every keyframe.
+  example: []
+  syntax:
+    content: public void RerenderKeyFrames(IntVector2[] pixels)
+    parameters:
+    - id: pixels
+      type: Global.IntVector2[]
+    content.vb: Public Sub RerenderKeyFrames(pixels As IntVector2())
+  overload: Global.TileLayer.RerenderKeyFrames*
+  nameWithType.vb: TileLayer.RerenderKeyFrames(IntVector2())
+  fullName.vb: TileLayer.RerenderKeyFrames(IntVector2())
+  name.vb: RerenderKeyFrames(IntVector2())
+- uid: Global.TileLayer.RerenderKeyFrames(System.Int32[])
+  commentId: M:Global.TileLayer.RerenderKeyFrames(System.Int32[])
+  id: RerenderKeyFrames(System.Int32[])
+  parent: Global.TileLayer
+  langs:
+  - csharp
+  - vb
+  name: RerenderKeyFrames(int[])
+  nameWithType: TileLayer.RerenderKeyFrames(int[])
+  fullName: TileLayer.RerenderKeyFrames(int[])
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Layers/TileLayer.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: RerenderKeyFrames
+    path: ../Assets/Scripts/Layers/TileLayer.cs
+    startLine: 435
+  namespace: Global
+  summary: Rerenders the given keyframes.
+  example: []
+  syntax:
+    content: public void RerenderKeyFrames(int[] keyFrames)
+    parameters:
+    - id: keyFrames
+      type: System.Int32[]
+    content.vb: Public Sub RerenderKeyFrames(keyFrames As Integer())
+  overload: Global.TileLayer.RerenderKeyFrames*
+  nameWithType.vb: TileLayer.RerenderKeyFrames(Integer())
+  fullName.vb: TileLayer.RerenderKeyFrames(Integer())
+  name.vb: RerenderKeyFrames(Integer())
+- uid: Global.TileLayer.RerenderKeyFrames(System.Int32[],IntRect)
+  commentId: M:Global.TileLayer.RerenderKeyFrames(System.Int32[],IntRect)
+  id: RerenderKeyFrames(System.Int32[],IntRect)
+  parent: Global.TileLayer
+  langs:
+  - csharp
+  - vb
+  name: RerenderKeyFrames(int[], IntRect)
+  nameWithType: TileLayer.RerenderKeyFrames(int[], IntRect)
+  fullName: TileLayer.RerenderKeyFrames(int[], IntRect)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Layers/TileLayer.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: RerenderKeyFrames
+    path: ../Assets/Scripts/Layers/TileLayer.cs
+    startLine: 439
+  namespace: Global
+  summary: Rerenders the section of the given keyframes within the given rect.
+  example: []
+  syntax:
+    content: public void RerenderKeyFrames(int[] keyFrames, IntRect rect)
+    parameters:
+    - id: keyFrames
+      type: System.Int32[]
+    - id: rect
+      type: Global.IntRect
+    content.vb: Public Sub RerenderKeyFrames(keyFrames As Integer(), rect As IntRect)
+  overload: Global.TileLayer.RerenderKeyFrames*
+  nameWithType.vb: TileLayer.RerenderKeyFrames(Integer(), IntRect)
+  fullName.vb: TileLayer.RerenderKeyFrames(Integer(), IntRect)
+  name.vb: RerenderKeyFrames(Integer(), IntRect)
+- uid: Global.TileLayer.RerenderKeyFrames(System.Int32[],IntVector2[])
+  commentId: M:Global.TileLayer.RerenderKeyFrames(System.Int32[],IntVector2[])
+  id: RerenderKeyFrames(System.Int32[],IntVector2[])
+  parent: Global.TileLayer
+  langs:
+  - csharp
+  - vb
+  name: RerenderKeyFrames(int[], IntVector2[])
+  nameWithType: TileLayer.RerenderKeyFrames(int[], IntVector2[])
+  fullName: TileLayer.RerenderKeyFrames(int[], IntVector2[])
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Layers/TileLayer.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: RerenderKeyFrames
+    path: ../Assets/Scripts/Layers/TileLayer.cs
+    startLine: 443
+  namespace: Global
+  summary: Rerenders the given pixels of the given keyframes.
+  example: []
+  syntax:
+    content: public void RerenderKeyFrames(int[] keyFrames, IntVector2[] pixels)
+    parameters:
+    - id: keyFrames
+      type: System.Int32[]
+    - id: pixels
+      type: Global.IntVector2[]
+    content.vb: Public Sub RerenderKeyFrames(keyFrames As Integer(), pixels As IntVector2())
+  overload: Global.TileLayer.RerenderKeyFrames*
+  nameWithType.vb: TileLayer.RerenderKeyFrames(Integer(), IntVector2())
+  fullName.vb: TileLayer.RerenderKeyFrames(Integer(), IntVector2())
+  name.vb: RerenderKeyFrames(Integer(), IntVector2())
+- uid: Global.TileLayer.RerenderKeyFrame(System.Int32)
+  commentId: M:Global.TileLayer.RerenderKeyFrame(System.Int32)
+  id: RerenderKeyFrame(System.Int32)
+  parent: Global.TileLayer
+  langs:
+  - csharp
+  - vb
+  name: RerenderKeyFrame(int)
+  nameWithType: TileLayer.RerenderKeyFrame(int)
+  fullName: TileLayer.RerenderKeyFrame(int)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Layers/TileLayer.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: RerenderKeyFrame
+    path: ../Assets/Scripts/Layers/TileLayer.cs
+    startLine: 453
+  namespace: Global
+  summary: Rerenders the keyframe.
+  example: []
+  syntax:
+    content: public void RerenderKeyFrame(int frame)
+    parameters:
+    - id: frame
+      type: System.Int32
+    content.vb: Public Sub RerenderKeyFrame(frame As Integer)
+  overload: Global.TileLayer.RerenderKeyFrame*
+  nameWithType.vb: TileLayer.RerenderKeyFrame(Integer)
+  fullName.vb: TileLayer.RerenderKeyFrame(Integer)
+  name.vb: RerenderKeyFrame(Integer)
+- uid: Global.TileLayer.RerenderKeyFrame(System.Int32,IntRect)
+  commentId: M:Global.TileLayer.RerenderKeyFrame(System.Int32,IntRect)
+  id: RerenderKeyFrame(System.Int32,IntRect)
+  parent: Global.TileLayer
+  langs:
+  - csharp
+  - vb
+  name: RerenderKeyFrame(int, IntRect)
+  nameWithType: TileLayer.RerenderKeyFrame(int, IntRect)
+  fullName: TileLayer.RerenderKeyFrame(int, IntRect)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Layers/TileLayer.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: RerenderKeyFrame
+    path: ../Assets/Scripts/Layers/TileLayer.cs
+    startLine: 457
+  namespace: Global
+  summary: Rerenders the section of the keyframe within the given rect.
+  example: []
+  syntax:
+    content: public void RerenderKeyFrame(int frame, IntRect rect)
+    parameters:
+    - id: frame
+      type: System.Int32
+    - id: rect
+      type: Global.IntRect
+    content.vb: Public Sub RerenderKeyFrame(frame As Integer, rect As IntRect)
+  overload: Global.TileLayer.RerenderKeyFrame*
+  nameWithType.vb: TileLayer.RerenderKeyFrame(Integer, IntRect)
+  fullName.vb: TileLayer.RerenderKeyFrame(Integer, IntRect)
+  name.vb: RerenderKeyFrame(Integer, IntRect)
+- uid: Global.TileLayer.RerenderKeyFrame(System.Int32,IntVector2[])
+  commentId: M:Global.TileLayer.RerenderKeyFrame(System.Int32,IntVector2[])
+  id: RerenderKeyFrame(System.Int32,IntVector2[])
+  parent: Global.TileLayer
+  langs:
+  - csharp
+  - vb
+  name: RerenderKeyFrame(int, IntVector2[])
+  nameWithType: TileLayer.RerenderKeyFrame(int, IntVector2[])
+  fullName: TileLayer.RerenderKeyFrame(int, IntVector2[])
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Layers/TileLayer.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: RerenderKeyFrame
+    path: ../Assets/Scripts/Layers/TileLayer.cs
+    startLine: 461
+  namespace: Global
+  summary: Rerenders the given pixels of the keyframe.
+  example: []
+  syntax:
+    content: public void RerenderKeyFrame(int frame, IntVector2[] pixels)
+    parameters:
+    - id: frame
+      type: System.Int32
+    - id: pixels
+      type: Global.IntVector2[]
+    content.vb: Public Sub RerenderKeyFrame(frame As Integer, pixels As IntVector2())
+  overload: Global.TileLayer.RerenderKeyFrame*
+  nameWithType.vb: TileLayer.RerenderKeyFrame(Integer, IntVector2())
+  fullName.vb: TileLayer.RerenderKeyFrame(Integer, IntVector2())
+  name.vb: RerenderKeyFrame(Integer, IntVector2())
+references:
+- uid: Global
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: Global.Layer
+  commentId: T:Global.Layer
+  href: Layer.html
+  name: Layer
+  nameWithType: Layer
+  fullName: Layer
+- uid: Global.IJSONable
+  commentId: T:Global.IJSONable
+  href: IJSONable.html
+  name: IJSONable
+  nameWithType: IJSONable
+  fullName: IJSONable
+- uid: Global.Layer.name
+  commentId: P:Global.Layer.name
+  parent: Global.Layer
+  href: Global.Layer.html#Layer_name
+  name: name
+  nameWithType: Layer.name
+  fullName: Layer.name
+- uid: Global.Layer.width
+  commentId: P:Global.Layer.width
+  parent: Global.Layer
+  href: Global.Layer.html#Layer_width
+  name: width
+  nameWithType: Layer.width
+  fullName: Layer.width
+- uid: Global.Layer.height
+  commentId: P:Global.Layer.height
+  parent: Global.Layer
+  href: Global.Layer.html#Layer_height
+  name: height
+  nameWithType: Layer.height
+  fullName: Layer.height
+- uid: Global.Layer.rect
+  commentId: P:Global.Layer.rect
+  parent: Global.Layer
+  href: Global.Layer.html#Layer_rect
+  name: rect
+  nameWithType: Layer.rect
+  fullName: Layer.rect
+- uid: Global.Layer._visible
+  commentId: F:Global.Layer._visible
+  parent: Global.Layer
+  href: Global.Layer.html#Layer__visible
+  name: _visible
+  nameWithType: Layer._visible
+  fullName: Layer._visible
+- uid: Global.Layer.visible
+  commentId: P:Global.Layer.visible
+  parent: Global.Layer
+  href: Global.Layer.html#Layer_visible
+  name: visible
+  nameWithType: Layer.visible
+  fullName: Layer.visible
+- uid: Global.Layer.locked
+  commentId: P:Global.Layer.locked
+  parent: Global.Layer
+  href: Global.Layer.html#Layer_locked
+  name: locked
+  nameWithType: Layer.locked
+  fullName: Layer.locked
+- uid: Global.Layer.opacity
+  commentId: P:Global.Layer.opacity
+  parent: Global.Layer
+  href: Global.Layer.html#Layer_opacity
+  name: opacity
+  nameWithType: Layer.opacity
+  fullName: Layer.opacity
+- uid: Global.Layer._blendMode
+  commentId: F:Global.Layer._blendMode
+  parent: Global.Layer
+  href: Global.Layer.html#Layer__blendMode
+  name: _blendMode
+  nameWithType: Layer._blendMode
+  fullName: Layer._blendMode
+- uid: Global.Layer.blendMode
+  commentId: P:Global.Layer.blendMode
+  parent: Global.Layer
+  href: Global.Layer.html#Layer_blendMode
+  name: blendMode
+  nameWithType: Layer.blendMode
+  fullName: Layer.blendMode
+- uid: Global.Layer.keyFrames
+  commentId: P:Global.Layer.keyFrames
+  parent: Global.Layer
+  href: Global.Layer.html#Layer_keyFrames
+  name: keyFrames
+  nameWithType: Layer.keyFrames
+  fullName: Layer.keyFrames
+- uid: Global.Layer.keyFrameIndices
+  commentId: P:Global.Layer.keyFrameIndices
+  parent: Global.Layer
+  href: Global.Layer.html#Layer_keyFrameIndices
+  name: keyFrameIndices
+  nameWithType: Layer.keyFrameIndices
+  fullName: Layer.keyFrameIndices
+- uid: Global.Layer.keyFrameTextures
+  commentId: P:Global.Layer.keyFrameTextures
+  parent: Global.Layer
+  href: Global.Layer.html#Layer_keyFrameTextures
+  name: keyFrameTextures
+  nameWithType: Layer.keyFrameTextures
+  fullName: Layer.keyFrameTextures
+- uid: Global.Layer.onPixelsChanged
+  commentId: F:Global.Layer.onPixelsChanged
+  parent: Global.Layer
+  href: Global.Layer.html#Layer_onPixelsChanged
+  name: onPixelsChanged
+  nameWithType: Layer.onPixelsChanged
+  fullName: Layer.onPixelsChanged
+- uid: Global.Layer.SetPixel(System.Int32,System.Int32,System.Int32,Color,AnimFrameRefMode)
+  commentId: M:Global.Layer.SetPixel(System.Int32,System.Int32,System.Int32,Color,AnimFrameRefMode)
+  parent: Global.Layer
+  isExternal: true
+  href: Global.Layer.html#Layer_SetPixel_System_Int32_System_Int32_System_Int32_Color_AnimFrameRefMode_
+  name: SetPixel(int, int, int, Color, AnimFrameRefMode)
+  nameWithType: Layer.SetPixel(int, int, int, Color, AnimFrameRefMode)
+  fullName: Layer.SetPixel(int, int, int, Color, AnimFrameRefMode)
+  nameWithType.vb: Layer.SetPixel(Integer, Integer, Integer, Color, AnimFrameRefMode)
+  fullName.vb: Layer.SetPixel(Integer, Integer, Integer, Color, AnimFrameRefMode)
+  name.vb: SetPixel(Integer, Integer, Integer, Color, AnimFrameRefMode)
+  spec.csharp:
+  - uid: Global.Layer.SetPixel(System.Int32,System.Int32,System.Int32,Color,AnimFrameRefMode)
+    name: SetPixel
+    href: Global.Layer.html#Layer_SetPixel_System_Int32_System_Int32_System_Int32_Color_AnimFrameRefMode_
+  - name: (
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: Global.Color
+    name: Color
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: Global.AnimFrameRefMode
+    name: AnimFrameRefMode
+    href: AnimFrameRefMode.html
+  - name: )
+  spec.vb:
+  - uid: Global.Layer.SetPixel(System.Int32,System.Int32,System.Int32,Color,AnimFrameRefMode)
+    name: SetPixel
+    href: Global.Layer.html#Layer_SetPixel_System_Int32_System_Int32_System_Int32_Color_AnimFrameRefMode_
+  - name: (
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: Global.Color
+    name: Color
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: Global.AnimFrameRefMode
+    name: AnimFrameRefMode
+    href: AnimFrameRefMode.html
+  - name: )
+- uid: Global.Layer.SetPixel(IntVector2,System.Int32,Color,AnimFrameRefMode)
+  commentId: M:Global.Layer.SetPixel(IntVector2,System.Int32,Color,AnimFrameRefMode)
+  parent: Global.Layer
+  isExternal: true
+  href: Global.Layer.html#Layer_SetPixel_IntVector2_System_Int32_Color_AnimFrameRefMode_
+  name: SetPixel(IntVector2, int, Color, AnimFrameRefMode)
+  nameWithType: Layer.SetPixel(IntVector2, int, Color, AnimFrameRefMode)
+  fullName: Layer.SetPixel(IntVector2, int, Color, AnimFrameRefMode)
+  nameWithType.vb: Layer.SetPixel(IntVector2, Integer, Color, AnimFrameRefMode)
+  fullName.vb: Layer.SetPixel(IntVector2, Integer, Color, AnimFrameRefMode)
+  name.vb: SetPixel(IntVector2, Integer, Color, AnimFrameRefMode)
+  spec.csharp:
+  - uid: Global.Layer.SetPixel(IntVector2,System.Int32,Color,AnimFrameRefMode)
+    name: SetPixel
+    href: Global.Layer.html#Layer_SetPixel_IntVector2_System_Int32_Color_AnimFrameRefMode_
+  - name: (
+  - uid: Global.IntVector2
+    name: IntVector2
+    href: IntVector2.html
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: Global.Color
+    name: Color
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: Global.AnimFrameRefMode
+    name: AnimFrameRefMode
+    href: AnimFrameRefMode.html
+  - name: )
+  spec.vb:
+  - uid: Global.Layer.SetPixel(IntVector2,System.Int32,Color,AnimFrameRefMode)
+    name: SetPixel
+    href: Global.Layer.html#Layer_SetPixel_IntVector2_System_Int32_Color_AnimFrameRefMode_
+  - name: (
+  - uid: Global.IntVector2
+    name: IntVector2
+    href: IntVector2.html
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: Global.Color
+    name: Color
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: Global.AnimFrameRefMode
+    name: AnimFrameRefMode
+    href: AnimFrameRefMode.html
+  - name: )
+- uid: Global.Layer.SetPixels(IntVector2[],System.Int32,Color,AnimFrameRefMode)
+  commentId: M:Global.Layer.SetPixels(IntVector2[],System.Int32,Color,AnimFrameRefMode)
+  parent: Global.Layer
+  isExternal: true
+  href: Global.Layer.html#Layer_SetPixels_IntVector2___System_Int32_Color_AnimFrameRefMode_
+  name: SetPixels(IntVector2[], int, Color, AnimFrameRefMode)
+  nameWithType: Layer.SetPixels(IntVector2[], int, Color, AnimFrameRefMode)
+  fullName: Layer.SetPixels(IntVector2[], int, Color, AnimFrameRefMode)
+  nameWithType.vb: Layer.SetPixels(IntVector2(), Integer, Color, AnimFrameRefMode)
+  fullName.vb: Layer.SetPixels(IntVector2(), Integer, Color, AnimFrameRefMode)
+  name.vb: SetPixels(IntVector2(), Integer, Color, AnimFrameRefMode)
+  spec.csharp:
+  - uid: Global.Layer.SetPixels(IntVector2[],System.Int32,Color,AnimFrameRefMode)
+    name: SetPixels
+    href: Global.Layer.html#Layer_SetPixels_IntVector2___System_Int32_Color_AnimFrameRefMode_
+  - name: (
+  - uid: Global.IntVector2
+    name: IntVector2
+    href: IntVector2.html
+  - name: '['
+  - name: ']'
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: Global.Color
+    name: Color
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: Global.AnimFrameRefMode
+    name: AnimFrameRefMode
+    href: AnimFrameRefMode.html
+  - name: )
+  spec.vb:
+  - uid: Global.Layer.SetPixels(IntVector2[],System.Int32,Color,AnimFrameRefMode)
+    name: SetPixels
+    href: Global.Layer.html#Layer_SetPixels_IntVector2___System_Int32_Color_AnimFrameRefMode_
+  - name: (
+  - uid: Global.IntVector2
+    name: IntVector2
+    href: IntVector2.html
+  - name: (
+  - name: )
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: Global.Color
+    name: Color
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: Global.AnimFrameRefMode
+    name: AnimFrameRefMode
+    href: AnimFrameRefMode.html
+  - name: )
+- uid: Global.Layer.GetPixel(System.Int32,System.Int32,System.Int32,System.Boolean)
+  commentId: M:Global.Layer.GetPixel(System.Int32,System.Int32,System.Int32,System.Boolean)
+  parent: Global.Layer
+  isExternal: true
+  href: Global.Layer.html#Layer_GetPixel_System_Int32_System_Int32_System_Int32_System_Boolean_
+  name: GetPixel(int, int, int, bool)
+  nameWithType: Layer.GetPixel(int, int, int, bool)
+  fullName: Layer.GetPixel(int, int, int, bool)
+  nameWithType.vb: Layer.GetPixel(Integer, Integer, Integer, Boolean)
+  fullName.vb: Layer.GetPixel(Integer, Integer, Integer, Boolean)
+  name.vb: GetPixel(Integer, Integer, Integer, Boolean)
+  spec.csharp:
+  - uid: Global.Layer.GetPixel(System.Int32,System.Int32,System.Int32,System.Boolean)
+    name: GetPixel
+    href: Global.Layer.html#Layer_GetPixel_System_Int32_System_Int32_System_Int32_System_Boolean_
+  - name: (
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: System.Boolean
+    name: bool
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: )
+  spec.vb:
+  - uid: Global.Layer.GetPixel(System.Int32,System.Int32,System.Int32,System.Boolean)
+    name: GetPixel
+    href: Global.Layer.html#Layer_GetPixel_System_Int32_System_Int32_System_Int32_System_Boolean_
+  - name: (
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: System.Boolean
+    name: Boolean
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: )
+- uid: Global.Layer.IsBlank
+  commentId: M:Global.Layer.IsBlank
+  parent: Global.Layer
+  href: Global.Layer.html#Layer_IsBlank
+  name: IsBlank()
+  nameWithType: Layer.IsBlank()
+  fullName: Layer.IsBlank()
+  spec.csharp:
+  - uid: Global.Layer.IsBlank
+    name: IsBlank
+    href: Global.Layer.html#Layer_IsBlank
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Global.Layer.IsBlank
+    name: IsBlank
+    href: Global.Layer.html#Layer_IsBlank
+  - name: (
+  - name: )
+- uid: Global.Layer.Flip(FlipDirection)
+  commentId: M:Global.Layer.Flip(FlipDirection)
+  parent: Global.Layer
+  href: Global.Layer.html#Layer_Flip_FlipDirection_
+  name: Flip(FlipDirection)
+  nameWithType: Layer.Flip(FlipDirection)
+  fullName: Layer.Flip(FlipDirection)
+  spec.csharp:
+  - uid: Global.Layer.Flip(FlipDirection)
+    name: Flip
+    href: Global.Layer.html#Layer_Flip_FlipDirection_
+  - name: (
+  - uid: Global.FlipDirection
+    name: FlipDirection
+    href: FlipDirection.html
+  - name: )
+  spec.vb:
+  - uid: Global.Layer.Flip(FlipDirection)
+    name: Flip
+    href: Global.Layer.html#Layer_Flip_FlipDirection_
+  - name: (
+  - uid: Global.FlipDirection
+    name: FlipDirection
+    href: FlipDirection.html
+  - name: )
+- uid: Global.Layer.Rotate(RotationAngle)
+  commentId: M:Global.Layer.Rotate(RotationAngle)
+  parent: Global.Layer
+  href: Global.Layer.html#Layer_Rotate_RotationAngle_
+  name: Rotate(RotationAngle)
+  nameWithType: Layer.Rotate(RotationAngle)
+  fullName: Layer.Rotate(RotationAngle)
+  spec.csharp:
+  - uid: Global.Layer.Rotate(RotationAngle)
+    name: Rotate
+    href: Global.Layer.html#Layer_Rotate_RotationAngle_
+  - name: (
+  - uid: Global.RotationAngle
+    name: RotationAngle
+    href: RotationAngle.html
+  - name: )
+  spec.vb:
+  - uid: Global.Layer.Rotate(RotationAngle)
+    name: Rotate
+    href: Global.Layer.html#Layer_Rotate_RotationAngle_
+  - name: (
+  - uid: Global.RotationAngle
+    name: RotationAngle
+    href: RotationAngle.html
+  - name: )
+- uid: Global.Layer.Extend(System.Int32,System.Int32,System.Int32,System.Int32)
+  commentId: M:Global.Layer.Extend(System.Int32,System.Int32,System.Int32,System.Int32)
+  parent: Global.Layer
+  isExternal: true
+  href: Global.Layer.html#Layer_Extend_System_Int32_System_Int32_System_Int32_System_Int32_
+  name: Extend(int, int, int, int)
+  nameWithType: Layer.Extend(int, int, int, int)
+  fullName: Layer.Extend(int, int, int, int)
+  nameWithType.vb: Layer.Extend(Integer, Integer, Integer, Integer)
+  fullName.vb: Layer.Extend(Integer, Integer, Integer, Integer)
+  name.vb: Extend(Integer, Integer, Integer, Integer)
+  spec.csharp:
+  - uid: Global.Layer.Extend(System.Int32,System.Int32,System.Int32,System.Int32)
+    name: Extend
+    href: Global.Layer.html#Layer_Extend_System_Int32_System_Int32_System_Int32_System_Int32_
+  - name: (
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+  spec.vb:
+  - uid: Global.Layer.Extend(System.Int32,System.Int32,System.Int32,System.Int32)
+    name: Extend
+    href: Global.Layer.html#Layer_Extend_System_Int32_System_Int32_System_Int32_System_Int32_
+  - name: (
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+- uid: Global.Layer.Scale(System.Single)
+  commentId: M:Global.Layer.Scale(System.Single)
+  parent: Global.Layer
+  isExternal: true
+  href: Global.Layer.html#Layer_Scale_System_Single_
+  name: Scale(float)
+  nameWithType: Layer.Scale(float)
+  fullName: Layer.Scale(float)
+  nameWithType.vb: Layer.Scale(Single)
+  fullName.vb: Layer.Scale(Single)
+  name.vb: Scale(Single)
+  spec.csharp:
+  - uid: Global.Layer.Scale(System.Single)
+    name: Scale
+    href: Global.Layer.html#Layer_Scale_System_Single_
+  - name: (
+  - uid: System.Single
+    name: float
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.single
+  - name: )
+  spec.vb:
+  - uid: Global.Layer.Scale(System.Single)
+    name: Scale
+    href: Global.Layer.html#Layer_Scale_System_Single_
+  - name: (
+  - uid: System.Single
+    name: Single
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.single
+  - name: )
+- uid: Global.Layer.Scale(System.Single,System.Single)
+  commentId: M:Global.Layer.Scale(System.Single,System.Single)
+  parent: Global.Layer
+  isExternal: true
+  href: Global.Layer.html#Layer_Scale_System_Single_System_Single_
+  name: Scale(float, float)
+  nameWithType: Layer.Scale(float, float)
+  fullName: Layer.Scale(float, float)
+  nameWithType.vb: Layer.Scale(Single, Single)
+  fullName.vb: Layer.Scale(Single, Single)
+  name.vb: Scale(Single, Single)
+  spec.csharp:
+  - uid: Global.Layer.Scale(System.Single,System.Single)
+    name: Scale
+    href: Global.Layer.html#Layer_Scale_System_Single_System_Single_
+  - name: (
+  - uid: System.Single
+    name: float
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.single
+  - name: ','
+  - name: " "
+  - uid: System.Single
+    name: float
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.single
+  - name: )
+  spec.vb:
+  - uid: Global.Layer.Scale(System.Single,System.Single)
+    name: Scale
+    href: Global.Layer.html#Layer_Scale_System_Single_System_Single_
+  - name: (
+  - uid: System.Single
+    name: Single
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.single
+  - name: ','
+  - name: " "
+  - uid: System.Single
+    name: Single
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.single
+  - name: )
+- uid: Global.Layer.Scale(System.Int32,System.Int32)
+  commentId: M:Global.Layer.Scale(System.Int32,System.Int32)
+  parent: Global.Layer
+  isExternal: true
+  href: Global.Layer.html#Layer_Scale_System_Int32_System_Int32_
+  name: Scale(int, int)
+  nameWithType: Layer.Scale(int, int)
+  fullName: Layer.Scale(int, int)
+  nameWithType.vb: Layer.Scale(Integer, Integer)
+  fullName.vb: Layer.Scale(Integer, Integer)
+  name.vb: Scale(Integer, Integer)
+  spec.csharp:
+  - uid: Global.Layer.Scale(System.Int32,System.Int32)
+    name: Scale
+    href: Global.Layer.html#Layer_Scale_System_Int32_System_Int32_
+  - name: (
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+  spec.vb:
+  - uid: Global.Layer.Scale(System.Int32,System.Int32)
+    name: Scale
+    href: Global.Layer.html#Layer_Scale_System_Int32_System_Int32_
+  - name: (
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+- uid: Global.Layer.FromJSON(JSON)
+  commentId: M:Global.Layer.FromJSON(JSON)
+  parent: Global.Layer
+  href: Global.Layer.html#Layer_FromJSON_JSON_
+  name: FromJSON(JSON)
+  nameWithType: Layer.FromJSON(JSON)
+  fullName: Layer.FromJSON(JSON)
+  spec.csharp:
+  - uid: Global.Layer.FromJSON(JSON)
+    name: FromJSON
+    href: Global.Layer.html#Layer_FromJSON_JSON_
+  - name: (
+  - uid: Global.JSON
+    name: JSON
+    href: JSON.html
+  - name: )
+  spec.vb:
+  - uid: Global.Layer.FromJSON(JSON)
+    name: FromJSON
+    href: Global.Layer.html#Layer_FromJSON_JSON_
+  - name: (
+  - uid: Global.JSON
+    name: JSON
+    href: JSON.html
+  - name: )
+- uid: Global.Layer.Item(System.Int32)
+  commentId: P:Global.Layer.Item(System.Int32)
+  parent: Global.Layer
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: this[int]
+  nameWithType: Layer.this[int]
+  fullName: Layer.this[int]
+  nameWithType.vb: Layer.this[](Integer)
+  fullName.vb: Layer.this[](Integer)
+  name.vb: this[](Integer)
+  spec.csharp:
+  - name: this
+  - name: '['
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ']'
+  spec.vb:
+  - uid: Global.Layer.Item(System.Int32)
+    name: this[]
+    href: Global.Layer.html#Layer_Item_System_Int32_
+  - name: (
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+- uid: Global.Layer.GetKeyFrame(System.Int32)
+  commentId: M:Global.Layer.GetKeyFrame(System.Int32)
+  parent: Global.Layer
+  isExternal: true
+  href: Global.Layer.html#Layer_GetKeyFrame_System_Int32_
+  name: GetKeyFrame(int)
+  nameWithType: Layer.GetKeyFrame(int)
+  fullName: Layer.GetKeyFrame(int)
+  nameWithType.vb: Layer.GetKeyFrame(Integer)
+  fullName.vb: Layer.GetKeyFrame(Integer)
+  name.vb: GetKeyFrame(Integer)
+  spec.csharp:
+  - uid: Global.Layer.GetKeyFrame(System.Int32)
+    name: GetKeyFrame
+    href: Global.Layer.html#Layer_GetKeyFrame_System_Int32_
+  - name: (
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+  spec.vb:
+  - uid: Global.Layer.GetKeyFrame(System.Int32)
+    name: GetKeyFrame
+    href: Global.Layer.html#Layer_GetKeyFrame_System_Int32_
+  - name: (
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+- uid: Global.Layer.HasKeyFrameAt(System.Int32)
+  commentId: M:Global.Layer.HasKeyFrameAt(System.Int32)
+  parent: Global.Layer
+  isExternal: true
+  href: Global.Layer.html#Layer_HasKeyFrameAt_System_Int32_
+  name: HasKeyFrameAt(int)
+  nameWithType: Layer.HasKeyFrameAt(int)
+  fullName: Layer.HasKeyFrameAt(int)
+  nameWithType.vb: Layer.HasKeyFrameAt(Integer)
+  fullName.vb: Layer.HasKeyFrameAt(Integer)
+  name.vb: HasKeyFrameAt(Integer)
+  spec.csharp:
+  - uid: Global.Layer.HasKeyFrameAt(System.Int32)
+    name: HasKeyFrameAt
+    href: Global.Layer.html#Layer_HasKeyFrameAt_System_Int32_
+  - name: (
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+  spec.vb:
+  - uid: Global.Layer.HasKeyFrameAt(System.Int32)
+    name: HasKeyFrameAt
+    href: Global.Layer.html#Layer_HasKeyFrameAt_System_Int32_
+  - name: (
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+- uid: Global.Layer.AddKeyFrame(System.Int32)
+  commentId: M:Global.Layer.AddKeyFrame(System.Int32)
+  parent: Global.Layer
+  isExternal: true
+  href: Global.Layer.html#Layer_AddKeyFrame_System_Int32_
+  name: AddKeyFrame(int)
+  nameWithType: Layer.AddKeyFrame(int)
+  fullName: Layer.AddKeyFrame(int)
+  nameWithType.vb: Layer.AddKeyFrame(Integer)
+  fullName.vb: Layer.AddKeyFrame(Integer)
+  name.vb: AddKeyFrame(Integer)
+  spec.csharp:
+  - uid: Global.Layer.AddKeyFrame(System.Int32)
+    name: AddKeyFrame
+    href: Global.Layer.html#Layer_AddKeyFrame_System_Int32_
+  - name: (
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+  spec.vb:
+  - uid: Global.Layer.AddKeyFrame(System.Int32)
+    name: AddKeyFrame
+    href: Global.Layer.html#Layer_AddKeyFrame_System_Int32_
+  - name: (
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+- uid: Global.Layer.AddKeyFrame(System.Int32,Texture2D)
+  commentId: M:Global.Layer.AddKeyFrame(System.Int32,Texture2D)
+  parent: Global.Layer
+  isExternal: true
+  href: Global.Layer.html#Layer_AddKeyFrame_System_Int32_Texture2D_
+  name: AddKeyFrame(int, Texture2D)
+  nameWithType: Layer.AddKeyFrame(int, Texture2D)
+  fullName: Layer.AddKeyFrame(int, Texture2D)
+  nameWithType.vb: Layer.AddKeyFrame(Integer, Texture2D)
+  fullName.vb: Layer.AddKeyFrame(Integer, Texture2D)
+  name.vb: AddKeyFrame(Integer, Texture2D)
+  spec.csharp:
+  - uid: Global.Layer.AddKeyFrame(System.Int32,Texture2D)
+    name: AddKeyFrame
+    href: Global.Layer.html#Layer_AddKeyFrame_System_Int32_Texture2D_
+  - name: (
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: Global.Texture2D
+    name: Texture2D
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: Global.Layer.AddKeyFrame(System.Int32,Texture2D)
+    name: AddKeyFrame
+    href: Global.Layer.html#Layer_AddKeyFrame_System_Int32_Texture2D_
+  - name: (
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: Global.Texture2D
+    name: Texture2D
+    isExternal: true
+  - name: )
+- uid: Global.Layer.AddKeyFrame(AnimationKeyFrame)
+  commentId: M:Global.Layer.AddKeyFrame(AnimationKeyFrame)
+  parent: Global.Layer
+  href: Global.Layer.html#Layer_AddKeyFrame_AnimationKeyFrame_
+  name: AddKeyFrame(AnimationKeyFrame)
+  nameWithType: Layer.AddKeyFrame(AnimationKeyFrame)
+  fullName: Layer.AddKeyFrame(AnimationKeyFrame)
+  spec.csharp:
+  - uid: Global.Layer.AddKeyFrame(AnimationKeyFrame)
+    name: AddKeyFrame
+    href: Global.Layer.html#Layer_AddKeyFrame_AnimationKeyFrame_
+  - name: (
+  - uid: Global.AnimationKeyFrame
+    name: AnimationKeyFrame
+    href: AnimationKeyFrame.html
+  - name: )
+  spec.vb:
+  - uid: Global.Layer.AddKeyFrame(AnimationKeyFrame)
+    name: AddKeyFrame
+    href: Global.Layer.html#Layer_AddKeyFrame_AnimationKeyFrame_
+  - name: (
+  - uid: Global.AnimationKeyFrame
+    name: AnimationKeyFrame
+    href: AnimationKeyFrame.html
+  - name: )
+- uid: Global.Layer.DeleteMostRecentKeyFrame(System.Int32)
+  commentId: M:Global.Layer.DeleteMostRecentKeyFrame(System.Int32)
+  parent: Global.Layer
+  isExternal: true
+  href: Global.Layer.html#Layer_DeleteMostRecentKeyFrame_System_Int32_
+  name: DeleteMostRecentKeyFrame(int)
+  nameWithType: Layer.DeleteMostRecentKeyFrame(int)
+  fullName: Layer.DeleteMostRecentKeyFrame(int)
+  nameWithType.vb: Layer.DeleteMostRecentKeyFrame(Integer)
+  fullName.vb: Layer.DeleteMostRecentKeyFrame(Integer)
+  name.vb: DeleteMostRecentKeyFrame(Integer)
+  spec.csharp:
+  - uid: Global.Layer.DeleteMostRecentKeyFrame(System.Int32)
+    name: DeleteMostRecentKeyFrame
+    href: Global.Layer.html#Layer_DeleteMostRecentKeyFrame_System_Int32_
+  - name: (
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+  spec.vb:
+  - uid: Global.Layer.DeleteMostRecentKeyFrame(System.Int32)
+    name: DeleteMostRecentKeyFrame
+    href: Global.Layer.html#Layer_DeleteMostRecentKeyFrame_System_Int32_
+  - name: (
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+- uid: Global.Layer.DeleteKeyFrame(System.Int32)
+  commentId: M:Global.Layer.DeleteKeyFrame(System.Int32)
+  parent: Global.Layer
+  isExternal: true
+  href: Global.Layer.html#Layer_DeleteKeyFrame_System_Int32_
+  name: DeleteKeyFrame(int)
+  nameWithType: Layer.DeleteKeyFrame(int)
+  fullName: Layer.DeleteKeyFrame(int)
+  nameWithType.vb: Layer.DeleteKeyFrame(Integer)
+  fullName.vb: Layer.DeleteKeyFrame(Integer)
+  name.vb: DeleteKeyFrame(Integer)
+  spec.csharp:
+  - uid: Global.Layer.DeleteKeyFrame(System.Int32)
+    name: DeleteKeyFrame
+    href: Global.Layer.html#Layer_DeleteKeyFrame_System_Int32_
+  - name: (
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+  spec.vb:
+  - uid: Global.Layer.DeleteKeyFrame(System.Int32)
+    name: DeleteKeyFrame
+    href: Global.Layer.html#Layer_DeleteKeyFrame_System_Int32_
+  - name: (
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+- uid: Global.Layer.DeleteKeyFrame(AnimationKeyFrame)
+  commentId: M:Global.Layer.DeleteKeyFrame(AnimationKeyFrame)
+  parent: Global.Layer
+  href: Global.Layer.html#Layer_DeleteKeyFrame_AnimationKeyFrame_
+  name: DeleteKeyFrame(AnimationKeyFrame)
+  nameWithType: Layer.DeleteKeyFrame(AnimationKeyFrame)
+  fullName: Layer.DeleteKeyFrame(AnimationKeyFrame)
+  spec.csharp:
+  - uid: Global.Layer.DeleteKeyFrame(AnimationKeyFrame)
+    name: DeleteKeyFrame
+    href: Global.Layer.html#Layer_DeleteKeyFrame_AnimationKeyFrame_
+  - name: (
+  - uid: Global.AnimationKeyFrame
+    name: AnimationKeyFrame
+    href: AnimationKeyFrame.html
+  - name: )
+  spec.vb:
+  - uid: Global.Layer.DeleteKeyFrame(AnimationKeyFrame)
+    name: DeleteKeyFrame
+    href: Global.Layer.html#Layer_DeleteKeyFrame_AnimationKeyFrame_
+  - name: (
+  - uid: Global.AnimationKeyFrame
+    name: AnimationKeyFrame
+    href: AnimationKeyFrame.html
+  - name: )
+- uid: Global.Layer.SubscribeToOnPixelsChanged(UnityAction{IntVector2[],System.Int32[]})
+  commentId: M:Global.Layer.SubscribeToOnPixelsChanged(UnityAction{IntVector2[],System.Int32[]})
+  parent: Global.Layer
+  isExternal: true
+  href: Global.Layer.html#Layer_SubscribeToOnPixelsChanged_UnityAction_IntVector2___System_Int32____
+  name: SubscribeToOnPixelsChanged(UnityAction<IntVector2[], int[]>)
+  nameWithType: Layer.SubscribeToOnPixelsChanged(UnityAction<IntVector2[], int[]>)
+  fullName: Layer.SubscribeToOnPixelsChanged(UnityAction<IntVector2[], int[]>)
+  nameWithType.vb: Layer.SubscribeToOnPixelsChanged(UnityAction(Of IntVector2(), Integer()))
+  fullName.vb: Layer.SubscribeToOnPixelsChanged(UnityAction(Of IntVector2(), Integer()))
+  name.vb: SubscribeToOnPixelsChanged(UnityAction(Of IntVector2(), Integer()))
+  spec.csharp:
+  - uid: Global.Layer.SubscribeToOnPixelsChanged(UnityAction{IntVector2[],System.Int32[]})
+    name: SubscribeToOnPixelsChanged
+    href: Global.Layer.html#Layer_SubscribeToOnPixelsChanged_UnityAction_IntVector2___System_Int32____
+  - name: (
+  - uid: Global.UnityAction`2
+    name: UnityAction
+    isExternal: true
+  - name: <
+  - uid: Global.IntVector2
+    name: IntVector2
+    href: IntVector2.html
+  - name: '['
+  - name: ']'
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: '['
+  - name: ']'
+  - name: '>'
+  - name: )
+  spec.vb:
+  - uid: Global.Layer.SubscribeToOnPixelsChanged(UnityAction{IntVector2[],System.Int32[]})
+    name: SubscribeToOnPixelsChanged
+    href: Global.Layer.html#Layer_SubscribeToOnPixelsChanged_UnityAction_IntVector2___System_Int32____
+  - name: (
+  - uid: Global.UnityAction`2
+    name: UnityAction
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Global.IntVector2
+    name: IntVector2
+    href: IntVector2.html
+  - name: (
+  - name: )
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: (
+  - name: )
+  - name: )
+  - name: )
+- uid: Global.Layer.SubscribeToOnVisibilityChanged(UnityAction)
+  commentId: M:Global.Layer.SubscribeToOnVisibilityChanged(UnityAction)
+  parent: Global.Layer
+  isExternal: true
+  href: Global.Layer.html#Layer_SubscribeToOnVisibilityChanged_UnityAction_
+  name: SubscribeToOnVisibilityChanged(UnityAction)
+  nameWithType: Layer.SubscribeToOnVisibilityChanged(UnityAction)
+  fullName: Layer.SubscribeToOnVisibilityChanged(UnityAction)
+  spec.csharp:
+  - uid: Global.Layer.SubscribeToOnVisibilityChanged(UnityAction)
+    name: SubscribeToOnVisibilityChanged
+    href: Global.Layer.html#Layer_SubscribeToOnVisibilityChanged_UnityAction_
+  - name: (
+  - uid: Global.UnityAction
+    name: UnityAction
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: Global.Layer.SubscribeToOnVisibilityChanged(UnityAction)
+    name: SubscribeToOnVisibilityChanged
+    href: Global.Layer.html#Layer_SubscribeToOnVisibilityChanged_UnityAction_
+  - name: (
+  - uid: Global.UnityAction
+    name: UnityAction
+    isExternal: true
+  - name: )
+- uid: Global.Layer.SubscribeToOnBlendModeChanged(UnityAction)
+  commentId: M:Global.Layer.SubscribeToOnBlendModeChanged(UnityAction)
+  parent: Global.Layer
+  isExternal: true
+  href: Global.Layer.html#Layer_SubscribeToOnBlendModeChanged_UnityAction_
+  name: SubscribeToOnBlendModeChanged(UnityAction)
+  nameWithType: Layer.SubscribeToOnBlendModeChanged(UnityAction)
+  fullName: Layer.SubscribeToOnBlendModeChanged(UnityAction)
+  spec.csharp:
+  - uid: Global.Layer.SubscribeToOnBlendModeChanged(UnityAction)
+    name: SubscribeToOnBlendModeChanged
+    href: Global.Layer.html#Layer_SubscribeToOnBlendModeChanged_UnityAction_
+  - name: (
+  - uid: Global.UnityAction
+    name: UnityAction
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: Global.Layer.SubscribeToOnBlendModeChanged(UnityAction)
+    name: SubscribeToOnBlendModeChanged
+    href: Global.Layer.html#Layer_SubscribeToOnBlendModeChanged_UnityAction_
+  - name: (
+  - uid: Global.UnityAction
+    name: UnityAction
+    isExternal: true
+  - name: )
+- uid: Global.Layer.SubscribeToOnKeyFrameAdded(UnityAction{System.Int32})
+  commentId: M:Global.Layer.SubscribeToOnKeyFrameAdded(UnityAction{System.Int32})
+  parent: Global.Layer
+  isExternal: true
+  href: Global.Layer.html#Layer_SubscribeToOnKeyFrameAdded_UnityAction_System_Int32__
+  name: SubscribeToOnKeyFrameAdded(UnityAction<int>)
+  nameWithType: Layer.SubscribeToOnKeyFrameAdded(UnityAction<int>)
+  fullName: Layer.SubscribeToOnKeyFrameAdded(UnityAction<int>)
+  nameWithType.vb: Layer.SubscribeToOnKeyFrameAdded(UnityAction(Of Integer))
+  fullName.vb: Layer.SubscribeToOnKeyFrameAdded(UnityAction(Of Integer))
+  name.vb: SubscribeToOnKeyFrameAdded(UnityAction(Of Integer))
+  spec.csharp:
+  - uid: Global.Layer.SubscribeToOnKeyFrameAdded(UnityAction{System.Int32})
+    name: SubscribeToOnKeyFrameAdded
+    href: Global.Layer.html#Layer_SubscribeToOnKeyFrameAdded_UnityAction_System_Int32__
+  - name: (
+  - uid: Global.UnityAction`1
+    name: UnityAction
+    isExternal: true
+  - name: <
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: '>'
+  - name: )
+  spec.vb:
+  - uid: Global.Layer.SubscribeToOnKeyFrameAdded(UnityAction{System.Int32})
+    name: SubscribeToOnKeyFrameAdded
+    href: Global.Layer.html#Layer_SubscribeToOnKeyFrameAdded_UnityAction_System_Int32__
+  - name: (
+  - uid: Global.UnityAction`1
+    name: UnityAction
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+  - name: )
+- uid: Global.Layer.SubscribeToOnKeyFrameRemoved(UnityAction{System.Int32})
+  commentId: M:Global.Layer.SubscribeToOnKeyFrameRemoved(UnityAction{System.Int32})
+  parent: Global.Layer
+  isExternal: true
+  href: Global.Layer.html#Layer_SubscribeToOnKeyFrameRemoved_UnityAction_System_Int32__
+  name: SubscribeToOnKeyFrameRemoved(UnityAction<int>)
+  nameWithType: Layer.SubscribeToOnKeyFrameRemoved(UnityAction<int>)
+  fullName: Layer.SubscribeToOnKeyFrameRemoved(UnityAction<int>)
+  nameWithType.vb: Layer.SubscribeToOnKeyFrameRemoved(UnityAction(Of Integer))
+  fullName.vb: Layer.SubscribeToOnKeyFrameRemoved(UnityAction(Of Integer))
+  name.vb: SubscribeToOnKeyFrameRemoved(UnityAction(Of Integer))
+  spec.csharp:
+  - uid: Global.Layer.SubscribeToOnKeyFrameRemoved(UnityAction{System.Int32})
+    name: SubscribeToOnKeyFrameRemoved
+    href: Global.Layer.html#Layer_SubscribeToOnKeyFrameRemoved_UnityAction_System_Int32__
+  - name: (
+  - uid: Global.UnityAction`1
+    name: UnityAction
+    isExternal: true
+  - name: <
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: '>'
+  - name: )
+  spec.vb:
+  - uid: Global.Layer.SubscribeToOnKeyFrameRemoved(UnityAction{System.Int32})
+    name: SubscribeToOnKeyFrameRemoved
+    href: Global.Layer.html#Layer_SubscribeToOnKeyFrameRemoved_UnityAction_System_Int32__
+  - name: (
+  - uid: Global.UnityAction`1
+    name: UnityAction
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Global.Layer.layerType
+  commentId: P:Global.Layer.layerType
+  parent: Global.Layer
+  href: Global.Layer.html#Layer_layerType
+  name: layerType
+  nameWithType: Layer.layerType
+  fullName: Layer.layerType
+- uid: Global.TileLayer.layerType*
+  commentId: Overload:Global.TileLayer.layerType
+  href: Global.TileLayer.html#TileLayer_layerType
+  name: layerType
+  nameWithType: TileLayer.layerType
+  fullName: TileLayer.layerType
+- uid: Global.LayerType
+  commentId: T:Global.LayerType
+  href: LayerType.html
+  name: LayerType
+  nameWithType: LayerType
+  fullName: LayerType
+- uid: Global.TileLayer.tiles*
+  commentId: Overload:Global.TileLayer.tiles
+  href: Global.TileLayer.html#TileLayer_tiles
+  name: tiles
+  nameWithType: TileLayer.tiles
+  fullName: TileLayer.tiles
+- uid: System.Collections.Generic.List{Tile}
+  commentId: T:System.Collections.Generic.List{Tile}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<Tile>
+  nameWithType: List<Tile>
+  fullName: System.Collections.Generic.List<Tile>
+  nameWithType.vb: List(Of Tile)
+  fullName.vb: System.Collections.Generic.List(Of Tile)
+  name.vb: List(Of Tile)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: Global.Tile
+    name: Tile
+    href: Tile.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Global.Tile
+    name: Tile
+    href: Tile.html
+  - name: )
+- uid: System.Collections.Generic.List`1
+  commentId: T:System.Collections.Generic.List`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<T>
+  nameWithType: List<T>
+  fullName: System.Collections.Generic.List<T>
+  nameWithType.vb: List(Of T)
+  fullName.vb: System.Collections.Generic.List(Of T)
+  name.vb: List(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: Global.TileLayer.#ctor*
+  commentId: Overload:Global.TileLayer.#ctor
+  href: Global.TileLayer.html#TileLayer__ctor_System_String_System_Int32_System_Int32_
+  name: TileLayer
+  nameWithType: TileLayer.TileLayer
+  fullName: TileLayer.TileLayer
+  nameWithType.vb: TileLayer.New
+  fullName.vb: TileLayer.New
+  name.vb: New
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: Global.TileLayer
+  commentId: T:Global.TileLayer
+  href: TileLayer.html
+  name: TileLayer
+  nameWithType: TileLayer
+  fullName: TileLayer
+- uid: Global.Layer.DeepCopy
+  commentId: M:Global.Layer.DeepCopy
+  parent: Global.Layer
+  href: Global.Layer.html#Layer_DeepCopy
+  name: DeepCopy()
+  nameWithType: Layer.DeepCopy()
+  fullName: Layer.DeepCopy()
+  spec.csharp:
+  - uid: Global.Layer.DeepCopy
+    name: DeepCopy
+    href: Global.Layer.html#Layer_DeepCopy
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Global.Layer.DeepCopy
+    name: DeepCopy
+    href: Global.Layer.html#Layer_DeepCopy
+  - name: (
+  - name: )
+- uid: Global.TileLayer.DeepCopy*
+  commentId: Overload:Global.TileLayer.DeepCopy
+  href: Global.TileLayer.html#TileLayer_DeepCopy
+  name: DeepCopy
+  nameWithType: TileLayer.DeepCopy
+  fullName: TileLayer.DeepCopy
+- uid: Global.TileLayer.AddTile*
+  commentId: Overload:Global.TileLayer.AddTile
+  href: Global.TileLayer.html#TileLayer_AddTile_Tile_
+  name: AddTile
+  nameWithType: TileLayer.AddTile
+  fullName: TileLayer.AddTile
+- uid: Global.Tile
+  commentId: T:Global.Tile
+  href: Tile.html
+  name: Tile
+  nameWithType: Tile
+  fullName: Tile
+- uid: Global.TileLayer.RemoveTile*
+  commentId: Overload:Global.TileLayer.RemoveTile
+  href: Global.TileLayer.html#TileLayer_RemoveTile_Tile_
+  name: RemoveTile
+  nameWithType: TileLayer.RemoveTile
+  fullName: TileLayer.RemoveTile
+- uid: Global.TileLayer.ClearTiles*
+  commentId: Overload:Global.TileLayer.ClearTiles
+  href: Global.TileLayer.html#TileLayer_ClearTiles
+  name: ClearTiles
+  nameWithType: TileLayer.ClearTiles
+  fullName: TileLayer.ClearTiles
+- uid: Global.TileLayer.ContainsTile*
+  commentId: Overload:Global.TileLayer.ContainsTile
+  href: Global.TileLayer.html#TileLayer_ContainsTile_Tile_
+  name: ContainsTile
+  nameWithType: TileLayer.ContainsTile
+  fullName: TileLayer.ContainsTile
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: Global.Layer.SetPixelsNoEvent(IntVector2[],System.Int32,Color,AnimFrameRefMode)
+  commentId: M:Global.Layer.SetPixelsNoEvent(IntVector2[],System.Int32,Color,AnimFrameRefMode)
+  parent: Global.Layer
+  isExternal: true
+  href: Global.Layer.html#Layer_SetPixelsNoEvent_IntVector2___System_Int32_Color_AnimFrameRefMode_
+  name: SetPixelsNoEvent(IntVector2[], int, Color, AnimFrameRefMode)
+  nameWithType: Layer.SetPixelsNoEvent(IntVector2[], int, Color, AnimFrameRefMode)
+  fullName: Layer.SetPixelsNoEvent(IntVector2[], int, Color, AnimFrameRefMode)
+  nameWithType.vb: Layer.SetPixelsNoEvent(IntVector2(), Integer, Color, AnimFrameRefMode)
+  fullName.vb: Layer.SetPixelsNoEvent(IntVector2(), Integer, Color, AnimFrameRefMode)
+  name.vb: SetPixelsNoEvent(IntVector2(), Integer, Color, AnimFrameRefMode)
+  spec.csharp:
+  - uid: Global.Layer.SetPixelsNoEvent(IntVector2[],System.Int32,Color,AnimFrameRefMode)
+    name: SetPixelsNoEvent
+    href: Global.Layer.html#Layer_SetPixelsNoEvent_IntVector2___System_Int32_Color_AnimFrameRefMode_
+  - name: (
+  - uid: Global.IntVector2
+    name: IntVector2
+    href: IntVector2.html
+  - name: '['
+  - name: ']'
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: Global.Color
+    name: Color
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: Global.AnimFrameRefMode
+    name: AnimFrameRefMode
+    href: AnimFrameRefMode.html
+  - name: )
+  spec.vb:
+  - uid: Global.Layer.SetPixelsNoEvent(IntVector2[],System.Int32,Color,AnimFrameRefMode)
+    name: SetPixelsNoEvent
+    href: Global.Layer.html#Layer_SetPixelsNoEvent_IntVector2___System_Int32_Color_AnimFrameRefMode_
+  - name: (
+  - uid: Global.IntVector2
+    name: IntVector2
+    href: IntVector2.html
+  - name: (
+  - name: )
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: Global.Color
+    name: Color
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: Global.AnimFrameRefMode
+    name: AnimFrameRefMode
+    href: AnimFrameRefMode.html
+  - name: )
+- uid: Global.TileLayer.SetPixelsNoEvent*
+  commentId: Overload:Global.TileLayer.SetPixelsNoEvent
+  href: Global.TileLayer.html#TileLayer_SetPixelsNoEvent_IntVector2___System_Int32_Color_AnimFrameRefMode_
+  name: SetPixelsNoEvent
+  nameWithType: TileLayer.SetPixelsNoEvent
+  fullName: TileLayer.SetPixelsNoEvent
+- uid: Global.IntVector2[]
+  isExternal: true
+  href: IntVector2.html
+  name: IntVector2[]
+  nameWithType: IntVector2[]
+  fullName: IntVector2[]
+  nameWithType.vb: IntVector2()
+  fullName.vb: IntVector2()
+  name.vb: IntVector2()
+  spec.csharp:
+  - uid: Global.IntVector2
+    name: IntVector2
+    href: IntVector2.html
+  - name: '['
+  - name: ']'
+  spec.vb:
+  - uid: Global.IntVector2
+    name: IntVector2
+    href: IntVector2.html
+  - name: (
+  - name: )
+- uid: Global.Color
+  isExternal: true
+  name: Color
+  nameWithType: Color
+  fullName: Color
+- uid: Global.AnimFrameRefMode
+  commentId: T:Global.AnimFrameRefMode
+  href: AnimFrameRefMode.html
+  name: AnimFrameRefMode
+  nameWithType: AnimFrameRefMode
+  fullName: AnimFrameRefMode
+- uid: Global.Layer.GetPixel(IntVector2,System.Int32,System.Boolean)
+  commentId: M:Global.Layer.GetPixel(IntVector2,System.Int32,System.Boolean)
+  parent: Global.Layer
+  isExternal: true
+  href: Global.Layer.html#Layer_GetPixel_IntVector2_System_Int32_System_Boolean_
+  name: GetPixel(IntVector2, int, bool)
+  nameWithType: Layer.GetPixel(IntVector2, int, bool)
+  fullName: Layer.GetPixel(IntVector2, int, bool)
+  nameWithType.vb: Layer.GetPixel(IntVector2, Integer, Boolean)
+  fullName.vb: Layer.GetPixel(IntVector2, Integer, Boolean)
+  name.vb: GetPixel(IntVector2, Integer, Boolean)
+  spec.csharp:
+  - uid: Global.Layer.GetPixel(IntVector2,System.Int32,System.Boolean)
+    name: GetPixel
+    href: Global.Layer.html#Layer_GetPixel_IntVector2_System_Int32_System_Boolean_
+  - name: (
+  - uid: Global.IntVector2
+    name: IntVector2
+    href: IntVector2.html
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: System.Boolean
+    name: bool
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: )
+  spec.vb:
+  - uid: Global.Layer.GetPixel(IntVector2,System.Int32,System.Boolean)
+    name: GetPixel
+    href: Global.Layer.html#Layer_GetPixel_IntVector2_System_Int32_System_Boolean_
+  - name: (
+  - uid: Global.IntVector2
+    name: IntVector2
+    href: IntVector2.html
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: System.Boolean
+    name: Boolean
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: )
+- uid: Global.TileLayer.GetPixel*
+  commentId: Overload:Global.TileLayer.GetPixel
+  href: Global.TileLayer.html#TileLayer_GetPixel_IntVector2_System_Int32_System_Boolean_
+  name: GetPixel
+  nameWithType: TileLayer.GetPixel
+  fullName: TileLayer.GetPixel
+- uid: Global.IntVector2
+  commentId: T:Global.IntVector2
+  href: IntVector2.html
+  name: IntVector2
+  nameWithType: IntVector2
+  fullName: IntVector2
+- uid: Global.TileLayer.PixelToTile*
+  commentId: Overload:Global.TileLayer.PixelToTile
+  href: Global.TileLayer.html#TileLayer_PixelToTile_System_Int32_System_Int32_
+  name: PixelToTile
+  nameWithType: TileLayer.PixelToTile
+  fullName: TileLayer.PixelToTile
+- uid: Global.TileLayer.GetLinkedPixels*
+  commentId: Overload:Global.TileLayer.GetLinkedPixels
+  href: Global.TileLayer.html#TileLayer_GetLinkedPixels_IntVector2_
+  name: GetLinkedPixels
+  nameWithType: TileLayer.GetLinkedPixels
+  fullName: TileLayer.GetLinkedPixels
+- uid: Global.Layer.FlipNoEvent(FlipDirection)
+  commentId: M:Global.Layer.FlipNoEvent(FlipDirection)
+  parent: Global.Layer
+  href: Global.Layer.html#Layer_FlipNoEvent_FlipDirection_
+  name: FlipNoEvent(FlipDirection)
+  nameWithType: Layer.FlipNoEvent(FlipDirection)
+  fullName: Layer.FlipNoEvent(FlipDirection)
+  spec.csharp:
+  - uid: Global.Layer.FlipNoEvent(FlipDirection)
+    name: FlipNoEvent
+    href: Global.Layer.html#Layer_FlipNoEvent_FlipDirection_
+  - name: (
+  - uid: Global.FlipDirection
+    name: FlipDirection
+    href: FlipDirection.html
+  - name: )
+  spec.vb:
+  - uid: Global.Layer.FlipNoEvent(FlipDirection)
+    name: FlipNoEvent
+    href: Global.Layer.html#Layer_FlipNoEvent_FlipDirection_
+  - name: (
+  - uid: Global.FlipDirection
+    name: FlipDirection
+    href: FlipDirection.html
+  - name: )
+- uid: Global.TileLayer.FlipNoEvent*
+  commentId: Overload:Global.TileLayer.FlipNoEvent
+  href: Global.TileLayer.html#TileLayer_FlipNoEvent_FlipDirection_
+  name: FlipNoEvent
+  nameWithType: TileLayer.FlipNoEvent
+  fullName: TileLayer.FlipNoEvent
+- uid: Global.FlipDirection
+  commentId: T:Global.FlipDirection
+  href: FlipDirection.html
+  name: FlipDirection
+  nameWithType: FlipDirection
+  fullName: FlipDirection
+- uid: Global.Layer.RotateNoEvent(RotationAngle)
+  commentId: M:Global.Layer.RotateNoEvent(RotationAngle)
+  parent: Global.Layer
+  href: Global.Layer.html#Layer_RotateNoEvent_RotationAngle_
+  name: RotateNoEvent(RotationAngle)
+  nameWithType: Layer.RotateNoEvent(RotationAngle)
+  fullName: Layer.RotateNoEvent(RotationAngle)
+  spec.csharp:
+  - uid: Global.Layer.RotateNoEvent(RotationAngle)
+    name: RotateNoEvent
+    href: Global.Layer.html#Layer_RotateNoEvent_RotationAngle_
+  - name: (
+  - uid: Global.RotationAngle
+    name: RotationAngle
+    href: RotationAngle.html
+  - name: )
+  spec.vb:
+  - uid: Global.Layer.RotateNoEvent(RotationAngle)
+    name: RotateNoEvent
+    href: Global.Layer.html#Layer_RotateNoEvent_RotationAngle_
+  - name: (
+  - uid: Global.RotationAngle
+    name: RotationAngle
+    href: RotationAngle.html
+  - name: )
+- uid: Global.TileLayer.RotateNoEvent*
+  commentId: Overload:Global.TileLayer.RotateNoEvent
+  href: Global.TileLayer.html#TileLayer_RotateNoEvent_RotationAngle_
+  name: RotateNoEvent
+  nameWithType: TileLayer.RotateNoEvent
+  fullName: TileLayer.RotateNoEvent
+- uid: Global.RotationAngle
+  commentId: T:Global.RotationAngle
+  href: RotationAngle.html
+  name: RotationAngle
+  nameWithType: RotationAngle
+  fullName: RotationAngle
+- uid: Global.Layer.ExtendNoEvent(System.Int32,System.Int32,System.Int32,System.Int32)
+  commentId: M:Global.Layer.ExtendNoEvent(System.Int32,System.Int32,System.Int32,System.Int32)
+  parent: Global.Layer
+  isExternal: true
+  href: Global.Layer.html#Layer_ExtendNoEvent_System_Int32_System_Int32_System_Int32_System_Int32_
+  name: ExtendNoEvent(int, int, int, int)
+  nameWithType: Layer.ExtendNoEvent(int, int, int, int)
+  fullName: Layer.ExtendNoEvent(int, int, int, int)
+  nameWithType.vb: Layer.ExtendNoEvent(Integer, Integer, Integer, Integer)
+  fullName.vb: Layer.ExtendNoEvent(Integer, Integer, Integer, Integer)
+  name.vb: ExtendNoEvent(Integer, Integer, Integer, Integer)
+  spec.csharp:
+  - uid: Global.Layer.ExtendNoEvent(System.Int32,System.Int32,System.Int32,System.Int32)
+    name: ExtendNoEvent
+    href: Global.Layer.html#Layer_ExtendNoEvent_System_Int32_System_Int32_System_Int32_System_Int32_
+  - name: (
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+  spec.vb:
+  - uid: Global.Layer.ExtendNoEvent(System.Int32,System.Int32,System.Int32,System.Int32)
+    name: ExtendNoEvent
+    href: Global.Layer.html#Layer_ExtendNoEvent_System_Int32_System_Int32_System_Int32_System_Int32_
+  - name: (
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+- uid: Global.TileLayer.ExtendNoEvent*
+  commentId: Overload:Global.TileLayer.ExtendNoEvent
+  href: Global.TileLayer.html#TileLayer_ExtendNoEvent_System_Int32_System_Int32_System_Int32_System_Int32_
+  name: ExtendNoEvent
+  nameWithType: TileLayer.ExtendNoEvent
+  fullName: TileLayer.ExtendNoEvent
+- uid: Global.Layer.ScaleNoEvent(System.Single,System.Single)
+  commentId: M:Global.Layer.ScaleNoEvent(System.Single,System.Single)
+  parent: Global.Layer
+  isExternal: true
+  href: Global.Layer.html#Layer_ScaleNoEvent_System_Single_System_Single_
+  name: ScaleNoEvent(float, float)
+  nameWithType: Layer.ScaleNoEvent(float, float)
+  fullName: Layer.ScaleNoEvent(float, float)
+  nameWithType.vb: Layer.ScaleNoEvent(Single, Single)
+  fullName.vb: Layer.ScaleNoEvent(Single, Single)
+  name.vb: ScaleNoEvent(Single, Single)
+  spec.csharp:
+  - uid: Global.Layer.ScaleNoEvent(System.Single,System.Single)
+    name: ScaleNoEvent
+    href: Global.Layer.html#Layer_ScaleNoEvent_System_Single_System_Single_
+  - name: (
+  - uid: System.Single
+    name: float
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.single
+  - name: ','
+  - name: " "
+  - uid: System.Single
+    name: float
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.single
+  - name: )
+  spec.vb:
+  - uid: Global.Layer.ScaleNoEvent(System.Single,System.Single)
+    name: ScaleNoEvent
+    href: Global.Layer.html#Layer_ScaleNoEvent_System_Single_System_Single_
+  - name: (
+  - uid: System.Single
+    name: Single
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.single
+  - name: ','
+  - name: " "
+  - uid: System.Single
+    name: Single
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.single
+  - name: )
+- uid: Global.TileLayer.ScaleNoEvent*
+  commentId: Overload:Global.TileLayer.ScaleNoEvent
+  href: Global.TileLayer.html#TileLayer_ScaleNoEvent_System_Single_System_Single_
+  name: ScaleNoEvent
+  nameWithType: TileLayer.ScaleNoEvent
+  fullName: TileLayer.ScaleNoEvent
+- uid: System.Single
+  commentId: T:System.Single
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.single
+  name: float
+  nameWithType: float
+  fullName: float
+  nameWithType.vb: Single
+  fullName.vb: Single
+  name.vb: Single
+- uid: Global.Layer.ScaleNoEvent(System.Int32,System.Int32)
+  commentId: M:Global.Layer.ScaleNoEvent(System.Int32,System.Int32)
+  parent: Global.Layer
+  isExternal: true
+  href: Global.Layer.html#Layer_ScaleNoEvent_System_Int32_System_Int32_
+  name: ScaleNoEvent(int, int)
+  nameWithType: Layer.ScaleNoEvent(int, int)
+  fullName: Layer.ScaleNoEvent(int, int)
+  nameWithType.vb: Layer.ScaleNoEvent(Integer, Integer)
+  fullName.vb: Layer.ScaleNoEvent(Integer, Integer)
+  name.vb: ScaleNoEvent(Integer, Integer)
+  spec.csharp:
+  - uid: Global.Layer.ScaleNoEvent(System.Int32,System.Int32)
+    name: ScaleNoEvent
+    href: Global.Layer.html#Layer_ScaleNoEvent_System_Int32_System_Int32_
+  - name: (
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+  spec.vb:
+  - uid: Global.Layer.ScaleNoEvent(System.Int32,System.Int32)
+    name: ScaleNoEvent
+    href: Global.Layer.html#Layer_ScaleNoEvent_System_Int32_System_Int32_
+  - name: (
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+- uid: Global.Layer.ToJSON
+  commentId: M:Global.Layer.ToJSON
+  parent: Global.Layer
+  href: Global.Layer.html#Layer_ToJSON
+  name: ToJSON()
+  nameWithType: Layer.ToJSON()
+  fullName: Layer.ToJSON()
+  spec.csharp:
+  - uid: Global.Layer.ToJSON
+    name: ToJSON
+    href: Global.Layer.html#Layer_ToJSON
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Global.Layer.ToJSON
+    name: ToJSON
+    href: Global.Layer.html#Layer_ToJSON
+  - name: (
+  - name: )
+- uid: Global.TileLayer.ToJSON*
+  commentId: Overload:Global.TileLayer.ToJSON
+  href: Global.TileLayer.html#TileLayer_ToJSON
+  name: ToJSON
+  nameWithType: TileLayer.ToJSON
+  fullName: TileLayer.ToJSON
+- uid: Global.JSON
+  commentId: T:Global.JSON
+  href: JSON.html
+  name: JSON
+  nameWithType: JSON
+  fullName: JSON
+- uid: Global.Layer.LoadJSON(JSON)
+  commentId: M:Global.Layer.LoadJSON(JSON)
+  parent: Global.Layer
+  href: Global.Layer.html#Layer_LoadJSON_JSON_
+  name: LoadJSON(JSON)
+  nameWithType: Layer.LoadJSON(JSON)
+  fullName: Layer.LoadJSON(JSON)
+  spec.csharp:
+  - uid: Global.Layer.LoadJSON(JSON)
+    name: LoadJSON
+    href: Global.Layer.html#Layer_LoadJSON_JSON_
+  - name: (
+  - uid: Global.JSON
+    name: JSON
+    href: JSON.html
+  - name: )
+  spec.vb:
+  - uid: Global.Layer.LoadJSON(JSON)
+    name: LoadJSON
+    href: Global.Layer.html#Layer_LoadJSON_JSON_
+  - name: (
+  - uid: Global.JSON
+    name: JSON
+    href: JSON.html
+  - name: )
+- uid: Global.TileLayer.LoadJSON*
+  commentId: Overload:Global.TileLayer.LoadJSON
+  href: Global.TileLayer.html#TileLayer_LoadJSON_JSON_
+  name: LoadJSON
+  nameWithType: TileLayer.LoadJSON
+  fullName: TileLayer.LoadJSON
+- uid: Global.Layer.DeleteKeyFrameNoEvent(System.Int32)
+  commentId: M:Global.Layer.DeleteKeyFrameNoEvent(System.Int32)
+  parent: Global.Layer
+  isExternal: true
+  href: Global.Layer.html#Layer_DeleteKeyFrameNoEvent_System_Int32_
+  name: DeleteKeyFrameNoEvent(int)
+  nameWithType: Layer.DeleteKeyFrameNoEvent(int)
+  fullName: Layer.DeleteKeyFrameNoEvent(int)
+  nameWithType.vb: Layer.DeleteKeyFrameNoEvent(Integer)
+  fullName.vb: Layer.DeleteKeyFrameNoEvent(Integer)
+  name.vb: DeleteKeyFrameNoEvent(Integer)
+  spec.csharp:
+  - uid: Global.Layer.DeleteKeyFrameNoEvent(System.Int32)
+    name: DeleteKeyFrameNoEvent
+    href: Global.Layer.html#Layer_DeleteKeyFrameNoEvent_System_Int32_
+  - name: (
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+  spec.vb:
+  - uid: Global.Layer.DeleteKeyFrameNoEvent(System.Int32)
+    name: DeleteKeyFrameNoEvent
+    href: Global.Layer.html#Layer_DeleteKeyFrameNoEvent_System_Int32_
+  - name: (
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+- uid: Global.TileLayer.DeleteKeyFrameNoEvent*
+  commentId: Overload:Global.TileLayer.DeleteKeyFrameNoEvent
+  href: Global.TileLayer.html#TileLayer_DeleteKeyFrameNoEvent_System_Int32_
+  name: DeleteKeyFrameNoEvent
+  nameWithType: TileLayer.DeleteKeyFrameNoEvent
+  fullName: TileLayer.DeleteKeyFrameNoEvent
+- uid: Global.AnimationKeyFrame
+  commentId: T:Global.AnimationKeyFrame
+  href: AnimationKeyFrame.html
+  name: AnimationKeyFrame
+  nameWithType: AnimationKeyFrame
+  fullName: AnimationKeyFrame
+- uid: Global.Layer.ClearFrames
+  commentId: M:Global.Layer.ClearFrames
+  parent: Global.Layer
+  href: Global.Layer.html#Layer_ClearFrames
+  name: ClearFrames()
+  nameWithType: Layer.ClearFrames()
+  fullName: Layer.ClearFrames()
+  spec.csharp:
+  - uid: Global.Layer.ClearFrames
+    name: ClearFrames
+    href: Global.Layer.html#Layer_ClearFrames
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Global.Layer.ClearFrames
+    name: ClearFrames
+    href: Global.Layer.html#Layer_ClearFrames
+  - name: (
+  - name: )
+- uid: Global.TileLayer.ClearFrames*
+  commentId: Overload:Global.TileLayer.ClearFrames
+  href: Global.TileLayer.html#TileLayer_ClearFrames
+  name: ClearFrames
+  nameWithType: TileLayer.ClearFrames
+  fullName: TileLayer.ClearFrames
+- uid: Global.TileLayer.RerenderKeyFrames*
+  commentId: Overload:Global.TileLayer.RerenderKeyFrames
+  href: Global.TileLayer.html#TileLayer_RerenderKeyFrames
+  name: RerenderKeyFrames
+  nameWithType: TileLayer.RerenderKeyFrames
+  fullName: TileLayer.RerenderKeyFrames
+- uid: Global.IntRect
+  commentId: T:Global.IntRect
+  href: IntRect.html
+  name: IntRect
+  nameWithType: IntRect
+  fullName: IntRect
+- uid: System.Int32[]
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int[]
+  nameWithType: int[]
+  fullName: int[]
+  nameWithType.vb: Integer()
+  fullName.vb: Integer()
+  name.vb: Integer()
+  spec.csharp:
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: '['
+  - name: ']'
+  spec.vb:
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: (
+  - name: )
+- uid: Global.TileLayer.RerenderKeyFrame*
+  commentId: Overload:Global.TileLayer.RerenderKeyFrame
+  href: Global.TileLayer.html#TileLayer_RerenderKeyFrame_System_Int32_
+  name: RerenderKeyFrame
+  nameWithType: TileLayer.RerenderKeyFrame
+  fullName: TileLayer.RerenderKeyFrame

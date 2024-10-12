@@ -1,0 +1,407 @@
+### YamlMime:ManagedReference
+items:
+- uid: Global.UIScrollbar
+  commentId: T:Global.UIScrollbar
+  id: UIScrollbar
+  parent: Global
+  children:
+  - Global.UIScrollbar.GetScrollAmount
+  - Global.UIScrollbar.SetScrollAmount(System.Single)
+  - Global.UIScrollbar.UpdateDisplay
+  - Global.UIScrollbar.backgroundColour
+  - Global.UIScrollbar.backgroundHoverColour
+  - Global.UIScrollbar.backgroundPressedColour
+  - Global.UIScrollbar.handleColour
+  - Global.UIScrollbar.handleHoverColour
+  - Global.UIScrollbar.handlePressedColour
+  - Global.UIScrollbar.height
+  - Global.UIScrollbar.scrollAmount
+  - Global.UIScrollbar.width
+  langs:
+  - csharp
+  - vb
+  name: UIScrollbar
+  nameWithType: UIScrollbar
+  fullName: UIScrollbar
+  type: Class
+  source:
+    remote:
+      path: Assets/Scripts/UI/UIScrollbar.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: UIScrollbar
+    path: ../Assets/Scripts/UI/UIScrollbar.cs
+    startLine: 12
+  namespace: Global
+  syntax:
+    content: 'public class UIScrollbar : MonoBehaviour'
+    content.vb: Public Class UIScrollbar Inherits MonoBehaviour
+  inheritance:
+  - System.Object
+- uid: Global.UIScrollbar.scrollAmount
+  commentId: P:Global.UIScrollbar.scrollAmount
+  id: scrollAmount
+  parent: Global.UIScrollbar
+  langs:
+  - csharp
+  - vb
+  name: scrollAmount
+  nameWithType: UIScrollbar.scrollAmount
+  fullName: UIScrollbar.scrollAmount
+  type: Property
+  source:
+    remote:
+      path: Assets/Scripts/UI/UIScrollbar.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: scrollAmount
+    path: ../Assets/Scripts/UI/UIScrollbar.cs
+    startLine: 20
+  namespace: Global
+  syntax:
+    content: public float scrollAmount { get; set; }
+    parameters: []
+    return:
+      type: System.Single
+    content.vb: Public Property scrollAmount As Single
+  overload: Global.UIScrollbar.scrollAmount*
+- uid: Global.UIScrollbar.width
+  commentId: F:Global.UIScrollbar.width
+  id: width
+  parent: Global.UIScrollbar
+  langs:
+  - csharp
+  - vb
+  name: width
+  nameWithType: UIScrollbar.width
+  fullName: UIScrollbar.width
+  type: Field
+  source:
+    remote:
+      path: Assets/Scripts/UI/UIScrollbar.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: width
+    path: ../Assets/Scripts/UI/UIScrollbar.cs
+    startLine: 37
+  namespace: Global
+  syntax:
+    content: public float width
+    return:
+      type: System.Single
+    content.vb: Public width As Single
+- uid: Global.UIScrollbar.height
+  commentId: F:Global.UIScrollbar.height
+  id: height
+  parent: Global.UIScrollbar
+  langs:
+  - csharp
+  - vb
+  name: height
+  nameWithType: UIScrollbar.height
+  fullName: UIScrollbar.height
+  type: Field
+  source:
+    remote:
+      path: Assets/Scripts/UI/UIScrollbar.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: height
+    path: ../Assets/Scripts/UI/UIScrollbar.cs
+    startLine: 39
+  namespace: Global
+  syntax:
+    content: public float height
+    return:
+      type: System.Single
+    content.vb: Public height As Single
+- uid: Global.UIScrollbar.backgroundColour
+  commentId: F:Global.UIScrollbar.backgroundColour
+  id: backgroundColour
+  parent: Global.UIScrollbar
+  langs:
+  - csharp
+  - vb
+  name: backgroundColour
+  nameWithType: UIScrollbar.backgroundColour
+  fullName: UIScrollbar.backgroundColour
+  type: Field
+  source:
+    remote:
+      path: Assets/Scripts/UI/UIScrollbar.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: backgroundColour
+    path: ../Assets/Scripts/UI/UIScrollbar.cs
+    startLine: 42
+  namespace: Global
+  syntax:
+    content: public Color backgroundColour
+    return:
+      type: Global.Color
+    content.vb: Public backgroundColour As Color
+- uid: Global.UIScrollbar.backgroundHoverColour
+  commentId: F:Global.UIScrollbar.backgroundHoverColour
+  id: backgroundHoverColour
+  parent: Global.UIScrollbar
+  langs:
+  - csharp
+  - vb
+  name: backgroundHoverColour
+  nameWithType: UIScrollbar.backgroundHoverColour
+  fullName: UIScrollbar.backgroundHoverColour
+  type: Field
+  source:
+    remote:
+      path: Assets/Scripts/UI/UIScrollbar.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: backgroundHoverColour
+    path: ../Assets/Scripts/UI/UIScrollbar.cs
+    startLine: 43
+  namespace: Global
+  syntax:
+    content: public Color backgroundHoverColour
+    return:
+      type: Global.Color
+    content.vb: Public backgroundHoverColour As Color
+- uid: Global.UIScrollbar.backgroundPressedColour
+  commentId: F:Global.UIScrollbar.backgroundPressedColour
+  id: backgroundPressedColour
+  parent: Global.UIScrollbar
+  langs:
+  - csharp
+  - vb
+  name: backgroundPressedColour
+  nameWithType: UIScrollbar.backgroundPressedColour
+  fullName: UIScrollbar.backgroundPressedColour
+  type: Field
+  source:
+    remote:
+      path: Assets/Scripts/UI/UIScrollbar.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: backgroundPressedColour
+    path: ../Assets/Scripts/UI/UIScrollbar.cs
+    startLine: 44
+  namespace: Global
+  syntax:
+    content: public Color backgroundPressedColour
+    return:
+      type: Global.Color
+    content.vb: Public backgroundPressedColour As Color
+- uid: Global.UIScrollbar.handleColour
+  commentId: F:Global.UIScrollbar.handleColour
+  id: handleColour
+  parent: Global.UIScrollbar
+  langs:
+  - csharp
+  - vb
+  name: handleColour
+  nameWithType: UIScrollbar.handleColour
+  fullName: UIScrollbar.handleColour
+  type: Field
+  source:
+    remote:
+      path: Assets/Scripts/UI/UIScrollbar.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: handleColour
+    path: ../Assets/Scripts/UI/UIScrollbar.cs
+    startLine: 50
+  namespace: Global
+  syntax:
+    content: public Color handleColour
+    return:
+      type: Global.Color
+    content.vb: Public handleColour As Color
+- uid: Global.UIScrollbar.handleHoverColour
+  commentId: F:Global.UIScrollbar.handleHoverColour
+  id: handleHoverColour
+  parent: Global.UIScrollbar
+  langs:
+  - csharp
+  - vb
+  name: handleHoverColour
+  nameWithType: UIScrollbar.handleHoverColour
+  fullName: UIScrollbar.handleHoverColour
+  type: Field
+  source:
+    remote:
+      path: Assets/Scripts/UI/UIScrollbar.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: handleHoverColour
+    path: ../Assets/Scripts/UI/UIScrollbar.cs
+    startLine: 51
+  namespace: Global
+  syntax:
+    content: public Color handleHoverColour
+    return:
+      type: Global.Color
+    content.vb: Public handleHoverColour As Color
+- uid: Global.UIScrollbar.handlePressedColour
+  commentId: F:Global.UIScrollbar.handlePressedColour
+  id: handlePressedColour
+  parent: Global.UIScrollbar
+  langs:
+  - csharp
+  - vb
+  name: handlePressedColour
+  nameWithType: UIScrollbar.handlePressedColour
+  fullName: UIScrollbar.handlePressedColour
+  type: Field
+  source:
+    remote:
+      path: Assets/Scripts/UI/UIScrollbar.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: handlePressedColour
+    path: ../Assets/Scripts/UI/UIScrollbar.cs
+    startLine: 52
+  namespace: Global
+  syntax:
+    content: public Color handlePressedColour
+    return:
+      type: Global.Color
+    content.vb: Public handlePressedColour As Color
+- uid: Global.UIScrollbar.UpdateDisplay
+  commentId: M:Global.UIScrollbar.UpdateDisplay
+  id: UpdateDisplay
+  parent: Global.UIScrollbar
+  langs:
+  - csharp
+  - vb
+  name: UpdateDisplay()
+  nameWithType: UIScrollbar.UpdateDisplay()
+  fullName: UIScrollbar.UpdateDisplay()
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/UI/UIScrollbar.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: UpdateDisplay
+    path: ../Assets/Scripts/UI/UIScrollbar.cs
+    startLine: 162
+  namespace: Global
+  syntax:
+    content: public void UpdateDisplay()
+    content.vb: Public Sub UpdateDisplay()
+  overload: Global.UIScrollbar.UpdateDisplay*
+- uid: Global.UIScrollbar.SetScrollAmount(System.Single)
+  commentId: M:Global.UIScrollbar.SetScrollAmount(System.Single)
+  id: SetScrollAmount(System.Single)
+  parent: Global.UIScrollbar
+  langs:
+  - csharp
+  - vb
+  name: SetScrollAmount(float)
+  nameWithType: UIScrollbar.SetScrollAmount(float)
+  fullName: UIScrollbar.SetScrollAmount(float)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/UI/UIScrollbar.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: SetScrollAmount
+    path: ../Assets/Scripts/UI/UIScrollbar.cs
+    startLine: 207
+  namespace: Global
+  syntax:
+    content: public void SetScrollAmount(float scrollAmount)
+    parameters:
+    - id: scrollAmount
+      type: System.Single
+    content.vb: Public Sub SetScrollAmount(scrollAmount As Single)
+  overload: Global.UIScrollbar.SetScrollAmount*
+  nameWithType.vb: UIScrollbar.SetScrollAmount(Single)
+  fullName.vb: UIScrollbar.SetScrollAmount(Single)
+  name.vb: SetScrollAmount(Single)
+- uid: Global.UIScrollbar.GetScrollAmount
+  commentId: M:Global.UIScrollbar.GetScrollAmount
+  id: GetScrollAmount
+  parent: Global.UIScrollbar
+  langs:
+  - csharp
+  - vb
+  name: GetScrollAmount()
+  nameWithType: UIScrollbar.GetScrollAmount()
+  fullName: UIScrollbar.GetScrollAmount()
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/UI/UIScrollbar.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: GetScrollAmount
+    path: ../Assets/Scripts/UI/UIScrollbar.cs
+    startLine: 246
+  namespace: Global
+  syntax:
+    content: public float GetScrollAmount()
+    return:
+      type: System.Single
+    content.vb: Public Function GetScrollAmount() As Single
+  overload: Global.UIScrollbar.GetScrollAmount*
+references:
+- uid: Global
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Global.UIScrollbar.scrollAmount*
+  commentId: Overload:Global.UIScrollbar.scrollAmount
+  href: Global.UIScrollbar.html#UIScrollbar_scrollAmount
+  name: scrollAmount
+  nameWithType: UIScrollbar.scrollAmount
+  fullName: UIScrollbar.scrollAmount
+- uid: System.Single
+  commentId: T:System.Single
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.single
+  name: float
+  nameWithType: float
+  fullName: float
+  nameWithType.vb: Single
+  fullName.vb: Single
+  name.vb: Single
+- uid: Global.Color
+  isExternal: true
+  name: Color
+  nameWithType: Color
+  fullName: Color
+- uid: Global.UIScrollbar.UpdateDisplay*
+  commentId: Overload:Global.UIScrollbar.UpdateDisplay
+  href: Global.UIScrollbar.html#UIScrollbar_UpdateDisplay
+  name: UpdateDisplay
+  nameWithType: UIScrollbar.UpdateDisplay
+  fullName: UIScrollbar.UpdateDisplay
+- uid: Global.UIScrollbar.SetScrollAmount*
+  commentId: Overload:Global.UIScrollbar.SetScrollAmount
+  href: Global.UIScrollbar.html#UIScrollbar_SetScrollAmount_System_Single_
+  name: SetScrollAmount
+  nameWithType: UIScrollbar.SetScrollAmount
+  fullName: UIScrollbar.SetScrollAmount
+- uid: Global.UIScrollbar.GetScrollAmount*
+  commentId: Overload:Global.UIScrollbar.GetScrollAmount
+  href: Global.UIScrollbar.html#UIScrollbar_GetScrollAmount
+  name: GetScrollAmount
+  nameWithType: UIScrollbar.GetScrollAmount
+  fullName: UIScrollbar.GetScrollAmount

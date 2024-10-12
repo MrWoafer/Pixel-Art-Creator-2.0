@@ -1,0 +1,259 @@
+### YamlMime:ManagedReference
+items:
+- uid: Global.UIAnchorPoint
+  commentId: T:Global.UIAnchorPoint
+  id: UIAnchorPoint
+  parent: Global
+  children:
+  - Global.UIAnchorPoint.bottomCentre
+  - Global.UIAnchorPoint.bottomLeft
+  - Global.UIAnchorPoint.bottomRight
+  - Global.UIAnchorPoint.centre
+  - Global.UIAnchorPoint.leftCentre
+  - Global.UIAnchorPoint.rightCentre
+  - Global.UIAnchorPoint.topCentre
+  - Global.UIAnchorPoint.topLeft
+  - Global.UIAnchorPoint.topRight
+  langs:
+  - csharp
+  - vb
+  name: UIAnchorPoint
+  nameWithType: UIAnchorPoint
+  fullName: UIAnchorPoint
+  type: Enum
+  source:
+    remote:
+      path: Assets/Scripts/UI/UIAnchorPoint.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: UIAnchorPoint
+    path: ../Assets/Scripts/UI/UIAnchorPoint.cs
+    startLine: 4
+  namespace: Global
+  syntax:
+    content: public enum UIAnchorPoint
+    content.vb: Public Enum UIAnchorPoint
+- uid: Global.UIAnchorPoint.topLeft
+  commentId: F:Global.UIAnchorPoint.topLeft
+  id: topLeft
+  parent: Global.UIAnchorPoint
+  langs:
+  - csharp
+  - vb
+  name: topLeft
+  nameWithType: UIAnchorPoint.topLeft
+  fullName: UIAnchorPoint.topLeft
+  type: Field
+  source:
+    remote:
+      path: Assets/Scripts/UI/UIAnchorPoint.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: topLeft
+    path: ../Assets/Scripts/UI/UIAnchorPoint.cs
+    startLine: 6
+  namespace: Global
+  syntax:
+    content: topLeft = 0
+    return:
+      type: Global.UIAnchorPoint
+- uid: Global.UIAnchorPoint.topCentre
+  commentId: F:Global.UIAnchorPoint.topCentre
+  id: topCentre
+  parent: Global.UIAnchorPoint
+  langs:
+  - csharp
+  - vb
+  name: topCentre
+  nameWithType: UIAnchorPoint.topCentre
+  fullName: UIAnchorPoint.topCentre
+  type: Field
+  source:
+    remote:
+      path: Assets/Scripts/UI/UIAnchorPoint.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: topCentre
+    path: ../Assets/Scripts/UI/UIAnchorPoint.cs
+    startLine: 7
+  namespace: Global
+  syntax:
+    content: topCentre = 1
+    return:
+      type: Global.UIAnchorPoint
+- uid: Global.UIAnchorPoint.topRight
+  commentId: F:Global.UIAnchorPoint.topRight
+  id: topRight
+  parent: Global.UIAnchorPoint
+  langs:
+  - csharp
+  - vb
+  name: topRight
+  nameWithType: UIAnchorPoint.topRight
+  fullName: UIAnchorPoint.topRight
+  type: Field
+  source:
+    remote:
+      path: Assets/Scripts/UI/UIAnchorPoint.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: topRight
+    path: ../Assets/Scripts/UI/UIAnchorPoint.cs
+    startLine: 8
+  namespace: Global
+  syntax:
+    content: topRight = 2
+    return:
+      type: Global.UIAnchorPoint
+- uid: Global.UIAnchorPoint.leftCentre
+  commentId: F:Global.UIAnchorPoint.leftCentre
+  id: leftCentre
+  parent: Global.UIAnchorPoint
+  langs:
+  - csharp
+  - vb
+  name: leftCentre
+  nameWithType: UIAnchorPoint.leftCentre
+  fullName: UIAnchorPoint.leftCentre
+  type: Field
+  source:
+    remote:
+      path: Assets/Scripts/UI/UIAnchorPoint.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: leftCentre
+    path: ../Assets/Scripts/UI/UIAnchorPoint.cs
+    startLine: 9
+  namespace: Global
+  syntax:
+    content: leftCentre = 3
+    return:
+      type: Global.UIAnchorPoint
+- uid: Global.UIAnchorPoint.centre
+  commentId: F:Global.UIAnchorPoint.centre
+  id: centre
+  parent: Global.UIAnchorPoint
+  langs:
+  - csharp
+  - vb
+  name: centre
+  nameWithType: UIAnchorPoint.centre
+  fullName: UIAnchorPoint.centre
+  type: Field
+  source:
+    remote:
+      path: Assets/Scripts/UI/UIAnchorPoint.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: centre
+    path: ../Assets/Scripts/UI/UIAnchorPoint.cs
+    startLine: 10
+  namespace: Global
+  syntax:
+    content: centre = 4
+    return:
+      type: Global.UIAnchorPoint
+- uid: Global.UIAnchorPoint.rightCentre
+  commentId: F:Global.UIAnchorPoint.rightCentre
+  id: rightCentre
+  parent: Global.UIAnchorPoint
+  langs:
+  - csharp
+  - vb
+  name: rightCentre
+  nameWithType: UIAnchorPoint.rightCentre
+  fullName: UIAnchorPoint.rightCentre
+  type: Field
+  source:
+    remote:
+      path: Assets/Scripts/UI/UIAnchorPoint.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: rightCentre
+    path: ../Assets/Scripts/UI/UIAnchorPoint.cs
+    startLine: 11
+  namespace: Global
+  syntax:
+    content: rightCentre = 5
+    return:
+      type: Global.UIAnchorPoint
+- uid: Global.UIAnchorPoint.bottomLeft
+  commentId: F:Global.UIAnchorPoint.bottomLeft
+  id: bottomLeft
+  parent: Global.UIAnchorPoint
+  langs:
+  - csharp
+  - vb
+  name: bottomLeft
+  nameWithType: UIAnchorPoint.bottomLeft
+  fullName: UIAnchorPoint.bottomLeft
+  type: Field
+  source:
+    remote:
+      path: Assets/Scripts/UI/UIAnchorPoint.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: bottomLeft
+    path: ../Assets/Scripts/UI/UIAnchorPoint.cs
+    startLine: 12
+  namespace: Global
+  syntax:
+    content: bottomLeft = 6
+    return:
+      type: Global.UIAnchorPoint
+- uid: Global.UIAnchorPoint.bottomCentre
+  commentId: F:Global.UIAnchorPoint.bottomCentre
+  id: bottomCentre
+  parent: Global.UIAnchorPoint
+  langs:
+  - csharp
+  - vb
+  name: bottomCentre
+  nameWithType: UIAnchorPoint.bottomCentre
+  fullName: UIAnchorPoint.bottomCentre
+  type: Field
+  source:
+    remote:
+      path: Assets/Scripts/UI/UIAnchorPoint.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: bottomCentre
+    path: ../Assets/Scripts/UI/UIAnchorPoint.cs
+    startLine: 13
+  namespace: Global
+  syntax:
+    content: bottomCentre = 7
+    return:
+      type: Global.UIAnchorPoint
+- uid: Global.UIAnchorPoint.bottomRight
+  commentId: F:Global.UIAnchorPoint.bottomRight
+  id: bottomRight
+  parent: Global.UIAnchorPoint
+  langs:
+  - csharp
+  - vb
+  name: bottomRight
+  nameWithType: UIAnchorPoint.bottomRight
+  fullName: UIAnchorPoint.bottomRight
+  type: Field
+  source:
+    remote:
+      path: Assets/Scripts/UI/UIAnchorPoint.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: bottomRight
+    path: ../Assets/Scripts/UI/UIAnchorPoint.cs
+    startLine: 14
+  namespace: Global
+  syntax:
+    content: bottomRight = 8
+    return:
+      type: Global.UIAnchorPoint
+references:
+- uid: Global
+- uid: Global.UIAnchorPoint
+  commentId: T:Global.UIAnchorPoint
+  href: UIAnchorPoint.html
+  name: UIAnchorPoint
+  nameWithType: UIAnchorPoint
+  fullName: UIAnchorPoint

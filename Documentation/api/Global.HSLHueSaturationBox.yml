@@ -1,0 +1,203 @@
+### YamlMime:ManagedReference
+items:
+- uid: Global.HSLHueSaturationBox
+  commentId: T:Global.HSLHueSaturationBox
+  id: HSLHueSaturationBox
+  parent: Global
+  children:
+  - Global.HSLHueSaturationBox.SetHue(System.Single)
+  - Global.HSLHueSaturationBox.SetSaturation(System.Single)
+  - Global.HSLHueSaturationBox.hue
+  - Global.HSLHueSaturationBox.saturation
+  langs:
+  - csharp
+  - vb
+  name: HSLHueSaturationBox
+  nameWithType: HSLHueSaturationBox
+  fullName: HSLHueSaturationBox
+  type: Class
+  source:
+    remote:
+      path: Assets/Scripts/Colour Picker/HSLHueSaturationBox.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: HSLHueSaturationBox
+    path: ../Assets/Scripts/Colour Picker/HSLHueSaturationBox.cs
+    startLine: 7
+  namespace: Global
+  summary: A class for the hue/saturation box of the HSL colour picker.
+  example: []
+  syntax:
+    content: 'public class HSLHueSaturationBox : MonoBehaviour'
+    content.vb: Public Class HSLHueSaturationBox Inherits MonoBehaviour
+  inheritance:
+  - System.Object
+- uid: Global.HSLHueSaturationBox.hue
+  commentId: P:Global.HSLHueSaturationBox.hue
+  id: hue
+  parent: Global.HSLHueSaturationBox
+  langs:
+  - csharp
+  - vb
+  name: hue
+  nameWithType: HSLHueSaturationBox.hue
+  fullName: HSLHueSaturationBox.hue
+  type: Property
+  source:
+    remote:
+      path: Assets/Scripts/Colour Picker/HSLHueSaturationBox.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: hue
+    path: ../Assets/Scripts/Colour Picker/HSLHueSaturationBox.cs
+    startLine: 10
+  namespace: Global
+  syntax:
+    content: public float hue { get; }
+    parameters: []
+    return:
+      type: System.Single
+    content.vb: Public Property hue As Single
+  overload: Global.HSLHueSaturationBox.hue*
+- uid: Global.HSLHueSaturationBox.saturation
+  commentId: P:Global.HSLHueSaturationBox.saturation
+  id: saturation
+  parent: Global.HSLHueSaturationBox
+  langs:
+  - csharp
+  - vb
+  name: saturation
+  nameWithType: HSLHueSaturationBox.saturation
+  fullName: HSLHueSaturationBox.saturation
+  type: Property
+  source:
+    remote:
+      path: Assets/Scripts/Colour Picker/HSLHueSaturationBox.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: saturation
+    path: ../Assets/Scripts/Colour Picker/HSLHueSaturationBox.cs
+    startLine: 20
+  namespace: Global
+  syntax:
+    content: public float saturation { get; }
+    parameters: []
+    return:
+      type: System.Single
+    content.vb: Public Property saturation As Single
+  overload: Global.HSLHueSaturationBox.saturation*
+- uid: Global.HSLHueSaturationBox.SetHue(System.Single)
+  commentId: M:Global.HSLHueSaturationBox.SetHue(System.Single)
+  id: SetHue(System.Single)
+  parent: Global.HSLHueSaturationBox
+  langs:
+  - csharp
+  - vb
+  name: SetHue(float)
+  nameWithType: HSLHueSaturationBox.SetHue(float)
+  fullName: HSLHueSaturationBox.SetHue(float)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Colour Picker/HSLHueSaturationBox.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: SetHue
+    path: ../Assets/Scripts/Colour Picker/HSLHueSaturationBox.cs
+    startLine: 62
+  namespace: Global
+  syntax:
+    content: public void SetHue(float hue)
+    parameters:
+    - id: hue
+      type: System.Single
+    content.vb: Public Sub SetHue(hue As Single)
+  overload: Global.HSLHueSaturationBox.SetHue*
+  nameWithType.vb: HSLHueSaturationBox.SetHue(Single)
+  fullName.vb: HSLHueSaturationBox.SetHue(Single)
+  name.vb: SetHue(Single)
+- uid: Global.HSLHueSaturationBox.SetSaturation(System.Single)
+  commentId: M:Global.HSLHueSaturationBox.SetSaturation(System.Single)
+  id: SetSaturation(System.Single)
+  parent: Global.HSLHueSaturationBox
+  langs:
+  - csharp
+  - vb
+  name: SetSaturation(float)
+  nameWithType: HSLHueSaturationBox.SetSaturation(float)
+  fullName: HSLHueSaturationBox.SetSaturation(float)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Colour Picker/HSLHueSaturationBox.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: SetSaturation
+    path: ../Assets/Scripts/Colour Picker/HSLHueSaturationBox.cs
+    startLine: 67
+  namespace: Global
+  syntax:
+    content: public void SetSaturation(float saturation)
+    parameters:
+    - id: saturation
+      type: System.Single
+    content.vb: Public Sub SetSaturation(saturation As Single)
+  overload: Global.HSLHueSaturationBox.SetSaturation*
+  nameWithType.vb: HSLHueSaturationBox.SetSaturation(Single)
+  fullName.vb: HSLHueSaturationBox.SetSaturation(Single)
+  name.vb: SetSaturation(Single)
+references:
+- uid: Global
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Global.HSLHueSaturationBox.hue*
+  commentId: Overload:Global.HSLHueSaturationBox.hue
+  href: Global.HSLHueSaturationBox.html#HSLHueSaturationBox_hue
+  name: hue
+  nameWithType: HSLHueSaturationBox.hue
+  fullName: HSLHueSaturationBox.hue
+- uid: System.Single
+  commentId: T:System.Single
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.single
+  name: float
+  nameWithType: float
+  fullName: float
+  nameWithType.vb: Single
+  fullName.vb: Single
+  name.vb: Single
+- uid: Global.HSLHueSaturationBox.saturation*
+  commentId: Overload:Global.HSLHueSaturationBox.saturation
+  href: Global.HSLHueSaturationBox.html#HSLHueSaturationBox_saturation
+  name: saturation
+  nameWithType: HSLHueSaturationBox.saturation
+  fullName: HSLHueSaturationBox.saturation
+- uid: Global.HSLHueSaturationBox.SetHue*
+  commentId: Overload:Global.HSLHueSaturationBox.SetHue
+  href: Global.HSLHueSaturationBox.html#HSLHueSaturationBox_SetHue_System_Single_
+  name: SetHue
+  nameWithType: HSLHueSaturationBox.SetHue
+  fullName: HSLHueSaturationBox.SetHue
+- uid: Global.HSLHueSaturationBox.SetSaturation*
+  commentId: Overload:Global.HSLHueSaturationBox.SetSaturation
+  href: Global.HSLHueSaturationBox.html#HSLHueSaturationBox_SetSaturation_System_Single_
+  name: SetSaturation
+  nameWithType: HSLHueSaturationBox.SetSaturation
+  fullName: HSLHueSaturationBox.SetSaturation

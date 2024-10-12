@@ -1,0 +1,1298 @@
+{
+  "sitemap": {
+    "fileOptions": {
+      "api/*": {
+        "baseUrl": "https://mrwoafer.github.io/Pixel-Art-Creator-2.0/",
+        "changefreq": "daily"
+      }
+    },
+    "baseUrl": "https://mrwoafer.github.io/Pixel-Art-Creator-2.0/",
+    "changefreq": "weekly"
+  },
+  "source_base_path": "D:/Games/Pixel-Art-Creator-2.0/Documentation",
+  "xrefmap": "xrefmap.yml",
+  "files": [
+    {
+      "type": "Resource",
+      "output": {
+        "resource": {
+          "relative_path": "index.json"
+        }
+      }
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Global.AnimFrameRefMode.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Global.AnimFrameRefMode.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Global.AnimationKeyFrame.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Global.AnimationKeyFrame.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Global.AnimationManager.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Global.AnimationManager.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Global.BlendMode.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Global.BlendMode.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Global.BrushShape.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Global.BrushShape.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Global.Clipboard.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Global.Clipboard.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Global.CollapsedState.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Global.CollapsedState.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Global.ColorExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Global.ColorExtensions.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Global.ColourPreview.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Global.ColourPreview.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Global.CursorState.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Global.CursorState.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Global.CustomKeyCode.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Global.CustomKeyCode.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Global.CustomStack-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Global.CustomStack-1.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Global.DrawingArea.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Global.DrawingArea.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Global.DropdownCloseMode.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Global.DropdownCloseMode.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Global.DropdownDirection.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Global.DropdownDirection.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Global.File.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Global.File.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Global.FileManager.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Global.FileManager.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Global.FileTab.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Global.FileTab.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Global.FileTabsManager.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Global.FileTabsManager.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Global.Finder.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Global.Finder.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Global.FlipDirection.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Global.FlipDirection.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Global.FrameNotch.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Global.FrameNotch.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Global.Functions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Global.Functions.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Global.GlobalColourPicker.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Global.GlobalColourPicker.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Global.GradientMode.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Global.GradientMode.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Global.GridAlignment.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Global.GridAlignment.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Global.GridManager.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Global.GridManager.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Global.HSL.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Global.HSL.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Global.HSLColourPicker.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Global.HSLColourPicker.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Global.HSLHueSaturationBox.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Global.HSLHueSaturationBox.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Global.HSLLightnessSlider.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Global.HSLLightnessSlider.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Global.HSV.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Global.HSV.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Global.HueSaturationBoxShader.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Global.HueSaturationBoxShader.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Global.IJSONable.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Global.IJSONable.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Global.ImageConverter.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Global.ImageConverter.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Global.ImageEditManager.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Global.ImageEditManager.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Global.InputSystem.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Global.InputSystem.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Global.InputTarget.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Global.InputTarget.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Global.IntRect.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Global.IntRect.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Global.IntVector2.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Global.IntVector2.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Global.JSON.JSONProperty.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Global.JSON.JSONProperty.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Global.JSON.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Global.JSON.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Global.KeyCodeFunctions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Global.KeyCodeFunctions.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Global.KeyFrameIcon.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Global.KeyFrameIcon.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Global.Keyboard.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Global.Keyboard.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Global.KeyboardShortcut.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Global.KeyboardShortcut.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Global.KeyboardShortcutOptionsManager.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Global.KeyboardShortcutOptionsManager.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Global.KeyboardShortcuts.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Global.KeyboardShortcuts.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Global.KeyboardTarget.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Global.KeyboardTarget.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Global.Layer.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Global.Layer.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Global.LayerAnimation.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Global.LayerAnimation.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Global.LayerManager.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Global.LayerManager.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Global.LayerSerializationSurrogate.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Global.LayerSerializationSurrogate.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Global.LayerTile.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Global.LayerTile.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Global.LayerType.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Global.LayerType.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Global.LightnessSliderShader.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Global.LightnessSliderShader.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Global.MaximiseWindow.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Global.MaximiseWindow.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Global.Mouse.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Global.Mouse.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Global.MouseButton.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Global.MouseButton.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Global.MouseTarget.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Global.MouseTarget.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Global.MouseTargetDeselectMode.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Global.MouseTargetDeselectMode.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Global.MouseTargetState.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Global.MouseTargetState.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Global.NormalLayer.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Global.NormalLayer.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Global.Outline.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Global.Outline.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Global.OutlineSideFill.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Global.OutlineSideFill.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Global.RainbowOutline.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Global.RainbowOutline.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Global.RotationAngle.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Global.RotationAngle.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Global.ScreenInfo.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Global.ScreenInfo.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Global.ScrollDirection.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Global.ScrollDirection.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Global.SelectionMode.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Global.SelectionMode.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Global.Shape.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Global.Shape.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Global.Shapes.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Global.Shapes.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Global.Tex2DSprite.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Global.Tex2DSprite.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Global.Texture2DSerializationSurrogate.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Global.Texture2DSerializationSurrogate.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Global.Theme.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Global.Theme.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Global.ThemeManager.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Global.ThemeManager.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Global.ThemeObjectType.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Global.ThemeObjectType.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Global.Tile.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Global.Tile.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Global.TileLayer.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Global.TileLayer.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Global.TileOutlineManager.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Global.TileOutlineManager.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Global.Tileset.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Global.Tileset.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Global.TilesetManager.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Global.TilesetManager.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Global.Tool.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Global.Tool.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Global.Toolbar.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Global.Toolbar.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Global.Tools.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Global.Tools.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Global.Tooltip.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Global.Tooltip.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Global.UIAnchorPoint.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Global.UIAnchorPoint.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Global.UIButton.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Global.UIButton.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Global.UICollapser.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Global.UICollapser.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Global.UIColourField.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Global.UIColourField.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Global.UIColourFieldGroup.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Global.UIColourFieldGroup.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Global.UIColourPicker.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Global.UIColourPicker.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Global.UIDropdown.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Global.UIDropdown.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Global.UIDropdownChoice.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Global.UIDropdownChoice.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Global.UIElement.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Global.UIElement.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Global.UIElementDeselectMode.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Global.UIElementDeselectMode.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Global.UIElementSelectMode.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Global.UIElementSelectMode.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Global.UIGridPacker.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Global.UIGridPacker.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Global.UIKeyboardShortcut.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Global.UIKeyboardShortcut.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Global.UIManager.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Global.UIManager.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Global.UIModalWindow.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Global.UIModalWindow.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Global.UINumberField.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Global.UINumberField.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Global.UIScale.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Global.UIScale.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Global.UIScrollbar.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Global.UIScrollbar.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Global.UITabManager.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Global.UITabManager.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Global.UITextbox.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Global.UITextbox.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Global.UITextboxAnchorPoint.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Global.UITextboxAnchorPoint.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Global.UITheme.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Global.UITheme.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Global.UITileIcon.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Global.UITileIcon.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Global.UIToggleButton.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Global.UIToggleButton.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Global.UIToggleGroup.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Global.UIToggleGroup.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Global.UIToolButton.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Global.UIToolButton.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Global.UITooltip.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Global.UITooltip.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Global.UIViewport.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Global.UIViewport.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Global.UndoRedoAction.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Global.UndoRedoAction.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Global.UndoRedoManager.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Global.UndoRedoManager.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Global.UndoRedoState.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Global.UndoRedoState.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Global.ViewportSide.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Global.ViewportSide.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Global.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Global.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "api/toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/toc.html"
+        },
+        ".json": {
+          "relative_path": "api/toc.json"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "manual/coniunctis.md",
+      "output": {
+        ".html": {
+          "relative_path": "manual/coniunctis.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "manual/etiam.md",
+      "output": {
+        ".html": {
+          "relative_path": "manual/etiam.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "manual/toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "manual/toc.html"
+        },
+        ".json": {
+          "relative_path": "manual/toc.json"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "resources/ExampleManual.png",
+      "output": {
+        "resource": {
+          "relative_path": "resources/ExampleManual.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "resources/ExampleScriptingApi.png",
+      "output": {
+        "resource": {
+          "relative_path": "resources/ExampleScriptingApi.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "toc.html"
+        },
+        ".json": {
+          "relative_path": "toc.json"
+        }
+      },
+      "version": ""
+    }
+  ],
+  "groups": [
+    {
+      "xrefmap": "xrefmap.yml"
+    }
+  ]
+}

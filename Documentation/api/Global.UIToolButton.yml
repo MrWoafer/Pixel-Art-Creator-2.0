@@ -1,0 +1,143 @@
+### YamlMime:ManagedReference
+items:
+- uid: Global.UIToolButton
+  commentId: T:Global.UIToolButton
+  id: UIToolButton
+  parent: Global
+  children:
+  - Global.UIToolButton.buttons
+  - Global.UIToolButton.currentButton
+  langs:
+  - csharp
+  - vb
+  name: UIToolButton
+  nameWithType: UIToolButton
+  fullName: UIToolButton
+  type: Class
+  source:
+    remote:
+      path: Assets/Scripts/UI/UIToolButton.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: UIToolButton
+    path: ../Assets/Scripts/UI/UIToolButton.cs
+    startLine: 5
+  namespace: Global
+  syntax:
+    content: 'public class UIToolButton : MonoBehaviour'
+    content.vb: Public Class UIToolButton Inherits MonoBehaviour
+  inheritance:
+  - System.Object
+- uid: Global.UIToolButton.buttons
+  commentId: P:Global.UIToolButton.buttons
+  id: buttons
+  parent: Global.UIToolButton
+  langs:
+  - csharp
+  - vb
+  name: buttons
+  nameWithType: UIToolButton.buttons
+  fullName: UIToolButton.buttons
+  type: Property
+  source:
+    remote:
+      path: Assets/Scripts/UI/UIToolButton.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: buttons
+    path: ../Assets/Scripts/UI/UIToolButton.cs
+    startLine: 7
+  namespace: Global
+  syntax:
+    content: public UIButton[] buttons { get; }
+    parameters: []
+    return:
+      type: Global.UIButton[]
+    content.vb: Public Property buttons As UIButton()
+  overload: Global.UIToolButton.buttons*
+- uid: Global.UIToolButton.currentButton
+  commentId: P:Global.UIToolButton.currentButton
+  id: currentButton
+  parent: Global.UIToolButton
+  langs:
+  - csharp
+  - vb
+  name: currentButton
+  nameWithType: UIToolButton.currentButton
+  fullName: UIToolButton.currentButton
+  type: Property
+  source:
+    remote:
+      path: Assets/Scripts/UI/UIToolButton.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: currentButton
+    path: ../Assets/Scripts/UI/UIToolButton.cs
+    startLine: 8
+  namespace: Global
+  syntax:
+    content: public UIButton currentButton { get; }
+    parameters: []
+    return:
+      type: Global.UIButton
+    content.vb: Public Property currentButton As UIButton
+  overload: Global.UIToolButton.currentButton*
+references:
+- uid: Global
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Global.UIToolButton.buttons*
+  commentId: Overload:Global.UIToolButton.buttons
+  href: Global.UIToolButton.html#UIToolButton_buttons
+  name: buttons
+  nameWithType: UIToolButton.buttons
+  fullName: UIToolButton.buttons
+- uid: Global.UIButton[]
+  isExternal: true
+  href: UIButton.html
+  name: UIButton[]
+  nameWithType: UIButton[]
+  fullName: UIButton[]
+  nameWithType.vb: UIButton()
+  fullName.vb: UIButton()
+  name.vb: UIButton()
+  spec.csharp:
+  - uid: Global.UIButton
+    name: UIButton
+    href: UIButton.html
+  - name: '['
+  - name: ']'
+  spec.vb:
+  - uid: Global.UIButton
+    name: UIButton
+    href: UIButton.html
+  - name: (
+  - name: )
+- uid: Global.UIToolButton.currentButton*
+  commentId: Overload:Global.UIToolButton.currentButton
+  href: Global.UIToolButton.html#UIToolButton_currentButton
+  name: currentButton
+  nameWithType: UIToolButton.currentButton
+  fullName: UIToolButton.currentButton
+- uid: Global.UIButton
+  commentId: T:Global.UIButton
+  href: UIButton.html
+  name: UIButton
+  nameWithType: UIButton
+  fullName: UIButton

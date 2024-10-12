@@ -1,0 +1,525 @@
+### YamlMime:ManagedReference
+items:
+- uid: Global.OutlineSideFill
+  commentId: T:Global.OutlineSideFill
+  id: OutlineSideFill
+  parent: Global
+  children:
+  - Global.OutlineSideFill.#ctor(System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean)
+  - Global.OutlineSideFill.bottomLeft
+  - Global.OutlineSideFill.bottomMiddle
+  - Global.OutlineSideFill.bottomRight
+  - Global.OutlineSideFill.middleLeft
+  - Global.OutlineSideFill.middleRight
+  - Global.OutlineSideFill.topLeft
+  - Global.OutlineSideFill.topMiddle
+  - Global.OutlineSideFill.topRight
+  langs:
+  - csharp
+  - vb
+  name: OutlineSideFill
+  nameWithType: OutlineSideFill
+  fullName: OutlineSideFill
+  type: Struct
+  source:
+    remote:
+      path: Assets/Scripts/Tex2DSprite.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: OutlineSideFill
+    path: ../Assets/Scripts/Tex2DSprite.cs
+    startLine: 5
+  namespace: Global
+  syntax:
+    content: public struct OutlineSideFill
+    content.vb: Public Structure OutlineSideFill
+  inheritedMembers:
+  - System.ValueType.Equals(System.Object)
+  - System.ValueType.GetHashCode
+  - System.ValueType.ToString
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetType
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+- uid: Global.OutlineSideFill.topLeft
+  commentId: F:Global.OutlineSideFill.topLeft
+  id: topLeft
+  parent: Global.OutlineSideFill
+  langs:
+  - csharp
+  - vb
+  name: topLeft
+  nameWithType: OutlineSideFill.topLeft
+  fullName: OutlineSideFill.topLeft
+  type: Field
+  source:
+    remote:
+      path: Assets/Scripts/Tex2DSprite.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: topLeft
+    path: ../Assets/Scripts/Tex2DSprite.cs
+    startLine: 7
+  namespace: Global
+  syntax:
+    content: public bool topLeft
+    return:
+      type: System.Boolean
+    content.vb: Public topLeft As Boolean
+- uid: Global.OutlineSideFill.topMiddle
+  commentId: F:Global.OutlineSideFill.topMiddle
+  id: topMiddle
+  parent: Global.OutlineSideFill
+  langs:
+  - csharp
+  - vb
+  name: topMiddle
+  nameWithType: OutlineSideFill.topMiddle
+  fullName: OutlineSideFill.topMiddle
+  type: Field
+  source:
+    remote:
+      path: Assets/Scripts/Tex2DSprite.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: topMiddle
+    path: ../Assets/Scripts/Tex2DSprite.cs
+    startLine: 8
+  namespace: Global
+  syntax:
+    content: public bool topMiddle
+    return:
+      type: System.Boolean
+    content.vb: Public topMiddle As Boolean
+- uid: Global.OutlineSideFill.topRight
+  commentId: F:Global.OutlineSideFill.topRight
+  id: topRight
+  parent: Global.OutlineSideFill
+  langs:
+  - csharp
+  - vb
+  name: topRight
+  nameWithType: OutlineSideFill.topRight
+  fullName: OutlineSideFill.topRight
+  type: Field
+  source:
+    remote:
+      path: Assets/Scripts/Tex2DSprite.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: topRight
+    path: ../Assets/Scripts/Tex2DSprite.cs
+    startLine: 9
+  namespace: Global
+  syntax:
+    content: public bool topRight
+    return:
+      type: System.Boolean
+    content.vb: Public topRight As Boolean
+- uid: Global.OutlineSideFill.middleLeft
+  commentId: F:Global.OutlineSideFill.middleLeft
+  id: middleLeft
+  parent: Global.OutlineSideFill
+  langs:
+  - csharp
+  - vb
+  name: middleLeft
+  nameWithType: OutlineSideFill.middleLeft
+  fullName: OutlineSideFill.middleLeft
+  type: Field
+  source:
+    remote:
+      path: Assets/Scripts/Tex2DSprite.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: middleLeft
+    path: ../Assets/Scripts/Tex2DSprite.cs
+    startLine: 10
+  namespace: Global
+  syntax:
+    content: public bool middleLeft
+    return:
+      type: System.Boolean
+    content.vb: Public middleLeft As Boolean
+- uid: Global.OutlineSideFill.middleRight
+  commentId: F:Global.OutlineSideFill.middleRight
+  id: middleRight
+  parent: Global.OutlineSideFill
+  langs:
+  - csharp
+  - vb
+  name: middleRight
+  nameWithType: OutlineSideFill.middleRight
+  fullName: OutlineSideFill.middleRight
+  type: Field
+  source:
+    remote:
+      path: Assets/Scripts/Tex2DSprite.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: middleRight
+    path: ../Assets/Scripts/Tex2DSprite.cs
+    startLine: 11
+  namespace: Global
+  syntax:
+    content: public bool middleRight
+    return:
+      type: System.Boolean
+    content.vb: Public middleRight As Boolean
+- uid: Global.OutlineSideFill.bottomLeft
+  commentId: F:Global.OutlineSideFill.bottomLeft
+  id: bottomLeft
+  parent: Global.OutlineSideFill
+  langs:
+  - csharp
+  - vb
+  name: bottomLeft
+  nameWithType: OutlineSideFill.bottomLeft
+  fullName: OutlineSideFill.bottomLeft
+  type: Field
+  source:
+    remote:
+      path: Assets/Scripts/Tex2DSprite.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: bottomLeft
+    path: ../Assets/Scripts/Tex2DSprite.cs
+    startLine: 12
+  namespace: Global
+  syntax:
+    content: public bool bottomLeft
+    return:
+      type: System.Boolean
+    content.vb: Public bottomLeft As Boolean
+- uid: Global.OutlineSideFill.bottomMiddle
+  commentId: F:Global.OutlineSideFill.bottomMiddle
+  id: bottomMiddle
+  parent: Global.OutlineSideFill
+  langs:
+  - csharp
+  - vb
+  name: bottomMiddle
+  nameWithType: OutlineSideFill.bottomMiddle
+  fullName: OutlineSideFill.bottomMiddle
+  type: Field
+  source:
+    remote:
+      path: Assets/Scripts/Tex2DSprite.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: bottomMiddle
+    path: ../Assets/Scripts/Tex2DSprite.cs
+    startLine: 13
+  namespace: Global
+  syntax:
+    content: public bool bottomMiddle
+    return:
+      type: System.Boolean
+    content.vb: Public bottomMiddle As Boolean
+- uid: Global.OutlineSideFill.bottomRight
+  commentId: F:Global.OutlineSideFill.bottomRight
+  id: bottomRight
+  parent: Global.OutlineSideFill
+  langs:
+  - csharp
+  - vb
+  name: bottomRight
+  nameWithType: OutlineSideFill.bottomRight
+  fullName: OutlineSideFill.bottomRight
+  type: Field
+  source:
+    remote:
+      path: Assets/Scripts/Tex2DSprite.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: bottomRight
+    path: ../Assets/Scripts/Tex2DSprite.cs
+    startLine: 14
+  namespace: Global
+  syntax:
+    content: public bool bottomRight
+    return:
+      type: System.Boolean
+    content.vb: Public bottomRight As Boolean
+- uid: Global.OutlineSideFill.#ctor(System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean)
+  commentId: M:Global.OutlineSideFill.#ctor(System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean)
+  id: '#ctor(System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean)'
+  parent: Global.OutlineSideFill
+  langs:
+  - csharp
+  - vb
+  name: OutlineSideFill(bool, bool, bool, bool, bool, bool, bool, bool)
+  nameWithType: OutlineSideFill.OutlineSideFill(bool, bool, bool, bool, bool, bool, bool, bool)
+  fullName: OutlineSideFill.OutlineSideFill(bool, bool, bool, bool, bool, bool, bool, bool)
+  type: Constructor
+  source:
+    remote:
+      path: Assets/Scripts/Tex2DSprite.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: .ctor
+    path: ../Assets/Scripts/Tex2DSprite.cs
+    startLine: 16
+  namespace: Global
+  syntax:
+    content: public OutlineSideFill(bool topLeft, bool topMiddle, bool topRight, bool middleLeft, bool middleRight, bool bottomLeft, bool bottomMiddle, bool bottomRight)
+    parameters:
+    - id: topLeft
+      type: System.Boolean
+    - id: topMiddle
+      type: System.Boolean
+    - id: topRight
+      type: System.Boolean
+    - id: middleLeft
+      type: System.Boolean
+    - id: middleRight
+      type: System.Boolean
+    - id: bottomLeft
+      type: System.Boolean
+    - id: bottomMiddle
+      type: System.Boolean
+    - id: bottomRight
+      type: System.Boolean
+    content.vb: Public Sub New(topLeft As Boolean, topMiddle As Boolean, topRight As Boolean, middleLeft As Boolean, middleRight As Boolean, bottomLeft As Boolean, bottomMiddle As Boolean, bottomRight As Boolean)
+  overload: Global.OutlineSideFill.#ctor*
+  nameWithType.vb: OutlineSideFill.New(Boolean, Boolean, Boolean, Boolean, Boolean, Boolean, Boolean, Boolean)
+  fullName.vb: OutlineSideFill.New(Boolean, Boolean, Boolean, Boolean, Boolean, Boolean, Boolean, Boolean)
+  name.vb: New(Boolean, Boolean, Boolean, Boolean, Boolean, Boolean, Boolean, Boolean)
+references:
+- uid: Global
+- uid: System.ValueType.Equals(System.Object)
+  commentId: M:System.ValueType.Equals(System.Object)
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  name: Equals(object)
+  nameWithType: ValueType.Equals(object)
+  fullName: System.ValueType.Equals(object)
+  nameWithType.vb: ValueType.Equals(Object)
+  fullName.vb: System.ValueType.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.ValueType.GetHashCode
+  commentId: M:System.ValueType.GetHashCode
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  name: GetHashCode()
+  nameWithType: ValueType.GetHashCode()
+  fullName: System.ValueType.GetHashCode()
+  spec.csharp:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  - name: (
+  - name: )
+- uid: System.ValueType.ToString
+  commentId: M:System.ValueType.ToString
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  name: ToString()
+  nameWithType: ValueType.ToString()
+  fullName: System.ValueType.ToString()
+  spec.csharp:
+  - uid: System.ValueType.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.ValueType
+  commentId: T:System.ValueType
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype
+  name: ValueType
+  nameWithType: ValueType
+  fullName: System.ValueType
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: Global.OutlineSideFill.#ctor*
+  commentId: Overload:Global.OutlineSideFill.#ctor
+  href: Global.OutlineSideFill.html#OutlineSideFill__ctor_System_Boolean_System_Boolean_System_Boolean_System_Boolean_System_Boolean_System_Boolean_System_Boolean_System_Boolean_
+  name: OutlineSideFill
+  nameWithType: OutlineSideFill.OutlineSideFill
+  fullName: OutlineSideFill.OutlineSideFill
+  nameWithType.vb: OutlineSideFill.New
+  fullName.vb: OutlineSideFill.New
+  name.vb: New

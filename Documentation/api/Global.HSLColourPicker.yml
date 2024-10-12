@@ -1,0 +1,452 @@
+### YamlMime:ManagedReference
+items:
+- uid: Global.HSLColourPicker
+  commentId: T:Global.HSLColourPicker
+  id: HSLColourPicker
+  parent: Global
+  children:
+  - Global.HSLColourPicker.SetColour(Color)
+  - Global.HSLColourPicker.SubscribeToOnColourChange(UnityAction)
+  - Global.HSLColourPicker.UpdateColour
+  - Global.HSLColourPicker.alpha
+  - Global.HSLColourPicker.color
+  - Global.HSLColourPicker.hsl
+  - Global.HSLColourPicker.hue
+  - Global.HSLColourPicker.lightness
+  - Global.HSLColourPicker.mouseSensitivity
+  - Global.HSLColourPicker.saturation
+  - Global.HSLColourPicker.slowSensitivityScalar
+  langs:
+  - csharp
+  - vb
+  name: HSLColourPicker
+  nameWithType: HSLColourPicker
+  fullName: HSLColourPicker
+  type: Class
+  source:
+    remote:
+      path: Assets/Scripts/Colour Picker/HSLColourPicker.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: HSLColourPicker
+    path: ../Assets/Scripts/Colour Picker/HSLColourPicker.cs
+    startLine: 8
+  namespace: Global
+  summary: A class for the HSL colour picker.
+  example: []
+  syntax:
+    content: 'public class HSLColourPicker : MonoBehaviour'
+    content.vb: Public Class HSLColourPicker Inherits MonoBehaviour
+  inheritance:
+  - System.Object
+- uid: Global.HSLColourPicker.mouseSensitivity
+  commentId: P:Global.HSLColourPicker.mouseSensitivity
+  id: mouseSensitivity
+  parent: Global.HSLColourPicker
+  langs:
+  - csharp
+  - vb
+  name: mouseSensitivity
+  nameWithType: HSLColourPicker.mouseSensitivity
+  fullName: HSLColourPicker.mouseSensitivity
+  type: Property
+  source:
+    remote:
+      path: Assets/Scripts/Colour Picker/HSLColourPicker.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: mouseSensitivity
+    path: ../Assets/Scripts/Colour Picker/HSLColourPicker.cs
+    startLine: 13
+  namespace: Global
+  syntax:
+    content: public float mouseSensitivity { get; }
+    parameters: []
+    return:
+      type: System.Single
+    content.vb: Public ReadOnly Property mouseSensitivity As Single
+  overload: Global.HSLColourPicker.mouseSensitivity*
+- uid: Global.HSLColourPicker.slowSensitivityScalar
+  commentId: P:Global.HSLColourPicker.slowSensitivityScalar
+  id: slowSensitivityScalar
+  parent: Global.HSLColourPicker
+  langs:
+  - csharp
+  - vb
+  name: slowSensitivityScalar
+  nameWithType: HSLColourPicker.slowSensitivityScalar
+  fullName: HSLColourPicker.slowSensitivityScalar
+  type: Property
+  source:
+    remote:
+      path: Assets/Scripts/Colour Picker/HSLColourPicker.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: slowSensitivityScalar
+    path: ../Assets/Scripts/Colour Picker/HSLColourPicker.cs
+    startLine: 17
+  namespace: Global
+  summary: The sensitivity of the mouse when holding the modifier keyboard shortcut to reduce the sensitivity.
+  example: []
+  syntax:
+    content: public float slowSensitivityScalar { get; }
+    parameters: []
+    return:
+      type: System.Single
+    content.vb: Public ReadOnly Property slowSensitivityScalar As Single
+  overload: Global.HSLColourPicker.slowSensitivityScalar*
+- uid: Global.HSLColourPicker.hue
+  commentId: P:Global.HSLColourPicker.hue
+  id: hue
+  parent: Global.HSLColourPicker
+  langs:
+  - csharp
+  - vb
+  name: hue
+  nameWithType: HSLColourPicker.hue
+  fullName: HSLColourPicker.hue
+  type: Property
+  source:
+    remote:
+      path: Assets/Scripts/Colour Picker/HSLColourPicker.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: hue
+    path: ../Assets/Scripts/Colour Picker/HSLColourPicker.cs
+    startLine: 28
+  namespace: Global
+  syntax:
+    content: public float hue { get; }
+    parameters: []
+    return:
+      type: System.Single
+    content.vb: Public ReadOnly Property hue As Single
+  overload: Global.HSLColourPicker.hue*
+- uid: Global.HSLColourPicker.saturation
+  commentId: P:Global.HSLColourPicker.saturation
+  id: saturation
+  parent: Global.HSLColourPicker
+  langs:
+  - csharp
+  - vb
+  name: saturation
+  nameWithType: HSLColourPicker.saturation
+  fullName: HSLColourPicker.saturation
+  type: Property
+  source:
+    remote:
+      path: Assets/Scripts/Colour Picker/HSLColourPicker.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: saturation
+    path: ../Assets/Scripts/Colour Picker/HSLColourPicker.cs
+    startLine: 29
+  namespace: Global
+  syntax:
+    content: public float saturation { get; }
+    parameters: []
+    return:
+      type: System.Single
+    content.vb: Public ReadOnly Property saturation As Single
+  overload: Global.HSLColourPicker.saturation*
+- uid: Global.HSLColourPicker.lightness
+  commentId: P:Global.HSLColourPicker.lightness
+  id: lightness
+  parent: Global.HSLColourPicker
+  langs:
+  - csharp
+  - vb
+  name: lightness
+  nameWithType: HSLColourPicker.lightness
+  fullName: HSLColourPicker.lightness
+  type: Property
+  source:
+    remote:
+      path: Assets/Scripts/Colour Picker/HSLColourPicker.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: lightness
+    path: ../Assets/Scripts/Colour Picker/HSLColourPicker.cs
+    startLine: 30
+  namespace: Global
+  syntax:
+    content: public float lightness { get; }
+    parameters: []
+    return:
+      type: System.Single
+    content.vb: Public ReadOnly Property lightness As Single
+  overload: Global.HSLColourPicker.lightness*
+- uid: Global.HSLColourPicker.alpha
+  commentId: P:Global.HSLColourPicker.alpha
+  id: alpha
+  parent: Global.HSLColourPicker
+  langs:
+  - csharp
+  - vb
+  name: alpha
+  nameWithType: HSLColourPicker.alpha
+  fullName: HSLColourPicker.alpha
+  type: Property
+  source:
+    remote:
+      path: Assets/Scripts/Colour Picker/HSLColourPicker.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: alpha
+    path: ../Assets/Scripts/Colour Picker/HSLColourPicker.cs
+    startLine: 31
+  namespace: Global
+  syntax:
+    content: public float alpha { get; }
+    parameters: []
+    return:
+      type: System.Single
+    content.vb: Public Property alpha As Single
+  overload: Global.HSLColourPicker.alpha*
+- uid: Global.HSLColourPicker.color
+  commentId: P:Global.HSLColourPicker.color
+  id: color
+  parent: Global.HSLColourPicker
+  langs:
+  - csharp
+  - vb
+  name: color
+  nameWithType: HSLColourPicker.color
+  fullName: HSLColourPicker.color
+  type: Property
+  source:
+    remote:
+      path: Assets/Scripts/Colour Picker/HSLColourPicker.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: color
+    path: ../Assets/Scripts/Colour Picker/HSLColourPicker.cs
+    startLine: 33
+  namespace: Global
+  syntax:
+    content: public Color color { get; }
+    parameters: []
+    return:
+      type: Global.Color
+    content.vb: Public ReadOnly Property color As Color
+  overload: Global.HSLColourPicker.color*
+- uid: Global.HSLColourPicker.hsl
+  commentId: P:Global.HSLColourPicker.hsl
+  id: hsl
+  parent: Global.HSLColourPicker
+  langs:
+  - csharp
+  - vb
+  name: hsl
+  nameWithType: HSLColourPicker.hsl
+  fullName: HSLColourPicker.hsl
+  type: Property
+  source:
+    remote:
+      path: Assets/Scripts/Colour Picker/HSLColourPicker.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: hsl
+    path: ../Assets/Scripts/Colour Picker/HSLColourPicker.cs
+    startLine: 34
+  namespace: Global
+  syntax:
+    content: public HSL hsl { get; }
+    parameters: []
+    return:
+      type: Global.HSL
+    content.vb: Public ReadOnly Property hsl As HSL
+  overload: Global.HSLColourPicker.hsl*
+- uid: Global.HSLColourPicker.UpdateColour
+  commentId: M:Global.HSLColourPicker.UpdateColour
+  id: UpdateColour
+  parent: Global.HSLColourPicker
+  langs:
+  - csharp
+  - vb
+  name: UpdateColour()
+  nameWithType: HSLColourPicker.UpdateColour()
+  fullName: HSLColourPicker.UpdateColour()
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Colour Picker/HSLColourPicker.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: UpdateColour
+    path: ../Assets/Scripts/Colour Picker/HSLColourPicker.cs
+    startLine: 42
+  namespace: Global
+  syntax:
+    content: public void UpdateColour()
+    content.vb: Public Sub UpdateColour()
+  overload: Global.HSLColourPicker.UpdateColour*
+- uid: Global.HSLColourPicker.SetColour(Color)
+  commentId: M:Global.HSLColourPicker.SetColour(Color)
+  id: SetColour(Color)
+  parent: Global.HSLColourPicker
+  langs:
+  - csharp
+  - vb
+  name: SetColour(Color)
+  nameWithType: HSLColourPicker.SetColour(Color)
+  fullName: HSLColourPicker.SetColour(Color)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Colour Picker/HSLColourPicker.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: SetColour
+    path: ../Assets/Scripts/Colour Picker/HSLColourPicker.cs
+    startLine: 48
+  namespace: Global
+  syntax:
+    content: public void SetColour(Color colour)
+    parameters:
+    - id: colour
+      type: Global.Color
+    content.vb: Public Sub SetColour(colour As Color)
+  overload: Global.HSLColourPicker.SetColour*
+- uid: Global.HSLColourPicker.SubscribeToOnColourChange(UnityAction)
+  commentId: M:Global.HSLColourPicker.SubscribeToOnColourChange(UnityAction)
+  id: SubscribeToOnColourChange(UnityAction)
+  parent: Global.HSLColourPicker
+  langs:
+  - csharp
+  - vb
+  name: SubscribeToOnColourChange(UnityAction)
+  nameWithType: HSLColourPicker.SubscribeToOnColourChange(UnityAction)
+  fullName: HSLColourPicker.SubscribeToOnColourChange(UnityAction)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Colour Picker/HSLColourPicker.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: SubscribeToOnColourChange
+    path: ../Assets/Scripts/Colour Picker/HSLColourPicker.cs
+    startLine: 62
+  namespace: Global
+  summary: Event invoked when the selected colour changes.
+  example: []
+  syntax:
+    content: public void SubscribeToOnColourChange(UnityAction call)
+    parameters:
+    - id: call
+      type: Global.UnityAction
+    content.vb: Public Sub SubscribeToOnColourChange([call] As UnityAction)
+  overload: Global.HSLColourPicker.SubscribeToOnColourChange*
+references:
+- uid: Global
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Global.HSLColourPicker.mouseSensitivity*
+  commentId: Overload:Global.HSLColourPicker.mouseSensitivity
+  href: Global.HSLColourPicker.html#HSLColourPicker_mouseSensitivity
+  name: mouseSensitivity
+  nameWithType: HSLColourPicker.mouseSensitivity
+  fullName: HSLColourPicker.mouseSensitivity
+- uid: System.Single
+  commentId: T:System.Single
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.single
+  name: float
+  nameWithType: float
+  fullName: float
+  nameWithType.vb: Single
+  fullName.vb: Single
+  name.vb: Single
+- uid: Global.HSLColourPicker.slowSensitivityScalar*
+  commentId: Overload:Global.HSLColourPicker.slowSensitivityScalar
+  href: Global.HSLColourPicker.html#HSLColourPicker_slowSensitivityScalar
+  name: slowSensitivityScalar
+  nameWithType: HSLColourPicker.slowSensitivityScalar
+  fullName: HSLColourPicker.slowSensitivityScalar
+- uid: Global.HSLColourPicker.hue*
+  commentId: Overload:Global.HSLColourPicker.hue
+  href: Global.HSLColourPicker.html#HSLColourPicker_hue
+  name: hue
+  nameWithType: HSLColourPicker.hue
+  fullName: HSLColourPicker.hue
+- uid: Global.HSLColourPicker.saturation*
+  commentId: Overload:Global.HSLColourPicker.saturation
+  href: Global.HSLColourPicker.html#HSLColourPicker_saturation
+  name: saturation
+  nameWithType: HSLColourPicker.saturation
+  fullName: HSLColourPicker.saturation
+- uid: Global.HSLColourPicker.lightness*
+  commentId: Overload:Global.HSLColourPicker.lightness
+  href: Global.HSLColourPicker.html#HSLColourPicker_lightness
+  name: lightness
+  nameWithType: HSLColourPicker.lightness
+  fullName: HSLColourPicker.lightness
+- uid: Global.HSLColourPicker.alpha*
+  commentId: Overload:Global.HSLColourPicker.alpha
+  href: Global.HSLColourPicker.html#HSLColourPicker_alpha
+  name: alpha
+  nameWithType: HSLColourPicker.alpha
+  fullName: HSLColourPicker.alpha
+- uid: Global.HSLColourPicker.color*
+  commentId: Overload:Global.HSLColourPicker.color
+  href: Global.HSLColourPicker.html#HSLColourPicker_color
+  name: color
+  nameWithType: HSLColourPicker.color
+  fullName: HSLColourPicker.color
+- uid: Global.Color
+  isExternal: true
+  name: Color
+  nameWithType: Color
+  fullName: Color
+- uid: Global.HSLColourPicker.hsl*
+  commentId: Overload:Global.HSLColourPicker.hsl
+  href: Global.HSLColourPicker.html#HSLColourPicker_hsl
+  name: hsl
+  nameWithType: HSLColourPicker.hsl
+  fullName: HSLColourPicker.hsl
+- uid: Global.HSL
+  commentId: T:Global.HSL
+  href: HSL.html
+  name: HSL
+  nameWithType: HSL
+  fullName: HSL
+- uid: Global.HSLColourPicker.UpdateColour*
+  commentId: Overload:Global.HSLColourPicker.UpdateColour
+  href: Global.HSLColourPicker.html#HSLColourPicker_UpdateColour
+  name: UpdateColour
+  nameWithType: HSLColourPicker.UpdateColour
+  fullName: HSLColourPicker.UpdateColour
+- uid: Global.HSLColourPicker.SetColour*
+  commentId: Overload:Global.HSLColourPicker.SetColour
+  href: Global.HSLColourPicker.html#HSLColourPicker_SetColour_Color_
+  name: SetColour
+  nameWithType: HSLColourPicker.SetColour
+  fullName: HSLColourPicker.SetColour
+- uid: Global.HSLColourPicker.SubscribeToOnColourChange*
+  commentId: Overload:Global.HSLColourPicker.SubscribeToOnColourChange
+  href: Global.HSLColourPicker.html#HSLColourPicker_SubscribeToOnColourChange_UnityAction_
+  name: SubscribeToOnColourChange
+  nameWithType: HSLColourPicker.SubscribeToOnColourChange
+  fullName: HSLColourPicker.SubscribeToOnColourChange
+- uid: Global.UnityAction
+  isExternal: true
+  name: UnityAction
+  nameWithType: UnityAction
+  fullName: UnityAction

@@ -1,0 +1,173 @@
+### YamlMime:ManagedReference
+items:
+- uid: Global.HSLLightnessSlider
+  commentId: T:Global.HSLLightnessSlider
+  id: HSLLightnessSlider
+  parent: Global
+  children:
+  - Global.HSLLightnessSlider.SetDisplayHueSaturation(System.Single,System.Single)
+  - Global.HSLLightnessSlider.SetLightness(System.Single)
+  - Global.HSLLightnessSlider.lightness
+  langs:
+  - csharp
+  - vb
+  name: HSLLightnessSlider
+  nameWithType: HSLLightnessSlider
+  fullName: HSLLightnessSlider
+  type: Class
+  source:
+    remote:
+      path: Assets/Scripts/Colour Picker/HSLLightnessSlider.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: HSLLightnessSlider
+    path: ../Assets/Scripts/Colour Picker/HSLLightnessSlider.cs
+    startLine: 7
+  namespace: Global
+  summary: A class for the lightness slider of the HSL colour picker.
+  example: []
+  syntax:
+    content: 'public class HSLLightnessSlider : MonoBehaviour'
+    content.vb: Public Class HSLLightnessSlider Inherits MonoBehaviour
+  inheritance:
+  - System.Object
+- uid: Global.HSLLightnessSlider.lightness
+  commentId: P:Global.HSLLightnessSlider.lightness
+  id: lightness
+  parent: Global.HSLLightnessSlider
+  langs:
+  - csharp
+  - vb
+  name: lightness
+  nameWithType: HSLLightnessSlider.lightness
+  fullName: HSLLightnessSlider.lightness
+  type: Property
+  source:
+    remote:
+      path: Assets/Scripts/Colour Picker/HSLLightnessSlider.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: lightness
+    path: ../Assets/Scripts/Colour Picker/HSLLightnessSlider.cs
+    startLine: 10
+  namespace: Global
+  syntax:
+    content: public float lightness { get; }
+    parameters: []
+    return:
+      type: System.Single
+    content.vb: Public Property lightness As Single
+  overload: Global.HSLLightnessSlider.lightness*
+- uid: Global.HSLLightnessSlider.SetLightness(System.Single)
+  commentId: M:Global.HSLLightnessSlider.SetLightness(System.Single)
+  id: SetLightness(System.Single)
+  parent: Global.HSLLightnessSlider
+  langs:
+  - csharp
+  - vb
+  name: SetLightness(float)
+  nameWithType: HSLLightnessSlider.SetLightness(float)
+  fullName: HSLLightnessSlider.SetLightness(float)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Colour Picker/HSLLightnessSlider.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: SetLightness
+    path: ../Assets/Scripts/Colour Picker/HSLLightnessSlider.cs
+    startLine: 54
+  namespace: Global
+  syntax:
+    content: public void SetLightness(float lightness)
+    parameters:
+    - id: lightness
+      type: System.Single
+    content.vb: Public Sub SetLightness(lightness As Single)
+  overload: Global.HSLLightnessSlider.SetLightness*
+  nameWithType.vb: HSLLightnessSlider.SetLightness(Single)
+  fullName.vb: HSLLightnessSlider.SetLightness(Single)
+  name.vb: SetLightness(Single)
+- uid: Global.HSLLightnessSlider.SetDisplayHueSaturation(System.Single,System.Single)
+  commentId: M:Global.HSLLightnessSlider.SetDisplayHueSaturation(System.Single,System.Single)
+  id: SetDisplayHueSaturation(System.Single,System.Single)
+  parent: Global.HSLLightnessSlider
+  langs:
+  - csharp
+  - vb
+  name: SetDisplayHueSaturation(float, float)
+  nameWithType: HSLLightnessSlider.SetDisplayHueSaturation(float, float)
+  fullName: HSLLightnessSlider.SetDisplayHueSaturation(float, float)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Colour Picker/HSLLightnessSlider.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: SetDisplayHueSaturation
+    path: ../Assets/Scripts/Colour Picker/HSLLightnessSlider.cs
+    startLine: 63
+  namespace: Global
+  summary: Sets the hue/saturation to use for displaying the lightness gradient.
+  example: []
+  syntax:
+    content: public void SetDisplayHueSaturation(float hue, float saturation)
+    parameters:
+    - id: hue
+      type: System.Single
+    - id: saturation
+      type: System.Single
+    content.vb: Public Sub SetDisplayHueSaturation(hue As Single, saturation As Single)
+  overload: Global.HSLLightnessSlider.SetDisplayHueSaturation*
+  nameWithType.vb: HSLLightnessSlider.SetDisplayHueSaturation(Single, Single)
+  fullName.vb: HSLLightnessSlider.SetDisplayHueSaturation(Single, Single)
+  name.vb: SetDisplayHueSaturation(Single, Single)
+references:
+- uid: Global
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Global.HSLLightnessSlider.lightness*
+  commentId: Overload:Global.HSLLightnessSlider.lightness
+  href: Global.HSLLightnessSlider.html#HSLLightnessSlider_lightness
+  name: lightness
+  nameWithType: HSLLightnessSlider.lightness
+  fullName: HSLLightnessSlider.lightness
+- uid: System.Single
+  commentId: T:System.Single
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.single
+  name: float
+  nameWithType: float
+  fullName: float
+  nameWithType.vb: Single
+  fullName.vb: Single
+  name.vb: Single
+- uid: Global.HSLLightnessSlider.SetLightness*
+  commentId: Overload:Global.HSLLightnessSlider.SetLightness
+  href: Global.HSLLightnessSlider.html#HSLLightnessSlider_SetLightness_System_Single_
+  name: SetLightness
+  nameWithType: HSLLightnessSlider.SetLightness
+  fullName: HSLLightnessSlider.SetLightness
+- uid: Global.HSLLightnessSlider.SetDisplayHueSaturation*
+  commentId: Overload:Global.HSLLightnessSlider.SetDisplayHueSaturation
+  href: Global.HSLLightnessSlider.html#HSLLightnessSlider_SetDisplayHueSaturation_System_Single_System_Single_
+  name: SetDisplayHueSaturation
+  nameWithType: HSLLightnessSlider.SetDisplayHueSaturation
+  fullName: HSLLightnessSlider.SetDisplayHueSaturation

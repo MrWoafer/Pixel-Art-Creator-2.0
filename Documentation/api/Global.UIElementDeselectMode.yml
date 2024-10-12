@@ -1,0 +1,84 @@
+### YamlMime:ManagedReference
+items:
+- uid: Global.UIElementDeselectMode
+  commentId: T:Global.UIElementDeselectMode
+  id: UIElementDeselectMode
+  parent: Global
+  children:
+  - Global.UIElementDeselectMode.Manual
+  - Global.UIElementDeselectMode.OnInputTargetUntargeted
+  langs:
+  - csharp
+  - vb
+  name: UIElementDeselectMode
+  nameWithType: UIElementDeselectMode
+  fullName: UIElementDeselectMode
+  type: Enum
+  source:
+    remote:
+      path: Assets/Scripts/UI/UIElement.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: UIElementDeselectMode
+    path: ../Assets/Scripts/UI/UIElement.cs
+    startLine: 10
+  namespace: Global
+  syntax:
+    content: public enum UIElementDeselectMode
+    content.vb: Public Enum UIElementDeselectMode
+- uid: Global.UIElementDeselectMode.Manual
+  commentId: F:Global.UIElementDeselectMode.Manual
+  id: Manual
+  parent: Global.UIElementDeselectMode
+  langs:
+  - csharp
+  - vb
+  name: Manual
+  nameWithType: UIElementDeselectMode.Manual
+  fullName: UIElementDeselectMode.Manual
+  type: Field
+  source:
+    remote:
+      path: Assets/Scripts/UI/UIElement.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: Manual
+    path: ../Assets/Scripts/UI/UIElement.cs
+    startLine: 12
+  namespace: Global
+  syntax:
+    content: Manual = 0
+    return:
+      type: Global.UIElementDeselectMode
+- uid: Global.UIElementDeselectMode.OnInputTargetUntargeted
+  commentId: F:Global.UIElementDeselectMode.OnInputTargetUntargeted
+  id: OnInputTargetUntargeted
+  parent: Global.UIElementDeselectMode
+  langs:
+  - csharp
+  - vb
+  name: OnInputTargetUntargeted
+  nameWithType: UIElementDeselectMode.OnInputTargetUntargeted
+  fullName: UIElementDeselectMode.OnInputTargetUntargeted
+  type: Field
+  source:
+    remote:
+      path: Assets/Scripts/UI/UIElement.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: OnInputTargetUntargeted
+    path: ../Assets/Scripts/UI/UIElement.cs
+    startLine: 13
+  namespace: Global
+  syntax:
+    content: OnInputTargetUntargeted = 1
+    return:
+      type: Global.UIElementDeselectMode
+references:
+- uid: Global
+- uid: Global.UIElementDeselectMode
+  commentId: T:Global.UIElementDeselectMode
+  href: UIElementDeselectMode.html
+  name: UIElementDeselectMode
+  nameWithType: UIElementDeselectMode
+  fullName: UIElementDeselectMode

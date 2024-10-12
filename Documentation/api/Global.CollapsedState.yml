@@ -1,0 +1,84 @@
+### YamlMime:ManagedReference
+items:
+- uid: Global.CollapsedState
+  commentId: T:Global.CollapsedState
+  id: CollapsedState
+  parent: Global
+  children:
+  - Global.CollapsedState.Collapsed
+  - Global.CollapsedState.Uncollapsed
+  langs:
+  - csharp
+  - vb
+  name: CollapsedState
+  nameWithType: CollapsedState
+  fullName: CollapsedState
+  type: Enum
+  source:
+    remote:
+      path: Assets/Scripts/UI/UICollapser.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: CollapsedState
+    path: ../Assets/Scripts/UI/UICollapser.cs
+    startLine: 4
+  namespace: Global
+  syntax:
+    content: public enum CollapsedState
+    content.vb: Public Enum CollapsedState
+- uid: Global.CollapsedState.Uncollapsed
+  commentId: F:Global.CollapsedState.Uncollapsed
+  id: Uncollapsed
+  parent: Global.CollapsedState
+  langs:
+  - csharp
+  - vb
+  name: Uncollapsed
+  nameWithType: CollapsedState.Uncollapsed
+  fullName: CollapsedState.Uncollapsed
+  type: Field
+  source:
+    remote:
+      path: Assets/Scripts/UI/UICollapser.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: Uncollapsed
+    path: ../Assets/Scripts/UI/UICollapser.cs
+    startLine: 6
+  namespace: Global
+  syntax:
+    content: Uncollapsed = 0
+    return:
+      type: Global.CollapsedState
+- uid: Global.CollapsedState.Collapsed
+  commentId: F:Global.CollapsedState.Collapsed
+  id: Collapsed
+  parent: Global.CollapsedState
+  langs:
+  - csharp
+  - vb
+  name: Collapsed
+  nameWithType: CollapsedState.Collapsed
+  fullName: CollapsedState.Collapsed
+  type: Field
+  source:
+    remote:
+      path: Assets/Scripts/UI/UICollapser.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: Collapsed
+    path: ../Assets/Scripts/UI/UICollapser.cs
+    startLine: 7
+  namespace: Global
+  syntax:
+    content: Collapsed = 1
+    return:
+      type: Global.CollapsedState
+references:
+- uid: Global
+- uid: Global.CollapsedState
+  commentId: T:Global.CollapsedState
+  href: CollapsedState.html
+  name: CollapsedState
+  nameWithType: CollapsedState
+  fullName: CollapsedState

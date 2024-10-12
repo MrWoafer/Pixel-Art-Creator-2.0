@@ -1,0 +1,117 @@
+### YamlMime:ManagedReference
+items:
+- uid: Global.KeyFrameIcon
+  commentId: T:Global.KeyFrameIcon
+  id: KeyFrameIcon
+  parent: Global
+  children:
+  - Global.KeyFrameIcon.frameIndex
+  - Global.KeyFrameIcon.layerIndex
+  langs:
+  - csharp
+  - vb
+  name: KeyFrameIcon
+  nameWithType: KeyFrameIcon
+  fullName: KeyFrameIcon
+  type: Class
+  source:
+    remote:
+      path: Assets/Scripts/Animation/KeyFrameIcon.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: KeyFrameIcon
+    path: ../Assets/Scripts/Animation/KeyFrameIcon.cs
+    startLine: 7
+  namespace: Global
+  summary: Stores the data about a keyframe icon on the animation timeline.
+  example: []
+  syntax:
+    content: 'public class KeyFrameIcon : MonoBehaviour'
+    content.vb: Public Class KeyFrameIcon Inherits MonoBehaviour
+  inheritance:
+  - System.Object
+- uid: Global.KeyFrameIcon.frameIndex
+  commentId: F:Global.KeyFrameIcon.frameIndex
+  id: frameIndex
+  parent: Global.KeyFrameIcon
+  langs:
+  - csharp
+  - vb
+  name: frameIndex
+  nameWithType: KeyFrameIcon.frameIndex
+  fullName: KeyFrameIcon.frameIndex
+  type: Field
+  source:
+    remote:
+      path: Assets/Scripts/Animation/KeyFrameIcon.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: frameIndex
+    path: ../Assets/Scripts/Animation/KeyFrameIcon.cs
+    startLine: 10
+  namespace: Global
+  summary: The frame number this keyframe is on.
+  example: []
+  syntax:
+    content: public int frameIndex
+    return:
+      type: System.Int32
+    content.vb: Public frameIndex As Integer
+- uid: Global.KeyFrameIcon.layerIndex
+  commentId: F:Global.KeyFrameIcon.layerIndex
+  id: layerIndex
+  parent: Global.KeyFrameIcon
+  langs:
+  - csharp
+  - vb
+  name: layerIndex
+  nameWithType: KeyFrameIcon.layerIndex
+  fullName: KeyFrameIcon.layerIndex
+  type: Field
+  source:
+    remote:
+      path: Assets/Scripts/Animation/KeyFrameIcon.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: layerIndex
+    path: ../Assets/Scripts/Animation/KeyFrameIcon.cs
+    startLine: 12
+  namespace: Global
+  summary: The layer index this keyframe is on.
+  example: []
+  syntax:
+    content: public int layerIndex
+    return:
+      type: System.Int32
+    content.vb: Public layerIndex As Integer
+references:
+- uid: Global
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer

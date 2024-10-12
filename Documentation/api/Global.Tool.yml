@@ -1,0 +1,907 @@
+### YamlMime:ManagedReference
+items:
+- uid: Global.Tool
+  commentId: T:Global.Tool
+  id: Tool
+  parent: Global
+  children:
+  - Global.Tool.Brush
+  - Global.Tool.EyeDropper
+  - Global.Tool.Fill
+  - Global.Tool.GlobalEyeDropper
+  - Global.Tool.Gradient
+  - Global.Tool.IsoBox
+  - Global.Tool.Line
+  - Global.Tool.Move
+  - Global.Tool.None
+  - Global.Tool.Pencil
+  - Global.Tool.Rubber
+  - Global.Tool.Selection
+  - Global.Tool.Shape
+  - Global.Tool.StringToTool(System.String)
+  - Global.Tool.canBeCancelled
+  - Global.Tool.finishMode
+  - Global.Tool.name
+  - Global.Tool.showBrushBorder
+  - Global.Tool.tools
+  - Global.Tool.useMovementInterpolation
+  langs:
+  - csharp
+  - vb
+  name: Tool
+  nameWithType: Tool
+  fullName: Tool
+  type: Class
+  source:
+    remote:
+      path: Assets/Scripts/Drawing/Tool.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: Tool
+    path: ../Assets/Scripts/Drawing/Tool.cs
+    startLine: 7
+  namespace: Global
+  summary: Defines the tools available to use and their properties.
+  example: []
+  syntax:
+    content: public class Tool
+    content.vb: Public Class Tool
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: Global.Tool.name
+  commentId: P:Global.Tool.name
+  id: name
+  parent: Global.Tool
+  langs:
+  - csharp
+  - vb
+  name: name
+  nameWithType: Tool.name
+  fullName: Tool.name
+  type: Property
+  source:
+    remote:
+      path: Assets/Scripts/Drawing/Tool.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: name
+    path: ../Assets/Scripts/Drawing/Tool.cs
+    startLine: 10
+  namespace: Global
+  syntax:
+    content: public string name { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property name As String
+  overload: Global.Tool.name*
+- uid: Global.Tool.useMovementInterpolation
+  commentId: P:Global.Tool.useMovementInterpolation
+  id: useMovementInterpolation
+  parent: Global.Tool
+  langs:
+  - csharp
+  - vb
+  name: useMovementInterpolation
+  nameWithType: Tool.useMovementInterpolation
+  fullName: Tool.useMovementInterpolation
+  type: Property
+  source:
+    remote:
+      path: Assets/Scripts/Drawing/Tool.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: useMovementInterpolation
+    path: ../Assets/Scripts/Drawing/Tool.cs
+    startLine: 12
+  namespace: Global
+  summary: 'When the mouse position jumps between frames: true - the tool should be applied to each coord the mouse moved through; false - just applied to the ending coord.'
+  example: []
+  syntax:
+    content: public bool useMovementInterpolation { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property useMovementInterpolation As Boolean
+  overload: Global.Tool.useMovementInterpolation*
+- uid: Global.Tool.showBrushBorder
+  commentId: P:Global.Tool.showBrushBorder
+  id: showBrushBorder
+  parent: Global.Tool
+  langs:
+  - csharp
+  - vb
+  name: showBrushBorder
+  nameWithType: Tool.showBrushBorder
+  fullName: Tool.showBrushBorder
+  type: Property
+  source:
+    remote:
+      path: Assets/Scripts/Drawing/Tool.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: showBrushBorder
+    path: ../Assets/Scripts/Drawing/Tool.cs
+    startLine: 14
+  namespace: Global
+  summary: Whether the outline of the brush shape should be shown.
+  example: []
+  syntax:
+    content: public bool showBrushBorder { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property showBrushBorder As Boolean
+  overload: Global.Tool.showBrushBorder*
+- uid: Global.Tool.finishMode
+  commentId: P:Global.Tool.finishMode
+  id: finishMode
+  parent: Global.Tool
+  langs:
+  - csharp
+  - vb
+  name: finishMode
+  nameWithType: Tool.finishMode
+  fullName: Tool.finishMode
+  type: Property
+  source:
+    remote:
+      path: Assets/Scripts/Drawing/Tool.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: finishMode
+    path: ../Assets/Scripts/Drawing/Tool.cs
+    startLine: 16
+  namespace: Global
+  summary: What action causes a use of the tool to be ended.
+  example: []
+  syntax:
+    content: public MouseTargetDeselectMode finishMode { get; }
+    parameters: []
+    return:
+      type: Global.MouseTargetDeselectMode
+    content.vb: Public Property finishMode As MouseTargetDeselectMode
+  overload: Global.Tool.finishMode*
+- uid: Global.Tool.canBeCancelled
+  commentId: F:Global.Tool.canBeCancelled
+  id: canBeCancelled
+  parent: Global.Tool
+  langs:
+  - csharp
+  - vb
+  name: canBeCancelled
+  nameWithType: Tool.canBeCancelled
+  fullName: Tool.canBeCancelled
+  type: Field
+  source:
+    remote:
+      path: Assets/Scripts/Drawing/Tool.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: canBeCancelled
+    path: ../Assets/Scripts/Drawing/Tool.cs
+    startLine: 17
+  namespace: Global
+  syntax:
+    content: public bool canBeCancelled
+    return:
+      type: System.Boolean
+    content.vb: Public canBeCancelled As Boolean
+- uid: Global.Tool.None
+  commentId: F:Global.Tool.None
+  id: None
+  parent: Global.Tool
+  langs:
+  - csharp
+  - vb
+  name: None
+  nameWithType: Tool.None
+  fullName: Tool.None
+  type: Field
+  source:
+    remote:
+      path: Assets/Scripts/Drawing/Tool.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: None
+    path: ../Assets/Scripts/Drawing/Tool.cs
+    startLine: 21
+  namespace: Global
+  syntax:
+    content: public static Tool None
+    return:
+      type: Global.Tool
+    content.vb: Public Shared None As Tool
+- uid: Global.Tool.Pencil
+  commentId: F:Global.Tool.Pencil
+  id: Pencil
+  parent: Global.Tool
+  langs:
+  - csharp
+  - vb
+  name: Pencil
+  nameWithType: Tool.Pencil
+  fullName: Tool.Pencil
+  type: Field
+  source:
+    remote:
+      path: Assets/Scripts/Drawing/Tool.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: Pencil
+    path: ../Assets/Scripts/Drawing/Tool.cs
+    startLine: 28
+  namespace: Global
+  syntax:
+    content: public static Tool Pencil
+    return:
+      type: Global.Tool
+    content.vb: Public Shared Pencil As Tool
+- uid: Global.Tool.Brush
+  commentId: F:Global.Tool.Brush
+  id: Brush
+  parent: Global.Tool
+  langs:
+  - csharp
+  - vb
+  name: Brush
+  nameWithType: Tool.Brush
+  fullName: Tool.Brush
+  type: Field
+  source:
+    remote:
+      path: Assets/Scripts/Drawing/Tool.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: Brush
+    path: ../Assets/Scripts/Drawing/Tool.cs
+    startLine: 35
+  namespace: Global
+  syntax:
+    content: public static Tool Brush
+    return:
+      type: Global.Tool
+    content.vb: Public Shared Brush As Tool
+- uid: Global.Tool.Rubber
+  commentId: F:Global.Tool.Rubber
+  id: Rubber
+  parent: Global.Tool
+  langs:
+  - csharp
+  - vb
+  name: Rubber
+  nameWithType: Tool.Rubber
+  fullName: Tool.Rubber
+  type: Field
+  source:
+    remote:
+      path: Assets/Scripts/Drawing/Tool.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: Rubber
+    path: ../Assets/Scripts/Drawing/Tool.cs
+    startLine: 42
+  namespace: Global
+  syntax:
+    content: public static Tool Rubber
+    return:
+      type: Global.Tool
+    content.vb: Public Shared Rubber As Tool
+- uid: Global.Tool.EyeDropper
+  commentId: F:Global.Tool.EyeDropper
+  id: EyeDropper
+  parent: Global.Tool
+  langs:
+  - csharp
+  - vb
+  name: EyeDropper
+  nameWithType: Tool.EyeDropper
+  fullName: Tool.EyeDropper
+  type: Field
+  source:
+    remote:
+      path: Assets/Scripts/Drawing/Tool.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: EyeDropper
+    path: ../Assets/Scripts/Drawing/Tool.cs
+    startLine: 49
+  namespace: Global
+  syntax:
+    content: public static Tool EyeDropper
+    return:
+      type: Global.Tool
+    content.vb: Public Shared EyeDropper As Tool
+- uid: Global.Tool.GlobalEyeDropper
+  commentId: F:Global.Tool.GlobalEyeDropper
+  id: GlobalEyeDropper
+  parent: Global.Tool
+  langs:
+  - csharp
+  - vb
+  name: GlobalEyeDropper
+  nameWithType: Tool.GlobalEyeDropper
+  fullName: Tool.GlobalEyeDropper
+  type: Field
+  source:
+    remote:
+      path: Assets/Scripts/Drawing/Tool.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: GlobalEyeDropper
+    path: ../Assets/Scripts/Drawing/Tool.cs
+    startLine: 56
+  namespace: Global
+  syntax:
+    content: public static Tool GlobalEyeDropper
+    return:
+      type: Global.Tool
+    content.vb: Public Shared GlobalEyeDropper As Tool
+- uid: Global.Tool.Fill
+  commentId: F:Global.Tool.Fill
+  id: Fill
+  parent: Global.Tool
+  langs:
+  - csharp
+  - vb
+  name: Fill
+  nameWithType: Tool.Fill
+  fullName: Tool.Fill
+  type: Field
+  source:
+    remote:
+      path: Assets/Scripts/Drawing/Tool.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: Fill
+    path: ../Assets/Scripts/Drawing/Tool.cs
+    startLine: 63
+  namespace: Global
+  syntax:
+    content: public static Tool Fill
+    return:
+      type: Global.Tool
+    content.vb: Public Shared Fill As Tool
+- uid: Global.Tool.Shape
+  commentId: F:Global.Tool.Shape
+  id: Shape
+  parent: Global.Tool
+  langs:
+  - csharp
+  - vb
+  name: Shape
+  nameWithType: Tool.Shape
+  fullName: Tool.Shape
+  type: Field
+  source:
+    remote:
+      path: Assets/Scripts/Drawing/Tool.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: Shape
+    path: ../Assets/Scripts/Drawing/Tool.cs
+    startLine: 70
+  namespace: Global
+  syntax:
+    content: public static Tool Shape
+    return:
+      type: Global.Tool
+    content.vb: Public Shared Shape As Tool
+- uid: Global.Tool.Line
+  commentId: F:Global.Tool.Line
+  id: Line
+  parent: Global.Tool
+  langs:
+  - csharp
+  - vb
+  name: Line
+  nameWithType: Tool.Line
+  fullName: Tool.Line
+  type: Field
+  source:
+    remote:
+      path: Assets/Scripts/Drawing/Tool.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: Line
+    path: ../Assets/Scripts/Drawing/Tool.cs
+    startLine: 78
+  namespace: Global
+  syntax:
+    content: public static Tool Line
+    return:
+      type: Global.Tool
+    content.vb: Public Shared Line As Tool
+- uid: Global.Tool.IsoBox
+  commentId: F:Global.Tool.IsoBox
+  id: IsoBox
+  parent: Global.Tool
+  langs:
+  - csharp
+  - vb
+  name: IsoBox
+  nameWithType: Tool.IsoBox
+  fullName: Tool.IsoBox
+  type: Field
+  source:
+    remote:
+      path: Assets/Scripts/Drawing/Tool.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: IsoBox
+    path: ../Assets/Scripts/Drawing/Tool.cs
+    startLine: 86
+  namespace: Global
+  syntax:
+    content: public static Tool IsoBox
+    return:
+      type: Global.Tool
+    content.vb: Public Shared IsoBox As Tool
+- uid: Global.Tool.Gradient
+  commentId: F:Global.Tool.Gradient
+  id: Gradient
+  parent: Global.Tool
+  langs:
+  - csharp
+  - vb
+  name: Gradient
+  nameWithType: Tool.Gradient
+  fullName: Tool.Gradient
+  type: Field
+  source:
+    remote:
+      path: Assets/Scripts/Drawing/Tool.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: Gradient
+    path: ../Assets/Scripts/Drawing/Tool.cs
+    startLine: 95
+  namespace: Global
+  syntax:
+    content: public static Tool Gradient
+    return:
+      type: Global.Tool
+    content.vb: Public Shared Gradient As Tool
+- uid: Global.Tool.Move
+  commentId: F:Global.Tool.Move
+  id: Move
+  parent: Global.Tool
+  langs:
+  - csharp
+  - vb
+  name: Move
+  nameWithType: Tool.Move
+  fullName: Tool.Move
+  type: Field
+  source:
+    remote:
+      path: Assets/Scripts/Drawing/Tool.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: Move
+    path: ../Assets/Scripts/Drawing/Tool.cs
+    startLine: 103
+  namespace: Global
+  syntax:
+    content: public static Tool Move
+    return:
+      type: Global.Tool
+    content.vb: Public Shared Move As Tool
+- uid: Global.Tool.Selection
+  commentId: F:Global.Tool.Selection
+  id: Selection
+  parent: Global.Tool
+  langs:
+  - csharp
+  - vb
+  name: Selection
+  nameWithType: Tool.Selection
+  fullName: Tool.Selection
+  type: Field
+  source:
+    remote:
+      path: Assets/Scripts/Drawing/Tool.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: Selection
+    path: ../Assets/Scripts/Drawing/Tool.cs
+    startLine: 110
+  namespace: Global
+  syntax:
+    content: public static Tool Selection
+    return:
+      type: Global.Tool
+    content.vb: Public Shared Selection As Tool
+- uid: Global.Tool.tools
+  commentId: F:Global.Tool.tools
+  id: tools
+  parent: Global.Tool
+  langs:
+  - csharp
+  - vb
+  name: tools
+  nameWithType: Tool.tools
+  fullName: Tool.tools
+  type: Field
+  source:
+    remote:
+      path: Assets/Scripts/Drawing/Tool.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: tools
+    path: ../Assets/Scripts/Drawing/Tool.cs
+    startLine: 118
+  namespace: Global
+  summary: All implemented tools.
+  example: []
+  syntax:
+    content: public static readonly Tool[] tools
+    return:
+      type: Global.Tool[]
+    content.vb: Public Shared ReadOnly tools As Tool()
+- uid: Global.Tool.StringToTool(System.String)
+  commentId: M:Global.Tool.StringToTool(System.String)
+  id: StringToTool(System.String)
+  parent: Global.Tool
+  langs:
+  - csharp
+  - vb
+  name: StringToTool(string)
+  nameWithType: Tool.StringToTool(string)
+  fullName: Tool.StringToTool(string)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Drawing/Tool.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: StringToTool
+    path: ../Assets/Scripts/Drawing/Tool.cs
+    startLine: 123
+  namespace: Global
+  summary: Gets the tool with that name.
+  example: []
+  syntax:
+    content: public static Tool StringToTool(string toolName)
+    parameters:
+    - id: toolName
+      type: System.String
+    return:
+      type: Global.Tool
+    content.vb: Public Shared Function StringToTool(toolName As String) As Tool
+  overload: Global.Tool.StringToTool*
+  nameWithType.vb: Tool.StringToTool(String)
+  fullName.vb: Tool.StringToTool(String)
+  name.vb: StringToTool(String)
+references:
+- uid: Global
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Global.Tool.name*
+  commentId: Overload:Global.Tool.name
+  href: Global.Tool.html#Tool_name
+  name: name
+  nameWithType: Tool.name
+  fullName: Tool.name
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: Global.Tool.useMovementInterpolation*
+  commentId: Overload:Global.Tool.useMovementInterpolation
+  href: Global.Tool.html#Tool_useMovementInterpolation
+  name: useMovementInterpolation
+  nameWithType: Tool.useMovementInterpolation
+  fullName: Tool.useMovementInterpolation
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: Global.Tool.showBrushBorder*
+  commentId: Overload:Global.Tool.showBrushBorder
+  href: Global.Tool.html#Tool_showBrushBorder
+  name: showBrushBorder
+  nameWithType: Tool.showBrushBorder
+  fullName: Tool.showBrushBorder
+- uid: Global.Tool.finishMode*
+  commentId: Overload:Global.Tool.finishMode
+  href: Global.Tool.html#Tool_finishMode
+  name: finishMode
+  nameWithType: Tool.finishMode
+  fullName: Tool.finishMode
+- uid: Global.MouseTargetDeselectMode
+  commentId: T:Global.MouseTargetDeselectMode
+  href: MouseTargetDeselectMode.html
+  name: MouseTargetDeselectMode
+  nameWithType: MouseTargetDeselectMode
+  fullName: MouseTargetDeselectMode
+- uid: Global.Tool
+  commentId: T:Global.Tool
+  href: Tool.html
+  name: Tool
+  nameWithType: Tool
+  fullName: Tool
+- uid: Global.Tool[]
+  isExternal: true
+  href: Tool.html
+  name: Tool[]
+  nameWithType: Tool[]
+  fullName: Tool[]
+  nameWithType.vb: Tool()
+  fullName.vb: Tool()
+  name.vb: Tool()
+  spec.csharp:
+  - uid: Global.Tool
+    name: Tool
+    href: Tool.html
+  - name: '['
+  - name: ']'
+  spec.vb:
+  - uid: Global.Tool
+    name: Tool
+    href: Tool.html
+  - name: (
+  - name: )
+- uid: Global.Tool.StringToTool*
+  commentId: Overload:Global.Tool.StringToTool
+  href: Global.Tool.html#Tool_StringToTool_System_String_
+  name: StringToTool
+  nameWithType: Tool.StringToTool
+  fullName: Tool.StringToTool

@@ -1,0 +1,396 @@
+### YamlMime:ManagedReference
+items:
+- uid: Global.GridManager
+  commentId: T:Global.GridManager
+  id: GridManager
+  parent: Global
+  children:
+  - Global.GridManager.SetGrid(System.Int32,System.Int32,System.Int32,System.Int32)
+  - Global.GridManager.SetOnOff(System.Boolean)
+  - Global.GridManager.SetOnOffNoDisplayUpdate(System.Boolean)
+  - Global.GridManager.height
+  - Global.GridManager.lineThickness
+  - Global.GridManager.on
+  - Global.GridManager.width
+  - Global.GridManager.xOffset
+  - Global.GridManager.yOffset
+  langs:
+  - csharp
+  - vb
+  name: GridManager
+  nameWithType: GridManager
+  fullName: GridManager
+  type: Class
+  source:
+    remote:
+      path: Assets/Scripts/Drawing/GridManager.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: GridManager
+    path: ../Assets/Scripts/Drawing/GridManager.cs
+    startLine: 7
+  namespace: Global
+  summary: Handles drawing a grid over the image when the grid is enabled.
+  example: []
+  syntax:
+    content: 'public class GridManager : MonoBehaviour'
+    content.vb: Public Class GridManager Inherits MonoBehaviour
+  inheritance:
+  - System.Object
+- uid: Global.GridManager.lineThickness
+  commentId: F:Global.GridManager.lineThickness
+  id: lineThickness
+  parent: Global.GridManager
+  langs:
+  - csharp
+  - vb
+  name: lineThickness
+  nameWithType: GridManager.lineThickness
+  fullName: GridManager.lineThickness
+  type: Field
+  source:
+    remote:
+      path: Assets/Scripts/Drawing/GridManager.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: lineThickness
+    path: ../Assets/Scripts/Drawing/GridManager.cs
+    startLine: 13
+  namespace: Global
+  syntax:
+    content: public float lineThickness
+    return:
+      type: System.Single
+    content.vb: Public lineThickness As Single
+- uid: Global.GridManager.width
+  commentId: P:Global.GridManager.width
+  id: width
+  parent: Global.GridManager
+  langs:
+  - csharp
+  - vb
+  name: width
+  nameWithType: GridManager.width
+  fullName: GridManager.width
+  type: Property
+  source:
+    remote:
+      path: Assets/Scripts/Drawing/GridManager.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: width
+    path: ../Assets/Scripts/Drawing/GridManager.cs
+    startLine: 19
+  namespace: Global
+  syntax:
+    content: public int width { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public Property width As Integer
+  overload: Global.GridManager.width*
+- uid: Global.GridManager.height
+  commentId: P:Global.GridManager.height
+  id: height
+  parent: Global.GridManager
+  langs:
+  - csharp
+  - vb
+  name: height
+  nameWithType: GridManager.height
+  fullName: GridManager.height
+  type: Property
+  source:
+    remote:
+      path: Assets/Scripts/Drawing/GridManager.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: height
+    path: ../Assets/Scripts/Drawing/GridManager.cs
+    startLine: 20
+  namespace: Global
+  syntax:
+    content: public int height { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public Property height As Integer
+  overload: Global.GridManager.height*
+- uid: Global.GridManager.xOffset
+  commentId: P:Global.GridManager.xOffset
+  id: xOffset
+  parent: Global.GridManager
+  langs:
+  - csharp
+  - vb
+  name: xOffset
+  nameWithType: GridManager.xOffset
+  fullName: GridManager.xOffset
+  type: Property
+  source:
+    remote:
+      path: Assets/Scripts/Drawing/GridManager.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: xOffset
+    path: ../Assets/Scripts/Drawing/GridManager.cs
+    startLine: 21
+  namespace: Global
+  syntax:
+    content: public int xOffset { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public Property xOffset As Integer
+  overload: Global.GridManager.xOffset*
+- uid: Global.GridManager.yOffset
+  commentId: P:Global.GridManager.yOffset
+  id: yOffset
+  parent: Global.GridManager
+  langs:
+  - csharp
+  - vb
+  name: yOffset
+  nameWithType: GridManager.yOffset
+  fullName: GridManager.yOffset
+  type: Property
+  source:
+    remote:
+      path: Assets/Scripts/Drawing/GridManager.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: yOffset
+    path: ../Assets/Scripts/Drawing/GridManager.cs
+    startLine: 22
+  namespace: Global
+  syntax:
+    content: public int yOffset { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public Property yOffset As Integer
+  overload: Global.GridManager.yOffset*
+- uid: Global.GridManager.on
+  commentId: P:Global.GridManager.on
+  id: on
+  parent: Global.GridManager
+  langs:
+  - csharp
+  - vb
+  name: on
+  nameWithType: GridManager.on
+  fullName: GridManager.on
+  type: Property
+  source:
+    remote:
+      path: Assets/Scripts/Drawing/GridManager.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: on
+    path: ../Assets/Scripts/Drawing/GridManager.cs
+    startLine: 24
+  namespace: Global
+  syntax:
+    content: public bool on { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property [on] As Boolean
+  overload: Global.GridManager.on*
+- uid: Global.GridManager.SetGrid(System.Int32,System.Int32,System.Int32,System.Int32)
+  commentId: M:Global.GridManager.SetGrid(System.Int32,System.Int32,System.Int32,System.Int32)
+  id: SetGrid(System.Int32,System.Int32,System.Int32,System.Int32)
+  parent: Global.GridManager
+  langs:
+  - csharp
+  - vb
+  name: SetGrid(int, int, int, int)
+  nameWithType: GridManager.SetGrid(int, int, int, int)
+  fullName: GridManager.SetGrid(int, int, int, int)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Drawing/GridManager.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: SetGrid
+    path: ../Assets/Scripts/Drawing/GridManager.cs
+    startLine: 111
+  namespace: Global
+  syntax:
+    content: public void SetGrid(int width, int height, int xOffset, int yOffset)
+    parameters:
+    - id: width
+      type: System.Int32
+    - id: height
+      type: System.Int32
+    - id: xOffset
+      type: System.Int32
+    - id: yOffset
+      type: System.Int32
+    content.vb: Public Sub SetGrid(width As Integer, height As Integer, xOffset As Integer, yOffset As Integer)
+  overload: Global.GridManager.SetGrid*
+  nameWithType.vb: GridManager.SetGrid(Integer, Integer, Integer, Integer)
+  fullName.vb: GridManager.SetGrid(Integer, Integer, Integer, Integer)
+  name.vb: SetGrid(Integer, Integer, Integer, Integer)
+- uid: Global.GridManager.SetOnOff(System.Boolean)
+  commentId: M:Global.GridManager.SetOnOff(System.Boolean)
+  id: SetOnOff(System.Boolean)
+  parent: Global.GridManager
+  langs:
+  - csharp
+  - vb
+  name: SetOnOff(bool)
+  nameWithType: GridManager.SetOnOff(bool)
+  fullName: GridManager.SetOnOff(bool)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Drawing/GridManager.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: SetOnOff
+    path: ../Assets/Scripts/Drawing/GridManager.cs
+    startLine: 123
+  namespace: Global
+  syntax:
+    content: public void SetOnOff(bool on)
+    parameters:
+    - id: on
+      type: System.Boolean
+    content.vb: Public Sub SetOnOff([on] As Boolean)
+  overload: Global.GridManager.SetOnOff*
+  nameWithType.vb: GridManager.SetOnOff(Boolean)
+  fullName.vb: GridManager.SetOnOff(Boolean)
+  name.vb: SetOnOff(Boolean)
+- uid: Global.GridManager.SetOnOffNoDisplayUpdate(System.Boolean)
+  commentId: M:Global.GridManager.SetOnOffNoDisplayUpdate(System.Boolean)
+  id: SetOnOffNoDisplayUpdate(System.Boolean)
+  parent: Global.GridManager
+  langs:
+  - csharp
+  - vb
+  name: SetOnOffNoDisplayUpdate(bool)
+  nameWithType: GridManager.SetOnOffNoDisplayUpdate(bool)
+  fullName: GridManager.SetOnOffNoDisplayUpdate(bool)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Drawing/GridManager.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: SetOnOffNoDisplayUpdate
+    path: ../Assets/Scripts/Drawing/GridManager.cs
+    startLine: 137
+  namespace: Global
+  syntax:
+    content: public void SetOnOffNoDisplayUpdate(bool on)
+    parameters:
+    - id: on
+      type: System.Boolean
+    content.vb: Public Sub SetOnOffNoDisplayUpdate([on] As Boolean)
+  overload: Global.GridManager.SetOnOffNoDisplayUpdate*
+  nameWithType.vb: GridManager.SetOnOffNoDisplayUpdate(Boolean)
+  fullName.vb: GridManager.SetOnOffNoDisplayUpdate(Boolean)
+  name.vb: SetOnOffNoDisplayUpdate(Boolean)
+references:
+- uid: Global
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.Single
+  commentId: T:System.Single
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.single
+  name: float
+  nameWithType: float
+  fullName: float
+  nameWithType.vb: Single
+  fullName.vb: Single
+  name.vb: Single
+- uid: Global.GridManager.width*
+  commentId: Overload:Global.GridManager.width
+  href: Global.GridManager.html#GridManager_width
+  name: width
+  nameWithType: GridManager.width
+  fullName: GridManager.width
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: Global.GridManager.height*
+  commentId: Overload:Global.GridManager.height
+  href: Global.GridManager.html#GridManager_height
+  name: height
+  nameWithType: GridManager.height
+  fullName: GridManager.height
+- uid: Global.GridManager.xOffset*
+  commentId: Overload:Global.GridManager.xOffset
+  href: Global.GridManager.html#GridManager_xOffset
+  name: xOffset
+  nameWithType: GridManager.xOffset
+  fullName: GridManager.xOffset
+- uid: Global.GridManager.yOffset*
+  commentId: Overload:Global.GridManager.yOffset
+  href: Global.GridManager.html#GridManager_yOffset
+  name: yOffset
+  nameWithType: GridManager.yOffset
+  fullName: GridManager.yOffset
+- uid: Global.GridManager.on*
+  commentId: Overload:Global.GridManager.on
+  href: Global.GridManager.html#GridManager_on
+  name: on
+  nameWithType: GridManager.on
+  fullName: GridManager.on
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: Global.GridManager.SetGrid*
+  commentId: Overload:Global.GridManager.SetGrid
+  href: Global.GridManager.html#GridManager_SetGrid_System_Int32_System_Int32_System_Int32_System_Int32_
+  name: SetGrid
+  nameWithType: GridManager.SetGrid
+  fullName: GridManager.SetGrid
+- uid: Global.GridManager.SetOnOff*
+  commentId: Overload:Global.GridManager.SetOnOff
+  href: Global.GridManager.html#GridManager_SetOnOff_System_Boolean_
+  name: SetOnOff
+  nameWithType: GridManager.SetOnOff
+  fullName: GridManager.SetOnOff
+- uid: Global.GridManager.SetOnOffNoDisplayUpdate*
+  commentId: Overload:Global.GridManager.SetOnOffNoDisplayUpdate
+  href: Global.GridManager.html#GridManager_SetOnOffNoDisplayUpdate_System_Boolean_
+  name: SetOnOffNoDisplayUpdate
+  nameWithType: GridManager.SetOnOffNoDisplayUpdate
+  fullName: GridManager.SetOnOffNoDisplayUpdate

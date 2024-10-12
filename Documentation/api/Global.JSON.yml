@@ -1,0 +1,1713 @@
+### YamlMime:ManagedReference
+items:
+- uid: Global.JSON
+  commentId: T:Global.JSON
+  id: JSON
+  parent: Global
+  children:
+  - Global.JSON.#ctor
+  - Global.JSON.#ctor(System.String)
+  - Global.JSON.Add(System.String,IJSONable)
+  - Global.JSON.Add(System.String,JSON)
+  - Global.JSON.Add(System.String,JSON.JSONProperty)
+  - Global.JSON.Add(System.String,System.Boolean)
+  - Global.JSON.Add(System.String,System.Collections.Generic.IEnumerable{IJSONable})
+  - Global.JSON.Add(System.String,System.Collections.Generic.IEnumerable{System.String},System.Boolean)
+  - Global.JSON.Add(System.String,System.Collections.Generic.IEnumerable{System.String},System.Boolean,System.Boolean)
+  - Global.JSON.Add(System.String,System.Collections.IEnumerable,System.Boolean)
+  - Global.JSON.Add(System.String,System.Collections.IEnumerable,System.Boolean,System.Boolean)
+  - Global.JSON.Add(System.String,System.Object)
+  - Global.JSON.Add(System.String,System.Object,System.Boolean)
+  - Global.JSON.Add(System.String,System.String)
+  - Global.JSON.Add(System.String,System.String,System.Boolean)
+  - Global.JSON.AddParse(System.String)
+  - Global.JSON.Append(JSON)
+  - Global.JSON.ContainsKey(System.String)
+  - Global.JSON.Get(System.String)
+  - Global.JSON.GetJSONProperty(System.String)
+  - Global.JSON.Item(System.String)
+  - Global.JSON.Keys
+  - Global.JSON.Parse(System.String)
+  - Global.JSON.SplitArray(System.String)
+  - Global.JSON.StripQuotationMarks(System.String)
+  - Global.JSON.ToJSONString(System.Collections.Generic.IEnumerable{IJSONable})
+  - Global.JSON.ToJSONString(System.Collections.Generic.IEnumerable{System.String},System.Boolean)
+  - Global.JSON.ToJSONString(System.Collections.Generic.IEnumerable{System.String},System.Boolean,System.Boolean)
+  - Global.JSON.ToJSONString(System.Collections.IEnumerable,System.Boolean)
+  - Global.JSON.ToJSONString(System.Collections.IEnumerable,System.Boolean,System.Boolean)
+  - Global.JSON.ToString
+  langs:
+  - csharp
+  - vb
+  name: JSON
+  nameWithType: JSON
+  fullName: JSON
+  type: Class
+  source:
+    remote:
+      path: Assets/Scripts/JSON/JSON.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: JSON
+    path: ../Assets/Scripts/JSON/JSON.cs
+    startLine: 8
+  namespace: Global
+  summary: A class to represent data in a JSON format.
+  example: []
+  syntax:
+    content: public class JSON
+    content.vb: Public Class JSON
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+- uid: Global.JSON.#ctor
+  commentId: M:Global.JSON.#ctor
+  id: '#ctor'
+  parent: Global.JSON
+  langs:
+  - csharp
+  - vb
+  name: JSON()
+  nameWithType: JSON.JSON()
+  fullName: JSON.JSON()
+  type: Constructor
+  source:
+    remote:
+      path: Assets/Scripts/JSON/JSON.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: .ctor
+    path: ../Assets/Scripts/JSON/JSON.cs
+    startLine: 18
+  namespace: Global
+  summary: Create an empty JSON object.
+  example: []
+  syntax:
+    content: public JSON()
+    content.vb: Public Sub New()
+  overload: Global.JSON.#ctor*
+  nameWithType.vb: JSON.New()
+  fullName.vb: JSON.New()
+  name.vb: New()
+- uid: Global.JSON.#ctor(System.String)
+  commentId: M:Global.JSON.#ctor(System.String)
+  id: '#ctor(System.String)'
+  parent: Global.JSON
+  langs:
+  - csharp
+  - vb
+  name: JSON(string)
+  nameWithType: JSON.JSON(string)
+  fullName: JSON.JSON(string)
+  type: Constructor
+  source:
+    remote:
+      path: Assets/Scripts/JSON/JSON.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: .ctor
+    path: ../Assets/Scripts/JSON/JSON.cs
+    startLine: 22
+  namespace: Global
+  summary: Parse the JSON-format string into a JSON object.
+  example: []
+  syntax:
+    content: public JSON(string jsonToParse)
+    parameters:
+    - id: jsonToParse
+      type: System.String
+    content.vb: Public Sub New(jsonToParse As String)
+  overload: Global.JSON.#ctor*
+  nameWithType.vb: JSON.New(String)
+  fullName.vb: JSON.New(String)
+  name.vb: New(String)
+- uid: Global.JSON.Keys
+  commentId: P:Global.JSON.Keys
+  id: Keys
+  parent: Global.JSON
+  langs:
+  - csharp
+  - vb
+  name: Keys
+  nameWithType: JSON.Keys
+  fullName: JSON.Keys
+  type: Property
+  source:
+    remote:
+      path: Assets/Scripts/JSON/JSON.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: Keys
+    path: ../Assets/Scripts/JSON/JSON.cs
+    startLine: 28
+  namespace: Global
+  summary: The keys appearing in the outermost scope of the JSON data.
+  example: []
+  syntax:
+    content: public string[] Keys { get; }
+    parameters: []
+    return:
+      type: System.String[]
+    content.vb: Public ReadOnly Property Keys As String()
+  overload: Global.JSON.Keys*
+- uid: Global.JSON.Item(System.String)
+  commentId: P:Global.JSON.Item(System.String)
+  id: Item(System.String)
+  parent: Global.JSON
+  langs:
+  - csharp
+  - vb
+  name: this[string]
+  nameWithType: JSON.this[string]
+  fullName: JSON.this[string]
+  type: Property
+  source:
+    remote:
+      path: Assets/Scripts/JSON/JSON.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: this[]
+    path: ../Assets/Scripts/JSON/JSON.cs
+    startLine: 62
+  namespace: Global
+  summary: Accesses the string form of the data for the given key - the same as Get(key) and Add(key, value). To access the JSONProperty for the key, use GetJSONProperty(key).
+  example: []
+  syntax:
+    content: public string this[string key] { get; set; }
+    parameters:
+    - id: key
+      type: System.String
+    return:
+      type: System.String
+    content.vb: Public Default Property this[](key As String) As String
+  overload: Global.JSON.Item*
+  nameWithType.vb: JSON.this[](String)
+  fullName.vb: JSON.this[](String)
+  name.vb: this[](String)
+- uid: Global.JSON.ContainsKey(System.String)
+  commentId: M:Global.JSON.ContainsKey(System.String)
+  id: ContainsKey(System.String)
+  parent: Global.JSON
+  langs:
+  - csharp
+  - vb
+  name: ContainsKey(string)
+  nameWithType: JSON.ContainsKey(string)
+  fullName: JSON.ContainsKey(string)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/JSON/JSON.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: ContainsKey
+    path: ../Assets/Scripts/JSON/JSON.cs
+    startLine: 77
+  namespace: Global
+  summary: Returns true if this JSON object has the given key.
+  example: []
+  syntax:
+    content: public bool ContainsKey(string key)
+    parameters:
+    - id: key
+      type: System.String
+    return:
+      type: System.Boolean
+    content.vb: Public Function ContainsKey(key As String) As Boolean
+  overload: Global.JSON.ContainsKey*
+  nameWithType.vb: JSON.ContainsKey(String)
+  fullName.vb: JSON.ContainsKey(String)
+  name.vb: ContainsKey(String)
+- uid: Global.JSON.Get(System.String)
+  commentId: M:Global.JSON.Get(System.String)
+  id: Get(System.String)
+  parent: Global.JSON
+  langs:
+  - csharp
+  - vb
+  name: Get(string)
+  nameWithType: JSON.Get(string)
+  fullName: JSON.Get(string)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/JSON/JSON.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: Get
+    path: ../Assets/Scripts/JSON/JSON.cs
+    startLine: 85
+  namespace: Global
+  summary: Returns the string form of the data at the given key.
+  example: []
+  syntax:
+    content: public string Get(string key)
+    parameters:
+    - id: key
+      type: System.String
+    return:
+      type: System.String
+    content.vb: Public Function [Get](key As String) As String
+  overload: Global.JSON.Get*
+  nameWithType.vb: JSON.Get(String)
+  fullName.vb: JSON.Get(String)
+  name.vb: Get(String)
+- uid: Global.JSON.GetJSONProperty(System.String)
+  commentId: M:Global.JSON.GetJSONProperty(System.String)
+  id: GetJSONProperty(System.String)
+  parent: Global.JSON
+  langs:
+  - csharp
+  - vb
+  name: GetJSONProperty(string)
+  nameWithType: JSON.GetJSONProperty(string)
+  fullName: JSON.GetJSONProperty(string)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/JSON/JSON.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: GetJSONProperty
+    path: ../Assets/Scripts/JSON/JSON.cs
+    startLine: 97
+  namespace: Global
+  summary: Returns the JSONProperty at the given key.
+  example: []
+  syntax:
+    content: public JSON.JSONProperty GetJSONProperty(string key)
+    parameters:
+    - id: key
+      type: System.String
+    return:
+      type: Global.JSON.JSONProperty
+    content.vb: Public Function GetJSONProperty(key As String) As JSON.JSONProperty
+  overload: Global.JSON.GetJSONProperty*
+  nameWithType.vb: JSON.GetJSONProperty(String)
+  fullName.vb: JSON.GetJSONProperty(String)
+  name.vb: GetJSONProperty(String)
+- uid: Global.JSON.Add(System.String,JSON.JSONProperty)
+  commentId: M:Global.JSON.Add(System.String,JSON.JSONProperty)
+  id: Add(System.String,JSON.JSONProperty)
+  parent: Global.JSON
+  langs:
+  - csharp
+  - vb
+  name: Add(string, JSONProperty)
+  nameWithType: JSON.Add(string, JSON.JSONProperty)
+  fullName: JSON.Add(string, JSON.JSONProperty)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/JSON/JSON.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: Add
+    path: ../Assets/Scripts/JSON/JSON.cs
+    startLine: 109
+  namespace: Global
+  summary: Adds the given data at the given key, overriding any existing data.
+  example: []
+  syntax:
+    content: public void Add(string key, JSON.JSONProperty data)
+    parameters:
+    - id: key
+      type: System.String
+    - id: data
+      type: Global.JSON.JSONProperty
+    content.vb: Public Sub Add(key As String, data As JSON.JSONProperty)
+  overload: Global.JSON.Add*
+  nameWithType.vb: JSON.Add(String, JSON.JSONProperty)
+  fullName.vb: JSON.Add(String, JSON.JSONProperty)
+  name.vb: Add(String, JSONProperty)
+- uid: Global.JSON.Add(System.String,System.String)
+  commentId: M:Global.JSON.Add(System.String,System.String)
+  id: Add(System.String,System.String)
+  parent: Global.JSON
+  langs:
+  - csharp
+  - vb
+  name: Add(string, string)
+  nameWithType: JSON.Add(string, string)
+  fullName: JSON.Add(string, string)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/JSON/JSON.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: Add
+    path: ../Assets/Scripts/JSON/JSON.cs
+    startLine: 117
+  namespace: Global
+  summary: Adds the given string to the JSON, adding quotation marks around the string.
+  example: []
+  syntax:
+    content: public void Add(string key, string str)
+    parameters:
+    - id: key
+      type: System.String
+    - id: str
+      type: System.String
+    content.vb: Public Sub Add(key As String, str As String)
+  overload: Global.JSON.Add*
+  nameWithType.vb: JSON.Add(String, String)
+  fullName.vb: JSON.Add(String, String)
+  name.vb: Add(String, String)
+- uid: Global.JSON.Add(System.String,System.String,System.Boolean)
+  commentId: M:Global.JSON.Add(System.String,System.String,System.Boolean)
+  id: Add(System.String,System.String,System.Boolean)
+  parent: Global.JSON
+  langs:
+  - csharp
+  - vb
+  name: Add(string, string, bool)
+  nameWithType: JSON.Add(string, string, bool)
+  fullName: JSON.Add(string, string, bool)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/JSON/JSON.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: Add
+    path: ../Assets/Scripts/JSON/JSON.cs
+    startLine: 121
+  namespace: Global
+  summary: Adds the given data (given in string form) to the JSON.
+  example: []
+  syntax:
+    content: public void Add(string key, string str, bool addQuotationMarks)
+    parameters:
+    - id: key
+      type: System.String
+    - id: str
+      type: System.String
+    - id: addQuotationMarks
+      type: System.Boolean
+    content.vb: Public Sub Add(key As String, str As String, addQuotationMarks As Boolean)
+  overload: Global.JSON.Add*
+  nameWithType.vb: JSON.Add(String, String, Boolean)
+  fullName.vb: JSON.Add(String, String, Boolean)
+  name.vb: Add(String, String, Boolean)
+- uid: Global.JSON.Add(System.String,System.Collections.Generic.IEnumerable{System.String},System.Boolean)
+  commentId: M:Global.JSON.Add(System.String,System.Collections.Generic.IEnumerable{System.String},System.Boolean)
+  id: Add(System.String,System.Collections.Generic.IEnumerable{System.String},System.Boolean)
+  parent: Global.JSON
+  langs:
+  - csharp
+  - vb
+  name: Add(string, IEnumerable<string>, bool)
+  nameWithType: JSON.Add(string, IEnumerable<string>, bool)
+  fullName: JSON.Add(string, System.Collections.Generic.IEnumerable<string>, bool)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/JSON/JSON.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: Add
+    path: ../Assets/Scripts/JSON/JSON.cs
+    startLine: 126
+  namespace: Global
+  summary: Adds the given strings to the JSON in the format of a JSON array, adding quotation marks around each string.
+  example: []
+  syntax:
+    content: public void Add(string key, IEnumerable<string> strings, bool separateLines)
+    parameters:
+    - id: key
+      type: System.String
+    - id: strings
+      type: System.Collections.Generic.IEnumerable{System.String}
+    - id: separateLines
+      type: System.Boolean
+      description: Whether to start a new line for each element of the array.
+    content.vb: Public Sub Add(key As String, strings As IEnumerable(Of String), separateLines As Boolean)
+  overload: Global.JSON.Add*
+  nameWithType.vb: JSON.Add(String, IEnumerable(Of String), Boolean)
+  fullName.vb: JSON.Add(String, System.Collections.Generic.IEnumerable(Of String), Boolean)
+  name.vb: Add(String, IEnumerable(Of String), Boolean)
+- uid: Global.JSON.Add(System.String,System.Collections.Generic.IEnumerable{System.String},System.Boolean,System.Boolean)
+  commentId: M:Global.JSON.Add(System.String,System.Collections.Generic.IEnumerable{System.String},System.Boolean,System.Boolean)
+  id: Add(System.String,System.Collections.Generic.IEnumerable{System.String},System.Boolean,System.Boolean)
+  parent: Global.JSON
+  langs:
+  - csharp
+  - vb
+  name: Add(string, IEnumerable<string>, bool, bool)
+  nameWithType: JSON.Add(string, IEnumerable<string>, bool, bool)
+  fullName: JSON.Add(string, System.Collections.Generic.IEnumerable<string>, bool, bool)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/JSON/JSON.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: Add
+    path: ../Assets/Scripts/JSON/JSON.cs
+    startLine: 132
+  namespace: Global
+  summary: Adds the given data (given in string form) to the JSON in the format of a JSON array.
+  example: []
+  syntax:
+    content: public void Add(string key, IEnumerable<string> strings, bool separateLines, bool addQuotationMarks)
+    parameters:
+    - id: key
+      type: System.String
+    - id: strings
+      type: System.Collections.Generic.IEnumerable{System.String}
+    - id: separateLines
+      type: System.Boolean
+      description: Whether to start a new line for each element of the array.
+    - id: addQuotationMarks
+      type: System.Boolean
+      description: Whether to add quotation marks around each element of the array.
+    content.vb: Public Sub Add(key As String, strings As IEnumerable(Of String), separateLines As Boolean, addQuotationMarks As Boolean)
+  overload: Global.JSON.Add*
+  nameWithType.vb: JSON.Add(String, IEnumerable(Of String), Boolean, Boolean)
+  fullName.vb: JSON.Add(String, System.Collections.Generic.IEnumerable(Of String), Boolean, Boolean)
+  name.vb: Add(String, IEnumerable(Of String), Boolean, Boolean)
+- uid: Global.JSON.Add(System.String,System.Boolean)
+  commentId: M:Global.JSON.Add(System.String,System.Boolean)
+  id: Add(System.String,System.Boolean)
+  parent: Global.JSON
+  langs:
+  - csharp
+  - vb
+  name: Add(string, bool)
+  nameWithType: JSON.Add(string, bool)
+  fullName: JSON.Add(string, bool)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/JSON/JSON.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: Add
+    path: ../Assets/Scripts/JSON/JSON.cs
+    startLine: 137
+  namespace: Global
+  summary: Adds the given bool to the JSON.
+  example: []
+  syntax:
+    content: public void Add(string key, bool boolean)
+    parameters:
+    - id: key
+      type: System.String
+    - id: boolean
+      type: System.Boolean
+    content.vb: Public Sub Add(key As String, [boolean] As Boolean)
+  overload: Global.JSON.Add*
+  nameWithType.vb: JSON.Add(String, Boolean)
+  fullName.vb: JSON.Add(String, Boolean)
+  name.vb: Add(String, Boolean)
+- uid: Global.JSON.Add(System.String,JSON)
+  commentId: M:Global.JSON.Add(System.String,JSON)
+  id: Add(System.String,JSON)
+  parent: Global.JSON
+  langs:
+  - csharp
+  - vb
+  name: Add(string, JSON)
+  nameWithType: JSON.Add(string, JSON)
+  fullName: JSON.Add(string, JSON)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/JSON/JSON.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: Add
+    path: ../Assets/Scripts/JSON/JSON.cs
+    startLine: 142
+  namespace: Global
+  summary: Adds the string form of the given JSON to this JSON object.
+  example: []
+  syntax:
+    content: public void Add(string key, JSON json)
+    parameters:
+    - id: key
+      type: System.String
+    - id: json
+      type: Global.JSON
+    content.vb: Public Sub Add(key As String, json As JSON)
+  overload: Global.JSON.Add*
+  nameWithType.vb: JSON.Add(String, JSON)
+  fullName.vb: JSON.Add(String, JSON)
+  name.vb: Add(String, JSON)
+- uid: Global.JSON.Add(System.String,IJSONable)
+  commentId: M:Global.JSON.Add(System.String,IJSONable)
+  id: Add(System.String,IJSONable)
+  parent: Global.JSON
+  langs:
+  - csharp
+  - vb
+  name: Add(string, IJSONable)
+  nameWithType: JSON.Add(string, IJSONable)
+  fullName: JSON.Add(string, IJSONable)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/JSON/JSON.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: Add
+    path: ../Assets/Scripts/JSON/JSON.cs
+    startLine: 146
+  namespace: Global
+  summary: Adds the string form of the JSON of the given object to this JSON object.
+  example: []
+  syntax:
+    content: public void Add(string key, IJSONable jsonableObject)
+    parameters:
+    - id: key
+      type: System.String
+    - id: jsonableObject
+      type: Global.IJSONable
+    content.vb: Public Sub Add(key As String, jsonableObject As IJSONable)
+  overload: Global.JSON.Add*
+  nameWithType.vb: JSON.Add(String, IJSONable)
+  fullName.vb: JSON.Add(String, IJSONable)
+  name.vb: Add(String, IJSONable)
+- uid: Global.JSON.Add(System.String,System.Collections.Generic.IEnumerable{IJSONable})
+  commentId: M:Global.JSON.Add(System.String,System.Collections.Generic.IEnumerable{IJSONable})
+  id: Add(System.String,System.Collections.Generic.IEnumerable{IJSONable})
+  parent: Global.JSON
+  langs:
+  - csharp
+  - vb
+  name: Add(string, IEnumerable<IJSONable>)
+  nameWithType: JSON.Add(string, IEnumerable<IJSONable>)
+  fullName: JSON.Add(string, System.Collections.Generic.IEnumerable<IJSONable>)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/JSON/JSON.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: Add
+    path: ../Assets/Scripts/JSON/JSON.cs
+    startLine: 150
+  namespace: Global
+  summary: Adds the string forms of the JSON of the given objects to this JSON object in the format of a JSON array.
+  example: []
+  syntax:
+    content: public void Add(string key, IEnumerable<IJSONable> jsonableObjects)
+    parameters:
+    - id: key
+      type: System.String
+    - id: jsonableObjects
+      type: System.Collections.Generic.IEnumerable{IJSONable}
+    content.vb: Public Sub Add(key As String, jsonableObjects As IEnumerable(Of IJSONable))
+  overload: Global.JSON.Add*
+  nameWithType.vb: JSON.Add(String, IEnumerable(Of IJSONable))
+  fullName.vb: JSON.Add(String, System.Collections.Generic.IEnumerable(Of IJSONable))
+  name.vb: Add(String, IEnumerable(Of IJSONable))
+- uid: Global.JSON.Add(System.String,System.Object)
+  commentId: M:Global.JSON.Add(System.String,System.Object)
+  id: Add(System.String,System.Object)
+  parent: Global.JSON
+  langs:
+  - csharp
+  - vb
+  name: Add(string, object)
+  nameWithType: JSON.Add(string, object)
+  fullName: JSON.Add(string, object)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/JSON/JSON.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: Add
+    path: ../Assets/Scripts/JSON/JSON.cs
+    startLine: 155
+  namespace: Global
+  summary: Adds the string form of the given object to the JSON, adding no quotation marks.
+  example: []
+  syntax:
+    content: public void Add(string key, object obj)
+    parameters:
+    - id: key
+      type: System.String
+    - id: obj
+      type: System.Object
+    content.vb: Public Sub Add(key As String, obj As Object)
+  overload: Global.JSON.Add*
+  nameWithType.vb: JSON.Add(String, Object)
+  fullName.vb: JSON.Add(String, Object)
+  name.vb: Add(String, Object)
+- uid: Global.JSON.Add(System.String,System.Object,System.Boolean)
+  commentId: M:Global.JSON.Add(System.String,System.Object,System.Boolean)
+  id: Add(System.String,System.Object,System.Boolean)
+  parent: Global.JSON
+  langs:
+  - csharp
+  - vb
+  name: Add(string, object, bool)
+  nameWithType: JSON.Add(string, object, bool)
+  fullName: JSON.Add(string, object, bool)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/JSON/JSON.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: Add
+    path: ../Assets/Scripts/JSON/JSON.cs
+    startLine: 159
+  namespace: Global
+  summary: Adds the string form of the given object to the JSON.
+  example: []
+  syntax:
+    content: public void Add(string key, object obj, bool addQuotationMarks)
+    parameters:
+    - id: key
+      type: System.String
+    - id: obj
+      type: System.Object
+    - id: addQuotationMarks
+      type: System.Boolean
+    content.vb: Public Sub Add(key As String, obj As Object, addQuotationMarks As Boolean)
+  overload: Global.JSON.Add*
+  nameWithType.vb: JSON.Add(String, Object, Boolean)
+  fullName.vb: JSON.Add(String, Object, Boolean)
+  name.vb: Add(String, Object, Boolean)
+- uid: Global.JSON.Add(System.String,System.Collections.IEnumerable,System.Boolean)
+  commentId: M:Global.JSON.Add(System.String,System.Collections.IEnumerable,System.Boolean)
+  id: Add(System.String,System.Collections.IEnumerable,System.Boolean)
+  parent: Global.JSON
+  langs:
+  - csharp
+  - vb
+  name: Add(string, IEnumerable, bool)
+  nameWithType: JSON.Add(string, IEnumerable, bool)
+  fullName: JSON.Add(string, System.Collections.IEnumerable, bool)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/JSON/JSON.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: Add
+    path: ../Assets/Scripts/JSON/JSON.cs
+    startLine: 164
+  namespace: Global
+  summary: Adds the string form of the given objects to the JSON in the format of a JSON array, adding no quotation marks.
+  example: []
+  syntax:
+    content: public void Add(string key, IEnumerable objects, bool separateLines)
+    parameters:
+    - id: key
+      type: System.String
+    - id: objects
+      type: System.Collections.IEnumerable
+    - id: separateLines
+      type: System.Boolean
+      description: Whether to start a new line for each element of the array.
+    content.vb: Public Sub Add(key As String, objects As IEnumerable, separateLines As Boolean)
+  overload: Global.JSON.Add*
+  nameWithType.vb: JSON.Add(String, IEnumerable, Boolean)
+  fullName.vb: JSON.Add(String, System.Collections.IEnumerable, Boolean)
+  name.vb: Add(String, IEnumerable, Boolean)
+- uid: Global.JSON.Add(System.String,System.Collections.IEnumerable,System.Boolean,System.Boolean)
+  commentId: M:Global.JSON.Add(System.String,System.Collections.IEnumerable,System.Boolean,System.Boolean)
+  id: Add(System.String,System.Collections.IEnumerable,System.Boolean,System.Boolean)
+  parent: Global.JSON
+  langs:
+  - csharp
+  - vb
+  name: Add(string, IEnumerable, bool, bool)
+  nameWithType: JSON.Add(string, IEnumerable, bool, bool)
+  fullName: JSON.Add(string, System.Collections.IEnumerable, bool, bool)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/JSON/JSON.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: Add
+    path: ../Assets/Scripts/JSON/JSON.cs
+    startLine: 170
+  namespace: Global
+  summary: Adds the string form of the given objects to the JSON in the format of a JSON array.
+  example: []
+  syntax:
+    content: public void Add(string key, IEnumerable objects, bool separateLines, bool addQuotationMarks)
+    parameters:
+    - id: key
+      type: System.String
+    - id: objects
+      type: System.Collections.IEnumerable
+    - id: separateLines
+      type: System.Boolean
+      description: Whether to start a new line for each element of the array.
+    - id: addQuotationMarks
+      type: System.Boolean
+      description: Whether to add quotation marks around each element of the array.
+    content.vb: Public Sub Add(key As String, objects As IEnumerable, separateLines As Boolean, addQuotationMarks As Boolean)
+  overload: Global.JSON.Add*
+  nameWithType.vb: JSON.Add(String, IEnumerable, Boolean, Boolean)
+  fullName.vb: JSON.Add(String, System.Collections.IEnumerable, Boolean, Boolean)
+  name.vb: Add(String, IEnumerable, Boolean, Boolean)
+- uid: Global.JSON.Append(JSON)
+  commentId: M:Global.JSON.Append(JSON)
+  id: Append(JSON)
+  parent: Global.JSON
+  langs:
+  - csharp
+  - vb
+  name: Append(JSON)
+  nameWithType: JSON.Append(JSON)
+  fullName: JSON.Append(JSON)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/JSON/JSON.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: Append
+    path: ../Assets/Scripts/JSON/JSON.cs
+    startLine: 175
+  namespace: Global
+  summary: Adds the data of the given JSON object to the end of this JSON object. Throws error if they have a key in common.
+  example: []
+  syntax:
+    content: public void Append(JSON json)
+    parameters:
+    - id: json
+      type: Global.JSON
+    content.vb: Public Sub Append(json As JSON)
+  overload: Global.JSON.Append*
+- uid: Global.JSON.Parse(System.String)
+  commentId: M:Global.JSON.Parse(System.String)
+  id: Parse(System.String)
+  parent: Global.JSON
+  langs:
+  - csharp
+  - vb
+  name: Parse(string)
+  nameWithType: JSON.Parse(string)
+  fullName: JSON.Parse(string)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/JSON/JSON.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: Parse
+    path: ../Assets/Scripts/JSON/JSON.cs
+    startLine: 191
+  namespace: Global
+  summary: Parses the JSON string into a new JSON object.
+  example: []
+  syntax:
+    content: public static JSON Parse(string jsonToParse)
+    parameters:
+    - id: jsonToParse
+      type: System.String
+    return:
+      type: Global.JSON
+    content.vb: Public Shared Function Parse(jsonToParse As String) As JSON
+  overload: Global.JSON.Parse*
+  nameWithType.vb: JSON.Parse(String)
+  fullName.vb: JSON.Parse(String)
+  name.vb: Parse(String)
+- uid: Global.JSON.AddParse(System.String)
+  commentId: M:Global.JSON.AddParse(System.String)
+  id: AddParse(System.String)
+  parent: Global.JSON
+  langs:
+  - csharp
+  - vb
+  name: AddParse(string)
+  nameWithType: JSON.AddParse(string)
+  fullName: JSON.AddParse(string)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/JSON/JSON.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: AddParse
+    path: ../Assets/Scripts/JSON/JSON.cs
+    startLine: 198
+  namespace: Global
+  summary: Parses the JSON string and adds all data to this JSON object. Does not delete any existing data in this object, except when keys collide, in which case new data will override old data.
+  example: []
+  syntax:
+    content: public void AddParse(string jsonToParse)
+    parameters:
+    - id: jsonToParse
+      type: System.String
+    content.vb: Public Sub AddParse(jsonToParse As String)
+  overload: Global.JSON.AddParse*
+  nameWithType.vb: JSON.AddParse(String)
+  fullName.vb: JSON.AddParse(String)
+  name.vb: AddParse(String)
+- uid: Global.JSON.StripQuotationMarks(System.String)
+  commentId: M:Global.JSON.StripQuotationMarks(System.String)
+  id: StripQuotationMarks(System.String)
+  parent: Global.JSON
+  langs:
+  - csharp
+  - vb
+  name: StripQuotationMarks(string)
+  nameWithType: JSON.StripQuotationMarks(string)
+  fullName: JSON.StripQuotationMarks(string)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/JSON/JSON.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: StripQuotationMarks
+    path: ../Assets/Scripts/JSON/JSON.cs
+    startLine: 308
+  namespace: Global
+  summary: Removes the " " pair enclosing a string, if there is one; otherwise throws an error.
+  example: []
+  syntax:
+    content: public static string StripQuotationMarks(string str)
+    parameters:
+    - id: str
+      type: System.String
+      description: ''
+    return:
+      type: System.String
+      description: ''
+    content.vb: Public Shared Function StripQuotationMarks(str As String) As String
+  overload: Global.JSON.StripQuotationMarks*
+  nameWithType.vb: JSON.StripQuotationMarks(String)
+  fullName.vb: JSON.StripQuotationMarks(String)
+  name.vb: StripQuotationMarks(String)
+- uid: Global.JSON.ToString
+  commentId: M:Global.JSON.ToString
+  id: ToString
+  parent: Global.JSON
+  langs:
+  - csharp
+  - vb
+  name: ToString()
+  nameWithType: JSON.ToString()
+  fullName: JSON.ToString()
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/JSON/JSON.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: ToString
+    path: ../Assets/Scripts/JSON/JSON.cs
+    startLine: 322
+  namespace: Global
+  summary: Returns the data as a string in JSON format.
+  example: []
+  syntax:
+    content: public override string ToString()
+    return:
+      type: System.String
+    content.vb: Public Overrides Function ToString() As String
+  overridden: System.Object.ToString
+  overload: Global.JSON.ToString*
+- uid: Global.JSON.ToJSONString(System.Collections.Generic.IEnumerable{IJSONable})
+  commentId: M:Global.JSON.ToJSONString(System.Collections.Generic.IEnumerable{IJSONable})
+  id: ToJSONString(System.Collections.Generic.IEnumerable{IJSONable})
+  parent: Global.JSON
+  langs:
+  - csharp
+  - vb
+  name: ToJSONString(IEnumerable<IJSONable>)
+  nameWithType: JSON.ToJSONString(IEnumerable<IJSONable>)
+  fullName: JSON.ToJSONString(System.Collections.Generic.IEnumerable<IJSONable>)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/JSON/JSON.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: ToJSONString
+    path: ../Assets/Scripts/JSON/JSON.cs
+    startLine: 369
+  namespace: Global
+  summary: Returns the JSON of the given objects in a JSON-format array in string form.
+  example: []
+  syntax:
+    content: public static string ToJSONString(IEnumerable<IJSONable> jsonableObjects)
+    parameters:
+    - id: jsonableObjects
+      type: System.Collections.Generic.IEnumerable{IJSONable}
+    return:
+      type: System.String
+    content.vb: Public Shared Function ToJSONString(jsonableObjects As IEnumerable(Of IJSONable)) As String
+  overload: Global.JSON.ToJSONString*
+  nameWithType.vb: JSON.ToJSONString(IEnumerable(Of IJSONable))
+  fullName.vb: JSON.ToJSONString(System.Collections.Generic.IEnumerable(Of IJSONable))
+  name.vb: ToJSONString(IEnumerable(Of IJSONable))
+- uid: Global.JSON.ToJSONString(System.Collections.IEnumerable,System.Boolean)
+  commentId: M:Global.JSON.ToJSONString(System.Collections.IEnumerable,System.Boolean)
+  id: ToJSONString(System.Collections.IEnumerable,System.Boolean)
+  parent: Global.JSON
+  langs:
+  - csharp
+  - vb
+  name: ToJSONString(IEnumerable, bool)
+  nameWithType: JSON.ToJSONString(IEnumerable, bool)
+  fullName: JSON.ToJSONString(System.Collections.IEnumerable, bool)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/JSON/JSON.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: ToJSONString
+    path: ../Assets/Scripts/JSON/JSON.cs
+    startLine: 376
+  namespace: Global
+  summary: Returns the JSON of the given objects in a JSON-format array in string form, adding no quotation marks.
+  example: []
+  syntax:
+    content: public static string ToJSONString(IEnumerable objects, bool separateLines)
+    parameters:
+    - id: objects
+      type: System.Collections.IEnumerable
+    - id: separateLines
+      type: System.Boolean
+    return:
+      type: System.String
+    content.vb: Public Shared Function ToJSONString(objects As IEnumerable, separateLines As Boolean) As String
+  overload: Global.JSON.ToJSONString*
+  nameWithType.vb: JSON.ToJSONString(IEnumerable, Boolean)
+  fullName.vb: JSON.ToJSONString(System.Collections.IEnumerable, Boolean)
+  name.vb: ToJSONString(IEnumerable, Boolean)
+- uid: Global.JSON.ToJSONString(System.Collections.IEnumerable,System.Boolean,System.Boolean)
+  commentId: M:Global.JSON.ToJSONString(System.Collections.IEnumerable,System.Boolean,System.Boolean)
+  id: ToJSONString(System.Collections.IEnumerable,System.Boolean,System.Boolean)
+  parent: Global.JSON
+  langs:
+  - csharp
+  - vb
+  name: ToJSONString(IEnumerable, bool, bool)
+  nameWithType: JSON.ToJSONString(IEnumerable, bool, bool)
+  fullName: JSON.ToJSONString(System.Collections.IEnumerable, bool, bool)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/JSON/JSON.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: ToJSONString
+    path: ../Assets/Scripts/JSON/JSON.cs
+    startLine: 381
+  namespace: Global
+  summary: Returns the JSON of the given objects in a JSON-format array in string form.
+  example: []
+  syntax:
+    content: public static string ToJSONString(IEnumerable objects, bool separateLines, bool addQuotationMarks)
+    parameters:
+    - id: objects
+      type: System.Collections.IEnumerable
+    - id: separateLines
+      type: System.Boolean
+    - id: addQuotationMarks
+      type: System.Boolean
+      description: Whether to add quotation marks around each element of the array.
+    return:
+      type: System.String
+    content.vb: Public Shared Function ToJSONString(objects As IEnumerable, separateLines As Boolean, addQuotationMarks As Boolean) As String
+  overload: Global.JSON.ToJSONString*
+  nameWithType.vb: JSON.ToJSONString(IEnumerable, Boolean, Boolean)
+  fullName.vb: JSON.ToJSONString(System.Collections.IEnumerable, Boolean, Boolean)
+  name.vb: ToJSONString(IEnumerable, Boolean, Boolean)
+- uid: Global.JSON.ToJSONString(System.Collections.Generic.IEnumerable{System.String},System.Boolean)
+  commentId: M:Global.JSON.ToJSONString(System.Collections.Generic.IEnumerable{System.String},System.Boolean)
+  id: ToJSONString(System.Collections.Generic.IEnumerable{System.String},System.Boolean)
+  parent: Global.JSON
+  langs:
+  - csharp
+  - vb
+  name: ToJSONString(IEnumerable<string>, bool)
+  nameWithType: JSON.ToJSONString(IEnumerable<string>, bool)
+  fullName: JSON.ToJSONString(System.Collections.Generic.IEnumerable<string>, bool)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/JSON/JSON.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: ToJSONString
+    path: ../Assets/Scripts/JSON/JSON.cs
+    startLine: 393
+  namespace: Global
+  summary: Returns the given strings in a JSON-format array in string form, adding quotation marks around each element.
+  example: []
+  syntax:
+    content: public static string ToJSONString(IEnumerable<string> strings, bool separateLines)
+    parameters:
+    - id: strings
+      type: System.Collections.Generic.IEnumerable{System.String}
+    - id: separateLines
+      type: System.Boolean
+    return:
+      type: System.String
+    content.vb: Public Shared Function ToJSONString(strings As IEnumerable(Of String), separateLines As Boolean) As String
+  overload: Global.JSON.ToJSONString*
+  nameWithType.vb: JSON.ToJSONString(IEnumerable(Of String), Boolean)
+  fullName.vb: JSON.ToJSONString(System.Collections.Generic.IEnumerable(Of String), Boolean)
+  name.vb: ToJSONString(IEnumerable(Of String), Boolean)
+- uid: Global.JSON.ToJSONString(System.Collections.Generic.IEnumerable{System.String},System.Boolean,System.Boolean)
+  commentId: M:Global.JSON.ToJSONString(System.Collections.Generic.IEnumerable{System.String},System.Boolean,System.Boolean)
+  id: ToJSONString(System.Collections.Generic.IEnumerable{System.String},System.Boolean,System.Boolean)
+  parent: Global.JSON
+  langs:
+  - csharp
+  - vb
+  name: ToJSONString(IEnumerable<string>, bool, bool)
+  nameWithType: JSON.ToJSONString(IEnumerable<string>, bool, bool)
+  fullName: JSON.ToJSONString(System.Collections.Generic.IEnumerable<string>, bool, bool)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/JSON/JSON.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: ToJSONString
+    path: ../Assets/Scripts/JSON/JSON.cs
+    startLine: 398
+  namespace: Global
+  summary: Returns the given strings in a JSON-format array in string form.
+  example: []
+  syntax:
+    content: public static string ToJSONString(IEnumerable<string> strings, bool separateLines, bool addQuotationMarks)
+    parameters:
+    - id: strings
+      type: System.Collections.Generic.IEnumerable{System.String}
+    - id: separateLines
+      type: System.Boolean
+    - id: addQuotationMarks
+      type: System.Boolean
+      description: Whether to add quotation marks around each element of the array.
+    return:
+      type: System.String
+    content.vb: Public Shared Function ToJSONString(strings As IEnumerable(Of String), separateLines As Boolean, addQuotationMarks As Boolean) As String
+  overload: Global.JSON.ToJSONString*
+  nameWithType.vb: JSON.ToJSONString(IEnumerable(Of String), Boolean, Boolean)
+  fullName.vb: JSON.ToJSONString(System.Collections.Generic.IEnumerable(Of String), Boolean, Boolean)
+  name.vb: ToJSONString(IEnumerable(Of String), Boolean, Boolean)
+- uid: Global.JSON.SplitArray(System.String)
+  commentId: M:Global.JSON.SplitArray(System.String)
+  id: SplitArray(System.String)
+  parent: Global.JSON
+  langs:
+  - csharp
+  - vb
+  name: SplitArray(string)
+  nameWithType: JSON.SplitArray(string)
+  fullName: JSON.SplitArray(string)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/JSON/JSON.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: SplitArray
+    path: ../Assets/Scripts/JSON/JSON.cs
+    startLine: 448
+  namespace: Global
+  summary: Splits a JSON string representing an array into a string[] of the data.
+  example: []
+  syntax:
+    content: public static string[] SplitArray(string jsonString)
+    parameters:
+    - id: jsonString
+      type: System.String
+      description: Include the start/end square brackets in the string.
+    return:
+      type: System.String[]
+    content.vb: Public Shared Function SplitArray(jsonString As String) As String()
+  overload: Global.JSON.SplitArray*
+  nameWithType.vb: JSON.SplitArray(String)
+  fullName.vb: JSON.SplitArray(String)
+  name.vb: SplitArray(String)
+references:
+- uid: Global
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Global.JSON.#ctor*
+  commentId: Overload:Global.JSON.#ctor
+  href: Global.JSON.html#JSON__ctor
+  name: JSON
+  nameWithType: JSON.JSON
+  fullName: JSON.JSON
+  nameWithType.vb: JSON.New
+  fullName.vb: JSON.New
+  name.vb: New
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: Global.JSON.Keys*
+  commentId: Overload:Global.JSON.Keys
+  href: Global.JSON.html#JSON_Keys
+  name: Keys
+  nameWithType: JSON.Keys
+  fullName: JSON.Keys
+- uid: System.String[]
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string[]
+  nameWithType: string[]
+  fullName: string[]
+  nameWithType.vb: String()
+  fullName.vb: String()
+  name.vb: String()
+  spec.csharp:
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: '['
+  - name: ']'
+  spec.vb:
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: (
+  - name: )
+- uid: Global.JSON.Item*
+  commentId: Overload:Global.JSON.Item
+  href: Global.JSON.html#JSON_Item_System_String_
+  name: this
+  nameWithType: JSON.this
+  fullName: JSON.this
+  nameWithType.vb: JSON.this[]
+  fullName.vb: JSON.this[]
+  name.vb: this[]
+- uid: Global.JSON.ContainsKey*
+  commentId: Overload:Global.JSON.ContainsKey
+  href: Global.JSON.html#JSON_ContainsKey_System_String_
+  name: ContainsKey
+  nameWithType: JSON.ContainsKey
+  fullName: JSON.ContainsKey
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: Global.JSON.Get*
+  commentId: Overload:Global.JSON.Get
+  href: Global.JSON.html#JSON_Get_System_String_
+  name: Get
+  nameWithType: JSON.Get
+  fullName: JSON.Get
+- uid: Global.JSON.GetJSONProperty*
+  commentId: Overload:Global.JSON.GetJSONProperty
+  href: Global.JSON.html#JSON_GetJSONProperty_System_String_
+  name: GetJSONProperty
+  nameWithType: JSON.GetJSONProperty
+  fullName: JSON.GetJSONProperty
+- uid: Global.JSON.JSONProperty
+  commentId: T:Global.JSON.JSONProperty
+  href: JSON.html
+  name: JSON.JSONProperty
+  nameWithType: JSON.JSONProperty
+  fullName: JSON.JSONProperty
+  spec.csharp:
+  - uid: Global.JSON
+    name: JSON
+    href: JSON.html
+  - name: .
+  - uid: Global.JSON.JSONProperty
+    name: JSONProperty
+    href: JSON.JSONProperty.html
+  spec.vb:
+  - uid: Global.JSON
+    name: JSON
+    href: JSON.html
+  - name: .
+  - uid: Global.JSON.JSONProperty
+    name: JSONProperty
+    href: JSON.JSONProperty.html
+- uid: Global.JSON.Add*
+  commentId: Overload:Global.JSON.Add
+  href: Global.JSON.html#JSON_Add_System_String_JSON_JSONProperty_
+  name: Add
+  nameWithType: JSON.Add
+  fullName: JSON.Add
+- uid: System.Collections.Generic.IEnumerable{System.String}
+  commentId: T:System.Collections.Generic.IEnumerable{System.String}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IEnumerable`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  name: IEnumerable<string>
+  nameWithType: IEnumerable<string>
+  fullName: System.Collections.Generic.IEnumerable<string>
+  nameWithType.vb: IEnumerable(Of String)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of String)
+  name.vb: IEnumerable(Of String)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: <
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: System.Collections.Generic.IEnumerable`1
+  commentId: T:System.Collections.Generic.IEnumerable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  name: IEnumerable<T>
+  nameWithType: IEnumerable<T>
+  fullName: System.Collections.Generic.IEnumerable<T>
+  nameWithType.vb: IEnumerable(Of T)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of T)
+  name.vb: IEnumerable(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: Global.JSON
+  commentId: T:Global.JSON
+  href: JSON.html
+  name: JSON
+  nameWithType: JSON
+  fullName: JSON
+- uid: Global.IJSONable
+  commentId: T:Global.IJSONable
+  href: IJSONable.html
+  name: IJSONable
+  nameWithType: IJSONable
+  fullName: IJSONable
+- uid: System.Collections.Generic.IEnumerable{IJSONable}
+  commentId: T:System.Collections.Generic.IEnumerable{IJSONable}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IEnumerable`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  name: IEnumerable<IJSONable>
+  nameWithType: IEnumerable<IJSONable>
+  fullName: System.Collections.Generic.IEnumerable<IJSONable>
+  nameWithType.vb: IEnumerable(Of IJSONable)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of IJSONable)
+  name.vb: IEnumerable(Of IJSONable)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: <
+  - uid: Global.IJSONable
+    name: IJSONable
+    href: IJSONable.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Global.IJSONable
+    name: IJSONable
+    href: IJSONable.html
+  - name: )
+- uid: System.Collections.IEnumerable
+  commentId: T:System.Collections.IEnumerable
+  parent: System.Collections
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.ienumerable
+  name: IEnumerable
+  nameWithType: IEnumerable
+  fullName: System.Collections.IEnumerable
+- uid: System.Collections
+  commentId: N:System.Collections
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections
+  nameWithType: System.Collections
+  fullName: System.Collections
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+- uid: Global.JSON.Append*
+  commentId: Overload:Global.JSON.Append
+  href: Global.JSON.html#JSON_Append_JSON_
+  name: Append
+  nameWithType: JSON.Append
+  fullName: JSON.Append
+- uid: Global.JSON.Parse*
+  commentId: Overload:Global.JSON.Parse
+  href: Global.JSON.html#JSON_Parse_System_String_
+  name: Parse
+  nameWithType: JSON.Parse
+  fullName: JSON.Parse
+- uid: Global.JSON.AddParse*
+  commentId: Overload:Global.JSON.AddParse
+  href: Global.JSON.html#JSON_AddParse_System_String_
+  name: AddParse
+  nameWithType: JSON.AddParse
+  fullName: JSON.AddParse
+- uid: Global.JSON.StripQuotationMarks*
+  commentId: Overload:Global.JSON.StripQuotationMarks
+  href: Global.JSON.html#JSON_StripQuotationMarks_System_String_
+  name: StripQuotationMarks
+  nameWithType: JSON.StripQuotationMarks
+  fullName: JSON.StripQuotationMarks
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: Global.JSON.ToString*
+  commentId: Overload:Global.JSON.ToString
+  href: Global.JSON.html#JSON_ToString
+  name: ToString
+  nameWithType: JSON.ToString
+  fullName: JSON.ToString
+- uid: Global.JSON.ToJSONString*
+  commentId: Overload:Global.JSON.ToJSONString
+  href: Global.JSON.html#JSON_ToJSONString_System_Collections_Generic_IEnumerable_IJSONable__
+  name: ToJSONString
+  nameWithType: JSON.ToJSONString
+  fullName: JSON.ToJSONString
+- uid: Global.JSON.SplitArray*
+  commentId: Overload:Global.JSON.SplitArray
+  href: Global.JSON.html#JSON_SplitArray_System_String_
+  name: SplitArray
+  nameWithType: JSON.SplitArray
+  fullName: JSON.SplitArray

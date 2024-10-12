@@ -1,0 +1,69 @@
+### YamlMime:ManagedReference
+items:
+- uid: Global.IJSONable
+  commentId: T:Global.IJSONable
+  id: IJSONable
+  parent: Global
+  children:
+  - Global.IJSONable.ToJSON
+  langs:
+  - csharp
+  - vb
+  name: IJSONable
+  nameWithType: IJSONable
+  fullName: IJSONable
+  type: Interface
+  source:
+    remote:
+      path: Assets/Scripts/JSON/IJSONable.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: IJSONable
+    path: ../Assets/Scripts/JSON/IJSONable.cs
+    startLine: 7
+  namespace: Global
+  summary: An interface for objects that can be converted to JSON.
+  example: []
+  syntax:
+    content: public interface IJSONable
+    content.vb: Public Interface IJSONable
+- uid: Global.IJSONable.ToJSON
+  commentId: M:Global.IJSONable.ToJSON
+  id: ToJSON
+  parent: Global.IJSONable
+  langs:
+  - csharp
+  - vb
+  name: ToJSON()
+  nameWithType: IJSONable.ToJSON()
+  fullName: IJSONable.ToJSON()
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/JSON/IJSONable.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: ToJSON
+    path: ../Assets/Scripts/JSON/IJSONable.cs
+    startLine: 9
+  namespace: Global
+  syntax:
+    content: JSON ToJSON()
+    return:
+      type: Global.JSON
+    content.vb: Function ToJSON() As JSON
+  overload: Global.IJSONable.ToJSON*
+references:
+- uid: Global
+- uid: Global.IJSONable.ToJSON*
+  commentId: Overload:Global.IJSONable.ToJSON
+  href: Global.IJSONable.html#IJSONable_ToJSON
+  name: ToJSON
+  nameWithType: IJSONable.ToJSON
+  fullName: IJSONable.ToJSON
+- uid: Global.JSON
+  commentId: T:Global.JSON
+  href: JSON.html
+  name: JSON
+  nameWithType: JSON
+  fullName: JSON

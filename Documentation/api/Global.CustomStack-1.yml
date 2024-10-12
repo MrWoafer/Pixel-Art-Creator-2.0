@@ -1,0 +1,817 @@
+### YamlMime:ManagedReference
+items:
+- uid: Global.CustomStack`1
+  commentId: T:Global.CustomStack`1
+  id: CustomStack`1
+  parent: Global
+  children:
+  - Global.CustomStack`1.Clear
+  - Global.CustomStack`1.Count
+  - Global.CustomStack`1.Peek
+  - Global.CustomStack`1.Pop
+  - Global.CustomStack`1.Push(`0)
+  - Global.CustomStack`1.Remove(`0)
+  - Global.CustomStack`1.RemoveAll(`0)
+  - Global.CustomStack`1.RemoveAt(System.Int32)
+  - Global.CustomStack`1.ToArray
+  - Global.CustomStack`1.ToList
+  langs:
+  - csharp
+  - vb
+  name: CustomStack<T>
+  nameWithType: CustomStack<T>
+  fullName: CustomStack<T>
+  type: Class
+  source:
+    remote:
+      path: Assets/Scripts/Data Structures/CustomStack.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: CustomStack
+    path: ../Assets/Scripts/Data Structures/CustomStack.cs
+    startLine: 7
+  namespace: Global
+  summary: A custom implementation of a stack to allow removal of items at a specific index.
+  example: []
+  syntax:
+    content: public class CustomStack<T>
+    typeParameters:
+    - id: T
+    content.vb: Public Class CustomStack(Of T)
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+  nameWithType.vb: CustomStack(Of T)
+  fullName.vb: CustomStack(Of T)
+  name.vb: CustomStack(Of T)
+- uid: Global.CustomStack`1.Count
+  commentId: P:Global.CustomStack`1.Count
+  id: Count
+  parent: Global.CustomStack`1
+  langs:
+  - csharp
+  - vb
+  name: Count
+  nameWithType: CustomStack<T>.Count
+  fullName: CustomStack<T>.Count
+  type: Property
+  source:
+    remote:
+      path: Assets/Scripts/Data Structures/CustomStack.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: Count
+    path: ../Assets/Scripts/Data Structures/CustomStack.cs
+    startLine: 11
+  namespace: Global
+  syntax:
+    content: public int Count { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public ReadOnly Property Count As Integer
+  overload: Global.CustomStack`1.Count*
+  nameWithType.vb: CustomStack(Of T).Count
+  fullName.vb: CustomStack(Of T).Count
+- uid: Global.CustomStack`1.Push(`0)
+  commentId: M:Global.CustomStack`1.Push(`0)
+  id: Push(`0)
+  parent: Global.CustomStack`1
+  langs:
+  - csharp
+  - vb
+  name: Push(T)
+  nameWithType: CustomStack<T>.Push(T)
+  fullName: CustomStack<T>.Push(T)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Data Structures/CustomStack.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: Push
+    path: ../Assets/Scripts/Data Structures/CustomStack.cs
+    startLine: 16
+  namespace: Global
+  summary: Adds the item to the top of the stack.
+  example: []
+  syntax:
+    content: public void Push(T item)
+    parameters:
+    - id: item
+      type: '{T}'
+    content.vb: Public Sub Push(item As T)
+  overload: Global.CustomStack`1.Push*
+  nameWithType.vb: CustomStack(Of T).Push(T)
+  fullName.vb: CustomStack(Of T).Push(T)
+- uid: Global.CustomStack`1.Peek
+  commentId: M:Global.CustomStack`1.Peek
+  id: Peek
+  parent: Global.CustomStack`1
+  langs:
+  - csharp
+  - vb
+  name: Peek()
+  nameWithType: CustomStack<T>.Peek()
+  fullName: CustomStack<T>.Peek()
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Data Structures/CustomStack.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: Peek
+    path: ../Assets/Scripts/Data Structures/CustomStack.cs
+    startLine: 24
+  namespace: Global
+  summary: Returns the item on top of the stack.
+  example: []
+  syntax:
+    content: public T Peek()
+    return:
+      type: '{T}'
+    content.vb: Public Function Peek() As T
+  overload: Global.CustomStack`1.Peek*
+  nameWithType.vb: CustomStack(Of T).Peek()
+  fullName.vb: CustomStack(Of T).Peek()
+- uid: Global.CustomStack`1.Pop
+  commentId: M:Global.CustomStack`1.Pop
+  id: Pop
+  parent: Global.CustomStack`1
+  langs:
+  - csharp
+  - vb
+  name: Pop()
+  nameWithType: CustomStack<T>.Pop()
+  fullName: CustomStack<T>.Pop()
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Data Structures/CustomStack.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: Pop
+    path: ../Assets/Scripts/Data Structures/CustomStack.cs
+    startLine: 36
+  namespace: Global
+  summary: Removes and returns the item on top of the stack.
+  example: []
+  syntax:
+    content: public T Pop()
+    return:
+      type: '{T}'
+    content.vb: Public Function Pop() As T
+  overload: Global.CustomStack`1.Pop*
+  nameWithType.vb: CustomStack(Of T).Pop()
+  fullName.vb: CustomStack(Of T).Pop()
+- uid: Global.CustomStack`1.RemoveAt(System.Int32)
+  commentId: M:Global.CustomStack`1.RemoveAt(System.Int32)
+  id: RemoveAt(System.Int32)
+  parent: Global.CustomStack`1
+  langs:
+  - csharp
+  - vb
+  name: RemoveAt(int)
+  nameWithType: CustomStack<T>.RemoveAt(int)
+  fullName: CustomStack<T>.RemoveAt(int)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Data Structures/CustomStack.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: RemoveAt
+    path: ../Assets/Scripts/Data Structures/CustomStack.cs
+    startLine: 48
+  namespace: Global
+  summary: Removes the item at the given index and returns it.
+  example: []
+  syntax:
+    content: public T RemoveAt(int index)
+    parameters:
+    - id: index
+      type: System.Int32
+    return:
+      type: '{T}'
+    content.vb: Public Function RemoveAt(index As Integer) As T
+  overload: Global.CustomStack`1.RemoveAt*
+  nameWithType.vb: CustomStack(Of T).RemoveAt(Integer)
+  fullName.vb: CustomStack(Of T).RemoveAt(Integer)
+  name.vb: RemoveAt(Integer)
+- uid: Global.CustomStack`1.Remove(`0)
+  commentId: M:Global.CustomStack`1.Remove(`0)
+  id: Remove(`0)
+  parent: Global.CustomStack`1
+  langs:
+  - csharp
+  - vb
+  name: Remove(T)
+  nameWithType: CustomStack<T>.Remove(T)
+  fullName: CustomStack<T>.Remove(T)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Data Structures/CustomStack.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: Remove
+    path: ../Assets/Scripts/Data Structures/CustomStack.cs
+    startLine: 67
+  namespace: Global
+  summary: Removes the first occurrence (starting from the top) of the item in the stack.
+  example: []
+  syntax:
+    content: public bool Remove(T item)
+    parameters:
+    - id: item
+      type: '{T}'
+    return:
+      type: System.Boolean
+      description: true if the item is successfully removed.
+    content.vb: Public Function Remove(item As T) As Boolean
+  overload: Global.CustomStack`1.Remove*
+  nameWithType.vb: CustomStack(Of T).Remove(T)
+  fullName.vb: CustomStack(Of T).Remove(T)
+- uid: Global.CustomStack`1.RemoveAll(`0)
+  commentId: M:Global.CustomStack`1.RemoveAll(`0)
+  id: RemoveAll(`0)
+  parent: Global.CustomStack`1
+  langs:
+  - csharp
+  - vb
+  name: RemoveAll(T)
+  nameWithType: CustomStack<T>.RemoveAll(T)
+  fullName: CustomStack<T>.RemoveAll(T)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Data Structures/CustomStack.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: RemoveAll
+    path: ../Assets/Scripts/Data Structures/CustomStack.cs
+    startLine: 75
+  namespace: Global
+  summary: Removes all occurrences of the item in the stack.
+  example: []
+  syntax:
+    content: public void RemoveAll(T item)
+    parameters:
+    - id: item
+      type: '{T}'
+    content.vb: Public Sub RemoveAll(item As T)
+  overload: Global.CustomStack`1.RemoveAll*
+  nameWithType.vb: CustomStack(Of T).RemoveAll(T)
+  fullName.vb: CustomStack(Of T).RemoveAll(T)
+- uid: Global.CustomStack`1.Clear
+  commentId: M:Global.CustomStack`1.Clear
+  id: Clear
+  parent: Global.CustomStack`1
+  langs:
+  - csharp
+  - vb
+  name: Clear()
+  nameWithType: CustomStack<T>.Clear()
+  fullName: CustomStack<T>.Clear()
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Data Structures/CustomStack.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: Clear
+    path: ../Assets/Scripts/Data Structures/CustomStack.cs
+    startLine: 83
+  namespace: Global
+  summary: Removes all items from the stack.
+  example: []
+  syntax:
+    content: public void Clear()
+    content.vb: Public Sub Clear()
+  overload: Global.CustomStack`1.Clear*
+  nameWithType.vb: CustomStack(Of T).Clear()
+  fullName.vb: CustomStack(Of T).Clear()
+- uid: Global.CustomStack`1.ToList
+  commentId: M:Global.CustomStack`1.ToList
+  id: ToList
+  parent: Global.CustomStack`1
+  langs:
+  - csharp
+  - vb
+  name: ToList()
+  nameWithType: CustomStack<T>.ToList()
+  fullName: CustomStack<T>.ToList()
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Data Structures/CustomStack.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: ToList
+    path: ../Assets/Scripts/Data Structures/CustomStack.cs
+    startLine: 88
+  namespace: Global
+  syntax:
+    content: public List<T> ToList()
+    return:
+      type: System.Collections.Generic.List{{T}}
+    content.vb: Public Function ToList() As List(Of T)
+  overload: Global.CustomStack`1.ToList*
+  nameWithType.vb: CustomStack(Of T).ToList()
+  fullName.vb: CustomStack(Of T).ToList()
+- uid: Global.CustomStack`1.ToArray
+  commentId: M:Global.CustomStack`1.ToArray
+  id: ToArray
+  parent: Global.CustomStack`1
+  langs:
+  - csharp
+  - vb
+  name: ToArray()
+  nameWithType: CustomStack<T>.ToArray()
+  fullName: CustomStack<T>.ToArray()
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Data Structures/CustomStack.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: ToArray
+    path: ../Assets/Scripts/Data Structures/CustomStack.cs
+    startLine: 92
+  namespace: Global
+  syntax:
+    content: public T[] ToArray()
+    return:
+      type: '{T}[]'
+    content.vb: Public Function ToArray() As T()
+  overload: Global.CustomStack`1.ToArray*
+  nameWithType.vb: CustomStack(Of T).ToArray()
+  fullName.vb: CustomStack(Of T).ToArray()
+references:
+- uid: Global
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Global.CustomStack`1.Count*
+  commentId: Overload:Global.CustomStack`1.Count
+  href: Global.CustomStack-1.html#CustomStack_1_Count
+  name: Count
+  nameWithType: CustomStack<T>.Count
+  fullName: CustomStack<T>.Count
+  nameWithType.vb: CustomStack(Of T).Count
+  fullName.vb: CustomStack(Of T).Count
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: Global.CustomStack`1.Push*
+  commentId: Overload:Global.CustomStack`1.Push
+  href: Global.CustomStack-1.html#CustomStack_1_Push__0_
+  name: Push
+  nameWithType: CustomStack<T>.Push
+  fullName: CustomStack<T>.Push
+  nameWithType.vb: CustomStack(Of T).Push
+  fullName.vb: CustomStack(Of T).Push
+- uid: '{T}'
+  commentId: '!:T'
+  definition: T
+  name: T
+  nameWithType: T
+  fullName: T
+- uid: T
+  name: T
+  nameWithType: T
+  fullName: T
+- uid: Global.CustomStack`1.Peek*
+  commentId: Overload:Global.CustomStack`1.Peek
+  href: Global.CustomStack-1.html#CustomStack_1_Peek
+  name: Peek
+  nameWithType: CustomStack<T>.Peek
+  fullName: CustomStack<T>.Peek
+  nameWithType.vb: CustomStack(Of T).Peek
+  fullName.vb: CustomStack(Of T).Peek
+- uid: Global.CustomStack`1.Pop*
+  commentId: Overload:Global.CustomStack`1.Pop
+  href: Global.CustomStack-1.html#CustomStack_1_Pop
+  name: Pop
+  nameWithType: CustomStack<T>.Pop
+  fullName: CustomStack<T>.Pop
+  nameWithType.vb: CustomStack(Of T).Pop
+  fullName.vb: CustomStack(Of T).Pop
+- uid: Global.CustomStack`1.RemoveAt*
+  commentId: Overload:Global.CustomStack`1.RemoveAt
+  href: Global.CustomStack-1.html#CustomStack_1_RemoveAt_System_Int32_
+  name: RemoveAt
+  nameWithType: CustomStack<T>.RemoveAt
+  fullName: CustomStack<T>.RemoveAt
+  nameWithType.vb: CustomStack(Of T).RemoveAt
+  fullName.vb: CustomStack(Of T).RemoveAt
+- uid: Global.CustomStack`1.Remove*
+  commentId: Overload:Global.CustomStack`1.Remove
+  href: Global.CustomStack-1.html#CustomStack_1_Remove__0_
+  name: Remove
+  nameWithType: CustomStack<T>.Remove
+  fullName: CustomStack<T>.Remove
+  nameWithType.vb: CustomStack(Of T).Remove
+  fullName.vb: CustomStack(Of T).Remove
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: Global.CustomStack`1.RemoveAll*
+  commentId: Overload:Global.CustomStack`1.RemoveAll
+  href: Global.CustomStack-1.html#CustomStack_1_RemoveAll__0_
+  name: RemoveAll
+  nameWithType: CustomStack<T>.RemoveAll
+  fullName: CustomStack<T>.RemoveAll
+  nameWithType.vb: CustomStack(Of T).RemoveAll
+  fullName.vb: CustomStack(Of T).RemoveAll
+- uid: Global.CustomStack`1.Clear*
+  commentId: Overload:Global.CustomStack`1.Clear
+  href: Global.CustomStack-1.html#CustomStack_1_Clear
+  name: Clear
+  nameWithType: CustomStack<T>.Clear
+  fullName: CustomStack<T>.Clear
+  nameWithType.vb: CustomStack(Of T).Clear
+  fullName.vb: CustomStack(Of T).Clear
+- uid: Global.CustomStack`1.ToList*
+  commentId: Overload:Global.CustomStack`1.ToList
+  href: Global.CustomStack-1.html#CustomStack_1_ToList
+  name: ToList
+  nameWithType: CustomStack<T>.ToList
+  fullName: CustomStack<T>.ToList
+  nameWithType.vb: CustomStack(Of T).ToList
+  fullName.vb: CustomStack(Of T).ToList
+- uid: System.Collections.Generic.List{{T}}
+  commentId: T:System.Collections.Generic.List{`0}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<T>
+  nameWithType: List<T>
+  fullName: System.Collections.Generic.List<T>
+  nameWithType.vb: List(Of T)
+  fullName.vb: System.Collections.Generic.List(Of T)
+  name.vb: List(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic.List`1
+  commentId: T:System.Collections.Generic.List`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<T>
+  nameWithType: List<T>
+  fullName: System.Collections.Generic.List<T>
+  nameWithType.vb: List(Of T)
+  fullName.vb: System.Collections.Generic.List(Of T)
+  name.vb: List(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: Global.CustomStack`1.ToArray*
+  commentId: Overload:Global.CustomStack`1.ToArray
+  href: Global.CustomStack-1.html#CustomStack_1_ToArray
+  name: ToArray
+  nameWithType: CustomStack<T>.ToArray
+  fullName: CustomStack<T>.ToArray
+  nameWithType.vb: CustomStack(Of T).ToArray
+  fullName.vb: CustomStack(Of T).ToArray
+- uid: '{T}[]'
+  isExternal: true
+  name: T[]
+  nameWithType: T[]
+  fullName: T[]
+  nameWithType.vb: T()
+  fullName.vb: T()
+  name.vb: T()
+  spec.csharp:
+  - name: T
+  - name: '['
+  - name: ']'
+  spec.vb:
+  - name: T
+  - name: (
+  - name: )

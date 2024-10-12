@@ -1,0 +1,85 @@
+### YamlMime:ManagedReference
+items:
+- uid: Global.Keyboard
+  commentId: T:Global.Keyboard
+  id: Keyboard
+  parent: Global
+  children:
+  - Global.Keyboard.canInteract
+  langs:
+  - csharp
+  - vb
+  name: Keyboard
+  nameWithType: Keyboard
+  fullName: Keyboard
+  type: Class
+  source:
+    remote:
+      path: Assets/Scripts/Input/Keyboard.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: Keyboard
+    path: ../Assets/Scripts/Input/Keyboard.cs
+    startLine: 4
+  namespace: Global
+  syntax:
+    content: 'public class Keyboard : MonoBehaviour'
+    content.vb: Public Class Keyboard Inherits MonoBehaviour
+  inheritance:
+  - System.Object
+- uid: Global.Keyboard.canInteract
+  commentId: F:Global.Keyboard.canInteract
+  id: canInteract
+  parent: Global.Keyboard
+  langs:
+  - csharp
+  - vb
+  name: canInteract
+  nameWithType: Keyboard.canInteract
+  fullName: Keyboard.canInteract
+  type: Field
+  source:
+    remote:
+      path: Assets/Scripts/Input/Keyboard.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: canInteract
+    path: ../Assets/Scripts/Input/Keyboard.cs
+    startLine: 6
+  namespace: Global
+  syntax:
+    content: public bool canInteract
+    return:
+      type: System.Boolean
+    content.vb: Public canInteract As Boolean
+references:
+- uid: Global
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean

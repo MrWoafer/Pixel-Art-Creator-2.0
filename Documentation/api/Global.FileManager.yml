@@ -1,0 +1,1297 @@
+### YamlMime:ManagedReference
+items:
+- uid: Global.FileManager
+  commentId: T:Global.FileManager
+  id: FileManager
+  parent: Global
+  children:
+  - Global.FileManager.AddFile(File)
+  - Global.FileManager.CloseFile(File)
+  - Global.FileManager.CloseFile(System.Int32)
+  - Global.FileManager.ExportAnimation(System.Int32,System.String)
+  - Global.FileManager.ExportCurrentAnimation(System.String)
+  - Global.FileManager.ExportCurrentAnimationDialog
+  - Global.FileManager.ExportCurrentFrame(System.Int32,System.String)
+  - Global.FileManager.ExportCurrentFrameDialog
+  - Global.FileManager.ExportFrame(System.Int32,System.Int32,System.String)
+  - Global.FileManager.ImportDialog
+  - Global.FileManager.NewFile(System.Int32,System.Int32)
+  - Global.FileManager.OpenFile(File)
+  - Global.FileManager.OpenFile(System.String)
+  - Global.FileManager.OpenFileDialog
+  - Global.FileManager.ReloadFile
+  - Global.FileManager.SaveAsCurrentFile(System.String)
+  - Global.FileManager.SaveAsCurrentFileDialog
+  - Global.FileManager.SaveAsFile(File,System.String)
+  - Global.FileManager.SaveAsFile(System.Int32,System.String)
+  - Global.FileManager.SaveAsFileDialog(File)
+  - Global.FileManager.SaveCurrentFileDialog
+  - Global.FileManager.SaveFileDialog(File)
+  - Global.FileManager.SubscribeToFileSwitched(UnityAction)
+  - Global.FileManager.SubscribeToFilesChanged(UnityAction)
+  - Global.FileManager.SwitchToFile(System.Int32)
+  - Global.FileManager.TryCloseFile(File)
+  - Global.FileManager.TryCloseFile(System.Int32)
+  - Global.FileManager.currentFile
+  - Global.FileManager.currentFileIndex
+  - Global.FileManager.defaultFileName
+  - Global.FileManager.files
+  - Global.FileManager.previousFile
+  langs:
+  - csharp
+  - vb
+  name: FileManager
+  nameWithType: FileManager
+  fullName: FileManager
+  type: Class
+  source:
+    remote:
+      path: Assets/Scripts/Files/FileManager.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: FileManager
+    path: ../Assets/Scripts/Files/FileManager.cs
+    startLine: 7
+  namespace: Global
+  syntax:
+    content: 'public class FileManager : MonoBehaviour'
+    content.vb: Public Class FileManager Inherits MonoBehaviour
+  inheritance:
+  - System.Object
+- uid: Global.FileManager.defaultFileName
+  commentId: F:Global.FileManager.defaultFileName
+  id: defaultFileName
+  parent: Global.FileManager
+  langs:
+  - csharp
+  - vb
+  name: defaultFileName
+  nameWithType: FileManager.defaultFileName
+  fullName: FileManager.defaultFileName
+  type: Field
+  source:
+    remote:
+      path: Assets/Scripts/Files/FileManager.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: defaultFileName
+    path: ../Assets/Scripts/Files/FileManager.cs
+    startLine: 17
+  namespace: Global
+  syntax:
+    content: public const string defaultFileName = "Untitled Image"
+    return:
+      type: System.String
+    content.vb: Public Const defaultFileName As String = "Untitled Image"
+- uid: Global.FileManager.files
+  commentId: P:Global.FileManager.files
+  id: files
+  parent: Global.FileManager
+  langs:
+  - csharp
+  - vb
+  name: files
+  nameWithType: FileManager.files
+  fullName: FileManager.files
+  type: Property
+  source:
+    remote:
+      path: Assets/Scripts/Files/FileManager.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: files
+    path: ../Assets/Scripts/Files/FileManager.cs
+    startLine: 19
+  namespace: Global
+  syntax:
+    content: public List<File> files { get; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.List{File}
+    content.vb: Public Property files As List(Of File)
+  overload: Global.FileManager.files*
+- uid: Global.FileManager.currentFileIndex
+  commentId: P:Global.FileManager.currentFileIndex
+  id: currentFileIndex
+  parent: Global.FileManager
+  langs:
+  - csharp
+  - vb
+  name: currentFileIndex
+  nameWithType: FileManager.currentFileIndex
+  fullName: FileManager.currentFileIndex
+  type: Property
+  source:
+    remote:
+      path: Assets/Scripts/Files/FileManager.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: currentFileIndex
+    path: ../Assets/Scripts/Files/FileManager.cs
+    startLine: 20
+  namespace: Global
+  syntax:
+    content: public int currentFileIndex { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public Property currentFileIndex As Integer
+  overload: Global.FileManager.currentFileIndex*
+- uid: Global.FileManager.currentFile
+  commentId: P:Global.FileManager.currentFile
+  id: currentFile
+  parent: Global.FileManager
+  langs:
+  - csharp
+  - vb
+  name: currentFile
+  nameWithType: FileManager.currentFile
+  fullName: FileManager.currentFile
+  type: Property
+  source:
+    remote:
+      path: Assets/Scripts/Files/FileManager.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: currentFile
+    path: ../Assets/Scripts/Files/FileManager.cs
+    startLine: 21
+  namespace: Global
+  syntax:
+    content: public File currentFile { get; }
+    parameters: []
+    return:
+      type: Global.File
+    content.vb: Public ReadOnly Property currentFile As File
+  overload: Global.FileManager.currentFile*
+- uid: Global.FileManager.previousFile
+  commentId: F:Global.FileManager.previousFile
+  id: previousFile
+  parent: Global.FileManager
+  langs:
+  - csharp
+  - vb
+  name: previousFile
+  nameWithType: FileManager.previousFile
+  fullName: FileManager.previousFile
+  type: Field
+  source:
+    remote:
+      path: Assets/Scripts/Files/FileManager.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: previousFile
+    path: ../Assets/Scripts/Files/FileManager.cs
+    startLine: 23
+  namespace: Global
+  syntax:
+    content: public File previousFile
+    return:
+      type: Global.File
+    content.vb: Public previousFile As File
+- uid: Global.FileManager.AddFile(File)
+  commentId: M:Global.FileManager.AddFile(File)
+  id: AddFile(File)
+  parent: Global.FileManager
+  langs:
+  - csharp
+  - vb
+  name: AddFile(File)
+  nameWithType: FileManager.AddFile(File)
+  fullName: FileManager.AddFile(File)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Files/FileManager.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: AddFile
+    path: ../Assets/Scripts/Files/FileManager.cs
+    startLine: 76
+  namespace: Global
+  syntax:
+    content: public bool AddFile(File file)
+    parameters:
+    - id: file
+      type: Global.File
+    return:
+      type: System.Boolean
+    content.vb: Public Function AddFile(file As File) As Boolean
+  overload: Global.FileManager.AddFile*
+- uid: Global.FileManager.TryCloseFile(File)
+  commentId: M:Global.FileManager.TryCloseFile(File)
+  id: TryCloseFile(File)
+  parent: Global.FileManager
+  langs:
+  - csharp
+  - vb
+  name: TryCloseFile(File)
+  nameWithType: FileManager.TryCloseFile(File)
+  fullName: FileManager.TryCloseFile(File)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Files/FileManager.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: TryCloseFile
+    path: ../Assets/Scripts/Files/FileManager.cs
+    startLine: 97
+  namespace: Global
+  summary: Will close the file if there are no unsaved changes. Otherwise it will open a dialog box asking if you want to save.
+  example: []
+  syntax:
+    content: public bool TryCloseFile(File file)
+    parameters:
+    - id: file
+      type: Global.File
+    return:
+      type: System.Boolean
+    content.vb: Public Function TryCloseFile(file As File) As Boolean
+  overload: Global.FileManager.TryCloseFile*
+- uid: Global.FileManager.TryCloseFile(System.Int32)
+  commentId: M:Global.FileManager.TryCloseFile(System.Int32)
+  id: TryCloseFile(System.Int32)
+  parent: Global.FileManager
+  langs:
+  - csharp
+  - vb
+  name: TryCloseFile(int)
+  nameWithType: FileManager.TryCloseFile(int)
+  fullName: FileManager.TryCloseFile(int)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Files/FileManager.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: TryCloseFile
+    path: ../Assets/Scripts/Files/FileManager.cs
+    startLine: 111
+  namespace: Global
+  summary: Will close the file if there are no unsaved changes. Otherwise it will open a dialog box asking if you want to save.
+  example: []
+  syntax:
+    content: public bool TryCloseFile(int fileIndex)
+    parameters:
+    - id: fileIndex
+      type: System.Int32
+    return:
+      type: System.Boolean
+    content.vb: Public Function TryCloseFile(fileIndex As Integer) As Boolean
+  overload: Global.FileManager.TryCloseFile*
+  nameWithType.vb: FileManager.TryCloseFile(Integer)
+  fullName.vb: FileManager.TryCloseFile(Integer)
+  name.vb: TryCloseFile(Integer)
+- uid: Global.FileManager.CloseFile(File)
+  commentId: M:Global.FileManager.CloseFile(File)
+  id: CloseFile(File)
+  parent: Global.FileManager
+  langs:
+  - csharp
+  - vb
+  name: CloseFile(File)
+  nameWithType: FileManager.CloseFile(File)
+  fullName: FileManager.CloseFile(File)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Files/FileManager.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: CloseFile
+    path: ../Assets/Scripts/Files/FileManager.cs
+    startLine: 125
+  namespace: Global
+  summary: Closes the file, with no checks for unsaved changes.
+  example: []
+  syntax:
+    content: public bool CloseFile(File file)
+    parameters:
+    - id: file
+      type: Global.File
+    return:
+      type: System.Boolean
+    content.vb: Public Function CloseFile(file As File) As Boolean
+  overload: Global.FileManager.CloseFile*
+- uid: Global.FileManager.CloseFile(System.Int32)
+  commentId: M:Global.FileManager.CloseFile(System.Int32)
+  id: CloseFile(System.Int32)
+  parent: Global.FileManager
+  langs:
+  - csharp
+  - vb
+  name: CloseFile(int)
+  nameWithType: FileManager.CloseFile(int)
+  fullName: FileManager.CloseFile(int)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Files/FileManager.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: CloseFile
+    path: ../Assets/Scripts/Files/FileManager.cs
+    startLine: 139
+  namespace: Global
+  summary: Closes the file, with no checks for unsaved changes.
+  example: []
+  syntax:
+    content: public File CloseFile(int fileIndex)
+    parameters:
+    - id: fileIndex
+      type: System.Int32
+    return:
+      type: Global.File
+    content.vb: Public Function CloseFile(fileIndex As Integer) As File
+  overload: Global.FileManager.CloseFile*
+  nameWithType.vb: FileManager.CloseFile(Integer)
+  fullName.vb: FileManager.CloseFile(Integer)
+  name.vb: CloseFile(Integer)
+- uid: Global.FileManager.NewFile(System.Int32,System.Int32)
+  commentId: M:Global.FileManager.NewFile(System.Int32,System.Int32)
+  id: NewFile(System.Int32,System.Int32)
+  parent: Global.FileManager
+  langs:
+  - csharp
+  - vb
+  name: NewFile(int, int)
+  nameWithType: FileManager.NewFile(int, int)
+  fullName: FileManager.NewFile(int, int)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Files/FileManager.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: NewFile
+    path: ../Assets/Scripts/Files/FileManager.cs
+    startLine: 164
+  namespace: Global
+  syntax:
+    content: public void NewFile(int width, int height)
+    parameters:
+    - id: width
+      type: System.Int32
+    - id: height
+      type: System.Int32
+    content.vb: Public Sub NewFile(width As Integer, height As Integer)
+  overload: Global.FileManager.NewFile*
+  nameWithType.vb: FileManager.NewFile(Integer, Integer)
+  fullName.vb: FileManager.NewFile(Integer, Integer)
+  name.vb: NewFile(Integer, Integer)
+- uid: Global.FileManager.OpenFileDialog
+  commentId: M:Global.FileManager.OpenFileDialog
+  id: OpenFileDialog
+  parent: Global.FileManager
+  langs:
+  - csharp
+  - vb
+  name: OpenFileDialog()
+  nameWithType: FileManager.OpenFileDialog()
+  fullName: FileManager.OpenFileDialog()
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Files/FileManager.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: OpenFileDialog
+    path: ../Assets/Scripts/Files/FileManager.cs
+    startLine: 170
+  namespace: Global
+  syntax:
+    content: public void OpenFileDialog()
+    content.vb: Public Sub OpenFileDialog()
+  overload: Global.FileManager.OpenFileDialog*
+- uid: Global.FileManager.OpenFile(File)
+  commentId: M:Global.FileManager.OpenFile(File)
+  id: OpenFile(File)
+  parent: Global.FileManager
+  langs:
+  - csharp
+  - vb
+  name: OpenFile(File)
+  nameWithType: FileManager.OpenFile(File)
+  fullName: FileManager.OpenFile(File)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Files/FileManager.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: OpenFile
+    path: ../Assets/Scripts/Files/FileManager.cs
+    startLine: 180
+  namespace: Global
+  syntax:
+    content: public bool OpenFile(File file)
+    parameters:
+    - id: file
+      type: Global.File
+    return:
+      type: System.Boolean
+    content.vb: Public Function OpenFile(file As File) As Boolean
+  overload: Global.FileManager.OpenFile*
+- uid: Global.FileManager.OpenFile(System.String)
+  commentId: M:Global.FileManager.OpenFile(System.String)
+  id: OpenFile(System.String)
+  parent: Global.FileManager
+  langs:
+  - csharp
+  - vb
+  name: OpenFile(string)
+  nameWithType: FileManager.OpenFile(string)
+  fullName: FileManager.OpenFile(string)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Files/FileManager.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: OpenFile
+    path: ../Assets/Scripts/Files/FileManager.cs
+    startLine: 201
+  namespace: Global
+  syntax:
+    content: public bool OpenFile(string filePath)
+    parameters:
+    - id: filePath
+      type: System.String
+    return:
+      type: System.Boolean
+    content.vb: Public Function OpenFile(filePath As String) As Boolean
+  overload: Global.FileManager.OpenFile*
+  nameWithType.vb: FileManager.OpenFile(String)
+  fullName.vb: FileManager.OpenFile(String)
+  name.vb: OpenFile(String)
+- uid: Global.FileManager.ImportDialog
+  commentId: M:Global.FileManager.ImportDialog
+  id: ImportDialog
+  parent: Global.FileManager
+  langs:
+  - csharp
+  - vb
+  name: ImportDialog()
+  nameWithType: FileManager.ImportDialog()
+  fullName: FileManager.ImportDialog()
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Files/FileManager.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: ImportDialog
+    path: ../Assets/Scripts/Files/FileManager.cs
+    startLine: 211
+  namespace: Global
+  syntax:
+    content: public void ImportDialog()
+    content.vb: Public Sub ImportDialog()
+  overload: Global.FileManager.ImportDialog*
+- uid: Global.FileManager.ExportCurrentFrameDialog
+  commentId: M:Global.FileManager.ExportCurrentFrameDialog
+  id: ExportCurrentFrameDialog
+  parent: Global.FileManager
+  langs:
+  - csharp
+  - vb
+  name: ExportCurrentFrameDialog()
+  nameWithType: FileManager.ExportCurrentFrameDialog()
+  fullName: FileManager.ExportCurrentFrameDialog()
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Files/FileManager.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: ExportCurrentFrameDialog
+    path: ../Assets/Scripts/Files/FileManager.cs
+    startLine: 246
+  namespace: Global
+  syntax:
+    content: public void ExportCurrentFrameDialog()
+    content.vb: Public Sub ExportCurrentFrameDialog()
+  overload: Global.FileManager.ExportCurrentFrameDialog*
+- uid: Global.FileManager.ExportCurrentFrame(System.Int32,System.String)
+  commentId: M:Global.FileManager.ExportCurrentFrame(System.Int32,System.String)
+  id: ExportCurrentFrame(System.Int32,System.String)
+  parent: Global.FileManager
+  langs:
+  - csharp
+  - vb
+  name: ExportCurrentFrame(int, string)
+  nameWithType: FileManager.ExportCurrentFrame(int, string)
+  fullName: FileManager.ExportCurrentFrame(int, string)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Files/FileManager.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: ExportCurrentFrame
+    path: ../Assets/Scripts/Files/FileManager.cs
+    startLine: 258
+  namespace: Global
+  syntax:
+    content: public bool ExportCurrentFrame(int frameIndex, string filePath)
+    parameters:
+    - id: frameIndex
+      type: System.Int32
+    - id: filePath
+      type: System.String
+    return:
+      type: System.Boolean
+    content.vb: Public Function ExportCurrentFrame(frameIndex As Integer, filePath As String) As Boolean
+  overload: Global.FileManager.ExportCurrentFrame*
+  nameWithType.vb: FileManager.ExportCurrentFrame(Integer, String)
+  fullName.vb: FileManager.ExportCurrentFrame(Integer, String)
+  name.vb: ExportCurrentFrame(Integer, String)
+- uid: Global.FileManager.ExportFrame(System.Int32,System.Int32,System.String)
+  commentId: M:Global.FileManager.ExportFrame(System.Int32,System.Int32,System.String)
+  id: ExportFrame(System.Int32,System.Int32,System.String)
+  parent: Global.FileManager
+  langs:
+  - csharp
+  - vb
+  name: ExportFrame(int, int, string)
+  nameWithType: FileManager.ExportFrame(int, int, string)
+  fullName: FileManager.ExportFrame(int, int, string)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Files/FileManager.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: ExportFrame
+    path: ../Assets/Scripts/Files/FileManager.cs
+    startLine: 262
+  namespace: Global
+  syntax:
+    content: public bool ExportFrame(int frameIndex, int fileIndex, string filePath)
+    parameters:
+    - id: frameIndex
+      type: System.Int32
+    - id: fileIndex
+      type: System.Int32
+    - id: filePath
+      type: System.String
+    return:
+      type: System.Boolean
+    content.vb: Public Function ExportFrame(frameIndex As Integer, fileIndex As Integer, filePath As String) As Boolean
+  overload: Global.FileManager.ExportFrame*
+  nameWithType.vb: FileManager.ExportFrame(Integer, Integer, String)
+  fullName.vb: FileManager.ExportFrame(Integer, Integer, String)
+  name.vb: ExportFrame(Integer, Integer, String)
+- uid: Global.FileManager.ExportCurrentAnimationDialog
+  commentId: M:Global.FileManager.ExportCurrentAnimationDialog
+  id: ExportCurrentAnimationDialog
+  parent: Global.FileManager
+  langs:
+  - csharp
+  - vb
+  name: ExportCurrentAnimationDialog()
+  nameWithType: FileManager.ExportCurrentAnimationDialog()
+  fullName: FileManager.ExportCurrentAnimationDialog()
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Files/FileManager.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: ExportCurrentAnimationDialog
+    path: ../Assets/Scripts/Files/FileManager.cs
+    startLine: 271
+  namespace: Global
+  syntax:
+    content: public void ExportCurrentAnimationDialog()
+    content.vb: Public Sub ExportCurrentAnimationDialog()
+  overload: Global.FileManager.ExportCurrentAnimationDialog*
+- uid: Global.FileManager.ExportCurrentAnimation(System.String)
+  commentId: M:Global.FileManager.ExportCurrentAnimation(System.String)
+  id: ExportCurrentAnimation(System.String)
+  parent: Global.FileManager
+  langs:
+  - csharp
+  - vb
+  name: ExportCurrentAnimation(string)
+  nameWithType: FileManager.ExportCurrentAnimation(string)
+  fullName: FileManager.ExportCurrentAnimation(string)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Files/FileManager.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: ExportCurrentAnimation
+    path: ../Assets/Scripts/Files/FileManager.cs
+    startLine: 283
+  namespace: Global
+  syntax:
+    content: public bool ExportCurrentAnimation(string filePath)
+    parameters:
+    - id: filePath
+      type: System.String
+    return:
+      type: System.Boolean
+    content.vb: Public Function ExportCurrentAnimation(filePath As String) As Boolean
+  overload: Global.FileManager.ExportCurrentAnimation*
+  nameWithType.vb: FileManager.ExportCurrentAnimation(String)
+  fullName.vb: FileManager.ExportCurrentAnimation(String)
+  name.vb: ExportCurrentAnimation(String)
+- uid: Global.FileManager.ExportAnimation(System.Int32,System.String)
+  commentId: M:Global.FileManager.ExportAnimation(System.Int32,System.String)
+  id: ExportAnimation(System.Int32,System.String)
+  parent: Global.FileManager
+  langs:
+  - csharp
+  - vb
+  name: ExportAnimation(int, string)
+  nameWithType: FileManager.ExportAnimation(int, string)
+  fullName: FileManager.ExportAnimation(int, string)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Files/FileManager.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: ExportAnimation
+    path: ../Assets/Scripts/Files/FileManager.cs
+    startLine: 287
+  namespace: Global
+  syntax:
+    content: public bool ExportAnimation(int fileIndex, string filePath)
+    parameters:
+    - id: fileIndex
+      type: System.Int32
+    - id: filePath
+      type: System.String
+    return:
+      type: System.Boolean
+    content.vb: Public Function ExportAnimation(fileIndex As Integer, filePath As String) As Boolean
+  overload: Global.FileManager.ExportAnimation*
+  nameWithType.vb: FileManager.ExportAnimation(Integer, String)
+  fullName.vb: FileManager.ExportAnimation(Integer, String)
+  name.vb: ExportAnimation(Integer, String)
+- uid: Global.FileManager.SaveCurrentFileDialog
+  commentId: M:Global.FileManager.SaveCurrentFileDialog
+  id: SaveCurrentFileDialog
+  parent: Global.FileManager
+  langs:
+  - csharp
+  - vb
+  name: SaveCurrentFileDialog()
+  nameWithType: FileManager.SaveCurrentFileDialog()
+  fullName: FileManager.SaveCurrentFileDialog()
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Files/FileManager.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: SaveCurrentFileDialog
+    path: ../Assets/Scripts/Files/FileManager.cs
+    startLine: 296
+  namespace: Global
+  syntax:
+    content: public void SaveCurrentFileDialog()
+    content.vb: Public Sub SaveCurrentFileDialog()
+  overload: Global.FileManager.SaveCurrentFileDialog*
+- uid: Global.FileManager.SaveFileDialog(File)
+  commentId: M:Global.FileManager.SaveFileDialog(File)
+  id: SaveFileDialog(File)
+  parent: Global.FileManager
+  langs:
+  - csharp
+  - vb
+  name: SaveFileDialog(File)
+  nameWithType: FileManager.SaveFileDialog(File)
+  fullName: FileManager.SaveFileDialog(File)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Files/FileManager.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: SaveFileDialog
+    path: ../Assets/Scripts/Files/FileManager.cs
+    startLine: 300
+  namespace: Global
+  syntax:
+    content: public void SaveFileDialog(File file)
+    parameters:
+    - id: file
+      type: Global.File
+    content.vb: Public Sub SaveFileDialog(file As File)
+  overload: Global.FileManager.SaveFileDialog*
+- uid: Global.FileManager.SaveAsCurrentFileDialog
+  commentId: M:Global.FileManager.SaveAsCurrentFileDialog
+  id: SaveAsCurrentFileDialog
+  parent: Global.FileManager
+  langs:
+  - csharp
+  - vb
+  name: SaveAsCurrentFileDialog()
+  nameWithType: FileManager.SaveAsCurrentFileDialog()
+  fullName: FileManager.SaveAsCurrentFileDialog()
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Files/FileManager.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: SaveAsCurrentFileDialog
+    path: ../Assets/Scripts/Files/FileManager.cs
+    startLine: 320
+  namespace: Global
+  syntax:
+    content: public void SaveAsCurrentFileDialog()
+    content.vb: Public Sub SaveAsCurrentFileDialog()
+  overload: Global.FileManager.SaveAsCurrentFileDialog*
+- uid: Global.FileManager.SaveAsFileDialog(File)
+  commentId: M:Global.FileManager.SaveAsFileDialog(File)
+  id: SaveAsFileDialog(File)
+  parent: Global.FileManager
+  langs:
+  - csharp
+  - vb
+  name: SaveAsFileDialog(File)
+  nameWithType: FileManager.SaveAsFileDialog(File)
+  fullName: FileManager.SaveAsFileDialog(File)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Files/FileManager.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: SaveAsFileDialog
+    path: ../Assets/Scripts/Files/FileManager.cs
+    startLine: 324
+  namespace: Global
+  syntax:
+    content: public void SaveAsFileDialog(File file)
+    parameters:
+    - id: file
+      type: Global.File
+    content.vb: Public Sub SaveAsFileDialog(file As File)
+  overload: Global.FileManager.SaveAsFileDialog*
+- uid: Global.FileManager.SaveAsCurrentFile(System.String)
+  commentId: M:Global.FileManager.SaveAsCurrentFile(System.String)
+  id: SaveAsCurrentFile(System.String)
+  parent: Global.FileManager
+  langs:
+  - csharp
+  - vb
+  name: SaveAsCurrentFile(string)
+  nameWithType: FileManager.SaveAsCurrentFile(string)
+  fullName: FileManager.SaveAsCurrentFile(string)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Files/FileManager.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: SaveAsCurrentFile
+    path: ../Assets/Scripts/Files/FileManager.cs
+    startLine: 337
+  namespace: Global
+  syntax:
+    content: public void SaveAsCurrentFile(string filePath)
+    parameters:
+    - id: filePath
+      type: System.String
+    content.vb: Public Sub SaveAsCurrentFile(filePath As String)
+  overload: Global.FileManager.SaveAsCurrentFile*
+  nameWithType.vb: FileManager.SaveAsCurrentFile(String)
+  fullName.vb: FileManager.SaveAsCurrentFile(String)
+  name.vb: SaveAsCurrentFile(String)
+- uid: Global.FileManager.SaveAsFile(File,System.String)
+  commentId: M:Global.FileManager.SaveAsFile(File,System.String)
+  id: SaveAsFile(File,System.String)
+  parent: Global.FileManager
+  langs:
+  - csharp
+  - vb
+  name: SaveAsFile(File, string)
+  nameWithType: FileManager.SaveAsFile(File, string)
+  fullName: FileManager.SaveAsFile(File, string)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Files/FileManager.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: SaveAsFile
+    path: ../Assets/Scripts/Files/FileManager.cs
+    startLine: 341
+  namespace: Global
+  syntax:
+    content: public void SaveAsFile(File file, string filePath)
+    parameters:
+    - id: file
+      type: Global.File
+    - id: filePath
+      type: System.String
+    content.vb: Public Sub SaveAsFile(file As File, filePath As String)
+  overload: Global.FileManager.SaveAsFile*
+  nameWithType.vb: FileManager.SaveAsFile(File, String)
+  fullName.vb: FileManager.SaveAsFile(File, String)
+  name.vb: SaveAsFile(File, String)
+- uid: Global.FileManager.SaveAsFile(System.Int32,System.String)
+  commentId: M:Global.FileManager.SaveAsFile(System.Int32,System.String)
+  id: SaveAsFile(System.Int32,System.String)
+  parent: Global.FileManager
+  langs:
+  - csharp
+  - vb
+  name: SaveAsFile(int, string)
+  nameWithType: FileManager.SaveAsFile(int, string)
+  fullName: FileManager.SaveAsFile(int, string)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Files/FileManager.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: SaveAsFile
+    path: ../Assets/Scripts/Files/FileManager.cs
+    startLine: 345
+  namespace: Global
+  syntax:
+    content: public void SaveAsFile(int fileIndex, string filePath)
+    parameters:
+    - id: fileIndex
+      type: System.Int32
+    - id: filePath
+      type: System.String
+    content.vb: Public Sub SaveAsFile(fileIndex As Integer, filePath As String)
+  overload: Global.FileManager.SaveAsFile*
+  nameWithType.vb: FileManager.SaveAsFile(Integer, String)
+  fullName.vb: FileManager.SaveAsFile(Integer, String)
+  name.vb: SaveAsFile(Integer, String)
+- uid: Global.FileManager.ReloadFile
+  commentId: M:Global.FileManager.ReloadFile
+  id: ReloadFile
+  parent: Global.FileManager
+  langs:
+  - csharp
+  - vb
+  name: ReloadFile()
+  nameWithType: FileManager.ReloadFile()
+  fullName: FileManager.ReloadFile()
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Files/FileManager.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: ReloadFile
+    path: ../Assets/Scripts/Files/FileManager.cs
+    startLine: 354
+  namespace: Global
+  syntax:
+    content: public void ReloadFile()
+    content.vb: Public Sub ReloadFile()
+  overload: Global.FileManager.ReloadFile*
+- uid: Global.FileManager.SwitchToFile(System.Int32)
+  commentId: M:Global.FileManager.SwitchToFile(System.Int32)
+  id: SwitchToFile(System.Int32)
+  parent: Global.FileManager
+  langs:
+  - csharp
+  - vb
+  name: SwitchToFile(int)
+  nameWithType: FileManager.SwitchToFile(int)
+  fullName: FileManager.SwitchToFile(int)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Files/FileManager.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: SwitchToFile
+    path: ../Assets/Scripts/Files/FileManager.cs
+    startLine: 358
+  namespace: Global
+  syntax:
+    content: public void SwitchToFile(int fileIndex)
+    parameters:
+    - id: fileIndex
+      type: System.Int32
+    content.vb: Public Sub SwitchToFile(fileIndex As Integer)
+  overload: Global.FileManager.SwitchToFile*
+  nameWithType.vb: FileManager.SwitchToFile(Integer)
+  fullName.vb: FileManager.SwitchToFile(Integer)
+  name.vb: SwitchToFile(Integer)
+- uid: Global.FileManager.SubscribeToFileSwitched(UnityAction)
+  commentId: M:Global.FileManager.SubscribeToFileSwitched(UnityAction)
+  id: SubscribeToFileSwitched(UnityAction)
+  parent: Global.FileManager
+  langs:
+  - csharp
+  - vb
+  name: SubscribeToFileSwitched(UnityAction)
+  nameWithType: FileManager.SubscribeToFileSwitched(UnityAction)
+  fullName: FileManager.SubscribeToFileSwitched(UnityAction)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Files/FileManager.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: SubscribeToFileSwitched
+    path: ../Assets/Scripts/Files/FileManager.cs
+    startLine: 401
+  namespace: Global
+  syntax:
+    content: public void SubscribeToFileSwitched(UnityAction call)
+    parameters:
+    - id: call
+      type: Global.UnityAction
+    content.vb: Public Sub SubscribeToFileSwitched([call] As UnityAction)
+  overload: Global.FileManager.SubscribeToFileSwitched*
+- uid: Global.FileManager.SubscribeToFilesChanged(UnityAction)
+  commentId: M:Global.FileManager.SubscribeToFilesChanged(UnityAction)
+  id: SubscribeToFilesChanged(UnityAction)
+  parent: Global.FileManager
+  langs:
+  - csharp
+  - vb
+  name: SubscribeToFilesChanged(UnityAction)
+  nameWithType: FileManager.SubscribeToFilesChanged(UnityAction)
+  fullName: FileManager.SubscribeToFilesChanged(UnityAction)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Files/FileManager.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: SubscribeToFilesChanged
+    path: ../Assets/Scripts/Files/FileManager.cs
+    startLine: 405
+  namespace: Global
+  syntax:
+    content: public void SubscribeToFilesChanged(UnityAction call)
+    parameters:
+    - id: call
+      type: Global.UnityAction
+    content.vb: Public Sub SubscribeToFilesChanged([call] As UnityAction)
+  overload: Global.FileManager.SubscribeToFilesChanged*
+references:
+- uid: Global
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: Global.FileManager.files*
+  commentId: Overload:Global.FileManager.files
+  href: Global.FileManager.html#FileManager_files
+  name: files
+  nameWithType: FileManager.files
+  fullName: FileManager.files
+- uid: System.Collections.Generic.List{File}
+  commentId: T:System.Collections.Generic.List{File}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<File>
+  nameWithType: List<File>
+  fullName: System.Collections.Generic.List<File>
+  nameWithType.vb: List(Of File)
+  fullName.vb: System.Collections.Generic.List(Of File)
+  name.vb: List(Of File)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: Global.File
+    name: File
+    href: File.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Global.File
+    name: File
+    href: File.html
+  - name: )
+- uid: System.Collections.Generic.List`1
+  commentId: T:System.Collections.Generic.List`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<T>
+  nameWithType: List<T>
+  fullName: System.Collections.Generic.List<T>
+  nameWithType.vb: List(Of T)
+  fullName.vb: System.Collections.Generic.List(Of T)
+  name.vb: List(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: Global.FileManager.currentFileIndex*
+  commentId: Overload:Global.FileManager.currentFileIndex
+  href: Global.FileManager.html#FileManager_currentFileIndex
+  name: currentFileIndex
+  nameWithType: FileManager.currentFileIndex
+  fullName: FileManager.currentFileIndex
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: Global.FileManager.currentFile*
+  commentId: Overload:Global.FileManager.currentFile
+  href: Global.FileManager.html#FileManager_currentFile
+  name: currentFile
+  nameWithType: FileManager.currentFile
+  fullName: FileManager.currentFile
+- uid: Global.File
+  commentId: T:Global.File
+  href: File.html
+  name: File
+  nameWithType: File
+  fullName: File
+- uid: Global.FileManager.AddFile*
+  commentId: Overload:Global.FileManager.AddFile
+  href: Global.FileManager.html#FileManager_AddFile_File_
+  name: AddFile
+  nameWithType: FileManager.AddFile
+  fullName: FileManager.AddFile
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: Global.FileManager.TryCloseFile*
+  commentId: Overload:Global.FileManager.TryCloseFile
+  href: Global.FileManager.html#FileManager_TryCloseFile_File_
+  name: TryCloseFile
+  nameWithType: FileManager.TryCloseFile
+  fullName: FileManager.TryCloseFile
+- uid: Global.FileManager.CloseFile*
+  commentId: Overload:Global.FileManager.CloseFile
+  href: Global.FileManager.html#FileManager_CloseFile_File_
+  name: CloseFile
+  nameWithType: FileManager.CloseFile
+  fullName: FileManager.CloseFile
+- uid: Global.FileManager.NewFile*
+  commentId: Overload:Global.FileManager.NewFile
+  href: Global.FileManager.html#FileManager_NewFile_System_Int32_System_Int32_
+  name: NewFile
+  nameWithType: FileManager.NewFile
+  fullName: FileManager.NewFile
+- uid: Global.FileManager.OpenFileDialog*
+  commentId: Overload:Global.FileManager.OpenFileDialog
+  href: Global.FileManager.html#FileManager_OpenFileDialog
+  name: OpenFileDialog
+  nameWithType: FileManager.OpenFileDialog
+  fullName: FileManager.OpenFileDialog
+- uid: Global.FileManager.OpenFile*
+  commentId: Overload:Global.FileManager.OpenFile
+  href: Global.FileManager.html#FileManager_OpenFile_File_
+  name: OpenFile
+  nameWithType: FileManager.OpenFile
+  fullName: FileManager.OpenFile
+- uid: Global.FileManager.ImportDialog*
+  commentId: Overload:Global.FileManager.ImportDialog
+  href: Global.FileManager.html#FileManager_ImportDialog
+  name: ImportDialog
+  nameWithType: FileManager.ImportDialog
+  fullName: FileManager.ImportDialog
+- uid: Global.FileManager.ExportCurrentFrameDialog*
+  commentId: Overload:Global.FileManager.ExportCurrentFrameDialog
+  href: Global.FileManager.html#FileManager_ExportCurrentFrameDialog
+  name: ExportCurrentFrameDialog
+  nameWithType: FileManager.ExportCurrentFrameDialog
+  fullName: FileManager.ExportCurrentFrameDialog
+- uid: Global.FileManager.ExportCurrentFrame*
+  commentId: Overload:Global.FileManager.ExportCurrentFrame
+  href: Global.FileManager.html#FileManager_ExportCurrentFrame_System_Int32_System_String_
+  name: ExportCurrentFrame
+  nameWithType: FileManager.ExportCurrentFrame
+  fullName: FileManager.ExportCurrentFrame
+- uid: Global.FileManager.ExportFrame*
+  commentId: Overload:Global.FileManager.ExportFrame
+  href: Global.FileManager.html#FileManager_ExportFrame_System_Int32_System_Int32_System_String_
+  name: ExportFrame
+  nameWithType: FileManager.ExportFrame
+  fullName: FileManager.ExportFrame
+- uid: Global.FileManager.ExportCurrentAnimationDialog*
+  commentId: Overload:Global.FileManager.ExportCurrentAnimationDialog
+  href: Global.FileManager.html#FileManager_ExportCurrentAnimationDialog
+  name: ExportCurrentAnimationDialog
+  nameWithType: FileManager.ExportCurrentAnimationDialog
+  fullName: FileManager.ExportCurrentAnimationDialog
+- uid: Global.FileManager.ExportCurrentAnimation*
+  commentId: Overload:Global.FileManager.ExportCurrentAnimation
+  href: Global.FileManager.html#FileManager_ExportCurrentAnimation_System_String_
+  name: ExportCurrentAnimation
+  nameWithType: FileManager.ExportCurrentAnimation
+  fullName: FileManager.ExportCurrentAnimation
+- uid: Global.FileManager.ExportAnimation*
+  commentId: Overload:Global.FileManager.ExportAnimation
+  href: Global.FileManager.html#FileManager_ExportAnimation_System_Int32_System_String_
+  name: ExportAnimation
+  nameWithType: FileManager.ExportAnimation
+  fullName: FileManager.ExportAnimation
+- uid: Global.FileManager.SaveCurrentFileDialog*
+  commentId: Overload:Global.FileManager.SaveCurrentFileDialog
+  href: Global.FileManager.html#FileManager_SaveCurrentFileDialog
+  name: SaveCurrentFileDialog
+  nameWithType: FileManager.SaveCurrentFileDialog
+  fullName: FileManager.SaveCurrentFileDialog
+- uid: Global.FileManager.SaveFileDialog*
+  commentId: Overload:Global.FileManager.SaveFileDialog
+  href: Global.FileManager.html#FileManager_SaveFileDialog_File_
+  name: SaveFileDialog
+  nameWithType: FileManager.SaveFileDialog
+  fullName: FileManager.SaveFileDialog
+- uid: Global.FileManager.SaveAsCurrentFileDialog*
+  commentId: Overload:Global.FileManager.SaveAsCurrentFileDialog
+  href: Global.FileManager.html#FileManager_SaveAsCurrentFileDialog
+  name: SaveAsCurrentFileDialog
+  nameWithType: FileManager.SaveAsCurrentFileDialog
+  fullName: FileManager.SaveAsCurrentFileDialog
+- uid: Global.FileManager.SaveAsFileDialog*
+  commentId: Overload:Global.FileManager.SaveAsFileDialog
+  href: Global.FileManager.html#FileManager_SaveAsFileDialog_File_
+  name: SaveAsFileDialog
+  nameWithType: FileManager.SaveAsFileDialog
+  fullName: FileManager.SaveAsFileDialog
+- uid: Global.FileManager.SaveAsCurrentFile*
+  commentId: Overload:Global.FileManager.SaveAsCurrentFile
+  href: Global.FileManager.html#FileManager_SaveAsCurrentFile_System_String_
+  name: SaveAsCurrentFile
+  nameWithType: FileManager.SaveAsCurrentFile
+  fullName: FileManager.SaveAsCurrentFile
+- uid: Global.FileManager.SaveAsFile*
+  commentId: Overload:Global.FileManager.SaveAsFile
+  href: Global.FileManager.html#FileManager_SaveAsFile_File_System_String_
+  name: SaveAsFile
+  nameWithType: FileManager.SaveAsFile
+  fullName: FileManager.SaveAsFile
+- uid: Global.FileManager.ReloadFile*
+  commentId: Overload:Global.FileManager.ReloadFile
+  href: Global.FileManager.html#FileManager_ReloadFile
+  name: ReloadFile
+  nameWithType: FileManager.ReloadFile
+  fullName: FileManager.ReloadFile
+- uid: Global.FileManager.SwitchToFile*
+  commentId: Overload:Global.FileManager.SwitchToFile
+  href: Global.FileManager.html#FileManager_SwitchToFile_System_Int32_
+  name: SwitchToFile
+  nameWithType: FileManager.SwitchToFile
+  fullName: FileManager.SwitchToFile
+- uid: Global.FileManager.SubscribeToFileSwitched*
+  commentId: Overload:Global.FileManager.SubscribeToFileSwitched
+  href: Global.FileManager.html#FileManager_SubscribeToFileSwitched_UnityAction_
+  name: SubscribeToFileSwitched
+  nameWithType: FileManager.SubscribeToFileSwitched
+  fullName: FileManager.SubscribeToFileSwitched
+- uid: Global.UnityAction
+  isExternal: true
+  name: UnityAction
+  nameWithType: UnityAction
+  fullName: UnityAction
+- uid: Global.FileManager.SubscribeToFilesChanged*
+  commentId: Overload:Global.FileManager.SubscribeToFilesChanged
+  href: Global.FileManager.html#FileManager_SubscribeToFilesChanged_UnityAction_
+  name: SubscribeToFilesChanged
+  nameWithType: FileManager.SubscribeToFilesChanged
+  fullName: FileManager.SubscribeToFilesChanged

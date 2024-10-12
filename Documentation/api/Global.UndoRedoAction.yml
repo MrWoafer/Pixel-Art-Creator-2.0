@@ -1,0 +1,134 @@
+### YamlMime:ManagedReference
+items:
+- uid: Global.UndoRedoAction
+  commentId: T:Global.UndoRedoAction
+  id: UndoRedoAction
+  parent: Global
+  children:
+  - Global.UndoRedoAction.Draw
+  - Global.UndoRedoAction.None
+  - Global.UndoRedoAction.ReorderLayers
+  - Global.UndoRedoAction.Undefined
+  langs:
+  - csharp
+  - vb
+  name: UndoRedoAction
+  nameWithType: UndoRedoAction
+  fullName: UndoRedoAction
+  type: Enum
+  source:
+    remote:
+      path: Assets/Scripts/Undo Redo/UndoRedoState.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: UndoRedoAction
+    path: ../Assets/Scripts/Undo Redo/UndoRedoState.cs
+    startLine: 4
+  namespace: Global
+  syntax:
+    content: public enum UndoRedoAction
+    content.vb: Public Enum UndoRedoAction
+- uid: Global.UndoRedoAction.None
+  commentId: F:Global.UndoRedoAction.None
+  id: None
+  parent: Global.UndoRedoAction
+  langs:
+  - csharp
+  - vb
+  name: None
+  nameWithType: UndoRedoAction.None
+  fullName: UndoRedoAction.None
+  type: Field
+  source:
+    remote:
+      path: Assets/Scripts/Undo Redo/UndoRedoState.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: None
+    path: ../Assets/Scripts/Undo Redo/UndoRedoState.cs
+    startLine: 6
+  namespace: Global
+  syntax:
+    content: None = -1
+    return:
+      type: Global.UndoRedoAction
+- uid: Global.UndoRedoAction.Undefined
+  commentId: F:Global.UndoRedoAction.Undefined
+  id: Undefined
+  parent: Global.UndoRedoAction
+  langs:
+  - csharp
+  - vb
+  name: Undefined
+  nameWithType: UndoRedoAction.Undefined
+  fullName: UndoRedoAction.Undefined
+  type: Field
+  source:
+    remote:
+      path: Assets/Scripts/Undo Redo/UndoRedoState.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: Undefined
+    path: ../Assets/Scripts/Undo Redo/UndoRedoState.cs
+    startLine: 7
+  namespace: Global
+  syntax:
+    content: Undefined = 0
+    return:
+      type: Global.UndoRedoAction
+- uid: Global.UndoRedoAction.Draw
+  commentId: F:Global.UndoRedoAction.Draw
+  id: Draw
+  parent: Global.UndoRedoAction
+  langs:
+  - csharp
+  - vb
+  name: Draw
+  nameWithType: UndoRedoAction.Draw
+  fullName: UndoRedoAction.Draw
+  type: Field
+  source:
+    remote:
+      path: Assets/Scripts/Undo Redo/UndoRedoState.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: Draw
+    path: ../Assets/Scripts/Undo Redo/UndoRedoState.cs
+    startLine: 8
+  namespace: Global
+  syntax:
+    content: Draw = 1
+    return:
+      type: Global.UndoRedoAction
+- uid: Global.UndoRedoAction.ReorderLayers
+  commentId: F:Global.UndoRedoAction.ReorderLayers
+  id: ReorderLayers
+  parent: Global.UndoRedoAction
+  langs:
+  - csharp
+  - vb
+  name: ReorderLayers
+  nameWithType: UndoRedoAction.ReorderLayers
+  fullName: UndoRedoAction.ReorderLayers
+  type: Field
+  source:
+    remote:
+      path: Assets/Scripts/Undo Redo/UndoRedoState.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: ReorderLayers
+    path: ../Assets/Scripts/Undo Redo/UndoRedoState.cs
+    startLine: 9
+  namespace: Global
+  syntax:
+    content: ReorderLayers = 2
+    return:
+      type: Global.UndoRedoAction
+references:
+- uid: Global
+- uid: Global.UndoRedoAction
+  commentId: T:Global.UndoRedoAction
+  href: UndoRedoAction.html
+  name: UndoRedoAction
+  nameWithType: UndoRedoAction
+  fullName: UndoRedoAction

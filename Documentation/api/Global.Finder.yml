@@ -1,0 +1,995 @@
+### YamlMime:ManagedReference
+items:
+- uid: Global.Finder
+  commentId: T:Global.Finder
+  id: Finder
+  parent: Global
+  children:
+  - Global.Finder.animationManager
+  - Global.Finder.clipboard
+  - Global.Finder.colourPicker
+  - Global.Finder.drawingArea
+  - Global.Finder.fileManager
+  - Global.Finder.fileTabsManager
+  - Global.Finder.gridManager
+  - Global.Finder.imageEditManager
+  - Global.Finder.inputSystem
+  - Global.Finder.keyboard
+  - Global.Finder.layerManager
+  - Global.Finder.mouse
+  - Global.Finder.themeManager
+  - Global.Finder.tileOutlineManager
+  - Global.Finder.tilesetManager
+  - Global.Finder.toolbar
+  - Global.Finder.uiManager
+  - Global.Finder.undoRedoManager
+  langs:
+  - csharp
+  - vb
+  name: Finder
+  nameWithType: Finder
+  fullName: Finder
+  type: Class
+  source:
+    remote:
+      path: Assets/Scripts/Finder.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: Finder
+    path: ../Assets/Scripts/Finder.cs
+    startLine: 4
+  namespace: Global
+  syntax:
+    content: public class Finder
+    content.vb: Public Class Finder
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: Global.Finder.inputSystem
+  commentId: P:Global.Finder.inputSystem
+  id: inputSystem
+  parent: Global.Finder
+  langs:
+  - csharp
+  - vb
+  name: inputSystem
+  nameWithType: Finder.inputSystem
+  fullName: Finder.inputSystem
+  type: Property
+  source:
+    remote:
+      path: Assets/Scripts/Finder.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: inputSystem
+    path: ../Assets/Scripts/Finder.cs
+    startLine: 6
+  namespace: Global
+  syntax:
+    content: public static InputSystem inputSystem { get; }
+    parameters: []
+    return:
+      type: Global.InputSystem
+    content.vb: Public Shared ReadOnly Property inputSystem As InputSystem
+  overload: Global.Finder.inputSystem*
+- uid: Global.Finder.mouse
+  commentId: P:Global.Finder.mouse
+  id: mouse
+  parent: Global.Finder
+  langs:
+  - csharp
+  - vb
+  name: mouse
+  nameWithType: Finder.mouse
+  fullName: Finder.mouse
+  type: Property
+  source:
+    remote:
+      path: Assets/Scripts/Finder.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: mouse
+    path: ../Assets/Scripts/Finder.cs
+    startLine: 7
+  namespace: Global
+  syntax:
+    content: public static Mouse mouse { get; }
+    parameters: []
+    return:
+      type: Global.Mouse
+    content.vb: Public Shared ReadOnly Property mouse As Mouse
+  overload: Global.Finder.mouse*
+- uid: Global.Finder.keyboard
+  commentId: P:Global.Finder.keyboard
+  id: keyboard
+  parent: Global.Finder
+  langs:
+  - csharp
+  - vb
+  name: keyboard
+  nameWithType: Finder.keyboard
+  fullName: Finder.keyboard
+  type: Property
+  source:
+    remote:
+      path: Assets/Scripts/Finder.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: keyboard
+    path: ../Assets/Scripts/Finder.cs
+    startLine: 8
+  namespace: Global
+  syntax:
+    content: public static Keyboard keyboard { get; }
+    parameters: []
+    return:
+      type: Global.Keyboard
+    content.vb: Public Shared ReadOnly Property keyboard As Keyboard
+  overload: Global.Finder.keyboard*
+- uid: Global.Finder.fileManager
+  commentId: P:Global.Finder.fileManager
+  id: fileManager
+  parent: Global.Finder
+  langs:
+  - csharp
+  - vb
+  name: fileManager
+  nameWithType: Finder.fileManager
+  fullName: Finder.fileManager
+  type: Property
+  source:
+    remote:
+      path: Assets/Scripts/Finder.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: fileManager
+    path: ../Assets/Scripts/Finder.cs
+    startLine: 10
+  namespace: Global
+  syntax:
+    content: public static FileManager fileManager { get; }
+    parameters: []
+    return:
+      type: Global.FileManager
+    content.vb: Public Shared ReadOnly Property fileManager As FileManager
+  overload: Global.Finder.fileManager*
+- uid: Global.Finder.fileTabsManager
+  commentId: P:Global.Finder.fileTabsManager
+  id: fileTabsManager
+  parent: Global.Finder
+  langs:
+  - csharp
+  - vb
+  name: fileTabsManager
+  nameWithType: Finder.fileTabsManager
+  fullName: Finder.fileTabsManager
+  type: Property
+  source:
+    remote:
+      path: Assets/Scripts/Finder.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: fileTabsManager
+    path: ../Assets/Scripts/Finder.cs
+    startLine: 11
+  namespace: Global
+  syntax:
+    content: public static FileTabsManager fileTabsManager { get; }
+    parameters: []
+    return:
+      type: Global.FileTabsManager
+    content.vb: Public Shared ReadOnly Property fileTabsManager As FileTabsManager
+  overload: Global.Finder.fileTabsManager*
+- uid: Global.Finder.layerManager
+  commentId: P:Global.Finder.layerManager
+  id: layerManager
+  parent: Global.Finder
+  langs:
+  - csharp
+  - vb
+  name: layerManager
+  nameWithType: Finder.layerManager
+  fullName: Finder.layerManager
+  type: Property
+  source:
+    remote:
+      path: Assets/Scripts/Finder.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: layerManager
+    path: ../Assets/Scripts/Finder.cs
+    startLine: 13
+  namespace: Global
+  syntax:
+    content: public static LayerManager layerManager { get; }
+    parameters: []
+    return:
+      type: Global.LayerManager
+    content.vb: Public Shared ReadOnly Property layerManager As LayerManager
+  overload: Global.Finder.layerManager*
+- uid: Global.Finder.animationManager
+  commentId: P:Global.Finder.animationManager
+  id: animationManager
+  parent: Global.Finder
+  langs:
+  - csharp
+  - vb
+  name: animationManager
+  nameWithType: Finder.animationManager
+  fullName: Finder.animationManager
+  type: Property
+  source:
+    remote:
+      path: Assets/Scripts/Finder.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: animationManager
+    path: ../Assets/Scripts/Finder.cs
+    startLine: 14
+  namespace: Global
+  syntax:
+    content: public static AnimationManager animationManager { get; }
+    parameters: []
+    return:
+      type: Global.AnimationManager
+    content.vb: Public Shared ReadOnly Property animationManager As AnimationManager
+  overload: Global.Finder.animationManager*
+- uid: Global.Finder.drawingArea
+  commentId: P:Global.Finder.drawingArea
+  id: drawingArea
+  parent: Global.Finder
+  langs:
+  - csharp
+  - vb
+  name: drawingArea
+  nameWithType: Finder.drawingArea
+  fullName: Finder.drawingArea
+  type: Property
+  source:
+    remote:
+      path: Assets/Scripts/Finder.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: drawingArea
+    path: ../Assets/Scripts/Finder.cs
+    startLine: 16
+  namespace: Global
+  syntax:
+    content: public static DrawingArea drawingArea { get; }
+    parameters: []
+    return:
+      type: Global.DrawingArea
+    content.vb: Public Shared ReadOnly Property drawingArea As DrawingArea
+  overload: Global.Finder.drawingArea*
+- uid: Global.Finder.tilesetManager
+  commentId: P:Global.Finder.tilesetManager
+  id: tilesetManager
+  parent: Global.Finder
+  langs:
+  - csharp
+  - vb
+  name: tilesetManager
+  nameWithType: Finder.tilesetManager
+  fullName: Finder.tilesetManager
+  type: Property
+  source:
+    remote:
+      path: Assets/Scripts/Finder.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: tilesetManager
+    path: ../Assets/Scripts/Finder.cs
+    startLine: 18
+  namespace: Global
+  syntax:
+    content: public static TilesetManager tilesetManager { get; }
+    parameters: []
+    return:
+      type: Global.TilesetManager
+    content.vb: Public Shared ReadOnly Property tilesetManager As TilesetManager
+  overload: Global.Finder.tilesetManager*
+- uid: Global.Finder.tileOutlineManager
+  commentId: P:Global.Finder.tileOutlineManager
+  id: tileOutlineManager
+  parent: Global.Finder
+  langs:
+  - csharp
+  - vb
+  name: tileOutlineManager
+  nameWithType: Finder.tileOutlineManager
+  fullName: Finder.tileOutlineManager
+  type: Property
+  source:
+    remote:
+      path: Assets/Scripts/Finder.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: tileOutlineManager
+    path: ../Assets/Scripts/Finder.cs
+    startLine: 19
+  namespace: Global
+  syntax:
+    content: public static TileOutlineManager tileOutlineManager { get; }
+    parameters: []
+    return:
+      type: Global.TileOutlineManager
+    content.vb: Public Shared ReadOnly Property tileOutlineManager As TileOutlineManager
+  overload: Global.Finder.tileOutlineManager*
+- uid: Global.Finder.colourPicker
+  commentId: P:Global.Finder.colourPicker
+  id: colourPicker
+  parent: Global.Finder
+  langs:
+  - csharp
+  - vb
+  name: colourPicker
+  nameWithType: Finder.colourPicker
+  fullName: Finder.colourPicker
+  type: Property
+  source:
+    remote:
+      path: Assets/Scripts/Finder.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: colourPicker
+    path: ../Assets/Scripts/Finder.cs
+    startLine: 21
+  namespace: Global
+  syntax:
+    content: public static GlobalColourPicker colourPicker { get; }
+    parameters: []
+    return:
+      type: Global.GlobalColourPicker
+    content.vb: Public Shared ReadOnly Property colourPicker As GlobalColourPicker
+  overload: Global.Finder.colourPicker*
+- uid: Global.Finder.toolbar
+  commentId: P:Global.Finder.toolbar
+  id: toolbar
+  parent: Global.Finder
+  langs:
+  - csharp
+  - vb
+  name: toolbar
+  nameWithType: Finder.toolbar
+  fullName: Finder.toolbar
+  type: Property
+  source:
+    remote:
+      path: Assets/Scripts/Finder.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: toolbar
+    path: ../Assets/Scripts/Finder.cs
+    startLine: 22
+  namespace: Global
+  syntax:
+    content: public static Toolbar toolbar { get; }
+    parameters: []
+    return:
+      type: Global.Toolbar
+    content.vb: Public Shared ReadOnly Property toolbar As Toolbar
+  overload: Global.Finder.toolbar*
+- uid: Global.Finder.uiManager
+  commentId: P:Global.Finder.uiManager
+  id: uiManager
+  parent: Global.Finder
+  langs:
+  - csharp
+  - vb
+  name: uiManager
+  nameWithType: Finder.uiManager
+  fullName: Finder.uiManager
+  type: Property
+  source:
+    remote:
+      path: Assets/Scripts/Finder.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: uiManager
+    path: ../Assets/Scripts/Finder.cs
+    startLine: 24
+  namespace: Global
+  syntax:
+    content: public static UIManager uiManager { get; }
+    parameters: []
+    return:
+      type: Global.UIManager
+    content.vb: Public Shared ReadOnly Property uiManager As UIManager
+  overload: Global.Finder.uiManager*
+- uid: Global.Finder.themeManager
+  commentId: P:Global.Finder.themeManager
+  id: themeManager
+  parent: Global.Finder
+  langs:
+  - csharp
+  - vb
+  name: themeManager
+  nameWithType: Finder.themeManager
+  fullName: Finder.themeManager
+  type: Property
+  source:
+    remote:
+      path: Assets/Scripts/Finder.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: themeManager
+    path: ../Assets/Scripts/Finder.cs
+    startLine: 25
+  namespace: Global
+  syntax:
+    content: public static ThemeManager themeManager { get; }
+    parameters: []
+    return:
+      type: Global.ThemeManager
+    content.vb: Public Shared ReadOnly Property themeManager As ThemeManager
+  overload: Global.Finder.themeManager*
+- uid: Global.Finder.gridManager
+  commentId: P:Global.Finder.gridManager
+  id: gridManager
+  parent: Global.Finder
+  langs:
+  - csharp
+  - vb
+  name: gridManager
+  nameWithType: Finder.gridManager
+  fullName: Finder.gridManager
+  type: Property
+  source:
+    remote:
+      path: Assets/Scripts/Finder.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: gridManager
+    path: ../Assets/Scripts/Finder.cs
+    startLine: 26
+  namespace: Global
+  syntax:
+    content: public static GridManager gridManager { get; }
+    parameters: []
+    return:
+      type: Global.GridManager
+    content.vb: Public Shared ReadOnly Property gridManager As GridManager
+  overload: Global.Finder.gridManager*
+- uid: Global.Finder.undoRedoManager
+  commentId: P:Global.Finder.undoRedoManager
+  id: undoRedoManager
+  parent: Global.Finder
+  langs:
+  - csharp
+  - vb
+  name: undoRedoManager
+  nameWithType: Finder.undoRedoManager
+  fullName: Finder.undoRedoManager
+  type: Property
+  source:
+    remote:
+      path: Assets/Scripts/Finder.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: undoRedoManager
+    path: ../Assets/Scripts/Finder.cs
+    startLine: 28
+  namespace: Global
+  syntax:
+    content: public static UndoRedoManager undoRedoManager { get; }
+    parameters: []
+    return:
+      type: Global.UndoRedoManager
+    content.vb: Public Shared ReadOnly Property undoRedoManager As UndoRedoManager
+  overload: Global.Finder.undoRedoManager*
+- uid: Global.Finder.clipboard
+  commentId: P:Global.Finder.clipboard
+  id: clipboard
+  parent: Global.Finder
+  langs:
+  - csharp
+  - vb
+  name: clipboard
+  nameWithType: Finder.clipboard
+  fullName: Finder.clipboard
+  type: Property
+  source:
+    remote:
+      path: Assets/Scripts/Finder.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: clipboard
+    path: ../Assets/Scripts/Finder.cs
+    startLine: 29
+  namespace: Global
+  syntax:
+    content: public static Clipboard clipboard { get; }
+    parameters: []
+    return:
+      type: Global.Clipboard
+    content.vb: Public Shared ReadOnly Property clipboard As Clipboard
+  overload: Global.Finder.clipboard*
+- uid: Global.Finder.imageEditManager
+  commentId: P:Global.Finder.imageEditManager
+  id: imageEditManager
+  parent: Global.Finder
+  langs:
+  - csharp
+  - vb
+  name: imageEditManager
+  nameWithType: Finder.imageEditManager
+  fullName: Finder.imageEditManager
+  type: Property
+  source:
+    remote:
+      path: Assets/Scripts/Finder.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: imageEditManager
+    path: ../Assets/Scripts/Finder.cs
+    startLine: 30
+  namespace: Global
+  syntax:
+    content: public static ImageEditManager imageEditManager { get; }
+    parameters: []
+    return:
+      type: Global.ImageEditManager
+    content.vb: Public Shared ReadOnly Property imageEditManager As ImageEditManager
+  overload: Global.Finder.imageEditManager*
+references:
+- uid: Global
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Global.Finder.inputSystem*
+  commentId: Overload:Global.Finder.inputSystem
+  href: Global.Finder.html#Finder_inputSystem
+  name: inputSystem
+  nameWithType: Finder.inputSystem
+  fullName: Finder.inputSystem
+- uid: Global.InputSystem
+  commentId: T:Global.InputSystem
+  href: InputSystem.html
+  name: InputSystem
+  nameWithType: InputSystem
+  fullName: InputSystem
+- uid: Global.Finder.mouse*
+  commentId: Overload:Global.Finder.mouse
+  href: Global.Finder.html#Finder_mouse
+  name: mouse
+  nameWithType: Finder.mouse
+  fullName: Finder.mouse
+- uid: Global.Mouse
+  commentId: T:Global.Mouse
+  href: Mouse.html
+  name: Mouse
+  nameWithType: Mouse
+  fullName: Mouse
+- uid: Global.Finder.keyboard*
+  commentId: Overload:Global.Finder.keyboard
+  href: Global.Finder.html#Finder_keyboard
+  name: keyboard
+  nameWithType: Finder.keyboard
+  fullName: Finder.keyboard
+- uid: Global.Keyboard
+  commentId: T:Global.Keyboard
+  href: Keyboard.html
+  name: Keyboard
+  nameWithType: Keyboard
+  fullName: Keyboard
+- uid: Global.Finder.fileManager*
+  commentId: Overload:Global.Finder.fileManager
+  href: Global.Finder.html#Finder_fileManager
+  name: fileManager
+  nameWithType: Finder.fileManager
+  fullName: Finder.fileManager
+- uid: Global.FileManager
+  commentId: T:Global.FileManager
+  href: FileManager.html
+  name: FileManager
+  nameWithType: FileManager
+  fullName: FileManager
+- uid: Global.Finder.fileTabsManager*
+  commentId: Overload:Global.Finder.fileTabsManager
+  href: Global.Finder.html#Finder_fileTabsManager
+  name: fileTabsManager
+  nameWithType: Finder.fileTabsManager
+  fullName: Finder.fileTabsManager
+- uid: Global.FileTabsManager
+  commentId: T:Global.FileTabsManager
+  href: FileTabsManager.html
+  name: FileTabsManager
+  nameWithType: FileTabsManager
+  fullName: FileTabsManager
+- uid: Global.Finder.layerManager*
+  commentId: Overload:Global.Finder.layerManager
+  href: Global.Finder.html#Finder_layerManager
+  name: layerManager
+  nameWithType: Finder.layerManager
+  fullName: Finder.layerManager
+- uid: Global.LayerManager
+  commentId: T:Global.LayerManager
+  href: LayerManager.html
+  name: LayerManager
+  nameWithType: LayerManager
+  fullName: LayerManager
+- uid: Global.Finder.animationManager*
+  commentId: Overload:Global.Finder.animationManager
+  href: Global.Finder.html#Finder_animationManager
+  name: animationManager
+  nameWithType: Finder.animationManager
+  fullName: Finder.animationManager
+- uid: Global.AnimationManager
+  commentId: T:Global.AnimationManager
+  href: AnimationManager.html
+  name: AnimationManager
+  nameWithType: AnimationManager
+  fullName: AnimationManager
+- uid: Global.Finder.drawingArea*
+  commentId: Overload:Global.Finder.drawingArea
+  href: Global.Finder.html#Finder_drawingArea
+  name: drawingArea
+  nameWithType: Finder.drawingArea
+  fullName: Finder.drawingArea
+- uid: Global.DrawingArea
+  commentId: T:Global.DrawingArea
+  href: DrawingArea.html
+  name: DrawingArea
+  nameWithType: DrawingArea
+  fullName: DrawingArea
+- uid: Global.Finder.tilesetManager*
+  commentId: Overload:Global.Finder.tilesetManager
+  href: Global.Finder.html#Finder_tilesetManager
+  name: tilesetManager
+  nameWithType: Finder.tilesetManager
+  fullName: Finder.tilesetManager
+- uid: Global.TilesetManager
+  commentId: T:Global.TilesetManager
+  href: TilesetManager.html
+  name: TilesetManager
+  nameWithType: TilesetManager
+  fullName: TilesetManager
+- uid: Global.Finder.tileOutlineManager*
+  commentId: Overload:Global.Finder.tileOutlineManager
+  href: Global.Finder.html#Finder_tileOutlineManager
+  name: tileOutlineManager
+  nameWithType: Finder.tileOutlineManager
+  fullName: Finder.tileOutlineManager
+- uid: Global.TileOutlineManager
+  commentId: T:Global.TileOutlineManager
+  href: TileOutlineManager.html
+  name: TileOutlineManager
+  nameWithType: TileOutlineManager
+  fullName: TileOutlineManager
+- uid: Global.Finder.colourPicker*
+  commentId: Overload:Global.Finder.colourPicker
+  href: Global.Finder.html#Finder_colourPicker
+  name: colourPicker
+  nameWithType: Finder.colourPicker
+  fullName: Finder.colourPicker
+- uid: Global.GlobalColourPicker
+  commentId: T:Global.GlobalColourPicker
+  href: GlobalColourPicker.html
+  name: GlobalColourPicker
+  nameWithType: GlobalColourPicker
+  fullName: GlobalColourPicker
+- uid: Global.Finder.toolbar*
+  commentId: Overload:Global.Finder.toolbar
+  href: Global.Finder.html#Finder_toolbar
+  name: toolbar
+  nameWithType: Finder.toolbar
+  fullName: Finder.toolbar
+- uid: Global.Toolbar
+  commentId: T:Global.Toolbar
+  href: Toolbar.html
+  name: Toolbar
+  nameWithType: Toolbar
+  fullName: Toolbar
+- uid: Global.Finder.uiManager*
+  commentId: Overload:Global.Finder.uiManager
+  href: Global.Finder.html#Finder_uiManager
+  name: uiManager
+  nameWithType: Finder.uiManager
+  fullName: Finder.uiManager
+- uid: Global.UIManager
+  commentId: T:Global.UIManager
+  href: UIManager.html
+  name: UIManager
+  nameWithType: UIManager
+  fullName: UIManager
+- uid: Global.Finder.themeManager*
+  commentId: Overload:Global.Finder.themeManager
+  href: Global.Finder.html#Finder_themeManager
+  name: themeManager
+  nameWithType: Finder.themeManager
+  fullName: Finder.themeManager
+- uid: Global.ThemeManager
+  commentId: T:Global.ThemeManager
+  href: ThemeManager.html
+  name: ThemeManager
+  nameWithType: ThemeManager
+  fullName: ThemeManager
+- uid: Global.Finder.gridManager*
+  commentId: Overload:Global.Finder.gridManager
+  href: Global.Finder.html#Finder_gridManager
+  name: gridManager
+  nameWithType: Finder.gridManager
+  fullName: Finder.gridManager
+- uid: Global.GridManager
+  commentId: T:Global.GridManager
+  href: GridManager.html
+  name: GridManager
+  nameWithType: GridManager
+  fullName: GridManager
+- uid: Global.Finder.undoRedoManager*
+  commentId: Overload:Global.Finder.undoRedoManager
+  href: Global.Finder.html#Finder_undoRedoManager
+  name: undoRedoManager
+  nameWithType: Finder.undoRedoManager
+  fullName: Finder.undoRedoManager
+- uid: Global.UndoRedoManager
+  commentId: T:Global.UndoRedoManager
+  href: UndoRedoManager.html
+  name: UndoRedoManager
+  nameWithType: UndoRedoManager
+  fullName: UndoRedoManager
+- uid: Global.Finder.clipboard*
+  commentId: Overload:Global.Finder.clipboard
+  href: Global.Finder.html#Finder_clipboard
+  name: clipboard
+  nameWithType: Finder.clipboard
+  fullName: Finder.clipboard
+- uid: Global.Clipboard
+  commentId: T:Global.Clipboard
+  href: Clipboard.html
+  name: Clipboard
+  nameWithType: Clipboard
+  fullName: Clipboard
+- uid: Global.Finder.imageEditManager*
+  commentId: Overload:Global.Finder.imageEditManager
+  href: Global.Finder.html#Finder_imageEditManager
+  name: imageEditManager
+  nameWithType: Finder.imageEditManager
+  fullName: Finder.imageEditManager
+- uid: Global.ImageEditManager
+  commentId: T:Global.ImageEditManager
+  href: ImageEditManager.html
+  name: ImageEditManager
+  nameWithType: ImageEditManager
+  fullName: ImageEditManager

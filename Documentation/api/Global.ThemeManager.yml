@@ -1,0 +1,335 @@
+### YamlMime:ManagedReference
+items:
+- uid: Global.ThemeManager
+  commentId: T:Global.ThemeManager
+  id: ThemeManager
+  parent: Global
+  children:
+  - Global.ThemeManager.SetTheme(System.String)
+  - Global.ThemeManager.SetTheme(Theme)
+  - Global.ThemeManager.SubscribeToThemeChanged(UnityAction)
+  - Global.ThemeManager.currentTheme
+  - Global.ThemeManager.themes
+  langs:
+  - csharp
+  - vb
+  name: ThemeManager
+  nameWithType: ThemeManager
+  fullName: ThemeManager
+  type: Class
+  source:
+    remote:
+      path: Assets/Scripts/Themes/ThemeManager.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: ThemeManager
+    path: ../Assets/Scripts/Themes/ThemeManager.cs
+    startLine: 5
+  namespace: Global
+  syntax:
+    content: 'public class ThemeManager : MonoBehaviour'
+    content.vb: Public Class ThemeManager Inherits MonoBehaviour
+  inheritance:
+  - System.Object
+- uid: Global.ThemeManager.currentTheme
+  commentId: P:Global.ThemeManager.currentTheme
+  id: currentTheme
+  parent: Global.ThemeManager
+  langs:
+  - csharp
+  - vb
+  name: currentTheme
+  nameWithType: ThemeManager.currentTheme
+  fullName: ThemeManager.currentTheme
+  type: Property
+  source:
+    remote:
+      path: Assets/Scripts/Themes/ThemeManager.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: currentTheme
+    path: ../Assets/Scripts/Themes/ThemeManager.cs
+    startLine: 10
+  namespace: Global
+  syntax:
+    content: public Theme currentTheme { get; }
+    parameters: []
+    return:
+      type: Global.Theme
+    content.vb: Public Property currentTheme As Theme
+  overload: Global.ThemeManager.currentTheme*
+- uid: Global.ThemeManager.themes
+  commentId: P:Global.ThemeManager.themes
+  id: themes
+  parent: Global.ThemeManager
+  langs:
+  - csharp
+  - vb
+  name: themes
+  nameWithType: ThemeManager.themes
+  fullName: ThemeManager.themes
+  type: Property
+  source:
+    remote:
+      path: Assets/Scripts/Themes/ThemeManager.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: themes
+    path: ../Assets/Scripts/Themes/ThemeManager.cs
+    startLine: 17
+  namespace: Global
+  syntax:
+    content: public List<Theme> themes { get; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.List{Theme}
+    content.vb: Public Property themes As List(Of Theme)
+  overload: Global.ThemeManager.themes*
+- uid: Global.ThemeManager.SetTheme(Theme)
+  commentId: M:Global.ThemeManager.SetTheme(Theme)
+  id: SetTheme(Theme)
+  parent: Global.ThemeManager
+  langs:
+  - csharp
+  - vb
+  name: SetTheme(Theme)
+  nameWithType: ThemeManager.SetTheme(Theme)
+  fullName: ThemeManager.SetTheme(Theme)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Themes/ThemeManager.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: SetTheme
+    path: ../Assets/Scripts/Themes/ThemeManager.cs
+    startLine: 48
+  namespace: Global
+  syntax:
+    content: public void SetTheme(Theme theme)
+    parameters:
+    - id: theme
+      type: Global.Theme
+    content.vb: Public Sub SetTheme(theme As Theme)
+  overload: Global.ThemeManager.SetTheme*
+- uid: Global.ThemeManager.SetTheme(System.String)
+  commentId: M:Global.ThemeManager.SetTheme(System.String)
+  id: SetTheme(System.String)
+  parent: Global.ThemeManager
+  langs:
+  - csharp
+  - vb
+  name: SetTheme(string)
+  nameWithType: ThemeManager.SetTheme(string)
+  fullName: ThemeManager.SetTheme(string)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Themes/ThemeManager.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: SetTheme
+    path: ../Assets/Scripts/Themes/ThemeManager.cs
+    startLine: 54
+  namespace: Global
+  syntax:
+    content: public void SetTheme(string themeName)
+    parameters:
+    - id: themeName
+      type: System.String
+    content.vb: Public Sub SetTheme(themeName As String)
+  overload: Global.ThemeManager.SetTheme*
+  nameWithType.vb: ThemeManager.SetTheme(String)
+  fullName.vb: ThemeManager.SetTheme(String)
+  name.vb: SetTheme(String)
+- uid: Global.ThemeManager.SubscribeToThemeChanged(UnityAction)
+  commentId: M:Global.ThemeManager.SubscribeToThemeChanged(UnityAction)
+  id: SubscribeToThemeChanged(UnityAction)
+  parent: Global.ThemeManager
+  langs:
+  - csharp
+  - vb
+  name: SubscribeToThemeChanged(UnityAction)
+  nameWithType: ThemeManager.SubscribeToThemeChanged(UnityAction)
+  fullName: ThemeManager.SubscribeToThemeChanged(UnityAction)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Themes/ThemeManager.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: SubscribeToThemeChanged
+    path: ../Assets/Scripts/Themes/ThemeManager.cs
+    startLine: 69
+  namespace: Global
+  syntax:
+    content: public void SubscribeToThemeChanged(UnityAction call)
+    parameters:
+    - id: call
+      type: Global.UnityAction
+    content.vb: Public Sub SubscribeToThemeChanged([call] As UnityAction)
+  overload: Global.ThemeManager.SubscribeToThemeChanged*
+references:
+- uid: Global
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Global.ThemeManager.currentTheme*
+  commentId: Overload:Global.ThemeManager.currentTheme
+  href: Global.ThemeManager.html#ThemeManager_currentTheme
+  name: currentTheme
+  nameWithType: ThemeManager.currentTheme
+  fullName: ThemeManager.currentTheme
+- uid: Global.Theme
+  commentId: T:Global.Theme
+  href: Theme.html
+  name: Theme
+  nameWithType: Theme
+  fullName: Theme
+- uid: Global.ThemeManager.themes*
+  commentId: Overload:Global.ThemeManager.themes
+  href: Global.ThemeManager.html#ThemeManager_themes
+  name: themes
+  nameWithType: ThemeManager.themes
+  fullName: ThemeManager.themes
+- uid: System.Collections.Generic.List{Theme}
+  commentId: T:System.Collections.Generic.List{Theme}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<Theme>
+  nameWithType: List<Theme>
+  fullName: System.Collections.Generic.List<Theme>
+  nameWithType.vb: List(Of Theme)
+  fullName.vb: System.Collections.Generic.List(Of Theme)
+  name.vb: List(Of Theme)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: Global.Theme
+    name: Theme
+    href: Theme.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Global.Theme
+    name: Theme
+    href: Theme.html
+  - name: )
+- uid: System.Collections.Generic.List`1
+  commentId: T:System.Collections.Generic.List`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<T>
+  nameWithType: List<T>
+  fullName: System.Collections.Generic.List<T>
+  nameWithType.vb: List(Of T)
+  fullName.vb: System.Collections.Generic.List(Of T)
+  name.vb: List(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: Global.ThemeManager.SetTheme*
+  commentId: Overload:Global.ThemeManager.SetTheme
+  href: Global.ThemeManager.html#ThemeManager_SetTheme_Theme_
+  name: SetTheme
+  nameWithType: ThemeManager.SetTheme
+  fullName: ThemeManager.SetTheme
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: Global.ThemeManager.SubscribeToThemeChanged*
+  commentId: Overload:Global.ThemeManager.SubscribeToThemeChanged
+  href: Global.ThemeManager.html#ThemeManager_SubscribeToThemeChanged_UnityAction_
+  name: SubscribeToThemeChanged
+  nameWithType: ThemeManager.SubscribeToThemeChanged
+  fullName: ThemeManager.SubscribeToThemeChanged
+- uid: Global.UnityAction
+  isExternal: true
+  name: UnityAction
+  nameWithType: UnityAction
+  fullName: UnityAction

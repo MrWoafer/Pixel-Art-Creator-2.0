@@ -1,0 +1,380 @@
+### YamlMime:ManagedReference
+items:
+- uid: Global.UIColourField
+  commentId: T:Global.UIColourField
+  id: UIColourField
+  parent: Global
+  children:
+  - Global.UIColourField.CloseColourPicker
+  - Global.UIColourField.OpenColourPicker
+  - Global.UIColourField.SetColour(Color)
+  - Global.UIColourField.SubscribeToColourChange(UnityAction)
+  - Global.UIColourField.SubscribeToColourPickerClose(UnityAction)
+  - Global.UIColourField.SubscribeToColourPickerOpen(UnityAction)
+  - Global.UIColourField.colour
+  - Global.UIColourField.colourPickerOpen
+  - Global.UIColourField.outlineThickness
+  langs:
+  - csharp
+  - vb
+  name: UIColourField
+  nameWithType: UIColourField
+  fullName: UIColourField
+  type: Class
+  source:
+    remote:
+      path: Assets/Scripts/UI/UIColourField.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: UIColourField
+    path: ../Assets/Scripts/UI/UIColourField.cs
+    startLine: 6
+  namespace: Global
+  syntax:
+    content: 'public class UIColourField : MonoBehaviour'
+    content.vb: Public Class UIColourField Inherits MonoBehaviour
+  inheritance:
+  - System.Object
+- uid: Global.UIColourField.colour
+  commentId: P:Global.UIColourField.colour
+  id: colour
+  parent: Global.UIColourField
+  langs:
+  - csharp
+  - vb
+  name: colour
+  nameWithType: UIColourField.colour
+  fullName: UIColourField.colour
+  type: Property
+  source:
+    remote:
+      path: Assets/Scripts/UI/UIColourField.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: colour
+    path: ../Assets/Scripts/UI/UIColourField.cs
+    startLine: 11
+  namespace: Global
+  syntax:
+    content: public Color colour { get; }
+    parameters: []
+    return:
+      type: Global.Color
+    content.vb: Public ReadOnly Property colour As Color
+  overload: Global.UIColourField.colour*
+- uid: Global.UIColourField.outlineThickness
+  commentId: P:Global.UIColourField.outlineThickness
+  id: outlineThickness
+  parent: Global.UIColourField
+  langs:
+  - csharp
+  - vb
+  name: outlineThickness
+  nameWithType: UIColourField.outlineThickness
+  fullName: UIColourField.outlineThickness
+  type: Property
+  source:
+    remote:
+      path: Assets/Scripts/UI/UIColourField.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: outlineThickness
+    path: ../Assets/Scripts/UI/UIColourField.cs
+    startLine: 21
+  namespace: Global
+  syntax:
+    content: public float outlineThickness { get; }
+    parameters: []
+    return:
+      type: System.Single
+    content.vb: Public ReadOnly Property outlineThickness As Single
+  overload: Global.UIColourField.outlineThickness*
+- uid: Global.UIColourField.colourPickerOpen
+  commentId: P:Global.UIColourField.colourPickerOpen
+  id: colourPickerOpen
+  parent: Global.UIColourField
+  langs:
+  - csharp
+  - vb
+  name: colourPickerOpen
+  nameWithType: UIColourField.colourPickerOpen
+  fullName: UIColourField.colourPickerOpen
+  type: Property
+  source:
+    remote:
+      path: Assets/Scripts/UI/UIColourField.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: colourPickerOpen
+    path: ../Assets/Scripts/UI/UIColourField.cs
+    startLine: 29
+  namespace: Global
+  syntax:
+    content: public bool colourPickerOpen { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property colourPickerOpen As Boolean
+  overload: Global.UIColourField.colourPickerOpen*
+- uid: Global.UIColourField.SetColour(Color)
+  commentId: M:Global.UIColourField.SetColour(Color)
+  id: SetColour(Color)
+  parent: Global.UIColourField
+  langs:
+  - csharp
+  - vb
+  name: SetColour(Color)
+  nameWithType: UIColourField.SetColour(Color)
+  fullName: UIColourField.SetColour(Color)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/UI/UIColourField.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: SetColour
+    path: ../Assets/Scripts/UI/UIColourField.cs
+    startLine: 126
+  namespace: Global
+  syntax:
+    content: public void SetColour(Color colour)
+    parameters:
+    - id: colour
+      type: Global.Color
+    content.vb: Public Sub SetColour(colour As Color)
+  overload: Global.UIColourField.SetColour*
+- uid: Global.UIColourField.OpenColourPicker
+  commentId: M:Global.UIColourField.OpenColourPicker
+  id: OpenColourPicker
+  parent: Global.UIColourField
+  langs:
+  - csharp
+  - vb
+  name: OpenColourPicker()
+  nameWithType: UIColourField.OpenColourPicker()
+  fullName: UIColourField.OpenColourPicker()
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/UI/UIColourField.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: OpenColourPicker
+    path: ../Assets/Scripts/UI/UIColourField.cs
+    startLine: 131
+  namespace: Global
+  syntax:
+    content: public void OpenColourPicker()
+    content.vb: Public Sub OpenColourPicker()
+  overload: Global.UIColourField.OpenColourPicker*
+- uid: Global.UIColourField.CloseColourPicker
+  commentId: M:Global.UIColourField.CloseColourPicker
+  id: CloseColourPicker
+  parent: Global.UIColourField
+  langs:
+  - csharp
+  - vb
+  name: CloseColourPicker()
+  nameWithType: UIColourField.CloseColourPicker()
+  fullName: UIColourField.CloseColourPicker()
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/UI/UIColourField.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: CloseColourPicker
+    path: ../Assets/Scripts/UI/UIColourField.cs
+    startLine: 139
+  namespace: Global
+  syntax:
+    content: public void CloseColourPicker()
+    content.vb: Public Sub CloseColourPicker()
+  overload: Global.UIColourField.CloseColourPicker*
+- uid: Global.UIColourField.SubscribeToColourChange(UnityAction)
+  commentId: M:Global.UIColourField.SubscribeToColourChange(UnityAction)
+  id: SubscribeToColourChange(UnityAction)
+  parent: Global.UIColourField
+  langs:
+  - csharp
+  - vb
+  name: SubscribeToColourChange(UnityAction)
+  nameWithType: UIColourField.SubscribeToColourChange(UnityAction)
+  fullName: UIColourField.SubscribeToColourChange(UnityAction)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/UI/UIColourField.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: SubscribeToColourChange
+    path: ../Assets/Scripts/UI/UIColourField.cs
+    startLine: 147
+  namespace: Global
+  syntax:
+    content: public void SubscribeToColourChange(UnityAction call)
+    parameters:
+    - id: call
+      type: Global.UnityAction
+    content.vb: Public Sub SubscribeToColourChange([call] As UnityAction)
+  overload: Global.UIColourField.SubscribeToColourChange*
+- uid: Global.UIColourField.SubscribeToColourPickerOpen(UnityAction)
+  commentId: M:Global.UIColourField.SubscribeToColourPickerOpen(UnityAction)
+  id: SubscribeToColourPickerOpen(UnityAction)
+  parent: Global.UIColourField
+  langs:
+  - csharp
+  - vb
+  name: SubscribeToColourPickerOpen(UnityAction)
+  nameWithType: UIColourField.SubscribeToColourPickerOpen(UnityAction)
+  fullName: UIColourField.SubscribeToColourPickerOpen(UnityAction)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/UI/UIColourField.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: SubscribeToColourPickerOpen
+    path: ../Assets/Scripts/UI/UIColourField.cs
+    startLine: 151
+  namespace: Global
+  syntax:
+    content: public void SubscribeToColourPickerOpen(UnityAction call)
+    parameters:
+    - id: call
+      type: Global.UnityAction
+    content.vb: Public Sub SubscribeToColourPickerOpen([call] As UnityAction)
+  overload: Global.UIColourField.SubscribeToColourPickerOpen*
+- uid: Global.UIColourField.SubscribeToColourPickerClose(UnityAction)
+  commentId: M:Global.UIColourField.SubscribeToColourPickerClose(UnityAction)
+  id: SubscribeToColourPickerClose(UnityAction)
+  parent: Global.UIColourField
+  langs:
+  - csharp
+  - vb
+  name: SubscribeToColourPickerClose(UnityAction)
+  nameWithType: UIColourField.SubscribeToColourPickerClose(UnityAction)
+  fullName: UIColourField.SubscribeToColourPickerClose(UnityAction)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/UI/UIColourField.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: SubscribeToColourPickerClose
+    path: ../Assets/Scripts/UI/UIColourField.cs
+    startLine: 155
+  namespace: Global
+  syntax:
+    content: public void SubscribeToColourPickerClose(UnityAction call)
+    parameters:
+    - id: call
+      type: Global.UnityAction
+    content.vb: Public Sub SubscribeToColourPickerClose([call] As UnityAction)
+  overload: Global.UIColourField.SubscribeToColourPickerClose*
+references:
+- uid: Global
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Global.UIColourField.colour*
+  commentId: Overload:Global.UIColourField.colour
+  href: Global.UIColourField.html#UIColourField_colour
+  name: colour
+  nameWithType: UIColourField.colour
+  fullName: UIColourField.colour
+- uid: Global.Color
+  isExternal: true
+  name: Color
+  nameWithType: Color
+  fullName: Color
+- uid: Global.UIColourField.outlineThickness*
+  commentId: Overload:Global.UIColourField.outlineThickness
+  href: Global.UIColourField.html#UIColourField_outlineThickness
+  name: outlineThickness
+  nameWithType: UIColourField.outlineThickness
+  fullName: UIColourField.outlineThickness
+- uid: System.Single
+  commentId: T:System.Single
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.single
+  name: float
+  nameWithType: float
+  fullName: float
+  nameWithType.vb: Single
+  fullName.vb: Single
+  name.vb: Single
+- uid: Global.UIColourField.colourPickerOpen*
+  commentId: Overload:Global.UIColourField.colourPickerOpen
+  href: Global.UIColourField.html#UIColourField_colourPickerOpen
+  name: colourPickerOpen
+  nameWithType: UIColourField.colourPickerOpen
+  fullName: UIColourField.colourPickerOpen
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: Global.UIColourField.SetColour*
+  commentId: Overload:Global.UIColourField.SetColour
+  href: Global.UIColourField.html#UIColourField_SetColour_Color_
+  name: SetColour
+  nameWithType: UIColourField.SetColour
+  fullName: UIColourField.SetColour
+- uid: Global.UIColourField.OpenColourPicker*
+  commentId: Overload:Global.UIColourField.OpenColourPicker
+  href: Global.UIColourField.html#UIColourField_OpenColourPicker
+  name: OpenColourPicker
+  nameWithType: UIColourField.OpenColourPicker
+  fullName: UIColourField.OpenColourPicker
+- uid: Global.UIColourField.CloseColourPicker*
+  commentId: Overload:Global.UIColourField.CloseColourPicker
+  href: Global.UIColourField.html#UIColourField_CloseColourPicker
+  name: CloseColourPicker
+  nameWithType: UIColourField.CloseColourPicker
+  fullName: UIColourField.CloseColourPicker
+- uid: Global.UIColourField.SubscribeToColourChange*
+  commentId: Overload:Global.UIColourField.SubscribeToColourChange
+  href: Global.UIColourField.html#UIColourField_SubscribeToColourChange_UnityAction_
+  name: SubscribeToColourChange
+  nameWithType: UIColourField.SubscribeToColourChange
+  fullName: UIColourField.SubscribeToColourChange
+- uid: Global.UnityAction
+  isExternal: true
+  name: UnityAction
+  nameWithType: UnityAction
+  fullName: UnityAction
+- uid: Global.UIColourField.SubscribeToColourPickerOpen*
+  commentId: Overload:Global.UIColourField.SubscribeToColourPickerOpen
+  href: Global.UIColourField.html#UIColourField_SubscribeToColourPickerOpen_UnityAction_
+  name: SubscribeToColourPickerOpen
+  nameWithType: UIColourField.SubscribeToColourPickerOpen
+  fullName: UIColourField.SubscribeToColourPickerOpen
+- uid: Global.UIColourField.SubscribeToColourPickerClose*
+  commentId: Overload:Global.UIColourField.SubscribeToColourPickerClose
+  href: Global.UIColourField.html#UIColourField_SubscribeToColourPickerClose_UnityAction_
+  name: SubscribeToColourPickerClose
+  nameWithType: UIColourField.SubscribeToColourPickerClose
+  fullName: UIColourField.SubscribeToColourPickerClose

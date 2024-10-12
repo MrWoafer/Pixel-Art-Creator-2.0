@@ -1,0 +1,48 @@
+### YamlMime:ManagedReference
+items:
+- uid: Global.UITheme
+  commentId: T:Global.UITheme
+  id: UITheme
+  parent: Global
+  children: []
+  langs:
+  - csharp
+  - vb
+  name: UITheme
+  nameWithType: UITheme
+  fullName: UITheme
+  type: Class
+  source:
+    remote:
+      path: Assets/Scripts/Themes/UITheme.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: UITheme
+    path: ../Assets/Scripts/Themes/UITheme.cs
+    startLine: 15
+  namespace: Global
+  syntax:
+    content: 'public class UITheme : MonoBehaviour'
+    content.vb: Public Class UITheme Inherits MonoBehaviour
+  inheritance:
+  - System.Object
+references:
+- uid: Global
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System

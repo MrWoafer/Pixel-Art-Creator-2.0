@@ -1,0 +1,1097 @@
+### YamlMime:ManagedReference
+items:
+- uid: Global.KeyboardShortcut
+  commentId: T:Global.KeyboardShortcut
+  id: KeyboardShortcut
+  parent: Global
+  children:
+  - Global.KeyboardShortcut.#ctor(CustomKeyCode[])
+  - Global.KeyboardShortcut.Add(CustomKeyCode)
+  - Global.KeyboardShortcut.Contains(CustomKeyCode)
+  - Global.KeyboardShortcut.Equals(System.Object)
+  - Global.KeyboardShortcut.GetHashCode
+  - Global.KeyboardShortcut.GetKeys
+  - Global.KeyboardShortcut.GetKeysDown
+  - Global.KeyboardShortcut.GetKeysUp
+  - Global.KeyboardShortcut.None
+  - Global.KeyboardShortcut.Remove(CustomKeyCode)
+  - Global.KeyboardShortcut.ToArray
+  - Global.KeyboardShortcut.ToJSON
+  - Global.KeyboardShortcut.ToString
+  - Global.KeyboardShortcut.keyCodes
+  - Global.KeyboardShortcut.op_Equality(KeyboardShortcut,KeyboardShortcut)
+  - Global.KeyboardShortcut.op_Inequality(KeyboardShortcut,KeyboardShortcut)
+  langs:
+  - csharp
+  - vb
+  name: KeyboardShortcut
+  nameWithType: KeyboardShortcut
+  fullName: KeyboardShortcut
+  type: Class
+  source:
+    remote:
+      path: Assets/Scripts/Keyboard Shortcuts/KeyboardShortcut.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: KeyboardShortcut
+    path: ../Assets/Scripts/Keyboard Shortcuts/KeyboardShortcut.cs
+    startLine: 9
+  namespace: Global
+  summary: A class to represent a single keyboard shortcut.
+  example: []
+  syntax:
+    content: 'public class KeyboardShortcut : IJSONable'
+    content.vb: Public Class KeyboardShortcut Implements IJSONable
+  inheritance:
+  - System.Object
+  implements:
+  - Global.IJSONable
+  inheritedMembers:
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+- uid: Global.KeyboardShortcut.keyCodes
+  commentId: P:Global.KeyboardShortcut.keyCodes
+  id: keyCodes
+  parent: Global.KeyboardShortcut
+  langs:
+  - csharp
+  - vb
+  name: keyCodes
+  nameWithType: KeyboardShortcut.keyCodes
+  fullName: KeyboardShortcut.keyCodes
+  type: Property
+  source:
+    remote:
+      path: Assets/Scripts/Keyboard Shortcuts/KeyboardShortcut.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: keyCodes
+    path: ../Assets/Scripts/Keyboard Shortcuts/KeyboardShortcut.cs
+    startLine: 12
+  namespace: Global
+  summary: The keycodes in this shortcut, kept in the order they would be read.
+  example: []
+  syntax:
+    content: public List<CustomKeyCode> keyCodes { get; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.List{CustomKeyCode}
+    content.vb: Public Property keyCodes As List(Of CustomKeyCode)
+  overload: Global.KeyboardShortcut.keyCodes*
+- uid: Global.KeyboardShortcut.None
+  commentId: P:Global.KeyboardShortcut.None
+  id: None
+  parent: Global.KeyboardShortcut
+  langs:
+  - csharp
+  - vb
+  name: None
+  nameWithType: KeyboardShortcut.None
+  fullName: KeyboardShortcut.None
+  type: Property
+  source:
+    remote:
+      path: Assets/Scripts/Keyboard Shortcuts/KeyboardShortcut.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: None
+    path: ../Assets/Scripts/Keyboard Shortcuts/KeyboardShortcut.cs
+    startLine: 15
+  namespace: Global
+  summary: The empty keyboard shortcut - i.e. no keycodes.
+  example: []
+  syntax:
+    content: public static KeyboardShortcut None { get; }
+    parameters: []
+    return:
+      type: Global.KeyboardShortcut
+    content.vb: Public Shared ReadOnly Property None As KeyboardShortcut
+  overload: Global.KeyboardShortcut.None*
+- uid: Global.KeyboardShortcut.#ctor(CustomKeyCode[])
+  commentId: M:Global.KeyboardShortcut.#ctor(CustomKeyCode[])
+  id: '#ctor(CustomKeyCode[])'
+  parent: Global.KeyboardShortcut
+  langs:
+  - csharp
+  - vb
+  name: KeyboardShortcut(params CustomKeyCode[])
+  nameWithType: KeyboardShortcut.KeyboardShortcut(params CustomKeyCode[])
+  fullName: KeyboardShortcut.KeyboardShortcut(params CustomKeyCode[])
+  type: Constructor
+  source:
+    remote:
+      path: Assets/Scripts/Keyboard Shortcuts/KeyboardShortcut.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: .ctor
+    path: ../Assets/Scripts/Keyboard Shortcuts/KeyboardShortcut.cs
+    startLine: 20
+  namespace: Global
+  summary: Creates a shortcut from the given keycodes. Sorts the keycodes into the order they would be read.
+  example: []
+  syntax:
+    content: public KeyboardShortcut(params CustomKeyCode[] keyCodes)
+    parameters:
+    - id: keyCodes
+      type: Global.CustomKeyCode[]
+    content.vb: Public Sub New(ParamArray keyCodes As CustomKeyCode())
+  overload: Global.KeyboardShortcut.#ctor*
+  nameWithType.vb: KeyboardShortcut.New(ParamArray CustomKeyCode())
+  fullName.vb: KeyboardShortcut.New(ParamArray CustomKeyCode())
+  name.vb: New(ParamArray CustomKeyCode())
+- uid: Global.KeyboardShortcut.op_Equality(KeyboardShortcut,KeyboardShortcut)
+  commentId: M:Global.KeyboardShortcut.op_Equality(KeyboardShortcut,KeyboardShortcut)
+  id: op_Equality(KeyboardShortcut,KeyboardShortcut)
+  parent: Global.KeyboardShortcut
+  langs:
+  - csharp
+  - vb
+  name: operator ==(KeyboardShortcut, KeyboardShortcut)
+  nameWithType: KeyboardShortcut.operator ==(KeyboardShortcut, KeyboardShortcut)
+  fullName: KeyboardShortcut.operator ==(KeyboardShortcut, KeyboardShortcut)
+  type: Operator
+  source:
+    remote:
+      path: Assets/Scripts/Keyboard Shortcuts/KeyboardShortcut.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: op_Equality
+    path: ../Assets/Scripts/Keyboard Shortcuts/KeyboardShortcut.cs
+    startLine: 33
+  namespace: Global
+  summary: Checks if the shortcuts have the same set of keycodes.
+  example: []
+  syntax:
+    content: public static bool operator ==(KeyboardShortcut shortcut1, KeyboardShortcut shortcut2)
+    parameters:
+    - id: shortcut1
+      type: Global.KeyboardShortcut
+    - id: shortcut2
+      type: Global.KeyboardShortcut
+    return:
+      type: System.Boolean
+    content.vb: Public Shared Operator =(shortcut1 As KeyboardShortcut, shortcut2 As KeyboardShortcut) As Boolean
+  overload: Global.KeyboardShortcut.op_Equality*
+  nameWithType.vb: KeyboardShortcut.=(KeyboardShortcut, KeyboardShortcut)
+  fullName.vb: KeyboardShortcut.=(KeyboardShortcut, KeyboardShortcut)
+  name.vb: =(KeyboardShortcut, KeyboardShortcut)
+- uid: Global.KeyboardShortcut.op_Inequality(KeyboardShortcut,KeyboardShortcut)
+  commentId: M:Global.KeyboardShortcut.op_Inequality(KeyboardShortcut,KeyboardShortcut)
+  id: op_Inequality(KeyboardShortcut,KeyboardShortcut)
+  parent: Global.KeyboardShortcut
+  langs:
+  - csharp
+  - vb
+  name: operator !=(KeyboardShortcut, KeyboardShortcut)
+  nameWithType: KeyboardShortcut.operator !=(KeyboardShortcut, KeyboardShortcut)
+  fullName: KeyboardShortcut.operator !=(KeyboardShortcut, KeyboardShortcut)
+  type: Operator
+  source:
+    remote:
+      path: Assets/Scripts/Keyboard Shortcuts/KeyboardShortcut.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: op_Inequality
+    path: ../Assets/Scripts/Keyboard Shortcuts/KeyboardShortcut.cs
+    startLine: 40
+  namespace: Global
+  summary: Checks if the shortcuts do not have the same set of keycodes.
+  example: []
+  syntax:
+    content: public static bool operator !=(KeyboardShortcut shortcut1, KeyboardShortcut shortcut2)
+    parameters:
+    - id: shortcut1
+      type: Global.KeyboardShortcut
+    - id: shortcut2
+      type: Global.KeyboardShortcut
+    return:
+      type: System.Boolean
+    content.vb: Public Shared Operator <>(shortcut1 As KeyboardShortcut, shortcut2 As KeyboardShortcut) As Boolean
+  overload: Global.KeyboardShortcut.op_Inequality*
+  nameWithType.vb: KeyboardShortcut.<>(KeyboardShortcut, KeyboardShortcut)
+  fullName.vb: KeyboardShortcut.<>(KeyboardShortcut, KeyboardShortcut)
+  name.vb: <>(KeyboardShortcut, KeyboardShortcut)
+- uid: Global.KeyboardShortcut.Equals(System.Object)
+  commentId: M:Global.KeyboardShortcut.Equals(System.Object)
+  id: Equals(System.Object)
+  parent: Global.KeyboardShortcut
+  langs:
+  - csharp
+  - vb
+  name: Equals(object)
+  nameWithType: KeyboardShortcut.Equals(object)
+  fullName: KeyboardShortcut.Equals(object)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Keyboard Shortcuts/KeyboardShortcut.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: Equals
+    path: ../Assets/Scripts/Keyboard Shortcuts/KeyboardShortcut.cs
+    startLine: 45
+  namespace: Global
+  summary: Determines whether the specified object is equal to the current object.
+  example: []
+  syntax:
+    content: public override bool Equals(object obj)
+    parameters:
+    - id: obj
+      type: System.Object
+      description: The object to compare with the current object.
+    return:
+      type: System.Boolean
+      description: <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if the specified object  is equal to the current object; otherwise, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.
+    content.vb: Public Overrides Function Equals(obj As Object) As Boolean
+  overridden: System.Object.Equals(System.Object)
+  overload: Global.KeyboardShortcut.Equals*
+  nameWithType.vb: KeyboardShortcut.Equals(Object)
+  fullName.vb: KeyboardShortcut.Equals(Object)
+  name.vb: Equals(Object)
+- uid: Global.KeyboardShortcut.GetHashCode
+  commentId: M:Global.KeyboardShortcut.GetHashCode
+  id: GetHashCode
+  parent: Global.KeyboardShortcut
+  langs:
+  - csharp
+  - vb
+  name: GetHashCode()
+  nameWithType: KeyboardShortcut.GetHashCode()
+  fullName: KeyboardShortcut.GetHashCode()
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Keyboard Shortcuts/KeyboardShortcut.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: GetHashCode
+    path: ../Assets/Scripts/Keyboard Shortcuts/KeyboardShortcut.cs
+    startLine: 61
+  namespace: Global
+  summary: Serves as the default hash function.
+  example: []
+  syntax:
+    content: public override int GetHashCode()
+    return:
+      type: System.Int32
+      description: A hash code for the current object.
+    content.vb: Public Overrides Function GetHashCode() As Integer
+  overridden: System.Object.GetHashCode
+  overload: Global.KeyboardShortcut.GetHashCode*
+- uid: Global.KeyboardShortcut.Add(CustomKeyCode)
+  commentId: M:Global.KeyboardShortcut.Add(CustomKeyCode)
+  id: Add(CustomKeyCode)
+  parent: Global.KeyboardShortcut
+  langs:
+  - csharp
+  - vb
+  name: Add(CustomKeyCode)
+  nameWithType: KeyboardShortcut.Add(CustomKeyCode)
+  fullName: KeyboardShortcut.Add(CustomKeyCode)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Keyboard Shortcuts/KeyboardShortcut.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: Add
+    path: ../Assets/Scripts/Keyboard Shortcuts/KeyboardShortcut.cs
+    startLine: 93
+  namespace: Global
+  summary: Adds the keycode to the shortcut. Returns false if it was already in the shortcut; otherwise returns true.
+  example: []
+  syntax:
+    content: public bool Add(CustomKeyCode keyCode)
+    parameters:
+    - id: keyCode
+      type: Global.CustomKeyCode
+    return:
+      type: System.Boolean
+    content.vb: Public Function Add(keyCode As CustomKeyCode) As Boolean
+  overload: Global.KeyboardShortcut.Add*
+- uid: Global.KeyboardShortcut.Remove(CustomKeyCode)
+  commentId: M:Global.KeyboardShortcut.Remove(CustomKeyCode)
+  id: Remove(CustomKeyCode)
+  parent: Global.KeyboardShortcut
+  langs:
+  - csharp
+  - vb
+  name: Remove(CustomKeyCode)
+  nameWithType: KeyboardShortcut.Remove(CustomKeyCode)
+  fullName: KeyboardShortcut.Remove(CustomKeyCode)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Keyboard Shortcuts/KeyboardShortcut.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: Remove
+    path: ../Assets/Scripts/Keyboard Shortcuts/KeyboardShortcut.cs
+    startLine: 107
+  namespace: Global
+  summary: Removes the keycode from the shortcut. Returns false if the keycode already wasn't in the shortcut; otherwise returns true.
+  example: []
+  syntax:
+    content: public bool Remove(CustomKeyCode keyCode)
+    parameters:
+    - id: keyCode
+      type: Global.CustomKeyCode
+    return:
+      type: System.Boolean
+    content.vb: Public Function Remove(keyCode As CustomKeyCode) As Boolean
+  overload: Global.KeyboardShortcut.Remove*
+- uid: Global.KeyboardShortcut.Contains(CustomKeyCode)
+  commentId: M:Global.KeyboardShortcut.Contains(CustomKeyCode)
+  id: Contains(CustomKeyCode)
+  parent: Global.KeyboardShortcut
+  langs:
+  - csharp
+  - vb
+  name: Contains(CustomKeyCode)
+  nameWithType: KeyboardShortcut.Contains(CustomKeyCode)
+  fullName: KeyboardShortcut.Contains(CustomKeyCode)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Keyboard Shortcuts/KeyboardShortcut.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: Contains
+    path: ../Assets/Scripts/Keyboard Shortcuts/KeyboardShortcut.cs
+    startLine: 115
+  namespace: Global
+  summary: Returns true if the keycode is in the shortcut.
+  example: []
+  syntax:
+    content: public bool Contains(CustomKeyCode keyCode)
+    parameters:
+    - id: keyCode
+      type: Global.CustomKeyCode
+    return:
+      type: System.Boolean
+    content.vb: Public Function Contains(keyCode As CustomKeyCode) As Boolean
+  overload: Global.KeyboardShortcut.Contains*
+- uid: Global.KeyboardShortcut.GetKeys
+  commentId: M:Global.KeyboardShortcut.GetKeys
+  id: GetKeys
+  parent: Global.KeyboardShortcut
+  langs:
+  - csharp
+  - vb
+  name: GetKeys()
+  nameWithType: KeyboardShortcut.GetKeys()
+  fullName: KeyboardShortcut.GetKeys()
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Keyboard Shortcuts/KeyboardShortcut.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: GetKeys
+    path: ../Assets/Scripts/Keyboard Shortcuts/KeyboardShortcut.cs
+    startLine: 123
+  namespace: Global
+  summary: Returns true while all keys are being held down.
+  example: []
+  syntax:
+    content: public bool GetKeys()
+    return:
+      type: System.Boolean
+    content.vb: Public Function GetKeys() As Boolean
+  overload: Global.KeyboardShortcut.GetKeys*
+- uid: Global.KeyboardShortcut.GetKeysDown
+  commentId: M:Global.KeyboardShortcut.GetKeysDown
+  id: GetKeysDown
+  parent: Global.KeyboardShortcut
+  langs:
+  - csharp
+  - vb
+  name: GetKeysDown()
+  nameWithType: KeyboardShortcut.GetKeysDown()
+  fullName: KeyboardShortcut.GetKeysDown()
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Keyboard Shortcuts/KeyboardShortcut.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: GetKeysDown
+    path: ../Assets/Scripts/Keyboard Shortcuts/KeyboardShortcut.cs
+    startLine: 138
+  namespace: Global
+  summary: Returns true the frame the final key is pressed.
+  example: []
+  syntax:
+    content: public bool GetKeysDown()
+    return:
+      type: System.Boolean
+    content.vb: Public Function GetKeysDown() As Boolean
+  overload: Global.KeyboardShortcut.GetKeysDown*
+- uid: Global.KeyboardShortcut.GetKeysUp
+  commentId: M:Global.KeyboardShortcut.GetKeysUp
+  id: GetKeysUp
+  parent: Global.KeyboardShortcut
+  langs:
+  - csharp
+  - vb
+  name: GetKeysUp()
+  nameWithType: KeyboardShortcut.GetKeysUp()
+  fullName: KeyboardShortcut.GetKeysUp()
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Keyboard Shortcuts/KeyboardShortcut.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: GetKeysUp
+    path: ../Assets/Scripts/Keyboard Shortcuts/KeyboardShortcut.cs
+    startLine: 158
+  namespace: Global
+  summary: Returns true the frame (any key of) this shortcut is released.
+  example: []
+  syntax:
+    content: public bool GetKeysUp()
+    return:
+      type: System.Boolean
+    content.vb: Public Function GetKeysUp() As Boolean
+  overload: Global.KeyboardShortcut.GetKeysUp*
+- uid: Global.KeyboardShortcut.ToString
+  commentId: M:Global.KeyboardShortcut.ToString
+  id: ToString
+  parent: Global.KeyboardShortcut
+  langs:
+  - csharp
+  - vb
+  name: ToString()
+  nameWithType: KeyboardShortcut.ToString()
+  fullName: KeyboardShortcut.ToString()
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Keyboard Shortcuts/KeyboardShortcut.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: ToString
+    path: ../Assets/Scripts/Keyboard Shortcuts/KeyboardShortcut.cs
+    startLine: 244
+  namespace: Global
+  summary: Returns a string that represents the current object.
+  example: []
+  syntax:
+    content: public override string ToString()
+    return:
+      type: System.String
+      description: A string that represents the current object.
+    content.vb: Public Overrides Function ToString() As String
+  overridden: System.Object.ToString
+  overload: Global.KeyboardShortcut.ToString*
+- uid: Global.KeyboardShortcut.ToArray
+  commentId: M:Global.KeyboardShortcut.ToArray
+  id: ToArray
+  parent: Global.KeyboardShortcut
+  langs:
+  - csharp
+  - vb
+  name: ToArray()
+  nameWithType: KeyboardShortcut.ToArray()
+  fullName: KeyboardShortcut.ToArray()
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Keyboard Shortcuts/KeyboardShortcut.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: ToArray
+    path: ../Assets/Scripts/Keyboard Shortcuts/KeyboardShortcut.cs
+    startLine: 252
+  namespace: Global
+  summary: Returns an array of the keycodes in this shortcut, in the order they would be read.
+  example: []
+  syntax:
+    content: public CustomKeyCode[] ToArray()
+    return:
+      type: Global.CustomKeyCode[]
+    content.vb: Public Function ToArray() As CustomKeyCode()
+  overload: Global.KeyboardShortcut.ToArray*
+- uid: Global.KeyboardShortcut.ToJSON
+  commentId: M:Global.KeyboardShortcut.ToJSON
+  id: ToJSON
+  parent: Global.KeyboardShortcut
+  langs:
+  - csharp
+  - vb
+  name: ToJSON()
+  nameWithType: KeyboardShortcut.ToJSON()
+  fullName: KeyboardShortcut.ToJSON()
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Keyboard Shortcuts/KeyboardShortcut.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: ToJSON
+    path: ../Assets/Scripts/Keyboard Shortcuts/KeyboardShortcut.cs
+    startLine: 257
+  namespace: Global
+  example: []
+  syntax:
+    content: public JSON ToJSON()
+    return:
+      type: Global.JSON
+    content.vb: Public Function ToJSON() As JSON
+  overload: Global.KeyboardShortcut.ToJSON*
+  implements:
+  - Global.IJSONable.ToJSON
+references:
+- uid: Global
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: Global.IJSONable
+  commentId: T:Global.IJSONable
+  href: IJSONable.html
+  name: IJSONable
+  nameWithType: IJSONable
+  fullName: IJSONable
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Global.KeyboardShortcut.keyCodes*
+  commentId: Overload:Global.KeyboardShortcut.keyCodes
+  href: Global.KeyboardShortcut.html#KeyboardShortcut_keyCodes
+  name: keyCodes
+  nameWithType: KeyboardShortcut.keyCodes
+  fullName: KeyboardShortcut.keyCodes
+- uid: System.Collections.Generic.List{CustomKeyCode}
+  commentId: T:System.Collections.Generic.List{CustomKeyCode}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<CustomKeyCode>
+  nameWithType: List<CustomKeyCode>
+  fullName: System.Collections.Generic.List<CustomKeyCode>
+  nameWithType.vb: List(Of CustomKeyCode)
+  fullName.vb: System.Collections.Generic.List(Of CustomKeyCode)
+  name.vb: List(Of CustomKeyCode)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: Global.CustomKeyCode
+    name: CustomKeyCode
+    href: CustomKeyCode.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Global.CustomKeyCode
+    name: CustomKeyCode
+    href: CustomKeyCode.html
+  - name: )
+- uid: System.Collections.Generic.List`1
+  commentId: T:System.Collections.Generic.List`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<T>
+  nameWithType: List<T>
+  fullName: System.Collections.Generic.List<T>
+  nameWithType.vb: List(Of T)
+  fullName.vb: System.Collections.Generic.List(Of T)
+  name.vb: List(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: Global.KeyboardShortcut.None*
+  commentId: Overload:Global.KeyboardShortcut.None
+  href: Global.KeyboardShortcut.html#KeyboardShortcut_None
+  name: None
+  nameWithType: KeyboardShortcut.None
+  fullName: KeyboardShortcut.None
+- uid: Global.KeyboardShortcut
+  commentId: T:Global.KeyboardShortcut
+  href: KeyboardShortcut.html
+  name: KeyboardShortcut
+  nameWithType: KeyboardShortcut
+  fullName: KeyboardShortcut
+- uid: Global.KeyboardShortcut.#ctor*
+  commentId: Overload:Global.KeyboardShortcut.#ctor
+  href: Global.KeyboardShortcut.html#KeyboardShortcut__ctor_CustomKeyCode___
+  name: KeyboardShortcut
+  nameWithType: KeyboardShortcut.KeyboardShortcut
+  fullName: KeyboardShortcut.KeyboardShortcut
+  nameWithType.vb: KeyboardShortcut.New
+  fullName.vb: KeyboardShortcut.New
+  name.vb: New
+- uid: Global.CustomKeyCode[]
+  isExternal: true
+  href: CustomKeyCode.html
+  name: CustomKeyCode[]
+  nameWithType: CustomKeyCode[]
+  fullName: CustomKeyCode[]
+  nameWithType.vb: CustomKeyCode()
+  fullName.vb: CustomKeyCode()
+  name.vb: CustomKeyCode()
+  spec.csharp:
+  - uid: Global.CustomKeyCode
+    name: CustomKeyCode
+    href: CustomKeyCode.html
+  - name: '['
+  - name: ']'
+  spec.vb:
+  - uid: Global.CustomKeyCode
+    name: CustomKeyCode
+    href: CustomKeyCode.html
+  - name: (
+  - name: )
+- uid: Global.KeyboardShortcut.op_Equality*
+  commentId: Overload:Global.KeyboardShortcut.op_Equality
+  href: Global.KeyboardShortcut.html#KeyboardShortcut_op_Equality_KeyboardShortcut_KeyboardShortcut_
+  name: operator ==
+  nameWithType: KeyboardShortcut.operator ==
+  fullName: KeyboardShortcut.operator ==
+  nameWithType.vb: KeyboardShortcut.=
+  fullName.vb: KeyboardShortcut.=
+  name.vb: =
+  spec.csharp:
+  - name: operator
+  - name: " "
+  - uid: Global.KeyboardShortcut.op_Equality*
+    name: ==
+    href: Global.KeyboardShortcut.html#KeyboardShortcut_op_Equality_KeyboardShortcut_KeyboardShortcut_
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: Global.KeyboardShortcut.op_Inequality*
+  commentId: Overload:Global.KeyboardShortcut.op_Inequality
+  href: Global.KeyboardShortcut.html#KeyboardShortcut_op_Inequality_KeyboardShortcut_KeyboardShortcut_
+  name: operator !=
+  nameWithType: KeyboardShortcut.operator !=
+  fullName: KeyboardShortcut.operator !=
+  nameWithType.vb: KeyboardShortcut.<>
+  fullName.vb: KeyboardShortcut.<>
+  name.vb: <>
+  spec.csharp:
+  - name: operator
+  - name: " "
+  - uid: Global.KeyboardShortcut.op_Inequality*
+    name: '!='
+    href: Global.KeyboardShortcut.html#KeyboardShortcut_op_Inequality_KeyboardShortcut_KeyboardShortcut_
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: Global.KeyboardShortcut.Equals*
+  commentId: Overload:Global.KeyboardShortcut.Equals
+  href: Global.KeyboardShortcut.html#KeyboardShortcut_Equals_System_Object_
+  name: Equals
+  nameWithType: KeyboardShortcut.Equals
+  fullName: KeyboardShortcut.Equals
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: Global.KeyboardShortcut.GetHashCode*
+  commentId: Overload:Global.KeyboardShortcut.GetHashCode
+  href: Global.KeyboardShortcut.html#KeyboardShortcut_GetHashCode
+  name: GetHashCode
+  nameWithType: KeyboardShortcut.GetHashCode
+  fullName: KeyboardShortcut.GetHashCode
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: Global.KeyboardShortcut.Add*
+  commentId: Overload:Global.KeyboardShortcut.Add
+  href: Global.KeyboardShortcut.html#KeyboardShortcut_Add_CustomKeyCode_
+  name: Add
+  nameWithType: KeyboardShortcut.Add
+  fullName: KeyboardShortcut.Add
+- uid: Global.CustomKeyCode
+  commentId: T:Global.CustomKeyCode
+  href: CustomKeyCode.html
+  name: CustomKeyCode
+  nameWithType: CustomKeyCode
+  fullName: CustomKeyCode
+- uid: Global.KeyboardShortcut.Remove*
+  commentId: Overload:Global.KeyboardShortcut.Remove
+  href: Global.KeyboardShortcut.html#KeyboardShortcut_Remove_CustomKeyCode_
+  name: Remove
+  nameWithType: KeyboardShortcut.Remove
+  fullName: KeyboardShortcut.Remove
+- uid: Global.KeyboardShortcut.Contains*
+  commentId: Overload:Global.KeyboardShortcut.Contains
+  href: Global.KeyboardShortcut.html#KeyboardShortcut_Contains_CustomKeyCode_
+  name: Contains
+  nameWithType: KeyboardShortcut.Contains
+  fullName: KeyboardShortcut.Contains
+- uid: Global.KeyboardShortcut.GetKeys*
+  commentId: Overload:Global.KeyboardShortcut.GetKeys
+  href: Global.KeyboardShortcut.html#KeyboardShortcut_GetKeys
+  name: GetKeys
+  nameWithType: KeyboardShortcut.GetKeys
+  fullName: KeyboardShortcut.GetKeys
+- uid: Global.KeyboardShortcut.GetKeysDown*
+  commentId: Overload:Global.KeyboardShortcut.GetKeysDown
+  href: Global.KeyboardShortcut.html#KeyboardShortcut_GetKeysDown
+  name: GetKeysDown
+  nameWithType: KeyboardShortcut.GetKeysDown
+  fullName: KeyboardShortcut.GetKeysDown
+- uid: Global.KeyboardShortcut.GetKeysUp*
+  commentId: Overload:Global.KeyboardShortcut.GetKeysUp
+  href: Global.KeyboardShortcut.html#KeyboardShortcut_GetKeysUp
+  name: GetKeysUp
+  nameWithType: KeyboardShortcut.GetKeysUp
+  fullName: KeyboardShortcut.GetKeysUp
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: Global.KeyboardShortcut.ToString*
+  commentId: Overload:Global.KeyboardShortcut.ToString
+  href: Global.KeyboardShortcut.html#KeyboardShortcut_ToString
+  name: ToString
+  nameWithType: KeyboardShortcut.ToString
+  fullName: KeyboardShortcut.ToString
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: Global.KeyboardShortcut.ToArray*
+  commentId: Overload:Global.KeyboardShortcut.ToArray
+  href: Global.KeyboardShortcut.html#KeyboardShortcut_ToArray
+  name: ToArray
+  nameWithType: KeyboardShortcut.ToArray
+  fullName: KeyboardShortcut.ToArray
+- uid: Global.KeyboardShortcut.ToJSON*
+  commentId: Overload:Global.KeyboardShortcut.ToJSON
+  href: Global.KeyboardShortcut.html#KeyboardShortcut_ToJSON
+  name: ToJSON
+  nameWithType: KeyboardShortcut.ToJSON
+  fullName: KeyboardShortcut.ToJSON
+- uid: Global.IJSONable.ToJSON
+  commentId: M:Global.IJSONable.ToJSON
+  parent: Global.IJSONable
+  href: Global.IJSONable.html#IJSONable_ToJSON
+  name: ToJSON()
+  nameWithType: IJSONable.ToJSON()
+  fullName: IJSONable.ToJSON()
+  spec.csharp:
+  - uid: Global.IJSONable.ToJSON
+    name: ToJSON
+    href: Global.IJSONable.html#IJSONable_ToJSON
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Global.IJSONable.ToJSON
+    name: ToJSON
+    href: Global.IJSONable.html#IJSONable_ToJSON
+  - name: (
+  - name: )
+- uid: Global.JSON
+  commentId: T:Global.JSON
+  href: JSON.html
+  name: JSON
+  nameWithType: JSON
+  fullName: JSON

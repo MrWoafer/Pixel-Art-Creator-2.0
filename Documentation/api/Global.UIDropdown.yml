@@ -1,0 +1,521 @@
+### YamlMime:ManagedReference
+items:
+- uid: Global.UIDropdown
+  commentId: T:Global.UIDropdown
+  id: UIDropdown
+  parent: Global
+  children:
+  - Global.UIDropdown.Close
+  - Global.UIDropdown.CloseRoot
+  - Global.UIDropdown.FullyOpen
+  - Global.UIDropdown.Initialise
+  - Global.UIDropdown.MouseOff
+  - Global.UIDropdown.Open
+  - Global.UIDropdown.SetOpen(System.Boolean)
+  - Global.UIDropdown.SetOpenEditor(System.Boolean)
+  - Global.UIDropdown.ToggleOpen
+  - Global.UIDropdown.isRootDropdown
+  - Global.UIDropdown.open
+  - Global.UIDropdown.openingButton
+  - Global.UIDropdown.parentDropdown
+  - Global.UIDropdown.rootDropdown
+  langs:
+  - csharp
+  - vb
+  name: UIDropdown
+  nameWithType: UIDropdown
+  fullName: UIDropdown
+  type: Class
+  source:
+    remote:
+      path: Assets/Scripts/UI/UIDropdown.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: UIDropdown
+    path: ../Assets/Scripts/UI/UIDropdown.cs
+    startLine: 10
+  namespace: Global
+  syntax:
+    content: 'public class UIDropdown : MonoBehaviour'
+    content.vb: Public Class UIDropdown Inherits MonoBehaviour
+  inheritance:
+  - System.Object
+- uid: Global.UIDropdown.open
+  commentId: P:Global.UIDropdown.open
+  id: open
+  parent: Global.UIDropdown
+  langs:
+  - csharp
+  - vb
+  name: open
+  nameWithType: UIDropdown.open
+  fullName: UIDropdown.open
+  type: Property
+  source:
+    remote:
+      path: Assets/Scripts/UI/UIDropdown.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: open
+    path: ../Assets/Scripts/UI/UIDropdown.cs
+    startLine: 16
+  namespace: Global
+  syntax:
+    content: public bool open { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property open As Boolean
+  overload: Global.UIDropdown.open*
+- uid: Global.UIDropdown.openingButton
+  commentId: F:Global.UIDropdown.openingButton
+  id: openingButton
+  parent: Global.UIDropdown
+  langs:
+  - csharp
+  - vb
+  name: openingButton
+  nameWithType: UIDropdown.openingButton
+  fullName: UIDropdown.openingButton
+  type: Field
+  source:
+    remote:
+      path: Assets/Scripts/UI/UIDropdown.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: openingButton
+    path: ../Assets/Scripts/UI/UIDropdown.cs
+    startLine: 31
+  namespace: Global
+  syntax:
+    content: public GameObject openingButton
+    return:
+      type: Global.GameObject
+    content.vb: Public openingButton As GameObject
+- uid: Global.UIDropdown.parentDropdown
+  commentId: F:Global.UIDropdown.parentDropdown
+  id: parentDropdown
+  parent: Global.UIDropdown
+  langs:
+  - csharp
+  - vb
+  name: parentDropdown
+  nameWithType: UIDropdown.parentDropdown
+  fullName: UIDropdown.parentDropdown
+  type: Field
+  source:
+    remote:
+      path: Assets/Scripts/UI/UIDropdown.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: parentDropdown
+    path: ../Assets/Scripts/UI/UIDropdown.cs
+    startLine: 34
+  namespace: Global
+  syntax:
+    content: public UIDropdown parentDropdown
+    return:
+      type: Global.UIDropdown
+    content.vb: Public parentDropdown As UIDropdown
+- uid: Global.UIDropdown.rootDropdown
+  commentId: P:Global.UIDropdown.rootDropdown
+  id: rootDropdown
+  parent: Global.UIDropdown
+  langs:
+  - csharp
+  - vb
+  name: rootDropdown
+  nameWithType: UIDropdown.rootDropdown
+  fullName: UIDropdown.rootDropdown
+  type: Property
+  source:
+    remote:
+      path: Assets/Scripts/UI/UIDropdown.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: rootDropdown
+    path: ../Assets/Scripts/UI/UIDropdown.cs
+    startLine: 35
+  namespace: Global
+  syntax:
+    content: public UIDropdown rootDropdown { get; }
+    parameters: []
+    return:
+      type: Global.UIDropdown
+    content.vb: Public ReadOnly Property rootDropdown As UIDropdown
+  overload: Global.UIDropdown.rootDropdown*
+- uid: Global.UIDropdown.isRootDropdown
+  commentId: P:Global.UIDropdown.isRootDropdown
+  id: isRootDropdown
+  parent: Global.UIDropdown
+  langs:
+  - csharp
+  - vb
+  name: isRootDropdown
+  nameWithType: UIDropdown.isRootDropdown
+  fullName: UIDropdown.isRootDropdown
+  type: Property
+  source:
+    remote:
+      path: Assets/Scripts/UI/UIDropdown.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: isRootDropdown
+    path: ../Assets/Scripts/UI/UIDropdown.cs
+    startLine: 43
+  namespace: Global
+  syntax:
+    content: public bool isRootDropdown { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public ReadOnly Property isRootDropdown As Boolean
+  overload: Global.UIDropdown.isRootDropdown*
+- uid: Global.UIDropdown.Initialise
+  commentId: M:Global.UIDropdown.Initialise
+  id: Initialise
+  parent: Global.UIDropdown
+  langs:
+  - csharp
+  - vb
+  name: Initialise()
+  nameWithType: UIDropdown.Initialise()
+  fullName: UIDropdown.Initialise()
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/UI/UIDropdown.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: Initialise
+    path: ../Assets/Scripts/UI/UIDropdown.cs
+    startLine: 83
+  namespace: Global
+  syntax:
+    content: public void Initialise()
+    content.vb: Public Sub Initialise()
+  overload: Global.UIDropdown.Initialise*
+- uid: Global.UIDropdown.Open
+  commentId: M:Global.UIDropdown.Open
+  id: Open
+  parent: Global.UIDropdown
+  langs:
+  - csharp
+  - vb
+  name: Open()
+  nameWithType: UIDropdown.Open()
+  fullName: UIDropdown.Open()
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/UI/UIDropdown.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: Open
+    path: ../Assets/Scripts/UI/UIDropdown.cs
+    startLine: 167
+  namespace: Global
+  syntax:
+    content: public void Open()
+    content.vb: Public Sub Open()
+  overload: Global.UIDropdown.Open*
+- uid: Global.UIDropdown.Close
+  commentId: M:Global.UIDropdown.Close
+  id: Close
+  parent: Global.UIDropdown
+  langs:
+  - csharp
+  - vb
+  name: Close()
+  nameWithType: UIDropdown.Close()
+  fullName: UIDropdown.Close()
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/UI/UIDropdown.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: Close
+    path: ../Assets/Scripts/UI/UIDropdown.cs
+    startLine: 171
+  namespace: Global
+  syntax:
+    content: public void Close()
+    content.vb: Public Sub Close()
+  overload: Global.UIDropdown.Close*
+- uid: Global.UIDropdown.ToggleOpen
+  commentId: M:Global.UIDropdown.ToggleOpen
+  id: ToggleOpen
+  parent: Global.UIDropdown
+  langs:
+  - csharp
+  - vb
+  name: ToggleOpen()
+  nameWithType: UIDropdown.ToggleOpen()
+  fullName: UIDropdown.ToggleOpen()
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/UI/UIDropdown.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: ToggleOpen
+    path: ../Assets/Scripts/UI/UIDropdown.cs
+    startLine: 175
+  namespace: Global
+  syntax:
+    content: public void ToggleOpen()
+    content.vb: Public Sub ToggleOpen()
+  overload: Global.UIDropdown.ToggleOpen*
+- uid: Global.UIDropdown.SetOpen(System.Boolean)
+  commentId: M:Global.UIDropdown.SetOpen(System.Boolean)
+  id: SetOpen(System.Boolean)
+  parent: Global.UIDropdown
+  langs:
+  - csharp
+  - vb
+  name: SetOpen(bool)
+  nameWithType: UIDropdown.SetOpen(bool)
+  fullName: UIDropdown.SetOpen(bool)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/UI/UIDropdown.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: SetOpen
+    path: ../Assets/Scripts/UI/UIDropdown.cs
+    startLine: 180
+  namespace: Global
+  syntax:
+    content: public void SetOpen(bool open)
+    parameters:
+    - id: open
+      type: System.Boolean
+    content.vb: Public Sub SetOpen(open As Boolean)
+  overload: Global.UIDropdown.SetOpen*
+  nameWithType.vb: UIDropdown.SetOpen(Boolean)
+  fullName.vb: UIDropdown.SetOpen(Boolean)
+  name.vb: SetOpen(Boolean)
+- uid: Global.UIDropdown.SetOpenEditor(System.Boolean)
+  commentId: M:Global.UIDropdown.SetOpenEditor(System.Boolean)
+  id: SetOpenEditor(System.Boolean)
+  parent: Global.UIDropdown
+  langs:
+  - csharp
+  - vb
+  name: SetOpenEditor(bool)
+  nameWithType: UIDropdown.SetOpenEditor(bool)
+  fullName: UIDropdown.SetOpenEditor(bool)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/UI/UIDropdown.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: SetOpenEditor
+    path: ../Assets/Scripts/UI/UIDropdown.cs
+    startLine: 231
+  namespace: Global
+  syntax:
+    content: public void SetOpenEditor(bool open)
+    parameters:
+    - id: open
+      type: System.Boolean
+    content.vb: Public Sub SetOpenEditor(open As Boolean)
+  overload: Global.UIDropdown.SetOpenEditor*
+  nameWithType.vb: UIDropdown.SetOpenEditor(Boolean)
+  fullName.vb: UIDropdown.SetOpenEditor(Boolean)
+  name.vb: SetOpenEditor(Boolean)
+- uid: Global.UIDropdown.FullyOpen
+  commentId: M:Global.UIDropdown.FullyOpen
+  id: FullyOpen
+  parent: Global.UIDropdown
+  langs:
+  - csharp
+  - vb
+  name: FullyOpen()
+  nameWithType: UIDropdown.FullyOpen()
+  fullName: UIDropdown.FullyOpen()
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/UI/UIDropdown.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: FullyOpen
+    path: ../Assets/Scripts/UI/UIDropdown.cs
+    startLine: 267
+  namespace: Global
+  summary: Opens this dropdown and all child dropdowns, and all their child dropdowns, etc.
+  example: []
+  syntax:
+    content: public void FullyOpen()
+    content.vb: Public Sub FullyOpen()
+  overload: Global.UIDropdown.FullyOpen*
+- uid: Global.UIDropdown.CloseRoot
+  commentId: M:Global.UIDropdown.CloseRoot
+  id: CloseRoot
+  parent: Global.UIDropdown
+  langs:
+  - csharp
+  - vb
+  name: CloseRoot()
+  nameWithType: UIDropdown.CloseRoot()
+  fullName: UIDropdown.CloseRoot()
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/UI/UIDropdown.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: CloseRoot
+    path: ../Assets/Scripts/UI/UIDropdown.cs
+    startLine: 285
+  namespace: Global
+  summary: Closes the highest-level dropdown containing this one.
+  example: []
+  syntax:
+    content: public void CloseRoot()
+    content.vb: Public Sub CloseRoot()
+  overload: Global.UIDropdown.CloseRoot*
+- uid: Global.UIDropdown.MouseOff
+  commentId: M:Global.UIDropdown.MouseOff
+  id: MouseOff
+  parent: Global.UIDropdown
+  langs:
+  - csharp
+  - vb
+  name: MouseOff()
+  nameWithType: UIDropdown.MouseOff()
+  fullName: UIDropdown.MouseOff()
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/UI/UIDropdown.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: MouseOff
+    path: ../Assets/Scripts/UI/UIDropdown.cs
+    startLine: 290
+  namespace: Global
+  syntax:
+    content: public bool MouseOff()
+    return:
+      type: System.Boolean
+    content.vb: Public Function MouseOff() As Boolean
+  overload: Global.UIDropdown.MouseOff*
+references:
+- uid: Global
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Global.UIDropdown.open*
+  commentId: Overload:Global.UIDropdown.open
+  href: Global.UIDropdown.html#UIDropdown_open
+  name: open
+  nameWithType: UIDropdown.open
+  fullName: UIDropdown.open
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: Global.GameObject
+  isExternal: true
+  name: GameObject
+  nameWithType: GameObject
+  fullName: GameObject
+- uid: Global.UIDropdown
+  commentId: T:Global.UIDropdown
+  href: UIDropdown.html
+  name: UIDropdown
+  nameWithType: UIDropdown
+  fullName: UIDropdown
+- uid: Global.UIDropdown.rootDropdown*
+  commentId: Overload:Global.UIDropdown.rootDropdown
+  href: Global.UIDropdown.html#UIDropdown_rootDropdown
+  name: rootDropdown
+  nameWithType: UIDropdown.rootDropdown
+  fullName: UIDropdown.rootDropdown
+- uid: Global.UIDropdown.isRootDropdown*
+  commentId: Overload:Global.UIDropdown.isRootDropdown
+  href: Global.UIDropdown.html#UIDropdown_isRootDropdown
+  name: isRootDropdown
+  nameWithType: UIDropdown.isRootDropdown
+  fullName: UIDropdown.isRootDropdown
+- uid: Global.UIDropdown.Initialise*
+  commentId: Overload:Global.UIDropdown.Initialise
+  href: Global.UIDropdown.html#UIDropdown_Initialise
+  name: Initialise
+  nameWithType: UIDropdown.Initialise
+  fullName: UIDropdown.Initialise
+- uid: Global.UIDropdown.Open*
+  commentId: Overload:Global.UIDropdown.Open
+  href: Global.UIDropdown.html#UIDropdown_Open
+  name: Open
+  nameWithType: UIDropdown.Open
+  fullName: UIDropdown.Open
+- uid: Global.UIDropdown.Close*
+  commentId: Overload:Global.UIDropdown.Close
+  href: Global.UIDropdown.html#UIDropdown_Close
+  name: Close
+  nameWithType: UIDropdown.Close
+  fullName: UIDropdown.Close
+- uid: Global.UIDropdown.ToggleOpen*
+  commentId: Overload:Global.UIDropdown.ToggleOpen
+  href: Global.UIDropdown.html#UIDropdown_ToggleOpen
+  name: ToggleOpen
+  nameWithType: UIDropdown.ToggleOpen
+  fullName: UIDropdown.ToggleOpen
+- uid: Global.UIDropdown.SetOpen*
+  commentId: Overload:Global.UIDropdown.SetOpen
+  href: Global.UIDropdown.html#UIDropdown_SetOpen_System_Boolean_
+  name: SetOpen
+  nameWithType: UIDropdown.SetOpen
+  fullName: UIDropdown.SetOpen
+- uid: Global.UIDropdown.SetOpenEditor*
+  commentId: Overload:Global.UIDropdown.SetOpenEditor
+  href: Global.UIDropdown.html#UIDropdown_SetOpenEditor_System_Boolean_
+  name: SetOpenEditor
+  nameWithType: UIDropdown.SetOpenEditor
+  fullName: UIDropdown.SetOpenEditor
+- uid: Global.UIDropdown.FullyOpen*
+  commentId: Overload:Global.UIDropdown.FullyOpen
+  href: Global.UIDropdown.html#UIDropdown_FullyOpen
+  name: FullyOpen
+  nameWithType: UIDropdown.FullyOpen
+  fullName: UIDropdown.FullyOpen
+- uid: Global.UIDropdown.CloseRoot*
+  commentId: Overload:Global.UIDropdown.CloseRoot
+  href: Global.UIDropdown.html#UIDropdown_CloseRoot
+  name: CloseRoot
+  nameWithType: UIDropdown.CloseRoot
+  fullName: UIDropdown.CloseRoot
+- uid: Global.UIDropdown.MouseOff*
+  commentId: Overload:Global.UIDropdown.MouseOff
+  href: Global.UIDropdown.html#UIDropdown_MouseOff
+  name: MouseOff
+  nameWithType: UIDropdown.MouseOff
+  fullName: UIDropdown.MouseOff

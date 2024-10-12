@@ -1,0 +1,84 @@
+### YamlMime:ManagedReference
+items:
+- uid: Global.GradientMode
+  commentId: T:Global.GradientMode
+  id: GradientMode
+  parent: Global
+  children:
+  - Global.GradientMode.Linear
+  - Global.GradientMode.Radial
+  langs:
+  - csharp
+  - vb
+  name: GradientMode
+  nameWithType: GradientMode
+  fullName: GradientMode
+  type: Enum
+  source:
+    remote:
+      path: Assets/Scripts/Drawing/Toolbar.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: GradientMode
+    path: ../Assets/Scripts/Drawing/Toolbar.cs
+    startLine: 29
+  namespace: Global
+  syntax:
+    content: public enum GradientMode
+    content.vb: Public Enum GradientMode
+- uid: Global.GradientMode.Linear
+  commentId: F:Global.GradientMode.Linear
+  id: Linear
+  parent: Global.GradientMode
+  langs:
+  - csharp
+  - vb
+  name: Linear
+  nameWithType: GradientMode.Linear
+  fullName: GradientMode.Linear
+  type: Field
+  source:
+    remote:
+      path: Assets/Scripts/Drawing/Toolbar.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: Linear
+    path: ../Assets/Scripts/Drawing/Toolbar.cs
+    startLine: 31
+  namespace: Global
+  syntax:
+    content: Linear = 0
+    return:
+      type: Global.GradientMode
+- uid: Global.GradientMode.Radial
+  commentId: F:Global.GradientMode.Radial
+  id: Radial
+  parent: Global.GradientMode
+  langs:
+  - csharp
+  - vb
+  name: Radial
+  nameWithType: GradientMode.Radial
+  fullName: GradientMode.Radial
+  type: Field
+  source:
+    remote:
+      path: Assets/Scripts/Drawing/Toolbar.cs
+      branch: main
+      repo: https://github.com/MrWoafer/Pixel-Art-Creator-2.0.git
+    id: Radial
+    path: ../Assets/Scripts/Drawing/Toolbar.cs
+    startLine: 32
+  namespace: Global
+  syntax:
+    content: Radial = 1
+    return:
+      type: Global.GradientMode
+references:
+- uid: Global
+- uid: Global.GradientMode
+  commentId: T:Global.GradientMode
+  href: GradientMode.html
+  name: GradientMode
+  nameWithType: GradientMode
+  fullName: GradientMode
