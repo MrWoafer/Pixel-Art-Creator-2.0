@@ -1,16 +1,16 @@
 using System.Collections.Generic;
 using System.Linq;
 using PAC.Animation;
-using PAC.Colour_Picker;
+using PAC.ColourPicker;
 using PAC.Colour;
-using PAC.Data_Structures;
+using PAC.DataStructures;
 using PAC.Files;
 using PAC.Input;
-using PAC.Keyboard_Shortcuts;
+using PAC.KeyboardShortcuts;
 using PAC.Layers;
 using PAC.Shaders;
 using PAC.Tilesets;
-using PAC.Undo_Redo;
+using PAC.UndoRedo;
 using UnityEngine;
 
 namespace PAC.Drawing
@@ -554,17 +554,17 @@ namespace PAC.Drawing
         {
             if ((mouse.hoverTarget == null || mouse.hoverTarget == inputTarget) && !mouse.hasHoverTrigger)
             {
-                if (inputSystem.globalKeyboardTarget.OneIsHeldExactly(KeyboardShortcuts.GetShortcutsFor("scroll y")))
+                if (inputSystem.globalKeyboardTarget.OneIsHeldExactly(KeyboardShortcuts.KeyboardShortcuts.GetShortcutsFor("scroll y")))
                 {
                     inputSystem.inputTarget.cursorScroll = CursorState.UpDownArrow;
                     ScrollViewY(mouse.scrollDelta * scrollSpeed);
                 }
-                else if (inputSystem.globalKeyboardTarget.OneIsHeldExactly(KeyboardShortcuts.GetShortcutsFor("scroll x")))
+                else if (inputSystem.globalKeyboardTarget.OneIsHeldExactly(KeyboardShortcuts.KeyboardShortcuts.GetShortcutsFor("scroll x")))
                 {
                     inputSystem.inputTarget.cursorScroll = CursorState.LeftRightArrow;
                     ScrollViewX(mouse.scrollDelta * scrollSpeed);
                 }
-                else if (inputSystem.globalKeyboardTarget.OneIsHeldExactly(KeyboardShortcuts.GetShortcutsFor("scroll brush size")))
+                else if (inputSystem.globalKeyboardTarget.OneIsHeldExactly(KeyboardShortcuts.KeyboardShortcuts.GetShortcutsFor("scroll brush size")))
                 {
                     inputSystem.inputTarget.cursorScroll = CursorState.CurrentTool;
                 }
@@ -633,7 +633,7 @@ namespace PAC.Drawing
         /// </summary>
         private void OnKeyboardInput()
         {
-            if (inputTarget.keyboardTarget.OneIsHeldExactly(KeyboardShortcuts.GetShortcutsFor("cancel tool")) && toolbar.selectedTool.canBeCancelled)
+            if (inputTarget.keyboardTarget.OneIsHeldExactly(KeyboardShortcuts.KeyboardShortcuts.GetShortcutsFor("cancel tool")) && toolbar.selectedTool.canBeCancelled)
             {
                 toolCancelled = true;
                 ClearPreview();
@@ -654,19 +654,19 @@ namespace PAC.Drawing
         /// </summary>
         private void OnGlobalKeyboardInput()
         {
-            if (inputSystem.globalKeyboardTarget.OneIsHeldExactly(KeyboardShortcuts.GetShortcutsFor("zoom in")))
+            if (inputSystem.globalKeyboardTarget.OneIsHeldExactly(KeyboardShortcuts.KeyboardShortcuts.GetShortcutsFor("zoom in")))
             {
                 Zoom(zoomScrollSpeed, Vector2.zero);
             }
-            if (inputSystem.globalKeyboardTarget.OneIsHeldExactly(KeyboardShortcuts.GetShortcutsFor("zoom out")))
+            if (inputSystem.globalKeyboardTarget.OneIsHeldExactly(KeyboardShortcuts.KeyboardShortcuts.GetShortcutsFor("zoom out")))
             {
                 Zoom(-zoomScrollSpeed, Vector2.zero);
             }
-            if (inputSystem.globalKeyboardTarget.OneIsHeldExactly(KeyboardShortcuts.GetShortcutsFor("reset view")))
+            if (inputSystem.globalKeyboardTarget.OneIsHeldExactly(KeyboardShortcuts.KeyboardShortcuts.GetShortcutsFor("reset view")))
             {
                 ResetView();
             }
-            if (inputSystem.globalKeyboardTarget.OneIsHeldExactly(KeyboardShortcuts.GetShortcutsFor("clear selection")) && hasSelection)
+            if (inputSystem.globalKeyboardTarget.OneIsHeldExactly(KeyboardShortcuts.KeyboardShortcuts.GetShortcutsFor("clear selection")) && hasSelection)
             {
                 DeselectSelection();
             }

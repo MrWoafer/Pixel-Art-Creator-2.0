@@ -1,4 +1,4 @@
-using PAC.Keyboard_Shortcuts;
+using PAC.KeyboardShortcuts;
 using UnityEngine;
 
 namespace PAC.Input

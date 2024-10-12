@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-namespace PAC.Keyboard_Shortcuts
+namespace PAC.KeyboardShortcuts
 {
     /// <summary>
     /// A class to supersede Unity's KeyCode enum to allow keycodes to refer to multiple keys - e.g. Shift instead of separated into LeftShift and RightShift.

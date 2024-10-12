@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-namespace PAC.Data_Structures
+namespace PAC.DataStructures
 {
     /// <summary>
     /// A custom implementation of a stack to allow removal of items at a specific index.

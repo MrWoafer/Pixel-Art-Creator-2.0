@@ -1,5 +1,5 @@
 using System.Collections;
-using PAC.Colour_Picker;
+using PAC.ColourPicker;
 using PAC.Drawing;
 using PAC.Input;
 using PAC.Screen;

@@ -1,6 +1,6 @@
 using System;
 using System.Collections.Generic;
-using PAC.Data_Structures;
+using PAC.DataStructures;
 using UnityEngine;
 
 namespace PAC.Drawing

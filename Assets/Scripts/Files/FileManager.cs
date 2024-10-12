@@ -3,7 +3,7 @@ using System.IO;
 using PAC.Animation;
 using PAC.Drawing;
 using PAC.Input;
-using PAC.Keyboard_Shortcuts;
+using PAC.KeyboardShortcuts;
 using PAC.Layers;
 using PAC.UI;
 using SFB;
@@ -388,19 +388,19 @@ namespace PAC.Files
                 return;
             }
 
-            if (inputSystem.globalKeyboardTarget.OneIsHeldExactly(KeyboardShortcuts.GetShortcutsFor("save")))
+            if (inputSystem.globalKeyboardTarget.OneIsHeldExactly(KeyboardShortcuts.KeyboardShortcuts.GetShortcutsFor("save")))
             {
                 SaveCurrentFileDialog();
             }
-            if (inputSystem.globalKeyboardTarget.OneIsHeldExactly(KeyboardShortcuts.GetShortcutsFor("save as")))
+            if (inputSystem.globalKeyboardTarget.OneIsHeldExactly(KeyboardShortcuts.KeyboardShortcuts.GetShortcutsFor("save as")))
             {
                 SaveAsCurrentFileDialog();
             }
-            if (inputSystem.globalKeyboardTarget.OneIsHeldExactly(KeyboardShortcuts.GetShortcutsFor("export")))
+            if (inputSystem.globalKeyboardTarget.OneIsHeldExactly(KeyboardShortcuts.KeyboardShortcuts.GetShortcutsFor("export")))
             {
                 ExportCurrentFrameDialog();
             }
-            if (inputSystem.globalKeyboardTarget.OneIsHeldExactly(KeyboardShortcuts.GetShortcutsFor("open")))
+            if (inputSystem.globalKeyboardTarget.OneIsHeldExactly(KeyboardShortcuts.KeyboardShortcuts.GetShortcutsFor("open")))
             {
                 OpenFileDialog();
             }

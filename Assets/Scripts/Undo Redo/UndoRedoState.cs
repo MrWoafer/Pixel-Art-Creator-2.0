@@ -1,6 +1,6 @@
 using PAC.Layers;
 
-namespace PAC.Undo_Redo
+namespace PAC.UndoRedo
 {
     public enum UndoRedoAction
     {

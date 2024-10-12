@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using PAC.Colour;
-using PAC.Data_Structures;
+using PAC.DataStructures;
 using UnityEngine;
 
 namespace PAC

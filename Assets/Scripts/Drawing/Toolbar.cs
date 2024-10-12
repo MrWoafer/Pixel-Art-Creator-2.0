@@ -1,8 +1,8 @@
 using System.Collections.Generic;
 using System.Linq;
-using PAC.Data_Structures;
+using PAC.DataStructures;
 using PAC.Input;
-using PAC.Keyboard_Shortcuts;
+using PAC.KeyboardShortcuts;
 using PAC.UI;
 using UnityEngine;
 using UnityEngine.Events;
@@ -220,17 +220,17 @@ namespace PAC.Drawing
 
         private void CheckKeyboardShortcuts()
         {
-            if (inputSystem.globalKeyboardTarget.OneIsHeldExactly(KeyboardShortcuts.GetShortcutsFor("pencil"))) { SelectTool(Tool.Pencil); }
-            else if (inputSystem.globalKeyboardTarget.OneIsHeldExactly(KeyboardShortcuts.GetShortcutsFor("brush"))) { SelectTool(Tool.Brush); }
-            else if (inputSystem.globalKeyboardTarget.OneIsHeldExactly(KeyboardShortcuts.GetShortcutsFor("rubber"))) { SelectTool(Tool.Rubber); }
-            else if (inputSystem.globalKeyboardTarget.OneIsHeldExactly(KeyboardShortcuts.GetShortcutsFor("eye dropper"))) { SelectTool(Tool.EyeDropper); }
-            else if (inputSystem.globalKeyboardTarget.OneIsHeldExactly(KeyboardShortcuts.GetShortcutsFor("fill"))) { SelectTool(Tool.Fill); }
-            else if (inputSystem.globalKeyboardTarget.OneIsHeldExactly(KeyboardShortcuts.GetShortcutsFor("shape"))) { SelectTool(Tool.Shape); }
-            else if (inputSystem.globalKeyboardTarget.OneIsHeldExactly(KeyboardShortcuts.GetShortcutsFor("line"))) { SelectTool(Tool.Line); }
-            else if (inputSystem.globalKeyboardTarget.OneIsHeldExactly(KeyboardShortcuts.GetShortcutsFor("iso box"))) { SelectTool(Tool.IsoBox); }
-            else if (inputSystem.globalKeyboardTarget.OneIsHeldExactly(KeyboardShortcuts.GetShortcutsFor("gradient"))) { SelectTool(Tool.Gradient); }
-            else if (inputSystem.globalKeyboardTarget.OneIsHeldExactly(KeyboardShortcuts.GetShortcutsFor("move"))) { SelectTool(Tool.Move); }
-            else if (inputSystem.globalKeyboardTarget.OneIsHeldExactly(KeyboardShortcuts.GetShortcutsFor("selection"))) { SelectTool(Tool.Selection); }
+            if (inputSystem.globalKeyboardTarget.OneIsHeldExactly(KeyboardShortcuts.KeyboardShortcuts.GetShortcutsFor("pencil"))) { SelectTool(Tool.Pencil); }
+            else if (inputSystem.globalKeyboardTarget.OneIsHeldExactly(KeyboardShortcuts.KeyboardShortcuts.GetShortcutsFor("brush"))) { SelectTool(Tool.Brush); }
+            else if (inputSystem.globalKeyboardTarget.OneIsHeldExactly(KeyboardShortcuts.KeyboardShortcuts.GetShortcutsFor("rubber"))) { SelectTool(Tool.Rubber); }
+            else if (inputSystem.globalKeyboardTarget.OneIsHeldExactly(KeyboardShortcuts.KeyboardShortcuts.GetShortcutsFor("eye dropper"))) { SelectTool(Tool.EyeDropper); }
+            else if (inputSystem.globalKeyboardTarget.OneIsHeldExactly(KeyboardShortcuts.KeyboardShortcuts.GetShortcutsFor("fill"))) { SelectTool(Tool.Fill); }
+            else if (inputSystem.globalKeyboardTarget.OneIsHeldExactly(KeyboardShortcuts.KeyboardShortcuts.GetShortcutsFor("shape"))) { SelectTool(Tool.Shape); }
+            else if (inputSystem.globalKeyboardTarget.OneIsHeldExactly(KeyboardShortcuts.KeyboardShortcuts.GetShortcutsFor("line"))) { SelectTool(Tool.Line); }
+            else if (inputSystem.globalKeyboardTarget.OneIsHeldExactly(KeyboardShortcuts.KeyboardShortcuts.GetShortcutsFor("iso box"))) { SelectTool(Tool.IsoBox); }
+            else if (inputSystem.globalKeyboardTarget.OneIsHeldExactly(KeyboardShortcuts.KeyboardShortcuts.GetShortcutsFor("gradient"))) { SelectTool(Tool.Gradient); }
+            else if (inputSystem.globalKeyboardTarget.OneIsHeldExactly(KeyboardShortcuts.KeyboardShortcuts.GetShortcutsFor("move"))) { SelectTool(Tool.Move); }
+            else if (inputSystem.globalKeyboardTarget.OneIsHeldExactly(KeyboardShortcuts.KeyboardShortcuts.GetShortcutsFor("selection"))) { SelectTool(Tool.Selection); }
             else if (selectedTool == Tool.Shape)
             {
                 if (inputSystem.globalKeyboardTarget.IsHeldExactly(KeyCode.Alpha1)) { shapeToolShape = Shape.Rectangle; }
@@ -269,7 +269,7 @@ namespace PAC.Drawing
             }
             else if (selectedTool == Tool.GlobalEyeDropper)
             {
-                if (inputSystem.globalKeyboardTarget.OneIsHeldExactly(KeyboardShortcuts.GetShortcutsFor("cancel tool"))) { DeselectGlobalEyeDropper(); }
+                if (inputSystem.globalKeyboardTarget.OneIsHeldExactly(KeyboardShortcuts.KeyboardShortcuts.GetShortcutsFor("cancel tool"))) { DeselectGlobalEyeDropper(); }
             }
 
             inputSystem.mouse.SetCursorSprite(inputSystem.mouse.cursorState);
@@ -300,7 +300,7 @@ namespace PAC.Drawing
         /// </summary>
         private void OnMouseScroll()
         {
-            if (inputSystem.globalKeyboardTarget.OneIsHeldExactly(KeyboardShortcuts.GetShortcutsFor("scroll brush size")))
+            if (inputSystem.globalKeyboardTarget.OneIsHeldExactly(KeyboardShortcuts.KeyboardShortcuts.GetShortcutsFor("scroll brush size")))
             {
                 if (selectedTool == Tool.Brush || selectedTool == Tool.Rubber)
                 {

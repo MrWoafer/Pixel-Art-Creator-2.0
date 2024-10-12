@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using PAC.Files;
 using PAC.Input;
-using PAC.Keyboard_Shortcuts;
+using PAC.KeyboardShortcuts;
 using PAC.Layers;
 using PAC.UI;
 using UnityEngine;
@@ -140,7 +140,7 @@ namespace PAC.Animation
             if (viewportInputTarget.mouseTarget.state == MouseTargetState.Hover && mouse.scrollDelta != 0f)
             {
                 // Scroll in/out
-                if (inputSystem.globalKeyboardTarget.OneIsHeldExactly(KeyboardShortcuts.GetShortcutsFor("scroll in/out timeline")))
+                if (inputSystem.globalKeyboardTarget.OneIsHeldExactly(KeyboardShortcuts.KeyboardShortcuts.GetShortcutsFor("scroll in/out timeline")))
                 {
                     if (frameNotchSpacing >= minFrameNotchSpacing + frameNotchSpacingScrollSpeed || mouse.scrollDelta > 0f)
                     {
@@ -445,23 +445,23 @@ namespace PAC.Animation
         /// </summary>
         private void CheckKeyboardShortcuts()
         {
-            if (inputSystem.globalKeyboardTarget.OneIsHeldExactly(KeyboardShortcuts.GetShortcutsFor("play / pause")))
+            if (inputSystem.globalKeyboardTarget.OneIsHeldExactly(KeyboardShortcuts.KeyboardShortcuts.GetShortcutsFor("play / pause")))
             {
                 playPauseButton.Press();
             }
-            if (inputSystem.globalKeyboardTarget.OneIsHeldExactly(KeyboardShortcuts.GetShortcutsFor("previous frame")))
+            if (inputSystem.globalKeyboardTarget.OneIsHeldExactly(KeyboardShortcuts.KeyboardShortcuts.GetShortcutsFor("previous frame")))
             {
                 currentFrameIndex = Functions.Mod(currentFrameIndex - 1, fileManager.currentFile.numOfFrames);
             }
-            if (inputSystem.globalKeyboardTarget.OneIsHeldExactly(KeyboardShortcuts.GetShortcutsFor("next frame")))
+            if (inputSystem.globalKeyboardTarget.OneIsHeldExactly(KeyboardShortcuts.KeyboardShortcuts.GetShortcutsFor("next frame")))
             {
                 currentFrameIndex = Functions.Mod(currentFrameIndex + 1, fileManager.currentFile.numOfFrames);
             }
-            if (inputSystem.globalKeyboardTarget.OneIsHeldExactly(KeyboardShortcuts.GetShortcutsFor("first frame")))
+            if (inputSystem.globalKeyboardTarget.OneIsHeldExactly(KeyboardShortcuts.KeyboardShortcuts.GetShortcutsFor("first frame")))
             {
                 currentFrameIndex = 0;
             }
-            if (inputSystem.globalKeyboardTarget.OneIsHeldExactly(KeyboardShortcuts.GetShortcutsFor("last frame")))
+            if (inputSystem.globalKeyboardTarget.OneIsHeldExactly(KeyboardShortcuts.KeyboardShortcuts.GetShortcutsFor("last frame")))
             {
                 currentFrameIndex = fileManager.currentFile.numOfFrames - 1;
             }

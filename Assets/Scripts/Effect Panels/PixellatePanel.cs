@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace PAC.Effect_Panels
+namespace PAC.EffectPanels
 {
     /// <summary>
     /// A panel that pixellates the view behind it.

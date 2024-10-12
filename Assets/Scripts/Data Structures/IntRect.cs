@@ -2,7 +2,7 @@ using System.Collections;
 using System.Linq;
 using UnityEngine;
 
-namespace PAC.Data_Structures
+namespace PAC.DataStructures
 {
     /// <summary>
     /// A struct to represent a rectangular region of integer coordinates.

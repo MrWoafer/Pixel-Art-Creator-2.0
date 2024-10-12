@@ -1,5 +1,5 @@
 using PAC.Animation;
-using PAC.Colour_Picker;
+using PAC.ColourPicker;
 using PAC.Drawing;
 using PAC.Files;
 using PAC.Input;
@@ -7,7 +7,7 @@ using PAC.Layers;
 using PAC.Themes;
 using PAC.Tilesets;
 using PAC.UI;
-using PAC.Undo_Redo;
+using PAC.UndoRedo;
 using UnityEngine;
 
 namespace PAC

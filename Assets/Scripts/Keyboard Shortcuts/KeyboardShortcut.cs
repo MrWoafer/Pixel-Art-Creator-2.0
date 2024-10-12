@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using PAC.JSON;
 
-namespace PAC.Keyboard_Shortcuts
+namespace PAC.KeyboardShortcuts
 {
     /// <summary>
     /// A class to represent a single keyboard shortcut.

@@ -3,7 +3,7 @@ using PAC.UI;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace PAC.Keyboard_Shortcuts
+namespace PAC.KeyboardShortcuts
 {
     /// <summary>
     /// Handles the window where you can view / change keyboard shortcuts.

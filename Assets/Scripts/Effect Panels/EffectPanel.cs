@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace PAC.Effect_Panels
+namespace PAC.EffectPanels
 {
     /// <summary>
     /// A class to represent a type of panel that applies an effect to the view behind it - e.g. a blur panel or a pixellate panel.

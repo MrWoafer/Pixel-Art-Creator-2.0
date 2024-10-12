@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
 
-namespace PAC.Colour_Picker
+namespace PAC.ColourPicker
 {
     /// <summary>
     /// A class to represent colour previews - the boxes on colour pickers that show what colours you have selected.

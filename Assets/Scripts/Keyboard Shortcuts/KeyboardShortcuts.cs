@@ -3,7 +3,7 @@ using System.IO;
 using System.Linq;
 using UnityEngine;
 
-namespace PAC.Keyboard_Shortcuts
+namespace PAC.KeyboardShortcuts
 {
     /// <summary>
     /// A class for storing, loading and accessing keyboard shortcuts for defined actions.

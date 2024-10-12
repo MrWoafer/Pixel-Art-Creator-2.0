@@ -2,7 +2,7 @@ using System;
 using PAC.Animation;
 using PAC.Colour;
 using PAC.Drawing;
-using PAC.Effect_Panels;
+using PAC.EffectPanels;
 using PAC.Files;
 using PAC.Input;
 using PAC.Layers;

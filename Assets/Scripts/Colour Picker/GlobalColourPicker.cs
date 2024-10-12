@@ -1,11 +1,11 @@
 using PAC.Drawing;
 using PAC.Input;
-using PAC.Keyboard_Shortcuts;
+using PAC.KeyboardShortcuts;
 using PAC.UI;
 using UnityEngine;
 using UnityEngine.Events;
 
-namespace PAC.Colour_Picker
+namespace PAC.ColourPicker
 {
     /// <summary>
     /// A class for the main colour picker in the program - the one that appears in the main view.
@@ -124,11 +124,11 @@ namespace PAC.Colour_Picker
         {
             if (toolbar.selectedTool != Tool.Move)
             {
-                if (inputSystem.globalKeyboardTarget.OneIsHeldExactly(KeyboardShortcuts.GetShortcutsFor("selected colour left")))
+                if (inputSystem.globalKeyboardTarget.OneIsHeldExactly(KeyboardShortcuts.KeyboardShortcuts.GetShortcutsFor("selected colour left")))
                 {
                     CycleColourPreview(-1);
                 }
-                else if (inputSystem.globalKeyboardTarget.OneIsHeldExactly(KeyboardShortcuts.GetShortcutsFor("selected colour right")))
+                else if (inputSystem.globalKeyboardTarget.OneIsHeldExactly(KeyboardShortcuts.KeyboardShortcuts.GetShortcutsFor("selected colour right")))
                 {
                     CycleColourPreview(1);
                 }

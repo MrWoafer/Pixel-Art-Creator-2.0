@@ -2,7 +2,7 @@ using PAC.Colour;
 using UnityEngine;
 using UnityEngine.Events;
 
-namespace PAC.Colour_Picker
+namespace PAC.ColourPicker
 {
     /// <summary>
     /// A class for the HSL colour picker.

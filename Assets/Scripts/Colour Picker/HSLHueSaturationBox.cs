@@ -1,8 +1,8 @@
 using PAC.Input;
-using PAC.Keyboard_Shortcuts;
+using PAC.KeyboardShortcuts;
 using UnityEngine;
 
-namespace PAC.Colour_Picker
+namespace PAC.ColourPicker
 {
     /// <summary>
     /// A class for the hue/saturation box of the HSL colour picker.

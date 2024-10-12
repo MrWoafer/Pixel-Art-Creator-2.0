@@ -1,5 +1,5 @@
 using PAC.Animation;
-using PAC.Data_Structures;
+using PAC.DataStructures;
 using PAC.Drawing;
 using PAC.Files;
 using PAC.Layers;

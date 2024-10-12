@@ -1,4 +1,4 @@
-using PAC.Data_Structures;
+using PAC.DataStructures;
 using UnityEngine;
 
 namespace PAC.Screen

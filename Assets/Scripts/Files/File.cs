@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using PAC.Data_Structures;
+using PAC.DataStructures;
 using PAC.JSON;
 using PAC.Layers;
 using PAC.Tilesets;

@@ -1,7 +1,7 @@
 using System.Linq;
 using UnityEngine;
 
-namespace PAC.Data_Structures
+namespace PAC.DataStructures
 {
     /// <summary>
     /// A struct to represent a 2-dimensional vector with integer coordinates.
