@@ -1,46 +1,45 @@
-name: Build DocFX
-
+# Your GitHub workflow file under .github/workflows/
+# Trigger the action on push to main
 on:
-  repository_dispatch:
   push:
     branches:
-      - main  # We don't want branches in doc to trigger builds
+      - main
 
+# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
+permissions:
+  actions: read
+  pages: write
+  id-token: write
+
+# Allow only one concurrent deployment, skipping runs queued between the run in-progress and latest queued.
+# However, do NOT cancel in-progress runs as we want to allow these production deployments to complete.
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+  
 jobs:
-  build:
+  publish-docs:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v4
-    - name: Setup .NET Core
+    - name: Checkout
+      uses: actions/checkout@v4
+    - name: Dotnet Setup
       uses: actions/setup-dotnet@v4
       with:
-        dotnet-version: 3.1.100
+        dotnet-version: 8.x
 
-    - name: Get mono
-      run: |
-        apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 3FA7E0328081BFF6A14DA29AA6A19B38D3D831EF
-        echo "deb https://download.mono-project.com/repo/ubuntu stable-bionic main" | sudo tee /etc/apt/sources.list.d/mono-official-stable.list
-        sudo apt-get update
-        sudo apt-get install mono-complete --yes
-    - name: Get docfx
-      run: |
-        curl -L https://github.com/dotnet/docfx/releases/latest/download/docfx.zip -o docfx.zip
-        unzip -d .docfx docfx.zip
+    - run: dotnet tool update -g docfx
+    - run: docfx Documents/docfx.json
 
-    - name: Build docs
-      run:  mono .docfx/docfx.exe
-
-    - name: Install SSH Client
-      uses: webfactory/ssh-agent@v0.2.0
+    - name: Upload artifact
+      uses: actions/upload-pages-artifact@v3
       with:
-        ssh-private-key: $
-
+        # Upload entire repository
+	branch: gh-pages
+        path: '_site'
     - name: Deploy to GitHub Pages
-      uses: JamesIves/github-pages-deploy-action@3.2.1
-      with:
-        BRANCH: gh-pages
-        FOLDER: _site
-        CLEAN: true
-        SSH: true
-        GIT_CONFIG_NAME: githubactions
-        GIT_CONFIG_EMAIL: woafer1000@gmail.com
+      id: deployment
+      uses: actions/deploy-pages@v4
