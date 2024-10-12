@@ -1,90 +1,92 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class UITabManager : MonoBehaviour
+namespace PAC.UI
 {
-    [Header("Tabs")]
-    [SerializeField]
-    [Min(0)]
-    private int selectedTabIndex = 0;
-    [SerializeField]
-    private List<GameObject> tabs;
-
-    private bool tabSelectedAlready = false;
-
-    private void Awake()
+    public class UITabManager : MonoBehaviour
     {
-        foreach (GameObject tab in tabs)
-        {
-            tab.SetActive(true);
-        }
-    }
+        [Header("Tabs")]
+        [SerializeField]
+        [Min(0)]
+        private int selectedTabIndex = 0;
+        [SerializeField]
+        private List<GameObject> tabs;
 
-    private void Start()
-    {
-        if (!tabSelectedAlready && tabs.Count != 0)
-        {
-            SelectTab(selectedTabIndex);
-        }
-    }
+        private bool tabSelectedAlready = false;
 
-    private void OnValidate()
-    {
-        if (tabs.Count > 0)
+        private void Awake()
         {
-            selectedTabIndex = Mathf.Clamp(selectedTabIndex, 0, tabs.Count - 1);
-            SelectTabEditor(selectedTabIndex);
-        }
-        else
-        {
-            selectedTabIndex = 0;
-        }
-    }
-
-    public void AddTab(GameObject tab)
-    {
-        tabs.Add(tab);
-    }
-
-    public void SelectTab(int tabIndex)
-    {
-        if (tabIndex < 0 || tabIndex >= tabs.Count)
-        {
-            throw new System.IndexOutOfRangeException("Tab index out of range: " + tabIndex);
-        }
-
-        for (int i = 0; i < tabs.Count; i++)
-        {
-            if (i == tabIndex && tabs[i].transform.position.x < -5000f)
+            foreach (GameObject tab in tabs)
             {
-                tabs[i].transform.position += new Vector3(10000f, 0f, 0f);
-            }
-            else if (i != tabIndex && tabs[i].transform.position.x > -5000f)
-            {
-                tabs[i].transform.position -= new Vector3(10000f, 0f, 0f);
+                tab.SetActive(true);
             }
         }
 
-        tabSelectedAlready = true;
-    }
-
-    public void SelectTabEditor(int tabIndex)
-    {
-        if (tabIndex < 0 || tabIndex >= tabs.Count)
+        private void Start()
         {
-            throw new System.IndexOutOfRangeException("Tab index out of range: " + tabIndex);
+            if (!tabSelectedAlready && tabs.Count != 0)
+            {
+                SelectTab(selectedTabIndex);
+            }
         }
 
-        for (int i = 0; i < tabs.Count; i++)
+        private void OnValidate()
         {
-            if (i == tabIndex)
+            if (tabs.Count > 0)
             {
-                tabs[i].SetActive(true);
+                selectedTabIndex = Mathf.Clamp(selectedTabIndex, 0, tabs.Count - 1);
+                SelectTabEditor(selectedTabIndex);
             }
             else
             {
-                tabs[i].SetActive(false);
+                selectedTabIndex = 0;
+            }
+        }
+
+        public void AddTab(GameObject tab)
+        {
+            tabs.Add(tab);
+        }
+
+        public void SelectTab(int tabIndex)
+        {
+            if (tabIndex < 0 || tabIndex >= tabs.Count)
+            {
+                throw new System.IndexOutOfRangeException("Tab index out of range: " + tabIndex);
+            }
+
+            for (int i = 0; i < tabs.Count; i++)
+            {
+                if (i == tabIndex && tabs[i].transform.position.x < -5000f)
+                {
+                    tabs[i].transform.position += new Vector3(10000f, 0f, 0f);
+                }
+                else if (i != tabIndex && tabs[i].transform.position.x > -5000f)
+                {
+                    tabs[i].transform.position -= new Vector3(10000f, 0f, 0f);
+                }
+            }
+
+            tabSelectedAlready = true;
+        }
+
+        public void SelectTabEditor(int tabIndex)
+        {
+            if (tabIndex < 0 || tabIndex >= tabs.Count)
+            {
+                throw new System.IndexOutOfRangeException("Tab index out of range: " + tabIndex);
+            }
+
+            for (int i = 0; i < tabs.Count; i++)
+            {
+                if (i == tabIndex)
+                {
+                    tabs[i].SetActive(true);
+                }
+                else
+                {
+                    tabs[i].SetActive(false);
+                }
             }
         }
     }

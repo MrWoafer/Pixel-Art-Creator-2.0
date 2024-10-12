@@ -1,69 +1,72 @@
-using System.Collections;
-using System.Collections.Generic;
+using PAC.Input;
+using PAC.Keyboard_Shortcuts;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class UIKeyboardShortcut : MonoBehaviour
+namespace PAC.UI
 {
-    [Header("Settings")]
-    public string actionName = "";
-
-    private KeyboardShortcut _shortcut = KeyboardShortcut.None;
-    public KeyboardShortcut shortcut
+    public class UIKeyboardShortcut : MonoBehaviour
     {
-        get => _shortcut;
-        set
+        [Header("Settings")]
+        public string actionName = "";
+
+        private KeyboardShortcut _shortcut = KeyboardShortcut.None;
+        public KeyboardShortcut shortcut
         {
-            _shortcut = value;
-            button.SetText(shortcut.ToString());
-            onShortcutSet.Invoke(_shortcut);
+            get => _shortcut;
+            set
+            {
+                _shortcut = value;
+                button.SetText(shortcut.ToString());
+                onShortcutSet.Invoke(_shortcut);
+            }
         }
-    }
-    private KeyboardShortcut newShortcut = KeyboardShortcut.None;
+        private KeyboardShortcut newShortcut = KeyboardShortcut.None;
 
-    private UIButton button;
+        private UIButton button;
 
-    private InputSystem inputSystem;
+        private InputSystem inputSystem;
 
-    [Header("Events")]
-    [Space]
-    [SerializeField]
-    private UnityEvent<KeyboardShortcut> onShortcutSet = new UnityEvent<KeyboardShortcut>();
+        [Header("Events")]
+        [Space]
+        [SerializeField]
+        private UnityEvent<KeyboardShortcut> onShortcutSet = new UnityEvent<KeyboardShortcut>();
 
-    private void Awake()
-    {
-        button = transform.Find("Button").GetComponent<UIButton>();
+        private void Awake()
+        {
+            button = transform.Find("Button").GetComponent<UIButton>();
 
-        inputSystem = Finder.inputSystem;
-    }
+            inputSystem = Finder.inputSystem;
+        }
 
-    private void Start()
-    {
-        button.SubscribeToLeftClick(() => newShortcut = KeyboardShortcut.None);
-        button.GetComponent<InputTarget>().keyboardTarget.SubscribeToOnKeyDown(OnKeyDown);
-        button.GetComponent<InputTarget>().keyboardTarget.SubscribeToOnKeyUp(OnKeyUp);
-        button.GetComponent<InputTarget>().keyboardTarget.SubscribeToUntarget(OnUntarget);
-    }
+        private void Start()
+        {
+            button.SubscribeToLeftClick(() => newShortcut = KeyboardShortcut.None);
+            button.GetComponent<InputTarget>().keyboardTarget.SubscribeToOnKeyDown(OnKeyDown);
+            button.GetComponent<InputTarget>().keyboardTarget.SubscribeToOnKeyUp(OnKeyUp);
+            button.GetComponent<InputTarget>().keyboardTarget.SubscribeToUntarget(OnUntarget);
+        }
 
-    private void OnKeyDown(CustomKeyCode keyCode)
-    {
-        newShortcut.Add(keyCode);
-        button.SetText(newShortcut.ToString());
-    }
+        private void OnKeyDown(CustomKeyCode keyCode)
+        {
+            newShortcut.Add(keyCode);
+            button.SetText(newShortcut.ToString());
+        }
 
-    private void OnKeyUp(CustomKeyCode keyCode)
-    {
-        inputSystem.Untarget();
-        shortcut = newShortcut;
-    }
+        private void OnKeyUp(CustomKeyCode keyCode)
+        {
+            inputSystem.Untarget();
+            shortcut = newShortcut;
+        }
 
-    private void OnUntarget()
-    {
-        button.SetText(shortcut.ToString());
-    }
+        private void OnUntarget()
+        {
+            button.SetText(shortcut.ToString());
+        }
 
-    public void SubscribeToOnShortcutSet(UnityAction<KeyboardShortcut> call)
-    {
-        onShortcutSet.AddListener(call);
+        public void SubscribeToOnShortcutSet(UnityAction<KeyboardShortcut> call)
+        {
+            onShortcutSet.AddListener(call);
+        }
     }
 }

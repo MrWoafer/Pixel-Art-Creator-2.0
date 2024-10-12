@@ -1,319 +1,321 @@
-using System.Collections;
-using System.Collections.Generic;
+using PAC.Input;
 using UnityEngine;
 
-public enum DropdownCloseMode
+namespace PAC.UI
 {
-    ClickOff = 0,
-    MouseOff = 1
-}
-
-[AddComponentMenu("Custom UI/UI Dropdown")]
-public class UIDropdown : MonoBehaviour
-{
-    [Header("Settings")]
-    [SerializeField]
-    private bool _open = false;
-    public bool open
+    public enum DropdownCloseMode
     {
-        get
-        {
-            return _open;
-        }
-        private set
-        {
-            _open = value;
-        }
-    }
-    [SerializeField]
-    private DropdownCloseMode deselectMode = DropdownCloseMode.ClickOff;
-    [SerializeField]
-    [Tooltip("The button (if any) that causes the dropdown to open.")]
-    public GameObject openingButton;
-
-    [HideInInspector]
-    public UIDropdown parentDropdown;
-    [HideInInspector]
-    public UIDropdown rootDropdown
-    {
-        get
-        {
-            return isRootDropdown ? this : parentDropdown.rootDropdown;
-        }
-    }
-    public bool isRootDropdown
-    {
-        get
-        {
-            return parentDropdown == null;
-        }
+        ClickOff = 0,
+        MouseOff = 1
     }
 
-    private bool beenOpenForAFrame = false;
-    private bool initialisedAlready = false;
-
-    private Mouse mouse;
-    private UIManager uiManager;
-    private UIElement uiElement;
-
-    private void Awake()
+    [AddComponentMenu("Custom UI/UI Dropdown")]
+    public class UIDropdown : MonoBehaviour
     {
-        mouse = Finder.mouse;
-        uiManager = Finder.uiManager;
-
-        uiElement = GetComponent<UIElement>();
-
-        foreach (Transform child in transform)
+        [Header("Settings")]
+        [SerializeField]
+        private bool _open = false;
+        public bool open
         {
-            UIDropdown dropdown = child.GetComponent<UIDropdown>();
-            if (dropdown)
+            get
             {
-                dropdown.parentDropdown = this;
+                return _open;
+            }
+            private set
+            {
+                _open = value;
             }
         }
-    }
+        [SerializeField]
+        private DropdownCloseMode deselectMode = DropdownCloseMode.ClickOff;
+        [SerializeField]
+        [Tooltip("The button (if any) that causes the dropdown to open.")]
+        public GameObject openingButton;
 
-    private void Start()
-    {
-        if (!initialisedAlready)
+        [HideInInspector]
+        public UIDropdown parentDropdown;
+        [HideInInspector]
+        public UIDropdown rootDropdown
         {
-            Initialise();
-        }
-    }
-
-    public void Initialise()
-    {
-        InitialiseSetActive();
-
-        if (openingButton && isRootDropdown)
-        {
-            InputTarget inputTarget = openingButton.GetComponent<InputTarget>();
-            if (inputTarget)
+            get
             {
-                inputTarget.uiElement = rootDropdown.uiElement;
+                return isRootDropdown ? this : parentDropdown.rootDropdown;
+            }
+        }
+        public bool isRootDropdown
+        {
+            get
+            {
+                return parentDropdown == null;
             }
         }
 
-        foreach (Transform child in transform)
+        private bool beenOpenForAFrame = false;
+        private bool initialisedAlready = false;
+
+        private Mouse mouse;
+        private UIManager uiManager;
+        private UIElement uiElement;
+
+        private void Awake()
         {
-            try
+            mouse = Finder.mouse;
+            uiManager = Finder.uiManager;
+
+            uiElement = GetComponent<UIElement>();
+
+            foreach (Transform child in transform)
             {
-                UIButton button = child.GetComponent<UIButton>();
-                if (button)
+                UIDropdown dropdown = child.GetComponent<UIDropdown>();
+                if (dropdown)
                 {
-                    button.SubscribeToClick(CloseRoot);
+                    dropdown.parentDropdown = this;
                 }
             }
-            catch { }
+        }
 
-            try
+        private void Start()
+        {
+            if (!initialisedAlready)
             {
-                UIToggleButton button = child.GetComponent<UIToggleButton>();
-                if (button)
-                {
-                    button.SubscribeToLeftClick(CloseRoot);
-                }
+                Initialise();
             }
-            catch { }
+        }
 
-            if (rootDropdown.uiElement)
+        public void Initialise()
+        {
+            InitialiseSetActive();
+
+            if (openingButton && isRootDropdown)
             {
-                InputTarget inputTarget = child.GetComponent<InputTarget>();
+                InputTarget inputTarget = openingButton.GetComponent<InputTarget>();
                 if (inputTarget)
                 {
                     inputTarget.uiElement = rootDropdown.uiElement;
                 }
             }
-        }
 
-        Close();
-        initialisedAlready = true;
-    }
-
-    private void InitialiseSetActive()
-    {
-        foreach (Transform child in transform)
-        {
-            child.gameObject.SetActive(true);
-
-            UIDropdown dropdown = child.GetComponent<UIDropdown>();
-            if (dropdown)
+            foreach (Transform child in transform)
             {
-                dropdown.InitialiseSetActive();
-            }
-        }
-    }
-
-    private void Update()
-    {
-        if (open && beenOpenForAFrame)
-        {
-            if (MouseOff() && (deselectMode == DropdownCloseMode.MouseOff || (deselectMode == DropdownCloseMode.ClickOff && mouse.click)))
-            {
-                Close();
-            }
-        }
-
-        if (open && !beenOpenForAFrame)
-        {
-            beenOpenForAFrame = true;
-        }
-    }
-
-    private void OnValidate()
-    {
-        SetOpenEditor(open);
-    }
-
-    public void Open()
-    {
-        SetOpen(true);
-    }
-    public void Close()
-    {
-        SetOpen(false);
-    }
-    public void ToggleOpen()
-    {
-        SetOpen(!open);
-    }
-
-    public void SetOpen(bool open)
-    {
-        this.open = open;
-
-        /// This > -5000 check is to avoid issues with double initialisation (which happens with UIDropdownChoice objects) causing dropdowns to be moved twice.
-        if (!open && transform.localPosition.x > -5000f)
-        {
-            transform.localPosition -= new Vector3(10000f, 0f, 0f);
-        }
-        else if (open && transform.localPosition.x < -5000f)
-        {
-            transform.localPosition += new Vector3(10000f, 0f, 0f);
-        }
-
-
-        foreach (Transform child in transform)
-        {
-            UIDropdown dropdown = child.GetComponent<UIDropdown>();
-            if (dropdown)
-            {
-                if (!open)
+                try
                 {
-                    dropdown.Close();
+                    UIButton button = child.GetComponent<UIButton>();
+                    if (button)
+                    {
+                        button.SubscribeToClick(CloseRoot);
+                    }
                 }
+                catch { }
 
-                if (!open && transform.localPosition.x > -5000f)
+                try
                 {
-                    child.localPosition -= new Vector3(10000f, 0f, 0f);
+                    UIToggleButton button = child.GetComponent<UIToggleButton>();
+                    if (button)
+                    {
+                        button.SubscribeToLeftClick(CloseRoot);
+                    }
                 }
-                else if (open && transform.localPosition.x < -5000f)
+                catch { }
+
+                if (rootDropdown.uiElement)
                 {
-                    child.localPosition += new Vector3(10000f, 0f, 0f);
+                    InputTarget inputTarget = child.GetComponent<InputTarget>();
+                    if (inputTarget)
+                    {
+                        inputTarget.uiElement = rootDropdown.uiElement;
+                    }
+                }
+            }
+
+            Close();
+            initialisedAlready = true;
+        }
+
+        private void InitialiseSetActive()
+        {
+            foreach (Transform child in transform)
+            {
+                child.gameObject.SetActive(true);
+
+                UIDropdown dropdown = child.GetComponent<UIDropdown>();
+                if (dropdown)
+                {
+                    dropdown.InitialiseSetActive();
                 }
             }
         }
 
-        beenOpenForAFrame = false;
-
-        if (uiElement)
+        private void Update()
         {
-            if (open)
+            if (open && beenOpenForAFrame)
             {
-                uiManager.TryTarget(uiElement);
-            }
-            else
-            {
-                uiManager.TryUntarget(uiElement);
-            }
-        }
-    }
-
-    public void SetOpenEditor(bool open)
-    {
-        this.open = open;
-
-        foreach (Transform child in transform)
-        {
-            UIDropdown dropdown = child.GetComponent<UIDropdown>();
-            if (dropdown)
-            {
-                if (!open)
+                if (MouseOff() && (deselectMode == DropdownCloseMode.MouseOff || (deselectMode == DropdownCloseMode.ClickOff && mouse.click)))
                 {
-                    dropdown.SetOpenEditor(false);
+                    Close();
                 }
             }
 
-            child.gameObject.SetActive(open);
+            if (open && !beenOpenForAFrame)
+            {
+                beenOpenForAFrame = true;
+            }
         }
 
-        beenOpenForAFrame = false;
-
-        if (uiElement)
+        private void OnValidate()
         {
-            if (open)
-            {
-                uiManager.TryTarget(uiElement);
-            }
-            else
-            {
-                uiManager.TryUntarget(uiElement);
-            }
+            SetOpenEditor(open);
         }
-    }
 
-    /// <summary>
-    /// Opens this dropdown and all child dropdowns, and all their child dropdowns, etc.
-    /// </summary>
-    public void FullyOpen()
-    {
-        Open();
-
-        foreach (Transform child in transform)
+        public void Open()
         {
-            UIDropdown dropdown = child.GetComponent<UIDropdown>();
-            if (dropdown)
-            {
-                dropdown.FullyOpen();
-            }
+            SetOpen(true);
         }
-
-        beenOpenForAFrame = false;
-    }
-    /// <summary>
-    /// Closes the highest-level dropdown containing this one.
-    /// </summary>
-    public void CloseRoot()
-    {
-        rootDropdown.Close();
-    }
-
-    public bool MouseOff()
-    {
-        if (openingButton != null)
+        public void Close()
         {
-            InputTarget inputTarget = openingButton.GetComponent<InputTarget>();
-            if (inputTarget && inputTarget.mouseTarget.state != MouseTargetState.Idle)
-            {
-                return false;
-            }
+            SetOpen(false);
         }
-
-        foreach (Transform child in transform)
+        public void ToggleOpen()
         {
-            InputTarget inputTarget = child.GetComponent<InputTarget>();
-            if (inputTarget && inputTarget.mouseTarget.state != MouseTargetState.Idle)
+            SetOpen(!open);
+        }
+
+        public void SetOpen(bool open)
+        {
+            this.open = open;
+
+            /// This > -5000 check is to avoid issues with double initialisation (which happens with UIDropdownChoice objects) causing dropdowns to be moved twice.
+            if (!open && transform.localPosition.x > -5000f)
             {
-                return false;
+                transform.localPosition -= new Vector3(10000f, 0f, 0f);
+            }
+            else if (open && transform.localPosition.x < -5000f)
+            {
+                transform.localPosition += new Vector3(10000f, 0f, 0f);
             }
 
-            UIDropdown dropdown = child.GetComponent<UIDropdown>();
-            if (dropdown && dropdown.open && !dropdown.MouseOff())
+
+            foreach (Transform child in transform)
             {
-                return false;
+                UIDropdown dropdown = child.GetComponent<UIDropdown>();
+                if (dropdown)
+                {
+                    if (!open)
+                    {
+                        dropdown.Close();
+                    }
+
+                    if (!open && transform.localPosition.x > -5000f)
+                    {
+                        child.localPosition -= new Vector3(10000f, 0f, 0f);
+                    }
+                    else if (open && transform.localPosition.x < -5000f)
+                    {
+                        child.localPosition += new Vector3(10000f, 0f, 0f);
+                    }
+                }
+            }
+
+            beenOpenForAFrame = false;
+
+            if (uiElement)
+            {
+                if (open)
+                {
+                    uiManager.TryTarget(uiElement);
+                }
+                else
+                {
+                    uiManager.TryUntarget(uiElement);
+                }
             }
         }
 
-        return true;
+        public void SetOpenEditor(bool open)
+        {
+            this.open = open;
+
+            foreach (Transform child in transform)
+            {
+                UIDropdown dropdown = child.GetComponent<UIDropdown>();
+                if (dropdown)
+                {
+                    if (!open)
+                    {
+                        dropdown.SetOpenEditor(false);
+                    }
+                }
+
+                child.gameObject.SetActive(open);
+            }
+
+            beenOpenForAFrame = false;
+
+            if (uiElement)
+            {
+                if (open)
+                {
+                    uiManager.TryTarget(uiElement);
+                }
+                else
+                {
+                    uiManager.TryUntarget(uiElement);
+                }
+            }
+        }
+
+        /// <summary>
+        /// Opens this dropdown and all child dropdowns, and all their child dropdowns, etc.
+        /// </summary>
+        public void FullyOpen()
+        {
+            Open();
+
+            foreach (Transform child in transform)
+            {
+                UIDropdown dropdown = child.GetComponent<UIDropdown>();
+                if (dropdown)
+                {
+                    dropdown.FullyOpen();
+                }
+            }
+
+            beenOpenForAFrame = false;
+        }
+        /// <summary>
+        /// Closes the highest-level dropdown containing this one.
+        /// </summary>
+        public void CloseRoot()
+        {
+            rootDropdown.Close();
+        }
+
+        public bool MouseOff()
+        {
+            if (openingButton != null)
+            {
+                InputTarget inputTarget = openingButton.GetComponent<InputTarget>();
+                if (inputTarget && inputTarget.mouseTarget.state != MouseTargetState.Idle)
+                {
+                    return false;
+                }
+            }
+
+            foreach (Transform child in transform)
+            {
+                InputTarget inputTarget = child.GetComponent<InputTarget>();
+                if (inputTarget && inputTarget.mouseTarget.state != MouseTargetState.Idle)
+                {
+                    return false;
+                }
+
+                UIDropdown dropdown = child.GetComponent<UIDropdown>();
+                if (dropdown && dropdown.open && !dropdown.MouseOff())
+                {
+                    return false;
+                }
+            }
+
+            return true;
+        }
     }
 }

@@ -1,102 +1,103 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class RainbowOutline : MonoBehaviour
+namespace PAC.Shaders
 {
-    [Header("Settings")]
-    [SerializeField]
-    private bool _outlineEnabled = true;
-    public bool outlineEnabled
+    public class RainbowOutline : MonoBehaviour
     {
-        get => _outlineEnabled;
-
-        set
+        [Header("Settings")]
+        [SerializeField]
+        private bool _outlineEnabled = true;
+        public bool outlineEnabled
         {
-            _outlineEnabled = value;
-            if (renderer == null)
+            get => _outlineEnabled;
+
+            set
             {
-                GetReferences();
-            }
-            if (renderer.sharedMaterial != null)
-            {
-                renderer.sharedMaterial.SetInt("_Enabled", value ? 1 : 0);
+                _outlineEnabled = value;
+                if (renderer == null)
+                {
+                    GetReferences();
+                }
+                if (renderer.sharedMaterial != null)
+                {
+                    renderer.sharedMaterial.SetInt("_Enabled", value ? 1 : 0);
+                }
             }
         }
-    }
-    [SerializeField]
-    [Min(0f)]
-    private float _thickness = 0.02f;
-    public float thickness
-    {
-        get => _thickness;
-
-        set
+        [SerializeField]
+        [Min(0f)]
+        private float _thickness = 0.02f;
+        public float thickness
         {
-            _thickness = value;
-            if (renderer == null)
+            get => _thickness;
+
+            set
             {
-                GetReferences();
-            }
-            if (renderer.sharedMaterial != null)
-            {
-                renderer.sharedMaterial.SetFloat("_Thickness", value);
+                _thickness = value;
+                if (renderer == null)
+                {
+                    GetReferences();
+                }
+                if (renderer.sharedMaterial != null)
+                {
+                    renderer.sharedMaterial.SetFloat("_Thickness", value);
+                }
             }
         }
-    }
-    [SerializeField]
-    private bool _keepExistingTexture = true;
-    public bool keepExistingTexture
-    {
-        get => _keepExistingTexture;
-
-        set
+        [SerializeField]
+        private bool _keepExistingTexture = true;
+        public bool keepExistingTexture
         {
-            _keepExistingTexture = value;
-            if (renderer == null)
+            get => _keepExistingTexture;
+
+            set
             {
-                GetReferences();
-            }
-            if (renderer.sharedMaterial != null)
-            {
-                renderer.sharedMaterial.SetInt("_Keep_Existing_Texture", value ? 1 : 0);
+                _keepExistingTexture = value;
+                if (renderer == null)
+                {
+                    GetReferences();
+                }
+                if (renderer.sharedMaterial != null)
+                {
+                    renderer.sharedMaterial.SetInt("_Keep_Existing_Texture", value ? 1 : 0);
+                }
             }
         }
-    }
 
-    [Header("References")]
-    public Material rainbowOutlineMaterial;
+        [Header("References")]
+        public Material rainbowOutlineMaterial;
 
-    private Renderer renderer;
+        private Renderer renderer;
 
-    private bool madeNewMaterial = false;
+        private bool madeNewMaterial = false;
 
-    private void Awake()
-    {
-        GetReferences();
-        CreateOutline();
-    }
-
-    private void OnValidate()
-    {
-        GetReferences();
-        CreateOutline();
-    }
-
-    private void GetReferences()
-    {
-        renderer = gameObject.GetComponent<Renderer>();
-    }
-
-    private void CreateOutline()
-    {
-        if (!madeNewMaterial)
+        private void Awake()
         {
-            renderer.material = new Material(rainbowOutlineMaterial);
-            madeNewMaterial = true;
+            GetReferences();
+            CreateOutline();
         }
-        outlineEnabled = _outlineEnabled;
-        thickness = _thickness;
-        keepExistingTexture = _keepExistingTexture;
+
+        private void OnValidate()
+        {
+            GetReferences();
+            CreateOutline();
+        }
+
+        private void GetReferences()
+        {
+            renderer = gameObject.GetComponent<Renderer>();
+        }
+
+        private void CreateOutline()
+        {
+            if (!madeNewMaterial)
+            {
+                renderer.material = new Material(rainbowOutlineMaterial);
+                madeNewMaterial = true;
+            }
+            outlineEnabled = _outlineEnabled;
+            thickness = _thickness;
+            keepExistingTexture = _keepExistingTexture;
+        }
     }
 }

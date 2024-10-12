@@ -1,66 +1,68 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
 using System.Linq;
+using PAC.Input;
+using UnityEngine;
 
-public class UIToolButton : MonoBehaviour
+namespace PAC.UI
 {
-    public UIButton[] buttons { get; private set; }
-    public UIButton currentButton { get; private set; }
-    private UIToggleButton toggleButton;
-    private Tooltip tooltip;
-
-    private void Awake()
+    public class UIToolButton : MonoBehaviour
     {
-        buttons = transform.GetComponentsInChildren<UIButton>();
-        currentButton = buttons[0];
-        toggleButton = transform.Find("Toggle Button").GetComponent<UIToggleButton>();
-        tooltip = toggleButton.GetComponent<Tooltip>();
-    }
+        public UIButton[] buttons { get; private set; }
+        public UIButton currentButton { get; private set; }
+        private UIToggleButton toggleButton;
+        private Tooltip tooltip;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        foreach (UIButton button in buttons)
+        private void Awake()
         {
-            UIButton temp = button;
-            button.SubscribeToClick(() => {
-                Select(temp);
-                toggleButton.toggleGroup.PressForceEvent(toggleButton);
-            });
+            buttons = transform.GetComponentsInChildren<UIButton>();
+            currentButton = buttons[0];
+            toggleButton = transform.Find("Toggle Button").GetComponent<UIToggleButton>();
+            tooltip = toggleButton.GetComponent<Tooltip>();
         }
 
-        toggleButton.SubscribeToTurnOff(() => Select(buttons[0]));
-        toggleButton.SubscribeToRightClick(() => currentButton.RightClick());
-
-        Select(currentButton);
-    }
-
-    private void Select(UIButton button)
-    {
-        if (!buttons.Contains(button))
+        // Start is called before the first frame update
+        void Start()
         {
-            throw new System.Exception("button not in buttons.");
-        }
-
-        bool gonePastButton = false;
-        for (int i = 0; i < buttons.Length; i++)
-        {
-            if (buttons[i] == button)
+            foreach (UIButton button in buttons)
             {
-                gonePastButton = true;
+                UIButton temp = button;
+                button.SubscribeToClick(() => {
+                    Select(temp);
+                    toggleButton.toggleGroup.PressForceEvent(toggleButton);
+                });
             }
-            else
-            {
-                buttons[i].transform.localPosition = new Vector3(i - (gonePastButton ? 1f : 0f), 0f, 0f);
-            }
+
+            toggleButton.SubscribeToTurnOff(() => Select(buttons[0]));
+            toggleButton.SubscribeToRightClick(() => currentButton.RightClick());
+
+            Select(currentButton);
         }
-        button.transform.localPosition = new Vector3(-10000f, 0f, 0f);
 
-        toggleButton.SetImages(button.image, button.pressedImage, button.hoverImage, button.pressedImage);
-        tooltip.text = button.GetComponent<Tooltip>().text;
-        toggleButton.toggleName = button.GetComponent<InputTarget>().targetName.ToLower();
+        private void Select(UIButton button)
+        {
+            if (!buttons.Contains(button))
+            {
+                throw new System.Exception("button not in buttons.");
+            }
 
-        currentButton = button;
+            bool gonePastButton = false;
+            for (int i = 0; i < buttons.Length; i++)
+            {
+                if (buttons[i] == button)
+                {
+                    gonePastButton = true;
+                }
+                else
+                {
+                    buttons[i].transform.localPosition = new Vector3(i - (gonePastButton ? 1f : 0f), 0f, 0f);
+                }
+            }
+            button.transform.localPosition = new Vector3(-10000f, 0f, 0f);
+
+            toggleButton.SetImages(button.image, button.pressedImage, button.hoverImage, button.pressedImage);
+            tooltip.text = button.GetComponent<Tooltip>().text;
+            toggleButton.toggleName = button.GetComponent<InputTarget>().targetName.ToLower();
+
+            currentButton = button;
+        }
     }
 }

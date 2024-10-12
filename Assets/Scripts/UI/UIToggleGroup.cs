@@ -1,284 +1,239 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-[AddComponentMenu("Custom UI/UI Toggle Group")]
-public class UIToggleGroup : MonoBehaviour
+namespace PAC.UI
 {
-    [Header("Settings")]
-    [SerializeField]
-    private bool _canSelectMultiple = false;
-    public bool canSelectMultiple
+    [AddComponentMenu("Custom UI/UI Toggle Group")]
+    public class UIToggleGroup : MonoBehaviour
     {
-        get
+        [Header("Settings")]
+        [SerializeField]
+        private bool _canSelectMultiple = false;
+        public bool canSelectMultiple
         {
-            return _canSelectMultiple;
-        }
-    }
-    [SerializeField]
-    private bool _canSelectNone = false;
-    public bool canSelectNone
-    {
-        get
-        {
-            return _canSelectNone;
-        }
-    }
-    [SerializeField]
-    private bool _swapClickAndCtrlClick = false;
-    public bool swapClickAndCtrlClick
-    {
-        get
-        {
-            return _swapClickAndCtrlClick;
-        }
-    }
-
-    [SerializeField]
-    private UIToggleButton _currentToggle = null;
-    public UIToggleButton currentToggle
-    {
-        get => _currentToggle;
-        private set => _currentToggle = value;
-    }
-
-    public int currentToggleIndex
-    {
-        get
-        {
-            for (int i = 0; i < toggles.Count; i++)
+            get
             {
-                if (toggles[i] == currentToggle)
+                return _canSelectMultiple;
+            }
+        }
+        [SerializeField]
+        private bool _canSelectNone = false;
+        public bool canSelectNone
+        {
+            get
+            {
+                return _canSelectNone;
+            }
+        }
+        [SerializeField]
+        private bool _swapClickAndCtrlClick = false;
+        public bool swapClickAndCtrlClick
+        {
+            get
+            {
+                return _swapClickAndCtrlClick;
+            }
+        }
+
+        [SerializeField]
+        private UIToggleButton _currentToggle = null;
+        public UIToggleButton currentToggle
+        {
+            get => _currentToggle;
+            private set => _currentToggle = value;
+        }
+
+        public int currentToggleIndex
+        {
+            get
+            {
+                for (int i = 0; i < toggles.Count; i++)
                 {
-                    return i;
+                    if (toggles[i] == currentToggle)
+                    {
+                        return i;
+                    }
+                }
+                return -1;
+            }
+        }
+
+        [SerializeField]
+        private List<UIToggleButton> _toggles = new List<UIToggleButton>();
+        public List<UIToggleButton> toggles
+        {
+            get
+            {
+                return _toggles;
+            }
+        }
+
+        public int Count
+        {
+            get
+            {
+                return _toggles.Count;
+            }
+        }
+
+        public UIToggleButton[] selectedToggles
+        {
+            get
+            {
+                List<UIToggleButton> selected = new List<UIToggleButton>();
+
+                foreach (UIToggleButton toggle in toggles)
+                {
+                    if (toggle.on)
+                    {
+                        selected.Add(toggle);
+                    }
+                }
+
+                return selected.ToArray();
+            }
+        }
+        public int[] selectedIndices
+        {
+            get
+            {
+                List<int> selected = new List<int>();
+
+                for (int i = 0; i < toggles.Count; i++)
+                {
+                    if (toggles[i].on)
+                    {
+                        selected.Add(i);
+                    }
+                }
+
+                return selected.ToArray();
+            }
+        }
+
+        public bool hasSelectedToggle
+        {
+            get
+            {
+                for (int i = 0; i < toggles.Count; i++)
+                {
+                    if (toggles[i].on)
+                    {
+                        return true;
+                    }
+                }
+                return false;
+            }
+        }
+
+        private UnityEvent onSelectedToggleChanged = new UnityEvent();
+
+        private void Start()
+        {
+            if (currentToggle && !Contains(currentToggle))
+            {
+                throw new System.Exception("The given starting toggle is not in the toggle group.");
+            }
+
+            foreach (UIToggleButton toggle in _toggles)
+            {
+                if (toggle != null)
+                {
+                    toggle.SetOnOff(false);
+                    toggle.JoinToggleGroup(this);
                 }
             }
-            return -1;
-        }
-    }
-
-    [SerializeField]
-    private List<UIToggleButton> _toggles = new List<UIToggleButton>();
-    public List<UIToggleButton> toggles
-    {
-        get
-        {
-            return _toggles;
-        }
-    }
-
-    public int Count
-    {
-        get
-        {
-            return _toggles.Count;
-        }
-    }
-
-    public UIToggleButton[] selectedToggles
-    {
-        get
-        {
-            List<UIToggleButton> selected = new List<UIToggleButton>();
-
-            foreach (UIToggleButton toggle in toggles)
+            if (currentToggle != null)
             {
-                if (toggle.on)
-                {
-                    selected.Add(toggle);
-                }
-            }
-
-            return selected.ToArray();
-        }
-    }
-    public int[] selectedIndices
-    {
-        get
-        {
-            List<int> selected = new List<int>();
-
-            for (int i = 0; i < toggles.Count; i++)
-            {
-                if (toggles[i].on)
-                {
-                    selected.Add(i);
-                }
-            }
-
-            return selected.ToArray();
-        }
-    }
-
-    public bool hasSelectedToggle
-    {
-        get
-        {
-            for (int i = 0; i < toggles.Count; i++)
-            {
-                if (toggles[i].on)
-                {
-                    return true;
-                }
-            }
-            return false;
-        }
-    }
-
-    private UnityEvent onSelectedToggleChanged = new UnityEvent();
-
-    private void Start()
-    {
-        if (currentToggle && !Contains(currentToggle))
-        {
-            throw new System.Exception("The given starting toggle is not in the toggle group.");
-        }
-
-        foreach (UIToggleButton toggle in _toggles)
-        {
-            if (toggle != null)
-            {
-                toggle.SetOnOff(false);
-                toggle.JoinToggleGroup(this);
+                currentToggle.SetOnOff(true);
             }
         }
-        if (currentToggle != null)
+
+        public bool Add(UIToggleButton toggle)
         {
-            currentToggle.SetOnOff(true);
-        }
-    }
+            _toggles.Add(toggle);
+            toggle.JoinToggleGroup(this);
 
-    public bool Add(UIToggleButton toggle)
-    {
-        _toggles.Add(toggle);
-        toggle.JoinToggleGroup(this);
-
-        return true;
-    }
-
-    public bool Remove(UIToggleButton toggle)
-    {
-        if(_toggles.Remove(toggle))
-        {
-            toggle.LeaveToggleGroup();
             return true;
         }
-        return false;
-    }
 
-    public bool Contains(UIToggleButton toggle)
-    {
-        return _toggles.Contains(toggle);
-    }
-
-    public bool Press(int index)
-    {
-        if (index < 0 || index >= toggles.Count)
+        public bool Remove(UIToggleButton toggle)
         {
-            throw new System.Exception("Index out of range: " + index);
-        }
-        return Press(toggles[index]);
-    }
-    public bool Press(UIToggleButton toggle)
-    {
-        return PressOrCtrlPress(toggle, swapClickAndCtrlClick);
-    }
-    public bool PressForceEvent(int index)
-    {
-        if (index < 0 || index >= toggles.Count)
-        {
-            throw new System.Exception("Index out of range: " + index);
-        }
-        return PressForceEvent(toggles[index]);
-    }
-    public bool PressForceEvent(UIToggleButton toggle)
-    {
-        return PressOrCtrlPress(toggle, swapClickAndCtrlClick, true);
-    }
-
-    public bool CtrlPress(int index)
-    {
-        if (index < 0 || index >= toggles.Count)
-        {
-            throw new System.Exception("Index out of range: " + index);
-        }
-        return CtrlPress(toggles[index]);
-    }
-    public bool CtrlPress(UIToggleButton toggle)
-    {
-        return PressOrCtrlPress(toggle, !swapClickAndCtrlClick);
-    }
-
-    public bool PressOrCtrlPress(UIToggleButton toggle, bool ctrlClick) => PressOrCtrlPress(toggle, ctrlClick, false);
-    private bool PressOrCtrlPress(UIToggleButton toggle, bool ctrlClick, bool forceEvent)
-    {
-        if (!Contains(toggle))
-        {
+            if(_toggles.Remove(toggle))
+            {
+                toggle.LeaveToggleGroup();
+                return true;
+            }
             return false;
         }
 
-        if (!ctrlClick)
+        public bool Contains(UIToggleButton toggle)
         {
-            if (currentToggle == toggle && selectedToggles.Length == 1)
+            return _toggles.Contains(toggle);
+        }
+
+        public bool Press(int index)
+        {
+            if (index < 0 || index >= toggles.Count)
             {
-                if (forceEvent) { onSelectedToggleChanged.Invoke(); }
+                throw new System.Exception("Index out of range: " + index);
+            }
+            return Press(toggles[index]);
+        }
+        public bool Press(UIToggleButton toggle)
+        {
+            return PressOrCtrlPress(toggle, swapClickAndCtrlClick);
+        }
+        public bool PressForceEvent(int index)
+        {
+            if (index < 0 || index >= toggles.Count)
+            {
+                throw new System.Exception("Index out of range: " + index);
+            }
+            return PressForceEvent(toggles[index]);
+        }
+        public bool PressForceEvent(UIToggleButton toggle)
+        {
+            return PressOrCtrlPress(toggle, swapClickAndCtrlClick, true);
+        }
+
+        public bool CtrlPress(int index)
+        {
+            if (index < 0 || index >= toggles.Count)
+            {
+                throw new System.Exception("Index out of range: " + index);
+            }
+            return CtrlPress(toggles[index]);
+        }
+        public bool CtrlPress(UIToggleButton toggle)
+        {
+            return PressOrCtrlPress(toggle, !swapClickAndCtrlClick);
+        }
+
+        public bool PressOrCtrlPress(UIToggleButton toggle, bool ctrlClick) => PressOrCtrlPress(toggle, ctrlClick, false);
+        private bool PressOrCtrlPress(UIToggleButton toggle, bool ctrlClick, bool forceEvent)
+        {
+            if (!Contains(toggle))
+            {
                 return false;
             }
 
-            if (currentToggle != null)
+            if (!ctrlClick)
             {
-                foreach (UIToggleButton selectedToggle in selectedToggles)
+                if (currentToggle == toggle && selectedToggles.Length == 1)
                 {
-                    selectedToggle.SetOnOff(false);
-                }
-            }
-            currentToggle = toggle;
-            toggle.SetOnOff(true);
-
-            onSelectedToggleChanged.Invoke();
-
-            return true;
-        }
-        else
-        {
-            if (!canSelectMultiple)
-            {
-                PressOrCtrlPress(toggle, false);
-            }
-
-            if (toggle.on)
-            {
-                if (toggle == currentToggle)
-                {
-                    if (selectedToggles.Length == 1)
-                    {
-                        if (!canSelectNone)
-                        {
-                            if (forceEvent) { onSelectedToggleChanged.Invoke(); }
-                            return false;
-                            
-                        }
-                        currentToggle = null;
-                    }
-                    else
-                    {
-                        currentToggle = selectedToggles[0];
-                        if (currentToggle == toggle)
-                        {
-                            currentToggle = selectedToggles[1];
-                        }
-                    }
+                    if (forceEvent) { onSelectedToggleChanged.Invoke(); }
+                    return false;
                 }
 
-                toggle.SetOnOff(false);
-
-                onSelectedToggleChanged.Invoke();
-
-                return true;
-            }
-            else
-            {
+                if (currentToggle != null)
+                {
+                    foreach (UIToggleButton selectedToggle in selectedToggles)
+                    {
+                        selectedToggle.SetOnOff(false);
+                    }
+                }
                 currentToggle = toggle;
                 toggle.SetOnOff(true);
 
@@ -286,27 +241,74 @@ public class UIToggleGroup : MonoBehaviour
 
                 return true;
             }
+            else
+            {
+                if (!canSelectMultiple)
+                {
+                    PressOrCtrlPress(toggle, false);
+                }
+
+                if (toggle.on)
+                {
+                    if (toggle == currentToggle)
+                    {
+                        if (selectedToggles.Length == 1)
+                        {
+                            if (!canSelectNone)
+                            {
+                                if (forceEvent) { onSelectedToggleChanged.Invoke(); }
+                                return false;
+                            
+                            }
+                            currentToggle = null;
+                        }
+                        else
+                        {
+                            currentToggle = selectedToggles[0];
+                            if (currentToggle == toggle)
+                            {
+                                currentToggle = selectedToggles[1];
+                            }
+                        }
+                    }
+
+                    toggle.SetOnOff(false);
+
+                    onSelectedToggleChanged.Invoke();
+
+                    return true;
+                }
+                else
+                {
+                    currentToggle = toggle;
+                    toggle.SetOnOff(true);
+
+                    onSelectedToggleChanged.Invoke();
+
+                    return true;
+                }
+            }
         }
-    }
 
-    public void Clear()
-    {
-        _toggles = new List<UIToggleButton>();
-        currentToggle = null;
-    }
-
-    public void DestroyToggles()
-    {
-        foreach (UIToggleButton toggle in _toggles)
+        public void Clear()
         {
-            Destroy(toggle.gameObject);
+            _toggles = new List<UIToggleButton>();
+            currentToggle = null;
         }
 
-        Clear();
-    }
+        public void DestroyToggles()
+        {
+            foreach (UIToggleButton toggle in _toggles)
+            {
+                Destroy(toggle.gameObject);
+            }
 
-    public void SubscribeToSelectedToggleChange(UnityAction call)
-    {
-        onSelectedToggleChanged.AddListener(call);
+            Clear();
+        }
+
+        public void SubscribeToSelectedToggleChange(UnityAction call)
+        {
+            onSelectedToggleChanged.AddListener(call);
+        }
     }
 }

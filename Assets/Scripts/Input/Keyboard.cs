@@ -1,46 +1,48 @@
-using System.Collections;
-using System.Collections.Generic;
+using PAC.Keyboard_Shortcuts;
 using UnityEngine;
 
-public class Keyboard : MonoBehaviour
+namespace PAC.Input
 {
-    public bool canInteract = false;
-
-    private InputSystem inputSystem;
-
-    // Start is called before the first frame update
-    void Start()
+    public class Keyboard : MonoBehaviour
     {
-        inputSystem = GameObject.Find("Input System").GetComponent<InputSystem>();
-    }
+        public bool canInteract = false;
 
-    // Update is called once per frame
-    void Update()
-    {
-        if (canInteract && inputSystem.inputTarget.keyboardInputEnabled)
+        private InputSystem inputSystem;
+
+        // Start is called before the first frame update
+        void Start()
         {
-            foreach (CustomKeyCode key in CustomKeyCode.allKeyCodes)
+            inputSystem = GameObject.Find("Input System").GetComponent<InputSystem>();
+        }
+
+        // Update is called once per frame
+        void Update()
+        {
+            if (canInteract && inputSystem.inputTarget.keyboardInputEnabled)
             {
-                if (key.GetKeyDown())
+                foreach (CustomKeyCode key in CustomKeyCode.allKeyCodes)
                 {
-                    if (inputSystem.hasInputTarget)
+                    if (key.GetKeyDown())
                     {
-                        inputSystem.inputTarget.keyboardTarget.KeyDown(key);
+                        if (inputSystem.hasInputTarget)
+                        {
+                            inputSystem.inputTarget.keyboardTarget.KeyDown(key);
+                        }
+                        else
+                        {
+                            inputSystem.globalInputTarget.keyboardTarget.KeyDown(key);
+                        }
                     }
-                    else
+                    else if (key.GetKeyUp())
                     {
-                        inputSystem.globalInputTarget.keyboardTarget.KeyDown(key);
-                    }
-                }
-                else if (key.GetKeyUp())
-                {
-                    if (inputSystem.hasInputTarget)
-                    {
-                        inputSystem.inputTarget.keyboardTarget.KeyUp(key);
-                    }
-                    else
-                    {
-                        inputSystem.globalInputTarget.keyboardTarget.KeyUp(key);
+                        if (inputSystem.hasInputTarget)
+                        {
+                            inputSystem.inputTarget.keyboardTarget.KeyUp(key);
+                        }
+                        else
+                        {
+                            inputSystem.globalInputTarget.keyboardTarget.KeyUp(key);
+                        }
                     }
                 }
             }

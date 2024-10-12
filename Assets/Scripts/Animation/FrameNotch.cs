@@ -1,34 +1,35 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-/// <summary>
-/// A class for the frame number markers on the animation timeline.
-/// </summary>
-public class FrameNotch : MonoBehaviour
+namespace PAC.Animation
 {
-    private Text numberText;
-
-    public int frameNum
+    /// <summary>
+    /// A class for the frame number markers on the animation timeline.
+    /// </summary>
+    public class FrameNotch : MonoBehaviour
     {
-        get
+        private Text numberText;
+
+        public int frameNum
         {
-            return int.Parse(numberText.text);
+            get
+            {
+                return int.Parse(numberText.text);
+            }
+            set
+            {
+                SetFrameNumber(value);
+            }
         }
-        set
+
+        private void Awake()
         {
-            SetFrameNumber(value);
+            numberText = transform.Find("Text").GetComponent<Text>();
         }
-    }
 
-    private void Awake()
-    {
-        numberText = transform.Find("Text").GetComponent<Text>();
-    }
-
-    public void SetFrameNumber(int num)
-    {
-        numberText.text = num.ToString();
+        public void SetFrameNumber(int num)
+        {
+            numberText.text = num.ToString();
+        }
     }
 }

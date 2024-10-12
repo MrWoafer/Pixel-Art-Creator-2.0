@@ -1,160 +1,161 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class UINumberField : MonoBehaviour
+namespace PAC.UI
 {
-    [Header("Settings")]
-    [SerializeField]
-    private float startingValue = 0f;
-    [SerializeField]
-    private float increment = 1f;
-    [SerializeField]
-    [Min(0)]
-    [Tooltip("The maximum number of decimal placs that will be displayed.")]
-    private int textDecimalPlaces = 0;
-    [SerializeField]
-    private bool useMax = false;
-    [SerializeField]
-    private float _max = 1f;
-    public float max
+    public class UINumberField : MonoBehaviour
     {
-        get
+        [Header("Settings")]
+        [SerializeField]
+        private float startingValue = 0f;
+        [SerializeField]
+        private float increment = 1f;
+        [SerializeField]
+        [Min(0)]
+        [Tooltip("The maximum number of decimal placs that will be displayed.")]
+        private int textDecimalPlaces = 0;
+        [SerializeField]
+        private bool useMax = false;
+        [SerializeField]
+        private float _max = 1f;
+        public float max
         {
-            return _max;
-        }
-        set
-        {
-            _max = value;
-            this.value = this.value;
-        }
-    }
-    [SerializeField]
-    private bool useMin = true;
-    [SerializeField]
-    private float _min = 0f;
-    public float min
-    {
-        get
-        {
-            return _min;
-        }
-        set
-        {
-            _min = value;
-            this.value = this.value;
-        }
-    }
-
-    private float _value;
-    public float value
-    {
-        get
-        {
-            return _value;
-        }
-        set
-        {
-            float oldValue = _value;
-
-            _value = Mathf.Clamp(value, useMin ? min : float.MinValue, useMax ? max : float.MaxValue);
-            UpdateDisplay();
-
-            if (oldValue != _value)
+            get
             {
-                onValueChanged.Invoke();
-                valueChanged = true;
+                return _max;
+            }
+            set
+            {
+                _max = value;
+                this.value = this.value;
             }
         }
-    }
-
-    private UITextbox textbox;
-
-    private bool valueChanged = false;
-    private bool beenRunningAFrame = false;
-
-    [Header("Events")]
-    [SerializeField]
-    private UnityEvent onValueChanged = new UnityEvent();
-
-    private void Awake()
-    {
-        GetReferences();
-    }
-
-    private void Start()
-    {
-        textbox.SubscribeToFinishEvent(GetValueFromTextbox);
-
-        if (!valueChanged)
+        [SerializeField]
+        private bool useMin = true;
+        [SerializeField]
+        private float _min = 0f;
+        public float min
         {
-            value = startingValue;
+            get
+            {
+                return _min;
+            }
+            set
+            {
+                _min = value;
+                this.value = this.value;
+            }
         }
-    }
 
-    private void Update()
-    {
-        if (!beenRunningAFrame)
+        private float _value;
+        public float value
         {
-            beenRunningAFrame = true;
+            get
+            {
+                return _value;
+            }
+            set
+            {
+                float oldValue = _value;
+
+                _value = Mathf.Clamp(value, useMin ? min : float.MinValue, useMax ? max : float.MaxValue);
+                UpdateDisplay();
+
+                if (oldValue != _value)
+                {
+                    onValueChanged.Invoke();
+                    valueChanged = true;
+                }
+            }
         }
-    }
 
-    private void GetReferences()
-    {
-        textbox = transform.Find("Textbox").GetComponent<UITextbox>();
-    }
+        private UITextbox textbox;
 
-    private void OnValidate()
-    {
-        if (!Application.isPlaying || beenRunningAFrame)
+        private bool valueChanged = false;
+        private bool beenRunningAFrame = false;
+
+        [Header("Events")]
+        [SerializeField]
+        private UnityEvent onValueChanged = new UnityEvent();
+
+        private void Awake()
         {
             GetReferences();
+        }
 
-            max = useMax ? Mathf.Max(max, useMin ? min : float.MinValue) : max;
-            startingValue = Mathf.Clamp(startingValue, useMin ? min : float.MinValue, useMax ? max : float.MaxValue);
-            if (!Application.isPlaying)
+        private void Start()
+        {
+            textbox.SubscribeToFinishEvent(GetValueFromTextbox);
+
+            if (!valueChanged)
             {
                 value = startingValue;
             }
-
-            UpdateDisplay();
         }
-    }
 
-    private void UpdateDisplay()
-    {
-        textbox.SetText(Functions.RoundDecimalPlaces(value, textDecimalPlaces).ToString());
-    }
-
-    public void AddNumOfIncrements(int numOfIncrements)
-    {
-        value += increment * numOfIncrements;
-    }
-    public void Increment()
-    {
-        AddNumOfIncrements(1);
-    }
-    public void Decrement()
-    {
-        AddNumOfIncrements(-1);
-    }
-
-    private void GetValueFromTextbox()
-    {
-        try
+        private void Update()
         {
-            value = float.Parse(textbox.text);
+            if (!beenRunningAFrame)
+            {
+                beenRunningAFrame = true;
+            }
         }
-        catch
-        {
-            UpdateDisplay();
-        }
-    }
 
-    public void SubscribeToValueChanged(UnityAction call)
-    {
-        onValueChanged.AddListener(call);
+        private void GetReferences()
+        {
+            textbox = transform.Find("Textbox").GetComponent<UITextbox>();
+        }
+
+        private void OnValidate()
+        {
+            if (!Application.isPlaying || beenRunningAFrame)
+            {
+                GetReferences();
+
+                max = useMax ? Mathf.Max(max, useMin ? min : float.MinValue) : max;
+                startingValue = Mathf.Clamp(startingValue, useMin ? min : float.MinValue, useMax ? max : float.MaxValue);
+                if (!Application.isPlaying)
+                {
+                    value = startingValue;
+                }
+
+                UpdateDisplay();
+            }
+        }
+
+        private void UpdateDisplay()
+        {
+            textbox.SetText(Functions.RoundDecimalPlaces(value, textDecimalPlaces).ToString());
+        }
+
+        public void AddNumOfIncrements(int numOfIncrements)
+        {
+            value += increment * numOfIncrements;
+        }
+        public void Increment()
+        {
+            AddNumOfIncrements(1);
+        }
+        public void Decrement()
+        {
+            AddNumOfIncrements(-1);
+        }
+
+        private void GetValueFromTextbox()
+        {
+            try
+            {
+                value = float.Parse(textbox.text);
+            }
+            catch
+            {
+                UpdateDisplay();
+            }
+        }
+
+        public void SubscribeToValueChanged(UnityAction call)
+        {
+            onValueChanged.AddListener(call);
+        }
     }
 }

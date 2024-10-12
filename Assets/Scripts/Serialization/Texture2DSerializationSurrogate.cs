@@ -1,36 +1,37 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
 using System.Runtime.Serialization;
+using UnityEngine;
 
-[System.Obsolete()]
-public class Texture2DSerializationSurrogate : ISerializationSurrogate
+namespace PAC.Serialization
 {
-    public void GetObjectData(object obj, SerializationInfo info, StreamingContext context)
+    [System.Obsolete()]
+    public class Texture2DSerializationSurrogate : ISerializationSurrogate
     {
-        Texture2D tex = (Texture2D)obj;
-
-        byte[] byteArray = tex.EncodeToPNG();
-        info.AddValue("Length", byteArray.Length);
-        for (int i = 0; i < byteArray.Length; i++)
+        public void GetObjectData(object obj, SerializationInfo info, StreamingContext context)
         {
-            info.AddValue(i.ToString(), byteArray[i]);
-        }
-    }
+            Texture2D tex = (Texture2D)obj;
 
-    public object SetObjectData(object obj, SerializationInfo info, StreamingContext context, ISurrogateSelector selector)
-    {
-        Texture2D tex = new Texture2D(1, 1);
-
-        byte[] byteArray = new byte[(int)info.GetValue("Length", typeof(int))];
-        for (int i = 0; i < byteArray.Length; i++)
-        {
-            byteArray[i] = (byte)info.GetValue(i.ToString(), typeof(byte));
+            byte[] byteArray = tex.EncodeToPNG();
+            info.AddValue("Length", byteArray.Length);
+            for (int i = 0; i < byteArray.Length; i++)
+            {
+                info.AddValue(i.ToString(), byteArray[i]);
+            }
         }
 
-        tex.LoadImage(byteArray);
+        public object SetObjectData(object obj, SerializationInfo info, StreamingContext context, ISurrogateSelector selector)
+        {
+            Texture2D tex = new Texture2D(1, 1);
 
-        obj = tex;
-        return obj;
+            byte[] byteArray = new byte[(int)info.GetValue("Length", typeof(int))];
+            for (int i = 0; i < byteArray.Length; i++)
+            {
+                byteArray[i] = (byte)info.GetValue(i.ToString(), typeof(byte));
+            }
+
+            tex.LoadImage(byteArray);
+
+            obj = tex;
+            return obj;
+        }
     }
 }

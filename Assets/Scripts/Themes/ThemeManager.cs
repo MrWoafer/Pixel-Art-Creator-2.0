@@ -1,74 +1,76 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class ThemeManager : MonoBehaviour
+namespace PAC.Themes
 {
-    [Header("Themes")]
-    [SerializeField]
-    private Theme _currentTheme;
-    public Theme currentTheme
+    public class ThemeManager : MonoBehaviour
     {
-        get => _currentTheme;
-        private set => _currentTheme = value;
-    }
-    [SerializeField]
-    private List<Theme> _themes;
-    public List<Theme> themes
-    {
-        get => _themes;
-        private set => _themes = value;
-    }
-
-    private UnityEvent onThemeChanged = new UnityEvent();
-
-    private bool beenRunningForAFrame = false;
-
-    private void Start()
-    {
-        SetTheme(currentTheme.themeName);
-    }
-
-    private void Update()
-    {
-        if (!beenRunningForAFrame)
+        [Header("Themes")]
+        [SerializeField]
+        private Theme _currentTheme;
+        public Theme currentTheme
         {
-            beenRunningForAFrame = true;
+            get => _currentTheme;
+            private set => _currentTheme = value;
         }
-    }
-
-    private void OnValidate()
-    {
-        if (Application.isPlaying && beenRunningForAFrame)
+        [SerializeField]
+        private List<Theme> _themes;
+        public List<Theme> themes
         {
-            SetTheme(currentTheme);
+            get => _themes;
+            private set => _themes = value;
         }
-    }
 
-    public void SetTheme(Theme theme)
-    {
-        currentTheme = theme;
-        currentTheme?.SubscribeToOnChanged(() => onThemeChanged.Invoke());
-        onThemeChanged.Invoke();
-    }
-    public void SetTheme(string themeName)
-    {
-        themeName = themeName.ToLower();
-        foreach (Theme theme in themes)
+        private UnityEvent onThemeChanged = new UnityEvent();
+
+        private bool beenRunningForAFrame = false;
+
+        private void Start()
         {
-            if (theme.themeName.ToLower() == themeName)
+            SetTheme(currentTheme.themeName);
+        }
+
+        private void Update()
+        {
+            if (!beenRunningForAFrame)
             {
-                SetTheme(theme);
-                return;
+                beenRunningForAFrame = true;
             }
         }
 
-        throw new System.Exception("Couldn't find theme: " + themeName);
-    }
+        private void OnValidate()
+        {
+            if (Application.isPlaying && beenRunningForAFrame)
+            {
+                SetTheme(currentTheme);
+            }
+        }
 
-    public void SubscribeToThemeChanged(UnityAction call)
-    {
-        onThemeChanged.AddListener(call);
+        public void SetTheme(Theme theme)
+        {
+            currentTheme = theme;
+            currentTheme?.SubscribeToOnChanged(() => onThemeChanged.Invoke());
+            onThemeChanged.Invoke();
+        }
+        public void SetTheme(string themeName)
+        {
+            themeName = themeName.ToLower();
+            foreach (Theme theme in themes)
+            {
+                if (theme.themeName.ToLower() == themeName)
+                {
+                    SetTheme(theme);
+                    return;
+                }
+            }
+
+            throw new System.Exception("Couldn't find theme: " + themeName);
+        }
+
+        public void SubscribeToThemeChanged(UnityAction call)
+        {
+            onThemeChanged.AddListener(call);
+        }
     }
 }

@@ -1,118 +1,120 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 using UnityEngine.Events;
+using UnityEngine.UI;
 
-public class UIModalWindow : MonoBehaviour
+namespace PAC.UI
 {
-    [Header("References")]
-    [SerializeField]
-    private GameObject buttonPrefab;
-
-    private Transform canvas;
-    private RectTransform shadow;
-    private RectTransform background;
-    private RectTransform subPanel;
-    private Text title;
-    private Text message;
-
-    private List<UIButton> buttons = new List<UIButton>();
-
-    private const float SCALE_FACTOR = 100f;
-
-    private UIManager uiManager;
-
-    private void Awake()
+    public class UIModalWindow : MonoBehaviour
     {
-        canvas = transform.Find("Canvas");
-        shadow = canvas.Find("Shadow").GetComponent<RectTransform>();
-        background = shadow.Find("Background").GetComponent<RectTransform>();
-        subPanel = background.Find("Sub-Panel").GetComponent<RectTransform>();
-        title = background.Find("Title").GetComponent<Text>();
-        message = subPanel.Find("Message").GetComponent<Text>();
+        [Header("References")]
+        [SerializeField]
+        private GameObject buttonPrefab;
 
-        uiManager = Finder.uiManager;
-    }
+        private Transform canvas;
+        private RectTransform shadow;
+        private RectTransform background;
+        private RectTransform subPanel;
+        private Text title;
+        private Text message;
 
-    private void UpdateLayoutGroups()
-    {
-        LayoutRebuilder.ForceRebuildLayoutImmediate(shadow);
-        LayoutRebuilder.ForceRebuildLayoutImmediate(background);
-        LayoutRebuilder.ForceRebuildLayoutImmediate(subPanel);
-    }
+        private List<UIButton> buttons = new List<UIButton>();
 
-    private void UpdateDisplay()
-    {
-        UpdateLayoutGroups();
-        UpdateButtons();
-    }
+        private const float SCALE_FACTOR = 100f;
 
-    private void UpdateButtons()
-    {
-        for (int i = 0; i < buttons.Count; i++)
+        private UIManager uiManager;
+
+        private void Awake()
         {
-            UIButton button = buttons[i];
+            canvas = transform.Find("Canvas");
+            shadow = canvas.Find("Shadow").GetComponent<RectTransform>();
+            background = shadow.Find("Background").GetComponent<RectTransform>();
+            subPanel = background.Find("Sub-Panel").GetComponent<RectTransform>();
+            title = background.Find("Title").GetComponent<Text>();
+            message = subPanel.Find("Message").GetComponent<Text>();
 
-            button.width = background.sizeDelta.x * 0.01f / buttons.Count;
-
-            float x = background.sizeDelta.x / 2f * ((2f * i + 1) / buttons.Count - 1f);
-            float y = -background.sizeDelta.y / 2f + button.height * SCALE_FACTOR / 2f;
-            button.transform.localPosition = new Vector3(x, y, 0f);
-        }
-    }
-
-    public UIModalWindow SetTitle(string title)
-    {
-        if (string.IsNullOrWhiteSpace(title))
-        {
-            this.title.gameObject.SetActive(false);
-        }
-        else
-        {
-            this.title.gameObject.SetActive(true);
-            this.title.text = title;
+            uiManager = Finder.uiManager;
         }
 
-        UpdateDisplay();
+        private void UpdateLayoutGroups()
+        {
+            LayoutRebuilder.ForceRebuildLayoutImmediate(shadow);
+            LayoutRebuilder.ForceRebuildLayoutImmediate(background);
+            LayoutRebuilder.ForceRebuildLayoutImmediate(subPanel);
+        }
 
-        return this;
-    }
-    public UIModalWindow SetMessage(string message)
-    {
-        this.message.text = message;
+        private void UpdateDisplay()
+        {
+            UpdateLayoutGroups();
+            UpdateButtons();
+        }
 
-        UpdateDisplay();
+        private void UpdateButtons()
+        {
+            for (int i = 0; i < buttons.Count; i++)
+            {
+                UIButton button = buttons[i];
 
-        return this;
-    }
+                button.width = background.sizeDelta.x * 0.01f / buttons.Count;
 
-    public UIModalWindow AddButton(string text, UnityAction onClick)
-    {
-        UpdateLayoutGroups();
+                float x = background.sizeDelta.x / 2f * ((2f * i + 1) / buttons.Count - 1f);
+                float y = -background.sizeDelta.y / 2f + button.height * SCALE_FACTOR / 2f;
+                button.transform.localPosition = new Vector3(x, y, 0f);
+            }
+        }
 
-        UIButton button = Instantiate(buttonPrefab, canvas).GetComponent<UIButton>();
+        public UIModalWindow SetTitle(string title)
+        {
+            if (string.IsNullOrWhiteSpace(title))
+            {
+                this.title.gameObject.SetActive(false);
+            }
+            else
+            {
+                this.title.gameObject.SetActive(true);
+                this.title.text = title;
+            }
 
-        button.SetText(text);
-        button.height = 0.6f;
-        button.transform.localScale = SCALE_FACTOR * Vector3.one;
-        button.SetImages(null, null, null);
+            UpdateDisplay();
 
-        button.SubscribeToClick(onClick);
+            return this;
+        }
+        public UIModalWindow SetMessage(string message)
+        {
+            this.message.text = message;
 
-        buttons.Add(button);
+            UpdateDisplay();
 
-        UpdateButtons();
+            return this;
+        }
 
-        return this;
-    }
-    public UIModalWindow AddCloseButton(string text)
-    {
-        return AddButton(text, () => { uiManager.CloseModalWindow(this); });
-    }
+        public UIModalWindow AddButton(string text, UnityAction onClick)
+        {
+            UpdateLayoutGroups();
 
-    public void Close()
-    {
-        Destroy(gameObject);
+            UIButton button = Instantiate(buttonPrefab, canvas).GetComponent<UIButton>();
+
+            button.SetText(text);
+            button.height = 0.6f;
+            button.transform.localScale = SCALE_FACTOR * Vector3.one;
+            button.SetImages(null, null, null);
+
+            button.SubscribeToClick(onClick);
+
+            buttons.Add(button);
+
+            UpdateButtons();
+
+            return this;
+        }
+        public UIModalWindow AddCloseButton(string text)
+        {
+            return AddButton(text, () => { uiManager.CloseModalWindow(this); });
+        }
+
+        public void Close()
+        {
+            Destroy(gameObject);
+        }
     }
 }

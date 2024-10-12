@@ -1,160 +1,161 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 using UnityEngine.Events;
+using UnityEngine.UI;
 
-public class UIColourField : MonoBehaviour
+namespace PAC.UI
 {
-    [Header("Settings")]
-    [SerializeField]
-    private Color startingColour = Color.red;
-    public Color colour
+    public class UIColourField : MonoBehaviour
     {
-        get
+        [Header("Settings")]
+        [SerializeField]
+        private Color startingColour = Color.red;
+        public Color colour
         {
-            return Application.isPlaying ? colourPicker.colour : startingColour;
+            get
+            {
+                return Application.isPlaying ? colourPicker.colour : startingColour;
+            }
         }
-    }
-    [SerializeField]
-    [Min(0f)]
-    private float _outlineThickness = 0.1f;
-    public float outlineThickness
-    {
-        get
+        [SerializeField]
+        [Min(0f)]
+        private float _outlineThickness = 0.1f;
+        public float outlineThickness
         {
-            return _outlineThickness;
+            get
+            {
+                return _outlineThickness;
+            }
         }
-    }
 
-    public bool colourPickerOpen { get; private set; } = false;
+        public bool colourPickerOpen { get; private set; } = false;
 
-    [Header("Events")]
-    [SerializeField]
-    private UnityEvent onColourChanged = new UnityEvent();
-    [SerializeField]
-    private UnityEvent onColourPickerOpened = new UnityEvent();
-    [SerializeField]
-    private UnityEvent onColourPickerClosed = new UnityEvent();
+        [Header("Events")]
+        [SerializeField]
+        private UnityEvent onColourChanged = new UnityEvent();
+        [SerializeField]
+        private UnityEvent onColourPickerOpened = new UnityEvent();
+        [SerializeField]
+        private UnityEvent onColourPickerClosed = new UnityEvent();
 
-    private UIColourPicker colourPicker;
-    private UIButton button;
-    private Image background;
-    private Transform outerOutline;
-    private Transform innerOutline;
+        private UIColourPicker colourPicker;
+        private UIButton button;
+        private Image background;
+        private Transform outerOutline;
+        private Transform innerOutline;
 
-    private Vector3 colourPickerPosition;
+        private Vector3 colourPickerPosition;
 
-    private bool beenRunningAFrame = false;
+        private bool beenRunningAFrame = false;
 
-    private void Awake()
-    {
-        GetReferences();
-        colourPicker.gameObject.SetActive(true);
-    }
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        colourPicker.SubscribeToColourChange(UpdateColour);
-        colourPicker.SubscribeToClose(CloseColourPicker);
-        button.SubscribeToClick(OpenColourPicker);
-
-        colourPickerPosition = colourPicker.transform.position;
-
-        SetColour(startingColour);
-        CloseColourPicker();
-    }
-
-    private void Update()
-    {
-        if (!beenRunningAFrame)
-        {
-            beenRunningAFrame = true;
-        }
-    }
-
-    private void OnValidate()
-    {
-        if (!Application.isPlaying || beenRunningAFrame)
+        private void Awake()
         {
             GetReferences();
-            UpdateDisplay();
+            colourPicker.gameObject.SetActive(true);
         }
-    }
 
-    private void GetReferences()
-    {
-        colourPicker = transform.Find("Colour Picker Panel").GetComponent<UIColourPicker>();
+        // Start is called before the first frame update
+        void Start()
+        {
+            colourPicker.SubscribeToColourChange(UpdateColour);
+            colourPicker.SubscribeToClose(CloseColourPicker);
+            button.SubscribeToClick(OpenColourPicker);
 
-        button = transform.Find("Button").GetComponent<UIButton>();
-        background = button.transform.Find("Canvas").Find("Background").GetComponent<Image>();
-        outerOutline = button.transform.Find("Canvas").Find("Outline").Find("Outer Outline");
-        innerOutline = button.transform.Find("Canvas").Find("Outline").Find("Inner Outline");
-    }
+            colourPickerPosition = colourPicker.transform.position;
 
-    private void UpdateDisplay()
-    {
-        GetReferences();
+            SetColour(startingColour);
+            CloseColourPicker();
+        }
 
-        UpdateSize();
-        UpdateColourNoEvent();
-    }
+        private void Update()
+        {
+            if (!beenRunningAFrame)
+            {
+                beenRunningAFrame = true;
+            }
+        }
 
-    private void UpdateSize()
-    {
-        outerOutline.GetComponent<RectTransform>().localScale = new Vector3(1f + outlineThickness * 2f,
-            (button.transform.localScale.y / button.transform.localScale.x + outlineThickness * 2f) * button.transform.localScale.x / button.transform.localScale.y, 1f);
+        private void OnValidate()
+        {
+            if (!Application.isPlaying || beenRunningAFrame)
+            {
+                GetReferences();
+                UpdateDisplay();
+            }
+        }
 
-        innerOutline.GetComponent<RectTransform>().localScale = new Vector3(1f + outlineThickness,
-            (button.transform.localScale.y / button.transform.localScale.x + outlineThickness) * button.transform.localScale.x / button.transform.localScale.y, 1f);
-    }
+        private void GetReferences()
+        {
+            colourPicker = transform.Find("Colour Picker Panel").GetComponent<UIColourPicker>();
 
-    private void UpdateColour()
-    {
-        UpdateColourNoEvent();
+            button = transform.Find("Button").GetComponent<UIButton>();
+            background = button.transform.Find("Canvas").Find("Background").GetComponent<Image>();
+            outerOutline = button.transform.Find("Canvas").Find("Outline").Find("Outer Outline");
+            innerOutline = button.transform.Find("Canvas").Find("Outline").Find("Inner Outline");
+        }
 
-        onColourChanged.Invoke();
-    }
-    private void UpdateColourNoEvent()
-    {
-        button.backgroundColour = colour;
-        button.backgroundHoverColour = colour;
-        button.backgroundPressedColour = colour;
-        background.color = colour;
-    }
+        private void UpdateDisplay()
+        {
+            GetReferences();
 
-    public void SetColour(Color colour)
-    {
-        colourPicker.SetColour(colour);
-    }
+            UpdateSize();
+            UpdateColourNoEvent();
+        }
 
-    public void OpenColourPicker()
-    {
-        colourPicker.transform.position = colourPickerPosition;
-        colourPickerOpen = true;
+        private void UpdateSize()
+        {
+            outerOutline.GetComponent<RectTransform>().localScale = new Vector3(1f + outlineThickness * 2f,
+                (button.transform.localScale.y / button.transform.localScale.x + outlineThickness * 2f) * button.transform.localScale.x / button.transform.localScale.y, 1f);
 
-        onColourPickerOpened.Invoke();
-    }
+            innerOutline.GetComponent<RectTransform>().localScale = new Vector3(1f + outlineThickness,
+                (button.transform.localScale.y / button.transform.localScale.x + outlineThickness) * button.transform.localScale.x / button.transform.localScale.y, 1f);
+        }
 
-    public void CloseColourPicker()
-    {
-        colourPicker.transform.position = new Vector3(-10000f, 0f, 0f);
-        colourPickerOpen = false;
+        private void UpdateColour()
+        {
+            UpdateColourNoEvent();
 
-        onColourPickerClosed.Invoke();
-    }
+            onColourChanged.Invoke();
+        }
+        private void UpdateColourNoEvent()
+        {
+            button.backgroundColour = colour;
+            button.backgroundHoverColour = colour;
+            button.backgroundPressedColour = colour;
+            background.color = colour;
+        }
 
-    public void SubscribeToColourChange(UnityAction call)
-    {
-        onColourChanged.AddListener(call);
-    }
-    public void SubscribeToColourPickerOpen(UnityAction call)
-    {
-        onColourPickerOpened.AddListener(call);
-    }
-    public void SubscribeToColourPickerClose(UnityAction call)
-    {
-        onColourPickerClosed.AddListener(call);
+        public void SetColour(Color colour)
+        {
+            colourPicker.SetColour(colour);
+        }
+
+        public void OpenColourPicker()
+        {
+            colourPicker.transform.position = colourPickerPosition;
+            colourPickerOpen = true;
+
+            onColourPickerOpened.Invoke();
+        }
+
+        public void CloseColourPicker()
+        {
+            colourPicker.transform.position = new Vector3(-10000f, 0f, 0f);
+            colourPickerOpen = false;
+
+            onColourPickerClosed.Invoke();
+        }
+
+        public void SubscribeToColourChange(UnityAction call)
+        {
+            onColourChanged.AddListener(call);
+        }
+        public void SubscribeToColourPickerOpen(UnityAction call)
+        {
+            onColourPickerOpened.AddListener(call);
+        }
+        public void SubscribeToColourPickerClose(UnityAction call)
+        {
+            onColourPickerClosed.AddListener(call);
+        }
     }
 }

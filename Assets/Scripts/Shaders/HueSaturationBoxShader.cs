@@ -1,39 +1,40 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class HueSaturationBoxShader : MonoBehaviour
+namespace PAC.Shaders
 {
-    [Header("References")]
-    public Material hueSaturationBoxMaterial;
-
-    private Renderer renderer;
-
-    private bool madeNewMaterial = false;
-
-    private void Awake()
+    public class HueSaturationBoxShader : MonoBehaviour
     {
-        GetReferences();
-        CreateOutline();
-    }
+        [Header("References")]
+        public Material hueSaturationBoxMaterial;
 
-    private void OnValidate()
-    {
-        GetReferences();
-        CreateOutline();
-    }
+        private Renderer renderer;
 
-    private void GetReferences()
-    {
-        renderer = gameObject.GetComponent<Renderer>();
-    }
+        private bool madeNewMaterial = false;
 
-    private void CreateOutline()
-    {
-        if (!madeNewMaterial)
+        private void Awake()
         {
-            renderer.material = new Material(hueSaturationBoxMaterial);
-            madeNewMaterial = true;
+            GetReferences();
+            CreateOutline();
+        }
+
+        private void OnValidate()
+        {
+            GetReferences();
+            CreateOutline();
+        }
+
+        private void GetReferences()
+        {
+            renderer = gameObject.GetComponent<Renderer>();
+        }
+
+        private void CreateOutline()
+        {
+            if (!madeNewMaterial)
+            {
+                renderer.material = new Material(hueSaturationBoxMaterial);
+                madeNewMaterial = true;
+            }
         }
     }
 }

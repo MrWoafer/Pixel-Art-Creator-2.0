@@ -1,34 +1,37 @@
-using System.Collections;
-using System.Collections.Generic;
+using PAC.Files;
+using PAC.UI;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class TilesetManager : MonoBehaviour
+namespace PAC.Tilesets
 {
-    private UITileIcon[] tileIcons;
-
-    private UIGridPacker gridPacker;
-
-    [Header("Events")]
-    private UnityEvent<File> onTileIconSelected = new UnityEvent<File>();
-
-    private void Awake()
+    public class TilesetManager : MonoBehaviour
     {
-        gridPacker = GetComponentInChildren<UIGridPacker>();
-    }
+        private UITileIcon[] tileIcons;
 
-    void Start()
-    {
-        tileIcons = GetComponentsInChildren<UITileIcon>();
+        private UIGridPacker gridPacker;
 
-        foreach (UITileIcon tileIcon in tileIcons)
+        [Header("Events")]
+        private UnityEvent<File> onTileIconSelected = new UnityEvent<File>();
+
+        private void Awake()
         {
-            tileIcon.SubscribeToOnLeftClick(() => onTileIconSelected.Invoke(tileIcon.file));
+            gridPacker = GetComponentInChildren<UIGridPacker>();
         }
-    }
 
-    public void SubscribeToOnTileIconSelected(UnityAction<File> call)
-    {
-        onTileIconSelected.AddListener(call);
+        void Start()
+        {
+            tileIcons = GetComponentsInChildren<UITileIcon>();
+
+            foreach (UITileIcon tileIcon in tileIcons)
+            {
+                tileIcon.SubscribeToOnLeftClick(() => onTileIconSelected.Invoke(tileIcon.file));
+            }
+        }
+
+        public void SubscribeToOnTileIconSelected(UnityAction<File> call)
+        {
+            onTileIconSelected.AddListener(call);
+        }
     }
 }

@@ -1,64 +1,70 @@
-using System.Collections;
-using System.Collections.Generic;
+using PAC.Animation;
+using PAC.Data_Structures;
+using PAC.Drawing;
+using PAC.Files;
+using PAC.Layers;
 using UnityEngine;
 
-/// <summary>
-/// A class to handle copy/paste functionality.
-/// Not yet properly implemented.
-/// </summary>
-public class Clipboard : MonoBehaviour
+namespace PAC.Clipboard
 {
-    [Header("Clipboard")]
-    [SerializeField]
-    /// <summary>The texture last copied to the clipboard.</summary>
-    private Texture2D copiedTexture;
     /// <summary>
-    /// The coord of the bottom left of the last texture copied to clipboard, with respect to the file it was copied from.
+    /// A class to handle copy/paste functionality.
+    /// Not yet properly implemented.
     /// </summary>
-    private IntVector2 copiedTexturePos;
-
-    private FileManager fileManager;
-    private LayerManager layerManager;
-    private DrawingArea drawingArea;
-    private AnimationManager animationManager;
-
-    private void Awake()
+    public class Clipboard : MonoBehaviour
     {
-        fileManager = Finder.fileManager;
-        layerManager = Finder.layerManager;
-        drawingArea = Finder.drawingArea;
-        animationManager = Finder.animationManager;
-    }
+        [Header("Clipboard")]
+        [SerializeField]
+        /// <summary>The texture last copied to the clipboard.</summary>
+        private Texture2D copiedTexture;
+        /// <summary>
+        /// The coord of the bottom left of the last texture copied to clipboard, with respect to the file it was copied from.
+        /// </summary>
+        private IntVector2 copiedTexturePos;
 
-    public void Cut()
-    {
-        Copy();
-        drawingArea.DeleteSelection();
-    }
+        private FileManager fileManager;
+        private LayerManager layerManager;
+        private DrawingArea drawingArea;
+        private AnimationManager animationManager;
 
-    public void Copy()
-    {
-        if (drawingArea.hasSelection)
+        private void Awake()
         {
-            copiedTexture = Tex2DSprite.ChangeRect(Tex2DSprite.ApplyMask(layerManager.selectedLayer[animationManager.currentFrameIndex].texture, drawingArea.selectionMask), drawingArea.selectionRect);
-            copiedTexturePos = drawingArea.selectionRect.bottomLeft;
-
-            Debug.Log("Copied.");
+            fileManager = Finder.fileManager;
+            layerManager = Finder.layerManager;
+            drawingArea = Finder.drawingArea;
+            animationManager = Finder.animationManager;
         }
-    }
 
-    public void Paste()
-    {
-        if (copiedTexture)
+        public void Cut()
         {
-            IntVector2 bottomLeft = new IntVector2(copiedTexturePos);
-            bottomLeft -= IntVector2.Max(new IntVector2(copiedTexture.width + bottomLeft.x - fileManager.currentFile.width, copiedTexture.height + bottomLeft.y - fileManager.currentFile.height),
-                IntVector2.zero);
-            bottomLeft = IntVector2.Max(bottomLeft, IntVector2.zero);
+            Copy();
+            drawingArea.DeleteSelection();
+        }
 
-            layerManager.AddLayer(Tex2DSprite.Overlay(copiedTexture, Tex2DSprite.BlankTexture(fileManager.currentFile.width, fileManager.currentFile.height), bottomLeft));
+        public void Copy()
+        {
+            if (drawingArea.hasSelection)
+            {
+                copiedTexture = Tex2DSprite.ChangeRect(Tex2DSprite.ApplyMask(layerManager.selectedLayer[animationManager.currentFrameIndex].texture, drawingArea.selectionMask), drawingArea.selectionRect);
+                copiedTexturePos = drawingArea.selectionRect.bottomLeft;
 
-            Debug.Log("Pasted.");
+                Debug.Log("Copied.");
+            }
+        }
+
+        public void Paste()
+        {
+            if (copiedTexture)
+            {
+                IntVector2 bottomLeft = new IntVector2(copiedTexturePos);
+                bottomLeft -= IntVector2.Max(new IntVector2(copiedTexture.width + bottomLeft.x - fileManager.currentFile.width, copiedTexture.height + bottomLeft.y - fileManager.currentFile.height),
+                    IntVector2.zero);
+                bottomLeft = IntVector2.Max(bottomLeft, IntVector2.zero);
+
+                layerManager.AddLayer(Tex2DSprite.Overlay(copiedTexture, Tex2DSprite.BlankTexture(fileManager.currentFile.width, fileManager.currentFile.height), bottomLeft));
+
+                Debug.Log("Pasted.");
+            }
         }
     }
 }

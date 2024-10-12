@@ -1,37 +1,39 @@
-using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
+using PAC.Files;
 
-public class Tileset
+namespace PAC.Tilesets
 {
-    public string tilesetName { get; private set; } = "";
-
-    private List<File> tiles = new List<File>();
-
-    public int Count
+    public class Tileset
     {
-        get => tiles.Count;
-    }
+        public string tilesetName { get; private set; } = "";
 
+        private List<File> tiles = new List<File>();
 
-    public Tileset(string name) : this(name, new List<File>()) { }
-
-    public Tileset(string name, List<File> tiles)
-    {
-        tilesetName = name;
-        this.tiles = tiles;
-    }
-
-
-    public void AddTile(File tile)
-    {
-        if (!tiles.Contains(tile))
+        public int Count
         {
-            tiles.Add(tile);
+            get => tiles.Count;
         }
-    }
-    public bool RemoveTile(File tile)
-    {
-        return tiles.Remove(tile);
+
+
+        public Tileset(string name) : this(name, new List<File>()) { }
+
+        public Tileset(string name, List<File> tiles)
+        {
+            tilesetName = name;
+            this.tiles = tiles;
+        }
+
+
+        public void AddTile(File tile)
+        {
+            if (!tiles.Contains(tile))
+            {
+                tiles.Add(tile);
+            }
+        }
+        public bool RemoveTile(File tile)
+        {
+            return tiles.Remove(tile);
+        }
     }
 }

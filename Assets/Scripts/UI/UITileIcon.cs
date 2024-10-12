@@ -1,100 +1,102 @@
-using System.Collections;
-using System.Collections.Generic;
+using PAC.Files;
 using UnityEngine;
-using UnityEngine.UI;
 using UnityEngine.Events;
+using UnityEngine.UI;
 
-public class UITileIcon : MonoBehaviour
+namespace PAC.UI
 {
-    [Header("Settings")]
-    private File _file;
-    public File file
+    public class UITileIcon : MonoBehaviour
     {
-        get => _file;
-        private set
+        [Header("Settings")]
+        private File _file;
+        public File file
         {
-            _file = value;
-        }
-    }
-
-    public float width
-    {
-        get
-        {
-            if (Application.isEditor)
+            get => _file;
+            private set
             {
-                GetReferences();
+                _file = value;
             }
-            return button.width;
         }
-    }
-    public float height
-    {
-        get
+
+        public float width
         {
-            if (Application.isEditor)
+            get
             {
-                GetReferences();
+                if (Application.isEditor)
+                {
+                    GetReferences();
+                }
+                return button.width;
             }
-            return button.height;
         }
-    }
+        public float height
+        {
+            get
+            {
+                if (Application.isEditor)
+                {
+                    GetReferences();
+                }
+                return button.height;
+            }
+        }
 
-    private UIButton button;
-    private Text nameText;
+        private UIButton button;
+        private Text nameText;
 
-    private FileManager fileManager;
+        private FileManager fileManager;
 
-    [Header("Events")]
-    private UnityEvent onClick = new UnityEvent();
-    private UnityEvent onLeftClick = new UnityEvent();
-    private UnityEvent onRightClick = new UnityEvent();
+        [Header("Events")]
+        private UnityEvent onClick = new UnityEvent();
+        private UnityEvent onLeftClick = new UnityEvent();
+        private UnityEvent onRightClick = new UnityEvent();
 
-    private void Awake()
-    {
-        GetReferences();
-    }
+        private void Awake()
+        {
+            GetReferences();
+        }
 
-    private void GetReferences()
-    {
-        button = transform.Find("Button").GetComponent<UIButton>();
-        nameText = button.transform.Find("Canvas").Find("Name").GetComponent<Text>();
+        private void GetReferences()
+        {
+            button = transform.Find("Button").GetComponent<UIButton>();
+            nameText = button.transform.Find("Canvas").Find("Name").GetComponent<Text>();
 
-        fileManager = Finder.fileManager;
-    }
+            fileManager = Finder.fileManager;
+        }
 
-    void Start()
-    {
-        button.SetImages(null, null, null);
+        void Start()
+        {
+            button.SetImages(null, null, null);
 
-        SetFile(File.OpenFile("D:\\Games\\Pixel-Art-Creator-2.0\\Test Images\\Cube.png"));
+            SetFile(File.OpenFile("D:\\Games\\Pixel-Art-Creator-2.0\\Test Images\\Cube.png"));
 
-        button.SubscribeToClick(onClick.Invoke);
-        button.SubscribeToLeftClick(onLeftClick.Invoke);
-        button.SubscribeToRightClick(onRightClick.Invoke);
-        button.SubscribeToRightClick(() => fileManager.OpenFile(file));
-    }
+            button.SubscribeToClick(onClick.Invoke);
+            button.SubscribeToLeftClick(onLeftClick.Invoke);
+            button.SubscribeToRightClick(onRightClick.Invoke);
+            button.SubscribeToRightClick(() => fileManager.OpenFile(file));
+        }
 
-    public void SetFile(File file)
-    {
-        this.file = file;
-        nameText.text = file.name;
+        public void SetFile(File file)
+        {
+            this.file = file;
+            nameText.text = file.name;
 
-        file.liveRender.Apply();
-        button.SetImages(Tex2DSprite.Tex2DToSprite(file.liveRender), null, null);
-        file.SubscribeToOnPixelsChanged((x, y, z) => file.liveRender.Apply());
-    }
+            file.liveRender.Apply();
+            button.SetImages(Tex2DSprite.Tex2DToSprite(file.liveRender), null, null);
+            file.SubscribeToOnPixelsChanged((x, y, z) => file.liveRender.Apply());
+        }
 
-    public void SubscribeToOnClick(UnityAction call)
-    {
-        onClick.AddListener(call);
-    }
-    public void SubscribeToOnLeftClick(UnityAction call)
-    {
-        onLeftClick.AddListener(call);
-    }
-    public void SubscribeToOnRightClick(UnityAction call)
-    {
-        onRightClick.AddListener(call);
+        public void SubscribeToOnClick(UnityAction call)
+        {
+            onClick.AddListener(call);
+        }
+        public void SubscribeToOnLeftClick(UnityAction call)
+        {
+            onLeftClick.AddListener(call);
+        }
+        public void SubscribeToOnRightClick(UnityAction call)
+        {
+            onRightClick.AddListener(call);
+        }
     }
 }

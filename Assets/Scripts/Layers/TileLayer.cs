@@ -1,526 +1,532 @@
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using PAC.Animation;
+using PAC.Colour;
+using PAC.Data_Structures;
+using PAC.Tilesets;
 using UnityEngine;
 
-/// <summary>
-/// A class to represent a tile layer - one for placing and editing tileset tiles.
-/// </summary>
-public class TileLayer : Layer
+namespace PAC.Layers
 {
-    public override LayerType layerType => LayerType.Tile;
-
-    /// <summary>The tiles on this layer.</summary>
-    public List<Tile> tiles { get; private set; } = new List<Tile>();
-
     /// <summary>
-    /// Keeps track of which tile each pixel falls within.
-    /// Only stores a pixel as a key if it falls within a tile.
+    /// A class to represent a tile layer - one for placing and editing tileset tiles.
     /// </summary>
-    private Dictionary<IntVector2, Tile> pixelToTile = new Dictionary<IntVector2, Tile>();
-
-    /// <summary>Used to bypass the OnTilePixelsChanged() event callback when doing operations on multiple tiles.</summary>
-    // This is to help performance - so that we can rerender the key frames once after all tiles have been changed instead of after each one.
-    private bool ignoreOnTilePixelsChanged = false;
-
-    public TileLayer(string name, int width, int height) : base(name, Tex2DSprite.BlankTexture(width, height)) { }
-
-    /// <summary>
-    /// Creates a deep copy of the TileLayer.
-    /// </summary>
-    public TileLayer(TileLayer layer) : base(layer)
+    public class TileLayer : Layer
     {
-        // This doesn't create a deep copy!
-        tiles = layer.tiles;
-    }
+        public override LayerType layerType => LayerType.Tile;
 
-    public override Layer DeepCopy()
-    {
-        return new TileLayer(this);
-    }
+        /// <summary>The tiles on this layer.</summary>
+        public List<Tile> tiles { get; private set; } = new List<Tile>();
 
-    /// <summary>
-    /// Adds the tile to the layer.
-    /// </summary>
-    public void AddTile(Tile tile)
-    {
-        // Validation checks
+        /// <summary>
+        /// Keeps track of which tile each pixel falls within.
+        /// Only stores a pixel as a key if it falls within a tile.
+        /// </summary>
+        private Dictionary<IntVector2, Tile> pixelToTile = new Dictionary<IntVector2, Tile>();
 
-        if (ContainsTile(tile))
+        /// <summary>Used to bypass the OnTilePixelsChanged() event callback when doing operations on multiple tiles.</summary>
+        // This is to help performance - so that we can rerender the key frames once after all tiles have been changed instead of after each one.
+        private bool ignoreOnTilePixelsChanged = false;
+
+        public TileLayer(string name, int width, int height) : base(name, Tex2DSprite.BlankTexture(width, height)) { }
+
+        /// <summary>
+        /// Creates a deep copy of the TileLayer.
+        /// </summary>
+        public TileLayer(TileLayer layer) : base(layer)
         {
-            throw new System.Exception("Tile has already been added to the layer.");
-        }
-        if (!tile.tileLayersAppearsOn.Contains(this))
-        {
-            throw new System.Exception("Tile is not linked to this tile layer.");
+            // This doesn't create a deep copy!
+            tiles = layer.tiles;
         }
 
-        // Add the tile
-
-        // Subscribe to changes on the associate layer in the file's tile, but only if we haven't already done so because of another tile linked to the same file.
-        bool alreadyTileWithThisLinkedLayer = false;
-        foreach (Tile existingTile in tiles)
+        public override Layer DeepCopy()
         {
-            if (existingTile.TileLayerToLayerInTile(this) == tile.TileLayerToLayerInTile(this))
+            return new TileLayer(this);
+        }
+
+        /// <summary>
+        /// Adds the tile to the layer.
+        /// </summary>
+        public void AddTile(Tile tile)
+        {
+            // Validation checks
+
+            if (ContainsTile(tile))
             {
-                alreadyTileWithThisLinkedLayer = true;
-                break;
+                throw new System.Exception("Tile has already been added to the layer.");
             }
-        }
-        if (!alreadyTileWithThisLinkedLayer)
-        {
-            tile.TileLayerToLayerInTile(this).SubscribeToOnPixelsChanged((pixels, frames) => OnTilePixelsChanged(pixels, tile.TileLayerToLayerInTile(this), frames));
-        }
-
-        tile.SubscribeToOnMoved((previousBottomLeft) => OnTileRectChanged(tile, previousBottomLeft));
-
-        tiles.Add(tile);
-        foreach (int keyframe in tile.TileLayerToLayerInTile(this).keyFrameIndices)
-        {
-            AddKeyFrame(keyframe);
-        }
-        foreach (IntVector2 pixel in tile.rect)
-        {
-            pixelToTile[pixel] = tile;
-        }
-
-        RerenderKeyFrames(tile.rect);
-    }
-
-    /// <summary>
-    /// Removes the tile from the layer. Throws an error if the tile is not in the layer.
-    /// </summary>
-    public void RemoveTile(Tile tile)
-    {
-        if (!tiles.Contains(tile))
-        {
-            throw new System.Exception("Tile is not in this layer.");
-        }
-
-        tiles.Remove(tile);
-
-        foreach (IntVector2 pixel in tile.rect)
-        {
-            if (pixelToTile[pixel] == tile)
+            if (!tile.tileLayersAppearsOn.Contains(this))
             {
-                pixelToTile.Remove(pixel);
+                throw new System.Exception("Tile is not linked to this tile layer.");
             }
-        }
 
-        RerenderKeyFrames(tile.rect);
-    }
+            // Add the tile
 
-    /// <summary>
-    /// Removes all tiles.
-    /// </summary>
-    public void ClearTiles()
-    {
-        tiles.Clear();
-        RerenderKeyFrames();
-    }
-
-    /// <summary>
-    /// Returns true if the tile appears on this layer.
-    /// </summary>
-    public bool ContainsTile(Tile tile)
-    {
-        return tiles.Contains(tile);
-    }
-
-    protected override IntVector2[] SetPixelsNoEvent(IntVector2[] pixels, int frame, Color colour, AnimFrameRefMode frameRefMode)
-    {
-        HashSet<IntVector2> pixelsFilled = new HashSet<IntVector2>();
-        foreach (IntVector2 pixel in pixels)
-        {
-            Tile tile = PixelToTileNoValidation(pixel.x, pixel.y);
-            if (tile != null)
+            // Subscribe to changes on the associate layer in the file's tile, but only if we haven't already done so because of another tile linked to the same file.
+            bool alreadyTileWithThisLinkedLayer = false;
+            foreach (Tile existingTile in tiles)
             {
-                tile.TileLayerToLayerInTile(this).SetPixel(new IntVector2(pixel.x, pixel.y) - tile.bottomLeft, frame, colour, frameRefMode);
-
-                if (frameRefMode == AnimFrameRefMode.NewKeyFrame)
+                if (existingTile.TileLayerToLayerInTile(this) == tile.TileLayerToLayerInTile(this))
                 {
-                    AddKeyFrame(frame);
+                    alreadyTileWithThisLinkedLayer = true;
+                    break;
                 }
+            }
+            if (!alreadyTileWithThisLinkedLayer)
+            {
+                tile.TileLayerToLayerInTile(this).SubscribeToOnPixelsChanged((pixels, frames) => OnTilePixelsChanged(pixels, tile.TileLayerToLayerInTile(this), frames));
+            }
 
-                foreach (Tile otherTile in tiles)
+            tile.SubscribeToOnMoved((previousBottomLeft) => OnTileRectChanged(tile, previousBottomLeft));
+
+            tiles.Add(tile);
+            foreach (int keyframe in tile.TileLayerToLayerInTile(this).keyFrameIndices)
+            {
+                AddKeyFrame(keyframe);
+            }
+            foreach (IntVector2 pixel in tile.rect)
+            {
+                pixelToTile[pixel] = tile;
+            }
+
+            RerenderKeyFrames(tile.rect);
+        }
+
+        /// <summary>
+        /// Removes the tile from the layer. Throws an error if the tile is not in the layer.
+        /// </summary>
+        public void RemoveTile(Tile tile)
+        {
+            if (!tiles.Contains(tile))
+            {
+                throw new System.Exception("Tile is not in this layer.");
+            }
+
+            tiles.Remove(tile);
+
+            foreach (IntVector2 pixel in tile.rect)
+            {
+                if (pixelToTile[pixel] == tile)
                 {
-                    if (otherTile.file == tile.file)
+                    pixelToTile.Remove(pixel);
+                }
+            }
+
+            RerenderKeyFrames(tile.rect);
+        }
+
+        /// <summary>
+        /// Removes all tiles.
+        /// </summary>
+        public void ClearTiles()
+        {
+            tiles.Clear();
+            RerenderKeyFrames();
+        }
+
+        /// <summary>
+        /// Returns true if the tile appears on this layer.
+        /// </summary>
+        public bool ContainsTile(Tile tile)
+        {
+            return tiles.Contains(tile);
+        }
+
+        protected override IntVector2[] SetPixelsNoEvent(IntVector2[] pixels, int frame, Color colour, AnimFrameRefMode frameRefMode)
+        {
+            HashSet<IntVector2> pixelsFilled = new HashSet<IntVector2>();
+            foreach (IntVector2 pixel in pixels)
+            {
+                Tile tile = PixelToTileNoValidation(pixel.x, pixel.y);
+                if (tile != null)
+                {
+                    tile.TileLayerToLayerInTile(this).SetPixel(new IntVector2(pixel.x, pixel.y) - tile.bottomLeft, frame, colour, frameRefMode);
+
+                    if (frameRefMode == AnimFrameRefMode.NewKeyFrame)
                     {
-                        IntVector2 pixelMappedToTile = new IntVector2(pixel.x, pixel.y) - tile.bottomLeft + otherTile.bottomLeft;
-                        GetKeyFrame(frame).texture.SetPixel(pixelMappedToTile, colour * new Color(1f, 1f, 1f, tile.TileLayerToLayerInTile(this).opacity));
-                        if (!pixelsFilled.Contains(pixelMappedToTile))
+                        AddKeyFrame(frame);
+                    }
+
+                    foreach (Tile otherTile in tiles)
+                    {
+                        if (otherTile.file == tile.file)
                         {
-                            pixelsFilled.Add(pixelMappedToTile);
+                            IntVector2 pixelMappedToTile = new IntVector2(pixel.x, pixel.y) - tile.bottomLeft + otherTile.bottomLeft;
+                            GetKeyFrame(frame).texture.SetPixel(pixelMappedToTile, colour * new Color(1f, 1f, 1f, tile.TileLayerToLayerInTile(this).opacity));
+                            if (!pixelsFilled.Contains(pixelMappedToTile))
+                            {
+                                pixelsFilled.Add(pixelMappedToTile);
+                            }
                         }
                     }
                 }
             }
+            return pixelsFilled.ToArray();
         }
-        return pixelsFilled.ToArray();
-    }
 
-    public override Color GetPixel(IntVector2 pixel, int frame, bool useLayerOpacity = true)
-    {
-        if (pixel.x < 0 || pixel.y < 0 || pixel.x >= width || pixel.y >= height)
+        public override Color GetPixel(IntVector2 pixel, int frame, bool useLayerOpacity = true)
         {
-            throw new System.Exception("Pixel (" + pixel.x + ", " + pixel.y + ") outside of layer dimensions " + width + "x" + height);
+            if (pixel.x < 0 || pixel.y < 0 || pixel.x >= width || pixel.y >= height)
+            {
+                throw new System.Exception("Pixel (" + pixel.x + ", " + pixel.y + ") outside of layer dimensions " + width + "x" + height);
+            }
+
+            return BlendMode.MultiplyColours(GetKeyFrame(frame).texture.GetPixel(pixel.x, pixel.y), new Color(1f, 1f, 1f, useLayerOpacity ? opacity : 1f));
         }
 
-        return BlendMode.MultiplyColours(GetKeyFrame(frame).texture.GetPixel(pixel.x, pixel.y), new Color(1f, 1f, 1f, useLayerOpacity ? opacity : 1f));
-    }
-
-    /// <summary>
-    /// Gets the tile that the pixel (x, y) lands in, or null if there isn't one.
-    /// </summary>
-    public Tile PixelToTile(int x, int y) => PixelToTile(new IntVector2(x, y));
-    /// <summary>
-    /// Gets the tile that the pixel lands in, or null if there isn't one.
-    /// </summary>
-    public Tile PixelToTile(IntVector2 pixel)
-    {
-        if (!rect.Contains(pixel))
-        {
-            throw new System.Exception("Pixel (" + pixel.x + ", " + pixel.y + ") outside of layer dimensions " + width + "x" + height);
-        }
-
-        return PixelToTileNoValidation(pixel);
-    }
-    /// <summary>
-    /// Gets the tile that the pixel (x, y) lands in, or null if there isn't one. Doesn't check if the pixel is within the layer.
-    /// </summary>
-    private Tile PixelToTileNoValidation(int x, int y) => PixelToTileNoValidation(new IntVector2(x, y));
-    /// <summary>
-    /// Gets the tile that the pixel lands in, or null if there isn't one. Doesn't check if the pixel is within the layer.
-    /// </summary>
-    private Tile PixelToTileNoValidation(IntVector2 pixel)
-    {
-        return pixelToTile.ContainsKey(pixel) ? pixelToTile[pixel] : null;
-    }
-
-    /// <summary>
-    /// Get the pixels that are linked to the given pixel due to multiple tiles having the same file - i.e. they point to the same pixel within the tiles' file.
-    /// </summary>
-    public IntVector2[] GetLinkedPixels(IntVector2 pixel) => GetLinkedPixels(new IntVector2[] { pixel });
-    /// <summary>
-    /// Get the pixels that are linked to the given pixels due to multiple tiles having the same file - i.e. they point to the same pixels within the tiles' file.
-    /// </summary>
-    public IntVector2[] GetLinkedPixels(IntVector2[] pixels)
-    {
-        HashSet<IntVector2> pixelsFilled = new HashSet<IntVector2>();
-        foreach (IntVector2 pixel in pixels)
+        /// <summary>
+        /// Gets the tile that the pixel (x, y) lands in, or null if there isn't one.
+        /// </summary>
+        public Tile PixelToTile(int x, int y) => PixelToTile(new IntVector2(x, y));
+        /// <summary>
+        /// Gets the tile that the pixel lands in, or null if there isn't one.
+        /// </summary>
+        public Tile PixelToTile(IntVector2 pixel)
         {
             if (!rect.Contains(pixel))
             {
                 throw new System.Exception("Pixel (" + pixel.x + ", " + pixel.y + ") outside of layer dimensions " + width + "x" + height);
             }
 
-            Tile tile = PixelToTileNoValidation(pixel);
-            if (tile != null)
+            return PixelToTileNoValidation(pixel);
+        }
+        /// <summary>
+        /// Gets the tile that the pixel (x, y) lands in, or null if there isn't one. Doesn't check if the pixel is within the layer.
+        /// </summary>
+        private Tile PixelToTileNoValidation(int x, int y) => PixelToTileNoValidation(new IntVector2(x, y));
+        /// <summary>
+        /// Gets the tile that the pixel lands in, or null if there isn't one. Doesn't check if the pixel is within the layer.
+        /// </summary>
+        private Tile PixelToTileNoValidation(IntVector2 pixel)
+        {
+            return pixelToTile.ContainsKey(pixel) ? pixelToTile[pixel] : null;
+        }
+
+        /// <summary>
+        /// Get the pixels that are linked to the given pixel due to multiple tiles having the same file - i.e. they point to the same pixel within the tiles' file.
+        /// </summary>
+        public IntVector2[] GetLinkedPixels(IntVector2 pixel) => GetLinkedPixels(new IntVector2[] { pixel });
+        /// <summary>
+        /// Get the pixels that are linked to the given pixels due to multiple tiles having the same file - i.e. they point to the same pixels within the tiles' file.
+        /// </summary>
+        public IntVector2[] GetLinkedPixels(IntVector2[] pixels)
+        {
+            HashSet<IntVector2> pixelsFilled = new HashSet<IntVector2>();
+            foreach (IntVector2 pixel in pixels)
             {
-                foreach (Tile otherTile in tiles)
+                if (!rect.Contains(pixel))
                 {
-                    if (otherTile.TileLayerToLayerInTile(this) == tile.TileLayerToLayerInTile(this))
+                    throw new System.Exception("Pixel (" + pixel.x + ", " + pixel.y + ") outside of layer dimensions " + width + "x" + height);
+                }
+
+                Tile tile = PixelToTileNoValidation(pixel);
+                if (tile != null)
+                {
+                    foreach (Tile otherTile in tiles)
                     {
-                        IntVector2 pixelMappedToTile = pixel - tile.bottomLeft + otherTile.bottomLeft;
-                        if (!pixelsFilled.Contains(pixelMappedToTile))
+                        if (otherTile.TileLayerToLayerInTile(this) == tile.TileLayerToLayerInTile(this))
                         {
-                            pixelsFilled.Add(pixelMappedToTile);
+                            IntVector2 pixelMappedToTile = pixel - tile.bottomLeft + otherTile.bottomLeft;
+                            if (!pixelsFilled.Contains(pixelMappedToTile))
+                            {
+                                pixelsFilled.Add(pixelMappedToTile);
+                            }
                         }
                     }
                 }
+                else if (!pixelsFilled.Contains(pixel))
+                {
+                    pixelsFilled.Add(pixel);
+                }
             }
-            else if (!pixelsFilled.Contains(pixel))
-            {
-                pixelsFilled.Add(pixel);
-            }
-        }
-        return pixelsFilled.ToArray();
-    }
-
-    protected override void FlipNoEvent(FlipDirection direction)
-    {
-        ignoreOnTilePixelsChanged = true;
-        HashSet<Layer> flippedLayers = new HashSet<Layer>();
-        foreach (Tile tile in tiles)
-        {
-            if (!flippedLayers.Contains(tile.TileLayerToLayerInTile(this)))
-            {
-                tile.TileLayerToLayerInTile(this).Flip(direction);
-                flippedLayers.Add(tile.TileLayerToLayerInTile(this));
-            }
-
-            if (direction == FlipDirection.X)
-            {
-                tile.bottomRight = new IntVector2(-tile.bottomLeft.x + width - 1, tile.bottomLeft.y);
-            }
-            else if (direction == FlipDirection.Y)
-            {
-                tile.topLeft = new IntVector2(tile.bottomLeft.x, -tile.bottomLeft.y + height - 1);
-            }
+            return pixelsFilled.ToArray();
         }
 
-        ignoreOnTilePixelsChanged = false;
-        RerenderKeyFrames();
-    }
-
-    protected override void RotateNoEvent(RotationAngle angle)
-    {
-        if (angle == RotationAngle._0)
+        protected override void FlipNoEvent(FlipDirection direction)
         {
-            return;
-        }
-
-        ignoreOnTilePixelsChanged = true;
-        HashSet<Layer> flippedLayers = new HashSet<Layer>();
-        foreach (Tile tile in tiles)
-        {
-            if (!flippedLayers.Contains(tile.TileLayerToLayerInTile(this)))
-            {
-                tile.TileLayerToLayerInTile(this).Rotate(angle);
-                flippedLayers.Add(tile.TileLayerToLayerInTile(this));
-            }
-
-            if (angle == RotationAngle._90)
-            {
-                tile.topLeft = new IntVector2(tile.bottomLeft.y, -tile.bottomLeft.x + height - 1);
-            }
-            else if (angle == RotationAngle.Minus90)
-            {
-                tile.bottomRight = new IntVector2(-tile.bottomLeft.y + width - 1, tile.bottomLeft.x);
-            }
-            else if (angle == RotationAngle._180)
-            {
-                tile.topRight = new IntVector2(-tile.bottomLeft.x + width - 1, -tile.bottomLeft.y + height - 1);
-            }
-        }
-
-        foreach (AnimationKeyFrame keyFrame in keyFrames)
-        {
-            keyFrame.texture = Tex2DSprite.Rotate(keyFrame.texture, angle);
-        }
-
-        width = keyFrames[0].texture.width;
-        height = keyFrames[0].texture.height;
-
-        ignoreOnTilePixelsChanged = false;
-        RerenderKeyFrames();
-    }
-
-    protected override void ExtendNoEvent(int left, int right, int up, int down)
-    {
-        ignoreOnTilePixelsChanged = true;
-        foreach (Tile tile in tiles)
-        {
-            tile.bottomLeft += new IntVector2(left, down);
-        }
-
-        foreach (AnimationKeyFrame keyFrame in keyFrames)
-        {
-            keyFrame.texture = Tex2DSprite.Extend(keyFrame.texture, left, right, up, down);
-        }
-
-        width = keyFrames[0].texture.width;
-        height = keyFrames[0].texture.height;
-
-        ignoreOnTilePixelsChanged = false;
-        RerenderKeyFrames();
-    }
-
-    protected override void ScaleNoEvent(float xScaleFactor, float yScaleFactor)
-    {
-        ignoreOnTilePixelsChanged = true;
-        HashSet<Layer> flippedLayers = new HashSet<Layer>();
-        foreach (Tile tile in tiles)
-        {
-            if (!flippedLayers.Contains(tile.TileLayerToLayerInTile(this)))
-            {
-                tile.TileLayerToLayerInTile(this).Scale(xScaleFactor, yScaleFactor);
-                flippedLayers.Add(tile.TileLayerToLayerInTile(this));
-            }
-
-            tile.bottomLeft = IntVector2.CeilToIntVector2(tile.bottomLeft * new Vector2(Mathf.RoundToInt(width * xScaleFactor) / width, Mathf.RoundToInt(height * yScaleFactor) / height));
-        }
-
-        foreach (AnimationKeyFrame keyFrame in keyFrames)
-        {
-            keyFrame.texture = Tex2DSprite.Scale(keyFrame.texture, xScaleFactor, yScaleFactor);
-        }
-
-        width = keyFrames[0].texture.width;
-        height = keyFrames[0].texture.height;
-
-        ignoreOnTilePixelsChanged = false;
-        RerenderKeyFrames();
-    }
-    protected override void ScaleNoEvent(int newWidth, int newHeight)
-    {
-        ignoreOnTilePixelsChanged = true;
-        HashSet<Layer> flippedLayers = new HashSet<Layer>();
-        foreach (Tile tile in tiles)
-        {
-            if (!flippedLayers.Contains(tile.TileLayerToLayerInTile(this)))
-            {
-                tile.TileLayerToLayerInTile(this).Scale(newWidth, newHeight);
-                flippedLayers.Add(tile.TileLayerToLayerInTile(this));
-            }
-
-            tile.bottomLeft = IntVector2.CeilToIntVector2(tile.bottomLeft * new Vector2(newWidth / width, newHeight / height));
-        }
-
-        foreach (AnimationKeyFrame keyFrame in keyFrames)
-        {
-            keyFrame.texture = Tex2DSprite.Scale(keyFrame.texture, newWidth, newHeight);
-        }
-
-        width = keyFrames[0].texture.width;
-        height = keyFrames[0].texture.height;
-
-        ignoreOnTilePixelsChanged = false;
-        RerenderKeyFrames();
-    }
-
-    public override JSON ToJSON() { throw new System.NotImplementedException("ToJSON() has not yet been implemented for TileLayer."); }
-    protected override void LoadJSON(JSON json) { throw new System.NotImplementedException("FromJSON() has not yet been implemented for TileLayer."); }
-
-    protected override AnimationKeyFrame DeleteKeyFrameNoEvent(int keyframe)
-    {
-        if (HasKeyFrameAt(keyframe))
-        {
+            ignoreOnTilePixelsChanged = true;
+            HashSet<Layer> flippedLayers = new HashSet<Layer>();
             foreach (Tile tile in tiles)
             {
-                if (tile.TileLayerToLayerInTile(this).HasKeyFrameAt(keyframe))
+                if (!flippedLayers.Contains(tile.TileLayerToLayerInTile(this)))
                 {
-                    tile.TileLayerToLayerInTile(this).DeleteKeyFrame(keyframe);
+                    tile.TileLayerToLayerInTile(this).Flip(direction);
+                    flippedLayers.Add(tile.TileLayerToLayerInTile(this));
+                }
+
+                if (direction == FlipDirection.X)
+                {
+                    tile.bottomRight = new IntVector2(-tile.bottomLeft.x + width - 1, tile.bottomLeft.y);
+                }
+                else if (direction == FlipDirection.Y)
+                {
+                    tile.topLeft = new IntVector2(tile.bottomLeft.x, -tile.bottomLeft.y + height - 1);
                 }
             }
 
-            AnimationKeyFrame keyFrame = GetKeyFrame(keyframe);
-            keyFrames.Remove(keyFrame);
+            ignoreOnTilePixelsChanged = false;
+            RerenderKeyFrames();
+        }
 
-            if (keyframe == 0)
+        protected override void RotateNoEvent(RotationAngle angle)
+        {
+            if (angle == RotationAngle._0)
             {
-                AddKeyFrame(0, Tex2DSprite.BlankTexture(width, height));
-            }
-
-            return keyFrame;
-        }
-        return null;
-    }
-
-    public override void ClearFrames()
-    {
-        foreach (Tile tile in tiles)
-        {
-            tile.TileLayerToLayerInTile(this).ClearFrames();
-        }
-
-        keyFrames = new List<AnimationKeyFrame>();
-        AddKeyFrame(0, Tex2DSprite.BlankTexture(width, height));
-    }
-
-    /// <summary>
-    /// Rerenders all keyframes.
-    /// </summary>
-    public void RerenderKeyFrames() => RerenderKeyFrames(keyFrameIndices);
-    /// <summary>
-    /// Rerenders the section of every keyframe within the given rect.
-    /// </summary>
-    public void RerenderKeyFrames(IntRect rect) => RerenderKeyFrames(keyFrameIndices, rect);
-    /// <summary>
-    /// Rerenders the given pixels of every keyframe.
-    /// </summary>
-    public void RerenderKeyFrames(IntVector2[] pixels) => RerenderKeyFrames(keyFrameIndices, pixels);
-    /// <summary>
-    /// Rerenders the given keyframes.
-    /// </summary>
-    public void RerenderKeyFrames(int[] keyFrames) => RerenderKeyFrames(keyFrames, rect);
-    /// <summary>
-    /// Rerenders the section of the given keyframes within the given rect.
-    /// </summary>
-    public void RerenderKeyFrames(int[] keyFrames, IntRect rect) => RerenderKeyFrames(keyFrames, rect.points);
-    /// <summary>
-    /// Rerenders the given pixels of the given keyframes.
-    /// </summary>
-    public void RerenderKeyFrames(int[] keyFrames, IntVector2[] pixels)
-    {
-        foreach (int keyframeIndex in keyFrames)
-        {
-            RerenderKeyFrame(keyframeIndex, pixels);
-        }
-    }
-    /// <summary>
-    /// Rerenders the keyframe.
-    /// </summary>
-    public void RerenderKeyFrame(int frame) => RerenderKeyFrame(frame, rect);
-    /// <summary>
-    /// Rerenders the section of the keyframe within the given rect.
-    /// </summary>
-    public void RerenderKeyFrame(int frame, IntRect rect) => RerenderKeyFrame(frame, rect.points);
-    /// <summary>
-    /// Rerenders the given pixels of the keyframe.
-    /// </summary>
-    public void RerenderKeyFrame(int frame, IntVector2[] pixels)
-    {
-        foreach (IntVector2 pixel in pixels)
-        {
-            Tile tile = PixelToTileNoValidation(pixel);
-            if (tile == null)
-            {
-                GetKeyFrame(frame).texture.SetPixel(pixel, new Color(0f, 0f, 0f, 0f));
-            }
-            else
-            {
-                GetKeyFrame(frame).texture.SetPixel(pixel, tile.TileLayerToLayerInTile(this).GetPixel(new IntVector2(pixel.x, pixel.y) - tile.bottomLeft, frame));
-            }
-        }
-    }
-
-    // Event callbacks
-
-    /// <summary>
-    /// Called when some pixels are changed within a tile.
-    /// </summary>
-    private void OnTilePixelsChanged(IntVector2[] pixels, Layer layer, int[] frames)
-    {
-        if (ignoreOnTilePixelsChanged)
-        {
-            return;
-        }
-
-        foreach (Tile tile in tiles)
-        {
-            if (tile.TileLayerToLayerInTile(this) == layer)
-            {
-                IntVector2[] linkedPixels = GetLinkedPixels(pixels + tile.bottomLeft);
-                RerenderKeyFrames(frames, linkedPixels);
-                onPixelsChanged.Invoke(linkedPixels, frames);
-
                 return;
             }
-        }
-    }
 
-    /// <summary>
-    /// Called when a tile's rect changes - e.g. by moving / rotating / scaling.
-    /// </summary>
-    private void OnTileRectChanged(Tile tile, IntRect previousRect)
-    {
-        foreach (IntVector2 pixel in previousRect)
-        {
-            if (PixelToTileNoValidation(pixel) == tile)
+            ignoreOnTilePixelsChanged = true;
+            HashSet<Layer> flippedLayers = new HashSet<Layer>();
+            foreach (Tile tile in tiles)
             {
-                pixelToTile.Remove(pixel);
+                if (!flippedLayers.Contains(tile.TileLayerToLayerInTile(this)))
+                {
+                    tile.TileLayerToLayerInTile(this).Rotate(angle);
+                    flippedLayers.Add(tile.TileLayerToLayerInTile(this));
+                }
+
+                if (angle == RotationAngle._90)
+                {
+                    tile.topLeft = new IntVector2(tile.bottomLeft.y, -tile.bottomLeft.x + height - 1);
+                }
+                else if (angle == RotationAngle.Minus90)
+                {
+                    tile.bottomRight = new IntVector2(-tile.bottomLeft.y + width - 1, tile.bottomLeft.x);
+                }
+                else if (angle == RotationAngle._180)
+                {
+                    tile.topRight = new IntVector2(-tile.bottomLeft.x + width - 1, -tile.bottomLeft.y + height - 1);
+                }
+            }
+
+            foreach (AnimationKeyFrame keyFrame in keyFrames)
+            {
+                keyFrame.texture = Tex2DSprite.Rotate(keyFrame.texture, angle);
+            }
+
+            width = keyFrames[0].texture.width;
+            height = keyFrames[0].texture.height;
+
+            ignoreOnTilePixelsChanged = false;
+            RerenderKeyFrames();
+        }
+
+        protected override void ExtendNoEvent(int left, int right, int up, int down)
+        {
+            ignoreOnTilePixelsChanged = true;
+            foreach (Tile tile in tiles)
+            {
+                tile.bottomLeft += new IntVector2(left, down);
+            }
+
+            foreach (AnimationKeyFrame keyFrame in keyFrames)
+            {
+                keyFrame.texture = Tex2DSprite.Extend(keyFrame.texture, left, right, up, down);
+            }
+
+            width = keyFrames[0].texture.width;
+            height = keyFrames[0].texture.height;
+
+            ignoreOnTilePixelsChanged = false;
+            RerenderKeyFrames();
+        }
+
+        protected override void ScaleNoEvent(float xScaleFactor, float yScaleFactor)
+        {
+            ignoreOnTilePixelsChanged = true;
+            HashSet<Layer> flippedLayers = new HashSet<Layer>();
+            foreach (Tile tile in tiles)
+            {
+                if (!flippedLayers.Contains(tile.TileLayerToLayerInTile(this)))
+                {
+                    tile.TileLayerToLayerInTile(this).Scale(xScaleFactor, yScaleFactor);
+                    flippedLayers.Add(tile.TileLayerToLayerInTile(this));
+                }
+
+                tile.bottomLeft = IntVector2.CeilToIntVector2(tile.bottomLeft * new Vector2(Mathf.RoundToInt(width * xScaleFactor) / width, Mathf.RoundToInt(height * yScaleFactor) / height));
+            }
+
+            foreach (AnimationKeyFrame keyFrame in keyFrames)
+            {
+                keyFrame.texture = Tex2DSprite.Scale(keyFrame.texture, xScaleFactor, yScaleFactor);
+            }
+
+            width = keyFrames[0].texture.width;
+            height = keyFrames[0].texture.height;
+
+            ignoreOnTilePixelsChanged = false;
+            RerenderKeyFrames();
+        }
+        protected override void ScaleNoEvent(int newWidth, int newHeight)
+        {
+            ignoreOnTilePixelsChanged = true;
+            HashSet<Layer> flippedLayers = new HashSet<Layer>();
+            foreach (Tile tile in tiles)
+            {
+                if (!flippedLayers.Contains(tile.TileLayerToLayerInTile(this)))
+                {
+                    tile.TileLayerToLayerInTile(this).Scale(newWidth, newHeight);
+                    flippedLayers.Add(tile.TileLayerToLayerInTile(this));
+                }
+
+                tile.bottomLeft = IntVector2.CeilToIntVector2(tile.bottomLeft * new Vector2(newWidth / width, newHeight / height));
+            }
+
+            foreach (AnimationKeyFrame keyFrame in keyFrames)
+            {
+                keyFrame.texture = Tex2DSprite.Scale(keyFrame.texture, newWidth, newHeight);
+            }
+
+            width = keyFrames[0].texture.width;
+            height = keyFrames[0].texture.height;
+
+            ignoreOnTilePixelsChanged = false;
+            RerenderKeyFrames();
+        }
+
+        public override JSON.JSON ToJSON() { throw new System.NotImplementedException("ToJSON() has not yet been implemented for TileLayer."); }
+        protected override void LoadJSON(JSON.JSON json) { throw new System.NotImplementedException("FromJSON() has not yet been implemented for TileLayer."); }
+
+        protected override AnimationKeyFrame DeleteKeyFrameNoEvent(int keyframe)
+        {
+            if (HasKeyFrameAt(keyframe))
+            {
+                foreach (Tile tile in tiles)
+                {
+                    if (tile.TileLayerToLayerInTile(this).HasKeyFrameAt(keyframe))
+                    {
+                        tile.TileLayerToLayerInTile(this).DeleteKeyFrame(keyframe);
+                    }
+                }
+
+                AnimationKeyFrame keyFrame = GetKeyFrame(keyframe);
+                keyFrames.Remove(keyFrame);
+
+                if (keyframe == 0)
+                {
+                    AddKeyFrame(0, Tex2DSprite.BlankTexture(width, height));
+                }
+
+                return keyFrame;
+            }
+            return null;
+        }
+
+        public override void ClearFrames()
+        {
+            foreach (Tile tile in tiles)
+            {
+                tile.TileLayerToLayerInTile(this).ClearFrames();
+            }
+
+            keyFrames = new List<AnimationKeyFrame>();
+            AddKeyFrame(0, Tex2DSprite.BlankTexture(width, height));
+        }
+
+        /// <summary>
+        /// Rerenders all keyframes.
+        /// </summary>
+        public void RerenderKeyFrames() => RerenderKeyFrames(keyFrameIndices);
+        /// <summary>
+        /// Rerenders the section of every keyframe within the given rect.
+        /// </summary>
+        public void RerenderKeyFrames(IntRect rect) => RerenderKeyFrames(keyFrameIndices, rect);
+        /// <summary>
+        /// Rerenders the given pixels of every keyframe.
+        /// </summary>
+        public void RerenderKeyFrames(IntVector2[] pixels) => RerenderKeyFrames(keyFrameIndices, pixels);
+        /// <summary>
+        /// Rerenders the given keyframes.
+        /// </summary>
+        public void RerenderKeyFrames(int[] keyFrames) => RerenderKeyFrames(keyFrames, rect);
+        /// <summary>
+        /// Rerenders the section of the given keyframes within the given rect.
+        /// </summary>
+        public void RerenderKeyFrames(int[] keyFrames, IntRect rect) => RerenderKeyFrames(keyFrames, rect.points);
+        /// <summary>
+        /// Rerenders the given pixels of the given keyframes.
+        /// </summary>
+        public void RerenderKeyFrames(int[] keyFrames, IntVector2[] pixels)
+        {
+            foreach (int keyframeIndex in keyFrames)
+            {
+                RerenderKeyFrame(keyframeIndex, pixels);
             }
         }
-        foreach (IntVector2 pixel in tile.rect)
+        /// <summary>
+        /// Rerenders the keyframe.
+        /// </summary>
+        public void RerenderKeyFrame(int frame) => RerenderKeyFrame(frame, rect);
+        /// <summary>
+        /// Rerenders the section of the keyframe within the given rect.
+        /// </summary>
+        public void RerenderKeyFrame(int frame, IntRect rect) => RerenderKeyFrame(frame, rect.points);
+        /// <summary>
+        /// Rerenders the given pixels of the keyframe.
+        /// </summary>
+        public void RerenderKeyFrame(int frame, IntVector2[] pixels)
         {
-            pixelToTile[pixel] = tile;
+            foreach (IntVector2 pixel in pixels)
+            {
+                Tile tile = PixelToTileNoValidation(pixel);
+                if (tile == null)
+                {
+                    GetKeyFrame(frame).texture.SetPixel(pixel, new Color(0f, 0f, 0f, 0f));
+                }
+                else
+                {
+                    GetKeyFrame(frame).texture.SetPixel(pixel, tile.TileLayerToLayerInTile(this).GetPixel(new IntVector2(pixel.x, pixel.y) - tile.bottomLeft, frame));
+                }
+            }
         }
 
-        if (!ignoreOnTilePixelsChanged)
+        // Event callbacks
+
+        /// <summary>
+        /// Called when some pixels are changed within a tile.
+        /// </summary>
+        private void OnTilePixelsChanged(IntVector2[] pixels, Layer layer, int[] frames)
         {
-            RerenderKeyFrames(previousRect);
-            RerenderKeyFrames(tile.rect);
+            if (ignoreOnTilePixelsChanged)
+            {
+                return;
+            }
+
+            foreach (Tile tile in tiles)
+            {
+                if (tile.TileLayerToLayerInTile(this) == layer)
+                {
+                    IntVector2[] linkedPixels = GetLinkedPixels(pixels + tile.bottomLeft);
+                    RerenderKeyFrames(frames, linkedPixels);
+                    onPixelsChanged.Invoke(linkedPixels, frames);
+
+                    return;
+                }
+            }
+        }
+
+        /// <summary>
+        /// Called when a tile's rect changes - e.g. by moving / rotating / scaling.
+        /// </summary>
+        private void OnTileRectChanged(Tile tile, IntRect previousRect)
+        {
+            foreach (IntVector2 pixel in previousRect)
+            {
+                if (PixelToTileNoValidation(pixel) == tile)
+                {
+                    pixelToTile.Remove(pixel);
+                }
+            }
+            foreach (IntVector2 pixel in tile.rect)
+            {
+                pixelToTile[pixel] = tile;
+            }
+
+            if (!ignoreOnTilePixelsChanged)
+            {
+                RerenderKeyFrames(previousRect);
+                RerenderKeyFrames(tile.rect);
+            }
         }
     }
 }

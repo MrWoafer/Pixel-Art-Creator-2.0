@@ -1,164 +1,169 @@
-using System.Collections;
 using System.Collections.Generic;
+using PAC.Files;
+using PAC.Input;
+using PAC.Layers;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class UndoRedoManager : MonoBehaviour
+namespace PAC.Undo_Redo
 {
-    [Header("Events")]
-    [SerializeField]
-    private UnityEvent onUndo = new UnityEvent();
-    [SerializeField]
-    private UnityEvent onRedo = new UnityEvent();
-    [SerializeField]
-    private UnityEvent onUndoOrRedo = new UnityEvent();
-
-    private List<Stack<UndoRedoState>> undoStack = new List<Stack<UndoRedoState>>();
-    private List<Stack<UndoRedoState>> redoStack = new List<Stack<UndoRedoState>>();
-
-    private FileManager fileManager;
-    private InputSystem inputSystem;
-
-    private void Start()
+    public class UndoRedoManager : MonoBehaviour
     {
-        fileManager = Finder.fileManager;
-        inputSystem = Finder.inputSystem;
+        [Header("Events")]
+        [SerializeField]
+        private UnityEvent onUndo = new UnityEvent();
+        [SerializeField]
+        private UnityEvent onRedo = new UnityEvent();
+        [SerializeField]
+        private UnityEvent onUndoOrRedo = new UnityEvent();
 
-        inputSystem.SubscribeToGlobalKeyboard(KeyboardShortcut);
+        private List<Stack<UndoRedoState>> undoStack = new List<Stack<UndoRedoState>>();
+        private List<Stack<UndoRedoState>> redoStack = new List<Stack<UndoRedoState>>();
 
-        undoStack.Add(new Stack<UndoRedoState>());
-        redoStack.Add(new Stack<UndoRedoState>());
-    }
+        private FileManager fileManager;
+        private InputSystem inputSystem;
 
-    private void AddUndoStateNotDeleteRedoStack(UndoRedoState undoState, int fileIndex)
-    {
-        if (fileIndex < 0 || fileIndex >= fileManager.files.Count)
+        private void Start()
         {
-            throw new System.Exception("File index not in valid range: " + fileIndex);
+            fileManager = Finder.fileManager;
+            inputSystem = Finder.inputSystem;
+
+            inputSystem.SubscribeToGlobalKeyboard(KeyboardShortcut);
+
+            undoStack.Add(new Stack<UndoRedoState>());
+            redoStack.Add(new Stack<UndoRedoState>());
         }
 
-        undoStack[fileIndex].Push(undoState);
-    }
-    public void AddUndoState(UndoRedoState undoState, int fileIndex)
-    {
-        if (fileIndex < 0 || fileIndex >= fileManager.files.Count)
+        private void AddUndoStateNotDeleteRedoStack(UndoRedoState undoState, int fileIndex)
         {
-            throw new System.Exception("File index not in valid range: " + fileIndex);
-        }
-
-        AddUndoStateNotDeleteRedoStack(undoState, fileIndex);
-        if (redoStack[fileIndex].Count > 0)
-        {
-            redoStack[fileIndex] = new Stack<UndoRedoState>();
-        }
-    }
-
-    private void AddRedoState(UndoRedoState redoState, int fileIndex)
-    {
-        if (fileIndex < 0 || fileIndex >= fileManager.files.Count)
-        {
-            throw new System.Exception("File index not in valid range: " + fileIndex);
-        }
-
-        redoStack[fileIndex].Push(redoState);
-    }
-
-    private bool Undo(int fileIndex)
-    {
-        if (fileIndex < 0 || fileIndex >= fileManager.files.Count)
-        {
-            throw new System.Exception("File index not in valid range: " + fileIndex);
-        }
-
-        if (undoStack[fileIndex].Count == 0)
-        {
-            return false;
-        }
-
-        UndoRedoState state = undoStack[fileIndex].Pop();
-
-        Layer[] affectedLayersCurrentState = new Layer[state.affectedLayers.Length];
-        for (int i = 0; i < state.affectedLayers.Length; i++)
-        {
-            affectedLayersCurrentState[i] = fileManager.files[fileIndex].layers[state.affectedLayersIndices[i]];
-        }
-        UndoRedoState redoState = new UndoRedoState(state.action, affectedLayersCurrentState, state.affectedLayersIndices);
-        AddRedoState(redoState, fileIndex);
-
-        RestoreState(state, fileManager.files[fileIndex]);
-
-        onUndo.Invoke();
-        onUndoOrRedo.Invoke();
-
-        return true;
-    }
-
-    private bool Redo(int fileIndex)
-    {
-        if (fileIndex < 0 || fileIndex >= fileManager.files.Count)
-        {
-            throw new System.Exception("File index not in valid range: " + fileIndex);
-        }
-
-        if (redoStack[fileIndex].Count == 0)
-        {
-            return false;
-        }
-
-        UndoRedoState state = redoStack[fileIndex].Pop();
-
-        Layer[] affectedLayersCurrentState = new Layer[state.affectedLayers.Length];
-        for (int i = 0; i < state.affectedLayers.Length; i++)
-        {
-            affectedLayersCurrentState[i] = fileManager.files[fileIndex].layers[state.affectedLayersIndices[i]];
-        }
-        UndoRedoState undoState = new UndoRedoState(state.action, affectedLayersCurrentState, state.affectedLayersIndices);
-        AddUndoStateNotDeleteRedoStack(undoState, fileIndex);
-
-        RestoreState(state, fileManager.files[fileIndex]);
-
-        onRedo.Invoke();
-        onUndoOrRedo.Invoke();
-
-        return true;
-    }
-
-    private void RestoreState(UndoRedoState state, File file)
-    {
-        for (int i = 0; i < state.affectedLayers.Length; i++)
-        {
-            int layerIndex = state.affectedLayersIndices[i];
-            if (layerIndex >= file.layers.Count)
+            if (fileIndex < 0 || fileIndex >= fileManager.files.Count)
             {
-                throw new System.Exception("Layer index too high for number of layers: " + layerIndex);
+                throw new System.Exception("File index not in valid range: " + fileIndex);
             }
 
-            file.ReplaceLayer(layerIndex, state.affectedLayers[i]);
+            undoStack[fileIndex].Push(undoState);
         }
-    }
-
-    private void KeyboardShortcut()
-    {
-        if (inputSystem.globalKeyboardTarget.IsHeldExactly(KeyCode.Z))
+        public void AddUndoState(UndoRedoState undoState, int fileIndex)
         {
-            Undo(fileManager.currentFileIndex);
-        }
-        else if (inputSystem.globalKeyboardTarget.IsHeldExactly(KeyCode.Y))
-        {
-            Redo(fileManager.currentFileIndex);
-        }
-    }
+            if (fileIndex < 0 || fileIndex >= fileManager.files.Count)
+            {
+                throw new System.Exception("File index not in valid range: " + fileIndex);
+            }
 
-    public void SubscribeToUndo(UnityAction call)
-    {
-        onUndo.AddListener(call);
-    }
-    public void SubscribeToRedo(UnityAction call)
-    {
-        onRedo.AddListener(call);
-    }
-    public void SubscribeToUndoOrRedo(UnityAction call)
-    {
-        onUndoOrRedo.AddListener(call);
+            AddUndoStateNotDeleteRedoStack(undoState, fileIndex);
+            if (redoStack[fileIndex].Count > 0)
+            {
+                redoStack[fileIndex] = new Stack<UndoRedoState>();
+            }
+        }
+
+        private void AddRedoState(UndoRedoState redoState, int fileIndex)
+        {
+            if (fileIndex < 0 || fileIndex >= fileManager.files.Count)
+            {
+                throw new System.Exception("File index not in valid range: " + fileIndex);
+            }
+
+            redoStack[fileIndex].Push(redoState);
+        }
+
+        private bool Undo(int fileIndex)
+        {
+            if (fileIndex < 0 || fileIndex >= fileManager.files.Count)
+            {
+                throw new System.Exception("File index not in valid range: " + fileIndex);
+            }
+
+            if (undoStack[fileIndex].Count == 0)
+            {
+                return false;
+            }
+
+            UndoRedoState state = undoStack[fileIndex].Pop();
+
+            Layer[] affectedLayersCurrentState = new Layer[state.affectedLayers.Length];
+            for (int i = 0; i < state.affectedLayers.Length; i++)
+            {
+                affectedLayersCurrentState[i] = fileManager.files[fileIndex].layers[state.affectedLayersIndices[i]];
+            }
+            UndoRedoState redoState = new UndoRedoState(state.action, affectedLayersCurrentState, state.affectedLayersIndices);
+            AddRedoState(redoState, fileIndex);
+
+            RestoreState(state, fileManager.files[fileIndex]);
+
+            onUndo.Invoke();
+            onUndoOrRedo.Invoke();
+
+            return true;
+        }
+
+        private bool Redo(int fileIndex)
+        {
+            if (fileIndex < 0 || fileIndex >= fileManager.files.Count)
+            {
+                throw new System.Exception("File index not in valid range: " + fileIndex);
+            }
+
+            if (redoStack[fileIndex].Count == 0)
+            {
+                return false;
+            }
+
+            UndoRedoState state = redoStack[fileIndex].Pop();
+
+            Layer[] affectedLayersCurrentState = new Layer[state.affectedLayers.Length];
+            for (int i = 0; i < state.affectedLayers.Length; i++)
+            {
+                affectedLayersCurrentState[i] = fileManager.files[fileIndex].layers[state.affectedLayersIndices[i]];
+            }
+            UndoRedoState undoState = new UndoRedoState(state.action, affectedLayersCurrentState, state.affectedLayersIndices);
+            AddUndoStateNotDeleteRedoStack(undoState, fileIndex);
+
+            RestoreState(state, fileManager.files[fileIndex]);
+
+            onRedo.Invoke();
+            onUndoOrRedo.Invoke();
+
+            return true;
+        }
+
+        private void RestoreState(UndoRedoState state, File file)
+        {
+            for (int i = 0; i < state.affectedLayers.Length; i++)
+            {
+                int layerIndex = state.affectedLayersIndices[i];
+                if (layerIndex >= file.layers.Count)
+                {
+                    throw new System.Exception("Layer index too high for number of layers: " + layerIndex);
+                }
+
+                file.ReplaceLayer(layerIndex, state.affectedLayers[i]);
+            }
+        }
+
+        private void KeyboardShortcut()
+        {
+            if (inputSystem.globalKeyboardTarget.IsHeldExactly(KeyCode.Z))
+            {
+                Undo(fileManager.currentFileIndex);
+            }
+            else if (inputSystem.globalKeyboardTarget.IsHeldExactly(KeyCode.Y))
+            {
+                Redo(fileManager.currentFileIndex);
+            }
+        }
+
+        public void SubscribeToUndo(UnityAction call)
+        {
+            onUndo.AddListener(call);
+        }
+        public void SubscribeToRedo(UnityAction call)
+        {
+            onRedo.AddListener(call);
+        }
+        public void SubscribeToUndoOrRedo(UnityAction call)
+        {
+            onUndoOrRedo.AddListener(call);
+        }
     }
 }

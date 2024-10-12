@@ -1,23 +1,24 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
 using System;
 using System.Runtime.InteropServices;
+using UnityEngine;
 
-public class MaximiseWindow : MonoBehaviour
+namespace PAC.Screen
 {
-    [DllImport("user32.dll")]
-    private static extern IntPtr GetActiveWindow();
-    [DllImport("user32.dll")]
-    public static extern bool ShowWindowAsync(int hWnd, int nCmdShow);
-
-    void Awake()
+    public class MaximiseWindow : MonoBehaviour
     {
-        /// Auto maximise the window when the program opens
-        /// (the Unity 'Maximized Window' fullscreen mode only works on MacOS)
-        if (!Application.isEditor && !Screen.fullScreen)
+        [DllImport("user32.dll")]
+        private static extern IntPtr GetActiveWindow();
+        [DllImport("user32.dll")]
+        public static extern bool ShowWindowAsync(int hWnd, int nCmdShow);
+
+        void Awake()
         {
-            ShowWindowAsync(GetActiveWindow().ToInt32(), 3);
+            /// Auto maximise the window when the program opens
+            /// (the Unity 'Maximized Window' fullscreen mode only works on MacOS)
+            if (!Application.isEditor && !UnityEngine.Screen.fullScreen)
+            {
+                ShowWindowAsync(GetActiveWindow().ToInt32(), 3);
+            }
         }
     }
 }

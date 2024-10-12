@@ -1,170 +1,172 @@
-using System.Collections;
-using System.Collections.Generic;
+using PAC.Undo_Redo;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class InputSystem : MonoBehaviour
+namespace PAC.Input
 {
-    [Header("Typing Settings")]
-    [Min(0f)]
-    public float timeUntilKeySpam = 2f;
-    [Min(0f)]
-    public float timeBetweenKeySpam = 0.5f;
-
-    [Header("References")]
-    [SerializeField]
-    private Mouse _mouse;
-    public Mouse mouse
+    public class InputSystem : MonoBehaviour
     {
-        get
+        [Header("Typing Settings")]
+        [Min(0f)]
+        public float timeUntilKeySpam = 2f;
+        [Min(0f)]
+        public float timeBetweenKeySpam = 0.5f;
+
+        [Header("References")]
+        [SerializeField]
+        private Mouse _mouse;
+        public Mouse mouse
         {
-            return _mouse;
-        }
-    }
-    [SerializeField]
-    private Keyboard _keyboard;
-    public Keyboard keyboard
-    {
-        get
-        {
-            return _keyboard;
-        }
-    }
-
-    public InputTarget inputTarget { get; private set; }
-    public bool hasInputTarget
-    {
-        get
-        {
-            return inputTarget != globalInputTarget;
-        }
-    }
-
-    private UndoRedoManager undoRedoManager;
-
-    public InputTarget globalInputTarget { get; private set; }
-    public MouseTarget globalMouseTarget
-    {
-        get
-        {
-            return globalInputTarget.mouseTarget;
-        }
-    }
-    public KeyboardTarget globalKeyboardTarget
-    {
-        get
-        {
-            return globalInputTarget.keyboardTarget;
-        }
-    }
-
-    private int lockedForAFrame = 0;
-
-    private UnityEvent globalKeyboardInputEvent = new UnityEvent();
-    private UnityEvent globalMouseScrollEvent = new UnityEvent();
-    private UnityEvent globalLeftClickEvent = new UnityEvent();
-
-    private void Awake()
-    {
-        undoRedoManager = Finder.undoRedoManager;
-
-        globalInputTarget = GetComponent<InputTarget>();
-    }
-
-    private void Start()
-    {
-        inputTarget = globalInputTarget;
-
-        globalKeyboardTarget.SubscribeToOnInput(GlobalKeyboardInput);
-        mouse.SubscribeToScroll(GlobalMouseScroll);
-        mouse.SubscribeToLeftClick(GlobalLeftClick);
-
-        mouse.canInteract = true;
-        keyboard.canInteract = true;
-    }
-
-    private void LateUpdate()
-    {
-        if (lockedForAFrame > 0)
-        {
-            lockedForAFrame--;
-
-            if (lockedForAFrame <= 0)
+            get
             {
-                lockedForAFrame = 0;
-                mouse.canInteract = true;
-                keyboard.canInteract = true;
+                return _mouse;
             }
         }
-    }
-
-    public bool Target(InputTarget newTarget)
-    {
-        //Debug.Log("Targeting input target: " + newTarget.targetName);
-
-        inputTarget.Target();
-
-        mouse.canInteract = false;
-
-        inputTarget = newTarget;
-
-        if (inputTarget.keyboardInputEnabled && inputTarget.receiveAlreadyHeldKeys)
+        [SerializeField]
+        private Keyboard _keyboard;
+        public Keyboard keyboard
         {
-            inputTarget.keyboardTarget.KeysDownNoSpamReset(globalInputTarget.keyboardTarget.keysHeld);
+            get
+            {
+                return _keyboard;
+            }
         }
 
-        return true;
-    }
+        public InputTarget inputTarget { get; private set; }
+        public bool hasInputTarget
+        {
+            get
+            {
+                return inputTarget != globalInputTarget;
+            }
+        }
 
-    public InputTarget Untarget()
-    {
-        //Debug.Log("Untargeting input target: " + inputTarget.targetName);
+        private UndoRedoManager undoRedoManager;
 
-        inputTarget.Untarget();
+        public InputTarget globalInputTarget { get; private set; }
+        public MouseTarget globalMouseTarget
+        {
+            get
+            {
+                return globalInputTarget.mouseTarget;
+            }
+        }
+        public KeyboardTarget globalKeyboardTarget
+        {
+            get
+            {
+                return globalInputTarget.keyboardTarget;
+            }
+        }
 
-        InputTarget oldTarget = inputTarget;
-        inputTarget = globalInputTarget;
+        private int lockedForAFrame = 0;
 
-        mouse.canInteract = true;
-        keyboard.canInteract = true;
+        private UnityEvent globalKeyboardInputEvent = new UnityEvent();
+        private UnityEvent globalMouseScrollEvent = new UnityEvent();
+        private UnityEvent globalLeftClickEvent = new UnityEvent();
 
-        return oldTarget;
-    }
+        private void Awake()
+        {
+            undoRedoManager = Finder.undoRedoManager;
 
-    private void GlobalKeyboardInput()
-    {
-        globalKeyboardInputEvent.Invoke();
-    }
+            globalInputTarget = GetComponent<InputTarget>();
+        }
 
-    public void LockForAFrame()
-    {
-        lockedForAFrame = 2;
-        mouse.canInteract = false;
-        keyboard.canInteract = false;
-    }
+        private void Start()
+        {
+            inputTarget = globalInputTarget;
 
-    public void SubscribeToGlobalKeyboard(UnityAction call)
-    {
-        globalKeyboardInputEvent.AddListener(call);
-    }
+            globalKeyboardTarget.SubscribeToOnInput(GlobalKeyboardInput);
+            mouse.SubscribeToScroll(GlobalMouseScroll);
+            mouse.SubscribeToLeftClick(GlobalLeftClick);
 
-    private void GlobalMouseScroll()
-    {
-        globalMouseScrollEvent.Invoke();
-    }
+            mouse.canInteract = true;
+            keyboard.canInteract = true;
+        }
 
-    public void SubscribeToGlobalMouseScroll(UnityAction call)
-    {
-        globalMouseScrollEvent.AddListener(call);
-    }
+        private void LateUpdate()
+        {
+            if (lockedForAFrame > 0)
+            {
+                lockedForAFrame--;
 
-    private void GlobalLeftClick()
-    {
-        globalLeftClickEvent.Invoke();
-    }
+                if (lockedForAFrame <= 0)
+                {
+                    lockedForAFrame = 0;
+                    mouse.canInteract = true;
+                    keyboard.canInteract = true;
+                }
+            }
+        }
 
-    public void SubscribeToGlobalLeftClick(UnityAction call)
-    {
-        globalLeftClickEvent.AddListener(call);
+        public bool Target(InputTarget newTarget)
+        {
+            //Debug.Log("Targeting input target: " + newTarget.targetName);
+
+            inputTarget.Target();
+
+            mouse.canInteract = false;
+
+            inputTarget = newTarget;
+
+            if (inputTarget.keyboardInputEnabled && inputTarget.receiveAlreadyHeldKeys)
+            {
+                inputTarget.keyboardTarget.KeysDownNoSpamReset(globalInputTarget.keyboardTarget.keysHeld);
+            }
+
+            return true;
+        }
+
+        public InputTarget Untarget()
+        {
+            //Debug.Log("Untargeting input target: " + inputTarget.targetName);
+
+            inputTarget.Untarget();
+
+            InputTarget oldTarget = inputTarget;
+            inputTarget = globalInputTarget;
+
+            mouse.canInteract = true;
+            keyboard.canInteract = true;
+
+            return oldTarget;
+        }
+
+        private void GlobalKeyboardInput()
+        {
+            globalKeyboardInputEvent.Invoke();
+        }
+
+        public void LockForAFrame()
+        {
+            lockedForAFrame = 2;
+            mouse.canInteract = false;
+            keyboard.canInteract = false;
+        }
+
+        public void SubscribeToGlobalKeyboard(UnityAction call)
+        {
+            globalKeyboardInputEvent.AddListener(call);
+        }
+
+        private void GlobalMouseScroll()
+        {
+            globalMouseScrollEvent.Invoke();
+        }
+
+        public void SubscribeToGlobalMouseScroll(UnityAction call)
+        {
+            globalMouseScrollEvent.AddListener(call);
+        }
+
+        private void GlobalLeftClick()
+        {
+            globalLeftClickEvent.Invoke();
+        }
+
+        public void SubscribeToGlobalLeftClick(UnityAction call)
+        {
+            globalLeftClickEvent.AddListener(call);
+        }
     }
 }

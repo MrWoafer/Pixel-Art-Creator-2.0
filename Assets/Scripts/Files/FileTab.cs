@@ -1,80 +1,82 @@
-using System.Collections;
-using System.Collections.Generic;
+using PAC.UI;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class FileTab : MonoBehaviour
+namespace PAC.Files
 {
-    public File file { get; private set; }
-    public bool selected => tileToggle.on;
-
-    public UIToggleButton tileToggle { get; private set; }
-    private UITextbox nameTextbox;
-    private UIButton closeButton;
-
-    public bool closed { get; set; } = false;
-
-    private UnityEvent onSelect = new UnityEvent();
-    private UnityEvent onClose = new UnityEvent();
-    private UnityEvent onNameChange = new UnityEvent();
-
-    private void Awake()
+    public class FileTab : MonoBehaviour
     {
-        tileToggle = GetComponent<UIToggleButton>();
-        nameTextbox = transform.Find("Name").GetComponent<UITextbox>();
-        closeButton = transform.Find("Close").GetComponent<UIButton>();
-    }
+        public File file { get; private set; }
+        public bool selected => tileToggle.on;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        tileToggle.SubscribeToTurnOn(Select);
-        closeButton.SubscribeToClick(Close);
-        nameTextbox.SubscribeToFinishEvent(OnNameChange);
-    }
+        public UIToggleButton tileToggle { get; private set; }
+        private UITextbox nameTextbox;
+        private UIButton closeButton;
 
-    public void SetFile(File file)
-    {
-        this.file = file;
-        nameTextbox.SetText(file.name);
-        file.SubscribeToOnSavedSinceEditChanged(SetSavedNameSuffix);
-        SetSavedNameSuffix();
-    }
+        public bool closed { get; set; } = false;
 
-    private void Select()
-    {
-        onSelect.Invoke();
-    }
+        private UnityEvent onSelect = new UnityEvent();
+        private UnityEvent onClose = new UnityEvent();
+        private UnityEvent onNameChange = new UnityEvent();
 
-    private void Close()
-    {
-        closed = true;
-        onClose.Invoke();
-    }
+        private void Awake()
+        {
+            tileToggle = GetComponent<UIToggleButton>();
+            nameTextbox = transform.Find("Name").GetComponent<UITextbox>();
+            closeButton = transform.Find("Close").GetComponent<UIButton>();
+        }
 
-    private void OnNameChange()
-    {
-        file.name = nameTextbox.text;
-        onNameChange.Invoke();
-    }
+        // Start is called before the first frame update
+        void Start()
+        {
+            tileToggle.SubscribeToTurnOn(Select);
+            closeButton.SubscribeToClick(Close);
+            nameTextbox.SubscribeToFinishEvent(OnNameChange);
+        }
 
-    private void SetSavedNameSuffix()
-    {
-        string suffix = nameTextbox.suffix.TrimEnd('*');
-        suffix += file.savedSinceLastEdit ? "" : "*";
-        nameTextbox.SetSuffix(suffix);
-    }
+        public void SetFile(File file)
+        {
+            this.file = file;
+            nameTextbox.SetText(file.name);
+            file.SubscribeToOnSavedSinceEditChanged(SetSavedNameSuffix);
+            SetSavedNameSuffix();
+        }
 
-    public void SubscribeToSelect(UnityAction call)
-    {
-        onSelect.AddListener(call);
-    }
-    public void SubscribeToClose(UnityAction call)
-    {
-        onClose.AddListener(call);
-    }
-    public void SubscribeToNameChange(UnityAction call)
-    {
-        onNameChange.AddListener(call);
+        private void Select()
+        {
+            onSelect.Invoke();
+        }
+
+        private void Close()
+        {
+            closed = true;
+            onClose.Invoke();
+        }
+
+        private void OnNameChange()
+        {
+            file.name = nameTextbox.text;
+            onNameChange.Invoke();
+        }
+
+        private void SetSavedNameSuffix()
+        {
+            string suffix = nameTextbox.suffix.TrimEnd('*');
+            suffix += file.savedSinceLastEdit ? "" : "*";
+            nameTextbox.SetSuffix(suffix);
+        }
+
+        public void SubscribeToSelect(UnityAction call)
+        {
+            onSelect.AddListener(call);
+        }
+        public void SubscribeToClose(UnityAction call)
+        {
+            onClose.AddListener(call);
+        }
+        public void SubscribeToNameChange(UnityAction call)
+        {
+            onNameChange.AddListener(call);
+        }
     }
 }

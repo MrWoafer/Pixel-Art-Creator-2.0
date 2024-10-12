@@ -1,157 +1,160 @@
-using System.Collections;
-using System.Collections.Generic;
+using PAC.Layers;
+using PAC.UI;
 using UnityEngine;
 using UnityEngine.UI;
 
-public enum ThemeObjectType
+namespace PAC.Themes
 {
-    None = 0,
-    Background = 1,
-    Panel = 2,
-    SubPanel = 3,
-    Shadow = 4,
-    RadioButton = 5
-}
-
-[AddComponentMenu("Custom UI/UI Theme")]
-public class UITheme : MonoBehaviour
-{
-    [SerializeField]
-    private bool useTheme = true;
-    [SerializeField]
-    private ThemeObjectType themeObjectType = ThemeObjectType.None;
-
-    private ThemeManager themeManager;
-    private Theme theme { get => themeManager.currentTheme; }
-
-    private void Awake()
+    public enum ThemeObjectType
     {
-        themeManager = Finder.themeManager;
-        themeManager.SubscribeToThemeChanged(OnThemeChanged);
+        None = 0,
+        Background = 1,
+        Panel = 2,
+        SubPanel = 3,
+        Shadow = 4,
+        RadioButton = 5
     }
 
-    private void Start()
+    [AddComponentMenu("Custom UI/UI Theme")]
+    public class UITheme : MonoBehaviour
     {
-        OnThemeChanged();
-    }
+        [SerializeField]
+        private bool useTheme = true;
+        [SerializeField]
+        private ThemeObjectType themeObjectType = ThemeObjectType.None;
 
-    private void OnThemeChanged()
-    {
-        if (!useTheme || !Application.isPlaying)
+        private ThemeManager themeManager;
+        private Theme theme { get => themeManager.currentTheme; }
+
+        private void Awake()
         {
-            return;
+            themeManager = Finder.themeManager;
+            themeManager.SubscribeToThemeChanged(OnThemeChanged);
         }
 
-        Image image = GetComponent<Image>();
-        if (image)
+        private void Start()
         {
-            if (themeObjectType == ThemeObjectType.Background)
-            {
-                image.color = theme.backgroundColour;
-            }
-            else if (themeObjectType == ThemeObjectType.Panel)
-            {
-                image.color = theme.panelColour;
-            }
-            else if (themeObjectType == ThemeObjectType.SubPanel)
-            {
-                image.color = theme.subPanelColour;
-            }
-            else if (themeObjectType == ThemeObjectType.Shadow)
-            {
-                image.color = theme.shadowColour;
-            }
+            OnThemeChanged();
         }
 
-        SpriteRenderer spr = GetComponent<SpriteRenderer>();
-        if (spr)
+        private void OnThemeChanged()
         {
-            if (themeObjectType == ThemeObjectType.Background)
+            if (!useTheme || !Application.isPlaying)
             {
-                spr.color = theme.backgroundColour;
+                return;
             }
-            else if (themeObjectType == ThemeObjectType.Panel)
+
+            Image image = GetComponent<Image>();
+            if (image)
             {
-                spr.color = theme.panelColour;
+                if (themeObjectType == ThemeObjectType.Background)
+                {
+                    image.color = theme.backgroundColour;
+                }
+                else if (themeObjectType == ThemeObjectType.Panel)
+                {
+                    image.color = theme.panelColour;
+                }
+                else if (themeObjectType == ThemeObjectType.SubPanel)
+                {
+                    image.color = theme.subPanelColour;
+                }
+                else if (themeObjectType == ThemeObjectType.Shadow)
+                {
+                    image.color = theme.shadowColour;
+                }
             }
-            else if (themeObjectType == ThemeObjectType.SubPanel)
+
+            SpriteRenderer spr = GetComponent<SpriteRenderer>();
+            if (spr)
             {
-                spr.color = theme.subPanelColour;
+                if (themeObjectType == ThemeObjectType.Background)
+                {
+                    spr.color = theme.backgroundColour;
+                }
+                else if (themeObjectType == ThemeObjectType.Panel)
+                {
+                    spr.color = theme.panelColour;
+                }
+                else if (themeObjectType == ThemeObjectType.SubPanel)
+                {
+                    spr.color = theme.subPanelColour;
+                }
             }
-        }
 
-        UIButton button = GetComponent<UIButton>();
-        if (button)
-        {
-            button.backgroundColour = theme.buttonColour;
-            button.backgroundHoverColour = theme.buttonHoverColour;
-            button.backgroundPressedColour = theme.buttonPressedColour;
-
-            button.UpdateDisplay();
-        }
-
-        UIToggleButton toggleButton = GetComponent<UIToggleButton>();
-        if (toggleButton)
-        {
-            toggleButton.offBackgroundColour = theme.toggleButtonOffColour;
-            if (toggleButton.inToggleGroup && themeObjectType != ThemeObjectType.RadioButton)
+            UIButton button = GetComponent<UIButton>();
+            if (button)
             {
-                toggleButton.onBackgroundColour = theme.toggleButtonOnColour;
+                button.backgroundColour = theme.buttonColour;
+                button.backgroundHoverColour = theme.buttonHoverColour;
+                button.backgroundPressedColour = theme.buttonPressedColour;
+
+                button.UpdateDisplay();
             }
-            else
+
+            UIToggleButton toggleButton = GetComponent<UIToggleButton>();
+            if (toggleButton)
             {
-                toggleButton.onBackgroundColour = theme.toggleButtonOffColour;
+                toggleButton.offBackgroundColour = theme.toggleButtonOffColour;
+                if (toggleButton.inToggleGroup && themeObjectType != ThemeObjectType.RadioButton)
+                {
+                    toggleButton.onBackgroundColour = theme.toggleButtonOnColour;
+                }
+                else
+                {
+                    toggleButton.onBackgroundColour = theme.toggleButtonOffColour;
+                }
+                toggleButton.hoverBackgroundTint = theme.toggleButtonHoverTint;
+                toggleButton.pressedBackgroundColour = theme.toggleButtonPressedColour;
+
+                toggleButton.UpdateDisplay();
             }
-            toggleButton.hoverBackgroundTint = theme.toggleButtonHoverTint;
-            toggleButton.pressedBackgroundColour = theme.toggleButtonPressedColour;
 
-            toggleButton.UpdateDisplay();
-        }
+            UITextbox textbox = GetComponent<UITextbox>();
+            if (textbox)
+            {
+                textbox.backgroundColour = theme.textboxColour;
+                textbox.backgroundHoverColour = theme.textboxHoverColour;
+                textbox.backgroundPressedColour = theme.textboxPressedColour;
+                textbox.backgroundSelectedColour = theme.textboxSelectedColour;
 
-        UITextbox textbox = GetComponent<UITextbox>();
-        if (textbox)
-        {
-            textbox.backgroundColour = theme.textboxColour;
-            textbox.backgroundHoverColour = theme.textboxHoverColour;
-            textbox.backgroundPressedColour = theme.textboxPressedColour;
-            textbox.backgroundSelectedColour = theme.textboxSelectedColour;
+                textbox.UpdateDisplay();
+            }
 
-            textbox.UpdateDisplay();
-        }
+            UIScale scale = GetComponent<UIScale>();
+            if (scale)
+            {
+                scale.backgroundColour = theme.scaleColour;
+                scale.backgroundHoverColour = theme.scaleHoverColour;
+                scale.backgroundPressedColour = theme.scalePressedColour;
 
-        UIScale scale = GetComponent<UIScale>();
-        if (scale)
-        {
-            scale.backgroundColour = theme.scaleColour;
-            scale.backgroundHoverColour = theme.scaleHoverColour;
-            scale.backgroundPressedColour = theme.scalePressedColour;
+                scale.UpdateDisplay();
+            }
 
-            scale.UpdateDisplay();
-        }
+            UIScrollbar scrollbar = GetComponent<UIScrollbar>();
+            if (scrollbar)
+            {
+                scrollbar.handleColour = theme.scrollbarHandleColour;
+                scrollbar.handleHoverColour = theme.scrollbarHandleHoverColour;
+                scrollbar.handlePressedColour = theme.scrollbarHandlePressedColour;
 
-        UIScrollbar scrollbar = GetComponent<UIScrollbar>();
-        if (scrollbar)
-        {
-            scrollbar.handleColour = theme.scrollbarHandleColour;
-            scrollbar.handleHoverColour = theme.scrollbarHandleHoverColour;
-            scrollbar.handlePressedColour = theme.scrollbarHandlePressedColour;
+                scrollbar.backgroundColour = theme.scrollbarBackgroundColour;
+                scrollbar.backgroundHoverColour = theme.scrollbarBackgroundHoverColour;
+                scrollbar.backgroundPressedColour = theme.scrollbarBackgroundPressedColour;
 
-            scrollbar.backgroundColour = theme.scrollbarBackgroundColour;
-            scrollbar.backgroundHoverColour = theme.scrollbarBackgroundHoverColour;
-            scrollbar.backgroundPressedColour = theme.scrollbarBackgroundPressedColour;
+                scrollbar.UpdateDisplay();
+            }
 
-            scrollbar.UpdateDisplay();
-        }
+            LayerTile layerTile = GetComponent<LayerTile>();
+            if (layerTile)
+            {
+                layerTile.tileToggle.offBackgroundColour = theme.layerTileOffColour;
+                layerTile.tileToggle.onBackgroundColour = theme.layerTileOnColour;
+                layerTile.tileToggle.hoverBackgroundTint = theme.layerTileHoverTint;
+                layerTile.tileToggle.pressedBackgroundColour = theme.layerTilePressedColour;
 
-        LayerTile layerTile = GetComponent<LayerTile>();
-        if (layerTile)
-        {
-            layerTile.tileToggle.offBackgroundColour = theme.layerTileOffColour;
-            layerTile.tileToggle.onBackgroundColour = theme.layerTileOnColour;
-            layerTile.tileToggle.hoverBackgroundTint = theme.layerTileHoverTint;
-            layerTile.tileToggle.pressedBackgroundColour = theme.layerTilePressedColour;
-
-            layerTile.tileToggle.UpdateDisplay();
+                layerTile.tileToggle.UpdateDisplay();
+            }
         }
     }
 }
