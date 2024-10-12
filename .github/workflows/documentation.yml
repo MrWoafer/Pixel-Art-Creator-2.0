@@ -29,13 +29,14 @@ jobs:
 
         shell: bash
       
-      - name: Build
-        uses: actions/setup-dotnet@v3
-      	with:
-            dotnet-version: 8.x
+      - name: Install DocFX
+        run: choco install -y docfx
 
-      - run: dotnet tool update -g docfx
-      - run: docfx Documents/docfx.json
+      - name: Use README.md as index.md
+        run: cp README.md Documentation/index.md
+
+      - name: Build
+        run: docfx Documentation/docfx.json
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
