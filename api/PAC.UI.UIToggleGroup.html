@@ -1,981 +1,914 @@
 ﻿<!DOCTYPE html>
-<!--[if IE]><![endif]-->
 <html>
-
   <head>
     <meta charset="utf-8">
-      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
       <title>Class UIToggleGroup | Pixel Art Creator 2.0 Docs </title>
-      <meta name="viewport" content="width=device-width">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta name="title" content="Class UIToggleGroup | Pixel Art Creator 2.0 Docs ">
-    
-    
-      <link rel="shortcut icon" href="../resources/icon.ico">
-      <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
-      <link rel="stylesheet" href="../styles/docfx.css">
-      <link rel="stylesheet" href="../styles/main.css">
-      <meta property="docfx:navrel" content="../toc.html">
-      <meta property="docfx:tocrel" content="toc.html">
-    
-    <meta property="docfx:rel" content="../">
-    
+      
+      
+      <link rel="icon" href="../resources/icon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/new/main/apiSpec/new?filename=PAC_UI_UIToggleGroup.md&amp;value=---%0Auid%3A%20PAC.UI.UIToggleGroup%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
   </head>
-  <body data-spy="scroll" data-target="#affix" data-offset="120">
-    <div id="wrapper">
-      <header>
 
-        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
-          <div class="container">
-            <div class="navbar-header">
-              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-              </button>
-
-              <a class="navbar-brand" href="../index.html">
-                <img id="logo" class="svg" src="../resources/logo.svg" alt="">
-              </a>
-            </div>
-            <div class="collapse navbar-collapse" id="navbar">
-              <form class="navbar-form navbar-right" role="search" id="search">
-                <div class="form-group">
-                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
-                </div>
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../resources/logo.svg" alt="Pixel Art Creator 2.0">
+            Pixel Art Creator 2.0
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
               </form>
             </div>
           </div>
-        </nav>
-
-        <div class="subnav navbar navbar-default">
-          <div class="container hide-when-search" id="breadcrumb">
-            <ul class="breadcrumb">
-              <li></li>
-            </ul>
-          </div>
         </div>
-      </header>
-      <div class="container body-content">
+      </nav>
+    </header>
 
-        <div id="search-results">
-          <div class="search-list">Search Results for <span></span></div>
-          <div class="sr-items">
-            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
           </div>
-          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
         </div>
       </div>
-      <div role="main" class="container body-content hide-when-search">
 
-        <div class="sidenav hide-when-search">
-          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
-          <div class="sidetoggle collapse" id="sidetoggle">
-            <div id="sidetoc"></div>
-          </div>
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
         </div>
-        <div class="article row grid-right">
-          <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="PAC.UI.UIToggleGroup">
+
+        <article data-uid="PAC.UI.UIToggleGroup">
 
 
 
-  <h1 id="PAC_UI_UIToggleGroup" data-uid="PAC.UI.UIToggleGroup" class="text-break">Class UIToggleGroup</h1>
-  <div class="markdown level0 summary"></div>
-  <div class="markdown level0 conceptual"></div>
-  <div class="inheritance">
-    <h5>Inheritance</h5>
-    <div class="level0"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
-    <div class="level1"><span class="xref">UIToggleGroup</span></div>
+  <h1 id="PAC_UI_UIToggleGroup" data-uid="PAC.UI.UIToggleGroup" class="text-break">
+Class UIToggleGroup  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/UI/UIToggleGroup.cs/#L7"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="PAC.html">PAC</a>.<a class="xref" href="PAC.UI.html">UI</a></dd></dl>
+  
   </div>
-  <h6><strong>Namespace</strong>: <a class="xref" href="PAC.html">PAC</a>.<a class="xref" href="PAC.UI.html">UI</a></h6>
-  <h6><strong>Assembly</strong>: .dll</h6>
-  <h5 id="PAC_UI_UIToggleGroup_syntax">Syntax</h5>
+
+  <div class="markdown summary"></div>
+  <div class="markdown conceptual"></div>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public class UIToggleGroup : MonoBehaviour</code></pre>
   </div>
-  <h3 id="properties">Properties
-</h3>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/new/main/apiSpec/new?filename=PAC_UI_UIToggleGroup_Count.md&amp;value=---%0Auid%3A%20PAC.UI.UIToggleGroup.Count%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/UI/UIToggleGroup.cs/#L72">View Source</a>
-  </span>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">UIToggleGroup</span></div>
+    </dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
   <a id="PAC_UI_UIToggleGroup_Count_" data-uid="PAC.UI.UIToggleGroup.Count*"></a>
-  <h4 id="PAC_UI_UIToggleGroup_Count" data-uid="PAC.UI.UIToggleGroup.Count">Count</h4>
+
+  <h3 id="PAC_UI_UIToggleGroup_Count" data-uid="PAC.UI.UIToggleGroup.Count">
+  Count
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/UI/UIToggleGroup.cs/#L72"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public int Count { get; }</code></pre>
   </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/new/main/apiSpec/new?filename=PAC_UI_UIToggleGroup_canSelectMultiple.md&amp;value=---%0Auid%3A%20PAC.UI.UIToggleGroup.canSelectMultiple%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/UI/UIToggleGroup.cs/#L13">View Source</a>
-  </span>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
   <a id="PAC_UI_UIToggleGroup_canSelectMultiple_" data-uid="PAC.UI.UIToggleGroup.canSelectMultiple*"></a>
-  <h4 id="PAC_UI_UIToggleGroup_canSelectMultiple" data-uid="PAC.UI.UIToggleGroup.canSelectMultiple">canSelectMultiple</h4>
+
+  <h3 id="PAC_UI_UIToggleGroup_canSelectMultiple" data-uid="PAC.UI.UIToggleGroup.canSelectMultiple">
+  canSelectMultiple
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/UI/UIToggleGroup.cs/#L13"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public bool canSelectMultiple { get; }</code></pre>
   </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/new/main/apiSpec/new?filename=PAC_UI_UIToggleGroup_canSelectNone.md&amp;value=---%0Auid%3A%20PAC.UI.UIToggleGroup.canSelectNone%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/UI/UIToggleGroup.cs/#L22">View Source</a>
-  </span>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
   <a id="PAC_UI_UIToggleGroup_canSelectNone_" data-uid="PAC.UI.UIToggleGroup.canSelectNone*"></a>
-  <h4 id="PAC_UI_UIToggleGroup_canSelectNone" data-uid="PAC.UI.UIToggleGroup.canSelectNone">canSelectNone</h4>
+
+  <h3 id="PAC_UI_UIToggleGroup_canSelectNone" data-uid="PAC.UI.UIToggleGroup.canSelectNone">
+  canSelectNone
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/UI/UIToggleGroup.cs/#L22"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public bool canSelectNone { get; }</code></pre>
   </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/new/main/apiSpec/new?filename=PAC_UI_UIToggleGroup_currentToggle.md&amp;value=---%0Auid%3A%20PAC.UI.UIToggleGroup.currentToggle%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/UI/UIToggleGroup.cs/#L41">View Source</a>
-  </span>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
   <a id="PAC_UI_UIToggleGroup_currentToggle_" data-uid="PAC.UI.UIToggleGroup.currentToggle*"></a>
-  <h4 id="PAC_UI_UIToggleGroup_currentToggle" data-uid="PAC.UI.UIToggleGroup.currentToggle">currentToggle</h4>
+
+  <h3 id="PAC_UI_UIToggleGroup_currentToggle" data-uid="PAC.UI.UIToggleGroup.currentToggle">
+  currentToggle
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/UI/UIToggleGroup.cs/#L41"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public UIToggleButton currentToggle { get; }</code></pre>
   </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="PAC.UI.UIToggleButton.html">UIToggleButton</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/new/main/apiSpec/new?filename=PAC_UI_UIToggleGroup_currentToggleIndex.md&amp;value=---%0Auid%3A%20PAC.UI.UIToggleGroup.currentToggleIndex%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/UI/UIToggleGroup.cs/#L47">View Source</a>
-  </span>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="PAC.UI.UIToggleButton.html">UIToggleButton</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
   <a id="PAC_UI_UIToggleGroup_currentToggleIndex_" data-uid="PAC.UI.UIToggleGroup.currentToggleIndex*"></a>
-  <h4 id="PAC_UI_UIToggleGroup_currentToggleIndex" data-uid="PAC.UI.UIToggleGroup.currentToggleIndex">currentToggleIndex</h4>
+
+  <h3 id="PAC_UI_UIToggleGroup_currentToggleIndex" data-uid="PAC.UI.UIToggleGroup.currentToggleIndex">
+  currentToggleIndex
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/UI/UIToggleGroup.cs/#L47"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public int currentToggleIndex { get; }</code></pre>
   </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/new/main/apiSpec/new?filename=PAC_UI_UIToggleGroup_hasSelectedToggle.md&amp;value=---%0Auid%3A%20PAC.UI.UIToggleGroup.hasSelectedToggle%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/UI/UIToggleGroup.cs/#L115">View Source</a>
-  </span>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
   <a id="PAC_UI_UIToggleGroup_hasSelectedToggle_" data-uid="PAC.UI.UIToggleGroup.hasSelectedToggle*"></a>
-  <h4 id="PAC_UI_UIToggleGroup_hasSelectedToggle" data-uid="PAC.UI.UIToggleGroup.hasSelectedToggle">hasSelectedToggle</h4>
+
+  <h3 id="PAC_UI_UIToggleGroup_hasSelectedToggle" data-uid="PAC.UI.UIToggleGroup.hasSelectedToggle">
+  hasSelectedToggle
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/UI/UIToggleGroup.cs/#L115"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public bool hasSelectedToggle { get; }</code></pre>
   </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/new/main/apiSpec/new?filename=PAC_UI_UIToggleGroup_selectedIndices.md&amp;value=---%0Auid%3A%20PAC.UI.UIToggleGroup.selectedIndices%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/UI/UIToggleGroup.cs/#L97">View Source</a>
-  </span>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
   <a id="PAC_UI_UIToggleGroup_selectedIndices_" data-uid="PAC.UI.UIToggleGroup.selectedIndices*"></a>
-  <h4 id="PAC_UI_UIToggleGroup_selectedIndices" data-uid="PAC.UI.UIToggleGroup.selectedIndices">selectedIndices</h4>
+
+  <h3 id="PAC_UI_UIToggleGroup_selectedIndices" data-uid="PAC.UI.UIToggleGroup.selectedIndices">
+  selectedIndices
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/UI/UIToggleGroup.cs/#L97"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public int[] selectedIndices { get; }</code></pre>
   </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>[]</td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/new/main/apiSpec/new?filename=PAC_UI_UIToggleGroup_selectedToggles.md&amp;value=---%0Auid%3A%20PAC.UI.UIToggleGroup.selectedToggles%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/UI/UIToggleGroup.cs/#L80">View Source</a>
-  </span>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>[]</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
   <a id="PAC_UI_UIToggleGroup_selectedToggles_" data-uid="PAC.UI.UIToggleGroup.selectedToggles*"></a>
-  <h4 id="PAC_UI_UIToggleGroup_selectedToggles" data-uid="PAC.UI.UIToggleGroup.selectedToggles">selectedToggles</h4>
+
+  <h3 id="PAC_UI_UIToggleGroup_selectedToggles" data-uid="PAC.UI.UIToggleGroup.selectedToggles">
+  selectedToggles
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/UI/UIToggleGroup.cs/#L80"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public UIToggleButton[] selectedToggles { get; }</code></pre>
   </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="PAC.UI.UIToggleButton.html">UIToggleButton</a>[]</td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/new/main/apiSpec/new?filename=PAC_UI_UIToggleGroup_swapClickAndCtrlClick.md&amp;value=---%0Auid%3A%20PAC.UI.UIToggleGroup.swapClickAndCtrlClick%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/UI/UIToggleGroup.cs/#L31">View Source</a>
-  </span>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="PAC.UI.UIToggleButton.html">UIToggleButton</a>[]</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
   <a id="PAC_UI_UIToggleGroup_swapClickAndCtrlClick_" data-uid="PAC.UI.UIToggleGroup.swapClickAndCtrlClick*"></a>
-  <h4 id="PAC_UI_UIToggleGroup_swapClickAndCtrlClick" data-uid="PAC.UI.UIToggleGroup.swapClickAndCtrlClick">swapClickAndCtrlClick</h4>
+
+  <h3 id="PAC_UI_UIToggleGroup_swapClickAndCtrlClick" data-uid="PAC.UI.UIToggleGroup.swapClickAndCtrlClick">
+  swapClickAndCtrlClick
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/UI/UIToggleGroup.cs/#L31"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public bool swapClickAndCtrlClick { get; }</code></pre>
   </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/new/main/apiSpec/new?filename=PAC_UI_UIToggleGroup_toggles.md&amp;value=---%0Auid%3A%20PAC.UI.UIToggleGroup.toggles%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/UI/UIToggleGroup.cs/#L64">View Source</a>
-  </span>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
   <a id="PAC_UI_UIToggleGroup_toggles_" data-uid="PAC.UI.UIToggleGroup.toggles*"></a>
-  <h4 id="PAC_UI_UIToggleGroup_toggles" data-uid="PAC.UI.UIToggleGroup.toggles">toggles</h4>
+
+  <h3 id="PAC_UI_UIToggleGroup_toggles" data-uid="PAC.UI.UIToggleGroup.toggles">
+  toggles
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/UI/UIToggleGroup.cs/#L64"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public List&lt;UIToggleButton&gt; toggles { get; }</code></pre>
   </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="PAC.UI.UIToggleButton.html">UIToggleButton</a>&gt;</td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h3 id="methods">Methods
-</h3>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/new/main/apiSpec/new?filename=PAC_UI_UIToggleGroup_Add_PAC_UI_UIToggleButton_.md&amp;value=---%0Auid%3A%20PAC.UI.UIToggleGroup.Add(PAC.UI.UIToggleButton)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/UI/UIToggleGroup.cs/#L153">View Source</a>
-  </span>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="PAC.UI.UIToggleButton.html">UIToggleButton</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
   <a id="PAC_UI_UIToggleGroup_Add_" data-uid="PAC.UI.UIToggleGroup.Add*"></a>
-  <h4 id="PAC_UI_UIToggleGroup_Add_PAC_UI_UIToggleButton_" data-uid="PAC.UI.UIToggleGroup.Add(PAC.UI.UIToggleButton)">Add(UIToggleButton)</h4>
+
+  <h3 id="PAC_UI_UIToggleGroup_Add_PAC_UI_UIToggleButton_" data-uid="PAC.UI.UIToggleGroup.Add(PAC.UI.UIToggleButton)">
+  Add(UIToggleButton)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/UI/UIToggleGroup.cs/#L153"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public bool Add(UIToggleButton toggle)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="PAC.UI.UIToggleButton.html">UIToggleButton</a></td>
-        <td><span class="parametername">toggle</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/new/main/apiSpec/new?filename=PAC_UI_UIToggleGroup_Clear.md&amp;value=---%0Auid%3A%20PAC.UI.UIToggleGroup.Clear%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/UI/UIToggleGroup.cs/#L293">View Source</a>
-  </span>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>toggle</code> <a class="xref" href="PAC.UI.UIToggleButton.html">UIToggleButton</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
   <a id="PAC_UI_UIToggleGroup_Clear_" data-uid="PAC.UI.UIToggleGroup.Clear*"></a>
-  <h4 id="PAC_UI_UIToggleGroup_Clear" data-uid="PAC.UI.UIToggleGroup.Clear">Clear()</h4>
+
+  <h3 id="PAC_UI_UIToggleGroup_Clear" data-uid="PAC.UI.UIToggleGroup.Clear">
+  Clear()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/UI/UIToggleGroup.cs/#L293"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void Clear()</code></pre>
   </div>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/new/main/apiSpec/new?filename=PAC_UI_UIToggleGroup_Contains_PAC_UI_UIToggleButton_.md&amp;value=---%0Auid%3A%20PAC.UI.UIToggleGroup.Contains(PAC.UI.UIToggleButton)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/UI/UIToggleGroup.cs/#L171">View Source</a>
-  </span>
+
+
+
+
+
+
+
+
+
+
+
+
+
   <a id="PAC_UI_UIToggleGroup_Contains_" data-uid="PAC.UI.UIToggleGroup.Contains*"></a>
-  <h4 id="PAC_UI_UIToggleGroup_Contains_PAC_UI_UIToggleButton_" data-uid="PAC.UI.UIToggleGroup.Contains(PAC.UI.UIToggleButton)">Contains(UIToggleButton)</h4>
+
+  <h3 id="PAC_UI_UIToggleGroup_Contains_PAC_UI_UIToggleButton_" data-uid="PAC.UI.UIToggleGroup.Contains(PAC.UI.UIToggleButton)">
+  Contains(UIToggleButton)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/UI/UIToggleGroup.cs/#L171"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public bool Contains(UIToggleButton toggle)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="PAC.UI.UIToggleButton.html">UIToggleButton</a></td>
-        <td><span class="parametername">toggle</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/new/main/apiSpec/new?filename=PAC_UI_UIToggleGroup_CtrlPress_PAC_UI_UIToggleButton_.md&amp;value=---%0Auid%3A%20PAC.UI.UIToggleGroup.CtrlPress(PAC.UI.UIToggleButton)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/UI/UIToggleGroup.cs/#L209">View Source</a>
-  </span>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>toggle</code> <a class="xref" href="PAC.UI.UIToggleButton.html">UIToggleButton</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
   <a id="PAC_UI_UIToggleGroup_CtrlPress_" data-uid="PAC.UI.UIToggleGroup.CtrlPress*"></a>
-  <h4 id="PAC_UI_UIToggleGroup_CtrlPress_PAC_UI_UIToggleButton_" data-uid="PAC.UI.UIToggleGroup.CtrlPress(PAC.UI.UIToggleButton)">CtrlPress(UIToggleButton)</h4>
+
+  <h3 id="PAC_UI_UIToggleGroup_CtrlPress_PAC_UI_UIToggleButton_" data-uid="PAC.UI.UIToggleGroup.CtrlPress(PAC.UI.UIToggleButton)">
+  CtrlPress(UIToggleButton)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/UI/UIToggleGroup.cs/#L209"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public bool CtrlPress(UIToggleButton toggle)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="PAC.UI.UIToggleButton.html">UIToggleButton</a></td>
-        <td><span class="parametername">toggle</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/new/main/apiSpec/new?filename=PAC_UI_UIToggleGroup_CtrlPress_System_Int32_.md&amp;value=---%0Auid%3A%20PAC.UI.UIToggleGroup.CtrlPress(System.Int32)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/UI/UIToggleGroup.cs/#L201">View Source</a>
-  </span>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>toggle</code> <a class="xref" href="PAC.UI.UIToggleButton.html">UIToggleButton</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
   <a id="PAC_UI_UIToggleGroup_CtrlPress_" data-uid="PAC.UI.UIToggleGroup.CtrlPress*"></a>
-  <h4 id="PAC_UI_UIToggleGroup_CtrlPress_System_Int32_" data-uid="PAC.UI.UIToggleGroup.CtrlPress(System.Int32)">CtrlPress(int)</h4>
+
+  <h3 id="PAC_UI_UIToggleGroup_CtrlPress_System_Int32_" data-uid="PAC.UI.UIToggleGroup.CtrlPress(System.Int32)">
+  CtrlPress(int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/UI/UIToggleGroup.cs/#L201"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public bool CtrlPress(int index)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
-        <td><span class="parametername">index</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/new/main/apiSpec/new?filename=PAC_UI_UIToggleGroup_DestroyToggles.md&amp;value=---%0Auid%3A%20PAC.UI.UIToggleGroup.DestroyToggles%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/UI/UIToggleGroup.cs/#L299">View Source</a>
-  </span>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>index</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
   <a id="PAC_UI_UIToggleGroup_DestroyToggles_" data-uid="PAC.UI.UIToggleGroup.DestroyToggles*"></a>
-  <h4 id="PAC_UI_UIToggleGroup_DestroyToggles" data-uid="PAC.UI.UIToggleGroup.DestroyToggles">DestroyToggles()</h4>
+
+  <h3 id="PAC_UI_UIToggleGroup_DestroyToggles" data-uid="PAC.UI.UIToggleGroup.DestroyToggles">
+  DestroyToggles()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/UI/UIToggleGroup.cs/#L299"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void DestroyToggles()</code></pre>
   </div>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/new/main/apiSpec/new?filename=PAC_UI_UIToggleGroup_Press_PAC_UI_UIToggleButton_.md&amp;value=---%0Auid%3A%20PAC.UI.UIToggleGroup.Press(PAC.UI.UIToggleButton)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/UI/UIToggleGroup.cs/#L184">View Source</a>
-  </span>
+
+
+
+
+
+
+
+
+
+
+
+
+
   <a id="PAC_UI_UIToggleGroup_Press_" data-uid="PAC.UI.UIToggleGroup.Press*"></a>
-  <h4 id="PAC_UI_UIToggleGroup_Press_PAC_UI_UIToggleButton_" data-uid="PAC.UI.UIToggleGroup.Press(PAC.UI.UIToggleButton)">Press(UIToggleButton)</h4>
+
+  <h3 id="PAC_UI_UIToggleGroup_Press_PAC_UI_UIToggleButton_" data-uid="PAC.UI.UIToggleGroup.Press(PAC.UI.UIToggleButton)">
+  Press(UIToggleButton)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/UI/UIToggleGroup.cs/#L184"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public bool Press(UIToggleButton toggle)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="PAC.UI.UIToggleButton.html">UIToggleButton</a></td>
-        <td><span class="parametername">toggle</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/new/main/apiSpec/new?filename=PAC_UI_UIToggleGroup_Press_System_Int32_.md&amp;value=---%0Auid%3A%20PAC.UI.UIToggleGroup.Press(System.Int32)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/UI/UIToggleGroup.cs/#L176">View Source</a>
-  </span>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>toggle</code> <a class="xref" href="PAC.UI.UIToggleButton.html">UIToggleButton</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
   <a id="PAC_UI_UIToggleGroup_Press_" data-uid="PAC.UI.UIToggleGroup.Press*"></a>
-  <h4 id="PAC_UI_UIToggleGroup_Press_System_Int32_" data-uid="PAC.UI.UIToggleGroup.Press(System.Int32)">Press(int)</h4>
+
+  <h3 id="PAC_UI_UIToggleGroup_Press_System_Int32_" data-uid="PAC.UI.UIToggleGroup.Press(System.Int32)">
+  Press(int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/UI/UIToggleGroup.cs/#L176"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public bool Press(int index)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
-        <td><span class="parametername">index</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/new/main/apiSpec/new?filename=PAC_UI_UIToggleGroup_PressForceEvent_PAC_UI_UIToggleButton_.md&amp;value=---%0Auid%3A%20PAC.UI.UIToggleGroup.PressForceEvent(PAC.UI.UIToggleButton)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/UI/UIToggleGroup.cs/#L196">View Source</a>
-  </span>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>index</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
   <a id="PAC_UI_UIToggleGroup_PressForceEvent_" data-uid="PAC.UI.UIToggleGroup.PressForceEvent*"></a>
-  <h4 id="PAC_UI_UIToggleGroup_PressForceEvent_PAC_UI_UIToggleButton_" data-uid="PAC.UI.UIToggleGroup.PressForceEvent(PAC.UI.UIToggleButton)">PressForceEvent(UIToggleButton)</h4>
+
+  <h3 id="PAC_UI_UIToggleGroup_PressForceEvent_PAC_UI_UIToggleButton_" data-uid="PAC.UI.UIToggleGroup.PressForceEvent(PAC.UI.UIToggleButton)">
+  PressForceEvent(UIToggleButton)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/UI/UIToggleGroup.cs/#L196"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public bool PressForceEvent(UIToggleButton toggle)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="PAC.UI.UIToggleButton.html">UIToggleButton</a></td>
-        <td><span class="parametername">toggle</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/new/main/apiSpec/new?filename=PAC_UI_UIToggleGroup_PressForceEvent_System_Int32_.md&amp;value=---%0Auid%3A%20PAC.UI.UIToggleGroup.PressForceEvent(System.Int32)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/UI/UIToggleGroup.cs/#L188">View Source</a>
-  </span>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>toggle</code> <a class="xref" href="PAC.UI.UIToggleButton.html">UIToggleButton</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
   <a id="PAC_UI_UIToggleGroup_PressForceEvent_" data-uid="PAC.UI.UIToggleGroup.PressForceEvent*"></a>
-  <h4 id="PAC_UI_UIToggleGroup_PressForceEvent_System_Int32_" data-uid="PAC.UI.UIToggleGroup.PressForceEvent(System.Int32)">PressForceEvent(int)</h4>
+
+  <h3 id="PAC_UI_UIToggleGroup_PressForceEvent_System_Int32_" data-uid="PAC.UI.UIToggleGroup.PressForceEvent(System.Int32)">
+  PressForceEvent(int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/UI/UIToggleGroup.cs/#L188"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public bool PressForceEvent(int index)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
-        <td><span class="parametername">index</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/new/main/apiSpec/new?filename=PAC_UI_UIToggleGroup_PressOrCtrlPress_PAC_UI_UIToggleButton_System_Boolean_.md&amp;value=---%0Auid%3A%20PAC.UI.UIToggleGroup.PressOrCtrlPress(PAC.UI.UIToggleButton%2CSystem.Boolean)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/UI/UIToggleGroup.cs/#L214">View Source</a>
-  </span>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>index</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
   <a id="PAC_UI_UIToggleGroup_PressOrCtrlPress_" data-uid="PAC.UI.UIToggleGroup.PressOrCtrlPress*"></a>
-  <h4 id="PAC_UI_UIToggleGroup_PressOrCtrlPress_PAC_UI_UIToggleButton_System_Boolean_" data-uid="PAC.UI.UIToggleGroup.PressOrCtrlPress(PAC.UI.UIToggleButton,System.Boolean)">PressOrCtrlPress(UIToggleButton, bool)</h4>
+
+  <h3 id="PAC_UI_UIToggleGroup_PressOrCtrlPress_PAC_UI_UIToggleButton_System_Boolean_" data-uid="PAC.UI.UIToggleGroup.PressOrCtrlPress(PAC.UI.UIToggleButton,System.Boolean)">
+  PressOrCtrlPress(UIToggleButton, bool)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/UI/UIToggleGroup.cs/#L214"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public bool PressOrCtrlPress(UIToggleButton toggle, bool ctrlClick)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="PAC.UI.UIToggleButton.html">UIToggleButton</a></td>
-        <td><span class="parametername">toggle</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
-        <td><span class="parametername">ctrlClick</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/new/main/apiSpec/new?filename=PAC_UI_UIToggleGroup_Remove_PAC_UI_UIToggleButton_.md&amp;value=---%0Auid%3A%20PAC.UI.UIToggleGroup.Remove(PAC.UI.UIToggleButton)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/UI/UIToggleGroup.cs/#L161">View Source</a>
-  </span>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>toggle</code> <a class="xref" href="PAC.UI.UIToggleButton.html">UIToggleButton</a></dt>
+    <dd></dd>
+    <dt><code>ctrlClick</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
   <a id="PAC_UI_UIToggleGroup_Remove_" data-uid="PAC.UI.UIToggleGroup.Remove*"></a>
-  <h4 id="PAC_UI_UIToggleGroup_Remove_PAC_UI_UIToggleButton_" data-uid="PAC.UI.UIToggleGroup.Remove(PAC.UI.UIToggleButton)">Remove(UIToggleButton)</h4>
+
+  <h3 id="PAC_UI_UIToggleGroup_Remove_PAC_UI_UIToggleButton_" data-uid="PAC.UI.UIToggleGroup.Remove(PAC.UI.UIToggleButton)">
+  Remove(UIToggleButton)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/UI/UIToggleGroup.cs/#L161"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public bool Remove(UIToggleButton toggle)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="PAC.UI.UIToggleButton.html">UIToggleButton</a></td>
-        <td><span class="parametername">toggle</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/new/main/apiSpec/new?filename=PAC_UI_UIToggleGroup_SubscribeToSelectedToggleChange_UnityAction_.md&amp;value=---%0Auid%3A%20PAC.UI.UIToggleGroup.SubscribeToSelectedToggleChange(UnityAction)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/UI/UIToggleGroup.cs/#L309">View Source</a>
-  </span>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>toggle</code> <a class="xref" href="PAC.UI.UIToggleButton.html">UIToggleButton</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
   <a id="PAC_UI_UIToggleGroup_SubscribeToSelectedToggleChange_" data-uid="PAC.UI.UIToggleGroup.SubscribeToSelectedToggleChange*"></a>
-  <h4 id="PAC_UI_UIToggleGroup_SubscribeToSelectedToggleChange_UnityAction_" data-uid="PAC.UI.UIToggleGroup.SubscribeToSelectedToggleChange(UnityAction)">SubscribeToSelectedToggleChange(UnityAction)</h4>
+
+  <h3 id="PAC_UI_UIToggleGroup_SubscribeToSelectedToggleChange_UnityAction_" data-uid="PAC.UI.UIToggleGroup.SubscribeToSelectedToggleChange(UnityAction)">
+  SubscribeToSelectedToggleChange(UnityAction)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/UI/UIToggleGroup.cs/#L309"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void SubscribeToSelectedToggleChange(UnityAction call)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">UnityAction</span></td>
-        <td><span class="parametername">call</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>call</code> <span class="xref">UnityAction</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
 
 </article>
-          </div>
 
-          <div class="hidden-sm col-md-2" role="complementary">
-            <div class="sideaffix">
-              <div class="contribution">
-                <ul class="nav">
-                  <li>
-                    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/new/main/apiSpec/new?filename=PAC_UI_UIToggleGroup.md&amp;value=---%0Auid%3A%20PAC.UI.UIToggleGroup%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Edit this page</a>
-                  </li>
-                  <li>
-                    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/UI/UIToggleGroup.cs/#L7" class="contribution-link">View Source</a>
-                  </li>
-                </ul>
-              </div>
-              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-                <h5>In this article</h5>
-                <div></div>
-              </nav>
-            </div>
-          </div>
+        <div class="contribution d-print-none">
+          <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/UI/UIToggleGroup.cs/#L7" class="edit-link">Edit this page</a>
         </div>
+
+
       </div>
 
-      <footer>
-        <div class="grad-bottom"></div>
-        <div class="footer">
-          <div class="container">
-            <span class="pull-right">
-              <a href="#top">Back to top</a>
-            </span>
-      Pixel Art Creator 2.0 Docs
-      
-          </div>
-        </div>
-      </footer>
-    </div>
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
 
-    <script type="text/javascript" src="../styles/docfx.vendor.min.js"></script>
-    <script type="text/javascript" src="../styles/docfx.js"></script>
-    <script type="text/javascript" src="../styles/main.js"></script>
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          Pixel Art Creator 2.0 Docs
+        </div>
+      </div>
+    </footer>
   </body>
 </html>

@@ -1,1187 +1,1444 @@
 ﻿<!DOCTYPE html>
-<!--[if IE]><![endif]-->
 <html>
-
   <head>
     <meta charset="utf-8">
-      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
       <title>Class UIManager | Pixel Art Creator 2.0 Docs </title>
-      <meta name="viewport" content="width=device-width">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta name="title" content="Class UIManager | Pixel Art Creator 2.0 Docs ">
-    
-    
-      <link rel="shortcut icon" href="../resources/icon.ico">
-      <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
-      <link rel="stylesheet" href="../styles/docfx.css">
-      <link rel="stylesheet" href="../styles/main.css">
-      <meta property="docfx:navrel" content="../toc.html">
-      <meta property="docfx:tocrel" content="toc.html">
-    
-    <meta property="docfx:rel" content="../">
-    
+      
+      
+      <link rel="icon" href="../resources/icon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/new/main/apiSpec/new?filename=PAC_UI_UIManager.md&amp;value=---%0Auid%3A%20PAC.UI.UIManager%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
   </head>
-  <body data-spy="scroll" data-target="#affix" data-offset="120">
-    <div id="wrapper">
-      <header>
 
-        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
-          <div class="container">
-            <div class="navbar-header">
-              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-              </button>
-
-              <a class="navbar-brand" href="../index.html">
-                <img id="logo" class="svg" src="../resources/logo.svg" alt="">
-              </a>
-            </div>
-            <div class="collapse navbar-collapse" id="navbar">
-              <form class="navbar-form navbar-right" role="search" id="search">
-                <div class="form-group">
-                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
-                </div>
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../resources/logo.svg" alt="Pixel Art Creator 2.0">
+            Pixel Art Creator 2.0
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
               </form>
             </div>
           </div>
-        </nav>
-
-        <div class="subnav navbar navbar-default">
-          <div class="container hide-when-search" id="breadcrumb">
-            <ul class="breadcrumb">
-              <li></li>
-            </ul>
-          </div>
         </div>
-      </header>
-      <div class="container body-content">
+      </nav>
+    </header>
 
-        <div id="search-results">
-          <div class="search-list">Search Results for <span></span></div>
-          <div class="sr-items">
-            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
           </div>
-          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
         </div>
       </div>
-      <div role="main" class="container body-content hide-when-search">
 
-        <div class="sidenav hide-when-search">
-          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
-          <div class="sidetoggle collapse" id="sidetoggle">
-            <div id="sidetoc"></div>
-          </div>
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
         </div>
-        <div class="article row grid-right">
-          <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="PAC.UI.UIManager">
+
+        <article data-uid="PAC.UI.UIManager">
 
 
 
-  <h1 id="PAC_UI_UIManager" data-uid="PAC.UI.UIManager" class="text-break">Class UIManager</h1>
-  <div class="markdown level0 summary"></div>
-  <div class="markdown level0 conceptual"></div>
-  <div class="inheritance">
-    <h5>Inheritance</h5>
-    <div class="level0"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
-    <div class="level1"><span class="xref">UIManager</span></div>
+  <h1 id="PAC_UI_UIManager" data-uid="PAC.UI.UIManager" class="text-break">
+Class UIManager  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/UI/UIManager.cs/#L16"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="PAC.html">PAC</a>.<a class="xref" href="PAC.UI.html">UI</a></dd></dl>
+  
   </div>
-  <h6><strong>Namespace</strong>: <a class="xref" href="PAC.html">PAC</a>.<a class="xref" href="PAC.UI.html">UI</a></h6>
-  <h6><strong>Assembly</strong>: .dll</h6>
-  <h5 id="PAC_UI_UIManager_syntax">Syntax</h5>
+
+  <div class="markdown summary"></div>
+  <div class="markdown conceptual"></div>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public class UIManager : MonoBehaviour</code></pre>
   </div>
-  <h3 id="properties">Properties
-</h3>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/new/main/apiSpec/new?filename=PAC_UI_UIManager_selectedUIElement.md&amp;value=---%0Auid%3A%20PAC.UI.UIManager.selectedUIElement%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/UI/UIManager.cs/#L167">View Source</a>
-  </span>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">UIManager</span></div>
+    </dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
   <a id="PAC_UI_UIManager_selectedUIElement_" data-uid="PAC.UI.UIManager.selectedUIElement*"></a>
-  <h4 id="PAC_UI_UIManager_selectedUIElement" data-uid="PAC.UI.UIManager.selectedUIElement">selectedUIElement</h4>
+
+  <h3 id="PAC_UI_UIManager_selectedUIElement" data-uid="PAC.UI.UIManager.selectedUIElement">
+  selectedUIElement
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/UI/UIManager.cs/#L167"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public UIElement selectedUIElement { get; }</code></pre>
   </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="PAC.UI.UIElement.html">UIElement</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h3 id="methods">Methods
-</h3>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/new/main/apiSpec/new?filename=PAC_UI_UIManager_CanTargetInputTarget_PAC_Input_InputTarget_.md&amp;value=---%0Auid%3A%20PAC.UI.UIManager.CanTargetInputTarget(PAC.Input.InputTarget)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/UI/UIManager.cs/#L320">View Source</a>
-  </span>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="PAC.UI.UIElement.html">UIElement</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
   <a id="PAC_UI_UIManager_CanTargetInputTarget_" data-uid="PAC.UI.UIManager.CanTargetInputTarget*"></a>
-  <h4 id="PAC_UI_UIManager_CanTargetInputTarget_PAC_Input_InputTarget_" data-uid="PAC.UI.UIManager.CanTargetInputTarget(PAC.Input.InputTarget)">CanTargetInputTarget(InputTarget)</h4>
+
+  <h3 id="PAC_UI_UIManager_CanTargetInputTarget_PAC_Input_InputTarget_" data-uid="PAC.UI.UIManager.CanTargetInputTarget(PAC.Input.InputTarget)">
+  CanTargetInputTarget(InputTarget)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/UI/UIManager.cs/#L320"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public bool CanTargetInputTarget(InputTarget inputTarget)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="PAC.Input.InputTarget.html">InputTarget</a></td>
-        <td><span class="parametername">inputTarget</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/new/main/apiSpec/new?filename=PAC_UI_UIManager_CloseBrushSettingsWindow.md&amp;value=---%0Auid%3A%20PAC.UI.UIManager.CloseBrushSettingsWindow%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/UI/UIManager.cs/#L740">View Source</a>
-  </span>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>inputTarget</code> <a class="xref" href="PAC.Input.InputTarget.html">InputTarget</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
   <a id="PAC_UI_UIManager_CloseBrushSettingsWindow_" data-uid="PAC.UI.UIManager.CloseBrushSettingsWindow*"></a>
-  <h4 id="PAC_UI_UIManager_CloseBrushSettingsWindow" data-uid="PAC.UI.UIManager.CloseBrushSettingsWindow">CloseBrushSettingsWindow()</h4>
+
+  <h3 id="PAC_UI_UIManager_CloseBrushSettingsWindow" data-uid="PAC.UI.UIManager.CloseBrushSettingsWindow">
+  CloseBrushSettingsWindow()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/UI/UIManager.cs/#L740"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void CloseBrushSettingsWindow()</code></pre>
   </div>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/new/main/apiSpec/new?filename=PAC_UI_UIManager_CloseDialogBox_GameObject_.md&amp;value=---%0Auid%3A%20PAC.UI.UIManager.CloseDialogBox(GameObject)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/UI/UIManager.cs/#L333">View Source</a>
-  </span>
+
+
+
+
+
+
+
+
+
+
+
+
+
   <a id="PAC_UI_UIManager_CloseDialogBox_" data-uid="PAC.UI.UIManager.CloseDialogBox*"></a>
-  <h4 id="PAC_UI_UIManager_CloseDialogBox_GameObject_" data-uid="PAC.UI.UIManager.CloseDialogBox(GameObject)">CloseDialogBox(GameObject)</h4>
+
+  <h3 id="PAC_UI_UIManager_CloseDialogBox_GameObject_" data-uid="PAC.UI.UIManager.CloseDialogBox(GameObject)">
+  CloseDialogBox(GameObject)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/UI/UIManager.cs/#L333"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void CloseDialogBox(GameObject dialogBox)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">GameObject</span></td>
-        <td><span class="parametername">dialogBox</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/new/main/apiSpec/new?filename=PAC_UI_UIManager_CloseDialogBox_GameObject_System_Action_.md&amp;value=---%0Auid%3A%20PAC.UI.UIManager.CloseDialogBox(GameObject%2CSystem.Action)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/UI/UIManager.cs/#L334">View Source</a>
-  </span>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>dialogBox</code> <span class="xref">GameObject</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
   <a id="PAC_UI_UIManager_CloseDialogBox_" data-uid="PAC.UI.UIManager.CloseDialogBox*"></a>
-  <h4 id="PAC_UI_UIManager_CloseDialogBox_GameObject_System_Action_" data-uid="PAC.UI.UIManager.CloseDialogBox(GameObject,System.Action)">CloseDialogBox(GameObject, Action)</h4>
+
+  <h3 id="PAC_UI_UIManager_CloseDialogBox_GameObject_System_Action_" data-uid="PAC.UI.UIManager.CloseDialogBox(GameObject,System.Action)">
+  CloseDialogBox(GameObject, Action)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/UI/UIManager.cs/#L334"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void CloseDialogBox(GameObject dialogBox, Action onComplete)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">GameObject</span></td>
-        <td><span class="parametername">dialogBox</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action">Action</a></td>
-        <td><span class="parametername">onComplete</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/new/main/apiSpec/new?filename=PAC_UI_UIManager_CloseExtendCropWindow.md&amp;value=---%0Auid%3A%20PAC.UI.UIManager.CloseExtendCropWindow%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/UI/UIManager.cs/#L385">View Source</a>
-  </span>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>dialogBox</code> <span class="xref">GameObject</span></dt>
+    <dd></dd>
+    <dt><code>onComplete</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action">Action</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
   <a id="PAC_UI_UIManager_CloseExtendCropWindow_" data-uid="PAC.UI.UIManager.CloseExtendCropWindow*"></a>
-  <h4 id="PAC_UI_UIManager_CloseExtendCropWindow" data-uid="PAC.UI.UIManager.CloseExtendCropWindow">CloseExtendCropWindow()</h4>
+
+  <h3 id="PAC_UI_UIManager_CloseExtendCropWindow" data-uid="PAC.UI.UIManager.CloseExtendCropWindow">
+  CloseExtendCropWindow()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/UI/UIManager.cs/#L385"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void CloseExtendCropWindow()</code></pre>
   </div>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/new/main/apiSpec/new?filename=PAC_UI_UIManager_CloseGridWindow.md&amp;value=---%0Auid%3A%20PAC.UI.UIManager.CloseGridWindow%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/UI/UIManager.cs/#L507">View Source</a>
-  </span>
+
+
+
+
+
+
+
+
+
+
+
+
+
   <a id="PAC_UI_UIManager_CloseGridWindow_" data-uid="PAC.UI.UIManager.CloseGridWindow*"></a>
-  <h4 id="PAC_UI_UIManager_CloseGridWindow" data-uid="PAC.UI.UIManager.CloseGridWindow">CloseGridWindow()</h4>
+
+  <h3 id="PAC_UI_UIManager_CloseGridWindow" data-uid="PAC.UI.UIManager.CloseGridWindow">
+  CloseGridWindow()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/UI/UIManager.cs/#L507"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void CloseGridWindow()</code></pre>
   </div>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/new/main/apiSpec/new?filename=PAC_UI_UIManager_CloseImportPACWindow.md&amp;value=---%0Auid%3A%20PAC.UI.UIManager.CloseImportPACWindow%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/UI/UIManager.cs/#L674">View Source</a>
-  </span>
+
+
+
+
+
+
+
+
+
+
+
+
+
   <a id="PAC_UI_UIManager_CloseImportPACWindow_" data-uid="PAC.UI.UIManager.CloseImportPACWindow*"></a>
-  <h4 id="PAC_UI_UIManager_CloseImportPACWindow" data-uid="PAC.UI.UIManager.CloseImportPACWindow">CloseImportPACWindow()</h4>
+
+  <h3 id="PAC_UI_UIManager_CloseImportPACWindow" data-uid="PAC.UI.UIManager.CloseImportPACWindow">
+  CloseImportPACWindow()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/UI/UIManager.cs/#L674"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void CloseImportPACWindow()</code></pre>
   </div>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/new/main/apiSpec/new?filename=PAC_UI_UIManager_CloseKeyboardShortcutsWindow.md&amp;value=---%0Auid%3A%20PAC.UI.UIManager.CloseKeyboardShortcutsWindow%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/UI/UIManager.cs/#L781">View Source</a>
-  </span>
+
+
+
+
+
+
+
+
+
+
+
+
+
   <a id="PAC_UI_UIManager_CloseKeyboardShortcutsWindow_" data-uid="PAC.UI.UIManager.CloseKeyboardShortcutsWindow*"></a>
-  <h4 id="PAC_UI_UIManager_CloseKeyboardShortcutsWindow" data-uid="PAC.UI.UIManager.CloseKeyboardShortcutsWindow">CloseKeyboardShortcutsWindow()</h4>
+
+  <h3 id="PAC_UI_UIManager_CloseKeyboardShortcutsWindow" data-uid="PAC.UI.UIManager.CloseKeyboardShortcutsWindow">
+  CloseKeyboardShortcutsWindow()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/UI/UIManager.cs/#L781"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void CloseKeyboardShortcutsWindow()</code></pre>
   </div>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/new/main/apiSpec/new?filename=PAC_UI_UIManager_CloseLayerPropertiesWindow.md&amp;value=---%0Auid%3A%20PAC.UI.UIManager.CloseLayerPropertiesWindow%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/UI/UIManager.cs/#L711">View Source</a>
-  </span>
+
+
+
+
+
+
+
+
+
+
+
+
+
   <a id="PAC_UI_UIManager_CloseLayerPropertiesWindow_" data-uid="PAC.UI.UIManager.CloseLayerPropertiesWindow*"></a>
-  <h4 id="PAC_UI_UIManager_CloseLayerPropertiesWindow" data-uid="PAC.UI.UIManager.CloseLayerPropertiesWindow">CloseLayerPropertiesWindow()</h4>
+
+  <h3 id="PAC_UI_UIManager_CloseLayerPropertiesWindow" data-uid="PAC.UI.UIManager.CloseLayerPropertiesWindow">
+  CloseLayerPropertiesWindow()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/UI/UIManager.cs/#L711"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void CloseLayerPropertiesWindow()</code></pre>
   </div>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/new/main/apiSpec/new?filename=PAC_UI_UIManager_CloseModalWindow_PAC_UI_UIModalWindow_.md&amp;value=---%0Auid%3A%20PAC.UI.UIManager.CloseModalWindow(PAC.UI.UIModalWindow)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/UI/UIManager.cs/#L847">View Source</a>
-  </span>
+
+
+
+
+
+
+
+
+
+
+
+
+
   <a id="PAC_UI_UIManager_CloseModalWindow_" data-uid="PAC.UI.UIManager.CloseModalWindow*"></a>
-  <h4 id="PAC_UI_UIManager_CloseModalWindow_PAC_UI_UIModalWindow_" data-uid="PAC.UI.UIManager.CloseModalWindow(PAC.UI.UIModalWindow)">CloseModalWindow(UIModalWindow)</h4>
+
+  <h3 id="PAC_UI_UIManager_CloseModalWindow_PAC_UI_UIModalWindow_" data-uid="PAC.UI.UIManager.CloseModalWindow(PAC.UI.UIModalWindow)">
+  CloseModalWindow(UIModalWindow)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/UI/UIManager.cs/#L847"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void CloseModalWindow(UIModalWindow modalWindow)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="PAC.UI.UIModalWindow.html">UIModalWindow</a></td>
-        <td><span class="parametername">modalWindow</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/new/main/apiSpec/new?filename=PAC_UI_UIManager_CloseNewFileWindow.md&amp;value=---%0Auid%3A%20PAC.UI.UIManager.CloseNewFileWindow%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/UI/UIManager.cs/#L350">View Source</a>
-  </span>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>modalWindow</code> <a class="xref" href="PAC.UI.UIModalWindow.html">UIModalWindow</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
   <a id="PAC_UI_UIManager_CloseNewFileWindow_" data-uid="PAC.UI.UIManager.CloseNewFileWindow*"></a>
-  <h4 id="PAC_UI_UIManager_CloseNewFileWindow" data-uid="PAC.UI.UIManager.CloseNewFileWindow">CloseNewFileWindow()</h4>
+
+  <h3 id="PAC_UI_UIManager_CloseNewFileWindow" data-uid="PAC.UI.UIManager.CloseNewFileWindow">
+  CloseNewFileWindow()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/UI/UIManager.cs/#L350"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void CloseNewFileWindow()</code></pre>
   </div>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/new/main/apiSpec/new?filename=PAC_UI_UIManager_CloseOutlineWindow.md&amp;value=---%0Auid%3A%20PAC.UI.UIManager.CloseOutlineWindow%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/UI/UIManager.cs/#L548">View Source</a>
-  </span>
+
+
+
+
+
+
+
+
+
+
+
+
+
   <a id="PAC_UI_UIManager_CloseOutlineWindow_" data-uid="PAC.UI.UIManager.CloseOutlineWindow*"></a>
-  <h4 id="PAC_UI_UIManager_CloseOutlineWindow" data-uid="PAC.UI.UIManager.CloseOutlineWindow">CloseOutlineWindow()</h4>
+
+  <h3 id="PAC_UI_UIManager_CloseOutlineWindow" data-uid="PAC.UI.UIManager.CloseOutlineWindow">
+  CloseOutlineWindow()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/UI/UIManager.cs/#L548"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void CloseOutlineWindow()</code></pre>
   </div>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/new/main/apiSpec/new?filename=PAC_UI_UIManager_CloseReplaceColourWindow.md&amp;value=---%0Auid%3A%20PAC.UI.UIManager.CloseReplaceColourWindow%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/UI/UIManager.cs/#L597">View Source</a>
-  </span>
+
+
+
+
+
+
+
+
+
+
+
+
+
   <a id="PAC_UI_UIManager_CloseReplaceColourWindow_" data-uid="PAC.UI.UIManager.CloseReplaceColourWindow*"></a>
-  <h4 id="PAC_UI_UIManager_CloseReplaceColourWindow" data-uid="PAC.UI.UIManager.CloseReplaceColourWindow">CloseReplaceColourWindow()</h4>
+
+  <h3 id="PAC_UI_UIManager_CloseReplaceColourWindow" data-uid="PAC.UI.UIManager.CloseReplaceColourWindow">
+  CloseReplaceColourWindow()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/UI/UIManager.cs/#L597"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void CloseReplaceColourWindow()</code></pre>
   </div>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/new/main/apiSpec/new?filename=PAC_UI_UIManager_CloseScaleWindow.md&amp;value=---%0Auid%3A%20PAC.UI.UIManager.CloseScaleWindow%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/UI/UIManager.cs/#L432">View Source</a>
-  </span>
+
+
+
+
+
+
+
+
+
+
+
+
+
   <a id="PAC_UI_UIManager_CloseScaleWindow_" data-uid="PAC.UI.UIManager.CloseScaleWindow*"></a>
-  <h4 id="PAC_UI_UIManager_CloseScaleWindow" data-uid="PAC.UI.UIManager.CloseScaleWindow">CloseScaleWindow()</h4>
+
+  <h3 id="PAC_UI_UIManager_CloseScaleWindow" data-uid="PAC.UI.UIManager.CloseScaleWindow">
+  CloseScaleWindow()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/UI/UIManager.cs/#L432"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void CloseScaleWindow()</code></pre>
   </div>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/new/main/apiSpec/new?filename=PAC_UI_UIManager_ConfirmExtendCropWindow.md&amp;value=---%0Auid%3A%20PAC.UI.UIManager.ConfirmExtendCropWindow%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/UI/UIManager.cs/#L409">View Source</a>
-  </span>
+
+
+
+
+
+
+
+
+
+
+
+
+
   <a id="PAC_UI_UIManager_ConfirmExtendCropWindow_" data-uid="PAC.UI.UIManager.ConfirmExtendCropWindow*"></a>
-  <h4 id="PAC_UI_UIManager_ConfirmExtendCropWindow" data-uid="PAC.UI.UIManager.ConfirmExtendCropWindow">ConfirmExtendCropWindow()</h4>
+
+  <h3 id="PAC_UI_UIManager_ConfirmExtendCropWindow" data-uid="PAC.UI.UIManager.ConfirmExtendCropWindow">
+  ConfirmExtendCropWindow()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/UI/UIManager.cs/#L409"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void ConfirmExtendCropWindow()</code></pre>
   </div>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/new/main/apiSpec/new?filename=PAC_UI_UIManager_ConfirmGridWindow.md&amp;value=---%0Auid%3A%20PAC.UI.UIManager.ConfirmGridWindow%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/UI/UIManager.cs/#L512">View Source</a>
-  </span>
+
+
+
+
+
+
+
+
+
+
+
+
+
   <a id="PAC_UI_UIManager_ConfirmGridWindow_" data-uid="PAC.UI.UIManager.ConfirmGridWindow*"></a>
-  <h4 id="PAC_UI_UIManager_ConfirmGridWindow" data-uid="PAC.UI.UIManager.ConfirmGridWindow">ConfirmGridWindow()</h4>
+
+  <h3 id="PAC_UI_UIManager_ConfirmGridWindow" data-uid="PAC.UI.UIManager.ConfirmGridWindow">
+  ConfirmGridWindow()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/UI/UIManager.cs/#L512"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void ConfirmGridWindow()</code></pre>
   </div>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/new/main/apiSpec/new?filename=PAC_UI_UIManager_ConfirmImportPACWindow.md&amp;value=---%0Auid%3A%20PAC.UI.UIManager.ConfirmImportPACWindow%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/UI/UIManager.cs/#L679">View Source</a>
-  </span>
+
+
+
+
+
+
+
+
+
+
+
+
+
   <a id="PAC_UI_UIManager_ConfirmImportPACWindow_" data-uid="PAC.UI.UIManager.ConfirmImportPACWindow*"></a>
-  <h4 id="PAC_UI_UIManager_ConfirmImportPACWindow" data-uid="PAC.UI.UIManager.ConfirmImportPACWindow">ConfirmImportPACWindow()</h4>
+
+  <h3 id="PAC_UI_UIManager_ConfirmImportPACWindow" data-uid="PAC.UI.UIManager.ConfirmImportPACWindow">
+  ConfirmImportPACWindow()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/UI/UIManager.cs/#L679"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void ConfirmImportPACWindow()</code></pre>
   </div>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/new/main/apiSpec/new?filename=PAC_UI_UIManager_ConfirmNewFileWindow.md&amp;value=---%0Auid%3A%20PAC.UI.UIManager.ConfirmNewFileWindow%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/UI/UIManager.cs/#L355">View Source</a>
-  </span>
+
+
+
+
+
+
+
+
+
+
+
+
+
   <a id="PAC_UI_UIManager_ConfirmNewFileWindow_" data-uid="PAC.UI.UIManager.ConfirmNewFileWindow*"></a>
-  <h4 id="PAC_UI_UIManager_ConfirmNewFileWindow" data-uid="PAC.UI.UIManager.ConfirmNewFileWindow">ConfirmNewFileWindow()</h4>
+
+  <h3 id="PAC_UI_UIManager_ConfirmNewFileWindow" data-uid="PAC.UI.UIManager.ConfirmNewFileWindow">
+  ConfirmNewFileWindow()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/UI/UIManager.cs/#L355"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void ConfirmNewFileWindow()</code></pre>
   </div>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/new/main/apiSpec/new?filename=PAC_UI_UIManager_ConfirmOutlineWindow.md&amp;value=---%0Auid%3A%20PAC.UI.UIManager.ConfirmOutlineWindow%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/UI/UIManager.cs/#L555">View Source</a>
-  </span>
+
+
+
+
+
+
+
+
+
+
+
+
+
   <a id="PAC_UI_UIManager_ConfirmOutlineWindow_" data-uid="PAC.UI.UIManager.ConfirmOutlineWindow*"></a>
-  <h4 id="PAC_UI_UIManager_ConfirmOutlineWindow" data-uid="PAC.UI.UIManager.ConfirmOutlineWindow">ConfirmOutlineWindow()</h4>
+
+  <h3 id="PAC_UI_UIManager_ConfirmOutlineWindow" data-uid="PAC.UI.UIManager.ConfirmOutlineWindow">
+  ConfirmOutlineWindow()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/UI/UIManager.cs/#L555"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void ConfirmOutlineWindow()</code></pre>
   </div>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/new/main/apiSpec/new?filename=PAC_UI_UIManager_ConfirmReplaceColourWindow.md&amp;value=---%0Auid%3A%20PAC.UI.UIManager.ConfirmReplaceColourWindow%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/UI/UIManager.cs/#L605">View Source</a>
-  </span>
+
+
+
+
+
+
+
+
+
+
+
+
+
   <a id="PAC_UI_UIManager_ConfirmReplaceColourWindow_" data-uid="PAC.UI.UIManager.ConfirmReplaceColourWindow*"></a>
-  <h4 id="PAC_UI_UIManager_ConfirmReplaceColourWindow" data-uid="PAC.UI.UIManager.ConfirmReplaceColourWindow">ConfirmReplaceColourWindow()</h4>
+
+  <h3 id="PAC_UI_UIManager_ConfirmReplaceColourWindow" data-uid="PAC.UI.UIManager.ConfirmReplaceColourWindow">
+  ConfirmReplaceColourWindow()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/UI/UIManager.cs/#L605"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void ConfirmReplaceColourWindow()</code></pre>
   </div>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/new/main/apiSpec/new?filename=PAC_UI_UIManager_ConfirmScaleWindow.md&amp;value=---%0Auid%3A%20PAC.UI.UIManager.ConfirmScaleWindow%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/UI/UIManager.cs/#L483">View Source</a>
-  </span>
+
+
+
+
+
+
+
+
+
+
+
+
+
   <a id="PAC_UI_UIManager_ConfirmScaleWindow_" data-uid="PAC.UI.UIManager.ConfirmScaleWindow*"></a>
-  <h4 id="PAC_UI_UIManager_ConfirmScaleWindow" data-uid="PAC.UI.UIManager.ConfirmScaleWindow">ConfirmScaleWindow()</h4>
+
+  <h3 id="PAC_UI_UIManager_ConfirmScaleWindow" data-uid="PAC.UI.UIManager.ConfirmScaleWindow">
+  ConfirmScaleWindow()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/UI/UIManager.cs/#L483"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void ConfirmScaleWindow()</code></pre>
   </div>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/new/main/apiSpec/new?filename=PAC_UI_UIManager_OpenBrushSettingsWindow.md&amp;value=---%0Auid%3A%20PAC.UI.UIManager.OpenBrushSettingsWindow%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/UI/UIManager.cs/#L732">View Source</a>
-  </span>
+
+
+
+
+
+
+
+
+
+
+
+
+
   <a id="PAC_UI_UIManager_OpenBrushSettingsWindow_" data-uid="PAC.UI.UIManager.OpenBrushSettingsWindow*"></a>
-  <h4 id="PAC_UI_UIManager_OpenBrushSettingsWindow" data-uid="PAC.UI.UIManager.OpenBrushSettingsWindow">OpenBrushSettingsWindow()</h4>
+
+  <h3 id="PAC_UI_UIManager_OpenBrushSettingsWindow" data-uid="PAC.UI.UIManager.OpenBrushSettingsWindow">
+  OpenBrushSettingsWindow()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/UI/UIManager.cs/#L732"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void OpenBrushSettingsWindow()</code></pre>
   </div>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/new/main/apiSpec/new?filename=PAC_UI_UIManager_OpenDialogBox_GameObject_.md&amp;value=---%0Auid%3A%20PAC.UI.UIManager.OpenDialogBox(GameObject)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/UI/UIManager.cs/#L325">View Source</a>
-  </span>
+
+
+
+
+
+
+
+
+
+
+
+
+
   <a id="PAC_UI_UIManager_OpenDialogBox_" data-uid="PAC.UI.UIManager.OpenDialogBox*"></a>
-  <h4 id="PAC_UI_UIManager_OpenDialogBox_GameObject_" data-uid="PAC.UI.UIManager.OpenDialogBox(GameObject)">OpenDialogBox(GameObject)</h4>
+
+  <h3 id="PAC_UI_UIManager_OpenDialogBox_GameObject_" data-uid="PAC.UI.UIManager.OpenDialogBox(GameObject)">
+  OpenDialogBox(GameObject)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/UI/UIManager.cs/#L325"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void OpenDialogBox(GameObject dialogBox)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">GameObject</span></td>
-        <td><span class="parametername">dialogBox</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/new/main/apiSpec/new?filename=PAC_UI_UIManager_OpenExtendCropWindow.md&amp;value=---%0Auid%3A%20PAC.UI.UIManager.OpenExtendCropWindow%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/UI/UIManager.cs/#L374">View Source</a>
-  </span>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>dialogBox</code> <span class="xref">GameObject</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
   <a id="PAC_UI_UIManager_OpenExtendCropWindow_" data-uid="PAC.UI.UIManager.OpenExtendCropWindow*"></a>
-  <h4 id="PAC_UI_UIManager_OpenExtendCropWindow" data-uid="PAC.UI.UIManager.OpenExtendCropWindow">OpenExtendCropWindow()</h4>
+
+  <h3 id="PAC_UI_UIManager_OpenExtendCropWindow" data-uid="PAC.UI.UIManager.OpenExtendCropWindow">
+  OpenExtendCropWindow()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/UI/UIManager.cs/#L374"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void OpenExtendCropWindow()</code></pre>
   </div>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/new/main/apiSpec/new?filename=PAC_UI_UIManager_OpenGridWindow.md&amp;value=---%0Auid%3A%20PAC.UI.UIManager.OpenGridWindow%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/UI/UIManager.cs/#L493">View Source</a>
-  </span>
+
+
+
+
+
+
+
+
+
+
+
+
+
   <a id="PAC_UI_UIManager_OpenGridWindow_" data-uid="PAC.UI.UIManager.OpenGridWindow*"></a>
-  <h4 id="PAC_UI_UIManager_OpenGridWindow" data-uid="PAC.UI.UIManager.OpenGridWindow">OpenGridWindow()</h4>
+
+  <h3 id="PAC_UI_UIManager_OpenGridWindow" data-uid="PAC.UI.UIManager.OpenGridWindow">
+  OpenGridWindow()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/UI/UIManager.cs/#L493"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void OpenGridWindow()</code></pre>
   </div>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/new/main/apiSpec/new?filename=PAC_UI_UIManager_OpenImportPACWindow_PAC_Files_File_.md&amp;value=---%0Auid%3A%20PAC.UI.UIManager.OpenImportPACWindow(PAC.Files.File)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/UI/UIManager.cs/#L639">View Source</a>
-  </span>
+
+
+
+
+
+
+
+
+
+
+
+
+
   <a id="PAC_UI_UIManager_OpenImportPACWindow_" data-uid="PAC.UI.UIManager.OpenImportPACWindow*"></a>
-  <h4 id="PAC_UI_UIManager_OpenImportPACWindow_PAC_Files_File_" data-uid="PAC.UI.UIManager.OpenImportPACWindow(PAC.Files.File)">OpenImportPACWindow(File)</h4>
+
+  <h3 id="PAC_UI_UIManager_OpenImportPACWindow_PAC_Files_File_" data-uid="PAC.UI.UIManager.OpenImportPACWindow(PAC.Files.File)">
+  OpenImportPACWindow(File)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/UI/UIManager.cs/#L639"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void OpenImportPACWindow(File file)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="PAC.Files.File.html">File</a></td>
-        <td><span class="parametername">file</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/new/main/apiSpec/new?filename=PAC_UI_UIManager_OpenKeyboardShortcutsWindow.md&amp;value=---%0Auid%3A%20PAC.UI.UIManager.OpenKeyboardShortcutsWindow%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/UI/UIManager.cs/#L777">View Source</a>
-  </span>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>file</code> <a class="xref" href="PAC.Files.File.html">File</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
   <a id="PAC_UI_UIManager_OpenKeyboardShortcutsWindow_" data-uid="PAC.UI.UIManager.OpenKeyboardShortcutsWindow*"></a>
-  <h4 id="PAC_UI_UIManager_OpenKeyboardShortcutsWindow" data-uid="PAC.UI.UIManager.OpenKeyboardShortcutsWindow">OpenKeyboardShortcutsWindow()</h4>
+
+  <h3 id="PAC_UI_UIManager_OpenKeyboardShortcutsWindow" data-uid="PAC.UI.UIManager.OpenKeyboardShortcutsWindow">
+  OpenKeyboardShortcutsWindow()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/UI/UIManager.cs/#L777"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void OpenKeyboardShortcutsWindow()</code></pre>
   </div>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/new/main/apiSpec/new?filename=PAC_UI_UIManager_OpenLayerPropertiesWindow_System_Int32_.md&amp;value=---%0Auid%3A%20PAC.UI.UIManager.OpenLayerPropertiesWindow(System.Int32)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/UI/UIManager.cs/#L697">View Source</a>
-  </span>
+
+
+
+
+
+
+
+
+
+
+
+
+
   <a id="PAC_UI_UIManager_OpenLayerPropertiesWindow_" data-uid="PAC.UI.UIManager.OpenLayerPropertiesWindow*"></a>
-  <h4 id="PAC_UI_UIManager_OpenLayerPropertiesWindow_System_Int32_" data-uid="PAC.UI.UIManager.OpenLayerPropertiesWindow(System.Int32)">OpenLayerPropertiesWindow(int)</h4>
+
+  <h3 id="PAC_UI_UIManager_OpenLayerPropertiesWindow_System_Int32_" data-uid="PAC.UI.UIManager.OpenLayerPropertiesWindow(System.Int32)">
+  OpenLayerPropertiesWindow(int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/UI/UIManager.cs/#L697"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void OpenLayerPropertiesWindow(int layerIndex)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
-        <td><span class="parametername">layerIndex</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/new/main/apiSpec/new?filename=PAC_UI_UIManager_OpenModalWindow.md&amp;value=---%0Auid%3A%20PAC.UI.UIManager.OpenModalWindow%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/UI/UIManager.cs/#L810">View Source</a>
-  </span>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>layerIndex</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
   <a id="PAC_UI_UIManager_OpenModalWindow_" data-uid="PAC.UI.UIManager.OpenModalWindow*"></a>
-  <h4 id="PAC_UI_UIManager_OpenModalWindow" data-uid="PAC.UI.UIManager.OpenModalWindow">OpenModalWindow()</h4>
+
+  <h3 id="PAC_UI_UIManager_OpenModalWindow" data-uid="PAC.UI.UIManager.OpenModalWindow">
+  OpenModalWindow()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/UI/UIManager.cs/#L810"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public UIModalWindow OpenModalWindow()</code></pre>
   </div>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="PAC.UI.UIModalWindow.html">UIModalWindow</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/new/main/apiSpec/new?filename=PAC_UI_UIManager_OpenModalWindow_System_String_System_String_.md&amp;value=---%0Auid%3A%20PAC.UI.UIManager.OpenModalWindow(System.String%2CSystem.String)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/UI/UIManager.cs/#L821">View Source</a>
-  </span>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="PAC.UI.UIModalWindow.html">UIModalWindow</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
   <a id="PAC_UI_UIManager_OpenModalWindow_" data-uid="PAC.UI.UIManager.OpenModalWindow*"></a>
-  <h4 id="PAC_UI_UIManager_OpenModalWindow_System_String_System_String_" data-uid="PAC.UI.UIManager.OpenModalWindow(System.String,System.String)">OpenModalWindow(string, string)</h4>
+
+  <h3 id="PAC_UI_UIManager_OpenModalWindow_System_String_System_String_" data-uid="PAC.UI.UIManager.OpenModalWindow(System.String,System.String)">
+  OpenModalWindow(string, string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/UI/UIManager.cs/#L821"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public UIModalWindow OpenModalWindow(string title, string message)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
-        <td><span class="parametername">title</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
-        <td><span class="parametername">message</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="PAC.UI.UIModalWindow.html">UIModalWindow</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/new/main/apiSpec/new?filename=PAC_UI_UIManager_OpenModalWindow_System_String_System_String_System_String___UnityAction___.md&amp;value=---%0Auid%3A%20PAC.UI.UIManager.OpenModalWindow(System.String%2CSystem.String%2CSystem.String%5B%5D%2CUnityAction%5B%5D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/UI/UIManager.cs/#L830">View Source</a>
-  </span>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>title</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>message</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="PAC.UI.UIModalWindow.html">UIModalWindow</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
   <a id="PAC_UI_UIManager_OpenModalWindow_" data-uid="PAC.UI.UIManager.OpenModalWindow*"></a>
-  <h4 id="PAC_UI_UIManager_OpenModalWindow_System_String_System_String_System_String___UnityAction___" data-uid="PAC.UI.UIManager.OpenModalWindow(System.String,System.String,System.String[],UnityAction[])">OpenModalWindow(string, string, string[], UnityAction[])</h4>
+
+  <h3 id="PAC_UI_UIManager_OpenModalWindow_System_String_System_String_System_String___UnityAction___" data-uid="PAC.UI.UIManager.OpenModalWindow(System.String,System.String,System.String[],UnityAction[])">
+  OpenModalWindow(string, string, string[], UnityAction[])
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/UI/UIManager.cs/#L830"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public UIModalWindow OpenModalWindow(string title, string message, string[] buttonTexts, UnityAction[] buttonOnClicks)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
-        <td><span class="parametername">title</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
-        <td><span class="parametername">message</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>[]</td>
-        <td><span class="parametername">buttonTexts</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><span class="xref">UnityAction</span>[]</td>
-        <td><span class="parametername">buttonOnClicks</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="PAC.UI.UIModalWindow.html">UIModalWindow</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/new/main/apiSpec/new?filename=PAC_UI_UIManager_OpenNewFileWindow.md&amp;value=---%0Auid%3A%20PAC.UI.UIManager.OpenNewFileWindow%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/UI/UIManager.cs/#L344">View Source</a>
-  </span>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>title</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>message</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>buttonTexts</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>[]</dt>
+    <dd></dd>
+    <dt><code>buttonOnClicks</code> <span class="xref">UnityAction</span>[]</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="PAC.UI.UIModalWindow.html">UIModalWindow</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
   <a id="PAC_UI_UIManager_OpenNewFileWindow_" data-uid="PAC.UI.UIManager.OpenNewFileWindow*"></a>
-  <h4 id="PAC_UI_UIManager_OpenNewFileWindow" data-uid="PAC.UI.UIManager.OpenNewFileWindow">OpenNewFileWindow()</h4>
+
+  <h3 id="PAC_UI_UIManager_OpenNewFileWindow" data-uid="PAC.UI.UIManager.OpenNewFileWindow">
+  OpenNewFileWindow()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/UI/UIManager.cs/#L344"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void OpenNewFileWindow()</code></pre>
   </div>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/new/main/apiSpec/new?filename=PAC_UI_UIManager_OpenOutlineWindow.md&amp;value=---%0Auid%3A%20PAC.UI.UIManager.OpenOutlineWindow%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/UI/UIManager.cs/#L542">View Source</a>
-  </span>
+
+
+
+
+
+
+
+
+
+
+
+
+
   <a id="PAC_UI_UIManager_OpenOutlineWindow_" data-uid="PAC.UI.UIManager.OpenOutlineWindow*"></a>
-  <h4 id="PAC_UI_UIManager_OpenOutlineWindow" data-uid="PAC.UI.UIManager.OpenOutlineWindow">OpenOutlineWindow()</h4>
+
+  <h3 id="PAC_UI_UIManager_OpenOutlineWindow" data-uid="PAC.UI.UIManager.OpenOutlineWindow">
+  OpenOutlineWindow()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/UI/UIManager.cs/#L542"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void OpenOutlineWindow()</code></pre>
   </div>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/new/main/apiSpec/new?filename=PAC_UI_UIManager_OpenReplaceColourWindow.md&amp;value=---%0Auid%3A%20PAC.UI.UIManager.OpenReplaceColourWindow%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/UI/UIManager.cs/#L591">View Source</a>
-  </span>
+
+
+
+
+
+
+
+
+
+
+
+
+
   <a id="PAC_UI_UIManager_OpenReplaceColourWindow_" data-uid="PAC.UI.UIManager.OpenReplaceColourWindow*"></a>
-  <h4 id="PAC_UI_UIManager_OpenReplaceColourWindow" data-uid="PAC.UI.UIManager.OpenReplaceColourWindow">OpenReplaceColourWindow()</h4>
+
+  <h3 id="PAC_UI_UIManager_OpenReplaceColourWindow" data-uid="PAC.UI.UIManager.OpenReplaceColourWindow">
+  OpenReplaceColourWindow()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/UI/UIManager.cs/#L591"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void OpenReplaceColourWindow()</code></pre>
   </div>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/new/main/apiSpec/new?filename=PAC_UI_UIManager_OpenScaleWindow.md&amp;value=---%0Auid%3A%20PAC.UI.UIManager.OpenScaleWindow%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/UI/UIManager.cs/#L421">View Source</a>
-  </span>
+
+
+
+
+
+
+
+
+
+
+
+
+
   <a id="PAC_UI_UIManager_OpenScaleWindow_" data-uid="PAC.UI.UIManager.OpenScaleWindow*"></a>
-  <h4 id="PAC_UI_UIManager_OpenScaleWindow" data-uid="PAC.UI.UIManager.OpenScaleWindow">OpenScaleWindow()</h4>
+
+  <h3 id="PAC_UI_UIManager_OpenScaleWindow" data-uid="PAC.UI.UIManager.OpenScaleWindow">
+  OpenScaleWindow()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/UI/UIManager.cs/#L421"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void OpenScaleWindow()</code></pre>
   </div>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/new/main/apiSpec/new?filename=PAC_UI_UIManager_OpenUnsavedChangesWindow_System_Int32_.md&amp;value=---%0Auid%3A%20PAC.UI.UIManager.OpenUnsavedChangesWindow(System.Int32)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/UI/UIManager.cs/#L786">View Source</a>
-  </span>
+
+
+
+
+
+
+
+
+
+
+
+
+
   <a id="PAC_UI_UIManager_OpenUnsavedChangesWindow_" data-uid="PAC.UI.UIManager.OpenUnsavedChangesWindow*"></a>
-  <h4 id="PAC_UI_UIManager_OpenUnsavedChangesWindow_System_Int32_" data-uid="PAC.UI.UIManager.OpenUnsavedChangesWindow(System.Int32)">OpenUnsavedChangesWindow(int)</h4>
+
+  <h3 id="PAC_UI_UIManager_OpenUnsavedChangesWindow_System_Int32_" data-uid="PAC.UI.UIManager.OpenUnsavedChangesWindow(System.Int32)">
+  OpenUnsavedChangesWindow(int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/UI/UIManager.cs/#L786"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void OpenUnsavedChangesWindow(int fileIndex)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
-        <td><span class="parametername">fileIndex</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/new/main/apiSpec/new?filename=PAC_UI_UIManager_SetNewFileHeight_System_Int32_.md&amp;value=---%0Auid%3A%20PAC.UI.UIManager.SetNewFileHeight(System.Int32)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/UI/UIManager.cs/#L369">View Source</a>
-  </span>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>fileIndex</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
   <a id="PAC_UI_UIManager_SetNewFileHeight_" data-uid="PAC.UI.UIManager.SetNewFileHeight*"></a>
-  <h4 id="PAC_UI_UIManager_SetNewFileHeight_System_Int32_" data-uid="PAC.UI.UIManager.SetNewFileHeight(System.Int32)">SetNewFileHeight(int)</h4>
+
+  <h3 id="PAC_UI_UIManager_SetNewFileHeight_System_Int32_" data-uid="PAC.UI.UIManager.SetNewFileHeight(System.Int32)">
+  SetNewFileHeight(int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/UI/UIManager.cs/#L369"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void SetNewFileHeight(int height)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
-        <td><span class="parametername">height</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/new/main/apiSpec/new?filename=PAC_UI_UIManager_SetNewFileWidth_System_Int32_.md&amp;value=---%0Auid%3A%20PAC.UI.UIManager.SetNewFileWidth(System.Int32)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/UI/UIManager.cs/#L365">View Source</a>
-  </span>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>height</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
   <a id="PAC_UI_UIManager_SetNewFileWidth_" data-uid="PAC.UI.UIManager.SetNewFileWidth*"></a>
-  <h4 id="PAC_UI_UIManager_SetNewFileWidth_System_Int32_" data-uid="PAC.UI.UIManager.SetNewFileWidth(System.Int32)">SetNewFileWidth(int)</h4>
+
+  <h3 id="PAC_UI_UIManager_SetNewFileWidth_System_Int32_" data-uid="PAC.UI.UIManager.SetNewFileWidth(System.Int32)">
+  SetNewFileWidth(int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/UI/UIManager.cs/#L365"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void SetNewFileWidth(int width)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
-        <td><span class="parametername">width</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/new/main/apiSpec/new?filename=PAC_UI_UIManager_TryTarget_PAC_UI_UIElement_.md&amp;value=---%0Auid%3A%20PAC.UI.UIManager.TryTarget(PAC.UI.UIElement)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/UI/UIManager.cs/#L287">View Source</a>
-  </span>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>width</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
   <a id="PAC_UI_UIManager_TryTarget_" data-uid="PAC.UI.UIManager.TryTarget*"></a>
-  <h4 id="PAC_UI_UIManager_TryTarget_PAC_UI_UIElement_" data-uid="PAC.UI.UIManager.TryTarget(PAC.UI.UIElement)">TryTarget(UIElement)</h4>
+
+  <h3 id="PAC_UI_UIManager_TryTarget_PAC_UI_UIElement_" data-uid="PAC.UI.UIManager.TryTarget(PAC.UI.UIElement)">
+  TryTarget(UIElement)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/UI/UIManager.cs/#L287"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public bool TryTarget(UIElement uiElement)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="PAC.UI.UIElement.html">UIElement</a></td>
-        <td><span class="parametername">uiElement</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/new/main/apiSpec/new?filename=PAC_UI_UIManager_TryUntarget_PAC_UI_UIElement_.md&amp;value=---%0Auid%3A%20PAC.UI.UIManager.TryUntarget(PAC.UI.UIElement)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/UI/UIManager.cs/#L305">View Source</a>
-  </span>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>uiElement</code> <a class="xref" href="PAC.UI.UIElement.html">UIElement</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
   <a id="PAC_UI_UIManager_TryUntarget_" data-uid="PAC.UI.UIManager.TryUntarget*"></a>
-  <h4 id="PAC_UI_UIManager_TryUntarget_PAC_UI_UIElement_" data-uid="PAC.UI.UIManager.TryUntarget(PAC.UI.UIElement)">TryUntarget(UIElement)</h4>
+
+  <h3 id="PAC_UI_UIManager_TryUntarget_PAC_UI_UIElement_" data-uid="PAC.UI.UIManager.TryUntarget(PAC.UI.UIElement)">
+  TryUntarget(UIElement)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/UI/UIManager.cs/#L305"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public bool TryUntarget(UIElement uiElement)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="PAC.UI.UIElement.html">UIElement</a></td>
-        <td><span class="parametername">uiElement</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/new/main/apiSpec/new?filename=PAC_UI_UIManager_UnsavedChangesNo.md&amp;value=---%0Auid%3A%20PAC.UI.UIManager.UnsavedChangesNo%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/UI/UIManager.cs/#L803">View Source</a>
-  </span>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>uiElement</code> <a class="xref" href="PAC.UI.UIElement.html">UIElement</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
   <a id="PAC_UI_UIManager_UnsavedChangesNo_" data-uid="PAC.UI.UIManager.UnsavedChangesNo*"></a>
-  <h4 id="PAC_UI_UIManager_UnsavedChangesNo" data-uid="PAC.UI.UIManager.UnsavedChangesNo">UnsavedChangesNo()</h4>
+
+  <h3 id="PAC_UI_UIManager_UnsavedChangesNo" data-uid="PAC.UI.UIManager.UnsavedChangesNo">
+  UnsavedChangesNo()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/UI/UIManager.cs/#L803"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void UnsavedChangesNo()</code></pre>
   </div>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/new/main/apiSpec/new?filename=PAC_UI_UIManager_UnsavedChangesYes.md&amp;value=---%0Auid%3A%20PAC.UI.UIManager.UnsavedChangesYes%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/UI/UIManager.cs/#L796">View Source</a>
-  </span>
+
+
+
+
+
+
+
+
+
+
+
+
+
   <a id="PAC_UI_UIManager_UnsavedChangesYes_" data-uid="PAC.UI.UIManager.UnsavedChangesYes*"></a>
-  <h4 id="PAC_UI_UIManager_UnsavedChangesYes" data-uid="PAC.UI.UIManager.UnsavedChangesYes">UnsavedChangesYes()</h4>
+
+  <h3 id="PAC_UI_UIManager_UnsavedChangesYes" data-uid="PAC.UI.UIManager.UnsavedChangesYes">
+  UnsavedChangesYes()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/UI/UIManager.cs/#L796"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void UnsavedChangesYes()</code></pre>
   </div>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/new/main/apiSpec/new?filename=PAC_UI_UIManager_UpdateBrushSettingsShape.md&amp;value=---%0Auid%3A%20PAC.UI.UIManager.UpdateBrushSettingsShape%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/UI/UIManager.cs/#L745">View Source</a>
-  </span>
+
+
+
+
+
+
+
+
+
+
+
+
+
   <a id="PAC_UI_UIManager_UpdateBrushSettingsShape_" data-uid="PAC.UI.UIManager.UpdateBrushSettingsShape*"></a>
-  <h4 id="PAC_UI_UIManager_UpdateBrushSettingsShape" data-uid="PAC.UI.UIManager.UpdateBrushSettingsShape">UpdateBrushSettingsShape()</h4>
+
+  <h3 id="PAC_UI_UIManager_UpdateBrushSettingsShape" data-uid="PAC.UI.UIManager.UpdateBrushSettingsShape">
+  UpdateBrushSettingsShape()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/UI/UIManager.cs/#L745"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void UpdateBrushSettingsShape()</code></pre>
   </div>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/new/main/apiSpec/new?filename=PAC_UI_UIManager_UpdateImportPACPreview.md&amp;value=---%0Auid%3A%20PAC.UI.UIManager.UpdateImportPACPreview%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/UI/UIManager.cs/#L691">View Source</a>
-  </span>
+
+
+
+
+
+
+
+
+
+
+
+
+
   <a id="PAC_UI_UIManager_UpdateImportPACPreview_" data-uid="PAC.UI.UIManager.UpdateImportPACPreview*"></a>
-  <h4 id="PAC_UI_UIManager_UpdateImportPACPreview" data-uid="PAC.UI.UIManager.UpdateImportPACPreview">UpdateImportPACPreview()</h4>
+
+  <h3 id="PAC_UI_UIManager_UpdateImportPACPreview" data-uid="PAC.UI.UIManager.UpdateImportPACPreview">
+  UpdateImportPACPreview()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/UI/UIManager.cs/#L691"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void UpdateImportPACPreview()</code></pre>
   </div>
 
-</article>
-          </div>
 
-          <div class="hidden-sm col-md-2" role="complementary">
-            <div class="sideaffix">
-              <div class="contribution">
-                <ul class="nav">
-                  <li>
-                    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/new/main/apiSpec/new?filename=PAC_UI_UIManager.md&amp;value=---%0Auid%3A%20PAC.UI.UIManager%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Edit this page</a>
-                  </li>
-                  <li>
-                    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/UI/UIManager.cs/#L16" class="contribution-link">View Source</a>
-                  </li>
-                </ul>
-              </div>
-              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-                <h5>In this article</h5>
-                <div></div>
-              </nav>
-            </div>
-          </div>
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/UI/UIManager.cs/#L16" class="edit-link">Edit this page</a>
         </div>
+
+
       </div>
 
-      <footer>
-        <div class="grad-bottom"></div>
-        <div class="footer">
-          <div class="container">
-            <span class="pull-right">
-              <a href="#top">Back to top</a>
-            </span>
-      Pixel Art Creator 2.0 Docs
-      
-          </div>
-        </div>
-      </footer>
-    </div>
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
 
-    <script type="text/javascript" src="../styles/docfx.vendor.min.js"></script>
-    <script type="text/javascript" src="../styles/docfx.js"></script>
-    <script type="text/javascript" src="../styles/main.js"></script>
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          Pixel Art Creator 2.0 Docs
+        </div>
+      </div>
+    </footer>
   </body>
 </html>

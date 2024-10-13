@@ -1,91 +1,119 @@
 ﻿<!DOCTYPE html>
-<!--[if IE]><![endif]-->
 <html>
-
   <head>
     <meta charset="utf-8">
-      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
       <title>Struct IntVector2 | Pixel Art Creator 2.0 Docs </title>
-      <meta name="viewport" content="width=device-width">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta name="title" content="Struct IntVector2 | Pixel Art Creator 2.0 Docs ">
-    
-    <meta name="description" content="A struct to represent a 2-dimensional vector with integer coordinates.">
-      <link rel="shortcut icon" href="../resources/icon.ico">
-      <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
-      <link rel="stylesheet" href="../styles/docfx.css">
-      <link rel="stylesheet" href="../styles/main.css">
-      <meta property="docfx:navrel" content="../toc.html">
-      <meta property="docfx:tocrel" content="toc.html">
-    
-    <meta property="docfx:rel" content="../">
-    
+      
+      <meta name="description" content="A struct to represent a 2-dimensional vector with integer coordinates.">
+      <link rel="icon" href="../resources/icon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/new/main/apiSpec/new?filename=PAC_DataStructures_IntVector2.md&amp;value=---%0Auid%3A%20PAC.DataStructures.IntVector2%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
   </head>
-  <body data-spy="scroll" data-target="#affix" data-offset="120">
-    <div id="wrapper">
-      <header>
 
-        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
-          <div class="container">
-            <div class="navbar-header">
-              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-              </button>
-
-              <a class="navbar-brand" href="../index.html">
-                <img id="logo" class="svg" src="../resources/logo.svg" alt="">
-              </a>
-            </div>
-            <div class="collapse navbar-collapse" id="navbar">
-              <form class="navbar-form navbar-right" role="search" id="search">
-                <div class="form-group">
-                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
-                </div>
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../resources/logo.svg" alt="Pixel Art Creator 2.0">
+            Pixel Art Creator 2.0
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
               </form>
             </div>
           </div>
-        </nav>
-
-        <div class="subnav navbar navbar-default">
-          <div class="container hide-when-search" id="breadcrumb">
-            <ul class="breadcrumb">
-              <li></li>
-            </ul>
-          </div>
         </div>
-      </header>
-      <div class="container body-content">
+      </nav>
+    </header>
 
-        <div id="search-results">
-          <div class="search-list">Search Results for <span></span></div>
-          <div class="sr-items">
-            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
           </div>
-          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
         </div>
       </div>
-      <div role="main" class="container body-content hide-when-search">
 
-        <div class="sidenav hide-when-search">
-          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
-          <div class="sidetoggle collapse" id="sidetoggle">
-            <div id="sidetoc"></div>
-          </div>
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
         </div>
-        <div class="article row grid-right">
-          <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="PAC.DataStructures.IntVector2">
+
+        <article data-uid="PAC.DataStructures.IntVector2">
 
 
 
-  <h1 id="PAC_DataStructures_IntVector2" data-uid="PAC.DataStructures.IntVector2" class="text-break">Struct IntVector2</h1>
-  <div class="markdown level0 summary"><p>A struct to represent a 2-dimensional vector with integer coordinates.</p>
+  <h1 id="PAC_DataStructures_IntVector2" data-uid="PAC.DataStructures.IntVector2" class="text-break">
+Struct IntVector2  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Data Structures/IntVector2.cs/#L9"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="PAC.html">PAC</a>.<a class="xref" href="PAC.DataStructures.html">DataStructures</a></dd></dl>
+  
+  </div>
+
+  <div class="markdown summary"><p>A struct to represent a 2-dimensional vector with integer coordinates.</p>
 </div>
-  <div class="markdown level0 conceptual"></div>
-  <div class="inheritedMembers">
-    <h5>Inherited Members</h5>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public struct IntVector2</code></pre>
+  </div>
+
+
+
+
+
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
     <div>
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
     </div>
@@ -95,2505 +123,2011 @@
     <div>
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
     </div>
-  </div>
-  <h6><strong>Namespace</strong>: <a class="xref" href="PAC.html">PAC</a>.<a class="xref" href="PAC.DataStructures.html">DataStructures</a></h6>
-  <h6><strong>Assembly</strong>: .dll</h6>
-  <h5 id="PAC_DataStructures_IntVector2_syntax">Syntax</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public struct IntVector2</code></pre>
-  </div>
-  <h3 id="constructors">Constructors
-</h3>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/new/main/apiSpec/new?filename=PAC_DataStructures_IntVector2__ctor_System_Int32_System_Int32_.md&amp;value=---%0Auid%3A%20PAC.DataStructures.IntVector2.%23ctor(System.Int32%2CSystem.Int32)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Data Structures/IntVector2.cs/#L17">View Source</a>
-  </span>
+  </dd></dl>
+
+
+
+
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
   <a id="PAC_DataStructures_IntVector2__ctor_" data-uid="PAC.DataStructures.IntVector2.#ctor*"></a>
-  <h4 id="PAC_DataStructures_IntVector2__ctor_System_Int32_System_Int32_" data-uid="PAC.DataStructures.IntVector2.#ctor(System.Int32,System.Int32)">IntVector2(int, int)</h4>
+
+  <h3 id="PAC_DataStructures_IntVector2__ctor_System_Int32_System_Int32_" data-uid="PAC.DataStructures.IntVector2.#ctor(System.Int32,System.Int32)">
+  IntVector2(int, int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Data Structures/IntVector2.cs/#L17"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public IntVector2(int x, int y)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
-        <td><span class="parametername">x</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
-        <td><span class="parametername">y</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/new/main/apiSpec/new?filename=PAC_DataStructures_IntVector2__ctor_System_Single_System_Single_.md&amp;value=---%0Auid%3A%20PAC.DataStructures.IntVector2.%23ctor(System.Single%2CSystem.Single)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Data Structures/IntVector2.cs/#L25">View Source</a>
-  </span>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>x</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>y</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
   <a id="PAC_DataStructures_IntVector2__ctor_" data-uid="PAC.DataStructures.IntVector2.#ctor*"></a>
-  <h4 id="PAC_DataStructures_IntVector2__ctor_System_Single_System_Single_" data-uid="PAC.DataStructures.IntVector2.#ctor(System.Single,System.Single)">IntVector2(float, float)</h4>
+
+  <h3 id="PAC_DataStructures_IntVector2__ctor_System_Single_System_Single_" data-uid="PAC.DataStructures.IntVector2.#ctor(System.Single,System.Single)">
+  IntVector2(float, float)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Data Structures/IntVector2.cs/#L25"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"><p>Rounds the coords towards zero.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public IntVector2(float x, float y)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></td>
-        <td><span class="parametername">x</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></td>
-        <td><span class="parametername">y</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/new/main/apiSpec/new?filename=PAC_DataStructures_IntVector2__ctor_Vector2_.md&amp;value=---%0Auid%3A%20PAC.DataStructures.IntVector2.%23ctor(Vector2)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Data Structures/IntVector2.cs/#L33">View Source</a>
-  </span>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>x</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+    <dt><code>y</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
   <a id="PAC_DataStructures_IntVector2__ctor_" data-uid="PAC.DataStructures.IntVector2.#ctor*"></a>
-  <h4 id="PAC_DataStructures_IntVector2__ctor_Vector2_" data-uid="PAC.DataStructures.IntVector2.#ctor(Vector2)">IntVector2(Vector2)</h4>
+
+  <h3 id="PAC_DataStructures_IntVector2__ctor_Vector2_" data-uid="PAC.DataStructures.IntVector2.#ctor(Vector2)">
+  IntVector2(Vector2)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Data Structures/IntVector2.cs/#L33"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"><p>Rounds the coords towards zero.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public IntVector2(Vector2 vector2)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">Vector2</span></td>
-        <td><span class="parametername">vector2</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h3 id="fields">Fields
-</h3>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/new/main/apiSpec/new?filename=PAC_DataStructures_IntVector2_down.md&amp;value=---%0Auid%3A%20PAC.DataStructures.IntVector2.down%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Data Structures/IntVector2.cs/#L50">View Source</a>
-  </span>
-  <h4 id="PAC_DataStructures_IntVector2_down" data-uid="PAC.DataStructures.IntVector2.down">down</h4>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>vector2</code> <span class="xref">Vector2</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="fields">Fields
+</h2>
+
+
+
+  <h3 id="PAC_DataStructures_IntVector2_down" data-uid="PAC.DataStructures.IntVector2.down">
+  down
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Data Structures/IntVector2.cs/#L50"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"><p>The vector (0, -1).</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public static IntVector2 down</code></pre>
   </div>
-  <h5 class="fieldValue">Field Value</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="PAC.DataStructures.IntVector2.html">IntVector2</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/new/main/apiSpec/new?filename=PAC_DataStructures_IntVector2_left.md&amp;value=---%0Auid%3A%20PAC.DataStructures.IntVector2.left%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Data Structures/IntVector2.cs/#L46">View Source</a>
-  </span>
-  <h4 id="PAC_DataStructures_IntVector2_left" data-uid="PAC.DataStructures.IntVector2.left">left</h4>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="PAC.DataStructures.IntVector2.html">IntVector2</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="PAC_DataStructures_IntVector2_left" data-uid="PAC.DataStructures.IntVector2.left">
+  left
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Data Structures/IntVector2.cs/#L46"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"><p>The vector (-1, 0).</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public static IntVector2 left</code></pre>
   </div>
-  <h5 class="fieldValue">Field Value</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="PAC.DataStructures.IntVector2.html">IntVector2</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/new/main/apiSpec/new?filename=PAC_DataStructures_IntVector2_one.md&amp;value=---%0Auid%3A%20PAC.DataStructures.IntVector2.one%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Data Structures/IntVector2.cs/#L42">View Source</a>
-  </span>
-  <h4 id="PAC_DataStructures_IntVector2_one" data-uid="PAC.DataStructures.IntVector2.one">one</h4>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="PAC.DataStructures.IntVector2.html">IntVector2</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="PAC_DataStructures_IntVector2_one" data-uid="PAC.DataStructures.IntVector2.one">
+  one
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Data Structures/IntVector2.cs/#L42"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"><p>The vector (1, 1).</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public static IntVector2 one</code></pre>
   </div>
-  <h5 class="fieldValue">Field Value</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="PAC.DataStructures.IntVector2.html">IntVector2</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/new/main/apiSpec/new?filename=PAC_DataStructures_IntVector2_right.md&amp;value=---%0Auid%3A%20PAC.DataStructures.IntVector2.right%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Data Structures/IntVector2.cs/#L44">View Source</a>
-  </span>
-  <h4 id="PAC_DataStructures_IntVector2_right" data-uid="PAC.DataStructures.IntVector2.right">right</h4>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="PAC.DataStructures.IntVector2.html">IntVector2</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="PAC_DataStructures_IntVector2_right" data-uid="PAC.DataStructures.IntVector2.right">
+  right
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Data Structures/IntVector2.cs/#L44"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"><p>The vector (1, 0).</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public static IntVector2 right</code></pre>
   </div>
-  <h5 class="fieldValue">Field Value</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="PAC.DataStructures.IntVector2.html">IntVector2</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/new/main/apiSpec/new?filename=PAC_DataStructures_IntVector2_up.md&amp;value=---%0Auid%3A%20PAC.DataStructures.IntVector2.up%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Data Structures/IntVector2.cs/#L48">View Source</a>
-  </span>
-  <h4 id="PAC_DataStructures_IntVector2_up" data-uid="PAC.DataStructures.IntVector2.up">up</h4>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="PAC.DataStructures.IntVector2.html">IntVector2</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="PAC_DataStructures_IntVector2_up" data-uid="PAC.DataStructures.IntVector2.up">
+  up
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Data Structures/IntVector2.cs/#L48"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"><p>The vector (0, 1).</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public static IntVector2 up</code></pre>
   </div>
-  <h5 class="fieldValue">Field Value</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="PAC.DataStructures.IntVector2.html">IntVector2</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/new/main/apiSpec/new?filename=PAC_DataStructures_IntVector2_x.md&amp;value=---%0Auid%3A%20PAC.DataStructures.IntVector2.x%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Data Structures/IntVector2.cs/#L11">View Source</a>
-  </span>
-  <h4 id="PAC_DataStructures_IntVector2_x" data-uid="PAC.DataStructures.IntVector2.x">x</h4>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="PAC.DataStructures.IntVector2.html">IntVector2</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="PAC_DataStructures_IntVector2_x" data-uid="PAC.DataStructures.IntVector2.x">
+  x
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Data Structures/IntVector2.cs/#L11"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public int x</code></pre>
   </div>
-  <h5 class="fieldValue">Field Value</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/new/main/apiSpec/new?filename=PAC_DataStructures_IntVector2_y.md&amp;value=---%0Auid%3A%20PAC.DataStructures.IntVector2.y%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Data Structures/IntVector2.cs/#L12">View Source</a>
-  </span>
-  <h4 id="PAC_DataStructures_IntVector2_y" data-uid="PAC.DataStructures.IntVector2.y">y</h4>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="PAC_DataStructures_IntVector2_y" data-uid="PAC.DataStructures.IntVector2.y">
+  y
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Data Structures/IntVector2.cs/#L12"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public int y</code></pre>
   </div>
-  <h5 class="fieldValue">Field Value</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/new/main/apiSpec/new?filename=PAC_DataStructures_IntVector2_zero.md&amp;value=---%0Auid%3A%20PAC.DataStructures.IntVector2.zero%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Data Structures/IntVector2.cs/#L40">View Source</a>
-  </span>
-  <h4 id="PAC_DataStructures_IntVector2_zero" data-uid="PAC.DataStructures.IntVector2.zero">zero</h4>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="PAC_DataStructures_IntVector2_zero" data-uid="PAC.DataStructures.IntVector2.zero">
+  zero
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Data Structures/IntVector2.cs/#L40"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"><p>The vector (0, 0).</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public static IntVector2 zero</code></pre>
   </div>
-  <h5 class="fieldValue">Field Value</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="PAC.DataStructures.IntVector2.html">IntVector2</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h3 id="properties">Properties
-</h3>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/new/main/apiSpec/new?filename=PAC_DataStructures_IntVector2_magnitude.md&amp;value=---%0Auid%3A%20PAC.DataStructures.IntVector2.magnitude%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Data Structures/IntVector2.cs/#L14">View Source</a>
-  </span>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="PAC.DataStructures.IntVector2.html">IntVector2</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
   <a id="PAC_DataStructures_IntVector2_magnitude_" data-uid="PAC.DataStructures.IntVector2.magnitude*"></a>
-  <h4 id="PAC_DataStructures_IntVector2_magnitude" data-uid="PAC.DataStructures.IntVector2.magnitude">magnitude</h4>
+
+  <h3 id="PAC_DataStructures_IntVector2_magnitude" data-uid="PAC.DataStructures.IntVector2.magnitude">
+  magnitude
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Data Structures/IntVector2.cs/#L14"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public float magnitude { get; }</code></pre>
   </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/new/main/apiSpec/new?filename=PAC_DataStructures_IntVector2_squaredMagnitude.md&amp;value=---%0Auid%3A%20PAC.DataStructures.IntVector2.squaredMagnitude%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Data Structures/IntVector2.cs/#L15">View Source</a>
-  </span>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
   <a id="PAC_DataStructures_IntVector2_squaredMagnitude_" data-uid="PAC.DataStructures.IntVector2.squaredMagnitude*"></a>
-  <h4 id="PAC_DataStructures_IntVector2_squaredMagnitude" data-uid="PAC.DataStructures.IntVector2.squaredMagnitude">squaredMagnitude</h4>
+
+  <h3 id="PAC_DataStructures_IntVector2_squaredMagnitude" data-uid="PAC.DataStructures.IntVector2.squaredMagnitude">
+  squaredMagnitude
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Data Structures/IntVector2.cs/#L15"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public float squaredMagnitude { get; }</code></pre>
   </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h3 id="methods">Methods
-</h3>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/new/main/apiSpec/new?filename=PAC_DataStructures_IntVector2_CeilToIntVector2_Vector2_.md&amp;value=---%0Auid%3A%20PAC.DataStructures.IntVector2.CeilToIntVector2(Vector2)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Data Structures/IntVector2.cs/#L287">View Source</a>
-  </span>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
   <a id="PAC_DataStructures_IntVector2_CeilToIntVector2_" data-uid="PAC.DataStructures.IntVector2.CeilToIntVector2*"></a>
-  <h4 id="PAC_DataStructures_IntVector2_CeilToIntVector2_Vector2_" data-uid="PAC.DataStructures.IntVector2.CeilToIntVector2(Vector2)">CeilToIntVector2(Vector2)</h4>
+
+  <h3 id="PAC_DataStructures_IntVector2_CeilToIntVector2_Vector2_" data-uid="PAC.DataStructures.IntVector2.CeilToIntVector2(Vector2)">
+  CeilToIntVector2(Vector2)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Data Structures/IntVector2.cs/#L287"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"><p>Ceils component-wise.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public static IntVector2 CeilToIntVector2(Vector2 vector2)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">Vector2</span></td>
-        <td><span class="parametername">vector2</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="PAC.DataStructures.IntVector2.html">IntVector2</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/new/main/apiSpec/new?filename=PAC_DataStructures_IntVector2_Distance_PAC_DataStructures_IntVector2_PAC_DataStructures_IntVector2_.md&amp;value=---%0Auid%3A%20PAC.DataStructures.IntVector2.Distance(PAC.DataStructures.IntVector2%2CPAC.DataStructures.IntVector2)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Data Structures/IntVector2.cs/#L310">View Source</a>
-  </span>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>vector2</code> <span class="xref">Vector2</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="PAC.DataStructures.IntVector2.html">IntVector2</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
   <a id="PAC_DataStructures_IntVector2_Distance_" data-uid="PAC.DataStructures.IntVector2.Distance*"></a>
-  <h4 id="PAC_DataStructures_IntVector2_Distance_PAC_DataStructures_IntVector2_PAC_DataStructures_IntVector2_" data-uid="PAC.DataStructures.IntVector2.Distance(PAC.DataStructures.IntVector2,PAC.DataStructures.IntVector2)">Distance(IntVector2, IntVector2)</h4>
+
+  <h3 id="PAC_DataStructures_IntVector2_Distance_PAC_DataStructures_IntVector2_PAC_DataStructures_IntVector2_" data-uid="PAC.DataStructures.IntVector2.Distance(PAC.DataStructures.IntVector2,PAC.DataStructures.IntVector2)">
+  Distance(IntVector2, IntVector2)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Data Structures/IntVector2.cs/#L310"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"><p>Computes the Euclidean distance between the vectors.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public static float Distance(IntVector2 a, IntVector2 b)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="PAC.DataStructures.IntVector2.html">IntVector2</a></td>
-        <td><span class="parametername">a</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="PAC.DataStructures.IntVector2.html">IntVector2</a></td>
-        <td><span class="parametername">b</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/new/main/apiSpec/new?filename=PAC_DataStructures_IntVector2_Dot_PAC_DataStructures_IntVector2_PAC_DataStructures_IntVector2_.md&amp;value=---%0Auid%3A%20PAC.DataStructures.IntVector2.Dot(PAC.DataStructures.IntVector2%2CPAC.DataStructures.IntVector2)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Data Structures/IntVector2.cs/#L302">View Source</a>
-  </span>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <a class="xref" href="PAC.DataStructures.IntVector2.html">IntVector2</a></dt>
+    <dd></dd>
+    <dt><code>b</code> <a class="xref" href="PAC.DataStructures.IntVector2.html">IntVector2</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
   <a id="PAC_DataStructures_IntVector2_Dot_" data-uid="PAC.DataStructures.IntVector2.Dot*"></a>
-  <h4 id="PAC_DataStructures_IntVector2_Dot_PAC_DataStructures_IntVector2_PAC_DataStructures_IntVector2_" data-uid="PAC.DataStructures.IntVector2.Dot(PAC.DataStructures.IntVector2,PAC.DataStructures.IntVector2)">Dot(IntVector2, IntVector2)</h4>
+
+  <h3 id="PAC_DataStructures_IntVector2_Dot_PAC_DataStructures_IntVector2_PAC_DataStructures_IntVector2_" data-uid="PAC.DataStructures.IntVector2.Dot(PAC.DataStructures.IntVector2,PAC.DataStructures.IntVector2)">
+  Dot(IntVector2, IntVector2)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Data Structures/IntVector2.cs/#L302"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"><p>Computes the dot product.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public static int Dot(IntVector2 a, IntVector2 b)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="PAC.DataStructures.IntVector2.html">IntVector2</a></td>
-        <td><span class="parametername">a</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="PAC.DataStructures.IntVector2.html">IntVector2</a></td>
-        <td><span class="parametername">b</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/new/main/apiSpec/new?filename=PAC_DataStructures_IntVector2_Equals_System_Object_.md&amp;value=---%0Auid%3A%20PAC.DataStructures.IntVector2.Equals(System.Object)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Data Structures/IntVector2.cs/#L60">View Source</a>
-  </span>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <a class="xref" href="PAC.DataStructures.IntVector2.html">IntVector2</a></dt>
+    <dd></dd>
+    <dt><code>b</code> <a class="xref" href="PAC.DataStructures.IntVector2.html">IntVector2</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
   <a id="PAC_DataStructures_IntVector2_Equals_" data-uid="PAC.DataStructures.IntVector2.Equals*"></a>
-  <h4 id="PAC_DataStructures_IntVector2_Equals_System_Object_" data-uid="PAC.DataStructures.IntVector2.Equals(System.Object)">Equals(object)</h4>
+
+  <h3 id="PAC_DataStructures_IntVector2_Equals_System_Object_" data-uid="PAC.DataStructures.IntVector2.Equals(System.Object)">
+  Equals(object)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Data Structures/IntVector2.cs/#L60"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"><p>Indicates whether this instance and a specified object are equal.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public override bool Equals(object obj)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></td>
-        <td><span class="parametername">obj</span></td>
-        <td><p>The object to compare with the current instance.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
-        <td><p><a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if <code class="paramref">obj</code> and this instance are the same type and represent the same value; otherwise, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="overrides">Overrides</h5>
-  <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetype.equals">ValueType.Equals(object)</a></div>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/new/main/apiSpec/new?filename=PAC_DataStructures_IntVector2_FloorToIntVector2_Vector2_.md&amp;value=---%0Auid%3A%20PAC.DataStructures.IntVector2.FloorToIntVector2(Vector2)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Data Structures/IntVector2.cs/#L280">View Source</a>
-  </span>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>obj</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></dt>
+    <dd><p>The object to compare with the current instance.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p><a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if <code class="paramref">obj</code> and this instance are the same type and represent the same value; otherwise, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
   <a id="PAC_DataStructures_IntVector2_FloorToIntVector2_" data-uid="PAC.DataStructures.IntVector2.FloorToIntVector2*"></a>
-  <h4 id="PAC_DataStructures_IntVector2_FloorToIntVector2_Vector2_" data-uid="PAC.DataStructures.IntVector2.FloorToIntVector2(Vector2)">FloorToIntVector2(Vector2)</h4>
+
+  <h3 id="PAC_DataStructures_IntVector2_FloorToIntVector2_Vector2_" data-uid="PAC.DataStructures.IntVector2.FloorToIntVector2(Vector2)">
+  FloorToIntVector2(Vector2)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Data Structures/IntVector2.cs/#L280"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"><p>Floors component-wise.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public static IntVector2 FloorToIntVector2(Vector2 vector2)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">Vector2</span></td>
-        <td><span class="parametername">vector2</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="PAC.DataStructures.IntVector2.html">IntVector2</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/new/main/apiSpec/new?filename=PAC_DataStructures_IntVector2_GetHashCode.md&amp;value=---%0Auid%3A%20PAC.DataStructures.IntVector2.GetHashCode%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Data Structures/IntVector2.cs/#L73">View Source</a>
-  </span>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>vector2</code> <span class="xref">Vector2</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="PAC.DataStructures.IntVector2.html">IntVector2</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
   <a id="PAC_DataStructures_IntVector2_GetHashCode_" data-uid="PAC.DataStructures.IntVector2.GetHashCode*"></a>
-  <h4 id="PAC_DataStructures_IntVector2_GetHashCode" data-uid="PAC.DataStructures.IntVector2.GetHashCode">GetHashCode()</h4>
+
+  <h3 id="PAC_DataStructures_IntVector2_GetHashCode" data-uid="PAC.DataStructures.IntVector2.GetHashCode">
+  GetHashCode()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Data Structures/IntVector2.cs/#L73"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"><p>Returns the hash code for this instance.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public override int GetHashCode()</code></pre>
   </div>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
-        <td><p>A 32-bit signed integer that is the hash code for this instance.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="overrides">Overrides</h5>
-  <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode">ValueType.GetHashCode()</a></div>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/new/main/apiSpec/new?filename=PAC_DataStructures_IntVector2_Magnitude_PAC_DataStructures_IntVector2_.md&amp;value=---%0Auid%3A%20PAC.DataStructures.IntVector2.Magnitude(PAC.DataStructures.IntVector2)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Data Structures/IntVector2.cs/#L318">View Source</a>
-  </span>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>A 32-bit signed integer that is the hash code for this instance.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
   <a id="PAC_DataStructures_IntVector2_Magnitude_" data-uid="PAC.DataStructures.IntVector2.Magnitude*"></a>
-  <h4 id="PAC_DataStructures_IntVector2_Magnitude_PAC_DataStructures_IntVector2_" data-uid="PAC.DataStructures.IntVector2.Magnitude(PAC.DataStructures.IntVector2)">Magnitude(IntVector2)</h4>
+
+  <h3 id="PAC_DataStructures_IntVector2_Magnitude_PAC_DataStructures_IntVector2_" data-uid="PAC.DataStructures.IntVector2.Magnitude(PAC.DataStructures.IntVector2)">
+  Magnitude(IntVector2)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Data Structures/IntVector2.cs/#L318"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public static float Magnitude(IntVector2 a)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="PAC.DataStructures.IntVector2.html">IntVector2</a></td>
-        <td><span class="parametername">a</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/new/main/apiSpec/new?filename=PAC_DataStructures_IntVector2_Max_PAC_DataStructures_IntVector2_PAC_DataStructures_IntVector2_.md&amp;value=---%0Auid%3A%20PAC.DataStructures.IntVector2.Max(PAC.DataStructures.IntVector2%2CPAC.DataStructures.IntVector2)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Data Structures/IntVector2.cs/#L330">View Source</a>
-  </span>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <a class="xref" href="PAC.DataStructures.IntVector2.html">IntVector2</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
   <a id="PAC_DataStructures_IntVector2_Max_" data-uid="PAC.DataStructures.IntVector2.Max*"></a>
-  <h4 id="PAC_DataStructures_IntVector2_Max_PAC_DataStructures_IntVector2_PAC_DataStructures_IntVector2_" data-uid="PAC.DataStructures.IntVector2.Max(PAC.DataStructures.IntVector2,PAC.DataStructures.IntVector2)">Max(IntVector2, IntVector2)</h4>
+
+  <h3 id="PAC_DataStructures_IntVector2_Max_PAC_DataStructures_IntVector2_PAC_DataStructures_IntVector2_" data-uid="PAC.DataStructures.IntVector2.Max(PAC.DataStructures.IntVector2,PAC.DataStructures.IntVector2)">
+  Max(IntVector2, IntVector2)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Data Structures/IntVector2.cs/#L330"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"><p>Takes the maximum of a and b component-wise.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public static IntVector2 Max(IntVector2 a, IntVector2 b)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="PAC.DataStructures.IntVector2.html">IntVector2</a></td>
-        <td><span class="parametername">a</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="PAC.DataStructures.IntVector2.html">IntVector2</a></td>
-        <td><span class="parametername">b</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="PAC.DataStructures.IntVector2.html">IntVector2</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/new/main/apiSpec/new?filename=PAC_DataStructures_IntVector2_Max_PAC_DataStructures_IntVector2___.md&amp;value=---%0Auid%3A%20PAC.DataStructures.IntVector2.Max(PAC.DataStructures.IntVector2%5B%5D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Data Structures/IntVector2.cs/#L338">View Source</a>
-  </span>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <a class="xref" href="PAC.DataStructures.IntVector2.html">IntVector2</a></dt>
+    <dd></dd>
+    <dt><code>b</code> <a class="xref" href="PAC.DataStructures.IntVector2.html">IntVector2</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="PAC.DataStructures.IntVector2.html">IntVector2</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
   <a id="PAC_DataStructures_IntVector2_Max_" data-uid="PAC.DataStructures.IntVector2.Max*"></a>
-  <h4 id="PAC_DataStructures_IntVector2_Max_PAC_DataStructures_IntVector2___" data-uid="PAC.DataStructures.IntVector2.Max(PAC.DataStructures.IntVector2[])">Max(params IntVector2[])</h4>
+
+  <h3 id="PAC_DataStructures_IntVector2_Max_PAC_DataStructures_IntVector2___" data-uid="PAC.DataStructures.IntVector2.Max(PAC.DataStructures.IntVector2[])">
+  Max(params IntVector2[])
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Data Structures/IntVector2.cs/#L338"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"><p>Takes the maximum of the vectors component-wise.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public static IntVector2 Max(params IntVector2[] intVectors)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="PAC.DataStructures.IntVector2.html">IntVector2</a>[]</td>
-        <td><span class="parametername">intVectors</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="PAC.DataStructures.IntVector2.html">IntVector2</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/new/main/apiSpec/new?filename=PAC_DataStructures_IntVector2_Min_PAC_DataStructures_IntVector2_PAC_DataStructures_IntVector2_.md&amp;value=---%0Auid%3A%20PAC.DataStructures.IntVector2.Min(PAC.DataStructures.IntVector2%2CPAC.DataStructures.IntVector2)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Data Structures/IntVector2.cs/#L349">View Source</a>
-  </span>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>intVectors</code> <a class="xref" href="PAC.DataStructures.IntVector2.html">IntVector2</a>[]</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="PAC.DataStructures.IntVector2.html">IntVector2</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
   <a id="PAC_DataStructures_IntVector2_Min_" data-uid="PAC.DataStructures.IntVector2.Min*"></a>
-  <h4 id="PAC_DataStructures_IntVector2_Min_PAC_DataStructures_IntVector2_PAC_DataStructures_IntVector2_" data-uid="PAC.DataStructures.IntVector2.Min(PAC.DataStructures.IntVector2,PAC.DataStructures.IntVector2)">Min(IntVector2, IntVector2)</h4>
+
+  <h3 id="PAC_DataStructures_IntVector2_Min_PAC_DataStructures_IntVector2_PAC_DataStructures_IntVector2_" data-uid="PAC.DataStructures.IntVector2.Min(PAC.DataStructures.IntVector2,PAC.DataStructures.IntVector2)">
+  Min(IntVector2, IntVector2)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Data Structures/IntVector2.cs/#L349"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"><p>Takes the minimum of a and b component-wise.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public static IntVector2 Min(IntVector2 a, IntVector2 b)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="PAC.DataStructures.IntVector2.html">IntVector2</a></td>
-        <td><span class="parametername">a</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="PAC.DataStructures.IntVector2.html">IntVector2</a></td>
-        <td><span class="parametername">b</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="PAC.DataStructures.IntVector2.html">IntVector2</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/new/main/apiSpec/new?filename=PAC_DataStructures_IntVector2_Min_PAC_DataStructures_IntVector2___.md&amp;value=---%0Auid%3A%20PAC.DataStructures.IntVector2.Min(PAC.DataStructures.IntVector2%5B%5D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Data Structures/IntVector2.cs/#L356">View Source</a>
-  </span>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <a class="xref" href="PAC.DataStructures.IntVector2.html">IntVector2</a></dt>
+    <dd></dd>
+    <dt><code>b</code> <a class="xref" href="PAC.DataStructures.IntVector2.html">IntVector2</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="PAC.DataStructures.IntVector2.html">IntVector2</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
   <a id="PAC_DataStructures_IntVector2_Min_" data-uid="PAC.DataStructures.IntVector2.Min*"></a>
-  <h4 id="PAC_DataStructures_IntVector2_Min_PAC_DataStructures_IntVector2___" data-uid="PAC.DataStructures.IntVector2.Min(PAC.DataStructures.IntVector2[])">Min(params IntVector2[])</h4>
+
+  <h3 id="PAC_DataStructures_IntVector2_Min_PAC_DataStructures_IntVector2___" data-uid="PAC.DataStructures.IntVector2.Min(PAC.DataStructures.IntVector2[])">
+  Min(params IntVector2[])
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Data Structures/IntVector2.cs/#L356"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"><p>Takes the minimum of the vectors component-wise.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public static IntVector2 Min(params IntVector2[] intVectors)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="PAC.DataStructures.IntVector2.html">IntVector2</a>[]</td>
-        <td><span class="parametername">intVectors</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="PAC.DataStructures.IntVector2.html">IntVector2</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/new/main/apiSpec/new?filename=PAC_DataStructures_IntVector2_RoundToIntVector2_Vector2_.md&amp;value=---%0Auid%3A%20PAC.DataStructures.IntVector2.RoundToIntVector2(Vector2)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Data Structures/IntVector2.cs/#L294">View Source</a>
-  </span>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>intVectors</code> <a class="xref" href="PAC.DataStructures.IntVector2.html">IntVector2</a>[]</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="PAC.DataStructures.IntVector2.html">IntVector2</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
   <a id="PAC_DataStructures_IntVector2_RoundToIntVector2_" data-uid="PAC.DataStructures.IntVector2.RoundToIntVector2*"></a>
-  <h4 id="PAC_DataStructures_IntVector2_RoundToIntVector2_Vector2_" data-uid="PAC.DataStructures.IntVector2.RoundToIntVector2(Vector2)">RoundToIntVector2(Vector2)</h4>
+
+  <h3 id="PAC_DataStructures_IntVector2_RoundToIntVector2_Vector2_" data-uid="PAC.DataStructures.IntVector2.RoundToIntVector2(Vector2)">
+  RoundToIntVector2(Vector2)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Data Structures/IntVector2.cs/#L294"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"><p>Rounds component-wise.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public static IntVector2 RoundToIntVector2(Vector2 vector2)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">Vector2</span></td>
-        <td><span class="parametername">vector2</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="PAC.DataStructures.IntVector2.html">IntVector2</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/new/main/apiSpec/new?filename=PAC_DataStructures_IntVector2_SqrDistance_PAC_DataStructures_IntVector2_PAC_DataStructures_IntVector2_.md&amp;value=---%0Auid%3A%20PAC.DataStructures.IntVector2.SqrDistance(PAC.DataStructures.IntVector2%2CPAC.DataStructures.IntVector2)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Data Structures/IntVector2.cs/#L314">View Source</a>
-  </span>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>vector2</code> <span class="xref">Vector2</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="PAC.DataStructures.IntVector2.html">IntVector2</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
   <a id="PAC_DataStructures_IntVector2_SqrDistance_" data-uid="PAC.DataStructures.IntVector2.SqrDistance*"></a>
-  <h4 id="PAC_DataStructures_IntVector2_SqrDistance_PAC_DataStructures_IntVector2_PAC_DataStructures_IntVector2_" data-uid="PAC.DataStructures.IntVector2.SqrDistance(PAC.DataStructures.IntVector2,PAC.DataStructures.IntVector2)">SqrDistance(IntVector2, IntVector2)</h4>
+
+  <h3 id="PAC_DataStructures_IntVector2_SqrDistance_PAC_DataStructures_IntVector2_PAC_DataStructures_IntVector2_" data-uid="PAC.DataStructures.IntVector2.SqrDistance(PAC.DataStructures.IntVector2,PAC.DataStructures.IntVector2)">
+  SqrDistance(IntVector2, IntVector2)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Data Structures/IntVector2.cs/#L314"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public static float SqrDistance(IntVector2 a, IntVector2 b)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="PAC.DataStructures.IntVector2.html">IntVector2</a></td>
-        <td><span class="parametername">a</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="PAC.DataStructures.IntVector2.html">IntVector2</a></td>
-        <td><span class="parametername">b</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/new/main/apiSpec/new?filename=PAC_DataStructures_IntVector2_SqrMagnitude_PAC_DataStructures_IntVector2_.md&amp;value=---%0Auid%3A%20PAC.DataStructures.IntVector2.SqrMagnitude(PAC.DataStructures.IntVector2)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Data Structures/IntVector2.cs/#L322">View Source</a>
-  </span>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <a class="xref" href="PAC.DataStructures.IntVector2.html">IntVector2</a></dt>
+    <dd></dd>
+    <dt><code>b</code> <a class="xref" href="PAC.DataStructures.IntVector2.html">IntVector2</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
   <a id="PAC_DataStructures_IntVector2_SqrMagnitude_" data-uid="PAC.DataStructures.IntVector2.SqrMagnitude*"></a>
-  <h4 id="PAC_DataStructures_IntVector2_SqrMagnitude_PAC_DataStructures_IntVector2_" data-uid="PAC.DataStructures.IntVector2.SqrMagnitude(PAC.DataStructures.IntVector2)">SqrMagnitude(IntVector2)</h4>
+
+  <h3 id="PAC_DataStructures_IntVector2_SqrMagnitude_PAC_DataStructures_IntVector2_" data-uid="PAC.DataStructures.IntVector2.SqrMagnitude(PAC.DataStructures.IntVector2)">
+  SqrMagnitude(IntVector2)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Data Structures/IntVector2.cs/#L322"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public static float SqrMagnitude(IntVector2 a)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="PAC.DataStructures.IntVector2.html">IntVector2</a></td>
-        <td><span class="parametername">a</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/new/main/apiSpec/new?filename=PAC_DataStructures_IntVector2_ToString.md&amp;value=---%0Auid%3A%20PAC.DataStructures.IntVector2.ToString%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Data Structures/IntVector2.cs/#L78">View Source</a>
-  </span>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <a class="xref" href="PAC.DataStructures.IntVector2.html">IntVector2</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
   <a id="PAC_DataStructures_IntVector2_ToString_" data-uid="PAC.DataStructures.IntVector2.ToString*"></a>
-  <h4 id="PAC_DataStructures_IntVector2_ToString" data-uid="PAC.DataStructures.IntVector2.ToString">ToString()</h4>
+
+  <h3 id="PAC_DataStructures_IntVector2_ToString" data-uid="PAC.DataStructures.IntVector2.ToString">
+  ToString()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Data Structures/IntVector2.cs/#L78"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"><p>Returns the fully qualified type name of this instance.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public override string ToString()</code></pre>
   </div>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
-        <td><p>The fully qualified type name.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="overrides">Overrides</h5>
-  <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetype.tostring">ValueType.ToString()</a></div>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/new/main/apiSpec/new?filename=PAC_DataStructures_IntVector2_ToVector2.md&amp;value=---%0Auid%3A%20PAC.DataStructures.IntVector2.ToVector2%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Data Structures/IntVector2.cs/#L260">View Source</a>
-  </span>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The fully qualified type name.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
   <a id="PAC_DataStructures_IntVector2_ToVector2_" data-uid="PAC.DataStructures.IntVector2.ToVector2*"></a>
-  <h4 id="PAC_DataStructures_IntVector2_ToVector2" data-uid="PAC.DataStructures.IntVector2.ToVector2">ToVector2()</h4>
+
+  <h3 id="PAC_DataStructures_IntVector2_ToVector2" data-uid="PAC.DataStructures.IntVector2.ToVector2">
+  ToVector2()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Data Structures/IntVector2.cs/#L260"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"><p>Cast to Unity Vector2.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public Vector2 ToVector2()</code></pre>
   </div>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">Vector2</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/new/main/apiSpec/new?filename=PAC_DataStructures_IntVector2_ToVector3.md&amp;value=---%0Auid%3A%20PAC.DataStructures.IntVector2.ToVector3%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Data Structures/IntVector2.cs/#L272">View Source</a>
-  </span>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Vector2</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
   <a id="PAC_DataStructures_IntVector2_ToVector3_" data-uid="PAC.DataStructures.IntVector2.ToVector3*"></a>
-  <h4 id="PAC_DataStructures_IntVector2_ToVector3" data-uid="PAC.DataStructures.IntVector2.ToVector3">ToVector3()</h4>
+
+  <h3 id="PAC_DataStructures_IntVector2_ToVector3" data-uid="PAC.DataStructures.IntVector2.ToVector3">
+  ToVector3()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Data Structures/IntVector2.cs/#L272"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"><p>Cast to Unity Vector3, with a 0 in the z-coord.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public Vector3 ToVector3()</code></pre>
   </div>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">Vector3</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h3 id="operators">Operators
-</h3>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/new/main/apiSpec/new?filename=PAC_DataStructures_IntVector2_op_Addition_PAC_DataStructures_IntVector2_PAC_DataStructures_IntVector2_.md&amp;value=---%0Auid%3A%20PAC.DataStructures.IntVector2.op_Addition(PAC.DataStructures.IntVector2%2CPAC.DataStructures.IntVector2)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Data Structures/IntVector2.cs/#L115">View Source</a>
-  </span>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Vector3</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="operators">Operators
+</h2>
+
+
   <a id="PAC_DataStructures_IntVector2_op_Addition_" data-uid="PAC.DataStructures.IntVector2.op_Addition*"></a>
-  <h4 id="PAC_DataStructures_IntVector2_op_Addition_PAC_DataStructures_IntVector2_PAC_DataStructures_IntVector2_" data-uid="PAC.DataStructures.IntVector2.op_Addition(PAC.DataStructures.IntVector2,PAC.DataStructures.IntVector2)">operator +(IntVector2, IntVector2)</h4>
+
+  <h3 id="PAC_DataStructures_IntVector2_op_Addition_PAC_DataStructures_IntVector2_PAC_DataStructures_IntVector2_" data-uid="PAC.DataStructures.IntVector2.op_Addition(PAC.DataStructures.IntVector2,PAC.DataStructures.IntVector2)">
+  operator +(IntVector2, IntVector2)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Data Structures/IntVector2.cs/#L115"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"><p>Adds component-wise.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public static IntVector2 operator +(IntVector2 a, IntVector2 b)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="PAC.DataStructures.IntVector2.html">IntVector2</a></td>
-        <td><span class="parametername">a</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="PAC.DataStructures.IntVector2.html">IntVector2</a></td>
-        <td><span class="parametername">b</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="PAC.DataStructures.IntVector2.html">IntVector2</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/new/main/apiSpec/new?filename=PAC_DataStructures_IntVector2_op_Addition_PAC_DataStructures_IntVector2_PAC_DataStructures_IntVector2___.md&amp;value=---%0Auid%3A%20PAC.DataStructures.IntVector2.op_Addition(PAC.DataStructures.IntVector2%2CPAC.DataStructures.IntVector2%5B%5D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Data Structures/IntVector2.cs/#L122">View Source</a>
-  </span>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <a class="xref" href="PAC.DataStructures.IntVector2.html">IntVector2</a></dt>
+    <dd></dd>
+    <dt><code>b</code> <a class="xref" href="PAC.DataStructures.IntVector2.html">IntVector2</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="PAC.DataStructures.IntVector2.html">IntVector2</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
   <a id="PAC_DataStructures_IntVector2_op_Addition_" data-uid="PAC.DataStructures.IntVector2.op_Addition*"></a>
-  <h4 id="PAC_DataStructures_IntVector2_op_Addition_PAC_DataStructures_IntVector2_PAC_DataStructures_IntVector2___" data-uid="PAC.DataStructures.IntVector2.op_Addition(PAC.DataStructures.IntVector2,PAC.DataStructures.IntVector2[])">operator +(IntVector2, IntVector2[])</h4>
+
+  <h3 id="PAC_DataStructures_IntVector2_op_Addition_PAC_DataStructures_IntVector2_PAC_DataStructures_IntVector2___" data-uid="PAC.DataStructures.IntVector2.op_Addition(PAC.DataStructures.IntVector2,PAC.DataStructures.IntVector2[])">
+  operator +(IntVector2, IntVector2[])
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Data Structures/IntVector2.cs/#L122"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"><p>Adds the vector to each element of the array.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public static IntVector2[] operator +(IntVector2 intVector, IntVector2[] intVectorArray)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="PAC.DataStructures.IntVector2.html">IntVector2</a></td>
-        <td><span class="parametername">intVector</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="PAC.DataStructures.IntVector2.html">IntVector2</a>[]</td>
-        <td><span class="parametername">intVectorArray</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="PAC.DataStructures.IntVector2.html">IntVector2</a>[]</td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/new/main/apiSpec/new?filename=PAC_DataStructures_IntVector2_op_Addition_PAC_DataStructures_IntVector2___PAC_DataStructures_IntVector2_.md&amp;value=---%0Auid%3A%20PAC.DataStructures.IntVector2.op_Addition(PAC.DataStructures.IntVector2%5B%5D%2CPAC.DataStructures.IntVector2)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Data Structures/IntVector2.cs/#L134">View Source</a>
-  </span>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>intVector</code> <a class="xref" href="PAC.DataStructures.IntVector2.html">IntVector2</a></dt>
+    <dd></dd>
+    <dt><code>intVectorArray</code> <a class="xref" href="PAC.DataStructures.IntVector2.html">IntVector2</a>[]</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="PAC.DataStructures.IntVector2.html">IntVector2</a>[]</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
   <a id="PAC_DataStructures_IntVector2_op_Addition_" data-uid="PAC.DataStructures.IntVector2.op_Addition*"></a>
-  <h4 id="PAC_DataStructures_IntVector2_op_Addition_PAC_DataStructures_IntVector2___PAC_DataStructures_IntVector2_" data-uid="PAC.DataStructures.IntVector2.op_Addition(PAC.DataStructures.IntVector2[],PAC.DataStructures.IntVector2)">operator +(IntVector2[], IntVector2)</h4>
+
+  <h3 id="PAC_DataStructures_IntVector2_op_Addition_PAC_DataStructures_IntVector2___PAC_DataStructures_IntVector2_" data-uid="PAC.DataStructures.IntVector2.op_Addition(PAC.DataStructures.IntVector2[],PAC.DataStructures.IntVector2)">
+  operator +(IntVector2[], IntVector2)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Data Structures/IntVector2.cs/#L134"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"><p>Adds the vector to each element of the array.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public static IntVector2[] operator +(IntVector2[] intVectorArray, IntVector2 intVector)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="PAC.DataStructures.IntVector2.html">IntVector2</a>[]</td>
-        <td><span class="parametername">intVectorArray</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="PAC.DataStructures.IntVector2.html">IntVector2</a></td>
-        <td><span class="parametername">intVector</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="PAC.DataStructures.IntVector2.html">IntVector2</a>[]</td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/new/main/apiSpec/new?filename=PAC_DataStructures_IntVector2_op_Division_PAC_DataStructures_IntVector2_PAC_DataStructures_IntVector2_.md&amp;value=---%0Auid%3A%20PAC.DataStructures.IntVector2.op_Division(PAC.DataStructures.IntVector2%2CPAC.DataStructures.IntVector2)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Data Structures/IntVector2.cs/#L217">View Source</a>
-  </span>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>intVectorArray</code> <a class="xref" href="PAC.DataStructures.IntVector2.html">IntVector2</a>[]</dt>
+    <dd></dd>
+    <dt><code>intVector</code> <a class="xref" href="PAC.DataStructures.IntVector2.html">IntVector2</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="PAC.DataStructures.IntVector2.html">IntVector2</a>[]</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
   <a id="PAC_DataStructures_IntVector2_op_Division_" data-uid="PAC.DataStructures.IntVector2.op_Division*"></a>
-  <h4 id="PAC_DataStructures_IntVector2_op_Division_PAC_DataStructures_IntVector2_PAC_DataStructures_IntVector2_" data-uid="PAC.DataStructures.IntVector2.op_Division(PAC.DataStructures.IntVector2,PAC.DataStructures.IntVector2)">operator /(IntVector2, IntVector2)</h4>
+
+  <h3 id="PAC_DataStructures_IntVector2_op_Division_PAC_DataStructures_IntVector2_PAC_DataStructures_IntVector2_" data-uid="PAC.DataStructures.IntVector2.op_Division(PAC.DataStructures.IntVector2,PAC.DataStructures.IntVector2)">
+  operator /(IntVector2, IntVector2)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Data Structures/IntVector2.cs/#L217"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"><p>Divides (integer division) component-wise.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public static IntVector2 operator /(IntVector2 a, IntVector2 b)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="PAC.DataStructures.IntVector2.html">IntVector2</a></td>
-        <td><span class="parametername">a</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="PAC.DataStructures.IntVector2.html">IntVector2</a></td>
-        <td><span class="parametername">b</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="PAC.DataStructures.IntVector2.html">IntVector2</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/new/main/apiSpec/new?filename=PAC_DataStructures_IntVector2_op_Division_PAC_DataStructures_IntVector2_PAC_DataStructures_IntVector2___.md&amp;value=---%0Auid%3A%20PAC.DataStructures.IntVector2.op_Division(PAC.DataStructures.IntVector2%2CPAC.DataStructures.IntVector2%5B%5D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Data Structures/IntVector2.cs/#L231">View Source</a>
-  </span>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <a class="xref" href="PAC.DataStructures.IntVector2.html">IntVector2</a></dt>
+    <dd></dd>
+    <dt><code>b</code> <a class="xref" href="PAC.DataStructures.IntVector2.html">IntVector2</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="PAC.DataStructures.IntVector2.html">IntVector2</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
   <a id="PAC_DataStructures_IntVector2_op_Division_" data-uid="PAC.DataStructures.IntVector2.op_Division*"></a>
-  <h4 id="PAC_DataStructures_IntVector2_op_Division_PAC_DataStructures_IntVector2_PAC_DataStructures_IntVector2___" data-uid="PAC.DataStructures.IntVector2.op_Division(PAC.DataStructures.IntVector2,PAC.DataStructures.IntVector2[])">operator /(IntVector2, IntVector2[])</h4>
+
+  <h3 id="PAC_DataStructures_IntVector2_op_Division_PAC_DataStructures_IntVector2_PAC_DataStructures_IntVector2___" data-uid="PAC.DataStructures.IntVector2.op_Division(PAC.DataStructures.IntVector2,PAC.DataStructures.IntVector2[])">
+  operator /(IntVector2, IntVector2[])
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Data Structures/IntVector2.cs/#L231"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"><p>Divides the vector by each element of the array.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public static IntVector2[] operator /(IntVector2 intVector, IntVector2[] intVectorArray)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="PAC.DataStructures.IntVector2.html">IntVector2</a></td>
-        <td><span class="parametername">intVector</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="PAC.DataStructures.IntVector2.html">IntVector2</a>[]</td>
-        <td><span class="parametername">intVectorArray</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="PAC.DataStructures.IntVector2.html">IntVector2</a>[]</td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/new/main/apiSpec/new?filename=PAC_DataStructures_IntVector2_op_Division_PAC_DataStructures_IntVector2_System_Int32_.md&amp;value=---%0Auid%3A%20PAC.DataStructures.IntVector2.op_Division(PAC.DataStructures.IntVector2%2CSystem.Int32)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Data Structures/IntVector2.cs/#L224">View Source</a>
-  </span>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>intVector</code> <a class="xref" href="PAC.DataStructures.IntVector2.html">IntVector2</a></dt>
+    <dd></dd>
+    <dt><code>intVectorArray</code> <a class="xref" href="PAC.DataStructures.IntVector2.html">IntVector2</a>[]</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="PAC.DataStructures.IntVector2.html">IntVector2</a>[]</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
   <a id="PAC_DataStructures_IntVector2_op_Division_" data-uid="PAC.DataStructures.IntVector2.op_Division*"></a>
-  <h4 id="PAC_DataStructures_IntVector2_op_Division_PAC_DataStructures_IntVector2_System_Int32_" data-uid="PAC.DataStructures.IntVector2.op_Division(PAC.DataStructures.IntVector2,System.Int32)">operator /(IntVector2, int)</h4>
+
+  <h3 id="PAC_DataStructures_IntVector2_op_Division_PAC_DataStructures_IntVector2_System_Int32_" data-uid="PAC.DataStructures.IntVector2.op_Division(PAC.DataStructures.IntVector2,System.Int32)">
+  operator /(IntVector2, int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Data Structures/IntVector2.cs/#L224"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"><p>Divides (integer division) component-wise.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public static IntVector2 operator /(IntVector2 vector, int scalar)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="PAC.DataStructures.IntVector2.html">IntVector2</a></td>
-        <td><span class="parametername">vector</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
-        <td><span class="parametername">scalar</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="PAC.DataStructures.IntVector2.html">IntVector2</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/new/main/apiSpec/new?filename=PAC_DataStructures_IntVector2_op_Division_PAC_DataStructures_IntVector2___PAC_DataStructures_IntVector2_.md&amp;value=---%0Auid%3A%20PAC.DataStructures.IntVector2.op_Division(PAC.DataStructures.IntVector2%5B%5D%2CPAC.DataStructures.IntVector2)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Data Structures/IntVector2.cs/#L243">View Source</a>
-  </span>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>vector</code> <a class="xref" href="PAC.DataStructures.IntVector2.html">IntVector2</a></dt>
+    <dd></dd>
+    <dt><code>scalar</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="PAC.DataStructures.IntVector2.html">IntVector2</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
   <a id="PAC_DataStructures_IntVector2_op_Division_" data-uid="PAC.DataStructures.IntVector2.op_Division*"></a>
-  <h4 id="PAC_DataStructures_IntVector2_op_Division_PAC_DataStructures_IntVector2___PAC_DataStructures_IntVector2_" data-uid="PAC.DataStructures.IntVector2.op_Division(PAC.DataStructures.IntVector2[],PAC.DataStructures.IntVector2)">operator /(IntVector2[], IntVector2)</h4>
+
+  <h3 id="PAC_DataStructures_IntVector2_op_Division_PAC_DataStructures_IntVector2___PAC_DataStructures_IntVector2_" data-uid="PAC.DataStructures.IntVector2.op_Division(PAC.DataStructures.IntVector2[],PAC.DataStructures.IntVector2)">
+  operator /(IntVector2[], IntVector2)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Data Structures/IntVector2.cs/#L243"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"><p>Divides each element of the array by the vector.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public static IntVector2[] operator /(IntVector2[] intVectorArray, IntVector2 intVector)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="PAC.DataStructures.IntVector2.html">IntVector2</a>[]</td>
-        <td><span class="parametername">intVectorArray</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="PAC.DataStructures.IntVector2.html">IntVector2</a></td>
-        <td><span class="parametername">intVector</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="PAC.DataStructures.IntVector2.html">IntVector2</a>[]</td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/new/main/apiSpec/new?filename=PAC_DataStructures_IntVector2_op_Equality_PAC_DataStructures_IntVector2_PAC_DataStructures_IntVector2_.md&amp;value=---%0Auid%3A%20PAC.DataStructures.IntVector2.op_Equality(PAC.DataStructures.IntVector2%2CPAC.DataStructures.IntVector2)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Data Structures/IntVector2.cs/#L52">View Source</a>
-  </span>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>intVectorArray</code> <a class="xref" href="PAC.DataStructures.IntVector2.html">IntVector2</a>[]</dt>
+    <dd></dd>
+    <dt><code>intVector</code> <a class="xref" href="PAC.DataStructures.IntVector2.html">IntVector2</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="PAC.DataStructures.IntVector2.html">IntVector2</a>[]</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
   <a id="PAC_DataStructures_IntVector2_op_Equality_" data-uid="PAC.DataStructures.IntVector2.op_Equality*"></a>
-  <h4 id="PAC_DataStructures_IntVector2_op_Equality_PAC_DataStructures_IntVector2_PAC_DataStructures_IntVector2_" data-uid="PAC.DataStructures.IntVector2.op_Equality(PAC.DataStructures.IntVector2,PAC.DataStructures.IntVector2)">operator ==(IntVector2, IntVector2)</h4>
+
+  <h3 id="PAC_DataStructures_IntVector2_op_Equality_PAC_DataStructures_IntVector2_PAC_DataStructures_IntVector2_" data-uid="PAC.DataStructures.IntVector2.op_Equality(PAC.DataStructures.IntVector2,PAC.DataStructures.IntVector2)">
+  operator ==(IntVector2, IntVector2)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Data Structures/IntVector2.cs/#L52"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public static bool operator ==(IntVector2 a, IntVector2 b)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="PAC.DataStructures.IntVector2.html">IntVector2</a></td>
-        <td><span class="parametername">a</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="PAC.DataStructures.IntVector2.html">IntVector2</a></td>
-        <td><span class="parametername">b</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/new/main/apiSpec/new?filename=PAC_DataStructures_IntVector2_op_GreaterThan_PAC_DataStructures_IntVector2_PAC_DataStructures_IntVector2_.md&amp;value=---%0Auid%3A%20PAC.DataStructures.IntVector2.op_GreaterThan(PAC.DataStructures.IntVector2%2CPAC.DataStructures.IntVector2)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Data Structures/IntVector2.cs/#L93">View Source</a>
-  </span>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <a class="xref" href="PAC.DataStructures.IntVector2.html">IntVector2</a></dt>
+    <dd></dd>
+    <dt><code>b</code> <a class="xref" href="PAC.DataStructures.IntVector2.html">IntVector2</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
   <a id="PAC_DataStructures_IntVector2_op_GreaterThan_" data-uid="PAC.DataStructures.IntVector2.op_GreaterThan*"></a>
-  <h4 id="PAC_DataStructures_IntVector2_op_GreaterThan_PAC_DataStructures_IntVector2_PAC_DataStructures_IntVector2_" data-uid="PAC.DataStructures.IntVector2.op_GreaterThan(PAC.DataStructures.IntVector2,PAC.DataStructures.IntVector2)">operator &gt;(IntVector2, IntVector2)</h4>
+
+  <h3 id="PAC_DataStructures_IntVector2_op_GreaterThan_PAC_DataStructures_IntVector2_PAC_DataStructures_IntVector2_" data-uid="PAC.DataStructures.IntVector2.op_GreaterThan(PAC.DataStructures.IntVector2,PAC.DataStructures.IntVector2)">
+  operator &gt;(IntVector2, IntVector2)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Data Structures/IntVector2.cs/#L93"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"><p>Compares component-wise.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public static bool operator &gt;(IntVector2 a, IntVector2 b)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="PAC.DataStructures.IntVector2.html">IntVector2</a></td>
-        <td><span class="parametername">a</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="PAC.DataStructures.IntVector2.html">IntVector2</a></td>
-        <td><span class="parametername">b</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/new/main/apiSpec/new?filename=PAC_DataStructures_IntVector2_op_GreaterThanOrEqual_PAC_DataStructures_IntVector2_PAC_DataStructures_IntVector2_.md&amp;value=---%0Auid%3A%20PAC.DataStructures.IntVector2.op_GreaterThanOrEqual(PAC.DataStructures.IntVector2%2CPAC.DataStructures.IntVector2)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Data Structures/IntVector2.cs/#L107">View Source</a>
-  </span>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <a class="xref" href="PAC.DataStructures.IntVector2.html">IntVector2</a></dt>
+    <dd></dd>
+    <dt><code>b</code> <a class="xref" href="PAC.DataStructures.IntVector2.html">IntVector2</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
   <a id="PAC_DataStructures_IntVector2_op_GreaterThanOrEqual_" data-uid="PAC.DataStructures.IntVector2.op_GreaterThanOrEqual*"></a>
-  <h4 id="PAC_DataStructures_IntVector2_op_GreaterThanOrEqual_PAC_DataStructures_IntVector2_PAC_DataStructures_IntVector2_" data-uid="PAC.DataStructures.IntVector2.op_GreaterThanOrEqual(PAC.DataStructures.IntVector2,PAC.DataStructures.IntVector2)">operator &gt;=(IntVector2, IntVector2)</h4>
+
+  <h3 id="PAC_DataStructures_IntVector2_op_GreaterThanOrEqual_PAC_DataStructures_IntVector2_PAC_DataStructures_IntVector2_" data-uid="PAC.DataStructures.IntVector2.op_GreaterThanOrEqual(PAC.DataStructures.IntVector2,PAC.DataStructures.IntVector2)">
+  operator &gt;=(IntVector2, IntVector2)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Data Structures/IntVector2.cs/#L107"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"><p>Compares component-wise.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public static bool operator &gt;=(IntVector2 a, IntVector2 b)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="PAC.DataStructures.IntVector2.html">IntVector2</a></td>
-        <td><span class="parametername">a</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="PAC.DataStructures.IntVector2.html">IntVector2</a></td>
-        <td><span class="parametername">b</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/new/main/apiSpec/new?filename=PAC_DataStructures_IntVector2_op_Implicit_PAC_DataStructures_IntVector2__Vector2.md&amp;value=---%0Auid%3A%20PAC.DataStructures.IntVector2.op_Implicit(PAC.DataStructures.IntVector2)~Vector2%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Data Structures/IntVector2.cs/#L256">View Source</a>
-  </span>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <a class="xref" href="PAC.DataStructures.IntVector2.html">IntVector2</a></dt>
+    <dd></dd>
+    <dt><code>b</code> <a class="xref" href="PAC.DataStructures.IntVector2.html">IntVector2</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
   <a id="PAC_DataStructures_IntVector2_op_Implicit_" data-uid="PAC.DataStructures.IntVector2.op_Implicit*"></a>
-  <h4 id="PAC_DataStructures_IntVector2_op_Implicit_PAC_DataStructures_IntVector2__Vector2" data-uid="PAC.DataStructures.IntVector2.op_Implicit(PAC.DataStructures.IntVector2)~Vector2">implicit operator Vector2(IntVector2)</h4>
+
+  <h3 id="PAC_DataStructures_IntVector2_op_Implicit_PAC_DataStructures_IntVector2__Vector2" data-uid="PAC.DataStructures.IntVector2.op_Implicit(PAC.DataStructures.IntVector2)~Vector2">
+  implicit operator Vector2(IntVector2)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Data Structures/IntVector2.cs/#L256"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"><p>Cast to Unity Vector2.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public static implicit operator Vector2(IntVector2 intVector)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="PAC.DataStructures.IntVector2.html">IntVector2</a></td>
-        <td><span class="parametername">intVector</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">Vector2</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/new/main/apiSpec/new?filename=PAC_DataStructures_IntVector2_op_Implicit_PAC_DataStructures_IntVector2__Vector3.md&amp;value=---%0Auid%3A%20PAC.DataStructures.IntVector2.op_Implicit(PAC.DataStructures.IntVector2)~Vector3%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Data Structures/IntVector2.cs/#L268">View Source</a>
-  </span>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>intVector</code> <a class="xref" href="PAC.DataStructures.IntVector2.html">IntVector2</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Vector2</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
   <a id="PAC_DataStructures_IntVector2_op_Implicit_" data-uid="PAC.DataStructures.IntVector2.op_Implicit*"></a>
-  <h4 id="PAC_DataStructures_IntVector2_op_Implicit_PAC_DataStructures_IntVector2__Vector3" data-uid="PAC.DataStructures.IntVector2.op_Implicit(PAC.DataStructures.IntVector2)~Vector3">implicit operator Vector3(IntVector2)</h4>
+
+  <h3 id="PAC_DataStructures_IntVector2_op_Implicit_PAC_DataStructures_IntVector2__Vector3" data-uid="PAC.DataStructures.IntVector2.op_Implicit(PAC.DataStructures.IntVector2)~Vector3">
+  implicit operator Vector3(IntVector2)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Data Structures/IntVector2.cs/#L268"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"><p>Cast to Unity Vector3, with a 0 in the z-coord.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public static implicit operator Vector3(IntVector2 intVector)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="PAC.DataStructures.IntVector2.html">IntVector2</a></td>
-        <td><span class="parametername">intVector</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">Vector3</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/new/main/apiSpec/new?filename=PAC_DataStructures_IntVector2_op_Inequality_PAC_DataStructures_IntVector2_PAC_DataStructures_IntVector2_.md&amp;value=---%0Auid%3A%20PAC.DataStructures.IntVector2.op_Inequality(PAC.DataStructures.IntVector2%2CPAC.DataStructures.IntVector2)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Data Structures/IntVector2.cs/#L56">View Source</a>
-  </span>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>intVector</code> <a class="xref" href="PAC.DataStructures.IntVector2.html">IntVector2</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Vector3</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
   <a id="PAC_DataStructures_IntVector2_op_Inequality_" data-uid="PAC.DataStructures.IntVector2.op_Inequality*"></a>
-  <h4 id="PAC_DataStructures_IntVector2_op_Inequality_PAC_DataStructures_IntVector2_PAC_DataStructures_IntVector2_" data-uid="PAC.DataStructures.IntVector2.op_Inequality(PAC.DataStructures.IntVector2,PAC.DataStructures.IntVector2)">operator !=(IntVector2, IntVector2)</h4>
+
+  <h3 id="PAC_DataStructures_IntVector2_op_Inequality_PAC_DataStructures_IntVector2_PAC_DataStructures_IntVector2_" data-uid="PAC.DataStructures.IntVector2.op_Inequality(PAC.DataStructures.IntVector2,PAC.DataStructures.IntVector2)">
+  operator !=(IntVector2, IntVector2)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Data Structures/IntVector2.cs/#L56"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public static bool operator !=(IntVector2 a, IntVector2 b)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="PAC.DataStructures.IntVector2.html">IntVector2</a></td>
-        <td><span class="parametername">a</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="PAC.DataStructures.IntVector2.html">IntVector2</a></td>
-        <td><span class="parametername">b</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/new/main/apiSpec/new?filename=PAC_DataStructures_IntVector2_op_LessThan_PAC_DataStructures_IntVector2_PAC_DataStructures_IntVector2_.md&amp;value=---%0Auid%3A%20PAC.DataStructures.IntVector2.op_LessThan(PAC.DataStructures.IntVector2%2CPAC.DataStructures.IntVector2)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Data Structures/IntVector2.cs/#L86">View Source</a>
-  </span>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <a class="xref" href="PAC.DataStructures.IntVector2.html">IntVector2</a></dt>
+    <dd></dd>
+    <dt><code>b</code> <a class="xref" href="PAC.DataStructures.IntVector2.html">IntVector2</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
   <a id="PAC_DataStructures_IntVector2_op_LessThan_" data-uid="PAC.DataStructures.IntVector2.op_LessThan*"></a>
-  <h4 id="PAC_DataStructures_IntVector2_op_LessThan_PAC_DataStructures_IntVector2_PAC_DataStructures_IntVector2_" data-uid="PAC.DataStructures.IntVector2.op_LessThan(PAC.DataStructures.IntVector2,PAC.DataStructures.IntVector2)">operator &lt;(IntVector2, IntVector2)</h4>
+
+  <h3 id="PAC_DataStructures_IntVector2_op_LessThan_PAC_DataStructures_IntVector2_PAC_DataStructures_IntVector2_" data-uid="PAC.DataStructures.IntVector2.op_LessThan(PAC.DataStructures.IntVector2,PAC.DataStructures.IntVector2)">
+  operator &lt;(IntVector2, IntVector2)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Data Structures/IntVector2.cs/#L86"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"><p>Compares component-wise.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public static bool operator &lt;(IntVector2 a, IntVector2 b)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="PAC.DataStructures.IntVector2.html">IntVector2</a></td>
-        <td><span class="parametername">a</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="PAC.DataStructures.IntVector2.html">IntVector2</a></td>
-        <td><span class="parametername">b</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/new/main/apiSpec/new?filename=PAC_DataStructures_IntVector2_op_LessThanOrEqual_PAC_DataStructures_IntVector2_PAC_DataStructures_IntVector2_.md&amp;value=---%0Auid%3A%20PAC.DataStructures.IntVector2.op_LessThanOrEqual(PAC.DataStructures.IntVector2%2CPAC.DataStructures.IntVector2)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Data Structures/IntVector2.cs/#L100">View Source</a>
-  </span>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <a class="xref" href="PAC.DataStructures.IntVector2.html">IntVector2</a></dt>
+    <dd></dd>
+    <dt><code>b</code> <a class="xref" href="PAC.DataStructures.IntVector2.html">IntVector2</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
   <a id="PAC_DataStructures_IntVector2_op_LessThanOrEqual_" data-uid="PAC.DataStructures.IntVector2.op_LessThanOrEqual*"></a>
-  <h4 id="PAC_DataStructures_IntVector2_op_LessThanOrEqual_PAC_DataStructures_IntVector2_PAC_DataStructures_IntVector2_" data-uid="PAC.DataStructures.IntVector2.op_LessThanOrEqual(PAC.DataStructures.IntVector2,PAC.DataStructures.IntVector2)">operator &lt;=(IntVector2, IntVector2)</h4>
+
+  <h3 id="PAC_DataStructures_IntVector2_op_LessThanOrEqual_PAC_DataStructures_IntVector2_PAC_DataStructures_IntVector2_" data-uid="PAC.DataStructures.IntVector2.op_LessThanOrEqual(PAC.DataStructures.IntVector2,PAC.DataStructures.IntVector2)">
+  operator &lt;=(IntVector2, IntVector2)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Data Structures/IntVector2.cs/#L100"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"><p>Compares component-wise.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public static bool operator &lt;=(IntVector2 a, IntVector2 b)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="PAC.DataStructures.IntVector2.html">IntVector2</a></td>
-        <td><span class="parametername">a</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="PAC.DataStructures.IntVector2.html">IntVector2</a></td>
-        <td><span class="parametername">b</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/new/main/apiSpec/new?filename=PAC_DataStructures_IntVector2_op_Multiply_PAC_DataStructures_IntVector2_PAC_DataStructures_IntVector2_.md&amp;value=---%0Auid%3A%20PAC.DataStructures.IntVector2.op_Multiply(PAC.DataStructures.IntVector2%2CPAC.DataStructures.IntVector2)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Data Structures/IntVector2.cs/#L176">View Source</a>
-  </span>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <a class="xref" href="PAC.DataStructures.IntVector2.html">IntVector2</a></dt>
+    <dd></dd>
+    <dt><code>b</code> <a class="xref" href="PAC.DataStructures.IntVector2.html">IntVector2</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
   <a id="PAC_DataStructures_IntVector2_op_Multiply_" data-uid="PAC.DataStructures.IntVector2.op_Multiply*"></a>
-  <h4 id="PAC_DataStructures_IntVector2_op_Multiply_PAC_DataStructures_IntVector2_PAC_DataStructures_IntVector2_" data-uid="PAC.DataStructures.IntVector2.op_Multiply(PAC.DataStructures.IntVector2,PAC.DataStructures.IntVector2)">operator *(IntVector2, IntVector2)</h4>
+
+  <h3 id="PAC_DataStructures_IntVector2_op_Multiply_PAC_DataStructures_IntVector2_PAC_DataStructures_IntVector2_" data-uid="PAC.DataStructures.IntVector2.op_Multiply(PAC.DataStructures.IntVector2,PAC.DataStructures.IntVector2)">
+  operator *(IntVector2, IntVector2)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Data Structures/IntVector2.cs/#L176"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"><p>Multiplies component-wise.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public static IntVector2 operator *(IntVector2 a, IntVector2 b)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="PAC.DataStructures.IntVector2.html">IntVector2</a></td>
-        <td><span class="parametername">a</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="PAC.DataStructures.IntVector2.html">IntVector2</a></td>
-        <td><span class="parametername">b</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="PAC.DataStructures.IntVector2.html">IntVector2</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/new/main/apiSpec/new?filename=PAC_DataStructures_IntVector2_op_Multiply_PAC_DataStructures_IntVector2_PAC_DataStructures_IntVector2___.md&amp;value=---%0Auid%3A%20PAC.DataStructures.IntVector2.op_Multiply(PAC.DataStructures.IntVector2%2CPAC.DataStructures.IntVector2%5B%5D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Data Structures/IntVector2.cs/#L197">View Source</a>
-  </span>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <a class="xref" href="PAC.DataStructures.IntVector2.html">IntVector2</a></dt>
+    <dd></dd>
+    <dt><code>b</code> <a class="xref" href="PAC.DataStructures.IntVector2.html">IntVector2</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="PAC.DataStructures.IntVector2.html">IntVector2</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
   <a id="PAC_DataStructures_IntVector2_op_Multiply_" data-uid="PAC.DataStructures.IntVector2.op_Multiply*"></a>
-  <h4 id="PAC_DataStructures_IntVector2_op_Multiply_PAC_DataStructures_IntVector2_PAC_DataStructures_IntVector2___" data-uid="PAC.DataStructures.IntVector2.op_Multiply(PAC.DataStructures.IntVector2,PAC.DataStructures.IntVector2[])">operator *(IntVector2, IntVector2[])</h4>
+
+  <h3 id="PAC_DataStructures_IntVector2_op_Multiply_PAC_DataStructures_IntVector2_PAC_DataStructures_IntVector2___" data-uid="PAC.DataStructures.IntVector2.op_Multiply(PAC.DataStructures.IntVector2,PAC.DataStructures.IntVector2[])">
+  operator *(IntVector2, IntVector2[])
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Data Structures/IntVector2.cs/#L197"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"><p>Multiplies each element of the array by the vector.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public static IntVector2[] operator *(IntVector2 intVector, IntVector2[] intVectorArray)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="PAC.DataStructures.IntVector2.html">IntVector2</a></td>
-        <td><span class="parametername">intVector</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="PAC.DataStructures.IntVector2.html">IntVector2</a>[]</td>
-        <td><span class="parametername">intVectorArray</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="PAC.DataStructures.IntVector2.html">IntVector2</a>[]</td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/new/main/apiSpec/new?filename=PAC_DataStructures_IntVector2_op_Multiply_PAC_DataStructures_IntVector2_System_Int32_.md&amp;value=---%0Auid%3A%20PAC.DataStructures.IntVector2.op_Multiply(PAC.DataStructures.IntVector2%2CSystem.Int32)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Data Structures/IntVector2.cs/#L190">View Source</a>
-  </span>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>intVector</code> <a class="xref" href="PAC.DataStructures.IntVector2.html">IntVector2</a></dt>
+    <dd></dd>
+    <dt><code>intVectorArray</code> <a class="xref" href="PAC.DataStructures.IntVector2.html">IntVector2</a>[]</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="PAC.DataStructures.IntVector2.html">IntVector2</a>[]</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
   <a id="PAC_DataStructures_IntVector2_op_Multiply_" data-uid="PAC.DataStructures.IntVector2.op_Multiply*"></a>
-  <h4 id="PAC_DataStructures_IntVector2_op_Multiply_PAC_DataStructures_IntVector2_System_Int32_" data-uid="PAC.DataStructures.IntVector2.op_Multiply(PAC.DataStructures.IntVector2,System.Int32)">operator *(IntVector2, int)</h4>
+
+  <h3 id="PAC_DataStructures_IntVector2_op_Multiply_PAC_DataStructures_IntVector2_System_Int32_" data-uid="PAC.DataStructures.IntVector2.op_Multiply(PAC.DataStructures.IntVector2,System.Int32)">
+  operator *(IntVector2, int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Data Structures/IntVector2.cs/#L190"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"><p>Multiplies component-wise.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public static IntVector2 operator *(IntVector2 vector, int scalar)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="PAC.DataStructures.IntVector2.html">IntVector2</a></td>
-        <td><span class="parametername">vector</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
-        <td><span class="parametername">scalar</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="PAC.DataStructures.IntVector2.html">IntVector2</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/new/main/apiSpec/new?filename=PAC_DataStructures_IntVector2_op_Multiply_PAC_DataStructures_IntVector2___PAC_DataStructures_IntVector2_.md&amp;value=---%0Auid%3A%20PAC.DataStructures.IntVector2.op_Multiply(PAC.DataStructures.IntVector2%5B%5D%2CPAC.DataStructures.IntVector2)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Data Structures/IntVector2.cs/#L209">View Source</a>
-  </span>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>vector</code> <a class="xref" href="PAC.DataStructures.IntVector2.html">IntVector2</a></dt>
+    <dd></dd>
+    <dt><code>scalar</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="PAC.DataStructures.IntVector2.html">IntVector2</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
   <a id="PAC_DataStructures_IntVector2_op_Multiply_" data-uid="PAC.DataStructures.IntVector2.op_Multiply*"></a>
-  <h4 id="PAC_DataStructures_IntVector2_op_Multiply_PAC_DataStructures_IntVector2___PAC_DataStructures_IntVector2_" data-uid="PAC.DataStructures.IntVector2.op_Multiply(PAC.DataStructures.IntVector2[],PAC.DataStructures.IntVector2)">operator *(IntVector2[], IntVector2)</h4>
+
+  <h3 id="PAC_DataStructures_IntVector2_op_Multiply_PAC_DataStructures_IntVector2___PAC_DataStructures_IntVector2_" data-uid="PAC.DataStructures.IntVector2.op_Multiply(PAC.DataStructures.IntVector2[],PAC.DataStructures.IntVector2)">
+  operator *(IntVector2[], IntVector2)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Data Structures/IntVector2.cs/#L209"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"><p>Multiplies each element of the array by the vector.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public static IntVector2[] operator *(IntVector2[] intVectorArray, IntVector2 intVector)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="PAC.DataStructures.IntVector2.html">IntVector2</a>[]</td>
-        <td><span class="parametername">intVectorArray</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="PAC.DataStructures.IntVector2.html">IntVector2</a></td>
-        <td><span class="parametername">intVector</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="PAC.DataStructures.IntVector2.html">IntVector2</a>[]</td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/new/main/apiSpec/new?filename=PAC_DataStructures_IntVector2_op_Multiply_System_Int32_PAC_DataStructures_IntVector2_.md&amp;value=---%0Auid%3A%20PAC.DataStructures.IntVector2.op_Multiply(System.Int32%2CPAC.DataStructures.IntVector2)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Data Structures/IntVector2.cs/#L183">View Source</a>
-  </span>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>intVectorArray</code> <a class="xref" href="PAC.DataStructures.IntVector2.html">IntVector2</a>[]</dt>
+    <dd></dd>
+    <dt><code>intVector</code> <a class="xref" href="PAC.DataStructures.IntVector2.html">IntVector2</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="PAC.DataStructures.IntVector2.html">IntVector2</a>[]</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
   <a id="PAC_DataStructures_IntVector2_op_Multiply_" data-uid="PAC.DataStructures.IntVector2.op_Multiply*"></a>
-  <h4 id="PAC_DataStructures_IntVector2_op_Multiply_System_Int32_PAC_DataStructures_IntVector2_" data-uid="PAC.DataStructures.IntVector2.op_Multiply(System.Int32,PAC.DataStructures.IntVector2)">operator *(int, IntVector2)</h4>
+
+  <h3 id="PAC_DataStructures_IntVector2_op_Multiply_System_Int32_PAC_DataStructures_IntVector2_" data-uid="PAC.DataStructures.IntVector2.op_Multiply(System.Int32,PAC.DataStructures.IntVector2)">
+  operator *(int, IntVector2)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Data Structures/IntVector2.cs/#L183"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"><p>Multiplies component-wise.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public static IntVector2 operator *(int scalar, IntVector2 vector)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
-        <td><span class="parametername">scalar</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="PAC.DataStructures.IntVector2.html">IntVector2</a></td>
-        <td><span class="parametername">vector</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="PAC.DataStructures.IntVector2.html">IntVector2</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/new/main/apiSpec/new?filename=PAC_DataStructures_IntVector2_op_Subtraction_PAC_DataStructures_IntVector2_PAC_DataStructures_IntVector2_.md&amp;value=---%0Auid%3A%20PAC.DataStructures.IntVector2.op_Subtraction(PAC.DataStructures.IntVector2%2CPAC.DataStructures.IntVector2)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Data Structures/IntVector2.cs/#L142">View Source</a>
-  </span>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>scalar</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>vector</code> <a class="xref" href="PAC.DataStructures.IntVector2.html">IntVector2</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="PAC.DataStructures.IntVector2.html">IntVector2</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
   <a id="PAC_DataStructures_IntVector2_op_Subtraction_" data-uid="PAC.DataStructures.IntVector2.op_Subtraction*"></a>
-  <h4 id="PAC_DataStructures_IntVector2_op_Subtraction_PAC_DataStructures_IntVector2_PAC_DataStructures_IntVector2_" data-uid="PAC.DataStructures.IntVector2.op_Subtraction(PAC.DataStructures.IntVector2,PAC.DataStructures.IntVector2)">operator -(IntVector2, IntVector2)</h4>
+
+  <h3 id="PAC_DataStructures_IntVector2_op_Subtraction_PAC_DataStructures_IntVector2_PAC_DataStructures_IntVector2_" data-uid="PAC.DataStructures.IntVector2.op_Subtraction(PAC.DataStructures.IntVector2,PAC.DataStructures.IntVector2)">
+  operator -(IntVector2, IntVector2)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Data Structures/IntVector2.cs/#L142"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"><p>Subtracts component-wise.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public static IntVector2 operator -(IntVector2 a, IntVector2 b)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="PAC.DataStructures.IntVector2.html">IntVector2</a></td>
-        <td><span class="parametername">a</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="PAC.DataStructures.IntVector2.html">IntVector2</a></td>
-        <td><span class="parametername">b</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="PAC.DataStructures.IntVector2.html">IntVector2</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/new/main/apiSpec/new?filename=PAC_DataStructures_IntVector2_op_Subtraction_PAC_DataStructures_IntVector2_PAC_DataStructures_IntVector2___.md&amp;value=---%0Auid%3A%20PAC.DataStructures.IntVector2.op_Subtraction(PAC.DataStructures.IntVector2%2CPAC.DataStructures.IntVector2%5B%5D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Data Structures/IntVector2.cs/#L156">View Source</a>
-  </span>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <a class="xref" href="PAC.DataStructures.IntVector2.html">IntVector2</a></dt>
+    <dd></dd>
+    <dt><code>b</code> <a class="xref" href="PAC.DataStructures.IntVector2.html">IntVector2</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="PAC.DataStructures.IntVector2.html">IntVector2</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
   <a id="PAC_DataStructures_IntVector2_op_Subtraction_" data-uid="PAC.DataStructures.IntVector2.op_Subtraction*"></a>
-  <h4 id="PAC_DataStructures_IntVector2_op_Subtraction_PAC_DataStructures_IntVector2_PAC_DataStructures_IntVector2___" data-uid="PAC.DataStructures.IntVector2.op_Subtraction(PAC.DataStructures.IntVector2,PAC.DataStructures.IntVector2[])">operator -(IntVector2, IntVector2[])</h4>
+
+  <h3 id="PAC_DataStructures_IntVector2_op_Subtraction_PAC_DataStructures_IntVector2_PAC_DataStructures_IntVector2___" data-uid="PAC.DataStructures.IntVector2.op_Subtraction(PAC.DataStructures.IntVector2,PAC.DataStructures.IntVector2[])">
+  operator -(IntVector2, IntVector2[])
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Data Structures/IntVector2.cs/#L156"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"><p>Subtracts each element of the array from the vector.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public static IntVector2[] operator -(IntVector2 intVector, IntVector2[] intVectorArray)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="PAC.DataStructures.IntVector2.html">IntVector2</a></td>
-        <td><span class="parametername">intVector</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="PAC.DataStructures.IntVector2.html">IntVector2</a>[]</td>
-        <td><span class="parametername">intVectorArray</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="PAC.DataStructures.IntVector2.html">IntVector2</a>[]</td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/new/main/apiSpec/new?filename=PAC_DataStructures_IntVector2_op_Subtraction_PAC_DataStructures_IntVector2___PAC_DataStructures_IntVector2_.md&amp;value=---%0Auid%3A%20PAC.DataStructures.IntVector2.op_Subtraction(PAC.DataStructures.IntVector2%5B%5D%2CPAC.DataStructures.IntVector2)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Data Structures/IntVector2.cs/#L168">View Source</a>
-  </span>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>intVector</code> <a class="xref" href="PAC.DataStructures.IntVector2.html">IntVector2</a></dt>
+    <dd></dd>
+    <dt><code>intVectorArray</code> <a class="xref" href="PAC.DataStructures.IntVector2.html">IntVector2</a>[]</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="PAC.DataStructures.IntVector2.html">IntVector2</a>[]</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
   <a id="PAC_DataStructures_IntVector2_op_Subtraction_" data-uid="PAC.DataStructures.IntVector2.op_Subtraction*"></a>
-  <h4 id="PAC_DataStructures_IntVector2_op_Subtraction_PAC_DataStructures_IntVector2___PAC_DataStructures_IntVector2_" data-uid="PAC.DataStructures.IntVector2.op_Subtraction(PAC.DataStructures.IntVector2[],PAC.DataStructures.IntVector2)">operator -(IntVector2[], IntVector2)</h4>
+
+  <h3 id="PAC_DataStructures_IntVector2_op_Subtraction_PAC_DataStructures_IntVector2___PAC_DataStructures_IntVector2_" data-uid="PAC.DataStructures.IntVector2.op_Subtraction(PAC.DataStructures.IntVector2[],PAC.DataStructures.IntVector2)">
+  operator -(IntVector2[], IntVector2)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Data Structures/IntVector2.cs/#L168"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"><p>Subtracts the vector from each element of the array.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public static IntVector2[] operator -(IntVector2[] intVectorArray, IntVector2 intVector)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="PAC.DataStructures.IntVector2.html">IntVector2</a>[]</td>
-        <td><span class="parametername">intVectorArray</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="PAC.DataStructures.IntVector2.html">IntVector2</a></td>
-        <td><span class="parametername">intVector</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="PAC.DataStructures.IntVector2.html">IntVector2</a>[]</td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/new/main/apiSpec/new?filename=PAC_DataStructures_IntVector2_op_UnaryNegation_PAC_DataStructures_IntVector2_.md&amp;value=---%0Auid%3A%20PAC.DataStructures.IntVector2.op_UnaryNegation(PAC.DataStructures.IntVector2)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Data Structures/IntVector2.cs/#L149">View Source</a>
-  </span>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>intVectorArray</code> <a class="xref" href="PAC.DataStructures.IntVector2.html">IntVector2</a>[]</dt>
+    <dd></dd>
+    <dt><code>intVector</code> <a class="xref" href="PAC.DataStructures.IntVector2.html">IntVector2</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="PAC.DataStructures.IntVector2.html">IntVector2</a>[]</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
   <a id="PAC_DataStructures_IntVector2_op_UnaryNegation_" data-uid="PAC.DataStructures.IntVector2.op_UnaryNegation*"></a>
-  <h4 id="PAC_DataStructures_IntVector2_op_UnaryNegation_PAC_DataStructures_IntVector2_" data-uid="PAC.DataStructures.IntVector2.op_UnaryNegation(PAC.DataStructures.IntVector2)">operator -(IntVector2)</h4>
+
+  <h3 id="PAC_DataStructures_IntVector2_op_UnaryNegation_PAC_DataStructures_IntVector2_" data-uid="PAC.DataStructures.IntVector2.op_UnaryNegation(PAC.DataStructures.IntVector2)">
+  operator -(IntVector2)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Data Structures/IntVector2.cs/#L149"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"><p>Negates component-wise.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public static IntVector2 operator -(IntVector2 a)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="PAC.DataStructures.IntVector2.html">IntVector2</a></td>
-        <td><span class="parametername">a</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="PAC.DataStructures.IntVector2.html">IntVector2</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <a class="xref" href="PAC.DataStructures.IntVector2.html">IntVector2</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="PAC.DataStructures.IntVector2.html">IntVector2</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
 
 </article>
-          </div>
 
-          <div class="hidden-sm col-md-2" role="complementary">
-            <div class="sideaffix">
-              <div class="contribution">
-                <ul class="nav">
-                  <li>
-                    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/new/main/apiSpec/new?filename=PAC_DataStructures_IntVector2.md&amp;value=---%0Auid%3A%20PAC.DataStructures.IntVector2%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Edit this page</a>
-                  </li>
-                  <li>
-                    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Data Structures/IntVector2.cs/#L9" class="contribution-link">View Source</a>
-                  </li>
-                </ul>
-              </div>
-              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-                <h5>In this article</h5>
-                <div></div>
-              </nav>
-            </div>
-          </div>
+        <div class="contribution d-print-none">
+          <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Data Structures/IntVector2.cs/#L9" class="edit-link">Edit this page</a>
         </div>
+
+
       </div>
 
-      <footer>
-        <div class="grad-bottom"></div>
-        <div class="footer">
-          <div class="container">
-            <span class="pull-right">
-              <a href="#top">Back to top</a>
-            </span>
-      Pixel Art Creator 2.0 Docs
-      
-          </div>
-        </div>
-      </footer>
-    </div>
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
 
-    <script type="text/javascript" src="../styles/docfx.vendor.min.js"></script>
-    <script type="text/javascript" src="../styles/docfx.js"></script>
-    <script type="text/javascript" src="../styles/main.js"></script>
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          Pixel Art Creator 2.0 Docs
+        </div>
+      </div>
+    </footer>
   </body>
 </html>

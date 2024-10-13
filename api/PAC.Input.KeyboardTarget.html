@@ -1,95 +1,125 @@
 ﻿<!DOCTYPE html>
-<!--[if IE]><![endif]-->
 <html>
-
   <head>
     <meta charset="utf-8">
-      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
       <title>Class KeyboardTarget | Pixel Art Creator 2.0 Docs </title>
-      <meta name="viewport" content="width=device-width">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta name="title" content="Class KeyboardTarget | Pixel Art Creator 2.0 Docs ">
-    
-    
-      <link rel="shortcut icon" href="../resources/icon.ico">
-      <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
-      <link rel="stylesheet" href="../styles/docfx.css">
-      <link rel="stylesheet" href="../styles/main.css">
-      <meta property="docfx:navrel" content="../toc.html">
-      <meta property="docfx:tocrel" content="toc.html">
-    
-    <meta property="docfx:rel" content="../">
-    
+      
+      
+      <link rel="icon" href="../resources/icon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/new/main/apiSpec/new?filename=PAC_Input_KeyboardTarget.md&amp;value=---%0Auid%3A%20PAC.Input.KeyboardTarget%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
   </head>
-  <body data-spy="scroll" data-target="#affix" data-offset="120">
-    <div id="wrapper">
-      <header>
 
-        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
-          <div class="container">
-            <div class="navbar-header">
-              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-              </button>
-
-              <a class="navbar-brand" href="../index.html">
-                <img id="logo" class="svg" src="../resources/logo.svg" alt="">
-              </a>
-            </div>
-            <div class="collapse navbar-collapse" id="navbar">
-              <form class="navbar-form navbar-right" role="search" id="search">
-                <div class="form-group">
-                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
-                </div>
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../resources/logo.svg" alt="Pixel Art Creator 2.0">
+            Pixel Art Creator 2.0
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
               </form>
             </div>
           </div>
-        </nav>
-
-        <div class="subnav navbar navbar-default">
-          <div class="container hide-when-search" id="breadcrumb">
-            <ul class="breadcrumb">
-              <li></li>
-            </ul>
-          </div>
         </div>
-      </header>
-      <div class="container body-content">
+      </nav>
+    </header>
 
-        <div id="search-results">
-          <div class="search-list">Search Results for <span></span></div>
-          <div class="sr-items">
-            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
           </div>
-          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
         </div>
       </div>
-      <div role="main" class="container body-content hide-when-search">
 
-        <div class="sidenav hide-when-search">
-          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
-          <div class="sidetoggle collapse" id="sidetoggle">
-            <div id="sidetoc"></div>
-          </div>
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
         </div>
-        <div class="article row grid-right">
-          <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="PAC.Input.KeyboardTarget">
+
+        <article data-uid="PAC.Input.KeyboardTarget">
 
 
 
-  <h1 id="PAC_Input_KeyboardTarget" data-uid="PAC.Input.KeyboardTarget" class="text-break">Class KeyboardTarget</h1>
-  <div class="markdown level0 summary"></div>
-  <div class="markdown level0 conceptual"></div>
-  <div class="inheritance">
-    <h5>Inheritance</h5>
-    <div class="level0"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
-    <div class="level1"><span class="xref">KeyboardTarget</span></div>
+  <h1 id="PAC_Input_KeyboardTarget" data-uid="PAC.Input.KeyboardTarget" class="text-break">
+Class KeyboardTarget  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Input/KeyboardTarget.cs/#L10"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="PAC.html">PAC</a>.<a class="xref" href="PAC.Input.html">Input</a></dd></dl>
+  
   </div>
-  <div class="inheritedMembers">
-    <h5>Inherited Members</h5>
+
+  <div class="markdown summary"></div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class KeyboardTarget</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">KeyboardTarget</span></div>
+    </dd>
+  </dl>
+
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
     <div>
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
     </div>
@@ -111,1111 +141,1008 @@
     <div>
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
     </div>
-  </div>
-  <h6><strong>Namespace</strong>: <a class="xref" href="PAC.html">PAC</a>.<a class="xref" href="PAC.Input.html">Input</a></h6>
-  <h6><strong>Assembly</strong>: .dll</h6>
-  <h5 id="PAC_Input_KeyboardTarget_syntax">Syntax</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class KeyboardTarget</code></pre>
-  </div>
-  <h3 id="constructors">Constructors
-</h3>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/new/main/apiSpec/new?filename=PAC_Input_KeyboardTarget__ctor.md&amp;value=---%0Auid%3A%20PAC.Input.KeyboardTarget.%23ctor%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Input/KeyboardTarget.cs/#L41">View Source</a>
-  </span>
+  </dd></dl>
+
+
+
+
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
   <a id="PAC_Input_KeyboardTarget__ctor_" data-uid="PAC.Input.KeyboardTarget.#ctor*"></a>
-  <h4 id="PAC_Input_KeyboardTarget__ctor" data-uid="PAC.Input.KeyboardTarget.#ctor">KeyboardTarget()</h4>
+
+  <h3 id="PAC_Input_KeyboardTarget__ctor" data-uid="PAC.Input.KeyboardTarget.#ctor">
+  KeyboardTarget()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Input/KeyboardTarget.cs/#L41"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public KeyboardTarget()</code></pre>
   </div>
-  <h3 id="fields">Fields
-</h3>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/new/main/apiSpec/new?filename=PAC_Input_KeyboardTarget_allowHoldingKeySpam.md&amp;value=---%0Auid%3A%20PAC.Input.KeyboardTarget.allowHoldingKeySpam%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Input/KeyboardTarget.cs/#L27">View Source</a>
-  </span>
-  <h4 id="PAC_Input_KeyboardTarget_allowHoldingKeySpam" data-uid="PAC.Input.KeyboardTarget.allowHoldingKeySpam">allowHoldingKeySpam</h4>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="fields">Fields
+</h2>
+
+
+
+  <h3 id="PAC_Input_KeyboardTarget_allowHoldingKeySpam" data-uid="PAC.Input.KeyboardTarget.allowHoldingKeySpam">
+  allowHoldingKeySpam
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Input/KeyboardTarget.cs/#L27"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public bool allowHoldingKeySpam</code></pre>
   </div>
-  <h5 class="fieldValue">Field Value</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/new/main/apiSpec/new?filename=PAC_Input_KeyboardTarget_receiveAlreadyHeldKeys.md&amp;value=---%0Auid%3A%20PAC.Input.KeyboardTarget.receiveAlreadyHeldKeys%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Input/KeyboardTarget.cs/#L25">View Source</a>
-  </span>
-  <h4 id="PAC_Input_KeyboardTarget_receiveAlreadyHeldKeys" data-uid="PAC.Input.KeyboardTarget.receiveAlreadyHeldKeys">receiveAlreadyHeldKeys</h4>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="PAC_Input_KeyboardTarget_receiveAlreadyHeldKeys" data-uid="PAC.Input.KeyboardTarget.receiveAlreadyHeldKeys">
+  receiveAlreadyHeldKeys
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Input/KeyboardTarget.cs/#L25"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public bool receiveAlreadyHeldKeys</code></pre>
   </div>
-  <h5 class="fieldValue">Field Value</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h3 id="properties">Properties
-</h3>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/new/main/apiSpec/new?filename=PAC_Input_KeyboardTarget_inputThisFrame.md&amp;value=---%0Auid%3A%20PAC.Input.KeyboardTarget.inputThisFrame%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Input/KeyboardTarget.cs/#L31">View Source</a>
-  </span>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
   <a id="PAC_Input_KeyboardTarget_inputThisFrame_" data-uid="PAC.Input.KeyboardTarget.inputThisFrame*"></a>
-  <h4 id="PAC_Input_KeyboardTarget_inputThisFrame" data-uid="PAC.Input.KeyboardTarget.inputThisFrame">inputThisFrame</h4>
+
+  <h3 id="PAC_Input_KeyboardTarget_inputThisFrame" data-uid="PAC.Input.KeyboardTarget.inputThisFrame">
+  inputThisFrame
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Input/KeyboardTarget.cs/#L31"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public bool inputThisFrame { get; }</code></pre>
   </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/new/main/apiSpec/new?filename=PAC_Input_KeyboardTarget_keysHeld.md&amp;value=---%0Auid%3A%20PAC.Input.KeyboardTarget.keysHeld%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Input/KeyboardTarget.cs/#L17">View Source</a>
-  </span>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
   <a id="PAC_Input_KeyboardTarget_keysHeld_" data-uid="PAC.Input.KeyboardTarget.keysHeld*"></a>
-  <h4 id="PAC_Input_KeyboardTarget_keysHeld" data-uid="PAC.Input.KeyboardTarget.keysHeld">keysHeld</h4>
+
+  <h3 id="PAC_Input_KeyboardTarget_keysHeld" data-uid="PAC.Input.KeyboardTarget.keysHeld">
+  keysHeld
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Input/KeyboardTarget.cs/#L17"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"><p>The keys that are currently held down, in order of when they were pressed (most recent first).</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public CustomKeyCode[] keysHeld { get; }</code></pre>
   </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="PAC.KeyboardShortcuts.CustomKeyCode.html">CustomKeyCode</a>[]</td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/new/main/apiSpec/new?filename=PAC_Input_KeyboardTarget_keysPressed.md&amp;value=---%0Auid%3A%20PAC.Input.KeyboardTarget.keysPressed%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Input/KeyboardTarget.cs/#L23">View Source</a>
-  </span>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="PAC.KeyboardShortcuts.CustomKeyCode.html">CustomKeyCode</a>[]</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
   <a id="PAC_Input_KeyboardTarget_keysPressed_" data-uid="PAC.Input.KeyboardTarget.keysPressed*"></a>
-  <h4 id="PAC_Input_KeyboardTarget_keysPressed" data-uid="PAC.Input.KeyboardTarget.keysPressed">keysPressed</h4>
+
+  <h3 id="PAC_Input_KeyboardTarget_keysPressed" data-uid="PAC.Input.KeyboardTarget.keysPressed">
+  keysPressed
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Input/KeyboardTarget.cs/#L23"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public CustomKeyCode[] keysPressed { get; }</code></pre>
   </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="PAC.KeyboardShortcuts.CustomKeyCode.html">CustomKeyCode</a>[]</td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h3 id="methods">Methods
-</h3>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/new/main/apiSpec/new?filename=PAC_Input_KeyboardTarget_IsHeld_PAC_KeyboardShortcuts_CustomKeyCode_.md&amp;value=---%0Auid%3A%20PAC.Input.KeyboardTarget.IsHeld(PAC.KeyboardShortcuts.CustomKeyCode)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Input/KeyboardTarget.cs/#L230">View Source</a>
-  </span>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="PAC.KeyboardShortcuts.CustomKeyCode.html">CustomKeyCode</a>[]</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
   <a id="PAC_Input_KeyboardTarget_IsHeld_" data-uid="PAC.Input.KeyboardTarget.IsHeld*"></a>
-  <h4 id="PAC_Input_KeyboardTarget_IsHeld_PAC_KeyboardShortcuts_CustomKeyCode_" data-uid="PAC.Input.KeyboardTarget.IsHeld(PAC.KeyboardShortcuts.CustomKeyCode)">IsHeld(CustomKeyCode)</h4>
+
+  <h3 id="PAC_Input_KeyboardTarget_IsHeld_PAC_KeyboardShortcuts_CustomKeyCode_" data-uid="PAC.Input.KeyboardTarget.IsHeld(PAC.KeyboardShortcuts.CustomKeyCode)">
+  IsHeld(CustomKeyCode)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Input/KeyboardTarget.cs/#L230"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"><p>Returns true if all the given key (and potentially some other keys) is held (and is a key detectable by KeyboardTarget).</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public bool IsHeld(CustomKeyCode key)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="PAC.KeyboardShortcuts.CustomKeyCode.html">CustomKeyCode</a></td>
-        <td><span class="parametername">key</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/new/main/apiSpec/new?filename=PAC_Input_KeyboardTarget_IsHeld_PAC_KeyboardShortcuts_CustomKeyCode___.md&amp;value=---%0Auid%3A%20PAC.Input.KeyboardTarget.IsHeld(PAC.KeyboardShortcuts.CustomKeyCode%5B%5D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Input/KeyboardTarget.cs/#L237">View Source</a>
-  </span>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>key</code> <a class="xref" href="PAC.KeyboardShortcuts.CustomKeyCode.html">CustomKeyCode</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
   <a id="PAC_Input_KeyboardTarget_IsHeld_" data-uid="PAC.Input.KeyboardTarget.IsHeld*"></a>
-  <h4 id="PAC_Input_KeyboardTarget_IsHeld_PAC_KeyboardShortcuts_CustomKeyCode___" data-uid="PAC.Input.KeyboardTarget.IsHeld(PAC.KeyboardShortcuts.CustomKeyCode[])">IsHeld(params CustomKeyCode[])</h4>
+
+  <h3 id="PAC_Input_KeyboardTarget_IsHeld_PAC_KeyboardShortcuts_CustomKeyCode___" data-uid="PAC.Input.KeyboardTarget.IsHeld(PAC.KeyboardShortcuts.CustomKeyCode[])">
+  IsHeld(params CustomKeyCode[])
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Input/KeyboardTarget.cs/#L237"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"><p>Returns true if all the given keys (and potentially some other keys) are held (and are keys detectable by KeyboardTarget).</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public bool IsHeld(params CustomKeyCode[] keys)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="PAC.KeyboardShortcuts.CustomKeyCode.html">CustomKeyCode</a>[]</td>
-        <td><span class="parametername">keys</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/new/main/apiSpec/new?filename=PAC_Input_KeyboardTarget_IsHeld_PAC_KeyboardShortcuts_KeyboardShortcut_.md&amp;value=---%0Auid%3A%20PAC.Input.KeyboardTarget.IsHeld(PAC.KeyboardShortcuts.KeyboardShortcut)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Input/KeyboardTarget.cs/#L226">View Source</a>
-  </span>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>keys</code> <a class="xref" href="PAC.KeyboardShortcuts.CustomKeyCode.html">CustomKeyCode</a>[]</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
   <a id="PAC_Input_KeyboardTarget_IsHeld_" data-uid="PAC.Input.KeyboardTarget.IsHeld*"></a>
-  <h4 id="PAC_Input_KeyboardTarget_IsHeld_PAC_KeyboardShortcuts_KeyboardShortcut_" data-uid="PAC.Input.KeyboardTarget.IsHeld(PAC.KeyboardShortcuts.KeyboardShortcut)">IsHeld(KeyboardShortcut)</h4>
+
+  <h3 id="PAC_Input_KeyboardTarget_IsHeld_PAC_KeyboardShortcuts_KeyboardShortcut_" data-uid="PAC.Input.KeyboardTarget.IsHeld(PAC.KeyboardShortcuts.KeyboardShortcut)">
+  IsHeld(KeyboardShortcut)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Input/KeyboardTarget.cs/#L226"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"><p>Returns true if all the given key (and potentially some other keys) is held (and is a key detectable by KeyboardTarget).</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public bool IsHeld(KeyboardShortcut shortcut)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="PAC.KeyboardShortcuts.KeyboardShortcut.html">KeyboardShortcut</a></td>
-        <td><span class="parametername">shortcut</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/new/main/apiSpec/new?filename=PAC_Input_KeyboardTarget_IsHeldExactly_PAC_KeyboardShortcuts_CustomKeyCode___.md&amp;value=---%0Auid%3A%20PAC.Input.KeyboardTarget.IsHeldExactly(PAC.KeyboardShortcuts.CustomKeyCode%5B%5D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Input/KeyboardTarget.cs/#L270">View Source</a>
-  </span>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>shortcut</code> <a class="xref" href="PAC.KeyboardShortcuts.KeyboardShortcut.html">KeyboardShortcut</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
   <a id="PAC_Input_KeyboardTarget_IsHeldExactly_" data-uid="PAC.Input.KeyboardTarget.IsHeldExactly*"></a>
-  <h4 id="PAC_Input_KeyboardTarget_IsHeldExactly_PAC_KeyboardShortcuts_CustomKeyCode___" data-uid="PAC.Input.KeyboardTarget.IsHeldExactly(PAC.KeyboardShortcuts.CustomKeyCode[])">IsHeldExactly(params CustomKeyCode[])</h4>
+
+  <h3 id="PAC_Input_KeyboardTarget_IsHeldExactly_PAC_KeyboardShortcuts_CustomKeyCode___" data-uid="PAC.Input.KeyboardTarget.IsHeldExactly(PAC.KeyboardShortcuts.CustomKeyCode[])">
+  IsHeldExactly(params CustomKeyCode[])
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Input/KeyboardTarget.cs/#L270"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"><p>Returns true if all and only the given keys are held (and are keys detectable by KeyboardTarget).</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public bool IsHeldExactly(params CustomKeyCode[] keys)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="PAC.KeyboardShortcuts.CustomKeyCode.html">CustomKeyCode</a>[]</td>
-        <td><span class="parametername">keys</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/new/main/apiSpec/new?filename=PAC_Input_KeyboardTarget_IsHeldExactly_PAC_KeyboardShortcuts_KeyboardShortcut_.md&amp;value=---%0Auid%3A%20PAC.Input.KeyboardTarget.IsHeldExactly(PAC.KeyboardShortcuts.KeyboardShortcut)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Input/KeyboardTarget.cs/#L266">View Source</a>
-  </span>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>keys</code> <a class="xref" href="PAC.KeyboardShortcuts.CustomKeyCode.html">CustomKeyCode</a>[]</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
   <a id="PAC_Input_KeyboardTarget_IsHeldExactly_" data-uid="PAC.Input.KeyboardTarget.IsHeldExactly*"></a>
-  <h4 id="PAC_Input_KeyboardTarget_IsHeldExactly_PAC_KeyboardShortcuts_KeyboardShortcut_" data-uid="PAC.Input.KeyboardTarget.IsHeldExactly(PAC.KeyboardShortcuts.KeyboardShortcut)">IsHeldExactly(KeyboardShortcut)</h4>
+
+  <h3 id="PAC_Input_KeyboardTarget_IsHeldExactly_PAC_KeyboardShortcuts_KeyboardShortcut_" data-uid="PAC.Input.KeyboardTarget.IsHeldExactly(PAC.KeyboardShortcuts.KeyboardShortcut)">
+  IsHeldExactly(KeyboardShortcut)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Input/KeyboardTarget.cs/#L266"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"><p>Returns true if all and only the given keys are held (and are keys detectable by KeyboardTarget).</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public bool IsHeldExactly(KeyboardShortcut shortcut)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="PAC.KeyboardShortcuts.KeyboardShortcut.html">KeyboardShortcut</a></td>
-        <td><span class="parametername">shortcut</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/new/main/apiSpec/new?filename=PAC_Input_KeyboardTarget_IsPressed_PAC_KeyboardShortcuts_CustomKeyCode_.md&amp;value=---%0Auid%3A%20PAC.Input.KeyboardTarget.IsPressed(PAC.KeyboardShortcuts.CustomKeyCode)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Input/KeyboardTarget.cs/#L186">View Source</a>
-  </span>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>shortcut</code> <a class="xref" href="PAC.KeyboardShortcuts.KeyboardShortcut.html">KeyboardShortcut</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
   <a id="PAC_Input_KeyboardTarget_IsPressed_" data-uid="PAC.Input.KeyboardTarget.IsPressed*"></a>
-  <h4 id="PAC_Input_KeyboardTarget_IsPressed_PAC_KeyboardShortcuts_CustomKeyCode_" data-uid="PAC.Input.KeyboardTarget.IsPressed(PAC.KeyboardShortcuts.CustomKeyCode)">IsPressed(CustomKeyCode)</h4>
+
+  <h3 id="PAC_Input_KeyboardTarget_IsPressed_PAC_KeyboardShortcuts_CustomKeyCode_" data-uid="PAC.Input.KeyboardTarget.IsPressed(PAC.KeyboardShortcuts.CustomKeyCode)">
+  IsPressed(CustomKeyCode)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Input/KeyboardTarget.cs/#L186"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"><p>Returns true if all the given key (and potentially some other keys) has been pressed this frame (and is a key detectable by KeyboardTarget).</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public bool IsPressed(CustomKeyCode key)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="PAC.KeyboardShortcuts.CustomKeyCode.html">CustomKeyCode</a></td>
-        <td><span class="parametername">key</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/new/main/apiSpec/new?filename=PAC_Input_KeyboardTarget_IsPressed_PAC_KeyboardShortcuts_CustomKeyCode___.md&amp;value=---%0Auid%3A%20PAC.Input.KeyboardTarget.IsPressed(PAC.KeyboardShortcuts.CustomKeyCode%5B%5D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Input/KeyboardTarget.cs/#L197">View Source</a>
-  </span>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>key</code> <a class="xref" href="PAC.KeyboardShortcuts.CustomKeyCode.html">CustomKeyCode</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
   <a id="PAC_Input_KeyboardTarget_IsPressed_" data-uid="PAC.Input.KeyboardTarget.IsPressed*"></a>
-  <h4 id="PAC_Input_KeyboardTarget_IsPressed_PAC_KeyboardShortcuts_CustomKeyCode___" data-uid="PAC.Input.KeyboardTarget.IsPressed(PAC.KeyboardShortcuts.CustomKeyCode[])">IsPressed(params CustomKeyCode[])</h4>
+
+  <h3 id="PAC_Input_KeyboardTarget_IsPressed_PAC_KeyboardShortcuts_CustomKeyCode___" data-uid="PAC.Input.KeyboardTarget.IsPressed(PAC.KeyboardShortcuts.CustomKeyCode[])">
+  IsPressed(params CustomKeyCode[])
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Input/KeyboardTarget.cs/#L197"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"><p>Returns true if all the given keys (and potentially some other keys) have been pressed this frame (and are keys detectable by KeyboardTarget).</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public bool IsPressed(params CustomKeyCode[] keys)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="PAC.KeyboardShortcuts.CustomKeyCode.html">CustomKeyCode</a>[]</td>
-        <td><span class="parametername">keys</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/new/main/apiSpec/new?filename=PAC_Input_KeyboardTarget_IsPressed_PAC_KeyboardShortcuts_KeyboardShortcut_.md&amp;value=---%0Auid%3A%20PAC.Input.KeyboardTarget.IsPressed(PAC.KeyboardShortcuts.KeyboardShortcut)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Input/KeyboardTarget.cs/#L193">View Source</a>
-  </span>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>keys</code> <a class="xref" href="PAC.KeyboardShortcuts.CustomKeyCode.html">CustomKeyCode</a>[]</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
   <a id="PAC_Input_KeyboardTarget_IsPressed_" data-uid="PAC.Input.KeyboardTarget.IsPressed*"></a>
-  <h4 id="PAC_Input_KeyboardTarget_IsPressed_PAC_KeyboardShortcuts_KeyboardShortcut_" data-uid="PAC.Input.KeyboardTarget.IsPressed(PAC.KeyboardShortcuts.KeyboardShortcut)">IsPressed(KeyboardShortcut)</h4>
+
+  <h3 id="PAC_Input_KeyboardTarget_IsPressed_PAC_KeyboardShortcuts_KeyboardShortcut_" data-uid="PAC.Input.KeyboardTarget.IsPressed(PAC.KeyboardShortcuts.KeyboardShortcut)">
+  IsPressed(KeyboardShortcut)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Input/KeyboardTarget.cs/#L193"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"><p>Returns true if all the given keys (and potentially some other keys) have been pressed this frame (and are keys detectable by KeyboardTarget).</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public bool IsPressed(KeyboardShortcut shortcut)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="PAC.KeyboardShortcuts.KeyboardShortcut.html">KeyboardShortcut</a></td>
-        <td><span class="parametername">shortcut</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/new/main/apiSpec/new?filename=PAC_Input_KeyboardTarget_KeyDown_PAC_KeyboardShortcuts_CustomKeyCode_.md&amp;value=---%0Auid%3A%20PAC.Input.KeyboardTarget.KeyDown(PAC.KeyboardShortcuts.CustomKeyCode)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Input/KeyboardTarget.cs/#L128">View Source</a>
-  </span>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>shortcut</code> <a class="xref" href="PAC.KeyboardShortcuts.KeyboardShortcut.html">KeyboardShortcut</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
   <a id="PAC_Input_KeyboardTarget_KeyDown_" data-uid="PAC.Input.KeyboardTarget.KeyDown*"></a>
-  <h4 id="PAC_Input_KeyboardTarget_KeyDown_PAC_KeyboardShortcuts_CustomKeyCode_" data-uid="PAC.Input.KeyboardTarget.KeyDown(PAC.KeyboardShortcuts.CustomKeyCode)">KeyDown(CustomKeyCode)</h4>
+
+  <h3 id="PAC_Input_KeyboardTarget_KeyDown_PAC_KeyboardShortcuts_CustomKeyCode_" data-uid="PAC.Input.KeyboardTarget.KeyDown(PAC.KeyboardShortcuts.CustomKeyCode)">
+  KeyDown(CustomKeyCode)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Input/KeyboardTarget.cs/#L128"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"><p>Simulates the key being pressed, if it is a key detectable by KeyboardTarget.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void KeyDown(CustomKeyCode key)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="PAC.KeyboardShortcuts.CustomKeyCode.html">CustomKeyCode</a></td>
-        <td><span class="parametername">key</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/new/main/apiSpec/new?filename=PAC_Input_KeyboardTarget_KeyDownNoSpamReset_PAC_KeyboardShortcuts_CustomKeyCode_.md&amp;value=---%0Auid%3A%20PAC.Input.KeyboardTarget.KeyDownNoSpamReset(PAC.KeyboardShortcuts.CustomKeyCode)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Input/KeyboardTarget.cs/#L105">View Source</a>
-  </span>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>key</code> <a class="xref" href="PAC.KeyboardShortcuts.CustomKeyCode.html">CustomKeyCode</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
   <a id="PAC_Input_KeyboardTarget_KeyDownNoSpamReset_" data-uid="PAC.Input.KeyboardTarget.KeyDownNoSpamReset*"></a>
-  <h4 id="PAC_Input_KeyboardTarget_KeyDownNoSpamReset_PAC_KeyboardShortcuts_CustomKeyCode_" data-uid="PAC.Input.KeyboardTarget.KeyDownNoSpamReset(PAC.KeyboardShortcuts.CustomKeyCode)">KeyDownNoSpamReset(CustomKeyCode)</h4>
+
+  <h3 id="PAC_Input_KeyboardTarget_KeyDownNoSpamReset_PAC_KeyboardShortcuts_CustomKeyCode_" data-uid="PAC.Input.KeyboardTarget.KeyDownNoSpamReset(PAC.KeyboardShortcuts.CustomKeyCode)">
+  KeyDownNoSpamReset(CustomKeyCode)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Input/KeyboardTarget.cs/#L105"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"><p>Simulates the key being pressed, if it is a key detectable by KeyboardTarget, without restting the timer until key spamming occurs.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void KeyDownNoSpamReset(CustomKeyCode key)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="PAC.KeyboardShortcuts.CustomKeyCode.html">CustomKeyCode</a></td>
-        <td><span class="parametername">key</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/new/main/apiSpec/new?filename=PAC_Input_KeyboardTarget_KeyUp_PAC_KeyboardShortcuts_CustomKeyCode_.md&amp;value=---%0Auid%3A%20PAC.Input.KeyboardTarget.KeyUp(PAC.KeyboardShortcuts.CustomKeyCode)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Input/KeyboardTarget.cs/#L153">View Source</a>
-  </span>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>key</code> <a class="xref" href="PAC.KeyboardShortcuts.CustomKeyCode.html">CustomKeyCode</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
   <a id="PAC_Input_KeyboardTarget_KeyUp_" data-uid="PAC.Input.KeyboardTarget.KeyUp*"></a>
-  <h4 id="PAC_Input_KeyboardTarget_KeyUp_PAC_KeyboardShortcuts_CustomKeyCode_" data-uid="PAC.Input.KeyboardTarget.KeyUp(PAC.KeyboardShortcuts.CustomKeyCode)">KeyUp(CustomKeyCode)</h4>
+
+  <h3 id="PAC_Input_KeyboardTarget_KeyUp_PAC_KeyboardShortcuts_CustomKeyCode_" data-uid="PAC.Input.KeyboardTarget.KeyUp(PAC.KeyboardShortcuts.CustomKeyCode)">
+  KeyUp(CustomKeyCode)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Input/KeyboardTarget.cs/#L153"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"><p>Simulates the key being unpressed.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void KeyUp(CustomKeyCode key)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="PAC.KeyboardShortcuts.CustomKeyCode.html">CustomKeyCode</a></td>
-        <td><span class="parametername">key</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/new/main/apiSpec/new?filename=PAC_Input_KeyboardTarget_KeysDown_PAC_KeyboardShortcuts_CustomKeyCode___.md&amp;value=---%0Auid%3A%20PAC.Input.KeyboardTarget.KeysDown(PAC.KeyboardShortcuts.CustomKeyCode%5B%5D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Input/KeyboardTarget.cs/#L143">View Source</a>
-  </span>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>key</code> <a class="xref" href="PAC.KeyboardShortcuts.CustomKeyCode.html">CustomKeyCode</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
   <a id="PAC_Input_KeyboardTarget_KeysDown_" data-uid="PAC.Input.KeyboardTarget.KeysDown*"></a>
-  <h4 id="PAC_Input_KeyboardTarget_KeysDown_PAC_KeyboardShortcuts_CustomKeyCode___" data-uid="PAC.Input.KeyboardTarget.KeysDown(PAC.KeyboardShortcuts.CustomKeyCode[])">KeysDown(params CustomKeyCode[])</h4>
+
+  <h3 id="PAC_Input_KeyboardTarget_KeysDown_PAC_KeyboardShortcuts_CustomKeyCode___" data-uid="PAC.Input.KeyboardTarget.KeysDown(PAC.KeyboardShortcuts.CustomKeyCode[])">
+  KeysDown(params CustomKeyCode[])
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Input/KeyboardTarget.cs/#L143"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"><p>Simulates the keys being pressed, if they are keys detectable by KeyboardTarget.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void KeysDown(params CustomKeyCode[] keys)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="PAC.KeyboardShortcuts.CustomKeyCode.html">CustomKeyCode</a>[]</td>
-        <td><span class="parametername">keys</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/new/main/apiSpec/new?filename=PAC_Input_KeyboardTarget_KeysDownNoSpamReset_PAC_KeyboardShortcuts_CustomKeyCode___.md&amp;value=---%0Auid%3A%20PAC.Input.KeyboardTarget.KeysDownNoSpamReset(PAC.KeyboardShortcuts.CustomKeyCode%5B%5D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Input/KeyboardTarget.cs/#L118">View Source</a>
-  </span>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>keys</code> <a class="xref" href="PAC.KeyboardShortcuts.CustomKeyCode.html">CustomKeyCode</a>[]</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
   <a id="PAC_Input_KeyboardTarget_KeysDownNoSpamReset_" data-uid="PAC.Input.KeyboardTarget.KeysDownNoSpamReset*"></a>
-  <h4 id="PAC_Input_KeyboardTarget_KeysDownNoSpamReset_PAC_KeyboardShortcuts_CustomKeyCode___" data-uid="PAC.Input.KeyboardTarget.KeysDownNoSpamReset(PAC.KeyboardShortcuts.CustomKeyCode[])">KeysDownNoSpamReset(params CustomKeyCode[])</h4>
+
+  <h3 id="PAC_Input_KeyboardTarget_KeysDownNoSpamReset_PAC_KeyboardShortcuts_CustomKeyCode___" data-uid="PAC.Input.KeyboardTarget.KeysDownNoSpamReset(PAC.KeyboardShortcuts.CustomKeyCode[])">
+  KeysDownNoSpamReset(params CustomKeyCode[])
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Input/KeyboardTarget.cs/#L118"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"><p>Simulates the keys being pressed, if they are keys detectable by KeyboardTarget, without restting the timer until key spamming occurs.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void KeysDownNoSpamReset(params CustomKeyCode[] keys)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="PAC.KeyboardShortcuts.CustomKeyCode.html">CustomKeyCode</a>[]</td>
-        <td><span class="parametername">keys</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/new/main/apiSpec/new?filename=PAC_Input_KeyboardTarget_KeysUp_PAC_KeyboardShortcuts_CustomKeyCode___.md&amp;value=---%0Auid%3A%20PAC.Input.KeyboardTarget.KeysUp(PAC.KeyboardShortcuts.CustomKeyCode%5B%5D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Input/KeyboardTarget.cs/#L169">View Source</a>
-  </span>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>keys</code> <a class="xref" href="PAC.KeyboardShortcuts.CustomKeyCode.html">CustomKeyCode</a>[]</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
   <a id="PAC_Input_KeyboardTarget_KeysUp_" data-uid="PAC.Input.KeyboardTarget.KeysUp*"></a>
-  <h4 id="PAC_Input_KeyboardTarget_KeysUp_PAC_KeyboardShortcuts_CustomKeyCode___" data-uid="PAC.Input.KeyboardTarget.KeysUp(PAC.KeyboardShortcuts.CustomKeyCode[])">KeysUp(params CustomKeyCode[])</h4>
+
+  <h3 id="PAC_Input_KeyboardTarget_KeysUp_PAC_KeyboardShortcuts_CustomKeyCode___" data-uid="PAC.Input.KeyboardTarget.KeysUp(PAC.KeyboardShortcuts.CustomKeyCode[])">
+  KeysUp(params CustomKeyCode[])
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Input/KeyboardTarget.cs/#L169"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"><p>Simulates the keys being unpressed.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void KeysUp(params CustomKeyCode[] keys)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="PAC.KeyboardShortcuts.CustomKeyCode.html">CustomKeyCode</a>[]</td>
-        <td><span class="parametername">keys</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/new/main/apiSpec/new?filename=PAC_Input_KeyboardTarget_ManualUpdate.md&amp;value=---%0Auid%3A%20PAC.Input.KeyboardTarget.ManualUpdate%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Input/KeyboardTarget.cs/#L79">View Source</a>
-  </span>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>keys</code> <a class="xref" href="PAC.KeyboardShortcuts.CustomKeyCode.html">CustomKeyCode</a>[]</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
   <a id="PAC_Input_KeyboardTarget_ManualUpdate_" data-uid="PAC.Input.KeyboardTarget.ManualUpdate*"></a>
-  <h4 id="PAC_Input_KeyboardTarget_ManualUpdate" data-uid="PAC.Input.KeyboardTarget.ManualUpdate">ManualUpdate()</h4>
+
+  <h3 id="PAC_Input_KeyboardTarget_ManualUpdate" data-uid="PAC.Input.KeyboardTarget.ManualUpdate">
+  ManualUpdate()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Input/KeyboardTarget.cs/#L79"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"><p>Only to be called in InputTarget's Update() method.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void ManualUpdate()</code></pre>
   </div>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/new/main/apiSpec/new?filename=PAC_Input_KeyboardTarget_OneIsHeld_System_Collections_Generic_IEnumerable_PAC_KeyboardShortcuts_KeyboardShortcut__.md&amp;value=---%0Auid%3A%20PAC.Input.KeyboardTarget.OneIsHeld(System.Collections.Generic.IEnumerable%7BPAC.KeyboardShortcuts.KeyboardShortcut%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Input/KeyboardTarget.cs/#L251">View Source</a>
-  </span>
+
+
+
+
+
+
+
+
+
+
+
+
+
   <a id="PAC_Input_KeyboardTarget_OneIsHeld_" data-uid="PAC.Input.KeyboardTarget.OneIsHeld*"></a>
-  <h4 id="PAC_Input_KeyboardTarget_OneIsHeld_System_Collections_Generic_IEnumerable_PAC_KeyboardShortcuts_KeyboardShortcut__" data-uid="PAC.Input.KeyboardTarget.OneIsHeld(System.Collections.Generic.IEnumerable{PAC.KeyboardShortcuts.KeyboardShortcut})">OneIsHeld(IEnumerable&lt;KeyboardShortcut&gt;)</h4>
+
+  <h3 id="PAC_Input_KeyboardTarget_OneIsHeld_System_Collections_Generic_IEnumerable_PAC_KeyboardShortcuts_KeyboardShortcut__" data-uid="PAC.Input.KeyboardTarget.OneIsHeld(System.Collections.Generic.IEnumerable{PAC.KeyboardShortcuts.KeyboardShortcut})">
+  OneIsHeld(IEnumerable&lt;KeyboardShortcut&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Input/KeyboardTarget.cs/#L251"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"><p>Returns true if all the given keys (and potentially some other keys) are held (and are keys detectable by KeyboardTarget) for one of the given keyboard shortcuts.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public bool OneIsHeld(IEnumerable&lt;KeyboardShortcut&gt; shortcuts)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="PAC.KeyboardShortcuts.KeyboardShortcut.html">KeyboardShortcut</a>&gt;</td>
-        <td><span class="parametername">shortcuts</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/new/main/apiSpec/new?filename=PAC_Input_KeyboardTarget_OneIsHeldExactly_System_Collections_Generic_IEnumerable_PAC_KeyboardShortcuts_KeyboardShortcut__.md&amp;value=---%0Auid%3A%20PAC.Input.KeyboardTarget.OneIsHeldExactly(System.Collections.Generic.IEnumerable%7BPAC.KeyboardShortcuts.KeyboardShortcut%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Input/KeyboardTarget.cs/#L292">View Source</a>
-  </span>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>shortcuts</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="PAC.KeyboardShortcuts.KeyboardShortcut.html">KeyboardShortcut</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
   <a id="PAC_Input_KeyboardTarget_OneIsHeldExactly_" data-uid="PAC.Input.KeyboardTarget.OneIsHeldExactly*"></a>
-  <h4 id="PAC_Input_KeyboardTarget_OneIsHeldExactly_System_Collections_Generic_IEnumerable_PAC_KeyboardShortcuts_KeyboardShortcut__" data-uid="PAC.Input.KeyboardTarget.OneIsHeldExactly(System.Collections.Generic.IEnumerable{PAC.KeyboardShortcuts.KeyboardShortcut})">OneIsHeldExactly(IEnumerable&lt;KeyboardShortcut&gt;)</h4>
+
+  <h3 id="PAC_Input_KeyboardTarget_OneIsHeldExactly_System_Collections_Generic_IEnumerable_PAC_KeyboardShortcuts_KeyboardShortcut__" data-uid="PAC.Input.KeyboardTarget.OneIsHeldExactly(System.Collections.Generic.IEnumerable{PAC.KeyboardShortcuts.KeyboardShortcut})">
+  OneIsHeldExactly(IEnumerable&lt;KeyboardShortcut&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Input/KeyboardTarget.cs/#L292"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"><p>Returns true if all and only the given keys are held (and are keys detectable by KeyboardTarget) for one of the given keyboard shortcuts.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public bool OneIsHeldExactly(IEnumerable&lt;KeyboardShortcut&gt; shortcuts)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="PAC.KeyboardShortcuts.KeyboardShortcut.html">KeyboardShortcut</a>&gt;</td>
-        <td><span class="parametername">shortcuts</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/new/main/apiSpec/new?filename=PAC_Input_KeyboardTarget_OneIsPressed_System_Collections_Generic_IEnumerable_PAC_KeyboardShortcuts_KeyboardShortcut__.md&amp;value=---%0Auid%3A%20PAC.Input.KeyboardTarget.OneIsPressed(System.Collections.Generic.IEnumerable%7BPAC.KeyboardShortcuts.KeyboardShortcut%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Input/KeyboardTarget.cs/#L211">View Source</a>
-  </span>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>shortcuts</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="PAC.KeyboardShortcuts.KeyboardShortcut.html">KeyboardShortcut</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
   <a id="PAC_Input_KeyboardTarget_OneIsPressed_" data-uid="PAC.Input.KeyboardTarget.OneIsPressed*"></a>
-  <h4 id="PAC_Input_KeyboardTarget_OneIsPressed_System_Collections_Generic_IEnumerable_PAC_KeyboardShortcuts_KeyboardShortcut__" data-uid="PAC.Input.KeyboardTarget.OneIsPressed(System.Collections.Generic.IEnumerable{PAC.KeyboardShortcuts.KeyboardShortcut})">OneIsPressed(IEnumerable&lt;KeyboardShortcut&gt;)</h4>
+
+  <h3 id="PAC_Input_KeyboardTarget_OneIsPressed_System_Collections_Generic_IEnumerable_PAC_KeyboardShortcuts_KeyboardShortcut__" data-uid="PAC.Input.KeyboardTarget.OneIsPressed(System.Collections.Generic.IEnumerable{PAC.KeyboardShortcuts.KeyboardShortcut})">
+  OneIsPressed(IEnumerable&lt;KeyboardShortcut&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Input/KeyboardTarget.cs/#L211"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"><p>Returns true if all the given keys (and potentially some other keys) have been pressed this frame (and are keys detectable by KeyboardTarget) for one of the given keyboard shortcuts.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public bool OneIsPressed(IEnumerable&lt;KeyboardShortcut&gt; shortcuts)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="PAC.KeyboardShortcuts.KeyboardShortcut.html">KeyboardShortcut</a>&gt;</td>
-        <td><span class="parametername">shortcuts</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/new/main/apiSpec/new?filename=PAC_Input_KeyboardTarget_SubscribeToOnInput_UnityAction_.md&amp;value=---%0Auid%3A%20PAC.Input.KeyboardTarget.SubscribeToOnInput(UnityAction)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Input/KeyboardTarget.cs/#L317">View Source</a>
-  </span>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>shortcuts</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="PAC.KeyboardShortcuts.KeyboardShortcut.html">KeyboardShortcut</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
   <a id="PAC_Input_KeyboardTarget_SubscribeToOnInput_" data-uid="PAC.Input.KeyboardTarget.SubscribeToOnInput*"></a>
-  <h4 id="PAC_Input_KeyboardTarget_SubscribeToOnInput_UnityAction_" data-uid="PAC.Input.KeyboardTarget.SubscribeToOnInput(UnityAction)">SubscribeToOnInput(UnityAction)</h4>
+
+  <h3 id="PAC_Input_KeyboardTarget_SubscribeToOnInput_UnityAction_" data-uid="PAC.Input.KeyboardTarget.SubscribeToOnInput(UnityAction)">
+  SubscribeToOnInput(UnityAction)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Input/KeyboardTarget.cs/#L317"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void SubscribeToOnInput(UnityAction call)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">UnityAction</span></td>
-        <td><span class="parametername">call</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/new/main/apiSpec/new?filename=PAC_Input_KeyboardTarget_SubscribeToOnKeyDown_UnityAction_PAC_KeyboardShortcuts_CustomKeyCode__.md&amp;value=---%0Auid%3A%20PAC.Input.KeyboardTarget.SubscribeToOnKeyDown(UnityAction%7BPAC.KeyboardShortcuts.CustomKeyCode%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Input/KeyboardTarget.cs/#L321">View Source</a>
-  </span>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>call</code> <span class="xref">UnityAction</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
   <a id="PAC_Input_KeyboardTarget_SubscribeToOnKeyDown_" data-uid="PAC.Input.KeyboardTarget.SubscribeToOnKeyDown*"></a>
-  <h4 id="PAC_Input_KeyboardTarget_SubscribeToOnKeyDown_UnityAction_PAC_KeyboardShortcuts_CustomKeyCode__" data-uid="PAC.Input.KeyboardTarget.SubscribeToOnKeyDown(UnityAction{PAC.KeyboardShortcuts.CustomKeyCode})">SubscribeToOnKeyDown(UnityAction&lt;CustomKeyCode&gt;)</h4>
+
+  <h3 id="PAC_Input_KeyboardTarget_SubscribeToOnKeyDown_UnityAction_PAC_KeyboardShortcuts_CustomKeyCode__" data-uid="PAC.Input.KeyboardTarget.SubscribeToOnKeyDown(UnityAction{PAC.KeyboardShortcuts.CustomKeyCode})">
+  SubscribeToOnKeyDown(UnityAction&lt;CustomKeyCode&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Input/KeyboardTarget.cs/#L321"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void SubscribeToOnKeyDown(UnityAction&lt;CustomKeyCode&gt; call)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">UnityAction</span>&lt;<a class="xref" href="PAC.KeyboardShortcuts.CustomKeyCode.html">CustomKeyCode</a>&gt;</td>
-        <td><span class="parametername">call</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/new/main/apiSpec/new?filename=PAC_Input_KeyboardTarget_SubscribeToOnKeyUp_UnityAction_PAC_KeyboardShortcuts_CustomKeyCode__.md&amp;value=---%0Auid%3A%20PAC.Input.KeyboardTarget.SubscribeToOnKeyUp(UnityAction%7BPAC.KeyboardShortcuts.CustomKeyCode%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Input/KeyboardTarget.cs/#L325">View Source</a>
-  </span>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>call</code> <span class="xref">UnityAction</span>&lt;<a class="xref" href="PAC.KeyboardShortcuts.CustomKeyCode.html">CustomKeyCode</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
   <a id="PAC_Input_KeyboardTarget_SubscribeToOnKeyUp_" data-uid="PAC.Input.KeyboardTarget.SubscribeToOnKeyUp*"></a>
-  <h4 id="PAC_Input_KeyboardTarget_SubscribeToOnKeyUp_UnityAction_PAC_KeyboardShortcuts_CustomKeyCode__" data-uid="PAC.Input.KeyboardTarget.SubscribeToOnKeyUp(UnityAction{PAC.KeyboardShortcuts.CustomKeyCode})">SubscribeToOnKeyUp(UnityAction&lt;CustomKeyCode&gt;)</h4>
+
+  <h3 id="PAC_Input_KeyboardTarget_SubscribeToOnKeyUp_UnityAction_PAC_KeyboardShortcuts_CustomKeyCode__" data-uid="PAC.Input.KeyboardTarget.SubscribeToOnKeyUp(UnityAction{PAC.KeyboardShortcuts.CustomKeyCode})">
+  SubscribeToOnKeyUp(UnityAction&lt;CustomKeyCode&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Input/KeyboardTarget.cs/#L325"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void SubscribeToOnKeyUp(UnityAction&lt;CustomKeyCode&gt; call)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">UnityAction</span>&lt;<a class="xref" href="PAC.KeyboardShortcuts.CustomKeyCode.html">CustomKeyCode</a>&gt;</td>
-        <td><span class="parametername">call</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/new/main/apiSpec/new?filename=PAC_Input_KeyboardTarget_SubscribeToUntarget_UnityAction_.md&amp;value=---%0Auid%3A%20PAC.Input.KeyboardTarget.SubscribeToUntarget(UnityAction)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Input/KeyboardTarget.cs/#L330">View Source</a>
-  </span>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>call</code> <span class="xref">UnityAction</span>&lt;<a class="xref" href="PAC.KeyboardShortcuts.CustomKeyCode.html">CustomKeyCode</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
   <a id="PAC_Input_KeyboardTarget_SubscribeToUntarget_" data-uid="PAC.Input.KeyboardTarget.SubscribeToUntarget*"></a>
-  <h4 id="PAC_Input_KeyboardTarget_SubscribeToUntarget_UnityAction_" data-uid="PAC.Input.KeyboardTarget.SubscribeToUntarget(UnityAction)">SubscribeToUntarget(UnityAction)</h4>
+
+  <h3 id="PAC_Input_KeyboardTarget_SubscribeToUntarget_UnityAction_" data-uid="PAC.Input.KeyboardTarget.SubscribeToUntarget(UnityAction)">
+  SubscribeToUntarget(UnityAction)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Input/KeyboardTarget.cs/#L330"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void SubscribeToUntarget(UnityAction call)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">UnityAction</span></td>
-        <td><span class="parametername">call</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/new/main/apiSpec/new?filename=PAC_Input_KeyboardTarget_Untarget.md&amp;value=---%0Auid%3A%20PAC.Input.KeyboardTarget.Untarget%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Input/KeyboardTarget.cs/#L304">View Source</a>
-  </span>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>call</code> <span class="xref">UnityAction</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
   <a id="PAC_Input_KeyboardTarget_Untarget_" data-uid="PAC.Input.KeyboardTarget.Untarget*"></a>
-  <h4 id="PAC_Input_KeyboardTarget_Untarget" data-uid="PAC.Input.KeyboardTarget.Untarget">Untarget()</h4>
+
+  <h3 id="PAC_Input_KeyboardTarget_Untarget" data-uid="PAC.Input.KeyboardTarget.Untarget">
+  Untarget()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Input/KeyboardTarget.cs/#L304"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void Untarget()</code></pre>
   </div>
 
-</article>
-          </div>
 
-          <div class="hidden-sm col-md-2" role="complementary">
-            <div class="sideaffix">
-              <div class="contribution">
-                <ul class="nav">
-                  <li>
-                    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/new/main/apiSpec/new?filename=PAC_Input_KeyboardTarget.md&amp;value=---%0Auid%3A%20PAC.Input.KeyboardTarget%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Edit this page</a>
-                  </li>
-                  <li>
-                    <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Input/KeyboardTarget.cs/#L10" class="contribution-link">View Source</a>
-                  </li>
-                </ul>
-              </div>
-              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-                <h5>In this article</h5>
-                <div></div>
-              </nav>
-            </div>
-          </div>
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Input/KeyboardTarget.cs/#L10" class="edit-link">Edit this page</a>
         </div>
+
+
       </div>
 
-      <footer>
-        <div class="grad-bottom"></div>
-        <div class="footer">
-          <div class="container">
-            <span class="pull-right">
-              <a href="#top">Back to top</a>
-            </span>
-      Pixel Art Creator 2.0 Docs
-      
-          </div>
-        </div>
-      </footer>
-    </div>
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
 
-    <script type="text/javascript" src="../styles/docfx.vendor.min.js"></script>
-    <script type="text/javascript" src="../styles/docfx.js"></script>
-    <script type="text/javascript" src="../styles/main.js"></script>
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          Pixel Art Creator 2.0 Docs
+        </div>
+      </div>
+    </footer>
   </body>
 </html>
