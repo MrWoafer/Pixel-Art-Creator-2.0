@@ -1,0 +1,17 @@
+{
+    "name": "Project.Files",
+    "rootNamespace": "",
+    "references": [
+        "GUID:37f48a2b21f087a43a644e2f8b5f10e1",
+        "GUID:73d4811888aaa4249b1bc0356040f8e1"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

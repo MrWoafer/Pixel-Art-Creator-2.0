@@ -1,0 +1,18 @@
+{
+    "name": "Project.Layers",
+    "rootNamespace": "",
+    "references": [
+        "GUID:db5f07e4936ff934792270c22fbdf458",
+        "GUID:37f48a2b21f087a43a644e2f8b5f10e1",
+        "GUID:448a11a3d71f57449b54c32ce869c238"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

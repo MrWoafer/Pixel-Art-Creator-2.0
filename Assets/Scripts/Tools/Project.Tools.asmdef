@@ -1,0 +1,19 @@
+{
+    "name": "Project.Tools",
+    "rootNamespace": "",
+    "references": [
+        "GUID:780c08168dc884948809a6c1852af80e",
+        "GUID:37f48a2b21f087a43a644e2f8b5f10e1",
+        "GUID:a035cf75d0f174540b8ce3655c3a6cd7",
+        "GUID:73d4811888aaa4249b1bc0356040f8e1"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

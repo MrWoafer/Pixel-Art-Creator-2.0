@@ -1,0 +1,16 @@
+{
+    "name": "Project.UndoRedo",
+    "rootNamespace": "",
+    "references": [
+        "GUID:73d4811888aaa4249b1bc0356040f8e1"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
