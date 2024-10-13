@@ -13,7 +13,7 @@ namespace PAC.ColourPicker
     [RequireComponent(typeof(UIColourPicker))]
     public class GlobalColourPicker : MonoBehaviour
     {
-        /// <summary>The currenty-selected colour.</summary>
+        /// <summary>The currently-selected colour.</summary>
         public Color colour => uiColourPicker.colour;
 
         /// <summary>The current primary colour.</summary>

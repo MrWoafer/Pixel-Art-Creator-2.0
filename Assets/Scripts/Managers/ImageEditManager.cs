@@ -15,7 +15,7 @@ namespace PAC.Files
 
         private FileManager fileManager;
         private LayerManager layerManager;
-        private UIManager uiManager;
+        private DialogBoxManager uiManager;
 
         private void Awake()
         {

@@ -2,41 +2,13 @@ using System;
 using System.Collections.Generic;
 using PAC.Drawing;
 using PAC.UI;
+using PAC.Input;
 using UnityEngine;
 using UnityEngine.Events;
 using GradientMode = PAC.Drawing.GradientMode;
 
 namespace PAC.Input
 {
-    public enum CursorState
-    {
-        CurrentTool = -1,
-        Unspecified = 0,
-        Normal = 1,
-        Hover = 2,
-        Press = 3,
-        Grab = 12,
-        Invisible = 4,
-        EyeDropper = 5,
-        Text = 6,
-        CrossArrows = 7,
-        UpDownArrow = 8,
-        LeftRightArrow = 9,
-        MagnifyingGlass = 10,
-        MagicWand = 11,
-        LinearGradient = 30,
-        RadialGradient = 31,
-        SelectionRectangle = 100,
-        SelectionEllipse = 101
-    }
-
-    public enum MouseButton
-    {
-        Left,
-        Right,
-        Middle
-    }
-
     public class Mouse : MonoBehaviour
     {
         [Header("Settings")]

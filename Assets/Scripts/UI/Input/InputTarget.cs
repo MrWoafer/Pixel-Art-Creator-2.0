@@ -1,10 +1,15 @@
 using UnityEngine;
 using UnityEngine.Events;
+using PAC.UI;
 
 namespace PAC.Input
 {
     public class InputTarget : MonoBehaviour
     {
+        [Header("UI Element")]
+        [Tooltip("Which UI Element this target is part of. Leave as null signifies this is its own UI Element.")]
+        public UIElement uiElement;
+
         [Header("Settings")]
         [SerializeField]
         private string _targetName = "";
@@ -59,6 +64,9 @@ namespace PAC.Input
         public bool allowHoldingKeySpam = false;
 
         public KeyboardTarget keyboardTarget { get; private set; }
+
+        [Header("Viewport")]
+        public UIViewport viewport;
 
         private UnityEvent onTarget = new UnityEvent();
         private UnityEvent onUntarget = new UnityEvent();

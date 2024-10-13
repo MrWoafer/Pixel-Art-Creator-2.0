@@ -25,7 +25,7 @@ namespace PAC.Files
         private UIViewport viewport;
         private UIToggleGroup toggleGroup;
         private FileManager fileManager;
-        private UIManager uiManager;
+        private DialogBoxManager uiManager;
 
         private List<FileTab> fileTiles = new List<FileTab>();
 

@@ -33,7 +33,7 @@ namespace PAC.Layers
         private UndoRedoManager undoRedoManager;
         private ImageEditManager imageEditManager;
         private AnimationManager animationManager;
-        private UIManager uiManager;
+        private DialogBoxManager uiManager;
 
         private UIViewport viewport;
         private UIScrollbar scrollbar;
