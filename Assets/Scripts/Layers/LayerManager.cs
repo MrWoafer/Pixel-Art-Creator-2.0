@@ -33,7 +33,7 @@ namespace PAC.Layers
         private UndoRedoManager undoRedoManager;
         private ImageEditManager imageEditManager;
         private AnimationManager animationManager;
-        private UIManager uiManager;
+        private DialogBoxManager dialogBoxManager;
 
         private UIViewport viewport;
         private UIScrollbar scrollbar;
@@ -90,7 +90,7 @@ namespace PAC.Layers
             undoRedoManager = Finder.undoRedoManager;
             imageEditManager = Finder.imageEditManager;
             animationManager = Finder.animationManager;
-            uiManager = Finder.uiManager;
+            dialogBoxManager = Finder.dialogBoxManager;
 
             viewport = transform.Find("Viewport").GetComponent<UIViewport>();
             scrollbar = transform.Find("Scrollbar").GetComponent<UIScrollbar>();
@@ -192,7 +192,7 @@ namespace PAC.Layers
             layerTile.SubscribeToVisibilityChange(OnVisibilityChange);
 
             int i = layerTiles.Count - 1;
-            layerTile.SubscribeToRightClick(() => { uiManager.OpenLayerPropertiesWindow(i); });
+            layerTile.SubscribeToRightClick(() => { dialogBoxManager.OpenLayerPropertiesWindow(i); });
         }
 
         public void AddLayer()
@@ -249,7 +249,7 @@ namespace PAC.Layers
             {
                 if (layer.layerType != LayerType.Normal)
                 {
-                    uiManager.OpenModalWindow("Flatten", "You can only flatten normal layers.").AddCloseButton("Okay");
+                    dialogBoxManager.OpenModalWindow("Flatten", "You can only flatten normal layers.").AddCloseButton("Okay");
                     return;
                 }
             }
@@ -279,7 +279,7 @@ namespace PAC.Layers
             }
             else
             {
-                uiManager.OpenModalWindow("Flatten", "Please select at least 2 layers to flatten.").AddCloseButton("Okay");
+                dialogBoxManager.OpenModalWindow("Flatten", "Please select at least 2 layers to flatten.").AddCloseButton("Okay");
             }
         }
 

@@ -15,13 +15,13 @@ namespace PAC.Files
 
         private FileManager fileManager;
         private LayerManager layerManager;
-        private UIManager uiManager;
+        private DialogBoxManager dialogBoxManager;
 
         private void Awake()
         {
             fileManager = Finder.fileManager;
             layerManager = Finder.layerManager;
-            uiManager = Finder.uiManager;
+            dialogBoxManager = Finder.dialogBoxManager;
         }
 
         public void FlipSelectedLayers(FlipDirection direction)
@@ -77,7 +77,7 @@ namespace PAC.Files
                 }
                 else
                 {
-                    UIModalWindow modalWindow = uiManager.OpenModalWindow("Rotate", "For non-square images, all layers must be rotated at once.");
+                    UIModalWindow modalWindow = dialogBoxManager.OpenModalWindow("Rotate", "For non-square images, all layers must be rotated at once.");
                     modalWindow.AddCloseButton("Okay");
                 }
             }
