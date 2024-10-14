@@ -33,6 +33,7 @@ namespace PAC
         public static Toolbar toolbar => GameObject.Find("Toolbar").GetComponent<Toolbar>();
 
         public static UIManager uiManager => GameObject.Find("UI Manager").GetComponent<UIManager>();
+        public static DialogBoxManager dialogBoxManager => GameObject.Find("UI Manager").GetComponent<DialogBoxManager>();
         public static ThemeManager themeManager => GameObject.Find("UI Manager").GetComponent<ThemeManager>();
         public static GridManager gridManager => GameObject.Find("Grid Manager").GetComponent<GridManager>();
 

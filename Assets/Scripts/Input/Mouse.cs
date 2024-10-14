@@ -43,13 +43,7 @@ namespace PAC.Input
         [SerializeField]
         [Min(0f)]
         private float _scrollCursorDisplayTime = 0.5f;
-        public float scrollCursorDisplayTime
-        {
-            get
-            {
-                return _scrollCursorDisplayTime;
-            }
-        }
+        public float scrollCursorDisplayTime => _scrollCursorDisplayTime;
 
         [Header("Display")]
         [SerializeField]
@@ -149,108 +143,24 @@ namespace PAC.Input
         [SerializeField]
         private Vector2 cursorHotSpotIsoBox;
 
-        public bool leftClick
-        {
-            get
-            {
-                return UnityEngine.Input.GetMouseButtonDown(0);
-            }
-        }
-        public bool leftUnclick
-        {
-            get
-            {
-                return UnityEngine.Input.GetMouseButtonUp(0);
-            }
-        }
-        public bool leftHold
-        {
-            get
-            {
-                return UnityEngine.Input.GetMouseButton(0);
-            }
-        }
+        public bool leftClick => UnityEngine.Input.GetMouseButtonDown(0);
+        public bool leftUnclick => UnityEngine.Input.GetMouseButtonUp(0);
+        public bool leftHold => UnityEngine.Input.GetMouseButton(0);
 
-        public bool rightClick
-        {
-            get
-            {
-                return UnityEngine.Input.GetMouseButtonDown(1);
-            }
-        }
-        public bool rightUnclick
-        {
-            get
-            {
-                return UnityEngine.Input.GetMouseButtonUp(1);
-            }
-        }
-        public bool rightHold
-        {
-            get
-            {
-                return UnityEngine.Input.GetMouseButton(1);
-            }
-        }
+        public bool rightClick => UnityEngine.Input.GetMouseButtonDown(1);
+        public bool rightUnclick => UnityEngine.Input.GetMouseButtonUp(1);
+        public bool rightHold => UnityEngine.Input.GetMouseButton(1);
 
-        public bool middleClick
-        {
-            get
-            {
-                return UnityEngine.Input.GetMouseButtonDown(2);
-            }
-        }
-        public bool middleUnclick
-        {
-            get
-            {
-                return UnityEngine.Input.GetMouseButtonUp(2);
-            }
-        }
-        public bool middleHold
-        {
-            get
-            {
-                return UnityEngine.Input.GetMouseButton(2);
-            }
-        }
+        public bool middleClick => UnityEngine.Input.GetMouseButtonDown(2);
+        public bool middleUnclick => UnityEngine.Input.GetMouseButtonUp(2);
+        public bool middleHold => UnityEngine.Input.GetMouseButton(2);
 
-        public bool click
-        {
-            get
-            {
-                return leftClick || rightClick || middleClick;
-            }
-        }
-        public bool unclick
-        {
-            get
-            {
-                return leftUnclick || rightUnclick || middleUnclick;
-            }
-        }
-        public bool held
-        {
-            get
-            {
-                return leftHold || rightHold || middleHold;
-            }
-        }
-
-        public bool nothingClick
-        {
-            get
-            {
-                return !leftClick && !rightClick && !middleClick;
-            }
-        }
-        public bool nothingHeld
-        {
-            get
-            {
-                return !leftHold && !rightHold && !middleHold;
-            }
-        }
+        public bool click => leftClick || rightClick || middleClick;
+        public bool unclick => leftUnclick || rightUnclick || middleUnclick;
+        public bool held => leftHold || rightHold || middleHold;
+        
+        public bool nothingClick => !leftClick && !rightClick && !middleClick;
+        public bool nothingHeld => !leftHold && !rightHold && !middleHold;
 
         public int numButtonsHeld
         {
@@ -273,33 +183,15 @@ namespace PAC.Input
             }
         }
 
-        public Vector2 worldPos
-        {
-            get
-            {
-                return Camera.main.ScreenToWorldPoint(UnityEngine.Input.mousePosition);
-            }
-        }
+        public Vector2 worldPos => Camera.main.ScreenToWorldPoint(UnityEngine.Input.mousePosition);
 
-        public float scrollDelta
-        {
-            get
-            {
-                return UnityEngine.Input.mouseScrollDelta.y;
-            }
-        }
+        public float scrollDelta => UnityEngine.Input.mouseScrollDelta.y;
 
         public InputTarget hoverTarget { get; private set; }
         private InputTarget previousHoverTarget;
         private List<InputTarget> hoverTriggers = new List<InputTarget>();
         private List<InputTarget> previousHoverTriggers = new List<InputTarget>();
-        public bool hasHoverTrigger
-        {
-            get
-            {
-                return hoverTriggers.Count > 0;
-            }
-        }
+        public bool hasHoverTrigger => hoverTriggers.Count > 0;
 
         [HideInInspector]
         public bool canInteract = false;

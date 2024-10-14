@@ -22,7 +22,7 @@ namespace PAC.UI
 
         private const float SCALE_FACTOR = 100f;
 
-        private UIManager uiManager;
+        private DialogBoxManager dialogBoxManager;
 
         private void Awake()
         {
@@ -33,7 +33,7 @@ namespace PAC.UI
             title = background.Find("Title").GetComponent<Text>();
             message = subPanel.Find("Message").GetComponent<Text>();
 
-            uiManager = Finder.uiManager;
+            dialogBoxManager = Finder.dialogBoxManager;
         }
 
         private void UpdateLayoutGroups()
@@ -109,7 +109,7 @@ namespace PAC.UI
         }
         public UIModalWindow AddCloseButton(string text)
         {
-            return AddButton(text, () => { uiManager.CloseModalWindow(this); });
+            return AddButton(text, () => { dialogBoxManager.CloseModalWindow(this); });
         }
 
         public void Close()

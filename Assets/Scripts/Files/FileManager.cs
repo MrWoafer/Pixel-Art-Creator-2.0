@@ -35,7 +35,7 @@ namespace PAC.Files
 
         private InputSystem inputSystem;
         private LayerManager layerManager;
-        private UIManager uiManager;
+        private DialogBoxManager dialogBoxManager;
 
         private UnityEvent onFileSwitch = new UnityEvent();
         private UnityEvent onFilesChanged = new UnityEvent();
@@ -46,7 +46,7 @@ namespace PAC.Files
             inputSystem = Finder.inputSystem;
             layerManager = Finder.layerManager;
             animationManager = Finder.animationManager;
-            uiManager = Finder.uiManager;
+            dialogBoxManager = Finder.dialogBoxManager;
         }
 
         private void Start()
@@ -124,7 +124,7 @@ namespace PAC.Files
                 return true;
             }
 
-            uiManager.OpenUnsavedChangesWindow(fileIndex);
+            dialogBoxManager.OpenUnsavedChangesWindow(fileIndex);
             return false;
         }
         /// <summary>
@@ -228,7 +228,7 @@ namespace PAC.Files
                     Texture2D tex = Tex2DSprite.LoadFromFile(fileNames[0]);
                     if (tex.width != currentFile.width || tex.height != currentFile.height)
                     {
-                        uiManager.OpenModalWindow("Import", "The size of the imported image must match the size of the file.").AddCloseButton("Okay");
+                        dialogBoxManager.OpenModalWindow("Import", "The size of the imported image must match the size of the file.").AddCloseButton("Okay");
                     }
                     else
                     {
@@ -240,11 +240,11 @@ namespace PAC.Files
                     File file = File.OpenPAC(fileNames[0]);
                     if (file.width != currentFile.width || file.height != currentFile.height)
                     {
-                        uiManager.OpenModalWindow("Import", "The size of the imported image must match the size of the file.").AddCloseButton("Okay");
+                        dialogBoxManager.OpenModalWindow("Import", "The size of the imported image must match the size of the file.").AddCloseButton("Okay");
                     }
                     else
                     {
-                        uiManager.OpenImportPACWindow(file);
+                        dialogBoxManager.OpenImportPACWindow(file);
                     }
                 }
                 ReloadFile();
