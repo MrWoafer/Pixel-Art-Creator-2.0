@@ -2087,6 +2087,19 @@ references:
   isSpec: "True"
   fullName: PAC.DataStructures.IntRect.GetHashCode
   nameWithType: IntRect.GetHashCode
+- uid: PAC.DataStructures.IntRect.GetPoints
+  name: GetPoints()
+  href: api/PAC.DataStructures.IntRect.html#PAC_DataStructures_IntRect_GetPoints
+  commentId: M:PAC.DataStructures.IntRect.GetPoints
+  fullName: PAC.DataStructures.IntRect.GetPoints()
+  nameWithType: IntRect.GetPoints()
+- uid: PAC.DataStructures.IntRect.GetPoints*
+  name: GetPoints
+  href: api/PAC.DataStructures.IntRect.html#PAC_DataStructures_IntRect_GetPoints_
+  commentId: Overload:PAC.DataStructures.IntRect.GetPoints
+  isSpec: "True"
+  fullName: PAC.DataStructures.IntRect.GetPoints
+  nameWithType: IntRect.GetPoints
 - uid: PAC.DataStructures.IntRect.IsContainedIn(PAC.DataStructures.IntRect)
   name: IsContainedIn(IntRect)
   href: api/PAC.DataStructures.IntRect.html#PAC_DataStructures_IntRect_IsContainedIn_PAC_DataStructures_IntRect_
