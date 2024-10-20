@@ -514,7 +514,7 @@ namespace PAC
             return maskedTexture;
         }
 
-        public static Texture2D Fill(Texture2D texture, IntVector2 startPoint, Color colour, int maxNumOfIterations = 1000000)
+        public static Texture2D Fill(Texture2D texture, IntVector2 startPoint, Color colour, int maxNumOfIterations = 1_000_000)
         {
             Texture2D filledTex = Copy(texture);
 
