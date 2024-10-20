@@ -1,6 +1,9 @@
+using PAC.DataStructures;
 using System.Collections;
 using System.Linq;
 using UnityEngine;
+using PAC;
+using System.Collections.Generic;
 
 namespace PAC.DataStructures
 {
@@ -16,7 +19,6 @@ namespace PAC.DataStructures
             set
             {
                 _bottomLeft = value;
-                RecalculatePoints();
             }
         }
         private IntVector2 _topRight;
@@ -26,7 +28,6 @@ namespace PAC.DataStructures
             set
             {
                 _topRight = value;
-                RecalculatePoints();
             }
         }
         public IntVector2 bottomRight
@@ -36,7 +37,6 @@ namespace PAC.DataStructures
             {
                 _bottomLeft = new IntVector2(bottomLeft.x, value.y);
                 _topRight = new IntVector2(value.x, topRight.y);
-                RecalculatePoints();
             }
         }
         public IntVector2 topLeft
@@ -46,13 +46,12 @@ namespace PAC.DataStructures
             {
                 _bottomLeft = new IntVector2(value.x, bottomLeft.y);
                 _topRight = new IntVector2(topRight.x, value.y);
-                RecalculatePoints();
             }
         }
         public Vector2 centre => (Vector2)(bottomLeft + topRight + IntVector2.one) / 2f;
 
         /// <summary>The points in the rect, starting with the bottom row, read left to right, then the next row, etc.</summary>
-        public IntVector2[] points { get; private set; }
+        public IntVector2[] points => GetPoints();
 
         public int width => topRight.x - bottomLeft.x + 1;
         public int height => topRight.y - bottomLeft.y + 1;
@@ -67,9 +66,6 @@ namespace PAC.DataStructures
         {
             _bottomLeft = new IntVector2(Mathf.Min(corner.x, oppositeCorner.x), Mathf.Min(corner.y, oppositeCorner.y));
             _topRight = new IntVector2(Mathf.Max(corner.x, oppositeCorner.x), Mathf.Max(corner.y, oppositeCorner.y));
-
-            points = new IntVector2[0];
-            RecalculatePoints();
         }
 
         public static bool operator ==(IntRect rect1, IntRect rect2)
@@ -270,16 +266,24 @@ namespace PAC.DataStructures
         }
 
         /// <summary>
-        /// Recalculate the array of points in the rect.
+        /// <para>Gets the points in the rect, starting with the bottom row, read left to right, then the next row, etc.
+        /// </para>
+        /// <para>
+        /// WARNING: this is very expensive for large rects.
+        /// </para>
         /// </summary>
-        private void RecalculatePoints()
+        public IntVector2[] GetPoints()
         {
-            points = new IntVector2[area];
+            IntVector2[] points = new IntVector2[area];
 
-            for (int i = 0; i < area; i++)
+            int index = 0;
+            foreach (IntVector2 point in this)
             {
-                points[i] = bottomLeft + new IntVector2(i % width, i / width);
+                points[index] = point;
+                index++;
             }
+
+            return points;
         }
 
         /// <summary>
@@ -287,7 +291,31 @@ namespace PAC.DataStructures
         /// </summary>
         public IEnumerator GetEnumerator()
         {
-            return points.GetEnumerator();
+            return new IntRectEnumerator(this);
+        }
+
+        private class IntRectEnumerator : IEnumerator
+        {
+            IntRect intRect;
+            int index = -1;
+
+            public object Current => intRect.bottomLeft + new IntVector2(index % intRect.width, index / intRect.height);
+
+            public IntRectEnumerator(IntRect intRect)
+            {
+                this.intRect = intRect;
+            }
+
+            public bool MoveNext()
+            {
+                index++;
+                return index < intRect.area;
+            }
+
+            public void Reset()
+            {
+                index = -1;
+            }
         }
     }
 }
