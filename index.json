@@ -94,6 +94,21 @@
     "title": "Namespace PAC.ColourPicker | Pixel Art Creator 2.0 Docs",
     "keywords": "Namespace PAC.ColourPicker Classes ColourPreview A class to represent colour previews - the boxes on colour pickers that show what colours you have selected. GlobalColourPicker A class for the main colour picker in the program - the one that appears in the main view. HSLColourPicker A class for the HSL colour picker. HSLHueSaturationBox A class for the hue/saturation box of the HSL colour picker. HSLLightnessSlider A class for the lightness slider of the HSL colour picker."
   },
+  "api/PAC.Config.Colours.html": {
+    "href": "api/PAC.Config.Colours.html",
+    "title": "Class Config.Colours | Pixel Art Creator 2.0 Docs",
+    "keywords": "Class Config.Colours Namespace PAC public static class Config.Colours Inheritance object Config.Colours Inherited Members object.Equals(object) object.Equals(object, object) object.GetHashCode() object.GetType() object.MemberwiseClone() object.ReferenceEquals(object, object) object.ToString() Fields brushMask public static readonly Color brushMask Field Value Color transparent public static readonly Color transparent Field Value Color"
+  },
+  "api/PAC.Config.Tools.html": {
+    "href": "api/PAC.Config.Tools.html",
+    "title": "Class Config.Tools | Pixel Art Creator 2.0 Docs",
+    "keywords": "Class Config.Tools Namespace PAC public static class Config.Tools Inheritance object Config.Tools Inherited Members object.Equals(object) object.Equals(object, object) object.GetHashCode() object.GetType() object.MemberwiseClone() object.ReferenceEquals(object, object) object.ToString() Fields maxBrushSize public const int maxBrushSize = 25 Field Value int minBrushSize public const int minBrushSize = 1 Field Value int"
+  },
+  "api/PAC.Config.html": {
+    "href": "api/PAC.Config.html",
+    "title": "Class Config | Pixel Art Creator 2.0 Docs",
+    "keywords": "Class Config Namespace PAC public static class Config Inheritance object Config Inherited Members object.Equals(object) object.Equals(object, object) object.GetHashCode() object.GetType() object.MemberwiseClone() object.ReferenceEquals(object, object) object.ToString()"
+  },
   "api/PAC.DataStructures.CustomStack-1.html": {
     "href": "api/PAC.DataStructures.CustomStack-1.html",
     "title": "Class CustomStack<T> | Pixel Art Creator 2.0 Docs",
@@ -157,7 +172,7 @@
   "api/PAC.Drawing.Toolbar.html": {
     "href": "api/PAC.Drawing.Toolbar.html",
     "title": "Class Toolbar | Pixel Art Creator 2.0 Docs",
-    "keywords": "Class Toolbar Namespace PAC.Drawing Handles selecting tools, brush size, etc. public class Toolbar : MonoBehaviour Inheritance object Toolbar Properties brushPixels The pixels, given relative to the position of the mouse, that will be affected by the current brush. public IntVector2[] brushPixels { get; } Property Value IntVector2[] brushPixelsHeight public int brushPixelsHeight { get; } Property Value int brushPixelsIsEmpty public bool brushPixelsIsEmpty { get; } Property Value bool brushPixelsIsSingleCentralPixel public bool brushPixelsIsSingleCentralPixel { get; } Property Value bool brushPixelsWidth public int brushPixelsWidth { get; } Property Value int brushShape public BrushShape brushShape { get; set; } Property Value BrushShape brushSize public int brushSize { get; } Property Value int brushTexture public Texture2D brushTexture { get; } Property Value Texture2D gradientMode public GradientMode gradientMode { get; } Property Value GradientMode lineSmoothingTime The amount of time you have to draw a new pixel in for an old one to be potentially smoothed. public float lineSmoothingTime { get; } Property Value float maxBrushSize public int maxBrushSize { get; } Property Value int previousTool public Tool previousTool { get; } Property Value Tool selectedTool public Tool selectedTool { get; } Property Value Tool selectionMode public SelectionMode selectionMode { get; } Property Value SelectionMode shapeToolShape public Shape shapeToolShape { get; } Property Value Shape Methods DeselectGlobalEyeDropper() public void DeselectGlobalEyeDropper() LoadCustomBrush(Texture2D) Turns the given texture into a brush shape by taking any pixels with non-zero alpha. public void LoadCustomBrush(Texture2D brushShape) Parameters brushShape Texture2D SelectGlobalEyeDropper() public void SelectGlobalEyeDropper() SetBrushSize(int) public bool SetBrushSize(int brushSize) Parameters brushSize int Returns bool SubscribeToOnBrushPixelsChanged(UnityAction) Event invoked when brush pixels change. public void SubscribeToOnBrushPixelsChanged(UnityAction call) Parameters call UnityAction SubscribeToOnBrushSizeChanged(UnityAction) Event invoked when brush size changes. public void SubscribeToOnBrushSizeChanged(UnityAction call) Parameters call UnityAction SubscribeToOnToolChanged(UnityAction) Event invoked when selected tool changes. public void SubscribeToOnToolChanged(UnityAction call) Parameters call UnityAction"
+    "keywords": "Class Toolbar Namespace PAC.Drawing Handles selecting tools, brush size, etc. public class Toolbar : MonoBehaviour Inheritance object Toolbar Properties brushPixels The pixels, given relative to the position of the mouse, that will be affected by the current brush. public IntVector2[] brushPixels { get; } Property Value IntVector2[] brushPixelsHeight public int brushPixelsHeight { get; } Property Value int brushPixelsIsEmpty public bool brushPixelsIsEmpty { get; } Property Value bool brushPixelsIsSingleCentralPixel public bool brushPixelsIsSingleCentralPixel { get; } Property Value bool brushPixelsWidth public int brushPixelsWidth { get; } Property Value int brushShape public BrushShape brushShape { get; set; } Property Value BrushShape brushSize public int brushSize { get; } Property Value int brushTexture public Texture2D brushTexture { get; } Property Value Texture2D gradientMode public GradientMode gradientMode { get; } Property Value GradientMode lineSmoothingTime The amount of time you have to draw a new pixel in for an old one to be potentially smoothed. public float lineSmoothingTime { get; } Property Value float previousTool public Tool previousTool { get; } Property Value Tool selectedTool public Tool selectedTool { get; } Property Value Tool selectionMode public SelectionMode selectionMode { get; } Property Value SelectionMode shapeToolShape public Shape shapeToolShape { get; } Property Value Shape Methods DeselectGlobalEyeDropper() public void DeselectGlobalEyeDropper() LoadCustomBrush(Texture2D) Turns the given texture into a brush shape by taking any pixels with non-zero alpha. public void LoadCustomBrush(Texture2D brushShape) Parameters brushShape Texture2D SelectGlobalEyeDropper() public void SelectGlobalEyeDropper() SetBrushSize(int) public bool SetBrushSize(int brushSize) Parameters brushSize int Returns bool SubscribeToOnBrushPixelsChanged(UnityAction) Event invoked when brush pixels change. public void SubscribeToOnBrushPixelsChanged(UnityAction call) Parameters call UnityAction SubscribeToOnBrushSizeChanged(UnityAction) Event invoked when brush size changes. public void SubscribeToOnBrushSizeChanged(UnityAction call) Parameters call UnityAction SubscribeToOnToolChanged(UnityAction) Event invoked when selected tool changes. public void SubscribeToOnToolChanged(UnityAction call) Parameters call UnityAction"
   },
   "api/PAC.Drawing.Tools.html": {
     "href": "api/PAC.Drawing.Tools.html",
@@ -393,6 +408,16 @@
     "href": "api/PAC.OutlineSideFill.html",
     "title": "Struct OutlineSideFill | Pixel Art Creator 2.0 Docs",
     "keywords": "Struct OutlineSideFill Namespace PAC public struct OutlineSideFill Inherited Members ValueType.Equals(object) ValueType.GetHashCode() ValueType.ToString() object.Equals(object, object) object.GetType() object.ReferenceEquals(object, object) Constructors OutlineSideFill(bool, bool, bool, bool, bool, bool, bool, bool) public OutlineSideFill(bool topLeft, bool topMiddle, bool topRight, bool middleLeft, bool middleRight, bool bottomLeft, bool bottomMiddle, bool bottomRight) Parameters topLeft bool topMiddle bool topRight bool middleLeft bool middleRight bool bottomLeft bool bottomMiddle bool bottomRight bool Fields bottomLeft public bool bottomLeft Field Value bool bottomMiddle public bool bottomMiddle Field Value bool bottomRight public bool bottomRight Field Value bool middleLeft public bool middleLeft Field Value bool middleRight public bool middleRight Field Value bool topLeft public bool topLeft Field Value bool topMiddle public bool topMiddle Field Value bool topRight public bool topRight Field Value bool"
+  },
+  "api/PAC.Preferences.Preference-1.html": {
+    "href": "api/PAC.Preferences.Preference-1.html",
+    "title": "Class Preferences.Preference<T> | Pixel Art Creator 2.0 Docs",
+    "keywords": "Class Preferences.Preference<T> Namespace PAC public class Preferences.Preference<T> Type Parameters T Inheritance object Preferences.Preference<T> Inherited Members object.Equals(object) object.Equals(object, object) object.GetHashCode() object.GetType() object.MemberwiseClone() object.ReferenceEquals(object, object) object.ToString() Constructors Preference(string, Func<T>, Action<T>) public Preference(string displayName, Func<T> getter, Action<T> setter) Parameters displayName string getter Func<T> setter Action<T> Properties displayName public string displayName { get; } Property Value string value public T value { get; set; } Property Value T"
+  },
+  "api/PAC.Preferences.html": {
+    "href": "api/PAC.Preferences.html",
+    "title": "Class Preferences | Pixel Art Creator 2.0 Docs",
+    "keywords": "Class Preferences Namespace PAC public static class Preferences Inheritance object Preferences Inherited Members object.Equals(object) object.Equals(object, object) object.GetHashCode() object.GetType() object.MemberwiseClone() object.ReferenceEquals(object, object) object.ToString() Fields startupBrushSize public static readonly Preferences.Preference<int> startupBrushSize Field Value Preferences.Preference<int>"
   },
   "api/PAC.RotationAngle.html": {
     "href": "api/PAC.RotationAngle.html",
@@ -707,7 +732,7 @@
   "api/PAC.html": {
     "href": "api/PAC.html",
     "title": "Namespace PAC | Pixel Art Creator 2.0 Docs",
-    "keywords": "Namespace PAC Classes Finder Functions ImageConverter KeyCodeFunctions Tex2DSprite Structs OutlineSideFill Enums FlipDirection RotationAngle"
+    "keywords": "Namespace PAC Classes Config Config.Colours Config.Tools Finder Functions ImageConverter KeyCodeFunctions Preferences Preferences.Preference<T> Tex2DSprite Structs OutlineSideFill Enums FlipDirection RotationAngle"
   },
   "index.html": {
     "href": "index.html",

@@ -1727,6 +1727,48 @@ references:
   isSpec: "True"
   fullName: PAC.ColourPicker.HSLLightnessSlider.lightness
   nameWithType: HSLLightnessSlider.lightness
+- uid: PAC.Config
+  name: Config
+  href: api/PAC.Config.html
+  commentId: T:PAC.Config
+  fullName: PAC.Config
+  nameWithType: Config
+- uid: PAC.Config.Colours
+  name: Config.Colours
+  href: api/PAC.Config.Colours.html
+  commentId: T:PAC.Config.Colours
+  fullName: PAC.Config.Colours
+  nameWithType: Config.Colours
+- uid: PAC.Config.Colours.brushMask
+  name: brushMask
+  href: api/PAC.Config.Colours.html#PAC_Config_Colours_brushMask
+  commentId: F:PAC.Config.Colours.brushMask
+  fullName: PAC.Config.Colours.brushMask
+  nameWithType: Config.Colours.brushMask
+- uid: PAC.Config.Colours.transparent
+  name: transparent
+  href: api/PAC.Config.Colours.html#PAC_Config_Colours_transparent
+  commentId: F:PAC.Config.Colours.transparent
+  fullName: PAC.Config.Colours.transparent
+  nameWithType: Config.Colours.transparent
+- uid: PAC.Config.Tools
+  name: Config.Tools
+  href: api/PAC.Config.Tools.html
+  commentId: T:PAC.Config.Tools
+  fullName: PAC.Config.Tools
+  nameWithType: Config.Tools
+- uid: PAC.Config.Tools.maxBrushSize
+  name: maxBrushSize
+  href: api/PAC.Config.Tools.html#PAC_Config_Tools_maxBrushSize
+  commentId: F:PAC.Config.Tools.maxBrushSize
+  fullName: PAC.Config.Tools.maxBrushSize
+  nameWithType: Config.Tools.maxBrushSize
+- uid: PAC.Config.Tools.minBrushSize
+  name: minBrushSize
+  href: api/PAC.Config.Tools.html#PAC_Config_Tools_minBrushSize
+  commentId: F:PAC.Config.Tools.minBrushSize
+  fullName: PAC.Config.Tools.minBrushSize
+  nameWithType: Config.Tools.minBrushSize
 - uid: PAC.DataStructures
   name: PAC.DataStructures
   href: api/PAC.DataStructures.html
@@ -4143,19 +4185,6 @@ references:
   isSpec: "True"
   fullName: PAC.Drawing.Toolbar.lineSmoothingTime
   nameWithType: Toolbar.lineSmoothingTime
-- uid: PAC.Drawing.Toolbar.maxBrushSize
-  name: maxBrushSize
-  href: api/PAC.Drawing.Toolbar.html#PAC_Drawing_Toolbar_maxBrushSize
-  commentId: P:PAC.Drawing.Toolbar.maxBrushSize
-  fullName: PAC.Drawing.Toolbar.maxBrushSize
-  nameWithType: Toolbar.maxBrushSize
-- uid: PAC.Drawing.Toolbar.maxBrushSize*
-  name: maxBrushSize
-  href: api/PAC.Drawing.Toolbar.html#PAC_Drawing_Toolbar_maxBrushSize_
-  commentId: Overload:PAC.Drawing.Toolbar.maxBrushSize
-  isSpec: "True"
-  fullName: PAC.Drawing.Toolbar.maxBrushSize
-  nameWithType: Toolbar.maxBrushSize
 - uid: PAC.Drawing.Toolbar.previousTool
   name: previousTool
   href: api/PAC.Drawing.Toolbar.html#PAC_Drawing_Toolbar_previousTool
@@ -12361,6 +12390,80 @@ references:
   commentId: F:PAC.OutlineSideFill.topRight
   fullName: PAC.OutlineSideFill.topRight
   nameWithType: OutlineSideFill.topRight
+- uid: PAC.Preferences
+  name: Preferences
+  href: api/PAC.Preferences.html
+  commentId: T:PAC.Preferences
+  fullName: PAC.Preferences
+  nameWithType: Preferences
+- uid: PAC.Preferences.Preference`1
+  name: Preferences.Preference<T>
+  href: api/PAC.Preferences.Preference-1.html
+  commentId: T:PAC.Preferences.Preference`1
+  name.vb: Preferences.Preference(Of T)
+  fullName: PAC.Preferences.Preference<T>
+  fullName.vb: PAC.Preferences.Preference(Of T)
+  nameWithType: Preferences.Preference<T>
+  nameWithType.vb: Preferences.Preference(Of T)
+- uid: PAC.Preferences.Preference`1.#ctor(System.String,System.Func{`0},System.Action{`0})
+  name: Preference(string, Func<T>, Action<T>)
+  href: api/PAC.Preferences.Preference-1.html#PAC_Preferences_Preference_1__ctor_System_String_System_Func__0__System_Action__0__
+  commentId: M:PAC.Preferences.Preference`1.#ctor(System.String,System.Func{`0},System.Action{`0})
+  name.vb: New(String, Func(Of T), Action(Of T))
+  fullName: PAC.Preferences.Preference<T>.Preference(string, System.Func<T>, System.Action<T>)
+  fullName.vb: PAC.Preferences.Preference(Of T).New(String, System.Func(Of T), System.Action(Of T))
+  nameWithType: Preferences.Preference<T>.Preference(string, Func<T>, Action<T>)
+  nameWithType.vb: Preferences.Preference(Of T).New(String, Func(Of T), Action(Of T))
+- uid: PAC.Preferences.Preference`1.#ctor*
+  name: Preference
+  href: api/PAC.Preferences.Preference-1.html#PAC_Preferences_Preference_1__ctor_
+  commentId: Overload:PAC.Preferences.Preference`1.#ctor
+  isSpec: "True"
+  name.vb: New
+  fullName: PAC.Preferences.Preference<T>.Preference
+  fullName.vb: PAC.Preferences.Preference(Of T).New
+  nameWithType: Preferences.Preference<T>.Preference
+  nameWithType.vb: Preferences.Preference(Of T).New
+- uid: PAC.Preferences.Preference`1.displayName
+  name: displayName
+  href: api/PAC.Preferences.Preference-1.html#PAC_Preferences_Preference_1_displayName
+  commentId: P:PAC.Preferences.Preference`1.displayName
+  fullName: PAC.Preferences.Preference<T>.displayName
+  fullName.vb: PAC.Preferences.Preference(Of T).displayName
+  nameWithType: Preferences.Preference<T>.displayName
+  nameWithType.vb: Preferences.Preference(Of T).displayName
+- uid: PAC.Preferences.Preference`1.displayName*
+  name: displayName
+  href: api/PAC.Preferences.Preference-1.html#PAC_Preferences_Preference_1_displayName_
+  commentId: Overload:PAC.Preferences.Preference`1.displayName
+  isSpec: "True"
+  fullName: PAC.Preferences.Preference<T>.displayName
+  fullName.vb: PAC.Preferences.Preference(Of T).displayName
+  nameWithType: Preferences.Preference<T>.displayName
+  nameWithType.vb: Preferences.Preference(Of T).displayName
+- uid: PAC.Preferences.Preference`1.value
+  name: value
+  href: api/PAC.Preferences.Preference-1.html#PAC_Preferences_Preference_1_value
+  commentId: P:PAC.Preferences.Preference`1.value
+  fullName: PAC.Preferences.Preference<T>.value
+  fullName.vb: PAC.Preferences.Preference(Of T).value
+  nameWithType: Preferences.Preference<T>.value
+  nameWithType.vb: Preferences.Preference(Of T).value
+- uid: PAC.Preferences.Preference`1.value*
+  name: value
+  href: api/PAC.Preferences.Preference-1.html#PAC_Preferences_Preference_1_value_
+  commentId: Overload:PAC.Preferences.Preference`1.value
+  isSpec: "True"
+  fullName: PAC.Preferences.Preference<T>.value
+  fullName.vb: PAC.Preferences.Preference(Of T).value
+  nameWithType: Preferences.Preference<T>.value
+  nameWithType.vb: Preferences.Preference(Of T).value
+- uid: PAC.Preferences.startupBrushSize
+  name: startupBrushSize
+  href: api/PAC.Preferences.html#PAC_Preferences_startupBrushSize
+  commentId: F:PAC.Preferences.startupBrushSize
+  fullName: PAC.Preferences.startupBrushSize
+  nameWithType: Preferences.startupBrushSize
 - uid: PAC.RotationAngle
   name: RotationAngle
   href: api/PAC.RotationAngle.html

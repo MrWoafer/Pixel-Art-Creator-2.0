@@ -212,6 +212,36 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/PAC.Config.Colours.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.Config.Colours.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.Config.Tools.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.Config.Tools.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.Config.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.Config.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/PAC.DataStructures.CustomStack-1.yml",
       "output": {
         ".html": {
@@ -806,6 +836,26 @@
       "output": {
         ".html": {
           "relative_path": "api/PAC.OutlineSideFill.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.Preferences.Preference-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.Preferences.Preference-1.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.Preferences.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.Preferences.html"
         }
       },
       "version": ""
