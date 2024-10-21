@@ -685,7 +685,7 @@ namespace PAC.UI
             OpenDialogBox(brushSettingsWindow);
 
             brushSettingsShapeToggleGroup.Press((int)toolbar.brushShape);
-            brushSettingsSizeField.max = toolbar.maxBrushSize;
+            brushSettingsSizeField.max = Config.Tools.maxBrushSize;
             brushSettingsSizeField.value = toolbar.brushSize;
         }
         public void CloseBrushSettingsWindow()

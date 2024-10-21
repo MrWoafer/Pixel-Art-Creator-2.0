@@ -44,11 +44,6 @@ namespace PAC.Drawing
     /// </summary>
     public class Toolbar : MonoBehaviour
     {
-        [Header("Tool Options")]
-        [SerializeField]
-        private int _maxBrushSize = 10;
-        public int maxBrushSize => _maxBrushSize;
-
         [SerializeField]
         private int _brushSize = 1;
         public int brushSize
@@ -162,6 +157,8 @@ namespace PAC.Drawing
                 onToolChanged.Invoke();
             });
 
+            Debug.Log(Preferences.startupBrushSize.value);
+
             UpdateBrushBorder();
         }
 
@@ -203,7 +200,7 @@ namespace PAC.Drawing
             {
                 return false;
             }
-            if (brushSize > maxBrushSize)
+            if (brushSize > Config.Tools.maxBrushSize)
             {
                 return false;
             }
@@ -212,7 +209,7 @@ namespace PAC.Drawing
                 return false;
             }
 
-            this.brushSize = Mathf.Clamp(brushSize, 1, maxBrushSize);
+            this.brushSize = Mathf.Clamp(brushSize, 1, Config.Tools.maxBrushSize);
             onBrushSizeChanged.Invoke();
 
             return true;
