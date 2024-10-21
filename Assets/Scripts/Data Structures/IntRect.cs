@@ -50,7 +50,13 @@ namespace PAC.DataStructures
         }
         public Vector2 centre => (Vector2)(bottomLeft + topRight + IntVector2.one) / 2f;
 
-        /// <summary>The points in the rect, starting with the bottom row, read left to right, then the next row, etc.</summary>
+        /// <summary>
+        /// <para>Gets the points in the rect, starting with the bottom row, read left to right, then the next row, etc.
+        /// </para>
+        /// <para>
+        /// WARNING: this is very expensive for large rects.
+        /// </para>
+        /// </summary>
         public IntVector2[] points => GetPoints();
 
         public int width => topRight.x - bottomLeft.x + 1;
