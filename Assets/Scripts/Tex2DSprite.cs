@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using PAC.Colour;
@@ -53,12 +54,9 @@ namespace PAC
             Texture2D tex = new Texture2D(width, height);
             Color[] pixels = new Color[width * height];
 
-            for (int x = 0; x < width; x++)
+            for (int index = 0; index < width * height; index++)
             {
-                for (int y = 0; y < height; y++)
-                {
-                    pixels[x % width + y * width] = colour;
-                }
+                pixels[index] = colour;
             }
 
             tex.SetPixels(pixels);
@@ -80,18 +78,21 @@ namespace PAC
             Texture2D tex = new Texture2D(texWidth, texHeight);
             Color[] pixels = new Color[texWidth * texHeight];
 
+            int index = 0;
             for (int x = 0; x < texWidth; x++)
             {
                 for (int y = 0; y < texHeight; y++)
                 {
                     if ((x + y) % 2 == 0)
                     {
-                        pixels[x % texWidth + y * texWidth] = new Color32(224, 224, 224, 255);
+                        pixels[index] = new Color32(224, 224, 224, 255);
                     }
                     else
                     {
-                        pixels[x % texWidth + y * texWidth] = new Color32(190, 190, 190, 255);
+                        pixels[index] = new Color32(190, 190, 190, 255);
                     }
+
+                    index++;
                 }
             }
 

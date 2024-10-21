@@ -17,8 +17,8 @@ PlayerSettings:
   defaultCursor: {fileID: 2800000, guid: 5c11de763610f9a41846633d40e284a3, type: 3}
   cursorHotspot: {x: 3, y: 0}
   m_SplashScreenBackgroundColor: {r: 0.8, g: 0.8, b: 0.8, a: 1}
-  m_ShowUnitySplashScreen: 1
-  m_ShowUnitySplashLogo: 1
+  m_ShowUnitySplashScreen: 0
+  m_ShowUnitySplashLogo: 0
   m_SplashScreenOverlayOpacity: 1
   m_SplashScreenAnimation: 1
   m_SplashScreenLogoStyle: 0

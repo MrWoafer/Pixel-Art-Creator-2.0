@@ -172,7 +172,7 @@ namespace PAC.Files
         public void NewFile(int width, int height)
         {
             AddFile(new File(defaultFileName, width, height));
-            SwitchToFile(files.Count - 1);
+            //SwitchToFile(files.Count - 1);
         }
 
         public void OpenFileDialog()
