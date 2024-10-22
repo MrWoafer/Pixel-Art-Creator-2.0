@@ -12424,6 +12424,40 @@ references:
   fullName.vb: PAC.Preferences.Preference(Of T).New
   nameWithType: Preferences.Preference<T>.Preference
   nameWithType.vb: Preferences.Preference(Of T).New
+- uid: PAC.Preferences.Preference`1.Get
+  name: Get()
+  href: api/PAC.Preferences.Preference-1.html#PAC_Preferences_Preference_1_Get
+  commentId: M:PAC.Preferences.Preference`1.Get
+  fullName: PAC.Preferences.Preference<T>.Get()
+  fullName.vb: PAC.Preferences.Preference(Of T).Get()
+  nameWithType: Preferences.Preference<T>.Get()
+  nameWithType.vb: Preferences.Preference(Of T).Get()
+- uid: PAC.Preferences.Preference`1.Get*
+  name: Get
+  href: api/PAC.Preferences.Preference-1.html#PAC_Preferences_Preference_1_Get_
+  commentId: Overload:PAC.Preferences.Preference`1.Get
+  isSpec: "True"
+  fullName: PAC.Preferences.Preference<T>.Get
+  fullName.vb: PAC.Preferences.Preference(Of T).Get
+  nameWithType: Preferences.Preference<T>.Get
+  nameWithType.vb: Preferences.Preference(Of T).Get
+- uid: PAC.Preferences.Preference`1.Set(`0)
+  name: Set(T)
+  href: api/PAC.Preferences.Preference-1.html#PAC_Preferences_Preference_1_Set__0_
+  commentId: M:PAC.Preferences.Preference`1.Set(`0)
+  fullName: PAC.Preferences.Preference<T>.Set(T)
+  fullName.vb: PAC.Preferences.Preference(Of T).Set(T)
+  nameWithType: Preferences.Preference<T>.Set(T)
+  nameWithType.vb: Preferences.Preference(Of T).Set(T)
+- uid: PAC.Preferences.Preference`1.Set*
+  name: Set
+  href: api/PAC.Preferences.Preference-1.html#PAC_Preferences_Preference_1_Set_
+  commentId: Overload:PAC.Preferences.Preference`1.Set
+  isSpec: "True"
+  fullName: PAC.Preferences.Preference<T>.Set
+  fullName.vb: PAC.Preferences.Preference(Of T).Set
+  nameWithType: Preferences.Preference<T>.Set
+  nameWithType.vb: Preferences.Preference(Of T).Set
 - uid: PAC.Preferences.Preference`1.displayName
   name: displayName
   href: api/PAC.Preferences.Preference-1.html#PAC_Preferences_Preference_1_displayName
@@ -12441,23 +12475,6 @@ references:
   fullName.vb: PAC.Preferences.Preference(Of T).displayName
   nameWithType: Preferences.Preference<T>.displayName
   nameWithType.vb: Preferences.Preference(Of T).displayName
-- uid: PAC.Preferences.Preference`1.value
-  name: value
-  href: api/PAC.Preferences.Preference-1.html#PAC_Preferences_Preference_1_value
-  commentId: P:PAC.Preferences.Preference`1.value
-  fullName: PAC.Preferences.Preference<T>.value
-  fullName.vb: PAC.Preferences.Preference(Of T).value
-  nameWithType: Preferences.Preference<T>.value
-  nameWithType.vb: Preferences.Preference(Of T).value
-- uid: PAC.Preferences.Preference`1.value*
-  name: value
-  href: api/PAC.Preferences.Preference-1.html#PAC_Preferences_Preference_1_value_
-  commentId: Overload:PAC.Preferences.Preference`1.value
-  isSpec: "True"
-  fullName: PAC.Preferences.Preference<T>.value
-  fullName.vb: PAC.Preferences.Preference(Of T).value
-  nameWithType: Preferences.Preference<T>.value
-  nameWithType.vb: Preferences.Preference(Of T).value
 - uid: PAC.Preferences.startupBrushSize
   name: startupBrushSize
   href: api/PAC.Preferences.html#PAC_Preferences_startupBrushSize

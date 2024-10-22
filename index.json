@@ -412,7 +412,7 @@
   "api/PAC.Preferences.Preference-1.html": {
     "href": "api/PAC.Preferences.Preference-1.html",
     "title": "Class Preferences.Preference<T> | Pixel Art Creator 2.0 Docs",
-    "keywords": "Class Preferences.Preference<T> Namespace PAC public class Preferences.Preference<T> Type Parameters T Inheritance object Preferences.Preference<T> Inherited Members object.Equals(object) object.Equals(object, object) object.GetHashCode() object.GetType() object.MemberwiseClone() object.ReferenceEquals(object, object) object.ToString() Constructors Preference(string, Func<T>, Action<T>) public Preference(string displayName, Func<T> getter, Action<T> setter) Parameters displayName string getter Func<T> setter Action<T> Properties displayName public string displayName { get; } Property Value string value public T value { get; set; } Property Value T"
+    "keywords": "Class Preferences.Preference<T> Namespace PAC public class Preferences.Preference<T> Type Parameters T Inheritance object Preferences.Preference<T> Inherited Members object.Equals(object) object.Equals(object, object) object.GetHashCode() object.GetType() object.MemberwiseClone() object.ReferenceEquals(object, object) object.ToString() Constructors Preference(string, Func<T>, Action<T>) public Preference(string displayName, Func<T> getter, Action<T> setter) Parameters displayName string getter Func<T> setter Action<T> Properties displayName public string displayName { get; } Property Value string Methods Get() public T Get() Returns T Set(T) public void Set(T value) Parameters value T"
   },
   "api/PAC.Preferences.html": {
     "href": "api/PAC.Preferences.html",
