@@ -206,6 +206,9 @@ namespace PAC
             return str;
         }
 
+        /// <summary>
+        /// Creates an array starting at start and ending at end (inclusive).
+        /// </summary>
         public static int[] Range(int start, int end)
         {
             if (start <= end)

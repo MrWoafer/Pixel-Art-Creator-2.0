@@ -610,18 +610,23 @@ namespace PAC
             return visited.ToArray();
         }
 
+        /// <summary>
+        /// Creates a deepcopy of the texture using Color colours.
+        /// </summary>
         public static Texture2D Copy(Texture2D texture)
         {
             Texture2D copy = new Texture2D(texture.width, texture.height);
-
-            for(int x = 0; x < texture.width; x++)
-            {
-                for(int y = 0; y < texture.height; y++)
-                {
-                    copy.SetPixel(x, y, texture.GetPixel(x, y));
-                }
-            }
-
+            copy.SetPixels(texture.GetPixels());
+            copy.Apply();
+            return copy;
+        }
+        /// <summary>
+        /// Creates a deepcopy of the texture using Color32 colours.
+        /// </summary>
+        public static Texture2D Copy32(Texture2D texture)
+        {
+            Texture2D copy = new Texture2D(texture.width, texture.height);
+            copy.SetPixels32(texture.GetPixels32());
             copy.Apply();
             return copy;
         }

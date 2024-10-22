@@ -111,7 +111,7 @@ namespace PAC.Files
             this.width = width;
             this.height = height;
 
-            liveRender = Tex2DSprite.BlankTexture(width, height);
+            liveRender = new Texture2D(width, height);
 
             AddNormalLayer();
 
@@ -939,7 +939,22 @@ namespace PAC.Files
         /// <summary>
         /// Rerenders the whole live render.
         /// </summary>
-        private void RerenderLiveRender() => RerenderLiveRender(rect);
+        private void RerenderLiveRender()
+        {
+            Color[] pixels = new Color[rect.area];
+            int[] layerIndices = Functions.Range(0, layers.Count() - 1);
+
+            int index = 0;
+            for (int x = 0; x < width; x++)
+            {
+                for (int y = 0; y < height; y++)
+                {
+                    pixels[index] = RenderPixel(x, y, layerIndices, liveRenderFrame);
+                    index++;
+                }
+            }
+            liveRender.SetPixels(pixels);
+        }
         /// <summary>
         /// Rerenders the section of the live render within the given rect.
         /// </summary>
