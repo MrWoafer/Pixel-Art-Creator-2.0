@@ -42,8 +42,16 @@ namespace PAC
 
         public static Texture2D BlankTexture(int width, int height)
         {
-            return SolidTexture(width, height, new Color(0f, 0f, 0f, 0f));
+            return SolidTexture(width, height, (Color32)Config.Colours.transparent);
         }
+        /// <summary>
+        /// <para>
+        /// Creates a texture of the given dimensions filled with the given colour.
+        /// </para>
+        /// <para>
+        /// NOTE: the overload that takes in a Color32 is faster.
+        /// </para>
+        /// </summary>
         public static Texture2D SolidTexture(int width, int height, Color colour)
         {
             if (width <= 0 || height <= 0)
@@ -64,6 +72,34 @@ namespace PAC
 
             return tex;
         }
+        /// <summary>
+        /// <para>
+        /// Creates a texture of the given dimensions filled with the given colour.
+        /// </para>
+        /// <para>
+        /// NOTE: this is faster than the overload that takes in a Color.
+        /// </para>
+        /// </summary>
+        public static Texture2D SolidTexture(int width, int height, Color32 colour)
+        {
+            if (width <= 0 || height <= 0)
+            {
+                throw new System.Exception("Dimensions must be positive: (width, height) = (" + width + ", " + height + ")");
+            }
+
+            Texture2D tex = new Texture2D(width, height);
+            Color32[] pixels = new Color32[width * height];
+
+            for (int index = 0; index < width * height; index++)
+            {
+                pixels[index] = colour;
+            }
+
+            tex.SetPixels32(pixels);
+            tex.Apply();
+
+            return tex;
+        }
 
         public static Texture2D CheckerboardBackground(int width, int height)
         {
@@ -76,7 +112,7 @@ namespace PAC
             int texHeight = height * 2;
 
             Texture2D tex = new Texture2D(texWidth, texHeight);
-            Color[] pixels = new Color[texWidth * texHeight];
+            Color32[] pixels = new Color32[texWidth * texHeight];
 
             int index = 0;
             for (int x = 0; x < texWidth; x++)
@@ -96,7 +132,7 @@ namespace PAC
                 }
             }
 
-            tex.SetPixels(pixels);
+            tex.SetPixels32(pixels);
             tex.Apply();
 
             return tex;
