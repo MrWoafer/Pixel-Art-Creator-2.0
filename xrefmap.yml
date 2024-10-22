@@ -12952,6 +12952,19 @@ references:
   isSpec: "True"
   fullName: PAC.Tex2DSprite.Copy
   nameWithType: Tex2DSprite.Copy
+- uid: PAC.Tex2DSprite.Copy32(Texture2D)
+  name: Copy32(Texture2D)
+  href: api/PAC.Tex2DSprite.html#PAC_Tex2DSprite_Copy32_Texture2D_
+  commentId: M:PAC.Tex2DSprite.Copy32(Texture2D)
+  fullName: PAC.Tex2DSprite.Copy32(Texture2D)
+  nameWithType: Tex2DSprite.Copy32(Texture2D)
+- uid: PAC.Tex2DSprite.Copy32*
+  name: Copy32
+  href: api/PAC.Tex2DSprite.html#PAC_Tex2DSprite_Copy32_
+  commentId: Overload:PAC.Tex2DSprite.Copy32
+  isSpec: "True"
+  fullName: PAC.Tex2DSprite.Copy32
+  nameWithType: Tex2DSprite.Copy32
 - uid: PAC.Tex2DSprite.Extend(Texture2D,System.Int32,System.Int32,System.Int32,System.Int32)
   name: Extend(Texture2D, int, int, int, int)
   href: api/PAC.Tex2DSprite.html#PAC_Tex2DSprite_Extend_Texture2D_System_Int32_System_Int32_System_Int32_System_Int32_
@@ -13282,6 +13295,15 @@ references:
   fullName.vb: PAC.Tex2DSprite.SolidTexture(Integer, Integer, Color)
   nameWithType: Tex2DSprite.SolidTexture(int, int, Color)
   nameWithType.vb: Tex2DSprite.SolidTexture(Integer, Integer, Color)
+- uid: PAC.Tex2DSprite.SolidTexture(System.Int32,System.Int32,Color32)
+  name: SolidTexture(int, int, Color32)
+  href: api/PAC.Tex2DSprite.html#PAC_Tex2DSprite_SolidTexture_System_Int32_System_Int32_Color32_
+  commentId: M:PAC.Tex2DSprite.SolidTexture(System.Int32,System.Int32,Color32)
+  name.vb: SolidTexture(Integer, Integer, Color32)
+  fullName: PAC.Tex2DSprite.SolidTexture(int, int, Color32)
+  fullName.vb: PAC.Tex2DSprite.SolidTexture(Integer, Integer, Color32)
+  nameWithType: Tex2DSprite.SolidTexture(int, int, Color32)
+  nameWithType.vb: Tex2DSprite.SolidTexture(Integer, Integer, Color32)
 - uid: PAC.Tex2DSprite.SolidTexture*
   name: SolidTexture
   href: api/PAC.Tex2DSprite.html#PAC_Tex2DSprite_SolidTexture_
