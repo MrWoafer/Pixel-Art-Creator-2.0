@@ -11,18 +11,15 @@ namespace PAC
             private Func<T> getter;
             private Action<T> setter;
 
-            public T value
-            {
-                get => getter.Invoke();
-                set => setter.Invoke(value);
-            }
-
             public Preference(string displayName, Func<T> getter, Action<T> setter)
             {
                 this.displayName = displayName;
                 this.getter = getter;
                 this.setter = setter;
             }
+
+            public T Get() => getter.Invoke();
+            public void Set(T value) => setter.Invoke(value);
         }
 
         public static readonly Preference<int> startupBrushSize = new Preference<int>("Startup Brush Size",

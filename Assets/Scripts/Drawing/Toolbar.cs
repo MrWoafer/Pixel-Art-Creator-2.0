@@ -157,7 +157,7 @@ namespace PAC.Drawing
                 onToolChanged.Invoke();
             });
 
-            Debug.Log(Preferences.startupBrushSize.value);
+            Debug.Log(Preferences.startupBrushSize.Get());
 
             UpdateBrushBorder();
         }
