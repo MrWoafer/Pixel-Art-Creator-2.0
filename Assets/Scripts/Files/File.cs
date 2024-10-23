@@ -945,9 +945,9 @@ namespace PAC.Files
             int[] layerIndices = Functions.Range(0, layers.Count() - 1);
 
             int index = 0;
-            for (int x = 0; x < width; x++)
+            for (int y = 0; y < height; y++)
             {
-                for (int y = 0; y < height; y++)
+                for (int x = 0; x < width; x++)
                 {
                     pixels[index] = RenderPixel(x, y, layerIndices, liveRenderFrame);
                     index++;
