@@ -157,8 +157,6 @@ namespace PAC.Drawing
                 onToolChanged.Invoke();
             });
 
-            Debug.Log(Preferences.startupBrushSize.Get());
-
             UpdateBrushBorder();
         }
 
@@ -326,15 +324,15 @@ namespace PAC.Drawing
             {
                 if (brushShape == BrushShape.Square)
                 {
-                    brushTexture = Tex2DSprite.SolidTexture(brushSize * 2 - 1, brushSize * 2 - 1, Color.white);
+                    brushTexture = Tex2DSprite.SolidTexture(brushSize * 2 - 1, brushSize * 2 - 1, Config.Colours.mask);
                 }
                 else if (brushShape == BrushShape.Circle)
                 {
-                    brushTexture = Shapes.Circle(brushSize * 2 - 1, brushSize * 2 - 1, IntVector2.zero, IntVector2.one * (brushSize * 2 - 2), Color.white, true, false);
+                    brushTexture = Shapes.Circle(brushSize * 2 - 1, brushSize * 2 - 1, IntVector2.zero, IntVector2.one * (brushSize * 2 - 2), Config.Colours.mask, true, false);
                 }
                 else if (brushShape == BrushShape.Diamond)
                 {
-                    brushTexture = Shapes.Diamond(brushSize * 2 - 1, brushSize * 2 - 1, IntVector2.zero, IntVector2.one * (brushSize * 2 - 2), Color.white, true);
+                    brushTexture = Shapes.Diamond(brushSize * 2 - 1, brushSize * 2 - 1, IntVector2.zero, IntVector2.one * (brushSize * 2 - 2), Config.Colours.mask, true);
                 }
                 else if (brushShape == BrushShape.Custom)
                 {
@@ -352,7 +350,7 @@ namespace PAC.Drawing
             }
             else
             {
-                brushTexture = Tex2DSprite.SolidTexture(1, 1, Color.white);
+                brushTexture = Tex2DSprite.SolidTexture(1, 1, Config.Colours.mask);
                 brushTexture.Apply();
             }
 
@@ -397,7 +395,7 @@ namespace PAC.Drawing
                 {
                     if (brushShape.GetPixel(x, y).a != 0f)
                     {
-                        customBrushTexture.SetPixel(x, y, Color.white);
+                        customBrushTexture.SetPixel(x, y, Config.Colours.mask);
                     }
                 }
             }

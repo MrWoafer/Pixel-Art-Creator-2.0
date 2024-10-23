@@ -57,7 +57,7 @@ namespace PAC.Drawing
         public static void UseRubber(File file, int layer, int frame, int x, int y, IntVector2[] brushBorderMaskPixels) => UseRubber(file, layer, frame, new IntVector2(x, y), brushBorderMaskPixels);
         public static void UseRubber(File file, int layer, int frame, IntVector2 pixel, IntVector2[] brushBorderMaskPixels)
         {
-            UseBrush(file, layer, frame, pixel, brushBorderMaskPixels, Color.clear);
+            UseBrush(file, layer, frame, pixel, brushBorderMaskPixels, Config.Colours.transparent);
         }
 
         public static Color UseEyeDropper(File file, int layer, int frame, IntVector2 pixel) => UseEyeDropper(file, layer, frame, pixel.x, pixel.y);

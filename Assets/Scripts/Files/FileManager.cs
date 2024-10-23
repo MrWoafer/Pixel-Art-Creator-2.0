@@ -70,7 +70,7 @@ namespace PAC.Files
 
         SwitchToFile(1);*/
             //AddFile(new File(defaultFileName, 16, 16));
-            AddFile(new File(defaultFileName, 64, 64));
+            AddFile(new File(defaultFileName, Preferences.startupFileWidth, Preferences.startupFileHeight));
             SwitchToFile(0);
 
             /// Open file from 'Open with' in File Explorer

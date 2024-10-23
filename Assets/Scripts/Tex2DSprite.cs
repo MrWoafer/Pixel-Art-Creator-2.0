@@ -121,11 +121,11 @@ namespace PAC
                 {
                     if ((x + y) % 2 == 0)
                     {
-                        pixels[index] = new Color32(224, 224, 224, 255);
+                        pixels[index] = Preferences.transparentCheckerboardColour1;
                     }
                     else
                     {
-                        pixels[index] = new Color32(190, 190, 190, 255);
+                        pixels[index] = Preferences.transparentCheckerboardColour2;
                     }
 
                     index++;
@@ -308,7 +308,7 @@ namespace PAC
                     }
                     else
                     {
-                        offsetTex.SetPixel(x, y, new Color(0f, 0f, 0f, 0f));
+                        offsetTex.SetPixel(x, y, Config.Colours.transparent);
                     }
                 }
             }
@@ -514,13 +514,13 @@ namespace PAC
             {
                 for (int y = 0; y < texture.height; y++)
                 {
-                    if (mask.GetPixel(x, y) != Color.clear)
+                    if (mask.GetPixel(x, y).a != 0f)
                     {
                         maskedTexture.SetPixel(x, y, texture.GetPixel(x, y));
                     }
                     else
                     {
-                        maskedTexture.SetPixel(x, y, Color.clear);
+                        maskedTexture.SetPixel(x, y, Config.Colours.mask);
                     }
                 }
             }
@@ -542,7 +542,7 @@ namespace PAC
                     }
                     else
                     {
-                        maskedTexture.SetPixel(x, y, Color.clear);
+                        maskedTexture.SetPixel(x, y, Config.Colours.mask);
                     }
                 }
             }
@@ -570,7 +570,7 @@ namespace PAC
 
             foreach (IntVector2 pixel in GetPixelsToFill(texture, startPoint, maxNumOfIterations))
             {
-                fillMask.SetPixel(pixel.x, pixel.y, new Color(1f, 1f, 1f, 1f));
+                fillMask.SetPixel(pixel.x, pixel.y, Config.Colours.mask);
             }
 
             fillMask.Apply();

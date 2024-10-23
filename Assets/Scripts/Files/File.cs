@@ -923,7 +923,7 @@ namespace PAC.Files
                 throw new System.Exception("layerIndices cannot be empty.");
             }
 
-            Color pixelColour = Color.clear;
+            Color pixelColour = new Color(0f, 0f, 0f, 0f);
             for (int i = layerIndices.Length - 1; i >= 0; i--)
             {
                 if (layers[layerIndices[i]].visible)
