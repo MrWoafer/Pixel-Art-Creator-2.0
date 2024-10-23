@@ -1739,12 +1739,24 @@ references:
   commentId: T:PAC.Config.Colours
   fullName: PAC.Config.Colours
   nameWithType: Config.Colours
-- uid: PAC.Config.Colours.brushMask
-  name: brushMask
-  href: api/PAC.Config.Colours.html#PAC_Config_Colours_brushMask
-  commentId: F:PAC.Config.Colours.brushMask
-  fullName: PAC.Config.Colours.brushMask
-  nameWithType: Config.Colours.brushMask
+- uid: PAC.Config.Colours.brushOutlineDark
+  name: brushOutlineDark
+  href: api/PAC.Config.Colours.html#PAC_Config_Colours_brushOutlineDark
+  commentId: F:PAC.Config.Colours.brushOutlineDark
+  fullName: PAC.Config.Colours.brushOutlineDark
+  nameWithType: Config.Colours.brushOutlineDark
+- uid: PAC.Config.Colours.brushOutlineLight
+  name: brushOutlineLight
+  href: api/PAC.Config.Colours.html#PAC_Config_Colours_brushOutlineLight
+  commentId: F:PAC.Config.Colours.brushOutlineLight
+  fullName: PAC.Config.Colours.brushOutlineLight
+  nameWithType: Config.Colours.brushOutlineLight
+- uid: PAC.Config.Colours.mask
+  name: mask
+  href: api/PAC.Config.Colours.html#PAC_Config_Colours_mask
+  commentId: F:PAC.Config.Colours.mask
+  fullName: PAC.Config.Colours.mask
+  nameWithType: Config.Colours.mask
 - uid: PAC.Config.Colours.transparent
   name: transparent
   href: api/PAC.Config.Colours.html#PAC_Config_Colours_transparent
@@ -12396,6 +12408,40 @@ references:
   commentId: T:PAC.Preferences
   fullName: PAC.Preferences
   nameWithType: Preferences
+- uid: PAC.Preferences.CreatePreference(System.String,System.String,Color)
+  name: CreatePreference(string, string, Color)
+  href: api/PAC.Preferences.html#PAC_Preferences_CreatePreference_System_String_System_String_Color_
+  commentId: M:PAC.Preferences.CreatePreference(System.String,System.String,Color)
+  name.vb: CreatePreference(String, String, Color)
+  fullName: PAC.Preferences.CreatePreference(string, string, Color)
+  fullName.vb: PAC.Preferences.CreatePreference(String, String, Color)
+  nameWithType: Preferences.CreatePreference(string, string, Color)
+  nameWithType.vb: Preferences.CreatePreference(String, String, Color)
+- uid: PAC.Preferences.CreatePreference(System.String,System.String,Color32)
+  name: CreatePreference(string, string, Color32)
+  href: api/PAC.Preferences.html#PAC_Preferences_CreatePreference_System_String_System_String_Color32_
+  commentId: M:PAC.Preferences.CreatePreference(System.String,System.String,Color32)
+  name.vb: CreatePreference(String, String, Color32)
+  fullName: PAC.Preferences.CreatePreference(string, string, Color32)
+  fullName.vb: PAC.Preferences.CreatePreference(String, String, Color32)
+  nameWithType: Preferences.CreatePreference(string, string, Color32)
+  nameWithType.vb: Preferences.CreatePreference(String, String, Color32)
+- uid: PAC.Preferences.CreatePreference(System.String,System.String,System.Int32,System.Int32,System.Int32)
+  name: CreatePreference(string, string, int, int, int)
+  href: api/PAC.Preferences.html#PAC_Preferences_CreatePreference_System_String_System_String_System_Int32_System_Int32_System_Int32_
+  commentId: M:PAC.Preferences.CreatePreference(System.String,System.String,System.Int32,System.Int32,System.Int32)
+  name.vb: CreatePreference(String, String, Integer, Integer, Integer)
+  fullName: PAC.Preferences.CreatePreference(string, string, int, int, int)
+  fullName.vb: PAC.Preferences.CreatePreference(String, String, Integer, Integer, Integer)
+  nameWithType: Preferences.CreatePreference(string, string, int, int, int)
+  nameWithType.vb: Preferences.CreatePreference(String, String, Integer, Integer, Integer)
+- uid: PAC.Preferences.CreatePreference*
+  name: CreatePreference
+  href: api/PAC.Preferences.html#PAC_Preferences_CreatePreference_
+  commentId: Overload:PAC.Preferences.CreatePreference
+  isSpec: "True"
+  fullName: PAC.Preferences.CreatePreference
+  nameWithType: Preferences.CreatePreference
 - uid: PAC.Preferences.Preference`1
   name: Preferences.Preference<T>
   href: api/PAC.Preferences.Preference-1.html
@@ -12475,12 +12521,73 @@ references:
   fullName.vb: PAC.Preferences.Preference(Of T).displayName
   nameWithType: Preferences.Preference<T>.displayName
   nameWithType.vb: Preferences.Preference(Of T).displayName
+- uid: PAC.Preferences.Preference`1.op_Implicit(PAC.Preferences.Preference{`0})~`0
+  name: implicit operator T(Preference<T>)
+  href: api/PAC.Preferences.Preference-1.html#PAC_Preferences_Preference_1_op_Implicit_PAC_Preferences_Preference__0____0
+  commentId: M:PAC.Preferences.Preference`1.op_Implicit(PAC.Preferences.Preference{`0})~`0
+  name.vb: CType(Preference(Of T))
+  fullName: PAC.Preferences.Preference<T>.implicit operator T(PAC.Preferences.Preference<T>)
+  fullName.vb: PAC.Preferences.Preference(Of T).CType(PAC.Preferences.Preference(Of T))
+  nameWithType: Preferences.Preference<T>.implicit operator T(Preferences.Preference<T>)
+  nameWithType.vb: Preferences.Preference(Of T).CType(Preferences.Preference(Of T))
+- uid: PAC.Preferences.Preference`1.op_Implicit*
+  name: implicit operator
+  href: api/PAC.Preferences.Preference-1.html#PAC_Preferences_Preference_1_op_Implicit_
+  commentId: Overload:PAC.Preferences.Preference`1.op_Implicit
+  isSpec: "True"
+  name.vb: CType
+  fullName: PAC.Preferences.Preference<T>.implicit operator
+  fullName.vb: PAC.Preferences.Preference(Of T).CType
+  nameWithType: Preferences.Preference<T>.implicit operator
+  nameWithType.vb: Preferences.Preference(Of T).CType
+- uid: PAC.Preferences.startupAnimationFramerate
+  name: startupAnimationFramerate
+  href: api/PAC.Preferences.html#PAC_Preferences_startupAnimationFramerate
+  commentId: F:PAC.Preferences.startupAnimationFramerate
+  fullName: PAC.Preferences.startupAnimationFramerate
+  nameWithType: Preferences.startupAnimationFramerate
 - uid: PAC.Preferences.startupBrushSize
   name: startupBrushSize
   href: api/PAC.Preferences.html#PAC_Preferences_startupBrushSize
   commentId: F:PAC.Preferences.startupBrushSize
   fullName: PAC.Preferences.startupBrushSize
   nameWithType: Preferences.startupBrushSize
+- uid: PAC.Preferences.startupFileHeight
+  name: startupFileHeight
+  href: api/PAC.Preferences.html#PAC_Preferences_startupFileHeight
+  commentId: F:PAC.Preferences.startupFileHeight
+  fullName: PAC.Preferences.startupFileHeight
+  nameWithType: Preferences.startupFileHeight
+- uid: PAC.Preferences.startupFileWidth
+  name: startupFileWidth
+  href: api/PAC.Preferences.html#PAC_Preferences_startupFileWidth
+  commentId: F:PAC.Preferences.startupFileWidth
+  fullName: PAC.Preferences.startupFileWidth
+  nameWithType: Preferences.startupFileWidth
+- uid: PAC.Preferences.startupPrimaryColour
+  name: startupPrimaryColour
+  href: api/PAC.Preferences.html#PAC_Preferences_startupPrimaryColour
+  commentId: F:PAC.Preferences.startupPrimaryColour
+  fullName: PAC.Preferences.startupPrimaryColour
+  nameWithType: Preferences.startupPrimaryColour
+- uid: PAC.Preferences.startupSecondaryColour
+  name: startupSecondaryColour
+  href: api/PAC.Preferences.html#PAC_Preferences_startupSecondaryColour
+  commentId: F:PAC.Preferences.startupSecondaryColour
+  fullName: PAC.Preferences.startupSecondaryColour
+  nameWithType: Preferences.startupSecondaryColour
+- uid: PAC.Preferences.transparentCheckerboardColour1
+  name: transparentCheckerboardColour1
+  href: api/PAC.Preferences.html#PAC_Preferences_transparentCheckerboardColour1
+  commentId: F:PAC.Preferences.transparentCheckerboardColour1
+  fullName: PAC.Preferences.transparentCheckerboardColour1
+  nameWithType: Preferences.transparentCheckerboardColour1
+- uid: PAC.Preferences.transparentCheckerboardColour2
+  name: transparentCheckerboardColour2
+  href: api/PAC.Preferences.html#PAC_Preferences_transparentCheckerboardColour2
+  commentId: F:PAC.Preferences.transparentCheckerboardColour2
+  fullName: PAC.Preferences.transparentCheckerboardColour2
+  nameWithType: Preferences.transparentCheckerboardColour2
 - uid: PAC.RotationAngle
   name: RotationAngle
   href: api/PAC.RotationAngle.html
