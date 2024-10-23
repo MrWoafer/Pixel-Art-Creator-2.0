@@ -1,4 +1,5 @@
 using System;
+using Unity.VisualScripting;
 using UnityEngine;
 
 namespace PAC
@@ -11,7 +12,11 @@ namespace PAC
             private Func<T> getter;
             private Action<T> setter;
 
+            /// <summary>Gets the value of the preference.</summary>
+            public static implicit operator T(Preference<T> pref) => pref.Get();
+            /// <summary>Gets the value of the preference. Can also be done via casting.</summary>
             public T Get() => getter.Invoke();
+            /// <summary>Change the value of the preference and save it.</summary>
             public void Set(T value) => setter.Invoke(value);
 
             public Preference(string displayName, Func<T> getter, Action<T> setter)
@@ -20,6 +25,25 @@ namespace PAC
                 this.getter = getter;
                 this.setter = setter;
             }
+        }
+
+        public static Preference<int> CreatePreference(string displayName, string playerPrefsKey, int defaultValue, int minValue = int.MinValue, int maxValue = int.MaxValue)
+        {
+            return new Preference<int>(displayName,
+                () => PlayerPrefs.GetInt(playerPrefsKey, defaultValue),
+                (value) =>
+                {
+                    if (value < minValue)
+                    {
+                        throw new ArgumentException("Value (" + value + ") cannot be less than " + minValue);
+                    }
+                    if (value > maxValue)
+                    {
+                        throw new ArgumentException("Value (" + value + ") cannot be more than " + maxValue);
+                    }
+                    PlayerPrefs.SetInt(playerPrefsKey, value);
+                }
+            );
         }
 
         public static Preference<Color> CreatePreference(string displayName, string playerPrefsKey, Color defaultValue)
@@ -60,21 +84,10 @@ namespace PAC
             );
         }
 
-        public static readonly Preference<int> startupBrushSize = new Preference<int>("Startup Brush Size",
-            () => PlayerPrefs.GetInt("startup brush size", 1),
-            (size) =>
-            {
-                if (size < Config.Tools.minBrushSize)
-                {
-                    throw new ArgumentException("Size (" + size + ") is less than the max brush size (" + Config.Tools.minBrushSize + ")");
-                }
-                if (size > Config.Tools.maxBrushSize)
-                {
-                    throw new ArgumentException("Size (" + size + ") is larger than the max brush size (" + Config.Tools.maxBrushSize + ")");
-                }
-                PlayerPrefs.SetInt("startup brush size", size);
-            }
-            );
+        public static readonly Preference<int> startupFileWidth = CreatePreference("Startup File Width", "startup file width", 32, 1, 1024);
+        public static readonly Preference<int> startupFileHeight = CreatePreference("Startup File Height", "startup file height", 32, 1, 1024);
+
+        public static readonly Preference<int> startupBrushSize = CreatePreference("Startup Brush Size", "startup brush size", 1, Config.Tools.minBrushSize, Config.Tools.maxBrushSize);
 
         /// <summary>This is the colour that will be in the bottom left / top right of the checkerboard.</summary>
         public static readonly Preference<Color32> transparentCheckerboardColour1 =

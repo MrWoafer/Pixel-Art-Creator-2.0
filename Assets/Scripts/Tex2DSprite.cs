@@ -121,11 +121,11 @@ namespace PAC
                 {
                     if ((x + y) % 2 == 0)
                     {
-                        pixels[index] = Preferences.transparentCheckerboardColour1.Get();
+                        pixels[index] = Preferences.transparentCheckerboardColour1;
                     }
                     else
                     {
-                        pixels[index] = Preferences.transparentCheckerboardColour2.Get();
+                        pixels[index] = Preferences.transparentCheckerboardColour2;
                     }
 
                     index++;
