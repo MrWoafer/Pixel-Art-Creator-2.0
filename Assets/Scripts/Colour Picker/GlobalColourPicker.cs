@@ -74,6 +74,8 @@ namespace PAC.ColourPicker
 
             uiColourPicker.SubscribeToColourChange(() => { onColourChanged.Invoke(); });
 
+            colourPreviews[0].SetColour(Preferences.startupPrimaryColour);
+            colourPreviews[1].SetColour(Preferences.startupSecondaryColour);
             SelectColourPreview(0);
         }
 

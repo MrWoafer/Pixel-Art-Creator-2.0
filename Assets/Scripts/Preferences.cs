@@ -91,9 +91,14 @@ namespace PAC
 
         /// <summary>This is the colour that will be in the bottom left / top right of the checkerboard.</summary>
         public static readonly Preference<Color32> transparentCheckerboardColour1 =
-            CreatePreference("Transparent Checkerboard Colour 1", "transparent checkerboard colour 1 ", new Color32(224, 224, 224, 255));
+            CreatePreference("Transparent Checkerboard Colour 1", "transparent checkerboard colour 1", new Color32(224, 224, 224, 255));
         /// <summary>This is the colour that will be in the bottom right / top left of the checkerboard.</summary>
         public static readonly Preference<Color32> transparentCheckerboardColour2 =
-            CreatePreference("Transparent Checkerboard Colour 2", "transparent checkerboard colour 2 ", new Color32(190, 190, 190, 255));
+            CreatePreference("Transparent Checkerboard Colour 2", "transparent checkerboard colour 2", new Color32(190, 190, 190, 255));
+
+        public static readonly Preference<Color> startupPrimaryColour =
+            CreatePreference("Startup Primary Colour", "startup primary colour", new Color(0f, 0f, 0f, 1f));
+        public static readonly Preference<Color> startupSecondaryColour =
+            CreatePreference("Startup Secondary Colour", "startup secondary colour", new Color(1f, 1f, 1f, 1f));
     }
 }
