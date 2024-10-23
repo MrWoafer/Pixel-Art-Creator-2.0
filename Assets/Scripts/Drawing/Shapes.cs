@@ -293,19 +293,19 @@ namespace PAC.Drawing
                 {
                     if (tex.ContainsPixel(bottomLeft.x, bottomLeft.y))
                     {
-                        tex.SetPixel(bottomLeft.x, bottomLeft.y, new Color(0f, 0f, 0f, 0f));
+                        tex.SetPixel(bottomLeft.x, bottomLeft.y, Config.Colours.transparent);
                     }
                     if (tex.ContainsPixel(bottomLeft.x, topRight.y))
                     {
-                        tex.SetPixel(bottomLeft.x, topRight.y, new Color(0f, 0f, 0f, 0f));
+                        tex.SetPixel(bottomLeft.x, topRight.y, Config.Colours.transparent);
                     }
                     if (tex.ContainsPixel(topRight.x, bottomLeft.y))
                     {
-                        tex.SetPixel(topRight.x, bottomLeft.y, new Color(0f, 0f, 0f, 0f));
+                        tex.SetPixel(topRight.x, bottomLeft.y, Config.Colours.transparent);
                     }
                     if (tex.ContainsPixel(topRight.x, topRight.y))
                     {
-                        tex.SetPixel(topRight.x, topRight.y, new Color(0f, 0f, 0f, 0f));
+                        tex.SetPixel(topRight.x, topRight.y, Config.Colours.transparent);
                     }
                 }
             }

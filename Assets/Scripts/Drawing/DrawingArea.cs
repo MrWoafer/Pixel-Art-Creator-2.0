@@ -106,7 +106,7 @@ namespace PAC.Drawing
                 {
                     for (int y = 0; y < selectionMask.height; y++)
                     {
-                        if (selectionMask.GetPixel(x, y) != Color.clear)
+                        if (selectionMask.GetPixel(x, y).a != 0f)
                         {
                             return true;
                         }
@@ -128,7 +128,7 @@ namespace PAC.Drawing
                 {
                     for (int y = 0; y < selectionMask.height; y++)
                     {
-                        if (selectionMask.GetPixel(x, y) != Color.clear)
+                        if (selectionMask.GetPixel(x, y).a != 0f)
                         {
                             if (minX == -1 || x < minX)
                             {
@@ -164,7 +164,7 @@ namespace PAC.Drawing
 
         // Line smoothing variables
         private IntVector2[] lineSmoothingPreviousLine = new IntVector2[0];
-        private Color lineSmoothingColourUnderLineEnd = Color.clear;
+        private Color lineSmoothingColourUnderLineEnd = Config.Colours.transparent;
         private float lineSmoothingCountdown = 0f;
 
         // Iso box tool variables
@@ -409,10 +409,10 @@ namespace PAC.Drawing
             }
 
             // When the brush is a single pixel, make the border black/white depending on the lightness of the pixel below
-            Color outlineColour = Color.black;
+            Color outlineColour = Config.Colours.brushOutlineDark;
             if (toolbar.brushPixelsIsSingleCentralPixel && file.liveRender.GetPixel(pixel).a != 0f && new HSL(file.liveRender.GetPixel(pixel)).l < 0.5f)
             {
-                outlineColour = Color.white;
+                outlineColour = Config.Colours.brushOutlineLight;
             }
             brushBorderSprRen.GetComponent<Outline>().colour = outlineColour;
         }
@@ -737,7 +737,7 @@ namespace PAC.Drawing
             else if (tool == Tool.Fill)
             {
                 if (leftClickedOn) { Tools.UseFill(file, layer, frame, pixel, colour); }
-                else if (rightClickedOn) { Tools.UseFill(file, layer, frame, pixel, Color.clear); }
+                else if (rightClickedOn) { Tools.UseFill(file, layer, frame, pixel, Config.Colours.transparent); }
             }
             else if (tool == Tool.Line)
             {
@@ -1060,44 +1060,44 @@ namespace PAC.Drawing
         {
             if (erase)
             {
-                selectionMask = Tex2DSprite.Subtract(selectionMask, Shapes.Square(file.width, file.height, start, end, Color.white, true, true));
+                selectionMask = Tex2DSprite.Subtract(selectionMask, Shapes.Square(file.width, file.height, start, end, Config.Colours.mask, true, true));
             }
             else
             {
-                selectionMask = Shapes.Square(file.width, file.height, start, end, Color.white, true, true);
+                selectionMask = Shapes.Square(file.width, file.height, start, end, Config.Colours.mask, true, true);
             }
         }
         private void SelectionRectangle(IntVector2 start, IntVector2 end, bool erase)
         {
             if (erase)
             {
-                selectionMask = Tex2DSprite.Subtract(selectionMask, Shapes.Rectangle(file.width, file.height, start, end, Color.white, true));
+                selectionMask = Tex2DSprite.Subtract(selectionMask, Shapes.Rectangle(file.width, file.height, start, end, Config.Colours.mask, true));
             }
             else
             {
-                selectionMask = Shapes.Rectangle(file.width, file.height, start, end, Color.white, true);
+                selectionMask = Shapes.Rectangle(file.width, file.height, start, end, Config.Colours.mask, true);
             }
         }
         private void SelectionCircle(IntVector2 start, IntVector2 end, bool erase)
         {
             if (erase)
             {
-                selectionMask = Tex2DSprite.Subtract(selectionMask, Shapes.Circle(file.width, file.height, start, end, Color.white, true, true));
+                selectionMask = Tex2DSprite.Subtract(selectionMask, Shapes.Circle(file.width, file.height, start, end, Config.Colours.mask, true, true));
             }
             else
             {
-                selectionMask = Shapes.Circle(file.width, file.height, start, end, Color.white, true, true);
+                selectionMask = Shapes.Circle(file.width, file.height, start, end, Config.Colours.mask, true, true);
             }
         }
         private void SelectionEllipse(IntVector2 start, IntVector2 end, bool erase)
         {
             if (erase)
             {
-                selectionMask = Tex2DSprite.Subtract(selectionMask, Shapes.Ellipse(file.width, file.height, start, end, Color.white, true));
+                selectionMask = Tex2DSprite.Subtract(selectionMask, Shapes.Ellipse(file.width, file.height, start, end, Config.Colours.mask, true));
             }
             else
             {
-                selectionMask = Shapes.Ellipse(file.width, file.height, start, end, Color.white, true);
+                selectionMask = Shapes.Ellipse(file.width, file.height, start, end, Config.Colours.mask, true);
             }
         }
 
@@ -1105,7 +1105,7 @@ namespace PAC.Drawing
         {
             if (erase)
             {
-                if (selectionMask.GetPixel(pixel.x, pixel.y) == Color.clear)
+                if (selectionMask.GetPixel(pixel.x, pixel.y).a != 0f)
                 {
                     selectionMask = Tex2DSprite.Subtract(selectionMask, Tex2DSprite.GetFillMask(selectedLayer[animationManager.currentFrameIndex].texture, pixel));
                 }
@@ -1129,7 +1129,7 @@ namespace PAC.Drawing
 
         private void SelectionDraw(IntVector2 pixel, bool erase)
         {
-            selectionMask.SetPixel(pixel.x, pixel.y, erase ? Color.clear : Color.white);
+            selectionMask.SetPixel(pixel.x, pixel.y, erase ? Config.Colours.transparent : Config.Colours.mask);
             selectionMask.Apply();
             selectionMask = selectionMask;
         }
@@ -1148,14 +1148,14 @@ namespace PAC.Drawing
             {
                 for (int y = 0; y < selectionMask.height; y++)
                 {
-                    if (selectionMask.GetPixel(x, y) == Color.white)
+                    if (selectionMask.GetPixel(x, y) == Config.Colours.mask)
                     {
                         pixelsToFill.Add(new IntVector2(x, y));
                     }
                 }
             }
 
-            selectedLayer.SetPixels(pixelsToFill.ToArray(), animationManager.currentFrameIndex, Color.clear, AnimFrameRefMode.NewKeyFrame);
+            selectedLayer.SetPixels(pixelsToFill.ToArray(), animationManager.currentFrameIndex, Config.Colours.transparent, AnimFrameRefMode.NewKeyFrame);
             UpdateDrawing();
         }
 

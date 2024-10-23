@@ -471,7 +471,7 @@ namespace PAC.Layers
                 Tile tile = PixelToTileNoValidation(pixel);
                 if (tile == null)
                 {
-                    GetKeyFrame(frame).texture.SetPixel(pixel, new Color(0f, 0f, 0f, 0f));
+                    GetKeyFrame(frame).texture.SetPixel(pixel, Config.Colours.transparent);
                 }
                 else
                 {

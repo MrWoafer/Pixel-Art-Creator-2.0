@@ -21,7 +21,7 @@ namespace PAC.ColourPicker
             {
                 if (_colour.a == 0f)
                 {
-                    return new Color(0f, 0f, 0f, 0f);
+                    return Config.Colours.transparent;
                 }
                 return _colour;
             }
