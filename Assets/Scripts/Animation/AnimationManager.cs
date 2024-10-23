@@ -121,6 +121,7 @@ namespace PAC.Animation
 
         private void Start()
         {
+            framerateTextbox.SetText(Preferences.startupAnimationFramerate.Get().ToString());
             OnFramerateChanged();
             framerateTextbox.SubscribeToFinishEvent(OnFramerateChanged);
             playPauseButton.SubscribeToLeftClick(OnPlayPause);

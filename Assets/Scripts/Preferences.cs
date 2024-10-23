@@ -89,6 +89,8 @@ namespace PAC
 
         public static readonly Preference<int> startupBrushSize = CreatePreference("Startup Brush Size", "startup brush size", 1, Config.Tools.minBrushSize, Config.Tools.maxBrushSize);
 
+        public static readonly Preference<int> startupAnimationFramerate = CreatePreference("Startup Animation Framerate", "startup animation framerate", 2, 1, 60);
+
         /// <summary>This is the colour that will be in the bottom left / top right of the checkerboard.</summary>
         public static readonly Preference<Color32> transparentCheckerboardColour1 =
             CreatePreference("Transparent Checkerboard Colour 1", "transparent checkerboard colour 1", new Color32(224, 224, 224, 255));
