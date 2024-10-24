@@ -4,6 +4,11 @@ namespace PAC
 {
     public static class Config
     {
+        public static class Files
+        {
+            public const string pacFileExtension = "pac";
+        }
+
         public static class Tools
         {
             public const int minBrushSize = 1;

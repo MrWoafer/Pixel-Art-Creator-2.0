@@ -177,8 +177,11 @@ namespace PAC.Files
 
         public void OpenFileDialog()
         {
-            ExtensionFilter[] extensions = new ExtensionFilter[] { new ExtensionFilter("Any File ", "png", "jpeg", "jpg", "pac"), new ExtensionFilter("Image File ", "png", "jpeg", "jpg"),
-                new ExtensionFilter("Pixel Art Creator File ", "pac") };
+            ExtensionFilter[] extensions = new ExtensionFilter[] {
+                new ExtensionFilter("Any File ", "png", "jpeg", "jpg",
+                    Config.Files.pacFileExtension), new ExtensionFilter("Image File ", "png", "jpeg", "jpg"),
+                new ExtensionFilter("Pixel Art Creator File ", Config.Files.pacFileExtension)
+                };
             string[] fileNames = StandaloneFileBrowser.OpenFilePanel("Open File", "", extensions, false);
             if (fileNames.Length > 0)
             {
@@ -218,8 +221,11 @@ namespace PAC.Files
 
         public void ImportDialog()
         {
-            ExtensionFilter[] extensions = new ExtensionFilter[] { new ExtensionFilter("Any File ", "png", "jpeg", "jpg", "pac"), new ExtensionFilter("Image File ", "png", "jpeg", "jpg"),
-                new ExtensionFilter("Pixel Art Creator File ", "pac") };
+            ExtensionFilter[] extensions = new ExtensionFilter[] {
+                new ExtensionFilter("Any File ", "png", "jpeg", "jpg",
+                Config.Files.pacFileExtension), new ExtensionFilter("Image File ", "png", "jpeg", "jpg"),
+                new ExtensionFilter("Pixel Art Creator File ", Config.Files.pacFileExtension)
+            };
             string[] fileNames = StandaloneFileBrowser.OpenFilePanel("Import", "", extensions, false);
             if (fileNames.Length > 0)
             {
@@ -235,7 +241,7 @@ namespace PAC.Files
                         currentFile.ImportImage(fileNames[0]);
                     }
                 }
-                else if (Path.GetExtension(fileNames[0]) == ".pac")
+                else if (Path.GetExtension(fileNames[0]) == "." + Config.Files.pacFileExtension)
                 {
                     File file = File.OpenPAC(fileNames[0]);
                     if (file.width != currentFile.width || file.height != currentFile.height)
@@ -309,7 +315,7 @@ namespace PAC.Files
         {
             if (file.mostRecentSavePath == null)
             {
-                ExtensionFilter[] extensions = new ExtensionFilter[] { new ExtensionFilter("Pixel Art Creator File ", "pac") };
+                ExtensionFilter[] extensions = new ExtensionFilter[] { new ExtensionFilter("Pixel Art Creator File ", Config.Files.pacFileExtension) };
                 string fileName = StandaloneFileBrowser.SaveFilePanel("Save", "", file.name, extensions);
                 if (fileName != "")
                 {
@@ -331,7 +337,7 @@ namespace PAC.Files
         }
         public void SaveAsFileDialog(File file)
         {
-            ExtensionFilter[] extensions = new ExtensionFilter[] { new ExtensionFilter("Pixel Art Creator File ", "pac") };
+            ExtensionFilter[] extensions = new ExtensionFilter[] { new ExtensionFilter("Pixel Art Creator File ", Config.Files.pacFileExtension) };
             string fileName = StandaloneFileBrowser.SaveFilePanel("Save As", "", file.name, extensions);
             if (fileName != "")
             {
