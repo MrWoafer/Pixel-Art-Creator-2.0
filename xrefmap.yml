@@ -1763,6 +1763,18 @@ references:
   commentId: F:PAC.Config.Colours.transparent
   fullName: PAC.Config.Colours.transparent
   nameWithType: Config.Colours.transparent
+- uid: PAC.Config.Files
+  name: Config.Files
+  href: api/PAC.Config.Files.html
+  commentId: T:PAC.Config.Files
+  fullName: PAC.Config.Files
+  nameWithType: Config.Files
+- uid: PAC.Config.Files.pacFileExtension
+  name: pacFileExtension
+  href: api/PAC.Config.Files.html#PAC_Config_Files_pacFileExtension
+  commentId: F:PAC.Config.Files.pacFileExtension
+  fullName: PAC.Config.Files.pacFileExtension
+  nameWithType: Config.Files.pacFileExtension
 - uid: PAC.Config.Tools
   name: Config.Tools
   href: api/PAC.Config.Tools.html

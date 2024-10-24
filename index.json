@@ -99,6 +99,11 @@
     "title": "Class Config.Colours | Pixel Art Creator 2.0 Docs",
     "keywords": "Class Config.Colours Namespace PAC public static class Config.Colours Inheritance object Config.Colours Inherited Members object.Equals(object) object.Equals(object, object) object.GetHashCode() object.GetType() object.MemberwiseClone() object.ReferenceEquals(object, object) object.ToString() Fields brushOutlineDark public static readonly Color brushOutlineDark Field Value Color brushOutlineLight public static readonly Color brushOutlineLight Field Value Color mask public static readonly Color mask Field Value Color transparent public static readonly Color transparent Field Value Color"
   },
+  "api/PAC.Config.Files.html": {
+    "href": "api/PAC.Config.Files.html",
+    "title": "Class Config.Files | Pixel Art Creator 2.0 Docs",
+    "keywords": "Class Config.Files Namespace PAC public static class Config.Files Inheritance object Config.Files Inherited Members object.Equals(object) object.Equals(object, object) object.GetHashCode() object.GetType() object.MemberwiseClone() object.ReferenceEquals(object, object) object.ToString() Fields pacFileExtension public const string pacFileExtension = \"pac\" Field Value string"
+  },
   "api/PAC.Config.Tools.html": {
     "href": "api/PAC.Config.Tools.html",
     "title": "Class Config.Tools | Pixel Art Creator 2.0 Docs",
@@ -732,7 +737,7 @@
   "api/PAC.html": {
     "href": "api/PAC.html",
     "title": "Namespace PAC | Pixel Art Creator 2.0 Docs",
-    "keywords": "Namespace PAC Classes Config Config.Colours Config.Tools Finder Functions ImageConverter KeyCodeFunctions Preferences Preferences.Preference<T> Tex2DSprite Structs OutlineSideFill Enums FlipDirection RotationAngle"
+    "keywords": "Namespace PAC Classes Config Config.Colours Config.Files Config.Tools Finder Functions ImageConverter KeyCodeFunctions Preferences Preferences.Preference<T> Tex2DSprite Structs OutlineSideFill Enums FlipDirection RotationAngle"
   },
   "index.html": {
     "href": "index.html",
