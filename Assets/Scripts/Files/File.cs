@@ -168,7 +168,7 @@ namespace PAC.Files
             {
                 return OpenJPEG(filePath);
             }
-            else if (Path.GetExtension(filePath) == ".pac")
+            else if (Path.GetExtension(filePath) == "." + Config.Files.pacFileExtension)
             {
                 return OpenPAC(filePath);
             }
@@ -241,7 +241,7 @@ namespace PAC.Files
             {
                 throw new System.Exception("filePath doesn't exist: " + filePath);
             }
-            if (Path.GetExtension(filePath) != ".pac")
+            if (Path.GetExtension(filePath) != "." + Config.Files.pacFileExtension)
             {
                 throw new System.Exception("The file is not a PAC file. File extension: " + Path.GetExtension(filePath));
             }
@@ -303,7 +303,7 @@ namespace PAC.Files
             {
                 throw new System.Exception("filePath not fully qualified: " + filePath);
             }
-            if (Path.GetExtension(filePath) != ".pac")
+            if (Path.GetExtension(filePath) != "." + Config.Files.pacFileExtension)
             {
                 throw new System.Exception("The file is not a PAC file. File extension: " + Path.GetExtension(filePath));
             }
