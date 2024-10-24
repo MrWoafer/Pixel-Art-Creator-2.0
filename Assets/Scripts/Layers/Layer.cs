@@ -23,7 +23,7 @@ namespace PAC.Layers
     /// <summary>
     /// An abstract class to define what each type of layer must have.
     /// </summary>
-    public abstract class Layer : IJSONable
+    public abstract class Layer : IJSONable<Layer>
     {
         public abstract LayerType layerType { get; }
 

@@ -1,6 +1,8 @@
+using Codice.CM.SEIDInfo;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using UnityEngine;
 
 namespace PAC.JSON
 {
@@ -145,11 +147,11 @@ namespace PAC.JSON
         /// <summary>
         /// Adds the string form of the JSON of the given object to this JSON object.
         /// </summary>
-        public void Add(string key, IJSONable jsonableObject) => Add(key, jsonableObject.ToJSON());
+        public void Add<T>(string key, IJSONable<T> jsonableObject) => Add(key, jsonableObject.ToJSON());
         /// <summary>
         /// Adds the string forms of the JSON of the given objects to this JSON object in the format of a JSON array.
         /// </summary>
-        public void Add(string key, IEnumerable<IJSONable> jsonableObjects) => Add(key, new JSONProperty(ToJSONString(jsonableObjects), false));
+        public void Add<T>(string key, IEnumerable<IJSONable<T>> jsonableObjects) => Add(key, new JSONProperty(ToJSONString(jsonableObjects), false));
 
         /// <summary>
         /// Adds the string form of the given object to the JSON, adding no quotation marks.
@@ -368,7 +370,7 @@ namespace PAC.JSON
         /// <summary>
         /// Returns the JSON of the given objects in a JSON-format array in string form.
         /// </summary>
-        public static string ToJSONString(IEnumerable<IJSONable> jsonableObjects)
+        public static string ToJSONString<T>(IEnumerable<IJSONable<T>> jsonableObjects)
         {
             return ToJSONString(from obj in jsonableObjects select obj.ToJSON().ToString(), true, false);
         }
@@ -531,6 +533,17 @@ namespace PAC.JSON
             split.Add(data);
 
             return split.ToArray();
+        }
+
+        public static string ToJSON(Color colour)
+        {
+            return "(" + colour.r + ", " + colour.g + ", " + colour.b + ", " + colour.a + ")";
+        }
+
+        public static Color ColorFromJSON(string json)
+        {
+            string[] colour = json.Trim('(', ')').Replace(" ", "").Split(',');
+            return new Color(float.Parse(colour[0]), float.Parse(colour[1]), float.Parse(colour[2]), float.Parse(colour[3]));
         }
     }
 }

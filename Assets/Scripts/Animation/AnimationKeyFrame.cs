@@ -6,7 +6,7 @@ namespace PAC.Animation
     /// <summary>
     /// A class representing a single keyframe for a layer.
     /// </summary>
-    public class AnimationKeyFrame : IJSONable
+    public class AnimationKeyFrame : IJSONable<AnimationKeyFrame>
     {
         /// <summary>The number of the frame this keyframe is on.</summary>
         public int frame;
@@ -50,7 +50,7 @@ namespace PAC.Animation
                 for (int column = 0; column < texture.width; column++)
                 {
                     Color colour = texture.GetPixel(column, row);
-                    rowColours[column] = "(" + colour.r + ", " + colour.g + ", " + colour.b + ", " + colour.a + ")";
+                    rowColours[column] = JSON.JSON.ToJSON(colour);
                 }
 
                 texRows[row] = "[" + string.Join(", ", rowColours) + "]";
@@ -72,9 +72,7 @@ namespace PAC.Animation
                 string[] row = JSON.JSON.SplitArray(rows[y]);
                 for (int x = 0; x < width; x++)
                 {
-                    string[] colour = row[x].Trim('(', ')').Replace(" ", "").Split(',');
-
-                    tex.SetPixel(x, y, new Color(float.Parse(colour[0]), float.Parse(colour[1]), float.Parse(colour[2]), float.Parse(colour[3])));
+                    tex.SetPixel(x, y, JSON.JSON.ColorFromJSON(row[x]));
                 }
             }
             tex.Apply();
