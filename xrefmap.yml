@@ -9167,25 +9167,49 @@ references:
   commentId: N:PAC.JSON
   fullName: PAC.JSON
   nameWithType: PAC.JSON
-- uid: PAC.JSON.IJSONable
-  name: IJSONable
-  href: api/PAC.JSON.IJSONable.html
-  commentId: T:PAC.JSON.IJSONable
-  fullName: PAC.JSON.IJSONable
-  nameWithType: IJSONable
-- uid: PAC.JSON.IJSONable.ToJSON
-  name: ToJSON()
-  href: api/PAC.JSON.IJSONable.html#PAC_JSON_IJSONable_ToJSON
-  commentId: M:PAC.JSON.IJSONable.ToJSON
-  fullName: PAC.JSON.IJSONable.ToJSON()
-  nameWithType: IJSONable.ToJSON()
-- uid: PAC.JSON.IJSONable.ToJSON*
-  name: ToJSON
-  href: api/PAC.JSON.IJSONable.html#PAC_JSON_IJSONable_ToJSON_
-  commentId: Overload:PAC.JSON.IJSONable.ToJSON
+- uid: PAC.JSON.IJSONable`1
+  name: IJSONable<T>
+  href: api/PAC.JSON.IJSONable-1.html
+  commentId: T:PAC.JSON.IJSONable`1
+  name.vb: IJSONable(Of T)
+  fullName: PAC.JSON.IJSONable<T>
+  fullName.vb: PAC.JSON.IJSONable(Of T)
+  nameWithType: IJSONable<T>
+  nameWithType.vb: IJSONable(Of T)
+- uid: PAC.JSON.IJSONable`1.FromJSON(PAC.JSON.JSON)
+  name: FromJSON(JSON)
+  href: api/PAC.JSON.IJSONable-1.html#PAC_JSON_IJSONable_1_FromJSON_PAC_JSON_JSON_
+  commentId: M:PAC.JSON.IJSONable`1.FromJSON(PAC.JSON.JSON)
+  fullName: PAC.JSON.IJSONable<T>.FromJSON(PAC.JSON.JSON)
+  fullName.vb: PAC.JSON.IJSONable(Of T).FromJSON(PAC.JSON.JSON)
+  nameWithType: IJSONable<T>.FromJSON(JSON)
+  nameWithType.vb: IJSONable(Of T).FromJSON(JSON)
+- uid: PAC.JSON.IJSONable`1.FromJSON*
+  name: FromJSON
+  href: api/PAC.JSON.IJSONable-1.html#PAC_JSON_IJSONable_1_FromJSON_
+  commentId: Overload:PAC.JSON.IJSONable`1.FromJSON
   isSpec: "True"
-  fullName: PAC.JSON.IJSONable.ToJSON
-  nameWithType: IJSONable.ToJSON
+  fullName: PAC.JSON.IJSONable<T>.FromJSON
+  fullName.vb: PAC.JSON.IJSONable(Of T).FromJSON
+  nameWithType: IJSONable<T>.FromJSON
+  nameWithType.vb: IJSONable(Of T).FromJSON
+- uid: PAC.JSON.IJSONable`1.ToJSON
+  name: ToJSON()
+  href: api/PAC.JSON.IJSONable-1.html#PAC_JSON_IJSONable_1_ToJSON
+  commentId: M:PAC.JSON.IJSONable`1.ToJSON
+  fullName: PAC.JSON.IJSONable<T>.ToJSON()
+  fullName.vb: PAC.JSON.IJSONable(Of T).ToJSON()
+  nameWithType: IJSONable<T>.ToJSON()
+  nameWithType.vb: IJSONable(Of T).ToJSON()
+- uid: PAC.JSON.IJSONable`1.ToJSON*
+  name: ToJSON
+  href: api/PAC.JSON.IJSONable-1.html#PAC_JSON_IJSONable_1_ToJSON_
+  commentId: Overload:PAC.JSON.IJSONable`1.ToJSON
+  isSpec: "True"
+  fullName: PAC.JSON.IJSONable<T>.ToJSON
+  fullName.vb: PAC.JSON.IJSONable(Of T).ToJSON
+  nameWithType: IJSONable<T>.ToJSON
+  nameWithType.vb: IJSONable(Of T).ToJSON
 - uid: PAC.JSON.JSON
   name: JSON
   href: api/PAC.JSON.JSON.html
@@ -9220,15 +9244,6 @@ references:
   fullName.vb: PAC.JSON.JSON.New
   nameWithType: JSON.JSON
   nameWithType.vb: JSON.New
-- uid: PAC.JSON.JSON.Add(System.String,PAC.JSON.IJSONable)
-  name: Add(string, IJSONable)
-  href: api/PAC.JSON.JSON.html#PAC_JSON_JSON_Add_System_String_PAC_JSON_IJSONable_
-  commentId: M:PAC.JSON.JSON.Add(System.String,PAC.JSON.IJSONable)
-  name.vb: Add(String, IJSONable)
-  fullName: PAC.JSON.JSON.Add(string, PAC.JSON.IJSONable)
-  fullName.vb: PAC.JSON.JSON.Add(String, PAC.JSON.IJSONable)
-  nameWithType: JSON.Add(string, IJSONable)
-  nameWithType.vb: JSON.Add(String, IJSONable)
 - uid: PAC.JSON.JSON.Add(System.String,PAC.JSON.JSON)
   name: Add(string, JSON)
   href: api/PAC.JSON.JSON.html#PAC_JSON_JSON_Add_System_String_PAC_JSON_JSON_
@@ -9256,15 +9271,6 @@ references:
   fullName.vb: PAC.JSON.JSON.Add(String, Boolean)
   nameWithType: JSON.Add(string, bool)
   nameWithType.vb: JSON.Add(String, Boolean)
-- uid: PAC.JSON.JSON.Add(System.String,System.Collections.Generic.IEnumerable{PAC.JSON.IJSONable})
-  name: Add(string, IEnumerable<IJSONable>)
-  href: api/PAC.JSON.JSON.html#PAC_JSON_JSON_Add_System_String_System_Collections_Generic_IEnumerable_PAC_JSON_IJSONable__
-  commentId: M:PAC.JSON.JSON.Add(System.String,System.Collections.Generic.IEnumerable{PAC.JSON.IJSONable})
-  name.vb: Add(String, IEnumerable(Of IJSONable))
-  fullName: PAC.JSON.JSON.Add(string, System.Collections.Generic.IEnumerable<PAC.JSON.IJSONable>)
-  fullName.vb: PAC.JSON.JSON.Add(String, System.Collections.Generic.IEnumerable(Of PAC.JSON.IJSONable))
-  nameWithType: JSON.Add(string, IEnumerable<IJSONable>)
-  nameWithType.vb: JSON.Add(String, IEnumerable(Of IJSONable))
 - uid: PAC.JSON.JSON.Add(System.String,System.Collections.Generic.IEnumerable{System.String},System.Boolean)
   name: Add(string, IEnumerable<string>, bool)
   href: api/PAC.JSON.JSON.html#PAC_JSON_JSON_Add_System_String_System_Collections_Generic_IEnumerable_System_String__System_Boolean_
@@ -9360,6 +9366,24 @@ references:
   isSpec: "True"
   fullName: PAC.JSON.JSON.AddParse
   nameWithType: JSON.AddParse
+- uid: PAC.JSON.JSON.Add``1(System.String,PAC.JSON.IJSONable{``0})
+  name: Add<T>(string, IJSONable<T>)
+  href: api/PAC.JSON.JSON.html#PAC_JSON_JSON_Add__1_System_String_PAC_JSON_IJSONable___0__
+  commentId: M:PAC.JSON.JSON.Add``1(System.String,PAC.JSON.IJSONable{``0})
+  name.vb: Add(Of T)(String, IJSONable(Of T))
+  fullName: PAC.JSON.JSON.Add<T>(string, PAC.JSON.IJSONable<T>)
+  fullName.vb: PAC.JSON.JSON.Add(Of T)(String, PAC.JSON.IJSONable(Of T))
+  nameWithType: JSON.Add<T>(string, IJSONable<T>)
+  nameWithType.vb: JSON.Add(Of T)(String, IJSONable(Of T))
+- uid: PAC.JSON.JSON.Add``1(System.String,System.Collections.Generic.IEnumerable{PAC.JSON.IJSONable{``0}})
+  name: Add<T>(string, IEnumerable<IJSONable<T>>)
+  href: api/PAC.JSON.JSON.html#PAC_JSON_JSON_Add__1_System_String_System_Collections_Generic_IEnumerable_PAC_JSON_IJSONable___0___
+  commentId: M:PAC.JSON.JSON.Add``1(System.String,System.Collections.Generic.IEnumerable{PAC.JSON.IJSONable{``0}})
+  name.vb: Add(Of T)(String, IEnumerable(Of IJSONable(Of T)))
+  fullName: PAC.JSON.JSON.Add<T>(string, System.Collections.Generic.IEnumerable<PAC.JSON.IJSONable<T>>)
+  fullName.vb: PAC.JSON.JSON.Add(Of T)(String, System.Collections.Generic.IEnumerable(Of PAC.JSON.IJSONable(Of T)))
+  nameWithType: JSON.Add<T>(string, IEnumerable<IJSONable<T>>)
+  nameWithType.vb: JSON.Add(Of T)(String, IEnumerable(Of IJSONable(Of T)))
 - uid: PAC.JSON.JSON.Append(PAC.JSON.JSON)
   name: Append(JSON)
   href: api/PAC.JSON.JSON.html#PAC_JSON_JSON_Append_PAC_JSON_JSON_
@@ -9373,6 +9397,22 @@ references:
   isSpec: "True"
   fullName: PAC.JSON.JSON.Append
   nameWithType: JSON.Append
+- uid: PAC.JSON.JSON.ColorFromJSON(System.String)
+  name: ColorFromJSON(string)
+  href: api/PAC.JSON.JSON.html#PAC_JSON_JSON_ColorFromJSON_System_String_
+  commentId: M:PAC.JSON.JSON.ColorFromJSON(System.String)
+  name.vb: ColorFromJSON(String)
+  fullName: PAC.JSON.JSON.ColorFromJSON(string)
+  fullName.vb: PAC.JSON.JSON.ColorFromJSON(String)
+  nameWithType: JSON.ColorFromJSON(string)
+  nameWithType.vb: JSON.ColorFromJSON(String)
+- uid: PAC.JSON.JSON.ColorFromJSON*
+  name: ColorFromJSON
+  href: api/PAC.JSON.JSON.html#PAC_JSON_JSON_ColorFromJSON_
+  commentId: Overload:PAC.JSON.JSON.ColorFromJSON
+  isSpec: "True"
+  fullName: PAC.JSON.JSON.ColorFromJSON
+  nameWithType: JSON.ColorFromJSON
 - uid: PAC.JSON.JSON.ContainsKey(System.String)
   name: ContainsKey(string)
   href: api/PAC.JSON.JSON.html#PAC_JSON_JSON_ContainsKey_System_String_
@@ -9538,15 +9578,19 @@ references:
   isSpec: "True"
   fullName: PAC.JSON.JSON.StripQuotationMarks
   nameWithType: JSON.StripQuotationMarks
-- uid: PAC.JSON.JSON.ToJSONString(System.Collections.Generic.IEnumerable{PAC.JSON.IJSONable})
-  name: ToJSONString(IEnumerable<IJSONable>)
-  href: api/PAC.JSON.JSON.html#PAC_JSON_JSON_ToJSONString_System_Collections_Generic_IEnumerable_PAC_JSON_IJSONable__
-  commentId: M:PAC.JSON.JSON.ToJSONString(System.Collections.Generic.IEnumerable{PAC.JSON.IJSONable})
-  name.vb: ToJSONString(IEnumerable(Of IJSONable))
-  fullName: PAC.JSON.JSON.ToJSONString(System.Collections.Generic.IEnumerable<PAC.JSON.IJSONable>)
-  fullName.vb: PAC.JSON.JSON.ToJSONString(System.Collections.Generic.IEnumerable(Of PAC.JSON.IJSONable))
-  nameWithType: JSON.ToJSONString(IEnumerable<IJSONable>)
-  nameWithType.vb: JSON.ToJSONString(IEnumerable(Of IJSONable))
+- uid: PAC.JSON.JSON.ToJSON(Color)
+  name: ToJSON(Color)
+  href: api/PAC.JSON.JSON.html#PAC_JSON_JSON_ToJSON_Color_
+  commentId: M:PAC.JSON.JSON.ToJSON(Color)
+  fullName: PAC.JSON.JSON.ToJSON(Color)
+  nameWithType: JSON.ToJSON(Color)
+- uid: PAC.JSON.JSON.ToJSON*
+  name: ToJSON
+  href: api/PAC.JSON.JSON.html#PAC_JSON_JSON_ToJSON_
+  commentId: Overload:PAC.JSON.JSON.ToJSON
+  isSpec: "True"
+  fullName: PAC.JSON.JSON.ToJSON
+  nameWithType: JSON.ToJSON
 - uid: PAC.JSON.JSON.ToJSONString(System.Collections.Generic.IEnumerable{System.String},System.Boolean)
   name: ToJSONString(IEnumerable<string>, bool)
   href: api/PAC.JSON.JSON.html#PAC_JSON_JSON_ToJSONString_System_Collections_Generic_IEnumerable_System_String__System_Boolean_
@@ -9590,6 +9634,15 @@ references:
   isSpec: "True"
   fullName: PAC.JSON.JSON.ToJSONString
   nameWithType: JSON.ToJSONString
+- uid: PAC.JSON.JSON.ToJSONString``1(System.Collections.Generic.IEnumerable{PAC.JSON.IJSONable{``0}})
+  name: ToJSONString<T>(IEnumerable<IJSONable<T>>)
+  href: api/PAC.JSON.JSON.html#PAC_JSON_JSON_ToJSONString__1_System_Collections_Generic_IEnumerable_PAC_JSON_IJSONable___0___
+  commentId: M:PAC.JSON.JSON.ToJSONString``1(System.Collections.Generic.IEnumerable{PAC.JSON.IJSONable{``0}})
+  name.vb: ToJSONString(Of T)(IEnumerable(Of IJSONable(Of T)))
+  fullName: PAC.JSON.JSON.ToJSONString<T>(System.Collections.Generic.IEnumerable<PAC.JSON.IJSONable<T>>)
+  fullName.vb: PAC.JSON.JSON.ToJSONString(Of T)(System.Collections.Generic.IEnumerable(Of PAC.JSON.IJSONable(Of T)))
+  nameWithType: JSON.ToJSONString<T>(IEnumerable<IJSONable<T>>)
+  nameWithType.vb: JSON.ToJSONString(Of T)(IEnumerable(Of IJSONable(Of T)))
 - uid: PAC.JSON.JSON.ToString
   name: ToString()
   href: api/PAC.JSON.JSON.html#PAC_JSON_JSON_ToString
@@ -11729,6 +11782,19 @@ references:
   isSpec: "True"
   fullName: PAC.Layers.NormalLayer.FlipNoEvent
   nameWithType: NormalLayer.FlipNoEvent
+- uid: PAC.Layers.NormalLayer.FromJSON(PAC.JSON.JSON)
+  name: FromJSON(JSON)
+  href: api/PAC.Layers.NormalLayer.html#PAC_Layers_NormalLayer_FromJSON_PAC_JSON_JSON_
+  commentId: M:PAC.Layers.NormalLayer.FromJSON(PAC.JSON.JSON)
+  fullName: PAC.Layers.NormalLayer.FromJSON(PAC.JSON.JSON)
+  nameWithType: NormalLayer.FromJSON(JSON)
+- uid: PAC.Layers.NormalLayer.FromJSON*
+  name: FromJSON
+  href: api/PAC.Layers.NormalLayer.html#PAC_Layers_NormalLayer_FromJSON_
+  commentId: Overload:PAC.Layers.NormalLayer.FromJSON
+  isSpec: "True"
+  fullName: PAC.Layers.NormalLayer.FromJSON
+  nameWithType: NormalLayer.FromJSON
 - uid: PAC.Layers.NormalLayer.GetPixel(PAC.DataStructures.IntVector2,System.Int32,System.Boolean)
   name: GetPixel(IntVector2, int, bool)
   href: api/PAC.Layers.NormalLayer.html#PAC_Layers_NormalLayer_GetPixel_PAC_DataStructures_IntVector2_System_Int32_System_Boolean_
@@ -12073,6 +12139,19 @@ references:
   isSpec: "True"
   fullName: PAC.Layers.TileLayer.FlipNoEvent
   nameWithType: TileLayer.FlipNoEvent
+- uid: PAC.Layers.TileLayer.FromJSON(PAC.JSON.JSON)
+  name: FromJSON(JSON)
+  href: api/PAC.Layers.TileLayer.html#PAC_Layers_TileLayer_FromJSON_PAC_JSON_JSON_
+  commentId: M:PAC.Layers.TileLayer.FromJSON(PAC.JSON.JSON)
+  fullName: PAC.Layers.TileLayer.FromJSON(PAC.JSON.JSON)
+  nameWithType: TileLayer.FromJSON(JSON)
+- uid: PAC.Layers.TileLayer.FromJSON*
+  name: FromJSON
+  href: api/PAC.Layers.TileLayer.html#PAC_Layers_TileLayer_FromJSON_
+  commentId: Overload:PAC.Layers.TileLayer.FromJSON
+  isSpec: "True"
+  fullName: PAC.Layers.TileLayer.FromJSON
+  nameWithType: TileLayer.FromJSON
 - uid: PAC.Layers.TileLayer.GetLinkedPixels(PAC.DataStructures.IntVector2)
   name: GetLinkedPixels(IntVector2)
   href: api/PAC.Layers.TileLayer.html#PAC_Layers_TileLayer_GetLinkedPixels_PAC_DataStructures_IntVector2_

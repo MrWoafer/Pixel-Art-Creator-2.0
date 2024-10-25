@@ -662,10 +662,10 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/PAC.JSON.IJSONable.yml",
+      "source_relative_path": "api/PAC.JSON.IJSONable-1.yml",
       "output": {
         ".html": {
-          "relative_path": "api/PAC.JSON.IJSONable.html"
+          "relative_path": "api/PAC.JSON.IJSONable-1.html"
         }
       },
       "version": ""

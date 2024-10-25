@@ -2,11 +2,11 @@
 <html>
   <head>
     <meta charset="utf-8">
-      <title>Interface IJSONable | Pixel Art Creator 2.0 Docs </title>
+      <title>Interface IJSONable&lt;T&gt; | Pixel Art Creator 2.0 Docs </title>
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <meta name="title" content="Interface IJSONable | Pixel Art Creator 2.0 Docs ">
+      <meta name="title" content="Interface IJSONable&lt;T&gt; | Pixel Art Creator 2.0 Docs ">
       
-      <meta name="description" content="An interface for objects that can be converted to JSON.">
+      <meta name="description" content="An interface for objects that can be converted to/from JSON.">
       <link rel="icon" href="../resources/icon.ico">
       <link rel="stylesheet" href="../public/docfx.min.css">
       <link rel="stylesheet" href="../public/main.css">
@@ -16,7 +16,7 @@
       <meta name="docfx:rel" content="../">
       
       
-      <meta name="docfx:docurl" content="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/new/main/apiSpec/new?filename=PAC_JSON_IJSONable.md&amp;value=---%0Auid%3A%20PAC.JSON.IJSONable%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="docfx:docurl" content="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/new/main/apiSpec/new?filename=PAC_JSON_IJSONable_1.md&amp;value=---%0Auid%3A%20PAC.JSON.IJSONable%601%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
       <meta name="loc:inThisArticle" content="In this article">
       <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
       <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
@@ -84,12 +84,12 @@
           <nav id="breadcrumb"></nav>
         </div>
 
-        <article data-uid="PAC.JSON.IJSONable">
+        <article data-uid="PAC.JSON.IJSONable`1">
 
 
 
-  <h1 id="PAC_JSON_IJSONable" data-uid="PAC.JSON.IJSONable" class="text-break">
-Interface IJSONable  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/JSON/IJSONable.cs/#L6"><i class="bi bi-code-slash"></i></a>
+  <h1 id="PAC_JSON_IJSONable_1" data-uid="PAC.JSON.IJSONable`1" class="text-break">
+Interface IJSONable&lt;T&gt;  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/JSON/IJSONable.cs/#L6"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -97,16 +97,21 @@ Interface IJSONable  <a class="header-action link-secondary" title="View source"
   
   </div>
 
-  <div class="markdown summary"><p>An interface for objects that can be converted to JSON.</p>
+  <div class="markdown summary"><p>An interface for objects that can be converted to/from JSON.</p>
 </div>
   <div class="markdown conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public interface IJSONable</code></pre>
+    <pre><code class="lang-csharp hljs">public interface IJSONable&lt;T&gt;</code></pre>
   </div>
 
 
 
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd></dd>
+  </dl>
 
 
 
@@ -121,9 +126,45 @@ Interface IJSONable  <a class="header-action link-secondary" title="View source"
 </h2>
 
 
-  <a id="PAC_JSON_IJSONable_ToJSON_" data-uid="PAC.JSON.IJSONable.ToJSON*"></a>
+  <a id="PAC_JSON_IJSONable_1_FromJSON_" data-uid="PAC.JSON.IJSONable`1.FromJSON*"></a>
 
-  <h3 id="PAC_JSON_IJSONable_ToJSON" data-uid="PAC.JSON.IJSONable.ToJSON">
+  <h3 id="PAC_JSON_IJSONable_1_FromJSON_PAC_JSON_JSON_" data-uid="PAC.JSON.IJSONable`1.FromJSON(PAC.JSON.JSON)">
+  FromJSON(JSON)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/JSON/IJSONable.cs/#L9"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static T FromJSON(JSON json)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>json</code> <a class="xref" href="PAC.JSON.JSON.html">JSON</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">T</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="PAC_JSON_IJSONable_1_ToJSON_" data-uid="PAC.JSON.IJSONable`1.ToJSON*"></a>
+
+  <h3 id="PAC_JSON_IJSONable_1_ToJSON" data-uid="PAC.JSON.IJSONable`1.ToJSON">
   ToJSON()
   <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/JSON/IJSONable.cs/#L8"><i class="bi bi-code-slash"></i></a>
   </h3>

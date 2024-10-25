@@ -89,7 +89,7 @@
 
 
   <h1 id="PAC_Layers_TileLayer" data-uid="PAC.Layers.TileLayer" class="text-break">
-Class TileLayer  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Layers/TileLayer.cs/#L14"><i class="bi bi-code-slash"></i></a>
+Class TileLayer  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Layers/TileLayer.cs/#L15"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -102,7 +102,7 @@ Class TileLayer  <a class="header-action link-secondary" title="View source" hre
   <div class="markdown conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class TileLayer : Layer, IJSONable</code></pre>
+    <pre><code class="lang-csharp hljs">public class TileLayer : Layer, IJSONable&lt;Layer&gt;, IJSONable&lt;TileLayer&gt;</code></pre>
   </div>
 
 
@@ -120,7 +120,8 @@ Class TileLayer  <a class="header-action link-secondary" title="View source" hre
   <dl class="typelist implements">
     <dt>Implements</dt>
     <dd>
-      <div><a class="xref" href="PAC.JSON.IJSONable.html">IJSONable</a></div>
+      <div><a class="xref" href="PAC.JSON.IJSONable-1.html">IJSONable</a>&lt;<a class="xref" href="PAC.Layers.Layer.html">Layer</a>&gt;</div>
+      <div><a class="xref" href="PAC.JSON.IJSONable-1.html">IJSONable</a>&lt;<a class="xref" href="PAC.Layers.TileLayer.html">TileLayer</a>&gt;</div>
     </dd>
   </dl>
 
@@ -204,9 +205,6 @@ Class TileLayer  <a class="header-action link-secondary" title="View source" hre
       <a class="xref" href="PAC.Layers.Layer.html#PAC_Layers_Layer_Scale_System_Int32_System_Int32_">Layer.Scale(int, int)</a>
     </div>
     <div>
-      <a class="xref" href="PAC.Layers.Layer.html#PAC_Layers_Layer_FromJSON_PAC_JSON_JSON_">Layer.FromJSON(JSON)</a>
-    </div>
-    <div>
       <a class="xref" href="PAC.Layers.Layer.html#PAC_Layers_Layer_Item_System_Int32_">Layer.this[int]</a>
     </div>
     <div>
@@ -284,7 +282,7 @@ Class TileLayer  <a class="header-action link-secondary" title="View source" hre
 
   <h3 id="PAC_Layers_TileLayer__ctor_PAC_Layers_TileLayer_" data-uid="PAC.Layers.TileLayer.#ctor(PAC.Layers.TileLayer)">
   TileLayer(TileLayer)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Layers/TileLayer.cs/#L36"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Layers/TileLayer.cs/#L37"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Creates a deep copy of the TileLayer.</p>
@@ -316,7 +314,7 @@ Class TileLayer  <a class="header-action link-secondary" title="View source" hre
 
   <h3 id="PAC_Layers_TileLayer__ctor_System_String_System_Int32_System_Int32_" data-uid="PAC.Layers.TileLayer.#ctor(System.String,System.Int32,System.Int32)">
   TileLayer(string, int, int)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Layers/TileLayer.cs/#L31"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Layers/TileLayer.cs/#L32"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -355,7 +353,7 @@ Class TileLayer  <a class="header-action link-secondary" title="View source" hre
 
   <h3 id="PAC_Layers_TileLayer_layerType" data-uid="PAC.Layers.TileLayer.layerType">
   layerType
-  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Layers/TileLayer.cs/#L16"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Layers/TileLayer.cs/#L17"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -386,7 +384,7 @@ Class TileLayer  <a class="header-action link-secondary" title="View source" hre
 
   <h3 id="PAC_Layers_TileLayer_tiles" data-uid="PAC.Layers.TileLayer.tiles">
   tiles
-  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Layers/TileLayer.cs/#L19"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Layers/TileLayer.cs/#L20"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>The tiles on this layer.</p>
@@ -422,7 +420,7 @@ Class TileLayer  <a class="header-action link-secondary" title="View source" hre
 
   <h3 id="PAC_Layers_TileLayer_AddTile_PAC_Tilesets_Tile_" data-uid="PAC.Layers.TileLayer.AddTile(PAC.Tilesets.Tile)">
   AddTile(Tile)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Layers/TileLayer.cs/#L50"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Layers/TileLayer.cs/#L51"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Adds the tile to the layer.</p>
@@ -454,7 +452,7 @@ Class TileLayer  <a class="header-action link-secondary" title="View source" hre
 
   <h3 id="PAC_Layers_TileLayer_ClearFrames" data-uid="PAC.Layers.TileLayer.ClearFrames">
   ClearFrames()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Layers/TileLayer.cs/#L415"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Layers/TileLayer.cs/#L422"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Deletes all key frames.</p>
@@ -481,7 +479,7 @@ Class TileLayer  <a class="header-action link-secondary" title="View source" hre
 
   <h3 id="PAC_Layers_TileLayer_ClearTiles" data-uid="PAC.Layers.TileLayer.ClearTiles">
   ClearTiles()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Layers/TileLayer.cs/#L121"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Layers/TileLayer.cs/#L122"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Removes all tiles.</p>
@@ -508,7 +506,7 @@ Class TileLayer  <a class="header-action link-secondary" title="View source" hre
 
   <h3 id="PAC_Layers_TileLayer_ContainsTile_PAC_Tilesets_Tile_" data-uid="PAC.Layers.TileLayer.ContainsTile(PAC.Tilesets.Tile)">
   ContainsTile(Tile)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Layers/TileLayer.cs/#L130"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Layers/TileLayer.cs/#L131"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Returns true if the tile appears on this layer.</p>
@@ -545,7 +543,7 @@ Class TileLayer  <a class="header-action link-secondary" title="View source" hre
 
   <h3 id="PAC_Layers_TileLayer_DeepCopy" data-uid="PAC.Layers.TileLayer.DeepCopy">
   DeepCopy()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Layers/TileLayer.cs/#L42"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Layers/TileLayer.cs/#L43"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Creates a deep copy of the Layer.</p>
@@ -577,7 +575,7 @@ Class TileLayer  <a class="header-action link-secondary" title="View source" hre
 
   <h3 id="PAC_Layers_TileLayer_DeleteKeyFrameNoEvent_System_Int32_" data-uid="PAC.Layers.TileLayer.DeleteKeyFrameNoEvent(System.Int32)">
   DeleteKeyFrameNoEvent(int)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Layers/TileLayer.cs/#L390"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Layers/TileLayer.cs/#L397"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Deletes the key frame at the given frame index, if there is one, in which case it returns that key frame. Otherwise it returns null.</p>
@@ -614,7 +612,7 @@ Class TileLayer  <a class="header-action link-secondary" title="View source" hre
 
   <h3 id="PAC_Layers_TileLayer_ExtendNoEvent_System_Int32_System_Int32_System_Int32_System_Int32_" data-uid="PAC.Layers.TileLayer.ExtendNoEvent(System.Int32,System.Int32,System.Int32,System.Int32)">
   ExtendNoEvent(int, int, int, int)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Layers/TileLayer.cs/#L314"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Layers/TileLayer.cs/#L315"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Extends the dimensions of the layer in each direction by the given amounts, but does not invoke the onPixelsChanged event.</p>
@@ -652,7 +650,7 @@ Class TileLayer  <a class="header-action link-secondary" title="View source" hre
 
   <h3 id="PAC_Layers_TileLayer_FlipNoEvent_PAC_FlipDirection_" data-uid="PAC.Layers.TileLayer.FlipNoEvent(PAC.FlipDirection)">
   FlipNoEvent(FlipDirection)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Layers/TileLayer.cs/#L245"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Layers/TileLayer.cs/#L246"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Flips the layer, but does not invoke the onPixelsChanged event.</p>
@@ -680,11 +678,47 @@ Class TileLayer  <a class="header-action link-secondary" title="View source" hre
 
 
 
+  <a id="PAC_Layers_TileLayer_FromJSON_" data-uid="PAC.Layers.TileLayer.FromJSON*"></a>
+
+  <h3 id="PAC_Layers_TileLayer_FromJSON_PAC_JSON_JSON_" data-uid="PAC.Layers.TileLayer.FromJSON(PAC.JSON.JSON)">
+  FromJSON(JSON)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Layers/TileLayer.cs/#L389"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static TileLayer FromJSON(JSON json)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>json</code> <a class="xref" href="PAC.JSON.JSON.html">JSON</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="PAC.Layers.TileLayer.html">TileLayer</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
   <a id="PAC_Layers_TileLayer_GetLinkedPixels_" data-uid="PAC.Layers.TileLayer.GetLinkedPixels*"></a>
 
   <h3 id="PAC_Layers_TileLayer_GetLinkedPixels_PAC_DataStructures_IntVector2_" data-uid="PAC.Layers.TileLayer.GetLinkedPixels(PAC.DataStructures.IntVector2)">
   GetLinkedPixels(IntVector2)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Layers/TileLayer.cs/#L208"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Layers/TileLayer.cs/#L209"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Get the pixels that are linked to the given pixel due to multiple tiles having the same file - i.e. they point to the same pixel within the tiles' file.</p>
@@ -721,7 +755,7 @@ Class TileLayer  <a class="header-action link-secondary" title="View source" hre
 
   <h3 id="PAC_Layers_TileLayer_GetLinkedPixels_PAC_DataStructures_IntVector2___" data-uid="PAC.Layers.TileLayer.GetLinkedPixels(PAC.DataStructures.IntVector2[])">
   GetLinkedPixels(IntVector2[])
-  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Layers/TileLayer.cs/#L212"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Layers/TileLayer.cs/#L213"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Get the pixels that are linked to the given pixels due to multiple tiles having the same file - i.e. they point to the same pixels within the tiles' file.</p>
@@ -758,7 +792,7 @@ Class TileLayer  <a class="header-action link-secondary" title="View source" hre
 
   <h3 id="PAC_Layers_TileLayer_GetPixel_PAC_DataStructures_IntVector2_System_Int32_System_Boolean_" data-uid="PAC.Layers.TileLayer.GetPixel(PAC.DataStructures.IntVector2,System.Int32,System.Boolean)">
   GetPixel(IntVector2, int, bool)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Layers/TileLayer.cs/#L167"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Layers/TileLayer.cs/#L168"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets the colour of the pixel.</p>
@@ -799,7 +833,7 @@ Class TileLayer  <a class="header-action link-secondary" title="View source" hre
 
   <h3 id="PAC_Layers_TileLayer_LoadJSON_PAC_JSON_JSON_" data-uid="PAC.Layers.TileLayer.LoadJSON(PAC.JSON.JSON)">
   LoadJSON(JSON)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Layers/TileLayer.cs/#L388"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Layers/TileLayer.cs/#L395"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -830,7 +864,7 @@ Class TileLayer  <a class="header-action link-secondary" title="View source" hre
 
   <h3 id="PAC_Layers_TileLayer_PixelToTile_PAC_DataStructures_IntVector2_" data-uid="PAC.Layers.TileLayer.PixelToTile(PAC.DataStructures.IntVector2)">
   PixelToTile(IntVector2)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Layers/TileLayer.cs/#L184"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Layers/TileLayer.cs/#L185"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets the tile that the pixel lands in, or null if there isn't one.</p>
@@ -867,7 +901,7 @@ Class TileLayer  <a class="header-action link-secondary" title="View source" hre
 
   <h3 id="PAC_Layers_TileLayer_PixelToTile_System_Int32_System_Int32_" data-uid="PAC.Layers.TileLayer.PixelToTile(System.Int32,System.Int32)">
   PixelToTile(int, int)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Layers/TileLayer.cs/#L180"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Layers/TileLayer.cs/#L181"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets the tile that the pixel (x, y) lands in, or null if there isn't one.</p>
@@ -906,7 +940,7 @@ Class TileLayer  <a class="header-action link-secondary" title="View source" hre
 
   <h3 id="PAC_Layers_TileLayer_RemoveTile_PAC_Tilesets_Tile_" data-uid="PAC.Layers.TileLayer.RemoveTile(PAC.Tilesets.Tile)">
   RemoveTile(Tile)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Layers/TileLayer.cs/#L98"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Layers/TileLayer.cs/#L99"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Removes the tile from the layer. Throws an error if the tile is not in the layer.</p>
@@ -938,7 +972,7 @@ Class TileLayer  <a class="header-action link-secondary" title="View source" hre
 
   <h3 id="PAC_Layers_TileLayer_RerenderKeyFrame_System_Int32_" data-uid="PAC.Layers.TileLayer.RerenderKeyFrame(System.Int32)">
   RerenderKeyFrame(int)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Layers/TileLayer.cs/#L459"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Layers/TileLayer.cs/#L466"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Rerenders the keyframe.</p>
@@ -970,7 +1004,7 @@ Class TileLayer  <a class="header-action link-secondary" title="View source" hre
 
   <h3 id="PAC_Layers_TileLayer_RerenderKeyFrame_System_Int32_PAC_DataStructures_IntRect_" data-uid="PAC.Layers.TileLayer.RerenderKeyFrame(System.Int32,PAC.DataStructures.IntRect)">
   RerenderKeyFrame(int, IntRect)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Layers/TileLayer.cs/#L463"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Layers/TileLayer.cs/#L470"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Rerenders the section of the keyframe within the given rect.</p>
@@ -1004,7 +1038,7 @@ Class TileLayer  <a class="header-action link-secondary" title="View source" hre
 
   <h3 id="PAC_Layers_TileLayer_RerenderKeyFrame_System_Int32_PAC_DataStructures_IntVector2___" data-uid="PAC.Layers.TileLayer.RerenderKeyFrame(System.Int32,PAC.DataStructures.IntVector2[])">
   RerenderKeyFrame(int, IntVector2[])
-  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Layers/TileLayer.cs/#L467"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Layers/TileLayer.cs/#L474"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Rerenders the given pixels of the keyframe.</p>
@@ -1038,7 +1072,7 @@ Class TileLayer  <a class="header-action link-secondary" title="View source" hre
 
   <h3 id="PAC_Layers_TileLayer_RerenderKeyFrames" data-uid="PAC.Layers.TileLayer.RerenderKeyFrames">
   RerenderKeyFrames()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Layers/TileLayer.cs/#L429"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Layers/TileLayer.cs/#L436"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Rerenders all keyframes.</p>
@@ -1065,7 +1099,7 @@ Class TileLayer  <a class="header-action link-secondary" title="View source" hre
 
   <h3 id="PAC_Layers_TileLayer_RerenderKeyFrames_PAC_DataStructures_IntRect_" data-uid="PAC.Layers.TileLayer.RerenderKeyFrames(PAC.DataStructures.IntRect)">
   RerenderKeyFrames(IntRect)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Layers/TileLayer.cs/#L433"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Layers/TileLayer.cs/#L440"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Rerenders the section of every keyframe within the given rect.</p>
@@ -1097,7 +1131,7 @@ Class TileLayer  <a class="header-action link-secondary" title="View source" hre
 
   <h3 id="PAC_Layers_TileLayer_RerenderKeyFrames_PAC_DataStructures_IntVector2___" data-uid="PAC.Layers.TileLayer.RerenderKeyFrames(PAC.DataStructures.IntVector2[])">
   RerenderKeyFrames(IntVector2[])
-  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Layers/TileLayer.cs/#L437"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Layers/TileLayer.cs/#L444"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Rerenders the given pixels of every keyframe.</p>
@@ -1129,7 +1163,7 @@ Class TileLayer  <a class="header-action link-secondary" title="View source" hre
 
   <h3 id="PAC_Layers_TileLayer_RerenderKeyFrames_System_Int32___" data-uid="PAC.Layers.TileLayer.RerenderKeyFrames(System.Int32[])">
   RerenderKeyFrames(int[])
-  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Layers/TileLayer.cs/#L441"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Layers/TileLayer.cs/#L448"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Rerenders the given keyframes.</p>
@@ -1161,7 +1195,7 @@ Class TileLayer  <a class="header-action link-secondary" title="View source" hre
 
   <h3 id="PAC_Layers_TileLayer_RerenderKeyFrames_System_Int32___PAC_DataStructures_IntRect_" data-uid="PAC.Layers.TileLayer.RerenderKeyFrames(System.Int32[],PAC.DataStructures.IntRect)">
   RerenderKeyFrames(int[], IntRect)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Layers/TileLayer.cs/#L445"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Layers/TileLayer.cs/#L452"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Rerenders the section of the given keyframes within the given rect.</p>
@@ -1195,7 +1229,7 @@ Class TileLayer  <a class="header-action link-secondary" title="View source" hre
 
   <h3 id="PAC_Layers_TileLayer_RerenderKeyFrames_System_Int32___PAC_DataStructures_IntVector2___" data-uid="PAC.Layers.TileLayer.RerenderKeyFrames(System.Int32[],PAC.DataStructures.IntVector2[])">
   RerenderKeyFrames(int[], IntVector2[])
-  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Layers/TileLayer.cs/#L449"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Layers/TileLayer.cs/#L456"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Rerenders the given pixels of the given keyframes.</p>
@@ -1229,7 +1263,7 @@ Class TileLayer  <a class="header-action link-secondary" title="View source" hre
 
   <h3 id="PAC_Layers_TileLayer_RotateNoEvent_PAC_RotationAngle_" data-uid="PAC.Layers.TileLayer.RotateNoEvent(PAC.RotationAngle)">
   RotateNoEvent(RotationAngle)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Layers/TileLayer.cs/#L271"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Layers/TileLayer.cs/#L272"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Rotates the layer, but does not invoke the onPixelsChanged event.
@@ -1262,7 +1296,7 @@ Rotation is clockwise.</p>
 
   <h3 id="PAC_Layers_TileLayer_ScaleNoEvent_System_Int32_System_Int32_" data-uid="PAC.Layers.TileLayer.ScaleNoEvent(System.Int32,System.Int32)">
   ScaleNoEvent(int, int)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Layers/TileLayer.cs/#L360"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Layers/TileLayer.cs/#L361"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Resizes the dimensions to the new width and height, but does not invoke the onPixelsChanged event.</p>
@@ -1296,7 +1330,7 @@ Rotation is clockwise.</p>
 
   <h3 id="PAC_Layers_TileLayer_ScaleNoEvent_System_Single_System_Single_" data-uid="PAC.Layers.TileLayer.ScaleNoEvent(System.Single,System.Single)">
   ScaleNoEvent(float, float)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Layers/TileLayer.cs/#L334"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Layers/TileLayer.cs/#L335"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Resizes the dimensions of the file by the scale factors, but does not invoke the onPixelsChanged event.</p>
@@ -1330,7 +1364,7 @@ Rotation is clockwise.</p>
 
   <h3 id="PAC_Layers_TileLayer_SetPixelsNoEvent_PAC_DataStructures_IntVector2___System_Int32_Color_PAC_Layers_AnimFrameRefMode_" data-uid="PAC.Layers.TileLayer.SetPixelsNoEvent(PAC.DataStructures.IntVector2[],System.Int32,Color,PAC.Layers.AnimFrameRefMode)">
   SetPixelsNoEvent(IntVector2[], int, Color, AnimFrameRefMode)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Layers/TileLayer.cs/#L135"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Layers/TileLayer.cs/#L136"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Sets the colour of the pixels.
@@ -1374,7 +1408,7 @@ You do not need to check the pixels are in the layer as this check is done in La
 
   <h3 id="PAC_Layers_TileLayer_ToJSON" data-uid="PAC.Layers.TileLayer.ToJSON">
   ToJSON()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Layers/TileLayer.cs/#L387"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Layers/TileLayer.cs/#L388"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -1405,7 +1439,7 @@ You do not need to check the pixels are in the layer as this check is done in La
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Layers/TileLayer.cs/#L14" class="edit-link">Edit this page</a>
+          <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Layers/TileLayer.cs/#L15" class="edit-link">Edit this page</a>
         </div>
 
 

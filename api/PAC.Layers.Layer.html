@@ -102,7 +102,7 @@ Class Layer  <a class="header-action link-secondary" title="View source" href="h
   <div class="markdown conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public abstract class Layer : IJSONable</code></pre>
+    <pre><code class="lang-csharp hljs">public abstract class Layer : IJSONable&lt;Layer&gt;</code></pre>
   </div>
 
 
@@ -119,7 +119,7 @@ Class Layer  <a class="header-action link-secondary" title="View source" href="h
   <dl class="typelist implements">
     <dt>Implements</dt>
     <dd>
-      <div><a class="xref" href="PAC.JSON.IJSONable.html">IJSONable</a></div>
+      <div><a class="xref" href="PAC.JSON.IJSONable-1.html">IJSONable</a>&lt;<a class="xref" href="PAC.Layers.Layer.html">Layer</a>&gt;</div>
     </dd>
   </dl>
 
@@ -334,7 +334,7 @@ Passes the array of pixels changed and the frames it was called on.</p>
 
   <h3 id="PAC_Layers_Layer_Item_System_Int32_" data-uid="PAC.Layers.Layer.Item(System.Int32)">
   this[int]
-  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Layers/Layer.cs/#L309"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Layers/Layer.cs/#L307"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Returns the texture of the most recent key frame before or at the frame index. Same as GetTexture(frame).</p>
@@ -750,7 +750,7 @@ Passes the array of pixels changed and the frames it was called on.</p>
 
   <h3 id="PAC_Layers_Layer_AddKeyFrame_PAC_Animation_AnimationKeyFrame_" data-uid="PAC.Layers.Layer.AddKeyFrame(PAC.Animation.AnimationKeyFrame)">
   AddKeyFrame(AnimationKeyFrame)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Layers/Layer.cs/#L373"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Layers/Layer.cs/#L371"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Adds the given key frame. Returns true if it replaces an existing key frame, and false otherwise.</p>
@@ -787,7 +787,7 @@ Passes the array of pixels changed and the frames it was called on.</p>
 
   <h3 id="PAC_Layers_Layer_AddKeyFrame_System_Int32_" data-uid="PAC.Layers.Layer.AddKeyFrame(System.Int32)">
   AddKeyFrame(int)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Layers/Layer.cs/#L358"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Layers/Layer.cs/#L356"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Adds a key frame at frame frame. The texture will be that of the most recent key frame. Returns true if it replaces an existing key frame, and false otherwise.</p>
@@ -824,7 +824,7 @@ Passes the array of pixels changed and the frames it was called on.</p>
 
   <h3 id="PAC_Layers_Layer_AddKeyFrame_System_Int32_Texture2D_" data-uid="PAC.Layers.Layer.AddKeyFrame(System.Int32,Texture2D)">
   AddKeyFrame(int, Texture2D)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Layers/Layer.cs/#L369"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Layers/Layer.cs/#L367"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Adds a key frame with the given texture at frame frame. Returns true if it replaces an existing key frame, and false otherwise.</p>
@@ -863,7 +863,7 @@ Passes the array of pixels changed and the frames it was called on.</p>
 
   <h3 id="PAC_Layers_Layer_ClearFrames" data-uid="PAC.Layers.Layer.ClearFrames">
   ClearFrames()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Layers/Layer.cs/#L442"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Layers/Layer.cs/#L440"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Deletes all key frames.</p>
@@ -922,7 +922,7 @@ Passes the array of pixels changed and the frames it was called on.</p>
 
   <h3 id="PAC_Layers_Layer_DeleteKeyFrame_PAC_Animation_AnimationKeyFrame_" data-uid="PAC.Layers.Layer.DeleteKeyFrame(PAC.Animation.AnimationKeyFrame)">
   DeleteKeyFrame(AnimationKeyFrame)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Layers/Layer.cs/#L426"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Layers/Layer.cs/#L424"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Deletes the given key frame, if it's in the animation, in which case it returns true. Otherwise it returns false.</p>
@@ -959,7 +959,7 @@ Passes the array of pixels changed and the frames it was called on.</p>
 
   <h3 id="PAC_Layers_Layer_DeleteKeyFrame_System_Int32_" data-uid="PAC.Layers.Layer.DeleteKeyFrame(System.Int32)">
   DeleteKeyFrame(int)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Layers/Layer.cs/#L417"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Layers/Layer.cs/#L415"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -995,7 +995,7 @@ Passes the array of pixels changed and the frames it was called on.</p>
 
   <h3 id="PAC_Layers_Layer_DeleteKeyFrameNoEvent_System_Int32_" data-uid="PAC.Layers.Layer.DeleteKeyFrameNoEvent(System.Int32)">
   DeleteKeyFrameNoEvent(int)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Layers/Layer.cs/#L416"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Layers/Layer.cs/#L414"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Deletes the key frame at the given frame index, if there is one, in which case it returns that key frame. Otherwise it returns null.</p>
@@ -1032,7 +1032,7 @@ Passes the array of pixels changed and the frames it was called on.</p>
 
   <h3 id="PAC_Layers_Layer_DeleteMostRecentKeyFrame_System_Int32_" data-uid="PAC.Layers.Layer.DeleteMostRecentKeyFrame(System.Int32)">
   DeleteMostRecentKeyFrame(int)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Layers/Layer.cs/#L408"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Layers/Layer.cs/#L406"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Deletes the most recent key frame before or at the given frame index and returns that key frame.</p>
@@ -1245,7 +1245,7 @@ Passes the array of pixels changed and the frames it was called on.</p>
 
   <h3 id="PAC_Layers_Layer_GetKeyFrame_System_Int32_" data-uid="PAC.Layers.Layer.GetKeyFrame(System.Int32)">
   GetKeyFrame(int)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Layers/Layer.cs/#L317"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Layers/Layer.cs/#L315"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Returns the most recent key frame before or at the frame index - i.e. the key frame the animation will play at the frame index.</p>
@@ -1366,7 +1366,7 @@ Passes the array of pixels changed and the frames it was called on.</p>
 
   <h3 id="PAC_Layers_Layer_HasKeyFrameAt_System_Int32_" data-uid="PAC.Layers.Layer.HasKeyFrameAt(System.Int32)">
   HasKeyFrameAt(int)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Layers/Layer.cs/#L343"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Layers/Layer.cs/#L341"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Returns whether or not there is a key frame at the given frame index.</p>
@@ -1874,7 +1874,7 @@ You do not need to check the pixels are in the layer as this check is done in La
 
   <h3 id="PAC_Layers_Layer_SubscribeToOnBlendModeChanged_UnityAction_" data-uid="PAC.Layers.Layer.SubscribeToOnBlendModeChanged(UnityAction)">
   SubscribeToOnBlendModeChanged(UnityAction)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Layers/Layer.cs/#L455"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Layers/Layer.cs/#L453"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -1905,7 +1905,7 @@ You do not need to check the pixels are in the layer as this check is done in La
 
   <h3 id="PAC_Layers_Layer_SubscribeToOnKeyFrameAdded_UnityAction_System_Int32__" data-uid="PAC.Layers.Layer.SubscribeToOnKeyFrameAdded(UnityAction{System.Int32})">
   SubscribeToOnKeyFrameAdded(UnityAction&lt;int&gt;)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Layers/Layer.cs/#L459"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Layers/Layer.cs/#L457"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -1936,7 +1936,7 @@ You do not need to check the pixels are in the layer as this check is done in La
 
   <h3 id="PAC_Layers_Layer_SubscribeToOnKeyFrameRemoved_UnityAction_System_Int32__" data-uid="PAC.Layers.Layer.SubscribeToOnKeyFrameRemoved(UnityAction{System.Int32})">
   SubscribeToOnKeyFrameRemoved(UnityAction&lt;int&gt;)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Layers/Layer.cs/#L463"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Layers/Layer.cs/#L461"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -1967,7 +1967,7 @@ You do not need to check the pixels are in the layer as this check is done in La
 
   <h3 id="PAC_Layers_Layer_SubscribeToOnPixelsChanged_UnityAction_PAC_DataStructures_IntVector2___System_Int32____" data-uid="PAC.Layers.Layer.SubscribeToOnPixelsChanged(UnityAction{PAC.DataStructures.IntVector2[],System.Int32[]})">
   SubscribeToOnPixelsChanged(UnityAction&lt;IntVector2[], int[]&gt;)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Layers/Layer.cs/#L447"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Layers/Layer.cs/#L445"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -1998,7 +1998,7 @@ You do not need to check the pixels are in the layer as this check is done in La
 
   <h3 id="PAC_Layers_Layer_SubscribeToOnVisibilityChanged_UnityAction_" data-uid="PAC.Layers.Layer.SubscribeToOnVisibilityChanged(UnityAction)">
   SubscribeToOnVisibilityChanged(UnityAction)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Layers/Layer.cs/#L451"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Layers/Layer.cs/#L449"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
