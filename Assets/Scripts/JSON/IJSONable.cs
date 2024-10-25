@@ -6,6 +6,6 @@ namespace PAC.JSON
     public interface IJSONable<T>
     {
         public JSON ToJSON();
-        public static T FromJSON(JSON json) => throw new System.NotImplementedException();
+        public static T FromJSON(JSON json) => throw new System.NotImplementedException("FromJSON() has not yet been implemented for type " + typeof(T) + ".");
     }
 }

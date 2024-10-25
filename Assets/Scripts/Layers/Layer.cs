@@ -283,9 +283,7 @@ namespace PAC.Layers
             {
                 if (json["layerType"] == "normal")
                 {
-                    NormalLayer layer = new NormalLayer("", 1, 1);
-                    layer.LoadJSON(json);
-                    return layer;
+                    return NormalLayer.FromJSON(json);
                 }
                 else if (json["layerType"] == "tile")
                 {
