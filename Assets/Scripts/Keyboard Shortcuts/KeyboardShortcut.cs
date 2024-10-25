@@ -8,7 +8,7 @@ namespace PAC.KeyboardShortcuts
     /// <summary>
     /// A class to represent a single keyboard shortcut.
     /// </summary>
-    public class KeyboardShortcut : IJSONable
+    public class KeyboardShortcut : IJSONable<KeyboardShortcut>
     {
         /// <summary>The keycodes in this shortcut, kept in the order they would be read.</summary>
         public List<CustomKeyCode> keyCodes { get; private set; } = new List<CustomKeyCode>();

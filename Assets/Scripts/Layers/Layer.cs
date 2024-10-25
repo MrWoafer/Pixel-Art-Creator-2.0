@@ -23,7 +23,7 @@ namespace PAC.Layers
     /// <summary>
     /// An abstract class to define what each type of layer must have.
     /// </summary>
-    public abstract class Layer : IJSONable
+    public abstract class Layer : IJSONable<Layer>
     {
         public abstract LayerType layerType { get; }
 
@@ -283,9 +283,7 @@ namespace PAC.Layers
             {
                 if (json["layerType"] == "normal")
                 {
-                    NormalLayer layer = new NormalLayer("", 1, 1);
-                    layer.LoadJSON(json);
-                    return layer;
+                    return NormalLayer.FromJSON(json);
                 }
                 else if (json["layerType"] == "tile")
                 {

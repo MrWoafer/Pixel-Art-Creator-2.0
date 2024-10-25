@@ -14,7 +14,7 @@ namespace PAC.Files
     /// <summary>
     /// A class to represent a single Pixel Art Creator file.
     /// </summary>
-    public class File : IJSONable
+    public class File : IJSONable<File>
     {
         public string name { get; set; } = "";
 

@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using PAC.Animation;
 using PAC.Colour;
 using PAC.DataStructures;
+using PAC.JSON;
 using UnityEngine;
 
 namespace PAC.Layers
@@ -9,7 +10,7 @@ namespace PAC.Layers
     /// <summary>
     /// A class to represent a normal layer - one that can be drawn on as a regular image.
     /// </summary>
-    public class NormalLayer : Layer
+    public class NormalLayer : Layer, IJSONable<NormalLayer>
     {
         public override LayerType layerType => LayerType.Normal;
 
@@ -229,6 +230,13 @@ namespace PAC.Layers
             json.Add("keyFrames", keyFrames);
 
             return json;
+        }
+
+        public static new NormalLayer FromJSON(JSON.JSON json)
+        {
+            NormalLayer layer = new NormalLayer("", 1, 1);
+            layer.LoadJSON(json);
+            return layer;
         }
 
         protected override void LoadJSON(JSON.JSON json)
