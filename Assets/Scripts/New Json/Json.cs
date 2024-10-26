@@ -357,7 +357,14 @@ namespace PAC.Json
                     int exponent = int.Parse(str[exponentStartIndex..currentIndex]);
                     for (int i = 0; i < exponent; i++)
                     {
-                        mantissa = checked(mantissa * 10);
+                        try
+                        {
+                            mantissa = checked(mantissa * 10);
+                        }
+                        catch (OverflowException)
+                        {
+                            throw new Exception("Overflow error when parsing " + str[index..currentIndex] + " at index " + index + " in string: " + str);
+                        }
                     }
                     index = currentIndex - 1;
                     return new JsonInt(mantissa);
@@ -421,7 +428,116 @@ namespace PAC.Json
         /// </summary>
         public static JsonFloat Parse(string str, ref int index)
         {
-            return new JsonFloat(float.Parse(str));
+            if (index < 0 || index >= str.Length)
+            {
+                throw new IndexOutOfRangeException("index " + index + " out of range string: " + str);
+            }
+
+            int currentIndex = index;
+            if (str[index] == '-')
+            {
+                if (index >= str.Length || !char.IsDigit(str[index + 1]))
+                {
+                    throw new Exception("Found - followed by no digits at index " + index + " of string: " + str);
+                }
+                currentIndex++;
+            }
+            else if (!char.IsDigit(str[index]))
+            {
+                throw new Exception("Expected - or a digit at index " + index + " of string: " + str);
+            }
+
+            int decimalPointIndex = -1;
+            while (currentIndex < str.Length)
+            {
+                if (!char.IsDigit(str[currentIndex]))
+                {
+                    // Decimal point
+                    if (str[currentIndex] == '.')
+                    {
+                        if (decimalPointIndex == -1)
+                        {
+                            decimalPointIndex = currentIndex;
+                            currentIndex++;
+                            continue;
+                        }
+                        else
+                        {
+                            throw new Exception("Found decimal point at index " + currentIndex + " but already found one at index " + decimalPointIndex + " in string: " + str);
+                        }
+                    }
+                    
+                    if (str[currentIndex] != 'e' && str[currentIndex] != 'E')
+                    {
+                        break;
+                    }
+
+                    // E notation
+                    float mantissa = float.Parse(str[index..currentIndex]);
+                    int exponentStartIndex = currentIndex + 1;
+                    if (exponentStartIndex >= str.Length && !char.IsDigit(str[exponentStartIndex]) && str[exponentStartIndex] != '+' && str[exponentStartIndex] != '-')
+                    {
+                        throw new Exception("Found " + str[currentIndex] + " followed by no digits or +/- at index " + currentIndex + " of string: " + str);
+                    }
+                    if (str[exponentStartIndex] == '+' || str[exponentStartIndex] == '-')
+                    {
+                        if (exponentStartIndex == str.Length - 1 || !char.IsDigit(str[exponentStartIndex + 1]))
+                        {
+                            throw new Exception("Found + followed by no digits at index " + exponentStartIndex + " of string: " + str);
+                        }
+                        currentIndex++;
+                    }
+
+                    currentIndex++;
+                    while (currentIndex < str.Length && char.IsDigit(str[currentIndex]))
+                    {
+                        currentIndex++;
+                    }
+
+                    float exponent = float.Parse(str[exponentStartIndex..currentIndex]);
+                    if (exponent >= 0)
+                    {
+                        for (int i = 0; i < exponent; i++)
+                        {
+                            try
+                            {
+                                mantissa = checked(mantissa * 10f);
+                            }
+                            catch (OverflowException)
+                            {
+                                throw new Exception("Overflow error when parsing " + str[index..currentIndex] + " at index " + index + " in string: " + str);
+                            }
+
+                            if (float.IsInfinity(mantissa))
+                            {
+                                throw new Exception("Overflow error when parsing " + str[index..currentIndex] + " at index " + index + " in string: " + str);
+                            }
+                        }
+                    }
+                    else
+                    {
+                        for (int i = 0; i > exponent; i--)
+                        {
+                            try
+                            {
+                                mantissa = checked(mantissa / 10f);
+                            }
+                            catch
+                            {
+                                throw new Exception("Underflow error when parsing " + str[index..currentIndex] + " at index " + index + " in string: " + str);
+                            }
+                        }
+                    }
+                    index = currentIndex - 1;
+                    return new JsonFloat(mantissa);
+                }
+
+                currentIndex++;
+            }
+
+            float number = float.Parse(str[index..(currentIndex)]);
+            index = currentIndex - 1;
+            return new JsonFloat(number);
         }
     }
 
