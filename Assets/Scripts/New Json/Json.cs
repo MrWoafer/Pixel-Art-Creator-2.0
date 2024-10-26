@@ -894,11 +894,12 @@ namespace PAC.Json
             currentIndex = index + 1;
             while (currentIndex < str.Length)
             {
+                // Element
                 SkipWhitespace(str, ref currentIndex);
 
                 if (currentIndex >= str.Length)
                 {
-                    break;
+                    throw new Exception("Reached end of string while expecting element for list starting at index " + index + " in string: " + str);
                 }
                 if (str[currentIndex] == ']')
                 {
@@ -908,11 +909,12 @@ namespace PAC.Json
                 parsed.Add(JsonData.Parse(str, ref currentIndex));
                 currentIndex++;
 
+                // Closing ] or ,
                 SkipWhitespace(str, ref currentIndex);
 
                 if (currentIndex >= str.Length)
                 {
-                    break;
+                    throw new Exception("Reached end of string while expecting ] or , for list starting at index " + index + " in string: " + str);
                 }
                 if (str[currentIndex] == ']')
                 {
@@ -1012,7 +1014,114 @@ namespace PAC.Json
         /// </summary>
         public static JsonObj Parse(string str, ref int index)
         {
-            throw new NotImplementedException();
+            void SkipWhitespace(string str, ref int index)
+            {
+                while (index < str.Length && char.IsWhiteSpace(str[index]))
+                {
+                    index++;
+                }
+            }
+
+            if (index < 0 || index >= str.Length)
+            {
+                throw new IndexOutOfRangeException("Index " + index + " out of range string: " + str);
+            }
+
+            if (str[index] != '{')
+            {
+                throw new Exception("Expected object to start with { at index " + index + " in string: " + str);
+            }
+
+            JsonObj parsed = new JsonObj();
+
+            // Case for empty list
+            int currentIndex = index + 1;
+            SkipWhitespace(str, ref currentIndex);
+            if (currentIndex < str.Length && str[currentIndex] == '}')
+            {
+                index = currentIndex;
+                return parsed;
+            }
+
+            // Case for non-empty list
+            currentIndex = index + 1;
+            while (currentIndex < str.Length)
+            {
+                // Identifier
+                SkipWhitespace(str, ref currentIndex);
+
+                if (currentIndex >= str.Length)
+                {
+                    throw new Exception("Reached end of string while expecting identifier for list starting at index " + index + " in string: " + str);
+                }
+                if (str[currentIndex] == '}')
+                {
+                    throw new Exception("Found closing } at index " + currentIndex + " but was expecting another element due to a comma in string: " + str);
+                }
+
+                string identifier = JsonString.Parse(str, ref currentIndex).value;
+                currentIndex++;
+
+                if (parsed.ContainsKey(identifier))
+                {
+                    throw new Exception("Object has already used the identifier " + identifier + " in string: " + str);
+                }
+
+                // Colon
+                SkipWhitespace(str, ref currentIndex);
+
+                if (currentIndex >= str.Length)
+                {
+                    throw new Exception("Reached end of string while expecting : for object starting at index " + index + " in string: " + str);
+                }
+                if (str[currentIndex] == '}')
+                {
+                    throw new Exception("Found closing } at index " + currentIndex + " but was expecting another element due to a comma in string: " + str);
+                }
+
+                if (str[currentIndex] != ':')
+                {
+                    throw new Exception("Expected : at index " + currentIndex + " in string: " + str);
+                }
+                currentIndex++;
+
+                // Value
+                SkipWhitespace(str, ref currentIndex);
+
+                if (currentIndex >= str.Length)
+                {
+                    throw new Exception("Reached end of string while expecting value for identifier " + identifier + " in object starting at index " + index + " in string: " + str);
+                }
+                if (str[currentIndex] == '}')
+                {
+                    throw new Exception("Found closing } at index " + currentIndex + " but was expecting another element due to a comma in string: " + str);
+                }
+
+                JsonData value = JsonData.Parse(str, ref currentIndex);
+                parsed.Add(identifier, value);
+                currentIndex++;
+
+                // Closing } or ,
+                SkipWhitespace(str, ref currentIndex);
+
+                if (currentIndex >= str.Length)
+                {
+                    throw new Exception("Reached end of string while expecting } or , for list starting at index " + index + " in string: " + str);
+                }
+                if (str[currentIndex] == '}')
+                {
+                    index = currentIndex;
+                    return parsed;
+                }
+                if (str[currentIndex] != ',')
+                {
+                    throw new Exception("Object has not ended, so expected a comma at index " + currentIndex + " in string: " + str);
+                }
+
+                currentIndex++;
+            }
+
+            throw new Exception("Reached end of string before finding closing } for object starting at index " + index + " in string: " + str);
         }
     }
 }

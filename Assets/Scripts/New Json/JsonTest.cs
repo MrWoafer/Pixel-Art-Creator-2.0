@@ -61,5 +61,7 @@ public class JsonTest : MonoBehaviour
         Debug.Log(JsonList.Parse("[]").ToJsonString(true));
         Debug.Log(JsonList.Parse("[              ]").ToJsonString(true));
         Debug.Log(JsonList.Parse("[0, 5.32, \"hi there] [\", null]").ToJsonString(true));
+
+        Debug.Log(JsonObj.Parse("{\"id\": 3, \"truth\"  : false }").ToJsonString(true));
     }
 }
