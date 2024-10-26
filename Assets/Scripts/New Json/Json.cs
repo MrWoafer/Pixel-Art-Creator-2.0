@@ -36,7 +36,7 @@ namespace PAC.Json
         {
             if (index < 0 || index >= str.Length)
             {
-                throw new IndexOutOfRangeException("index " + index + " out of range string: " + str);
+                throw new IndexOutOfRangeException("Index " + index + " out of range string: " + str);
             }
 
             Exception nullException;
@@ -162,7 +162,7 @@ namespace PAC.Json
         {
             if (index < 0 || index >= str.Length)
             {
-                throw new IndexOutOfRangeException("index " + index + " out of range string: " + str);
+                throw new IndexOutOfRangeException("Index " + index + " out of range string: " + str);
             }
 
             if (index + 3 >= str.Length)
@@ -221,7 +221,7 @@ namespace PAC.Json
         {
             if (index < 0 || index >= str.Length)
             {
-                throw new IndexOutOfRangeException("index " + index + " out of range string: " + str);
+                throw new IndexOutOfRangeException("Index " + index + " out of range string: " + str);
             }
 
             if (index + 3 >= str.Length)
@@ -298,7 +298,7 @@ namespace PAC.Json
         {
             if (index < 0 || index >= str.Length)
             {
-                throw new IndexOutOfRangeException("index " + index + " out of range string: " + str);
+                throw new IndexOutOfRangeException("Index " + index + " out of range string: " + str);
             }
 
             int currentIndex = index;
@@ -319,6 +319,11 @@ namespace PAC.Json
             {
                 if (!char.IsDigit(str[currentIndex]))
                 {
+                    if (str[currentIndex] == '.')
+                    {
+                        throw new Exception("Found decimal point at index " + currentIndex + " trying to parse an int from index " + index + " in string: " + str);
+                    }
+
                     if (str[currentIndex] != 'e' && str[currentIndex] != 'E')
                     {
                         break;
@@ -352,6 +357,12 @@ namespace PAC.Json
                     while (currentIndex < str.Length && char.IsDigit(str[currentIndex]))
                     {
                         currentIndex++;
+                    }
+
+                    if (currentIndex < str.Length && str[currentIndex] == '.')
+                    {
+                        throw new Exception("Found decimal point at index " + currentIndex + " trying to parse an exponent (which must be an integer) " +
+                            "for a number starting at index " + index + " in string: " + str);
                     }
 
                     int exponent = int.Parse(str[exponentStartIndex..currentIndex]);
@@ -430,7 +441,7 @@ namespace PAC.Json
         {
             if (index < 0 || index >= str.Length)
             {
-                throw new IndexOutOfRangeException("index " + index + " out of range string: " + str);
+                throw new IndexOutOfRangeException("Index " + index + " out of range string: " + str);
             }
 
             int currentIndex = index;
@@ -492,6 +503,12 @@ namespace PAC.Json
                     while (currentIndex < str.Length && char.IsDigit(str[currentIndex]))
                     {
                         currentIndex++;
+                    }
+
+                    if (currentIndex < str.Length && str[currentIndex] == '.')
+                    {
+                        throw new Exception("Found decimal point at index " + currentIndex + " trying to parse an exponent (which must be an integer) " +
+                            "for a number starting at index " + index + " in string: " + str);
                     }
 
                     float exponent = float.Parse(str[exponentStartIndex..currentIndex]);
@@ -622,16 +639,16 @@ namespace PAC.Json
         {
             if (index < 0 || index >= str.Length)
             {
-                throw new IndexOutOfRangeException("index " + index + " out of range string: " + str);
+                throw new IndexOutOfRangeException("Index " + index + " out of range string: " + str);
             }
 
-            if (str[index] != '"')
+            if (str[index] != '\"')
             {
-                throw new Exception("Expected string to start with \". String: " + str);
+                throw new Exception("Expected string data to start with \" at index " + index + " in string: " + str);
             }
 
             StringBuilder parsed = new StringBuilder();
-            for (int i = 1; i < str.Length; i++)
+            for (int i = index + 1; i < str.Length; i++)
             {
                 // String ending too early
                 if (str[i] == '\"')
@@ -739,7 +756,7 @@ namespace PAC.Json
                 }
             }
 
-            throw new Exception("Reached end of string before finding closing \" in string: " + str);
+            throw new Exception("Reached end of string before finding closing \" for string data starting at index " + index + " in string: " + str);
         }
     }
 
@@ -767,6 +784,11 @@ namespace PAC.Json
 
         public string ToJsonString(bool pretty)
         {
+            if (Count == 0)
+            {
+                return "[ ]";
+            }
+
             StringBuilder str = new StringBuilder("[");
             if (pretty)
             {
@@ -835,39 +857,77 @@ namespace PAC.Json
             return parsed;
         }
         /// <summary>
-        /// Reads the string, starting at the given index, and attempts to parse the string as a list. If successful, the index will be moved to the closing square bracket.
+        /// Reads the string, starting at the given index, and attempts to parse the string as a list of JSON data. If successful, the index will be moved to the closing square bracket.
         /// </summary>
         public static JsonList Parse(string str, ref int index)
         {
-            if (index < 0 || index >= str.Length)
+            void SkipWhitespace(string str, ref int index)
             {
-                throw new IndexOutOfRangeException("index " + index + " out of range string: " + str);
+                while (index < str.Length && char.IsWhiteSpace(str[index]))
+                {
+                    index++;
+                }
             }
 
-            if (str.Length == 0)
+            if (index < 0 || index >= str.Length)
             {
-                throw new Exception("String must be enclosed in []. Provided string is empty.");
+                throw new IndexOutOfRangeException("Index " + index + " out of range string: " + str);
             }
-            if (str[0] != '[')
+
+            if (str[index] != '[')
             {
-                throw new Exception("Expected string to start with [. String: " + str);
-            }
-            if (str.Length == 1)
-            {
-                throw new Exception("String must be enclosed in []. Provided string is just a single [.");
-            }
-            if (str[^1] != ']')
-            {
-                throw new Exception("Expected string to end with ]. String: " + str);
+                throw new Exception("Expected list to start with [ at index " + index + " in string: " + str);
             }
 
             JsonList parsed = new JsonList();
-            foreach (string element in str[1..^1].Split(','))
+
+            // Case for empty list
+            int currentIndex = index + 1;
+            SkipWhitespace(str, ref currentIndex);
+            if (currentIndex < str.Length && str[currentIndex] == ']')
             {
-                parsed.Add(JsonData.Parse(element));
+                index = currentIndex;
+                return parsed;
             }
 
-            return parsed;
+            // Case for non-empty list
+            currentIndex = index + 1;
+            while (currentIndex < str.Length)
+            {
+                SkipWhitespace(str, ref currentIndex);
+
+                if (currentIndex >= str.Length)
+                {
+                    break;
+                }
+                if (str[currentIndex] == ']')
+                {
+                    throw new Exception("Found closing ] at index " + currentIndex + " but was expecting another element due to a comma in string: " + str);
+                }
+
+                parsed.Add(JsonData.Parse(str, ref currentIndex));
+                currentIndex++;
+
+                SkipWhitespace(str, ref currentIndex);
+
+                if (currentIndex >= str.Length)
+                {
+                    break;
+                }
+                if (str[currentIndex] == ']')
+                {
+                    index = currentIndex;
+                    return parsed;
+                }
+                if (str[currentIndex] != ',')
+                {
+                    throw new Exception("List has not ended, so expected a comma at index " + currentIndex + " in string: " + str);
+                }
+
+                currentIndex++;
+            }
+
+            throw new Exception("Reached end of string before finding closing ] for list starting at index " + index + " in string: " + str);
         }
     }
 
@@ -880,6 +940,11 @@ namespace PAC.Json
 
         public string ToJsonString(bool pretty)
         {
+            if (Count == 0)
+            {
+                return "{ }";
+            }
+
             StringBuilder str = new StringBuilder("{");
             if (pretty)
             {

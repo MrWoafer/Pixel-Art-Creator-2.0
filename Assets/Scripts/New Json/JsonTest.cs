@@ -55,7 +55,11 @@ public class JsonTest : MonoBehaviour
         Debug.Log(JsonInt.Parse("105").value);
         Debug.Log(JsonInt.Parse("-903008").value);
         Debug.Log(JsonFloat.Parse("-3.25E30").value);
+        Debug.Log(JsonData.Parse("40019").ToJsonString(false));
 
         Debug.Log(JsonList.Parse("[0, 5.32, \"hi there] [\"]").ToJsonString(true));
+        Debug.Log(JsonList.Parse("[]").ToJsonString(true));
+        Debug.Log(JsonList.Parse("[              ]").ToJsonString(true));
+        Debug.Log(JsonList.Parse("[0, 5.32, \"hi there] [\", null]").ToJsonString(true));
     }
 }
