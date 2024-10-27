@@ -24,6 +24,8 @@ namespace PAC.Extensions
                 return false;
             }
 
+            // Auto proprties are syntactic sugar. E.g. a public auto property called 'myProp' in class 'MyClass' will be edited by the compiler
+            // so that its getters and setters use a new private field called MyClass___1<myProp>
             return property.DeclaringType.GetFields(BindingFlags.NonPublic | BindingFlags.Instance).Any(f => f.Name.Contains("<" + property.Name + ">"));
         }
     }
