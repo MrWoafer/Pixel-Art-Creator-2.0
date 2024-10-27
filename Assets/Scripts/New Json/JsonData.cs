@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Text;
 
 namespace PAC.Json
@@ -417,6 +418,11 @@ namespace PAC.Json
 
         public string ToJsonString(bool pretty)
         {
+            // Add .0 if it's an integer
+            if (value == Math.Floor(value))
+            {
+                return value.ToString() + ".0";
+            }
             return value.ToString();
         }
 
@@ -928,6 +934,27 @@ namespace PAC.Json
             }
 
             throw new Exception("Reached end of string before finding closing ] for list starting at index " + index + " in string: " + str);
+        }
+
+        /// <summary>
+        /// Returns whether or not this list is statically typed - i.e. could be converted to a non-dynamic C# array/list.
+        /// </summary>
+        public bool IsStaticallyTyped()
+        {
+            if (Count == 0)
+            {
+                return true;
+            }
+
+            if (Count == 1)
+            {
+                if (this[0].GetType() != typeof(JsonList) || ((JsonList)this[0]).IsStaticallyTyped())
+                {
+                    return true;
+                }
+            }
+
+            throw new NotImplementedException();
         }
     }
 

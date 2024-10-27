@@ -1,6 +1,7 @@
 ﻿using Codice.Client.BaseCommands;
 using PAC.Json;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class JsonTest : MonoBehaviour
@@ -78,8 +79,31 @@ public class JsonTest : MonoBehaviour
         Debug.Log(JsonConverter.ToJson(test3).ToJsonString(true));
         */
 
+        Debug.Log(new JsonFloat(4f).ToJsonString(true));
+
         Debug.Log(JsonConverter.ToJson(new Vector3(3f, -2.2f, 8f)).ToJsonString(true));
         Debug.Log(JsonConverter.ToJson(new Vector2(3f, -2.2f)).ToJsonString(true));
+
+        Debug.Log(JsonConverter.FromJson<Test>(JsonObj.Parse("{\"integer\": -9, \"flt\": 8.0, \"str\": \"hello\"}")).ToString());
+
+        Debug.Log(string.Join(", ", JsonConverter.FromJson<int[]>(JsonData.Parse("[1, -10, 4, 3]"))));
+        Debug.Log(string.Join(",\n", JsonConverter.FromJson<Test[]>(JsonData.Parse(
+            "[{\"integer\": -9, \"flt\": 8.0, \"str\": \"hello\"}," +
+            "{\"integer\": 2, \"flt\": -0.0, \"str\": \"hi\"}," +
+            "{\"integer\": 9, \"flt\": 2.345, \"str\": \"yo\"}]"
+            )).Select(x => x.ToString())));
+        Debug.Log(string.Join(",\n", JsonConverter.FromJson<List<Test>>(JsonData.Parse(
+            "[{\"integer\": -9, \"flt\": 8.0, \"str\": \"hello\"}," +
+            "{\"integer\": 2, \"flt\": -0.0, \"str\": \"hi\"}," +
+            "{\"integer\": 9, \"flt\": 2.345, \"str\": \"yo\"}]"
+            )).Select(x => x.ToString())));
+        /*
+        Debug.Log(string.Join(",\n", JsonConverter.FromJson<Test[]>(JsonData.Parse(
+            "[{\"integer\": -9, \"flt\": 8.0, \"str\": \"hello\"}," +
+            "{\"integer\": 2, \"flt\": true, \"str\": \"hi\"}," +
+            "{\"integer\": 9, \"flt\": 2.345, \"str\": \"yo\"}]"
+            )).Select(x => x.ToString())));
+        */
     }
 
     private class Test
@@ -87,13 +111,17 @@ public class JsonTest : MonoBehaviour
         public int integer;
         public float flt;
         public string str;
-        public Test test;
 
         public Test(int integer, float flt, string str)
         {
             this.integer = integer;
             this.flt = flt;
             this.str = str;
+        }
+
+        public override string ToString()
+        {
+            return integer + ", " + flt + ", " + str;
         }
     }
 }
