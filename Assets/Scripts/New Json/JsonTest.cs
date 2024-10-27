@@ -1,4 +1,5 @@
-﻿using PAC.Json;
+﻿using PAC.Extensions;
+using PAC.Json;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -103,6 +104,12 @@ public class JsonTest : MonoBehaviour
             "{\"integer\": 9, \"flt\": 2.345, \"str\": \"yo\"}]"
             )).Select(x => x.ToString())));
         */
+
+        Test2 test3 = new Test2(5, -4.3f, "name", 7f);
+        Debug.Log(typeof(Test2).GetProperty("prop").IsAutoProperty());
+        Debug.Log(typeof(Test2).GetProperty("prop2").IsAutoProperty());
+        Debug.Log(JsonConverter.ToJson(test3).ToJsonString(false));
+        Debug.Log(JsonConverter.FromJson<Test2>(JsonConverter.ToJson(test3)).ToString());
     }
 
     private class Test
@@ -121,6 +128,28 @@ public class JsonTest : MonoBehaviour
         public override string ToString()
         {
             return integer + ", " + flt + ", " + str;
+        }
+    }
+
+    private class Test2
+    {
+        public int integer;
+        public float flt;
+        public string str;
+        public float prop { get; set; }
+        public float prop2 => flt;
+
+        public Test2(int integer, float flt, string str, float prop)
+        {
+            this.integer = integer;
+            this.flt = flt;
+            this.str = str;
+            this.prop = prop;
+        }
+
+        public override string ToString()
+        {
+            return integer + ", " + flt + ", " + str + ", " + prop;
         }
     }
 }

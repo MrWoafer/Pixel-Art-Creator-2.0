@@ -1,10 +1,12 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using System.Reflection;
 using System.Runtime.Serialization;
 using PAC.Extensions;
 using UnityEngine;
+using static PlasticPipe.Client.InvokeMethodRetry;
 
 namespace PAC.Json
 {
@@ -90,6 +92,8 @@ namespace PAC.Json
             if (objType.IsClass || objType.IsStruct())
             {
                 JsonObj jsonObj = new JsonObj();
+
+                // Fields
                 FieldInfo[] fields = objType.GetFields();
                 foreach (FieldInfo field in fields)
                 {
@@ -106,6 +110,25 @@ namespace PAC.Json
                     jsonObj.Add(field.Name, ToJson(field.GetValue(obj), typesAlreadyTryingToConvert));
                     typesAlreadyTryingToConvert.Remove(field.FieldType);
                 }
+
+                // Auto Properties
+                IEnumerable<PropertyInfo> autoProperties = objType.GetProperties().Where(p => p.IsAutoProperty());
+                foreach (PropertyInfo property in autoProperties)
+                {
+                    // Check for circular type references
+                    if (property.PropertyType.IsClass || property.PropertyType.IsStruct())
+                    {
+                        if (typesAlreadyTryingToConvert.Contains(property.PropertyType))
+                        {
+                            throw new Exception("Cannot convert types with circular type references; consider writing your own method. The circular reference is between types " +
+                                objType.Name + " and " + property.PropertyType.Name);
+                        }
+                        typesAlreadyTryingToConvert.Add(property.PropertyType);
+                    }
+                    jsonObj.Add(property.Name, ToJson(property.GetValue(obj), typesAlreadyTryingToConvert));
+                    typesAlreadyTryingToConvert.Remove(property.PropertyType);
+                }
+
                 return jsonObj;
             }
 
@@ -239,6 +262,7 @@ namespace PAC.Json
             Type returnType = typeof(T);
             T obj = (T)FormatterServices.GetSafeUninitializedObject(returnType);
 
+            // Fields
             FieldInfo[] fields = returnType.GetFields();
             foreach (FieldInfo field in fields)
             {
@@ -262,6 +286,32 @@ namespace PAC.Json
                 }
 
                 field.SetValue(obj, value);
+            }
+
+            // Auto Properties
+            IEnumerable<PropertyInfo> autoProperties = returnType.GetProperties().Where(p => p.IsAutoProperty());
+            foreach (PropertyInfo property in autoProperties)
+            {
+                if (!jsonObj.ContainsKey(property.Name))
+                {
+                    throw new Exception("No auto property found with identifier " + property + " in JSON object.");
+                }
+
+                Type jsonDataType = jsonObj[property.Name].GetType();
+                Type fieldType = property.PropertyType;
+
+                MethodInfo genericMethod = typeof(JsonConverter).GetMethod("FromJson", new Type[] { typeof(JsonData) }).MakeGenericMethod(fieldType);
+                object value;
+                try
+                {
+                    value = genericMethod.Invoke(null, new object[] { jsonObj[property.Name] });
+                }
+                catch (Exception e)
+                {
+                    throw new Exception("Could not convert " + jsonDataType.Name + " to type " + fieldType.Name + " for auto property " + property.Name + " in type " + returnType.Name + ". Exception: " + e);
+                }
+
+                property.SetValue(obj, value);
             }
 
             if (fields.Length < jsonObj.Count)
