@@ -1,3 +1,16 @@
 {
-	"name": "Project.Json"
+    "name": "Project.Json",
+    "rootNamespace": "",
+    "references": [
+        "GUID:afa447b0ae056f048953a464d2a154e3"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
 }

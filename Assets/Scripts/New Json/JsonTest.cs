@@ -65,5 +65,35 @@ public class JsonTest : MonoBehaviour
         Debug.Log(JsonObj.Parse("{\"id\": 3, \"truth\"  : false }").ToJsonString(true));
         Debug.Log(JsonObj.Parse(jObj2.ToJsonString(true)).ToJsonString(true));
         //Debug.Log(JsonObj.Parse("{\"id\": 3, \"truth\"  : false, \"hello\" }").ToJsonString(true));
+
+        int[] test1 = new int[] { 5, 3, -10, 4 };
+        Debug.Log(JsonConverter.ToJson(test1).ToJsonString(false));
+
+        List<int> test2 = new List<int> { 5, 3, -10, 4 };
+        Debug.Log(JsonConverter.ToJson(test2).ToJsonString(false));
+
+        /*
+        Test test3 = new Test(2, -5.32f, "hi, there!");
+        test3.test = test3;
+        Debug.Log(JsonConverter.ToJson(test3).ToJsonString(true));
+        */
+
+        Debug.Log(JsonConverter.ToJson(new Vector3(3f, -2.2f, 8f)).ToJsonString(true));
+        Debug.Log(JsonConverter.ToJson(new Vector2(3f, -2.2f)).ToJsonString(true));
+    }
+
+    private class Test
+    {
+        public int integer;
+        public float flt;
+        public string str;
+        public Test test;
+
+        public Test(int integer, float flt, string str)
+        {
+            this.integer = integer;
+            this.flt = flt;
+            this.str = str;
+        }
     }
 }

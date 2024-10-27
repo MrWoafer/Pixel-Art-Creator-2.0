@@ -17,7 +17,7 @@ namespace PAC.Json
 
                 if (index < str.Length - 1)
                 {
-                    throw new Exception("Successfully parsed data as type " + jsonData.GetType() + " but this did not use the whole input string: " + str);
+                    throw new Exception("Successfully parsed data as type " + jsonData.GetType().Name + " but this did not use the whole input string: " + str);
                 }
 
                 return jsonData;
