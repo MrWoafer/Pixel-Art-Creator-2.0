@@ -1076,7 +1076,7 @@ namespace PAC.Json
                 }
                 if (str[currentIndex] == '}')
                 {
-                    throw new Exception("Found closing } at index " + currentIndex + " but was expecting another element due to a comma in string: " + str);
+                    throw new Exception("Reached closing } while expecting : for object starting at index " + index + " in string: " + str);
                 }
 
                 if (str[currentIndex] != ':')
@@ -1094,7 +1094,7 @@ namespace PAC.Json
                 }
                 if (str[currentIndex] == '}')
                 {
-                    throw new Exception("Found closing } at index " + currentIndex + " but was expecting another element due to a comma in string: " + str);
+                    throw new Exception("Reached closing } while expecting value for identifier " + identifier + " in object starting at index " + index + " in string: " + str);
                 }
 
                 JsonData value = JsonData.Parse(str, ref currentIndex);
