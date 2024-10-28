@@ -1,8 +1,8 @@
 {
-    "name": "Project.Json",
+    "name": "Project.Extensions.JsonConverters",
     "rootNamespace": "",
     "references": [
-        "GUID:98d1aab405d9a6b4b81d739038da96e7"
+        "GUID:ecf0bfe526f2b65449a2da93dacb22d3"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

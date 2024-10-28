@@ -246,8 +246,10 @@ namespace PAC.Files
                 throw new System.Exception("The file is not a PAC file. File extension: " + Path.GetExtension(filePath));
             }
 
-            JSON.JSON json = JSON.JSON.Parse(System.IO.File.ReadAllText(filePath));
-            File file = FromJSON(json);
+            File file = PAC.Json.JsonConverter.FromJson<File>(PAC.Json.JsonData.Parse(System.IO.File.ReadAllText(filePath)));
+
+            //JSON.JSON json = JSON.JSON.Parse(System.IO.File.ReadAllText(filePath));
+            //File file = FromJSON(json);
             file.savedSinceLastEdit = true;
 
             return file;
@@ -308,8 +310,9 @@ namespace PAC.Files
                 throw new System.Exception("The file is not a PAC file. File extension: " + Path.GetExtension(filePath));
             }
 
-            JSON.JSON json = ToJSON();
-            System.IO.File.WriteAllText(filePath, json.ToString());
+            //JSON.JSON json = ToJSON();
+            PAC.Json.JsonData json = PAC.Json.JsonConverter.ToJson(this);
+            System.IO.File.WriteAllText(filePath, json.ToJsonString(true));
 
             mostRecentSavePath = filePath;
             savedSinceLastEdit = true;

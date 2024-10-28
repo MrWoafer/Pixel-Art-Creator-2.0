@@ -10,26 +10,41 @@ using UnityEngine;
 
 namespace PAC.Json
 {
-    public interface IJsonConvertable
+    public interface IJsonConverter<T, in JsonDataType> where JsonDataType : JsonData
     {
-        public JsonData ToJson();
+        public JsonData ToJson(T obj);
+        public T FromJson(JsonDataType jsonData);
+        public T FromJson(JsonData jsonData)
+        {
+            if (jsonData.GetType() == typeof(JsonDataType))
+            {
+                return FromJson((JsonDataType)jsonData);
+            }
+            throw new Exception("Expected the JSON data to be of type " + typeof(JsonDataType).Name + " but found type " + jsonData.GetType().Name);
+        }
     }
 
     public static class JsonConverter
     {
-        public static JsonData ToJson(object obj)
+        public static JsonData ToJson(object obj) => ToJson(obj, new IJsonConverter<dynamic, JsonData>[0]);
+        public static JsonData ToJson(object obj, IJsonConverter<dynamic, JsonData>[] customConverters)
         {
             return ToJson(obj, new HashSet<Type>());
         }
         private static JsonData ToJson(object obj, HashSet<Type> typesAlreadyTryingToConvert)
         {
+            if (obj == null)
+            {
+                return new JsonNull();
+            }
+
             Type objType = obj.GetType();
 
             // Types that define their own JSON conversion
-            if (objType.IsAssignableFrom(typeof(IJsonConvertable)))
-            {
-                return ((IJsonConvertable)obj).ToJson();
-            }
+            //if (objType.IsAssignableFrom(typeof(IJsonConvertable)))
+            //{
+                //return ((IJsonConvertable)obj).ToJson();
+            //}
 
             // Uneditable types for which I have defined a JSON conversion
             MethodInfo method = typeof(JsonConverter).GetMethod("ToJson", new Type[] { objType });
@@ -39,10 +54,6 @@ namespace PAC.Json
             }
 
             // Primitive types
-            if (obj == null)
-            {
-                return new JsonNull();
-            }
             if (objType == typeof(bool))
             {
                 return new JsonBool((bool)obj);
@@ -133,17 +144,7 @@ namespace PAC.Json
             }
 
             throw new Exception("Could not convert object of type " + objType.Name + " to JSON.");
-        }
-
-        // Pre-defined JSON conversion for uneditable types
-        public static JsonData ToJson(Vector3 obj)
-        {
-            return new JsonList { new JsonFloat(obj.x), new JsonFloat(obj.y), new JsonFloat(obj.z) };
-        }
-        public static JsonData ToJson(Vector2 obj)
-        {
-            return new JsonList { new JsonFloat(obj.x), new JsonFloat(obj.y) };
-        }
+        }        
 
         public static T FromJson<T>(JsonData jsonData)
         {
