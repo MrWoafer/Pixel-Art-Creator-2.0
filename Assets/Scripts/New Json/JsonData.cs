@@ -1,6 +1,8 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
+using UnityEngine.Categorization;
 
 namespace PAC.Json
 {
@@ -117,7 +119,7 @@ namespace PAC.Json
                 "\nstring: " + stringException +
                 "\nlist: " + listException +
                 "\nobject: " + objException
-                );
+            );
         }
     }
 
@@ -770,20 +772,41 @@ namespace PAC.Json
         public JsonList(IEnumerable<JsonData> collection) : base(collection) { }
         public JsonList(params JsonData[] jsonData) : base(jsonData) { }
 
-        public JsonList(IEnumerable<JsonNull> collection) : base(collection) { }
-        public JsonList(params JsonNull[] jsonData) : base(jsonData) { }
-        public JsonList(IEnumerable<JsonBool> collection) : base(collection) { }
-        public JsonList(params JsonBool[] jsonData) : base(jsonData) { }
-        public JsonList(IEnumerable<JsonInt> collection) : base(collection) { }
-        public JsonList(params JsonInt[] jsonData) : base(jsonData) { }
-        public JsonList(IEnumerable<JsonFloat> collection) : base(collection) { }
-        public JsonList(params JsonFloat[] jsonData) : base(jsonData) { }
-        public JsonList(IEnumerable<JsonString> collection) : base(collection) { }
-        public JsonList(params JsonString[] jsonData) : base(jsonData) { }
-        public JsonList(IEnumerable<JsonList> collection) : base(collection) { }
-        public JsonList(params JsonList[] jsonData) : base(jsonData) { }
-        public JsonList(IEnumerable<JsonObj> collection) : base(collection) { }
-        public JsonList(params JsonObj[] jsonData) : base(jsonData) { }
+        public JsonList(params bool[] jsonData) => new JsonList((IEnumerable<bool>)jsonData);
+        public JsonList(IEnumerable<bool> collection) : base(collection.Count())
+        {
+            foreach (JsonBool element in collection)
+            {
+                Add(new JsonBool(element));
+            }
+        }
+
+        public JsonList(params int[] jsonData) => new JsonList((IEnumerable<int>)jsonData);
+        public JsonList(IEnumerable<int> collection) : base(collection.Count())
+        {
+            foreach (JsonInt element in collection)
+            {
+                Add(new JsonInt(element));
+            }
+        }
+
+        public JsonList(params float[] jsonData) => new JsonList((IEnumerable<float>)jsonData);
+        public JsonList(IEnumerable<float> collection) : base(collection.Count())
+        {
+            foreach (JsonFloat element in collection)
+            {
+                Add(new JsonFloat(element));
+            }
+        }
+
+        public JsonList(params string[] jsonData) => new JsonList((IEnumerable<string>)jsonData);
+        public JsonList(IEnumerable<string> collection) : base(collection.Count())
+        {
+            foreach (JsonString element in collection)
+            {
+                Add(new JsonString(element));
+            }
+        }
 
         public string ToJsonString(bool pretty)
         {
@@ -934,27 +957,6 @@ namespace PAC.Json
 
             throw new Exception("Reached end of string before finding closing ] for list starting at index " + index + " in string: " + str);
         }
-
-        /// <summary>
-        /// Returns whether or not this list is statically typed - i.e. could be converted to a non-dynamic C# array/list.
-        /// </summary>
-        public bool IsStaticallyTyped()
-        {
-            if (Count == 0)
-            {
-                return true;
-            }
-
-            if (Count == 1)
-            {
-                if (this[0].GetType() != typeof(JsonList) || ((JsonList)this[0]).IsStaticallyTyped())
-                {
-                    return true;
-                }
-            }
-
-            throw new NotImplementedException();
-        }
     }
 
     public class JsonObj : Dictionary<string, JsonData>, JsonData
@@ -963,6 +965,35 @@ namespace PAC.Json
         public JsonObj(int capacity) : base(capacity) { }
         public JsonObj(IEnumerable<KeyValuePair<string, JsonData>> collection) : base(collection) { }
         public JsonObj(IDictionary<string, JsonData> collection) : base(collection) { }
+
+        public void Add(string key, JsonNull value)
+        {
+            Add(key, (JsonData)value);
+        }
+        public void Add(string key, JsonBool value)
+        {
+            Add(key, (JsonData)value);
+        }
+        public void Add(string key, JsonInt value)
+        {
+            Add(key, (JsonData)value);
+        }
+        public void Add(string key, JsonFloat value)
+        {
+            Add(key, (JsonData)value);
+        }
+        public void Add(string key, JsonString value)
+        {
+            Add(key, (JsonData)value);
+        }
+        public void Add(string key, JsonList value)
+        {
+            Add(key, (JsonData)value);
+        }
+        public void Add(string key, JsonObj value)
+        {
+            Add(key, (JsonData)value);
+        }
 
         public string ToJsonString(bool pretty)
         {

@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
+using System.Runtime.CompilerServices;
 using System.Runtime.Serialization;
 using PAC.Extensions;
 using UnityEngine;
@@ -93,7 +94,7 @@ namespace PAC.Json
                 JsonObj jsonObj = new JsonObj();
 
                 // Fields
-                FieldInfo[] fields = objType.GetFields();
+                IEnumerable<FieldInfo> fields = objType.GetFields(BindingFlags.Public | BindingFlags.Instance | BindingFlags.NonPublic).Where(f => f.GetCustomAttribute<CompilerGeneratedAttribute>() == null);
                 foreach (FieldInfo field in fields)
                 {
                     // Check for circular type references
@@ -111,7 +112,7 @@ namespace PAC.Json
                 }
 
                 // Auto Properties
-                IEnumerable<PropertyInfo> autoProperties = objType.GetProperties().Where(p => p.IsAutoProperty());
+                IEnumerable<PropertyInfo> autoProperties = objType.GetProperties(BindingFlags.Public | BindingFlags.Instance | BindingFlags.NonPublic).Where(p => p.IsAutoProperty());
                 foreach (PropertyInfo property in autoProperties)
                 {
                     // Check for circular type references
@@ -262,7 +263,7 @@ namespace PAC.Json
             T obj = (T)FormatterServices.GetSafeUninitializedObject(returnType);
 
             // Fields
-            FieldInfo[] fields = returnType.GetFields();
+            IEnumerable<FieldInfo> fields = returnType.GetFields(BindingFlags.Public | BindingFlags.Instance | BindingFlags.NonPublic).Where(f => f.GetCustomAttribute<CompilerGeneratedAttribute>() == null);
             foreach (FieldInfo field in fields)
             {
                 if (!jsonObj.ContainsKey(field.Name))
@@ -288,7 +289,7 @@ namespace PAC.Json
             }
 
             // Auto Properties
-            IEnumerable<PropertyInfo> autoProperties = returnType.GetProperties().Where(p => p.IsAutoProperty());
+            IEnumerable<PropertyInfo> autoProperties = returnType.GetProperties(BindingFlags.Public | BindingFlags.Instance | BindingFlags.NonPublic).Where(p => p.IsAutoProperty());
             foreach (PropertyInfo property in autoProperties)
             {
                 if (!jsonObj.ContainsKey(property.Name))
@@ -313,7 +314,7 @@ namespace PAC.Json
                 property.SetValue(obj, value);
             }
 
-            if (fields.Length < jsonObj.Count)
+            if (fields.Count() < jsonObj.Count)
             {
                 Debug.LogWarning("There were unused identifiers in the JSON object when converting to type " + returnType.Name);
             }

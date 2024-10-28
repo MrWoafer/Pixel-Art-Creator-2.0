@@ -23,25 +23,25 @@ namespace PAC.Json
 
             JsonList jList = new JsonList("hi", "hello");
             JsonObj jObj = new JsonObj
-        {
-            { "jString", jString },
-            { "jString2", jString2 },
-            { "jList", jList }
-        };
+            {
+                { "jString", jString },
+                { "jString2", jString2 },
+                { "jList", jList }
+            };
 
             Debug.Log(jObj.ToJsonString(false));
             Debug.Log(jObj.ToJsonString(true));
 
             JsonObj jObj2 = new JsonObj
-        {
-            { "null", new JsonNull() },
-            { "bool", new JsonBool(true) },
-            { "obj", jObj },
-            { "int", new JsonInt(2) },
-            { "list", jList },
-            { "float", new JsonFloat(-2.68f) },
-            { "string", new JsonString("Hi, there") },
-        };
+            {
+                { "null", new JsonNull() },
+                { "bool", new JsonBool(true) },
+                { "obj", jObj },
+                { "int", new JsonInt(2) },
+                { "list", jList },
+                { "float", new JsonFloat(-2.68f) },
+                { "string", new JsonString("Hi, there") },
+            };
 
             Debug.Log(jObj2.ToJsonString(false));
             Debug.Log(jObj2.ToJsonString(true));
@@ -80,6 +80,8 @@ namespace PAC.Json
             test3.test = test3;
             Debug.Log(JsonConverter.ToJson(test3).ToJsonString(true));
             */
+
+            new JsonList(new int[] { 1, 4, 3, 2 });
 
             Debug.Log(new JsonFloat(4f).ToJsonString(true));
 
@@ -137,7 +139,7 @@ namespace PAC.Json
         {
             public int integer;
             public float flt;
-            public string str;
+            private string str;
             public float prop { get; set; }
             public float prop2 => flt;
 
