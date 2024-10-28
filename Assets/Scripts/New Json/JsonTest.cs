@@ -2,6 +2,7 @@
 using PAC.Json;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using UnityEngine;
 
 namespace PAC.Json
@@ -110,8 +111,8 @@ namespace PAC.Json
             */
 
             Test2 test3 = new Test2(5, -4.3f, "name", 7f);
-            Debug.Log(typeof(Test2).GetProperty("prop").IsAutoProperty());
-            Debug.Log(typeof(Test2).GetProperty("prop2").IsAutoProperty());
+            Debug.Log(typeof(Test2).GetProperty("prop", BindingFlags.Public | BindingFlags.Instance | BindingFlags.NonPublic).IsAutoProperty());
+            Debug.Log(typeof(Test2).GetProperty("prop2", BindingFlags.Public | BindingFlags.Instance | BindingFlags.NonPublic).IsAutoProperty());
             Debug.Log(JsonConverter.ToJson(test3).ToJsonString(false));
             Debug.Log(JsonConverter.FromJson<Test2>(JsonConverter.ToJson(test3)).ToString());
         }
@@ -140,7 +141,7 @@ namespace PAC.Json
             public int integer;
             public float flt;
             private string str;
-            public float prop { get; set; }
+            private float prop { get; set; }
             public float prop2 => flt;
 
             public Test2(int integer, float flt, string str, float prop)
