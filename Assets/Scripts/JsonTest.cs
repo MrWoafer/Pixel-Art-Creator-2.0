@@ -1,5 +1,5 @@
-﻿using PAC.Extensions;
-using PAC.Json;
+﻿using NUnit.Framework.Constraints;
+using PAC.Extensions;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
@@ -22,6 +22,7 @@ namespace PAC.Json
             Debug.Log("😀");
             Debug.Log("abcdef"[1..^1]);
 
+            JsonList jList1 = new JsonList(1, 2, 3);
             JsonList jList = new JsonList("hi", "hello");
             JsonObj jObj = new JsonObj
             {
@@ -115,6 +116,9 @@ namespace PAC.Json
             Debug.Log(typeof(Test2).GetProperty("prop2", BindingFlags.Public | BindingFlags.Instance | BindingFlags.NonPublic).IsAutoProperty());
             Debug.Log(JsonConverter.ToJson(test3).ToJsonString(false));
             Debug.Log(JsonConverter.FromJson<Test2>(JsonConverter.ToJson(test3)).ToString());
+
+            Debug.Log(JsonConverter.ToJson(new Vector3(3f, 2f, 1f), JsonConverters.allConverters).ToJsonString(false));
+            Debug.Log(JsonConverter.FromJson<Color>(new JsonList(4f, 2f, 1f, 3f), JsonConverters.allConverters));
         }
 
         private class Test

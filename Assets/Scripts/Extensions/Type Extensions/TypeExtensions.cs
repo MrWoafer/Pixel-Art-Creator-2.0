@@ -17,6 +17,34 @@ namespace PAC.Extensions
             return type.IsGenericType && type.GetGenericTypeDefinition() == typeof(List<>);
         }
 
+        public static bool IsSubclassOfRawGeneric(this Type subClass, Type generic)
+        {
+            while (subClass != null && subClass != typeof(object))
+            {
+                Type subClassGenericType = subClass.IsGenericType ? subClass.GetGenericTypeDefinition() : subClass;
+                if (subClassGenericType == generic)
+                {
+                    return true;
+                }
+                subClass = subClass.BaseType;
+            }
+            return false;
+        }
+
+        public static Type GetTypeOfRawGenericSuperclass(this Type subClass, Type generic)
+        {
+            while (subClass != null && subClass != typeof(object))
+            {
+                Type subClassGenericType = subClass.IsGenericType ? subClass.GetGenericTypeDefinition() : subClass;
+                if (subClassGenericType == generic)
+                {
+                    return subClass;
+                }
+                subClass = subClass.BaseType;
+            }
+            throw new Exception("Type " + subClass.Name + " is not a subclass of type " + generic.Name);
+        }
+
         public static bool IsAutoProperty(this PropertyInfo property)
         {
             if (!property.CanWrite || !property.CanRead)

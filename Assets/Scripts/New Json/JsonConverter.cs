@@ -7,13 +7,14 @@ using System.Runtime.CompilerServices;
 using System.Runtime.Serialization;
 using PAC.Extensions;
 using UnityEngine;
+using static System.Resources.ResXFileRef;
 
 namespace PAC.Json
 {
-    public interface IJsonConverter<T, in JsonDataType> where JsonDataType : JsonData
+    public abstract class IJsonConverter<T, JsonDataType> where JsonDataType : JsonData
     {
-        public JsonData ToJson(T obj);
-        public T FromJson(JsonDataType jsonData);
+        public abstract JsonData ToJson(T obj);
+        public abstract T FromJson(JsonDataType jsonData);
         public T FromJson(JsonData jsonData)
         {
             if (jsonData.GetType() == typeof(JsonDataType))
@@ -24,14 +25,73 @@ namespace PAC.Json
         }
     }
 
+    public class JsonConverterList : IEnumerable
+    {
+        public List<object> converters = new List<object>();
+
+        public JsonConverterList() { }
+        public JsonConverterList(params object[] converters)
+        {
+            foreach (object converter in converters)
+            {
+                Add(converter);
+            }
+        }
+
+        public void Add(object converter)
+        {
+            Type type = converter.GetType();
+            if (type.IsSubclassOfRawGeneric(typeof(IJsonConverter<,>)))
+            {
+                Type converterType = type.GetTypeOfRawGenericSuperclass(typeof(IJsonConverter<,>)).GetGenericArguments()[0];
+                foreach (object existingConverter in converters)
+                {
+                    Type existingConverterType = existingConverter.GetType().GetTypeOfRawGenericSuperclass(typeof(IJsonConverter<,>)).GetGenericArguments()[0];
+                    if (converterType == existingConverterType)
+                    {
+                        throw new Exception("The list already contains a converter for type " + converterType);
+                    }
+                }
+                converters.Add(converter);
+            }
+            else
+            {
+                throw new Exception("JsonConverterList can only add objects that implement IJsonConverter<,>. The provided object was of type " + type.Name);
+            }
+        }
+
+        public bool Remove(object converter)
+        {
+            return converters.Remove(converter);
+        }
+        public bool Remove(Type converterType)
+        {
+            for (int i = 0; i < converters.Count; i++)
+            {
+                Type existingConverterType = converters[i].GetType().GetTypeOfRawGenericSuperclass(typeof(IJsonConverter<,>)).GetGenericArguments()[0];
+                if (converterType == existingConverterType)
+                {
+                    converters.RemoveAt(i);
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        public IEnumerator GetEnumerator()
+        {
+            return converters.GetEnumerator();
+        }
+    }
+
     public static class JsonConverter
     {
-        public static JsonData ToJson(object obj) => ToJson(obj, new IJsonConverter<dynamic, JsonData>[0]);
-        public static JsonData ToJson(object obj, IJsonConverter<dynamic, JsonData>[] customConverters)
+        public static JsonData ToJson(object obj) => ToJson(obj, new JsonConverterList());
+        public static JsonData ToJson(object obj, JsonConverterList customConverters)
         {
-            return ToJson(obj, new HashSet<Type>());
+            return ToJson(obj, new HashSet<Type>(), customConverters);
         }
-        private static JsonData ToJson(object obj, HashSet<Type> typesAlreadyTryingToConvert)
+        private static JsonData ToJson(object obj, HashSet<Type> typesAlreadyTryingToConvert, JsonConverterList customConverters)
         {
             if (obj == null)
             {
@@ -40,11 +100,17 @@ namespace PAC.Json
 
             Type objType = obj.GetType();
 
-            // Types that define their own JSON conversion
-            //if (objType.IsAssignableFrom(typeof(IJsonConvertable)))
-            //{
-                //return ((IJsonConvertable)obj).ToJson();
-            //}
+            // Custom JSON converters
+            foreach (object converter in customConverters)
+            {
+                Type asIJsonConverter = converter.GetType().GetTypeOfRawGenericSuperclass(typeof(IJsonConverter<,>));
+                Type conversionType = asIJsonConverter.GetGenericArguments()[0];
+                if (conversionType == objType)
+                {
+                    MethodInfo toJsonMethod = converter.GetType().GetMethod("ToJson", new Type[] { conversionType });
+                    return (JsonData)toJsonMethod.Invoke(converter, new object[] { obj });
+                }
+            }
 
             // Uneditable types for which I have defined a JSON conversion
             MethodInfo method = typeof(JsonConverter).GetMethod("ToJson", new Type[] { objType });
@@ -118,7 +184,7 @@ namespace PAC.Json
                         }
                         typesAlreadyTryingToConvert.Add(field.FieldType);
                     }
-                    jsonObj.Add(field.Name, ToJson(field.GetValue(obj), typesAlreadyTryingToConvert));
+                    jsonObj.Add(field.Name, ToJson(field.GetValue(obj), typesAlreadyTryingToConvert, customConverters));
                     typesAlreadyTryingToConvert.Remove(field.FieldType);
                 }
 
@@ -136,7 +202,7 @@ namespace PAC.Json
                         }
                         typesAlreadyTryingToConvert.Add(property.PropertyType);
                     }
-                    jsonObj.Add(property.Name, ToJson(property.GetValue(obj), typesAlreadyTryingToConvert));
+                    jsonObj.Add(property.Name, ToJson(property.GetValue(obj), typesAlreadyTryingToConvert, customConverters));
                     typesAlreadyTryingToConvert.Remove(property.PropertyType);
                 }
 
@@ -144,12 +210,25 @@ namespace PAC.Json
             }
 
             throw new Exception("Could not convert object of type " + objType.Name + " to JSON.");
-        }        
+        }
 
-        public static T FromJson<T>(JsonData jsonData)
+        public static T FromJson<T>(JsonData jsonData) => FromJson<T>(jsonData, new JsonConverterList());
+        public static T FromJson<T>(JsonData jsonData, JsonConverterList customConverters)
         {
             Type returnType = typeof(T);
             Type jsonDataType = jsonData.GetType();
+
+            // Custom JSON converters
+            foreach (object converter in customConverters)
+            {
+                Type asIJsonConverter = converter.GetType().GetTypeOfRawGenericSuperclass(typeof(IJsonConverter<,>));
+                Type conversionType = asIJsonConverter.GetGenericArguments()[0];
+                if (conversionType == returnType)
+                {
+                    MethodInfo fromJsonMethod = converter.GetType().GetMethod("FromJson", new Type[] { typeof(JsonData) });
+                    return (T)fromJsonMethod.Invoke(converter, new object[] { jsonData });
+                }
+            }
 
             if (jsonDataType == typeof(JsonNull))
             {
@@ -202,13 +281,13 @@ namespace PAC.Json
 
             throw new Exception("Cannot convert JSON data of type " + jsonDataType.Name + " into type " + returnType.Name);
         }
-        public static T FromJson<T>(JsonList jsonList)
+        private static T FromJson<T>(JsonList jsonList)
         {
             Type returnType = typeof(T);
 
             if (!returnType.IsArray && !returnType.IsGenericList())
             {
-                throw new Exception("Cannot convert list JSON data into type " + returnType.Name + " as it is not a list.");
+                throw new Exception("Cannot convert list JSON data into type " + returnType.Name + " as it is not a list or array.");
             }
 
             if (returnType.IsArray)
@@ -258,7 +337,7 @@ namespace PAC.Json
                 return (T)(object)list;
             }
         }
-        public static T FromJson<T>(JsonObj jsonObj)
+        private static T FromJson<T>(JsonObj jsonObj)
         {
             Type returnType = typeof(T);
             T obj = (T)FormatterServices.GetSafeUninitializedObject(returnType);

@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using UnityEngine.Categorization;
+using UnityEditor.PackageManager.Requests;
 
 namespace PAC.Json
 {
@@ -772,41 +772,100 @@ namespace PAC.Json
         public JsonList(IEnumerable<JsonData> collection) : base(collection) { }
         public JsonList(params JsonData[] jsonData) : base(jsonData) { }
 
-        public JsonList(params bool[] jsonData) => new JsonList((IEnumerable<bool>)jsonData);
+        public JsonList(params JsonNull[] jsonData) => new JsonList((IEnumerable<JsonNull>)jsonData);
+        public JsonList(IEnumerable<JsonNull> collection) : base(collection) { }
+
+        public JsonList(params JsonBool[] jsonData) => new JsonList((IEnumerable<JsonBool>)jsonData);
+        public JsonList(IEnumerable<JsonBool> collection) : base(collection) { }
+        public JsonList(params bool[] jsonData) : base(jsonData.Length)
+        {
+            foreach (bool element in jsonData)
+            {
+                Add(new JsonBool(element));
+            }
+        }
         public JsonList(IEnumerable<bool> collection) : base(collection.Count())
         {
-            foreach (JsonBool element in collection)
+            foreach (bool element in collection)
             {
                 Add(new JsonBool(element));
             }
         }
 
-        public JsonList(params int[] jsonData) => new JsonList((IEnumerable<int>)jsonData);
+        public JsonList(params JsonInt[] jsonData) => new JsonList((IEnumerable<JsonInt>)jsonData);
+        public JsonList(IEnumerable<JsonInt> collection) : base(collection) { }
+        public JsonList(params int[] jsonData) : base(jsonData.Length)
+        {
+            foreach (int element in jsonData)
+            {
+                Add(new JsonInt(element));
+            }
+        }
         public JsonList(IEnumerable<int> collection) : base(collection.Count())
         {
-            foreach (JsonInt element in collection)
+            foreach (int element in collection)
             {
                 Add(new JsonInt(element));
             }
         }
 
-        public JsonList(params float[] jsonData) => new JsonList((IEnumerable<float>)jsonData);
+        public JsonList(params JsonFloat[] jsonData) => new JsonList((IEnumerable<JsonFloat>)jsonData);
+        public JsonList(IEnumerable<JsonFloat> collection) : base(collection) { }
+        public JsonList(params float[] jsonData) : base(jsonData.Length)
+        {
+            foreach (float element in jsonData)
+            {
+                Add(new JsonFloat(element));
+            }
+        }
         public JsonList(IEnumerable<float> collection) : base(collection.Count())
         {
-            foreach (JsonFloat element in collection)
+            foreach (float element in collection)
             {
                 Add(new JsonFloat(element));
             }
         }
 
-        public JsonList(params string[] jsonData) => new JsonList((IEnumerable<string>)jsonData);
-        public JsonList(IEnumerable<string> collection) : base(collection.Count())
+        public JsonList(params JsonString[] jsonData) => new JsonList((IEnumerable<JsonString>)jsonData);
+        public JsonList(IEnumerable<JsonString> collection) : base(collection) { }
+        public JsonList(params string[] jsonData) : base(jsonData.Length)
         {
-            foreach (JsonString element in collection)
+            foreach (string element in jsonData)
             {
                 Add(new JsonString(element));
             }
         }
+        public JsonList(IEnumerable<string> collection) : base(collection.Count())
+        {
+            foreach (string element in collection)
+            {
+                Add(new JsonString(element));
+            }
+        }
+
+        public JsonList(params JsonList[] jsonData) => new JsonList((IEnumerable<JsonList>)jsonData);
+        public JsonList(IEnumerable<JsonList> collection) : base(collection) { }
+
+        public JsonList(params JsonObj[] jsonData) => new JsonList((IEnumerable<JsonObj>)jsonData);
+        public JsonList(IEnumerable<JsonObj> collection) : base(collection) { }
+
+        public void Add(JsonNull jsonData) => Add((JsonData)jsonData);
+
+        public void Add(JsonBool jsonData) => Add((JsonData)jsonData);
+        public void Add(bool jsonData) => Add(new JsonBool(jsonData));
+
+        public void Add(JsonInt jsonData) => Add((JsonData)jsonData);
+        public void Add(int jsonData) => Add(new JsonInt(jsonData));
+
+        public void Add(JsonFloat jsonData) => Add((JsonData)jsonData);
+        public void Add(float jsonData) => Add(new JsonFloat(jsonData));
+
+        public void Add(JsonString jsonData) => Add((JsonData)jsonData);
+        public void Add(string jsonData) => Add(new JsonString(jsonData));
+
+        public void Add(JsonList jsonData) => Add((JsonData)jsonData);
+
+        public void Add(JsonObj jsonData) => Add((JsonData)jsonData);
 
         public string ToJsonString(bool pretty)
         {
