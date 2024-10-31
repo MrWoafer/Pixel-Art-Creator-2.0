@@ -119,6 +119,11 @@ namespace PAC.Json
 
             Debug.Log(JsonConverter.ToJson(new Vector3(3f, 2f, 1f), JsonConverters.allConverters).ToJsonString(false));
             Debug.Log(JsonConverter.FromJson<Color>(new JsonList(4f, 2f, 1f, 3f), JsonConverters.allConverters));
+
+            Debug.Log(JsonConverter.ToJson(TestEnum.Test1).ToJsonString(false));
+            Debug.Log(JsonConverter.ToJson(TestEnum.Test4).ToJsonString(false));
+            Debug.Log(JsonConverter.ToJson(TestEnum.Test2).ToJsonString(false));
+            Debug.Log(JsonConverter.FromJson<TestEnum>(JsonString.Parse("\"Test3\"")));
         }
 
         private class Test
@@ -160,6 +165,14 @@ namespace PAC.Json
             {
                 return integer + ", " + flt + ", " + str + ", " + prop;
             }
+        }
+
+        public enum TestEnum
+        {
+            Test1 = 2,
+            Test2 = 5,
+            Test3 = -10,
+            Test4 = 2
         }
     }
 }

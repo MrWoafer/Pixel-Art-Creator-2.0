@@ -5,6 +5,7 @@ using System.Linq;
 using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Runtime.Serialization;
+using Codice.CM.Common;
 using PAC.Extensions;
 using UnityEngine;
 
@@ -161,7 +162,7 @@ namespace PAC.Json
             // Enums
             if (objType.IsEnum)
             {
-                throw new NotImplementedException("ToJson() has not been implemented for enums yet. Enum type: " + objType.Name);
+                return new JsonString(Enum.GetName(objType, obj));
             }
 
             // Classes / Structs
@@ -227,6 +228,16 @@ namespace PAC.Json
                     MethodInfo fromJsonMethod = converter.GetType().GetMethod("FromJson", new Type[] { typeof(JsonData) });
                     return (T)fromJsonMethod.Invoke(converter, new object[] { jsonData });
                 }
+            }
+
+            // Enums
+            if (returnType.IsEnum)
+            {
+                if (jsonDataType != typeof(JsonString))
+                {
+                    throw new Exception("Expected string JSON data to convert into enum type " + returnType.Name + " but found type " + jsonDataType.Name);
+                }
+                return (T)Enum.Parse(returnType, ((JsonString)jsonData).value);
             }
 
             if (jsonDataType == typeof(JsonNull))
