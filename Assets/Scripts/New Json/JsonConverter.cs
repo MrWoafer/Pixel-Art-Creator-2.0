@@ -7,7 +7,6 @@ using System.Runtime.CompilerServices;
 using System.Runtime.Serialization;
 using PAC.Extensions;
 using UnityEngine;
-using static System.Resources.ResXFileRef;
 
 namespace PAC.Json
 {
