@@ -5,7 +5,7 @@ namespace PAC.Extensions
 {
     public static class JsonConverters
     {
-        public static readonly JsonConverterList allConverters = new JsonConverterList(new Vector2JsonConverter(), new Vector3JsonConverter(), new ColorJsonConverter());
+        public static readonly JsonConverterList allConverters = new JsonConverterList(new Vector2JsonConverter(), new Vector3JsonConverter(), new ColorJsonConverter(), new Texture2DJsonConverter());
 
         public class Vector2JsonConverter : IJsonConverter<Vector2, JsonList>
         {
@@ -24,28 +24,11 @@ namespace PAC.Extensions
             }
         }
 
-        public class Vector22JsonConverter : IJsonConverter<Vector2, JsonList>
-        {
-            public override JsonData ToJson(Vector2 obj)
-            {
-                return new JsonList { new JsonFloat(obj.x), new JsonFloat(obj.y) };
-            }
-
-            public override Vector2 FromJson(JsonList jsonData)
-            {
-                if (jsonData.Count != 2)
-                {
-                    throw new System.Exception("Expected a list of length 2 but found one of length " + jsonData.Count);
-                }
-                return new Vector2(JsonConverter.FromJson<float>(jsonData[0]), JsonConverter.FromJson<float>(jsonData[1]));
-            }
-        }
-
         public class Vector3JsonConverter : IJsonConverter<Vector3, JsonList>
         {
-            public override JsonData ToJson(Vector3 obj)
+            public override JsonData ToJson(Vector3 vec)
             {
-                return new JsonList { new JsonFloat(obj.x), new JsonFloat(obj.y), new JsonFloat(obj.z) };
+                return new JsonList { new JsonFloat(vec.x), new JsonFloat(vec.y), new JsonFloat(vec.z) };
             }
 
             public override Vector3 FromJson(JsonList jsonData)
@@ -60,9 +43,9 @@ namespace PAC.Extensions
 
         public class ColorJsonConverter : IJsonConverter<Color, JsonList>
         {
-            public override JsonData ToJson(Color obj)
+            public override JsonData ToJson(Color color)
             {
-                return new JsonList { new JsonFloat(obj.r), new JsonFloat(obj.g), new JsonFloat(obj.b), new JsonFloat(obj.a) };
+                return new JsonList { new JsonFloat(color.r), new JsonFloat(color.g), new JsonFloat(color.b), new JsonFloat(color.a) };
             }
 
             public override Color FromJson(JsonList jsonData)
@@ -73,6 +56,32 @@ namespace PAC.Extensions
                 }
                 return new Color(JsonConverter.FromJson<float>(jsonData[0]), JsonConverter.FromJson<float>(jsonData[1]), JsonConverter.FromJson<float>(jsonData[2]),
                     JsonConverter.FromJson<float>(jsonData[3]));
+            }
+        }
+
+        public class Texture2DJsonConverter : IJsonConverter<Texture2D, JsonObj>
+        {
+            private JsonConverterList converterList = new JsonConverterList(new ColorJsonConverter());
+
+            public override JsonData ToJson(Texture2D tex)
+            {
+                JsonObj json = new JsonObj
+                {
+                    { "width", tex.width },
+                    { "height", tex.height },
+                    { "pixels", JsonConverter.ToJson(tex.GetPixels(), converterList) }
+                };
+
+                return json;
+            }
+
+            public override Texture2D FromJson(JsonObj jsonData)
+            {
+                Texture2D tex = new Texture2D(JsonConverter.FromJson<int>(jsonData["width"]), JsonConverter.FromJson<int>(jsonData["height"]));
+                tex.SetPixels(JsonConverter.FromJson<Color[]>(jsonData, converterList));
+                tex.Apply();
+
+                return tex;
             }
         }
     }

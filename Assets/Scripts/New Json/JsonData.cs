@@ -1025,34 +1025,23 @@ namespace PAC.Json
         public JsonObj(IEnumerable<KeyValuePair<string, JsonData>> collection) : base(collection) { }
         public JsonObj(IDictionary<string, JsonData> collection) : base(collection) { }
 
-        public void Add(string key, JsonNull value)
-        {
-            Add(key, (JsonData)value);
-        }
-        public void Add(string key, JsonBool value)
-        {
-            Add(key, (JsonData)value);
-        }
-        public void Add(string key, JsonInt value)
-        {
-            Add(key, (JsonData)value);
-        }
-        public void Add(string key, JsonFloat value)
-        {
-            Add(key, (JsonData)value);
-        }
-        public void Add(string key, JsonString value)
-        {
-            Add(key, (JsonData)value);
-        }
-        public void Add(string key, JsonList value)
-        {
-            Add(key, (JsonData)value);
-        }
-        public void Add(string key, JsonObj value)
-        {
-            Add(key, (JsonData)value);
-        }
+        public void Add(string key, JsonNull value) => Add(key, (JsonData)value);
+
+        public void Add(string key, JsonBool value) => Add(key, (JsonData)value);
+        public void Add(string key, bool value) => Add(key, new JsonBool(value));
+
+        public void Add(string key, JsonInt value) => Add(key, (JsonData)value);
+        public void Add(string key, int value) => Add(key, new JsonInt(value));
+
+        public void Add(string key, JsonFloat value) => Add(key, (JsonData)value);
+        public void Add(string key, float value) => Add(key, new JsonFloat(value));
+
+        public void Add(string key, JsonString value) => Add(key, (JsonData)value);
+        public void Add(string key, string value) => Add(key, new JsonString(value));
+
+        public void Add(string key, JsonList value) => Add(key, (JsonData)value);
+
+        public void Add(string key, JsonObj value) => Add(key, (JsonData)value);
 
         public string ToJsonString(bool pretty)
         {
