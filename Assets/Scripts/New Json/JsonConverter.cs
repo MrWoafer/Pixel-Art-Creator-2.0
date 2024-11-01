@@ -89,9 +89,9 @@ namespace PAC.Json
         public static JsonData ToJson(object obj, bool allowUndefinedConversions = false) => ToJson(obj, new JsonConverterList(), allowUndefinedConversions);
         public static JsonData ToJson(object obj, JsonConverterList customConverters, bool allowUndefinedConversions = false)
         {
-            return ToJson(obj, new HashSet<Type>(), customConverters, allowUndefinedConversions);
+            return ToJson(obj, new HashSet<object>(), customConverters, allowUndefinedConversions);
         }
-        private static JsonData ToJson(object obj, HashSet<Type> typesAlreadyTryingToConvert, JsonConverterList customConverters, bool allowUndefinedConversions)
+        private static JsonData ToJson(object obj, HashSet<object> objectsAlreadyTryingToConvert, JsonConverterList customConverters, bool allowUndefinedConversions)
         {
             if (obj == null)
             {
@@ -172,36 +172,36 @@ namespace PAC.Json
                 IEnumerable<FieldInfo> fields = objType.GetFields(BindingFlags.Public | BindingFlags.Instance | BindingFlags.NonPublic).Where(f => f.GetCustomAttribute<CompilerGeneratedAttribute>() == null);
                 foreach (FieldInfo field in fields)
                 {
-                    // Check for circular type references
-                    if (field.FieldType.IsClass || field.FieldType.IsStruct())
+                    object fieldValue = field.GetValue(obj);
+
+                    // Check for circular object references
+                    if (objectsAlreadyTryingToConvert.Contains(fieldValue))
                     {
-                        if (typesAlreadyTryingToConvert.Contains(field.FieldType))
-                        {
-                            throw new Exception("Cannot convert types with circular type references; consider writing your own method. The circular reference is between types " +
-                                objType.Name + " and " + field.FieldType.Name);
-                        }
-                        typesAlreadyTryingToConvert.Add(field.FieldType);
+                        throw new Exception("Cannot convert objects with circular object references; consider writing your own method. The circular reference is in type " +
+                            field.FieldType.Name + " which occurs in the field " + field.Name + " of type " + objType.Name);
                     }
-                    jsonObj.Add(field.Name, ToJson(field.GetValue(obj), typesAlreadyTryingToConvert, customConverters, allowUndefinedConversions));
-                    typesAlreadyTryingToConvert.Remove(field.FieldType);
+                    objectsAlreadyTryingToConvert.Add(fieldValue);
+
+                    jsonObj.Add(field.Name, ToJson(fieldValue, objectsAlreadyTryingToConvert, customConverters, allowUndefinedConversions));
+                    objectsAlreadyTryingToConvert.Remove(fieldValue);
                 }
 
                 // Auto Properties
                 IEnumerable<PropertyInfo> autoProperties = objType.GetProperties(BindingFlags.Public | BindingFlags.Instance | BindingFlags.NonPublic).Where(p => p.IsAutoProperty());
                 foreach (PropertyInfo property in autoProperties)
                 {
-                    // Check for circular type references
-                    if (property.PropertyType.IsClass || property.PropertyType.IsStruct())
+                    object propertyValue = property.GetValue(obj);
+
+                    // Check for circular object references
+                    if (objectsAlreadyTryingToConvert.Contains(propertyValue))
                     {
-                        if (typesAlreadyTryingToConvert.Contains(property.PropertyType))
-                        {
-                            throw new Exception("Cannot convert types with circular type references; consider writing your own method. The circular reference is between types " +
-                                objType.Name + " and " + property.PropertyType.Name);
-                        }
-                        typesAlreadyTryingToConvert.Add(property.PropertyType);
+                        throw new Exception("Cannot convert objects with circular object references; consider writing your own method. The circular reference is in type " +
+                            property.PropertyType.Name + " which occurs in the auto property " + property.Name + " of type " + objType.Name);
                     }
-                    jsonObj.Add(property.Name, ToJson(property.GetValue(obj), typesAlreadyTryingToConvert, customConverters, allowUndefinedConversions));
-                    typesAlreadyTryingToConvert.Remove(property.PropertyType);
+                    objectsAlreadyTryingToConvert.Add(propertyValue);
+
+                    jsonObj.Add(property.Name, ToJson(propertyValue, objectsAlreadyTryingToConvert, customConverters, allowUndefinedConversions));
+                    objectsAlreadyTryingToConvert.Remove(propertyValue);
                 }
 
                 return jsonObj;
@@ -245,6 +245,16 @@ namespace PAC.Json
                 }
             }
 
+            // Enums
+            if (returnType.IsEnum)
+            {
+                if (jsonDataType != typeof(JsonString))
+                {
+                    throw new Exception("Expected string JSON data to convert into enum type " + returnType.Name + " but found type " + jsonDataType.Name);
+                }
+                return (T)Enum.Parse(returnType, ((JsonString)jsonData).value);
+            }
+
             // Primitives
             if (jsonDataType == typeof(JsonNull))
             {
@@ -285,16 +295,6 @@ namespace PAC.Json
                     throw new Exception("Cannot convert string JSON data into type " + returnType.Name + " as it is not a string.");
                 }
                 return (T)(object)((JsonString)jsonData).value;
-            }
-
-            // Enums
-            if (returnType.IsEnum)
-            {
-                if (jsonDataType != typeof(JsonString))
-                {
-                    throw new Exception("Expected string JSON data to convert into enum type " + returnType.Name + " but found type " + jsonDataType.Name);
-                }
-                return (T)Enum.Parse(returnType, ((JsonString)jsonData).value);
             }
 
             // Arrays / Lists

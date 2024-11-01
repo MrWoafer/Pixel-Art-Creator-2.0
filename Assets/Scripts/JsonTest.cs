@@ -86,22 +86,22 @@ namespace PAC.Json
 
             Debug.Log(new JsonFloat(4f).ToJsonString(true));
 
-            Debug.Log(JsonConverter.ToJson(new Vector3(3f, -2.2f, 8f)).ToJsonString(true));
-            Debug.Log(JsonConverter.ToJson(new Vector2(3f, -2.2f)).ToJsonString(true));
+            //Debug.Log(JsonConverter.ToJson(new Vector3(3f, -2.2f, 8f)).ToJsonString(true));
+            Debug.Log(JsonConverter.ToJson(new Vector2(3f, -2.2f), true).ToJsonString(true));
 
-            Debug.Log(JsonConverter.FromJson<Test>(JsonObj.Parse("{\"integer\": -9, \"flt\": 8.0, \"str\": \"hello\"}")).ToString());
+            Debug.Log(JsonConverter.FromJson<Test>(JsonObj.Parse("{\"integer\": -9, \"flt\": 8.0, \"str\": \"hello\"}"), true).ToString());
 
             Debug.Log(string.Join(", ", JsonConverter.FromJson<int[]>(JsonData.Parse("[1, -10, 4, 3]"))));
             Debug.Log(string.Join(",\n", JsonConverter.FromJson<Test[]>(JsonData.Parse(
                 "[{\"integer\": -9, \"flt\": 8.0, \"str\": \"hello\"}," +
                 "{\"integer\": 2, \"flt\": -0.0, \"str\": \"hi\"}," +
                 "{\"integer\": 9, \"flt\": 2.345, \"str\": \"yo\"}]"
-                )).Select(x => x.ToString())));
+                ), true).Select(x => x.ToString())));
             Debug.Log(string.Join(",\n", JsonConverter.FromJson<List<Test>>(JsonData.Parse(
                 "[{\"integer\": -9, \"flt\": 8.0, \"str\": \"hello\"}," +
                 "{\"integer\": 2, \"flt\": -0.0, \"str\": \"hi\"}," +
                 "{\"integer\": 9, \"flt\": 2.345, \"str\": \"yo\"}]"
-                )).Select(x => x.ToString())));
+                ), true).Select(x => x.ToString())));
             /*
             Debug.Log(string.Join(",\n", JsonConverter.FromJson<Test[]>(JsonData.Parse(
                 "[{\"integer\": -9, \"flt\": 8.0, \"str\": \"hello\"}," +
@@ -113,8 +113,8 @@ namespace PAC.Json
             Test2 test3 = new Test2(5, -4.3f, "name", 7f);
             Debug.Log(typeof(Test2).GetProperty("prop", BindingFlags.Public | BindingFlags.Instance | BindingFlags.NonPublic).IsAutoProperty());
             Debug.Log(typeof(Test2).GetProperty("prop2", BindingFlags.Public | BindingFlags.Instance | BindingFlags.NonPublic).IsAutoProperty());
-            Debug.Log(JsonConverter.ToJson(test3).ToJsonString(false));
-            Debug.Log(JsonConverter.FromJson<Test2>(JsonConverter.ToJson(test3)).ToString());
+            Debug.Log(JsonConverter.ToJson(test3, true).ToJsonString(false));
+            Debug.Log(JsonConverter.FromJson<Test2>(JsonConverter.ToJson(test3, true), true).ToString());
 
             Debug.Log(JsonConverter.ToJson(new Vector3(3f, 2f, 1f), JsonConverters.allConverters).ToJsonString(false));
             Debug.Log(JsonConverter.FromJson<Color>(new JsonList(4f, 2f, 1f, 3f), JsonConverters.allConverters));
@@ -123,6 +123,15 @@ namespace PAC.Json
             Debug.Log(JsonConverter.ToJson(TestEnum.Test4).ToJsonString(false));
             Debug.Log(JsonConverter.ToJson(TestEnum.Test2).ToJsonString(false));
             Debug.Log(JsonConverter.FromJson<TestEnum>(JsonString.Parse("\"Test3\"")));
+
+            Test3 parent = new Test3("0");
+            Test3 child = new Test3("1");
+            parent.child = child;
+            Debug.Log(JsonConverter.ToJson(parent, true).ToJsonString(true));
+            Debug.Log(JsonConverter.FromJson<Test3>(JsonConverter.ToJson(parent, true), true).ToString());
+
+            child.child = parent;
+            Debug.Log(JsonConverter.ToJson(parent, true).ToJsonString(true));
         }
 
         private class Test
@@ -172,6 +181,26 @@ namespace PAC.Json
             Test2 = 5,
             Test3 = -10,
             Test4 = 2
+        }
+
+        private class Test3
+        {
+            public string name;
+            public Test3 child;
+
+            public Test3(string name)
+            {
+                this.name = name;
+            }
+
+            public override string ToString()
+            {
+                if (child == null)
+                {
+                    return name;
+                }
+                return name + " -> " + child.ToString();
+            }
         }
     }
 }

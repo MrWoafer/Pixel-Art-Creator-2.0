@@ -765,6 +765,7 @@ namespace PAC.Json
         }
     }
 
+    // TODO: don't allow circular object references
     public class JsonList : List<JsonData>, JsonData
     {
         public JsonList() : base() { }
@@ -1018,6 +1019,7 @@ namespace PAC.Json
         }
     }
 
+    // TODO: don't allow circular object references
     public class JsonObj : Dictionary<string, JsonData>, JsonData
     {
         public JsonObj() : base() { }
