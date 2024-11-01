@@ -8,13 +8,39 @@ using System.Runtime.Serialization;
 using Codice.CM.Common;
 using PAC.Extensions;
 using UnityEngine;
+using static System.Resources.ResXFileRef;
 
 namespace PAC.Json
 {
+    /// <summary>
+    /// <para>
+    /// An interface that custom JSON converters must implement.
+    /// </para>
+    /// <para>
+    /// NOTE: Has a default implementation for an overload FromJson(JsonData jsonData) that ensures it is of type JsonDataType before calling the specific overload FromJSON(JsonDataType jsonData).
+    /// </para>
+    /// </summary>
+    /// <typeparam name="T">The type the converter will convert to/from JSON.</typeparam>
+    /// <typeparam name="JsonDataType">The type of JSON data the converter will convert to/from.</typeparam>
     public abstract class IJsonConverter<T, JsonDataType> where JsonDataType : JsonData
     {
+        /// <summary>
+        /// Attempts to convert the C# object into JSON data.
+        /// </summary>
         public abstract JsonData ToJson(T obj);
+        /// <summary>
+        /// <para>
+        /// Attempts to convert the JSON data into a C# object of the given type.
+        /// </para>
+        /// <para>
+        /// NOTE: IJsonConverter has a default implementation for an overload FromJson(JsonData jsonData) that ensures it is of type JsonDataType before calling the
+        /// specific overload FromJSON(JsonDataType jsonData).
+        /// </para>
+        /// </summary>
         public abstract T FromJson(JsonDataType jsonData);
+        /// <summary>
+        /// Attempts to convert the JSON data into a C# object of the given type. Ensures the JSON data is the correct type before calling the FromJson() overload for the specific type of JSON data.
+        /// </summary>
         public T FromJson(JsonData jsonData)
         {
             if (jsonData.GetType() == typeof(JsonDataType))
@@ -25,9 +51,13 @@ namespace PAC.Json
         }
     }
 
+    /// <summary>
+    /// Represents a list of IJsonConverter objects, making sure there's at most one custom converter for each type. For example, a class MyClass cannot have two JSON converters defined for it in
+    /// the list.
+    /// </summary>
     public class JsonConverterList : IEnumerable
     {
-        public List<object> converters = new List<object>();
+        private List<object> converters = new List<object>();
 
         public JsonConverterList() { }
         public JsonConverterList(params object[] converters)
@@ -38,6 +68,9 @@ namespace PAC.Json
             }
         }
 
+        /// <summary>
+        /// Adds the converter to the list. Throws an error if it is not a type that implements IJsonConverter, or if the list already contains a converter for the type the converter converts.
+        /// </summary>
         public void Add(object converter)
         {
             Type type = converter.GetType();
@@ -60,11 +93,11 @@ namespace PAC.Json
             }
         }
 
-        public bool Remove(object converter)
-        {
-            return converters.Remove(converter);
-        }
-        public bool Remove(Type converterType)
+        /// <summary>
+        /// If the list contains a converter that converts the given type, this will remove it.
+        /// </summary>
+        /// <returns>true if a converter was removed.</returns>
+        public bool RemoveConverterFor(Type converterType)
         {
             for (int i = 0; i < converters.Count; i++)
             {
@@ -78,6 +111,40 @@ namespace PAC.Json
             return false;
         }
 
+        /// <summary>
+        /// Returns whether the list contains a converter that converts the given type.
+        /// </summary>
+        /// <returns>true if the list has a converter for the given type.</returns>
+        public bool ContainsConverterFor(Type converterType)
+        {
+            for (int i = 0; i < converters.Count; i++)
+            {
+                Type existingConverterType = converters[i].GetType().GetTypeOfRawGenericSuperclass(typeof(IJsonConverter<,>)).GetGenericArguments()[0];
+                if (converterType == existingConverterType)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        /// <summary>
+        /// If the list contains a converter that converts the given type, this will return it.
+        /// </summary>
+        /// <returns>The if converter for the given type, if there is one, otherwise null.</returns>
+        public object GetConverterFor(Type converterType)
+        {
+            for (int i = 0; i < converters.Count; i++)
+            {
+                Type existingConverterType = converters[i].GetType().GetTypeOfRawGenericSuperclass(typeof(IJsonConverter<,>)).GetGenericArguments()[0];
+                if (converterType == existingConverterType)
+                {
+                    return converters[i];
+                }
+            }
+            return null;
+        }
+
         public IEnumerator GetEnumerator()
         {
             return converters.GetEnumerator();
@@ -86,11 +153,37 @@ namespace PAC.Json
 
     public static class JsonConverter
     {
+        /// <summary>
+        /// Attempts to convert the C# object into JSON data.
+        /// </summary>
+        /// <param name="obj">The object to convert into JSON.</param>
+        /// <param name="allowUndefinedConversions">
+        /// If false, an exception will be thrown if the code encounters a type that can not be converted using conversions for primitive JSON types and/or custom converters.
+        /// </param>
         public static JsonData ToJson(object obj, bool allowUndefinedConversions = false) => ToJson(obj, new JsonConverterList(), allowUndefinedConversions);
+        /// <summary>
+        /// Attempts to convert the C# object into JSON data.
+        /// </summary>
+        /// <param name="obj">The object to convert into JSON.</param>
+        /// <param name="customConverters">A collection of IJsonConverter objects that defined custom conversions for certain data types.</param>
+        /// <param name="allowUndefinedConversions">
+        /// If false, an exception will be thrown if the code encounters a type that can not be converted using conversions for primitive JSON types and/or custom converters.
+        /// </param>
         public static JsonData ToJson(object obj, JsonConverterList customConverters, bool allowUndefinedConversions = false)
         {
             return ToJson(obj, new HashSet<object>(), customConverters, allowUndefinedConversions);
         }
+        /// <summary>
+        /// Attempts to convert the C# object into JSON data.
+        /// </summary>
+        /// <param name="obj">The object to convert into JSON.</param>
+        /// <param name="objectsAlreadyTryingToConvert">
+        /// The objects trying to be converted in the current function call stack. Used to prevent infinite loops when converting objects with circular references.
+        /// </param>
+        /// <param name="customConverters">A collection of IJsonConverter objects that defined custom conversions for certain data types.</param>
+        /// <param name="allowUndefinedConversions">
+        /// If false, an exception will be thrown if the code encounters a type that can not be converted using conversions for primitive JSON types and/or custom converters.
+        /// </param>
         private static JsonData ToJson(object obj, HashSet<object> objectsAlreadyTryingToConvert, JsonConverterList customConverters, bool allowUndefinedConversions)
         {
             if (obj == null)
@@ -101,15 +194,11 @@ namespace PAC.Json
             Type objType = obj.GetType();
 
             // Custom JSON converters
-            foreach (object converter in customConverters)
+            object converter = customConverters.GetConverterFor(objType);
+            if (converter != null)
             {
-                Type asIJsonConverter = converter.GetType().GetTypeOfRawGenericSuperclass(typeof(IJsonConverter<,>));
-                Type conversionType = asIJsonConverter.GetGenericArguments()[0];
-                if (conversionType == objType)
-                {
-                    MethodInfo toJsonMethod = converter.GetType().GetMethod("ToJson", new Type[] { conversionType });
-                    return (JsonData)toJsonMethod.Invoke(converter, new object[] { obj });
-                }
+                MethodInfo toJsonMethod = converter.GetType().GetMethod("ToJson", new Type[] { objType });
+                return (JsonData)toJsonMethod.Invoke(converter, new object[] { obj });
             }
 
             // Primitive types
@@ -163,7 +252,7 @@ namespace PAC.Json
             {
                 if (!allowUndefinedConversions)
                 {
-                    throw new Exception("The conversion for type " + objType.Name + " is undefined, but parameter allowUndefinedConversions = false");
+                    throw new Exception("The conversion for type " + objType.Name + " is undefined, but parameter allowUndefinedConversions = false. Consider providing a custom converter.");
                 }
 
                 JsonObj jsonObj = new JsonObj();
@@ -234,15 +323,11 @@ namespace PAC.Json
             Type jsonDataType = jsonData.GetType();
 
             // Custom JSON converters
-            foreach (object converter in customConverters)
+            object converter = customConverters.GetConverterFor(returnType);
+            if ( converter != null)
             {
-                Type asIJsonConverter = converter.GetType().GetTypeOfRawGenericSuperclass(typeof(IJsonConverter<,>));
-                Type conversionType = asIJsonConverter.GetGenericArguments()[0];
-                if (conversionType == returnType)
-                {
-                    MethodInfo fromJsonMethod = converter.GetType().GetMethod("FromJson", new Type[] { typeof(JsonData) });
-                    return (T)fromJsonMethod.Invoke(converter, new object[] { jsonData });
-                }
+                MethodInfo fromJsonMethod = converter.GetType().GetMethod("FromJson", new Type[] { typeof(JsonData) });
+                return (T)fromJsonMethod.Invoke(converter, new object[] { jsonData });
             }
 
             // Enums
@@ -360,14 +445,14 @@ namespace PAC.Json
             // Classes / Structs
             if (!allowUndefinedConversions)
             {
-                throw new Exception("The conversion for type " + returnType.Name + " is undefined, but parameter allowUndefinedConversions = false");
+                throw new Exception("The conversion for type " + returnType.Name + " is undefined, but parameter allowUndefinedConversions = false. Consider providing a custom converter.");
             }
             if (jsonDataType == typeof(JsonObj))
             {
                 return FromJsonUndefined<T>((JsonObj)jsonData, customConverters);
             }
 
-            throw new Exception("Cannot convert JSON data of type " + jsonDataType.Name + " into type " + returnType.Name);
+            throw new Exception("Unknown / unimplemented JSON data type: " + jsonDataType.Name);
         }
         /// <summary>
         /// Attempts to convert the JSON data into a C# object of the given type. The object will be created using reflection; no custom converter will be used for the object, but custom
@@ -433,7 +518,8 @@ namespace PAC.Json
                 property.SetValue(obj, value);
             }
 
-            if (fields.Count() < jsonObj.Count)
+            // Warn of any unused identifiers in the JSON object
+            if (fields.Count() + autoProperties.Count() < jsonObj.Count)
             {
                 Debug.LogWarning("There were unused identifiers in the JSON object when converting to type " + returnType.Name);
             }

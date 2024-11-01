@@ -5,8 +5,12 @@ namespace PAC.Extensions
 {
     public static class JsonConverters
     {
+        /// <summary>All the custom JSON converters define in this class.</summary>
         public static readonly JsonConverterList allConverters = new JsonConverterList(new Vector2JsonConverter(), new Vector3JsonConverter(), new ColorJsonConverter(), new Texture2DJsonConverter());
 
+        /// <summary>
+        /// Custom JSON converter for Vector2.
+        /// </summary>
         public class Vector2JsonConverter : IJsonConverter<Vector2, JsonList>
         {
             public override JsonData ToJson(Vector2 obj)
@@ -24,6 +28,9 @@ namespace PAC.Extensions
             }
         }
 
+        /// <summary>
+        /// Custom JSON converter for Vector3.
+        /// </summary>
         public class Vector3JsonConverter : IJsonConverter<Vector3, JsonList>
         {
             public override JsonData ToJson(Vector3 vec)
@@ -41,6 +48,9 @@ namespace PAC.Extensions
             }
         }
 
+        /// <summary>
+        /// Custom JSON converter for Color.
+        /// </summary>
         public class ColorJsonConverter : IJsonConverter<Color, JsonList>
         {
             public override JsonData ToJson(Color color)
@@ -59,6 +69,9 @@ namespace PAC.Extensions
             }
         }
 
+        /// <summary>
+        /// Custom JSON converter for Texture2D.
+        /// </summary>
         public class Texture2DJsonConverter : IJsonConverter<Texture2D, JsonObj>
         {
             private JsonConverterList converterList = new JsonConverterList(new ColorJsonConverter());

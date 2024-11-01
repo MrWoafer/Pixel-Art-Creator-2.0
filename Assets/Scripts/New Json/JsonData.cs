@@ -2,14 +2,23 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using UnityEditor.PackageManager.Requests;
 
 namespace PAC.Json
 {
+    /// <summary>
+    /// Represents a piece of JSON data.
+    /// </summary>
     public interface JsonData
     {
+        /// <summary>
+        /// Converts it into a string in JSON format.
+        /// </summary>
+        /// <param name="pretty">If true, puts the string into pretty form - e.g. with indentations.</param>
         public string ToJsonString(bool pretty);
 
+        /// <summary>
+        /// Attempts to parse the string as JSON data.
+        /// </summary>
         public static JsonData Parse(string str)
         {
             try
@@ -143,6 +152,9 @@ namespace PAC.Json
             return "null";
         }
 
+        /// <summary>
+        /// Attempts to parse the string as JSON data.
+        /// </summary>
         public static JsonNull Parse(string str)
         {
             int index = 0;
@@ -202,6 +214,9 @@ namespace PAC.Json
             return value ? "true" : "false";
         }
 
+        /// <summary>
+        /// Attempts to parse the string into a JSON bool.
+        /// </summary>
         public static JsonBool Parse(string str)
         {
             int index = 0;
@@ -279,6 +294,9 @@ namespace PAC.Json
             return value.ToString();
         }
 
+        /// <summary>
+        /// Attempts to parse the string into a JSON int.
+        /// </summary>
         public static JsonInt Parse(string str)
         {
             int index = 0;
@@ -427,6 +445,9 @@ namespace PAC.Json
             return value.ToString();
         }
 
+        /// <summary>
+        /// Attempts to parse the string into a JSON float.
+        /// </summary>
         public static JsonFloat Parse(string str)
         {
             int index = 0;
@@ -586,6 +607,9 @@ namespace PAC.Json
             return "\"" + Escape(value) + "\"";
         }
 
+        /// <summary>
+        /// Escapes special characters like \n so it will appear as \n when printing the string instead of a new line.
+        /// </summary>
         private static string Escape(string input)
         {
             StringBuilder escaped = new StringBuilder(input.Length);
@@ -595,7 +619,9 @@ namespace PAC.Json
             }
             return escaped.ToString();
         }
-
+        /// <summary>
+        /// Escapes special characters like \n so it will appear as \n when printing the string instead of a new line.
+        /// </summary>
         private static string Escape(char chr)
         {
             switch (chr)
@@ -625,6 +651,9 @@ namespace PAC.Json
             }
         }
 
+        /// <summary>
+        /// Attempts to parse the string into a JSON string.
+        /// </summary>
         public static JsonString Parse(string str)
         {
             int index = 0;
@@ -930,6 +959,9 @@ namespace PAC.Json
             return str.ToString();
         }
 
+        /// <summary>
+        /// Attempts to parse the string into a JSON list.
+        /// </summary>
         public static JsonList Parse(string str)
         {
             int index = 0;
@@ -1102,6 +1134,9 @@ namespace PAC.Json
             return str.ToString();
         }
 
+        /// <summary>
+        /// Attempts to parse the string into a JSON object.
+        /// </summary>
         public static JsonObj Parse(string str)
         {
             int index = 0;
