@@ -86,12 +86,12 @@ namespace PAC.Json
 
     public static class JsonConverter
     {
-        public static JsonData ToJson(object obj) => ToJson(obj, new JsonConverterList());
-        public static JsonData ToJson(object obj, JsonConverterList customConverters)
+        public static JsonData ToJson(object obj, bool allowUndefinedConversions = false) => ToJson(obj, new JsonConverterList(), allowUndefinedConversions);
+        public static JsonData ToJson(object obj, JsonConverterList customConverters, bool allowUndefinedConversions = false)
         {
-            return ToJson(obj, new HashSet<Type>(), customConverters);
+            return ToJson(obj, new HashSet<Type>(), customConverters, allowUndefinedConversions);
         }
-        private static JsonData ToJson(object obj, HashSet<Type> typesAlreadyTryingToConvert, JsonConverterList customConverters)
+        private static JsonData ToJson(object obj, HashSet<Type> typesAlreadyTryingToConvert, JsonConverterList customConverters, bool allowUndefinedConversions)
         {
             if (obj == null)
             {
@@ -112,13 +112,6 @@ namespace PAC.Json
                 }
             }
 
-            // Uneditable types for which I have defined a JSON conversion
-            MethodInfo method = typeof(JsonConverter).GetMethod("ToJson", new Type[] { objType });
-            if (method != null && method.GetParameters()[0].ParameterType != typeof(object))
-            {
-                method.Invoke(null, new object[] { obj });
-            }
-
             // Primitive types
             if (objType == typeof(bool))
             {
@@ -137,14 +130,14 @@ namespace PAC.Json
                 return new JsonString((string)obj);
             }
 
-            // Lists
+            // Arrays / Lists
             if (objType.IsArray)
             {
                 Array objArray = (Array)obj;
                 JsonList jsonList = new JsonList(objArray.Length);
                 foreach (object element in objArray)
                 {
-                    jsonList.Add(ToJson(element));
+                    jsonList.Add(ToJson(element, customConverters, allowUndefinedConversions));
                 }
                 return jsonList;
             }
@@ -154,7 +147,7 @@ namespace PAC.Json
                 JsonList jsonList = new JsonList(objList.Count);
                 foreach (object element in objList)
                 {
-                    jsonList.Add(ToJson(element));
+                    jsonList.Add(ToJson(element, customConverters, allowUndefinedConversions));
                 }
                 return jsonList;
             }
@@ -168,6 +161,11 @@ namespace PAC.Json
             // Classes / Structs
             if (objType.IsClass || objType.IsStruct())
             {
+                if (!allowUndefinedConversions)
+                {
+                    throw new Exception("The conversion for type " + objType.Name + " is undefined, but parameter allowUndefinedConversions = false");
+                }
+
                 JsonObj jsonObj = new JsonObj();
 
                 // Fields
@@ -184,7 +182,7 @@ namespace PAC.Json
                         }
                         typesAlreadyTryingToConvert.Add(field.FieldType);
                     }
-                    jsonObj.Add(field.Name, ToJson(field.GetValue(obj), typesAlreadyTryingToConvert, customConverters));
+                    jsonObj.Add(field.Name, ToJson(field.GetValue(obj), typesAlreadyTryingToConvert, customConverters, allowUndefinedConversions));
                     typesAlreadyTryingToConvert.Remove(field.FieldType);
                 }
 
@@ -202,7 +200,7 @@ namespace PAC.Json
                         }
                         typesAlreadyTryingToConvert.Add(property.PropertyType);
                     }
-                    jsonObj.Add(property.Name, ToJson(property.GetValue(obj), typesAlreadyTryingToConvert, customConverters));
+                    jsonObj.Add(property.Name, ToJson(property.GetValue(obj), typesAlreadyTryingToConvert, customConverters, allowUndefinedConversions));
                     typesAlreadyTryingToConvert.Remove(property.PropertyType);
                 }
 
@@ -212,8 +210,25 @@ namespace PAC.Json
             throw new Exception("Could not convert object of type " + objType.Name + " to JSON.");
         }
 
-        public static T FromJson<T>(JsonData jsonData) => FromJson<T>(jsonData, new JsonConverterList());
-        public static T FromJson<T>(JsonData jsonData, JsonConverterList customConverters)
+        /// <summary>
+        /// Attempts to convert the JSON data into a C# object of the given type.
+        /// </summary>
+        /// <typeparam name="T">The type to convert the JSON into.</typeparam>
+        /// <param name="jsonData">The JSON data to convert.</param>
+        /// <param name="allowUndefinedConversions">
+        /// If false, an exception will be thrown if the code encounters a type that can not be converted using conversions for primitive JSON types and/or custom converters.
+        /// </param>
+        public static T FromJson<T>(JsonData jsonData, bool allowUndefinedConversions = false) => FromJson<T>(jsonData, new JsonConverterList(), allowUndefinedConversions);
+        /// <summary>
+        /// Attempts to convert the JSON data into a C# object of the given type.
+        /// </summary>
+        /// <typeparam name="T">The type to convert the JSON into.</typeparam>
+        /// <param name="jsonData">The JSON data to convert.</param>
+        /// <param name="customConverters">A collection of IJsonConverter objects that defined custom conversions for certain data types.</param>
+        /// <param name="allowUndefinedConversions">
+        /// If false, an exception will be thrown if the code encounters a type that can not be converted using conversions for primitive JSON types and/or custom converters.
+        /// </param>
+        public static T FromJson<T>(JsonData jsonData, JsonConverterList customConverters, bool allowUndefinedConversions = false)
         {
             Type returnType = typeof(T);
             Type jsonDataType = jsonData.GetType();
@@ -230,16 +245,7 @@ namespace PAC.Json
                 }
             }
 
-            // Enums
-            if (returnType.IsEnum)
-            {
-                if (jsonDataType != typeof(JsonString))
-                {
-                    throw new Exception("Expected string JSON data to convert into enum type " + returnType.Name + " but found type " + jsonDataType.Name);
-                }
-                return (T)Enum.Parse(returnType, ((JsonString)jsonData).value);
-            }
-
+            // Primitives
             if (jsonDataType == typeof(JsonNull))
             {
                 if (returnType.IsValueType)
@@ -280,74 +286,97 @@ namespace PAC.Json
                 }
                 return (T)(object)((JsonString)jsonData).value;
             }
+
+            // Enums
+            if (returnType.IsEnum)
+            {
+                if (jsonDataType != typeof(JsonString))
+                {
+                    throw new Exception("Expected string JSON data to convert into enum type " + returnType.Name + " but found type " + jsonDataType.Name);
+                }
+                return (T)Enum.Parse(returnType, ((JsonString)jsonData).value);
+            }
+
+            // Arrays / Lists
             if (jsonDataType == typeof(JsonList))
             {
-                return FromJson<T>((JsonList)jsonData);
+                if (!returnType.IsArray && !returnType.IsGenericList())
+                {
+                    throw new Exception("Cannot convert list JSON data into type " + returnType.Name + " as it is not a list or array.");
+                }
+
+                JsonList jsonList = (JsonList)jsonData;
+
+                // Array
+                if (returnType.IsArray)
+                {
+                    Type elementType = returnType.GetElementType();
+                    MethodInfo genericMethod = typeof(JsonConverter).GetMethod("FromJson", new Type[] { typeof(JsonData), typeof(JsonConverterList), typeof(bool) }).MakeGenericMethod(elementType);
+
+                    Array array = Array.CreateInstance(elementType, jsonList.Count);
+                    for (int i = 0; i < jsonList.Count; i++)
+                    {
+                        object value;
+                        try
+                        {
+                            value = genericMethod.Invoke(null, new object[] { jsonList[i], customConverters, allowUndefinedConversions });
+                        }
+                        catch (Exception e)
+                        {
+                            throw new Exception("Could not convert " + jsonList[i].GetType().Name + " to type " + elementType.Name + " for index " + i + " in array." + ". Exception: " + e);
+                        }
+
+                        array.SetValue(value, i);
+                    }
+
+                    return (T)(object)array;
+                }
+                // List
+                else
+                {
+                    Type elementType = returnType.GetGenericArguments()[0];
+                    MethodInfo genericMethod = typeof(JsonConverter).GetMethod("FromJson", new Type[] { typeof(JsonData), typeof(JsonConverterList), typeof(bool) }).MakeGenericMethod(elementType);
+
+                    IList list = (IList)Activator.CreateInstance(typeof(List<>).MakeGenericType(elementType), new object[] { jsonList.Count });
+                    for (int i = 0; i < jsonList.Count; i++)
+                    {
+                        object value;
+                        try
+                        {
+                            value = genericMethod.Invoke(null, new object[] { jsonList[i], customConverters, allowUndefinedConversions });
+                        }
+                        catch (Exception e)
+                        {
+                            throw new Exception("Could not convert " + jsonList[i].GetType().Name + " to type " + elementType.Name + " for index " + i + " in list." + ". Exception: " + e);
+                        }
+
+                        list.Add(value);
+                    }
+
+                    return (T)(object)list;
+                }
+            }
+
+            // Classes / Structs
+            if (!allowUndefinedConversions)
+            {
+                throw new Exception("The conversion for type " + returnType.Name + " is undefined, but parameter allowUndefinedConversions = false");
             }
             if (jsonDataType == typeof(JsonObj))
             {
-                return FromJson<T>((JsonObj)jsonData);
+                return FromJsonUndefined<T>((JsonObj)jsonData, customConverters);
             }
 
             throw new Exception("Cannot convert JSON data of type " + jsonDataType.Name + " into type " + returnType.Name);
         }
-        private static T FromJson<T>(JsonList jsonList)
-        {
-            Type returnType = typeof(T);
-
-            if (!returnType.IsArray && !returnType.IsGenericList())
-            {
-                throw new Exception("Cannot convert list JSON data into type " + returnType.Name + " as it is not a list or array.");
-            }
-
-            if (returnType.IsArray)
-            {
-                Type elementType = returnType.GetElementType();
-                MethodInfo genericMethod = typeof(JsonConverter).GetMethod("FromJson", new Type[] { typeof(JsonData) }).MakeGenericMethod(elementType);
-
-                Array array = Array.CreateInstance(elementType, jsonList.Count);
-                for (int i = 0; i < jsonList.Count; i++)
-                {
-                    object value;
-                    try
-                    {
-                        value = genericMethod.Invoke(null, new object[] { jsonList[i] });
-                    }
-                    catch (Exception e)
-                    {
-                        throw new Exception("Could not convert " + jsonList[i].GetType().Name + " to type " + elementType.Name + " for index " + i + " in array." + ". Exception: " + e);
-                    }
-
-                    array.SetValue(value, i);
-                }
-
-                return (T)(object)array;
-            }
-            else
-            {
-                Type elementType = returnType.GetGenericArguments()[0];
-                MethodInfo genericMethod = typeof(JsonConverter).GetMethod("FromJson", new Type[] { typeof(JsonData) }).MakeGenericMethod(elementType);
-
-                IList list = (IList)Activator.CreateInstance(typeof(List<>).MakeGenericType(elementType), new object[] { jsonList.Count });
-                for (int i = 0; i < jsonList.Count; i++)
-                {
-                    object value;
-                    try
-                    {
-                        value = genericMethod.Invoke(null, new object[] { jsonList[i] });
-                    }
-                    catch (Exception e)
-                    {
-                        throw new Exception("Could not convert " + jsonList[i].GetType().Name + " to type " + elementType.Name + " for index " + i + " in list." + ". Exception: " + e);
-                    }
-
-                    list.Add(value);
-                }
-
-                return (T)(object)list;
-            }
-        }
-        private static T FromJson<T>(JsonObj jsonObj)
+        /// <summary>
+        /// Attempts to convert the JSON data into a C# object of the given type. The object will be created using reflection; no custom converter will be used for the object, but custom
+        /// converters will be used for converting the values of its fields/properties.
+        /// </summary>
+        /// <typeparam name="T">The type to convert the JSON into.</typeparam>
+        /// <param name="jsonObj">The JSON object to convert.</param>
+        /// <param name="customConverters">A collection of IJsonConverter objects that defined custom conversions for certain data types.</param>
+        private static T FromJsonUndefined<T>(JsonObj jsonObj, JsonConverterList customConverters)
         {
             Type returnType = typeof(T);
             T obj = (T)FormatterServices.GetSafeUninitializedObject(returnType);
@@ -364,11 +393,11 @@ namespace PAC.Json
                 Type jsonDataType = jsonObj[field.Name].GetType();
                 Type fieldType = field.FieldType;
 
-                MethodInfo genericMethod = typeof(JsonConverter).GetMethod("FromJson", new Type[] { typeof(JsonData) }).MakeGenericMethod(fieldType);
+                MethodInfo genericMethod = typeof(JsonConverter).GetMethod("FromJson", new Type[] { typeof(JsonData), typeof(JsonConverterList), typeof(bool) }).MakeGenericMethod(fieldType);
                 object value;
                 try
                 {
-                    value = genericMethod.Invoke(null, new object[] { jsonObj[field.Name] });
+                    value = genericMethod.Invoke(null, new object[] { jsonObj[field.Name], customConverters, true });
                 }
                 catch (Exception e)
                 {
@@ -390,11 +419,11 @@ namespace PAC.Json
                 Type jsonDataType = jsonObj[property.Name].GetType();
                 Type fieldType = property.PropertyType;
 
-                MethodInfo genericMethod = typeof(JsonConverter).GetMethod("FromJson", new Type[] { typeof(JsonData) }).MakeGenericMethod(fieldType);
+                MethodInfo genericMethod = typeof(JsonConverter).GetMethod("FromJson", new Type[] { typeof(JsonData), typeof(JsonConverterList), typeof(bool) }).MakeGenericMethod(fieldType);
                 object value;
                 try
                 {
-                    value = genericMethod.Invoke(null, new object[] { jsonObj[property.Name] });
+                    value = genericMethod.Invoke(null, new object[] { jsonObj[property.Name], customConverters, true });
                 }
                 catch (Exception e)
                 {
