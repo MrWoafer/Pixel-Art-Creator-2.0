@@ -130,8 +130,8 @@ namespace PAC.Json
             Debug.Log(JsonConverter.ToJson(parent, true).ToJsonString(true));
             Debug.Log(JsonConverter.FromJson<Test3>(JsonConverter.ToJson(parent, true), true).ToString());
 
-            child.child = parent;
-            Debug.Log(JsonConverter.ToJson(parent, true).ToJsonString(true));
+            //child.child = parent;
+            //Debug.Log(JsonConverter.ToJson(parent, true).ToJsonString(true));
         }
 
         private class Test
