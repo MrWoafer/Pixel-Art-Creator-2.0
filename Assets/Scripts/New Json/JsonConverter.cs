@@ -5,12 +5,8 @@ using System.Linq;
 using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Runtime.Serialization;
-using System.Xml.Linq;
-using Codice.CM.Common;
 using PAC.Extensions;
 using UnityEngine;
-using static System.Resources.ResXFileRef;
-using static PlasticPipe.Client.InvokeMethodRetry;
 
 namespace PAC.Json
 {
