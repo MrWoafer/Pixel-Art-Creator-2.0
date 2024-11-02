@@ -710,14 +710,12 @@ namespace PAC.Json
             {
                 case '\"': return "\\\"";
                 case '\\': return @"\\";
-                case '\0': return @"\0";
-                case '\a': return @"\a";
+                case '/': return @"\/";
                 case '\b': return @"\b";
                 case '\f': return @"\f";
                 case '\n': return @"\n";
                 case '\r': return @"\r";
                 case '\t': return @"\t";
-                case '\v': return @"\v"; 
                 default:
                     // ASCII printable character
                     if (chr >= 0x20 && chr <= 0x7E)
@@ -796,7 +794,7 @@ namespace PAC.Json
                     }
                     else if (str[i + 1] == 'n')
                     {
-                        parsed.AppendLine();
+                        parsed.Append('\n');
                         i++;
                     }
                     else if (str[i + 1] == 'r')

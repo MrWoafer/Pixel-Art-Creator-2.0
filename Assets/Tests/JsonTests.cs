@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using NUnit.Framework;
 using PAC.Json;
 using System.Linq;
+using UnityEngine;
 
 namespace PAC.Tests
 {
@@ -558,6 +559,30 @@ namespace PAC.Tests
             Assert.Catch(() => JsonConverter.FromJson<ComplexNumber>(withoutConverter, converters, true));
             Assert.AreEqual(JsonConverter.FromJson<ComplexNumber>(withConverter, converters, false), expectedObj);
             Assert.AreEqual(JsonConverter.FromJson<ComplexNumber>(withConverter, converters, true), expectedObj);
+        }
+
+        [Test]
+        public void ToJsonStringEscapedCharacters()
+        {
+            string str = "\" \\ / \b \f \n \r \t \u03b5 \u03B5";
+            string expected = "\"\\\" \\\\ \\/ \\b \\f \\n \\r \\t " + @"\u03B5 \u03B5" + "\"";
+
+            Assert.AreEqual(new JsonString(str).ToJsonString(false), expected);
+        }
+
+        [Test]
+        public void ParseEscapedCharacters()
+        {
+            string str = "\"\\\" \\\\ \\/ \\b \\f \\n \\r \\t " + @"\u03b5 \u03B5" + "\"";
+            string expected = "\" \\ / \b \f \n \r \t \u03B5 \u03B5";
+
+            Assert.AreEqual(JsonString.Parse(str).value, expected);
+
+            // Should error as there is no escaped character after the \
+            Assert.Catch(() => JsonString.Parse("\"hello \\\""));
+            Assert.DoesNotThrow(() => JsonString.Parse("\"hello \\\\\""));
+            // Should error as there are only 3 hex digits, not 4
+            Assert.Catch(() => JsonString.Parse("\"\\uA32\""));
         }
     }
 }
