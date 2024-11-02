@@ -13,7 +13,7 @@ namespace PAC.Extensions
         /// </summary>
         public class Vector2JsonConverter : IJsonConverter<Vector2, JsonList>
         {
-            public override JsonData ToJson(Vector2 obj)
+            public override JsonList ToJson(Vector2 obj)
             {
                 return new JsonList { new JsonFloat(obj.x), new JsonFloat(obj.y) };
             }
@@ -33,7 +33,7 @@ namespace PAC.Extensions
         /// </summary>
         public class Vector3JsonConverter : IJsonConverter<Vector3, JsonList>
         {
-            public override JsonData ToJson(Vector3 vec)
+            public override JsonList ToJson(Vector3 vec)
             {
                 return new JsonList { new JsonFloat(vec.x), new JsonFloat(vec.y), new JsonFloat(vec.z) };
             }
@@ -53,7 +53,7 @@ namespace PAC.Extensions
         /// </summary>
         public class ColorJsonConverter : IJsonConverter<Color, JsonList>
         {
-            public override JsonData ToJson(Color color)
+            public override JsonList ToJson(Color color)
             {
                 return new JsonList { new JsonFloat(color.r), new JsonFloat(color.g), new JsonFloat(color.b), new JsonFloat(color.a) };
             }
@@ -76,7 +76,7 @@ namespace PAC.Extensions
         {
             private JsonConverterSet converterList = new JsonConverterSet(new ColorJsonConverter());
 
-            public override JsonData ToJson(Texture2D tex)
+            public override JsonObj ToJson(Texture2D tex)
             {
                 JsonObj json = new JsonObj
                 {

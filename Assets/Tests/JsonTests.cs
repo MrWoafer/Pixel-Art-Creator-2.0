@@ -93,8 +93,11 @@ namespace PAC.Tests
             Value3 = 8,
         }
 
+        /// <summary>
+        /// Checks that ToJson() works properly for undefined conversions.
+        /// </summary>
         [Test]
-        public void ToJson()
+        public void ToJsonUndefined()
         {
             Class1 obj = new Class1
             (
@@ -127,8 +130,11 @@ namespace PAC.Tests
             Assert.True(JsonData.HaveSameData(JsonConverter.ToJson(obj, true), jsonObj));
         }
 
+        /// <summary>
+        /// Checks that FromJson() works properly for undefined conversions.
+        /// </summary>
         [Test]
-        public void FromJson()
+        public void FromJsonUndefined()
         {
             Class1 expectedObj = new Class1
             (
@@ -163,8 +169,11 @@ namespace PAC.Tests
             Assert.AreEqual(convertedObj, expectedObj);
         }
 
+        /// <summary>
+        /// Checks that ToJsonString() correctly formats JSON data into a string, with pretty = true.
+        /// </summary>
         [Test]
-        public void ToJsonString()
+        public void ToJsonStringPretty()
         {
             JsonObj jsonObj = new JsonObj
             {
@@ -212,6 +221,9 @@ namespace PAC.Tests
             Assert.AreEqual(jsonObj.ToJsonString(true), jsonString);
         }
 
+        /// <summary>
+        /// Checks that a string in JSON format is correctly parsed into a JsonData object.
+        /// </summary>
         [Test]
         public void Parse()
         {
@@ -274,7 +286,7 @@ namespace PAC.Tests
 
             Assert.DoesNotThrow(() => JsonConverter.ToJson(definedList, false));
             Assert.DoesNotThrow(() => JsonConverter.ToJson(undefinedList, true));
-            Assert.Throws<Exception>(() => JsonConverter.ToJson(undefinedList, false));
+            Assert.Catch(() => JsonConverter.ToJson(undefinedList, false));
         }
 
         /// <summary>
@@ -291,7 +303,7 @@ namespace PAC.Tests
 
             Assert.DoesNotThrow(() => JsonConverter.FromJson<List<int>>(definedData, false));
             Assert.DoesNotThrow(() => JsonConverter.FromJson<List<Class2>>(undefinedData, true));
-            Assert.Throws<Exception>(() => JsonConverter.FromJson<List<Class2>>(undefinedData, false));
+            Assert.Catch(() => JsonConverter.FromJson<List<Class2>>(undefinedData, false));
         }
 
         private class Class3
@@ -354,7 +366,7 @@ namespace PAC.Tests
 
             child2.child = parent;
 
-            Assert.Throws<Exception>(() => JsonConverter.ToJson(parent, true));
+            Assert.Catch(() => JsonConverter.ToJson(parent, true));
         }
 
         /// <summary>
@@ -373,7 +385,7 @@ namespace PAC.Tests
 
             child2.child = parent;
 
-            Assert.Throws<Exception>(() => JsonConverter.ToJson(parent, true));
+            Assert.Catch(() => JsonConverter.ToJson(parent, true));
         }
 
         /// <summary>
@@ -391,7 +403,7 @@ namespace PAC.Tests
 
             parent.children = new Class5[] { child1, child2, parent };
 
-            Assert.Throws<Exception>(() => JsonConverter.ToJson(parent, true));
+            Assert.Catch(() => JsonConverter.ToJson(parent, true));
         }
 
         /// <summary>
@@ -409,7 +421,7 @@ namespace PAC.Tests
 
             parent.children.Add(parent);
 
-            Assert.Throws<Exception>(() => JsonConverter.ToJson(parent, true));
+            Assert.Catch(() => JsonConverter.ToJson(parent, true));
         }
 
         /// <summary>
@@ -438,7 +450,7 @@ namespace PAC.Tests
 
             child2["child"] = parent;
 
-            Assert.Throws<Exception>(() => JsonConverter.FromJson<Class3>(parent, true));
+            Assert.Catch(() => JsonConverter.FromJson<Class3>(parent, true));
         }
 
         /// <summary>
@@ -461,7 +473,97 @@ namespace PAC.Tests
 
             ((JsonList)jsonObj["children"]).Add(jsonObj);
 
-            Assert.Throws<Exception>(() => JsonConverter.FromJson<Class6>(jsonObj, true));
+            Assert.Catch(() => JsonConverter.FromJson<Class6>(jsonObj, true));
+        }
+
+        private struct ComplexNumber
+        {
+            public float real { get; set; }
+            public float imaginary { get; set; }
+
+            public ComplexNumber(float real,  float imaginary)
+            {
+                this.real = real;
+                this.imaginary = imaginary;
+            }
+
+            public override string ToString()
+            {
+                return real + " + " + imaginary + "i";
+            }
+        }
+
+        private class ComplexNumberConverter : IJsonConverter<ComplexNumber, JsonList>
+        {
+            public override JsonList ToJson(ComplexNumber obj)
+            {
+                return new JsonList(obj.real, obj.imaginary);
+            }
+
+            public override ComplexNumber FromJson(JsonList jsonData)
+            {
+                if (jsonData.Count != 2)
+                {
+                    throw new Exception("Expected length 2.");
+                }
+                return new ComplexNumber((JsonFloat)jsonData[0], (JsonFloat)jsonData[1]);
+            }
+        }
+
+        /// <summary>
+        /// Checks that if you provide a custom converter for a type, it will be used in ToJson().
+        /// </summary>
+        [Test]
+        public void ToJsonCustomConverter()
+        {
+            JsonConverterSet converters = new JsonConverterSet(new ComplexNumberConverter());
+
+            ComplexNumber obj = new ComplexNumber(5f, -2.3f);
+
+            JsonObj expectedWithoutConverter = new JsonObj
+            {
+                { "real", 5f },
+                { "imaginary", -2.3f }
+            };
+
+            JsonList expectedWithConverter = new JsonList(5f, -2.3f);
+
+            // Without converter
+            Assert.Catch(() => JsonConverter.ToJson(obj, false));
+            Assert.True(JsonData.HaveSameData(JsonConverter.ToJson(obj, true), expectedWithoutConverter));
+
+            // With converter
+            Assert.True(JsonData.HaveSameData(JsonConverter.ToJson(obj, converters, false), expectedWithConverter));
+            Assert.True(JsonData.HaveSameData(JsonConverter.ToJson(obj, converters, true), expectedWithConverter));
+        }
+
+        /// <summary>
+        /// Checks that if you provide a custom converter for a type, it will be used in FromJson().
+        /// </summary>
+        [Test]
+        public void FromJsonCustomConverter()
+        {
+            JsonConverterSet converters = new JsonConverterSet(new ComplexNumberConverter());
+
+            ComplexNumber expectedObj = new ComplexNumber(5f, -2.3f);
+
+            JsonObj withoutConverter = new JsonObj
+            {
+                { "real", 5f },
+                { "imaginary", -2.3f }
+            };
+
+            JsonList withConverter = new JsonList(5f, -2.3f);
+
+            // Without converter
+            Assert.Catch(() => JsonConverter.FromJson<ComplexNumber>(withoutConverter, false));
+            Assert.Catch(() => JsonConverter.FromJson<ComplexNumber>(withConverter, true));
+            Assert.AreEqual(JsonConverter.FromJson<ComplexNumber>(withoutConverter, true), expectedObj);
+
+            // With converter
+            Assert.Catch(() => JsonConverter.FromJson<ComplexNumber>(withoutConverter, converters, true));
+            Assert.AreEqual(JsonConverter.FromJson<ComplexNumber>(withConverter, converters, false), expectedObj);
+            Assert.AreEqual(JsonConverter.FromJson<ComplexNumber>(withConverter, converters, true), expectedObj);
         }
     }
 }

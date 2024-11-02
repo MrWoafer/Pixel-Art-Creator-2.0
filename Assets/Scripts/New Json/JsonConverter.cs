@@ -25,7 +25,7 @@ namespace PAC.Json
         /// <summary>
         /// Attempts to convert the C# object into JSON data.
         /// </summary>
-        public abstract JsonData ToJson(T obj);
+        public abstract JsonDataType ToJson(T obj);
         /// <summary>
         /// <para>
         /// Attempts to convert the JSON data into a C# object of the given type.
