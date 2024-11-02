@@ -263,6 +263,9 @@ namespace PAC.Tests
             Assert.True(JsonData.HaveSameData(parsedObj, expectedObj));
         }
 
+        /// <summary>
+        /// Checks an exception is thrown if ToJson() encounters a type that can not be converted using conversions for primitive JSON types.
+        /// </summary>
         [Test]
         public void ToJsonUndefinedConversion()
         {
@@ -274,6 +277,9 @@ namespace PAC.Tests
             Assert.Throws<Exception>(() => JsonConverter.ToJson(undefinedList, false));
         }
 
+        /// <summary>
+        /// Checks an exception is thrown if FromJson() encounters a type that can not be converted using conversions for primitive JSON types.
+        /// </summary>
         [Test]
         public void FromJsonUndefinedConversion()
         {
@@ -286,6 +292,176 @@ namespace PAC.Tests
             Assert.DoesNotThrow(() => JsonConverter.FromJson<List<int>>(definedData, false));
             Assert.DoesNotThrow(() => JsonConverter.FromJson<List<Class2>>(undefinedData, true));
             Assert.Throws<Exception>(() => JsonConverter.FromJson<List<Class2>>(undefinedData, false));
+        }
+
+        private class Class3
+        {
+            public string name;
+            public Class3 child;
+
+            public Class3(string name)
+            {
+                this.name = name;
+            }
+        }
+
+        private class Class4
+        {
+            public string name;
+            public Class4 child { get; set; }
+
+            public Class4(string name)
+            {
+                this.name = name;
+            }
+        }
+
+        private class Class5
+        {
+            public string name;
+            public Class5[] children;
+
+            public Class5(string name)
+            {
+                this.name = name;
+            }
+        }
+
+        private class Class6
+        {
+            public string name;
+            public List<Class6> children;
+
+            public Class6(string name)
+            {
+                this.name = name;
+            }
+        }
+
+        /// <summary>
+        /// Checks that a exception is thrown if you try to use ToJson() on an object that has circular references, when the circular reference is detected in a field's value.
+        /// </summary>
+        [Test]
+        public void ToJsonCircularReferencesInField()
+        {
+            Class3 parent = new Class3("0");
+            Class3 child1 = new Class3("1");
+            Class3 child2 = new Class3("2");
+            parent.child = child1;
+            child1.child = child2;
+
+            Assert.DoesNotThrow(() => JsonConverter.ToJson(parent, true));
+
+            child2.child = parent;
+
+            Assert.Throws<Exception>(() => JsonConverter.ToJson(parent, true));
+        }
+
+        /// <summary>
+        /// Checks that a exception is thrown if you try to use ToJson() on an object that has circular references, when the circular reference is detected in an auto property's value.
+        /// </summary>
+        [Test]
+        public void ToJsonCircularReferencesInAutoProperty()
+        {
+            Class4 parent = new Class4("0");
+            Class4 child1 = new Class4("1");
+            Class4 child2 = new Class4("2");
+            parent.child = child1;
+            child1.child = child2;
+
+            Assert.DoesNotThrow(() => JsonConverter.ToJson(parent, true));
+
+            child2.child = parent;
+
+            Assert.Throws<Exception>(() => JsonConverter.ToJson(parent, true));
+        }
+
+        /// <summary>
+        /// Checks that a exception is thrown if you try to use ToJson() on an object that has circular references, when the circular reference is detected in an array.
+        /// </summary>
+        [Test]
+        public void ToJsonCircularReferencesInArray()
+        {
+            Class5 parent = new Class5("0");
+            Class5 child1 = new Class5("1");
+            Class5 child2 = new Class5("2");
+            parent.children = new Class5[] { child1, child2 };
+
+            Assert.DoesNotThrow(() => JsonConverter.ToJson(parent, true));
+
+            parent.children = new Class5[] { child1, child2, parent };
+
+            Assert.Throws<Exception>(() => JsonConverter.ToJson(parent, true));
+        }
+
+        /// <summary>
+        /// Checks that a exception is thrown if you try to use ToJson() on an object that has circular references, when the circular reference is detected in a list.
+        /// </summary>
+        [Test]
+        public void ToJsonCircularReferencesInList()
+        {
+            Class6 parent = new Class6("0");
+            Class6 child1 = new Class6("1");
+            Class6 child2 = new Class6("2");
+            parent.children = new List<Class6> { child1, child2 };
+
+            Assert.DoesNotThrow(() => JsonConverter.ToJson(parent, true));
+
+            parent.children.Add(parent);
+
+            Assert.Throws<Exception>(() => JsonConverter.ToJson(parent, true));
+        }
+
+        /// <summary>
+        /// Checks that a exception is thrown if you try to use FromJson() on JSON data that has circular references, when the circular reference is detected in a value in a JSON object.
+        /// </summary>
+        [Test]
+        public void FromJsonCircularReferencesInValue()
+        {
+            JsonObj child2 = new JsonObj
+            {
+                { "name", "2" },
+                { "child", new JsonNull() }
+            };
+            JsonObj child1 = new JsonObj
+            {
+                { "name", "1" },
+                { "child", child2 }
+            };
+            JsonObj parent = new JsonObj
+            {
+                { "name", "0" },
+                { "child", child1 }
+            };
+
+            Assert.DoesNotThrow(() => JsonConverter.FromJson<Class3>(parent, true));
+
+            child2["child"] = parent;
+
+            Assert.Throws<Exception>(() => JsonConverter.FromJson<Class3>(parent, true));
+        }
+
+        /// <summary>
+        /// Checks that a exception is thrown if you try to use FromJson() on JSON data that has circular references, when the circular reference is detected in a JSON list.
+        /// </summary>
+        [Test]
+        public void FromJsonCircularReferencesInList()
+        {
+            JsonObj jsonObj = new JsonObj
+            {
+                { "name", "0" },
+                { "children", new JsonList(
+                    new JsonObj { { "name", new JsonString("1")}, { "children", new JsonList() } },
+                    new JsonObj { { "name", new JsonString("2")}, { "children", new JsonList() } }
+                    )
+                }
+            };
+
+            Assert.DoesNotThrow(() => JsonConverter.FromJson<Class6>(jsonObj, true));
+
+            ((JsonList)jsonObj["children"]).Add(jsonObj);
+
+            Assert.Throws<Exception>(() => JsonConverter.FromJson<Class6>(jsonObj, true));
         }
     }
 }
