@@ -543,7 +543,9 @@ namespace PAC.Json
             if (jsonDataType == typeof(JsonObj))
             {
                 JsonObj jsonObj = (JsonObj)jsonData;
-                T obj = (T)FormatterServices.GetSafeUninitializedObject(returnType);
+                // We do not convert to type T here due to boxing of structs. It would work fine for classes, but structs get boxed when we do that so when we edit the fields/properties
+                // it wouldn't actually change the struct in this variable, but a new one.
+                object obj = FormatterServices.GetSafeUninitializedObject(returnType);
 
                 // Fields
                 IEnumerable<FieldInfo> fields = returnType.GetFields(BindingFlags.Public | BindingFlags.Instance | BindingFlags.NonPublic).Where(f => f.GetCustomAttribute<CompilerGeneratedAttribute>() == null);
@@ -573,14 +575,13 @@ namespace PAC.Json
                     object value;
                     try
                     {
-                        value = genericMethod.Invoke(null, new object[] { jsonObj[field.Name], customConverters, true, dataAlreadyTryingToConvert });
+                        value = genericMethod.Invoke(null, new object[] { jsonObj[field.Name], customConverters, allowUndefinedConversions, dataAlreadyTryingToConvert });
                     }
                     catch (Exception e)
                     {
                         throw new Exception("Could not convert " + jsonValueType.Name + " to type " + fieldType.Name + " for field " + field.Name + " in type " + returnType.Name +
                             ". Exception: " + e);
                     }
-
                     field.SetValue(obj, value);
                     dataAlreadyTryingToConvert.Remove(jsonValue);
                 }
@@ -613,7 +614,7 @@ namespace PAC.Json
                     object value;
                     try
                     {
-                        value = genericMethod.Invoke(null, new object[] { jsonObj[property.Name], customConverters, true, dataAlreadyTryingToConvert });
+                        value = genericMethod.Invoke(null, new object[] { jsonObj[property.Name], customConverters, allowUndefinedConversions, dataAlreadyTryingToConvert });
                     }
                     catch (Exception e)
                     {
@@ -631,7 +632,7 @@ namespace PAC.Json
                     Debug.LogWarning("There were unused identifiers in the JSON object when converting to type " + returnType.Name);
                 }
 
-                return obj;
+                return (T)obj;
             }
 
             throw new Exception("Unknown / unimplemented JSON data type: " + jsonDataType.Name);
