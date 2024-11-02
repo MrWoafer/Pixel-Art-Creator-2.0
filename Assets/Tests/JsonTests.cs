@@ -262,5 +262,30 @@ namespace PAC.Tests
 
             Assert.True(JsonData.HaveSameData(parsedObj, expectedObj));
         }
+
+        [Test]
+        public void ToJsonUndefinedConversion()
+        {
+            List<int> definedList = new List<int> { 4, 3, 2, 1 };
+            List<Class2> undefinedList = new List<Class2> { new Class2("hi", 1, false), new Class2("hello", 2, true) };
+
+            Assert.DoesNotThrow(() => JsonConverter.ToJson(definedList, false));
+            Assert.DoesNotThrow(() => JsonConverter.ToJson(undefinedList, true));
+            Assert.Throws<Exception>(() => JsonConverter.ToJson(undefinedList, false));
+        }
+
+        [Test]
+        public void FromJsonUndefinedConversion()
+        {
+            JsonList definedData = new JsonList { new JsonInt(4), new JsonInt(3), new JsonInt(2), new JsonInt(1) };
+            JsonList undefinedData = new JsonList {
+                new JsonObj { { "name", new JsonString("hi")}, { "id", new JsonInt(1) }, { "flag", new JsonBool(false) } },
+                new JsonObj { { "name", new JsonString("hello")}, { "id", new JsonInt(2) }, { "flag", new JsonBool(true) } }
+            };
+
+            Assert.DoesNotThrow(() => JsonConverter.FromJson<List<int>>(definedData, false));
+            Assert.DoesNotThrow(() => JsonConverter.FromJson<List<Class2>>(undefinedData, true));
+            Assert.Throws<Exception>(() => JsonConverter.FromJson<List<Class2>>(undefinedData, false));
+        }
     }
 }
