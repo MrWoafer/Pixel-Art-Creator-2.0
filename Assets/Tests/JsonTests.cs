@@ -24,8 +24,9 @@ namespace PAC.Tests
             public int[] jsonList;
             public List<Class2> jsonList2;
             public int property => jsonInt + 1;
+            public Enum1 jsonEnum;
 
-            public Class1(bool jsonBool, int jsonInt, float jsonFloat, string jsonString, string jsonString2, int[] jsonList, List<Class2> jsonList2)
+            public Class1(bool jsonBool, int jsonInt, float jsonFloat, string jsonString, string jsonString2, int[] jsonList, List<Class2> jsonList2, Enum1 jsonEnum)
             {
                 this.jsonBool = jsonBool;
                 this.jsonInt = jsonInt;
@@ -34,6 +35,7 @@ namespace PAC.Tests
                 this.jsonString2 = jsonString2;
                 this.jsonList = jsonList;
                 this.jsonList2 = jsonList2;
+                this.jsonEnum = jsonEnum;
             }
 
             public static bool operator ==(Class1 obj1 , Class1 obj2)
@@ -84,6 +86,13 @@ namespace PAC.Tests
             }
         }
 
+        private enum Enum1
+        {
+            Value1 = 0,
+            Value2 = -10,
+            Value3 = 8,
+        }
+
         [Test]
         public void ToJson()
         {
@@ -95,7 +104,8 @@ namespace PAC.Tests
                 "hello",
                 null,
                 new int[] { 1, 2, 4, -10 },
-                new List<Class2> { new Class2("test", 0, false), new Class2("testing", 63, true) }
+                new List<Class2> { new Class2("test", 0, false), new Class2("testing", 63, true) },
+                Enum1.Value3
             );
 
             JsonObj jsonObj = new JsonObj
@@ -110,7 +120,8 @@ namespace PAC.Tests
                     new JsonObj { { "name", new JsonString("test")}, { "id", new JsonInt(0) }, { "flag", new JsonBool(false) } },
                     new JsonObj { { "name", new JsonString("testing")}, { "id", new JsonInt(63) }, { "flag", new JsonBool(true) } }
                     )
-                }
+                },
+                { "jsonEnum", new JsonString("Value3") }
             };
 
             Assert.True(JsonData.HaveSameData(JsonConverter.ToJson(obj, true), jsonObj));
@@ -127,9 +138,34 @@ namespace PAC.Tests
                 "hello",
                 null,
                 new int[] { 1, 2, 4, -10 },
-                new List<Class2> { new Class2("test", 0, false), new Class2("testing", 63, true) }
+                new List<Class2> { new Class2("test", 0, false), new Class2("testing", 63, true) },
+                Enum1.Value3
             );
 
+            JsonObj jsonObj = new JsonObj
+            {
+                { "jsonBool", new JsonBool(true) },
+                { "jsonInt", new JsonInt(1) },
+                { "jsonFloat", new JsonFloat(-4.32f) },
+                { "jsonString", new JsonString("hello") },
+                { "jsonString2", new JsonNull() },
+                { "jsonList", new JsonList(new JsonInt(1), new JsonInt(2), new JsonInt(4), new JsonInt(-10)) },
+                { "jsonList2", new JsonList(
+                    new JsonObj { { "name", new JsonString("test")}, { "id", new JsonInt(0) }, { "flag", new JsonBool(false) } },
+                    new JsonObj { { "name", new JsonString("testing")}, { "id", new JsonInt(63) }, { "flag", new JsonBool(true) } }
+                    )
+                },
+                { "jsonEnum", new JsonString("Value3") }
+            };
+
+            Class1 convertedObj = JsonConverter.FromJson<Class1>(jsonObj, true);
+
+            Assert.AreEqual(convertedObj, expectedObj);
+        }
+
+        [Test]
+        public void ToJsonString()
+        {
             JsonObj jsonObj = new JsonObj
             {
                 { "jsonBool", new JsonBool(true) },
@@ -145,9 +181,86 @@ namespace PAC.Tests
                 }
             };
 
-            Class1 convertedObj = JsonConverter.FromJson<Class1>(jsonObj, true);
+            string jsonString =
+                "{" + "\n" +
+                "\t" + "\"jsonBool\": true," + "\n" +
+                "\t" + "\"jsonInt\": 1," + "\n" +
+                "\t" + "\"jsonFloat\": -4.32," + "\n" +
+                "\t" + "\"jsonString\": \"hello\"," + "\n" +
+                "\t" + "\"jsonString2\": null," + "\n" +
+                "\t" + "\"jsonList\": [" + "\n" +
+                "\t" + "\t" + "1," + "\n" +
+                "\t" + "\t" + "2," + "\n" +
+                "\t" + "\t" + "4," + "\n" +
+                "\t" + "\t" + "-10" + "\n" +
+                "\t" + "]," + "\n" +
+                "\t" + "\"jsonList2\": [" + "\n" +
+                "\t" + "\t" + "{" + "\n" +
+                "\t" + "\t" + "\t" + "\"name\": \"test\"," + "\n" +
+                "\t" + "\t" + "\t" + "\"id\": 0," + "\n" +
+                "\t" + "\t" + "\t" + "\"flag\": false" + "\n" +
+                "\t" + "\t" + "}," + "\n" +
+                "\t" + "\t" + "{" + "\n" +
+                "\t" + "\t" + "\t" + "\"name\": \"testing\"," + "\n" +
+                "\t" + "\t" + "\t" + "\"id\": 63," + "\n" +
+                "\t" + "\t" + "\t" + "\"flag\": true" + "\n" +
+                "\t" + "\t" + "}" + "\n" +
+                "\t" + "]" + "\n" +
+                "}"
+                ;
 
-            Assert.True(convertedObj == expectedObj);
+            Assert.AreEqual(jsonObj.ToJsonString(true), jsonString);
+        }
+
+        [Test]
+        public void Parse()
+        {
+            JsonObj expectedObj = new JsonObj
+            {
+                { "jsonBool", new JsonBool(true) },
+                { "jsonInt", new JsonInt(1) },
+                { "jsonFloat", new JsonFloat(-4.32f) },
+                { "jsonString", new JsonString("hello") },
+                { "jsonString2", new JsonNull() },
+                { "jsonList", new JsonList(new JsonInt(1), new JsonInt(2), new JsonInt(4), new JsonInt(-10)) },
+                { "jsonList2", new JsonList(
+                    new JsonObj { { "name", new JsonString("test")}, { "id", new JsonInt(0) }, { "flag", new JsonBool(false) } },
+                    new JsonObj { { "name", new JsonString("testing")}, { "id", new JsonInt(63) }, { "flag", new JsonBool(true) } }
+                    )
+                }
+            };
+
+            string jsonString =
+                "{" + "\n" +
+                "\t" + "\"jsonBool\": true," + "\n" +
+                "\t" + "\"jsonInt\": 1," + "\n" +
+                "\t" + "\"jsonFloat\": -4.32," + "\n" +
+                "\t" + "\"jsonString\": \"hello\"," + "\n" +
+                "\t" + "\"jsonString2\": null," + "\n" +
+                "\t" + "\"jsonList\": [" + "\n" +
+                "\t" + "\t" + "1," + "\n" +
+                "\t" + "\t" + "2," + "\n" +
+                "\t" + "\t" + "4," + "\n" +
+                "\t" + "\t" + "-10" + "\n" +
+                "\t" + "]," + "\n" +
+                "\t" + "\"jsonList2\": [" + "\n" +
+                "\t" + "\t" + "{" + "\n" +
+                "\t" + "\t" + "\t" + "\"name\": \"test\"," + "\n" +
+                "\t" + "\t" + "\t" + "\"id\": 0," + "\n" +
+                "\t" + "\t" + "\t" + "\"flag\": false" + "\n" +
+                "\t" + "\t" + "}," + "\n" +
+                "\t" + "\t" + "{" + "\n" +
+                "\t" + "\t" + "\t" + "\"name\": \"testing\"," + "\n" +
+                "\t" + "\t" + "\t" + "\"id\": 63," + "\n" +
+                "\t" + "\t" + "\t" + "\"flag\": true" + "\n" +
+                "\t" + "\t" + "}" + "\n" +
+                "\t" + "]" + "\n" +
+                "}"
+                ;
+
+            JsonObj parsedObj = JsonObj.Parse(jsonString);
+
+            Assert.True(JsonData.HaveSameData(parsedObj, expectedObj));
         }
     }
 }

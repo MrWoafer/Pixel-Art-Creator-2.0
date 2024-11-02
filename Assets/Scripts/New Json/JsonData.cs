@@ -329,7 +329,7 @@ namespace PAC.Json
             if (str[index..(index + 5)] == "false")
             {
                 index += 4;
-                return new JsonBool(true);
+                return new JsonBool(false);
             }
 
             throw new Exception("true/false not found at index " + index + " in string: " + str);
