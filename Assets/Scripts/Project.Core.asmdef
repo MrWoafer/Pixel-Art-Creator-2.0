@@ -1,6 +1,6 @@
 {
     "name": "Project.Core",
-    "rootNamespace": "",
+    "rootNamespace": "PAC",
     "references": [
         "GUID:2fd615392a648e1418fbb2129787bdea",
         "GUID:ecf0bfe526f2b65449a2da93dacb22d3",

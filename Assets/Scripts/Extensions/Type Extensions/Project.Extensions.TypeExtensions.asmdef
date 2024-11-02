@@ -1,3 +1,14 @@
 {
-	"name": "Project.Extensions.TypeExtensions"
+    "name": "Project.Extensions.TypeExtensions",
+    "rootNamespace": "PAC.Extensions",
+    "references": [],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
 }

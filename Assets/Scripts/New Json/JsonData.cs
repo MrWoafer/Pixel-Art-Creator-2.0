@@ -130,6 +130,79 @@ namespace PAC.Json
                 "\nobject: " + objException
             );
         }
+
+        /// <summary>
+        /// Returns whether the two pieces of JSON data are equal by value rather than whether they point to the same object.
+        /// </summary>
+        public static bool HaveSameData(JsonData jsonData1, JsonData jsonData2)
+        {
+            if (jsonData1.GetType() != jsonData2.GetType())
+            {
+                return false;
+            }
+
+            Type jsonDataType = jsonData1.GetType();
+            if (jsonDataType == typeof(JsonNull))
+            {
+                return true;
+            }
+            if (jsonDataType == typeof(JsonBool))
+            {
+                return ((JsonBool)jsonData1).value == ((JsonBool)jsonData2).value;
+            }
+            if (jsonDataType == typeof(JsonInt))
+            {
+                return ((JsonInt)jsonData1).value == ((JsonInt)jsonData2).value;
+            }
+            if (jsonDataType == typeof(JsonFloat))
+            {
+                return ((JsonFloat)jsonData1).value == ((JsonFloat)jsonData2).value;
+            }
+            if (jsonDataType == typeof(JsonString))
+            {
+                return ((JsonString)jsonData1).value == ((JsonString)jsonData2).value;
+            }
+            if (jsonDataType == typeof(JsonList))
+            {
+                JsonList jsonList1 = (JsonList)jsonData1;
+                JsonList jsonList2 = (JsonList)jsonData2;
+                if (jsonList1.Count != jsonList2.Count)
+                {
+                    return false;
+                }
+                for (int i = 0; i < jsonList1.Count; i++)
+                {
+                    if (!HaveSameData(jsonList1[i], jsonList2[i]))
+                    {
+                        return false;
+                    }
+                }
+                return true;
+            }
+            if (jsonDataType == typeof(JsonObj))
+            {
+                JsonObj jsonObj1 = (JsonObj)jsonData1;
+                JsonObj jsonObj2 = (JsonObj)jsonData2;
+                if (jsonObj1.Count != jsonObj2.Count)
+                {
+                    return false;
+                }
+                foreach (string key in  jsonObj1.Keys)
+                {
+                    if (!jsonObj2.ContainsKey(key))
+                    {
+                        return false;
+                    }
+                    if (!HaveSameData(jsonObj1[key], jsonObj2[key]))
+                    {
+                        return false;
+                    }
+                }
+                return true;
+            }
+
+            throw new Exception("Unknown / unimplemented JSON data type: " + jsonDataType.Name);
+        }
     }
 
     public class JsonNull : JsonData
