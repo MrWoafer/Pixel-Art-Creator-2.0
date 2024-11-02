@@ -217,7 +217,7 @@ namespace PAC.Json
                     object element = objArray.GetValue(i);
 
                     // Check for circular object references
-                    if (objectsAlreadyTryingToConvert.Contains(element))
+                    if (element != null && !element.GetType().IsValueType && objectsAlreadyTryingToConvert.Contains(element))
                     {
                         throw new Exception("Cannot convert objects with circular object references; consider writing a custom converter. The circular reference is in type " +
                             element.GetType().Name + " which occurs in index " + i + " of type " + objType.Name);
@@ -248,7 +248,7 @@ namespace PAC.Json
                     object element = objList[i];
 
                     // Check for circular object references
-                    if (objectsAlreadyTryingToConvert.Contains(element))
+                    if (element != null && !element.GetType().IsValueType && objectsAlreadyTryingToConvert.Contains(element))
                     {
                         throw new Exception("Cannot convert objects with circular object references; consider writing a custom converter. The circular reference is in type " +
                             element.GetType().Name + " which occurs in index " + i + " of type " + objType.Name);
@@ -294,7 +294,7 @@ namespace PAC.Json
                     object fieldValue = field.GetValue(obj);
 
                     // Check for circular object references
-                    if (objectsAlreadyTryingToConvert.Contains(fieldValue))
+                    if (fieldValue != null && !fieldValue.GetType().IsValueType && objectsAlreadyTryingToConvert.Contains(fieldValue))
                     {
                         throw new Exception("Cannot convert objects with circular object references; consider writing a custom converter. The circular reference is in type " +
                             field.FieldType.Name + " which occurs in the field " + field.Name + " of type " + objType.Name);
@@ -322,7 +322,7 @@ namespace PAC.Json
                     object propertyValue = property.GetValue(obj);
 
                     // Check for circular object references
-                    if (objectsAlreadyTryingToConvert.Contains(propertyValue))
+                    if (propertyValue != null && !propertyValue.GetType().IsValueType && objectsAlreadyTryingToConvert.Contains(propertyValue))
                     {
                         throw new Exception("Cannot convert objects with circular object references; consider writing a custom converter. The circular reference is in type " +
                             property.PropertyType.Name + " which occurs in the auto property " + property.Name + " of type " + objType.Name);
@@ -335,7 +335,7 @@ namespace PAC.Json
                         value = ToJson(propertyValue, customConverters, allowUndefinedConversions, objectsAlreadyTryingToConvert);
                     }
                     catch (Exception e)
-                        {
+                    {
                         throw new Exception("Could not convert " + propertyValue.GetType().Name + " to JSON for auto property " + property.Name + " in type " + objType.Name +  ". Exception: " + e);
                     }
 

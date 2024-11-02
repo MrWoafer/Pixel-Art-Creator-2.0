@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using UnityEngine;
 
 namespace PAC.Json
 {
@@ -875,10 +876,10 @@ namespace PAC.Json
         public JsonList(IEnumerable<JsonData> collection) : base(collection) { }
         public JsonList(params JsonData[] jsonData) : base(jsonData) { }
 
-        public JsonList(params JsonNull[] jsonData) => new JsonList((IEnumerable<JsonNull>)jsonData);
+        public JsonList(params JsonNull[] jsonData) : base(jsonData) { }
         public JsonList(IEnumerable<JsonNull> collection) : base(collection) { }
 
-        public JsonList(params JsonBool[] jsonData) => new JsonList((IEnumerable<JsonBool>)jsonData);
+        public JsonList(params JsonBool[] jsonData) : base(jsonData) { }
         public JsonList(IEnumerable<JsonBool> collection) : base(collection) { }
         public JsonList(params bool[] jsonData) : base(jsonData.Length)
         {
@@ -895,7 +896,7 @@ namespace PAC.Json
             }
         }
 
-        public JsonList(params JsonInt[] jsonData) => new JsonList((IEnumerable<JsonInt>)jsonData);
+        public JsonList(params JsonInt[] jsonData) : base(jsonData) { }
         public JsonList(IEnumerable<JsonInt> collection) : base(collection) { }
         public JsonList(params int[] jsonData) : base(jsonData.Length)
         {
@@ -912,7 +913,7 @@ namespace PAC.Json
             }
         }
 
-        public JsonList(params JsonFloat[] jsonData) => new JsonList((IEnumerable<JsonFloat>)jsonData);
+        public JsonList(params JsonFloat[] jsonData) : base(jsonData) { }
         public JsonList(IEnumerable<JsonFloat> collection) : base(collection) { }
         public JsonList(params float[] jsonData) : base(jsonData.Length)
         {
@@ -929,7 +930,7 @@ namespace PAC.Json
             }
         }
 
-        public JsonList(params JsonString[] jsonData) => new JsonList((IEnumerable<JsonString>)jsonData);
+        public JsonList(params JsonString[] jsonData) : base(jsonData) { }
         public JsonList(IEnumerable<JsonString> collection) : base(collection) { }
         public JsonList(params string[] jsonData) : base(jsonData.Length)
         {
@@ -946,10 +947,10 @@ namespace PAC.Json
             }
         }
 
-        public JsonList(params JsonList[] jsonData) => new JsonList((IEnumerable<JsonList>)jsonData);
+        public JsonList(params JsonList[] jsonData) : base(jsonData) { }
         public JsonList(IEnumerable<JsonList> collection) : base(collection) { }
 
-        public JsonList(params JsonObj[] jsonData) => new JsonList((IEnumerable<JsonObj>)jsonData);
+        public JsonList(params JsonObj[] jsonData) : base(jsonData) { }
         public JsonList(IEnumerable<JsonObj> collection) : base(collection) { }
 
         public void Add(JsonNull jsonData) => Add((JsonData)jsonData);
