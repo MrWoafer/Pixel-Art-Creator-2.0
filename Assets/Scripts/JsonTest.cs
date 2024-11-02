@@ -132,6 +132,9 @@ namespace PAC.Json
 
             //child.child = parent;
             //Debug.Log(JsonConverter.ToJson(parent, true).ToJsonString(true));
+
+            Test4 list = new Test4(new Test(0, 5f, "h"), new Test(-1, 3.2f, "po"));
+            Debug.Log(JsonConverter.ToJson(list, true).ToJsonString(true));
         }
 
         private class Test
@@ -200,6 +203,21 @@ namespace PAC.Json
                     return name;
                 }
                 return name + " -> " + child.ToString();
+            }
+        }
+
+        private class Test4
+        {
+            public List<Test> list;
+
+            public Test4(params Test[] objects)
+            {
+                list = new List<Test>(objects);
+            }
+
+            public override string ToString()
+            {
+                return string.Join(", ", list.Select(x => x.ToString()));
             }
         }
     }

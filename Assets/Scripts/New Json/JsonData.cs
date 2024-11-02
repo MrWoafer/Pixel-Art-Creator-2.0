@@ -917,11 +917,6 @@ namespace PAC.Json
                     string[] lines = jsonData.ToJsonString(pretty).Split('\n');
                     for (int i = 0; i < lines.Length; i++)
                     {
-                        if (i > 0)
-                        {
-                            str.Append('\t');
-                        }
-
                         str.Append("\t" + lines[i]);
 
                         if (i < lines.Length - 1)
