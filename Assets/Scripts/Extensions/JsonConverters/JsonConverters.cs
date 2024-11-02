@@ -6,7 +6,7 @@ namespace PAC.Extensions
     public static class JsonConverters
     {
         /// <summary>All the custom JSON converters define in this class.</summary>
-        public static readonly JsonConverterList allConverters = new JsonConverterList(new Vector2JsonConverter(), new Vector3JsonConverter(), new ColorJsonConverter(), new Texture2DJsonConverter());
+        public static readonly JsonConverterSet allConverters = new JsonConverterSet(new Vector2JsonConverter(), new Vector3JsonConverter(), new ColorJsonConverter(), new Texture2DJsonConverter());
 
         /// <summary>
         /// Custom JSON converter for Vector2.
@@ -74,7 +74,7 @@ namespace PAC.Extensions
         /// </summary>
         public class Texture2DJsonConverter : IJsonConverter<Texture2D, JsonObj>
         {
-            private JsonConverterList converterList = new JsonConverterList(new ColorJsonConverter());
+            private JsonConverterSet converterList = new JsonConverterSet(new ColorJsonConverter());
 
             public override JsonData ToJson(Texture2D tex)
             {
