@@ -144,7 +144,13 @@ namespace PAC.Json
     public static class JsonConverter
     {
         /// <summary>
+        /// <para>
         /// Attempts to convert the C# object into JSON data.
+        /// </para>
+        /// <para>
+        /// NOTE: When converting an enum value which has more than one name, one of those names will be chosen, but not necessarily the one originally used to assign that value. E.g.
+        /// for an enum with values Value1 = 0, Value2 = 0, Value3 = 1, converting Value1 into JSON may end up as "Value2".
+        /// </para>
         /// </summary>
         /// <param name="obj">The object to convert into JSON.</param>
         /// <param name="allowUndefinedConversions">
@@ -152,7 +158,13 @@ namespace PAC.Json
         /// </param>
         public static JsonData ToJson(object obj, bool allowUndefinedConversions = false) => ToJson(obj, new JsonConverterSet(), allowUndefinedConversions);
         /// <summary>
+        /// <para>
         /// Attempts to convert the C# object into JSON data.
+        /// </para>
+        /// <para>
+        /// NOTE: When converting an enum value which has more than one name, one of those names will be chosen, but not necessarily the one originally used to assign that value. E.g.
+        /// for an enum with values Value1 = 0, Value2 = 0, Value3 = 1, converting Value1 into JSON may end up as "Value2".
+        /// </para>
         /// </summary>
         /// <param name="obj">The object to convert into JSON.</param>
         /// <param name="customConverters">A collection of IJsonConverter objects that defined custom conversions for certain data types.</param>
@@ -162,7 +174,13 @@ namespace PAC.Json
         public static JsonData ToJson(object obj, JsonConverterSet customConverters, bool allowUndefinedConversions = false) =>
             ToJson(obj, customConverters, allowUndefinedConversions, new HashSet<object>());
         /// <summary>
+        /// <para>
         /// Attempts to convert the C# object into JSON data.
+        /// </para>
+        /// <para>
+        /// NOTE: When converting an enum value which has more than one name, one of those names will be chosen, but not necessarily the one originally used to assign that value. E.g.
+        /// for an enum with values Value1 = 0, Value2 = 0, Value3 = 1, converting Value1 into JSON may end up as "Value2".
+        /// </para>
         /// </summary>
         /// <param name="obj">The object to convert into JSON.</param>
         /// <param name="customConverters">A collection of IJsonConverter objects that defined custom conversions for certain data types.</param>
