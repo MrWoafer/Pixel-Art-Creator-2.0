@@ -91,7 +91,7 @@ namespace PAC.Extensions
             public override Texture2D FromJson(JsonObj jsonData)
             {
                 Texture2D tex = new Texture2D(JsonConverter.FromJson<int>(jsonData["width"]), JsonConverter.FromJson<int>(jsonData["height"]));
-                tex.SetPixels(JsonConverter.FromJson<Color[]>(jsonData, converterList));
+                tex.SetPixels(JsonConverter.FromJson<Color[]>(jsonData["pixels"], converterList));
                 tex.Apply();
 
                 return tex;

@@ -133,10 +133,18 @@ namespace PAC.Json
         }
 
         /// <summary>
-        /// Returns whether the two pieces of JSON data are equal by value rather than whether they point to the same object.
+        /// Returns whether the two pieces of JSON data are equal by the value(s) they contain rather than whether they point to the same JsonData object.
         /// </summary>
-        public static bool HaveSameData(JsonData jsonData1, JsonData jsonData2)
+        /// <param name="floatTolerance">
+        /// A tolerance (inclusive) to allow close floats to be considered equal.
+        /// </param>
+        public static bool HaveSameData(JsonData jsonData1, JsonData jsonData2, float floatTolerance = 0f)
         {
+            if (floatTolerance < 0f)
+            {
+                throw new Exception("Cannot have negative float tolerance. Given float tolerance: " + floatTolerance);
+            }
+
             if (jsonData1.GetType() != jsonData2.GetType())
             {
                 return false;
@@ -157,7 +165,7 @@ namespace PAC.Json
             }
             if (jsonDataType == typeof(JsonFloat))
             {
-                return ((JsonFloat)jsonData1).value == ((JsonFloat)jsonData2).value;
+                return ((JsonFloat)jsonData1).value == ((JsonFloat)jsonData2).value || Math.Abs(((JsonFloat)jsonData1).value - ((JsonFloat)jsonData2).value) <= floatTolerance;
             }
             if (jsonDataType == typeof(JsonString))
             {
@@ -173,7 +181,7 @@ namespace PAC.Json
                 }
                 for (int i = 0; i < jsonList1.Count; i++)
                 {
-                    if (!HaveSameData(jsonList1[i], jsonList2[i]))
+                    if (!HaveSameData(jsonList1[i], jsonList2[i], floatTolerance))
                     {
                         return false;
                     }
@@ -194,7 +202,7 @@ namespace PAC.Json
                     {
                         return false;
                     }
-                    if (!HaveSameData(jsonObj1[key], jsonObj2[key]))
+                    if (!HaveSameData(jsonObj1[key], jsonObj2[key], floatTolerance))
                     {
                         return false;
                     }

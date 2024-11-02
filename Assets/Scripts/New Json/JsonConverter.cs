@@ -409,7 +409,7 @@ namespace PAC.Json
 
             // Custom JSON converters
             object converter = customConverters.GetConverterFor(returnType);
-            if ( converter != null)
+            if (converter != null)
             {
                 MethodInfo fromJsonMethod = converter.GetType().GetMethod("FromJson", new Type[] { typeof(JsonData) });
                 return (T)fromJsonMethod.Invoke(converter, new object[] { jsonData });

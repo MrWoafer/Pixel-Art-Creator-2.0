@@ -1,14 +1,8 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.Drawing.Text;
 using NUnit.Framework;
-using UnityEngine;
-using UnityEngine.TestTools;
 using PAC.Json;
 using System.Linq;
-using System.Reflection;
-using System.Runtime.CompilerServices;
 
 namespace PAC.Tests
 {
