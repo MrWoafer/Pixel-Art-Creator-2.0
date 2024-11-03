@@ -642,5 +642,12 @@ namespace PAC.Tests
             // Underflow
             Assert.Catch(() => JsonInt.Parse("2.0e-10000000000000000000000000000"));
         }
+
+        [Test]
+        public void ToJsonStringFloat()
+        {
+            Assert.AreEqual(new JsonFloat(-3.2f).ToJsonString(false), "-3.2");
+            Assert.AreEqual(new JsonFloat(4f).ToJsonString(false), "4.0");
+        }
     }
 }
