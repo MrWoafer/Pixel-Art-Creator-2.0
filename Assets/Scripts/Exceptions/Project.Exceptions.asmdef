@@ -1,10 +1,7 @@
 {
-    "name": "Project.Json",
-    "rootNamespace": "PAC.Json",
-    "references": [
-        "GUID:98d1aab405d9a6b4b81d739038da96e7",
-        "GUID:0ad094a7fdb563c42b5c54be8540ed16"
-    ],
+    "name": "Project.Exceptions",
+    "rootNamespace": "",
+    "references": [],
     "includePlatforms": [],
     "excludePlatforms": [],
     "allowUnsafeCode": false,

@@ -22,7 +22,7 @@ namespace PAC.Extensions
             {
                 if (jsonData.Count != 2)
                 {
-                    throw new System.Exception("Expected a list of length 2 but found one of length " + jsonData.Count);
+                    throw new System.ArgumentException("Expected a list of length 2 but found one of length " + jsonData.Count, "jsonData");
                 }
                 return new Vector2(JsonConverter.FromJson<float>(jsonData[0]), JsonConverter.FromJson<float>(jsonData[1]));
             }
@@ -42,7 +42,7 @@ namespace PAC.Extensions
             {
                 if (jsonData.Count != 3)
                 {
-                    throw new System.Exception("Expected a list of length 3 but found one of length " + jsonData.Count);
+                    throw new System.ArgumentException("Expected a list of length 3 but found one of length " + jsonData.Count, "jsonData");
                 }
                 return new Vector3(JsonConverter.FromJson<float>(jsonData[0]), JsonConverter.FromJson<float>(jsonData[1]), JsonConverter.FromJson<float>(jsonData[2]));
             }
@@ -62,7 +62,7 @@ namespace PAC.Extensions
             {
                 if (jsonData.Count != 4)
                 {
-                    throw new System.Exception("Expected a list of length 4 but found one of length " + jsonData.Count);
+                    throw new System.ArgumentException("Expected a list of length 4 but found one of length " + jsonData.Count, "jsonData");
                 }
                 return new Color(JsonConverter.FromJson<float>(jsonData[0]), JsonConverter.FromJson<float>(jsonData[1]), JsonConverter.FromJson<float>(jsonData[2]),
                     JsonConverter.FromJson<float>(jsonData[3]));

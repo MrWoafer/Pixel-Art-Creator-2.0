@@ -89,13 +89,13 @@ namespace PAC.Json
                 Type converterType = type.GetTypeOfRawGenericSuperclass(typeof(IJsonConverter<,>)).GetGenericArguments()[0];
                 if (ContainsConverterFor(converterType))
                 {
-                    throw new Exception("The list already contains a converter for type " + converterType);
+                    throw new ArgumentException("The list already contains a converter for type " + converterType, "converter");
                 }
                 converters.Add(converterType, converter);
             }
             else
             {
-                throw new Exception("JsonConverterList can only add objects that implement IJsonConverter<,>. The provided object was of type " + type.Name);
+                throw new ArgumentException("JsonConverterList can only add objects that implement IJsonConverter<,>. The provided object was of type " + type.Name, "converter");
             }
         }
 
