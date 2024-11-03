@@ -602,7 +602,7 @@ namespace PAC.Json
                     {
                         if (exponentStartIndex == str.Length - 1 || !char.IsDigit(str[exponentStartIndex + 1]))
                         {
-                            throw new Exception("Found + followed by no digits at index " + exponentStartIndex + " of string: " + str);
+                            throw new Exception("Found " + str[exponentStartIndex] + " followed by no digits at index " + exponentStartIndex + " of string: " + str);
                         }
                         currentIndex++;
                     }
