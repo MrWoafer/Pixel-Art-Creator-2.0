@@ -619,7 +619,7 @@ namespace PAC.Json
                             "for a number starting at index " + index + " in string: " + str);
                     }
 
-                    float exponent = float.Parse(str[exponentStartIndex..currentIndex]);
+                    int exponent = int.Parse(str[exponentStartIndex..currentIndex]);
                     if (exponent >= 0)
                     {
                         for (int i = 0; i < exponent; i++)
@@ -641,13 +641,14 @@ namespace PAC.Json
                     }
                     else
                     {
+                        if (mantissa == 0f)
+                        {
+                            return 0f;
+                        }
                         for (int i = 0; i > exponent; i--)
                         {
-                            try
-                            {
-                                mantissa = checked(mantissa / 10f);
-                            }
-                            catch
+                            mantissa = mantissa / 10f;
+                            if (mantissa == 0f)
                             {
                                 throw new Exception("Underflow error when parsing " + str[index..currentIndex] + " at index " + index + " in string: " + str);
                             }

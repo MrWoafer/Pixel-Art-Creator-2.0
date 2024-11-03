@@ -21,7 +21,7 @@ namespace PAC.Tests
             Vector2 colour = new Vector2(0.2f, 0.4f);
             JsonList expected = new JsonList(new JsonFloat(0.2f), new JsonFloat(0.4f));
 
-            Assert.True(JsonData.HaveSameData(JsonConverter.ToJson(colour, converters, false), expected));
+            Assert.True(JsonData.HaveSameData(JsonConverter.ToJson(colour, converters, false), expected, 0.05f));
         }
 
         /// <summary>
@@ -49,7 +49,7 @@ namespace PAC.Tests
             Vector3 colour = new Vector3(0.2f, 0.4f, 0.1567f);
             JsonList expected = new JsonList(new JsonFloat(0.2f), new JsonFloat(0.4f), new JsonFloat(0.1567f));
 
-            Assert.True(JsonData.HaveSameData(JsonConverter.ToJson(colour, converters, false), expected));
+            Assert.True(JsonData.HaveSameData(JsonConverter.ToJson(colour, converters, false), expected, 0.00005f));
         }
 
         /// <summary>
@@ -77,7 +77,7 @@ namespace PAC.Tests
             Color colour = new Color(0.2f, 0.4f, 0.1567f, 0.95f);
             JsonList expected = new JsonList(new JsonFloat(0.2f), new JsonFloat(0.4f), new JsonFloat(0.1567f), new JsonFloat(0.95f));
 
-            Assert.True(JsonData.HaveSameData(JsonConverter.ToJson(colour, converters, false), expected));
+            Assert.True(JsonData.HaveSameData(JsonConverter.ToJson(colour, converters, false), expected, 0.00005f));
         }
 
         /// <summary>
@@ -121,7 +121,7 @@ namespace PAC.Tests
                 }
             };
 
-            Assert.True(JsonData.HaveSameData(JsonConverter.ToJson(tex, converters, false), expected, 0.1f));
+            Assert.True(JsonData.HaveSameData(JsonConverter.ToJson(tex, converters, false), expected, 0.005f));
         }
 
         /// <summary>
