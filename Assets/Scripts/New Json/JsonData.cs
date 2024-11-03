@@ -687,6 +687,10 @@ namespace PAC.Json
 
         public string ToJsonString(bool pretty)
         {
+            if (value == null)
+            {
+                return "null";
+            }
             return "\"" + Escape(value) + "\"";
         }
 
