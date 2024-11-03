@@ -133,7 +133,7 @@ namespace PAC.Json
         }
 
         /// <summary>
-        /// Returns whether the two pieces of JSON data are equal by the value(s) they contain rather than whether they point to the same JsonData object.
+        /// Returns whether the two pieces of JSON data are equal by value rather than whether they point to the same JsonData object.
         /// </summary>
         /// <param name="floatTolerance">
         /// A tolerance (inclusive) to allow close floats to be considered equal.
