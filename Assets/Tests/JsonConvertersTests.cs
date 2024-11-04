@@ -134,8 +134,8 @@ namespace PAC.Tests
 
             JsonObj expected = new JsonObj
             {
-                { "width", 2 },
-                { "height", 2 },
+                { "width", new JsonInt(2) },
+                { "height", new JsonInt(2) },
                 { "pixels", new JsonList{
                     new JsonList(new JsonFloat(0f), new JsonFloat(0f), new JsonFloat(0f), new JsonFloat(1f)),
                     new JsonList(new JsonFloat(0.1f), new JsonFloat(0.2f), new JsonFloat(0.3f), new JsonFloat(0.9f)),
@@ -165,8 +165,8 @@ namespace PAC.Tests
 
             JsonObj jsonObj = new JsonObj
             {
-                { "width", 2 },
-                { "height", 2 },
+                { "width", new JsonInt(2) },
+                { "height", new JsonInt(2) },
                 { "pixels", new JsonList{
                     new JsonList(new JsonFloat(0f), new JsonFloat(0f), new JsonFloat(0f), new JsonFloat(1f)),
                     new JsonList(new JsonFloat(0.1f), new JsonFloat(0.2f), new JsonFloat(0.3f), new JsonFloat(0.9f)),
@@ -184,6 +184,10 @@ namespace PAC.Tests
             Assert.AreEqual(converted.GetPixel(1, 0), expected.GetPixel(1, 0));
             Assert.AreEqual(converted.GetPixel(0, 1), expected.GetPixel(0, 1));
             Assert.AreEqual(converted.GetPixel(1, 1), expected.GetPixel(1, 1));
+
+            // Num of pixels != width * height
+            jsonObj["width"] = new JsonInt(3);
+            Assert.Catch(() => JsonConverter.FromJson<Texture2D>(jsonObj, converters, false));
         }
     }
 }
