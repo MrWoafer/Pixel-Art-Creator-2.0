@@ -4,6 +4,7 @@ using NUnit.Framework;
 using PAC.Json;
 using System.Linq;
 using UnityEngine;
+using PAC.Exceptions;
 
 namespace PAC.Tests
 {
@@ -579,10 +580,10 @@ namespace PAC.Tests
             Assert.AreEqual(JsonString.Parse(str).value, expected);
 
             // Should error as there is no escaped character after the \
-            Assert.Catch(() => JsonString.Parse("\"hello \\\""));
+            Assert.Throws<FormatException>(() => JsonString.Parse("\"hello \\\""));
             Assert.DoesNotThrow(() => JsonString.Parse("\"hello \\\\\""));
             // Should error as there are only 3 hex digits, not 4
-            Assert.Catch(() => JsonString.Parse("\"\\uA32\""));
+            Assert.Throws<FormatException>(() => JsonString.Parse("\"\\uA32\""));
         }
 
         [Test]
@@ -591,13 +592,13 @@ namespace PAC.Tests
             Assert.AreEqual(JsonInt.Parse("39").value, 39);
             Assert.AreEqual(JsonInt.Parse("-39").value, -39);
             // Not allowed decimal point
-            Assert.Catch(() => JsonInt.Parse("47.2"));
+            Assert.Throws<FormatException>(() => JsonInt.Parse("47.2"));
             // - followed by nothing
-            Assert.Catch(() => JsonInt.Parse("-"));
+            Assert.Throws<FormatException>(() => JsonInt.Parse("-"));
             // Not allowed double -
-            Assert.Catch(() => JsonInt.Parse("--3"));
+            Assert.Throws<FormatException>(() => JsonInt.Parse("--3"));
             // Number ends too soon
-            Assert.Catch(() => JsonInt.Parse("356abc"));
+            Assert.Throws<FormatException>(() => JsonInt.Parse("356abc"));
         }
 
         [Test]
@@ -606,13 +607,13 @@ namespace PAC.Tests
             Assert.AreEqual(JsonFloat.Parse("3.259").value, 3.259, 0.0005f);
             Assert.AreEqual(JsonFloat.Parse("-3").value, -3f);
             // Not allowed two decimal points
-            Assert.Catch(() => JsonFloat.Parse("47.2.4"));
+            Assert.Throws<FormatException>(() => JsonFloat.Parse("47.2.4"));
             // - followed by nothing
-            Assert.Catch(() => JsonFloat.Parse("-"));
+            Assert.Throws<FormatException>(() => JsonFloat.Parse("-"));
             // Not allowed double -
-            Assert.Catch(() => JsonFloat.Parse("--3"));
+            Assert.Throws<FormatException>(() => JsonFloat.Parse("--3"));
             // Number ends too soon
-            Assert.Catch(() => JsonFloat.Parse("356.5abc"));
+            Assert.Throws<FormatException>(() => JsonFloat.Parse("356.5abc"));
         }
 
         [Test]
@@ -621,17 +622,17 @@ namespace PAC.Tests
             Assert.AreEqual(JsonInt.Parse("-39E2").value, -3900);
             Assert.AreEqual(JsonInt.Parse("-39E+2").value, -3900);
             // Not allowed negative exponent
-            Assert.Catch(() => JsonInt.Parse("47000e-2"));
+            Assert.Throws<FormatException>(() => JsonInt.Parse("47000e-2"));
             // Not allowed decimal exponent
-            Assert.Catch(() => JsonInt.Parse("47000e2.0"));
+            Assert.Throws<FormatException>(() => JsonInt.Parse("47000e2.0"));
             // E not followed by a number
-            Assert.Catch(() => JsonInt.Parse("47000E"));
+            Assert.Throws<FormatException>(() => JsonInt.Parse("47000E"));
             // + not followed by a number
-            Assert.Catch(() => JsonInt.Parse("47000e+"));
-            // Overflow
-            Assert.Catch(() => JsonInt.Parse("2e" + int.MaxValue));
+            Assert.Throws<FormatException>(() => JsonInt.Parse("47000e+"));
             // Number ends too soon
-            Assert.Catch(() => JsonInt.Parse("2e4abc"));
+            Assert.Throws<FormatException>(() => JsonInt.Parse("2e4abc"));
+            // Overflow
+            Assert.Throws<OverflowException>(() => JsonInt.Parse("2e" + int.MaxValue));
         }
 
         [Test]
@@ -641,19 +642,19 @@ namespace PAC.Tests
             Assert.AreEqual(JsonFloat.Parse("-3.259E+2").value, -325.9f, 0.05f);
             Assert.AreEqual(JsonFloat.Parse("10.4E-2").value, 0.104f, 0.0005f);
             // Not allowed decimal exponent
-            Assert.Catch(() => JsonFloat.Parse("47000e-2.0"));
+            Assert.Throws<FormatException>(() => JsonFloat.Parse("47000e-2.0"));
             // E not followed by a number
-            Assert.Catch(() => JsonFloat.Parse("47000e"));
+            Assert.Throws<FormatException>(() => JsonFloat.Parse("47000e"));
             // + not followed by a number
-            Assert.Catch(() => JsonFloat.Parse("47000e+"));
+            Assert.Throws<FormatException>(() => JsonFloat.Parse("47000e+"));
             // - not followed by a number
-            Assert.Catch(() => JsonFloat.Parse("47000E-"));
-            // Overflow
-            Assert.Catch(() => JsonFloat.Parse("2.0e" + int.MaxValue));
-            // Underflow
-            Assert.Catch(() => JsonFloat.Parse("2.0e" + int.MinValue));
+            Assert.Throws<FormatException>(() => JsonFloat.Parse("47000E-"));
             // Number ends too soon
-            Assert.Catch(() => JsonFloat.Parse("2.3e-4abc"));
+            Assert.Throws<FormatException>(() => JsonFloat.Parse("2.3e-4abc"));
+            // Overflow
+            Assert.Throws<OverflowException>(() => JsonFloat.Parse("2.0e" + int.MaxValue));
+            // Underflow
+            Assert.Throws<UnderflowException>(() => JsonFloat.Parse("2.0e" + int.MinValue));
         }
 
         [Test]

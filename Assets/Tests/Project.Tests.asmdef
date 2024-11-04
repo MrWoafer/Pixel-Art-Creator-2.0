@@ -5,7 +5,8 @@
         "UnityEngine.TestRunner",
         "UnityEditor.TestRunner",
         "Project.Json",
-        "Project.Extensions.JsonConverters"
+        "Project.Extensions.JsonConverters",
+        "Project.Exceptions"
     ],
     "includePlatforms": [
         "Editor"

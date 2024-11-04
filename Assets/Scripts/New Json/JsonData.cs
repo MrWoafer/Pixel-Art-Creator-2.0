@@ -119,17 +119,7 @@ namespace PAC.Json
                 objException = e;
             }
 
-            throw new Exception(
-                "Could not parse string: " + str +
-                "\nExceptions for each data type:" +
-                "\nnull: " + nullException +
-                "\nbool: " + boolException +
-                "\nint: " + intException +
-                "\nfloat: " + floatException +
-                "\nstring: " + stringException +
-                "\nlist: " + listException +
-                "\nobject: " + objException
-            );
+            throw new AggregateException("Could not parse string: " + str, nullException, boolException, intException, floatException, stringException, listException, objException);
         }
 
         /// <summary>
@@ -404,7 +394,7 @@ namespace PAC.Json
             int currentIndex = index;
             if (str[index] == '-')
             {
-                if (index >= str.Length || !char.IsDigit(str[index + 1]))
+                if (index >= str.Length - 1 || !char.IsDigit(str[index + 1]))
                 {
                     throw new FormatException("Found - followed by no digits at index " + index + " of string: " + str);
                 }
@@ -555,7 +545,7 @@ namespace PAC.Json
             int currentIndex = index;
             if (str[index] == '-')
             {
-                if (index >= str.Length || !char.IsDigit(str[index + 1]))
+                if (index >= str.Length - 1 || !char.IsDigit(str[index + 1]))
                 {
                     throw new FormatException("Found - followed by no digits at index " + index + " of string: " + str);
                 }
@@ -594,7 +584,7 @@ namespace PAC.Json
                     // E notation
                     float mantissa = float.Parse(str[index..currentIndex]);
                     int exponentStartIndex = currentIndex + 1;
-                    if (exponentStartIndex >= str.Length && !char.IsDigit(str[exponentStartIndex]) && str[exponentStartIndex] != '+' && str[exponentStartIndex] != '-')
+                    if (exponentStartIndex >= str.Length || (!char.IsDigit(str[exponentStartIndex]) && str[exponentStartIndex] != '+' && str[exponentStartIndex] != '-'))
                     {
                         throw new FormatException("Found " + str[currentIndex] + " followed by no digits or +/- at index " + currentIndex + " of string: " + str);
                     }
