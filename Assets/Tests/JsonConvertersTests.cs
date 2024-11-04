@@ -14,7 +14,7 @@ namespace PAC.Tests
         /// Checks that ToJson() works properly for the custom JSON converter for type Vector2.
         /// </summary>
         [Test]
-        [Category("Json")]
+        [Category("JSON")]
         public void Vector2ToJson()
         {
             JsonConverterSet converters = new JsonConverterSet(new JsonConverters.Vector2JsonConverter());
@@ -29,7 +29,7 @@ namespace PAC.Tests
         /// Checks that FromJson() works properly for the custom JSON converter for type Vector2.
         /// </summary>
         [Test]
-        [Category("Json")]
+        [Category("JSON")]
         public void Vector2FromJson()
         {
             JsonConverterSet converters = new JsonConverterSet(new JsonConverters.Vector2JsonConverter());
@@ -44,7 +44,7 @@ namespace PAC.Tests
         /// Checks that ToJson() works properly for the custom JSON converter for type Vector3.
         /// </summary>
         [Test]
-        [Category("Json")]
+        [Category("JSON")]
         public void Vector3ToJson()
         {
             JsonConverterSet converters = new JsonConverterSet(new JsonConverters.Vector3JsonConverter());
@@ -59,7 +59,7 @@ namespace PAC.Tests
         /// Checks that FromJson() works properly for the custom JSON converter for type Vector3.
         /// </summary>
         [Test]
-        [Category("Json")]
+        [Category("JSON")]
         public void Vector3FromJson()
         {
             JsonConverterSet converters = new JsonConverterSet(new JsonConverters.Vector3JsonConverter());
@@ -74,7 +74,7 @@ namespace PAC.Tests
         /// Checks that ToJson() works properly for the custom JSON converter for type Color.
         /// </summary>
         [Test]
-        [Category("Json")]
+        [Category("JSON")]
         public void ColorToJson()
         {
             JsonConverterSet converters = new JsonConverterSet(new JsonConverters.ColorJsonConverter());
@@ -89,7 +89,7 @@ namespace PAC.Tests
         /// Checks that FromJson() works properly for the custom JSON converter for type Color.
         /// </summary>
         [Test]
-        [Category("Json")]
+        [Category("JSON")]
         public void ColorFromJson()
         {
             JsonConverterSet converters = new JsonConverterSet(new JsonConverters.ColorJsonConverter());
@@ -104,7 +104,7 @@ namespace PAC.Tests
         /// Checks that ToJson() works properly for the custom JSON converter for type Texture2D.
         /// </summary>
         [Test]
-        [Category("Json")]
+        [Category("JSON")]
         public void Texture2DToJson()
         {
             JsonConverterSet converters = new JsonConverterSet(new JsonConverters.Texture2DJsonConverter());
@@ -135,7 +135,7 @@ namespace PAC.Tests
         /// Checks that FromJson() works properly for the custom JSON converter for type Texture2D.
         /// </summary>
         [Test]
-        [Category("Json")]
+        [Category("JSON")]
         public void Texture2DFromJson()
         {
             JsonConverterSet converters = new JsonConverterSet(new JsonConverters.Texture2DJsonConverter());

@@ -94,7 +94,7 @@ namespace PAC.Tests
         /// Checks that ToJson() works properly for undefined conversions.
         /// </summary>
         [Test]
-        [Category("Json")]
+        [Category("JSON")]
         public void ToJsonUndefined()
         {
             Class1 obj = new Class1
@@ -132,7 +132,7 @@ namespace PAC.Tests
         /// Checks that FromJson() works properly for undefined conversions.
         /// </summary>
         [Test]
-        [Category("Json")]
+        [Category("JSON")]
         public void FromJsonUndefined()
         {
             Class1 expectedObj = new Class1
@@ -172,7 +172,7 @@ namespace PAC.Tests
         /// Checks that ToJsonString() correctly formats JSON data into a string, with pretty = true.
         /// </summary>
         [Test]
-        [Category("Json")]
+        [Category("JSON")]
         public void ToJsonStringPretty()
         {
             JsonObj jsonObj = new JsonObj
@@ -225,7 +225,7 @@ namespace PAC.Tests
         /// Checks that a string in JSON format is correctly parsed into a JsonData object.
         /// </summary>
         [Test]
-        [Category("Json")]
+        [Category("JSON")]
         public void Parse()
         {
             JsonObj expectedObj = new JsonObj
@@ -280,7 +280,7 @@ namespace PAC.Tests
         /// Checks an exception is thrown if ToJson() encounters a type that can not be converted using conversions for primitive JSON types.
         /// </summary>
         [Test]
-        [Category("Json")]
+        [Category("JSON")]
         public void ToJsonUndefinedConversion()
         {
             List<int> definedList = new List<int> { 4, 3, 2, 1 };
@@ -295,7 +295,7 @@ namespace PAC.Tests
         /// Checks an exception is thrown if FromJson() encounters a type that can not be converted using conversions for primitive JSON types.
         /// </summary>
         [Test]
-        [Category("Json")]
+        [Category("JSON")]
         public void FromJsonUndefinedConversion()
         {
             JsonList definedData = new JsonList { new JsonInt(4), new JsonInt(3), new JsonInt(2), new JsonInt(1) };
@@ -357,7 +357,7 @@ namespace PAC.Tests
         /// Checks that a exception is thrown if you try to use ToJson() on an object that has circular references, when the circular reference is detected in a field's value.
         /// </summary>
         [Test]
-        [Category("Json")]
+        [Category("JSON")]
         public void ToJsonCircularReferencesInField()
         {
             Class3 parent = new Class3("0");
@@ -377,7 +377,7 @@ namespace PAC.Tests
         /// Checks that a exception is thrown if you try to use ToJson() on an object that has circular references, when the circular reference is detected in an auto property's value.
         /// </summary>
         [Test]
-        [Category("Json")]
+        [Category("JSON")]
         public void ToJsonCircularReferencesInAutoProperty()
         {
             Class4 parent = new Class4("0");
@@ -397,7 +397,7 @@ namespace PAC.Tests
         /// Checks that a exception is thrown if you try to use ToJson() on an object that has circular references, when the circular reference is detected in an array.
         /// </summary>
         [Test]
-        [Category("Json")]
+        [Category("JSON")]
         public void ToJsonCircularReferencesInArray()
         {
             Class5 parent = new Class5("0");
@@ -416,7 +416,7 @@ namespace PAC.Tests
         /// Checks that a exception is thrown if you try to use ToJson() on an object that has circular references, when the circular reference is detected in a list.
         /// </summary>
         [Test]
-        [Category("Json")]
+        [Category("JSON")]
         public void ToJsonCircularReferencesInList()
         {
             Class6 parent = new Class6("0");
@@ -435,7 +435,7 @@ namespace PAC.Tests
         /// Checks that a exception is thrown if you try to use FromJson() on JSON data that has circular references, when the circular reference is detected in a value in a JSON object.
         /// </summary>
         [Test]
-        [Category("Json")]
+        [Category("JSON")]
         public void FromJsonCircularReferencesInValue()
         {
             JsonObj child2 = new JsonObj
@@ -465,7 +465,7 @@ namespace PAC.Tests
         /// Checks that a exception is thrown if you try to use FromJson() on JSON data that has circular references, when the circular reference is detected in a JSON list.
         /// </summary>
         [Test]
-        [Category("Json")]
+        [Category("JSON")]
         public void FromJsonCircularReferencesInList()
         {
             JsonObj jsonObj = new JsonObj
@@ -523,7 +523,7 @@ namespace PAC.Tests
         /// Checks that if you provide a custom converter for a type, it will be used in ToJson().
         /// </summary>
         [Test]
-        [Category("Json")]
+        [Category("JSON")]
         public void ToJsonCustomConverter()
         {
             JsonConverterSet converters = new JsonConverterSet(new ComplexNumberConverter());
@@ -551,7 +551,7 @@ namespace PAC.Tests
         /// Checks that if you provide a custom converter for a type, it will be used in FromJson().
         /// </summary>
         [Test]
-        [Category("Json")]
+        [Category("JSON")]
         public void FromJsonCustomConverter()
         {
             JsonConverterSet converters = new JsonConverterSet(new ComplexNumberConverter());
@@ -578,7 +578,7 @@ namespace PAC.Tests
         }
 
         [Test]
-        [Category("Json")]
+        [Category("JSON")]
         public void ToJsonStringEscapedCharacters()
         {
             string str = "\" \\ / \b \f \n \r \t \u03b5 \u03B5";
@@ -588,7 +588,7 @@ namespace PAC.Tests
         }
 
         [Test]
-        [Category("Json")]
+        [Category("JSON")]
         public void ParseEscapedCharacters()
         {
             string str = "\"\\\" \\\\ \\/ \\b \\f \\n \\r \\t " + @"\u03b5 \u03B5" + "\"";
@@ -604,7 +604,7 @@ namespace PAC.Tests
         }
 
         [Test]
-        [Category("Json")]
+        [Category("JSON")]
         public void ParseInt()
         {
             Assert.AreEqual(JsonInt.Parse("39").value, 39);
@@ -620,7 +620,7 @@ namespace PAC.Tests
         }
 
         [Test]
-        [Category("Json")]
+        [Category("JSON")]
         public void ParseFloat()
         {
             Assert.AreEqual(JsonFloat.Parse("3.259").value, 3.259, 0.0005f);
@@ -636,7 +636,7 @@ namespace PAC.Tests
         }
 
         [Test]
-        [Category("Json")]
+        [Category("JSON")]
         public void ParseIntENotation()
         {
             Assert.AreEqual(JsonInt.Parse("-39E2").value, -3900);
@@ -657,7 +657,7 @@ namespace PAC.Tests
         }
 
         [Test]
-        [Category("Json")]
+        [Category("JSON")]
         public void ParseFloatENotation()
         {
             Assert.AreEqual(JsonFloat.Parse("-3.259e2").value, -325.9f, 0.05f);
@@ -681,7 +681,7 @@ namespace PAC.Tests
         }
 
         [Test]
-        [Category("Json")]
+        [Category("JSON")]
         public void ToJsonStringFloat()
         {
             Assert.AreEqual(new JsonFloat(-3.2f).ToJsonString(false), "-3.2");
@@ -689,14 +689,14 @@ namespace PAC.Tests
         }
 
         [Test]
-        [Category("Json")]
+        [Category("JSON")]
         public void JsonStringNull()
         {
             Assert.Throws<ArgumentException>(() => new JsonString(null));
         }
 
         [Test]
-        [Category("Json")]
+        [Category("JSON")]
         public void ParseNull()
         {
             Assert.Catch<FormatException>(() => JsonString.Parse("null"));
