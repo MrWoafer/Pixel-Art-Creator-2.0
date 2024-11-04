@@ -703,9 +703,20 @@ namespace PAC.Tests
             Assert.Catch<FormatException>(() => JsonList.Parse("null"));
             Assert.Catch<FormatException>(() => JsonObj.Parse("null"));
 
-            Assert.True(JsonData.HaveSameData(JsonString.ParseMaybeNull("null"), new JsonNull()));
-            Assert.True(JsonData.HaveSameData(JsonList.ParseMaybeNull("null"), new JsonNull()));
-            Assert.True(JsonData.HaveSameData(JsonObj.ParseMaybeNull("null"), new JsonNull()));
+            Assert.True(JsonData.HaveSameData(JsonString.ParseMaybeNull("\"hi\""), new JsonString("hi")));
+            Assert.True(JsonData.HaveSameData(JsonList.ParseMaybeNull("[]"), new JsonList()));
+            Assert.True(JsonData.HaveSameData(JsonObj.ParseMaybeNull("{}"), new JsonObj()));
+        }
+
+        [Test]
+        [Category("JSON")]
+        public void ParseEmpty()
+        {
+            Assert.True(JsonData.HaveSameData(JsonList.Parse("[]"), new JsonList()));
+            Assert.True(JsonData.HaveSameData(JsonObj.Parse("{}"), new JsonObj()));
+
+            Assert.True(JsonData.HaveSameData(JsonList.Parse("[     ]"), new JsonList()));
+            Assert.True(JsonData.HaveSameData(JsonObj.Parse("{   }"), new JsonObj()));
         }
     }
 }

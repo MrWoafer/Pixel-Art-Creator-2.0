@@ -1064,7 +1064,11 @@ namespace PAC.Json
         {
             if (Count == 0)
             {
-                return "[ ]";
+                if (pretty)
+                {
+                    return "[ ]";
+                }
+                return "[]";
             }
 
             StringBuilder str = new StringBuilder("[");
@@ -1303,7 +1307,11 @@ namespace PAC.Json
         {
             if (Count == 0)
             {
-                return "{ }";
+                if (pretty)
+                {
+                    return "{ }";
+                }
+                return "{}";
             }
 
             StringBuilder str = new StringBuilder("{");
