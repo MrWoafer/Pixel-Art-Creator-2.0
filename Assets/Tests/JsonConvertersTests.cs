@@ -38,6 +38,11 @@ namespace PAC.Tests
             Vector2 expected = new Vector2(0.2f, 0.4f);
 
             Assert.AreEqual(JsonConverter.FromJson<Vector2>(jsonList, converters, false), expected);
+
+            // List too short
+            Assert.Catch(() => JsonConverter.FromJson<Vector2>(new JsonList(new JsonFloat(0.2f)), converters, false));
+            // List too long
+            Assert.Catch(() => JsonConverter.FromJson<Vector2>(new JsonList(new JsonFloat(0.2f), new JsonFloat(0.4f), new JsonFloat(0.1567f)), converters, false));
         }
 
         /// <summary>
@@ -68,6 +73,12 @@ namespace PAC.Tests
             Vector3 expected = new Vector3(0.2f, 0.4f, 0.1567f);
 
             Assert.AreEqual(JsonConverter.FromJson<Vector3>(jsonList, converters, false), expected);
+
+            // List too short
+            Assert.Catch(() => JsonConverter.FromJson<Vector3>(new JsonList(new JsonFloat(0.2f), new JsonFloat(0.4f)), converters, false));
+            // List too long
+            Assert.Catch(() => JsonConverter.FromJson<Vector3>(new JsonList(new JsonFloat(0.2f), new JsonFloat(0.4f), new JsonFloat(0.1567f), new JsonFloat(0.95f)),
+                converters, false));
         }
 
         /// <summary>
@@ -98,6 +109,12 @@ namespace PAC.Tests
             Color expected = new Color(0.2f, 0.4f, 0.1567f, 0.95f);
 
             Assert.AreEqual(JsonConverter.FromJson<Color>(jsonList, converters, false), expected);
+
+            // List too short
+            Assert.Catch(() => JsonConverter.FromJson<Color>(new JsonList(new JsonFloat(0.2f), new JsonFloat(0.4f), new JsonFloat(0.1567f)), converters, false));
+            // List too long
+            Assert.Catch(() => JsonConverter.FromJson<Color>(new JsonList(new JsonFloat(0.2f), new JsonFloat(0.4f), new JsonFloat(0.1567f), new JsonFloat(0.95f),
+                new JsonFloat(0.3f)), converters, false));
         }
 
         /// <summary>
