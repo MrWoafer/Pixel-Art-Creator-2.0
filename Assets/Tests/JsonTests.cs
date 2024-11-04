@@ -5,6 +5,7 @@ using PAC.Json;
 using System.Linq;
 using UnityEngine;
 using PAC.Exceptions;
+using System.Net.Http.Headers;
 
 namespace PAC.Tests
 {
@@ -685,6 +686,26 @@ namespace PAC.Tests
         {
             Assert.AreEqual(new JsonFloat(-3.2f).ToJsonString(false), "-3.2");
             Assert.AreEqual(new JsonFloat(4f).ToJsonString(false), "4.0");
+        }
+
+        [Test]
+        [Category("Json")]
+        public void JsonStringNull()
+        {
+            Assert.Throws<ArgumentException>(() => new JsonString(null));
+        }
+
+        [Test]
+        [Category("Json")]
+        public void ParseNull()
+        {
+            Assert.Catch<FormatException>(() => JsonString.Parse("null"));
+            Assert.Catch<FormatException>(() => JsonList.Parse("null"));
+            Assert.Catch<FormatException>(() => JsonObj.Parse("null"));
+
+            Assert.True(JsonData.HaveSameData(JsonString.ParseMaybeNull("null"), new JsonNull()));
+            Assert.True(JsonData.HaveSameData(JsonList.ParseMaybeNull("null"), new JsonNull()));
+            Assert.True(JsonData.HaveSameData(JsonObj.ParseMaybeNull("null"), new JsonNull()));
         }
     }
 }

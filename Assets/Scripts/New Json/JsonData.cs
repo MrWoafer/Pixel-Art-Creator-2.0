@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Data.Common;
 using System.Linq;
 using System.Text;
 using PAC.Exceptions;
@@ -204,6 +205,9 @@ namespace PAC.Json
         }
     }
 
+    /// <summary>
+    /// Represents a null value in JSON data.
+    /// </summary>
     public class JsonNull : JsonData
     {
         public static implicit operator string(JsonNull jsonNull)
@@ -263,6 +267,9 @@ namespace PAC.Json
         }
     }
 
+    /// <summary>
+    /// Represents a bool in JSON data.
+    /// </summary>
     public class JsonBool : JsonData
     {
         public bool value { get; set; }
@@ -334,6 +341,9 @@ namespace PAC.Json
         }
     }
 
+    /// <summary>
+    /// Represents an int in JSON data.
+    /// </summary>
     public class JsonInt : JsonData
     {
         public int value { get; set; }
@@ -480,6 +490,9 @@ namespace PAC.Json
         }
     }
 
+    /// <summary>
+    /// Represents a float in JSON data.
+    /// </summary>
     public class JsonFloat : JsonData
     {
         public float value { get; set; }
@@ -657,9 +670,24 @@ namespace PAC.Json
         }
     }
 
+    /// <summary>
+    /// Represents a non-null string in JSON data.
+    /// </summary>
     public class JsonString : JsonData
     {
-        public string value { get; set; }
+        private string _value;
+        public string value
+        {
+            get => _value;
+            set
+            {
+                if (value == null)
+                {
+                    throw new ArgumentException("A JsonString cannot hold a null string. Use JsonNull instead.", "value");
+                }
+                _value = value;
+            }
+        }
 
         public JsonString(string value)
         {
@@ -677,10 +705,6 @@ namespace PAC.Json
 
         public string ToJsonString(bool pretty)
         {
-            if (value == null)
-            {
-                return "null";
-            }
             return "\"" + Escape(value) + "\"";
         }
 
@@ -749,6 +773,11 @@ namespace PAC.Json
             if (index < 0 || index >= str.Length)
             {
                 throw new IndexOutOfRangeException("Index " + index + " out of range string: " + str);
+            }
+
+            if (index + 3 < str.Length && str[index..(index + 4)] == "null")
+            {
+                throw new FormatException("Parsed a null string, but a JsonString cannot hold a null string. Use JsonNull.Parse() or JsonString.ParseMaybeNull() instead.");
             }
 
             if (str[index] != '\"')
@@ -867,9 +896,68 @@ namespace PAC.Json
 
             throw new FormatException("Reached end of string before finding closing \" for string data starting at index " + index + " in string: " + str);
         }
+
+        /// <summary>
+        /// Attempts to parse the string into a JSON string, with the potential to parse it into JsonNull.
+        /// </summary>
+        public static JsonData ParseMaybeNull(string str)
+        {
+            Exception stringException;
+            try
+            {
+                return JsonString.Parse(str);
+            }
+            catch (Exception e)
+            {
+                stringException = e;
+            }
+
+            Exception nullException;
+            try
+            {
+                return JsonNull.Parse(str);
+            }
+            catch (Exception e)
+            {
+                nullException = e;
+            }
+
+            throw new AggregateException("Could not parse string: " + str, nullException, stringException);
+        }
+
+        /// <summary>
+        /// Attempts to parse the string into a JSON string, with the potential to parse it into JsonNull. If successful, moves the index to the last parsed character.
+        /// </summary>
+        public static JsonData ParseMaybeNull(string str, ref int index)
+        {
+            Exception stringException;
+            try
+            {
+                return JsonString.Parse(str, ref index);
+            }
+            catch (Exception e)
+            {
+                stringException = e;
+            }
+
+            Exception nullException;
+            try
+            {
+                return JsonNull.Parse(str, ref index);
+            }
+            catch (Exception e)
+            {
+                nullException = e;
+            }
+
+            throw new AggregateException("Could not parse string: " + str, nullException, stringException);
+        }
     }
 
     // TODO: don't allow circular object references
+    /// <summary>
+    /// Represents a non-null list/array in JSON data.
+    /// </summary>
     public class JsonList : List<JsonData>, JsonData
     {
         public JsonList() : base() { }
@@ -1062,6 +1150,11 @@ namespace PAC.Json
                 throw new IndexOutOfRangeException("Index " + index + " out of range string: " + str);
             }
 
+            if (index + 3 < str.Length && str[index..(index + 4)] == "null")
+            {
+                throw new FormatException("Parsed a null list, but a JsonList cannot hold a null list. Use JsonNull.Parse() or JsonList.ParseMaybeNull() instead.");
+            }
+
             if (str[index] != '[')
             {
                 throw new FormatException("Expected list to start with [ at index " + index + " in string: " + str);
@@ -1119,9 +1212,68 @@ namespace PAC.Json
 
             throw new FormatException("Reached end of string before finding closing ] for list starting at index " + index + " in string: " + str);
         }
+
+        /// <summary>
+        /// Attempts to parse the string into a JSON list, with the potential to parse it into JsonNull.
+        /// </summary>
+        public static JsonData ParseMaybeNull(string str)
+        {
+            Exception listException;
+            try
+            {
+                return JsonList.Parse(str);
+            }
+            catch (Exception e)
+            {
+                listException = e;
+            }
+
+            Exception nullException;
+            try
+            {
+                return JsonNull.Parse(str);
+            }
+            catch (Exception e)
+            {
+                nullException = e;
+            }
+
+            throw new AggregateException("Could not parse string: " + str, nullException, listException);
+        }
+
+        /// <summary>
+        /// Attempts to parse the string into a JSON list, with the potential to parse it into JsonNull. If successful, moves the index to the last parsed character.
+        /// </summary>
+        public static JsonData ParseMaybeNull(string str, ref int index)
+        {
+            Exception listException;
+            try
+            {
+                return JsonList.Parse(str, ref index);
+            }
+            catch (Exception e)
+            {
+                listException = e;
+            }
+
+            Exception nullException;
+            try
+            {
+                return JsonNull.Parse(str, ref index);
+            }
+            catch (Exception e)
+            {
+                nullException = e;
+            }
+
+            throw new AggregateException("Could not parse string: " + str, nullException, listException);
+        }
     }
 
     // TODO: don't allow circular object references
+    /// <summary>
+    /// Represents a non-null object in JSON data.
+    /// </summary>
     public class JsonObj : Dictionary<string, JsonData>, JsonData
     {
         public JsonObj() : base() { }
@@ -1237,6 +1389,11 @@ namespace PAC.Json
                 throw new IndexOutOfRangeException("Index " + index + " out of range string: " + str);
             }
 
+            if (index + 3 < str.Length && str[index..(index + 4)] == "null")
+            {
+                throw new FormatException("Parsed a null object, but a JsonObj cannot hold a null object. Use JsonNull.Parse() or JsonObj.ParseMaybeNull() instead.");
+            }
+
             if (str[index] != '{')
             {
                 throw new FormatException("Expected object to start with { at index " + index + " in string: " + str);
@@ -1332,6 +1489,62 @@ namespace PAC.Json
             }
 
             throw new FormatException("Reached end of string before finding closing } for object starting at index " + index + " in string: " + str);
+        }
+
+        /// <summary>
+        /// Attempts to parse the string into a JSON object, with the potential to parse it into JsonNull.
+        /// </summary>
+        public static JsonData ParseMaybeNull(string str)
+        {
+            Exception objException;
+            try
+            {
+                return JsonObj.Parse(str);
+            }
+            catch (Exception e)
+            {
+                objException = e;
+            }
+
+            Exception nullException;
+            try
+            {
+                return JsonNull.Parse(str);
+            }
+            catch (Exception e)
+            {
+                nullException = e;
+            }
+
+            throw new AggregateException("Could not parse string: " + str, nullException, objException);
+        }
+
+        /// <summary>
+        /// Attempts to parse the string into a JSON object, with the potential to parse it into JsonNull. If successful, moves the index to the last parsed character.
+        /// </summary>
+        public static JsonData ParseMaybeNull(string str, ref int index)
+        {
+            Exception objException;
+            try
+            {
+                return JsonObj.Parse(str, ref index);
+            }
+            catch (Exception e)
+            {
+                objException = e;
+            }
+
+            Exception nullException;
+            try
+            {
+                return JsonNull.Parse(str, ref index);
+            }
+            catch (Exception e)
+            {
+                nullException = e;
+            }
+
+            throw new AggregateException("Could not parse string: " + str, nullException, objException);
         }
     }
 }
