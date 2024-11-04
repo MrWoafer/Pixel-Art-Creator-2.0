@@ -17,8 +17,18 @@ namespace PAC.Extensions
             return type.IsGenericType && type.GetGenericTypeDefinition() == typeof(List<>);
         }
 
+        public static bool IsRawGeneric(this Type generic)
+        {
+            return generic.IsGenericType && generic.GetGenericTypeDefinition() == generic;
+        }
+
         public static bool IsSubclassOfRawGeneric(this Type subClass, Type generic)
         {
+            if (!generic.IsRawGeneric())
+            {
+                throw new ArgumentException("Given generic type " + generic.Name + " is not a raw generic. E.g. List<int> is not a raw generic, but List<> is.", "generic");
+            }
+
             while (subClass != null && subClass != typeof(object))
             {
                 Type subClassGenericType = subClass.IsGenericType ? subClass.GetGenericTypeDefinition() : subClass;
@@ -33,6 +43,11 @@ namespace PAC.Extensions
 
         public static Type GetTypeOfRawGenericSuperclass(this Type subClass, Type generic)
         {
+            if (!generic.IsRawGeneric())
+            {
+                throw new ArgumentException("Given generic type " + generic.Name + " is not a raw generic. E.g. List<int> is not a raw generic, but List<> is.", "generic");
+            }
+
             while (subClass != null && subClass != typeof(object))
             {
                 Type subClassGenericType = subClass.IsGenericType ? subClass.GetGenericTypeDefinition() : subClass;
@@ -42,7 +57,7 @@ namespace PAC.Extensions
                 }
                 subClass = subClass.BaseType;
             }
-            throw new Exception("Type " + subClass.Name + " is not a subclass of type " + generic.Name);
+            throw new ArgumentException("Type " + subClass.Name + " is not a subclass of type " + generic.Name, "subClass");
         }
 
         public static bool IsAutoProperty(this PropertyInfo property)
