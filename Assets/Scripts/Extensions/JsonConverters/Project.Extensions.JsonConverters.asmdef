@@ -1,6 +1,6 @@
 {
     "name": "Project.Extensions.JsonConverters",
-    "rootNamespace": "",
+    "rootNamespace": "PAC.Extensions",
     "references": [
         "GUID:ecf0bfe526f2b65449a2da93dacb22d3"
     ],

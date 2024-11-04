@@ -25,7 +25,7 @@ namespace PAC.Json
         /// <summary>
         /// Attempts to convert the C# object into JSON data.
         /// </summary>
-        public abstract JsonData ToJson(T obj);
+        public abstract JsonDataType ToJson(T obj);
         /// <summary>
         /// <para>
         /// Attempts to convert the JSON data into a C# object of the given type.
@@ -45,7 +45,7 @@ namespace PAC.Json
             {
                 return FromJson((JsonDataType)jsonData);
             }
-            throw new Exception("Expected the JSON data to be of type " + typeof(JsonDataType).Name + " but found type " + jsonData.GetType().Name);
+            throw new ArgumentException("Expected the JSON data to be of type " + typeof(JsonDataType).Name + " but found type " + jsonData.GetType().Name, "jsonData");
         }
     }
 
@@ -89,13 +89,13 @@ namespace PAC.Json
                 Type converterType = type.GetTypeOfRawGenericSuperclass(typeof(IJsonConverter<,>)).GetGenericArguments()[0];
                 if (ContainsConverterFor(converterType))
                 {
-                    throw new Exception("The list already contains a converter for type " + converterType);
+                    throw new ArgumentException("The list already contains a converter for type " + converterType, "converter");
                 }
                 converters.Add(converterType, converter);
             }
             else
             {
-                throw new Exception("JsonConverterList can only add objects that implement IJsonConverter<,>. The provided object was of type " + type.Name);
+                throw new ArgumentException("JsonConverterList can only add objects that implement IJsonConverter<,>. The provided object was of type " + type.Name, "converter");
             }
         }
 
@@ -144,15 +144,27 @@ namespace PAC.Json
     public static class JsonConverter
     {
         /// <summary>
+        /// <para>
         /// Attempts to convert the C# object into JSON data.
+        /// </para>
+        /// <para>
+        /// NOTE: When converting an enum value which has more than one name, one of those names will be chosen, but not necessarily the one originally used to assign that value. E.g.
+        /// for an enum with values Value1 = 0, Value2 = 0, Value3 = 1, converting Value1 into JSON may end up as "Value2".
+        /// </para>
         /// </summary>
         /// <param name="obj">The object to convert into JSON.</param>
         /// <param name="allowUndefinedConversions">
         /// If false, an exception will be thrown if the code encounters a type that can not be converted using conversions for primitive JSON types and/or custom converters.
         /// </param>
-        public static JsonData ToJson(object obj, bool allowUndefinedConversions = false) => ToJson(obj, new JsonConverterSet(), allowUndefinedConversions);
+        public static JsonData ToJson(object obj, bool allowUndefinedConversions = false) => ToJson(obj, null, allowUndefinedConversions);
         /// <summary>
+        /// <para>
         /// Attempts to convert the C# object into JSON data.
+        /// </para>
+        /// <para>
+        /// NOTE: When converting an enum value which has more than one name, one of those names will be chosen, but not necessarily the one originally used to assign that value. E.g.
+        /// for an enum with values Value1 = 0, Value2 = 0, Value3 = 1, converting Value1 into JSON may end up as "Value2".
+        /// </para>
         /// </summary>
         /// <param name="obj">The object to convert into JSON.</param>
         /// <param name="customConverters">A collection of IJsonConverter objects that defined custom conversions for certain data types.</param>
@@ -162,7 +174,13 @@ namespace PAC.Json
         public static JsonData ToJson(object obj, JsonConverterSet customConverters, bool allowUndefinedConversions = false) =>
             ToJson(obj, customConverters, allowUndefinedConversions, new HashSet<object>());
         /// <summary>
+        /// <para>
         /// Attempts to convert the C# object into JSON data.
+        /// </para>
+        /// <para>
+        /// NOTE: When converting an enum value which has more than one name, one of those names will be chosen, but not necessarily the one originally used to assign that value. E.g.
+        /// for an enum with values Value1 = 0, Value2 = 0, Value3 = 1, converting Value1 into JSON may end up as "Value2".
+        /// </para>
         /// </summary>
         /// <param name="obj">The object to convert into JSON.</param>
         /// <param name="customConverters">A collection of IJsonConverter objects that defined custom conversions for certain data types.</param>
@@ -182,11 +200,14 @@ namespace PAC.Json
             Type objType = obj.GetType();
 
             // Custom JSON converters
-            object converter = customConverters.GetConverterFor(objType);
-            if (converter != null)
+            if (customConverters != null)
             {
-                MethodInfo toJsonMethod = converter.GetType().GetMethod("ToJson", new Type[] { objType });
-                return (JsonData)toJsonMethod.Invoke(converter, new object[] { obj });
+                object converter = customConverters.GetConverterFor(objType);
+                if (converter != null)
+                {
+                    MethodInfo toJsonMethod = converter.GetType().GetMethod("ToJson", new Type[] { objType });
+                    return (JsonData)toJsonMethod.Invoke(converter, new object[] { obj });
+                }
             }
 
             // Primitive types
@@ -217,9 +238,9 @@ namespace PAC.Json
                     object element = objArray.GetValue(i);
 
                     // Check for circular object references
-                    if (objectsAlreadyTryingToConvert.Contains(element))
+                    if (element != null && !element.GetType().IsValueType && objectsAlreadyTryingToConvert.Contains(element))
                     {
-                        throw new Exception("Cannot convert objects with circular object references; consider writing a custom converter. The circular reference is in type " +
+                        throw new SerializationException("Cannot convert objects with circular object references; consider writing a custom converter. The circular reference is in type " +
                             element.GetType().Name + " which occurs in index " + i + " of type " + objType.Name);
                     }
                     objectsAlreadyTryingToConvert.Add(element);
@@ -231,7 +252,7 @@ namespace PAC.Json
                     }
                     catch (Exception e)
                     {
-                        throw new Exception("Could not convert " + element.GetType().Name + " to JSON for index " + i + " in type " + objType.Name + ". Exception: " + e);
+                        throw new AggregateException("Could not convert " + element.GetType().Name + " to JSON for index " + i + " in type " + objType.Name, e);
                     }
 
                     jsonList.Add(value);
@@ -248,9 +269,9 @@ namespace PAC.Json
                     object element = objList[i];
 
                     // Check for circular object references
-                    if (objectsAlreadyTryingToConvert.Contains(element))
+                    if (element != null && !element.GetType().IsValueType && objectsAlreadyTryingToConvert.Contains(element))
                     {
-                        throw new Exception("Cannot convert objects with circular object references; consider writing a custom converter. The circular reference is in type " +
+                        throw new SerializationException("Cannot convert objects with circular object references; consider writing a custom converter. The circular reference is in type " +
                             element.GetType().Name + " which occurs in index " + i + " of type " + objType.Name);
                     }
                     objectsAlreadyTryingToConvert.Add(element);
@@ -262,7 +283,7 @@ namespace PAC.Json
                     }
                     catch (Exception e)
                     {
-                        throw new Exception("Could not convert " + element.GetType().Name + " to JSON for index " + i + " in type " + objType.Name + ". Exception: " + e);
+                        throw new AggregateException("Could not convert " + element.GetType().Name + " to JSON for index " + i + " in type " + objType.Name, e);
                     }
 
                     jsonList.Add(value);
@@ -282,7 +303,7 @@ namespace PAC.Json
             {
                 if (!allowUndefinedConversions)
                 {
-                    throw new Exception("The conversion for type " + objType.Name + " is undefined, but parameter allowUndefinedConversions = false. Consider providing a custom converter.");
+                    throw new SerializationException("The conversion for type " + objType.Name + " is undefined, but parameter allowUndefinedConversions = false. Consider providing a custom converter.");
                 }
 
                 JsonObj jsonObj = new JsonObj();
@@ -294,9 +315,9 @@ namespace PAC.Json
                     object fieldValue = field.GetValue(obj);
 
                     // Check for circular object references
-                    if (objectsAlreadyTryingToConvert.Contains(fieldValue))
+                    if (fieldValue != null && !fieldValue.GetType().IsValueType && objectsAlreadyTryingToConvert.Contains(fieldValue))
                     {
-                        throw new Exception("Cannot convert objects with circular object references; consider writing a custom converter. The circular reference is in type " +
+                        throw new SerializationException("Cannot convert objects with circular object references; consider writing a custom converter. The circular reference is in type " +
                             field.FieldType.Name + " which occurs in the field " + field.Name + " of type " + objType.Name);
                     }
                     objectsAlreadyTryingToConvert.Add(fieldValue);
@@ -308,7 +329,7 @@ namespace PAC.Json
                     }
                     catch (Exception e)
                     {
-                        throw new Exception("Could not convert " + fieldValue.GetType().Name + " to JSON for field " + field.Name + " in type " + objType.Name + ". Exception: " + e);
+                        throw new AggregateException("Could not convert " + fieldValue.GetType().Name + " to JSON for field " + field.Name + " in type " + objType.Name, e);
                     }
 
                     jsonObj.Add(field.Name, value);
@@ -322,9 +343,9 @@ namespace PAC.Json
                     object propertyValue = property.GetValue(obj);
 
                     // Check for circular object references
-                    if (objectsAlreadyTryingToConvert.Contains(propertyValue))
+                    if (propertyValue != null && !propertyValue.GetType().IsValueType && objectsAlreadyTryingToConvert.Contains(propertyValue))
                     {
-                        throw new Exception("Cannot convert objects with circular object references; consider writing a custom converter. The circular reference is in type " +
+                        throw new SerializationException("Cannot convert objects with circular object references; consider writing a custom converter. The circular reference is in type " +
                             property.PropertyType.Name + " which occurs in the auto property " + property.Name + " of type " + objType.Name);
                     }
                     objectsAlreadyTryingToConvert.Add(propertyValue);
@@ -335,8 +356,8 @@ namespace PAC.Json
                         value = ToJson(propertyValue, customConverters, allowUndefinedConversions, objectsAlreadyTryingToConvert);
                     }
                     catch (Exception e)
-                        {
-                        throw new Exception("Could not convert " + propertyValue.GetType().Name + " to JSON for auto property " + property.Name + " in type " + objType.Name +  ". Exception: " + e);
+                    {
+                        throw new AggregateException("Could not convert " + propertyValue.GetType().Name + " to JSON for auto property " + property.Name + " in type " + objType.Name, e);
                     }
 
                     jsonObj.Add(property.Name, value);
@@ -346,7 +367,7 @@ namespace PAC.Json
                 return jsonObj;
             }
 
-            throw new Exception("Could not convert object of type " + objType.Name + " to JSON.");
+            throw new SerializationException("Could not convert object of type " + objType.Name + " to JSON as it is not a JSON primitive, enum, array, list, struct or class.");
         }
 
         /// <summary>
@@ -385,13 +406,12 @@ namespace PAC.Json
         {
             Type returnType = typeof(T);
             Type jsonDataType = jsonData.GetType();
-
             
             dataAlreadyTryingToConvert.Add(jsonData);
 
             // Custom JSON converters
             object converter = customConverters.GetConverterFor(returnType);
-            if ( converter != null)
+            if (converter != null)
             {
                 MethodInfo fromJsonMethod = converter.GetType().GetMethod("FromJson", new Type[] { typeof(JsonData) });
                 return (T)fromJsonMethod.Invoke(converter, new object[] { jsonData });
@@ -402,7 +422,7 @@ namespace PAC.Json
             {
                 if (jsonDataType != typeof(JsonString))
                 {
-                    throw new Exception("Expected string JSON data to convert into enum type " + returnType.Name + " but found type " + jsonDataType.Name);
+                    throw new SerializationException("Expected string JSON data to convert into enum type " + returnType.Name + " but found type " + jsonDataType.Name);
                 }
                 return (T)Enum.Parse(returnType, ((JsonString)jsonData).value);
             }
@@ -412,7 +432,7 @@ namespace PAC.Json
             {
                 if (returnType.IsValueType)
                 {
-                    throw new Exception("Cannot convert null JSON data into type " + returnType.Name + " which is non-nullable.");
+                    throw new SerializationException("Cannot convert null JSON data into type " + returnType.Name + " which is non-nullable.");
                 }
                 return (T)(object)null;
             }
@@ -420,7 +440,7 @@ namespace PAC.Json
             {
                 if (returnType != typeof(bool))
                 {
-                    throw new Exception("Cannot convert bool JSON data into type " + returnType.Name + " as it is not a bool.");
+                    throw new SerializationException("Cannot convert bool JSON data into type " + returnType.Name + " as it is not a bool.");
                 }
                 return (T)(object)((JsonBool)jsonData).value;
             }
@@ -428,7 +448,7 @@ namespace PAC.Json
             {
                 if (returnType != typeof(int))
                 {
-                    throw new Exception("Cannot convert int JSON data into type " + returnType.Name + " as it is not a int.");
+                    throw new SerializationException("Cannot convert int JSON data into type " + returnType.Name + " as it is not a int.");
                 }
                 return (T)(object)((JsonInt)jsonData).value;
             }
@@ -436,7 +456,7 @@ namespace PAC.Json
             {
                 if (returnType != typeof(float))
                 {
-                    throw new Exception("Cannot convert float JSON data into type " + returnType.Name + " as it is not a float.");
+                    throw new SerializationException("Cannot convert float JSON data into type " + returnType.Name + " as it is not a float.");
                 }
                 return (T)(object)((JsonFloat)jsonData).value;
             }
@@ -444,7 +464,7 @@ namespace PAC.Json
             {
                 if (returnType != typeof(string))
                 {
-                    throw new Exception("Cannot convert string JSON data into type " + returnType.Name + " as it is not a string.");
+                    throw new SerializationException("Cannot convert string JSON data into type " + returnType.Name + " as it is not a string.");
                 }
                 return (T)(object)((JsonString)jsonData).value;
             }
@@ -454,7 +474,7 @@ namespace PAC.Json
             {
                 if (!returnType.IsArray && !returnType.IsGenericList())
                 {
-                    throw new Exception("Cannot convert list JSON data into type " + returnType.Name + " as it is not a list or array.");
+                    throw new SerializationException("Cannot convert list JSON data into type " + returnType.Name + " as it is not a list or array.");
                 }
 
                 JsonList jsonList = (JsonList)jsonData;
@@ -475,8 +495,8 @@ namespace PAC.Json
                         // Check for circular JSON data references
                         if (dataAlreadyTryingToConvert.Contains(element))
                         {
-                            throw new Exception("Cannot convert JSON data with circular object references; consider writing a custom converter. The circular reference was found with JSON data type " +
-                                        jsonDataType.Name + " when trying to convert index " + i + " of type " + returnType.Name);
+                            throw new SerializationException("Cannot convert JSON data with circular object references; consider writing a custom converter. The circular reference was found with" +
+                                "JSON data type " + jsonDataType.Name + " when trying to convert index " + i + " of type " + returnType.Name);
                         }
                         dataAlreadyTryingToConvert.Add(element);
 
@@ -487,7 +507,7 @@ namespace PAC.Json
                         }
                         catch (Exception e)
                         {
-                            throw new Exception("Could not convert " + element.GetType().Name + " to type " + elementType.Name + " for index " + i + " in array." + ". Exception: " + e);
+                            throw new AggregateException("Could not convert " + element.GetType().Name + " to type " + elementType.Name + " for index " + i + " in array.", e);
                         }
 
                         array.SetValue(value, i);
@@ -512,8 +532,8 @@ namespace PAC.Json
                         // Check for circular JSON data references
                         if (dataAlreadyTryingToConvert.Contains(element))
                         {
-                            throw new Exception("Cannot convert JSON data with circular object references; consider writing a custom converter. The circular reference was found with JSON data type " +
-                                        jsonDataType.Name + " when trying to convert index " + i + " of type " + returnType.Name);
+                            throw new SerializationException("Cannot convert JSON data with circular object references; consider writing a custom converter. The circular reference was found with" +
+                                "JSON data type " + jsonDataType.Name + " when trying to convert index " + i + " of type " + returnType.Name);
                         }
                         dataAlreadyTryingToConvert.Add(element);
 
@@ -524,7 +544,7 @@ namespace PAC.Json
                         }
                         catch (Exception e)
                         {
-                            throw new Exception("Could not convert " + element.GetType().Name + " to type " + elementType.Name + " for index " + i + " in list." + ". Exception: " + e);
+                            throw new AggregateException("Could not convert " + element.GetType().Name + " to type " + elementType.Name + " for index " + i + " in list.", e);
                         }
 
                         list.Add(value);
@@ -538,12 +558,14 @@ namespace PAC.Json
             // Classes / Structs
             if (!allowUndefinedConversions)
             {
-                throw new Exception("The conversion for type " + returnType.Name + " is undefined, but parameter allowUndefinedConversions = false. Consider providing a custom converter.");
+                throw new SerializationException("The conversion for type " + returnType.Name + " is undefined, but parameter allowUndefinedConversions = false. Consider providing a custom converter.");
             }
             if (jsonDataType == typeof(JsonObj))
             {
                 JsonObj jsonObj = (JsonObj)jsonData;
-                T obj = (T)FormatterServices.GetSafeUninitializedObject(returnType);
+                // We do not convert to type T here due to boxing of structs. It would work fine for classes, but structs get boxed when we do that so when we edit the fields/properties
+                // it wouldn't actually change the struct in this variable, but a new one.
+                object obj = FormatterServices.GetSafeUninitializedObject(returnType);
 
                 // Fields
                 IEnumerable<FieldInfo> fields = returnType.GetFields(BindingFlags.Public | BindingFlags.Instance | BindingFlags.NonPublic).Where(f => f.GetCustomAttribute<CompilerGeneratedAttribute>() == null);
@@ -551,7 +573,7 @@ namespace PAC.Json
                 {
                     if (!jsonObj.ContainsKey(field.Name))
                     {
-                        throw new Exception("No field found with identifier " + field + " in JSON object.");
+                        throw new SerializationException("No field found with identifier " + field + " in JSON object.");
                     }
 
                     JsonData jsonValue = jsonObj[field.Name];
@@ -559,8 +581,8 @@ namespace PAC.Json
                     // Check for circular JSON data references
                     if (dataAlreadyTryingToConvert.Contains(jsonValue))
                     {
-                        throw new Exception("Cannot convert JSON data with circular object references; consider writing a custom converter. The circular reference was found with JSON data type " +
-                                    jsonDataType.Name + " which occurs in the field " + field.Name + " of type " + returnType.Name);
+                        throw new SerializationException("Cannot convert JSON data with circular object references; consider writing a custom converter. The circular reference was found with" +
+                            "JSON data type " + jsonDataType.Name + " which occurs in the field " + field.Name + " of type " + returnType.Name);
                     }
                     dataAlreadyTryingToConvert.Add(jsonValue);
 
@@ -573,14 +595,12 @@ namespace PAC.Json
                     object value;
                     try
                     {
-                        value = genericMethod.Invoke(null, new object[] { jsonObj[field.Name], customConverters, true, dataAlreadyTryingToConvert });
+                        value = genericMethod.Invoke(null, new object[] { jsonObj[field.Name], customConverters, allowUndefinedConversions, dataAlreadyTryingToConvert });
                     }
                     catch (Exception e)
                     {
-                        throw new Exception("Could not convert " + jsonValueType.Name + " to type " + fieldType.Name + " for field " + field.Name + " in type " + returnType.Name +
-                            ". Exception: " + e);
+                        throw new AggregateException("Could not convert " + jsonValueType.Name + " to type " + fieldType.Name + " for field " + field.Name + " in type " + returnType.Name, e);
                     }
-
                     field.SetValue(obj, value);
                     dataAlreadyTryingToConvert.Remove(jsonValue);
                 }
@@ -591,7 +611,7 @@ namespace PAC.Json
                 {
                     if (!jsonObj.ContainsKey(property.Name))
                     {
-                        throw new Exception("No auto property found with identifier " + property + " in JSON object.");
+                        throw new SerializationException("No auto property found with identifier " + property + " in JSON object.");
                     }
 
                     JsonData jsonValue = jsonObj[property.Name];
@@ -599,8 +619,8 @@ namespace PAC.Json
                     // Check for circular JSON data references
                     if (dataAlreadyTryingToConvert.Contains(jsonValue))
                     {
-                        throw new Exception("Cannot convert JSON data with circular object references; consider writing a custom converter. The circular reference was found with JSON data type " +
-                                    jsonDataType.Name + " which occurs in the auto property " + property.Name + " of type " + returnType.Name);
+                        throw new SerializationException("Cannot convert JSON data with circular object references; consider writing a custom converter. The circular reference was found with" +
+                            "JSON data type " + jsonDataType.Name + " which occurs in the auto property " + property.Name + " of type " + returnType.Name);
                     }
                     dataAlreadyTryingToConvert.Add(jsonValue);
 
@@ -613,12 +633,11 @@ namespace PAC.Json
                     object value;
                     try
                     {
-                        value = genericMethod.Invoke(null, new object[] { jsonObj[property.Name], customConverters, true, dataAlreadyTryingToConvert });
+                        value = genericMethod.Invoke(null, new object[] { jsonObj[property.Name], customConverters, allowUndefinedConversions, dataAlreadyTryingToConvert });
                     }
                     catch (Exception e)
                     {
-                        throw new Exception("Could not convert " + jsonValueType.Name + " to type " + fieldType.Name + " for auto property " + property.Name + " in type " + returnType.Name +
-                            ". Exception: " + e);
+                        throw new AggregateException("Could not convert " + jsonValueType.Name + " to type " + fieldType.Name + " for auto property " + property.Name + " in type " + returnType.Name, e);
                     }
 
                     property.SetValue(obj, value);
@@ -631,10 +650,10 @@ namespace PAC.Json
                     Debug.LogWarning("There were unused identifiers in the JSON object when converting to type " + returnType.Name);
                 }
 
-                return obj;
+                return (T)obj;
             }
 
-            throw new Exception("Unknown / unimplemented JSON data type: " + jsonDataType.Name);
+            throw new ArgumentException("Unknown / unimplemented JSON data type: " + jsonDataType.Name, "jsonData");
         }
     }
 }
