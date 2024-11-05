@@ -1,14 +1,14 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using PAC.JSON;
+using PAC.Json;
 
 namespace PAC.KeyboardShortcuts
 {
     /// <summary>
     /// A class to represent a single keyboard shortcut.
     /// </summary>
-    public class KeyboardShortcut : IJSONable<KeyboardShortcut>
+    public class KeyboardShortcut
     {
         /// <summary>The keycodes in this shortcut, kept in the order they would be read.</summary>
         public List<CustomKeyCode> keyCodes { get; private set; } = new List<CustomKeyCode>();
@@ -180,7 +180,7 @@ namespace PAC.KeyboardShortcuts
         /// </summary>
         private void Sort()
         {
-            keyCodes.Sort(delegate (CustomKeyCode keyCode1, CustomKeyCode keyCode2) { return CompareKeyCodes(keyCode1, keyCode2); });
+            keyCodes.Sort((CustomKeyCode keyCode1, CustomKeyCode keyCode2) => CompareKeyCodes(keyCode1, keyCode2));
         }
         private int CompareKeyCodes(CustomKeyCode keyCode1, CustomKeyCode keyCode2)
         {
@@ -255,14 +255,24 @@ namespace PAC.KeyboardShortcuts
         {
             return keyCodes.ToArray();
         }
+    }
 
-        public JSON.JSON ToJSON()
+    /// <summary>
+    /// Custom JSON converter for KeyboardShortcut.
+    /// </summary>
+    public class KeyboardShortcutJsonConverter : IJsonConverter<KeyboardShortcut, JsonList>
+    {
+        private JsonConverterSet converters = new JsonConverterSet(new CustomKeyCodeJsonConverter());
+
+        public override JsonList ToJson(KeyboardShortcut keyboardShortcut)
         {
-            JSON.JSON json = new JSON.JSON();
+            return (JsonList)JsonConverter.ToJson(keyboardShortcut.keyCodes, converters, false);
+        }
 
-            json.Add("keyCodes", from keyCode in keyCodes select keyCode.displayName, false);
-
-            return json;
+        public override KeyboardShortcut FromJson(JsonList jsonData)
+        {
+            CustomKeyCode[] keyCodes = JsonConverter.FromJson<CustomKeyCode[]>(jsonData, converters);
+            return new KeyboardShortcut(keyCodes);
         }
     }
 }
