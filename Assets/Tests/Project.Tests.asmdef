@@ -4,9 +4,10 @@
     "references": [
         "UnityEngine.TestRunner",
         "UnityEditor.TestRunner",
+        "Project.Exceptions",
         "Project.Json",
         "Project.Extensions.JsonConverters",
-        "Project.Exceptions"
+        "Project.Extensions.TypeExtensions"
     ],
     "includePlatforms": [
         "Editor"
