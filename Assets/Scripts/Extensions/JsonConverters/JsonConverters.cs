@@ -15,9 +15,9 @@ namespace PAC.Extensions
         /// </summary>
         public class Vector2JsonConverter : IJsonConverter<Vector2, JsonList>
         {
-            public override JsonList ToJson(Vector2 obj)
+            public override JsonList ToJson(Vector2 vec)
             {
-                return new JsonList { new JsonFloat(obj.x), new JsonFloat(obj.y) };
+                return new JsonList { new JsonFloat(vec.x), new JsonFloat(vec.y) };
             }
 
             public override Vector2 FromJson(JsonList jsonData)
