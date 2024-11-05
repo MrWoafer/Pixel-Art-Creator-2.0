@@ -24,6 +24,9 @@ namespace PAC.Tests
             Value2
         }
 
+        /// <summary>
+        /// Checks that the Type.IsStruct() extension method correctly identifies if a type is a struct or not.
+        /// </summary>
         [Test]
         [Category("Extensions")]
         public void IsStruct()
@@ -34,6 +37,9 @@ namespace PAC.Tests
             Assert.False(typeof(int).IsStruct());
         }
 
+        /// <summary>
+        /// Checks that the Type.IsGenericList() extension method works correctly.
+        /// </summary>
         [Test]
         [Category("Extensions")]
         public void IsGenericList()
@@ -44,6 +50,9 @@ namespace PAC.Tests
             Assert.False(typeof(int[]).IsGenericList());
         }
 
+        /// <summary>
+        /// Checks that the Type.IsRawGeneric() extension method works correctly.
+        /// </summary>
         [Test]
         [Category("Extensions")]
         public void IsRawGeneric()
@@ -69,6 +78,9 @@ namespace PAC.Tests
             public bool flag;
         }
 
+        /// <summary>
+        /// Checks that the Type.IsSubclassOfRawGeneric() extension method works correctly.
+        /// </summary>
         [Test]
         [Category("Extensions")]
         public void IsSubclassOfRawGeneric()
@@ -81,9 +93,14 @@ namespace PAC.Tests
             Assert.False(typeof(Class4).IsSubclassOfRawGeneric(typeof(List<>)));
             Assert.Throws<ArgumentException>(() => typeof(Class4).IsSubclassOfRawGeneric(typeof(Class2<int>)));
 
+            Assert.True(typeof(Class2<int>).IsSubclassOfRawGeneric(typeof(Class2<>)));
+            Assert.True(typeof(Class2<>).IsSubclassOfRawGeneric(typeof(Class2<>)));
             Assert.Throws<ArgumentException>(() => typeof(Class4).IsSubclassOfRawGeneric(typeof(Class3)));
         }
 
+        /// <summary>
+        /// Checks that the Type.GetTypeOfRawGenericSuperclass() extension method works correctly.
+        /// </summary>
         [Test]
         [Category("Extensions")]
         public void GetTypeOfRawGenericSuperclass()
@@ -96,6 +113,8 @@ namespace PAC.Tests
             Assert.Throws<ArgumentException>(() => typeof(Class4).GetTypeOfRawGenericSuperclass(typeof(Class2<int>)));
             Assert.Throws<ArgumentException>(() => typeof(Class4).GetTypeOfRawGenericSuperclass(typeof(List<>)));
 
+            Assert.AreEqual(typeof(Class2<int>).GetTypeOfRawGenericSuperclass(typeof(Class2<>)), typeof(Class2<int>));
+            Assert.AreEqual(typeof(Class2<>).GetTypeOfRawGenericSuperclass(typeof(Class2<>)), typeof(Class2<>));
             Assert.Catch(() => typeof(Class4).GetTypeOfRawGenericSuperclass(typeof(Class3)));
         }
 
@@ -125,6 +144,9 @@ namespace PAC.Tests
             public int prop4 { get; } = 6;
         }
 
+        /// <summary>
+        /// Checks that the PropertyInfo.IsAutoProperty() extension method correctly identifies if a property is an auto property or not.
+        /// </summary>
         [Test]
         [Category("Extensions")]
         public void IsAutoProperty()

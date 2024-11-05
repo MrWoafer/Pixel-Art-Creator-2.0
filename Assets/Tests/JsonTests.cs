@@ -577,6 +577,9 @@ namespace PAC.Tests
             Assert.AreEqual(JsonConverter.FromJson<ComplexNumber>(withConverter, converters, true), expectedObj);
         }
 
+        /// <summary>
+        /// Checks that JsonString.ToJsonString() correctly escapes escaped characters.
+        /// </summary>
         [Test]
         [Category("JSON")]
         public void ToJsonStringEscapedCharacters()
@@ -587,6 +590,9 @@ namespace PAC.Tests
             Assert.AreEqual(new JsonString(str).ToJsonString(false), expected);
         }
 
+        /// <summary>
+        /// Checks that JsonString.Parse() correctly parses escaped characters.
+        /// </summary>
         [Test]
         [Category("JSON")]
         public void ParseEscapedCharacters()
@@ -603,6 +609,9 @@ namespace PAC.Tests
             Assert.Throws<FormatException>(() => JsonString.Parse("\"\\uA32\""));
         }
 
+        /// <summary>
+        /// Checks JsonInts are parsed correctly.
+        /// </summary>
         [Test]
         [Category("JSON")]
         public void ParseInt()
@@ -619,6 +628,9 @@ namespace PAC.Tests
             Assert.Throws<FormatException>(() => JsonInt.Parse("356abc"));
         }
 
+        /// <summary>
+        /// Checks JsonFloats are parsed correctly.
+        /// </summary>
         [Test]
         [Category("JSON")]
         public void ParseFloat()
@@ -635,6 +647,9 @@ namespace PAC.Tests
             Assert.Throws<FormatException>(() => JsonFloat.Parse("356.5abc"));
         }
 
+        /// <summary>
+        /// Checks JsonInts are parsed correctly in E notation.
+        /// </summary>
         [Test]
         [Category("JSON")]
         public void ParseIntENotation()
@@ -656,6 +671,9 @@ namespace PAC.Tests
             Assert.Throws<OverflowException>(() => JsonInt.Parse("2e" + int.MaxValue));
         }
 
+        /// <summary>
+        /// Checks JsonFloats are parsed correctly in E Notation.
+        /// </summary>
         [Test]
         [Category("JSON")]
         public void ParseFloatENotation()
@@ -680,6 +698,9 @@ namespace PAC.Tests
             Assert.Throws<UnderflowException>(() => JsonFloat.Parse("2.0e" + int.MinValue));
         }
 
+        /// <summary>
+        /// Checks that when JsonFloat.ToJsonString() always includes a decimal point.
+        /// </summary>
         [Test]
         [Category("JSON")]
         public void ToJsonStringFloat()
@@ -688,13 +709,22 @@ namespace PAC.Tests
             Assert.AreEqual(new JsonFloat(4f).ToJsonString(false), "4.0");
         }
 
+        /// <summary>
+        /// Checks that a JSON string cannot hold a null value.
+        /// </summary>
         [Test]
         [Category("JSON")]
         public void JsonStringNull()
         {
             Assert.Throws<ArgumentException>(() => new JsonString(null));
+
+            JsonString jsonString = new JsonString("");
+            Assert.Throws<ArgumentException>(() => jsonString.value = null);
         }
 
+        /// <summary>
+        /// Checks that JSON strings, lists and objects handle parsing null values correctly.
+        /// </summary>
         [Test]
         [Category("JSON")]
         public void ParseNull()
@@ -708,6 +738,9 @@ namespace PAC.Tests
             Assert.True(JsonData.HaveSameData(JsonObj.ParseMaybeNull("{}"), new JsonObj()));
         }
 
+        /// <summary>
+        /// Checks that empty JSON lists/objects are parsed correctly.
+        /// </summary>
         [Test]
         [Category("JSON")]
         public void ParseEmpty()
