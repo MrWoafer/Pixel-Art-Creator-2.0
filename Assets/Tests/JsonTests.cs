@@ -163,7 +163,7 @@ namespace PAC.Tests
 
             Class1 convertedObj = JsonConverter.FromJson<Class1>(jsonObj, true);
 
-            Assert.AreEqual(convertedObj, expectedObj);
+            Assert.AreEqual(expectedObj, convertedObj);
         }
 
         /// <summary>
@@ -216,7 +216,7 @@ namespace PAC.Tests
                 "}"
                 ;
 
-            Assert.AreEqual(jsonObj.ToJsonString(true), jsonString);
+            Assert.AreEqual(jsonString, jsonObj.ToJsonString(true));
         }
 
         /// <summary>
@@ -567,12 +567,12 @@ namespace PAC.Tests
             // Without converter
             Assert.Catch(() => JsonConverter.FromJson<ComplexNumber>(withoutConverter, false));
             Assert.Catch(() => JsonConverter.FromJson<ComplexNumber>(withConverter, true));
-            Assert.AreEqual(JsonConverter.FromJson<ComplexNumber>(withoutConverter, true), expectedObj);
+            Assert.AreEqual(expectedObj, JsonConverter.FromJson<ComplexNumber>(withoutConverter, true));
 
             // With converter
             Assert.Catch(() => JsonConverter.FromJson<ComplexNumber>(withoutConverter, converters, true));
-            Assert.AreEqual(JsonConverter.FromJson<ComplexNumber>(withConverter, converters, false), expectedObj);
-            Assert.AreEqual(JsonConverter.FromJson<ComplexNumber>(withConverter, converters, true), expectedObj);
+            Assert.AreEqual(expectedObj, JsonConverter.FromJson<ComplexNumber>(withConverter, converters, false));
+            Assert.AreEqual(expectedObj, JsonConverter.FromJson<ComplexNumber>(withConverter, converters, true));
         }
 
         /// <summary>
@@ -585,7 +585,7 @@ namespace PAC.Tests
             string str = "\" \\ / \b \f \n \r \t \u03b5 \u03B5";
             string expected = "\"\\\" \\\\ \\/ \\b \\f \\n \\r \\t " + @"\u03B5 \u03B5" + "\"";
 
-            Assert.AreEqual(new JsonString(str).ToJsonString(false), expected);
+            Assert.AreEqual(expected, new JsonString(str).ToJsonString(false));
         }
 
         /// <summary>
@@ -598,7 +598,7 @@ namespace PAC.Tests
             string str = "\"\\\" \\\\ \\/ \\b \\f \\n \\r \\t " + @"\u03b5 \u03B5" + "\"";
             string expected = "\" \\ / \b \f \n \r \t \u03B5 \u03B5";
 
-            Assert.AreEqual(JsonString.Parse(str).value, expected);
+            Assert.AreEqual(expected, JsonString.Parse(str).value);
 
             // Should error as there is no escaped character after the \
             Assert.Throws<FormatException>(() => JsonString.Parse("\"hello \\\""));
@@ -614,8 +614,8 @@ namespace PAC.Tests
         [Category("JSON")]
         public void ParseInt()
         {
-            Assert.AreEqual(JsonInt.Parse("39").value, 39);
-            Assert.AreEqual(JsonInt.Parse("-39").value, -39);
+            Assert.AreEqual(39, JsonInt.Parse("39").value);
+            Assert.AreEqual(-39, JsonInt.Parse("-39").value);
             // Not allowed decimal point
             Assert.Throws<FormatException>(() => JsonInt.Parse("47.2"));
             // - followed by nothing
@@ -634,7 +634,7 @@ namespace PAC.Tests
         public void ParseFloat()
         {
             Assert.AreEqual(JsonFloat.Parse("3.259").value, 3.259, 0.0005f);
-            Assert.AreEqual(JsonFloat.Parse("-3").value, -3f);
+            Assert.AreEqual(-3f, JsonFloat.Parse("-3").value);
             // Not allowed two decimal points
             Assert.Throws<FormatException>(() => JsonFloat.Parse("47.2.4"));
             // - followed by nothing
@@ -652,9 +652,9 @@ namespace PAC.Tests
         [Category("JSON")]
         public void ParseIntENotation()
         {
-            Assert.AreEqual(JsonInt.Parse("-39E2").value, -3900);
-            Assert.AreEqual(JsonInt.Parse("-39E+2").value, -3900);
-            Assert.AreEqual(JsonInt.Parse("39E0").value, 39);
+            Assert.AreEqual(-3900, JsonInt.Parse("-39E2").value);
+            Assert.AreEqual(-3900, JsonInt.Parse("-39E+2").value);
+            Assert.AreEqual(39, JsonInt.Parse("39E0").value);
             // Not allowed negative exponent
             Assert.Throws<FormatException>(() => JsonInt.Parse("47000e-2"));
             // Not allowed decimal exponent
@@ -703,8 +703,8 @@ namespace PAC.Tests
         [Category("JSON")]
         public void ToJsonStringFloat()
         {
-            Assert.AreEqual(new JsonFloat(-3.2f).ToJsonString(false), "-3.2");
-            Assert.AreEqual(new JsonFloat(4f).ToJsonString(false), "4.0");
+            Assert.AreEqual("-3.2", new JsonFloat(-3.2f).ToJsonString(false));
+            Assert.AreEqual("4.0", new JsonFloat(4f).ToJsonString(false));
         }
 
         /// <summary>
