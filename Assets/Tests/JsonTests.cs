@@ -3,9 +3,7 @@ using System.Collections.Generic;
 using NUnit.Framework;
 using PAC.Json;
 using System.Linq;
-using UnityEngine;
 using PAC.Exceptions;
-using System.Net.Http.Headers;
 
 namespace PAC.Tests
 {
