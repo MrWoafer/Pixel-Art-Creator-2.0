@@ -1,6 +1,7 @@
 using System;
 using NUnit.Framework;
 using PAC.Files;
+using PAC.Json;
 
 namespace PAC.Tests
 {
@@ -13,6 +14,7 @@ namespace PAC.Tests
         /// Checks that major, minor and patch cannot be negative for SemanticVersion.
         /// </summary>
         [Test]
+        [Category("Data Structures")]
         public void NonNegative()
         {
             Assert.Throws<ArgumentException>(() => new SemanticVersion(-1, 2, 3));
@@ -26,6 +28,7 @@ namespace PAC.Tests
         /// Tests the == and != operators for SemanticVersion.
         /// </summary>
         [Test]
+        [Category("Data Structures")]
         public void Equality()
         {
             Assert.True(new SemanticVersion(0, 2, 3) == new SemanticVersion(0, 2, 3));
@@ -45,6 +48,7 @@ namespace PAC.Tests
         /// Tests the &lt;, &gt;, &lt;= and &gt;= operators for SemanticVersion.
         /// </summary>
         [Test]
+        [Category("Data Structures")]
         public void Inequality()
         {
             Assert.True(new SemanticVersion(0, 1, 5) < new SemanticVersion(1, 0, 0));
@@ -68,6 +72,7 @@ namespace PAC.Tests
         /// Tests the - operator for SemanticVersion.
         /// </summary>
         [Test]
+        [Category("Data Structures")]
         public void Minus()
         {
             Assert.AreEqual(new SemanticVersion(1, 0, 0), new SemanticVersion(2, 4, 3) - new SemanticVersion(1, 6, 10));
@@ -84,11 +89,75 @@ namespace PAC.Tests
         /// Tests SemanticVersion.ToString().
         /// </summary>
         [Test]
+        [Category("Data Structures")]
         public new void ToString()
         {
             Assert.AreEqual(new SemanticVersion(1, 4, 3).ToString(), "1.4.3");
             Assert.AreEqual(new SemanticVersion(0, 2, 0).ToString(), "0.2.0");
             Assert.AreEqual(new SemanticVersion(100, 0, 3).ToString(), "100.0.3");
+        }
+
+        /// <summary>
+        /// Checks that ToJson() works properly for the custom JSON converter for type KeyboardShortcut.
+        /// </summary>
+        [Test]
+        [Category("JSON"), Category("Data Structures")]
+        public void SemanticVersionToJson()
+        {
+            JsonConverterSet converters = new JsonConverterSet(new SemanticVersionJsonConverter());
+
+            (SemanticVersion, JsonData)[] testCases =
+            {
+                (new SemanticVersion(0, 0, 0), new JsonString("0.0.0")),
+                (new SemanticVersion(1, 4, 3), new JsonString("1.4.3")),
+                (new SemanticVersion(410, 24, 19), new JsonString("410.24.19")),
+                (new SemanticVersion(4, 0, 10), new JsonString("4.0.10"))
+            };
+
+            foreach ((SemanticVersion version, JsonData expected) in testCases)
+            {
+                Assert.True(JsonData.HaveSameData(JsonConverter.ToJson(version, converters, false), expected));
+            }
+        }
+
+        /// <summary>
+        /// Checks that FromJson() works properly for the custom JSON converter for type KeyboardShortcut.
+        /// </summary>
+        [Test]
+        [Category("JSON"), Category("Data Structures")]
+        public void SemanticVersionFromJson()
+        {
+            JsonConverterSet converters = new JsonConverterSet(new SemanticVersionJsonConverter());
+
+            (SemanticVersion, JsonData)[] testCases =
+            {
+                (new SemanticVersion(0, 0, 0), new JsonString("0.0.0")),
+                (new SemanticVersion(1, 4, 3), new JsonString("1.4.3")),
+                (new SemanticVersion(410, 24, 19), new JsonString("410.24.19")),
+                (new SemanticVersion(4, 0, 10), new JsonString("4.0.10"))
+            };
+
+            foreach ((SemanticVersion expected, JsonData jsonData) in testCases)
+            {
+                Assert.AreEqual(expected, JsonConverter.FromJson<SemanticVersion>(jsonData, converters, false));
+            }
+
+            Assert.Catch(() => JsonConverter.FromJson<SemanticVersion>(new JsonString(""), converters, false));
+            Assert.Catch(() => JsonConverter.FromJson<SemanticVersion>(new JsonString("12"), converters, false));
+            Assert.Catch(() => JsonConverter.FromJson<SemanticVersion>(new JsonString("12."), converters, false));
+            Assert.Catch(() => JsonConverter.FromJson<SemanticVersion>(new JsonString("12.0"), converters, false));
+            Assert.Catch(() => JsonConverter.FromJson<SemanticVersion>(new JsonString("12.0."), converters, false));
+            Assert.Catch(() => JsonConverter.FromJson<SemanticVersion>(new JsonString("12.0.6."), converters, false));
+            Assert.Catch(() => JsonConverter.FromJson<SemanticVersion>(new JsonString("12.0.6.2"), converters, false));
+            Assert.Catch(() => JsonConverter.FromJson<SemanticVersion>(new JsonString("12.0.6 "), converters, false));
+            Assert.Catch(() => JsonConverter.FromJson<SemanticVersion>(new JsonString(" 12.0.6"), converters, false));
+            Assert.Catch(() => JsonConverter.FromJson<SemanticVersion>(new JsonString("12 .0.6"), converters, false));
+            Assert.Catch(() => JsonConverter.FromJson<SemanticVersion>(new JsonString("12.0.b"), converters, false));
+            Assert.Catch(() => JsonConverter.FromJson<SemanticVersion>(new JsonString("12.0.12b"), converters, false));
+
+            Assert.Catch(() => JsonConverter.FromJson<SemanticVersion>(new JsonString("-1.3.6"), converters, false));
+            Assert.Catch(() => JsonConverter.FromJson<SemanticVersion>(new JsonString("1.-3.6"), converters, false));
+            Assert.Catch(() => JsonConverter.FromJson<SemanticVersion>(new JsonString("1.3.-6"), converters, false));
         }
     }
 }
