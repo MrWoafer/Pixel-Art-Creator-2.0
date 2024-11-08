@@ -1,7 +1,7 @@
 using PAC.Json;
 using System;
 
-namespace PAC.Files
+namespace PAC.DataStructures
 {
     public struct SemanticVersion
     {

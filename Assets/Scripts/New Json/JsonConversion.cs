@@ -577,7 +577,14 @@ namespace PAC.Json
         {
             private Dictionary<Type, object> converters = new Dictionary<Type, object>();
 
+            /// <summary>
+            /// Creates an empty JsonConverterSet.
+            /// </summary>
             public JsonConverterSet() { }
+            /// <summary>
+            /// Creates a JsonConverterSet with the given converters. Throws an error if an object is not a type that implements JsonConverter, or if the set already contains a converter for the
+            /// type a converter converts.
+            /// </summary>
             public JsonConverterSet(params object[] converters)
             {
                 foreach (object converter in converters)

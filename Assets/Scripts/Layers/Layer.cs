@@ -1,7 +1,10 @@
+using System;
 using System.Collections.Generic;
+using System.Runtime.Serialization;
 using PAC.Animation;
 using PAC.Colour;
 using PAC.DataStructures;
+using PAC.Json;
 using PAC.JSON;
 using UnityEngine;
 using UnityEngine.Events;
@@ -23,7 +26,7 @@ namespace PAC.Layers
     /// <summary>
     /// An abstract class to define what each type of layer must have.
     /// </summary>
-    public abstract class Layer : IJSONable<Layer>
+    public abstract class Layer
     {
         public abstract LayerType layerType { get; }
 
@@ -269,35 +272,6 @@ namespace PAC.Layers
             onPixelsChanged.Invoke(rect.points, keyFrameIndices);
         }
 
-        public abstract JSON.JSON ToJSON();
-        protected abstract void LoadJSON(JSON.JSON json);
-        public static Layer FromJSON(JSON.JSON json)
-        {
-            if (int.Parse(json[".pacVersion"]) < 8)
-            {
-                NormalLayer layer = new NormalLayer("", 1, 1);
-                layer.LoadJSON(json);
-                return layer;
-            }
-            else
-            {
-                if (json["layerType"] == "normal")
-                {
-                    return NormalLayer.FromJSON(json);
-                }
-                else if (json["layerType"] == "tile")
-                {
-                    TileLayer layer = new TileLayer("", 1, 1);
-                    layer.LoadJSON(json);
-                    return layer;
-                }
-                else
-                {
-                    throw new System.Exception("Unknown / unimplemented layer type: " + json["layerType"]);
-                }
-            }
-        }
-
 
         /// Animation
 
@@ -461,6 +435,47 @@ namespace PAC.Layers
         public void SubscribeToOnKeyFrameRemoved(UnityAction<int> call)
         {
             onKeyFrameRemoved.AddListener(call);
+        }
+
+        public static JsonConversion.JsonConverterSet GetJsonConverterSet(SemanticVersion fromJsonFileFormatVersion)
+        {
+            return new JsonConversion.JsonConverterSet(
+                new NormalLayer.JsonConverter(fromJsonFileFormatVersion),
+                new TileLayer.JsonConverter(fromJsonFileFormatVersion)
+                );
+        }
+
+        public class JsonConverter : JsonConversion.JsonConverter<Layer, JsonObj>
+        {
+            private SemanticVersion fromJsonFileFormatVersion;
+
+            public JsonConverter(SemanticVersion fromJsonFileFormatVersion)
+            {
+                this.fromJsonFileFormatVersion = fromJsonFileFormatVersion;
+            }
+
+            /// <summary>
+            /// This currently can't be used since JsonConversion.ToJson() only works on concrete types, but Layer is abstract so you cannot have an object without concrete type Layer.
+            /// </summary>
+            /// <exception cref="NotImplementedException"></exception>
+            public override JsonObj ToJson(Layer obj)
+            {
+                throw new NotImplementedException();
+            }
+
+            public override Layer FromJson(JsonObj jsonData)
+            {
+                string layerType = JsonConversion.FromJson<string>(jsonData["layer type"]).ToLower();
+                if (layerType == "normal")
+                {
+                    return JsonConversion.FromJson<NormalLayer>(jsonData, new JsonConversion.JsonConverterSet(new NormalLayer.JsonConverter(fromJsonFileFormatVersion)), false);
+                }
+                if (layerType == "tile")
+                {
+                    return JsonConversion.FromJson<NormalLayer>(jsonData, new JsonConversion.JsonConverterSet(new NormalLayer.JsonConverter(fromJsonFileFormatVersion)), false);
+                }
+                throw new SerializationException("Unknown / unimplemented layer type: " + layerType);
+            }
         }
     }
 }

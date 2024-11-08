@@ -3,6 +3,7 @@ using System.Linq;
 using PAC.Animation;
 using PAC.Colour;
 using PAC.DataStructures;
+using PAC.Json;
 using PAC.JSON;
 using PAC.Tilesets;
 using UnityEngine;
@@ -12,7 +13,7 @@ namespace PAC.Layers
     /// <summary>
     /// A class to represent a tile layer - one for placing and editing tileset tiles.
     /// </summary>
-    public class TileLayer : Layer, IJSONable<TileLayer>
+    public class TileLayer : Layer
     {
         public override LayerType layerType => LayerType.Tile;
 
@@ -385,15 +386,6 @@ namespace PAC.Layers
             RerenderKeyFrames();
         }
 
-        public override JSON.JSON ToJSON() { throw new System.NotImplementedException("ToJSON() has not yet been implemented for TileLayer."); }
-        public static new TileLayer FromJSON(JSON.JSON json)
-        {
-            TileLayer layer = new TileLayer("", 1, 1);
-            layer.LoadJSON(json);
-            return layer;
-        }
-        protected override void LoadJSON(JSON.JSON json) { throw new System.NotImplementedException("LoadJSON() has not yet been implemented for TileLayer."); }
-
         protected override AnimationKeyFrame DeleteKeyFrameNoEvent(int keyframe)
         {
             if (HasKeyFrameAt(keyframe))
@@ -533,6 +525,26 @@ namespace PAC.Layers
             {
                 RerenderKeyFrames(previousRect);
                 RerenderKeyFrames(tile.rect);
+            }
+        }
+
+        public new class JsonConverter : JsonConversion.JsonConverter<TileLayer, JsonObj>
+        {
+            private SemanticVersion fromJsonFileFormatVersion;
+
+            public JsonConverter(SemanticVersion fromJsonFileFormatVersion)
+            {
+                this.fromJsonFileFormatVersion = fromJsonFileFormatVersion;
+            }
+
+            public override JsonObj ToJson(TileLayer layer)
+            {
+                throw new System.NotImplementedException();
+            }
+
+            public override TileLayer FromJson(JsonObj jsonData)
+            {
+                throw new System.NotImplementedException();
             }
         }
     }
