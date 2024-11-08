@@ -5,6 +5,9 @@ using UnityEngine;
 
 namespace PAC.Tests
 {
+    /// <summary>
+    /// Tests the 'JsonConversion.JsonConverter's in the JsonConverters class.
+    /// </summary>
     public class JsonConvertersTests
     {
         /// <summary>

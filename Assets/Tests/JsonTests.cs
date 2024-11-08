@@ -7,6 +7,9 @@ using PAC.Exceptions;
 
 namespace PAC.Tests
 {
+    /// <summary>
+    /// Tests the JSON system.
+    /// </summary>
     public class JsonTests
     {
         private class Class1

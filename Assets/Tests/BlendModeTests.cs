@@ -4,6 +4,9 @@ using PAC.Json;
 
 namespace PAC.Tests
 {
+    /// <summary>
+    /// Tests the BlendMode class.
+    /// </summary>
     public class BlendModeTests
     {
         /// <summary>

@@ -5,6 +5,9 @@ using UnityEngine;
 
 namespace PAC.Tests
 {
+    /// <summary>
+    /// Tests the KeyboardShortcut and CustomKeyCode classes.
+    /// </summary>
     public class KeyboardShortcutTests
     {
         /// <summary>
