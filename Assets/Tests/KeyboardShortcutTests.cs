@@ -14,7 +14,7 @@ namespace PAC.Tests
         [Category("JSON"), Category("Keyboard Shortcuts")]
         public void CustomKeyCodeToJson()
         {
-            JsonConverterSet converters = new JsonConverterSet(new CustomKeyCodeJsonConverter());
+            JsonConversion.JsonConverterSet converters = new JsonConversion.JsonConverterSet(new CustomKeyCodeJsonConverter());
 
             (CustomKeyCode, JsonData)[] testCases =
             {
@@ -27,7 +27,7 @@ namespace PAC.Tests
 
             foreach ((CustomKeyCode keyCode, JsonData expected) in testCases)
             {
-                Assert.True(JsonData.HaveSameData(JsonConverter.ToJson(keyCode, converters, false), expected));
+                Assert.True(JsonData.HaveSameData(JsonConversion.ToJson(keyCode, converters, false), expected));
             }
         }
 
@@ -38,7 +38,7 @@ namespace PAC.Tests
         [Category("JSON"), Category("Keyboard Shortcuts")]
         public void CustomKeyCodeFromJson()
         {
-            JsonConverterSet converters = new JsonConverterSet(new CustomKeyCodeJsonConverter());
+            JsonConversion.JsonConverterSet converters = new JsonConversion.JsonConverterSet(new CustomKeyCodeJsonConverter());
 
             (CustomKeyCode, JsonData)[] testCases =
             {
@@ -51,7 +51,7 @@ namespace PAC.Tests
 
             foreach ((CustomKeyCode expected, JsonData jsonData) in testCases)
             {
-                Assert.AreEqual(expected, JsonConverter.FromJson<CustomKeyCode>(jsonData, converters, false));
+                Assert.AreEqual(expected, JsonConversion.FromJson<CustomKeyCode>(jsonData, converters, false));
             }
         }
 
@@ -62,7 +62,7 @@ namespace PAC.Tests
         [Category("JSON"), Category("Keyboard Shortcuts")]
         public void KeyboardShortcutToJson()
         {
-            JsonConverterSet converters = new JsonConverterSet(new KeyboardShortcutJsonConverter());
+            JsonConversion.JsonConverterSet converters = new JsonConversion.JsonConverterSet(new KeyboardShortcutJsonConverter());
 
             (KeyboardShortcut, JsonData)[] testCases =
             {
@@ -75,7 +75,7 @@ namespace PAC.Tests
 
             foreach ((KeyboardShortcut keyboardShortcut, JsonData expected) in testCases)
             {
-                Assert.True(JsonData.HaveSameData(JsonConverter.ToJson(keyboardShortcut, converters, false), expected));
+                Assert.True(JsonData.HaveSameData(JsonConversion.ToJson(keyboardShortcut, converters, false), expected));
             }
         }
 
@@ -86,7 +86,7 @@ namespace PAC.Tests
         [Category("JSON"), Category("Keyboard Shortcuts")]
         public void KeyboardShortcutFromJson()
         {
-            JsonConverterSet converters = new JsonConverterSet(new KeyboardShortcutJsonConverter());
+            JsonConversion.JsonConverterSet converters = new JsonConversion.JsonConverterSet(new KeyboardShortcutJsonConverter());
 
             (KeyboardShortcut, JsonData)[] testCases =
             {
@@ -99,7 +99,7 @@ namespace PAC.Tests
 
             foreach ((KeyboardShortcut expected, JsonData jsonData) in testCases)
             {
-                Assert.AreEqual(expected, JsonConverter.FromJson<KeyboardShortcut>(jsonData, converters, false));
+                Assert.AreEqual(expected, JsonConversion.FromJson<KeyboardShortcut>(jsonData, converters, false));
             }
         }
     }

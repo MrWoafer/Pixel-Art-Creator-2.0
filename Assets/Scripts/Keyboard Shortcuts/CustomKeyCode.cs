@@ -227,7 +227,7 @@ namespace PAC.KeyboardShortcuts
     /// <summary>
     /// Custom JSON converter for CustomKeyCode.
     /// </summary>
-    public class CustomKeyCodeJsonConverter : IJsonConverter<CustomKeyCode, JsonString>
+    public class CustomKeyCodeJsonConverter : JsonConversion.JsonConverter<CustomKeyCode, JsonString>
     {
         public override JsonString ToJson(CustomKeyCode keyCode)
         {

@@ -183,7 +183,7 @@ namespace PAC.Files
         }
     }
 
-    public class SemanticVersionJsonConverter : IJsonConverter<SemanticVersion, JsonString>
+    public class SemanticVersionJsonConverter : JsonConversion.JsonConverter<SemanticVersion, JsonString>
     {
         public override JsonString ToJson(SemanticVersion version)
         {

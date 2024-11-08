@@ -260,18 +260,18 @@ namespace PAC.KeyboardShortcuts
     /// <summary>
     /// Custom JSON converter for KeyboardShortcut.
     /// </summary>
-    public class KeyboardShortcutJsonConverter : IJsonConverter<KeyboardShortcut, JsonList>
+    public class KeyboardShortcutJsonConverter : JsonConversion.JsonConverter<KeyboardShortcut, JsonList>
     {
-        private JsonConverterSet converters = new JsonConverterSet(new CustomKeyCodeJsonConverter());
+        private JsonConversion.JsonConverterSet converters = new JsonConversion.JsonConverterSet(new CustomKeyCodeJsonConverter());
 
         public override JsonList ToJson(KeyboardShortcut keyboardShortcut)
         {
-            return (JsonList)JsonConverter.ToJson(keyboardShortcut.keyCodes, converters, false);
+            return (JsonList)JsonConversion.ToJson(keyboardShortcut.keyCodes, converters, false);
         }
 
         public override KeyboardShortcut FromJson(JsonList jsonData)
         {
-            CustomKeyCode[] keyCodes = JsonConverter.FromJson<CustomKeyCode[]>(jsonData, converters);
+            CustomKeyCode[] keyCodes = JsonConversion.FromJson<CustomKeyCode[]>(jsonData, converters);
             return new KeyboardShortcut(keyCodes);
         }
     }

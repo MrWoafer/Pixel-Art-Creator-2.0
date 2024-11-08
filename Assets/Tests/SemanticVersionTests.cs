@@ -104,7 +104,7 @@ namespace PAC.Tests
         [Category("JSON"), Category("Data Structures")]
         public void SemanticVersionToJson()
         {
-            JsonConverterSet converters = new JsonConverterSet(new SemanticVersionJsonConverter());
+            JsonConversion.JsonConverterSet converters = new JsonConversion.JsonConverterSet(new SemanticVersionJsonConverter());
 
             (SemanticVersion, JsonData)[] testCases =
             {
@@ -116,7 +116,7 @@ namespace PAC.Tests
 
             foreach ((SemanticVersion version, JsonData expected) in testCases)
             {
-                Assert.True(JsonData.HaveSameData(JsonConverter.ToJson(version, converters, false), expected));
+                Assert.True(JsonData.HaveSameData(JsonConversion.ToJson(version, converters, false), expected));
             }
         }
 
@@ -127,7 +127,7 @@ namespace PAC.Tests
         [Category("JSON"), Category("Data Structures")]
         public void SemanticVersionFromJson()
         {
-            JsonConverterSet converters = new JsonConverterSet(new SemanticVersionJsonConverter());
+            JsonConversion.JsonConverterSet converters = new JsonConversion.JsonConverterSet(new SemanticVersionJsonConverter());
 
             (SemanticVersion, JsonData)[] testCases =
             {
@@ -139,25 +139,25 @@ namespace PAC.Tests
 
             foreach ((SemanticVersion expected, JsonData jsonData) in testCases)
             {
-                Assert.AreEqual(expected, JsonConverter.FromJson<SemanticVersion>(jsonData, converters, false));
+                Assert.AreEqual(expected, JsonConversion.FromJson<SemanticVersion>(jsonData, converters, false));
             }
 
-            Assert.Catch(() => JsonConverter.FromJson<SemanticVersion>(new JsonString(""), converters, false));
-            Assert.Catch(() => JsonConverter.FromJson<SemanticVersion>(new JsonString("12"), converters, false));
-            Assert.Catch(() => JsonConverter.FromJson<SemanticVersion>(new JsonString("12."), converters, false));
-            Assert.Catch(() => JsonConverter.FromJson<SemanticVersion>(new JsonString("12.0"), converters, false));
-            Assert.Catch(() => JsonConverter.FromJson<SemanticVersion>(new JsonString("12.0."), converters, false));
-            Assert.Catch(() => JsonConverter.FromJson<SemanticVersion>(new JsonString("12.0.6."), converters, false));
-            Assert.Catch(() => JsonConverter.FromJson<SemanticVersion>(new JsonString("12.0.6.2"), converters, false));
-            Assert.Catch(() => JsonConverter.FromJson<SemanticVersion>(new JsonString("12.0.6 "), converters, false));
-            Assert.Catch(() => JsonConverter.FromJson<SemanticVersion>(new JsonString(" 12.0.6"), converters, false));
-            Assert.Catch(() => JsonConverter.FromJson<SemanticVersion>(new JsonString("12 .0.6"), converters, false));
-            Assert.Catch(() => JsonConverter.FromJson<SemanticVersion>(new JsonString("12.0.b"), converters, false));
-            Assert.Catch(() => JsonConverter.FromJson<SemanticVersion>(new JsonString("12.0.12b"), converters, false));
+            Assert.Catch(() => JsonConversion.FromJson<SemanticVersion>(new JsonString(""), converters, false));
+            Assert.Catch(() => JsonConversion.FromJson<SemanticVersion>(new JsonString("12"), converters, false));
+            Assert.Catch(() => JsonConversion.FromJson<SemanticVersion>(new JsonString("12."), converters, false));
+            Assert.Catch(() => JsonConversion.FromJson<SemanticVersion>(new JsonString("12.0"), converters, false));
+            Assert.Catch(() => JsonConversion.FromJson<SemanticVersion>(new JsonString("12.0."), converters, false));
+            Assert.Catch(() => JsonConversion.FromJson<SemanticVersion>(new JsonString("12.0.6."), converters, false));
+            Assert.Catch(() => JsonConversion.FromJson<SemanticVersion>(new JsonString("12.0.6.2"), converters, false));
+            Assert.Catch(() => JsonConversion.FromJson<SemanticVersion>(new JsonString("12.0.6 "), converters, false));
+            Assert.Catch(() => JsonConversion.FromJson<SemanticVersion>(new JsonString(" 12.0.6"), converters, false));
+            Assert.Catch(() => JsonConversion.FromJson<SemanticVersion>(new JsonString("12 .0.6"), converters, false));
+            Assert.Catch(() => JsonConversion.FromJson<SemanticVersion>(new JsonString("12.0.b"), converters, false));
+            Assert.Catch(() => JsonConversion.FromJson<SemanticVersion>(new JsonString("12.0.12b"), converters, false));
 
-            Assert.Catch(() => JsonConverter.FromJson<SemanticVersion>(new JsonString("-1.3.6"), converters, false));
-            Assert.Catch(() => JsonConverter.FromJson<SemanticVersion>(new JsonString("1.-3.6"), converters, false));
-            Assert.Catch(() => JsonConverter.FromJson<SemanticVersion>(new JsonString("1.3.-6"), converters, false));
+            Assert.Catch(() => JsonConversion.FromJson<SemanticVersion>(new JsonString("-1.3.6"), converters, false));
+            Assert.Catch(() => JsonConversion.FromJson<SemanticVersion>(new JsonString("1.-3.6"), converters, false));
+            Assert.Catch(() => JsonConversion.FromJson<SemanticVersion>(new JsonString("1.3.-6"), converters, false));
         }
     }
 }
