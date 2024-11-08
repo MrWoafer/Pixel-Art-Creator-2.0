@@ -104,7 +104,7 @@ namespace PAC.Tests
         [Category("JSON"), Category("Data Structures")]
         public void SemanticVersionToJson()
         {
-            JsonConversion.JsonConverterSet converters = new JsonConversion.JsonConverterSet(new SemanticVersionJsonConverter());
+            JsonConversion.JsonConverterSet converters = new JsonConversion.JsonConverterSet(new SemanticVersion.JsonConverter());
 
             (SemanticVersion, JsonData)[] testCases =
             {
@@ -127,7 +127,7 @@ namespace PAC.Tests
         [Category("JSON"), Category("Data Structures")]
         public void SemanticVersionFromJson()
         {
-            JsonConversion.JsonConverterSet converters = new JsonConversion.JsonConverterSet(new SemanticVersionJsonConverter());
+            JsonConversion.JsonConverterSet converters = new JsonConversion.JsonConverterSet(new SemanticVersion.JsonConverter());
 
             (SemanticVersion, JsonData)[] testCases =
             {

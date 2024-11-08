@@ -255,24 +255,24 @@ namespace PAC.KeyboardShortcuts
         {
             return keyCodes.ToArray();
         }
-    }
 
-    /// <summary>
-    /// Custom JSON converter for KeyboardShortcut.
-    /// </summary>
-    public class KeyboardShortcutJsonConverter : JsonConversion.JsonConverter<KeyboardShortcut, JsonList>
-    {
-        private JsonConversion.JsonConverterSet converters = new JsonConversion.JsonConverterSet(new CustomKeyCodeJsonConverter());
-
-        public override JsonList ToJson(KeyboardShortcut keyboardShortcut)
+        /// <summary>
+        /// Custom JSON converter for KeyboardShortcut.
+        /// </summary>
+        public class JsonConverter : JsonConversion.JsonConverter<KeyboardShortcut, JsonList>
         {
-            return (JsonList)JsonConversion.ToJson(keyboardShortcut.keyCodes, converters, false);
-        }
+            private JsonConversion.JsonConverterSet converters = new JsonConversion.JsonConverterSet(new CustomKeyCode.JsonConverter());
 
-        public override KeyboardShortcut FromJson(JsonList jsonData)
-        {
-            CustomKeyCode[] keyCodes = JsonConversion.FromJson<CustomKeyCode[]>(jsonData, converters);
-            return new KeyboardShortcut(keyCodes);
+            public override JsonList ToJson(KeyboardShortcut keyboardShortcut)
+            {
+                return (JsonList)JsonConversion.ToJson(keyboardShortcut.keyCodes, converters, false);
+            }
+
+            public override KeyboardShortcut FromJson(JsonList jsonData)
+            {
+                CustomKeyCode[] keyCodes = JsonConversion.FromJson<CustomKeyCode[]>(jsonData, converters);
+                return new KeyboardShortcut(keyCodes);
+            }
         }
     }
 }

@@ -75,7 +75,7 @@ namespace PAC.KeyboardShortcuts
         /// </summary>
         private static JsonObj ToJSON()
         {
-            JsonConversion.JsonConverterSet converters = new JsonConversion.JsonConverterSet(new KeyboardShortcutJsonConverter());
+            JsonConversion.JsonConverterSet converters = new JsonConversion.JsonConverterSet(new KeyboardShortcut.JsonConverter());
 
             JsonObj jsonObj = new JsonObj();
             foreach (string key in shortcuts.Keys)
@@ -91,7 +91,7 @@ namespace PAC.KeyboardShortcuts
         /// </summary>
         private static void LoadJSON(JsonObj jsonObj)
         {
-            JsonConversion.JsonConverterSet converters = new JsonConversion.JsonConverterSet(new KeyboardShortcutJsonConverter());
+            JsonConversion.JsonConverterSet converters = new JsonConversion.JsonConverterSet(new KeyboardShortcut.JsonConverter());
 
             shortcuts = new Dictionary<string, List<KeyboardShortcut>>();
             foreach (string key in jsonObj.Keys)

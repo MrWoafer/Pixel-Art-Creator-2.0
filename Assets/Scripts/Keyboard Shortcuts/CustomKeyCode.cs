@@ -222,21 +222,21 @@ namespace PAC.KeyboardShortcuts
         {
             return keyCodes.GetEnumerator();
         }
-    }
 
-    /// <summary>
-    /// Custom JSON converter for CustomKeyCode.
-    /// </summary>
-    public class CustomKeyCodeJsonConverter : JsonConversion.JsonConverter<CustomKeyCode, JsonString>
-    {
-        public override JsonString ToJson(CustomKeyCode keyCode)
+        /// <summary>
+        /// Custom JSON converter for CustomKeyCode.
+        /// </summary>
+        public class JsonConverter : JsonConversion.JsonConverter<CustomKeyCode, JsonString>
         {
-            return keyCode.displayName;
-        }
+            public override JsonString ToJson(CustomKeyCode keyCode)
+            {
+                return keyCode.displayName;
+            }
 
-        public override CustomKeyCode FromJson(JsonString jsonData)
-        {
-            return CustomKeyCode.FromString(jsonData);
+            public override CustomKeyCode FromJson(JsonString jsonData)
+            {
+                return CustomKeyCode.FromString(jsonData);
+            }
         }
     }
 }

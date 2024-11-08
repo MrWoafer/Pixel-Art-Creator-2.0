@@ -14,7 +14,7 @@ namespace PAC.Tests
         [Category("JSON"), Category("Keyboard Shortcuts")]
         public void CustomKeyCodeToJson()
         {
-            JsonConversion.JsonConverterSet converters = new JsonConversion.JsonConverterSet(new CustomKeyCodeJsonConverter());
+            JsonConversion.JsonConverterSet converters = new JsonConversion.JsonConverterSet(new CustomKeyCode.JsonConverter());
 
             (CustomKeyCode, JsonData)[] testCases =
             {
@@ -38,7 +38,7 @@ namespace PAC.Tests
         [Category("JSON"), Category("Keyboard Shortcuts")]
         public void CustomKeyCodeFromJson()
         {
-            JsonConversion.JsonConverterSet converters = new JsonConversion.JsonConverterSet(new CustomKeyCodeJsonConverter());
+            JsonConversion.JsonConverterSet converters = new JsonConversion.JsonConverterSet(new CustomKeyCode.JsonConverter());
 
             (CustomKeyCode, JsonData)[] testCases =
             {
@@ -62,7 +62,7 @@ namespace PAC.Tests
         [Category("JSON"), Category("Keyboard Shortcuts")]
         public void KeyboardShortcutToJson()
         {
-            JsonConversion.JsonConverterSet converters = new JsonConversion.JsonConverterSet(new KeyboardShortcutJsonConverter());
+            JsonConversion.JsonConverterSet converters = new JsonConversion.JsonConverterSet(new KeyboardShortcut.JsonConverter());
 
             (KeyboardShortcut, JsonData)[] testCases =
             {
@@ -86,7 +86,7 @@ namespace PAC.Tests
         [Category("JSON"), Category("Keyboard Shortcuts")]
         public void KeyboardShortcutFromJson()
         {
-            JsonConversion.JsonConverterSet converters = new JsonConversion.JsonConverterSet(new KeyboardShortcutJsonConverter());
+            JsonConversion.JsonConverterSet converters = new JsonConversion.JsonConverterSet(new KeyboardShortcut.JsonConverter());
 
             (KeyboardShortcut, JsonData)[] testCases =
             {

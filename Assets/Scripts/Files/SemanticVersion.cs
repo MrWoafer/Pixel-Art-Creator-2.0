@@ -181,72 +181,72 @@ namespace PAC.Files
         {
             _patch += 1;
         }
-    }
 
-    public class SemanticVersionJsonConverter : JsonConversion.JsonConverter<SemanticVersion, JsonString>
-    {
-        public override JsonString ToJson(SemanticVersion version)
+        public class JsonConverter : JsonConversion.JsonConverter<SemanticVersion, JsonString>
         {
-            return version.ToString();
-        }
-
-        public override SemanticVersion FromJson(JsonString jsonData)
-        {
-            if (jsonData.value.Length == 0)
+            public override JsonString ToJson(SemanticVersion version)
             {
-                throw new FormatException("Expected a string of the form \"major.minor.patch\", but found an empty string.");
+                return version.ToString();
             }
 
-            string[] numbers = jsonData.value.Split('.');
+            public override SemanticVersion FromJson(JsonString jsonData)
+            {
+                if (jsonData.value.Length == 0)
+                {
+                    throw new FormatException("Expected a string of the form \"major.minor.patch\", but found an empty string.");
+                }
 
-            if (numbers.Length != 3)
-            {
-                throw new FormatException("Expected a string of the form \"major.minor.patch\", but found " + (numbers.Length - 1) + " dots instead of 2.");
-            }
+                string[] numbers = jsonData.value.Split('.');
 
-            if (numbers[0].Length == 0)
-            {
-                throw new FormatException("Expected a string of the form \"major.minor.patch\", but major was empty.");
-            }
-            if (char.IsWhiteSpace(numbers[0][0]) || char.IsWhiteSpace(numbers[0][^1]))
-            {
-                throw new FormatException("Expected a string of the form \"major.minor.patch\", but found whitespace in major.");
-            }
-            int major = int.Parse(numbers[0]);
-            if (major < 0)
-            {
-                throw new FormatException("Major cannot be negative, but parsed " + major);
-            }
+                if (numbers.Length != 3)
+                {
+                    throw new FormatException("Expected a string of the form \"major.minor.patch\", but found " + (numbers.Length - 1) + " dots instead of 2.");
+                }
 
-            if (numbers[1].Length == 0)
-            {
-                throw new FormatException("Expected a string of the form \"major.minor.patch\", but minor was empty.");
-            }
-            if (char.IsWhiteSpace(numbers[1][0]) || char.IsWhiteSpace(numbers[1][^1]))
-            {
-                throw new FormatException("Expected a string of the form \"major.minor.patch\", but found whitespace in minor.");
-            }
-            int minor = int.Parse(numbers[1]);
-            if (minor < 0)
-            {
-                throw new FormatException("Minor cannot be negative, but parsed " + minor);
-            }
+                if (numbers[0].Length == 0)
+                {
+                    throw new FormatException("Expected a string of the form \"major.minor.patch\", but major was empty.");
+                }
+                if (char.IsWhiteSpace(numbers[0][0]) || char.IsWhiteSpace(numbers[0][^1]))
+                {
+                    throw new FormatException("Expected a string of the form \"major.minor.patch\", but found whitespace in major.");
+                }
+                int major = int.Parse(numbers[0]);
+                if (major < 0)
+                {
+                    throw new FormatException("Major cannot be negative, but parsed " + major);
+                }
 
-            if (numbers[2].Length == 0)
-            {
-                throw new FormatException("Expected a string of the form \"major.minor.patch\", but patch was empty.");
-            }
-            if (char.IsWhiteSpace(numbers[2][0]) || char.IsWhiteSpace(numbers[2][^1]))
-            {
-                throw new FormatException("Expected a string of the form \"major.minor.patch\", but found whitespace in patch.");
-            }
-            int patch = int.Parse(numbers[2]);
-            if (patch < 0)
-            {
-                throw new FormatException("Patch cannot be negative, but parsed " + patch);
-            }
+                if (numbers[1].Length == 0)
+                {
+                    throw new FormatException("Expected a string of the form \"major.minor.patch\", but minor was empty.");
+                }
+                if (char.IsWhiteSpace(numbers[1][0]) || char.IsWhiteSpace(numbers[1][^1]))
+                {
+                    throw new FormatException("Expected a string of the form \"major.minor.patch\", but found whitespace in minor.");
+                }
+                int minor = int.Parse(numbers[1]);
+                if (minor < 0)
+                {
+                    throw new FormatException("Minor cannot be negative, but parsed " + minor);
+                }
 
-            return new SemanticVersion(major, minor, patch);
+                if (numbers[2].Length == 0)
+                {
+                    throw new FormatException("Expected a string of the form \"major.minor.patch\", but patch was empty.");
+                }
+                if (char.IsWhiteSpace(numbers[2][0]) || char.IsWhiteSpace(numbers[2][^1]))
+                {
+                    throw new FormatException("Expected a string of the form \"major.minor.patch\", but found whitespace in patch.");
+                }
+                int patch = int.Parse(numbers[2]);
+                if (patch < 0)
+                {
+                    throw new FormatException("Patch cannot be negative, but parsed " + patch);
+                }
+
+                return new SemanticVersion(major, minor, patch);
+            }
         }
     }
 }
