@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Data.Common;
 using System.Linq;
 using System.Text;
 using PAC.Exceptions;
@@ -694,6 +693,18 @@ namespace PAC.Json
             this.value = value;
         }
 
+        /// <summary>
+        /// Creates a new JsonString with the given value, unless value is null in which case it returns JsonNull. Useful since JsonString cannot hold null strings.
+        /// </summary>
+        public static JsonData MaybeNull(string value)
+        {
+            if (value is null)
+            {
+                return new JsonNull();
+            }
+            return new JsonString(value);
+        }
+
         public static implicit operator JsonString(string value)
         {
             return new JsonString(value);
@@ -1054,7 +1065,10 @@ namespace PAC.Json
         public void Add(float jsonData) => Add(new JsonFloat(jsonData));
 
         public void Add(JsonString jsonData) => Add((JsonData)jsonData);
-        public void Add(string jsonData) => Add(new JsonString(jsonData));
+        public void Add(string jsonData)
+        {
+            Add(JsonString.MaybeNull(jsonData));
+        }
 
         public void Add(JsonList jsonData) => Add((JsonData)jsonData);
 
@@ -1297,11 +1311,58 @@ namespace PAC.Json
         public void Add(string key, float value) => Add(key, new JsonFloat(value));
 
         public void Add(string key, JsonString value) => Add(key, (JsonData)value);
-        public void Add(string key, string value) => Add(key, new JsonString(value));
+        public void Add(string key, string value)
+        {
+            Add(key, JsonString.MaybeNull(value));
+        }
 
         public void Add(string key, JsonList value) => Add(key, (JsonData)value);
 
         public void Add(string key, JsonObj value) => Add(key, (JsonData)value);
+
+        /// <summary>
+        /// Returns a JSON object with this object's entries, followed by the first objects's entries, then the second objects's entries, etc.
+        /// </summary>
+        public JsonObj Append(params JsonObj[] jsonObjs) => Append((IEnumerable<JsonObj>)jsonObjs);
+        /// <summary>
+        /// Returns a JSON object with this object's entries, followed by the first objects's entries, then the second objects's entries, etc.
+        /// </summary>
+        public JsonObj Append(IEnumerable<JsonObj> jsonObjs)
+        {
+            return Concat(Enumerable.Concat(new JsonObj[] { this }.AsEnumerable(), jsonObjs));
+        }
+        /// <summary>
+        /// Returns a JSON object with the first objects's entries, then the second objects's entries, etc., then this object's entries.
+        /// </summary>
+        public JsonObj Prepend(params JsonObj[] jsonObjs) => Prepend((IEnumerable<JsonObj>)jsonObjs);
+        /// <summary>
+        /// Returns a JSON object with the first objects's entries, then the second objects's entries, etc., then this object's entries.
+        /// </summary>
+        public JsonObj Prepend(IEnumerable<JsonObj> jsonObjs)
+        {
+            return Concat(Enumerable.Concat(jsonObjs, new JsonObj[] { this }.AsEnumerable()));
+        }
+        /// <summary>
+        /// Combines the JSON objects into one by putting the first object's entries first, then the second object's entries, etc.
+        /// Returns an empty object if no JSON objects are given.
+        /// </summary>
+        public static JsonObj Concat(params JsonObj[] jsonObjs) => Concat((IEnumerable<JsonObj>)jsonObjs);
+        /// <summary>
+        /// Combines the JSON objects into one by putting the first object's entries first, then the second object's entries, etc.
+        /// Returns an empty object if no JSON objects are given.
+        /// </summary>
+        public static JsonObj Concat(IEnumerable<JsonObj> jsonObjs)
+        {
+            JsonObj concat = new JsonObj();
+            foreach (JsonObj jsonObj in jsonObjs)
+            {
+                foreach (string key in jsonObj.Keys)
+                {
+                    concat.Add(key, jsonObj[key]);
+                }
+            }
+            return concat;
+        }
 
         public string ToJsonString(bool pretty)
         {

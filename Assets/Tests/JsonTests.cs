@@ -33,7 +33,7 @@ namespace PAC.Tests
                 this.jsonEnum = jsonEnum;
             }
 
-            public static bool operator ==(Class1 obj1 , Class1 obj2)
+            public static bool operator ==(Class1 obj1, Class1 obj2)
             {
                 return obj1.jsonBool == obj2.jsonBool && obj1.jsonInt == obj2.jsonInt && obj1.jsonFloat == obj2.jsonFloat && obj1.jsonString == obj2.jsonString &&
                     obj1.jsonString2 == obj2.jsonString2 && obj1.jsonList.SequenceEqual(obj2.jsonList) && obj1.jsonList2.SequenceEqual(obj2.jsonList2) && obj1.property == obj2.property;
@@ -57,7 +57,7 @@ namespace PAC.Tests
         {
             public string name;
             private int id;
-            public bool flag {  get; private set; }
+            public bool flag { get; private set; }
 
             public Class2(string name, int id, bool flag)
             {
@@ -488,7 +488,7 @@ namespace PAC.Tests
             public float real { get; set; }
             public float imaginary { get; set; }
 
-            public ComplexNumber(float real,  float imaginary)
+            public ComplexNumber(float real, float imaginary)
             {
                 this.real = real;
                 this.imaginary = imaginary;
@@ -786,7 +786,7 @@ namespace PAC.Tests
         {
             public string info;
 
-            public ChildClass2(int id,string info)
+            public ChildClass2(int id, string info)
             {
                 this.id = id;
                 this.info = info;
@@ -829,9 +829,84 @@ namespace PAC.Tests
             };
 
             Assert.True(JsonData.HaveSameData(expected, JsonConversion.ToJson(list, true)));
+        }
 
-            // Doesn't pass
+        [Test]
+        [Category("JSON")]
+        public void FromJsonSubclasses()
+        {
+            List<ParentClass> list = new List<ParentClass> { new ChildClass1(0, "hello"), new ChildClass2(1, "hi") };
+            JsonList expected = new JsonList
+            {
+                new JsonObj
+                {
+                    { "id", 0 },
+                    { "description", "hello" },
+                },
+                new JsonObj
+                {
+                    { "id", 1 },
+                    { "info", "hi" },
+                }
+            };
+
             Assert.True(list.SequenceEqual(JsonConversion.FromJson<List<ParentClass>>(expected, true)));
+        }
+
+        /// <summary>
+        /// Tests JsonObj.Concat(), JsonObj.Append() and JsonObj.Prepend().
+        /// </summary>
+        [Test]
+        public void JsonObjConcat()
+        {
+            Assert.True(JsonData.HaveSameData(new JsonObj(), JsonObj.Concat()));
+
+            JsonObj jsonObj1 = new JsonObj
+            {
+                { "id", 1 },
+                { "description", "hello" }
+            };
+
+            JsonObj jsonObj2 = new JsonObj
+            {
+                { "name", "Woafer" },
+            };
+
+            JsonObj jsonObj3 = new JsonObj
+            {
+                { "age", 1000 },
+            };
+
+            JsonObj[] concats =
+            {
+                JsonObj.Concat(jsonObj1, jsonObj2, jsonObj3),
+                jsonObj1.Append(jsonObj2, jsonObj3),
+                jsonObj3.Prepend(jsonObj1, jsonObj2)
+            };
+
+            foreach (JsonObj concat in concats)
+            {
+                JsonObj expected = new JsonObj
+                {
+                    { "id", 1 },
+                    { "description", "hello" },
+                    { "name", "Woafer" },
+                    { "age", 1000 }
+                };
+
+                IEnumerator<KeyValuePair<string, JsonData>> concatEnumerable = expected.GetEnumerator();
+
+                foreach (KeyValuePair<string, JsonData> expectedPair in expected)
+                {
+                    Assert.True(concatEnumerable.MoveNext(), "concat ran out before expected.");
+
+                    KeyValuePair<string, JsonData> concatPair = concatEnumerable.Current;
+
+                    Assert.AreEqual(expectedPair.Key, concatPair.Key, "Keys didn't match.");
+                    Assert.True(JsonData.HaveSameData(expectedPair.Value, concatPair.Value), "Values didn't match.");
+                }
+                Assert.False(concatEnumerable.MoveNext(), "expected ran out before concat");
+            }
         }
     }
 }
