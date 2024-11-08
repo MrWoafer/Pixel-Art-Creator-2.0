@@ -4,6 +4,7 @@
     "references": [
         "UnityEngine.TestRunner",
         "UnityEditor.TestRunner",
+        "Project.Core",
         "Project.Exceptions",
         "Project.Json",
         "Project.Extensions.JsonConverters",

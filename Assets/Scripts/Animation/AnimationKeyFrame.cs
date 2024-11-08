@@ -1,4 +1,7 @@
-using PAC.JSON;
+using PAC.DataStructures;
+using PAC.Extensions;
+using PAC.Json;
+using System.Runtime.Serialization;
 using UnityEngine;
 
 namespace PAC.Animation
@@ -6,7 +9,7 @@ namespace PAC.Animation
     /// <summary>
     /// A class representing a single keyframe for a layer.
     /// </summary>
-    public class AnimationKeyFrame : IJSONable<AnimationKeyFrame>
+    public class AnimationKeyFrame
     {
         /// <summary>The number of the frame this keyframe is on.</summary>
         public int frame;
@@ -37,53 +40,40 @@ namespace PAC.Animation
             return new AnimationKeyFrame(this);
         }
 
-        public JSON.JSON ToJSON()
+        public class JsonConverter : JsonConversion.JsonConverter<AnimationKeyFrame, JsonObj>
         {
-            JSON.JSON json = new JSON.JSON();
+            private SemanticVersion fromJsonFileFormatVersion;
 
-            json.Add("frame", frame);
-
-            string[] texRows = new string[texture.height];
-            for (int row = 0; row < texture.height; row++)
+            public JsonConverter(SemanticVersion fromJsonFileFormatVersion)
             {
-                string[] rowColours = new string[texture.width];
-                for (int column = 0; column < texture.width; column++)
+                this.fromJsonFileFormatVersion = fromJsonFileFormatVersion;
+            }
+
+            public override JsonObj ToJson(AnimationKeyFrame keyFrame)
+            {
+                return new JsonObj
+                    {
+                        { "frame", keyFrame.frame },
+                        { "texture", JsonConversion.ToJson(keyFrame.texture,
+                            new JsonConversion.JsonConverterSet(new JsonConverters.Texture2DJsonConverter()), false) }
+                    };
+            }
+
+            public override AnimationKeyFrame FromJson(JsonObj jsonData)
+            {
+                if (fromJsonFileFormatVersion > Config.Files.fileFormatVersion)
                 {
-                    Color colour = texture.GetPixel(column, row);
-                    rowColours[column] = JSON.JSON.ToJSON(colour);
+                    throw new SerializationException("The JSON uses file format version " + fromJsonFileFormatVersion + ", which is ahead of the current version " + Config.Files.fileFormatVersion);
+                }
+                if (fromJsonFileFormatVersion.major < Config.Files.fileFormatVersion.major)
+                {
+                    throw new SerializationException("The JSON uses file format version " + fromJsonFileFormatVersion + ", which is out of date with the current version " + Config.Files.fileFormatVersion);
                 }
 
-                texRows[row] = "[" + string.Join(", ", rowColours) + "]";
-            }
-            json.Add("texture", texRows, false, false);
+                int frame = JsonConversion.FromJson<int>(jsonData["frame"]);
+                Texture2D tex = JsonConversion.FromJson<Texture2D>(jsonData["texture"], new JsonConversion.JsonConverterSet(new JsonConverters.Texture2DJsonConverter()), false);
 
-            return json;
-        }
-
-        public static AnimationKeyFrame FromJSON(JSON.JSON json)
-        {
-            int height = JSON.JSON.SplitArray(json["texture"]).Length;
-            int width = JSON.JSON.SplitArray(JSON.JSON.SplitArray(json["texture"])[0]).Length;
-            Texture2D tex = new Texture2D(width, height);
-
-            string[] rows = JSON.JSON.SplitArray(json["texture"]);
-            for (int y = 0; y < height; y++)
-            {
-                string[] row = JSON.JSON.SplitArray(rows[y]);
-                for (int x = 0; x < width; x++)
-                {
-                    tex.SetPixel(x, y, JSON.JSON.ColorFromJSON(row[x]));
-                }
-            }
-            tex.Apply();
-
-            if (!json.ContainsKey(".pacVersion") || int.Parse(json[".pacVersion"]) < 8)
-            {
-                return new AnimationKeyFrame(int.Parse(json["frameIndex"]), tex);
-            }
-            else
-            {
-                return new AnimationKeyFrame(int.Parse(json["frame"]), tex);
+                return new AnimationKeyFrame(frame, tex);
             }
         }
     }

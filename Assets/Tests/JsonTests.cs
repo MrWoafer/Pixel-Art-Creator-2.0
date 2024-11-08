@@ -3,12 +3,13 @@ using System.Collections.Generic;
 using NUnit.Framework;
 using PAC.Json;
 using System.Linq;
-using UnityEngine;
 using PAC.Exceptions;
-using System.Net.Http.Headers;
 
 namespace PAC.Tests
 {
+    /// <summary>
+    /// Tests the JSON system.
+    /// </summary>
     public class JsonTests
     {
         private class Class1
@@ -35,7 +36,7 @@ namespace PAC.Tests
                 this.jsonEnum = jsonEnum;
             }
 
-            public static bool operator ==(Class1 obj1 , Class1 obj2)
+            public static bool operator ==(Class1 obj1, Class1 obj2)
             {
                 return obj1.jsonBool == obj2.jsonBool && obj1.jsonInt == obj2.jsonInt && obj1.jsonFloat == obj2.jsonFloat && obj1.jsonString == obj2.jsonString &&
                     obj1.jsonString2 == obj2.jsonString2 && obj1.jsonList.SequenceEqual(obj2.jsonList) && obj1.jsonList2.SequenceEqual(obj2.jsonList2) && obj1.property == obj2.property;
@@ -59,7 +60,7 @@ namespace PAC.Tests
         {
             public string name;
             private int id;
-            public bool flag {  get; private set; }
+            public bool flag { get; private set; }
 
             public Class2(string name, int id, bool flag)
             {
@@ -125,7 +126,7 @@ namespace PAC.Tests
                 { "jsonEnum", new JsonString("Value3") }
             };
 
-            Assert.True(JsonData.HaveSameData(JsonConverter.ToJson(obj, true), jsonObj));
+            Assert.True(JsonData.HaveSameData(JsonConversion.ToJson(obj, true), jsonObj));
         }
 
         /// <summary>
@@ -163,9 +164,9 @@ namespace PAC.Tests
                 { "jsonEnum", new JsonString("Value3") }
             };
 
-            Class1 convertedObj = JsonConverter.FromJson<Class1>(jsonObj, true);
+            Class1 convertedObj = JsonConversion.FromJson<Class1>(jsonObj, true);
 
-            Assert.AreEqual(convertedObj, expectedObj);
+            Assert.AreEqual(expectedObj, convertedObj);
         }
 
         /// <summary>
@@ -218,7 +219,7 @@ namespace PAC.Tests
                 "}"
                 ;
 
-            Assert.AreEqual(jsonObj.ToJsonString(true), jsonString);
+            Assert.AreEqual(jsonString, jsonObj.ToJsonString(true));
         }
 
         /// <summary>
@@ -286,9 +287,9 @@ namespace PAC.Tests
             List<int> definedList = new List<int> { 4, 3, 2, 1 };
             List<Class2> undefinedList = new List<Class2> { new Class2("hi", 1, false), new Class2("hello", 2, true) };
 
-            Assert.DoesNotThrow(() => JsonConverter.ToJson(definedList, false));
-            Assert.DoesNotThrow(() => JsonConverter.ToJson(undefinedList, true));
-            Assert.Catch(() => JsonConverter.ToJson(undefinedList, false));
+            Assert.DoesNotThrow(() => JsonConversion.ToJson(definedList, false));
+            Assert.DoesNotThrow(() => JsonConversion.ToJson(undefinedList, true));
+            Assert.Catch(() => JsonConversion.ToJson(undefinedList, false));
         }
 
         /// <summary>
@@ -304,9 +305,9 @@ namespace PAC.Tests
                 new JsonObj { { "name", new JsonString("hello")}, { "id", new JsonInt(2) }, { "flag", new JsonBool(true) } }
             };
 
-            Assert.DoesNotThrow(() => JsonConverter.FromJson<List<int>>(definedData, false));
-            Assert.DoesNotThrow(() => JsonConverter.FromJson<List<Class2>>(undefinedData, true));
-            Assert.Catch(() => JsonConverter.FromJson<List<Class2>>(undefinedData, false));
+            Assert.DoesNotThrow(() => JsonConversion.FromJson<List<int>>(definedData, false));
+            Assert.DoesNotThrow(() => JsonConversion.FromJson<List<Class2>>(undefinedData, true));
+            Assert.Catch(() => JsonConversion.FromJson<List<Class2>>(undefinedData, false));
         }
 
         private class Class3
@@ -366,11 +367,11 @@ namespace PAC.Tests
             parent.child = child1;
             child1.child = child2;
 
-            Assert.DoesNotThrow(() => JsonConverter.ToJson(parent, true));
+            Assert.DoesNotThrow(() => JsonConversion.ToJson(parent, true));
 
             child2.child = parent;
 
-            Assert.Catch(() => JsonConverter.ToJson(parent, true));
+            Assert.Catch(() => JsonConversion.ToJson(parent, true));
         }
 
         /// <summary>
@@ -386,11 +387,11 @@ namespace PAC.Tests
             parent.child = child1;
             child1.child = child2;
 
-            Assert.DoesNotThrow(() => JsonConverter.ToJson(parent, true));
+            Assert.DoesNotThrow(() => JsonConversion.ToJson(parent, true));
 
             child2.child = parent;
 
-            Assert.Catch(() => JsonConverter.ToJson(parent, true));
+            Assert.Catch(() => JsonConversion.ToJson(parent, true));
         }
 
         /// <summary>
@@ -405,11 +406,11 @@ namespace PAC.Tests
             Class5 child2 = new Class5("2");
             parent.children = new Class5[] { child1, child2 };
 
-            Assert.DoesNotThrow(() => JsonConverter.ToJson(parent, true));
+            Assert.DoesNotThrow(() => JsonConversion.ToJson(parent, true));
 
             parent.children = new Class5[] { child1, child2, parent };
 
-            Assert.Catch(() => JsonConverter.ToJson(parent, true));
+            Assert.Catch(() => JsonConversion.ToJson(parent, true));
         }
 
         /// <summary>
@@ -424,11 +425,11 @@ namespace PAC.Tests
             Class6 child2 = new Class6("2");
             parent.children = new List<Class6> { child1, child2 };
 
-            Assert.DoesNotThrow(() => JsonConverter.ToJson(parent, true));
+            Assert.DoesNotThrow(() => JsonConversion.ToJson(parent, true));
 
             parent.children.Add(parent);
 
-            Assert.Catch(() => JsonConverter.ToJson(parent, true));
+            Assert.Catch(() => JsonConversion.ToJson(parent, true));
         }
 
         /// <summary>
@@ -454,11 +455,11 @@ namespace PAC.Tests
                 { "child", child1 }
             };
 
-            Assert.DoesNotThrow(() => JsonConverter.FromJson<Class3>(parent, true));
+            Assert.DoesNotThrow(() => JsonConversion.FromJson<Class3>(parent, true));
 
             child2["child"] = parent;
 
-            Assert.Catch(() => JsonConverter.FromJson<Class3>(parent, true));
+            Assert.Catch(() => JsonConversion.FromJson<Class3>(parent, true));
         }
 
         /// <summary>
@@ -478,11 +479,11 @@ namespace PAC.Tests
                 }
             };
 
-            Assert.DoesNotThrow(() => JsonConverter.FromJson<Class6>(jsonObj, true));
+            Assert.DoesNotThrow(() => JsonConversion.FromJson<Class6>(jsonObj, true));
 
             ((JsonList)jsonObj["children"]).Add(jsonObj);
 
-            Assert.Catch(() => JsonConverter.FromJson<Class6>(jsonObj, true));
+            Assert.Catch(() => JsonConversion.FromJson<Class6>(jsonObj, true));
         }
 
         private struct ComplexNumber
@@ -490,7 +491,7 @@ namespace PAC.Tests
             public float real { get; set; }
             public float imaginary { get; set; }
 
-            public ComplexNumber(float real,  float imaginary)
+            public ComplexNumber(float real, float imaginary)
             {
                 this.real = real;
                 this.imaginary = imaginary;
@@ -502,7 +503,7 @@ namespace PAC.Tests
             }
         }
 
-        private class ComplexNumberConverter : IJsonConverter<ComplexNumber, JsonList>
+        private class ComplexNumberConverter : JsonConversion.JsonConverter<ComplexNumber, JsonList>
         {
             public override JsonList ToJson(ComplexNumber obj)
             {
@@ -526,7 +527,7 @@ namespace PAC.Tests
         [Category("JSON")]
         public void ToJsonCustomConverter()
         {
-            JsonConverterSet converters = new JsonConverterSet(new ComplexNumberConverter());
+            JsonConversion.JsonConverterSet converters = new JsonConversion.JsonConverterSet(new ComplexNumberConverter());
 
             ComplexNumber obj = new ComplexNumber(5f, -2.3f);
 
@@ -539,12 +540,12 @@ namespace PAC.Tests
             JsonList expectedWithConverter = new JsonList(5f, -2.3f);
 
             // Without converter
-            Assert.Catch(() => JsonConverter.ToJson(obj, false));
-            Assert.True(JsonData.HaveSameData(JsonConverter.ToJson(obj, true), expectedWithoutConverter));
+            Assert.Catch(() => JsonConversion.ToJson(obj, false));
+            Assert.True(JsonData.HaveSameData(JsonConversion.ToJson(obj, true), expectedWithoutConverter));
 
             // With converter
-            Assert.True(JsonData.HaveSameData(JsonConverter.ToJson(obj, converters, false), expectedWithConverter));
-            Assert.True(JsonData.HaveSameData(JsonConverter.ToJson(obj, converters, true), expectedWithConverter));
+            Assert.True(JsonData.HaveSameData(JsonConversion.ToJson(obj, converters, false), expectedWithConverter));
+            Assert.True(JsonData.HaveSameData(JsonConversion.ToJson(obj, converters, true), expectedWithConverter));
         }
 
         /// <summary>
@@ -554,7 +555,7 @@ namespace PAC.Tests
         [Category("JSON")]
         public void FromJsonCustomConverter()
         {
-            JsonConverterSet converters = new JsonConverterSet(new ComplexNumberConverter());
+            JsonConversion.JsonConverterSet converters = new JsonConversion.JsonConverterSet(new ComplexNumberConverter());
 
             ComplexNumber expectedObj = new ComplexNumber(5f, -2.3f);
 
@@ -567,14 +568,14 @@ namespace PAC.Tests
             JsonList withConverter = new JsonList(5f, -2.3f);
 
             // Without converter
-            Assert.Catch(() => JsonConverter.FromJson<ComplexNumber>(withoutConverter, false));
-            Assert.Catch(() => JsonConverter.FromJson<ComplexNumber>(withConverter, true));
-            Assert.AreEqual(JsonConverter.FromJson<ComplexNumber>(withoutConverter, true), expectedObj);
+            Assert.Catch(() => JsonConversion.FromJson<ComplexNumber>(withoutConverter, false));
+            Assert.Catch(() => JsonConversion.FromJson<ComplexNumber>(withConverter, true));
+            Assert.AreEqual(expectedObj, JsonConversion.FromJson<ComplexNumber>(withoutConverter, true));
 
             // With converter
-            Assert.Catch(() => JsonConverter.FromJson<ComplexNumber>(withoutConverter, converters, true));
-            Assert.AreEqual(JsonConverter.FromJson<ComplexNumber>(withConverter, converters, false), expectedObj);
-            Assert.AreEqual(JsonConverter.FromJson<ComplexNumber>(withConverter, converters, true), expectedObj);
+            Assert.Catch(() => JsonConversion.FromJson<ComplexNumber>(withoutConverter, converters, true));
+            Assert.AreEqual(expectedObj, JsonConversion.FromJson<ComplexNumber>(withConverter, converters, false));
+            Assert.AreEqual(expectedObj, JsonConversion.FromJson<ComplexNumber>(withConverter, converters, true));
         }
 
         /// <summary>
@@ -587,7 +588,7 @@ namespace PAC.Tests
             string str = "\" \\ / \b \f \n \r \t \u03b5 \u03B5";
             string expected = "\"\\\" \\\\ \\/ \\b \\f \\n \\r \\t " + @"\u03B5 \u03B5" + "\"";
 
-            Assert.AreEqual(new JsonString(str).ToJsonString(false), expected);
+            Assert.AreEqual(expected, new JsonString(str).ToJsonString(false));
         }
 
         /// <summary>
@@ -600,7 +601,7 @@ namespace PAC.Tests
             string str = "\"\\\" \\\\ \\/ \\b \\f \\n \\r \\t " + @"\u03b5 \u03B5" + "\"";
             string expected = "\" \\ / \b \f \n \r \t \u03B5 \u03B5";
 
-            Assert.AreEqual(JsonString.Parse(str).value, expected);
+            Assert.AreEqual(expected, JsonString.Parse(str).value);
 
             // Should error as there is no escaped character after the \
             Assert.Throws<FormatException>(() => JsonString.Parse("\"hello \\\""));
@@ -616,8 +617,8 @@ namespace PAC.Tests
         [Category("JSON")]
         public void ParseInt()
         {
-            Assert.AreEqual(JsonInt.Parse("39").value, 39);
-            Assert.AreEqual(JsonInt.Parse("-39").value, -39);
+            Assert.AreEqual(39, JsonInt.Parse("39").value);
+            Assert.AreEqual(-39, JsonInt.Parse("-39").value);
             // Not allowed decimal point
             Assert.Throws<FormatException>(() => JsonInt.Parse("47.2"));
             // - followed by nothing
@@ -636,7 +637,7 @@ namespace PAC.Tests
         public void ParseFloat()
         {
             Assert.AreEqual(JsonFloat.Parse("3.259").value, 3.259, 0.0005f);
-            Assert.AreEqual(JsonFloat.Parse("-3").value, -3f);
+            Assert.AreEqual(-3f, JsonFloat.Parse("-3").value);
             // Not allowed two decimal points
             Assert.Throws<FormatException>(() => JsonFloat.Parse("47.2.4"));
             // - followed by nothing
@@ -654,9 +655,9 @@ namespace PAC.Tests
         [Category("JSON")]
         public void ParseIntENotation()
         {
-            Assert.AreEqual(JsonInt.Parse("-39E2").value, -3900);
-            Assert.AreEqual(JsonInt.Parse("-39E+2").value, -3900);
-            Assert.AreEqual(JsonInt.Parse("39E0").value, 39);
+            Assert.AreEqual(-3900, JsonInt.Parse("-39E2").value);
+            Assert.AreEqual(-3900, JsonInt.Parse("-39E+2").value);
+            Assert.AreEqual(39, JsonInt.Parse("39E0").value);
             // Not allowed negative exponent
             Assert.Throws<FormatException>(() => JsonInt.Parse("47000e-2"));
             // Not allowed decimal exponent
@@ -705,8 +706,8 @@ namespace PAC.Tests
         [Category("JSON")]
         public void ToJsonStringFloat()
         {
-            Assert.AreEqual(new JsonFloat(-3.2f).ToJsonString(false), "-3.2");
-            Assert.AreEqual(new JsonFloat(4f).ToJsonString(false), "4.0");
+            Assert.AreEqual("-3.2", new JsonFloat(-3.2f).ToJsonString(false));
+            Assert.AreEqual("4.0", new JsonFloat(4f).ToJsonString(false));
         }
 
         /// <summary>
@@ -750,6 +751,165 @@ namespace PAC.Tests
 
             Assert.True(JsonData.HaveSameData(JsonList.Parse("[     ]"), new JsonList()));
             Assert.True(JsonData.HaveSameData(JsonObj.Parse("{   }"), new JsonObj()));
+        }
+
+        private class ParentClass
+        {
+            public int id;
+        }
+
+        private class ChildClass1 : ParentClass
+        {
+            public string description;
+
+            public ChildClass1(int id, string description)
+            {
+                this.id = id;
+                this.description = description;
+            }
+
+            public static bool operator !=(ChildClass1 a, ChildClass1 b) => !(a == b);
+            public static bool operator ==(ChildClass1 a, ChildClass1 b)
+            {
+                return a.id == b.id && a.description == b.description;
+            }
+
+            public override bool Equals(object obj) => this.Equals(obj as ChildClass1);
+            public bool Equals(ChildClass1 obj)
+            {
+                if (obj is null)
+                {
+                    return false;
+                }
+                return this == obj;
+            }
+        }
+
+        private class ChildClass2 : ParentClass
+        {
+            public string info;
+
+            public ChildClass2(int id, string info)
+            {
+                this.id = id;
+                this.info = info;
+            }
+
+            public static bool operator !=(ChildClass2 a, ChildClass2 b) => !(a == b);
+            public static bool operator ==(ChildClass2 a, ChildClass2 b)
+            {
+                return a.id == b.id && a.info == b.info;
+            }
+
+            public override bool Equals(object obj) => this.Equals(obj as ChildClass2);
+            public bool Equals(ChildClass2 obj)
+            {
+                if (obj is null)
+                {
+                    return false;
+                }
+                return this == obj;
+            }
+        }
+
+        [Test]
+        [Category("JSON")]
+        public void ToJsonSubclasses()
+        {
+            List<ParentClass> list = new List<ParentClass> { new ChildClass1(0, "hello"), new ChildClass2(1, "hi") };
+            JsonList expected = new JsonList
+            {
+                new JsonObj
+                {
+                    { "id", 0 },
+                    { "description", "hello" },
+                },
+                new JsonObj
+                {
+                    { "id", 1 },
+                    { "info", "hi" },
+                }
+            };
+
+            Assert.True(JsonData.HaveSameData(expected, JsonConversion.ToJson(list, true)));
+        }
+
+        [Test]
+        [Category("JSON")]
+        public void FromJsonSubclasses()
+        {
+            List<ParentClass> list = new List<ParentClass> { new ChildClass1(0, "hello"), new ChildClass2(1, "hi") };
+            JsonList expected = new JsonList
+            {
+                new JsonObj
+                {
+                    { "id", 0 },
+                    { "description", "hello" },
+                },
+                new JsonObj
+                {
+                    { "id", 1 },
+                    { "info", "hi" },
+                }
+            };
+
+            Assert.True(list.SequenceEqual(JsonConversion.FromJson<List<ParentClass>>(expected, true)));
+        }
+
+        /// <summary>
+        /// Tests JsonObj.Concat(), JsonObj.Append() and JsonObj.Prepend().
+        /// </summary>
+        [Test]
+        public void JsonObjConcat()
+        {
+            Assert.True(JsonData.HaveSameData(new JsonObj(), JsonObj.Concat()));
+
+            JsonObj jsonObj1 = new JsonObj
+            {
+                { "id", 1 },
+                { "description", "hello" }
+            };
+
+            JsonObj jsonObj2 = new JsonObj
+            {
+                { "name", "Woafer" },
+            };
+
+            JsonObj jsonObj3 = new JsonObj
+            {
+                { "age", 1000 },
+            };
+
+            JsonObj[] concats =
+            {
+                JsonObj.Concat(jsonObj1, jsonObj2, jsonObj3),
+                jsonObj1.Append(jsonObj2, jsonObj3),
+                jsonObj3.Prepend(jsonObj1, jsonObj2)
+            };
+
+            foreach (JsonObj concat in concats)
+            {
+                JsonObj expected = new JsonObj
+                {
+                    { "id", 1 },
+                    { "description", "hello" },
+                    { "name", "Woafer" },
+                    { "age", 1000 }
+                };
+
+                IEnumerator<KeyValuePair<string, JsonData>> concatEnumerable = expected.GetEnumerator();
+
+                foreach (KeyValuePair<string, JsonData> expectedPair in expected)
+                {
+                    Assert.True(concatEnumerable.MoveNext(), "concat ran out before expected.");
+
+                    KeyValuePair<string, JsonData> concatPair = concatEnumerable.Current;
+
+                    Assert.AreEqual(expectedPair.Key, concatPair.Key, "Keys didn't match.");
+                    Assert.True(JsonData.HaveSameData(expectedPair.Value, concatPair.Value), "Values didn't match.");
+                }
+                Assert.False(concatEnumerable.MoveNext(), "expected ran out before concat");
+            }
         }
     }
 }

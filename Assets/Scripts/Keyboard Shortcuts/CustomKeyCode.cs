@@ -1,8 +1,10 @@
+using PAC.Json;
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using static System.Runtime.CompilerServices.RuntimeHelpers;
 
 namespace PAC.KeyboardShortcuts
 {
@@ -219,6 +221,22 @@ namespace PAC.KeyboardShortcuts
         public IEnumerator GetEnumerator()
         {
             return keyCodes.GetEnumerator();
+        }
+
+        /// <summary>
+        /// Custom JSON converter for CustomKeyCode.
+        /// </summary>
+        public class JsonConverter : JsonConversion.JsonConverter<CustomKeyCode, JsonString>
+        {
+            public override JsonString ToJson(CustomKeyCode keyCode)
+            {
+                return keyCode.displayName;
+            }
+
+            public override CustomKeyCode FromJson(JsonString jsonData)
+            {
+                return CustomKeyCode.FromString(jsonData);
+            }
         }
     }
 }

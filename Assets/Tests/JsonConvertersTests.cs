@@ -1,6 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using NUnit.Framework;
 using PAC.Json;
 using PAC.Extensions;
@@ -8,6 +5,9 @@ using UnityEngine;
 
 namespace PAC.Tests
 {
+    /// <summary>
+    /// Tests the 'JsonConversion.JsonConverter's in the JsonConverters class.
+    /// </summary>
     public class JsonConvertersTests
     {
         /// <summary>
@@ -17,12 +17,12 @@ namespace PAC.Tests
         [Category("JSON"), Category("Extensions")]
         public void Vector2ToJson()
         {
-            JsonConverterSet converters = new JsonConverterSet(new JsonConverters.Vector2JsonConverter());
+            JsonConversion.JsonConverterSet converters = new JsonConversion.JsonConverterSet(new JsonConverters.Vector2JsonConverter());
 
             Vector2 colour = new Vector2(0.2f, 0.4f);
             JsonList expected = new JsonList(new JsonFloat(0.2f), new JsonFloat(0.4f));
 
-            Assert.True(JsonData.HaveSameData(JsonConverter.ToJson(colour, converters, false), expected, 0.05f));
+            Assert.True(JsonData.HaveSameData(JsonConversion.ToJson(colour, converters, false), expected, 0.05f));
         }
 
         /// <summary>
@@ -32,17 +32,17 @@ namespace PAC.Tests
         [Category("JSON"), Category("Extensions")]
         public void Vector2FromJson()
         {
-            JsonConverterSet converters = new JsonConverterSet(new JsonConverters.Vector2JsonConverter());
+            JsonConversion.JsonConverterSet converters = new JsonConversion.JsonConverterSet(new JsonConverters.Vector2JsonConverter());
 
             JsonList jsonList = new JsonList(new JsonFloat(0.2f), new JsonFloat(0.4f));
             Vector2 expected = new Vector2(0.2f, 0.4f);
 
-            Assert.AreEqual(JsonConverter.FromJson<Vector2>(jsonList, converters, false), expected);
+            Assert.AreEqual(expected, JsonConversion.FromJson<Vector2>(jsonList, converters, false));
 
             // List too short
-            Assert.Catch(() => JsonConverter.FromJson<Vector2>(new JsonList(new JsonFloat(0.2f)), converters, false));
+            Assert.Catch(() => JsonConversion.FromJson<Vector2>(new JsonList(new JsonFloat(0.2f)), converters, false));
             // List too long
-            Assert.Catch(() => JsonConverter.FromJson<Vector2>(new JsonList(new JsonFloat(0.2f), new JsonFloat(0.4f), new JsonFloat(0.1567f)), converters, false));
+            Assert.Catch(() => JsonConversion.FromJson<Vector2>(new JsonList(new JsonFloat(0.2f), new JsonFloat(0.4f), new JsonFloat(0.1567f)), converters, false));
         }
 
         /// <summary>
@@ -52,12 +52,12 @@ namespace PAC.Tests
         [Category("JSON"), Category("Extensions")]
         public void Vector3ToJson()
         {
-            JsonConverterSet converters = new JsonConverterSet(new JsonConverters.Vector3JsonConverter());
+            JsonConversion.JsonConverterSet converters = new JsonConversion.JsonConverterSet(new JsonConverters.Vector3JsonConverter());
 
             Vector3 colour = new Vector3(0.2f, 0.4f, 0.1567f);
             JsonList expected = new JsonList(new JsonFloat(0.2f), new JsonFloat(0.4f), new JsonFloat(0.1567f));
 
-            Assert.True(JsonData.HaveSameData(JsonConverter.ToJson(colour, converters, false), expected, 0.00005f));
+            Assert.True(JsonData.HaveSameData(JsonConversion.ToJson(colour, converters, false), expected, 0.00005f));
         }
 
         /// <summary>
@@ -67,17 +67,17 @@ namespace PAC.Tests
         [Category("JSON"), Category("Extensions")]
         public void Vector3FromJson()
         {
-            JsonConverterSet converters = new JsonConverterSet(new JsonConverters.Vector3JsonConverter());
+            JsonConversion.JsonConverterSet converters = new JsonConversion.JsonConverterSet(new JsonConverters.Vector3JsonConverter());
 
             JsonList jsonList = new JsonList(new JsonFloat(0.2f), new JsonFloat(0.4f), new JsonFloat(0.1567f));
             Vector3 expected = new Vector3(0.2f, 0.4f, 0.1567f);
 
-            Assert.AreEqual(JsonConverter.FromJson<Vector3>(jsonList, converters, false), expected);
+            Assert.AreEqual(expected, JsonConversion.FromJson<Vector3>(jsonList, converters, false));
 
             // List too short
-            Assert.Catch(() => JsonConverter.FromJson<Vector3>(new JsonList(new JsonFloat(0.2f), new JsonFloat(0.4f)), converters, false));
+            Assert.Catch(() => JsonConversion.FromJson<Vector3>(new JsonList(new JsonFloat(0.2f), new JsonFloat(0.4f)), converters, false));
             // List too long
-            Assert.Catch(() => JsonConverter.FromJson<Vector3>(new JsonList(new JsonFloat(0.2f), new JsonFloat(0.4f), new JsonFloat(0.1567f), new JsonFloat(0.95f)),
+            Assert.Catch(() => JsonConversion.FromJson<Vector3>(new JsonList(new JsonFloat(0.2f), new JsonFloat(0.4f), new JsonFloat(0.1567f), new JsonFloat(0.95f)),
                 converters, false));
         }
 
@@ -88,12 +88,12 @@ namespace PAC.Tests
         [Category("JSON"), Category("Extensions")]
         public void ColorToJson()
         {
-            JsonConverterSet converters = new JsonConverterSet(new JsonConverters.ColorJsonConverter());
+            JsonConversion.JsonConverterSet converters = new JsonConversion.JsonConverterSet(new JsonConverters.ColorJsonConverter());
 
             Color colour = new Color(0.2f, 0.4f, 0.1567f, 0.95f);
             JsonList expected = new JsonList(new JsonFloat(0.2f), new JsonFloat(0.4f), new JsonFloat(0.1567f), new JsonFloat(0.95f));
 
-            Assert.True(JsonData.HaveSameData(JsonConverter.ToJson(colour, converters, false), expected, 0.00005f));
+            Assert.True(JsonData.HaveSameData(JsonConversion.ToJson(colour, converters, false), expected, 0.00005f));
         }
 
         /// <summary>
@@ -103,17 +103,17 @@ namespace PAC.Tests
         [Category("JSON"), Category("Extensions")]
         public void ColorFromJson()
         {
-            JsonConverterSet converters = new JsonConverterSet(new JsonConverters.ColorJsonConverter());
+            JsonConversion.JsonConverterSet converters = new JsonConversion.JsonConverterSet(new JsonConverters.ColorJsonConverter());
 
             JsonList jsonList = new JsonList(new JsonFloat(0.2f), new JsonFloat(0.4f), new JsonFloat(0.1567f), new JsonFloat(0.95f));
             Color expected = new Color(0.2f, 0.4f, 0.1567f, 0.95f);
 
-            Assert.AreEqual(JsonConverter.FromJson<Color>(jsonList, converters, false), expected);
+            Assert.AreEqual(expected, JsonConversion.FromJson<Color>(jsonList, converters, false));
 
             // List too short
-            Assert.Catch(() => JsonConverter.FromJson<Color>(new JsonList(new JsonFloat(0.2f), new JsonFloat(0.4f), new JsonFloat(0.1567f)), converters, false));
+            Assert.Catch(() => JsonConversion.FromJson<Color>(new JsonList(new JsonFloat(0.2f), new JsonFloat(0.4f), new JsonFloat(0.1567f)), converters, false));
             // List too long
-            Assert.Catch(() => JsonConverter.FromJson<Color>(new JsonList(new JsonFloat(0.2f), new JsonFloat(0.4f), new JsonFloat(0.1567f), new JsonFloat(0.95f),
+            Assert.Catch(() => JsonConversion.FromJson<Color>(new JsonList(new JsonFloat(0.2f), new JsonFloat(0.4f), new JsonFloat(0.1567f), new JsonFloat(0.95f),
                 new JsonFloat(0.3f)), converters, false));
         }
 
@@ -124,7 +124,7 @@ namespace PAC.Tests
         [Category("JSON"), Category("Extensions")]
         public void Texture2DToJson()
         {
-            JsonConverterSet converters = new JsonConverterSet(new JsonConverters.Texture2DJsonConverter());
+            JsonConversion.JsonConverterSet converters = new JsonConversion.JsonConverterSet(new JsonConverters.Texture2DJsonConverter());
 
             Texture2D tex = new Texture2D(2, 2);
             tex.SetPixel(0, 0, new Color(0f, 0f, 0f, 1f));
@@ -145,7 +145,7 @@ namespace PAC.Tests
                 }
             };
 
-            Assert.True(JsonData.HaveSameData(JsonConverter.ToJson(tex, converters, false), expected, 0.005f));
+            Assert.True(JsonData.HaveSameData(JsonConversion.ToJson(tex, converters, false), expected, 0.005f));
         }
 
         /// <summary>
@@ -155,7 +155,7 @@ namespace PAC.Tests
         [Category("JSON"), Category("Extensions")]
         public void Texture2DFromJson()
         {
-            JsonConverterSet converters = new JsonConverterSet(new JsonConverters.Texture2DJsonConverter());
+            JsonConversion.JsonConverterSet converters = new JsonConversion.JsonConverterSet(new JsonConverters.Texture2DJsonConverter());
 
             Texture2D expected = new Texture2D(2, 2);
             expected.SetPixel(0, 0, new Color(0f, 0f, 0f, 1f));
@@ -176,18 +176,18 @@ namespace PAC.Tests
                 }
             };
 
-            Texture2D converted = JsonConverter.FromJson<Texture2D>(jsonObj, converters, false);
+            Texture2D converted = JsonConversion.FromJson<Texture2D>(jsonObj, converters, false);
 
             Assert.AreEqual(converted.width, expected.width);
             Assert.AreEqual(converted.height, expected.height);
-            Assert.AreEqual(converted.GetPixel(0, 0), expected.GetPixel(0, 0));
-            Assert.AreEqual(converted.GetPixel(1, 0), expected.GetPixel(1, 0));
-            Assert.AreEqual(converted.GetPixel(0, 1), expected.GetPixel(0, 1));
-            Assert.AreEqual(converted.GetPixel(1, 1), expected.GetPixel(1, 1));
+            Assert.AreEqual(expected.GetPixel(0, 0), converted.GetPixel(0, 0));
+            Assert.AreEqual(expected.GetPixel(1, 0), converted.GetPixel(1, 0));
+            Assert.AreEqual(expected.GetPixel(0, 1), converted.GetPixel(0, 1));
+            Assert.AreEqual(expected.GetPixel(1, 1), converted.GetPixel(1, 1));
 
             // Num of pixels != width * height
             jsonObj["width"] = new JsonInt(3);
-            Assert.Catch(() => JsonConverter.FromJson<Texture2D>(jsonObj, converters, false));
+            Assert.Catch(() => JsonConversion.FromJson<Texture2D>(jsonObj, converters, false));
         }
     }
 }

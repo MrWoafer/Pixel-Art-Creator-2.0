@@ -1,8 +1,9 @@
 using System.Collections.Generic;
+using System.Runtime.Serialization;
 using PAC.Animation;
 using PAC.Colour;
 using PAC.DataStructures;
-using PAC.JSON;
+using PAC.Json;
 using UnityEngine;
 
 namespace PAC.Layers
@@ -10,7 +11,7 @@ namespace PAC.Layers
     /// <summary>
     /// A class to represent a normal layer - one that can be drawn on as a regular image.
     /// </summary>
-    public class NormalLayer : Layer, IJSONable<NormalLayer>
+    public class NormalLayer : Layer
     {
         public override LayerType layerType => LayerType.Normal;
 
@@ -214,72 +215,6 @@ namespace PAC.Layers
             height = keyFrames[0].texture.height;
         }
 
-        public override JSON.JSON ToJSON()
-        {
-            JSON.JSON json = new JSON.JSON();
-
-            json.Add("layerType", "normal");
-            json.Add("name", name);
-            json.Add("width", width);
-            json.Add("height", height);
-            json.Add("visible", visible);
-            json.Add("locked", locked);
-            json.Add("opacity", opacity);
-            json.Add("blendMode", blendMode.ToString());
-
-            json.Add("keyFrames", keyFrames);
-
-            return json;
-        }
-
-        public static new NormalLayer FromJSON(JSON.JSON json)
-        {
-            NormalLayer layer = new NormalLayer("", 1, 1);
-            layer.LoadJSON(json);
-            return layer;
-        }
-
-        protected override void LoadJSON(JSON.JSON json)
-        {
-            if (int.Parse(json[".pacVersion"]) < 7)
-            {
-                LayerAnimation layerAnimation = LayerAnimation.FromJSON(JSON.JSON.Parse(json["animation"]));
-
-                name = json["layerName"];
-                width = int.Parse(json["width"]);
-                height = int.Parse(json["height"]);
-                visible = bool.Parse(json["visible"]);
-                locked = bool.Parse(json["locked"]);
-                opacity = float.Parse(json["opacity"]);
-                blendMode = BlendMode.StringToBlendMode(json["blendMode"]);
-                /// (Because I previously incorrectly named Normal blend mode as Overlay
-                if (int.Parse(json[".pacVersion"]) <= 3 && blendMode == BlendMode.Overlay)
-                {
-                    blendMode = BlendMode.Normal;
-                }
-
-                keyFrames = layerAnimation.keyFrames;
-            }
-            else
-            {
-                name = json["name"];
-                width = int.Parse(json["width"]);
-                height = int.Parse(json["height"]);
-                visible = bool.Parse(json["visible"]);
-                locked = bool.Parse(json["locked"]);
-                opacity = float.Parse(json["opacity"]);
-                blendMode = BlendMode.StringToBlendMode(json["blendMode"]);
-
-                foreach (string keyFrameJSONStr in JSON.JSON.SplitArray(json["keyFrames"]))
-                {
-                    JSON.JSON keyFrameJSON = new JSON.JSON();
-                    keyFrameJSON.Add(".pacVersion", json[".pacVersion"]);
-                    keyFrameJSON.Append(JSON.JSON.Parse(keyFrameJSONStr));
-                    AddKeyFrame(AnimationKeyFrame.FromJSON(keyFrameJSON));
-                }
-            }
-        }
-
         protected override AnimationKeyFrame DeleteKeyFrameNoEvent(int keyframe)
         {
             if (HasKeyFrameAt(keyframe))
@@ -301,6 +236,67 @@ namespace PAC.Layers
         {
             keyFrames = new List<AnimationKeyFrame>();
             AddKeyFrame(0, Tex2DSprite.BlankTexture(width, height));
+        }
+
+        public new class JsonConverter : JsonConversion.JsonConverter<NormalLayer, JsonObj>
+        {
+            private SemanticVersion fromJsonFileFormatVersion;
+
+            public JsonConverter(SemanticVersion fromJsonFileFormatVersion)
+            {
+                this.fromJsonFileFormatVersion = fromJsonFileFormatVersion;
+            }
+
+            public override JsonObj ToJson(NormalLayer layer)
+            {
+                return new JsonObj
+                    {
+                        { "layer type", "Normal" },
+                        { "name", layer.name },
+                        { "width", layer.width },
+                        { "height", layer.height },
+                        { "visible", layer.visible },
+                        { "locked", layer.locked },
+                        { "opacity", layer.opacity },
+                        { "blend mode", JsonConversion.ToJson(layer.blendMode, new JsonConversion.JsonConverterSet(new BlendMode.JsonConverter()), false) },
+                        { "keyframes", JsonConversion.ToJson(layer.keyFrames, new JsonConversion.JsonConverterSet(new AnimationKeyFrame.JsonConverter(Config.Files.fileFormatVersion)), false) }
+                    };
+            }
+
+            public override NormalLayer FromJson(JsonObj jsonData)
+            {
+                if (fromJsonFileFormatVersion > Config.Files.fileFormatVersion)
+                {
+                    throw new SerializationException("The JSON uses file format version " + fromJsonFileFormatVersion + ", which is ahead of the current version " + Config.Files.fileFormatVersion);
+                }
+                if (fromJsonFileFormatVersion.major < Config.Files.fileFormatVersion.major)
+                {
+                    throw new SerializationException("The JSON uses file format version " + fromJsonFileFormatVersion + ", which is out of date with the current version " + Config.Files.fileFormatVersion);
+                }
+
+                string layerType = JsonConversion.FromJson<string>(jsonData["layer type"]);
+                if (layerType.ToLower() != "normal")
+                {
+                    throw new SerializationException("Expected layer type normal, but found " + layerType);
+                }
+
+                string name = JsonConversion.FromJson<string>(jsonData["name"]);
+                int width = JsonConversion.FromJson<int>(jsonData["width"]);
+                int height = JsonConversion.FromJson<int>(jsonData["height"]);
+
+                NormalLayer layer = new NormalLayer(name, width, height);
+
+                layer.visible = JsonConversion.FromJson<bool>(jsonData["visible"]);
+                layer.locked = JsonConversion.FromJson<bool>(jsonData["locked"]);
+
+                layer.opacity = JsonConversion.FromJson<float>(jsonData["opacity"]);
+                layer.blendMode = JsonConversion.FromJson<BlendMode>(jsonData["blend mode"], new JsonConversion.JsonConverterSet(new BlendMode.JsonConverter()), false);
+
+                layer.keyFrames = JsonConversion.FromJson<List<AnimationKeyFrame>>(jsonData["keyframes"],
+                    new JsonConversion.JsonConverterSet(new AnimationKeyFrame.JsonConverter(fromJsonFileFormatVersion)), false);
+
+                return layer;
+            }
         }
     }
 }
