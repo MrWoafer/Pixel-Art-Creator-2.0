@@ -971,7 +971,12 @@ namespace PAC.Json
     /// </summary>
     public class JsonList : List<JsonData>, JsonData
     {
-        public JsonList() : base() { }
+        public bool separateLinesInPrettyString { get; set; } = true;
+
+        public JsonList(bool separateLinesInPrettyString = true) : base()
+        {
+            this.separateLinesInPrettyString = separateLinesInPrettyString;
+        }
         public JsonList(int capacity) : base(capacity) { }
         public JsonList(IEnumerable<JsonData> collection) : base(collection) { }
         public JsonList(params JsonData[] jsonData) : base(jsonData) { }
@@ -1085,15 +1090,17 @@ namespace PAC.Json
                 return "[]";
             }
 
+            bool separateLines = pretty && separateLinesInPrettyString;
+
             StringBuilder str = new StringBuilder("[");
-            if (pretty)
+            if (separateLines)
             {
                 str.Append('\n');
             }
 
             foreach (JsonData jsonData in this)
             {
-                if (pretty)
+                if (separateLines)
                 {
                     string[] lines = jsonData.ToJsonString(pretty).Split('\n');
                     for (int i = 0; i < lines.Length; i++)
@@ -1111,7 +1118,7 @@ namespace PAC.Json
                     str.Append(jsonData.ToJsonString(pretty));
                 }
 
-                if (pretty)
+                if (separateLines)
                 {
                     str.Append(",\n");
                 }
@@ -1126,7 +1133,7 @@ namespace PAC.Json
             {
                 str.Remove(str.Length - 2, 2);
             }
-            if (pretty)
+            if (separateLines)
             {
                 str.Append('\n');
             }

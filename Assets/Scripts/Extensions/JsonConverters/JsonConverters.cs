@@ -17,7 +17,9 @@ namespace PAC.Extensions
         {
             public override JsonList ToJson(Vector2 vec)
             {
-                return new JsonList { new JsonFloat(vec.x), new JsonFloat(vec.y) };
+                JsonList jsonList = new JsonList { new JsonFloat(vec.x), new JsonFloat(vec.y) };
+                jsonList.separateLinesInPrettyString = false;
+                return jsonList;
             }
 
             public override Vector2 FromJson(JsonList jsonData)
@@ -37,7 +39,9 @@ namespace PAC.Extensions
         {
             public override JsonList ToJson(Vector3 vec)
             {
-                return new JsonList { new JsonFloat(vec.x), new JsonFloat(vec.y), new JsonFloat(vec.z) };
+                JsonList jsonList = new JsonList { new JsonFloat(vec.x), new JsonFloat(vec.y), new JsonFloat(vec.z) };
+                jsonList.separateLinesInPrettyString = false;
+                return jsonList;
             }
 
             public override Vector3 FromJson(JsonList jsonData)
@@ -57,7 +61,9 @@ namespace PAC.Extensions
         {
             public override JsonList ToJson(Color color)
             {
-                return new JsonList { new JsonFloat(color.r), new JsonFloat(color.g), new JsonFloat(color.b), new JsonFloat(color.a) };
+                JsonList jsonList = new JsonList { new JsonFloat(color.r), new JsonFloat(color.g), new JsonFloat(color.b), new JsonFloat(color.a) };
+                jsonList.separateLinesInPrettyString = false;
+                return jsonList;
             }
 
             public override Color FromJson(JsonList jsonData)
@@ -80,11 +86,14 @@ namespace PAC.Extensions
 
             public override JsonObj ToJson(Texture2D tex)
             {
+                JsonList pixels = (JsonList)JsonConversion.ToJson(tex.GetPixels(), converterList);
+                pixels.separateLinesInPrettyString = false;
+
                 JsonObj json = new JsonObj
                 {
                     { "width", tex.width },
                     { "height", tex.height },
-                    { "pixels", JsonConversion.ToJson(tex.GetPixels(), converterList) }
+                    { "pixels", pixels }
                 };
 
                 return json;
