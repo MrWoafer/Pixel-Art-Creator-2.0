@@ -611,6 +611,17 @@ namespace PAC.Tests
         }
 
         /// <summary>
+        /// Checks JsonData.ParseNumber() correctly parses to the right one of JsonData.Int and JsonData.Float.
+        /// </summary>
+        [Test]
+        [Category("JSON")]
+        public void ParseNumber()
+        {
+            Assert.True(JsonData.HaveSameData(new JsonData.Int(39), JsonData.ParseNumber("39")));
+            Assert.True(JsonData.HaveSameData(new JsonData.Float(39f), JsonData.ParseNumber("39.0")));
+        }
+
+        /// <summary>
         /// Checks JsonData.Ints are parsed correctly.
         /// </summary>
         [Test]
@@ -636,8 +647,10 @@ namespace PAC.Tests
         [Category("JSON")]
         public void ParseFloat()
         {
-            Assert.AreEqual(JsonData.Float.Parse("3.259").value, 3.259, 0.0005f);
-            Assert.AreEqual(-3f, JsonData.Float.Parse("-3").value);
+            Assert.AreEqual(3.259, JsonData.Float.Parse("3.259").value, 0.0005f);
+            Assert.AreEqual(-3f, JsonData.Float.Parse("-3.0").value);
+            // No decimal point
+            Assert.Throws<FormatException>(() => JsonData.Float.Parse("-3"));
             // Not allowed two decimal points
             Assert.Throws<FormatException>(() => JsonData.Float.Parse("47.2.4"));
             // - followed by nothing
@@ -679,18 +692,18 @@ namespace PAC.Tests
         [Category("JSON")]
         public void ParseFloatENotation()
         {
-            Assert.AreEqual(JsonData.Float.Parse("-3.259e2").value, -325.9f, 0.05f);
-            Assert.AreEqual(JsonData.Float.Parse("-3.259E+2").value, -325.9f, 0.05f);
-            Assert.AreEqual(JsonData.Float.Parse("10.4E-2").value, 0.104f, 0.0005f);
-            Assert.AreEqual(JsonData.Float.Parse("10.4E0").value, 10.4f, 0.05f);
+            Assert.AreEqual(-325.9f, JsonData.Float.Parse("-3.259e2").value, 0.05f);
+            Assert.AreEqual(-325.9f, JsonData.Float.Parse("-3.259E+2").value, 0.05f);
+            Assert.AreEqual(0.104f, JsonData.Float.Parse("10.4E-2").value, 0.0005f);
+            Assert.AreEqual(10.4f, JsonData.Float.Parse("10.4E0").value, 0.05f);
             // Not allowed decimal exponent
-            Assert.Throws<FormatException>(() => JsonData.Float.Parse("47000e-2.0"));
+            Assert.Throws<FormatException>(() => JsonData.Float.Parse("47000.0e-2.0"));
             // E not followed by a number
-            Assert.Throws<FormatException>(() => JsonData.Float.Parse("47000e"));
+            Assert.Throws<FormatException>(() => JsonData.Float.Parse("47000.0e"));
             // + not followed by a number
-            Assert.Throws<FormatException>(() => JsonData.Float.Parse("47000e+"));
+            Assert.Throws<FormatException>(() => JsonData.Float.Parse("47000.0e+"));
             // - not followed by a number
-            Assert.Throws<FormatException>(() => JsonData.Float.Parse("47000E-"));
+            Assert.Throws<FormatException>(() => JsonData.Float.Parse("47000.0E-"));
             // Number ends too soon
             Assert.Throws<FormatException>(() => JsonData.Float.Parse("2.3e-4abc"));
             // Overflow

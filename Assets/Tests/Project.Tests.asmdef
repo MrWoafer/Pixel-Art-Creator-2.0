@@ -8,7 +8,8 @@
         "Project.Exceptions",
         "Project.Json",
         "Project.Extensions.JsonConverters",
-        "Project.Extensions.Type"
+        "Project.Extensions.Type",
+        "Project.Extensions.TextReader"
     ],
     "includePlatforms": [
         "Editor"
