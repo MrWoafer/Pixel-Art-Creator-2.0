@@ -247,7 +247,7 @@ namespace PAC.Files
                 throw new System.Exception("The file is not a PAC file. File extension: " + Path.GetExtension(filePath));
             }
 
-            JsonObj json = JsonObj.Parse(System.IO.File.ReadAllText(filePath));
+            JsonData.Object json = JsonData.Object.Parse(System.IO.File.ReadAllText(filePath));
 
             SemanticVersion fileFormatVersion = JsonConversion.FromJson<SemanticVersion>(json["file format version"], new JsonConversion.JsonConverterSet(new SemanticVersion.JsonConverter()), false);
             json.Remove("file format version");
@@ -314,8 +314,8 @@ namespace PAC.Files
                 throw new System.Exception("The file is not a PAC file. File extension: " + Path.GetExtension(filePath));
             }
 
-            JsonObj json = (JsonObj)JsonConversion.ToJson(this, new JsonConversion.JsonConverterSet(new JsonConverter(Config.Files.fileFormatVersion)), false);
-            json = json.Prepend(new JsonObj {
+            JsonData.Object json = (JsonData.Object)JsonConversion.ToJson(this, new JsonConversion.JsonConverterSet(new JsonConverter(Config.Files.fileFormatVersion)), false);
+            json = json.Prepend(new JsonData.Object {
                 { "file format version", JsonConversion.ToJson(Config.Files.fileFormatVersion, new JsonConversion.JsonConverterSet(new SemanticVersion.JsonConverter()), false) }
             });
 
@@ -1221,7 +1221,7 @@ namespace PAC.Files
             onSavedSinceEditChanged.AddListener(call);
         }
 
-        public class JsonConverter : JsonConversion.JsonConverter<File, JsonObj>
+        public class JsonConverter : JsonConversion.JsonConverter<File, JsonData.Object>
         {
             private SemanticVersion fromJsonFileFormatVersion;
 
@@ -1230,9 +1230,9 @@ namespace PAC.Files
                 this.fromJsonFileFormatVersion = fromJsonFileFormatVersion;
             }
 
-            public override JsonObj ToJson(File file)
+            public override JsonData.Object ToJson(File file)
             {
-                return new JsonObj
+                return new JsonData.Object
                     {
                         { "name", file.name },
                         { "most recent save path", file.mostRecentSavePath },
@@ -1245,7 +1245,7 @@ namespace PAC.Files
                     };
             }
 
-            public override File FromJson(JsonObj jsonData)
+            public override File FromJson(JsonData.Object jsonData)
             {
                 if (fromJsonFileFormatVersion > Config.Files.fileFormatVersion)
                 {

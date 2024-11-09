@@ -63,7 +63,7 @@ namespace PAC.Json
         {
             if (obj == null)
             {
-                return new JsonNull();
+                return new JsonData.Null();
             }
 
             Type objType = obj.GetType();
@@ -82,26 +82,26 @@ namespace PAC.Json
             // Primitive types
             if (objType == typeof(bool))
             {
-                return new JsonBool((bool)obj);
+                return new JsonData.Bool((bool)obj);
             }
             if (objType == typeof(int))
             {
-                return new JsonInt((int)obj);
+                return new JsonData.Int((int)obj);
             }
             if (objType == typeof(float))
             {
-                return new JsonFloat((float)obj);
+                return new JsonData.Float((float)obj);
             }
             if (objType == typeof(string))
             {
-                return new JsonString((string)obj);
+                return new JsonData.String((string)obj);
             }
 
             // Arrays / Lists
             if (objType.IsArray)
             {
                 Array objArray = (Array)obj;
-                JsonList jsonList = new JsonList(objArray.Length);
+                JsonData.List jsonList = new JsonData.List(objArray.Length);
                 for (int i = 0; i < objArray.Length; i++)
                 {
                     object element = objArray.GetValue(i);
@@ -132,7 +132,7 @@ namespace PAC.Json
             if (objType.IsGenericList())
             {
                 IList objList = (IList)obj;
-                JsonList jsonList = new JsonList(objList.Count);
+                JsonData.List jsonList = new JsonData.List(objList.Count);
                 for (int i = 0; i < objList.Count; i++)
                 {
                     object element = objList[i];
@@ -164,7 +164,7 @@ namespace PAC.Json
             // Enums
             if (objType.IsEnum)
             {
-                return new JsonString(Enum.GetName(objType, obj));
+                return new JsonData.String(Enum.GetName(objType, obj));
             }
 
             // Classes / Structs
@@ -175,7 +175,7 @@ namespace PAC.Json
                     throw new SerializationException("The conversion for type " + objType.Name + " is undefined, but parameter allowUndefinedConversions = false. Consider providing a custom converter.");
                 }
 
-                JsonObj jsonObj = new JsonObj();
+                JsonData.Object jsonObj = new JsonData.Object();
 
                 // Fields
                 IEnumerable<FieldInfo> fields = objType.GetFields(BindingFlags.Public | BindingFlags.Instance | BindingFlags.NonPublic).Where(f => f.GetCustomAttribute<CompilerGeneratedAttribute>() == null);
@@ -289,15 +289,15 @@ namespace PAC.Json
             // Enums
             if (returnType.IsEnum)
             {
-                if (jsonDataType != typeof(JsonString))
+                if (jsonDataType != typeof(JsonData.String))
                 {
                     throw new SerializationException("Expected string JSON data to convert into enum type " + returnType.Name + " but found type " + jsonDataType.Name);
                 }
-                return (T)Enum.Parse(returnType, ((JsonString)jsonData).value);
+                return (T)Enum.Parse(returnType, ((JsonData.String)jsonData).value);
             }
 
             // Primitives
-            if (jsonDataType == typeof(JsonNull))
+            if (jsonDataType == typeof(JsonData.Null))
             {
                 if (returnType.IsValueType)
                 {
@@ -305,48 +305,48 @@ namespace PAC.Json
                 }
                 return (T)(object)null;
             }
-            if (jsonDataType == typeof(JsonBool))
+            if (jsonDataType == typeof(JsonData.Bool))
             {
                 if (returnType != typeof(bool))
                 {
                     throw new SerializationException("Cannot convert bool JSON data into type " + returnType.Name + " as it is not a bool.");
                 }
-                return (T)(object)((JsonBool)jsonData).value;
+                return (T)(object)((JsonData.Bool)jsonData).value;
             }
-            if (jsonDataType == typeof(JsonInt))
+            if (jsonDataType == typeof(JsonData.Int))
             {
                 if (returnType != typeof(int))
                 {
                     throw new SerializationException("Cannot convert int JSON data into type " + returnType.Name + " as it is not a int.");
                 }
-                return (T)(object)((JsonInt)jsonData).value;
+                return (T)(object)((JsonData.Int)jsonData).value;
             }
-            if (jsonDataType == typeof(JsonFloat))
+            if (jsonDataType == typeof(JsonData.Float))
             {
                 if (returnType != typeof(float))
                 {
                     throw new SerializationException("Cannot convert float JSON data into type " + returnType.Name + " as it is not a float.");
                 }
-                return (T)(object)((JsonFloat)jsonData).value;
+                return (T)(object)((JsonData.Float)jsonData).value;
             }
-            if (jsonDataType == typeof(JsonString))
+            if (jsonDataType == typeof(JsonData.String))
             {
                 if (returnType != typeof(string))
                 {
                     throw new SerializationException("Cannot convert string JSON data into type " + returnType.Name + " as it is not a string.");
                 }
-                return (T)(object)((JsonString)jsonData).value;
+                return (T)(object)((JsonData.String)jsonData).value;
             }
 
             // Arrays / Lists
-            if (jsonDataType == typeof(JsonList))
+            if (jsonDataType == typeof(JsonData.List))
             {
                 if (!returnType.IsArray && !returnType.IsGenericList())
                 {
                     throw new SerializationException("Cannot convert list JSON data into type " + returnType.Name + " as it is not a list or array.");
                 }
 
-                JsonList jsonList = (JsonList)jsonData;
+                JsonData.List jsonList = (JsonData.List)jsonData;
 
                 // Array
                 if (returnType.IsArray)
@@ -429,9 +429,9 @@ namespace PAC.Json
             {
                 throw new SerializationException("The conversion for type " + returnType.Name + " is undefined, but parameter allowUndefinedConversions = false. Consider providing a custom converter.");
             }
-            if (jsonDataType == typeof(JsonObj))
+            if (jsonDataType == typeof(JsonData.Object))
             {
-                JsonObj jsonObj = (JsonObj)jsonData;
+                JsonData.Object jsonObj = (JsonData.Object)jsonData;
                 // We do not convert to type T here due to boxing of structs. It would work fine for classes, but structs get boxed when we do that so when we edit the fields/properties
                 // it wouldn't actually change the struct in this variable, but a new one.
                 object obj = FormatterServices.GetSafeUninitializedObject(returnType);

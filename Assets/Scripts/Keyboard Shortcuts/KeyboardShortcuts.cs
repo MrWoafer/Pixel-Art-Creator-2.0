@@ -41,7 +41,7 @@ namespace PAC.KeyboardShortcuts
         /// </summary>
         public static void SaveShortcuts()
         {
-            JsonObj json = ToJSON();
+            JsonData.Object json = ToJSON();
             System.IO.File.WriteAllText(shortcutsFilePath, json.ToJsonString(true));
 
             Debug.Log("Keyboard shortcuts saved at: " + shortcutsFilePath);
@@ -65,7 +65,7 @@ namespace PAC.KeyboardShortcuts
                 throw new System.Exception("The file is not a JSON file. File extension: " + Path.GetExtension(shortcutsFilePath));
             }
 
-            LoadJSON(JsonObj.Parse(System.IO.File.ReadAllText(shortcutsFilePath)));
+            LoadJSON(JsonData.Object.Parse(System.IO.File.ReadAllText(shortcutsFilePath)));
 
             Debug.Log("Keyboard shortcuts loaded from: " + shortcutsFilePath);
         }
@@ -73,11 +73,11 @@ namespace PAC.KeyboardShortcuts
         /// <summary>
         /// Returns the list of keyboard shortcuts as a JSON object.
         /// </summary>
-        private static JsonObj ToJSON()
+        private static JsonData.Object ToJSON()
         {
             JsonConversion.JsonConverterSet converters = new JsonConversion.JsonConverterSet(new KeyboardShortcut.JsonConverter());
 
-            JsonObj jsonObj = new JsonObj();
+            JsonData.Object jsonObj = new JsonData.Object();
             foreach (string key in shortcuts.Keys)
             {
                 jsonObj.Add(key, JsonConversion.ToJson(shortcuts[key], converters, false));
@@ -89,7 +89,7 @@ namespace PAC.KeyboardShortcuts
         /// <summary>
         /// Clears all keyboard shortcuts then loads them from the JSON object.
         /// </summary>
-        private static void LoadJSON(JsonObj jsonObj)
+        private static void LoadJSON(JsonData.Object jsonObj)
         {
             JsonConversion.JsonConverterSet converters = new JsonConversion.JsonConverterSet(new KeyboardShortcut.JsonConverter());
 

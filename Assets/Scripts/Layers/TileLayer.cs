@@ -527,7 +527,7 @@ namespace PAC.Layers
             }
         }
 
-        public new class JsonConverter : JsonConversion.JsonConverter<TileLayer, JsonObj>
+        public new class JsonConverter : JsonConversion.JsonConverter<TileLayer, JsonData.Object>
         {
             private SemanticVersion fromJsonFileFormatVersion;
 
@@ -536,12 +536,12 @@ namespace PAC.Layers
                 this.fromJsonFileFormatVersion = fromJsonFileFormatVersion;
             }
 
-            public override JsonObj ToJson(TileLayer layer)
+            public override JsonData.Object ToJson(TileLayer layer)
             {
                 throw new System.NotImplementedException();
             }
 
-            public override TileLayer FromJson(JsonObj jsonData)
+            public override TileLayer FromJson(JsonData.Object jsonData)
             {
                 throw new System.NotImplementedException();
             }

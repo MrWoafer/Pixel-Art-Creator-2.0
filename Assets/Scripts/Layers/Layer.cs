@@ -444,7 +444,7 @@ namespace PAC.Layers
                 );
         }
 
-        public class JsonConverter : JsonConversion.JsonConverter<Layer, JsonObj>
+        public class JsonConverter : JsonConversion.JsonConverter<Layer, JsonData.Object>
         {
             private SemanticVersion fromJsonFileFormatVersion;
 
@@ -457,12 +457,12 @@ namespace PAC.Layers
             /// This currently can't be used since JsonConversion.ToJson() only works on concrete types, but Layer is abstract so you cannot have an object without concrete type Layer.
             /// </summary>
             /// <exception cref="NotImplementedException"></exception>
-            public override JsonObj ToJson(Layer obj)
+            public override JsonData.Object ToJson(Layer obj)
             {
                 throw new NotImplementedException();
             }
 
-            public override Layer FromJson(JsonObj jsonData)
+            public override Layer FromJson(JsonData.Object jsonData)
             {
                 string layerType = JsonConversion.FromJson<string>(jsonData["layer type"]).ToLower();
                 if (layerType == "normal")

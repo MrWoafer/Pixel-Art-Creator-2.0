@@ -182,14 +182,14 @@ namespace PAC.DataStructures
             _patch += 1;
         }
 
-        public class JsonConverter : JsonConversion.JsonConverter<SemanticVersion, JsonString>
+        public class JsonConverter : JsonConversion.JsonConverter<SemanticVersion, JsonData.String>
         {
-            public override JsonString ToJson(SemanticVersion version)
+            public override JsonData.String ToJson(SemanticVersion version)
             {
                 return version.ToString();
             }
 
-            public override SemanticVersion FromJson(JsonString jsonData)
+            public override SemanticVersion FromJson(JsonData.String jsonData)
             {
                 if (jsonData.value.Length == 0)
                 {

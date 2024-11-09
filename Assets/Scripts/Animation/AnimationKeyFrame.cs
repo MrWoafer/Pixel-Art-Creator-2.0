@@ -40,7 +40,7 @@ namespace PAC.Animation
             return new AnimationKeyFrame(this);
         }
 
-        public class JsonConverter : JsonConversion.JsonConverter<AnimationKeyFrame, JsonObj>
+        public class JsonConverter : JsonConversion.JsonConverter<AnimationKeyFrame, JsonData.Object>
         {
             private SemanticVersion fromJsonFileFormatVersion;
 
@@ -49,9 +49,9 @@ namespace PAC.Animation
                 this.fromJsonFileFormatVersion = fromJsonFileFormatVersion;
             }
 
-            public override JsonObj ToJson(AnimationKeyFrame keyFrame)
+            public override JsonData.Object ToJson(AnimationKeyFrame keyFrame)
             {
-                return new JsonObj
+                return new JsonData.Object
                     {
                         { "frame", keyFrame.frame },
                         { "texture", JsonConversion.ToJson(keyFrame.texture,
@@ -59,7 +59,7 @@ namespace PAC.Animation
                     };
             }
 
-            public override AnimationKeyFrame FromJson(JsonObj jsonData)
+            public override AnimationKeyFrame FromJson(JsonData.Object jsonData)
             {
                 if (fromJsonFileFormatVersion > Config.Files.fileFormatVersion)
                 {

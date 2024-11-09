@@ -238,7 +238,7 @@ namespace PAC.Layers
             AddKeyFrame(0, Tex2DSprite.BlankTexture(width, height));
         }
 
-        public new class JsonConverter : JsonConversion.JsonConverter<NormalLayer, JsonObj>
+        public new class JsonConverter : JsonConversion.JsonConverter<NormalLayer, JsonData.Object>
         {
             private SemanticVersion fromJsonFileFormatVersion;
 
@@ -247,9 +247,9 @@ namespace PAC.Layers
                 this.fromJsonFileFormatVersion = fromJsonFileFormatVersion;
             }
 
-            public override JsonObj ToJson(NormalLayer layer)
+            public override JsonData.Object ToJson(NormalLayer layer)
             {
-                return new JsonObj
+                return new JsonData.Object
                     {
                         { "layer type", "Normal" },
                         { "name", layer.name },
@@ -263,7 +263,7 @@ namespace PAC.Layers
                     };
             }
 
-            public override NormalLayer FromJson(JsonObj jsonData)
+            public override NormalLayer FromJson(JsonData.Object jsonData)
             {
                 if (fromJsonFileFormatVersion > Config.Files.fileFormatVersion)
                 {

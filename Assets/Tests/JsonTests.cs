@@ -110,20 +110,20 @@ namespace PAC.Tests
                 Enum1.Value3
             );
 
-            JsonObj jsonObj = new JsonObj
+            JsonData.Object jsonObj = new JsonData.Object
             {
-                { "jsonBool", new JsonBool(true) },
-                { "jsonInt", new JsonInt(1) },
-                { "jsonFloat", new JsonFloat(-4.32f) },
-                { "jsonString", new JsonString("hello") },
-                { "jsonString2", new JsonNull() },
-                { "jsonList", new JsonList(new JsonInt(1), new JsonInt(2), new JsonInt(4), new JsonInt(-10)) },
-                { "jsonList2", new JsonList(
-                    new JsonObj { { "name", new JsonString("test")}, { "id", new JsonInt(0) }, { "flag", new JsonBool(false) } },
-                    new JsonObj { { "name", new JsonString("testing")}, { "id", new JsonInt(63) }, { "flag", new JsonBool(true) } }
+                { "jsonBool", new JsonData.Bool(true) },
+                { "jsonInt", new JsonData.Int(1) },
+                { "jsonFloat", new JsonData.Float(-4.32f) },
+                { "jsonString", new JsonData.String("hello") },
+                { "jsonString2", new JsonData.Null() },
+                { "jsonList", new JsonData.List(new JsonData.Int(1), new JsonData.Int(2), new JsonData.Int(4), new JsonData.Int(-10)) },
+                { "jsonList2", new JsonData.List(
+                    new JsonData.Object { { "name", new JsonData.String("test")}, { "id", new JsonData.Int(0) }, { "flag", new JsonData.Bool(false) } },
+                    new JsonData.Object { { "name", new JsonData.String("testing")}, { "id", new JsonData.Int(63) }, { "flag", new JsonData.Bool(true) } }
                     )
                 },
-                { "jsonEnum", new JsonString("Value3") }
+                { "jsonEnum", new JsonData.String("Value3") }
             };
 
             Assert.True(JsonData.HaveSameData(JsonConversion.ToJson(obj, true), jsonObj));
@@ -148,20 +148,20 @@ namespace PAC.Tests
                 Enum1.Value3
             );
 
-            JsonObj jsonObj = new JsonObj
+            JsonData.Object jsonObj = new JsonData.Object
             {
-                { "jsonBool", new JsonBool(true) },
-                { "jsonInt", new JsonInt(1) },
-                { "jsonFloat", new JsonFloat(-4.32f) },
-                { "jsonString", new JsonString("hello") },
-                { "jsonString2", new JsonNull() },
-                { "jsonList", new JsonList(new JsonInt(1), new JsonInt(2), new JsonInt(4), new JsonInt(-10)) },
-                { "jsonList2", new JsonList(
-                    new JsonObj { { "name", new JsonString("test")}, { "id", new JsonInt(0) }, { "flag", new JsonBool(false) } },
-                    new JsonObj { { "name", new JsonString("testing")}, { "id", new JsonInt(63) }, { "flag", new JsonBool(true) } }
+                { "jsonBool", new JsonData.Bool(true) },
+                { "jsonInt", new JsonData.Int(1) },
+                { "jsonFloat", new JsonData.Float(-4.32f) },
+                { "jsonString", new JsonData.String("hello") },
+                { "jsonString2", new JsonData.Null() },
+                { "jsonList", new JsonData.List(new JsonData.Int(1), new JsonData.Int(2), new JsonData.Int(4), new JsonData.Int(-10)) },
+                { "jsonList2", new JsonData.List(
+                    new JsonData.Object { { "name", new JsonData.String("test")}, { "id", new JsonData.Int(0) }, { "flag", new JsonData.Bool(false) } },
+                    new JsonData.Object { { "name", new JsonData.String("testing")}, { "id", new JsonData.Int(63) }, { "flag", new JsonData.Bool(true) } }
                     )
                 },
-                { "jsonEnum", new JsonString("Value3") }
+                { "jsonEnum", new JsonData.String("Value3") }
             };
 
             Class1 convertedObj = JsonConversion.FromJson<Class1>(jsonObj, true);
@@ -176,17 +176,17 @@ namespace PAC.Tests
         [Category("JSON")]
         public void ToJsonStringPretty()
         {
-            JsonObj jsonObj = new JsonObj
+            JsonData.Object jsonObj = new JsonData.Object
             {
-                { "jsonBool", new JsonBool(true) },
-                { "jsonInt", new JsonInt(1) },
-                { "jsonFloat", new JsonFloat(-4.32f) },
-                { "jsonString", new JsonString("hello") },
-                { "jsonString2", new JsonNull() },
-                { "jsonList", new JsonList(new JsonInt(1), new JsonInt(2), new JsonInt(4), new JsonInt(-10)) },
-                { "jsonList2", new JsonList(
-                    new JsonObj { { "name", new JsonString("test")}, { "id", new JsonInt(0) }, { "flag", new JsonBool(false) } },
-                    new JsonObj { { "name", new JsonString("testing")}, { "id", new JsonInt(63) }, { "flag", new JsonBool(true) } }
+                { "jsonBool", new JsonData.Bool(true) },
+                { "jsonInt", new JsonData.Int(1) },
+                { "jsonFloat", new JsonData.Float(-4.32f) },
+                { "jsonString", new JsonData.String("hello") },
+                { "jsonString2", new JsonData.Null() },
+                { "jsonList", new JsonData.List(new JsonData.Int(1), new JsonData.Int(2), new JsonData.Int(4), new JsonData.Int(-10)) },
+                { "jsonList2", new JsonData.List(
+                    new JsonData.Object { { "name", new JsonData.String("test")}, { "id", new JsonData.Int(0) }, { "flag", new JsonData.Bool(false) } },
+                    new JsonData.Object { { "name", new JsonData.String("testing")}, { "id", new JsonData.Int(63) }, { "flag", new JsonData.Bool(true) } }
                     )
                 }
             };
@@ -229,17 +229,17 @@ namespace PAC.Tests
         [Category("JSON")]
         public void Parse()
         {
-            JsonObj expectedObj = new JsonObj
+            JsonData.Object expectedObj = new JsonData.Object
             {
-                { "jsonBool", new JsonBool(true) },
-                { "jsonInt", new JsonInt(1) },
-                { "jsonFloat", new JsonFloat(-4.32f) },
-                { "jsonString", new JsonString("hello") },
-                { "jsonString2", new JsonNull() },
-                { "jsonList", new JsonList(new JsonInt(1), new JsonInt(2), new JsonInt(4), new JsonInt(-10)) },
-                { "jsonList2", new JsonList(
-                    new JsonObj { { "name", new JsonString("test")}, { "id", new JsonInt(0) }, { "flag", new JsonBool(false) } },
-                    new JsonObj { { "name", new JsonString("testing")}, { "id", new JsonInt(63) }, { "flag", new JsonBool(true) } }
+                { "jsonBool", new JsonData.Bool(true) },
+                { "jsonInt", new JsonData.Int(1) },
+                { "jsonFloat", new JsonData.Float(-4.32f) },
+                { "jsonString", new JsonData.String("hello") },
+                { "jsonString2", new JsonData.Null() },
+                { "jsonList", new JsonData.List(new JsonData.Int(1), new JsonData.Int(2), new JsonData.Int(4), new JsonData.Int(-10)) },
+                { "jsonList2", new JsonData.List(
+                    new JsonData.Object { { "name", new JsonData.String("test")}, { "id", new JsonData.Int(0) }, { "flag", new JsonData.Bool(false) } },
+                    new JsonData.Object { { "name", new JsonData.String("testing")}, { "id", new JsonData.Int(63) }, { "flag", new JsonData.Bool(true) } }
                     )
                 }
             };
@@ -272,7 +272,7 @@ namespace PAC.Tests
                 "}"
                 ;
 
-            JsonObj parsedObj = JsonObj.Parse(jsonString);
+            JsonData.Object parsedObj = JsonData.Object.Parse(jsonString);
 
             Assert.True(JsonData.HaveSameData(parsedObj, expectedObj));
         }
@@ -299,10 +299,10 @@ namespace PAC.Tests
         [Category("JSON")]
         public void FromJsonUndefinedConversion()
         {
-            JsonList definedData = new JsonList { new JsonInt(4), new JsonInt(3), new JsonInt(2), new JsonInt(1) };
-            JsonList undefinedData = new JsonList {
-                new JsonObj { { "name", new JsonString("hi")}, { "id", new JsonInt(1) }, { "flag", new JsonBool(false) } },
-                new JsonObj { { "name", new JsonString("hello")}, { "id", new JsonInt(2) }, { "flag", new JsonBool(true) } }
+            JsonData.List definedData = new JsonData.List { new JsonData.Int(4), new JsonData.Int(3), new JsonData.Int(2), new JsonData.Int(1) };
+            JsonData.List undefinedData = new JsonData.List {
+                new JsonData.Object { { "name", new JsonData.String("hi")}, { "id", new JsonData.Int(1) }, { "flag", new JsonData.Bool(false) } },
+                new JsonData.Object { { "name", new JsonData.String("hello")}, { "id", new JsonData.Int(2) }, { "flag", new JsonData.Bool(true) } }
             };
 
             Assert.DoesNotThrow(() => JsonConversion.FromJson<List<int>>(definedData, false));
@@ -439,17 +439,17 @@ namespace PAC.Tests
         [Category("JSON")]
         public void FromJsonCircularReferencesInValue()
         {
-            JsonObj child2 = new JsonObj
+            JsonData.Object child2 = new JsonData.Object
             {
                 { "name", "2" },
-                { "child", new JsonNull() }
+                { "child", new JsonData.Null() }
             };
-            JsonObj child1 = new JsonObj
+            JsonData.Object child1 = new JsonData.Object
             {
                 { "name", "1" },
                 { "child", child2 }
             };
-            JsonObj parent = new JsonObj
+            JsonData.Object parent = new JsonData.Object
             {
                 { "name", "0" },
                 { "child", child1 }
@@ -469,19 +469,19 @@ namespace PAC.Tests
         [Category("JSON")]
         public void FromJsonCircularReferencesInList()
         {
-            JsonObj jsonObj = new JsonObj
+            JsonData.Object jsonObj = new JsonData.Object
             {
                 { "name", "0" },
-                { "children", new JsonList(
-                    new JsonObj { { "name", new JsonString("1")}, { "children", new JsonList() } },
-                    new JsonObj { { "name", new JsonString("2")}, { "children", new JsonList() } }
+                { "children", new JsonData.List(
+                    new JsonData.Object { { "name", new JsonData.String("1")}, { "children", new JsonData.List() } },
+                    new JsonData.Object { { "name", new JsonData.String("2")}, { "children", new JsonData.List() } }
                     )
                 }
             };
 
             Assert.DoesNotThrow(() => JsonConversion.FromJson<Class6>(jsonObj, true));
 
-            ((JsonList)jsonObj["children"]).Add(jsonObj);
+            ((JsonData.List)jsonObj["children"]).Add(jsonObj);
 
             Assert.Catch(() => JsonConversion.FromJson<Class6>(jsonObj, true));
         }
@@ -503,20 +503,20 @@ namespace PAC.Tests
             }
         }
 
-        private class ComplexNumberConverter : JsonConversion.JsonConverter<ComplexNumber, JsonList>
+        private class ComplexNumberConverter : JsonConversion.JsonConverter<ComplexNumber, JsonData.List>
         {
-            public override JsonList ToJson(ComplexNumber obj)
+            public override JsonData.List ToJson(ComplexNumber obj)
             {
-                return new JsonList(obj.real, obj.imaginary);
+                return new JsonData.List(obj.real, obj.imaginary);
             }
 
-            public override ComplexNumber FromJson(JsonList jsonData)
+            public override ComplexNumber FromJson(JsonData.List jsonData)
             {
                 if (jsonData.Count != 2)
                 {
                     throw new Exception("Expected length 2.");
                 }
-                return new ComplexNumber((JsonFloat)jsonData[0], (JsonFloat)jsonData[1]);
+                return new ComplexNumber((JsonData.Float)jsonData[0], (JsonData.Float)jsonData[1]);
             }
         }
 
@@ -531,13 +531,13 @@ namespace PAC.Tests
 
             ComplexNumber obj = new ComplexNumber(5f, -2.3f);
 
-            JsonObj expectedWithoutConverter = new JsonObj
+            JsonData.Object expectedWithoutConverter = new JsonData.Object
             {
                 { "real", 5f },
                 { "imaginary", -2.3f }
             };
 
-            JsonList expectedWithConverter = new JsonList(5f, -2.3f);
+            JsonData.List expectedWithConverter = new JsonData.List(5f, -2.3f);
 
             // Without converter
             Assert.Catch(() => JsonConversion.ToJson(obj, false));
@@ -559,13 +559,13 @@ namespace PAC.Tests
 
             ComplexNumber expectedObj = new ComplexNumber(5f, -2.3f);
 
-            JsonObj withoutConverter = new JsonObj
+            JsonData.Object withoutConverter = new JsonData.Object
             {
                 { "real", 5f },
                 { "imaginary", -2.3f }
             };
 
-            JsonList withConverter = new JsonList(5f, -2.3f);
+            JsonData.List withConverter = new JsonData.List(5f, -2.3f);
 
             // Without converter
             Assert.Catch(() => JsonConversion.FromJson<ComplexNumber>(withoutConverter, false));
@@ -579,7 +579,7 @@ namespace PAC.Tests
         }
 
         /// <summary>
-        /// Checks that JsonString.ToJsonString() correctly escapes escaped characters.
+        /// Checks that JsonData.String.ToJsonString() correctly escapes escaped characters.
         /// </summary>
         [Test]
         [Category("JSON")]
@@ -588,11 +588,11 @@ namespace PAC.Tests
             string str = "\" \\ / \b \f \n \r \t \u03b5 \u03B5";
             string expected = "\"\\\" \\\\ \\/ \\b \\f \\n \\r \\t " + @"\u03B5 \u03B5" + "\"";
 
-            Assert.AreEqual(expected, new JsonString(str).ToJsonString(false));
+            Assert.AreEqual(expected, new JsonData.String(str).ToJsonString(false));
         }
 
         /// <summary>
-        /// Checks that JsonString.Parse() correctly parses escaped characters.
+        /// Checks that JsonData.String.Parse() correctly parses escaped characters.
         /// </summary>
         [Test]
         [Category("JSON")]
@@ -601,113 +601,113 @@ namespace PAC.Tests
             string str = "\"\\\" \\\\ \\/ \\b \\f \\n \\r \\t " + @"\u03b5 \u03B5" + "\"";
             string expected = "\" \\ / \b \f \n \r \t \u03B5 \u03B5";
 
-            Assert.AreEqual(expected, JsonString.Parse(str).value);
+            Assert.AreEqual(expected, JsonData.String.Parse(str).value);
 
             // Should error as there is no escaped character after the \
-            Assert.Throws<FormatException>(() => JsonString.Parse("\"hello \\\""));
-            Assert.DoesNotThrow(() => JsonString.Parse("\"hello \\\\\""));
+            Assert.Throws<FormatException>(() => JsonData.String.Parse("\"hello \\\""));
+            Assert.DoesNotThrow(() => JsonData.String.Parse("\"hello \\\\\""));
             // Should error as there are only 3 hex digits, not 4
-            Assert.Throws<FormatException>(() => JsonString.Parse("\"\\uA32\""));
+            Assert.Throws<FormatException>(() => JsonData.String.Parse("\"\\uA32\""));
         }
 
         /// <summary>
-        /// Checks JsonInts are parsed correctly.
+        /// Checks JsonData.Ints are parsed correctly.
         /// </summary>
         [Test]
         [Category("JSON")]
         public void ParseInt()
         {
-            Assert.AreEqual(39, JsonInt.Parse("39").value);
-            Assert.AreEqual(-39, JsonInt.Parse("-39").value);
+            Assert.AreEqual(39, JsonData.Int.Parse("39").value);
+            Assert.AreEqual(-39, JsonData.Int.Parse("-39").value);
             // Not allowed decimal point
-            Assert.Throws<FormatException>(() => JsonInt.Parse("47.2"));
+            Assert.Throws<FormatException>(() => JsonData.Int.Parse("47.2"));
             // - followed by nothing
-            Assert.Throws<FormatException>(() => JsonInt.Parse("-"));
+            Assert.Throws<FormatException>(() => JsonData.Int.Parse("-"));
             // Not allowed double -
-            Assert.Throws<FormatException>(() => JsonInt.Parse("--3"));
+            Assert.Throws<FormatException>(() => JsonData.Int.Parse("--3"));
             // Number ends too soon
-            Assert.Throws<FormatException>(() => JsonInt.Parse("356abc"));
+            Assert.Throws<FormatException>(() => JsonData.Int.Parse("356abc"));
         }
 
         /// <summary>
-        /// Checks JsonFloats are parsed correctly.
+        /// Checks JsonData.Floats are parsed correctly.
         /// </summary>
         [Test]
         [Category("JSON")]
         public void ParseFloat()
         {
-            Assert.AreEqual(JsonFloat.Parse("3.259").value, 3.259, 0.0005f);
-            Assert.AreEqual(-3f, JsonFloat.Parse("-3").value);
+            Assert.AreEqual(JsonData.Float.Parse("3.259").value, 3.259, 0.0005f);
+            Assert.AreEqual(-3f, JsonData.Float.Parse("-3").value);
             // Not allowed two decimal points
-            Assert.Throws<FormatException>(() => JsonFloat.Parse("47.2.4"));
+            Assert.Throws<FormatException>(() => JsonData.Float.Parse("47.2.4"));
             // - followed by nothing
-            Assert.Throws<FormatException>(() => JsonFloat.Parse("-"));
+            Assert.Throws<FormatException>(() => JsonData.Float.Parse("-"));
             // Not allowed double -
-            Assert.Throws<FormatException>(() => JsonFloat.Parse("--3"));
+            Assert.Throws<FormatException>(() => JsonData.Float.Parse("--3"));
             // Number ends too soon
-            Assert.Throws<FormatException>(() => JsonFloat.Parse("356.5abc"));
+            Assert.Throws<FormatException>(() => JsonData.Float.Parse("356.5abc"));
         }
 
         /// <summary>
-        /// Checks JsonInts are parsed correctly in E notation.
+        /// Checks JsonData.Ints are parsed correctly in E notation.
         /// </summary>
         [Test]
         [Category("JSON")]
         public void ParseIntENotation()
         {
-            Assert.AreEqual(-3900, JsonInt.Parse("-39E2").value);
-            Assert.AreEqual(-3900, JsonInt.Parse("-39E+2").value);
-            Assert.AreEqual(39, JsonInt.Parse("39E0").value);
+            Assert.AreEqual(-3900, JsonData.Int.Parse("-39E2").value);
+            Assert.AreEqual(-3900, JsonData.Int.Parse("-39E+2").value);
+            Assert.AreEqual(39, JsonData.Int.Parse("39E0").value);
             // Not allowed negative exponent
-            Assert.Throws<FormatException>(() => JsonInt.Parse("47000e-2"));
+            Assert.Throws<FormatException>(() => JsonData.Int.Parse("47000e-2"));
             // Not allowed decimal exponent
-            Assert.Throws<FormatException>(() => JsonInt.Parse("47000e2.0"));
+            Assert.Throws<FormatException>(() => JsonData.Int.Parse("47000e2.0"));
             // E not followed by a number
-            Assert.Throws<FormatException>(() => JsonInt.Parse("47000E"));
+            Assert.Throws<FormatException>(() => JsonData.Int.Parse("47000E"));
             // + not followed by a number
-            Assert.Throws<FormatException>(() => JsonInt.Parse("47000e+"));
+            Assert.Throws<FormatException>(() => JsonData.Int.Parse("47000e+"));
             // Number ends too soon
-            Assert.Throws<FormatException>(() => JsonInt.Parse("2e4abc"));
+            Assert.Throws<FormatException>(() => JsonData.Int.Parse("2e4abc"));
             // Overflow
-            Assert.Throws<OverflowException>(() => JsonInt.Parse("2e" + int.MaxValue));
+            Assert.Throws<OverflowException>(() => JsonData.Int.Parse("2e" + int.MaxValue));
         }
 
         /// <summary>
-        /// Checks JsonFloats are parsed correctly in E Notation.
+        /// Checks JsonData.Floats are parsed correctly in E Notation.
         /// </summary>
         [Test]
         [Category("JSON")]
         public void ParseFloatENotation()
         {
-            Assert.AreEqual(JsonFloat.Parse("-3.259e2").value, -325.9f, 0.05f);
-            Assert.AreEqual(JsonFloat.Parse("-3.259E+2").value, -325.9f, 0.05f);
-            Assert.AreEqual(JsonFloat.Parse("10.4E-2").value, 0.104f, 0.0005f);
-            Assert.AreEqual(JsonFloat.Parse("10.4E0").value, 10.4f, 0.05f);
+            Assert.AreEqual(JsonData.Float.Parse("-3.259e2").value, -325.9f, 0.05f);
+            Assert.AreEqual(JsonData.Float.Parse("-3.259E+2").value, -325.9f, 0.05f);
+            Assert.AreEqual(JsonData.Float.Parse("10.4E-2").value, 0.104f, 0.0005f);
+            Assert.AreEqual(JsonData.Float.Parse("10.4E0").value, 10.4f, 0.05f);
             // Not allowed decimal exponent
-            Assert.Throws<FormatException>(() => JsonFloat.Parse("47000e-2.0"));
+            Assert.Throws<FormatException>(() => JsonData.Float.Parse("47000e-2.0"));
             // E not followed by a number
-            Assert.Throws<FormatException>(() => JsonFloat.Parse("47000e"));
+            Assert.Throws<FormatException>(() => JsonData.Float.Parse("47000e"));
             // + not followed by a number
-            Assert.Throws<FormatException>(() => JsonFloat.Parse("47000e+"));
+            Assert.Throws<FormatException>(() => JsonData.Float.Parse("47000e+"));
             // - not followed by a number
-            Assert.Throws<FormatException>(() => JsonFloat.Parse("47000E-"));
+            Assert.Throws<FormatException>(() => JsonData.Float.Parse("47000E-"));
             // Number ends too soon
-            Assert.Throws<FormatException>(() => JsonFloat.Parse("2.3e-4abc"));
+            Assert.Throws<FormatException>(() => JsonData.Float.Parse("2.3e-4abc"));
             // Overflow
-            Assert.Throws<OverflowException>(() => JsonFloat.Parse("2.0e" + int.MaxValue));
+            Assert.Throws<OverflowException>(() => JsonData.Float.Parse("2.0e" + int.MaxValue));
             // Underflow
-            Assert.Throws<UnderflowException>(() => JsonFloat.Parse("2.0e" + int.MinValue));
+            Assert.Throws<UnderflowException>(() => JsonData.Float.Parse("2.0e" + int.MinValue));
         }
 
         /// <summary>
-        /// Checks that when JsonFloat.ToJsonString() always includes a decimal point.
+        /// Checks that when JsonData.Float.ToJsonString() always includes a decimal point.
         /// </summary>
         [Test]
         [Category("JSON")]
         public void ToJsonStringFloat()
         {
-            Assert.AreEqual("-3.2", new JsonFloat(-3.2f).ToJsonString(false));
-            Assert.AreEqual("4.0", new JsonFloat(4f).ToJsonString(false));
+            Assert.AreEqual("-3.2", new JsonData.Float(-3.2f).ToJsonString(false));
+            Assert.AreEqual("4.0", new JsonData.Float(4f).ToJsonString(false));
         }
 
         /// <summary>
@@ -717,9 +717,9 @@ namespace PAC.Tests
         [Category("JSON")]
         public void JsonStringNull()
         {
-            Assert.Throws<ArgumentException>(() => new JsonString(null));
+            Assert.Throws<ArgumentException>(() => new JsonData.String(null));
 
-            JsonString jsonString = new JsonString("");
+            JsonData.String jsonString = new JsonData.String("");
             Assert.Throws<ArgumentException>(() => jsonString.value = null);
         }
 
@@ -730,13 +730,13 @@ namespace PAC.Tests
         [Category("JSON")]
         public void ParseNull()
         {
-            Assert.Catch<FormatException>(() => JsonString.Parse("null"));
-            Assert.Catch<FormatException>(() => JsonList.Parse("null"));
-            Assert.Catch<FormatException>(() => JsonObj.Parse("null"));
+            Assert.Catch<FormatException>(() => JsonData.String.Parse("null"));
+            Assert.Catch<FormatException>(() => JsonData.List.Parse("null"));
+            Assert.Catch<FormatException>(() => JsonData.Object.Parse("null"));
 
-            Assert.True(JsonData.HaveSameData(JsonString.ParseMaybeNull("\"hi\""), new JsonString("hi")));
-            Assert.True(JsonData.HaveSameData(JsonList.ParseMaybeNull("[]"), new JsonList()));
-            Assert.True(JsonData.HaveSameData(JsonObj.ParseMaybeNull("{}"), new JsonObj()));
+            Assert.True(JsonData.HaveSameData(JsonData.String.ParseMaybeNull("\"hi\""), new JsonData.String("hi")));
+            Assert.True(JsonData.HaveSameData(JsonData.List.ParseMaybeNull("[]"), new JsonData.List()));
+            Assert.True(JsonData.HaveSameData(JsonData.Object.ParseMaybeNull("{}"), new JsonData.Object()));
         }
 
         /// <summary>
@@ -746,11 +746,11 @@ namespace PAC.Tests
         [Category("JSON")]
         public void ParseEmpty()
         {
-            Assert.True(JsonData.HaveSameData(JsonList.Parse("[]"), new JsonList()));
-            Assert.True(JsonData.HaveSameData(JsonObj.Parse("{}"), new JsonObj()));
+            Assert.True(JsonData.HaveSameData(JsonData.List.Parse("[]"), new JsonData.List()));
+            Assert.True(JsonData.HaveSameData(JsonData.Object.Parse("{}"), new JsonData.Object()));
 
-            Assert.True(JsonData.HaveSameData(JsonList.Parse("[     ]"), new JsonList()));
-            Assert.True(JsonData.HaveSameData(JsonObj.Parse("{   }"), new JsonObj()));
+            Assert.True(JsonData.HaveSameData(JsonData.List.Parse("[     ]"), new JsonData.List()));
+            Assert.True(JsonData.HaveSameData(JsonData.Object.Parse("{   }"), new JsonData.Object()));
         }
 
         private class ParentClass
@@ -817,14 +817,14 @@ namespace PAC.Tests
         public void ToJsonSubclasses()
         {
             List<ParentClass> list = new List<ParentClass> { new ChildClass1(0, "hello"), new ChildClass2(1, "hi") };
-            JsonList expected = new JsonList
+            JsonData.List expected = new JsonData.List
             {
-                new JsonObj
+                new JsonData.Object
                 {
                     { "id", 0 },
                     { "description", "hello" },
                 },
-                new JsonObj
+                new JsonData.Object
                 {
                     { "id", 1 },
                     { "info", "hi" },
@@ -839,14 +839,14 @@ namespace PAC.Tests
         public void FromJsonSubclasses()
         {
             List<ParentClass> list = new List<ParentClass> { new ChildClass1(0, "hello"), new ChildClass2(1, "hi") };
-            JsonList expected = new JsonList
+            JsonData.List expected = new JsonData.List
             {
-                new JsonObj
+                new JsonData.Object
                 {
                     { "id", 0 },
                     { "description", "hello" },
                 },
-                new JsonObj
+                new JsonData.Object
                 {
                     { "id", 1 },
                     { "info", "hi" },
@@ -857,39 +857,39 @@ namespace PAC.Tests
         }
 
         /// <summary>
-        /// Tests JsonObj.Concat(), JsonObj.Append() and JsonObj.Prepend().
+        /// Tests JsonData.Object.Concat(), JsonData.Object.Append() and JsonData.Object.Prepend().
         /// </summary>
         [Test]
-        public void JsonObjConcat()
+        public void JsonObjectConcat()
         {
-            Assert.True(JsonData.HaveSameData(new JsonObj(), JsonObj.Concat()));
+            Assert.True(JsonData.HaveSameData(new JsonData.Object(), JsonData.Object.Concat()));
 
-            JsonObj jsonObj1 = new JsonObj
+            JsonData.Object jsonObj1 = new JsonData.Object
             {
                 { "id", 1 },
                 { "description", "hello" }
             };
 
-            JsonObj jsonObj2 = new JsonObj
+            JsonData.Object jsonObj2 = new JsonData.Object
             {
                 { "name", "Woafer" },
             };
 
-            JsonObj jsonObj3 = new JsonObj
+            JsonData.Object jsonObj3 = new JsonData.Object
             {
                 { "age", 1000 },
             };
 
-            JsonObj[] concats =
+            JsonData.Object[] concats =
             {
-                JsonObj.Concat(jsonObj1, jsonObj2, jsonObj3),
+                JsonData.Object.Concat(jsonObj1, jsonObj2, jsonObj3),
                 jsonObj1.Append(jsonObj2, jsonObj3),
                 jsonObj3.Prepend(jsonObj1, jsonObj2)
             };
 
-            foreach (JsonObj concat in concats)
+            foreach (JsonData.Object concat in concats)
             {
-                JsonObj expected = new JsonObj
+                JsonData.Object expected = new JsonData.Object
                 {
                     { "id", 1 },
                     { "description", "hello" },

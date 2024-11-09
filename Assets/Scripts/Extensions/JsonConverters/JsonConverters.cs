@@ -13,16 +13,16 @@ namespace PAC.Extensions
         /// <summary>
         /// Custom JSON converter for Vector2.
         /// </summary>
-        public class Vector2JsonConverter : JsonConversion.JsonConverter<Vector2, JsonList>
+        public class Vector2JsonConverter : JsonConversion.JsonConverter<Vector2, JsonData.List>
         {
-            public override JsonList ToJson(Vector2 vec)
+            public override JsonData.List ToJson(Vector2 vec)
             {
-                JsonList jsonList = new JsonList { new JsonFloat(vec.x), new JsonFloat(vec.y) };
+                JsonData.List jsonList = new JsonData.List { new JsonData.Float(vec.x), new JsonData.Float(vec.y) };
                 jsonList.separateLinesInPrettyString = false;
                 return jsonList;
             }
 
-            public override Vector2 FromJson(JsonList jsonData)
+            public override Vector2 FromJson(JsonData.List jsonData)
             {
                 if (jsonData.Count != 2)
                 {
@@ -35,16 +35,16 @@ namespace PAC.Extensions
         /// <summary>
         /// Custom JSON converter for Vector3.
         /// </summary>
-        public class Vector3JsonConverter : JsonConversion.JsonConverter<Vector3, JsonList>
+        public class Vector3JsonConverter : JsonConversion.JsonConverter<Vector3, JsonData.List>
         {
-            public override JsonList ToJson(Vector3 vec)
+            public override JsonData.List ToJson(Vector3 vec)
             {
-                JsonList jsonList = new JsonList { new JsonFloat(vec.x), new JsonFloat(vec.y), new JsonFloat(vec.z) };
+                JsonData.List jsonList = new JsonData.List { new JsonData.Float(vec.x), new JsonData.Float(vec.y), new JsonData.Float(vec.z) };
                 jsonList.separateLinesInPrettyString = false;
                 return jsonList;
             }
 
-            public override Vector3 FromJson(JsonList jsonData)
+            public override Vector3 FromJson(JsonData.List jsonData)
             {
                 if (jsonData.Count != 3)
                 {
@@ -57,16 +57,16 @@ namespace PAC.Extensions
         /// <summary>
         /// Custom JSON converter for Color.
         /// </summary>
-        public class ColorJsonConverter : JsonConversion.JsonConverter<Color, JsonList>
+        public class ColorJsonConverter : JsonConversion.JsonConverter<Color, JsonData.List>
         {
-            public override JsonList ToJson(Color color)
+            public override JsonData.List ToJson(Color color)
             {
-                JsonList jsonList = new JsonList { new JsonFloat(color.r), new JsonFloat(color.g), new JsonFloat(color.b), new JsonFloat(color.a) };
+                JsonData.List jsonList = new JsonData.List { new JsonData.Float(color.r), new JsonData.Float(color.g), new JsonData.Float(color.b), new JsonData.Float(color.a) };
                 jsonList.separateLinesInPrettyString = false;
                 return jsonList;
             }
 
-            public override Color FromJson(JsonList jsonData)
+            public override Color FromJson(JsonData.List jsonData)
             {
                 if (jsonData.Count != 4)
                 {
@@ -80,16 +80,16 @@ namespace PAC.Extensions
         /// <summary>
         /// Custom JSON converter for Texture2D.
         /// </summary>
-        public class Texture2DJsonConverter : JsonConversion.JsonConverter<Texture2D, JsonObj>
+        public class Texture2DJsonConverter : JsonConversion.JsonConverter<Texture2D, JsonData.Object>
         {
             private JsonConversion.JsonConverterSet converterList = new JsonConversion.JsonConverterSet(new ColorJsonConverter());
 
-            public override JsonObj ToJson(Texture2D tex)
+            public override JsonData.Object ToJson(Texture2D tex)
             {
-                JsonList pixels = (JsonList)JsonConversion.ToJson(tex.GetPixels(), converterList);
+                JsonData.List pixels = (JsonData.List)JsonConversion.ToJson(tex.GetPixels(), converterList);
                 pixels.separateLinesInPrettyString = false;
 
-                JsonObj json = new JsonObj
+                JsonData.Object json = new JsonData.Object
                 {
                     { "width", tex.width },
                     { "height", tex.height },
@@ -99,7 +99,7 @@ namespace PAC.Extensions
                 return json;
             }
 
-            public override Texture2D FromJson(JsonObj jsonData)
+            public override Texture2D FromJson(JsonData.Object jsonData)
             {
                 int width = JsonConversion.FromJson<int>(jsonData["width"]);
                 int height = JsonConversion.FromJson<int>(jsonData["height"]);

@@ -226,14 +226,14 @@ namespace PAC.KeyboardShortcuts
         /// <summary>
         /// Custom JSON converter for CustomKeyCode.
         /// </summary>
-        public class JsonConverter : JsonConversion.JsonConverter<CustomKeyCode, JsonString>
+        public class JsonConverter : JsonConversion.JsonConverter<CustomKeyCode, JsonData.String>
         {
-            public override JsonString ToJson(CustomKeyCode keyCode)
+            public override JsonData.String ToJson(CustomKeyCode keyCode)
             {
                 return keyCode.displayName;
             }
 
-            public override CustomKeyCode FromJson(JsonString jsonData)
+            public override CustomKeyCode FromJson(JsonData.String jsonData)
             {
                 return CustomKeyCode.FromString(jsonData);
             }

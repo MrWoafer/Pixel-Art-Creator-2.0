@@ -21,11 +21,11 @@ namespace PAC.Tests
 
             (CustomKeyCode, JsonData)[] testCases =
             {
-                (CustomKeyCode.Ctrl, new JsonString("Ctrl")),
-                (CustomKeyCode._2, new JsonString("2")),
-                (CustomKeyCode.Plus, new JsonString("+")),
-                (CustomKeyCode.Shift, new JsonString("Shift")),
-                (CustomKeyCode.GreaterThan, new JsonString(">")),
+                (CustomKeyCode.Ctrl, new JsonData.String("Ctrl")),
+                (CustomKeyCode._2, new JsonData.String("2")),
+                (CustomKeyCode.Plus, new JsonData.String("+")),
+                (CustomKeyCode.Shift, new JsonData.String("Shift")),
+                (CustomKeyCode.GreaterThan, new JsonData.String(">")),
             };
 
             foreach ((CustomKeyCode keyCode, JsonData expected) in testCases)
@@ -45,11 +45,11 @@ namespace PAC.Tests
 
             (CustomKeyCode, JsonData)[] testCases =
             {
-                (CustomKeyCode.Ctrl, new JsonString("Ctrl")),
-                (CustomKeyCode._2, new JsonString("2")),
-                (CustomKeyCode.Plus, new JsonString("+")),
-                (CustomKeyCode.Shift, new JsonString("Shift")),
-                (CustomKeyCode.GreaterThan, new JsonString(">")),
+                (CustomKeyCode.Ctrl, new JsonData.String("Ctrl")),
+                (CustomKeyCode._2, new JsonData.String("2")),
+                (CustomKeyCode.Plus, new JsonData.String("+")),
+                (CustomKeyCode.Shift, new JsonData.String("Shift")),
+                (CustomKeyCode.GreaterThan, new JsonData.String(">")),
             };
 
             foreach ((CustomKeyCode expected, JsonData jsonData) in testCases)
@@ -69,11 +69,11 @@ namespace PAC.Tests
 
             (KeyboardShortcut, JsonData)[] testCases =
             {
-                (new KeyboardShortcut(CustomKeyCode.Ctrl, CustomKeyCode.Plus), new JsonList(new JsonString("Ctrl"), new JsonString("+"))),
-                (new KeyboardShortcut(KeyCode.G), new JsonList(new JsonString("G"))),
-                (KeyboardShortcut.None, new JsonList()),
+                (new KeyboardShortcut(CustomKeyCode.Ctrl, CustomKeyCode.Plus), new JsonData.List(new JsonData.String("Ctrl"), new JsonData.String("+"))),
+                (new KeyboardShortcut(KeyCode.G), new JsonData.List(new JsonData.String("G"))),
+                (KeyboardShortcut.None, new JsonData.List()),
                 (new KeyboardShortcut(KeyCode.Minus, CustomKeyCode._9, CustomKeyCode.Alt, CustomKeyCode.Shift),
-                new JsonList(new JsonString("Alt"), new JsonString("Shift"), new JsonString("9"), new JsonString("-"))),
+                new JsonData.List(new JsonData.String("Alt"), new JsonData.String("Shift"), new JsonData.String("9"), new JsonData.String("-"))),
             };
 
             foreach ((KeyboardShortcut keyboardShortcut, JsonData expected) in testCases)
@@ -93,11 +93,11 @@ namespace PAC.Tests
 
             (KeyboardShortcut, JsonData)[] testCases =
             {
-                (new KeyboardShortcut(CustomKeyCode.Ctrl, CustomKeyCode.Plus), new JsonList(new JsonString("Ctrl"), new JsonString("+"))),
-                (new KeyboardShortcut(KeyCode.G), new JsonList(new JsonString("G"))),
-                (KeyboardShortcut.None, new JsonList()),
+                (new KeyboardShortcut(CustomKeyCode.Ctrl, CustomKeyCode.Plus), new JsonData.List(new JsonData.String("Ctrl"), new JsonData.String("+"))),
+                (new KeyboardShortcut(KeyCode.G), new JsonData.List(new JsonData.String("G"))),
+                (KeyboardShortcut.None, new JsonData.List()),
                 (new KeyboardShortcut(KeyCode.Minus, CustomKeyCode._9, CustomKeyCode.Alt, CustomKeyCode.Shift),
-                new JsonList(new JsonString("Alt"), new JsonString("Shift"), new JsonString("9"), new JsonString("-"))),
+                new JsonData.List(new JsonData.String("Alt"), new JsonData.String("Shift"), new JsonData.String("9"), new JsonData.String("-"))),
             };
 
             foreach ((KeyboardShortcut expected, JsonData jsonData) in testCases)

@@ -233,14 +233,14 @@ namespace PAC.Colour
             throw new ArgumentException("Unknown / unimplemented blend mode: " + blendModeName);
         }
 
-        public class JsonConverter : JsonConversion.JsonConverter<BlendMode, JsonString>
+        public class JsonConverter : JsonConversion.JsonConverter<BlendMode, JsonData.String>
         {
-            public override JsonString ToJson(BlendMode blendMode)
+            public override JsonData.String ToJson(BlendMode blendMode)
             {
                 return blendMode.name;
             }
 
-            public override BlendMode FromJson(JsonString jsonData)
+            public override BlendMode FromJson(JsonData.String jsonData)
             {
                 return StringToBlendMode(jsonData);
             }

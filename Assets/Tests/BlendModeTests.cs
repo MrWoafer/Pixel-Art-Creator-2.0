@@ -19,9 +19,9 @@ namespace PAC.Tests
 
             (BlendMode, JsonData)[] testCases =
             {
-                (BlendMode.Add, new JsonString("Add")),
-                (BlendMode.Normal, new JsonString("Normal")),
-                (BlendMode.Screen, new JsonString("Screen")),
+                (BlendMode.Add, new JsonData.String("Add")),
+                (BlendMode.Normal, new JsonData.String("Normal")),
+                (BlendMode.Screen, new JsonData.String("Screen")),
             };
 
             foreach ((BlendMode blendMode, JsonData expected) in testCases)
@@ -40,12 +40,12 @@ namespace PAC.Tests
 
             (BlendMode, JsonData)[] testCases =
             {
-                (BlendMode.Add, new JsonString("Add")),
-                (BlendMode.Normal, new JsonString("Normal")),
-                (BlendMode.Screen, new JsonString("Screen")),
-                (BlendMode.Add, new JsonString("add")),
-                (BlendMode.Normal, new JsonString("normal")),
-                (BlendMode.Screen, new JsonString("screen")),
+                (BlendMode.Add, new JsonData.String("Add")),
+                (BlendMode.Normal, new JsonData.String("Normal")),
+                (BlendMode.Screen, new JsonData.String("Screen")),
+                (BlendMode.Add, new JsonData.String("add")),
+                (BlendMode.Normal, new JsonData.String("normal")),
+                (BlendMode.Screen, new JsonData.String("screen")),
             };
 
             foreach ((BlendMode expected, JsonData jsonData) in testCases)
@@ -54,7 +54,7 @@ namespace PAC.Tests
             }
 
             // No such blend mode
-            Assert.Catch(() => JsonConversion.FromJson<BlendMode>(new JsonString("Woafer"), converters, false));
+            Assert.Catch(() => JsonConversion.FromJson<BlendMode>(new JsonData.String("Woafer"), converters, false));
         }
     }
 }

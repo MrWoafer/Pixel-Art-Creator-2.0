@@ -22,8 +22,8 @@ namespace PAC.Tests
 
             Assert.DoesNotThrow(() => JsonConversion.ToJson(file, converters, false));
 
-            JsonObj json = (JsonObj)JsonConversion.ToJson(file, converters, false);
-            json = json.Prepend(new JsonObj {
+            JsonData.Object json = (JsonData.Object)JsonConversion.ToJson(file, converters, false);
+            json = json.Prepend(new JsonData.Object {
                 { "file format version", JsonConversion.ToJson(Config.Files.fileFormatVersion, new JsonConversion.JsonConverterSet(new SemanticVersion.JsonConverter()), false) }
             });
 
