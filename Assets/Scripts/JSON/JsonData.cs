@@ -96,7 +96,7 @@ namespace PAC.Json
             }
             if (reader.Peek() == '[')
             {
-                return JsonData.List.Parse(str, ref index);
+                return JsonData.List.Parse(reader, ref index, str);
             }
             if (reader.Peek() == '{')
             {
@@ -105,7 +105,7 @@ namespace PAC.Json
 
             if (str is not null)
             {
-                throw new FormatException("Could not parse string as it did not start with an expected character. String: " + str);
+                throw new FormatException("Could not parse string from index " + index + " as it did not start with an expected character. String: " + str);
             }
             throw new FormatException("Could not parse data from reader as it did not start with an expected character.");
         }
@@ -698,38 +698,34 @@ namespace PAC.Json
 
             char chr = (char)0;
             int decimalPointIndex = -1;
-            while (reader.ReadChar(ref chr) && char.IsDigit(chr))
+            char[] digitCharSet = new char[] { '0', '1', '2', '3', '4', '5', '6', '7', '8', '9' };
+            mantissaStr += reader.ReadMatch(IEnumerableExtensions.Repeat(digitCharSet));
+            currentIndex += mantissaStr.Length - (mantissaStr[0] == '-' ? 1 : 0);
+
+            // Decimal point
+            if (reader.Peek() == '.')
             {
-                currentIndex++;
-                mantissaStr += chr;
+                isInt = false;
 
-                // Decimal point
-                if (reader.Peek() == '.')
-                {
-                    if (decimalPointIndex == -1)
-                    {
-                        isInt = false;
-                        mantissaStr += ".";
-                        decimalPointIndex = currentIndex;
-
-                        reader.Read();
-                        currentIndex++;
-                    }
-                    else
-                    {
-                        if (str is not null)
-                        {
-                            throw new FormatException("Found decimal point at index " + currentIndex + " but already found one at index " + decimalPointIndex + " in string: " + str);
-                        }
-                        throw new FormatException("Found two decimal points when parsing number.");
-                    }
-                }
+                reader.Read();
+                string decimalPart = reader.ReadMatch(IEnumerableExtensions.Repeat(digitCharSet));
+                currentIndex += decimalPart.Length + 1;
+                mantissaStr += "." + decimalPart;
             }
-            currentIndex++;
 
-            if (chr != 'e' && chr != 'E')
+            // Check for second decimal point
+            if (reader.Peek() == '.')
             {
-                index = currentIndex - 2;
+                if (str is not null)
+                {
+                    throw new FormatException("Found decimal point at index " + currentIndex + " but already found one at index " + decimalPointIndex + " in string: " + str);
+                }
+                throw new FormatException("Found two decimal points when parsing number.");
+            }
+
+            if (reader.Peek() != 'e' && reader.Peek() != 'E')
+            {
+                index = currentIndex - 1;
                 if (isInt)
                 {
                     int number = int.Parse(mantissaStr);
@@ -744,7 +740,9 @@ namespace PAC.Json
 
             // E notation
 
-            char e = chr;
+            char e = (char)reader.Read();
+            currentIndex++;
+
             if (reader.Peek() == -1)
             {
                 if (str is not null)
@@ -774,7 +772,9 @@ namespace PAC.Json
             string exponentStr = "";
             if (reader.Peek() == '+' || reader.Peek() == '-')
             {
-                if (!reader.ReadChar(ref chr) || !char.IsDigit((char)reader.Peek()))
+                chr = (char)reader.Read();
+                currentIndex++;
+                if (reader.Peek() == -1 || !char.IsDigit((char)reader.Peek()))
                 {
                     if (str is not null)
                     {
@@ -782,7 +782,6 @@ namespace PAC.Json
                     }
                     throw new FormatException("Found " + chr + " followed by no digits in exponent.");
                 }
-                currentIndex++;
 
                 if (chr == '-')
                 {
@@ -790,14 +789,11 @@ namespace PAC.Json
                 }
             }
 
-            while (reader.ReadChar(ref chr) && char.IsDigit(chr))
-            {
-                currentIndex++;
-                exponentStr += chr;
-            }
-            currentIndex++;
+            exponentStr += reader.ReadMatch(IEnumerableExtensions.Repeat(digitCharSet));
+            currentIndex += mantissaStr.Length - (mantissaStr[0] == '-' ? 1 : 0);
 
-            if (chr == '.')
+            // Decimal point
+            if (reader.Peek() == '.')
             {
                 if (str is not null)
                 {
@@ -806,6 +802,8 @@ namespace PAC.Json
                 }
                 throw new FormatException("Found decimal point when trying to parse an exponent (which must be an integer).");
             }
+
+            // Calculate output
 
             if (isInt)
             {
@@ -1055,7 +1053,7 @@ namespace PAC.Json
                 char chr = (char)0;
                 // Should always point to the next character we're going to read in str
                 int currentIndex = index + 1;
-                while (reader.ReadChar(ref chr))
+                while (reader.TryReadIntoChar(ref chr))
                 {
                     currentIndex++;
                     // Closing quotation mark
@@ -1072,7 +1070,7 @@ namespace PAC.Json
                     // Escaped characters
                     else
                     {
-                        if (!reader.ReadChar(ref chr))
+                        if (!reader.TryReadIntoChar(ref chr))
                         {
                             if (str is not null)
                             {
@@ -1414,99 +1412,175 @@ namespace PAC.Json
             }
 
             /// <summary>
-            /// Attempts to parse the string into a JSON list.
+            /// Attempts to parse the string into a JsonData.List.
             /// </summary>
             public static JsonData.List Parse(string str)
             {
+                if (str is null)
+                {
+                    throw new ArgumentException("Cannot parse a null string.");
+                }
+                if (str.Length == 0)
+                {
+                    throw new FormatException("Cannot parse an empty string.");
+                }
+
                 int index = 0;
                 JsonData.List parsed = Parse(str, ref index);
 
                 if (index < str.Length - 1)
                 {
-                    throw new FormatException("String ended too soon. Ending ] found at index " + index + " in string: " + str);
+                    throw new FormatException("Successfully parsed data as JsonData.List but this did not use the whole input string: " + str);
                 }
 
                 return parsed;
             }
             /// <summary>
-            /// Reads the string, starting at the given index, and attempts to parse the string as a list of JSON data. If successful, the index will be moved to the closing square bracket.
+            /// Reads the string, starting at the given index, and attempts to parse the string as a JsonData.List. If successful, the index will be moved to the closing square bracket.
             /// </summary>
             public static JsonData.List Parse(string str, ref int index)
             {
-                void SkipWhitespace(string str, ref int index)
+                if (str is null)
                 {
-                    while (index < str.Length && char.IsWhiteSpace(str[index]))
-                    {
-                        index++;
-                    }
+                    throw new ArgumentException("Cannot parse a null string.");
                 }
-
                 if (index < 0 || index >= str.Length)
                 {
                     throw new IndexOutOfRangeException("Index " + index + " out of range of string: " + str);
                 }
 
-                if (index + 3 < str.Length && str[index..(index + 4)] == "null")
+                return Parse(new StringReader(str[index..]), ref index, str);
+            }
+            public static JsonData.List Parse(TextReader reader, bool mustReadAll)
+            {
+                int index = 0;
+                JsonData.List parsed = Parse(reader, ref index, null);
+
+                if (mustReadAll && reader.Peek() != -1)
                 {
-                    throw new FormatException("Parsed a null list, but a JsonData.List cannot hold a null list. Use JsonData.Null.Parse() or JsonData.List.ParseMaybeNull() instead.");
+                    throw new FormatException("Successfully parsed data as JsonData.List but this did not use the whole reader.");
                 }
 
-                if (str[index] != '[')
+                return parsed;
+            }
+            internal static JsonData.List Parse(TextReader reader, ref int index, string str)
+            {
+                void SkipWhitespace(TextReader reader, ref int index)
                 {
-                    throw new FormatException("Expected list to start with [ at index " + index + " in string: " + str);
+                    int peek = reader.Peek();
+                    while (peek != -1 && char.IsWhiteSpace((char)peek))
+                    {
+                        reader.Read();
+                        index++;
+
+                        peek = reader.Peek();
+                    }
+                }
+
+                if (reader.Peek() == -1)
+                {
+                    throw new EndOfStreamException("Given reader has nothing more to read.");
+                }
+
+                if (reader.Peek() == 'n' && reader.ReadMatchAll("null"))
+                {
+                    throw new FormatException("Parsed a null string, but a JsonData.String cannot hold a null string. Use JsonData.Null.Parse() or JsonData.List.ParseMaybeNull() instead.");
+                }
+
+                if (reader.Read() != '[')
+                {
+                    if (str is not null)
+                    {
+                        throw new FormatException("Expected string data to start with [ at index " + index + " in string: " + str);
+                    }
+                    throw new FormatException("Expected reader data to start with [.");
                 }
 
                 JsonData.List parsed = new JsonData.List();
+                char chr = (char)0;
+                // Should always point to the next character we're going to read in str
+                int currentIndex = index + 1;
 
                 // Case for empty list
-                int currentIndex = index + 1;
-                SkipWhitespace(str, ref currentIndex);
-                if (currentIndex < str.Length && str[currentIndex] == ']')
+                SkipWhitespace(reader, ref currentIndex);
+                if (reader.Peek() == -1)
                 {
-                    index = currentIndex;
+                    if (str is not null)
+                    {
+                        throw new FormatException("Reached end of string while expecting element or closing ] for list starting at index " + index + " in string: " + str);
+                    }
+                    throw new FormatException("Reached end of reader while expecting element or closing ] for list.");
+                }
+                if (reader.Peek() == ']')
+                {
+                    reader.Read();
+                    currentIndex++;
+
+                    index = currentIndex - 1;
                     return parsed;
                 }
 
                 // Case for non-empty list
-                currentIndex = index + 1;
-                while (currentIndex < str.Length)
+                while (reader.Peek() != -1)
                 {
                     // Element
-                    SkipWhitespace(str, ref currentIndex);
 
-                    if (currentIndex >= str.Length)
+                    SkipWhitespace(reader, ref currentIndex);
+
+                    if (reader.Peek() == -1)
                     {
-                        throw new FormatException("Reached end of string while expecting element for list starting at index " + index + " in string: " + str);
+                        if (str is not null)
+                        {
+                            throw new FormatException("Reached end of string while expecting element for list starting at index " + index + " in string: " + str);
+                        }
+                        throw new FormatException("Reached end of reader while expecting element for list.");
                     }
-                    if (str[currentIndex] == ']')
+                    if (reader.Peek() == ']')
                     {
-                        throw new FormatException("Found closing ] at index " + currentIndex + " but was expecting another element due to a comma in string: " + str);
+                        if (str is not null)
+                        {
+                            throw new FormatException("Found closing ] at index " + (currentIndex - 1) + " but was expecting another element due to a comma in string: " + str);
+                        }
+                        throw new FormatException("Found closing ] but was expecting another element due to a comma.");
                     }
 
-                    parsed.Add(JsonData.Parse(str, ref currentIndex));
+                    parsed.Add(JsonData.Parse(reader, ref currentIndex, str));
                     currentIndex++;
 
                     // Closing ] or ,
-                    SkipWhitespace(str, ref currentIndex);
 
-                    if (currentIndex >= str.Length)
+                    SkipWhitespace(reader, ref currentIndex);
+
+                    if (!reader.TryReadIntoChar(ref chr))
                     {
-                        throw new FormatException("Reached end of string while expecting ] or , for list starting at index " + index + " in string: " + str);
+                        if (str is not null)
+                        {
+                            throw new FormatException("Reached end of string while expecting a comma or closing ] for list starting at index " + index + " in string: " + str);
+                        }
+                        throw new FormatException("Reached end of reader while expecting a comma or closing ] for list.");
                     }
-                    if (str[currentIndex] == ']')
+                    currentIndex++;
+
+                    if (chr == ']')
                     {
-                        index = currentIndex;
+                        index = currentIndex - 1;
                         return parsed;
                     }
-                    if (str[currentIndex] != ',')
+                    if (chr != ',')
                     {
-                        throw new FormatException("List has not ended, so expected a comma at index " + currentIndex + " in string: " + str);
+                        if (str is not null)
+                        {
+                            throw new FormatException("List has not ended, so expected a comma at index " + currentIndex + " in string: " + str);
+                        }
+                        throw new FormatException("List has not ended, so expected a comma.");
                     }
-
-                    currentIndex++;
                 }
 
-                throw new FormatException("Reached end of string before finding closing ] for list starting at index " + index + " in string: " + str);
+                if (str is not null)
+                {
+                    throw new FormatException("Reached end of string before finding closing ] for list starting at index " + index + " in string: " + str);
+                }
+                throw new FormatException("Reached end of reader before finding closing ] for list.");
             }
 
             /// <summary>

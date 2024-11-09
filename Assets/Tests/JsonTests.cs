@@ -944,12 +944,50 @@ namespace PAC.Tests
 
             Assert.AreEqual("hi", JsonData.String.Parse("\"hi\"").value);
 
+            Assert.Catch<FormatException>(() => JsonData.String.Parse(" \"hello\""));
+            Assert.Catch<FormatException>(() => JsonData.String.Parse("\"hello\" "));
             Assert.Catch<FormatException>(() => JsonData.String.Parse("hello"));
             Assert.Catch<FormatException>(() => JsonData.String.Parse("\"hello"));
             Assert.Catch<FormatException>(() => JsonData.String.Parse("hello\""));
             Assert.Catch<FormatException>(() => JsonData.String.Parse("\"hello\" there"));
             Assert.Catch<FormatException>(() => JsonData.String.Parse("\"hello\" there\""));
             Assert.AreEqual("hello\" there", JsonData.String.Parse("\"hello\\\" there\"").value);
+        }
+
+        /// <summary>
+        /// Checks JsonData.List are parsed correctly.
+        /// </summary>
+        [Test]
+        [Category("JSON")]
+        public void ParseList()
+        {
+            Assert.Catch<FormatException>(() => JsonData.List.Parse("null"));
+
+            (JsonData.List, string)[] testCases =
+            {
+                (new JsonData.List((JsonData)new JsonData.Int(1), new JsonData.Float(-4.3f)), "[1, -4.3]"),
+                (new JsonData.List((JsonData)new JsonData.Int(1), new JsonData.Float(-4.3f)), "[ 1    ,  -4.3    ]"),
+                (new JsonData.List(), "[]"),
+                (new JsonData.List(), "[   ]"),
+                (new JsonData.List(new JsonData.Int(1)), "[1]"),
+                (new JsonData.List(new JsonData.String("hey]"), new JsonData.Int(8)), "[\"hey]\", 8]")
+            };
+
+            foreach ((JsonData.List expected, string str) in testCases)
+            {
+                Assert.True(JsonData.HaveSameData(expected, JsonData.List.Parse(str)));
+            }
+
+            Assert.Catch<FormatException>(() => JsonData.List.Parse(" [1, -4.3]"));
+            Assert.Catch<FormatException>(() => JsonData.List.Parse("[1, -4.3] "));
+            Assert.Catch<FormatException>(() => JsonData.List.Parse("1, -4.3"));
+            Assert.Catch<FormatException>(() => JsonData.List.Parse("[1, -4.3"));
+            Assert.Catch<FormatException>(() => JsonData.List.Parse("1, -4.3]"));
+            Assert.Catch<FormatException>(() => JsonData.List.Parse("[1, -4.3], 6"));
+            Assert.Catch<FormatException>(() => JsonData.List.Parse("[1, -4.3], 6]"));
+            Assert.Catch<FormatException>(() => JsonData.List.Parse("[1, -4.3, ]"));
+            Assert.Catch<FormatException>(() => JsonData.List.Parse("[1, -4.3 6]"));
+            Assert.Catch<FormatException>(() => JsonData.List.Parse("[1, -4.3a]"));
         }
     }
 }

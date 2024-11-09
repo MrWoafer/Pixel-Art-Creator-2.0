@@ -79,6 +79,7 @@ namespace PAC.Extensions
 
         /// <summary>
         /// Reads, checking if it reads the given string (starting at the current point). Doesn't reach the non-match character / the next character after all have characters been matched.
+        /// Doesn't reach the non-match character / the next character after all have characters been matched.
         /// </summary>
         /// <exception cref="EndOfStreamException">If there is nothing left for the reader to read at the start of the method.</exception>
         public static bool ReadMatchAll(this TextReader reader, string text) => ReadMatchAll(reader, (IEnumerable<char>)text);
@@ -113,17 +114,16 @@ namespace PAC.Extensions
         }
 
         /// <summary>
-        /// If the TextReader can read another character, it will read it into chr and return true. Otherwise, it will return false without changing chr. Doesn't reach the non-match
-        /// character / the next character after all have characters been matched.
+        /// If the TextReader can read another character, it will read it into chr and return true. Otherwise, it will return false without changing chr and without reading.
         /// </summary>
-        public static bool ReadChar(this TextReader reader, ref char chr)
+        public static bool TryReadIntoChar(this TextReader reader, ref char chr)
         {
-            int read = reader.Read();
+            int read = reader.Peek();
             if (read == -1)
             {
                 return false;
             }
-            chr = (char)read;
+            chr = (char)reader.Read();
             return true;
         }
     }
