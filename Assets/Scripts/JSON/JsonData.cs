@@ -92,7 +92,7 @@ namespace PAC.Json
             }
             if (reader.Peek() == '\"')
             {
-                return JsonData.String.Parse(str, ref index);
+                return JsonData.String.Parse(reader, ref index, str);
             }
             if (reader.Peek() == '[')
             {
@@ -279,7 +279,7 @@ namespace PAC.Json
                     throw new EndOfStreamException("Given reader has nothing more to read.");
                 }
 
-                if (reader.ReadMatch("null"))
+                if (reader.ReadMatchAll("null"))
                 {
                     index += 3;
                     return new JsonData.Null();
@@ -378,12 +378,12 @@ namespace PAC.Json
                     throw new EndOfStreamException("Given reader has nothing more to read.");
                 }
 
-                if (reader.Peek() == 't' && reader.ReadMatch("true"))
+                if (reader.Peek() == 't' && reader.ReadMatchAll("true"))
                 {
                     index += 3;
                     return new JsonData.Bool(true);
                 }
-                if (reader.Peek() == 'f' && reader.ReadMatch("false"))
+                if (reader.Peek() == 'f' && reader.ReadMatchAll("false"))
                 {
                     index += 4;
                     return new JsonData.Bool(false);
@@ -979,112 +979,159 @@ namespace PAC.Json
             }
 
             /// <summary>
-            /// Attempts to parse the string into a JSON string.
+            /// Attempts to parse the string into a JsonData.String.
             /// </summary>
             public static JsonData.String Parse(string str)
             {
+                if (str is null)
+                {
+                    throw new ArgumentException("Cannot parse a null string.");
+                }
+                if (str.Length == 0)
+                {
+                    throw new FormatException("Cannot parse an empty string.");
+                }
+
                 int index = 0;
                 JsonData.String parsed = Parse(str, ref index);
 
                 if (index < str.Length - 1)
                 {
-                    throw new FormatException("String ended too soon. Ending \" found at index " + index + " in string: " + str);
+                    throw new FormatException("Successfully parsed data as JsonData.String " + parsed.value + " but this did not use the whole input string: " + str);
                 }
 
                 return parsed;
             }
             /// <summary>
-            /// Reads the string, starting at the given index, and attempts to parse the string as a JSON string. If successful, the index will be moved to the closing double quotation mark.
+            /// Reads the string, starting at the given index, and attempts to parse the string as a JsonData.String. If successful, the index will be moved to the closing quotation mark.
             /// </summary>
             public static JsonData.String Parse(string str, ref int index)
             {
+                if (str is null)
+                {
+                    throw new ArgumentException("Cannot parse a null string.");
+                }
                 if (index < 0 || index >= str.Length)
                 {
                     throw new IndexOutOfRangeException("Index " + index + " out of range of string: " + str);
                 }
 
-                if (index + 3 < str.Length && str[index..(index + 4)] == "null")
+                return Parse(new StringReader(str[index..]), ref index, str);
+            }
+            public static JsonData.String Parse(TextReader reader, bool mustReadAll)
+            {
+                int index = 0;
+                JsonData.String parsed = Parse(reader, ref index, null);
+
+                if (mustReadAll && reader.Peek() != -1)
+                {
+                    throw new FormatException("Successfully parsed data as JsonData.String " + parsed.value + " but this did not use the whole reader.");
+                }
+
+                return parsed;
+            }
+            internal static JsonData.String Parse(TextReader reader, ref int index, string str)
+            {
+                if (reader.Peek() == -1)
+                {
+                    throw new EndOfStreamException("Given reader has nothing more to read.");
+                }
+
+                if (reader.Peek() == 'n' && reader.ReadMatchAll("null"))
                 {
                     throw new FormatException("Parsed a null string, but a JsonData.String cannot hold a null string. Use JsonData.Null.Parse() or JsonData.String.ParseMaybeNull() instead.");
                 }
 
-                if (str[index] != '\"')
+                if (reader.Read() != '\"')
                 {
-                    throw new FormatException("Expected string data to start with \" at index " + index + " in string: " + str);
+                    if (str is not null)
+                    {
+                        throw new FormatException("Expected string data to start with \" at index " + index + " in string: " + str);
+                    }
+                    throw new FormatException("Expected reader data to start with \".");
                 }
 
                 StringBuilder parsed = new StringBuilder();
-                for (int i = index + 1; i < str.Length; i++)
+                char chr = (char)0;
+                // Should always point to the next character we're going to read in str
+                int currentIndex = index + 1;
+                while (reader.ReadChar(ref chr))
                 {
-                    // String ending too early
-                    if (str[i] == '\"')
+                    currentIndex++;
+                    // Closing quotation mark
+                    if (chr == '\"')
                     {
-                        index = i;
+                        index = currentIndex - 1;
                         return parsed.ToString();
                     }
                     // Non-escaped characters
-                    else if (str[i] != '\\')
+                    else if (chr != '\\')
                     {
-                        parsed.Append(str[i]);
+                        parsed.Append(chr);
                     }
                     // Escaped characters
                     else
                     {
-                        if (i == str.Length - 1)
+                        if (!reader.ReadChar(ref chr))
                         {
-                            throw new FormatException("Found \\ but no following character to escape at the end of string: " + str);
+                            if (str is not null)
+                            {
+                                throw new FormatException("Found \\ but no following character to escape at the end of string: " + str);
+                            }
+                            throw new FormatException("Found \\ but no following character to escape as the reader ended.");
                         }
-                        else if (str[i + 1] == 'b')
+                        currentIndex++;
+
+                        if (chr == 'b')
                         {
                             parsed.Append('\b');
-                            i++;
                         }
-                        else if (str[i + 1] == 'f')
+                        else if (chr == 'f')
                         {
                             parsed.Append('\f');
-                            i++;
                         }
-                        else if (str[i + 1] == 'n')
+                        else if (chr == 'n')
                         {
                             parsed.Append('\n');
-                            i++;
                         }
-                        else if (str[i + 1] == 'r')
+                        else if (chr == 'r')
                         {
                             parsed.Append('\r');
-                            i++;
                         }
-                        else if (str[i + 1] == 't')
+                        else if (chr == 't')
                         {
                             parsed.Append('\t');
-                            i++;
                         }
-                        else if (str[i + 1] == '\\')
+                        else if (chr == '\\')
                         {
                             parsed.Append('\\');
-                            i++;
                         }
-                        else if (str[i + 1] == '/')
+                        else if (chr == '/')
                         {
                             parsed.Append('/');
-                            i++;
                         }
-                        else if (str[i + 1] == '\"')
+                        else if (chr == '\"')
                         {
                             parsed.Append('\"');
-                            i++;
                         }
-                        else if (str[i + 1] == 'u')
+                        else if (chr == 'u')
                         {
-                            if (i + 5 >= str.Length)
+                            char[] hexCharSet = new char[] { '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'A', 'b', 'B', 'c', 'C', 'd', 'D', 'e', 'E', 'f', 'F' };
+                            string hexChars = reader.ReadMatch(new char[][] { hexCharSet, hexCharSet, hexCharSet, hexCharSet });
+                            if (hexChars.Length < 4)
                             {
-                                throw new FormatException("Expected 4 hex digits, starting at index " + (i + 2) + ", but only found " + (str.Length - i - 2) + " in string: " + str);
+                                if (str is not null)
+                                {
+                                    throw new FormatException("Expected 4 hex digits after a \\u, starting at index " + currentIndex + ", but only found " + hexChars.Length + " in string: " + str);
+                                }
+                                throw new FormatException("Expected 4 hex digits after a \\u, but only found " + hexChars.Length + " in string: " + str);
                             }
+                            currentIndex += 4;
 
                             int[] hexDigits = new int[4];
                             for (int digit = 0; digit < 4; digit++)
                             {
-                                hexDigits[digit] = str[i + 2 + digit] switch
+                                hexDigits[digit] = hexChars[digit] switch
                                 {
                                     '0' => 0,
                                     '1' => 1,
@@ -1108,21 +1155,28 @@ namespace PAC.Json
                                     'E' => 14,
                                     'f' => 15,
                                     'F' => 15,
-                                    _ => throw new FormatException("Invalid hex digit " + str[i + 2 + digit] + " at index " + (i + 2 + digit) + " in string: " + str)
+                                    _ => throw new FormatException("Invalid hex digit " + hexChars[digit])
                                 };
                             }
 
                             parsed.Append(char.ConvertFromUtf32(4096 * hexDigits[0] + 256 * hexDigits[1] + 16 * hexDigits[2] + hexDigits[3]));
-                            i += 5;
                         }
                         else
                         {
-                            throw new FormatException("Invalid escaped character " + str[i..(i + 2)] + " at index " + i + " in string: " + str);
+                            if (str is not null)
+                            {
+                                throw new FormatException("Invalid escaped character \\" + chr + " at index " + (currentIndex - 2) + " in string: " + str);
+                            }
+                            throw new FormatException("Invalid escaped character \\" + chr + ".");
                         }
                     }
                 }
 
-                throw new FormatException("Reached end of string before finding closing \" for string data starting at index " + index + " in string: " + str);
+                if (str is not null)
+                {
+                    throw new FormatException("Reached end of string before finding closing \" for string data starting at index " + index + " in string: " + str);
+                }
+                throw new FormatException("Reached end of reader before finding closing \" for string.");
             }
 
             /// <summary>

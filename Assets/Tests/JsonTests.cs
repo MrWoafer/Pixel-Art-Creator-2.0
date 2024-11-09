@@ -737,19 +737,27 @@ namespace PAC.Tests
         }
 
         /// <summary>
-        /// Checks that JSON strings, lists and objects handle parsing null values correctly.
+        /// Checks that JsonData.Null parses correctly, and check JsonData.String, JsonData.List and JsonData.Object handle parsing null values correctly.
         /// </summary>
         [Test]
         [Category("JSON")]
         public void ParseNull()
         {
+            Assert.True(JsonData.HaveSameData(new JsonData.Null(), JsonData.Null.Parse("null")));
+            Assert.Catch<FormatException>(() => JsonData.Null.Parse("nul"));
+            Assert.Catch<FormatException>(() => JsonData.Null.Parse("nulll"));
+
             Assert.Catch<FormatException>(() => JsonData.String.Parse("null"));
             Assert.Catch<FormatException>(() => JsonData.List.Parse("null"));
             Assert.Catch<FormatException>(() => JsonData.Object.Parse("null"));
 
-            Assert.True(JsonData.HaveSameData(JsonData.String.ParseMaybeNull("\"hi\""), new JsonData.String("hi")));
-            Assert.True(JsonData.HaveSameData(JsonData.List.ParseMaybeNull("[]"), new JsonData.List()));
-            Assert.True(JsonData.HaveSameData(JsonData.Object.ParseMaybeNull("{}"), new JsonData.Object()));
+            Assert.True(JsonData.HaveSameData(new JsonData.String("hi"), JsonData.String.ParseMaybeNull("\"hi\"")));
+            Assert.True(JsonData.HaveSameData(new JsonData.List(), JsonData.List.ParseMaybeNull("[]")));
+            Assert.True(JsonData.HaveSameData(new JsonData.Object(), JsonData.Object.ParseMaybeNull("{}")));
+
+            Assert.True(JsonData.HaveSameData(new JsonData.Null(), JsonData.String.ParseMaybeNull("null")));
+            Assert.True(JsonData.HaveSameData(new JsonData.Null(), JsonData.List.ParseMaybeNull("null")));
+            Assert.True(JsonData.HaveSameData(new JsonData.Null(), JsonData.Object.ParseMaybeNull("null")));
         }
 
         /// <summary>
@@ -923,6 +931,25 @@ namespace PAC.Tests
                 }
                 Assert.False(concatEnumerable.MoveNext(), "expected ran out before concat");
             }
+        }
+
+        /// <summary>
+        /// Checks JsonData.Strings are parsed correctly.
+        /// </summary>
+        [Test]
+        [Category("JSON")]
+        public void ParseString()
+        {
+            Assert.Catch<FormatException>(() => JsonData.String.Parse("null"));
+
+            Assert.AreEqual("hi", JsonData.String.Parse("\"hi\"").value);
+
+            Assert.Catch<FormatException>(() => JsonData.String.Parse("hello"));
+            Assert.Catch<FormatException>(() => JsonData.String.Parse("\"hello"));
+            Assert.Catch<FormatException>(() => JsonData.String.Parse("hello\""));
+            Assert.Catch<FormatException>(() => JsonData.String.Parse("\"hello\" there"));
+            Assert.Catch<FormatException>(() => JsonData.String.Parse("\"hello\" there\""));
+            Assert.AreEqual("hello\" there", JsonData.String.Parse("\"hello\\\" there\"").value);
         }
     }
 }
