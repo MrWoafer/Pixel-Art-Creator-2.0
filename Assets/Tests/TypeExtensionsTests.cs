@@ -7,7 +7,7 @@ using System.Reflection;
 namespace PAC.Tests
 {
     /// <summary>
-    /// Tests my extension methods for the Type type.
+    /// Tests my extension methods for type Type.
     /// </summary>
     public class TypeExtensionsTests
     {
