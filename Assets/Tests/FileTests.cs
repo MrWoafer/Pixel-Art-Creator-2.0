@@ -14,6 +14,7 @@ namespace PAC.Tests
         /// Checks that ToJson() and FromJson() run without exceptions for the custom JSON converter for type File.
         /// </summary>
         [Test]
+        [Category("JSON")]
         public void JsonNoExceptions()
         {
             JsonConversion.JsonConverterSet converters = new JsonConversion.JsonConverterSet(new File.JsonConverter(Config.Files.fileFormatVersion));

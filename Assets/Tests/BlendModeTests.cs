@@ -13,6 +13,7 @@ namespace PAC.Tests
         /// Checks that ToJson() works properly for the custom JSON converter for type BlendMode.
         /// </summary>
         [Test]
+        [Category("JSON")]
         public void ToJson()
         {
             JsonConversion.JsonConverterSet converters = new JsonConversion.JsonConverterSet(new BlendMode.JsonConverter());
@@ -34,6 +35,7 @@ namespace PAC.Tests
         /// Checks that FromJson() works properly for the custom JSON converter for type BlendMode.
         /// </summary>
         [Test]
+        [Category("JSON")]
         public void FromJson()
         {
             JsonConversion.JsonConverterSet converters = new JsonConversion.JsonConverterSet(new BlendMode.JsonConverter());
