@@ -2,8 +2,9 @@
     "name": "Project.Json",
     "rootNamespace": "PAC.Json",
     "references": [
+        "GUID:0ad094a7fdb563c42b5c54be8540ed16",
         "GUID:98d1aab405d9a6b4b81d739038da96e7",
-        "GUID:0ad094a7fdb563c42b5c54be8540ed16"
+        "GUID:0dfc2b2446f2492439a9772fb003007f"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

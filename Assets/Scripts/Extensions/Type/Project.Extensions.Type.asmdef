@@ -1,5 +1,5 @@
 {
-    "name": "Project.Extensions.TypeExtensions",
+    "name": "Project.Extensions.Type",
     "rootNamespace": "PAC.Extensions",
     "references": [],
     "includePlatforms": [],
