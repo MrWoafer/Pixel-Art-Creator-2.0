@@ -638,6 +638,8 @@ namespace PAC.Tests
             Assert.Throws<FormatException>(() => JsonData.Int.Parse("--3"));
             // Number ends too soon
             Assert.Throws<FormatException>(() => JsonData.Int.Parse("356abc"));
+            // Number too large
+            Assert.Throws<OverflowException>(() => JsonData.Int.Parse(int.MaxValue.ToString() + "0"));
         }
 
         /// <summary>
