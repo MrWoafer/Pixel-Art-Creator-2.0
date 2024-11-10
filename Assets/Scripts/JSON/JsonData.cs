@@ -1,8 +1,11 @@
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using PAC.Exceptions;
+using PAC.Extensions;
+using UnityEditor;
 
 namespace PAC.Json
 {
@@ -18,108 +21,105 @@ namespace PAC.Json
         public string ToJsonString(bool pretty);
 
         /// <summary>
-        /// Attempts to parse the string as JSON data.
+        /// Attempts to parse the string as JsonData.
         /// </summary>
         public static JsonData Parse(string str)
         {
-            try
+            if (str is null)
             {
-                int index = 0;
-                JsonData jsonData = Parse(str, ref index);
-
-                if (index < str.Length - 1)
-                {
-                    throw new FormatException("Successfully parsed data as type " + jsonData.GetType().Name + " but this did not use the whole input string: " + str);
-                }
-
-                return jsonData;
+                throw new ArgumentException("Cannot parse a null string.");
             }
-            catch (Exception e)
+            if (str.Length == 0)
             {
-                throw e;
+                throw new FormatException("Cannot parse an empty string.");
             }
+
+            int index = 0;
+            JsonData parsed = Parse(str, ref index);
+
+            if (index < str.Length - 1)
+            {
+                throw new FormatException("Successfully parsed data as " + parsed.GetType().Name + " but this did not use the whole input string: " + str);
+            }
+
+            return parsed;
         }
         /// <summary>
-        /// Reads the string, starting at the given index, and attempts to parse the string as JSON data. If successful, the index will be moved to the last character of the data.
+        /// Reads the string, starting at the given index, and attempts to parse the string as JsonData. If successful, the index will be moved to the last character of the data.
         /// </summary>
         public static JsonData Parse(string str, ref int index)
         {
+            if (str is null)
+            {
+                throw new ArgumentException("Cannot parse a null string.");
+            }
             if (index < 0 || index >= str.Length)
             {
-                throw new IndexOutOfRangeException("Index " + index + " out of range string: " + str);
+                throw new IndexOutOfRangeException("Index " + index + " out of range of string: " + str);
             }
 
-            Exception nullException;
-            try
+            return Parse(new StringReader(str[index..]), ref index, str);
+        }
+        /// <summary>
+        /// Reads the TextReader, starting at the given index, and attempts to parse it as JsonData. If successful, the last read character will be the last character of the parsed JSON.
+        /// </summary>
+        /// <param name="mustReadAll">If true, it will check that all the data in the reader was used when parsing. Setting this to false is useful for parsing JSON data inside a list or
+        /// object.</param>
+        public static JsonData Parse(TextReader reader, bool mustReadAll)
+        {
+            int index = 0;
+            JsonData parsed = Parse(reader, ref index, null);
+
+            if (mustReadAll && reader.Peek() != -1)
             {
-                return JsonData.Null.Parse(str, ref index);
-            }
-            catch (Exception e)
-            {
-                nullException = e;
+                throw new FormatException("Successfully parsed data as " + parsed.GetType().Name + " but this did not use the whole reader.");
             }
 
-            Exception boolException;
-            try
+            return parsed;
+        }
+        /// <summary>
+        /// Used to combine parsing for the cases where the data to parse was originally a string or a TextReader, while still giving more useful exceptions with indices for the string case.
+        /// </summary>
+        /// <param name="index">Only used for the string case. Keeps track of which index in the string the reader has last read.</param>
+        /// <param name="str">Only used for the string case. It is the whole string that is trying to be parsed (stays the same throughout the call stack, with just the index changing).
+        /// Set this to null if it's the TextReader case.</param>
+        internal static JsonData Parse(TextReader reader, ref int index, string str)
+        {
+            if (reader.Peek() == -1)
             {
-                return JsonData.Bool.Parse(str, ref index);
-            }
-            catch (Exception e)
-            {
-                boolException = e;
-            }
-
-            Exception intException;
-            try
-            {
-                return JsonData.Int.Parse(str, ref index);
-            }
-            catch (Exception e)
-            {
-                intException = e;
+                throw new EndOfStreamException("Given reader has nothing more to read.");
             }
 
-            Exception floatException;
-            try
+            if (reader.Peek() == 'n')
             {
-                return JsonData.Float.Parse(str, ref index);
+                return JsonData.Null.Parse(reader, ref index, str);
             }
-            catch (Exception e)
+            if (reader.Peek() == 't' || reader.Peek() == 'f')
             {
-                floatException = e;
+                return JsonData.Bool.Parse(reader, ref index, str);
             }
-
-            Exception stringException;
-            try
+            if (reader.Peek() != -1 && (char.IsDigit((char)reader.Peek()) || reader.Peek() == '-'))
             {
-                return JsonData.String.Parse(str, ref index);
+                return JsonData.ParseNumber(reader, ref index, str);
             }
-            catch (Exception e)
+            if (reader.Peek() == '\"')
             {
-                stringException = e;
+                return JsonData.String.Parse(reader, ref index, str);
             }
-
-            Exception listException;
-            try
+            if (reader.Peek() == '[')
             {
-                return JsonData.List.Parse(str, ref index);
+                return JsonData.List.Parse(reader, ref index, str);
             }
-            catch (Exception e)
+            if (reader.Peek() == '{')
             {
-                listException = e;
+                return JsonData.Object.Parse(reader, ref index, str);
             }
 
-            Exception objException;
-            try
+            if (str is not null)
             {
-                return JsonData.Object.Parse(str, ref index);
+                throw new FormatException("Could not parse string from index " + index + " as it did not start with an expected character. String: " + str);
             }
-            catch (Exception e)
-            {
-                objException = e;
-            }
-
-            throw new AggregateException("Could not parse string: " + str, nullException, boolException, intException, floatException, stringException, listException, objException);
+            throw new FormatException("Could not parse data from reader as it did not start with an expected character.");
         }
 
         /// <summary>
@@ -233,41 +233,86 @@ namespace PAC.Json
             }
 
             /// <summary>
-            /// Attempts to parse the string as JSON data.
+            /// Attempts to parse the string as JsonData.Null.
             /// </summary>
             public static JsonData.Null Parse(string str)
             {
+                if (str is null)
+                {
+                    throw new ArgumentException("Cannot parse a null string.");
+                }
+                if (str.Length == 0)
+                {
+                    throw new FormatException("Cannot parse an empty string.");
+                }
+
                 int index = 0;
                 JsonData.Null parsed = Parse(str, ref index);
 
                 if (index < str.Length - 1)
                 {
-                    throw new FormatException("String ended too soon. null found at index " + index + " in string: " + str);
+                    throw new FormatException("Successfully parsed data as JsonData.Null but this did not use the whole input string: " + str);
                 }
 
                 return parsed;
             }
             /// <summary>
-            /// Reads the string, starting at the given index, and attempts to parse the string as null. If successful, the index will be moved to the last character of the null.
+            /// Reads the string, starting at the given index, and attempts to parse the string as JsonData.Null. If successful, the index will be moved to the last character of the null.
             /// </summary>
             public static JsonData.Null Parse(string str, ref int index)
             {
+                if (str is null)
+                {
+                    throw new ArgumentException("Cannot parse a null string.");
+                }
                 if (index < 0 || index >= str.Length)
                 {
-                    throw new IndexOutOfRangeException("Index " + index + " out of range string: " + str);
+                    throw new IndexOutOfRangeException("Index " + index + " out of range of string: " + str);
                 }
 
-                if (index + 3 >= str.Length)
+                return Parse(new StringReader(str[index..]), ref index, str);
+            }
+            /// <summary>
+            /// Reads the TextReader, starting at the given index, and attempts to parse it as JsonData.Null. If successful, the last read character will be the last character of the parsed JSON.
+            /// </summary>
+            /// <param name="mustReadAll">If true, it will check that all the data in the reader was used when parsing. Setting this to false is useful for parsing JSON data inside a list or
+            /// object.</param>
+            public static JsonData.Null Parse(TextReader reader, bool mustReadAll)
+            {
+                int index = 0;
+                JsonData.Null parsed = Parse(reader, ref index, null);
+
+                if (mustReadAll && reader.Peek() != -1)
                 {
-                    throw new FormatException("null not found at index " + index + " in string: " + str);
+                    throw new FormatException("Successfully parsed data as JsonData.Null but this did not use the whole reader.");
                 }
-                if (str[index..(index + 4)] == "null")
+
+                return parsed;
+            }
+            /// <summary>
+            /// Used to combine parsing for the cases where the data to parse was originally a string or a TextReader, while still giving more useful exceptions with indices for the string case.
+            /// </summary>
+            /// <param name="index">Only used for the string case. Keeps track of which index in the string the reader has last read.</param>
+            /// <param name="str">Only used for the string case. It is the whole string that is trying to be parsed (stays the same throughout the call stack, with just the index changing).
+            /// Set this to null if it's the TextReader case.</param>
+            internal static JsonData.Null Parse(TextReader reader, ref int index, string str)
+            {
+                if (reader.Peek() == -1)
+                {
+                    throw new EndOfStreamException("Given reader has nothing more to read.");
+                }
+
+                if (reader.ReadMatchAll("null"))
                 {
                     index += 3;
                     return new JsonData.Null();
                 }
 
-                throw new FormatException("null not found at index " + index + " in string: " + str);
+                if (str is not null)
+                {
+                    throw new FormatException("null not found at index " + index + " in string: " + str);
+                }
+                throw new FormatException("null not found at start of reader.");
             }
         }
 
@@ -298,50 +343,91 @@ namespace PAC.Json
             }
 
             /// <summary>
-            /// Attempts to parse the string into a JSON bool.
+            /// Attempts to parse the string into a JsonData.Bool.
             /// </summary>
             public static JsonData.Bool Parse(string str)
             {
+                if (str is null)
+                {
+                    throw new ArgumentException("Cannot parse a null string.");
+                }
+                if (str.Length == 0)
+                {
+                    throw new FormatException("Cannot parse an empty string.");
+                }
+
                 int index = 0;
                 JsonData.Bool parsed = Parse(str, ref index);
 
                 if (index < str.Length - 1)
                 {
-                    throw new FormatException("String ended too soon. " + (parsed.value ? "true" : "false") + " found at index " + index + " in string: " + str);
+                    throw new FormatException("Successfully parsed data as JsonData.Bool " + parsed.value + " but this did not use the whole input string: " + str);
                 }
 
                 return parsed;
             }
             /// <summary>
-            /// Reads the string, starting at the given index, and attempts to parse the string as null. If successful, the index will be moved to the last character of the true/false.
+            /// Reads the string, starting at the given index, and attempts to parse the string as JsonData.Bool. If successful, the index will be moved to the last character of the null.
             /// </summary>
             public static JsonData.Bool Parse(string str, ref int index)
             {
+                if (str is null)
+                {
+                    throw new ArgumentException("Cannot parse a null string.");
+                }
                 if (index < 0 || index >= str.Length)
                 {
-                    throw new IndexOutOfRangeException("Index " + index + " out of range string: " + str);
+                    throw new IndexOutOfRangeException("Index " + index + " out of range of string: " + str);
                 }
 
-                if (index + 3 >= str.Length)
+                return Parse(new StringReader(str[index..]), ref index, str);
+            }
+            /// <summary>
+            /// Reads the TextReader, starting at the given index, and attempts to parse it as a JsonData.Bool. If successful, the last read character will be the last character of the parsed JSON.
+            /// </summary>
+            /// <param name="mustReadAll">If true, it will check that all the data in the reader was used when parsing. Setting this to false is useful for parsing JSON data inside a list or
+            /// object.</param>
+            public static JsonData.Bool Parse(TextReader reader, bool mustReadAll)
+            {
+                int index = 0;
+                JsonData.Bool parsed = Parse(reader, ref index, null);
+
+                if (mustReadAll && reader.Peek() != -1)
                 {
-                    throw new FormatException("true/false not found at index " + index + " in string: " + str);
+                    throw new FormatException("Successfully parsed data as JsonData.Bool " + parsed.value + " but this did not use the whole reader.");
                 }
-                if (str[index..(index + 4)] == "true")
+
+                return parsed;
+            }
+            /// <summary>
+            /// Used to combine parsing for the cases where the data to parse was originally a string or a TextReader, while still giving more useful exceptions with indices for the string case.
+            /// </summary>
+            /// <param name="index">Only used for the string case. Keeps track of which index in the string the reader has last read.</param>
+            /// <param name="str">Only used for the string case. It is the whole string that is trying to be parsed (stays the same throughout the call stack, with just the index changing).
+            /// Set this to null if it's the TextReader case.</param>
+            internal static JsonData.Bool Parse(TextReader reader, ref int index, string str)
+            {
+                if (reader.Peek() == -1)
+                {
+                    throw new EndOfStreamException("Given reader has nothing more to read.");
+                }
+
+                if (reader.Peek() == 't' && reader.ReadMatchAll("true"))
                 {
                     index += 3;
                     return new JsonData.Bool(true);
                 }
-                if (index + 4 >= str.Length)
-                {
-                    throw new FormatException("true/false not found at index " + index + " in string: " + str);
-                }
-                if (str[index..(index + 5)] == "false")
+                if (reader.Peek() == 'f' && reader.ReadMatchAll("false"))
                 {
                     index += 4;
                     return new JsonData.Bool(false);
                 }
 
-                throw new FormatException("true/false not found at index " + index + " in string: " + str);
+                if (str is not null)
+                {
+                    throw new FormatException("true/false not found at index " + index + " in string: " + str);
+                }
+                throw new FormatException("true/false not found at start of reader.");
             }
         }
 
@@ -381,116 +467,78 @@ namespace PAC.Json
             }
 
             /// <summary>
-            /// Attempts to parse the string into a JSON int.
+            /// Attempts to parse the string into a JsonData.Int.
             /// </summary>
             public static JsonData.Int Parse(string str)
             {
+                if (str is null)
+                {
+                    throw new ArgumentException("Cannot parse a null string.");
+                }
+                if (str.Length == 0)
+                {
+                    throw new FormatException("Cannot parse an empty string.");
+                }
+
                 int index = 0;
                 JsonData.Int parsed = Parse(str, ref index);
 
                 if (index < str.Length - 1)
                 {
-                    throw new FormatException("String ended too soon. End of int found at index " + index + " in string: " + str);
+                    throw new FormatException("Successfully parsed data as JsonData.Int " + parsed.value + " but this did not use the whole input string: " + str);
                 }
 
                 return parsed;
             }
             /// <summary>
-            /// Reads the string, starting at the given index, and attempts to parse the string as an int. If successful, the index will be moved to the last digit of the int.
+            /// Reads the string, starting at the given index, and attempts to parse the string as a JsonData.Int. If successful, the index will be moved to the last digit of the int.
             /// </summary>
             public static JsonData.Int Parse(string str, ref int index)
             {
+                if (str is null)
+                {
+                    throw new ArgumentException("Cannot parse a null string.");
+                }
                 if (index < 0 || index >= str.Length)
                 {
-                    throw new IndexOutOfRangeException("Index " + index + " out of range string: " + str);
+                    throw new IndexOutOfRangeException("Index " + index + " out of range of string: " + str);
                 }
 
-                int currentIndex = index;
-                if (str[index] == '-')
+                return Parse(new StringReader(str[index..]), ref index, str);
+            }
+            /// <summary>
+            /// Reads the TextReader, starting at the given index, and attempts to parse it as a JsonData.Int. If successful, the last read character will be the last character of the parsed JSON.
+            /// </summary>
+            /// <param name="mustReadAll">If true, it will check that all the data in the reader was used when parsing. Setting this to false is useful for parsing JSON data inside a list or
+            /// object.</param>
+            public static JsonData.Int Parse(TextReader reader, bool mustReadAll)
+            {
+                int index = 0;
+                JsonData.Int parsed = Parse(reader, ref index, null);
+
+                if (mustReadAll && reader.Peek() != -1)
                 {
-                    if (index >= str.Length - 1 || !char.IsDigit(str[index + 1]))
-                    {
-                        throw new FormatException("Found - followed by no digits at index " + index + " of string: " + str);
-                    }
-                    currentIndex++;
+                    throw new FormatException("Successfully parsed data as JsonData.Int " + parsed.value + " but this did not use the whole reader.");
                 }
-                else if (!char.IsDigit(str[index]))
+
+                return parsed;
+            }
+            /// <summary>
+            /// Used to combine parsing for the cases where the data to parse was originally a string or a TextReader, while still giving more useful exceptions with indices for the string case.
+            /// </summary>
+            /// <param name="index">Only used for the string case. Keeps track of which index in the string the reader has last read.</param>
+            /// <param name="str">Only used for the string case. It is the whole string that is trying to be parsed (stays the same throughout the call stack, with just the index changing).
+            /// Set this to null if it's the TextReader case.</param>
+            internal static JsonData.Int Parse(TextReader reader, ref int index, string str)
+            {
+                int oldIndex = index;
+                JsonData parsed = JsonData.ParseNumber(reader, ref index, str);
+                if (parsed.GetType() != typeof(JsonData.Int))
                 {
-                    throw new FormatException("Expected - or a digit at index " + index + " of string: " + str);
+                    index = oldIndex;
+                    throw new FormatException("Successfully parsed data as JsonData.Float, not JsonData.Int, as there was a decimal point.");
                 }
-
-                while (currentIndex < str.Length)
-                {
-                    if (!char.IsDigit(str[currentIndex]))
-                    {
-                        if (str[currentIndex] == '.')
-                        {
-                            throw new FormatException("Found decimal point at index " + currentIndex + " trying to parse an int from index " + index + " in string: " + str);
-                        }
-
-                        if (str[currentIndex] != 'e' && str[currentIndex] != 'E')
-                        {
-                            break;
-                        }
-
-                        // E notation
-                        int mantissa = int.Parse(str[index..currentIndex]);
-                        int exponentStartIndex = currentIndex + 1;
-                        if (exponentStartIndex >= str.Length)
-                        {
-                            throw new FormatException("Found " + str[currentIndex] + " followed by no digits or + at index " + currentIndex + " of string: " + str);
-                        }
-                        if (str[exponentStartIndex] == '-')
-                        {
-                            throw new FormatException("Integers cnnot have negative exponents. Found - at index " + exponentStartIndex + " of string: " + str);
-                        }
-                        if (!char.IsDigit(str[exponentStartIndex]) && str[exponentStartIndex] != '+')
-                        {
-                            throw new FormatException("Found " + str[currentIndex] + " followed by no digits or + at index " + currentIndex + " of string: " + str);
-                        }
-                        if (str[exponentStartIndex] == '+')
-                        {
-                            if (exponentStartIndex == str.Length - 1 || !char.IsDigit(str[exponentStartIndex + 1]))
-                            {
-                                throw new FormatException("Found + followed by no digits at index " + exponentStartIndex + " of string: " + str);
-                            }
-                            currentIndex++;
-                        }
-
-                        currentIndex++;
-                        while (currentIndex < str.Length && char.IsDigit(str[currentIndex]))
-                        {
-                            currentIndex++;
-                        }
-
-                        if (currentIndex < str.Length && str[currentIndex] == '.')
-                        {
-                            throw new FormatException("Found decimal point at index " + currentIndex + " trying to parse an exponent (which must be an integer) " +
-                                "for a number starting at index " + index + " in string: " + str);
-                        }
-
-                        int exponent = int.Parse(str[exponentStartIndex..currentIndex]);
-                        for (int i = 0; i < exponent; i++)
-                        {
-                            try
-                            {
-                                mantissa = checked(mantissa * 10);
-                            }
-                            catch (OverflowException)
-                            {
-                                throw new OverflowException("Overflow error when parsing " + str[index..currentIndex] + " at index " + index + " in string: " + str);
-                            }
-                        }
-                        index = currentIndex - 1;
-                        return new JsonData.Int(mantissa);
-                    }
-
-                    currentIndex++;
-                }
-
-                int number = int.Parse(str[index..(currentIndex)]);
-                index = currentIndex - 1;
-                return new JsonData.Int(number);
+                return (JsonData.Int)parsed;
             }
         }
 
@@ -535,142 +583,371 @@ namespace PAC.Json
             }
 
             /// <summary>
-            /// Attempts to parse the string into a JSON float.
+            /// Attempts to parse the string into a JsonData.Float.
             /// </summary>
             public static JsonData.Float Parse(string str)
             {
+                if (str is null)
+                {
+                    throw new ArgumentException("Cannot parse a null string.");
+                }
+                if (str.Length == 0)
+                {
+                    throw new FormatException("Cannot parse an empty string.");
+                }
+
                 int index = 0;
                 JsonData.Float parsed = Parse(str, ref index);
 
                 if (index < str.Length - 1)
                 {
-                    throw new FormatException("String ended too soon. End of float found at index " + index + " in string: " + str);
+                    throw new FormatException("Successfully parsed data as JsonData.Float " + parsed.value + " but this did not use the whole input string: " + str);
                 }
 
                 return parsed;
             }
             /// <summary>
-            /// Reads the string, starting at the given index, and attempts to parse the string as a float. If successful, the index will be moved to the last digit of the float.
+            /// Reads the string, starting at the given index, and attempts to parse the string as a JsonData.Float. If successful, the index will be moved to the last digit of the float.
             /// </summary>
             public static JsonData.Float Parse(string str, ref int index)
             {
+                if (str is null)
+                {
+                    throw new ArgumentException("Cannot parse a null string.");
+                }
                 if (index < 0 || index >= str.Length)
                 {
-                    throw new IndexOutOfRangeException("Index " + index + " out of range string: " + str);
+                    throw new IndexOutOfRangeException("Index " + index + " out of range of string: " + str);
                 }
 
-                int currentIndex = index;
-                if (str[index] == '-')
+                return Parse(new StringReader(str[index..]), ref index, str);
+            }
+            /// <summary>
+            /// Reads the TextReader, starting at the given index, and attempts to parse it as a JsonData.Float. If successful, the last read character will be the last character of the parsed JSON.
+            /// </summary>
+            /// <param name="mustReadAll">If true, it will check that all the data in the reader was used when parsing. Setting this to false is useful for parsing JSON data inside a list or
+            /// object.</param>
+            public static JsonData.Float Parse(TextReader reader, bool mustReadAll)
+            {
+                int index = 0;
+                JsonData.Float parsed = Parse(reader, ref index, null);
+
+                if (mustReadAll && reader.Peek() != -1)
                 {
-                    if (index >= str.Length - 1 || !char.IsDigit(str[index + 1]))
+                    throw new FormatException("Successfully parsed data as JsonData.Float " + parsed.value + " but this did not use the whole reader.");
+                }
+
+                return parsed;
+            }
+            /// <summary>
+            /// Used to combine parsing for the cases where the data to parse was originally a string or a TextReader, while still giving more useful exceptions with indices for the string case.
+            /// </summary>
+            /// <param name="index">Only used for the string case. Keeps track of which index in the string the reader has last read.</param>
+            /// <param name="str">Only used for the string case. It is the whole string that is trying to be parsed (stays the same throughout the call stack, with just the index changing).
+            /// Set this to null if it's the TextReader case.</param>
+            internal static JsonData.Float Parse(TextReader reader, ref int index, string str)
+            {
+                int oldIndex = index;
+                JsonData parsed = JsonData.ParseNumber(reader, ref index, str);
+                if (parsed.GetType() != typeof(JsonData.Float))
+                {
+                    index = oldIndex;
+                    throw new FormatException("Successfully parsed data as JsonData.Int, not JsonData.Float, as there was no decimal point.");
+                }
+                return (JsonData.Float)parsed;
+            }
+        }
+
+        /// <summary>
+        /// Attempts to parse the string into a JsonData.Int or JsonData.Float.
+        /// </summary>
+        public static JsonData ParseNumber(string str)
+        {
+            if (str is null)
+            {
+                throw new ArgumentException("Cannot parse a null string.");
+            }
+            if (str.Length == 0)
+            {
+                throw new FormatException("Cannot parse an empty string.");
+            }
+
+            int index = 0;
+            JsonData parsed = ParseNumber(str, ref index);
+
+            if (index < str.Length - 1)
+            {
+                if (parsed.GetType() == typeof(JsonData.Int))
+                {
+                    throw new FormatException("Successfully parsed data as JsonData.Int " + ((JsonData.Int)parsed).value + " but this did not use the whole input string: " + str);
+                }
+                throw new FormatException("Successfully parsed data as JsonData.Float " + ((JsonData.Float)parsed).value + " but this did not use the whole input string: " + str);
+            }
+
+            return parsed;
+        }
+        /// <summary>
+        /// Reads the string, starting at the given index, and attempts to parse the string as a JsonData.Int or JsonData.Float. If successful, the index will be moved to the last digit of the number.
+        /// </summary>
+        public static JsonData ParseNumber(string str, ref int index)
+        {
+            if (str is null)
+            {
+                throw new ArgumentException("Cannot parse a null string.");
+            }
+            if (index < 0 || index >= str.Length)
+            {
+                throw new IndexOutOfRangeException("Index " + index + " out of range of string: " + str);
+            }
+
+            return ParseNumber(new StringReader(str[index..]), ref index, str);
+        }
+        /// <summary>
+        /// Reads the TextReader, starting at the given index, and attempts to parse it as a JsonData.Int or JsonData.Float. If successful, the last read character will be the last character
+        /// of the parsed JSON.
+        /// </summary>
+        /// <param name="mustReadAll">If true, it will check that all the data in the reader was used when parsing. Setting this to false is useful for parsing JSON data inside a list or
+        /// object.</param>
+        public static JsonData ParseNumber(TextReader reader, bool mustReadAll)
+        {
+            int index = 0;
+            JsonData parsed = ParseNumber(reader, ref index, null);
+
+            if (mustReadAll && reader.Peek() != -1)
+            {
+                if (parsed.GetType() == typeof(JsonData.Int))
+                {
+                    throw new FormatException("Successfully parsed data as JsonData.Int " + ((JsonData.Int)parsed).value + " but this did not use the whole reader.");
+                }
+                throw new FormatException("Successfully parsed data as JsonData.Float " + ((JsonData.Float)parsed).value + " but this did not use the whole reader.");
+            }
+
+            return parsed;
+        }
+        /// <summary>
+        /// Used to combine parsing for the cases where the data to parse was originally a string or a TextReader, while still giving more useful exceptions with indices for the string case.
+        /// </summary>
+        /// <param name="index">Only used for the string case. Keeps track of which index in the string the reader has last read.</param>
+        /// <param name="str">Only used for the string case. It is the whole string that is trying to be parsed (stays the same throughout the call stack, with just the index changing).
+        /// Set this to null if it's the TextReader case.</param>
+        internal static JsonData ParseNumber(TextReader reader, ref int index, string str)
+        {
+            if (reader.Peek() == -1)
+            {
+                throw new EndOfStreamException("Given reader has nothing more to read.");
+            }
+
+            bool isInt = true;
+
+            string mantissaStr = "";
+            // Should always point to the next character we're going to read in str
+            int currentIndex = index;
+            if (reader.Peek() == '-')
+            {
+                mantissaStr = "-";
+                if (reader.Read() == -1 || !char.IsDigit((char)reader.Peek()))
+                {
+                    if (str is not null)
                     {
                         throw new FormatException("Found - followed by no digits at index " + index + " of string: " + str);
                     }
-                    currentIndex++;
+                    throw new FormatException("Found - followed by no digits at start of reader.");
                 }
-                else if (!char.IsDigit(str[index]))
+                currentIndex++;
+            }
+            else if (!char.IsDigit((char)reader.Peek()))
+            {
+                if (str is not null)
                 {
                     throw new FormatException("Expected - or a digit at index " + index + " of string: " + str);
                 }
+                throw new FormatException("Expected - or a digit at start of reader.");
+            }
 
-                int decimalPointIndex = -1;
-                while (currentIndex < str.Length)
+            char chr = (char)0;
+            int decimalPointIndex = -1;
+            mantissaStr += reader.ReadMatch(IEnumerableExtensions.Repeat<Func<char, bool>>(char.IsDigit));
+            currentIndex += mantissaStr.Length - (mantissaStr[0] == '-' ? 1 : 0);
+
+            // Decimal point
+            if (reader.Peek() == '.')
+            {
+                isInt = false;
+
+                reader.Read();
+                string decimalPart = reader.ReadMatch(IEnumerableExtensions.Repeat<Func<char, bool>>(char.IsDigit));
+                currentIndex += decimalPart.Length + 1;
+                mantissaStr += "." + decimalPart;
+            }
+
+            // Check for second decimal point
+            if (reader.Peek() == '.')
+            {
+                if (str is not null)
                 {
-                    if (!char.IsDigit(str[currentIndex]))
+                    throw new FormatException("Found decimal point at index " + currentIndex + " but already found one at index " + decimalPointIndex + " in string: " + str);
+                }
+                throw new FormatException("Found two decimal points when parsing number.");
+            }
+
+            if (reader.Peek() != 'e' && reader.Peek() != 'E')
+            {
+                index = currentIndex - 1;
+                if (isInt)
+                {
+                    int number = int.Parse(mantissaStr);
+                    return new JsonData.Int(number);
+                }
+                else
+                {
+                    float number = float.Parse(mantissaStr);
+                    return new JsonData.Float(number);
+                }
+            }
+
+            // E notation
+
+            char e = (char)reader.Read();
+            currentIndex++;
+
+            if (reader.Peek() == -1)
+            {
+                if (str is not null)
+                {
+                    throw new FormatException("Found " + e + " followed by no digits or +" + (isInt ? "" : "/-") + " at index " + (currentIndex - 1) + " of string: " + str);
+                }
+                throw new FormatException("Found " + e + " followed by no digits or +" + (isInt ? "" : "/-") + ".");
+            }
+
+            if (isInt && reader.Peek() == '-')
+            {
+                if (str is not null)
+                {
+                    throw new FormatException("Integers cannot have negative exponents. Found - at index " + (currentIndex - 1) + " of string: " + str);
+                }
+                throw new FormatException("Integers cannot have negative exponents.");
+            }
+            if (!char.IsDigit((char)reader.Peek()) && reader.Peek() != '+' && reader.Peek() != '-')
+            {
+                if (str is not null)
+                {
+                    throw new FormatException("Found " + e + " followed by no digits or +" + (isInt ? "" : "/-") + " at index " + (currentIndex - 2) + " of string: " + str);
+                }
+                throw new FormatException("Found " + e + " followed by no digits or +" + (isInt ? "" : "/-") + ".");
+            }
+
+            string exponentStr = "";
+            if (reader.Peek() == '+' || reader.Peek() == '-')
+            {
+                chr = (char)reader.Read();
+                currentIndex++;
+                if (reader.Peek() == -1 || !char.IsDigit((char)reader.Peek()))
+                {
+                    if (str is not null)
                     {
-                        // Decimal point
-                        if (str[currentIndex] == '.')
-                        {
-                            if (decimalPointIndex == -1)
-                            {
-                                decimalPointIndex = currentIndex;
-                                currentIndex++;
-                                continue;
-                            }
-                            else
-                            {
-                                throw new FormatException("Found decimal point at index " + currentIndex + " but already found one at index " + decimalPointIndex + " in string: " + str);
-                            }
-                        }
-
-                        if (str[currentIndex] != 'e' && str[currentIndex] != 'E')
-                        {
-                            break;
-                        }
-
-                        // E notation
-                        float mantissa = float.Parse(str[index..currentIndex]);
-                        int exponentStartIndex = currentIndex + 1;
-                        if (exponentStartIndex >= str.Length || (!char.IsDigit(str[exponentStartIndex]) && str[exponentStartIndex] != '+' && str[exponentStartIndex] != '-'))
-                        {
-                            throw new FormatException("Found " + str[currentIndex] + " followed by no digits or +/- at index " + currentIndex + " of string: " + str);
-                        }
-                        if (str[exponentStartIndex] == '+' || str[exponentStartIndex] == '-')
-                        {
-                            if (exponentStartIndex == str.Length - 1 || !char.IsDigit(str[exponentStartIndex + 1]))
-                            {
-                                throw new FormatException("Found " + str[exponentStartIndex] + " followed by no digits at index " + exponentStartIndex + " of string: " + str);
-                            }
-                            currentIndex++;
-                        }
-
-                        currentIndex++;
-                        while (currentIndex < str.Length && char.IsDigit(str[currentIndex]))
-                        {
-                            currentIndex++;
-                        }
-
-                        if (currentIndex < str.Length && str[currentIndex] == '.')
-                        {
-                            throw new FormatException("Found decimal point at index " + currentIndex + " trying to parse an exponent (which must be an integer) " +
-                                "for a number starting at index " + index + " in string: " + str);
-                        }
-
-                        int exponent = int.Parse(str[exponentStartIndex..currentIndex]);
-                        if (exponent >= 0)
-                        {
-                            for (int i = 0; i < exponent; i++)
-                            {
-                                try
-                                {
-                                    mantissa = checked(mantissa * 10f);
-                                }
-                                catch (OverflowException)
-                                {
-                                    throw new OverflowException("Overflow error when parsing " + str[index..currentIndex] + " at index " + index + " in string: " + str);
-                                }
-
-                                if (float.IsInfinity(mantissa))
-                                {
-                                    throw new OverflowException("Overflow error when parsing " + str[index..currentIndex] + " at index " + index + " in string: " + str);
-                                }
-                            }
-                        }
-                        else
-                        {
-                            if (mantissa == 0f)
-                            {
-                                return 0f;
-                            }
-                            for (int i = 0; i > exponent; i--)
-                            {
-                                mantissa = mantissa / 10f;
-                                if (mantissa == 0f)
-                                {
-                                    throw new UnderflowException("Underflow error when parsing " + str[index..currentIndex] + " at index " + index + " in string: " + str);
-                                }
-                            }
-                        }
-                        index = currentIndex - 1;
-                        return new JsonData.Float(mantissa);
+                        throw new FormatException("Found " + chr + " followed by no digits at index " + (currentIndex - 1) + " of string: " + str);
                     }
-
-                    currentIndex++;
+                    throw new FormatException("Found " + chr + " followed by no digits in exponent.");
                 }
 
-                float number = float.Parse(str[index..(currentIndex)]);
+                if (chr == '-')
+                {
+                    exponentStr += '-';
+                }
+            }
+
+            exponentStr += reader.ReadMatch(IEnumerableExtensions.Repeat<Func<char, bool>>(char.IsDigit));
+            currentIndex += mantissaStr.Length - (mantissaStr[0] == '-' ? 1 : 0);
+
+            // Decimal point
+            if (reader.Peek() == '.')
+            {
+                if (str is not null)
+                {
+                    throw new FormatException("Found decimal point at index " + (currentIndex - 1) + " when trying to parse an exponent (which must be an integer) " +
+                    "for a number starting at index " + index + " in string: " + str);
+                }
+                throw new FormatException("Found decimal point when trying to parse an exponent (which must be an integer).");
+            }
+
+            // Calculate output
+
+            if (isInt)
+            {
+                int mantissa = int.Parse(mantissaStr);
+                int exponent = int.Parse(exponentStr);
+                for (int i = 0; i < exponent; i++)
+                {
+                    try
+                    {
+                        mantissa = checked(mantissa * 10);
+                    }
+                    catch (OverflowException)
+                    {
+                        if (str is not null)
+                        {
+                            throw new OverflowException("Overflow error when parsing " + str[index..(currentIndex - 1)] + " at index " + index + " in string: " + str);
+                        }
+                        throw new OverflowException("Overflow error when parsing JsonData.Int.");
+                    }
+                }
+
+                index = currentIndex - 2;
+                return new JsonData.Int(mantissa);
+            }
+            else
+            {
+                float mantissa = float.Parse(mantissaStr);
+                int exponent = int.Parse(exponentStr);
+                if (exponent >= 0)
+                {
+                    for (int i = 0; i < exponent; i++)
+                    {
+                        try
+                        {
+                            mantissa = checked(mantissa * 10f);
+                        }
+                        catch (OverflowException)
+                        {
+                            if (str is not null)
+                            {
+                                throw new OverflowException("Overflow error when parsing " + str[index..(currentIndex - 1)] + " at index " + index + " in string: " + str);
+                            }
+                            throw new OverflowException("Overflow error when parsing JsonData.Float.");
+                        }
+
+                        if (float.IsInfinity(mantissa))
+                        {
+                            if (str is not null)
+                            {
+                                throw new OverflowException("Overflow error when parsing " + str[index..(currentIndex - 1)] + " at index " + index + " in string: " + str);
+                            }
+                            throw new OverflowException("Overflow error when parsing JsonData.Float.");
+                        }
+                    }
+                }
+                else
+                {
+                    if (mantissa == 0f)
+                    {
+                        return new JsonData.Float(0f);
+                    }
+                    for (int i = 0; i > exponent; i--)
+                    {
+                        mantissa = mantissa / 10f;
+                        if (mantissa == 0f)
+                        {
+                            if (str is not null)
+                            {
+                                throw new UnderflowException("Underflow error when parsing " + str[index..(currentIndex - 1)] + " at index " + index + " in string: " + str);
+                            }
+                            throw new UnderflowException("Underflow error when parsing JsonData.Float.");
+                        }
+                    }
+                }
+
                 index = currentIndex - 1;
-                return new JsonData.Float(number);
+                return new JsonData.Float(mantissa);
             }
         }
 
@@ -767,112 +1044,170 @@ namespace PAC.Json
             }
 
             /// <summary>
-            /// Attempts to parse the string into a JSON string.
+            /// Attempts to parse the string into a JsonData.String.
             /// </summary>
             public static JsonData.String Parse(string str)
             {
+                if (str is null)
+                {
+                    throw new ArgumentException("Cannot parse a null string.");
+                }
+                if (str.Length == 0)
+                {
+                    throw new FormatException("Cannot parse an empty string.");
+                }
+
                 int index = 0;
                 JsonData.String parsed = Parse(str, ref index);
 
                 if (index < str.Length - 1)
                 {
-                    throw new FormatException("String ended too soon. Ending \" found at index " + index + " in string: " + str);
+                    throw new FormatException("Successfully parsed data as JsonData.String " + parsed.value + " but this did not use the whole input string: " + str);
                 }
 
                 return parsed;
             }
             /// <summary>
-            /// Reads the string, starting at the given index, and attempts to parse the string as a JSON string. If successful, the index will be moved to the closing double quotation mark.
+            /// Reads the string, starting at the given index, and attempts to parse the string as a JsonData.String. If successful, the index will be moved to the closing quotation mark.
             /// </summary>
             public static JsonData.String Parse(string str, ref int index)
             {
+                if (str is null)
+                {
+                    throw new ArgumentException("Cannot parse a null string.");
+                }
                 if (index < 0 || index >= str.Length)
                 {
-                    throw new IndexOutOfRangeException("Index " + index + " out of range string: " + str);
+                    throw new IndexOutOfRangeException("Index " + index + " out of range of string: " + str);
                 }
 
-                if (index + 3 < str.Length && str[index..(index + 4)] == "null")
+                return Parse(new StringReader(str[index..]), ref index, str);
+            }
+            /// <summary>
+            /// Reads the TextReader, starting at the given index, and attempts to parse it as a JsonData.String. If successful, the last read character will be the last character of the parsed JSON.
+            /// </summary>
+            /// <param name="mustReadAll">If true, it will check that all the data in the reader was used when parsing. Setting this to false is useful for parsing JSON data inside a list or
+            /// object.</param>
+            public static JsonData.String Parse(TextReader reader, bool mustReadAll)
+            {
+                int index = 0;
+                JsonData.String parsed = Parse(reader, ref index, null);
+
+                if (mustReadAll && reader.Peek() != -1)
+                {
+                    throw new FormatException("Successfully parsed data as JsonData.String " + parsed.value + " but this did not use the whole reader.");
+                }
+
+                return parsed;
+            }
+            /// <summary>
+            /// Used to combine parsing for the cases where the data to parse was originally a string or a TextReader, while still giving more useful exceptions with indices for the string case.
+            /// </summary>
+            /// <param name="index">Only used for the string case. Keeps track of which index in the string the reader has last read.</param>
+            /// <param name="str">Only used for the string case. It is the whole string that is trying to be parsed (stays the same throughout the call stack, with just the index changing).
+            /// Set this to null if it's the TextReader case.</param>
+            internal static JsonData.String Parse(TextReader reader, ref int index, string str)
+            {
+                if (reader.Peek() == -1)
+                {
+                    throw new EndOfStreamException("Given reader has nothing more to read.");
+                }
+
+                if (reader.Peek() == 'n' && reader.ReadMatchAll("null"))
                 {
                     throw new FormatException("Parsed a null string, but a JsonData.String cannot hold a null string. Use JsonData.Null.Parse() or JsonData.String.ParseMaybeNull() instead.");
                 }
 
-                if (str[index] != '\"')
+                if (reader.Read() != '\"')
                 {
-                    throw new FormatException("Expected string data to start with \" at index " + index + " in string: " + str);
+                    if (str is not null)
+                    {
+                        throw new FormatException("Expected string data to start with a quotation mark at index " + index + " in string: " + str);
+                    }
+                    throw new FormatException("Expected reader data to start with a quotation mark.");
                 }
 
                 StringBuilder parsed = new StringBuilder();
-                for (int i = index + 1; i < str.Length; i++)
+                char chr = (char)0;
+                // Should always point to the next character we're going to read in str
+                int currentIndex = index + 1;
+                while (reader.TryReadIntoChar(ref chr))
                 {
-                    // String ending too early
-                    if (str[i] == '\"')
+                    currentIndex++;
+                    // Closing quotation mark
+                    if (chr == '\"')
                     {
-                        index = i;
+                        index = currentIndex - 1;
                         return parsed.ToString();
                     }
                     // Non-escaped characters
-                    else if (str[i] != '\\')
+                    else if (chr != '\\')
                     {
-                        parsed.Append(str[i]);
+                        parsed.Append(chr);
                     }
                     // Escaped characters
                     else
                     {
-                        if (i == str.Length - 1)
+                        if (!reader.TryReadIntoChar(ref chr))
                         {
-                            throw new FormatException("Found \\ but no following character to escape at the end of string: " + str);
+                            if (str is not null)
+                            {
+                                throw new FormatException("Found \\ but no following character to escape at the end of string: " + str);
+                            }
+                            throw new FormatException("Found \\ but no following character to escape as the reader ended.");
                         }
-                        else if (str[i + 1] == 'b')
+                        currentIndex++;
+
+                        if (chr == 'b')
                         {
                             parsed.Append('\b');
-                            i++;
                         }
-                        else if (str[i + 1] == 'f')
+                        else if (chr == 'f')
                         {
                             parsed.Append('\f');
-                            i++;
                         }
-                        else if (str[i + 1] == 'n')
+                        else if (chr == 'n')
                         {
                             parsed.Append('\n');
-                            i++;
                         }
-                        else if (str[i + 1] == 'r')
+                        else if (chr == 'r')
                         {
                             parsed.Append('\r');
-                            i++;
                         }
-                        else if (str[i + 1] == 't')
+                        else if (chr == 't')
                         {
                             parsed.Append('\t');
-                            i++;
                         }
-                        else if (str[i + 1] == '\\')
+                        else if (chr == '\\')
                         {
                             parsed.Append('\\');
-                            i++;
                         }
-                        else if (str[i + 1] == '/')
+                        else if (chr == '/')
                         {
                             parsed.Append('/');
-                            i++;
                         }
-                        else if (str[i + 1] == '\"')
+                        else if (chr == '\"')
                         {
                             parsed.Append('\"');
-                            i++;
                         }
-                        else if (str[i + 1] == 'u')
+                        else if (chr == 'u')
                         {
-                            if (i + 5 >= str.Length)
+                            char[] hexCharSet = new char[] { '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'A', 'b', 'B', 'c', 'C', 'd', 'D', 'e', 'E', 'f', 'F' };
+                            string hexChars = reader.ReadMatch(new char[][] { hexCharSet, hexCharSet, hexCharSet, hexCharSet });
+                            if (hexChars.Length < 4)
                             {
-                                throw new FormatException("Expected 4 hex digits, starting at index " + (i + 2) + ", but only found " + (str.Length - i - 2) + " in string: " + str);
+                                if (str is not null)
+                                {
+                                    throw new FormatException("Expected 4 hex digits after a \\u, starting at index " + currentIndex + ", but only found " + hexChars.Length + " in string: " + str);
+                                }
+                                throw new FormatException("Expected 4 hex digits after a \\u, but only found " + hexChars.Length + " in string: " + str);
                             }
+                            currentIndex += 4;
 
                             int[] hexDigits = new int[4];
                             for (int digit = 0; digit < 4; digit++)
                             {
-                                hexDigits[digit] = str[i + 2 + digit] switch
+                                hexDigits[digit] = hexChars[digit] switch
                                 {
                                     '0' => 0,
                                     '1' => 1,
@@ -896,21 +1231,28 @@ namespace PAC.Json
                                     'E' => 14,
                                     'f' => 15,
                                     'F' => 15,
-                                    _ => throw new FormatException("Invalid hex digit " + str[i + 2 + digit] + " at index " + (i + 2 + digit) + " in string: " + str)
+                                    _ => throw new FormatException("Invalid hex digit " + hexChars[digit])
                                 };
                             }
 
                             parsed.Append(char.ConvertFromUtf32(4096 * hexDigits[0] + 256 * hexDigits[1] + 16 * hexDigits[2] + hexDigits[3]));
-                            i += 5;
                         }
                         else
                         {
-                            throw new FormatException("Invalid escaped character " + str[i..(i + 2)] + " at index " + i + " in string: " + str);
+                            if (str is not null)
+                            {
+                                throw new FormatException("Invalid escaped character \\" + chr + " at index " + (currentIndex - 2) + " in string: " + str);
+                            }
+                            throw new FormatException("Invalid escaped character \\" + chr + ".");
                         }
                     }
                 }
 
-                throw new FormatException("Reached end of string before finding closing \" for string data starting at index " + index + " in string: " + str);
+                if (str is not null)
+                {
+                    throw new FormatException("Reached end of string before finding closing quotation mark for string data starting at index " + index + " in string: " + str);
+                }
+                throw new FormatException("Reached end of reader before finding closing quotation mark for string.");
             }
 
             /// <summary>
@@ -1148,99 +1490,186 @@ namespace PAC.Json
             }
 
             /// <summary>
-            /// Attempts to parse the string into a JSON list.
+            /// Attempts to parse the string into a JsonData.List.
             /// </summary>
             public static JsonData.List Parse(string str)
             {
+                if (str is null)
+                {
+                    throw new ArgumentException("Cannot parse a null string.");
+                }
+                if (str.Length == 0)
+                {
+                    throw new FormatException("Cannot parse an empty string.");
+                }
+
                 int index = 0;
                 JsonData.List parsed = Parse(str, ref index);
 
                 if (index < str.Length - 1)
                 {
-                    throw new FormatException("String ended too soon. Ending ] found at index " + index + " in string: " + str);
+                    throw new FormatException("Successfully parsed data as JsonData.List but this did not use the whole input string: " + str);
                 }
 
                 return parsed;
             }
             /// <summary>
-            /// Reads the string, starting at the given index, and attempts to parse the string as a list of JSON data. If successful, the index will be moved to the closing square bracket.
+            /// Reads the string, starting at the given index, and attempts to parse the string as a JsonData.List. If successful, the index will be moved to the closing square bracket.
             /// </summary>
             public static JsonData.List Parse(string str, ref int index)
             {
-                void SkipWhitespace(string str, ref int index)
+                if (str is null)
                 {
-                    while (index < str.Length && char.IsWhiteSpace(str[index]))
+                    throw new ArgumentException("Cannot parse a null string.");
+                }
+                if (index < 0 || index >= str.Length)
+                {
+                    throw new IndexOutOfRangeException("Index " + index + " out of range of string: " + str);
+                }
+
+                return Parse(new StringReader(str[index..]), ref index, str);
+            }
+            /// <summary>
+            /// Reads the TextReader, starting at the given index, and attempts to parse it as a JsonData.List. If successful, the last read character will be the last character of the parsed JSON.
+            /// </summary>
+            /// <param name="mustReadAll">If true, it will check that all the data in the reader was used when parsing. Setting this to false is useful for parsing JSON data inside a list or
+            /// object.</param>
+            public static JsonData.List Parse(TextReader reader, bool mustReadAll)
+            {
+                int index = 0;
+                JsonData.List parsed = Parse(reader, ref index, null);
+
+                if (mustReadAll && reader.Peek() != -1)
+                {
+                    throw new FormatException("Successfully parsed data as JsonData.List but this did not use the whole reader.");
+                }
+
+                return parsed;
+            }
+            /// <summary>
+            /// Used to combine parsing for the cases where the data to parse was originally a string or a TextReader, while still giving more useful exceptions with indices for the string case.
+            /// </summary>
+            /// <param name="index">Only used for the string case. Keeps track of which index in the string the reader has last read.</param>
+            /// <param name="str">Only used for the string case. It is the whole string that is trying to be parsed (stays the same throughout the call stack, with just the index changing).
+            /// Set this to null if it's the TextReader case.</param>
+            internal static JsonData.List Parse(TextReader reader, ref int index, string str)
+            {
+                void SkipWhitespace(TextReader reader, ref int index)
+                {
+                    int peek = reader.Peek();
+                    while (peek != -1 && char.IsWhiteSpace((char)peek))
                     {
+                        reader.Read();
                         index++;
+
+                        peek = reader.Peek();
                     }
                 }
 
-                if (index < 0 || index >= str.Length)
+                if (reader.Peek() == -1)
                 {
-                    throw new IndexOutOfRangeException("Index " + index + " out of range string: " + str);
+                    throw new EndOfStreamException("Given reader has nothing more to read.");
                 }
 
-                if (index + 3 < str.Length && str[index..(index + 4)] == "null")
+                if (reader.Peek() == 'n' && reader.ReadMatchAll("null"))
                 {
-                    throw new FormatException("Parsed a null list, but a JsonData.List cannot hold a null list. Use JsonData.Null.Parse() or JsonData.List.ParseMaybeNull() instead.");
+                    throw new FormatException("Parsed a null string, but a JsonData.String cannot hold a null string. Use JsonData.Null.Parse() or JsonData.List.ParseMaybeNull() instead.");
                 }
 
-                if (str[index] != '[')
+                if (reader.Read() != '[')
                 {
-                    throw new FormatException("Expected list to start with [ at index " + index + " in string: " + str);
+                    if (str is not null)
+                    {
+                        throw new FormatException("Expected string data to start with [ at index " + index + " in string: " + str);
+                    }
+                    throw new FormatException("Expected reader data to start with [.");
                 }
 
                 JsonData.List parsed = new JsonData.List();
+                char chr = (char)0;
+                // Should always point to the next character we're going to read in str
+                int currentIndex = index + 1;
 
                 // Case for empty list
-                int currentIndex = index + 1;
-                SkipWhitespace(str, ref currentIndex);
-                if (currentIndex < str.Length && str[currentIndex] == ']')
+                SkipWhitespace(reader, ref currentIndex);
+                if (reader.Peek() == -1)
                 {
-                    index = currentIndex;
+                    if (str is not null)
+                    {
+                        throw new FormatException("Reached end of string while expecting element or closing ] for list starting at index " + index + " in string: " + str);
+                    }
+                    throw new FormatException("Reached end of reader while expecting element or closing ] for list.");
+                }
+                if (reader.Peek() == ']')
+                {
+                    reader.Read();
+                    currentIndex++;
+
+                    index = currentIndex - 1;
                     return parsed;
                 }
 
                 // Case for non-empty list
-                currentIndex = index + 1;
-                while (currentIndex < str.Length)
+                while (reader.Peek() != -1)
                 {
                     // Element
-                    SkipWhitespace(str, ref currentIndex);
 
-                    if (currentIndex >= str.Length)
+                    SkipWhitespace(reader, ref currentIndex);
+
+                    if (reader.Peek() == -1)
                     {
-                        throw new FormatException("Reached end of string while expecting element for list starting at index " + index + " in string: " + str);
+                        if (str is not null)
+                        {
+                            throw new FormatException("Reached end of string while expecting element for list starting at index " + index + " in string: " + str);
+                        }
+                        throw new FormatException("Reached end of reader while expecting element for list.");
                     }
-                    if (str[currentIndex] == ']')
+                    if (reader.Peek() == ']')
                     {
-                        throw new FormatException("Found closing ] at index " + currentIndex + " but was expecting another element due to a comma in string: " + str);
+                        if (str is not null)
+                        {
+                            throw new FormatException("Found closing ] at index " + (currentIndex - 1) + " but was expecting another element due to a comma in string: " + str);
+                        }
+                        throw new FormatException("Found closing ] but was expecting another element due to a comma.");
                     }
 
-                    parsed.Add(JsonData.Parse(str, ref currentIndex));
+                    parsed.Add(JsonData.Parse(reader, ref currentIndex, str));
                     currentIndex++;
 
                     // Closing ] or ,
-                    SkipWhitespace(str, ref currentIndex);
 
-                    if (currentIndex >= str.Length)
+                    SkipWhitespace(reader, ref currentIndex);
+
+                    if (!reader.TryReadIntoChar(ref chr))
                     {
-                        throw new FormatException("Reached end of string while expecting ] or , for list starting at index " + index + " in string: " + str);
+                        if (str is not null)
+                        {
+                            throw new FormatException("Reached end of string while expecting a comma or closing ] for list starting at index " + index + " in string: " + str);
+                        }
+                        throw new FormatException("Reached end of reader while expecting a comma or closing ] for list.");
                     }
-                    if (str[currentIndex] == ']')
+                    currentIndex++;
+
+                    if (chr == ']')
                     {
-                        index = currentIndex;
+                        index = currentIndex - 1;
                         return parsed;
                     }
-                    if (str[currentIndex] != ',')
+                    if (chr != ',')
                     {
-                        throw new FormatException("List has not ended, so expected a comma at index " + currentIndex + " in string: " + str);
+                        if (str is not null)
+                        {
+                            throw new FormatException("List has not ended, so expected a comma at index " + currentIndex + ", but found " + chr + " in string: " + str);
+                        }
+                        throw new FormatException("List has not ended, so expected a comma, but found " + chr);
                     }
-
-                    currentIndex++;
                 }
 
-                throw new FormatException("Reached end of string before finding closing ] for list starting at index " + index + " in string: " + str);
+                if (str is not null)
+                {
+                    throw new FormatException("Reached end of string before finding closing ] for list starting at index " + index + " in string: " + str);
+                }
+                throw new FormatException("Reached end of reader before finding closing ] for list.");
             }
 
             /// <summary>
@@ -1438,138 +1867,251 @@ namespace PAC.Json
             }
 
             /// <summary>
-            /// Attempts to parse the string into a JSON object.
+            /// Attempts to parse the string into a JsonData.Object.
             /// </summary>
             public static JsonData.Object Parse(string str)
             {
+                if (str is null)
+                {
+                    throw new ArgumentException("Cannot parse a null string.");
+                }
+                if (str.Length == 0)
+                {
+                    throw new FormatException("Cannot parse an empty string.");
+                }
+
                 int index = 0;
                 JsonData.Object parsed = Parse(str, ref index);
 
                 if (index < str.Length - 1)
                 {
-                    throw new FormatException("String ended too soon. Ending } found at index " + index + " in string: " + str);
+                    throw new FormatException("Successfully parsed data as JsonData.Object but this did not use the whole input string: " + str);
                 }
 
                 return parsed;
             }
             /// <summary>
-            /// Reads the string, starting at the given index, and attempts to parse the string as a JSON object. If successful, the index will be moved to the closing curly bracket.
+            /// Reads the string, starting at the given index, and attempts to parse the string as a JsonData.Object. If successful, the index will be moved to the closing curly bracket.
             /// </summary>
             public static JsonData.Object Parse(string str, ref int index)
             {
-                void SkipWhitespace(string str, ref int index)
+                if (str is null)
                 {
-                    while (index < str.Length && char.IsWhiteSpace(str[index]))
+                    throw new ArgumentException("Cannot parse a null string.");
+                }
+                if (index < 0 || index >= str.Length)
+                {
+                    throw new IndexOutOfRangeException("Index " + index + " out of range of string: " + str);
+                }
+
+                return Parse(new StringReader(str[index..]), ref index, str);
+            }
+            /// <summary>
+            /// Reads the TextReader, starting at the given index, and attempts to parse it as a JsonData.Object. If successful, the last read character will be the last character of the parsed JSON.
+            /// </summary>
+            /// <param name="mustReadAll">If true, it will check that all the data in the reader was used when parsing. Setting this to false is useful for parsing JSON data inside a list or
+            /// object.</param>
+            public static JsonData.Object Parse(TextReader reader, bool mustReadAll)
+            {
+                int index = 0;
+                JsonData.Object parsed = Parse(reader, ref index, null);
+
+                if (mustReadAll && reader.Peek() != -1)
+                {
+                    throw new FormatException("Successfully parsed data as JsonData.Object but this did not use the whole reader.");
+                }
+
+                return parsed;
+            }
+            /// <summary>
+            /// Used to combine parsing for the cases where the data to parse was originally a string or a TextReader, while still giving more useful exceptions with indices for the string case.
+            /// </summary>
+            /// <param name="index">Only used for the string case. Keeps track of which index in the string the reader has last read.</param>
+            /// <param name="str">Only used for the string case. It is the whole string that is trying to be parsed (stays the same throughout the call stack, with just the index changing).
+            /// Set this to null if it's the TextReader case.</param>
+            internal static JsonData.Object Parse(TextReader reader, ref int index, string str)
+            {
+                void SkipWhitespace(TextReader reader, ref int index)
+                {
+                    int peek = reader.Peek();
+                    while (peek != -1 && char.IsWhiteSpace((char)peek))
                     {
+                        reader.Read();
                         index++;
+
+                        peek = reader.Peek();
                     }
                 }
 
-                if (index < 0 || index >= str.Length)
+                if (reader.Peek() == -1)
                 {
-                    throw new IndexOutOfRangeException("Index " + index + " out of range string: " + str);
+                    throw new EndOfStreamException("Given reader has nothing more to read.");
                 }
 
-                if (index + 3 < str.Length && str[index..(index + 4)] == "null")
+                if (reader.Peek() == 'n' && reader.ReadMatchAll("null"))
                 {
-                    throw new FormatException("Parsed a null object, but a JsonData.Object cannot hold a null object. Use JsonData.Null.Parse() or JsonData.Object.ParseMaybeNull() instead.");
+                    throw new FormatException("Parsed a null string, but a JsonData.String cannot hold a null string. Use JsonData.Null.Parse() or JsonData.List.ParseMaybeNull() instead.");
                 }
 
-                if (str[index] != '{')
+                if (reader.Read() != '{')
                 {
-                    throw new FormatException("Expected object to start with { at index " + index + " in string: " + str);
+                    if (str is not null)
+                    {
+                        throw new FormatException("Expected string data to start with { at index " + index + " in string: " + str);
+                    }
+                    throw new FormatException("Expected reader data to start with {.");
                 }
 
                 JsonData.Object parsed = new JsonData.Object();
-
-                // Case for empty list
+                char chr = (char)0;
+                // Should always point to the next character we're going to read in str
                 int currentIndex = index + 1;
-                SkipWhitespace(str, ref currentIndex);
-                if (currentIndex < str.Length && str[currentIndex] == '}')
+
+                // Case for empty object
+                SkipWhitespace(reader, ref currentIndex);
+                if (reader.Peek() == -1)
                 {
-                    index = currentIndex;
+                    if (str is not null)
+                    {
+                        throw new FormatException("Reached end of string while expecting element or closing } for object starting at index " + index + " in string: " + str);
+                    }
+                    throw new FormatException("Reached end of reader while expecting element or closing } for object.");
+                }
+                if (reader.Peek() == '}')
+                {
+                    reader.Read();
+                    currentIndex++;
+
+                    index = currentIndex - 1;
                     return parsed;
                 }
 
-                // Case for non-empty list
-                currentIndex = index + 1;
-                while (currentIndex < str.Length)
+                // Case for non-empty object
+                while (reader.Peek() != -1)
                 {
                     // Identifier
-                    SkipWhitespace(str, ref currentIndex);
 
-                    if (currentIndex >= str.Length)
+                    SkipWhitespace(reader, ref currentIndex);
+
+                    if (reader.Peek() == -1)
                     {
-                        throw new FormatException("Reached end of string while expecting identifier for list starting at index " + index + " in string: " + str);
+                        if (str is not null)
+                        {
+                            throw new FormatException("Reached end of string while expecting identifier in object starting at index " + index + " in string: " + str);
+                        }
+                        throw new FormatException("Reached end of reader while expecting identifier in object.");
                     }
-                    if (str[currentIndex] == '}')
+                    if (reader.Peek() == '}')
                     {
-                        throw new FormatException("Found closing } at index " + currentIndex + " but was expecting another element due to a comma in string: " + str);
+                        if (str is not null)
+                        {
+                            throw new FormatException("Found closing } at index " + currentIndex + " but was expecting another element due to a comma in string: " + str);
+                        }
+                        throw new FormatException("Found closing } but was expecting another element due to a comma.");
                     }
 
-                    string identifier = JsonData.String.Parse(str, ref currentIndex).value;
+                    string identifier = JsonData.String.Parse(reader, ref currentIndex, str).value;
                     currentIndex++;
 
                     if (parsed.ContainsKey(identifier))
                     {
-                        throw new FormatException("Object has already used the identifier " + identifier + " in string: " + str);
+                        if (str is not null)
+                        {
+                            throw new FormatException("Object has already used the identifier " + identifier + " in string: " + str);
+                        }
+                        throw new FormatException("Object has already used the identifier " + identifier);
                     }
 
                     // Colon
-                    SkipWhitespace(str, ref currentIndex);
 
-                    if (currentIndex >= str.Length)
+                    SkipWhitespace(reader, ref currentIndex);
+
+                    if (!reader.TryReadIntoChar(ref chr))
                     {
+                        if (str is not null)
+                        {
+                            throw new FormatException("Reached end of string while expecting : for object starting at index " + index + " in string: " + str);
+                        }
                         throw new FormatException("Reached end of string while expecting : for object starting at index " + index + " in string: " + str);
                     }
-                    if (str[currentIndex] == '}')
-                    {
-                        throw new FormatException("Reached closing } while expecting : for object starting at index " + index + " in string: " + str);
-                    }
-
-                    if (str[currentIndex] != ':')
-                    {
-                        throw new FormatException("Expected : at index " + currentIndex + " in string: " + str);
-                    }
                     currentIndex++;
+
+                    if (chr == '}')
+                    {
+                        if (str is not null)
+                        {
+                            throw new FormatException("Reached closing } while expecting a colon for object starting at index " + index + " in string: " + str);
+                        }
+                        throw new FormatException("Reached closing } while expecting a colon.");
+                    }
+                    if (chr != ':')
+                    {
+                        if (str is not null)
+                        {
+                            throw new FormatException("Expected a colon at index " + (currentIndex - 1) + ", but found " + chr + " in string: " + str);
+                        }
+                        throw new FormatException("Expected a colon, but found " + chr);
+                    }
 
                     // Value
-                    SkipWhitespace(str, ref currentIndex);
 
-                    if (currentIndex >= str.Length)
+                    SkipWhitespace(reader, ref currentIndex);
+
+                    if (reader.Peek() == -1)
                     {
-                        throw new FormatException("Reached end of string while expecting value for identifier " + identifier + " in object starting at index " + index + " in string: " + str);
+                        if (str is not null)
+                        {
+                            throw new FormatException("Reached end of string while expecting value for identifier " + identifier + " in object starting at index " + index + " in string: " + str);
+                        }
+                        throw new FormatException("Reached end of string while expecting value for identifier.");
                     }
-                    if (str[currentIndex] == '}')
+                    if (reader.Peek() == '}')
                     {
-                        throw new FormatException("Reached closing } while expecting value for identifier " + identifier + " in object starting at index " + index + " in string: " + str);
+                        if (str is not null)
+                        {
+                            throw new FormatException("Reached closing } while expecting value for identifier " + identifier + " in object starting at index " + index + " in string: " + str);
+                        }
+                        throw new FormatException("Reached closing } while expecting value for identifier.");
                     }
 
-                    JsonData value = JsonData.Parse(str, ref currentIndex);
-                    parsed.Add(identifier, value);
+                    JsonData value = JsonData.Parse(reader, ref currentIndex, str);
                     currentIndex++;
+                    parsed.Add(identifier, value);
 
                     // Closing } or ,
-                    SkipWhitespace(str, ref currentIndex);
 
-                    if (currentIndex >= str.Length)
+                    SkipWhitespace(reader, ref currentIndex);
+
+                    if (!reader.TryReadIntoChar(ref chr))
                     {
-                        throw new FormatException("Reached end of string while expecting } or , for list starting at index " + index + " in string: " + str);
+                        if (str is not null)
+                        {
+                            throw new FormatException("Reached end of string while expecting } or a comma for object starting at index " + index + " in string: " + str);
+                        }
+                        throw new FormatException("Reached end of string while expecting } or a comma.");
                     }
-                    if (str[currentIndex] == '}')
+                    currentIndex++;
+
+                    if (chr == '}')
                     {
-                        index = currentIndex;
+                        index = currentIndex - 1;
                         return parsed;
                     }
-                    if (str[currentIndex] != ',')
+                    if (chr != ',')
                     {
-                        throw new FormatException("Object has not ended, so expected a comma at index " + currentIndex + " in string: " + str);
+                        if (str is not null)
+                        {
+                            throw new FormatException("Object has not ended, so expected a comma at index " + (currentIndex - 1) + ", but found + " + chr + " in string: " + str);
+                        }
+                        throw new FormatException("Object has not ended, so expected a comma, but found " + chr);
                     }
-
-                    currentIndex++;
                 }
 
-                throw new FormatException("Reached end of string before finding closing } for object starting at index " + index + " in string: " + str);
+                if (str is not null)
+                {
+                    throw new FormatException("Reached end of string before finding closing } for object starting at index " + index + " in string: " + str);
+                }
+                throw new FormatException("Reached end of reader before finding closing }.");
             }
 
             /// <summary>

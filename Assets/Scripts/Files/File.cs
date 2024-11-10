@@ -247,7 +247,11 @@ namespace PAC.Files
                 throw new System.Exception("The file is not a PAC file. File extension: " + Path.GetExtension(filePath));
             }
 
-            JsonData.Object json = JsonData.Object.Parse(System.IO.File.ReadAllText(filePath));
+            JsonData.Object json;
+            using (StreamReader stream = new StreamReader(filePath))
+            {
+                json = JsonData.Object.Parse(stream, true);
+            }
 
             SemanticVersion fileFormatVersion = JsonConversion.FromJson<SemanticVersion>(json["file format version"], new JsonConversion.JsonConverterSet(new SemanticVersion.JsonConverter()), false);
             json.Remove("file format version");

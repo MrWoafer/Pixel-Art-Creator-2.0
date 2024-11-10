@@ -65,7 +65,10 @@ namespace PAC.KeyboardShortcuts
                 throw new System.Exception("The file is not a JSON file. File extension: " + Path.GetExtension(shortcutsFilePath));
             }
 
-            LoadJSON(JsonData.Object.Parse(System.IO.File.ReadAllText(shortcutsFilePath)));
+            using (StreamReader stream = new StreamReader(shortcutsFilePath))
+            {
+                LoadJSON(JsonData.Object.Parse(stream, true));
+            }
 
             Debug.Log("Keyboard shortcuts loaded from: " + shortcutsFilePath);
         }

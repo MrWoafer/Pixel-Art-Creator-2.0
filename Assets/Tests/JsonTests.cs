@@ -611,6 +611,17 @@ namespace PAC.Tests
         }
 
         /// <summary>
+        /// Checks JsonData.ParseNumber() correctly parses to the right one of JsonData.Int and JsonData.Float.
+        /// </summary>
+        [Test]
+        [Category("JSON")]
+        public void ParseNumber()
+        {
+            Assert.True(JsonData.HaveSameData(new JsonData.Int(39), JsonData.ParseNumber("39")));
+            Assert.True(JsonData.HaveSameData(new JsonData.Float(39f), JsonData.ParseNumber("39.0")));
+        }
+
+        /// <summary>
         /// Checks JsonData.Ints are parsed correctly.
         /// </summary>
         [Test]
@@ -636,8 +647,10 @@ namespace PAC.Tests
         [Category("JSON")]
         public void ParseFloat()
         {
-            Assert.AreEqual(JsonData.Float.Parse("3.259").value, 3.259, 0.0005f);
-            Assert.AreEqual(-3f, JsonData.Float.Parse("-3").value);
+            Assert.AreEqual(3.259, JsonData.Float.Parse("3.259").value, 0.0005f);
+            Assert.AreEqual(-3f, JsonData.Float.Parse("-3.0").value);
+            // No decimal point
+            Assert.Throws<FormatException>(() => JsonData.Float.Parse("-3"));
             // Not allowed two decimal points
             Assert.Throws<FormatException>(() => JsonData.Float.Parse("47.2.4"));
             // - followed by nothing
@@ -679,18 +692,18 @@ namespace PAC.Tests
         [Category("JSON")]
         public void ParseFloatENotation()
         {
-            Assert.AreEqual(JsonData.Float.Parse("-3.259e2").value, -325.9f, 0.05f);
-            Assert.AreEqual(JsonData.Float.Parse("-3.259E+2").value, -325.9f, 0.05f);
-            Assert.AreEqual(JsonData.Float.Parse("10.4E-2").value, 0.104f, 0.0005f);
-            Assert.AreEqual(JsonData.Float.Parse("10.4E0").value, 10.4f, 0.05f);
+            Assert.AreEqual(-325.9f, JsonData.Float.Parse("-3.259e2").value, 0.05f);
+            Assert.AreEqual(-325.9f, JsonData.Float.Parse("-3.259E+2").value, 0.05f);
+            Assert.AreEqual(0.104f, JsonData.Float.Parse("10.4E-2").value, 0.0005f);
+            Assert.AreEqual(10.4f, JsonData.Float.Parse("10.4E0").value, 0.05f);
             // Not allowed decimal exponent
-            Assert.Throws<FormatException>(() => JsonData.Float.Parse("47000e-2.0"));
+            Assert.Throws<FormatException>(() => JsonData.Float.Parse("47000.0e-2.0"));
             // E not followed by a number
-            Assert.Throws<FormatException>(() => JsonData.Float.Parse("47000e"));
+            Assert.Throws<FormatException>(() => JsonData.Float.Parse("47000.0e"));
             // + not followed by a number
-            Assert.Throws<FormatException>(() => JsonData.Float.Parse("47000e+"));
+            Assert.Throws<FormatException>(() => JsonData.Float.Parse("47000.0e+"));
             // - not followed by a number
-            Assert.Throws<FormatException>(() => JsonData.Float.Parse("47000E-"));
+            Assert.Throws<FormatException>(() => JsonData.Float.Parse("47000.0E-"));
             // Number ends too soon
             Assert.Throws<FormatException>(() => JsonData.Float.Parse("2.3e-4abc"));
             // Overflow
@@ -724,19 +737,27 @@ namespace PAC.Tests
         }
 
         /// <summary>
-        /// Checks that JSON strings, lists and objects handle parsing null values correctly.
+        /// Checks that JsonData.Null parses correctly, and check JsonData.String, JsonData.List and JsonData.Object handle parsing null values correctly.
         /// </summary>
         [Test]
         [Category("JSON")]
         public void ParseNull()
         {
+            Assert.True(JsonData.HaveSameData(new JsonData.Null(), JsonData.Null.Parse("null")));
+            Assert.Catch<FormatException>(() => JsonData.Null.Parse("nul"));
+            Assert.Catch<FormatException>(() => JsonData.Null.Parse("nulll"));
+
             Assert.Catch<FormatException>(() => JsonData.String.Parse("null"));
             Assert.Catch<FormatException>(() => JsonData.List.Parse("null"));
             Assert.Catch<FormatException>(() => JsonData.Object.Parse("null"));
 
-            Assert.True(JsonData.HaveSameData(JsonData.String.ParseMaybeNull("\"hi\""), new JsonData.String("hi")));
-            Assert.True(JsonData.HaveSameData(JsonData.List.ParseMaybeNull("[]"), new JsonData.List()));
-            Assert.True(JsonData.HaveSameData(JsonData.Object.ParseMaybeNull("{}"), new JsonData.Object()));
+            Assert.True(JsonData.HaveSameData(new JsonData.String("hi"), JsonData.String.ParseMaybeNull("\"hi\"")));
+            Assert.True(JsonData.HaveSameData(new JsonData.List(), JsonData.List.ParseMaybeNull("[]")));
+            Assert.True(JsonData.HaveSameData(new JsonData.Object(), JsonData.Object.ParseMaybeNull("{}")));
+
+            Assert.True(JsonData.HaveSameData(new JsonData.Null(), JsonData.String.ParseMaybeNull("null")));
+            Assert.True(JsonData.HaveSameData(new JsonData.Null(), JsonData.List.ParseMaybeNull("null")));
+            Assert.True(JsonData.HaveSameData(new JsonData.Null(), JsonData.Object.ParseMaybeNull("null")));
         }
 
         /// <summary>
@@ -910,6 +931,121 @@ namespace PAC.Tests
                 }
                 Assert.False(concatEnumerable.MoveNext(), "expected ran out before concat");
             }
+        }
+
+        /// <summary>
+        /// Checks JsonData.Strings are parsed correctly.
+        /// </summary>
+        [Test]
+        [Category("JSON")]
+        public void ParseString()
+        {
+            Assert.Catch<FormatException>(() => JsonData.String.Parse("null"));
+
+            Assert.AreEqual("hi", JsonData.String.Parse("\"hi\"").value);
+
+            Assert.Catch<FormatException>(() => JsonData.String.Parse(" \"hello\""));
+            Assert.Catch<FormatException>(() => JsonData.String.Parse("\"hello\" "));
+            Assert.Catch<FormatException>(() => JsonData.String.Parse("hello"));
+            Assert.Catch<FormatException>(() => JsonData.String.Parse("\"hello"));
+            Assert.Catch<FormatException>(() => JsonData.String.Parse("hello\""));
+            Assert.Catch<FormatException>(() => JsonData.String.Parse("\"hello\" there"));
+            Assert.Catch<FormatException>(() => JsonData.String.Parse("\"hello\" there\""));
+            Assert.AreEqual("hello\" there", JsonData.String.Parse("\"hello\\\" there\"").value);
+        }
+
+        /// <summary>
+        /// Checks JsonData.Lists are parsed correctly.
+        /// </summary>
+        [Test]
+        [Category("JSON")]
+        public void ParseList()
+        {
+            Assert.Catch<FormatException>(() => JsonData.List.Parse("null"));
+
+            (JsonData.List, string)[] testCases =
+            {
+                (new JsonData.List((JsonData)new JsonData.Int(1), new JsonData.Float(-4.3f)), "[1, -4.3]"),
+                (new JsonData.List((JsonData)new JsonData.Int(1), new JsonData.Float(-4.3f)), "[ 1    ,  -4.3    ]"),
+                (new JsonData.List(), "[]"),
+                (new JsonData.List(), "[   ]"),
+                (new JsonData.List(new JsonData.Int(1)), "[1]"),
+                (new JsonData.List(new JsonData.String("hey]"), new JsonData.Int(8)), "[\"hey]\", 8]"),
+                (new JsonData.List(new JsonData.String("hey"), new JsonData.String("hi")), "[\"hey\", \"hi\"]")
+            };
+
+            foreach ((JsonData.List expected, string str) in testCases)
+            {
+                Assert.True(JsonData.HaveSameData(expected, JsonData.List.Parse(str)));
+            }
+
+            Assert.Catch<FormatException>(() => JsonData.List.Parse(" [1, -4.3]"));
+            Assert.Catch<FormatException>(() => JsonData.List.Parse("[1, -4.3] "));
+            Assert.Catch<FormatException>(() => JsonData.List.Parse("1, -4.3"));
+            Assert.Catch<FormatException>(() => JsonData.List.Parse("[1, -4.3"));
+            Assert.Catch<FormatException>(() => JsonData.List.Parse("1, -4.3]"));
+            Assert.Catch<FormatException>(() => JsonData.List.Parse("[1, -4.3], 6"));
+            Assert.Catch<FormatException>(() => JsonData.List.Parse("[1, -4.3], 6]"));
+            Assert.Catch<FormatException>(() => JsonData.List.Parse("[1, -4.3, ]"));
+            Assert.Catch<FormatException>(() => JsonData.List.Parse("[1, -4.3 6]"));
+            Assert.Catch<FormatException>(() => JsonData.List.Parse("[1, -4.3a]"));
+        }
+
+        /// <summary>
+        /// Checks JsonData.Objects are parsed correctly.
+        /// </summary>
+        [Test]
+        [Category("JSON")]
+        public void ParseObject()
+        {
+            Assert.Catch<FormatException>(() => JsonData.Object.Parse("null"));
+
+            (JsonData.Object, string)[] testCases =
+            {
+                (new JsonData.Object
+                    {
+                        { "id", new JsonData.Int(5) },
+                        { "name", new JsonData.String("Woafer") },
+                    },
+                    "{\"id\": 5, \"name\": \"Woafer\"}"),
+                (new JsonData.Object{
+                        { "id", new JsonData.Int(5) },
+                        { "name", new JsonData.String("Woafer") },
+                    },
+                    "{ \"id\"   : 5,     \"name\"     :         \"Woafer\"      }"),
+                (new JsonData.Object(), "{}"),
+                (new JsonData.Object(), "{   }"),
+                (new JsonData.Object
+                    {
+                        { "id", new JsonData.Int(5) },
+                    },
+                    "{\"id\": 5}"),
+                (new JsonData.Object
+                    {
+                        { "name", new JsonData.String("Woafer}") },
+                    },
+                    "{\"name\": \"Woafer}\"}")
+            };
+
+            foreach ((JsonData.Object expected, string str) in testCases)
+            {
+                Assert.True(JsonData.HaveSameData(expected, JsonData.Object.Parse(str)));
+            }
+
+            Assert.Catch<FormatException>(() => JsonData.Object.Parse(" {\"id\": 5, \"name\": \"Woafer\"}"));
+            Assert.Catch<FormatException>(() => JsonData.Object.Parse("{\"id\": 5, \"name\": \"Woafer\"} "));
+            Assert.Catch<FormatException>(() => JsonData.Object.Parse("\"id\": 5, \"name\": \"Woafer\""));
+            Assert.Catch<FormatException>(() => JsonData.Object.Parse("{\"id\": 5, \"name\": \"Woafer\""));
+            Assert.Catch<FormatException>(() => JsonData.Object.Parse("\"id\": 5, \"name\": \"Woafer\"}"));
+            Assert.Catch<FormatException>(() => JsonData.Object.Parse("{\"id\": 5, \"name\": \"Woafer\"}, \"skill\": 10"));
+            Assert.Catch<FormatException>(() => JsonData.Object.Parse("{\"id\": 5, \"name\": \"Woafer\"}, \"skill\": 10}"));
+            Assert.Catch<FormatException>(() => JsonData.Object.Parse("{\"id\": 5, \"name\": \"Woafer\", }"));
+            Assert.Catch<FormatException>(() => JsonData.Object.Parse("{\"id\": 5, \"name\": \"Woafer\" \"skill\": 10}"));
+            Assert.Catch<FormatException>(() => JsonData.Object.Parse("{\"id\": 5, \"name\": \"Woafer\"}, \"skill\": 10a}"));
+            Assert.Catch<FormatException>(() => JsonData.Object.Parse("{5: 5}"));
+            Assert.Catch<FormatException>(() => JsonData.Object.Parse("{: 5}"));
+            Assert.Catch<FormatException>(() => JsonData.Object.Parse("{\"id\" 5}"));
+            Assert.Catch<FormatException>(() => JsonData.Object.Parse("{\"id\":}"));
         }
     }
 }

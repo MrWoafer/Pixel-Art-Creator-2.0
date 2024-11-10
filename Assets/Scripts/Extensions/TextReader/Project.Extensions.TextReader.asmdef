@@ -1,6 +1,6 @@
 {
-    "name": "Project.Extensions.TypeExtensions",
-    "rootNamespace": "PAC.Extensions",
+    "name": "Project.Extensions.TextReader",
+    "rootNamespace": "",
     "references": [],
     "includePlatforms": [],
     "excludePlatforms": [],
