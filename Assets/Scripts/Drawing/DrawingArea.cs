@@ -874,7 +874,7 @@ namespace PAC.Drawing
 
         private void PreviewLine(IntVector2 start, IntVector2 end, Color colour)
         {
-            IntRect rect = new IntRect(start, end);
+            IntRect rect = new IntRect(start, 2 * end - start);
             Texture2D tex = Shapes.LineTex(rect.width, rect.height, start - rect.bottomLeft, end - rect.bottomLeft, colour);
 
             SetPreview(tex, rect.bottomLeft);

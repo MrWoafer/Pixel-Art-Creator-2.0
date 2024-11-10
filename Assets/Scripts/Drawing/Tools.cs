@@ -81,8 +81,9 @@ namespace PAC.Drawing
             {
                 throw new System.Exception("Layer is not a normal layer. Layer type: " + file.layers[layer].layerType);
             }
-            Texture2D line = Shapes.LineTex(file.width, file.height, start, end, colour);
-            ((NormalLayer)file.layers[layer]).OverlayTexture(frame, line, AnimFrameRefMode.NewKeyFrame);
+            Shapes.Line line = new Shapes.Line(start, end);
+
+            ((NormalLayer)file.layers[layer]).SetPixels(line.ToArray(), frame, colour, AnimFrameRefMode.NewKeyFrame);
         }
 
         public static void UseSquare(File file, int layer, int frame, IntVector2 start, IntVector2 end, Color colour, bool filled, bool stayWithinImageBounds)

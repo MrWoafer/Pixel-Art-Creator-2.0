@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Codice.CM.Common.Tree;
 using PAC.DataStructures;
 using UnityEngine;
 
@@ -14,8 +15,11 @@ namespace PAC.Drawing
     {
         public interface IShape : IReadOnlyCollection<IntVector2>
         {
-            public abstract IntRect boundingRect { get; }
+            public IntRect boundingRect { get; }
 
+            /// <summary>
+            /// Returns whether the pixel is in the shape.
+            /// </summary>
             public bool Contains(IntVector2 pixel);
         }
 
@@ -24,8 +28,38 @@ namespace PAC.Drawing
         /// </summary>
         public struct Line : IShape
         {
-            public IntVector2 start { get; set; }
-            public IntVector2 end { get; set; }
+            private IntVector2 _start;
+            public IntVector2 start
+            {
+                get => _start;
+                set => SetValues(value, end);
+            }
+
+            private IntVector2 _end;
+            public IntVector2 end
+            {
+                get => _end;
+                set => SetValues(start, value);
+            }
+
+            /// <summary>
+            /// The start point of the imaginary non-pixel-perfect line. We adjust these to the outside corners of the start/end pixels so that the line will always use blocks of
+            /// equal size when possible.
+            /// </summary>
+            private Vector2 imaginaryStart;
+            /// <summary>
+            /// The start point of the imaginary non-pixel-perfect line. We adjust these to the outside corners of the start/end pixels so that the line will always use blocks of
+            /// equal size when possible.
+            /// </summary>
+            private Vector2 imaginaryEnd;
+            /// <summary>
+            /// The gradient of the imaginary non-pixel-perfect line.
+            /// </summary>
+            private float imaginaryGradient;
+            /// <summary>
+            /// Whether the line is more horizontal than vertical. If the line is at +/- 45 degrees then it is true.
+            /// </summary>
+            private bool isMoreHorizontal;
 
             public Line reverse => new Line(end, start);
 
@@ -44,78 +78,70 @@ namespace PAC.Drawing
 
             public Line(IntVector2 start, IntVector2 end)
             {
-                this.start = start;
-                this.end = end;
+                // Initialise fields before we actually define them is SetValues()
+                _start = start;
+                _end = end;
+                imaginaryStart = start;
+                imaginaryEnd = end;
+                imaginaryGradient = 0;
+                isMoreHorizontal = false;
+
+                SetValues(start, end);
             }
 
-            public bool Contains(IntVector2 pixel)
+            private void SetValues(IntVector2 start, IntVector2 end)
             {
-                foreach (IntVector2 shapePixel in this)
+                _start = start;
+                _end = end;
+
+                if (start == end)
                 {
-                    if (shapePixel == pixel)
-                    {
-                        return true;
-                    }
+                    imaginaryStart = start + new Vector2(0.5f, 0.5f);
+                    imaginaryEnd = end + new Vector2(0.5f, 0.5f);
                 }
-                return false;
-            }
-
-            IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();
-            public IEnumerator<IntVector2> GetEnumerator()
-            {
-                // Vertical line
                 if (start.x == end.x)
                 {
-                    if (start.y == end.y)
+                    // end is directly above start
+                    if (start.y < end.y)
                     {
-                        yield return start;
-                        yield break;
+                        imaginaryStart = start + new Vector2(0.5f, 0f);
+                        imaginaryEnd = end + new Vector2(0.5f, 1f);
                     }
-                    
-                    int sign = Math.Sign(end.y - start.y);
-                    // the '+ sign' in 'end.y + sign' is to make sure we include the end pixel in the line
-                    for (int y = start.y; y != end.y + sign; y += sign)
+                    // end is directly below start
+                    else
                     {
-                        yield return new IntVector2(start.x, y);
+                        imaginaryStart = start + new Vector2(0.5f, 1f);
+                        imaginaryEnd = end + new Vector2(0.5f, 0f);
                     }
-                    yield break;
                 }
-                // Horizontal line
-                if (start.y == end.y)
+                else if (start.y == end.y)
                 {
-                    // Don't need start.x == end.x check here as that would already be caught above
-
-                    int sign = Math.Sign(end.x - start.x);
-                    // the '+ sign' in 'end.y + sign' is to make sure we include the end pixel in the line
-                    for (int x = start.x; x != end.x + sign; x += sign)
+                    // end is directly to the right of start
+                    if (start.x < end.x)
                     {
-                        yield return new IntVector2(x, start.y);
+                        imaginaryStart = start + new Vector2(0f, 0.5f);
+                        imaginaryEnd = end + new Vector2(1f, 0.5f);
                     }
-                    yield break;
+                    // end is directly to the left of start
+                    else
+                    {
+                        imaginaryStart = start + new Vector2(1f, 0.5f);
+                        imaginaryEnd = end + new Vector2(0f, 0.5f);
+                    }
                 }
-
-                // Non-vertical/horizontal lines
-
-                yield return new IntVector2(start.x, start.y);
-
-                // The start points of the imaginary non-pixel-perfect line. We adjust these to the outside corners of the start/end pixels so that the line will always use blocks of
-                // equal size when possible
-                Vector2 lineStart;
-                Vector2 lineEnd;
-                // Recall we have already treated the cases where at least one of start.x == start.x or start.y == end.y holds
                 if (start.x < end.x)
                 {
                     // end is to top-right of start
                     if (start.y < end.y)
                     {
-                        lineStart = start;
-                        lineEnd = end + Vector2.one;
+                        imaginaryStart = start;
+                        imaginaryEnd = end + Vector2.one;
                     }
                     // end is to bottom-right of start
                     else
                     {
-                        lineStart = start + Vector2.up;
-                        lineEnd = end + Vector2.right;
+                        imaginaryStart = start + Vector2.up;
+                        imaginaryEnd = end + Vector2.right;
                     }
                 }
                 else
@@ -123,31 +149,105 @@ namespace PAC.Drawing
                     // end is to top-left of start
                     if (start.y < end.y)
                     {
-                        lineStart = start + Vector2.right;
-                        lineEnd = end + Vector2.up;
+                        imaginaryStart = start + Vector2.right;
+                        imaginaryEnd = end + Vector2.up;
                     }
                     // end is to bottom-left of start
                     else
                     {
-                        lineStart = start + Vector2.one;
-                        lineEnd = end;
+                        imaginaryStart = start + Vector2.one;
+                        imaginaryEnd = end;
                     }
                 }
 
-                // If 1 >= gradient >= -1, i.e. the line is more (or equally) horizontal than vertical
-                if (end.y - start.y <= Math.Abs(end.x - start.x) && end.y - start.y >= -Math.Abs(end.x - start.x))
+                if (start.x == end.x)
                 {
-                    float gradient = (lineEnd.y - lineStart.y) / (float)(lineEnd.x - lineStart.x);
-
-                    int sign = Math.Sign(end.x - start.x);
-                    // Calculate the pixels on the line STRICTLY between start and end
-                    // This would be an infinite loop if start.x == end.x, but we have already handled that case above
-                    for (int x = start.x + sign; x != end.x; x += sign)
+                    // Line is perfectly upward
+                    if (start.y < end.y)
                     {
+                        imaginaryGradient = float.PositiveInfinity;
+                    }
+                    // Line is perfectly downward
+                    else
+                    {
+                        imaginaryGradient = float.NegativeInfinity;
+                    }
+                    // Line is a single point
+                    imaginaryGradient = float.NaN;
+                }
+                // Line is diagonal
+                else
+                {
+                    imaginaryGradient = (imaginaryEnd.y - imaginaryStart.y) / (imaginaryEnd.x - imaginaryStart.x);
+                }
+
+                // True iff 1 >= gradient >= -1, i.e. the line is more (or equally) horizontal than vertical
+                isMoreHorizontal = end.y - start.y <= Math.Abs(end.x - start.x) && end.y - start.y >= -Math.Abs(end.x - start.x);
+            }
+
+            /// <summary>
+            /// Returns whether the pixel is in the line.
+            /// </summary>
+            public bool Contains(IntVector2 pixel)
+            {
+                if (isMoreHorizontal)
+                {
+                    return this[pixel.x - start.x] == pixel;
+                }
+                return this[pixel.y - start.y] == pixel;
+            }
+
+            public IntVector2 this[int index]
+            {
+                get
+                {
+                    if (index < 0)
+                    {
+                        throw new IndexOutOfRangeException("Index cannot be negative. Index: " + index);
+                    }
+                    if (index >= Count)
+                    {
+                        throw new IndexOutOfRangeException("Index cannot be >= Count. Index: " + index + ". Count: " + Count);
+                    }
+
+                    if (index == 0)
+                    {
+                        return start;
+                    }
+                    if (index == Count - 1)
+                    {
+                        return end;
+                    }
+
+                    // Index is in the segment from start to end (exclusive).
+
+                    if (start.x == end.x)
+                    {
+                        // Single point
+                        if (start.y == end.y)
+                        {
+                            return start;
+                        }
+
+                        // Vertical line
+                        return new IntVector2(start.x, start.y + index * Math.Sign(end.y - start.y));
+                    }
+                    // Horizontal line
+                    if (start.y == end.y)
+                    {
+                        return new IntVector2(start.x + index * Math.Sign(end.x - start.x), start.y);
+                    }
+
+                    if (isMoreHorizontal)
+                    {
+                        float gradient = (imaginaryEnd.y - imaginaryStart.y) / (imaginaryEnd.x - imaginaryStart.x);
+
+                        int x = start.x + index * Math.Sign(end.x - start.x);
+
                         // Line equation is:
                         //      gradient = (y - lineStart.y) / (x - lineStart.x)
                         // We plug in x + 0.5 (the + 0.5 if because we use the centre of the pixel)
-                        float y = (x + 0.5f - lineStart.x) * gradient + lineStart.y;
+                        float y = (x + 0.5f - imaginaryStart.x) * gradient + imaginaryStart.y;
 
                         // Deal with edge case of y being an integer to ensure line is rotationally symmetrical
                         // We always pull the y so it's closer to the endpoint x is closest to (e.g. if x is closer to start.x than end.x then we round y up/down to whichever is closer to start.y)
@@ -156,32 +256,28 @@ namespace PAC.Drawing
                             // If we're in the first half of the line
                             if (2 * (x - start.x) <= end.x - start.x)
                             {
-                                yield return new IntVector2(x, Mathf.RoundToInt(y) - (start.y < end.y ? 1 : 0));
+                                return new IntVector2(x, Mathf.RoundToInt(y) - (start.y < end.y ? 1 : 0));
                             }
                             else
                             {
-                                yield return new IntVector2(x, Mathf.RoundToInt(y) - (start.y < end.y ? 0 : 1));
+                                return new IntVector2(x, Mathf.RoundToInt(y) - (start.y < end.y ? 0 : 1));
                             }
                         }
                         else
                         {
-                            yield return new IntVector2(x, Mathf.FloorToInt(y));
+                            return new IntVector2(x, Mathf.FloorToInt(y));
                         }
                     }
-                }
-                else
-                {
-                    float gradient = (lineEnd.x - lineStart.x) / (float)(lineEnd.y - lineStart.y);
-
-                    int sign = Math.Sign(end.y - start.y);
-                    // Calculate the pixels on the line STRICTLY between start and end
-                    // This would be an infinite loop if start.y == end.y, but we have already handled that case above
-                    for (int y = start.y + sign; y != end.y; y += sign)
+                    else
                     {
+                        float gradient = (imaginaryEnd.x - imaginaryStart.x) / (imaginaryEnd.y - imaginaryStart.y);
+
+                        int y = start.y + index * Math.Sign(end.y - start.y);
+
                         // Line equation is:
                         //      gradient = (x - lineStart.x) / (y - lineStart.y)
                         // We plug in y + 0.5 (the + 0.5 if because we use the centre of the pixel)
-                        float x = (y + 0.5f - lineStart.y) * gradient + lineStart.x;
+                        float x = (y + 0.5f - imaginaryStart.y) * gradient + imaginaryStart.x;
 
                         // Deal with edge case of x being an integer to ensure line is rotationally symmetrical
                         // We always pull the x so it's closer to the endpoint y is closest to (e.g. if y is closer to start.y than end.y then we round x up/down to whichever is closer to start.x)
@@ -190,21 +286,28 @@ namespace PAC.Drawing
                             // If we're in the first half of the line
                             if (2 * (y - start.y) <= end.y - start.y)
                             {
-                                yield return new IntVector2(Mathf.RoundToInt(x) - (start.y < end.y ? 1 : 0), y);
+                                return new IntVector2(Mathf.RoundToInt(x) - (start.y < end.y ? 1 : 0), y);
                             }
                             else
                             {
-                                yield return new IntVector2(Mathf.RoundToInt(x) - (start.y < end.y ? 0 : 1), y);
+                                return new IntVector2(Mathf.RoundToInt(x) - (start.y < end.y ? 0 : 1), y);
                             }
                         }
                         else
                         {
-                            yield return new IntVector2(Mathf.FloorToInt(x), y);
+                            return new IntVector2(Mathf.FloorToInt(x), y);
                         }
                     }
                 }
+            }
 
-                yield return new IntVector2(end.x, end.y);
+            IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();
+            public IEnumerator<IntVector2> GetEnumerator()
+            {
+                for (int i = 0; i < 2 * Count - 1; i++)
+                {
+                    yield return this[i];
+                }
             }
         }
 
@@ -543,7 +646,7 @@ namespace PAC.Drawing
         /// Draws the isometric rectangle on the given texture and returns the corners in the given order: left, top, right, bottom.
         /// </summary>
         private static Tuple<Texture2D, IntVector2, IntVector2, IntVector2, IntVector2> IsoRectangleOnExistingTexReturnCorners(Texture2D texture, int texWidth, int texHeight, IntVector2 start, IntVector2 end, Color colour, bool filled, bool drawTopLines)
-        {   
+        {
             if (start == end)
             {
                 texture.SetPixel(start, colour);
