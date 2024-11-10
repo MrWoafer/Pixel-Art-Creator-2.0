@@ -59,6 +59,11 @@ namespace PAC.Json
 
             return Parse(new StringReader(str[index..]), ref index, str);
         }
+        /// <summary>
+        /// Reads the TextReader, starting at the given index, and attempts to parse it as JsonData. If successful, the last read character will be the last character of the parsed JSON.
+        /// </summary>
+        /// <param name="mustReadAll">If true, it will check that all the data in the reader was used when parsing. Setting this to false is useful for parsing JSON data inside a list or
+        /// object.</param>
         public static JsonData Parse(TextReader reader, bool mustReadAll)
         {
             int index = 0;
@@ -71,6 +76,12 @@ namespace PAC.Json
 
             return parsed;
         }
+        /// <summary>
+        /// Used to combine parsing for the cases where the data to parse was originally a string or a TextReader, while still giving more useful exceptions with indices for the string case.
+        /// </summary>
+        /// <param name="index">Only used for the string case. Keeps track of which index in the string the reader has last read.</param>
+        /// <param name="str">Only used for the string case. It is the whole string that is trying to be parsed (stays the same throughout the call stack, with just the index changing).
+        /// Set this to null if it's the TextReader case.</param>
         internal static JsonData Parse(TextReader reader, ref int index, string str)
         {
             if (reader.Peek() == -1)
@@ -260,6 +271,11 @@ namespace PAC.Json
 
                 return Parse(new StringReader(str[index..]), ref index, str);
             }
+            /// <summary>
+            /// Reads the TextReader, starting at the given index, and attempts to parse it as JsonData.Null. If successful, the last read character will be the last character of the parsed JSON.
+            /// </summary>
+            /// <param name="mustReadAll">If true, it will check that all the data in the reader was used when parsing. Setting this to false is useful for parsing JSON data inside a list or
+            /// object.</param>
             public static JsonData.Null Parse(TextReader reader, bool mustReadAll)
             {
                 int index = 0;
@@ -272,6 +288,12 @@ namespace PAC.Json
 
                 return parsed;
             }
+            /// <summary>
+            /// Used to combine parsing for the cases where the data to parse was originally a string or a TextReader, while still giving more useful exceptions with indices for the string case.
+            /// </summary>
+            /// <param name="index">Only used for the string case. Keeps track of which index in the string the reader has last read.</param>
+            /// <param name="str">Only used for the string case. It is the whole string that is trying to be parsed (stays the same throughout the call stack, with just the index changing).
+            /// Set this to null if it's the TextReader case.</param>
             internal static JsonData.Null Parse(TextReader reader, ref int index, string str)
             {
                 if (reader.Peek() == -1)
@@ -359,6 +381,11 @@ namespace PAC.Json
 
                 return Parse(new StringReader(str[index..]), ref index, str);
             }
+            /// <summary>
+            /// Reads the TextReader, starting at the given index, and attempts to parse it as a JsonData.Bool. If successful, the last read character will be the last character of the parsed JSON.
+            /// </summary>
+            /// <param name="mustReadAll">If true, it will check that all the data in the reader was used when parsing. Setting this to false is useful for parsing JSON data inside a list or
+            /// object.</param>
             public static JsonData.Bool Parse(TextReader reader, bool mustReadAll)
             {
                 int index = 0;
@@ -371,6 +398,12 @@ namespace PAC.Json
 
                 return parsed;
             }
+            /// <summary>
+            /// Used to combine parsing for the cases where the data to parse was originally a string or a TextReader, while still giving more useful exceptions with indices for the string case.
+            /// </summary>
+            /// <param name="index">Only used for the string case. Keeps track of which index in the string the reader has last read.</param>
+            /// <param name="str">Only used for the string case. It is the whole string that is trying to be parsed (stays the same throughout the call stack, with just the index changing).
+            /// Set this to null if it's the TextReader case.</param>
             internal static JsonData.Bool Parse(TextReader reader, ref int index, string str)
             {
                 if (reader.Peek() == -1)
@@ -472,6 +505,11 @@ namespace PAC.Json
 
                 return Parse(new StringReader(str[index..]), ref index, str);
             }
+            /// <summary>
+            /// Reads the TextReader, starting at the given index, and attempts to parse it as a JsonData.Int. If successful, the last read character will be the last character of the parsed JSON.
+            /// </summary>
+            /// <param name="mustReadAll">If true, it will check that all the data in the reader was used when parsing. Setting this to false is useful for parsing JSON data inside a list or
+            /// object.</param>
             public static JsonData.Int Parse(TextReader reader, bool mustReadAll)
             {
                 int index = 0;
@@ -484,6 +522,12 @@ namespace PAC.Json
 
                 return parsed;
             }
+            /// <summary>
+            /// Used to combine parsing for the cases where the data to parse was originally a string or a TextReader, while still giving more useful exceptions with indices for the string case.
+            /// </summary>
+            /// <param name="index">Only used for the string case. Keeps track of which index in the string the reader has last read.</param>
+            /// <param name="str">Only used for the string case. It is the whole string that is trying to be parsed (stays the same throughout the call stack, with just the index changing).
+            /// Set this to null if it's the TextReader case.</param>
             internal static JsonData.Int Parse(TextReader reader, ref int index, string str)
             {
                 int oldIndex = index;
@@ -577,6 +621,11 @@ namespace PAC.Json
 
                 return Parse(new StringReader(str[index..]), ref index, str);
             }
+            /// <summary>
+            /// Reads the TextReader, starting at the given index, and attempts to parse it as a JsonData.Float. If successful, the last read character will be the last character of the parsed JSON.
+            /// </summary>
+            /// <param name="mustReadAll">If true, it will check that all the data in the reader was used when parsing. Setting this to false is useful for parsing JSON data inside a list or
+            /// object.</param>
             public static JsonData.Float Parse(TextReader reader, bool mustReadAll)
             {
                 int index = 0;
@@ -589,6 +638,12 @@ namespace PAC.Json
 
                 return parsed;
             }
+            /// <summary>
+            /// Used to combine parsing for the cases where the data to parse was originally a string or a TextReader, while still giving more useful exceptions with indices for the string case.
+            /// </summary>
+            /// <param name="index">Only used for the string case. Keeps track of which index in the string the reader has last read.</param>
+            /// <param name="str">Only used for the string case. It is the whole string that is trying to be parsed (stays the same throughout the call stack, with just the index changing).
+            /// Set this to null if it's the TextReader case.</param>
             internal static JsonData.Float Parse(TextReader reader, ref int index, string str)
             {
                 int oldIndex = index;
@@ -646,6 +701,12 @@ namespace PAC.Json
 
             return ParseNumber(new StringReader(str[index..]), ref index, str);
         }
+        /// <summary>
+        /// Reads the TextReader, starting at the given index, and attempts to parse it as a JsonData.Int or JsonData.Float. If successful, the last read character will be the last character
+        /// of the parsed JSON.
+        /// </summary>
+        /// <param name="mustReadAll">If true, it will check that all the data in the reader was used when parsing. Setting this to false is useful for parsing JSON data inside a list or
+        /// object.</param>
         public static JsonData ParseNumber(TextReader reader, bool mustReadAll)
         {
             int index = 0;
@@ -662,6 +723,12 @@ namespace PAC.Json
 
             return parsed;
         }
+        /// <summary>
+        /// Used to combine parsing for the cases where the data to parse was originally a string or a TextReader, while still giving more useful exceptions with indices for the string case.
+        /// </summary>
+        /// <param name="index">Only used for the string case. Keeps track of which index in the string the reader has last read.</param>
+        /// <param name="str">Only used for the string case. It is the whole string that is trying to be parsed (stays the same throughout the call stack, with just the index changing).
+        /// Set this to null if it's the TextReader case.</param>
         internal static JsonData ParseNumber(TextReader reader, ref int index, string str)
         {
             if (reader.Peek() == -1)
@@ -1016,6 +1083,11 @@ namespace PAC.Json
 
                 return Parse(new StringReader(str[index..]), ref index, str);
             }
+            /// <summary>
+            /// Reads the TextReader, starting at the given index, and attempts to parse it as a JsonData.String. If successful, the last read character will be the last character of the parsed JSON.
+            /// </summary>
+            /// <param name="mustReadAll">If true, it will check that all the data in the reader was used when parsing. Setting this to false is useful for parsing JSON data inside a list or
+            /// object.</param>
             public static JsonData.String Parse(TextReader reader, bool mustReadAll)
             {
                 int index = 0;
@@ -1028,6 +1100,12 @@ namespace PAC.Json
 
                 return parsed;
             }
+            /// <summary>
+            /// Used to combine parsing for the cases where the data to parse was originally a string or a TextReader, while still giving more useful exceptions with indices for the string case.
+            /// </summary>
+            /// <param name="index">Only used for the string case. Keeps track of which index in the string the reader has last read.</param>
+            /// <param name="str">Only used for the string case. It is the whole string that is trying to be parsed (stays the same throughout the call stack, with just the index changing).
+            /// Set this to null if it's the TextReader case.</param>
             internal static JsonData.String Parse(TextReader reader, ref int index, string str)
             {
                 if (reader.Peek() == -1)
@@ -1451,6 +1529,11 @@ namespace PAC.Json
 
                 return Parse(new StringReader(str[index..]), ref index, str);
             }
+            /// <summary>
+            /// Reads the TextReader, starting at the given index, and attempts to parse it as a JsonData.List. If successful, the last read character will be the last character of the parsed JSON.
+            /// </summary>
+            /// <param name="mustReadAll">If true, it will check that all the data in the reader was used when parsing. Setting this to false is useful for parsing JSON data inside a list or
+            /// object.</param>
             public static JsonData.List Parse(TextReader reader, bool mustReadAll)
             {
                 int index = 0;
@@ -1463,6 +1546,12 @@ namespace PAC.Json
 
                 return parsed;
             }
+            /// <summary>
+            /// Used to combine parsing for the cases where the data to parse was originally a string or a TextReader, while still giving more useful exceptions with indices for the string case.
+            /// </summary>
+            /// <param name="index">Only used for the string case. Keeps track of which index in the string the reader has last read.</param>
+            /// <param name="str">Only used for the string case. It is the whole string that is trying to be parsed (stays the same throughout the call stack, with just the index changing).
+            /// Set this to null if it's the TextReader case.</param>
             internal static JsonData.List Parse(TextReader reader, ref int index, string str)
             {
                 void SkipWhitespace(TextReader reader, ref int index)
@@ -1817,6 +1906,11 @@ namespace PAC.Json
 
                 return Parse(new StringReader(str[index..]), ref index, str);
             }
+            /// <summary>
+            /// Reads the TextReader, starting at the given index, and attempts to parse it as a JsonData.Object. If successful, the last read character will be the last character of the parsed JSON.
+            /// </summary>
+            /// <param name="mustReadAll">If true, it will check that all the data in the reader was used when parsing. Setting this to false is useful for parsing JSON data inside a list or
+            /// object.</param>
             public static JsonData.Object Parse(TextReader reader, bool mustReadAll)
             {
                 int index = 0;
@@ -1829,6 +1923,12 @@ namespace PAC.Json
 
                 return parsed;
             }
+            /// <summary>
+            /// Used to combine parsing for the cases where the data to parse was originally a string or a TextReader, while still giving more useful exceptions with indices for the string case.
+            /// </summary>
+            /// <param name="index">Only used for the string case. Keeps track of which index in the string the reader has last read.</param>
+            /// <param name="str">Only used for the string case. It is the whole string that is trying to be parsed (stays the same throughout the call stack, with just the index changing).
+            /// Set this to null if it's the TextReader case.</param>
             internal static JsonData.Object Parse(TextReader reader, ref int index, string str)
             {
                 void SkipWhitespace(TextReader reader, ref int index)
