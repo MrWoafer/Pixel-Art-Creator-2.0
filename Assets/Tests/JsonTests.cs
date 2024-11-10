@@ -955,7 +955,7 @@ namespace PAC.Tests
         }
 
         /// <summary>
-        /// Checks JsonData.List are parsed correctly.
+        /// Checks JsonData.Lists are parsed correctly.
         /// </summary>
         [Test]
         [Category("JSON")]
@@ -970,7 +970,8 @@ namespace PAC.Tests
                 (new JsonData.List(), "[]"),
                 (new JsonData.List(), "[   ]"),
                 (new JsonData.List(new JsonData.Int(1)), "[1]"),
-                (new JsonData.List(new JsonData.String("hey]"), new JsonData.Int(8)), "[\"hey]\", 8]")
+                (new JsonData.List(new JsonData.String("hey]"), new JsonData.Int(8)), "[\"hey]\", 8]"),
+                (new JsonData.List(new JsonData.String("hey"), new JsonData.String("hi")), "[\"hey\", \"hi\"]")
             };
 
             foreach ((JsonData.List expected, string str) in testCases)
@@ -988,6 +989,63 @@ namespace PAC.Tests
             Assert.Catch<FormatException>(() => JsonData.List.Parse("[1, -4.3, ]"));
             Assert.Catch<FormatException>(() => JsonData.List.Parse("[1, -4.3 6]"));
             Assert.Catch<FormatException>(() => JsonData.List.Parse("[1, -4.3a]"));
+        }
+
+        /// <summary>
+        /// Checks JsonData.Objects are parsed correctly.
+        /// </summary>
+        [Test]
+        [Category("JSON")]
+        public void ParseObject()
+        {
+            Assert.Catch<FormatException>(() => JsonData.Object.Parse("null"));
+
+            (JsonData.Object, string)[] testCases =
+            {
+                (new JsonData.Object
+                    {
+                        { "id", new JsonData.Int(5) },
+                        { "name", new JsonData.String("Woafer") },
+                    },
+                    "{\"id\": 5, \"name\": \"Woafer\"}"),
+                (new JsonData.Object{
+                        { "id", new JsonData.Int(5) },
+                        { "name", new JsonData.String("Woafer") },
+                    },
+                    "{ \"id\"   : 5,     \"name\"     :         \"Woafer\"      }"),
+                (new JsonData.Object(), "{}"),
+                (new JsonData.Object(), "{   }"),
+                (new JsonData.Object
+                    {
+                        { "id", new JsonData.Int(5) },
+                    },
+                    "{\"id\": 5}"),
+                (new JsonData.Object
+                    {
+                        { "name", new JsonData.String("Woafer}") },
+                    },
+                    "{\"name\": \"Woafer}\"}")
+            };
+
+            foreach ((JsonData.Object expected, string str) in testCases)
+            {
+                Assert.True(JsonData.HaveSameData(expected, JsonData.Object.Parse(str)));
+            }
+
+            Assert.Catch<FormatException>(() => JsonData.Object.Parse(" {\"id\": 5, \"name\": \"Woafer\"}"));
+            Assert.Catch<FormatException>(() => JsonData.Object.Parse("{\"id\": 5, \"name\": \"Woafer\"} "));
+            Assert.Catch<FormatException>(() => JsonData.Object.Parse("\"id\": 5, \"name\": \"Woafer\""));
+            Assert.Catch<FormatException>(() => JsonData.Object.Parse("{\"id\": 5, \"name\": \"Woafer\""));
+            Assert.Catch<FormatException>(() => JsonData.Object.Parse("\"id\": 5, \"name\": \"Woafer\"}"));
+            Assert.Catch<FormatException>(() => JsonData.Object.Parse("{\"id\": 5, \"name\": \"Woafer\"}, \"skill\": 10"));
+            Assert.Catch<FormatException>(() => JsonData.Object.Parse("{\"id\": 5, \"name\": \"Woafer\"}, \"skill\": 10}"));
+            Assert.Catch<FormatException>(() => JsonData.Object.Parse("{\"id\": 5, \"name\": \"Woafer\", }"));
+            Assert.Catch<FormatException>(() => JsonData.Object.Parse("{\"id\": 5, \"name\": \"Woafer\" \"skill\": 10}"));
+            Assert.Catch<FormatException>(() => JsonData.Object.Parse("{\"id\": 5, \"name\": \"Woafer\"}, \"skill\": 10a}"));
+            Assert.Catch<FormatException>(() => JsonData.Object.Parse("{5: 5}"));
+            Assert.Catch<FormatException>(() => JsonData.Object.Parse("{: 5}"));
+            Assert.Catch<FormatException>(() => JsonData.Object.Parse("{\"id\" 5}"));
+            Assert.Catch<FormatException>(() => JsonData.Object.Parse("{\"id\":}"));
         }
     }
 }

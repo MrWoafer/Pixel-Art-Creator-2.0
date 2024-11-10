@@ -100,7 +100,7 @@ namespace PAC.Json
             }
             if (reader.Peek() == '{')
             {
-                return JsonData.Object.Parse(str, ref index);
+                return JsonData.Object.Parse(reader, ref index, str);
             }
 
             if (str is not null)
@@ -1044,9 +1044,9 @@ namespace PAC.Json
                 {
                     if (str is not null)
                     {
-                        throw new FormatException("Expected string data to start with \" at index " + index + " in string: " + str);
+                        throw new FormatException("Expected string data to start with a quotation mark at index " + index + " in string: " + str);
                     }
-                    throw new FormatException("Expected reader data to start with \".");
+                    throw new FormatException("Expected reader data to start with a quotation mark.");
                 }
 
                 StringBuilder parsed = new StringBuilder();
@@ -1172,9 +1172,9 @@ namespace PAC.Json
 
                 if (str is not null)
                 {
-                    throw new FormatException("Reached end of string before finding closing \" for string data starting at index " + index + " in string: " + str);
+                    throw new FormatException("Reached end of string before finding closing quotation mark for string data starting at index " + index + " in string: " + str);
                 }
-                throw new FormatException("Reached end of reader before finding closing \" for string.");
+                throw new FormatException("Reached end of reader before finding closing quotation mark for string.");
             }
 
             /// <summary>
@@ -1570,9 +1570,9 @@ namespace PAC.Json
                     {
                         if (str is not null)
                         {
-                            throw new FormatException("List has not ended, so expected a comma at index " + currentIndex + " in string: " + str);
+                            throw new FormatException("List has not ended, so expected a comma at index " + currentIndex + ", but found " + chr + " in string: " + str);
                         }
-                        throw new FormatException("List has not ended, so expected a comma.");
+                        throw new FormatException("List has not ended, so expected a comma, but found " + chr);
                     }
                 }
 
@@ -1778,138 +1778,240 @@ namespace PAC.Json
             }
 
             /// <summary>
-            /// Attempts to parse the string into a JSON object.
+            /// Attempts to parse the string into a JsonData.Object.
             /// </summary>
             public static JsonData.Object Parse(string str)
             {
+                if (str is null)
+                {
+                    throw new ArgumentException("Cannot parse a null string.");
+                }
+                if (str.Length == 0)
+                {
+                    throw new FormatException("Cannot parse an empty string.");
+                }
+
                 int index = 0;
                 JsonData.Object parsed = Parse(str, ref index);
 
                 if (index < str.Length - 1)
                 {
-                    throw new FormatException("String ended too soon. Ending } found at index " + index + " in string: " + str);
+                    throw new FormatException("Successfully parsed data as JsonData.Object but this did not use the whole input string: " + str);
                 }
 
                 return parsed;
             }
             /// <summary>
-            /// Reads the string, starting at the given index, and attempts to parse the string as a JSON object. If successful, the index will be moved to the closing curly bracket.
+            /// Reads the string, starting at the given index, and attempts to parse the string as a JsonData.Object. If successful, the index will be moved to the closing curly bracket.
             /// </summary>
             public static JsonData.Object Parse(string str, ref int index)
             {
-                void SkipWhitespace(string str, ref int index)
+                if (str is null)
                 {
-                    while (index < str.Length && char.IsWhiteSpace(str[index]))
-                    {
-                        index++;
-                    }
+                    throw new ArgumentException("Cannot parse a null string.");
                 }
-
                 if (index < 0 || index >= str.Length)
                 {
                     throw new IndexOutOfRangeException("Index " + index + " out of range of string: " + str);
                 }
 
-                if (index + 3 < str.Length && str[index..(index + 4)] == "null")
+                return Parse(new StringReader(str[index..]), ref index, str);
+            }
+            public static JsonData.Object Parse(TextReader reader, bool mustReadAll)
+            {
+                int index = 0;
+                JsonData.Object parsed = Parse(reader, ref index, null);
+
+                if (mustReadAll && reader.Peek() != -1)
                 {
-                    throw new FormatException("Parsed a null object, but a JsonData.Object cannot hold a null object. Use JsonData.Null.Parse() or JsonData.Object.ParseMaybeNull() instead.");
+                    throw new FormatException("Successfully parsed data as JsonData.Object but this did not use the whole reader.");
                 }
 
-                if (str[index] != '{')
+                return parsed;
+            }
+            internal static JsonData.Object Parse(TextReader reader, ref int index, string str)
+            {
+                void SkipWhitespace(TextReader reader, ref int index)
                 {
-                    throw new FormatException("Expected object to start with { at index " + index + " in string: " + str);
+                    int peek = reader.Peek();
+                    while (peek != -1 && char.IsWhiteSpace((char)peek))
+                    {
+                        reader.Read();
+                        index++;
+
+                        peek = reader.Peek();
+                    }
+                }
+
+                if (reader.Peek() == -1)
+                {
+                    throw new EndOfStreamException("Given reader has nothing more to read.");
+                }
+
+                if (reader.Peek() == 'n' && reader.ReadMatchAll("null"))
+                {
+                    throw new FormatException("Parsed a null string, but a JsonData.String cannot hold a null string. Use JsonData.Null.Parse() or JsonData.List.ParseMaybeNull() instead.");
+                }
+
+                if (reader.Read() != '{')
+                {
+                    if (str is not null)
+                    {
+                        throw new FormatException("Expected string data to start with { at index " + index + " in string: " + str);
+                    }
+                    throw new FormatException("Expected reader data to start with {.");
                 }
 
                 JsonData.Object parsed = new JsonData.Object();
-
-                // Case for empty list
+                char chr = (char)0;
+                // Should always point to the next character we're going to read in str
                 int currentIndex = index + 1;
-                SkipWhitespace(str, ref currentIndex);
-                if (currentIndex < str.Length && str[currentIndex] == '}')
+
+                // Case for empty object
+                SkipWhitespace(reader, ref currentIndex);
+                if (reader.Peek() == -1)
                 {
-                    index = currentIndex;
+                    if (str is not null)
+                    {
+                        throw new FormatException("Reached end of string while expecting element or closing } for object starting at index " + index + " in string: " + str);
+                    }
+                    throw new FormatException("Reached end of reader while expecting element or closing } for object.");
+                }
+                if (reader.Peek() == '}')
+                {
+                    reader.Read();
+                    currentIndex++;
+
+                    index = currentIndex - 1;
                     return parsed;
                 }
 
-                // Case for non-empty list
-                currentIndex = index + 1;
-                while (currentIndex < str.Length)
+                // Case for non-empty object
+                while (reader.Peek() != -1)
                 {
                     // Identifier
-                    SkipWhitespace(str, ref currentIndex);
 
-                    if (currentIndex >= str.Length)
+                    SkipWhitespace(reader, ref currentIndex);
+
+                    if (reader.Peek() == -1)
                     {
-                        throw new FormatException("Reached end of string while expecting identifier for list starting at index " + index + " in string: " + str);
+                        if (str is not null)
+                        {
+                            throw new FormatException("Reached end of string while expecting identifier in object starting at index " + index + " in string: " + str);
+                        }
+                        throw new FormatException("Reached end of reader while expecting identifier in object.");
                     }
-                    if (str[currentIndex] == '}')
+                    if (reader.Peek() == '}')
                     {
-                        throw new FormatException("Found closing } at index " + currentIndex + " but was expecting another element due to a comma in string: " + str);
+                        if (str is not null)
+                        {
+                            throw new FormatException("Found closing } at index " + currentIndex + " but was expecting another element due to a comma in string: " + str);
+                        }
+                        throw new FormatException("Found closing } but was expecting another element due to a comma.");
                     }
 
-                    string identifier = JsonData.String.Parse(str, ref currentIndex).value;
+                    string identifier = JsonData.String.Parse(reader, ref currentIndex, str).value;
                     currentIndex++;
 
                     if (parsed.ContainsKey(identifier))
                     {
-                        throw new FormatException("Object has already used the identifier " + identifier + " in string: " + str);
+                        if (str is not null)
+                        {
+                            throw new FormatException("Object has already used the identifier " + identifier + " in string: " + str);
+                        }
+                        throw new FormatException("Object has already used the identifier " + identifier);
                     }
 
                     // Colon
-                    SkipWhitespace(str, ref currentIndex);
 
-                    if (currentIndex >= str.Length)
+                    SkipWhitespace(reader, ref currentIndex);
+
+                    if (!reader.TryReadIntoChar(ref chr))
                     {
+                        if (str is not null)
+                        {
+                            throw new FormatException("Reached end of string while expecting : for object starting at index " + index + " in string: " + str);
+                        }
                         throw new FormatException("Reached end of string while expecting : for object starting at index " + index + " in string: " + str);
                     }
-                    if (str[currentIndex] == '}')
-                    {
-                        throw new FormatException("Reached closing } while expecting : for object starting at index " + index + " in string: " + str);
-                    }
-
-                    if (str[currentIndex] != ':')
-                    {
-                        throw new FormatException("Expected : at index " + currentIndex + " in string: " + str);
-                    }
                     currentIndex++;
+
+                    if (chr == '}')
+                    {
+                        if (str is not null)
+                        {
+                            throw new FormatException("Reached closing } while expecting a colon for object starting at index " + index + " in string: " + str);
+                        }
+                        throw new FormatException("Reached closing } while expecting a colon.");
+                    }
+                    if (chr != ':')
+                    {
+                        if (str is not null)
+                        {
+                            throw new FormatException("Expected a colon at index " + (currentIndex - 1) + ", but found " + chr + " in string: " + str);
+                        }
+                        throw new FormatException("Expected a colon, but found " + chr);
+                    }
 
                     // Value
-                    SkipWhitespace(str, ref currentIndex);
 
-                    if (currentIndex >= str.Length)
+                    SkipWhitespace(reader, ref currentIndex);
+
+                    if (reader.Peek() == -1)
                     {
-                        throw new FormatException("Reached end of string while expecting value for identifier " + identifier + " in object starting at index " + index + " in string: " + str);
+                        if (str is not null)
+                        {
+                            throw new FormatException("Reached end of string while expecting value for identifier " + identifier + " in object starting at index " + index + " in string: " + str);
+                        }
+                        throw new FormatException("Reached end of string while expecting value for identifier.");
                     }
-                    if (str[currentIndex] == '}')
+                    if (reader.Peek() == '}')
                     {
-                        throw new FormatException("Reached closing } while expecting value for identifier " + identifier + " in object starting at index " + index + " in string: " + str);
+                        if (str is not null)
+                        {
+                            throw new FormatException("Reached closing } while expecting value for identifier " + identifier + " in object starting at index " + index + " in string: " + str);
+                        }
+                        throw new FormatException("Reached closing } while expecting value for identifier.");
                     }
 
-                    JsonData value = JsonData.Parse(str, ref currentIndex);
-                    parsed.Add(identifier, value);
+                    JsonData value = JsonData.Parse(reader, ref currentIndex, str);
                     currentIndex++;
+                    parsed.Add(identifier, value);
 
                     // Closing } or ,
-                    SkipWhitespace(str, ref currentIndex);
 
-                    if (currentIndex >= str.Length)
+                    SkipWhitespace(reader, ref currentIndex);
+
+                    if (!reader.TryReadIntoChar(ref chr))
                     {
-                        throw new FormatException("Reached end of string while expecting } or , for list starting at index " + index + " in string: " + str);
+                        if (str is not null)
+                        {
+                            throw new FormatException("Reached end of string while expecting } or a comma for object starting at index " + index + " in string: " + str);
+                        }
+                        throw new FormatException("Reached end of string while expecting } or a comma.");
                     }
-                    if (str[currentIndex] == '}')
+                    currentIndex++;
+
+                    if (chr == '}')
                     {
-                        index = currentIndex;
+                        index = currentIndex - 1;
                         return parsed;
                     }
-                    if (str[currentIndex] != ',')
+                    if (chr != ',')
                     {
-                        throw new FormatException("Object has not ended, so expected a comma at index " + currentIndex + " in string: " + str);
+                        if (str is not null)
+                        {
+                            throw new FormatException("Object has not ended, so expected a comma at index " + (currentIndex - 1) + ", but found + " + chr + " in string: " + str);
+                        }
+                        throw new FormatException("Object has not ended, so expected a comma, but found " + chr);
                     }
-
-                    currentIndex++;
                 }
 
-                throw new FormatException("Reached end of string before finding closing } for object starting at index " + index + " in string: " + str);
+                if (str is not null)
+                {
+                    throw new FormatException("Reached end of string before finding closing } for object starting at index " + index + " in string: " + str);
+                }
+                throw new FormatException("Reached end of reader before finding closing }.");
             }
 
             /// <summary>
