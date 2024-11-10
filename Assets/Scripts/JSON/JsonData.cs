@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using PAC.Exceptions;
 using PAC.Extensions;
+using UnityEditor;
 
 namespace PAC.Json
 {
@@ -765,8 +766,7 @@ namespace PAC.Json
 
             char chr = (char)0;
             int decimalPointIndex = -1;
-            char[] digitCharSet = new char[] { '0', '1', '2', '3', '4', '5', '6', '7', '8', '9' };
-            mantissaStr += reader.ReadMatch(IEnumerableExtensions.Repeat(digitCharSet));
+            mantissaStr += reader.ReadMatch(IEnumerableExtensions.Repeat<Func<char, bool>>(char.IsDigit));
             currentIndex += mantissaStr.Length - (mantissaStr[0] == '-' ? 1 : 0);
 
             // Decimal point
@@ -775,7 +775,7 @@ namespace PAC.Json
                 isInt = false;
 
                 reader.Read();
-                string decimalPart = reader.ReadMatch(IEnumerableExtensions.Repeat(digitCharSet));
+                string decimalPart = reader.ReadMatch(IEnumerableExtensions.Repeat<Func<char, bool>>(char.IsDigit));
                 currentIndex += decimalPart.Length + 1;
                 mantissaStr += "." + decimalPart;
             }
@@ -856,7 +856,7 @@ namespace PAC.Json
                 }
             }
 
-            exponentStr += reader.ReadMatch(IEnumerableExtensions.Repeat(digitCharSet));
+            exponentStr += reader.ReadMatch(IEnumerableExtensions.Repeat<Func<char, bool>>(char.IsDigit));
             currentIndex += mantissaStr.Length - (mantissaStr[0] == '-' ? 1 : 0);
 
             // Decimal point
@@ -888,7 +888,7 @@ namespace PAC.Json
                         {
                             throw new OverflowException("Overflow error when parsing " + str[index..(currentIndex - 1)] + " at index " + index + " in string: " + str);
                         }
-                        throw new OverflowException("Overflow error when parsing Jsonata.Int.");
+                        throw new OverflowException("Overflow error when parsing JsonData.Int.");
                     }
                 }
 

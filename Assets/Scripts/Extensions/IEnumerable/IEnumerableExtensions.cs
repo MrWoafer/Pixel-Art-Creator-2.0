@@ -18,7 +18,7 @@ namespace PAC.Extensions
         /// <summary>
         /// Creates an IEnumerable that repeats the given IEnumerable indefinitely, looping back round to the beginning when it reaches the end.
         /// </summary>
-        public static IEnumerable<T> Repeat<T>(IEnumerable<T> elements)
+        public static IEnumerable<T> RepeatIEnumerable<T>(IEnumerable<T> elements)
         {
             while (true)
             {
