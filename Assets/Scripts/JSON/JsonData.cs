@@ -5,7 +5,6 @@ using System.Linq;
 using System.Text;
 using PAC.Exceptions;
 using PAC.Extensions;
-using UnityEditor;
 
 namespace PAC.Json
 {
@@ -857,7 +856,7 @@ namespace PAC.Json
             }
 
             exponentStr += reader.ReadMatch(IEnumerableExtensions.Repeat<Func<char, bool>>(char.IsDigit));
-            currentIndex += mantissaStr.Length - (mantissaStr[0] == '-' ? 1 : 0);
+            currentIndex += exponentStr.Length - (exponentStr[0] == '-' ? 1 : 0);
 
             // Decimal point
             if (reader.Peek() == '.')
@@ -886,18 +885,31 @@ namespace PAC.Json
                     {
                         if (str is not null)
                         {
-                            throw new OverflowException("Overflow error when parsing " + str[index..(currentIndex - 1)] + " at index " + index + " in string: " + str);
+                            throw new OverflowException("Overflow error when parsing " + str[index..currentIndex] + " at index " + index + " in string: " + str);
                         }
                         throw new OverflowException("Overflow error when parsing JsonData.Int.");
                     }
                 }
 
-                index = currentIndex - 2;
+                index = currentIndex - 1;
                 return new JsonData.Int(mantissa);
             }
             else
             {
                 float mantissa = float.Parse(mantissaStr);
+                if (mantissa == 0f)
+                {
+                    return new JsonData.Float(0f);
+                }
+                if (float.IsNaN(mantissa) || float.IsInfinity(mantissa))
+                {
+                    if (str is not null)
+                    {
+                        throw new OverflowException("Overflow error when parsing " + str[index..currentIndex] + " at index " + index + " in string: " + str);
+                    }
+                    throw new OverflowException("Overflow error when parsing JsonData.Float.");
+                }
+
                 int exponent = int.Parse(exponentStr);
                 if (exponent >= 0)
                 {
@@ -911,7 +923,7 @@ namespace PAC.Json
                         {
                             if (str is not null)
                             {
-                                throw new OverflowException("Overflow error when parsing " + str[index..(currentIndex - 1)] + " at index " + index + " in string: " + str);
+                                throw new OverflowException("Overflow error when parsing " + str[index..currentIndex] + " at index " + index + " in string: " + str);
                             }
                             throw new OverflowException("Overflow error when parsing JsonData.Float.");
                         }
@@ -920,7 +932,7 @@ namespace PAC.Json
                         {
                             if (str is not null)
                             {
-                                throw new OverflowException("Overflow error when parsing " + str[index..(currentIndex - 1)] + " at index " + index + " in string: " + str);
+                                throw new OverflowException("Overflow error when parsing " + str[index..currentIndex] + " at index " + index + " in string: " + str);
                             }
                             throw new OverflowException("Overflow error when parsing JsonData.Float.");
                         }
@@ -928,10 +940,6 @@ namespace PAC.Json
                 }
                 else
                 {
-                    if (mantissa == 0f)
-                    {
-                        return new JsonData.Float(0f);
-                    }
                     for (int i = 0; i > exponent; i--)
                     {
                         mantissa = mantissa / 10f;
@@ -939,7 +947,7 @@ namespace PAC.Json
                         {
                             if (str is not null)
                             {
-                                throw new UnderflowException("Underflow error when parsing " + str[index..(currentIndex - 1)] + " at index " + index + " in string: " + str);
+                                throw new UnderflowException("Underflow error when parsing " + str[index..currentIndex] + " at index " + index + " in string: " + str);
                             }
                             throw new UnderflowException("Underflow error when parsing JsonData.Float.");
                         }
