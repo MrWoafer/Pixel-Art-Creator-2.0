@@ -1,0 +1,1193 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class JsonData.Object | Pixel Art Creator 2.0 Docs </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class JsonData.Object | Pixel Art Creator 2.0 Docs ">
+      
+      <meta name="description" content="Represents a non-null object in JSON data.">
+      <link rel="icon" href="../resources/icon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/new/main/apiSpec/new?filename=PAC_Json_JsonData_Object.md&amp;value=---%0Auid%3A%20PAC.Json.JsonData.Object%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../resources/logo.svg" alt="Pixel Art Creator 2.0">
+            Pixel Art Creator 2.0
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="PAC.Json.JsonData.Object">
+
+
+
+  <h1 id="PAC_Json_JsonData_Object" data-uid="PAC.Json.JsonData.Object" class="text-break">
+Class JsonData.Object  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/JSON/JsonData.cs/#L1744"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="PAC.html">PAC</a>.<a class="xref" href="PAC.Json.html">Json</a></dd></dl>
+  
+  </div>
+
+  <div class="markdown summary"><p>Represents a non-null object in JSON data.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class JsonData.Object : Dictionary&lt;string, JsonData&gt;, IDictionary&lt;string, JsonData&gt;, ICollection&lt;KeyValuePair&lt;string, JsonData&gt;&gt;, IReadOnlyDictionary&lt;string, JsonData&gt;, IReadOnlyCollection&lt;KeyValuePair&lt;string, JsonData&gt;&gt;, IEnumerable&lt;KeyValuePair&lt;string, JsonData&gt;&gt;, IDictionary, ICollection, IEnumerable, IDeserializationCallback, ISerializable, JsonData</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2">Dictionary</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>, <a class="xref" href="PAC.Json.JsonData.html">JsonData</a>&gt;</div>
+      <div><span class="xref">JsonData.Object</span></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.idictionary-2">IDictionary</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>, <a class="xref" href="PAC.Json.JsonData.html">JsonData</a>&gt;</div>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1">ICollection</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.keyvaluepair-2">KeyValuePair</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>, <a class="xref" href="PAC.Json.JsonData.html">JsonData</a>&gt;&gt;</div>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlydictionary-2">IReadOnlyDictionary</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>, <a class="xref" href="PAC.Json.JsonData.html">JsonData</a>&gt;</div>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlycollection-1">IReadOnlyCollection</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.keyvaluepair-2">KeyValuePair</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>, <a class="xref" href="PAC.Json.JsonData.html">JsonData</a>&gt;&gt;</div>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.keyvaluepair-2">KeyValuePair</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>, <a class="xref" href="PAC.Json.JsonData.html">JsonData</a>&gt;&gt;</div>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.idictionary">IDictionary</a></div>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.icollection">ICollection</a></div>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.ienumerable">IEnumerable</a></div>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.runtime.serialization.ideserializationcallback">IDeserializationCallback</a></div>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.runtime.serialization.iserializable">ISerializable</a></div>
+      <div><a class="xref" href="PAC.Json.JsonData.html">JsonData</a></div>
+    </dd>
+  </dl>
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2.add">Dictionary&lt;string, JsonData&gt;.Add(string, JsonData)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2.clear">Dictionary&lt;string, JsonData&gt;.Clear()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2.containskey">Dictionary&lt;string, JsonData&gt;.ContainsKey(string)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2.containsvalue">Dictionary&lt;string, JsonData&gt;.ContainsValue(JsonData)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2.ensurecapacity">Dictionary&lt;string, JsonData&gt;.EnsureCapacity(int)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2.getenumerator">Dictionary&lt;string, JsonData&gt;.GetEnumerator()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2.ondeserialization">Dictionary&lt;string, JsonData&gt;.OnDeserialization(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2.remove#system-collections-generic-dictionary-2-remove(-0)">Dictionary&lt;string, JsonData&gt;.Remove(string)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2.remove#system-collections-generic-dictionary-2-remove(-0-1@)">Dictionary&lt;string, JsonData&gt;.Remove(string, out JsonData)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2.trimexcess#system-collections-generic-dictionary-2-trimexcess">Dictionary&lt;string, JsonData&gt;.TrimExcess()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2.trimexcess#system-collections-generic-dictionary-2-trimexcess(system-int32)">Dictionary&lt;string, JsonData&gt;.TrimExcess(int)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2.tryadd">Dictionary&lt;string, JsonData&gt;.TryAdd(string, JsonData)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2.trygetvalue">Dictionary&lt;string, JsonData&gt;.TryGetValue(string, out JsonData)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2.comparer">Dictionary&lt;string, JsonData&gt;.Comparer</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2.count">Dictionary&lt;string, JsonData&gt;.Count</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2.item">Dictionary&lt;string, JsonData&gt;.this[string]</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2.keys">Dictionary&lt;string, JsonData&gt;.Keys</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2.values">Dictionary&lt;string, JsonData&gt;.Values</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="PAC_Json_JsonData_Object__ctor_" data-uid="PAC.Json.JsonData.Object.#ctor*"></a>
+
+  <h3 id="PAC_Json_JsonData_Object__ctor" data-uid="PAC.Json.JsonData.Object.#ctor">
+  Object()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/JSON/JsonData.cs/#L1746"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Object()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="PAC_Json_JsonData_Object__ctor_" data-uid="PAC.Json.JsonData.Object.#ctor*"></a>
+
+  <h3 id="PAC_Json_JsonData_Object__ctor_System_Collections_Generic_IDictionary_System_String_PAC_Json_JsonData__" data-uid="PAC.Json.JsonData.Object.#ctor(System.Collections.Generic.IDictionary{System.String,PAC.Json.JsonData})">
+  Object(IDictionary&lt;string, JsonData&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/JSON/JsonData.cs/#L1749"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Object(IDictionary&lt;string, JsonData&gt; collection)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>collection</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.idictionary-2">IDictionary</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>, <a class="xref" href="PAC.Json.JsonData.html">JsonData</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="PAC_Json_JsonData_Object__ctor_" data-uid="PAC.Json.JsonData.Object.#ctor*"></a>
+
+  <h3 id="PAC_Json_JsonData_Object__ctor_System_Collections_Generic_IEnumerable_System_Collections_Generic_KeyValuePair_System_String_PAC_Json_JsonData___" data-uid="PAC.Json.JsonData.Object.#ctor(System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,PAC.Json.JsonData}})">
+  Object(IEnumerable&lt;KeyValuePair&lt;string, JsonData&gt;&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/JSON/JsonData.cs/#L1748"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Object(IEnumerable&lt;KeyValuePair&lt;string, JsonData&gt;&gt; collection)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>collection</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.keyvaluepair-2">KeyValuePair</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>, <a class="xref" href="PAC.Json.JsonData.html">JsonData</a>&gt;&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="PAC_Json_JsonData_Object__ctor_" data-uid="PAC.Json.JsonData.Object.#ctor*"></a>
+
+  <h3 id="PAC_Json_JsonData_Object__ctor_System_Int32_" data-uid="PAC.Json.JsonData.Object.#ctor(System.Int32)">
+  Object(int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/JSON/JsonData.cs/#L1747"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Object(int capacity)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>capacity</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="PAC_Json_JsonData_Object_Add_" data-uid="PAC.Json.JsonData.Object.Add*"></a>
+
+  <h3 id="PAC_Json_JsonData_Object_Add_System_String_PAC_Json_JsonData_Bool_" data-uid="PAC.Json.JsonData.Object.Add(System.String,PAC.Json.JsonData.Bool)">
+  Add(string, Bool)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/JSON/JsonData.cs/#L1753"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Add(string key, JsonData.Bool value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>key</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>value</code> <a class="xref" href="PAC.Json.JsonData.html">JsonData</a>.<a class="xref" href="PAC.Json.JsonData.Bool.html">Bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="PAC_Json_JsonData_Object_Add_" data-uid="PAC.Json.JsonData.Object.Add*"></a>
+
+  <h3 id="PAC_Json_JsonData_Object_Add_System_String_PAC_Json_JsonData_Float_" data-uid="PAC.Json.JsonData.Object.Add(System.String,PAC.Json.JsonData.Float)">
+  Add(string, Float)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/JSON/JsonData.cs/#L1759"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Add(string key, JsonData.Float value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>key</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>value</code> <a class="xref" href="PAC.Json.JsonData.html">JsonData</a>.<a class="xref" href="PAC.Json.JsonData.Float.html">Float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="PAC_Json_JsonData_Object_Add_" data-uid="PAC.Json.JsonData.Object.Add*"></a>
+
+  <h3 id="PAC_Json_JsonData_Object_Add_System_String_PAC_Json_JsonData_Int_" data-uid="PAC.Json.JsonData.Object.Add(System.String,PAC.Json.JsonData.Int)">
+  Add(string, Int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/JSON/JsonData.cs/#L1756"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Add(string key, JsonData.Int value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>key</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>value</code> <a class="xref" href="PAC.Json.JsonData.html">JsonData</a>.<a class="xref" href="PAC.Json.JsonData.Int.html">Int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="PAC_Json_JsonData_Object_Add_" data-uid="PAC.Json.JsonData.Object.Add*"></a>
+
+  <h3 id="PAC_Json_JsonData_Object_Add_System_String_PAC_Json_JsonData_List_" data-uid="PAC.Json.JsonData.Object.Add(System.String,PAC.Json.JsonData.List)">
+  Add(string, List)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/JSON/JsonData.cs/#L1768"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Add(string key, JsonData.List value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>key</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>value</code> <a class="xref" href="PAC.Json.JsonData.html">JsonData</a>.<a class="xref" href="PAC.Json.JsonData.List.html">List</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="PAC_Json_JsonData_Object_Add_" data-uid="PAC.Json.JsonData.Object.Add*"></a>
+
+  <h3 id="PAC_Json_JsonData_Object_Add_System_String_PAC_Json_JsonData_Null_" data-uid="PAC.Json.JsonData.Object.Add(System.String,PAC.Json.JsonData.Null)">
+  Add(string, Null)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/JSON/JsonData.cs/#L1751"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Add(string key, JsonData.Null value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>key</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>value</code> <a class="xref" href="PAC.Json.JsonData.html">JsonData</a>.<a class="xref" href="PAC.Json.JsonData.Null.html">Null</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="PAC_Json_JsonData_Object_Add_" data-uid="PAC.Json.JsonData.Object.Add*"></a>
+
+  <h3 id="PAC_Json_JsonData_Object_Add_System_String_PAC_Json_JsonData_Object_" data-uid="PAC.Json.JsonData.Object.Add(System.String,PAC.Json.JsonData.Object)">
+  Add(string, Object)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/JSON/JsonData.cs/#L1770"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Add(string key, JsonData.Object value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>key</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>value</code> <a class="xref" href="PAC.Json.JsonData.html">JsonData</a>.<a class="xref" href="PAC.Json.JsonData.Object.html">Object</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="PAC_Json_JsonData_Object_Add_" data-uid="PAC.Json.JsonData.Object.Add*"></a>
+
+  <h3 id="PAC_Json_JsonData_Object_Add_System_String_PAC_Json_JsonData_String_" data-uid="PAC.Json.JsonData.Object.Add(System.String,PAC.Json.JsonData.String)">
+  Add(string, String)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/JSON/JsonData.cs/#L1762"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Add(string key, JsonData.String value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>key</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>value</code> <a class="xref" href="PAC.Json.JsonData.html">JsonData</a>.<a class="xref" href="PAC.Json.JsonData.String.html">String</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="PAC_Json_JsonData_Object_Add_" data-uid="PAC.Json.JsonData.Object.Add*"></a>
+
+  <h3 id="PAC_Json_JsonData_Object_Add_System_String_System_Boolean_" data-uid="PAC.Json.JsonData.Object.Add(System.String,System.Boolean)">
+  Add(string, bool)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/JSON/JsonData.cs/#L1754"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Add(string key, bool value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>key</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>value</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="PAC_Json_JsonData_Object_Add_" data-uid="PAC.Json.JsonData.Object.Add*"></a>
+
+  <h3 id="PAC_Json_JsonData_Object_Add_System_String_System_Int32_" data-uid="PAC.Json.JsonData.Object.Add(System.String,System.Int32)">
+  Add(string, int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/JSON/JsonData.cs/#L1757"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Add(string key, int value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>key</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>value</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="PAC_Json_JsonData_Object_Add_" data-uid="PAC.Json.JsonData.Object.Add*"></a>
+
+  <h3 id="PAC_Json_JsonData_Object_Add_System_String_System_Single_" data-uid="PAC.Json.JsonData.Object.Add(System.String,System.Single)">
+  Add(string, float)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/JSON/JsonData.cs/#L1760"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Add(string key, float value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>key</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>value</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="PAC_Json_JsonData_Object_Add_" data-uid="PAC.Json.JsonData.Object.Add*"></a>
+
+  <h3 id="PAC_Json_JsonData_Object_Add_System_String_System_String_" data-uid="PAC.Json.JsonData.Object.Add(System.String,System.String)">
+  Add(string, string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/JSON/JsonData.cs/#L1763"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Add(string key, string value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>key</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>value</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="PAC_Json_JsonData_Object_Append_" data-uid="PAC.Json.JsonData.Object.Append*"></a>
+
+  <h3 id="PAC_Json_JsonData_Object_Append_PAC_Json_JsonData_Object___" data-uid="PAC.Json.JsonData.Object.Append(PAC.Json.JsonData.Object[])">
+  Append(params Object[])
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/JSON/JsonData.cs/#L1775"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns a JSON object with this object's entries, followed by the first objects's entries, then the second objects's entries, etc.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public JsonData.Object Append(params JsonData.Object[] jsonObjs)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>jsonObjs</code> <a class="xref" href="PAC.Json.JsonData.Object.html">Object</a>[]</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="PAC.Json.JsonData.html">JsonData</a>.<a class="xref" href="PAC.Json.JsonData.Object.html">Object</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="PAC_Json_JsonData_Object_Append_" data-uid="PAC.Json.JsonData.Object.Append*"></a>
+
+  <h3 id="PAC_Json_JsonData_Object_Append_System_Collections_Generic_IEnumerable_PAC_Json_JsonData_Object__" data-uid="PAC.Json.JsonData.Object.Append(System.Collections.Generic.IEnumerable{PAC.Json.JsonData.Object})">
+  Append(IEnumerable&lt;Object&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/JSON/JsonData.cs/#L1779"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns a JSON object with this object's entries, followed by the first objects's entries, then the second objects's entries, etc.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public JsonData.Object Append(IEnumerable&lt;JsonData.Object&gt; jsonObjs)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>jsonObjs</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="PAC.Json.JsonData.html">JsonData</a>.<a class="xref" href="PAC.Json.JsonData.Object.html">Object</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="PAC.Json.JsonData.html">JsonData</a>.<a class="xref" href="PAC.Json.JsonData.Object.html">Object</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="PAC_Json_JsonData_Object_Concat_" data-uid="PAC.Json.JsonData.Object.Concat*"></a>
+
+  <h3 id="PAC_Json_JsonData_Object_Concat_PAC_Json_JsonData_Object___" data-uid="PAC.Json.JsonData.Object.Concat(PAC.Json.JsonData.Object[])">
+  Concat(params Object[])
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/JSON/JsonData.cs/#L1798"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Combines the JSON objects into one by putting the first object's entries first, then the second object's entries, etc.
+Returns an empty object if no JSON objects are given.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static JsonData.Object Concat(params JsonData.Object[] jsonObjs)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>jsonObjs</code> <a class="xref" href="PAC.Json.JsonData.Object.html">Object</a>[]</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="PAC.Json.JsonData.html">JsonData</a>.<a class="xref" href="PAC.Json.JsonData.Object.html">Object</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="PAC_Json_JsonData_Object_Concat_" data-uid="PAC.Json.JsonData.Object.Concat*"></a>
+
+  <h3 id="PAC_Json_JsonData_Object_Concat_System_Collections_Generic_IEnumerable_PAC_Json_JsonData_Object__" data-uid="PAC.Json.JsonData.Object.Concat(System.Collections.Generic.IEnumerable{PAC.Json.JsonData.Object})">
+  Concat(IEnumerable&lt;Object&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/JSON/JsonData.cs/#L1803"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Combines the JSON objects into one by putting the first object's entries first, then the second object's entries, etc.
+Returns an empty object if no JSON objects are given.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static JsonData.Object Concat(IEnumerable&lt;JsonData.Object&gt; jsonObjs)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>jsonObjs</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="PAC.Json.JsonData.html">JsonData</a>.<a class="xref" href="PAC.Json.JsonData.Object.html">Object</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="PAC.Json.JsonData.html">JsonData</a>.<a class="xref" href="PAC.Json.JsonData.Object.html">Object</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="PAC_Json_JsonData_Object_Parse_" data-uid="PAC.Json.JsonData.Object.Parse*"></a>
+
+  <h3 id="PAC_Json_JsonData_Object_Parse_System_IO_TextReader_System_Boolean_" data-uid="PAC.Json.JsonData.Object.Parse(System.IO.TextReader,System.Boolean)">
+  Parse(TextReader, bool)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/JSON/JsonData.cs/#L1922"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Reads the TextReader, starting at the given index, and attempts to parse it as a JsonData.Object. If successful, the last read character will be the last character of the parsed JSON.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static JsonData.Object Parse(TextReader reader, bool mustReadAll)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>reader</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.textreader">TextReader</a></dt>
+    <dd></dd>
+    <dt><code>mustReadAll</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>If true, it will check that all the data in the reader was used when parsing. Setting this to false is useful for parsing JSON data inside a list or
+object.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="PAC.Json.JsonData.html">JsonData</a>.<a class="xref" href="PAC.Json.JsonData.Object.html">Object</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="PAC_Json_JsonData_Object_Parse_" data-uid="PAC.Json.JsonData.Object.Parse*"></a>
+
+  <h3 id="PAC_Json_JsonData_Object_Parse_System_String_" data-uid="PAC.Json.JsonData.Object.Parse(System.String)">
+  Parse(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/JSON/JsonData.cs/#L1880"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Attempts to parse the string into a JsonData.Object.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static JsonData.Object Parse(string str)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>str</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="PAC.Json.JsonData.html">JsonData</a>.<a class="xref" href="PAC.Json.JsonData.Object.html">Object</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="PAC_Json_JsonData_Object_Parse_" data-uid="PAC.Json.JsonData.Object.Parse*"></a>
+
+  <h3 id="PAC_Json_JsonData_Object_Parse_System_String_System_Int32__" data-uid="PAC.Json.JsonData.Object.Parse(System.String,System.Int32@)">
+  Parse(string, ref int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/JSON/JsonData.cs/#L1904"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Reads the string, starting at the given index, and attempts to parse the string as a JsonData.Object. If successful, the index will be moved to the closing curly bracket.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static JsonData.Object Parse(string str, ref int index)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>str</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>index</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="PAC.Json.JsonData.html">JsonData</a>.<a class="xref" href="PAC.Json.JsonData.Object.html">Object</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="PAC_Json_JsonData_Object_ParseMaybeNull_" data-uid="PAC.Json.JsonData.Object.ParseMaybeNull*"></a>
+
+  <h3 id="PAC_Json_JsonData_Object_ParseMaybeNull_System_String_" data-uid="PAC.Json.JsonData.Object.ParseMaybeNull(System.String)">
+  ParseMaybeNull(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/JSON/JsonData.cs/#L2128"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Attempts to parse the string into a JSON object, with the potential to parse it into JsonData.Null.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static JsonData ParseMaybeNull(string str)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>str</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="PAC.Json.JsonData.html">JsonData</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="PAC_Json_JsonData_Object_ParseMaybeNull_" data-uid="PAC.Json.JsonData.Object.ParseMaybeNull*"></a>
+
+  <h3 id="PAC_Json_JsonData_Object_ParseMaybeNull_System_String_System_Int32__" data-uid="PAC.Json.JsonData.Object.ParseMaybeNull(System.String,System.Int32@)">
+  ParseMaybeNull(string, ref int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/JSON/JsonData.cs/#L2156"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Attempts to parse the string into a JSON object, with the potential to parse it into JsonData.Null. If successful, moves the index to the last parsed character.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static JsonData ParseMaybeNull(string str, ref int index)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>str</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>index</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="PAC.Json.JsonData.html">JsonData</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="PAC_Json_JsonData_Object_Prepend_" data-uid="PAC.Json.JsonData.Object.Prepend*"></a>
+
+  <h3 id="PAC_Json_JsonData_Object_Prepend_PAC_Json_JsonData_Object___" data-uid="PAC.Json.JsonData.Object.Prepend(PAC.Json.JsonData.Object[])">
+  Prepend(params Object[])
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/JSON/JsonData.cs/#L1786"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns a JSON object with the first objects's entries, then the second objects's entries, etc., then this object's entries.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public JsonData.Object Prepend(params JsonData.Object[] jsonObjs)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>jsonObjs</code> <a class="xref" href="PAC.Json.JsonData.Object.html">Object</a>[]</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="PAC.Json.JsonData.html">JsonData</a>.<a class="xref" href="PAC.Json.JsonData.Object.html">Object</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="PAC_Json_JsonData_Object_Prepend_" data-uid="PAC.Json.JsonData.Object.Prepend*"></a>
+
+  <h3 id="PAC_Json_JsonData_Object_Prepend_System_Collections_Generic_IEnumerable_PAC_Json_JsonData_Object__" data-uid="PAC.Json.JsonData.Object.Prepend(System.Collections.Generic.IEnumerable{PAC.Json.JsonData.Object})">
+  Prepend(IEnumerable&lt;Object&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/JSON/JsonData.cs/#L1790"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns a JSON object with the first objects's entries, then the second objects's entries, etc., then this object's entries.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public JsonData.Object Prepend(IEnumerable&lt;JsonData.Object&gt; jsonObjs)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>jsonObjs</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="PAC.Json.JsonData.html">JsonData</a>.<a class="xref" href="PAC.Json.JsonData.Object.html">Object</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="PAC.Json.JsonData.html">JsonData</a>.<a class="xref" href="PAC.Json.JsonData.Object.html">Object</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="PAC_Json_JsonData_Object_ToJsonString_" data-uid="PAC.Json.JsonData.Object.ToJsonString*"></a>
+
+  <h3 id="PAC_Json_JsonData_Object_ToJsonString_System_Boolean_" data-uid="PAC.Json.JsonData.Object.ToJsonString(System.Boolean)">
+  ToJsonString(bool)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/JSON/JsonData.cs/#L1816"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Converts it into a string in JSON format.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string ToJsonString(bool pretty)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>pretty</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>If true, puts the string into pretty form - e.g. with indentations.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/JSON/JsonData.cs/#L1744" class="edit-link">Edit this page</a>
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          Pixel Art Creator 2.0 Docs
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

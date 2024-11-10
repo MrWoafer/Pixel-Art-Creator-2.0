@@ -22,6 +22,16 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/PAC.Animation.AnimationKeyFrame.JsonConverter.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.Animation.AnimationKeyFrame.JsonConverter.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/PAC.Animation.AnimationKeyFrame.yml",
       "output": {
         ".html": {
@@ -62,16 +72,6 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/PAC.Animation.LayerAnimation.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/PAC.Animation.LayerAnimation.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
       "source_relative_path": "api/PAC.Animation.yml",
       "output": {
         ".html": {
@@ -96,6 +96,16 @@
       "output": {
         ".html": {
           "relative_path": "api/PAC.Clipboard.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.Colour.BlendMode.JsonConverter.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.Colour.BlendMode.JsonConverter.html"
         }
       },
       "version": ""
@@ -282,6 +292,26 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/PAC.DataStructures.SemanticVersion.JsonConverter.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.DataStructures.SemanticVersion.JsonConverter.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.DataStructures.SemanticVersion.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.DataStructures.SemanticVersion.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/PAC.DataStructures.yml",
       "output": {
         ".html": {
@@ -436,6 +466,126 @@
       "output": {
         ".html": {
           "relative_path": "api/PAC.EffectPanels.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.Exceptions.UnderflowException.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.Exceptions.UnderflowException.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.Exceptions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.Exceptions.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.Extensions.IEnumerableExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.Extensions.IEnumerableExtensions.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.Extensions.JsonConverters.ColorJsonConverter.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.Extensions.JsonConverters.ColorJsonConverter.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.Extensions.JsonConverters.Texture2DJsonConverter.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.Extensions.JsonConverters.Texture2DJsonConverter.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.Extensions.JsonConverters.Vector2JsonConverter.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.Extensions.JsonConverters.Vector2JsonConverter.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.Extensions.JsonConverters.Vector3JsonConverter.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.Extensions.JsonConverters.Vector3JsonConverter.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.Extensions.JsonConverters.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.Extensions.JsonConverters.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.Extensions.TextReaderExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.Extensions.TextReaderExtensions.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.Extensions.TypeExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.Extensions.TypeExtensions.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.Extensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.Extensions.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.Files.File.JsonConverter.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.Files.File.JsonConverter.html"
         }
       },
       "version": ""
@@ -662,40 +812,120 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/PAC.JSON.IJSONable-1.yml",
+      "source_relative_path": "api/PAC.Json.JsonConversion.JsonConverter-2.yml",
       "output": {
         ".html": {
-          "relative_path": "api/PAC.JSON.IJSONable-1.html"
+          "relative_path": "api/PAC.Json.JsonConversion.JsonConverter-2.html"
         }
       },
       "version": ""
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/PAC.JSON.JSON.JSONProperty.yml",
+      "source_relative_path": "api/PAC.Json.JsonConversion.JsonConverterSet.yml",
       "output": {
         ".html": {
-          "relative_path": "api/PAC.JSON.JSON.JSONProperty.html"
+          "relative_path": "api/PAC.Json.JsonConversion.JsonConverterSet.html"
         }
       },
       "version": ""
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/PAC.JSON.JSON.yml",
+      "source_relative_path": "api/PAC.Json.JsonConversion.yml",
       "output": {
         ".html": {
-          "relative_path": "api/PAC.JSON.JSON.html"
+          "relative_path": "api/PAC.Json.JsonConversion.html"
         }
       },
       "version": ""
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/PAC.JSON.yml",
+      "source_relative_path": "api/PAC.Json.JsonData.Bool.yml",
       "output": {
         ".html": {
-          "relative_path": "api/PAC.JSON.html"
+          "relative_path": "api/PAC.Json.JsonData.Bool.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.Json.JsonData.Float.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.Json.JsonData.Float.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.Json.JsonData.Int.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.Json.JsonData.Int.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.Json.JsonData.List.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.Json.JsonData.List.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.Json.JsonData.Null.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.Json.JsonData.Null.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.Json.JsonData.Object.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.Json.JsonData.Object.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.Json.JsonData.String.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.Json.JsonData.String.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.Json.JsonData.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.Json.JsonData.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.Json.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.Json.html"
         }
       },
       "version": ""
@@ -712,10 +942,30 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/PAC.KeyboardShortcuts.CustomKeyCode.JsonConverter.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.KeyboardShortcuts.CustomKeyCode.JsonConverter.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/PAC.KeyboardShortcuts.CustomKeyCode.yml",
       "output": {
         ".html": {
           "relative_path": "api/PAC.KeyboardShortcuts.CustomKeyCode.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.KeyboardShortcuts.KeyboardShortcut.JsonConverter.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.KeyboardShortcuts.KeyboardShortcut.JsonConverter.html"
         }
       },
       "version": ""
@@ -772,6 +1022,16 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/PAC.Layers.Layer.JsonConverter.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.Layers.Layer.JsonConverter.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/PAC.Layers.Layer.yml",
       "output": {
         ".html": {
@@ -812,10 +1072,30 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/PAC.Layers.NormalLayer.JsonConverter.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.Layers.NormalLayer.JsonConverter.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/PAC.Layers.NormalLayer.yml",
       "output": {
         ".html": {
           "relative_path": "api/PAC.Layers.NormalLayer.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.Layers.TileLayer.JsonConverter.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.Layers.TileLayer.JsonConverter.html"
         }
       },
       "version": ""
