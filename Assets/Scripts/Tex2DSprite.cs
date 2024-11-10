@@ -114,6 +114,9 @@ namespace PAC
             Texture2D tex = new Texture2D(texWidth, texHeight);
             Color32[] pixels = new Color32[texWidth * texHeight];
 
+            Color32 transparentCheckerboardColour1 = Preferences.transparentCheckerboardColour1;
+            Color32 transparentCheckerboardColour2 = Preferences.transparentCheckerboardColour2;
+
             int index = 0;
             for (int x = 0; x < texWidth; x++)
             {
@@ -121,11 +124,11 @@ namespace PAC
                 {
                     if ((x + y) % 2 == 0)
                     {
-                        pixels[index] = Preferences.transparentCheckerboardColour1;
+                        pixels[index] = transparentCheckerboardColour1;
                     }
                     else
                     {
-                        pixels[index] = Preferences.transparentCheckerboardColour2;
+                        pixels[index] = transparentCheckerboardColour2;
                     }
 
                     index++;
