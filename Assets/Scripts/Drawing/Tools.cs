@@ -81,7 +81,7 @@ namespace PAC.Drawing
             {
                 throw new System.Exception("Layer is not a normal layer. Layer type: " + file.layers[layer].layerType);
             }
-            Texture2D line = Shapes.Line(file.width, file.height, start, end, colour);
+            Texture2D line = Shapes.LineTex(file.width, file.height, start, end, colour);
             ((NormalLayer)file.layers[layer]).OverlayTexture(frame, line, AnimFrameRefMode.NewKeyFrame);
         }
 
