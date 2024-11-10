@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using PAC.Json;
 using UnityEngine;
 
 namespace PAC.KeyboardShortcuts
@@ -36,6 +37,17 @@ namespace PAC.KeyboardShortcuts
         }
 
         /// <summary>
+        /// Saves the current assignment of each shortcut to the disk.
+        /// </summary>
+        public static void SaveShortcuts()
+        {
+            JsonData.Object json = ToJSON();
+            System.IO.File.WriteAllText(shortcutsFilePath, json.ToJsonString(true));
+
+            Debug.Log("Keyboard shortcuts saved at: " + shortcutsFilePath);
+        }
+
+        /// <summary>
         /// Loads saved shortcuts from the disk.
         /// </summary>
         public static void LoadShortcuts()
@@ -53,64 +65,41 @@ namespace PAC.KeyboardShortcuts
                 throw new System.Exception("The file is not a JSON file. File extension: " + Path.GetExtension(shortcutsFilePath));
             }
 
-            JSON.JSON json = JSON.JSON.Parse(System.IO.File.ReadAllText(shortcutsFilePath));
-            LoadJSON(json);
+            using (StreamReader stream = new StreamReader(shortcutsFilePath))
+            {
+                LoadJSON(JsonData.Object.Parse(stream, true));
+            }
 
             Debug.Log("Keyboard shortcuts loaded from: " + shortcutsFilePath);
         }
 
         /// <summary>
-        /// Saves the current assignment of each shortcut to the disk.
-        /// </summary>
-        public static void SaveShortcuts()
-        {
-            JSON.JSON json = ToJSON();
-            System.IO.File.WriteAllText(shortcutsFilePath, json.ToString());
-
-            Debug.Log("Keyboard shortcuts saved at: " + shortcutsFilePath);
-        }
-
-        /// <summary>
         /// Returns the list of keyboard shortcuts as a JSON object.
         /// </summary>
-        public static JSON.JSON ToJSON()
+        private static JsonData.Object ToJSON()
         {
-            JSON.JSON json = new JSON.JSON();
+            JsonConversion.JsonConverterSet converters = new JsonConversion.JsonConverterSet(new KeyboardShortcut.JsonConverter());
 
-            JSON.JSON shortcutsJSON = new JSON.JSON();
+            JsonData.Object jsonObj = new JsonData.Object();
             foreach (string key in shortcuts.Keys)
             {
-                shortcutsJSON.Add(key, shortcuts[key]);
+                jsonObj.Add(key, JsonConversion.ToJson(shortcuts[key], converters, false));
             }
 
-            json.Add("shortcuts", shortcutsJSON);
-
-            return json;
+            return jsonObj;
         }
 
         /// <summary>
         /// Clears all keyboard shortcuts then loads them from the JSON object.
         /// </summary>
-        private static void LoadJSON(JSON.JSON json)
+        private static void LoadJSON(JsonData.Object jsonObj)
         {
+            JsonConversion.JsonConverterSet converters = new JsonConversion.JsonConverterSet(new KeyboardShortcut.JsonConverter());
+
             shortcuts = new Dictionary<string, List<KeyboardShortcut>>();
-
-            JSON.JSON shortcutsJSON = JSON.JSON.Parse(json["shortcuts"]);
-
-            /// Loop through each key for keyboard shortcuts - e.g. "pencil"
-            foreach (string key in shortcutsJSON.Keys)
+            foreach (string key in jsonObj.Keys)
             {
-                /// Loop through each keyboard shortcut
-                foreach (JSON.JSON shortcutJSON in JSON.JSON.SplitArray(shortcutsJSON[key]).Select(x => JSON.JSON.Parse(x)))
-                {
-                    /// Get each key code in the keyboard shortcut
-                    string[] keyCodeStrings = JSON.JSON.SplitArray(shortcutJSON["keyCodes"]).Select(x => JSON.JSON.StripQuotationMarks(x)).ToArray();
-
-                    /// Convert each key code from a string to the actual CustomKeyCode object
-                    CustomKeyCode[] keyCodes = keyCodeStrings.Select(x => CustomKeyCode.FromString(x)).ToArray();
-
-                    AddShortcut(key, new KeyboardShortcut(keyCodes));
-                }
+                shortcuts[key] = JsonConversion.FromJson<List<KeyboardShortcut>>(jsonObj[key], converters, false);
             }
         }
 

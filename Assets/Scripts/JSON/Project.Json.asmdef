@@ -1,11 +1,11 @@
 {
-    "name": "Project.Core",
-    "rootNamespace": "PAC",
+    "name": "Project.Json",
+    "rootNamespace": "PAC.Json",
     "references": [
-        "GUID:2fd615392a648e1418fbb2129787bdea",
-        "GUID:ecf0bfe526f2b65449a2da93dacb22d3",
-        "GUID:654f0818eadb92f49a3a0808649233e3",
-        "GUID:98d1aab405d9a6b4b81d739038da96e7"
+        "GUID:0ad094a7fdb563c42b5c54be8540ed16",
+        "GUID:98d1aab405d9a6b4b81d739038da96e7",
+        "GUID:0dfc2b2446f2492439a9772fb003007f",
+        "GUID:610bb6352ece75b4db3041dbb75df0ce"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

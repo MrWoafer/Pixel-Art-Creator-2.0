@@ -3,18 +3,19 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using PAC.DataStructures;
-using PAC.JSON;
 using PAC.Layers;
 using PAC.Tilesets;
 using UnityEngine;
 using UnityEngine.Events;
+using PAC.Json;
+using System.Runtime.Serialization;
 
 namespace PAC.Files
 {
     /// <summary>
     /// A class to represent a single Pixel Art Creator file.
     /// </summary>
-    public class File : IJSONable<File>
+    public class File
     {
         public string name { get; set; } = "";
 
@@ -246,8 +247,17 @@ namespace PAC.Files
                 throw new System.Exception("The file is not a PAC file. File extension: " + Path.GetExtension(filePath));
             }
 
-            JSON.JSON json = JSON.JSON.Parse(System.IO.File.ReadAllText(filePath));
-            File file = FromJSON(json);
+            JsonData.Object json;
+            using (StreamReader stream = new StreamReader(filePath))
+            {
+                json = JsonData.Object.Parse(stream, true);
+            }
+
+            SemanticVersion fileFormatVersion = JsonConversion.FromJson<SemanticVersion>(json["file format version"], new JsonConversion.JsonConverterSet(new SemanticVersion.JsonConverter()), false);
+            json.Remove("file format version");
+
+            File file = JsonConversion.FromJson<File>(JsonData.Parse(System.IO.File.ReadAllText(filePath)), new JsonConversion.JsonConverterSet(new JsonConverter(fileFormatVersion)), false);
+            
             file.savedSinceLastEdit = true;
 
             return file;
@@ -308,98 +318,17 @@ namespace PAC.Files
                 throw new System.Exception("The file is not a PAC file. File extension: " + Path.GetExtension(filePath));
             }
 
-            JSON.JSON json = ToJSON();
-            System.IO.File.WriteAllText(filePath, json.ToString());
+            JsonData.Object json = (JsonData.Object)JsonConversion.ToJson(this, new JsonConversion.JsonConverterSet(new JsonConverter(Config.Files.fileFormatVersion)), false);
+            json = json.Prepend(new JsonData.Object {
+                { "file format version", JsonConversion.ToJson(Config.Files.fileFormatVersion, new JsonConversion.JsonConverterSet(new SemanticVersion.JsonConverter()), false) }
+            });
+
+            System.IO.File.WriteAllText(filePath, json.ToJsonString(true));
 
             mostRecentSavePath = filePath;
             savedSinceLastEdit = true;
 
             Debug.Log("Saved file at: " + filePath);
-        }
-
-        /// <summary>
-        /// Gets a JSON representation of the file.
-        /// </summary>
-        public JSON.JSON ToJSON()
-        {
-            JSON.JSON json = new JSON.JSON();
-
-            json.Add(".pacVersion", 8);
-            json.Add("name", name);
-            json.Add("mostRecentSavePath", mostRecentSavePath);
-            json.Add("width", width);
-            json.Add("height", height);
-            json.Add("newNormalLayerNameNum", newNormalLayerNameNum);
-            json.Add("newTileLayerNameNum", newTileLayerNameNum);
-            json.Add("numOfFrames", numOfFrames);
-
-            json.Add("layers", layers);
-
-            return json;
-        }
-
-        /// <summary>
-        /// Gets a file from its JSON representation.
-        /// </summary>
-        public static File FromJSON(JSON.JSON json)
-        {
-            File file = new File(int.Parse(json[".pacVersion"]) <= 7 ? json["fileName"] : json["name"], int.Parse(json["width"]), int.Parse(json["height"]));
-
-            int pacVersion = int.Parse(json[".pacVersion"]);
-            if (pacVersion >= 2)
-            {
-                file.numOfFrames = int.Parse(json["numOfFrames"]);
-            }
-
-            if (pacVersion >= 3 && pacVersion <= 7)
-            {
-                file.mostRecentSavePath = json["lastSavePath"];
-            }
-            else if (pacVersion >= 8)
-            {
-                file.mostRecentSavePath = json["mostRecentSavePath"];
-            }
-            if (file.mostRecentSavePath == "")
-            {
-                file.mostRecentSavePath = null;
-            }
-
-            if (pacVersion >= 5 && pacVersion <= 7)
-            {
-                file.newNormalLayerNameNum = int.Parse(json["layerNameNum"]);
-            }
-            else if (pacVersion >= 8)
-            {
-                file.newNormalLayerNameNum = int.Parse(json["newNormalLayerNameNum"]);
-            }
-
-            if (pacVersion >= 6 && pacVersion <= 7)
-            {
-                file.newTileLayerNameNum = int.Parse(json["tileLayerNameNum"]);
-            }
-            else if (pacVersion >= 8)
-            {
-                file.newTileLayerNameNum = int.Parse(json["newTileLayerNameNum"]);
-            }
-
-            file.ClearLayers();
-            foreach (string layerJSONStr in JSON.JSON.SplitArray(json["layers"]))
-            {
-                JSON.JSON layerJSON = new JSON.JSON();
-                layerJSON.Add(".pacVersion", json[".pacVersion"]);
-                layerJSON.Append(JSON.JSON.Parse(layerJSONStr));
-
-                if (pacVersion < 8)
-                {
-                    file.AddLayer(Layer.FromJSON(layerJSON), file.layers.Count);
-                }
-                else
-                {
-                    file.AddLayer(Layer.FromJSON(layerJSON), file.layers.Count);
-                }
-            }
-
-            return new File(file);
         }
 
         /// <summary>
@@ -1294,6 +1223,60 @@ namespace PAC.Files
         public void SubscribeToOnSavedSinceEditChanged(UnityAction call)
         {
             onSavedSinceEditChanged.AddListener(call);
+        }
+
+        public class JsonConverter : JsonConversion.JsonConverter<File, JsonData.Object>
+        {
+            private SemanticVersion fromJsonFileFormatVersion;
+
+            public JsonConverter(SemanticVersion fromJsonFileFormatVersion)
+            {
+                this.fromJsonFileFormatVersion = fromJsonFileFormatVersion;
+            }
+
+            public override JsonData.Object ToJson(File file)
+            {
+                return new JsonData.Object
+                    {
+                        { "name", file.name },
+                        { "most recent save path", file.mostRecentSavePath },
+                        { "width", file.width },
+                        { "height", file.height },
+                        { "new normal layer name num", file.newNormalLayerNameNum },
+                        { "new tile layer name num", file.newTileLayerNameNum },
+                        { "num of frames", file.numOfFrames },
+                        { "layers", JsonConversion.ToJson(file.layers, Layer.GetJsonConverterSet(Config.Files.fileFormatVersion), false) }
+                    };
+            }
+
+            public override File FromJson(JsonData.Object jsonData)
+            {
+                if (fromJsonFileFormatVersion > Config.Files.fileFormatVersion)
+                {
+                    throw new SerializationException("The JSON uses file format version " + fromJsonFileFormatVersion + ", which is ahead of the current version " + Config.Files.fileFormatVersion);
+                }
+                if (fromJsonFileFormatVersion.major < Config.Files.fileFormatVersion.major)
+                {
+                    throw new SerializationException("The JSON uses file format version " + fromJsonFileFormatVersion + ", which is out of date with the current version " + Config.Files.fileFormatVersion);
+                }
+
+                string name = JsonConversion.FromJson<string>(jsonData["name"]);
+                int width = JsonConversion.FromJson<int>(jsonData["width"]);
+                int height = JsonConversion.FromJson<int>(jsonData["height"]);
+
+                File file = new File(name, width, height);
+
+                file.mostRecentSavePath = JsonConversion.FromJson<string>(jsonData["most recent save path"]);
+
+                file.newNormalLayerNameNum = JsonConversion.FromJson<int>(jsonData["new normal layer name num"]);
+                file.newTileLayerNameNum = JsonConversion.FromJson<int>(jsonData["new tile layer name num"]);
+
+                file.numOfFrames = JsonConversion.FromJson<int>(jsonData["num of frames"]);
+                file.layers = JsonConversion.FromJson<List<Layer>>(jsonData["layers"], new JsonConversion.JsonConverterSet(new Layer.JsonConverter(fromJsonFileFormatVersion)), false);
+
+                file.RerenderLiveRender();
+                return file;
+            }
         }
     }
 }

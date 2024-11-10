@@ -1,0 +1,29 @@
+{
+    "name": "Project.Tests",
+    "rootNamespace": "PAC.Tests",
+    "references": [
+        "UnityEngine.TestRunner",
+        "UnityEditor.TestRunner",
+        "Project.Core",
+        "Project.Exceptions",
+        "Project.Json",
+        "Project.Extensions.JsonConverters",
+        "Project.Extensions.Type",
+        "Project.Extensions.TextReader"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": true,
+    "precompiledReferences": [
+        "nunit.framework.dll"
+    ],
+    "autoReferenced": false,
+    "defineConstraints": [
+        "UNITY_INCLUDE_TESTS"
+    ],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

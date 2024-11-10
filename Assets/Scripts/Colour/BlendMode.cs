@@ -1,3 +1,4 @@
+using PAC.Json;
 using System;
 using UnityEngine;
 
@@ -47,7 +48,7 @@ namespace PAC.Colour
         {
             return !(a == b);
         }
-        public override bool Equals(System.Object obj)
+        public override bool Equals(object obj)
         {
             if (obj == null || !GetType().Equals(obj.GetType()))
             {
@@ -229,7 +230,20 @@ namespace PAC.Colour
                     return blendMode;
                 }
             }
-            throw new System.Exception("Unknown / unimplemented blend mode: " + blendModeName);
+            throw new ArgumentException("Unknown / unimplemented blend mode: " + blendModeName);
+        }
+
+        public class JsonConverter : JsonConversion.JsonConverter<BlendMode, JsonData.String>
+        {
+            public override JsonData.String ToJson(BlendMode blendMode)
+            {
+                return blendMode.name;
+            }
+
+            public override BlendMode FromJson(JsonData.String jsonData)
+            {
+                return StringToBlendMode(jsonData);
+            }
         }
     }
 }
