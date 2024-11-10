@@ -10,7 +10,7 @@ namespace PAC.DataStructures
     /// <summary>
     /// A struct to represent a rectangular region of integer coordinates.
     /// </summary>
-    public struct IntRect : IEnumerable
+    public struct IntRect : IEnumerable<IntVector2>
     {
         private IntVector2 _bottomLeft;
         public IntVector2 bottomLeft
@@ -295,33 +295,16 @@ namespace PAC.DataStructures
         /// <summary>
         /// Enumerates the points in the rect, starting with the bottom row, read left to right, then the next row, etc.
         /// </summary>
-        public IEnumerator GetEnumerator()
+        public IEnumerator<IntVector2> GetEnumerator()
         {
-            return new IntRectEnumerator(this);
+            for (int i = 0; i < area; i++)
+            {
+                yield return bottomLeft + new IntVector2(i % width, i / height);
+            }
         }
-
-        private class IntRectEnumerator : IEnumerator
+        IEnumerator IEnumerable.GetEnumerator()
         {
-            IntRect intRect;
-            int index = -1;
-
-            public object Current => intRect.bottomLeft + new IntVector2(index % intRect.width, index / intRect.height);
-
-            public IntRectEnumerator(IntRect intRect)
-            {
-                this.intRect = intRect;
-            }
-
-            public bool MoveNext()
-            {
-                index++;
-                return index < intRect.area;
-            }
-
-            public void Reset()
-            {
-                index = -1;
-            }
+            return GetEnumerator();
         }
     }
 }
