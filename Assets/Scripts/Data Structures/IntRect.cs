@@ -289,9 +289,12 @@ namespace PAC.DataStructures
         /// </summary>
         public IEnumerator<IntVector2> GetEnumerator()
         {
-            for (int i = 0; i < area; i++)
+            for (int y = bottomLeft.y; y <= topRight.y; y++)
             {
-                yield return bottomLeft + new IntVector2(i % width, i / height);
+                for (int x = bottomLeft.x; x <= topRight.x; x++)
+                {
+                    yield return new IntVector2(x, y);
+                }
             }
         }
         IEnumerator IEnumerable.GetEnumerator()
