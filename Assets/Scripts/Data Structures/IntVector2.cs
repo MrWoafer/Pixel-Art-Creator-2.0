@@ -54,7 +54,7 @@ namespace PAC.DataStructures
         {
             return a.x == b.x && a.y == b.y;
         }
-        public override bool Equals(System.Object obj)
+        public override bool Equals(object obj)
         {
             if (obj == null || !GetType().Equals(obj.GetType()))
             {

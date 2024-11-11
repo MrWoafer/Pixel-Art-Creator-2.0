@@ -79,7 +79,7 @@ namespace PAC.DataStructures
         {
             return rect1.bottomLeft == rect2.bottomLeft && rect1.topRight == rect2.topRight;
         }
-        public override bool Equals(System.Object obj)
+        public override bool Equals(object obj)
         {
             if (obj == null || !GetType().Equals(obj.GetType()))
             {
