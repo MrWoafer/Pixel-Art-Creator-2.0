@@ -16,19 +16,13 @@ namespace PAC.DataStructures
         public IntVector2 bottomLeft
         {
             get => _bottomLeft;
-            set
-            {
-                _bottomLeft = value;
-            }
+            set => _bottomLeft = value;
         }
         private IntVector2 _topRight;
         public IntVector2 topRight
         {
             get => _topRight;
-            set
-            {
-                _topRight = value;
-            }
+            set => _topRight = value;
         }
         public IntVector2 bottomRight
         {
