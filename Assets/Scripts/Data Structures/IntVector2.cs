@@ -49,13 +49,10 @@ namespace PAC.DataStructures
         /// <summary>The vector (0, -1).</summary>
         public static IntVector2 down = new IntVector2(0, -1);
 
+        public static bool operator !=(IntVector2 a, IntVector2 b) => !(a == b);
         public static bool operator ==(IntVector2 a, IntVector2 b)
         {
             return a.x == b.x && a.y == b.y;
-        }
-        public static bool operator !=(IntVector2 a, IntVector2 b)
-        {
-            return !(a == b);
         }
         public override bool Equals(System.Object obj)
         {

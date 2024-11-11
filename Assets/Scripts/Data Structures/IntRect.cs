@@ -74,13 +74,10 @@ namespace PAC.DataStructures
             _topRight = new IntVector2(Mathf.Max(corner.x, oppositeCorner.x), Mathf.Max(corner.y, oppositeCorner.y));
         }
 
+        public static bool operator !=(IntRect rect1, IntRect rect2) => !(rect1 == rect2);
         public static bool operator ==(IntRect rect1, IntRect rect2)
         {
             return rect1.bottomLeft == rect2.bottomLeft && rect1.topRight == rect2.topRight;
-        }
-        public static bool operator !=(IntRect rect1, IntRect rect2)
-        {
-            return !(rect1 == rect2);
         }
         public override bool Equals(System.Object obj)
         {
