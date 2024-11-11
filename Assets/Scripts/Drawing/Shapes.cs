@@ -2,7 +2,6 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using Codice.CM.Common.Tree;
 using PAC.DataStructures;
 using UnityEngine;
 
@@ -53,10 +52,6 @@ namespace PAC.Drawing
             /// </summary>
             private Vector2 imaginaryEnd;
             /// <summary>
-            /// The gradient of the imaginary non-pixel-perfect line.
-            /// </summary>
-            private float imaginaryGradient;
-            /// <summary>
             /// Whether the line is more horizontal than vertical. If the line is at +/- 45 degrees then it is true.
             /// </summary>
             private bool isMoreHorizontal;
@@ -83,7 +78,6 @@ namespace PAC.Drawing
                 _end = end;
                 imaginaryStart = start;
                 imaginaryEnd = end;
-                imaginaryGradient = 0;
                 isMoreHorizontal = false;
 
                 SetValues(start, end);
@@ -158,27 +152,6 @@ namespace PAC.Drawing
                         imaginaryStart = start + Vector2.one;
                         imaginaryEnd = end;
                     }
-                }
-
-                if (start.x == end.x)
-                {
-                    // Line is perfectly upward
-                    if (start.y < end.y)
-                    {
-                        imaginaryGradient = float.PositiveInfinity;
-                    }
-                    // Line is perfectly downward
-                    else
-                    {
-                        imaginaryGradient = float.NegativeInfinity;
-                    }
-                    // Line is a single point
-                    imaginaryGradient = float.NaN;
-                }
-                // Line is diagonal
-                else
-                {
-                    imaginaryGradient = (imaginaryEnd.y - imaginaryStart.y) / (imaginaryEnd.x - imaginaryStart.x);
                 }
 
                 // True iff 1 >= gradient >= -1, i.e. the line is more (or equally) horizontal than vertical
