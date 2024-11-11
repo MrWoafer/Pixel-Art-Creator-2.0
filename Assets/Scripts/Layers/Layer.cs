@@ -99,7 +99,7 @@ namespace PAC.Layers
         /// Called when the SetPixel() or SetPixels() has been called.
         /// Passes the array of pixels changed and the frames it was called on.
         /// </summary>
-        protected UnityEvent<IntVector2[], int[]> onPixelsChanged = new UnityEvent<IntVector2[], int[]>();
+        protected UnityEvent<IEnumerable<IntVector2>, int[]> onPixelsChanged = new UnityEvent<IEnumerable<IntVector2>, int[]>();
         /// <summary>Called when the layer's visibility is changed.</summary>
         private UnityEvent onVisibilityChanged = new UnityEvent();
         /// <summary>Called when the layer's blend mode is changed.</summary>
@@ -145,20 +145,20 @@ namespace PAC.Layers
         /// <summary>
         /// Sets the colour of the pixel (x, y). Throws an error if the pixel is outside the layer.
         /// </summary>
-        public IntVector2[] SetPixel(int x, int y, int frame, Color colour, AnimFrameRefMode frameRefMode) => SetPixel(new IntVector2(x, y), frame, colour, frameRefMode);
+        public IEnumerable<IntVector2> SetPixel(int x, int y, int frame, Color colour, AnimFrameRefMode frameRefMode) => SetPixel(new IntVector2(x, y), frame, colour, frameRefMode);
         /// <summary>
         /// Sets the colour of the pixel. Throws an error if the pixel is outside the layer.
         /// </summary>
-        public IntVector2[] SetPixel(IntVector2 pixel, int frame, Color colour, AnimFrameRefMode frameRefMode) => SetPixels(new IntVector2[] { pixel }, frame, colour, frameRefMode);
+        public IEnumerable<IntVector2> SetPixel(IntVector2 pixel, int frame, Color colour, AnimFrameRefMode frameRefMode) => SetPixels(new IntVector2[] { pixel }, frame, colour, frameRefMode);
         /// <summary>
         /// Sets the colour of the pixels.
         /// You do not need to check the pixels are in the layer as this check is done in Layer.SetPixels(), which is the only way this method is called.
         /// </summary>
-        protected abstract IntVector2[] SetPixelsNoEvent(IntVector2[] pixels, int frame, Color colour, AnimFrameRefMode frameRefMode);
+        protected abstract IEnumerable<IntVector2> SetPixelsNoEvent(IEnumerable<IntVector2> pixels, int frame, Color colour, AnimFrameRefMode frameRefMode);
         /// <summary>
         /// Sets the colour of the pixels. Throws an error if a pixel is outside the layer.
         /// </summary>
-        public IntVector2[] SetPixels(IntVector2[] pixels, int frame, Color colour, AnimFrameRefMode frameRefMode)
+        public IEnumerable<IntVector2> SetPixels(IEnumerable<IntVector2> pixels, int frame, Color colour, AnimFrameRefMode frameRefMode)
         {
             foreach (IntVector2 pixel in pixels)
             {
@@ -167,7 +167,7 @@ namespace PAC.Layers
                     throw new System.Exception("Pixel (" + pixel.x + ", " + pixel.y + ") outside of dimensions " + width + "x" + height);
                 }
             }
-            IntVector2[] pixelsFilled = SetPixelsNoEvent(pixels, frame, colour, frameRefMode);
+            IEnumerable<IntVector2> pixelsFilled = SetPixelsNoEvent(pixels, frame, colour, frameRefMode);
             onPixelsChanged.Invoke(pixelsFilled, new int[] { frame });
             return pixelsFilled;
         }
@@ -415,7 +415,7 @@ namespace PAC.Layers
 
         /// Events
 
-        public void SubscribeToOnPixelsChanged(UnityAction<IntVector2[], int[]> call)
+        public void SubscribeToOnPixelsChanged(UnityAction<IEnumerable<IntVector2>, int[]> call)
         {
             onPixelsChanged.AddListener(call);
         }

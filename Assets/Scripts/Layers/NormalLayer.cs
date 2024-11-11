@@ -30,7 +30,7 @@ namespace PAC.Layers
             return new NormalLayer(this);
         }
 
-        protected override IntVector2[] SetPixelsNoEvent(IntVector2[] pixels, int frame, Color colour, AnimFrameRefMode frameRefMode)
+        protected override IEnumerable<IntVector2> SetPixelsNoEvent(IEnumerable<IntVector2> pixels, int frame, Color colour, AnimFrameRefMode frameRefMode)
         {
             foreach (IntVector2 pixel in pixels)
             {

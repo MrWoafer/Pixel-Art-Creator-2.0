@@ -92,7 +92,7 @@ namespace PAC.Files
         /// Called when some pixels have been changed on a layer.
         /// Passes the pixels, layers and frames that were affected.
         /// </summary>
-        private UnityEvent<IntVector2[], Layer[], int[]> onPixelsChanged = new UnityEvent<IntVector2[], Layer[], int[]>();
+        private UnityEvent<IEnumerable<IntVector2>, Layer[], int[]> onPixelsChanged = new UnityEvent<IEnumerable<IntVector2>, Layer[], int[]>();
         /// <summary>Used to bypass the Layer.onPixelChanged event callback when doing operations on multiple layers.</summary>
         // This is to help performance - so that we can rerender the liveRender once after all layers have been changed instead of after each one.
         private bool ignoreOnLayerPixelsChanged = false;
@@ -900,7 +900,7 @@ namespace PAC.Files
         /// <summary>
         /// Rerenders the given pixels of the live render.
         /// </summary>
-        private void RerenderLiveRender(IntVector2[] pixels)
+        private void RerenderLiveRender(IEnumerable<IntVector2> pixels)
         {
             foreach (IntVector2 pixel in pixels)
             {
@@ -1180,7 +1180,7 @@ namespace PAC.Files
 
         // Event callbacks
 
-        private void OnLayerPixelsChanged(IntVector2[] pixels, Layer[] layer, int[] frames)
+        private void OnLayerPixelsChanged(IEnumerable<IntVector2> pixels, Layer[] layer, int[] frames)
         {
             if (ignoreOnLayerPixelsChanged)
             {
@@ -1199,7 +1199,7 @@ namespace PAC.Files
         /// Event invoked when some pixels have been changed on a layer.
         /// Passes the pixels, layers and frames that were affected.
         /// </summary>
-        public void SubscribeToOnPixelsChanged(UnityAction<IntVector2[], Layer[], int[]> call)
+        public void SubscribeToOnPixelsChanged(UnityAction<IEnumerable<IntVector2>, Layer[], int[]> call)
         {
             onPixelsChanged.AddListener(call);
         }
