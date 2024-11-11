@@ -163,11 +163,12 @@ namespace PAC.Drawing
             /// </summary>
             public bool Contains(IntVector2 pixel)
             {
-                if (isMoreHorizontal)
+                int index = isMoreHorizontal ? (pixel.x - start.x) * Math.Sign(end.x - start.x) : (pixel.y - start.y) * Math.Sign(end.y - start.y);
+                if (index < 0 || index >= Count)
                 {
-                    return this[(pixel.x - start.x) * Math.Sign(end.x - start.x)] == pixel;
+                    return false;
                 }
-                return this[(pixel.y - start.y) * Math.Sign(end.y - start.y)] == pixel;
+                return this[index] == pixel;
             }
 
             public IntVector2 this[int index]
@@ -277,11 +278,170 @@ namespace PAC.Drawing
             IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();
             public IEnumerator<IntVector2> GetEnumerator()
             {
-                for (int i = 0; i < 2 * Count - 1; i++)
+                for (int i = 0; i < Count; i++)
                 {
                     yield return this[i];
                 }
             }
+
+            public static bool operator !=(Line line1, Line line2) => !(line1 == line2);
+            public static bool operator ==(Line line1, Line line2)
+            {
+                return line1.start == line2.start && line1.end == line2.end;
+            }
+            public override bool Equals(object obj)
+            {
+                if (obj == null || !GetType().Equals(obj.GetType()))
+                {
+                    return false;
+                }
+                else
+                {
+                    return this == (Line)obj;
+                }
+            }
+
+            public override int GetHashCode() => System.HashCode.Combine(start, end);
+
+            public override string ToString() => "Line(" + start.ToString() + ", " + end.ToString() + ")";
+        }
+
+        public struct Rectangle : IShape
+        {
+            private IntVector2 _bottomLeft;
+            public IntVector2 bottomLeft
+            {
+                get => _bottomLeft;
+                set => _bottomLeft = value;
+            }
+            private IntVector2 _topRight;
+            public IntVector2 topRight
+            {
+                get => _topRight;
+                set => _topRight = value;
+            }
+            public IntVector2 bottomRight
+            {
+                get => new IntVector2(topRight.x, bottomLeft.y);
+                set
+                {
+                    _bottomLeft = new IntVector2(bottomLeft.x, value.y);
+                    _topRight = new IntVector2(value.x, topRight.y);
+                }
+            }
+            public IntVector2 topLeft
+            {
+                get => new IntVector2(bottomLeft.x, topRight.y);
+                set
+                {
+                    _bottomLeft = new IntVector2(value.x, bottomLeft.y);
+                    _topRight = new IntVector2(topRight.x, value.y);
+                }
+            }
+
+            public bool filled { get; set; }
+
+            public int width => topRight.x - bottomLeft.x + 1;
+            public int height => topRight.y - bottomLeft.y + 1;
+
+            /// <summary>True if the rect is a square.</summary>
+            public bool isSquare => width == height;
+
+            public IntRect boundingRect => new IntRect(bottomLeft, topRight);
+
+            public int Count => width * height;
+
+            public Rectangle(IntVector2 corner, IntVector2 oppositeCorner, bool filled)
+            {
+                _bottomLeft = new IntVector2(Math.Min(corner.x, oppositeCorner.x), Math.Min(corner.y, oppositeCorner.y));
+                _topRight = new IntVector2(Math.Max(corner.x, oppositeCorner.x), Math.Max(corner.y, oppositeCorner.y));
+                this.filled = filled;
+            }
+
+            public bool Contains(IntVector2 pixel)
+            {
+                if (filled)
+                {
+                    return boundingRect.Contains(pixel);
+                }
+                return boundingRect.Contains(pixel) && !(pixel > bottomLeft && pixel < topRight);
+            }
+
+            IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();
+            public IEnumerator<IntVector2> GetEnumerator()
+            {
+                // Filled - start with the bottom row, read left to right, then the next row, etc.
+                if (filled)
+                {
+                    for (int y = bottomLeft.y; y <= topRight.y; y++)
+                    {
+                        for (int x = bottomLeft.x; x <= topRight.x; x++)
+                        {
+                            yield return new IntVector2(x, y);
+                        }
+                    }
+                    yield break;
+                }
+
+                // Unfilled - go clockwise, starting at bottom-left
+
+                // Up the left side
+                for (int y = bottomLeft.y; y <= topRight.y; y++)
+                {
+                    yield return new IntVector2(bottomLeft.x, y);
+                }
+
+                // Rectangle has width 1
+                if (bottomLeft.x == topRight.x)
+                {
+                    yield break;
+                }
+
+                // Along the top side (left to right)
+                for (int x = bottomLeft.x + 1; x <= topRight.x; x++)
+                {
+                    yield return new IntVector2(x, topRight.y);
+                }
+
+                // Rectangle has height 1
+                if (bottomLeft.y == topRight.y)
+                {
+                    yield break;
+                }
+
+                // Down the right side
+                for (int y = topRight.y - 1; y >= bottomLeft.y; y--)
+                {
+                    yield return new IntVector2(topRight.x, y);
+                }
+
+                // Along the bottom side (right to left)
+                for (int x = topRight.x - 1; x >= bottomLeft.x + 1; x--)
+                {
+                    yield return new IntVector2(x, bottomLeft.y);
+                }
+            }
+
+            public static bool operator !=(Rectangle rectangle1, Rectangle rectangle2) => !(rectangle1 == rectangle2);
+            public static bool operator ==(Rectangle rectangle1, Rectangle rectangle2)
+            {
+                return rectangle1.bottomLeft == rectangle2.bottomLeft && rectangle1.topRight == rectangle2.topRight && rectangle1.filled == rectangle2.filled;
+            }
+            public override bool Equals(object obj)
+            {
+                if (obj == null || !GetType().Equals(obj.GetType()))
+                {
+                    return false;
+                }
+                else
+                {
+                    return this == (Rectangle)obj;
+                }
+            }
+
+            public override int GetHashCode() => System.HashCode.Combine(bottomLeft, topRight, filled);
+
+            public override string ToString() => "Rectangle(" + bottomLeft.ToString() + ", " + topRight.ToString() + "," + filled + ")";
         }
 
         /// <summary>
@@ -296,62 +456,22 @@ namespace PAC.Drawing
         {
             Texture2D tex = Tex2DSprite.BlankTexture(texWidth, texHeight);
 
-            int i = 0;
             foreach (IntVector2 pixel in new Line(start, end))
             {
                 tex.SetPixel(pixel.x, pixel.y, colour);
-                i++;
             }
 
             tex.Apply();
             return tex;
         }
 
-        public static Texture2D Rectangle(int texWidth, int texHeight, IntVector2 start, IntVector2 end, Color colour, bool filled)
+        public static Texture2D RectangleTex(int texWidth, int texHeight, IntVector2 start, IntVector2 end, Color colour, bool filled)
         {
-            IntVector2 bottomLeft = new IntVector2(Mathf.Min(start.x, end.x), Mathf.Min(start.y, end.y));
-            IntVector2 topRight = new IntVector2(Mathf.Max(start.x, end.x), Mathf.Max(start.y, end.y));
-
             Texture2D tex = Tex2DSprite.BlankTexture(texWidth, texHeight);
 
-            if (filled)
+            foreach (IntVector2 pixel in new Rectangle(start, end, filled))
             {
-                for (int x = bottomLeft.x; x <= topRight.x; x++)
-                {
-                    for (int y = bottomLeft.y; y <= topRight.y; y++)
-                    {
-                        if (tex.ContainsPixel(x, y))
-                        {
-                            tex.SetPixel(x, y, colour);
-                        }
-                    }
-                }
-            }
-            else
-            {
-                for (int x = bottomLeft.x; x <= topRight.x; x++)
-                {
-                    if (tex.ContainsPixel(x, bottomLeft.y))
-                    {
-                        tex.SetPixel(x, bottomLeft.y, colour);
-                    }
-                    if (tex.ContainsPixel(x, topRight.y))
-                    {
-                        tex.SetPixel(x, topRight.y, colour);
-                    }
-                }
-
-                for (int y = bottomLeft.y + 1; y < topRight.y; y++)
-                {
-                    if (tex.ContainsPixel(bottomLeft.x, y))
-                    {
-                        tex.SetPixel(bottomLeft.x, y, colour);
-                    }
-                    if (tex.ContainsPixel(topRight.x, y))
-                    {
-                        tex.SetPixel(topRight.x, y, colour);
-                    }
-                }
+                tex.SetPixel(pixel.x, pixel.y, colour);
             }
 
             tex.Apply();
@@ -360,7 +480,7 @@ namespace PAC.Drawing
 
         public static Texture2D Square(int texWidth, int texHeight, IntVector2 start, IntVector2 end, Color colour, bool filled, bool stayWithinImageBounds)
         {
-            return Rectangle(texWidth, texHeight, start, SnapEndCoordToSquare(texWidth, texHeight, start, end, stayWithinImageBounds), colour, filled);
+            return RectangleTex(texWidth, texHeight, start, SnapEndCoordToSquare(texWidth, texHeight, start, end, stayWithinImageBounds), colour, filled);
         }
 
         /// <summary>
