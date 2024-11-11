@@ -165,9 +165,9 @@ namespace PAC.Drawing
             {
                 if (isMoreHorizontal)
                 {
-                    return this[pixel.x - start.x] == pixel;
+                    return this[(pixel.x - start.x) * Math.Sign(end.x - start.x)] == pixel;
                 }
-                return this[pixel.y - start.y] == pixel;
+                return this[(pixel.y - start.y) * Math.Sign(end.y - start.y)] == pixel;
             }
 
             public IntVector2 this[int index]
