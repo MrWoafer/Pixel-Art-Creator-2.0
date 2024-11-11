@@ -78,9 +78,9 @@ namespace PAC.DataStructures
         {
             return rect1.bottomLeft == rect2.bottomLeft && rect1.topRight == rect2.topRight;
         }
-        public static bool operator !=(IntRect a, IntRect b)
+        public static bool operator !=(IntRect rect1, IntRect rect2)
         {
-            return !(a == b);
+            return !(rect1 == rect2);
         }
         public override bool Equals(System.Object obj)
         {
