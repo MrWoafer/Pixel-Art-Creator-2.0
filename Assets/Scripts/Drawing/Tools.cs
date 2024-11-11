@@ -91,9 +91,10 @@ namespace PAC.Drawing
             {
                 throw new System.Exception("Layer is not a normal layer. Layer type: " + file.layers[layer].layerType);
             }
+
             Shapes.Line line = new Shapes.Line(start, end);
 
-            ((NormalLayer)file.layers[layer]).SetPixels(line.ToArray(), frame, colour, AnimFrameRefMode.NewKeyFrame);
+            ((NormalLayer)file.layers[layer]).SetPixels(line, frame, colour, AnimFrameRefMode.NewKeyFrame);
         }
 
         public static void UseSquare(File file, int layer, int frame, IntVector2 start, IntVector2 end, Color colour, bool filled, bool stayWithinImageBounds)
@@ -102,8 +103,11 @@ namespace PAC.Drawing
             {
                 throw new System.Exception("Layer is not a normal layer. Layer type: " + file.layers[layer].layerType);
             }
-            Texture2D square = Shapes.Square(file.width, file.height, start, end, colour, filled, stayWithinImageBounds);
-            ((NormalLayer)file.layers[layer]).OverlayTexture(frame, square, AnimFrameRefMode.NewKeyFrame);
+
+            end = Shapes.SnapEndCoordToSquare(file.width, file.height, start, end, stayWithinImageBounds);
+            Shapes.Rectangle line = new Shapes.Rectangle(start, end, filled);
+
+            ((NormalLayer)file.layers[layer]).SetPixels(line.ToArray(), frame, colour, AnimFrameRefMode.NewKeyFrame);
         }
 
         public static void UseRectangle(File file, int layer, int frame, IntVector2 start, IntVector2 end, Color colour, bool filled)
@@ -112,8 +116,10 @@ namespace PAC.Drawing
             {
                 throw new System.Exception("Layer is not a normal layer. Layer type: " + file.layers[layer].layerType);
             }
-            Texture2D rectangle = Shapes.RectangleTex(file.width, file.height, start, end, colour, filled);
-            ((NormalLayer)file.layers[layer]).OverlayTexture(frame, rectangle, AnimFrameRefMode.NewKeyFrame);
+
+            Shapes.Rectangle line = new Shapes.Rectangle(start, end, filled);
+
+            ((NormalLayer)file.layers[layer]).SetPixels(line.ToArray(), frame, colour, AnimFrameRefMode.NewKeyFrame);
         }
 
         public static void UseCircle(File file, int layer, int frame, IntVector2 start, IntVector2 end, Color colour, bool filled, bool stayWithinImageBounds)
