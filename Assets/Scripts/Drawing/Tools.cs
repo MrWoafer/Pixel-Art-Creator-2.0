@@ -21,22 +21,32 @@ namespace PAC.Drawing
         /// <summary>
         /// Smooth the meeting point of the two lines (given as coords) so it is pixel-perfect - i.e. no hard 90-degree corner.
         /// </summary>
-        public static bool PencilLineSmoothing(File file, int layer, int frame, IntVector2[] line, IntVector2[] previousLine, Color colourLineMeetingPoint)
+        public static bool PencilLineSmoothing(Shapes.Line line, Shapes.Line? previousLine, bool previousLineWasSmoothed)
         {
-            if (previousLine.Length != 0)
+            if (!previousLine.HasValue)
             {
-                IntVector2[] offsets = new IntVector2[] { IntVector2.left, IntVector2.right, IntVector2.down, IntVector2.up };
-                foreach (IntVector2 offset1 in offsets)
+                return false;
+            }
+
+            IntVector2[] offsets = new IntVector2[] { IntVector2.left, IntVector2.right, IntVector2.down, IntVector2.up };
+            foreach (IntVector2 offset1 in offsets)
+            {
+                foreach (IntVector2 offset2 in offsets)
                 {
-                    foreach (IntVector2 offset2 in offsets)
+                    if (IntVector2.Dot(offset1, offset2) != 0)
                     {
-                        bool pixelShouldBeSmoothed = IntVector2.Dot(offset1, offset2) == 0 && previousLine.Contains(line[0] + offset1) && line.Contains(line[0] + offset2) &&
-                                                     !line.Contains(line[0] - offset1);
-                        if (pixelShouldBeSmoothed)
-                        {
-                            file.layers[layer].SetPixel(line[0], frame, colourLineMeetingPoint, AnimFrameRefMode.NewKeyFrame);
-                            return true;
-                        }
+                        continue;
+                    }
+
+                    if (previousLineWasSmoothed && line.start + offset1 == previousLine.Value.start)
+                    {
+                        continue;
+                    }
+
+                    bool pixelShouldBeSmoothed = previousLine.Contains(line.start + offset1) && line.Contains(line.start + offset2) && !line.Contains(line.start - offset1);
+                    if (pixelShouldBeSmoothed)
+                    {
+                        return true;
                     }
                 }
             }
@@ -102,7 +112,7 @@ namespace PAC.Drawing
             {
                 throw new System.Exception("Layer is not a normal layer. Layer type: " + file.layers[layer].layerType);
             }
-            Texture2D rectangle = Shapes.Rectangle(file.width, file.height, start, end, colour, filled);
+            Texture2D rectangle = Shapes.RectangleTex(file.width, file.height, start, end, colour, filled);
             ((NormalLayer)file.layers[layer]).OverlayTexture(frame, rectangle, AnimFrameRefMode.NewKeyFrame);
         }
 

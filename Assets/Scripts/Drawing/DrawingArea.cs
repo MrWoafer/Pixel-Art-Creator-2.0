@@ -163,7 +163,8 @@ namespace PAC.Drawing
         private IntVector2 tileBeingMovedLastValidPosition;
 
         // Line smoothing variables
-        private IntVector2[] lineSmoothingPreviousLine = new IntVector2[0];
+        private Shapes.Line? lineSmoothingPreviousLine = null;
+        private bool lineSmoothingPreviousLineWasSmoothed = false;
         private Color lineSmoothingColourUnderLineEnd = Config.Colours.transparent;
         private float lineSmoothingCountdown = 0f;
 
@@ -258,19 +259,26 @@ namespace PAC.Drawing
                         else
                         {
                             // Mouse movement interpolation
-                            IntVector2[] line = Shapes.LineCoords(previousPixelUsedToolOn, mousePixel);
-                            Color colourUnderLineEnd = selectedLayer.GetPixel(line[^1], animationManager.currentFrameIndex);
+                            Shapes.Line line = new Shapes.Line(previousPixelUsedToolOn, mousePixel);
+                            Color colourUnderLineEnd = selectedLayer.GetPixel(line.end, animationManager.currentFrameIndex);
                             foreach (IntVector2 pixel in line)
                             {
                                 HoldClickTool(toolbar.selectedTool, pixel, selectedLayerIndex, currentFrameIndex, colour);
                             }
 
+                            // Pencil line smoothing
                             bool smoothed = false;
                             if (toolbar.selectedTool == Tool.Pencil)
                             {
-                                smoothed = Tools.PencilLineSmoothing(file, selectedLayerIndex, currentFrameIndex, line, lineSmoothingPreviousLine, lineSmoothingColourUnderLineEnd);
+                                smoothed = Tools.PencilLineSmoothing(line, lineSmoothingPreviousLine, lineSmoothingPreviousLineWasSmoothed);
+
+                                if (smoothed)
+                                {
+                                    file.layers[selectedLayerIndex].SetPixel(line.start, currentFrameIndex, lineSmoothingColourUnderLineEnd, AnimFrameRefMode.NewKeyFrame);
+                                }
                             }
-                            lineSmoothingPreviousLine = smoothed ? (from x in line where x != line[0] select x).ToArray() : line;
+                            lineSmoothingPreviousLine = line;
+                            lineSmoothingPreviousLineWasSmoothed = smoothed;
                             lineSmoothingColourUnderLineEnd = colourUnderLineEnd;
                         }
 
@@ -314,17 +322,17 @@ namespace PAC.Drawing
             if (inputTarget.mouseTarget.state != MouseTargetState.Pressed && !hasUnclickedSinceUsingTool)
             {
                 hasUnclickedSinceUsingTool = true;
-                lineSmoothingPreviousLine = new IntVector2[0];
+                lineSmoothingPreviousLine = null;
             }
 
             // Stop line smoothing from happening if it has been too long since the last pixel was painted
-            if (lineSmoothingPreviousLine.Length != 0)
+            if (lineSmoothingPreviousLine.HasValue)
             {
                 lineSmoothingCountdown -= Time.deltaTime;
 
                 if (lineSmoothingCountdown <= 0f)
                 {
-                    lineSmoothingPreviousLine = new IntVector2[0];
+                    lineSmoothingPreviousLine = null;
                     lineSmoothingCountdown = toolbar.lineSmoothingTime;
                 }
             }
@@ -892,7 +900,7 @@ namespace PAC.Drawing
         private void PreviewRectangle(IntVector2 start, IntVector2 end, Color colour, bool filled)
         {
             IntRect rect = new IntRect(start, end);
-            Texture2D tex = Shapes.Rectangle(rect.width, rect.height, start - rect.bottomLeft, end - rect.bottomLeft, colour, filled);
+            Texture2D tex = Shapes.RectangleTex(rect.width, rect.height, start - rect.bottomLeft, end - rect.bottomLeft, colour, filled);
 
             SetPreview(tex, rect.bottomLeft);
         }
@@ -1071,11 +1079,11 @@ namespace PAC.Drawing
         {
             if (erase)
             {
-                selectionMask = Tex2DSprite.Subtract(selectionMask, Shapes.Rectangle(file.width, file.height, start, end, Config.Colours.mask, true));
+                selectionMask = Tex2DSprite.Subtract(selectionMask, Shapes.RectangleTex(file.width, file.height, start, end, Config.Colours.mask, true));
             }
             else
             {
-                selectionMask = Shapes.Rectangle(file.width, file.height, start, end, Config.Colours.mask, true);
+                selectionMask = Shapes.RectangleTex(file.width, file.height, start, end, Config.Colours.mask, true);
             }
         }
         private void SelectionCircle(IntVector2 start, IntVector2 end, bool erase)
