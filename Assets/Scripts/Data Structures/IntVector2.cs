@@ -1,3 +1,4 @@
+using System;
 using System.Linq;
 using UnityEngine;
 
@@ -326,7 +327,7 @@ namespace PAC.DataStructures
         /// </summary>
         public static IntVector2 Max(IntVector2 a, IntVector2 b)
         {
-            return new IntVector2(Mathf.Max(a.x, b.x), Mathf.Max(a.y, b.y));
+            return new IntVector2(Math.Max(a.x, b.x), Math.Max(a.y, b.y));
     
         }
         /// <summary>
@@ -345,7 +346,7 @@ namespace PAC.DataStructures
         /// </summary>
         public static IntVector2 Min(IntVector2 a, IntVector2 b)
         {
-            return new IntVector2(Mathf.Min(a.x, b.x), Mathf.Min(a.y, b.y));
+            return new IntVector2(Math.Min(a.x, b.x), Math.Min(a.y, b.y));
         }
         /// <summary>
         /// Takes the minimum of the vectors component-wise.

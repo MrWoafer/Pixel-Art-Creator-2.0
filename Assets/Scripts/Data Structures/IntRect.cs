@@ -4,6 +4,7 @@ using System.Linq;
 using UnityEngine;
 using PAC;
 using System.Collections.Generic;
+using System;
 
 namespace PAC.DataStructures
 {
@@ -64,8 +65,8 @@ namespace PAC.DataStructures
 
         public IntRect(IntVector2 corner, IntVector2 oppositeCorner)
         {
-            _bottomLeft = new IntVector2(Mathf.Min(corner.x, oppositeCorner.x), Mathf.Min(corner.y, oppositeCorner.y));
-            _topRight = new IntVector2(Mathf.Max(corner.x, oppositeCorner.x), Mathf.Max(corner.y, oppositeCorner.y));
+            _bottomLeft = new IntVector2(Math.Min(corner.x, oppositeCorner.x), Math.Min(corner.y, oppositeCorner.y));
+            _topRight = new IntVector2(Math.Max(corner.x, oppositeCorner.x), Math.Max(corner.y, oppositeCorner.y));
         }
 
         public static bool operator !=(IntRect rect1, IntRect rect2) => !(rect1 == rect2);
@@ -208,7 +209,7 @@ namespace PAC.DataStructures
         /// </summary>
         public IntVector2 Clamp(IntVector2 intVector)
         {
-            return new IntVector2(Mathf.Clamp(intVector.x, bottomRight.x, topRight.x), Mathf.Clamp(intVector.y, bottomRight.y, topRight.y));
+            return new IntVector2(Math.Clamp(intVector.x, bottomRight.x, topRight.x), Math.Clamp(intVector.y, bottomRight.y, topRight.y));
         }
         /// <summary>
         /// Shifts the given rect so it is (weakly) contained within the rect.
