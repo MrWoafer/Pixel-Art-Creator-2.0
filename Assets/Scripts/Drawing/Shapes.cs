@@ -465,14 +465,6 @@ namespace PAC.Drawing
             public override string ToString() => "Rectangle(" + bottomLeft.ToString() + ", " + topRight.ToString() + "," + filled + ")";
         }
 
-        /// <summary>
-        /// Gets the coords of a pixel-perfect line between two points, ordered from start to end.
-        /// </summary>
-        public static IntVector2[] LineCoords(IntVector2 start, IntVector2 end)
-        {
-            return new Line(start, end).ToArray();
-        }
-
         public static Texture2D LineTex(int texWidth, int texHeight, IntVector2 start, IntVector2 end, Color colour)
         {
             Texture2D tex = Tex2DSprite.BlankTexture(texWidth, texHeight);
