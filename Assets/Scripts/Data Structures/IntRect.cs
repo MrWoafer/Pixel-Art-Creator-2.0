@@ -17,21 +17,29 @@ namespace PAC.DataStructures
         public IntVector2 bottomLeft
         {
             get => _bottomLeft;
-            set => _bottomLeft = value;
+            set
+            {
+                _bottomLeft = new IntVector2(Math.Min(value.x, _topRight.x), Math.Min(value.y, _topRight.y));
+                _topRight = new IntVector2(Math.Max(value.x, _topRight.x), Math.Max(value.y, _topRight.y));
+            }
         }
         private IntVector2 _topRight;
         public IntVector2 topRight
         {
             get => _topRight;
-            set => _topRight = value;
+            set
+            {
+                _bottomLeft = new IntVector2(Math.Min(_bottomLeft.x, value.x), Math.Min(_bottomLeft.y, value.y));
+                _topRight = new IntVector2(Math.Max(_bottomLeft.x, value.x), Math.Max(_bottomLeft.y, value.y));
+            }
         }
         public IntVector2 bottomRight
         {
             get => new IntVector2(topRight.x, bottomLeft.y);
             set
             {
-                _bottomLeft = new IntVector2(bottomLeft.x, value.y);
-                _topRight = new IntVector2(value.x, topRight.y);
+                bottomLeft = new IntVector2(bottomLeft.x, value.y);
+                topRight = new IntVector2(value.x, topRight.y);
             }
         }
         public IntVector2 topLeft
@@ -39,8 +47,8 @@ namespace PAC.DataStructures
             get => new IntVector2(bottomLeft.x, topRight.y);
             set
             {
-                _bottomLeft = new IntVector2(value.x, bottomLeft.y);
-                _topRight = new IntVector2(topRight.x, value.y);
+                bottomLeft = new IntVector2(value.x, bottomLeft.y);
+                topRight = new IntVector2(topRight.x, value.y);
             }
         }
         public Vector2 centre => (Vector2)(bottomLeft + topRight + IntVector2.one) / 2f;
