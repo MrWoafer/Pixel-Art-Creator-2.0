@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Codice.Client.Common;
 using PAC.DataStructures;
 using UnityEngine;
 
@@ -349,7 +350,27 @@ namespace PAC.Drawing
 
             public IntRect boundingRect => new IntRect(bottomLeft, topRight);
 
-            public int Count => width * height;
+            public int Count
+            {
+                get
+                {
+                    // Filled
+                    if (filled)
+                    {
+                        return width * height;
+                    }
+                    // Unfilled
+                    if (width == 1)
+                    {
+                        return height;
+                    }
+                    if (height == 1)
+                    {
+                        return width;
+                    }
+                    return 2 * (width + height) - 4;
+                }
+            }
 
             public Rectangle(IntVector2 corner, IntVector2 oppositeCorner, bool filled)
             {
