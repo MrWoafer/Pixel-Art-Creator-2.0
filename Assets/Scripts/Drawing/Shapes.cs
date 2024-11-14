@@ -301,7 +301,7 @@ namespace PAC.Drawing
                 }
             }
 
-            public override int GetHashCode() => System.HashCode.Combine(start, end);
+            public override int GetHashCode() => HashCode.Combine(start, end);
 
             public override string ToString() => "Line(" + start.ToString() + ", " + end.ToString() + ")";
         }
@@ -448,7 +448,7 @@ namespace PAC.Drawing
                 }
             }
 
-            public override int GetHashCode() => System.HashCode.Combine(bottomLeft, topRight, filled);
+            public override int GetHashCode() => HashCode.Combine(bottomLeft, topRight, filled);
 
             public override string ToString() => "Rectangle(" + bottomLeft.ToString() + ", " + topRight.ToString() + "," + (filled ? "filled" : "unfilled") + ")";
         }
