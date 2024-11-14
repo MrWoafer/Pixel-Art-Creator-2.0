@@ -345,5 +345,20 @@ namespace PAC.DataStructures
             }
             return new IntVector2(Enumerable.Min(from intVector in intVectors select intVector.x), Enumerable.Min(from intVector in intVectors select intVector.y));
         }
+
+        /// <summary>
+        /// Returns the IntVector2 rotated clockwise by the given angle.
+        /// </summary>
+        public IntVector2 Rotate(RotationAngle angle)
+        {
+            switch (angle)
+            {
+                case RotationAngle._0: return new IntVector2(x, y);
+                case RotationAngle._90: return new IntVector2(y, -x);
+                case RotationAngle._180: return new IntVector2(-x, -y);
+                case RotationAngle.Minus90: return new IntVector2(-y, x);
+                default: throw new Exception("Unknown / unimplemented angle: " + angle);
+            }
+        }
     }
 }
