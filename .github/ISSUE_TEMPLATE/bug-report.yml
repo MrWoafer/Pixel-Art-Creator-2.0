@@ -1,6 +1,5 @@
 name: Bug Report
-about: An issue template for reporting a bug
-title: ""
+description: An issue template for reporting a bug
 labels: ["bug"]
 body:
 - type: textarea
