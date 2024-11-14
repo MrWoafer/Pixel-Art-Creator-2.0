@@ -1,0 +1,48 @@
+name: Bug Report
+description: An issue template for reporting a bug
+labels: ["bug"]
+body:
+- type: textarea
+  attributes:
+    label: Description
+    description: Describe the bug. Include screenshots if applicable.
+  validations:
+    required: true
+- type: textarea
+  attributes:
+    label: How To Reproduce
+    description: Steps to reproduce the bug. Include screenshots if applicable.
+    placeholder: |
+      1. Go to ...
+      2. Click on ...
+      3. Scroll down to ...
+      4. Bug occurs
+  validations:
+    required: false
+- type: dropdown
+  attributes:
+    label: Operating System
+    description: The operating system you encountered the bug on.
+    multiple: true
+    options:
+      - Windows
+      - Mac
+      - Linux
+  validations:
+    required: true
+- type: dropdown
+  attributes:
+    label: Version
+    description: The version of the software you encountered the bug on.
+    options:
+      - 1.0.0
+      - pre-1.0.0
+    default: 0
+  validations:
+    required: true
+- type: textarea
+  attributes:
+    label: Additional Information
+    description: Any other context about the bug.
+  validations:
+    required: false
