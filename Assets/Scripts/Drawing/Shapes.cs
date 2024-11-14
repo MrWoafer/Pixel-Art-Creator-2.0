@@ -450,7 +450,7 @@ namespace PAC.Drawing
 
             public override int GetHashCode() => System.HashCode.Combine(bottomLeft, topRight, filled);
 
-            public override string ToString() => "Rectangle(" + bottomLeft.ToString() + ", " + topRight.ToString() + "," + filled + ")";
+            public override string ToString() => "Rectangle(" + bottomLeft.ToString() + ", " + topRight.ToString() + "," + (filled ? "filled" : "unfilled") + ")";
         }
 
         public static Texture2D LineTex(int texWidth, int texHeight, IntVector2 start, IntVector2 end, Color colour)
