@@ -434,7 +434,7 @@ namespace PAC.Drawing
             public static bool operator !=(Rectangle rectangle1, Rectangle rectangle2) => !(rectangle1 == rectangle2);
             public static bool operator ==(Rectangle rectangle1, Rectangle rectangle2)
             {
-                return rectangle1.bottomLeft == rectangle2.bottomLeft && rectangle1.topRight == rectangle2.topRight && rectangle1.filled == rectangle2.filled;
+                return rectangle1.boundingRect == rectangle2.boundingRect && rectangle1.filled == rectangle2.filled;
             }
             public override bool Equals(object obj)
             {
