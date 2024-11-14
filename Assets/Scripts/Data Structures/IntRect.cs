@@ -125,14 +125,7 @@ namespace PAC.DataStructures
         /// <summary>
         /// Cast to Unity Rect.
         /// </summary>
-        public static explicit operator Rect(IntRect intRect) => intRect.ToRect();
-        /// <summary>
-        /// Cast to Unity Rect.
-        /// </summary>
-        public Rect ToRect()
-        {
-            return new Rect(bottomLeft, new Vector2(width + 1, height + 1));
-        }
+        public static implicit operator Rect(IntRect intRect) => new Rect(intRect.bottomLeft, new Vector2(intRect.width, intRect.height));
 
         /// <summary>
         /// Returns true if the rect is a square.
