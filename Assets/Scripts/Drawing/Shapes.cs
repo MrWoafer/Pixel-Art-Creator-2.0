@@ -453,6 +453,245 @@ namespace PAC.Drawing
             public override string ToString() => "Rectangle(" + bottomLeft.ToString() + ", " + topRight.ToString() + "," + (filled ? "filled" : "unfilled") + ")";
         }
 
+        public struct Ellipse : IShape
+        {
+            public IntVector2 bottomLeft
+            {
+                get => boundingRect.bottomLeft;
+                set => SetValues(value, topRight);
+            }
+            public IntVector2 topRight
+            {
+                get => boundingRect.topRight;
+                set => SetValues(value, bottomLeft);
+            }
+            public IntVector2 bottomRight
+            {
+                get => boundingRect.bottomRight;
+                set => SetValues(value, topLeft);
+            }
+            public IntVector2 topLeft
+            {
+                get => boundingRect.topLeft;
+                set => SetValues(value, bottomRight);
+            }
+
+            public bool filled { get; set; }
+
+            public int width { get; private set; }
+            public int height { get; private set; }
+
+            private float xRadius;
+            private float yRadius;
+            private Vector2 centre;
+
+            private Vector2 focus1;
+            private Vector2 focus2;
+            private float eccentricity;
+
+            /// <summary>True if the ellipse is a circle.</summary>
+            public bool isCircle => width == height;
+
+            public IntRect boundingRect { get; private set; }
+
+            public int Count => ((IEnumerable<IntVector2>)this).Count();
+
+            public Ellipse(IntVector2 corner, IntVector2 oppositeCorner, bool filled)
+            {
+                boundingRect = new IntRect(IntVector2.zero, IntVector2.zero);
+                this.filled = filled;
+
+                width = 0;
+                height = 0;
+
+                xRadius = 0f;
+                yRadius = 0f;
+                centre = Vector2.zero;
+
+                focus1 = Vector2.zero;
+                focus2 = Vector2.zero;
+                eccentricity = 0f;
+
+                SetValues(corner, oppositeCorner);
+            }
+
+            private void SetValues(IntVector2 corner, IntVector2 oppositeCorner)
+            {
+                boundingRect = new IntRect(corner, oppositeCorner);
+
+                width = topRight.x - bottomLeft.x + 1;
+                height = topRight.y - bottomLeft.y + 1;
+
+                xRadius = width / 2f;
+                yRadius = height / 2f;
+                centre = ((Vector2)bottomLeft + topRight) / 2f + new Vector2(0.5f, 0.5f);
+
+                if (xRadius >= yRadius)
+                {
+                    float focusDistance = Mathf.Sqrt(xRadius * xRadius - yRadius * yRadius);
+
+                    focus1 = centre - new Vector2(focusDistance, 0f);
+                    focus2 = centre + new Vector2(focusDistance, 0f);
+                    eccentricity = focusDistance / xRadius;
+                }
+                else
+                {
+                    float focusDistance = Mathf.Sqrt(yRadius * yRadius - xRadius * xRadius);
+
+                    focus1 = centre - new Vector2(0f, focusDistance);
+                    focus2 = centre + new Vector2(0f, focusDistance);
+                    eccentricity = focusDistance / yRadius;
+                }
+            }
+
+            /// <summary>
+            /// Determines whether the pixel is inside the filled ellipse (including the border).
+            /// </summary>
+            private bool IsInside(IntVector2 pixel) => IsInside(pixel.x, pixel.y);
+            /// <summary>
+            /// Determines whether (x, y) is inside the filled ellipse (including the border).
+            /// </summary>
+            private bool IsInside(int x, int y)
+            {
+                // Manually override 3x3 case (as otherwise the algorithm gives a 3x3 square instead of the more aesthetic 'plus sign')
+                if (width == 3 && height == 3)
+                {
+                    IntVector2 centre = bottomLeft + IntVector2.one;
+                    return Math.Abs(x - centre.x) + Math.Abs(y - centre.y) <= 1;
+                }
+
+                //float sumOfDistances = Vector2.Distance(new Vector2(x + 0.5f, y + 0.5f), focus1) + Vector2.Distance(new Vector2(x + 0.5f, y + 0.5f), focus2);
+                //return sumOfDistances <= 2 * Mathf.Max(xRadius, yRadius);
+
+                Vector2 offsetCentre = ((Vector2)bottomLeft + topRight) / 2f;
+                return (x - offsetCentre.x) * (x - offsetCentre.x) / (xRadius * xRadius) + (y  - offsetCentre.y) * (y - offsetCentre.y) / (yRadius * yRadius) <= 1f;
+
+                //return 4f * (x + 0.5f - centre.x) * (x + 0.5f - centre.x) * height * height + 4f * (y + 0.5f - centre.y) * (y + 0.5f - centre.y) * width * width <= width * width * height * height;
+            }
+
+            public bool Contains(IntVector2 pixel)
+            {
+                // Filled
+                if (filled)
+                {
+                    return IsInside(pixel);
+                }
+
+                // Unfilled
+
+                if (!!IsInside(pixel))
+                {
+                    return false;
+                }
+                if (!IsInside(pixel + IntVector2.up) || !IsInside(pixel + IntVector2.down) || !IsInside(pixel + IntVector2.left) || !IsInside(pixel + IntVector2.right))
+                {
+                    return true;
+                }
+                return false;
+            }
+
+            IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();
+            public IEnumerator<IntVector2> GetEnumerator()
+            {
+                // Filled
+                if (filled)
+                {
+                    for (int y = bottomLeft.y; y <= topRight.y; y++)
+                    {
+                        int x = Mathf.FloorToInt(centre.x);
+                        while (IsInside(x, y))
+                        {
+                            yield return new IntVector2(x, y);
+                            x--;
+                        }
+
+                        x = Mathf.FloorToInt(centre.x) + 1;
+                        while (IsInside(x, y))
+                        {
+                            yield return new IntVector2(x, y);
+                            x++;
+                        }
+                    }
+                    yield break;
+                }
+
+                // Unfilled
+
+                foreach ((IntVector2 start, IntVector2 moveDir, IntVector2 nudgeDir) in new (IntVector2, IntVector2, IntVector2)[]
+                {
+                    (new IntVector2(bottomLeft.x + width / 2, topRight.y), IntVector2.right, IntVector2.down),
+                    (new IntVector2(topRight.x, bottomLeft.y + height / 2), IntVector2.up, IntVector2.left)
+                })
+                {
+                    IntVector2 pixel = start;
+
+                    int error = 0;
+
+                    while (IsInside(pixel))
+                    {
+                        do
+                        {
+                            yield return pixel;
+                            yield return new IntVector2(bottomLeft.x + (topRight.x - pixel.x), pixel.y);
+                            yield return new IntVector2(pixel.x, bottomLeft.y + (topRight.y - pixel.y));
+                            yield return bottomLeft + (topRight - pixel);
+
+                            pixel += moveDir;
+                        }
+                        while (IsInside(pixel));
+
+                        pixel += nudgeDir;
+                    }
+                }
+
+                foreach ((IntVector2 start, IntVector2 moveDir, IntVector2 nudgeDir) in new (IntVector2, IntVector2, IntVector2)[]
+                {
+                    (new IntVector2(bottomLeft.x + width / 2, topRight.y), IntVector2.right, IntVector2.down),
+                    (new IntVector2(topRight.x, bottomLeft.y + height / 2), IntVector2.up, IntVector2.left)
+                })
+                {
+                    IntVector2 pixel = start;
+
+                    while (IsInside(pixel))
+                    {
+                        do
+                        {
+                            yield return pixel;
+                            yield return new IntVector2(bottomLeft.x + (topRight.x - pixel.x), pixel.y);
+                            yield return new IntVector2(pixel.x, bottomLeft.y + (topRight.y - pixel.y));
+                            yield return bottomLeft + (topRight - pixel);
+
+                            pixel += moveDir;
+                        }
+                        while (IsInside(pixel));
+
+                        pixel += nudgeDir;
+                    }
+                }
+            }
+
+            public static bool operator !=(Ellipse ellipse1, Ellipse ellipse2) => !(ellipse1 == ellipse2);
+            public static bool operator ==(Ellipse ellipse1, Ellipse ellipse2)
+            {
+                return ellipse1.boundingRect == ellipse2.boundingRect && ellipse1.filled == ellipse2.filled;
+            }
+            public override bool Equals(object obj)
+            {
+                if (obj == null || !GetType().Equals(obj.GetType()))
+                {
+                    return false;
+                }
+                else
+                {
+                    return this == (Ellipse)obj;
+                }
+            }
+
+            public override int GetHashCode() => HashCode.Combine(bottomLeft, topRight, filled);
+
+            public override string ToString() => "Ellipse(" + bottomLeft.ToString() + ", " + topRight.ToString() + "," + (filled ? "filled" : "unfilled") + ")";
+        }
+
         public static Texture2D LineTex(int texWidth, int texHeight, IntVector2 start, IntVector2 end, Color colour)
         {
             Texture2D tex = Tex2DSprite.BlankTexture(texWidth, texHeight);
@@ -513,7 +752,7 @@ namespace PAC.Drawing
             return end;
         }
 
-        public static Texture2D Ellipse(int texWidth, int texHeight, IntVector2 start, IntVector2 end, Color colour, bool filled)
+        public static Texture2D EllipseTex(int texWidth, int texHeight, IntVector2 start, IntVector2 end, Color colour, bool filled)
         {
             Texture2D tex = Tex2DSprite.BlankTexture(texWidth, texHeight);
 
@@ -541,68 +780,9 @@ namespace PAC.Drawing
                 focus2 = centre + new Vector2(0f, focusDistance);
             }
 
-            if (filled)
+            foreach (IntVector2 pixel in new Ellipse(start, end, filled))
             {
-                for (int x = bottomLeft.x; x <= topRight.x; x++)
-                {
-                    for (int y = bottomLeft.y; y <= topRight.y; y++)
-                    {
-                        float sumOfDistances = Vector2.Distance(new Vector2(x + 0.5f, y + 0.5f), focus1) + Vector2.Distance(new Vector2(x + 0.5f, y + 0.5f), focus2);
-
-                        if (sumOfDistances <= 2 * Mathf.Max(xRadius, yRadius) && tex.ContainsPixel(x, y))
-                        {
-                            tex.SetPixel(x, y, colour);
-                        }
-                    }
-                }
-
-                if (topRight.x - bottomLeft.x == 2 && topRight.y - bottomLeft.y == 2)
-                {
-                    if (tex.ContainsPixel(bottomLeft.x, bottomLeft.y))
-                    {
-                        tex.SetPixel(bottomLeft.x, bottomLeft.y, Config.Colours.transparent);
-                    }
-                    if (tex.ContainsPixel(bottomLeft.x, topRight.y))
-                    {
-                        tex.SetPixel(bottomLeft.x, topRight.y, Config.Colours.transparent);
-                    }
-                    if (tex.ContainsPixel(topRight.x, bottomLeft.y))
-                    {
-                        tex.SetPixel(topRight.x, bottomLeft.y, Config.Colours.transparent);
-                    }
-                    if (tex.ContainsPixel(topRight.x, topRight.y))
-                    {
-                        tex.SetPixel(topRight.x, topRight.y, Config.Colours.transparent);
-                    }
-                }
-            }
-            else
-            {
-                for (int x = bottomLeft.x; x <= topRight.x; x++)
-                {
-                    for (int y = bottomLeft.y; y <= topRight.y; y++)
-                    {
-                        float sumOfDistances = Vector2.Distance(new Vector2(x + 0.5f, y + 0.5f), focus1) + Vector2.Distance(new Vector2(x + 0.5f, y + 0.5f), focus2);
-                        if (sumOfDistances <= 2 * Mathf.Max(xRadius, yRadius) && tex.ContainsPixel(x, y))
-                        {
-                            bool onBorder = false;
-                            foreach (IntVector2 offset in new IntVector2[] { new IntVector2(1, 0), new IntVector2(0, 1), new IntVector2(-1, 0), new IntVector2(0, -1) })
-                            {
-                                sumOfDistances = Vector2.Distance(new Vector2(x + 0.5f, y + 0.5f) + offset, focus1) + Vector2.Distance(new Vector2(x + 0.5f, y + 0.5f) + offset, focus2);
-                                if (sumOfDistances > 2 * Mathf.Max(xRadius, yRadius))
-                                {
-                                    onBorder = true;
-                                    break;
-                                }
-                            }
-
-                            if (onBorder)
-                            {
-                                tex.SetPixel(x, y, colour);
-                            }
-                        }
-                    }
-                }
+                tex.SetPixel(pixel.x, pixel.y, colour);
             }
 
             tex.Apply();
@@ -611,7 +791,7 @@ namespace PAC.Drawing
 
         public static Texture2D Circle(int texWidth, int texHeight, IntVector2 start, IntVector2 end, Color colour, bool filled, bool stayWithinImageBounds)
         {
-            return Ellipse(texWidth, texHeight, start, SnapEndCoordToSquare(texWidth, texHeight, start, end, stayWithinImageBounds), colour, filled);
+            return EllipseTex(texWidth, texHeight, start, SnapEndCoordToSquare(texWidth, texHeight, start, end, stayWithinImageBounds), colour, filled);
         }
 
         public static Texture2D RightTriangle(int texWidth, int texHeight, IntVector2 start, IntVector2 end, Color colour, bool rightAngleOnBottom, bool filled)

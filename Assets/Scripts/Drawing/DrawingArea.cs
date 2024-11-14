@@ -917,7 +917,7 @@ namespace PAC.Drawing
         private void PreviewEllipse(IntVector2 start, IntVector2 end, Color colour, bool filled)
         {
             IntRect rect = new IntRect(start, end);
-            Texture2D tex = Shapes.Ellipse(rect.width, rect.height, start - rect.bottomLeft, end - rect.bottomLeft, colour, filled);
+            Texture2D tex = Shapes.EllipseTex(rect.width, rect.height, start - rect.bottomLeft, end - rect.bottomLeft, colour, filled);
 
             SetPreview(tex, rect.bottomLeft);
         }
@@ -1101,11 +1101,11 @@ namespace PAC.Drawing
         {
             if (erase)
             {
-                selectionMask = Tex2DSprite.Subtract(selectionMask, Shapes.Ellipse(file.width, file.height, start, end, Config.Colours.mask, true));
+                selectionMask = Tex2DSprite.Subtract(selectionMask, Shapes.EllipseTex(file.width, file.height, start, end, Config.Colours.mask, true));
             }
             else
             {
-                selectionMask = Shapes.Ellipse(file.width, file.height, start, end, Config.Colours.mask, true);
+                selectionMask = Shapes.EllipseTex(file.width, file.height, start, end, Config.Colours.mask, true);
             }
         }
 

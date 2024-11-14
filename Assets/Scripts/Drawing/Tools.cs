@@ -138,7 +138,7 @@ namespace PAC.Drawing
             {
                 throw new System.Exception("Layer is not a normal layer. Layer type: " + file.layers[layer].layerType);
             }
-            Texture2D ellipse = Shapes.Ellipse(file.width, file.height, start, end, colour, filled);
+            Texture2D ellipse = Shapes.EllipseTex(file.width, file.height, start, end, colour, filled);
             ((NormalLayer)file.layers[layer]).OverlayTexture(frame, ellipse, AnimFrameRefMode.NewKeyFrame);
         }
 
