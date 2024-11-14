@@ -22,7 +22,7 @@ body:
 - type: dropdown
   attributes:
     label: Operating System
-    description: The operating system you encountered the bug on.
+    description: The operating system(s) you encountered the bug on.
     multiple: true
     options:
       - Windows
