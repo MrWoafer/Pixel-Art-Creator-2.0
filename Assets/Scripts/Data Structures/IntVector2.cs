@@ -253,7 +253,7 @@ namespace PAC.DataStructures
         /// </summary>
         public static implicit operator Vector2(IntVector2 intVector) => new Vector2(intVector.x, intVector.y);
         /// <summary>
-        /// Cast from Unity Vector2.
+        /// Cast from Unity Vector2, by casting each coordinate to int.
         /// </summary>
         public static explicit operator IntVector2(Vector2 vector) => new IntVector2((int)vector.x, (int)vector.y);
 
@@ -262,7 +262,7 @@ namespace PAC.DataStructures
         /// </summary>
         public static implicit operator Vector3(IntVector2 intVector) => new Vector3(intVector.x, intVector.y, 0f);
         /// <summary>
-        /// Cast from Unity Vector3.
+        /// Cast from Unity Vector3, by casting the x and y coordinates to int and ignoring the z coordinate.
         /// </summary>
         public static explicit operator IntVector2(Vector3 vector) => new IntVector2((int)vector.x, (int)vector.y);
 
