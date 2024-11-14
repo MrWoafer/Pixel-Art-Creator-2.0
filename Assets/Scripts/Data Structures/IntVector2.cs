@@ -252,11 +252,19 @@ namespace PAC.DataStructures
         /// Cast to Unity Vector2.
         /// </summary>
         public static implicit operator Vector2(IntVector2 intVector) => new Vector2(intVector.x, intVector.y);
+        /// <summary>
+        /// Cast from Unity Vector2.
+        /// </summary>
+        public static explicit operator IntVector2(Vector2 vector) => new IntVector2((int)vector.x, (int)vector.y);
 
         /// <summary>
         /// Cast to Unity Vector3, with a 0 in the z-coord.
         /// </summary>
         public static implicit operator Vector3(IntVector2 intVector) => new Vector3(intVector.x, intVector.y, 0f);
+        /// <summary>
+        /// Cast from Unity Vector3.
+        /// </summary>
+        public static explicit operator IntVector2(Vector3 vector) => new IntVector2((int)vector.x, (int)vector.y);
 
         /// <summary>
         /// Floors component-wise.
