@@ -2,7 +2,6 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using Codice.Client.Common;
 using PAC.DataStructures;
 using UnityEngine;
 
@@ -309,35 +308,25 @@ namespace PAC.Drawing
 
         public struct Rectangle : IShape
         {
-            private IntVector2 _bottomLeft;
             public IntVector2 bottomLeft
             {
-                get => _bottomLeft;
-                set => _bottomLeft = value;
+                get => boundingRect.bottomLeft;
+                set => boundingRect = new IntRect(value, topRight);
             }
-            private IntVector2 _topRight;
             public IntVector2 topRight
             {
-                get => _topRight;
-                set => _topRight = value;
+                get => boundingRect.topRight;
+                set => boundingRect = new IntRect(value, bottomLeft);
             }
             public IntVector2 bottomRight
             {
-                get => new IntVector2(topRight.x, bottomLeft.y);
-                set
-                {
-                    _bottomLeft = new IntVector2(bottomLeft.x, value.y);
-                    _topRight = new IntVector2(value.x, topRight.y);
-                }
+                get => boundingRect.bottomRight;
+                set => boundingRect = new IntRect(value, topLeft);
             }
             public IntVector2 topLeft
             {
-                get => new IntVector2(bottomLeft.x, topRight.y);
-                set
-                {
-                    _bottomLeft = new IntVector2(value.x, bottomLeft.y);
-                    _topRight = new IntVector2(topRight.x, value.y);
-                }
+                get => boundingRect.topLeft;
+                set => boundingRect = new IntRect(value, bottomRight);
             }
 
             public bool filled { get; set; }
@@ -348,7 +337,7 @@ namespace PAC.Drawing
             /// <summary>True if the rect is a square.</summary>
             public bool isSquare => width == height;
 
-            public IntRect boundingRect => new IntRect(bottomLeft, topRight);
+            public IntRect boundingRect { get; private set; }
 
             public int Count
             {
@@ -374,8 +363,7 @@ namespace PAC.Drawing
 
             public Rectangle(IntVector2 corner, IntVector2 oppositeCorner, bool filled)
             {
-                _bottomLeft = new IntVector2(Math.Min(corner.x, oppositeCorner.x), Math.Min(corner.y, oppositeCorner.y));
-                _topRight = new IntVector2(Math.Max(corner.x, oppositeCorner.x), Math.Max(corner.y, oppositeCorner.y));
+                boundingRect = new IntRect(corner, oppositeCorner);
                 this.filled = filled;
             }
 
