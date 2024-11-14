@@ -522,7 +522,7 @@ namespace PAC.Drawing
 
             float xRadius = (topRight.x - bottomLeft.x) / 2f + 0.5f;
             float yRadius = (topRight.y - bottomLeft.y) / 2f + 0.5f;
-            Vector2 centre = (bottomLeft.ToVector2() + topRight.ToVector2()) / 2f + new Vector2(0.5f, 0.5f);
+            Vector2 centre = ((Vector2)bottomLeft + topRight) / 2f + new Vector2(0.5f, 0.5f);
 
             Vector2 focus1;
             Vector2 focus2;
@@ -1087,7 +1087,7 @@ namespace PAC.Drawing
                 return tex;
             }
 
-            Vector2 dir = (end - start).ToVector2();
+            Vector2 dir = end - start;
             float distance = dir.magnitude;
 
             for (int x = 0; x < texWidth; x++)
@@ -1101,8 +1101,8 @@ namespace PAC.Drawing
                     else
                     {
                         Vector2 point = new Vector2(x, y);
-                        float perpendicularDistance = Vector2.Distance(start.ToVector2(), point) * Vector2.Dot(point - start.ToVector2(), dir) /
-                                                      (point - start.ToVector2()).magnitude / dir.magnitude;
+                        float perpendicularDistance = Vector2.Distance(start, point) * Vector2.Dot(point - start, dir) /
+                                                      (point - start).magnitude / dir.magnitude;
 
                         float scalar = Mathf.Clamp01(perpendicularDistance / distance);
 
@@ -1139,7 +1139,7 @@ namespace PAC.Drawing
             {
                 for (int y = 0; y < texHeight; y++)
                 {
-                    float distanceToPoint = Vector2.Distance(start.ToVector2(), new Vector2(x, y));
+                    float distanceToPoint = Vector2.Distance(start, new Vector2(x, y));
 
                     float scalar = Mathf.Clamp01(distanceToPoint / distance);
 
