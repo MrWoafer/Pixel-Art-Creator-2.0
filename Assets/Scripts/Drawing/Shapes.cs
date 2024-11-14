@@ -215,14 +215,14 @@ namespace PAC.Drawing
 
                     if (isMoreHorizontal)
                     {
-                        float gradient = (imaginaryEnd.y - imaginaryStart.y) / (imaginaryEnd.x - imaginaryStart.x);
+                        float imaginaryGradient = (imaginaryEnd.y - imaginaryStart.y) / (imaginaryEnd.x - imaginaryStart.x);
 
                         int x = start.x + index * Math.Sign(end.x - start.x);
 
                         // Line equation is:
                         //      gradient = (y - lineStart.y) / (x - lineStart.x)
                         // We plug in x + 0.5 (the + 0.5 if because we use the centre of the pixel)
-                        float y = (x + 0.5f - imaginaryStart.x) * gradient + imaginaryStart.y;
+                        float y = (x + 0.5f - imaginaryStart.x) * imaginaryGradient + imaginaryStart.y;
 
                         // Deal with edge case of y being an integer to ensure line is rotationally symmetrical
                         // We always pull the y so it's closer to the endpoint x is closest to (e.g. if x is closer to start.x than end.x then we round y up/down to whichever is closer to start.y)
