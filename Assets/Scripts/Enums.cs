@@ -1,5 +1,8 @@
 namespace PAC
 {
+    /// <summary>
+    /// This should be interpreted as being clockwise.
+    /// </summary>
     public enum RotationAngle
     {
         _0 = 0,
