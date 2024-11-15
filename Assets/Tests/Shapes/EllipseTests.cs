@@ -73,6 +73,42 @@ namespace PAC.Tests
             }
         }
 
+        /// <summary>
+        /// Tests that an example ellips has the correct shape.
+        /// </summary>
+        [Test]
+        [Category("Shapes")]
+        public void ShapeExample1()
+        {
+            Shapes.Ellipse ellipse = new Shapes.Ellipse(IntVector2.zero, new IntVector2(6, 10), false);
+            IntVector2[] expected =
+            {
+                new IntVector2(3, 10), new IntVector2(4, 10), new IntVector2(5, 9), new IntVector2(5, 8), new IntVector2(6, 7), new IntVector2(6, 6), new IntVector2(6, 5), new IntVector2(6, 4),
+                new IntVector2(6, 3), new IntVector2(5, 2), new IntVector2(5, 1), new IntVector2(4, 0), new IntVector2(3, 0), new IntVector2(2, 0), new IntVector2(1, 1), new IntVector2(1, 2),
+                new IntVector2(0, 3), new IntVector2(0, 4), new IntVector2(0, 5), new IntVector2(0, 6), new IntVector2(0, 7), new IntVector2(1, 8), new IntVector2(1, 9), new IntVector2(2, 10)
+            };
+
+            Assert.True(expected.SequenceEqual(ellipse));
+        }
+
+        /// <summary>
+        /// Tests that an example ellips has the correct shape.
+        /// </summary>
+        [Test]
+        [Category("Shapes")]
+        public void ShapeExample2()
+        {
+            Shapes.Ellipse ellipse = new Shapes.Ellipse(IntVector2.zero, new IntVector2(5, 10), false);
+            IntVector2[] expected =
+            {
+                new IntVector2(3, 10), new IntVector2(4, 9), new IntVector2(5, 8), new IntVector2(5, 7), new IntVector2(5, 6), new IntVector2(5, 5), new IntVector2(5, 4), new IntVector2(5, 3),
+                new IntVector2(5, 2), new IntVector2(4, 1), new IntVector2(3, 0), new IntVector2(2, 0), new IntVector2(1, 1), new IntVector2(0, 2), new IntVector2(0, 3), new IntVector2(0, 4),
+                new IntVector2(0, 5), new IntVector2(0, 6), new IntVector2(0, 7), new IntVector2(0, 8), new IntVector2(1, 9), new IntVector2(2, 10)
+            };
+
+            Assert.True(expected.SequenceEqual(ellipse));
+        }
+
         private IEnumerable<Shapes.Ellipse> Datapoints(bool includeFilled, bool includeUnfilled)
         {
             List<bool> filledDatapoints = new List<bool>();
@@ -140,20 +176,6 @@ namespace PAC.Tests
         }
 
         /// <summary>
-        /// Tests that the shape of the Ellipse is only determined by the width and height, not by the position.
-        /// </summary>
-        [Test]
-        [Category("Shapes")]
-        public void TranslationalInvariance()
-        {
-            foreach (Shapes.Ellipse translated in Datapoints(true, true))
-            {
-                Shapes.Ellipse expected = new Shapes.Ellipse(IntVector2.zero, translated.topRight - translated.bottomLeft, translated.filled);
-                Assert.True(expected.SequenceEqual(translated.Select(x => x - translated.bottomLeft)), "Failed with " + translated);
-            }
-        }
-
-        /// <summary>
         /// Tests that the Ellipse enumerator doesn't repeat any pixels.
         /// </summary>
         [Test]
@@ -168,6 +190,35 @@ namespace PAC.Tests
                     Assert.False(visited.Contains(pixel), "Failed with " + ellipse + " and " + pixel);
                     visited.Add(pixel);
                 }
+            }
+        }
+
+        /// <summary>
+        /// Tests that the shape of the Ellipse is only determined by the width and height, not by the position.
+        /// </summary>
+        [Test]
+        [Category("Shapes")]
+        public void TranslationalInvariance()
+        {
+            foreach (Shapes.Ellipse translated in Datapoints(true, true))
+            {
+                Shapes.Ellipse expected = new Shapes.Ellipse(IntVector2.zero, translated.topRight - translated.bottomLeft, translated.filled);
+                Assert.True(expected.SequenceEqual(translated.Select(x => x - translated.bottomLeft)), "Failed with " + translated);
+            }
+        }
+
+        /// <summary>
+        /// Tests that rotating an Ellipse 90 degrees gives the same shape as creating one with the width/height swapped.
+        /// </summary>
+        [Test]
+        [Category("Shapes")]
+        public void RotationalInvariance()
+        {
+            foreach (Shapes.Ellipse translated in Datapoints(true, true))
+            {
+                Shapes.Ellipse expected = new Shapes.Ellipse(IntVector2.zero, new IntVector2(translated.height - 1, translated.width - 1), translated.filled);
+                Assert.True(expected.ToHashSet().SetEquals(translated.Select(x => (x - translated.bottomLeft).Rotate(RotationAngle._90) + new IntVector2(0, translated.width - 1))),
+                    "Failed with " + translated);
             }
         }
     }
