@@ -13,7 +13,7 @@ namespace PAC.Tests
         /// </summary>
         [Test]
         [Category("Shapes")]
-        public void Point()
+        public void ShapeSinglePoint()
         {
             foreach (bool filled in new bool[] { false, true})
             {
