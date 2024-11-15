@@ -8,16 +8,25 @@ namespace PAC.Tests
 {
     public class EllipseTests
     {
+        /// <summary>
+        /// Tests that ellipses that are single points have the correct shape.
+        /// </summary>
         [Test]
         [Category("Shapes")]
         public void Point()
         {
             foreach (bool filled in new bool[] { false, true})
             {
-                Assert.True(new Shapes.Ellipse(IntVector2.zero, IntVector2.zero, filled).SequenceEqual(new IntVector2[] { IntVector2.zero }));
+                foreach (IntVector2 pixel in new IntRect(new IntVector2(-5, 5), new IntVector2(5, 5)))
+                {
+                    Assert.True(new Shapes.Ellipse(pixel, pixel, filled).SequenceEqual(new IntVector2[] { pixel }));
+                }
             }
         }
 
+        /// <summary>
+        /// Tests that 2xn and nx2 ellipses have the correct shape.
+        /// </summary>
         [Test]
         [Category("Shapes")]
         public void Shape2xNAndNx2()
@@ -47,6 +56,9 @@ namespace PAC.Tests
             }
         }
 
+        /// <summary>
+        /// Tests that 3x3 ellipses have the correct shape.
+        /// </summary>
         [Test]
         [Category("Shapes")]
         public void Shape3x3()
@@ -127,6 +139,9 @@ namespace PAC.Tests
             }
         }
 
+        /// <summary>
+        /// Tests that the shape of the Ellipse is only determined by the width and height, not by the position.
+        /// </summary>
         [Test]
         [Category("Shapes")]
         public void TranslationalInvariance()
@@ -138,6 +153,9 @@ namespace PAC.Tests
             }
         }
 
+        /// <summary>
+        /// Tests that the Ellipse enumerator doesn't repeat any pixels.
+        /// </summary>
         [Test]
         [Category("Shapes")]
         public void NoRepeats()
