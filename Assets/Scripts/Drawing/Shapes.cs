@@ -285,10 +285,10 @@ namespace PAC.Drawing
                 }
             }
 
-            public static bool operator !=(Line line1, Line line2) => !(line1 == line2);
-            public static bool operator ==(Line line1, Line line2)
+            public static bool operator !=(Line a, Line b) => !(a == b);
+            public static bool operator ==(Line a, Line b)
             {
-                return line1.start == line2.start && line1.end == line2.end;
+                return a.start == b.start && a.end == b.end;
             }
             public override bool Equals(object obj)
             {
@@ -432,10 +432,10 @@ namespace PAC.Drawing
                 }
             }
 
-            public static bool operator !=(Rectangle rectangle1, Rectangle rectangle2) => !(rectangle1 == rectangle2);
-            public static bool operator ==(Rectangle rectangle1, Rectangle rectangle2)
+            public static bool operator !=(Rectangle a, Rectangle b) => !(a == b);
+            public static bool operator ==(Rectangle a, Rectangle b)
             {
-                return rectangle1.boundingRect == rectangle2.boundingRect && rectangle1.filled == rectangle2.filled;
+                return a.boundingRect == b.boundingRect && a.filled == b.filled;
             }
             public override bool Equals(object obj)
             {
@@ -657,10 +657,10 @@ namespace PAC.Drawing
                 while (pixel != start && iterations < 10_000);
             }
 
-            public static bool operator !=(Ellipse ellipse1, Ellipse ellipse2) => !(ellipse1 == ellipse2);
-            public static bool operator ==(Ellipse ellipse1, Ellipse ellipse2)
+            public static bool operator !=(Ellipse a, Ellipse b) => !(a == b);
+            public static bool operator ==(Ellipse a, Ellipse b)
             {
-                return ellipse1.boundingRect == ellipse2.boundingRect && ellipse1.filled == ellipse2.filled;
+                return a.boundingRect == b.boundingRect && a.filled == b.filled;
             }
             public override bool Equals(object obj)
             {
