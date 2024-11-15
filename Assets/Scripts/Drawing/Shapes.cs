@@ -525,7 +525,7 @@ namespace PAC.Drawing
 
                 xRadius = width / 2f;
                 yRadius = height / 2f;
-                centre = ((Vector2)bottomLeft + topRight) / 2f + new Vector2(0.5f, 0.5f);
+                centre = ((Vector2)bottomLeft + topRight) / 2f;
 
                 if (xRadius >= yRadius)
                 {
@@ -575,8 +575,7 @@ namespace PAC.Drawing
                 //float sumOfDistances = Vector2.Distance(new Vector2(x + 0.5f, y + 0.5f), focus1) + Vector2.Distance(new Vector2(x + 0.5f, y + 0.5f), focus2);
                 //return sumOfDistances <= 2 * Mathf.Max(xRadius, yRadius);
 
-                Vector2 offsetCentre = ((Vector2)bottomLeft + topRight) / 2f;
-                return (x - offsetCentre.x) * (x - offsetCentre.x) / (xRadius * xRadius) + (y  - offsetCentre.y) * (y - offsetCentre.y) / (yRadius * yRadius) <= 1f;
+                return (x - centre.x) * (x - centre.x) / (xRadius * xRadius) + (y  - centre.y) * (y - centre.y) / (yRadius * yRadius) <= 1f;
 
                 //return 4f * (x + 0.5f - centre.x) * (x + 0.5f - centre.x) * height * height + 4f * (y + 0.5f - centre.y) * (y + 0.5f - centre.y) * width * width <= width * width * height * height;
             }
