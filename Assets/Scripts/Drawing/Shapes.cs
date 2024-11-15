@@ -486,10 +486,6 @@ namespace PAC.Drawing
             private float yRadius;
             private Vector2 centre;
 
-            private Vector2 focus1;
-            private Vector2 focus2;
-            private float eccentricity;
-
             /// <summary>True if the ellipse is a circle.</summary>
             public bool isCircle => width == height;
 
@@ -509,10 +505,6 @@ namespace PAC.Drawing
                 yRadius = 0f;
                 centre = Vector2.zero;
 
-                focus1 = Vector2.zero;
-                focus2 = Vector2.zero;
-                eccentricity = 0f;
-
                 SetValues(corner, oppositeCorner);
             }
 
@@ -526,23 +518,6 @@ namespace PAC.Drawing
                 xRadius = width / 2f;
                 yRadius = height / 2f;
                 centre = ((Vector2)bottomLeft + topRight) / 2f;
-
-                if (xRadius >= yRadius)
-                {
-                    float focusDistance = Mathf.Sqrt(xRadius * xRadius - yRadius * yRadius);
-
-                    focus1 = centre - new Vector2(focusDistance, 0f);
-                    focus2 = centre + new Vector2(focusDistance, 0f);
-                    eccentricity = focusDistance / xRadius;
-                }
-                else
-                {
-                    float focusDistance = Mathf.Sqrt(yRadius * yRadius - xRadius * xRadius);
-
-                    focus1 = centre - new Vector2(0f, focusDistance);
-                    focus2 = centre + new Vector2(0f, focusDistance);
-                    eccentricity = focusDistance / yRadius;
-                }
             }
 
             /// <summary>
