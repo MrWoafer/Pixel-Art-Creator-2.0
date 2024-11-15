@@ -590,7 +590,7 @@ namespace PAC.Drawing
 
                 // Unfilled
 
-                if (!!IsInside(pixel))
+                if (!IsInside(pixel))
                 {
                     return false;
                 }
