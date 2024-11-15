@@ -554,13 +554,13 @@ namespace PAC.Drawing
             /// </summary>
             private bool IsInside(int x, int y)
             {
-                // Manually override 2xn case (as otherwise the algorithm doesn't include the top/bottom row)
-                if (width == 2)
+                // Manually override 1xn and 2xn case (as otherwise the algorithm doesn't include the top/bottom row in the 2xn case - the 1xn case is just because we might as well include it)
+                if (width <= 2)
                 {
                     return boundingRect.Contains(x, y);
                 }
-                // Manually override nx2 case (as otherwise the algorithm doesn't include the left/right column)
-                if (height == 2)
+                // Manually override nx1 and nx2 case (as otherwise the algorithm doesn't include the left/right column in the 2xn case - the 1xn case is just because we might as well include it)
+                if (height <= 2)
                 {
                     return boundingRect.Contains(x, y);
                 }
@@ -604,6 +604,24 @@ namespace PAC.Drawing
             IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();
             public IEnumerator<IntVector2> GetEnumerator()
             {
+                // Manually define horizontal/vertical lines to avoid repetition
+                if (width == 1)
+                {
+                    for (int y = bottomLeft.y; y <= topRight.y; y++)
+                    {
+                        yield return new IntVector2(bottomLeft.x, y);
+                    }
+                    yield break;
+                }
+                if (height == 1)
+                {
+                    for (int x = bottomLeft.x; x <= topRight.x; x++)
+                    {
+                        yield return new IntVector2(x, bottomLeft.y);
+                    }
+                    yield break;
+                }
+
                 // Filled
                 if (filled)
                 {
