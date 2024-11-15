@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.NetworkInformation;
 using PAC.DataStructures;
 using UnityEngine;
 
@@ -553,6 +554,17 @@ namespace PAC.Drawing
             /// </summary>
             private bool IsInside(int x, int y)
             {
+                // Manually override 2xn case (as otherwise the algorithm doesn't include the top/bottom row)
+                if (width == 2)
+                {
+                    return boundingRect.Contains(x, y);
+                }
+                // Manually override nx2 case (as otherwise the algorithm doesn't include the left/right column)
+                if (height == 2)
+                {
+                    return boundingRect.Contains(x, y);
+                }
+
                 // Manually override 3x3 case (as otherwise the algorithm gives a 3x3 square instead of the more aesthetic 'plus sign')
                 if (width == 3 && height == 3)
                 {
@@ -617,57 +629,40 @@ namespace PAC.Drawing
 
                 // Unfilled
 
-                foreach ((IntVector2 start, IntVector2 moveDir, IntVector2 nudgeDir) in new (IntVector2, IntVector2, IntVector2)[]
-                {
-                    (new IntVector2(bottomLeft.x + width / 2, topRight.y), IntVector2.right, IntVector2.down),
-                    (new IntVector2(topRight.x, bottomLeft.y + height / 2), IntVector2.up, IntVector2.left)
-                })
-                {
-                    IntVector2 pixel = start;
+                IntVector2 primaryDirection = IntVector2.right;
+                IntVector2 secondaryDirection = new IntVector2(1, -1);
+                IntVector2 tertiaryDirection = IntVector2.down;
+                IntVector2 start = new IntVector2(bottomLeft.x + width / 2, topRight.y);
+                IntVector2 pixel = start;
 
-                    int error = 0;
+                int iterations = 0;
+                do
+                {
+                    iterations++;
 
-                    while (IsInside(pixel))
+                    if (IsInside(pixel + primaryDirection))
                     {
-                        do
-                        {
-                            yield return pixel;
-                            yield return new IntVector2(bottomLeft.x + (topRight.x - pixel.x), pixel.y);
-                            yield return new IntVector2(pixel.x, bottomLeft.y + (topRight.y - pixel.y));
-                            yield return bottomLeft + (topRight - pixel);
-
-                            pixel += moveDir;
-                        }
-                        while (IsInside(pixel));
-
-                        pixel += nudgeDir;
+                        yield return pixel;
+                        pixel += primaryDirection;
+                    }
+                    else if (IsInside(pixel + secondaryDirection))
+                    {
+                        yield return pixel;
+                        pixel += secondaryDirection;
+                    }
+                    else if (IsInside(pixel + tertiaryDirection))
+                    {
+                        yield return pixel;
+                        pixel += tertiaryDirection;
+                    }
+                    else
+                    {
+                        primaryDirection = primaryDirection.Rotate(RotationAngle._90);
+                        secondaryDirection = secondaryDirection.Rotate(RotationAngle._90);
+                        tertiaryDirection = tertiaryDirection.Rotate(RotationAngle._90);
                     }
                 }
-
-                foreach ((IntVector2 start, IntVector2 moveDir, IntVector2 nudgeDir) in new (IntVector2, IntVector2, IntVector2)[]
-                {
-                    (new IntVector2(bottomLeft.x + width / 2, topRight.y), IntVector2.right, IntVector2.down),
-                    (new IntVector2(topRight.x, bottomLeft.y + height / 2), IntVector2.up, IntVector2.left)
-                })
-                {
-                    IntVector2 pixel = start;
-
-                    while (IsInside(pixel))
-                    {
-                        do
-                        {
-                            yield return pixel;
-                            yield return new IntVector2(bottomLeft.x + (topRight.x - pixel.x), pixel.y);
-                            yield return new IntVector2(pixel.x, bottomLeft.y + (topRight.y - pixel.y));
-                            yield return bottomLeft + (topRight - pixel);
-
-                            pixel += moveDir;
-                        }
-                        while (IsInside(pixel));
-
-                        pixel += nudgeDir;
-                    }
-                }
+                while (pixel != start && iterations < 10_000);
             }
 
             public static bool operator !=(Ellipse ellipse1, Ellipse ellipse2) => !(ellipse1 == ellipse2);
