@@ -13,7 +13,7 @@ namespace PAC.DataStructures
         public int y;
 
         public float magnitude => Magnitude(this);
-        public float squaredMagnitude => SqrMagnitude(this);
+        public float sqrMagnitude => SqrMagnitude(this);
 
         public IntVector2(int x, int y)
         {
