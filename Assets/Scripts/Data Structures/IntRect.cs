@@ -11,7 +11,7 @@ namespace PAC.DataStructures
     /// <summary>
     /// A struct to represent a rectangular region of integer coordinates.
     /// </summary>
-    public struct IntRect : IEnumerable<IntVector2>
+    public struct IntRect : IReadOnlyCollection<IntVector2>
     {
         private IntVector2 _bottomLeft;
         public IntVector2 bottomLeft
@@ -65,6 +65,7 @@ namespace PAC.DataStructures
         public int width => topRight.x - bottomLeft.x + 1;
         public int height => topRight.y - bottomLeft.y + 1;
 
+        public int Count => width * height;
         public int area => Area(this);
 
         /// <summary>True if the rect is a square.</summary>
@@ -286,6 +287,54 @@ namespace PAC.DataStructures
             }
 
             return points;
+        }
+
+        /// <summary>
+        /// Indexes the points in the rect, starting with the bottom row, read left to right, then the next row, etc.
+        /// </summary>
+        public IntVector2 this[int index]
+        {
+            get
+            {
+                if (index < 0)
+                {
+                    throw new IndexOutOfRangeException("Index cannot be negative. Index: " + index);
+                }
+                if (index >= Count)
+                {
+                    throw new IndexOutOfRangeException("Index cannot be more than or equal to the number of pixels in the IntRect. Index: " + index + ". Count: " + Count);
+                }
+
+                return bottomLeft + new IntVector2(index % width, index / width);
+            }
+        }
+
+        /// <summary>
+        /// Indexes the points in the rect by coordinates relative to the bottom-left (so indexing with x = 0, y = 0 would give the bottom-left of the IntRect).
+        /// </summary>
+        public IntVector2 this[int x, int y]
+        {
+            get
+            {
+                if (x < 0)
+                {
+                    throw new IndexOutOfRangeException("Relative coords cannot be negative. x: " + x);
+                }
+                if (y < 0)
+                {
+                    throw new IndexOutOfRangeException("Relative coords cannot be negative. y: " + y);
+                }
+                if (x >= width)
+                {
+                    throw new IndexOutOfRangeException("Relative x coord cannot be >= width. x: " + x + "). Width: " + width);
+                }
+                if (y >= height)
+                {
+                    throw new IndexOutOfRangeException("Relative y coord cannot be >= height. y: " + y + "). Height: " + height);
+                }
+
+                return bottomLeft + new IntVector2(x, y);
+            }
         }
 
         /// <summary>
