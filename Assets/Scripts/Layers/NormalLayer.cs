@@ -129,22 +129,22 @@ namespace PAC.Layers
         /// <summary>
         /// Flips the given frame of the layer.
         /// </summary>
-        public void Flip(int frame, FlipDirection direction, AnimFrameRefMode frameRefMode)
+        public void Flip(int frame, FlipAxis axis, AnimFrameRefMode frameRefMode)
         {
             if (frameRefMode == AnimFrameRefMode.NewKeyFrame)
             {
                 AddKeyFrame(frame);
             }
 
-            GetKeyFrame(frame).texture = Tex2DSprite.Flip(GetKeyFrame(frame).texture, direction);
+            GetKeyFrame(frame).texture = Tex2DSprite.Flip(GetKeyFrame(frame).texture, axis);
 
             onPixelsChanged.Invoke(rect.points, new int[] { GetKeyFrame(frame).frame });
         }
-        protected override void FlipNoEvent(FlipDirection direction)
+        protected override void FlipNoEvent(FlipAxis axis)
         {
             foreach (AnimationKeyFrame keyFrame in keyFrames)
             {
-                keyFrame.texture = Tex2DSprite.Flip(keyFrame.texture, direction);
+                keyFrame.texture = Tex2DSprite.Flip(keyFrame.texture, axis);
             }
         }
 

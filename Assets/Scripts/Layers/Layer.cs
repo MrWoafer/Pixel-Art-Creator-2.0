@@ -205,13 +205,13 @@ namespace PAC.Layers
         /// <summary>
         /// Flips the layer, but does not invoke the onPixelsChanged event.
         /// </summary>
-        protected abstract void FlipNoEvent(FlipDirection direction);
+        protected abstract void FlipNoEvent(FlipAxis axis);
         /// <summary>
         /// Flips the layer.
         /// </summary>
-        public void Flip(FlipDirection direction)
+        public void Flip(FlipAxis axis)
         {
-            FlipNoEvent(direction);
+            FlipNoEvent(axis);
             onPixelsChanged.Invoke(rect.points, keyFrameIndices);
         }
 

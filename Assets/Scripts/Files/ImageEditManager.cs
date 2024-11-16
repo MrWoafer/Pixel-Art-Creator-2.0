@@ -24,24 +24,24 @@ namespace PAC.Files
             dialogBoxManager = Finder.dialogBoxManager;
         }
 
-        public void FlipSelectedLayers(FlipDirection direction)
+        public void FlipSelectedLayers(FlipAxis axis)
         {
             foreach (Layer selectedLayer in layerManager.selectedLayers)
             {
-                selectedLayer.Flip(direction);
+                selectedLayer.Flip(axis);
             }
             onEdit.Invoke();
         }
-        public void FlipSelectedLayersX() => FlipSelectedLayers(FlipDirection.X);
-        public void FlipSelectedLayersY() => FlipSelectedLayers(FlipDirection.Y);
+        public void FlipSelectedLayersX() => FlipSelectedLayers(FlipAxis.Vertical);
+        public void FlipSelectedLayersY() => FlipSelectedLayers(FlipAxis.Horizontal);
 
-        public void FlipFile(FlipDirection direction)
+        public void FlipFile(FlipAxis axis)
         {
-            fileManager.currentFile.Flip(direction);
+            fileManager.currentFile.Flip(axis);
             onEdit.Invoke();
         }
-        public void FlipFileX() => FlipFile(FlipDirection.X);
-        public void FlipFileY() => FlipFile(FlipDirection.Y);
+        public void FlipFileX() => FlipFile(FlipAxis.Vertical);
+        public void FlipFileY() => FlipFile(FlipAxis.Horizontal);
 
         public void RotateFile(RotationAngle angle)
         {

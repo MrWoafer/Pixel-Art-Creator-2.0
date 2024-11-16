@@ -928,12 +928,12 @@ namespace PAC.Files
         /// <summary>
         /// Flips the file.
         /// </summary>
-        public void Flip(FlipDirection direction)
+        public void Flip(FlipAxis axis)
         {
             ignoreOnLayerPixelsChanged = true;
             foreach (Layer layer in layers)
             {
-                layer.Flip(direction);
+                layer.Flip(axis);
             }
             ignoreOnLayerPixelsChanged = false;
 

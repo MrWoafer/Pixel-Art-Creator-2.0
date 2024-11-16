@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using PAC.Animation;
@@ -243,7 +244,7 @@ namespace PAC.Layers
             return pixelsFilled.ToArray();
         }
 
-        protected override void FlipNoEvent(FlipDirection direction)
+        protected override void FlipNoEvent(FlipAxis axis)
         {
             ignoreOnTilePixelsChanged = true;
             HashSet<Layer> flippedLayers = new HashSet<Layer>();
@@ -251,17 +252,21 @@ namespace PAC.Layers
             {
                 if (!flippedLayers.Contains(tile.TileLayerToLayerInTile(this)))
                 {
-                    tile.TileLayerToLayerInTile(this).Flip(direction);
+                    tile.TileLayerToLayerInTile(this).Flip(axis);
                     flippedLayers.Add(tile.TileLayerToLayerInTile(this));
                 }
 
-                if (direction == FlipDirection.X)
+                if (axis == FlipAxis.Vertical)
                 {
                     tile.bottomRight = new IntVector2(-tile.bottomLeft.x + width - 1, tile.bottomLeft.y);
                 }
-                else if (direction == FlipDirection.Y)
+                else if (axis == FlipAxis.Horizontal)
                 {
                     tile.topLeft = new IntVector2(tile.bottomLeft.x, -tile.bottomLeft.y + height - 1);
+                }
+                else
+                {
+                    throw new NotImplementedException("Unknown / unimplemented FlipAxis: " + axis);
                 }
             }
 

@@ -163,23 +163,23 @@ namespace PAC
             return tex;
         }
 
-        public static Texture2D Flip(Texture2D texture, FlipDirection direction)
+        public static Texture2D Flip(Texture2D texture, FlipAxis axis)
         {
-            if (direction == FlipDirection.None)
+            if (axis == FlipAxis.None)
             {
                 return texture;
             }
-            else if (direction == FlipDirection.X)
+            else if (axis == FlipAxis.Vertical)
             {
                 return FlipX(texture);
             }
-            else if (direction == FlipDirection.Y)
+            else if (axis == FlipAxis.Horizontal)
             {
                 return FlipY(texture);
             }
             else
             {
-                throw new System.Exception("Unknown / unimplemented FlipDirection: " + direction);
+                throw new NotImplementedException("Unknown / unimplemented FlipAxis: " + axis);
             }
         }
 
