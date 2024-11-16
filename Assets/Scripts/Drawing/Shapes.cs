@@ -759,30 +759,6 @@ namespace PAC.Drawing
         {
             Texture2D tex = Tex2DSprite.BlankTexture(texWidth, texHeight);
 
-            IntVector2 bottomLeft = new IntVector2(Mathf.Min(start.x, end.x), Mathf.Min(start.y, end.y));
-            IntVector2 topRight = new IntVector2(Mathf.Max(start.x, end.x), Mathf.Max(start.y, end.y));
-
-            float xRadius = (topRight.x - bottomLeft.x) / 2f + 0.5f;
-            float yRadius = (topRight.y - bottomLeft.y) / 2f + 0.5f;
-            Vector2 centre = ((Vector2)bottomLeft + topRight) / 2f + new Vector2(0.5f, 0.5f);
-
-            Vector2 focus1;
-            Vector2 focus2;
-            if (xRadius >= yRadius)
-            {
-                float focusDistance = Mathf.Sqrt(xRadius * xRadius - yRadius * yRadius);
-
-                focus1 = centre - new Vector2(focusDistance, 0f);
-                focus2 = centre + new Vector2(focusDistance, 0f);
-            }
-            else
-            {
-                float focusDistance = Mathf.Sqrt(yRadius * yRadius - xRadius * xRadius);
-
-                focus1 = centre - new Vector2(0f, focusDistance);
-                focus2 = centre + new Vector2(0f, focusDistance);
-            }
-
             foreach (IntVector2 pixel in new Ellipse(start, end, filled))
             {
                 tex.SetPixel(pixel.x, pixel.y, colour);
