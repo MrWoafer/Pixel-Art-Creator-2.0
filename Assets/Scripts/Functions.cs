@@ -158,6 +158,9 @@ namespace PAC
             return array;
         }
 
+        /// <summary>
+        /// Creates a copy of the array, but DOES NOT create a deep copy of the elements: reference types will just have the reference copied.
+        /// </summary>
         public static T[] CopyArray<T>(T[] array)
         {
             T[] copy = new T[array.Length];
