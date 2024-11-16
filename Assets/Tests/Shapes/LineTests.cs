@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using NUnit.Framework;
@@ -92,6 +93,54 @@ namespace PAC.Tests
             };
 
             Assert.True(expected.SequenceEqual(line));
+        }
+
+        /// <summary>
+        /// Tests that lines are oriented from start to end.
+        /// </summary>
+        [Test]
+        [Category("Shapes")]
+        public void Orientation()
+        {
+            foreach (IntVector2 start in new IntRect(new IntVector2(-1, -1), new IntVector2(1, 1)))
+            {
+                foreach (IntVector2 end in start + new IntRect(new IntVector2(-5, -5), new IntVector2(5, 5)))
+                {
+                    Shapes.Line line = new Shapes.Line(start, end);
+                    Assert.True(line.First() == line.start, "Failed with " + line);
+                    Assert.True(line.Last() == line.end, "Failed with " + line);
+                }
+            }
+        }
+
+        /// <summary>
+        /// Tests that indexing lines works correctly.
+        /// </summary>
+        [Test]
+        [Category("Shapes")]
+        public void Indexing()
+        {
+            foreach (IntVector2 start in new IntRect(new IntVector2(-1, -1), new IntVector2(1, 1)))
+            {
+                foreach (IntVector2 end in start + new IntRect(new IntVector2(-5, -5), new IntVector2(5, 5)))
+                {
+                    Shapes.Line line = new Shapes.Line(start, end);
+
+                    Assert.Throws<IndexOutOfRangeException>(() => { IntVector2 x = line[-1]; }, "Failed with " + line);
+
+                    int index = 0;
+                    foreach (IntVector2 pixel in line)
+                    {
+                        Assert.AreEqual(pixel, line[index], "Failed with " + line + " at index " + index);
+                        index++;
+                    }
+
+                    Assert.Throws<IndexOutOfRangeException>(() => { IntVector2 x = line[index]; }, "Failed with " + line);
+
+                    // Test hat syntax
+                    Assert.AreEqual(line.end, line[^1], "Failed with " + line);
+                }
+            }
         }
 
         [Test]
