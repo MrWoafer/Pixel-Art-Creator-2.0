@@ -154,6 +154,9 @@ namespace PAC.Utils
             return copy;
         }
 
+        /// <summary>
+        /// Compares the arrays element-wise using .Equals()
+        /// </summary>
         public static bool CompareArrays<T>(T[] array1, T[] array2)
         {
             if (array1.Length != array2.Length)
