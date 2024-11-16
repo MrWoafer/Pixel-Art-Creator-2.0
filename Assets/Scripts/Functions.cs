@@ -43,38 +43,38 @@ namespace PAC.Utils
             return Mathf.Ceil(toRound / multipleOf) * multipleOf;
         }
 
-        public static float RoundTowardsZero(float f)
+        public static float RoundTowards(float toRound, int towards)
         {
-            if (f >= 0)
+            if (toRound >= towards)
             {
-                return Mathf.Floor(f);
+                return Mathf.Floor(toRound);
             }
-            return Mathf.Ceil(f);
+            return Mathf.Ceil(toRound);
         }
-        public static int RoundToIntTowardsZero(float f)
+        public static int RoundToIntTowards(float toRound, int towards)
         {
-            if (f >= 0)
+            if (toRound >= towards)
             {
-                return Mathf.FloorToInt(f);
+                return Mathf.FloorToInt(toRound);
             }
-            return Mathf.CeilToInt(f);
+            return Mathf.CeilToInt(toRound);
         }
 
-        public static float RoundAwayFromZero(float f)
+        public static float RoundAwayFrom(float toRound, int awayFrom)
         {
-            if (f >= 0)
+            if (toRound >= awayFrom)
             {
-                return Mathf.Ceil(f);
+                return Mathf.Ceil(toRound);
             }
-            return Mathf.Floor(f);
+            return Mathf.Floor(toRound);
         }
-        public static int RoundToIntAwayFromZero(float f)
+        public static int RoundToIntAwayFrom(float toRound, int awayFrom)
         {
-            if (f >= 0)
+            if (toRound >= awayFrom)
             {
-                return Mathf.CeilToInt(f);
+                return Mathf.CeilToInt(toRound);
             }
-            return Mathf.FloorToInt(f);
+            return Mathf.FloorToInt(toRound);
         }
 
         public static string FirstNChars(string str, int numOfChars)
@@ -94,7 +94,7 @@ namespace PAC.Utils
 
         public static float TruncateDecimalPlaces(float f, int decimalPlaces)
         {
-            int integerPart = UtilFunctions.RoundToIntTowardsZero(f);
+            int integerPart = UtilFunctions.RoundToIntTowards(f, 0);
             float decimalPart = Mathf.Abs(f - integerPart);
 
             if (decimalPart.ToString() == "0")
