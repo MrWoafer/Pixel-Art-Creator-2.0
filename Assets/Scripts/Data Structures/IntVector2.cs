@@ -311,14 +311,23 @@ namespace PAC.DataStructures
         {
             return Magnitude(a - b);
         }
+        /// <summary>
+        /// Computes the square of the Euclidean distance between the vectors. Faster than using Distance() and squaring.
+        /// </summary>
         public static float SqrDistance(IntVector2 a, IntVector2 b)
         {
             return SqrMagnitude(a - b);
         }
+        /// <summary>
+        /// Computes the magnitude of the vector.
+        /// </summary>
         public static float Magnitude(IntVector2 a)
         {
             return Mathf.Sqrt(a.x * a.x + a.y * a.y);
         }
+        /// <summary>
+        /// Computes the square of the magnitude of the vector. Faster than using Magnitude() and squaring.
+        /// </summary>
         public static float SqrMagnitude(IntVector2 a)
         {
             return a.x * a.x + a.y * a.y;
