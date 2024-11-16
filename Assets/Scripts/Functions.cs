@@ -13,11 +13,11 @@ namespace PAC.Utils
             return (a % b + b) % b;
         }
 
-        public static int RoundToMultiple(float toRound, int multipleOf)
+        public static int RoundToMultipleOf(float toRound, int multipleOf)
         {
-            return (int)RoundToMultiple(toRound, (float)multipleOf);
+            return (int)RoundToMultipleOf(toRound, (float)multipleOf);
         }
-        public static float RoundToMultiple(float toRound, float multipleOf)
+        public static float RoundToMultipleOf(float toRound, float multipleOf)
         {
             if (multipleOf == 0)
             {
@@ -26,11 +26,11 @@ namespace PAC.Utils
             return Mathf.Round(toRound / multipleOf) * multipleOf;
         }
 
-        public static int FloorToMultiple(float toRound, int multipleOf)
+        public static int FloorToMultipleOf(float toRound, int multipleOf)
         {
-            return (int)FloorToMultiple(toRound, (float)multipleOf);
+            return (int)FloorToMultipleOf(toRound, (float)multipleOf);
         }
-        public static float FloorToMultiple(float toRound, float multipleOf)
+        public static float FloorToMultipleOf(float toRound, float multipleOf)
         {
             if (multipleOf == 0)
             {
@@ -39,11 +39,11 @@ namespace PAC.Utils
             return Mathf.Floor(toRound / multipleOf) * multipleOf;
         }
 
-        public static int CeilToMultiple(float toRound, int multipleOf)
+        public static int CeilToMultipleOf(float toRound, int multipleOf)
         {
-            return (int)CeilToMultiple(toRound, (float)multipleOf);
+            return (int)CeilToMultipleOf(toRound, (float)multipleOf);
         }
-        public static float CeilToMultiple(float toRound, float multipleOf)
+        public static float CeilToMultipleOf(float toRound, float multipleOf)
         {
             if (multipleOf == 0)
             {
