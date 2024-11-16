@@ -203,7 +203,7 @@ namespace PAC.Tests
             foreach (Shapes.Ellipse translated in Datapoints(true, true))
             {
                 Shapes.Ellipse expected = new Shapes.Ellipse(IntVector2.zero, translated.topRight - translated.bottomLeft, translated.filled);
-                Assert.True(expected.SequenceEqual(translated.Select(x => x - translated.bottomLeft)), "Failed with " + translated);
+                Assert.True(expected.SequenceEqual(translated.Select(p => p - translated.bottomLeft)), "Failed with " + translated);
             }
         }
 
@@ -214,11 +214,11 @@ namespace PAC.Tests
         [Category("Shapes")]
         public void RotationalInvariance()
         {
-            foreach (Shapes.Ellipse translated in Datapoints(true, true))
+            foreach (Shapes.Ellipse ellipse in Datapoints(true, true))
             {
-                Shapes.Ellipse expected = new Shapes.Ellipse(IntVector2.zero, new IntVector2(translated.height - 1, translated.width - 1), translated.filled);
-                Assert.True(expected.ToHashSet().SetEquals(translated.Select(x => (x - translated.bottomLeft).Rotate(RotationAngle._90) + new IntVector2(0, translated.width - 1))),
-                    "Failed with " + translated);
+                Shapes.Ellipse expected = new Shapes.Ellipse(IntVector2.zero, new IntVector2(ellipse.height - 1, ellipse.width - 1), ellipse.filled);
+                Assert.True(expected.ToHashSet().SetEquals(ellipse.Select(p => (p - ellipse.bottomLeft).Rotate(RotationAngle._90) + new IntVector2(0, ellipse.width - 1))),
+                    "Failed with " + ellipse);
             }
         }
     }
