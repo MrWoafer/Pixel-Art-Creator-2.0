@@ -297,6 +297,14 @@ namespace PAC.DataStructures
         }
 
         /// <summary>
+        /// Determines whether the two vectors are perpendicular to each other.
+        /// </summary>
+        public static bool ArePerpendicular(IntVector2 a, IntVector2 b)
+        {
+            return Dot(a, b) == 0;
+        }
+
+        /// <summary>
         /// Computes the Euclidean distance between the vectors.
         /// </summary>
         public static float Distance(IntVector2 a, IntVector2 b)

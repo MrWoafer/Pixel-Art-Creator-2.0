@@ -33,7 +33,7 @@ namespace PAC.Drawing
             {
                 foreach (IntVector2 offset2 in offsets)
                 {
-                    if (IntVector2.Dot(offset1, offset2) != 0)
+                    if (!IntVector2.ArePerpendicular(offset1, offset2))
                     {
                         continue;
                     }
