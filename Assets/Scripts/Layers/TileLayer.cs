@@ -445,7 +445,7 @@ namespace PAC.Layers
         /// <summary>
         /// Rerenders the section of the given keyframes within the given rect.
         /// </summary>
-        public void RerenderKeyFrames(int[] keyFrames, IntRect rect) => RerenderKeyFrames(keyFrames, rect.points);
+        public void RerenderKeyFrames(int[] keyFrames, IntRect rect) => RerenderKeyFrames(keyFrames, rect);
         /// <summary>
         /// Rerenders the given pixels of the given keyframes.
         /// </summary>
@@ -463,7 +463,7 @@ namespace PAC.Layers
         /// <summary>
         /// Rerenders the section of the keyframe within the given rect.
         /// </summary>
-        public void RerenderKeyFrame(int frame, IntRect rect) => RerenderKeyFrame(frame, rect.points);
+        public void RerenderKeyFrame(int frame, IntRect rect) => RerenderKeyFrame(frame, rect);
         /// <summary>
         /// Rerenders the given pixels of the keyframe.
         /// </summary>

@@ -53,15 +53,6 @@ namespace PAC.DataStructures
         }
         public Vector2 centre => (Vector2)(bottomLeft + topRight + IntVector2.one) / 2f;
 
-        /// <summary>
-        /// <para>Gets the points in the rect, starting with the bottom row, read left to right, then the next row, etc.
-        /// </para>
-        /// <para>
-        /// WARNING: this is very expensive for large rects.
-        /// </para>
-        /// </summary>
-        public IntVector2[] points => GetPoints();
-
         public int width => topRight.x - bottomLeft.x + 1;
         public int height => topRight.y - bottomLeft.y + 1;
 
@@ -274,27 +265,6 @@ namespace PAC.DataStructures
         public IntRect Rotate(RotationAngle angle)
         {
             return new IntRect(bottomLeft.Rotate(angle), topRight.Rotate(angle));
-        }
-
-        /// <summary>
-        /// <para>Gets the points in the rect, starting with the bottom row, read left to right, then the next row, etc.
-        /// </para>
-        /// <para>
-        /// WARNING: this is very expensive for large rects.
-        /// </para>
-        /// </summary>
-        public IntVector2[] GetPoints()
-        {
-            IntVector2[] points = new IntVector2[area];
-
-            int index = 0;
-            foreach (IntVector2 point in this)
-            {
-                points[index] = point;
-                index++;
-            }
-
-            return points;
         }
 
         /// <summary>

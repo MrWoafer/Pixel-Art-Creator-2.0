@@ -68,7 +68,7 @@ namespace PAC.Layers
                 GetKeyFrame(frame).texture = texture;
             }
 
-            onPixelsChanged.Invoke(rect.points, new int[] { GetKeyFrame(frame).frame });
+            onPixelsChanged.Invoke(rect, new int[] { GetKeyFrame(frame).frame });
         }
 
         /// <summary>
@@ -86,7 +86,7 @@ namespace PAC.Layers
             }
 
             GetKeyFrame(frame).texture = Tex2DSprite.Overlay(overlayTex, GetKeyFrame(frame).texture, offset);
-            onPixelsChanged.Invoke(rect.points, new int[] { GetKeyFrame(frame).frame });
+            onPixelsChanged.Invoke(rect, new int[] { GetKeyFrame(frame).frame });
         }
         /// <summary>
         /// Overlays the texture onto every frame. Uses Normal blend mode.
@@ -138,7 +138,7 @@ namespace PAC.Layers
 
             GetKeyFrame(frame).texture = Tex2DSprite.Flip(GetKeyFrame(frame).texture, axis);
 
-            onPixelsChanged.Invoke(rect.points, new int[] { GetKeyFrame(frame).frame });
+            onPixelsChanged.Invoke(rect, new int[] { GetKeyFrame(frame).frame });
         }
         protected override void FlipNoEvent(FlipAxis axis)
         {
@@ -165,7 +165,7 @@ namespace PAC.Layers
 
             GetKeyFrame(frame).texture = Tex2DSprite.Rotate(GetKeyFrame(frame).texture, angle);
 
-            onPixelsChanged.Invoke(rect.points, new int[] { GetKeyFrame(frame).frame });
+            onPixelsChanged.Invoke(rect, new int[] { GetKeyFrame(frame).frame });
         }
         protected override void RotateNoEvent(RotationAngle angle)
         {

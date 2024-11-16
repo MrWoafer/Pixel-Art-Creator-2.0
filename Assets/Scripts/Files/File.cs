@@ -940,7 +940,7 @@ namespace PAC.Files
             RerenderLiveRender();
             savedSinceLastEdit = false;
 
-            onPixelsChanged.Invoke(rect.points, layers.ToArray(), keyFrameIndices);
+            onPixelsChanged.Invoke(rect, layers.ToArray(), keyFrameIndices);
         }
 
         /// <summary>
@@ -970,7 +970,7 @@ namespace PAC.Files
             RerenderLiveRender();
             savedSinceLastEdit = false;
 
-            onPixelsChanged.Invoke(rect.points, layers.ToArray(), keyFrameIndices);
+            onPixelsChanged.Invoke(rect, layers.ToArray(), keyFrameIndices);
         }
 
         /// <summary>
@@ -992,7 +992,7 @@ namespace PAC.Files
             RerenderLiveRender();
             savedSinceLastEdit = false;
 
-            onPixelsChanged.Invoke(rect.points, layers.ToArray(), keyFrameIndices);
+            onPixelsChanged.Invoke(rect, layers.ToArray(), keyFrameIndices);
         }
 
         /// <summary>
@@ -1021,7 +1021,7 @@ namespace PAC.Files
             RerenderLiveRender();
             savedSinceLastEdit = false;
 
-            onPixelsChanged.Invoke(rect.points, layers.ToArray(), keyFrameIndices);
+            onPixelsChanged.Invoke(rect, layers.ToArray(), keyFrameIndices);
         }
         /// <summary>
         /// Resizes the file to the new width and height.
@@ -1048,7 +1048,7 @@ namespace PAC.Files
             RerenderLiveRender();
             savedSinceLastEdit = false;
 
-            onPixelsChanged.Invoke(rect.points, layers.ToArray(), keyFrameIndices);
+            onPixelsChanged.Invoke(rect, layers.ToArray(), keyFrameIndices);
         }
 
         /// <summary>

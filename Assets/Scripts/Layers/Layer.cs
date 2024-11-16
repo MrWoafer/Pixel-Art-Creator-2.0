@@ -212,7 +212,7 @@ namespace PAC.Layers
         public void Flip(FlipAxis axis)
         {
             FlipNoEvent(axis);
-            onPixelsChanged.Invoke(rect.points, keyFrameIndices);
+            onPixelsChanged.Invoke(rect, keyFrameIndices);
         }
 
         /// <summary>
@@ -226,7 +226,7 @@ namespace PAC.Layers
         public void Rotate(RotationAngle angle)
         {
             RotateNoEvent(angle);
-            onPixelsChanged.Invoke(rect.points, keyFrameIndices);
+            onPixelsChanged.Invoke(rect, keyFrameIndices);
         }
 
         /// <summary>
@@ -239,7 +239,7 @@ namespace PAC.Layers
         public void Extend(int left, int right, int up, int down)
         {
             ExtendNoEvent(left, right, up, down);
-            onPixelsChanged.Invoke(rect.points, keyFrameIndices);
+            onPixelsChanged.Invoke(rect, keyFrameIndices);
         }
 
         /// <summary>
@@ -260,7 +260,7 @@ namespace PAC.Layers
         public void Scale(float xScaleFactor, float yScaleFactor)
         {
             ScaleNoEvent(xScaleFactor, yScaleFactor);
-            onPixelsChanged.Invoke(rect.points, keyFrameIndices);
+            onPixelsChanged.Invoke(rect, keyFrameIndices);
         }
         /// <summary>
         /// Resizes the dimensions of the file by the scale factor.
@@ -268,7 +268,7 @@ namespace PAC.Layers
         public void Scale(int newWidth, int newHeight)
         {
             ScaleNoEvent(newWidth, newHeight);
-            onPixelsChanged.Invoke(rect.points, keyFrameIndices);
+            onPixelsChanged.Invoke(rect, keyFrameIndices);
         }
 
 
