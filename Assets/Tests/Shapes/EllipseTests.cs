@@ -236,5 +236,42 @@ namespace PAC.Tests
                 Assert.True(expected.ToHashSet().SetEquals(ellipse.Select(p => (p - ellipse.bottomLeft).Rotate(RotationAngle._90) + new IntVector2(0, ellipse.width - 1))), "Failed with " + ellipse);
             }
         }
+
+        /// <summary>
+        /// Tests that circles have 90-degree rotational symmetry (and hence 180-degree, 270-degree, etc).
+        /// </summary>
+        [Test]
+        [Category("Shapes")]
+        public void CircleRotationalSymmetry()
+        {
+            foreach (bool filled in new bool[] { false, true })
+            {
+                for (int diameter = 1; diameter <= 10; diameter++)
+                {
+                    Shapes.Ellipse circle = new Shapes.Ellipse(IntVector2.zero, new IntVector2(diameter - 1, diameter - 1), filled);
+                    Assert.True(circle.ToHashSet().SetEquals(circle.Select(p => p.Rotate(RotationAngle._90) + new IntVector2(0, diameter - 1))), "Failed with diamater " + diameter);
+                }
+            }
+        }
+
+        /// <summary>
+        /// Tests that circles have reflective symmetry across a +/- 45-degree line through the centre.
+        /// </summary>
+        [Test]
+        [Category("Shapes")]
+        public void CircleDiagonalSymmetry()
+        {
+            foreach (bool filled in new bool[] { false, true })
+            {
+                for (int diameter = 1; diameter <= 10; diameter++)
+                {
+                    Shapes.Ellipse circle = new Shapes.Ellipse(IntVector2.zero, new IntVector2(diameter - 1, diameter - 1), filled);
+                    // 45-degree line
+                    Assert.True(circle.ToHashSet().SetEquals(circle.Select(p => circle.bottomRight + (p - circle.topLeft).Flip(FlipAxis._45Degrees))), "Failed with diamater " + diameter);
+                    // -45-degree line
+                    Assert.True(circle.ToHashSet().SetEquals(circle.Select(p => circle.bottomLeft + (p - circle.topRight).Flip(FlipAxis.Minus45Degrees))), "Failed with diamater " + diameter);
+                }
+            }
+        }
     }
 }
