@@ -55,6 +55,10 @@ namespace PAC.Drawing
             /// </summary>
             private Vector2 imaginaryEnd;
             /// <summary>
+            /// The gradient of the imaginary non-pixel-perfect line.
+            /// </summary>
+            private float imaginaryGradient;
+            /// <summary>
             /// Whether the line is more horizontal than vertical. If the line is at +/- 45 degrees then it is true.
             /// </summary>
             private bool isMoreHorizontal;
@@ -77,6 +81,7 @@ namespace PAC.Drawing
                 _end = end;
                 imaginaryStart = start;
                 imaginaryEnd = end;
+                imaginaryGradient = 0f;
                 isMoreHorizontal = false;
 
                 SetValues(start, end);
@@ -155,6 +160,26 @@ namespace PAC.Drawing
 
                 // True iff 1 >= gradient >= -1, i.e. the line is more (or equally) horizontal than vertical
                 isMoreHorizontal = Math.Abs(end.y - start.y) <= Math.Abs(end.x - start.x);
+
+                if (imaginaryStart.x == imaginaryEnd.x)
+                {
+                    if (imaginaryStart.y == imaginaryEnd.y)
+                    {
+                        imaginaryGradient = float.NaN;
+                    }
+                    else
+                    {
+                        imaginaryGradient = float.PositiveInfinity;
+                    }
+                }
+                else if (isMoreHorizontal)
+                {
+                    imaginaryGradient = (imaginaryEnd.y - imaginaryStart.y) / (imaginaryEnd.x - imaginaryStart.x);
+                }
+                else
+                {
+                    imaginaryGradient = (imaginaryEnd.x - imaginaryStart.x) / (imaginaryEnd.y - imaginaryStart.y);
+                }
             }
 
             /// <summary>
@@ -213,8 +238,6 @@ namespace PAC.Drawing
 
                     if (isMoreHorizontal)
                     {
-                        float imaginaryGradient = (imaginaryEnd.y - imaginaryStart.y) / (imaginaryEnd.x - imaginaryStart.x);
-
                         int x = start.x + index * Math.Sign(end.x - start.x);
 
                         // Line equation is:
@@ -243,8 +266,6 @@ namespace PAC.Drawing
                     }
                     else
                     {
-                        float imaginaryGradient = (imaginaryEnd.x - imaginaryStart.x) / (imaginaryEnd.y - imaginaryStart.y);
-
                         int y = start.y + index * Math.Sign(end.y - start.y);
 
                         // Line equation is:
