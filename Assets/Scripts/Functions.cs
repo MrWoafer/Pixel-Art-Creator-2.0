@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace PAC
+namespace PAC.Utils
 {
     public static class Functions
     {
