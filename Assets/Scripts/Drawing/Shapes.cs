@@ -351,8 +351,8 @@ namespace PAC.Drawing
 
             public bool filled { get; set; }
 
-            public int width => topRight.x - bottomLeft.x + 1;
-            public int height => topRight.y - bottomLeft.y + 1;
+            public int width => boundingRect.width;
+            public int height => boundingRect.height;
 
             /// <summary>True if the rect is a square.</summary>
             public bool isSquare => width == height;
@@ -533,8 +533,8 @@ namespace PAC.Drawing
             {
                 boundingRect = new IntRect(corner, oppositeCorner);
 
-                width = topRight.x - bottomLeft.x + 1;
-                height = topRight.y - bottomLeft.y + 1;
+                width = boundingRect.width;
+                height = boundingRect.height;
 
                 xRadius = width / 2f;
                 yRadius = height / 2f;
