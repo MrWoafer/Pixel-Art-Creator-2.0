@@ -23,7 +23,6 @@ namespace PAC
             {
                 throw new System.Exception("Cannot round to a multiple of 0.");
             }
-
             return Mathf.Round(toRound / multipleOf) * multipleOf;
         }
 
@@ -37,7 +36,6 @@ namespace PAC
             {
                 throw new System.Exception("Cannot round to a multiple of 0.");
             }
-
             return Mathf.Floor(toRound / multipleOf) * multipleOf;
         }
 
@@ -51,7 +49,6 @@ namespace PAC
             {
                 throw new System.Exception("Cannot round to a multiple of 0.");
             }
-
             return Mathf.Ceil(toRound / multipleOf) * multipleOf;
         }
 
@@ -61,7 +58,6 @@ namespace PAC
             {
                 return Mathf.Floor(f);
             }
-
             return Mathf.Ceil(f);
         }
 
@@ -71,7 +67,6 @@ namespace PAC
             {
                 return Mathf.Ceil(f);
             }
-
             return Mathf.Floor(f);
         }
 
@@ -81,7 +76,6 @@ namespace PAC
             {
                 return Mathf.FloorToInt(f);
             }
-
             return Mathf.CeilToInt(f);
         }
 
@@ -91,7 +85,6 @@ namespace PAC
             {
                 return Mathf.CeilToInt(f);
             }
-
             return Mathf.FloorToInt(f);
         }
 
