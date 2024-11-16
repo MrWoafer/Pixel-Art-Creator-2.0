@@ -269,6 +269,14 @@ namespace PAC.DataStructures
         }
 
         /// <summary>
+        /// Returns the IntRect rotated clockwise by the given angle.
+        /// </summary>
+        public IntRect Rotate(RotationAngle angle)
+        {
+            return new IntRect(bottomLeft.Rotate(angle), topRight.Rotate(angle));
+        }
+
+        /// <summary>
         /// <para>Gets the points in the rect, starting with the bottom row, read left to right, then the next row, etc.
         /// </para>
         /// <para>
@@ -287,6 +295,14 @@ namespace PAC.DataStructures
             }
 
             return points;
+        }
+
+        /// <summary>
+        /// Returns the IntRect flipped across the given axis.
+        /// </summary>
+        public IntRect Flip(FlipAxis axis)
+        {
+            return new IntRect(bottomLeft.Flip(axis), topRight.Flip(axis));
         }
 
         /// <summary>
