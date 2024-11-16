@@ -546,12 +546,7 @@ namespace PAC.Drawing
                     return Math.Abs(x - centre.x) + Math.Abs(y - centre.y) <= 1;
                 }
 
-                //float sumOfDistances = Vector2.Distance(new Vector2(x + 0.5f, y + 0.5f), focus1) + Vector2.Distance(new Vector2(x + 0.5f, y + 0.5f), focus2);
-                //return sumOfDistances <= 2 * Mathf.Max(xRadius, yRadius);
-
                 return (x - centre.x) * (x - centre.x) / (xRadius * xRadius) + (y  - centre.y) * (y - centre.y) / (yRadius * yRadius) <= 1f;
-
-                //return 4f * (x + 0.5f - centre.x) * (x + 0.5f - centre.x) * height * height + 4f * (y + 0.5f - centre.y) * (y + 0.5f - centre.y) * width * width <= width * width * height * height;
             }
 
             public bool Contains(IntVector2 pixel)
