@@ -82,7 +82,7 @@ namespace PAC
             return str;
         }
 
-        public static float SymmetricFloor(float f)
+        public static float RoundTowardsZero(float f)
         {
             if (f >= 0)
             {
@@ -92,7 +92,7 @@ namespace PAC
             return Mathf.Ceil(f);
         }
 
-        public static float SymmetricCeil(float f)
+        public static float RoundAwayFromZero(float f)
         {
             if (f >= 0)
             {
@@ -102,7 +102,7 @@ namespace PAC
             return Mathf.Floor(f);
         }
 
-        public static int SymmetricFloorToInt(float f)
+        public static int RoundToIntTowardsZero(float f)
         {
             if (f >= 0)
             {
@@ -112,7 +112,7 @@ namespace PAC
             return Mathf.CeilToInt(f);
         }
 
-        public static int SymmetricCeilToInt(float f)
+        public static int RoundToIntAwayFromZero(float f)
         {
             if (f >= 0)
             {
@@ -124,7 +124,7 @@ namespace PAC
 
         public static float TruncateDecimalPlaces(float f, int decimalPlaces)
         {
-            int integerPart = Functions.SymmetricFloorToInt(f);
+            int integerPart = Functions.RoundToIntTowardsZero(f);
             float decimalPart = Mathf.Abs(f - integerPart);
 
             if (decimalPart.ToString() == "0")
