@@ -91,7 +91,7 @@ namespace PAC.Tests
         }
 
         /// <summary>
-        /// Tests that the Rectangle enumerator doesn't repeat any pixels.
+        /// Tests that the rectangle enumerator doesn't repeat any pixels.
         /// </summary>
         [Test]
         [Category("Shapes")]
