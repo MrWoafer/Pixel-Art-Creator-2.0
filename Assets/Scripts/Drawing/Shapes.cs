@@ -27,6 +27,8 @@ namespace PAC.Drawing
         /// </summary>
         public struct Line : IShape
         {
+            // NOTE: For this shape, we work in a coordinate system where integer coordinates refer to the CENTRE of a pixel - e.g. the centre of pixel (0, 0) is (0, 0), not (0.5, 0.5).
+
             private IntVector2 _start;
             public IntVector2 start
             {
@@ -81,22 +83,22 @@ namespace PAC.Drawing
 
                 if (start == end)
                 {
-                    imaginaryStart = start + new Vector2(0.5f, 0.5f);
-                    imaginaryEnd = end + new Vector2(0.5f, 0.5f);
+                    imaginaryStart = start;
+                    imaginaryEnd = end;
                 }
                 if (start.x == end.x)
                 {
                     // end is directly above start
                     if (start.y < end.y)
                     {
-                        imaginaryStart = start + new Vector2(0.5f, 0f);
-                        imaginaryEnd = end + new Vector2(0.5f, 1f);
+                        imaginaryStart = start + 0.5f * Vector2.down;
+                        imaginaryEnd = end + 0.5f * Vector2.up;
                     }
                     // end is directly below start
                     else
                     {
-                        imaginaryStart = start + new Vector2(0.5f, 1f);
-                        imaginaryEnd = end + new Vector2(0.5f, 0f);
+                        imaginaryStart = start + 0.5f * Vector2.up;
+                        imaginaryEnd = end + 0.5f * Vector2.down;
                     }
                 }
                 else if (start.y == end.y)
@@ -104,14 +106,14 @@ namespace PAC.Drawing
                     // end is directly to the right of start
                     if (start.x < end.x)
                     {
-                        imaginaryStart = start + new Vector2(0f, 0.5f);
-                        imaginaryEnd = end + new Vector2(1f, 0.5f);
+                        imaginaryStart = start + 0.5f * Vector2.left;
+                        imaginaryEnd = end + 0.5f * Vector2.right;
                     }
                     // end is directly to the left of start
                     else
                     {
-                        imaginaryStart = start + new Vector2(1f, 0.5f);
-                        imaginaryEnd = end + new Vector2(0f, 0.5f);
+                        imaginaryStart = start + 0.5f * Vector2.right;
+                        imaginaryEnd = end + 0.5f * Vector2.left;
                     }
                 }
                 if (start.x < end.x)
@@ -119,14 +121,14 @@ namespace PAC.Drawing
                     // end is to top-right of start
                     if (start.y < end.y)
                     {
-                        imaginaryStart = start;
-                        imaginaryEnd = end + Vector2.one;
+                        imaginaryStart = start - 0.5f * Vector2.one;
+                        imaginaryEnd = end + 0.5f * Vector2.one;
                     }
                     // end is to bottom-right of start
                     else
                     {
-                        imaginaryStart = start + Vector2.up;
-                        imaginaryEnd = end + Vector2.right;
+                        imaginaryStart = start + 0.5f * new Vector2(-1, 1);
+                        imaginaryEnd = end + 0.5f * new Vector2(1, -1);
                     }
                 }
                 else
@@ -134,14 +136,14 @@ namespace PAC.Drawing
                     // end is to top-left of start
                     if (start.y < end.y)
                     {
-                        imaginaryStart = start + Vector2.right;
-                        imaginaryEnd = end + Vector2.up;
+                        imaginaryStart = start + 0.5f * new Vector2(1, -1);
+                        imaginaryEnd = end + 0.5f * new Vector2(-1, 1);
                     }
                     // end is to bottom-left of start
                     else
                     {
-                        imaginaryStart = start + Vector2.one;
-                        imaginaryEnd = end;
+                        imaginaryStart = start + 0.5f * Vector2.one;
+                        imaginaryEnd = end - 0.5f * Vector2.one;
                     }
                 }
 
@@ -212,25 +214,25 @@ namespace PAC.Drawing
                         // Line equation is:
                         //      gradient = (y - lineStart.y) / (x - lineStart.x)
                         // We plug in x + 0.5 (the + 0.5 if because we use the centre of the pixel)
-                        float y = (x + 0.5f - imaginaryStart.x) * imaginaryGradient + imaginaryStart.y;
+                        float y = (x - imaginaryStart.x) * imaginaryGradient + imaginaryStart.y;
 
-                        // Deal with edge case of y being an integer to ensure line is rotationally symmetrical
+                        // Deal with edge case of y being exactly on the border of two pixels
                         // We always pull the y so it's closer to the endpoint x is closest to (e.g. if x is closer to start.x than end.x then we round y up/down to whichever is closer to start.y)
-                        if (Mathf.Abs(y - Mathf.Round(y)) < 0.0001f)
+                        if ((x - imaginaryStart.x) * (imaginaryEnd.y - imaginaryStart.y) % (imaginaryEnd.x - imaginaryStart.x) == 0)
                         {
                             // If we're in the first half of the line
                             if (2 * Math.Abs(x - start.x) <= Math.Abs(end.x - start.x))
                             {
-                                return new IntVector2(x, Mathf.RoundToInt(y) - (start.y < end.y ? 1 : 0));
+                                return new IntVector2(x, Mathf.FloorToInt(y) + (start.y < end.y ? 0 : 1));
                             }
                             else
                             {
-                                return new IntVector2(x, Mathf.RoundToInt(y) - (start.y < end.y ? 0 : 1));
+                                return new IntVector2(x, Mathf.FloorToInt(y) + (start.y < end.y ? 1 : 0));
                             }
                         }
                         else
                         {
-                            return new IntVector2(x, Mathf.FloorToInt(y));
+                            return new IntVector2(x, Mathf.RoundToInt(y));
                         }
                     }
                     else
@@ -244,23 +246,23 @@ namespace PAC.Drawing
                         // We plug in y + 0.5 (the + 0.5 if because we use the centre of the pixel)
                         float x = (y - imaginaryStart.y) * imaginaryGradient + imaginaryStart.x;
 
-                        // Deal with edge case of x being an integer to ensure line is rotationally symmetrical
+                        // Deal with edge case of x being exactly on the border of two pixels
                         // We always pull the x so it's closer to the endpoint y is closest to (e.g. if y is closer to start.y than end.y then we round x up/down to whichever is closer to start.x)
-                        if (Mathf.Abs(x - Mathf.Round(x)) < 0.0001f)
+                        if ((y - imaginaryStart.y) * (imaginaryEnd.x - imaginaryStart.x) % (imaginaryEnd.y - imaginaryStart.y) == 0)
                         {
                             // If we're in the first half of the line
                             if (2 * Math.Abs(y - start.y) <= Math.Abs(end.y - start.y))
                             {
-                                return new IntVector2(Mathf.RoundToInt(x) - (start.x < end.x ? 1 : 0), y);
+                                return new IntVector2(Mathf.FloorToInt(x) + (start.x < end.x ? 0 : 1), y);
                             }
                             else
                             {
-                                return new IntVector2(Mathf.RoundToInt(x) - (start.x < end.x ? 0 : 1), y);
+                                return new IntVector2(Mathf.FloorToInt(x) + (start.x < end.x ? 1 : 0), y);
                             }
                         }
                         else
                         {
-                            return new IntVector2(Mathf.FloorToInt(x), y);
+                            return new IntVector2(Mathf.RoundToInt(x), y);
                         }
                     }
                 }
