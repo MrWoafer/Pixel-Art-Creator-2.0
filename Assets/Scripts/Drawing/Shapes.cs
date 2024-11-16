@@ -579,7 +579,7 @@ namespace PAC.Drawing
             IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();
             public IEnumerator<IntVector2> GetEnumerator()
             {
-                // Manually define horizontal/vertical lines to avoid repetition
+                // Manually define horizontal/vertical lines to avoid repeating pixels
                 if (width == 1)
                 {
                     for (int y = bottomLeft.y; y <= topRight.y; y++)
