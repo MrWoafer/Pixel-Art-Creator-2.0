@@ -206,17 +206,6 @@ namespace PAC.Tests
             }
         }
 
-        private IEnumerable<Shapes.Line> Datapoints()
-        {
-            foreach (IntVector2 start in new IntRect(new IntVector2(-5, -5), new IntVector2(5, 5)))
-            {
-                foreach (IntVector2 end in start + new IntRect(new IntVector2(-5, -5), new IntVector2(5, 5)))
-                {
-                    yield return new Shapes.Line(start, end);
-                }
-            }
-        }
-
         /// <summary>
         /// Tests that the shape of a line is only determined by the width and height, not by the position.
         /// </summary>
@@ -224,10 +213,14 @@ namespace PAC.Tests
         [Category("Shapes")]
         public void TranslationalInvariance()
         {
-            foreach (Shapes.Line translated in Datapoints())
+            foreach (IntVector2 start in new IntRect(new IntVector2(-5, -5), new IntVector2(5, 5)))
             {
-                Shapes.Line expected = new Shapes.Line(IntVector2.zero, translated.end - translated.start);
-                Assert.True(expected.SequenceEqual(translated.Select(p => p - translated.start)), "Failed with " + translated);
+                foreach (IntVector2 end in start + new IntRect(new IntVector2(-5, -5), new IntVector2(5, 5)))
+                {
+                    Shapes.Line line = new Shapes.Line(start, end);
+                    Shapes.Line expected = new Shapes.Line(IntVector2.zero, line.end - line.start);
+                    Assert.True(expected.SequenceEqual(line.Select(p => p - line.start)), "Failed with " + line);
+                }
             }
         }
 
@@ -238,8 +231,9 @@ namespace PAC.Tests
         [Category("Shapes")]
         public void RotationalInvariance()
         {
-            foreach (Shapes.Line line in Datapoints())
+            foreach (IntVector2 end in new IntRect(new IntVector2(-5, -5), new IntVector2(5, 5)))
             {
+                Shapes.Line line = new Shapes.Line(IntVector2.zero, end);
                 Shapes.Line expected = new Shapes.Line(IntVector2.zero, (line.end - line.start).Rotate(RotationAngle._90));
                 Assert.True(expected.SequenceEqual(line.Select(p => (p - line.start).Rotate(RotationAngle._90))), "Failed with " + line);
             }
@@ -254,8 +248,9 @@ namespace PAC.Tests
         {
             foreach (FlipAxis axis in new FlipAxis[] { FlipAxis.Vertical, FlipAxis.Horizontal, FlipAxis._45Degrees, FlipAxis.Minus45Degrees })
             {
-                foreach (Shapes.Line line in Datapoints())
+                foreach (IntVector2 end in new IntRect(new IntVector2(-5, -5), new IntVector2(5, 5)))
                 {
+                    Shapes.Line line = new Shapes.Line(IntVector2.zero, end);
                     Shapes.Line expected = new Shapes.Line(line.start.Flip(axis), line.end.Flip(axis));
                     Assert.True(expected.SequenceEqual(line.Select(p => p.Flip(axis))), "Failed with " + line + " and FlipAxis." + axis);
                 }

@@ -24,50 +24,29 @@ namespace PAC.Tests
             }
         }
 
-        private IEnumerable<Shapes.Rectangle> Datapoints(bool includeFilled, bool includeUnfilled)
-        {
-            List<bool> filledDatapoints = new List<bool>();
-            if (includeFilled)
-            {
-                filledDatapoints.Add(true);
-            }
-            if (includeUnfilled)
-            {
-                filledDatapoints.Add(false);
-            }
-
-            foreach (bool filled in filledDatapoints)
-            {
-                for (int width = 1; width <= 5; width++)
-                {
-                    for (int height = 1; height <= 5; height++)
-                    {
-                        foreach (IntVector2 bottomLeft in new IntRect(new IntVector2(-5, 5), new IntVector2(5, 5)))
-                        {
-                            yield return new Shapes.Rectangle(bottomLeft, bottomLeft + new IntVector2(width - 1, height - 1), filled);
-                        }
-                    }
-                }
-            }
-        }
-
         [Test]
         [Category("Shapes")]
         public void Count()
         {
-            foreach (Shapes.Rectangle rectangle in Datapoints(true, true))
+            foreach (bool filled in new bool[] { false, true })
             {
-                int count = 0;
-                HashSet<IntVector2> visited = new HashSet<IntVector2>();
-                foreach (IntVector2 pixel in rectangle)
+                foreach (IntVector2 topRight in new IntRect(IntVector2.zero, new IntVector2(10, 10)))
                 {
-                    if (!visited.Contains(pixel))
+                    Shapes.Rectangle rectangle = new Shapes.Rectangle(IntVector2.zero, topRight, filled);
+
+                    int count = 0;
+                    HashSet<IntVector2> visited = new HashSet<IntVector2>();
+                    foreach (IntVector2 pixel in rectangle)
                     {
-                        count++;
-                        visited.Add(pixel);
+                        if (!visited.Contains(pixel))
+                        {
+                            count++;
+                            visited.Add(pixel);
+                        }
                     }
+
+                    Assert.AreEqual(count, rectangle.Count, "Failed with " + rectangle);
                 }
-                Assert.AreEqual(count, rectangle.Count, "Failed with " + rectangle);
             }
         }
 
@@ -75,17 +54,22 @@ namespace PAC.Tests
         [Category("Shapes")]
         public void Contains()
         {
-            foreach (Shapes.Rectangle rectangle in Datapoints(true, true))
+            foreach (bool filled in new bool[] { false, true })
             {
-                IntRect testRegion = rectangle.boundingRect;
-                testRegion.bottomLeft -= IntVector2.one;
-                testRegion.topRight += IntVector2.one;
-
-                HashSet<IntVector2> rectanglePixels = rectangle.ToHashSet();
-
-                foreach (IntVector2 pixel in testRegion)
+                foreach (IntVector2 topRight in new IntRect(IntVector2.zero, new IntVector2(10, 10)))
                 {
-                    Assert.AreEqual(rectanglePixels.Contains(pixel), rectangle.Contains(pixel), "Failed with " + rectangle + " and " + pixel);
+                    Shapes.Rectangle rectangle = new Shapes.Rectangle(IntVector2.zero, topRight, filled);
+
+                    IntRect testRegion = rectangle.boundingRect;
+                    testRegion.bottomLeft -= IntVector2.one;
+                    testRegion.topRight += IntVector2.one;
+
+                    HashSet<IntVector2> rectanglePixels = rectangle.ToHashSet();
+
+                    foreach (IntVector2 pixel in testRegion)
+                    {
+                        Assert.AreEqual(rectanglePixels.Contains(pixel), rectangle.Contains(pixel), "Failed with " + rectangle + " and " + pixel);
+                    }
                 }
             }
         }
@@ -97,13 +81,18 @@ namespace PAC.Tests
         [Category("Shapes")]
         public void NoRepeats()
         {
-            foreach (Shapes.Rectangle rectangle in Datapoints(true, true))
+            foreach (bool filled in new bool[] { false, true })
             {
-                HashSet<IntVector2> visited = new HashSet<IntVector2>();
-                foreach (IntVector2 pixel in rectangle)
+                foreach (IntVector2 topRight in new IntRect(IntVector2.zero, new IntVector2(10, 10)))
                 {
-                    Assert.False(visited.Contains(pixel), "Failed with " + rectangle + " and " + pixel);
-                    visited.Add(pixel);
+                    Shapes.Rectangle rectangle = new Shapes.Rectangle(IntVector2.zero, topRight, filled);
+
+                    HashSet<IntVector2> visited = new HashSet<IntVector2>();
+                    foreach (IntVector2 pixel in rectangle)
+                    {
+                        Assert.False(visited.Contains(pixel), "Failed with " + rectangle + " and " + pixel);
+                        visited.Add(pixel);
+                    }
                 }
             }
         }
