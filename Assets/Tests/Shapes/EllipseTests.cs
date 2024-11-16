@@ -194,22 +194,6 @@ namespace PAC.Tests
         }
 
         /// <summary>
-        /// Tests the Ellipse has reflective symmetry across the vertical axis and across the horizontal axis. Note that together these also imply 180-degree rotational symmetry.
-        /// </summary>
-        [Test]
-        [Category("Shapes")]
-        public void Symmetry()
-        {
-            foreach (Shapes.Ellipse ellipse in Datapoints(true, true))
-            {
-                // Reflect across vertical axis
-                Assert.True(ellipse.ToHashSet().SetEquals(ellipse.Select(p => new IntVector2(ellipse.bottomLeft.x + ellipse.topRight.x - p.x, p.y))), "Failed with " + ellipse);
-                // Reflect across horizontal axis
-                Assert.True(ellipse.ToHashSet().SetEquals(ellipse.Select(p => new IntVector2(p.x, ellipse.bottomLeft.y + ellipse.topRight.y - p.y))), "Failed with " + ellipse);
-            }
-        }
-
-        /// <summary>
         /// Tests that the shape of the Ellipse is only determined by the width and height, not by the position.
         /// </summary>
         [Test]
@@ -234,6 +218,22 @@ namespace PAC.Tests
             {
                 Shapes.Ellipse expected = new Shapes.Ellipse(IntVector2.zero, new IntVector2(ellipse.height - 1, ellipse.width - 1), ellipse.filled);
                 Assert.True(expected.ToHashSet().SetEquals(ellipse.Select(p => (p - ellipse.bottomLeft).Rotate(RotationAngle._90) + new IntVector2(0, ellipse.width - 1))), "Failed with " + ellipse);
+            }
+        }
+
+        /// <summary>
+        /// Tests the Ellipse has reflective symmetry across the vertical axis and across the horizontal axis. Note that together these also imply 180-degree rotational symmetry.
+        /// </summary>
+        [Test]
+        [Category("Shapes")]
+        public void Symmetry()
+        {
+            foreach (Shapes.Ellipse ellipse in Datapoints(true, true))
+            {
+                // Reflect across vertical axis
+                Assert.True(ellipse.ToHashSet().SetEquals(ellipse.Select(p => new IntVector2(ellipse.bottomLeft.x + ellipse.topRight.x - p.x, p.y))), "Failed with " + ellipse);
+                // Reflect across horizontal axis
+                Assert.True(ellipse.ToHashSet().SetEquals(ellipse.Select(p => new IntVector2(p.x, ellipse.bottomLeft.y + ellipse.topRight.y - p.y))), "Failed with " + ellipse);
             }
         }
 
