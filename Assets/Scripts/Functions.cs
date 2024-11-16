@@ -8,9 +8,6 @@ namespace PAC
         /// <summary>
         /// Returns a mod b, giving a non-negative result.
         /// </summary>
-        /// <param name="a"></param>
-        /// <param name="b"></param>
-        /// <returns></returns>
         public static int Mod(int a, int b)
         {
             return (a % b + b) % b;
