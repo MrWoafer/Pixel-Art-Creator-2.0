@@ -368,5 +368,21 @@ namespace PAC.DataStructures
                 default: throw new Exception("Unknown / unimplemented angle: " + angle);
             }
         }
+
+        /// <summary>
+        /// Returns the IntVector2 flipped across the given axis.
+        /// </summary>
+        public IntVector2 Flip(FlipAxis axis)
+        {
+            switch (axis)
+            {
+                case FlipAxis.None: return this;
+                case FlipAxis.Vertical: return new IntVector2(-x, y);
+                case FlipAxis.Horizontal: return new IntVector2(x, -y);
+                case FlipAxis._45Degrees: return new IntVector2(y, x);
+                case FlipAxis.Minus45Degrees: return new IntVector2(-y, -x);
+                default: throw new NotImplementedException("Unknown / unimplemented FlipAxis: " + axis);
+            }
+        }
     }
 }
