@@ -21,6 +21,45 @@ namespace PAC.Tests
             }
         }
 
+        /// <summary>
+        /// Tests that lines that can be drawn with constant-size blocks are drawn as such. E.g. a 12x4 line can be drawn as 4 horizontal blocks of 3.
+        /// </summary>
+        [Test]
+        [Category("Shapes")]
+        public void ShapePerfect()
+        {
+            IEnumerable<IntVector2> Expected(bool isMoreHorizontal, int blockSize, int numBlocks)
+            {
+                if (isMoreHorizontal)
+                {
+                    for (int i = 0; i < numBlocks * blockSize; i++)
+                    {
+                        yield return new IntVector2(i, i / blockSize);
+                    }
+                    yield break;
+                }
+
+                for (int i = 0; i < numBlocks * blockSize; i++)
+                {
+                    yield return new IntVector2(i / blockSize, i);
+                }
+            }
+
+            for (int numBlocks = 1; numBlocks <= 10; numBlocks++)
+            {
+                for (int blockSize = 1; blockSize <= 10; blockSize++)
+                {
+                    // More horizontal than vertical
+                    Shapes.Line line = new Shapes.Line(IntVector2.zero, new IntVector2(blockSize * numBlocks - 1, numBlocks - 1));
+                    Assert.True(line.SequenceEqual(Expected(true, blockSize, numBlocks)), "Failed with " + line);
+
+                    // More vertical than horizontal
+                    line = new Shapes.Line(IntVector2.zero, new IntVector2(numBlocks - 1, blockSize * numBlocks - 1));
+                    Assert.True(line.SequenceEqual(Expected(false, blockSize, numBlocks)), "Failed with " + line);
+                }
+            }
+        }
+
         [Test]
         [Category("Shapes")]
         public void Count()
