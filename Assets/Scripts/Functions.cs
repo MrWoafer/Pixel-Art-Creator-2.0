@@ -55,21 +55,6 @@ namespace PAC
             return Mathf.Ceil(toRound / multipleOf) * multipleOf;
         }
 
-        public static string FirstNChars(string str, int numOfChars)
-        {
-            if (numOfChars < 0)
-            {
-                return "";
-            }
-
-            if (numOfChars < str.Length)
-            {
-                return str.Remove(numOfChars);
-            }
-
-            return str;
-        }
-
         public static float RoundTowardsZero(float f)
         {
             if (f >= 0)
@@ -108,6 +93,21 @@ namespace PAC
             }
 
             return Mathf.FloorToInt(f);
+        }
+
+        public static string FirstNChars(string str, int numOfChars)
+        {
+            if (numOfChars < 0)
+            {
+                return "";
+            }
+
+            if (numOfChars < str.Length)
+            {
+                return str.Remove(numOfChars);
+            }
+
+            return str;
         }
 
         public static float TruncateDecimalPlaces(float f, int decimalPlaces)
