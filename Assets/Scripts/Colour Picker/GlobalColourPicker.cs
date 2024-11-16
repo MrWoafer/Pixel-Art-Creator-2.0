@@ -116,7 +116,7 @@ namespace PAC.ColourPicker
         /// </summary>
         private void CycleColourPreview(int numOfSteps)
         {
-            SelectColourPreview(Functions.Mod(currentColourPreviewIndex + numOfSteps, colourPreviews.Length));
+            SelectColourPreview(UtilFunctions.Mod(currentColourPreviewIndex + numOfSteps, colourPreviews.Length));
         }
 
         /// <summary>

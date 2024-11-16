@@ -438,7 +438,7 @@ namespace PAC.Animation
         /// </summary>
         public void DebugLogKeyFrames()
         {
-            Debug.Log("Current frame: " + currentFrameIndex + ". Key frames at: " + Functions.ArrayToString(layerManager.selectedLayer.keyFrameIndices));
+            Debug.Log("Current frame: " + currentFrameIndex + ". Key frames at: " + UtilFunctions.ArrayToString(layerManager.selectedLayer.keyFrameIndices));
         }
 
         /// <summary>
@@ -452,11 +452,11 @@ namespace PAC.Animation
             }
             if (inputSystem.globalKeyboardTarget.OneIsHeldExactly(KeyboardShortcuts.KeyboardShortcuts.GetShortcutsFor("previous frame")))
             {
-                currentFrameIndex = Functions.Mod(currentFrameIndex - 1, fileManager.currentFile.numOfFrames);
+                currentFrameIndex = UtilFunctions.Mod(currentFrameIndex - 1, fileManager.currentFile.numOfFrames);
             }
             if (inputSystem.globalKeyboardTarget.OneIsHeldExactly(KeyboardShortcuts.KeyboardShortcuts.GetShortcutsFor("next frame")))
             {
-                currentFrameIndex = Functions.Mod(currentFrameIndex + 1, fileManager.currentFile.numOfFrames);
+                currentFrameIndex = UtilFunctions.Mod(currentFrameIndex + 1, fileManager.currentFile.numOfFrames);
             }
             if (inputSystem.globalKeyboardTarget.OneIsHeldExactly(KeyboardShortcuts.KeyboardShortcuts.GetShortcutsFor("first frame")))
             {

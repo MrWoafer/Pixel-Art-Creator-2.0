@@ -55,13 +55,13 @@ namespace PAC.Drawing
             if (width > 0 && height > 0)
             {
                 int numOfVerticalLines = Mathf.CeilToInt(fileManager.currentFile.width / (float)width);
-                if (Functions.Mod(xOffset, width) == 0 || Functions.Mod(fileManager.currentFile.width, width) != 0)
+                if (UtilFunctions.Mod(xOffset, width) == 0 || UtilFunctions.Mod(fileManager.currentFile.width, width) != 0)
                 {
                     numOfVerticalLines -= 1;
                 }
 
                 int numOfHorizontalLines = Mathf.CeilToInt(fileManager.currentFile.height / (float)height);
-                if (Functions.Mod(yOffset, height) == 0 || Functions.Mod(fileManager.currentFile.height, height) != 0)
+                if (UtilFunctions.Mod(yOffset, height) == 0 || UtilFunctions.Mod(fileManager.currentFile.height, height) != 0)
                 {
                     numOfHorizontalLines -= 1;
                 }
@@ -74,13 +74,13 @@ namespace PAC.Drawing
                     gridLine.transform.localScale = new Vector3(lineThickness, (float)fileManager.currentFile.height / maxFileWidthHeight, 1f);
                     gridLines.Add(gridLine);
 
-                    if (Functions.Mod(xOffset, width) == 0)
+                    if (UtilFunctions.Mod(xOffset, width) == 0)
                     {
                         gridLine.localPosition = new Vector3(i * (float)width / fileManager.currentFile.width - 0.5f, 0f, 0f);
                     }
                     else
                     {
-                        gridLine.localPosition = new Vector3((i - 1f) * (float)width / fileManager.currentFile.width - 0.5f + Functions.Mod(xOffset, width) / (float)fileManager.currentFile.width, 0f, 0f);
+                        gridLine.localPosition = new Vector3((i - 1f) * (float)width / fileManager.currentFile.width - 0.5f + UtilFunctions.Mod(xOffset, width) / (float)fileManager.currentFile.width, 0f, 0f);
                     }
                 }
 
@@ -90,13 +90,13 @@ namespace PAC.Drawing
                     gridLine.transform.localScale = new Vector3((float)fileManager.currentFile.width / maxFileWidthHeight, lineThickness, 1f);
                     gridLines.Add(gridLine);
 
-                    if (Functions.Mod(yOffset, height) == 0)
+                    if (UtilFunctions.Mod(yOffset, height) == 0)
                     {
                         gridLine.localPosition = new Vector3(0f, i * (float)height / fileManager.currentFile.height - 0.5f, 0f);
                     }
                     else
                     {
-                        gridLine.localPosition = new Vector3(0f, (i - 1f) * (float)height / fileManager.currentFile.height - 0.5f + Functions.Mod(yOffset, height) / (float)fileManager.currentFile.height, 0f);
+                        gridLine.localPosition = new Vector3(0f, (i - 1f) * (float)height / fileManager.currentFile.height - 0.5f + UtilFunctions.Mod(yOffset, height) / (float)fileManager.currentFile.height, 0f);
                     }
                 }
             }

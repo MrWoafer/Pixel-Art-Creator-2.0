@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace PAC.Utils
 {
-    public static class Functions
+    public static class UtilFunctions
     {
         /// <summary>
         /// Returns a mod b, giving a non-negative result.
@@ -105,7 +105,7 @@ namespace PAC.Utils
 
         public static float TruncateDecimalPlaces(float f, int decimalPlaces)
         {
-            int integerPart = Functions.RoundToIntTowardsZero(f);
+            int integerPart = UtilFunctions.RoundToIntTowardsZero(f);
             float decimalPart = Mathf.Abs(f - integerPart);
 
             if (decimalPart.ToString() == "0")

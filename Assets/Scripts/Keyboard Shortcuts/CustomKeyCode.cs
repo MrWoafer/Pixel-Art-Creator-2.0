@@ -54,7 +54,7 @@ namespace PAC.KeyboardShortcuts
         /// <summary>All the defined keycodes that combine multiple Unity KeyCodes.</summary>
         public static readonly CustomKeyCode[] combinedKeyCodes = new CustomKeyCode[] { Shift, Alt, Ctrl, Plus, Minus, _0, _1, _2, _3, _4, _5, _6, _7, _8, _9, GreaterThan, LessThan };
         /// <summary>All Unity KeyCodes and all combined keycodes.</summary>
-        public static readonly CustomKeyCode[] allKeyCodes = Functions.ConcatArrays((from x in (KeyCode[])System.Enum.GetValues(typeof(KeyCode)) select (CustomKeyCode)x).ToArray(), combinedKeyCodes);
+        public static readonly CustomKeyCode[] allKeyCodes = UtilFunctions.ConcatArrays((from x in (KeyCode[])System.Enum.GetValues(typeof(KeyCode)) select (CustomKeyCode)x).ToArray(), combinedKeyCodes);
 
         /// <summary>The keycodes A-Z.</summary>
         public static readonly CustomKeyCode[] alphabet = new CustomKeyCode[] { KeyCode.A, KeyCode.B, KeyCode.C, KeyCode.D, KeyCode.E, KeyCode.F, KeyCode.G, KeyCode.H, KeyCode.I, KeyCode.J,

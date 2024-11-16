@@ -228,7 +228,7 @@ namespace PAC.Layers
 
         public void DuplicateSelectedLayers()
         {
-            Layer[] previouslySelectLayers = Functions.CopyArray(selectedLayers);
+            Layer[] previouslySelectLayers = UtilFunctions.CopyArray(selectedLayers);
 
             for (int i = layerTiles.Count - 1; i >= 0; i--)
             {
@@ -260,7 +260,7 @@ namespace PAC.Layers
                 int[] keyFrames = new int[0];
                 foreach (Layer layer in selectedLayers)
                 {
-                    keyFrames = Functions.ConcatArrays(keyFrames, layer.keyFrameIndices);
+                    keyFrames = UtilFunctions.ConcatArrays(keyFrames, layer.keyFrameIndices);
                 }
 
                 foreach (int keyFrame in keyFrames)

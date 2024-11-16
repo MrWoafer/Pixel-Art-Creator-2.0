@@ -745,7 +745,7 @@ namespace PAC.Files
                 return Tex2DSprite.BlankTexture(width, height);
             }
 
-            return RenderLayers(Functions.Range(highestVisibleLayer, lowestVisibleLayer), frame);
+            return RenderLayers(UtilFunctions.Range(highestVisibleLayer, lowestVisibleLayer), frame);
         }
 
         /// <summary>
@@ -837,7 +837,7 @@ namespace PAC.Files
                 throw new System.Exception("inclusive == false and there are no layers strictly between the highest layer and the lowest layer. highestLayer: " + highestLayer + "; lowestLayer: " + lowestLayer);
             }
 
-            return RenderPixel(x, y, Functions.Range(highestLayer + (inclusive ? 0 : 1), lowestLayer - (inclusive ? 0 : 1)), frame);
+            return RenderPixel(x, y, UtilFunctions.Range(highestLayer + (inclusive ? 0 : 1), lowestLayer - (inclusive ? 0 : 1)), frame);
         }
         /// <summary>
         /// Renders the colour of the pixel on the layers at the given layer indices. Throws an error if there are no layer indices.
@@ -874,7 +874,7 @@ namespace PAC.Files
         private void RerenderLiveRender()
         {
             Color[] pixels = new Color[rect.area];
-            IEnumerable<int> layerIndices = Functions.Range(0, layers.Count() - 1);
+            IEnumerable<int> layerIndices = UtilFunctions.Range(0, layers.Count() - 1);
 
             int index = 0;
             for (int y = 0; y < height; y++)
