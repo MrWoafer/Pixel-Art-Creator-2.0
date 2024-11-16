@@ -78,10 +78,10 @@ namespace PAC.DataStructures
             _topRight = new IntVector2(Math.Max(corner.x, oppositeCorner.x), Math.Max(corner.y, oppositeCorner.y));
         }
 
-        public static bool operator !=(IntRect rect1, IntRect rect2) => !(rect1 == rect2);
-        public static bool operator ==(IntRect rect1, IntRect rect2)
+        public static bool operator !=(IntRect a, IntRect b) => !(a == b);
+        public static bool operator ==(IntRect a, IntRect b)
         {
-            return rect1.bottomLeft == rect2.bottomLeft && rect1.topRight == rect2.topRight;
+            return a.bottomLeft == b.bottomLeft && a.topRight == b.topRight;
         }
         public override bool Equals(object obj)
         {
@@ -189,15 +189,15 @@ namespace PAC.DataStructures
         /// <summary>
         /// Returns true if the two rects overlap at all.
         /// </summary>
-        public static bool Overlap(IntRect rect1, IntRect rect2)
+        public static bool Overlap(IntRect a, IntRect b)
         {
-            bool xOverlaps = (rect1.bottomLeft.x >= rect2.bottomLeft.x && rect1.bottomLeft.x <= rect2.topRight.x) ||
-                             (rect1.topRight.x >= rect2.bottomLeft.x && rect1.topRight.x <= rect2.topRight.x) ||
-                             (rect1.bottomLeft.x <= rect2.bottomLeft.x && rect1.topRight.x >= rect2.topRight.x);
+            bool xOverlaps = (a.bottomLeft.x >= b.bottomLeft.x && a.bottomLeft.x <= b.topRight.x) ||
+                             (a.topRight.x >= b.bottomLeft.x && a.topRight.x <= b.topRight.x) ||
+                             (a.bottomLeft.x <= b.bottomLeft.x && a.topRight.x >= b.topRight.x);
 
-            bool yOverlaps = (rect1.bottomLeft.y >= rect2.bottomLeft.y && rect1.bottomLeft.y <= rect2.topRight.y) ||
-                             (rect1.topRight.y >= rect2.bottomLeft.y && rect1.topRight.y <= rect2.topRight.y) ||
-                             (rect1.bottomLeft.y <= rect2.bottomLeft.y && rect1.topRight.y >= rect2.topRight.y);
+            bool yOverlaps = (a.bottomLeft.y >= b.bottomLeft.y && a.bottomLeft.y <= b.topRight.y) ||
+                             (a.topRight.y >= b.bottomLeft.y && a.topRight.y <= b.topRight.y) ||
+                             (a.bottomLeft.y <= b.bottomLeft.y && a.topRight.y >= b.topRight.y);
 
             return xOverlaps && yOverlaps;
         }
