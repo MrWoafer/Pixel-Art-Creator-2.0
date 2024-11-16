@@ -207,27 +207,23 @@ namespace PAC
         }
 
         /// <summary>
-        /// Creates an array starting at start and ending at end (inclusive).
+        /// Creates an IEnumerable starting at start and ending at end (inclusive).
         /// </summary>
-        public static int[] Range(int start, int end)
+        public static IEnumerable<int> Range(int start, int end)
         {
             if (start <= end)
             {
-                int[] range = new int[end - start + 1];
                 for (int i = start; i <= end; i++)
                 {
-                    range[i - start] = i;
+                    yield return i;
                 }
-                return range;
             }
             else
             {
-                int[] range = new int[start - end + 1];
                 for (int i = start; i >= end; i--)
                 {
-                    range[start - i] = i;
+                    yield return i;
                 }
-                return range;
             }
         }
 
