@@ -17,7 +17,7 @@ namespace PAC.Tests
         {
             foreach (bool filled in new bool[] { false, true})
             {
-                foreach (IntVector2 pixel in new IntRect(new IntVector2(-5, 5), new IntVector2(5, 5)))
+                foreach (IntVector2 pixel in new IntRect(new IntVector2(-5, -5), new IntVector2(5, 5)))
                 {
                     Assert.True(new Shapes.Ellipse(pixel, pixel, filled).SequenceEqual(new IntVector2[] { pixel }));
                 }
@@ -63,7 +63,7 @@ namespace PAC.Tests
         [Category("Shapes")]
         public void Shape3x3()
         {
-            foreach (IntVector2 centre in new IntRect(new IntVector2(-5, 5), new IntVector2(5, 5)))
+            foreach (IntVector2 centre in new IntRect(new IntVector2(-5, -5), new IntVector2(5, 5)))
             {
                 Shapes.Ellipse ellipse = new Shapes.Ellipse(centre - IntVector2.one, centre + IntVector2.one, false);
                 Assert.True(ellipse.ToHashSet().SetEquals(centre + new IntVector2[] { IntVector2.up, IntVector2.right, IntVector2.down, IntVector2.left }));
@@ -127,7 +127,7 @@ namespace PAC.Tests
                 {
                     for (int height = 1; height <= 5; height++)
                     {
-                        foreach (IntVector2 bottomLeft in new IntRect(new IntVector2(-5, 5), new IntVector2(5, 5)))
+                        foreach (IntVector2 bottomLeft in new IntRect(new IntVector2(-5, -5), new IntVector2(5, 5)))
                         {
                             yield return new Shapes.Ellipse(bottomLeft, bottomLeft + new IntVector2(width - 1, height - 1), filled);
                         }
