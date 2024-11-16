@@ -233,8 +233,7 @@ namespace PAC.Tests
             foreach (Shapes.Ellipse ellipse in Datapoints(true, true))
             {
                 Shapes.Ellipse expected = new Shapes.Ellipse(IntVector2.zero, new IntVector2(ellipse.height - 1, ellipse.width - 1), ellipse.filled);
-                Assert.True(expected.ToHashSet().SetEquals(ellipse.Select(p => (p - ellipse.bottomLeft).Rotate(RotationAngle._90) + new IntVector2(0, ellipse.width - 1))),
-                    "Failed with " + ellipse);
+                Assert.True(expected.ToHashSet().SetEquals(ellipse.Select(p => (p - ellipse.bottomLeft).Rotate(RotationAngle._90) + new IntVector2(0, ellipse.width - 1))), "Failed with " + ellipse);
             }
         }
     }
