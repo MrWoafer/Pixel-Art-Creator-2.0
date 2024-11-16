@@ -60,6 +60,38 @@ namespace PAC.Tests
             }
         }
 
+        /// <summary>
+        /// Tests that an example line has the correct shape.
+        /// </summary>
+        [Test]
+        [Category("Shapes")]
+        public void ShapeExample1()
+        {
+            Shapes.Line line = new Shapes.Line(IntVector2.zero, new IntVector2(2, 4));
+            IntVector2[] expected =
+            {
+                new IntVector2(0, 0), new IntVector2(0, 1), new IntVector2(1, 2), new IntVector2(2, 3), new IntVector2(2, 4)
+            };
+
+            Assert.True(expected.SequenceEqual(line));
+        }
+
+        /// <summary>
+        /// Tests that an example line has the correct shape.
+        /// </summary>
+        [Test]
+        [Category("Shapes")]
+        public void ShapeExample2()
+        {
+            Shapes.Line line = new Shapes.Line(IntVector2.zero, new IntVector2(4, 1));
+            IntVector2[] expected =
+            {
+                new IntVector2(0, 0), new IntVector2(1, 0), new IntVector2(2, 0), new IntVector2(3, 1), new IntVector2(4, 1)
+            };
+
+            Assert.True(expected.SequenceEqual(line));
+        }
+
         [Test]
         [Category("Shapes")]
         public void Count()
