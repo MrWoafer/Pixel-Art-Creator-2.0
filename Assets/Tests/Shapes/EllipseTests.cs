@@ -74,7 +74,7 @@ namespace PAC.Tests
         }
 
         /// <summary>
-        /// Tests that an example ellips has the correct shape.
+        /// Tests that an example ellipse has the correct shape.
         /// </summary>
         [Test]
         [Category("Shapes")]
@@ -92,7 +92,7 @@ namespace PAC.Tests
         }
 
         /// <summary>
-        /// Tests that an example ellips has the correct shape.
+        /// Tests that an example ellipse has the correct shape.
         /// </summary>
         [Test]
         [Category("Shapes")]
