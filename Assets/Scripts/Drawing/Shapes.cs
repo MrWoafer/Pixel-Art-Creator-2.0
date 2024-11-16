@@ -2,7 +2,6 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using System.Net.NetworkInformation;
 using PAC.DataStructures;
 using UnityEngine;
 
@@ -61,20 +60,11 @@ namespace PAC.Drawing
 
             public IntRect boundingRect => new IntRect(start, end);
 
-            public int Count
-            {
-                get
-                {
-                    int diffX = Math.Abs(start.x - end.x) + 1;
-                    int diffY = Math.Abs(start.y - end.y) + 1;
-
-                    return diffX >= diffY ? diffX : diffY;
-                }
-            }
+            public int Count => isMoreHorizontal ? Math.Abs(end.x - start.x) + 1 : Math.Abs(end.y - start.y) + 1;
 
             public Line(IntVector2 start, IntVector2 end)
             {
-                // Initialise fields before we actually define them is SetValues()
+                // Initialise fields before we actually define them in SetValues()
                 _start = start;
                 _end = end;
                 imaginaryStart = start;
@@ -156,7 +146,7 @@ namespace PAC.Drawing
                 }
 
                 // True iff 1 >= gradient >= -1, i.e. the line is more (or equally) horizontal than vertical
-                isMoreHorizontal = end.y - start.y <= Math.Abs(end.x - start.x) && end.y - start.y >= -Math.Abs(end.x - start.x);
+                isMoreHorizontal = Math.Abs(end.y - start.y) <= Math.Abs(end.x - start.x);
             }
 
             /// <summary>
