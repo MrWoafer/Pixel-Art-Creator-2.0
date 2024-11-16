@@ -22,7 +22,7 @@ namespace PAC.Tests
         }
 
         /// <summary>
-        /// Tests that lines that can be drawn with constant-size blocks are drawn as such. E.g. a 12x4 line can be drawn as 4 horizontal blocks of 3.
+        /// Tests that lines that can be drawn with constant-size blocks are drawn as such. E.g. a 12x4 line can be drawn as 4 horizontal blocks of 3 pixels.
         /// </summary>
         [Test]
         [Category("Shapes")]
@@ -52,10 +52,12 @@ namespace PAC.Tests
                     // More horizontal than vertical
                     Shapes.Line line = new Shapes.Line(IntVector2.zero, new IntVector2(blockSize * numBlocks - 1, numBlocks - 1));
                     Assert.True(line.SequenceEqual(Expected(true, blockSize, numBlocks)), "Failed with " + line);
+                    Assert.True(line.isPerfect, "Failed with " + line);
 
                     // More vertical than horizontal
                     line = new Shapes.Line(IntVector2.zero, new IntVector2(numBlocks - 1, blockSize * numBlocks - 1));
                     Assert.True(line.SequenceEqual(Expected(false, blockSize, numBlocks)), "Failed with " + line);
+                    Assert.True(line.isPerfect, "Failed with " + line);
                 }
             }
         }

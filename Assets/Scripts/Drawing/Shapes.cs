@@ -60,6 +60,11 @@ namespace PAC.Drawing
 
             public Line reverse => new Line(end, start);
 
+            /// <summary>
+            /// Whether this line is divided into blocks of a constant size. E.g. a 12x4 line is perfect as it is drawn as 4 horizontal blocks of 3 pixels.
+            /// </summary>
+            public bool isPerfect => isMoreHorizontal ? (end.x - start.x + 1) % (end.y - start.y + 1) == 0 : (end.y - start.y + 1) % (end.x - start.x + 1) == 0;
+
             public IntRect boundingRect => new IntRect(start, end);
 
             public int Count => isMoreHorizontal ? Math.Abs(end.x - start.x) + 1 : Math.Abs(end.y - start.y) + 1;
