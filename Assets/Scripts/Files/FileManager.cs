@@ -3,7 +3,6 @@ using System.IO;
 using PAC.Animation;
 using PAC.Drawing;
 using PAC.Input;
-using PAC.KeyboardShortcuts;
 using PAC.Layers;
 using PAC.UI;
 using SFB;
