@@ -59,10 +59,6 @@ namespace PAC
         {
             return new Vector2(vector3.x, vector3.y);
         }
-        public static Vector3 Vector2ToVector3(Vector3 vector2)
-        {
-            return new Vector3(vector2.x, vector2.y, 0f);
-        }
 
         public static string FirstNChars(string str, int numOfChars)
         {

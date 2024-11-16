@@ -296,7 +296,7 @@ namespace PAC.Drawing
             // Moving view
             if (inputTarget.mouseTarget.state == MouseTargetState.Pressed && middleClickedOn)
             {
-                transform.position = Functions.Vector2ToVector3(mouse.worldPos + moveOffsetFromMouse) + Vector3.forward * transform.position.z;
+                transform.position = (Vector3)(mouse.worldPos + moveOffsetFromMouse) + Vector3.forward * transform.position.z;
                 mouse.SetCursorSprite(CursorState.Grab);
             }
 
@@ -436,7 +436,7 @@ namespace PAC.Drawing
                 transform.localScale = Vector3.one;
             }
 
-            transform.position = transform.position + Functions.Vector2ToVector3(focusPoint - Functions.Vector3ToVector2(transform.TransformPoint(zoomPointLocalCoords)));
+            transform.position = transform.position + (Vector3)(focusPoint - Functions.Vector3ToVector2(transform.TransformPoint(zoomPointLocalCoords)));
         }
 
         /// <summary>

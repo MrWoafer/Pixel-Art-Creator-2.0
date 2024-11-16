@@ -96,7 +96,7 @@ namespace PAC.ColourPicker
                 sensitivity *= hslColourPicker.slowSensitivityScalar;
             }
 
-            Vector3 mouseLocalCoords = cursor.localPosition + transform.InverseTransformVector(Functions.Vector2ToVector3(mouse.worldPos - previousMousePos)) * sensitivity;
+            Vector3 mouseLocalCoords = cursor.localPosition + transform.InverseTransformVector(mouse.worldPos - previousMousePos) * sensitivity;
 
             mouseLocalCoords = new Vector3(0f, Mathf.Clamp(mouseLocalCoords.y, -0.5f, 0.5f), 0f);
 
