@@ -51,16 +51,6 @@ namespace PAC.Utils
             }
             return Mathf.Ceil(f);
         }
-
-        public static float RoundAwayFromZero(float f)
-        {
-            if (f >= 0)
-            {
-                return Mathf.Ceil(f);
-            }
-            return Mathf.Floor(f);
-        }
-
         public static int RoundToIntTowardsZero(float f)
         {
             if (f >= 0)
@@ -70,6 +60,14 @@ namespace PAC.Utils
             return Mathf.CeilToInt(f);
         }
 
+        public static float RoundAwayFromZero(float f)
+        {
+            if (f >= 0)
+            {
+                return Mathf.Ceil(f);
+            }
+            return Mathf.Floor(f);
+        }
         public static int RoundToIntAwayFromZero(float f)
         {
             if (f >= 0)
