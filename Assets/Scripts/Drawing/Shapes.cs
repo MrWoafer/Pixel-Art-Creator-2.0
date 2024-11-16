@@ -216,10 +216,10 @@ namespace PAC.Drawing
 
                         // Deal with edge case of y being an integer to ensure line is rotationally symmetrical
                         // We always pull the y so it's closer to the endpoint x is closest to (e.g. if x is closer to start.x than end.x then we round y up/down to whichever is closer to start.y)
-                        if (y == Math.Floor(y))
+                        if (Mathf.Abs(y - Mathf.Round(y)) < 0.0001f)
                         {
                             // If we're in the first half of the line
-                            if (2 * (x - start.x) <= end.x - start.x)
+                            if (2 * Math.Abs(x - start.x) <= Math.Abs(end.x - start.x))
                             {
                                 return new IntVector2(x, Mathf.RoundToInt(y) - (start.y < end.y ? 1 : 0));
                             }
@@ -246,16 +246,16 @@ namespace PAC.Drawing
 
                         // Deal with edge case of x being an integer to ensure line is rotationally symmetrical
                         // We always pull the x so it's closer to the endpoint y is closest to (e.g. if y is closer to start.y than end.y then we round x up/down to whichever is closer to start.x)
-                        if (x == Math.Floor(x))
+                        if (Mathf.Abs(x - Mathf.Round(x)) < 0.0001f)
                         {
                             // If we're in the first half of the line
-                            if (2 * (y - start.y) <= end.y - start.y)
+                            if (2 * Math.Abs(y - start.y) <= Math.Abs(end.y - start.y))
                             {
-                                return new IntVector2(Mathf.RoundToInt(x) - (start.y < end.y ? 1 : 0), y);
+                                return new IntVector2(Mathf.RoundToInt(x) - (start.x < end.x ? 1 : 0), y);
                             }
                             else
                             {
-                                return new IntVector2(Mathf.RoundToInt(x) - (start.y < end.y ? 0 : 1), y);
+                                return new IntVector2(Mathf.RoundToInt(x) - (start.x < end.x ? 0 : 1), y);
                             }
                         }
                         else
