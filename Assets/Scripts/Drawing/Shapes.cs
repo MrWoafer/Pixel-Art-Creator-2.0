@@ -43,6 +43,7 @@ namespace PAC.Drawing
                 set => SetValues(start, value);
             }
 
+            // These values are calculated and cached when you set the start/end of the line
             /// <summary>
             /// The start point of the imaginary non-pixel-perfect line. We adjust these to the outside corners of the start/end pixels so that the line will always use blocks of
             /// equal size when possible.
@@ -478,9 +479,9 @@ namespace PAC.Drawing
 
             public bool filled { get; set; }
 
+            // These values are calculated and cached when you set the size of the ellipse
             public int width { get; private set; }
             public int height { get; private set; }
-
             private float xRadius;
             private float yRadius;
             private Vector2 centre;
