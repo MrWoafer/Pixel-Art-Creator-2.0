@@ -883,6 +883,7 @@ namespace PAC.Tests
         /// Tests JsonData.Object.Concat(), JsonData.Object.Append() and JsonData.Object.Prepend().
         /// </summary>
         [Test]
+        [Category("JSON")]
         public void JsonObjectConcat()
         {
             Assert.True(JsonData.HaveSameData(new JsonData.Object(), JsonData.Object.Concat()));

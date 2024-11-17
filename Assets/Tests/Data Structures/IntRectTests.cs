@@ -9,6 +9,7 @@ namespace PAC.Tests
         /// Tests that changing the corners of an IntRect works correctly.
         /// </summary>
         [Test]
+        [Category("Data Structures")]
         public void Resize()
         {
             IntRect rect = new IntRect(IntVector2.zero, new IntVector2(2, 3));
