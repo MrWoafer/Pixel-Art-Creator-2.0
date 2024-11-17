@@ -17,43 +17,23 @@ namespace PAC.DataStructures
         public IntVector2 bottomLeft
         {
             get => _bottomLeft;
-            set
-            {
-                _bottomLeft = new IntVector2(Math.Min(value.x, _topRight.x), Math.Min(value.y, _topRight.y));
-                _topRight = new IntVector2(Math.Max(value.x, _topRight.x), Math.Max(value.y, _topRight.y));
-            }
+            set => this = new IntRect(value, topRight);
         }
         private IntVector2 _topRight;
         public IntVector2 topRight
         {
             get => _topRight;
-            set
-            {
-                _topRight = new IntVector2(Math.Max(_bottomLeft.x, value.x), Math.Max(_bottomLeft.y, value.y));
-                _bottomLeft = new IntVector2(Math.Min(_bottomLeft.x, value.x), Math.Min(_bottomLeft.y, value.y));
-            }
+            set => this = new IntRect(value, bottomLeft);
         }
         public IntVector2 bottomRight
         {
             get => new IntVector2(topRight.x, bottomLeft.y);
-            set
-            {
-                IntVector2 oldBottomLeft = _bottomLeft;
-                IntVector2 oldTopRight = _topRight;
-                _bottomLeft = new IntVector2(Math.Min(value.x, oldBottomLeft.x), Math.Min(value.y, oldTopRight.y));
-                _topRight = new IntVector2(Math.Max(value.x, oldBottomLeft.x), Math.Max(value.y, oldTopRight.y));
-            }
+            set => this = new IntRect(value, topLeft);
         }
         public IntVector2 topLeft
         {
             get => new IntVector2(bottomLeft.x, topRight.y);
-            set
-            {
-                IntVector2 oldBottomLeft = _bottomLeft;
-                IntVector2 oldTopRight = _topRight;
-                _bottomLeft = new IntVector2(Math.Min(value.x, oldTopRight.x), Math.Min(value.y, oldBottomLeft.y));
-                _topRight = new IntVector2(Math.Max(value.x, oldTopRight.x), Math.Max(value.y, oldBottomLeft.y));
-            }
+            set => this = new IntRect(value, bottomRight);
         }
         public Vector2 centre => (Vector2)(bottomLeft + topRight + IntVector2.one) / 2f;
 
