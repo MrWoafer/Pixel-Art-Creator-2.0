@@ -1,5 +1,6 @@
 using NUnit.Framework;
 using PAC.DataStructures;
+using System;
 
 namespace PAC.Tests
 {
@@ -137,6 +138,42 @@ namespace PAC.Tests
             Assert.AreEqual(new IntVector2(2, 2), rect.topRight);
             Assert.AreEqual(new IntVector2(0, 2), rect.topLeft);
             Assert.AreEqual(new IntVector2(2, 0), rect.bottomRight);
+        }
+
+        [Test]
+        [Category("Data Structures")]
+        public void GetBoundingRect()
+        {
+            (IntRect, IntRect[])[] testCases = new(IntRect, IntRect[])[]
+            {
+                (new IntRect(new IntVector2(3, 4), new IntVector2(5, 8)), new IntRect[] {
+                    new IntRect(new IntVector2(3, 4), new IntVector2(5, 8))
+                }),
+                (new IntRect(new IntVector2(2, 4), new IntVector2(9, 8)), new IntRect[] {
+                    new IntRect(new IntVector2(3, 4), new IntVector2(5, 8)),
+                    new IntRect(new IntVector2(2, 6), new IntVector2(9, 7))
+                }),
+                (new IntRect(new IntVector2(0, 0), new IntVector2(9, 8)), new IntRect[] {
+                    new IntRect(new IntVector2(3, 4), new IntVector2(5, 8)),
+                    new IntRect(new IntVector2(2, 6), new IntVector2(9, 7)),
+                    new IntRect(new IntVector2(0, 0), new IntVector2(0, 2))
+                })
+            };
+
+            foreach ((IntRect expected, IntRect[] rects) in testCases)
+            {
+                IntRect boundingRect = IntRect.GetBoundingRect(rects);
+
+                Assert.AreEqual(expected, boundingRect);
+
+                foreach (IntRect rect in rects)
+                {
+                    Assert.True(boundingRect.Contains(rect));
+                }
+            }
+
+            // Cannot get bounding rect of 0 IntRects
+            Assert.Throws<ArgumentException>(() => IntRect.GetBoundingRect());
         }
     }
 }

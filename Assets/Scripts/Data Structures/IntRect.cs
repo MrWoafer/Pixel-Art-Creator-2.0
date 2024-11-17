@@ -245,6 +245,29 @@ namespace PAC.DataStructures
         }
 
         /// <summary>
+        /// Gets the smallest IntRect containing both the given IntRects.
+        /// </summary>
+        public IntRect GetBoundingRect(IntRect a, IntRect b)
+        {
+            return new IntRect(IntVector2.Min(a.bottomLeft, b.bottomLeft), IntVector2.Max(a.topRight, b.topRight));
+        }
+        /// <summary>
+        /// Gets the smallest IntRect containing all the given IntRects.
+        /// </summary>
+        public static IntRect GetBoundingRect(params IntRect[] intRects) => GetBoundingRect((IEnumerable<IntRect>)intRects);
+        /// <summary>
+        /// Gets the smallest IntRect containing all the given IntRects.
+        /// </summary>
+        public static IntRect GetBoundingRect(IEnumerable<IntRect> intRects)
+        {
+            if (intRects.IsEmpty())
+            {
+                throw new ArgumentException("Cannot perform GetBoundingRect() on an empty collection of IntRects.", "intRects");
+            }
+            return new IntRect(IntVector2.Min(from intRect in intRects select intRect.bottomLeft), IntVector2.Max(from intRect in intRects select intRect.topRight));
+        }
+
+        /// <summary>
         /// Returns the IntRect rotated clockwise by the given angle.
         /// </summary>
         public IntRect Rotate(RotationAngle angle)
