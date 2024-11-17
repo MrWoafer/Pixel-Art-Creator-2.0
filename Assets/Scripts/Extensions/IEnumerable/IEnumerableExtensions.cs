@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 
@@ -41,6 +42,31 @@ namespace PAC.Extensions
                     yield return element;
                 }
             }
+        }
+
+        public static bool IsEmpty(this IEnumerable elements)
+        {
+            if (elements is null)
+            {
+                throw new ArgumentException("Given IEnumerable is null.", "elements");
+            }
+            foreach (object element in elements)
+            {
+                return false;
+            }
+            return true;
+        }
+        public static bool IsEmpty<T>(this IEnumerable<T> elements)
+        {
+            if (elements is null)
+            {
+                throw new ArgumentException("Given IEnumerable<" + typeof(T).Name + "> is null.", "elements");
+            }
+            foreach (T element in elements)
+            {
+                return false;
+            }
+            return true;
         }
     }
 }
