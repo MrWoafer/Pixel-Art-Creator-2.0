@@ -12,8 +12,25 @@ namespace PAC.DataStructures
         public int x;
         public int y;
 
+        /// <summary>
+        /// The magnitude of the vector, which is sqrt(x^2 + y^2).
+        /// </summary>
         public float magnitude => Magnitude(this);
+        /// <summary>
+        /// The square of the magnitude of the vector, which is x^2 + y^2. Faster than squaring magnitude.
+        /// </summary>
         public float sqrMagnitude => SqrMagnitude(this);
+
+        /// <summary>
+        /// The l1 norm of the vector, which is abs(x) + abs(y).
+        /// Also known as the taxicab/Manhattan norm.
+        /// </summary>
+        public int l1Norm => L1Norm(this);
+        /// <summary>
+        /// The supremum norm of the vector, which is max(abs(x), abs(y)).
+        /// Also know as the Chebyshev norm or l-infinity norm.
+        /// </summary>
+        public int supNorm => SupNorm(this);
 
         public IntVector2(int x, int y)
         {
@@ -313,32 +330,66 @@ namespace PAC.DataStructures
         }
 
         /// <summary>
-        /// Computes the Euclidean distance between the vectors.
+        /// Computes the Euclidean distance between the vectors, which is sqrt((a.x - b.x)^2 + (a.y - b.y)^2).
         /// </summary>
         public static float Distance(IntVector2 a, IntVector2 b)
         {
             return Magnitude(a - b);
         }
         /// <summary>
-        /// Computes the square of the Euclidean distance between the vectors. Faster than using Distance() and squaring.
+        /// Computes the square of the Euclidean distance between the vectors, which is (a.x - b.x)^2 + (a.y - b.y)^2. Faster than using Distance() and squaring.
         /// </summary>
         public static float SqrDistance(IntVector2 a, IntVector2 b)
         {
             return SqrMagnitude(a - b);
         }
         /// <summary>
-        /// Computes the magnitude of the vector.
+        /// Computes the magnitude of the vector, which is sqrt(a.x^2 + a.y^2).
         /// </summary>
         public static float Magnitude(IntVector2 a)
         {
             return Mathf.Sqrt(a.x * a.x + a.y * a.y);
         }
         /// <summary>
-        /// Computes the square of the magnitude of the vector. Faster than using Magnitude() and squaring.
+        /// Computes the square of the magnitude of the vector, which is a.x^2 + a.y^2. Faster than using Magnitude() and squaring.
         /// </summary>
         public static float SqrMagnitude(IntVector2 a)
         {
             return a.x * a.x + a.y * a.y;
+        }
+
+        /// <summary>
+        /// Computes the l1 distance of the vectors, which is abs(a.x - b.x) + abs(a.y - b.y).
+        /// Also known as the taxicab/Manhattan distance or rectilinear distance.
+        /// </summary>
+        public static int L1Distance(IntVector2 a, IntVector2 b)
+        {
+            return L1Norm(a - b);
+        }
+        /// <summary>
+        /// Computes the l1 norm of the vector, which is abs(a.x) + abs(a.y).
+        /// Also known as the taxicab/Manhattan norm.
+        /// </summary>
+        public static int L1Norm(IntVector2 a)
+        {
+            return Math.Abs(a.x) + Math.Abs(a.y);
+        }
+
+        /// <summary>
+        /// Computes the supremum distance of the vectors, which is max(abs(a.x - b.y), abs(a.y - b.y)).
+        /// Also know as the Chebyshev distance or l-infinity distance.
+        /// </summary>
+        public static int SupDistance(IntVector2 a, IntVector2 b)
+        {
+            return SupNorm(a - b);
+        }
+        /// <summary>
+        /// Computes the supremum norm of the vector, which is max(abs(a.x), abs(a.y)).
+        /// Also know as the Chebyshev norm or l-infinity norm.
+        /// </summary>
+        public static int SupNorm(IntVector2 a)
+        {
+            return Math.Max(Math.Abs(a.x), Math.Abs(a.y));
         }
 
         /// <summary>
