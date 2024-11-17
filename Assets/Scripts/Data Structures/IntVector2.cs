@@ -49,6 +49,14 @@ namespace PAC.DataStructures
         public static readonly IntVector2 up = new IntVector2(0, 1);
         /// <summary>The vector (0, -1).</summary>
         public static readonly IntVector2 down = new IntVector2(0, -1);
+        /// <summary>The vector (1, 1).</summary>
+        public static readonly IntVector2 upRight = new IntVector2(1, 1);
+        /// <summary>The vector (-1, 1).</summary>
+        public static readonly IntVector2 upLeft = new IntVector2(-1, 1);
+        /// <summary>The vector (1, -1).</summary>
+        public static readonly IntVector2 downRight = new IntVector2(1, -1);
+        /// <summary>The vector (-1, -1).</summary>
+        public static readonly IntVector2 downLeft = new IntVector2(-1, -1);
 
         public static bool operator !=(IntVector2 a, IntVector2 b) => !(a == b);
         public static bool operator ==(IntVector2 a, IntVector2 b)
