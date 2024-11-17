@@ -15,6 +15,9 @@ namespace PAC.Drawing
     {
         public interface IShape : IReadOnlyCollection<IntVector2>
         {
+            /// <summary>
+            /// The smallest IntRect containing the whole shape.
+            /// </summary>
             public IntRect boundingRect { get; }
 
             /// <summary>
