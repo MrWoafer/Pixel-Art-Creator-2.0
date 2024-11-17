@@ -1,6 +1,8 @@
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using PAC.Extensions;
 
 namespace PAC.DataStructures
 {
@@ -95,7 +97,7 @@ namespace PAC.DataStructures
 
         public override int GetHashCode()
         {
-            return System.HashCode.Combine(x, y);
+            return HashCode.Combine(x, y);
         }
 
         public override string ToString()
@@ -410,14 +412,19 @@ namespace PAC.DataStructures
         /// <summary>
         /// Takes the maximum of the vectors component-wise.
         /// </summary>
-        public static IntVector2 Max(params IntVector2[] intVectors)
+        public static IntVector2 Max(params IntVector2[] intVectors) => Max((IEnumerable<IntVector2>)intVectors);
+        /// <summary>
+        /// Takes the maximum of the vectors component-wise.
+        /// </summary>
+        public static IntVector2 Max(IEnumerable<IntVector2> intVectors)
         {
-            if (intVectors.Length == 0)
+            if (intVectors.IsEmpty())
             {
-                throw new System.Exception("Cannot perform Max() on an empty array of IntVectors.");
+                throw new Exception("Cannot perform Max() on an empty collection of IntVector2s.");
             }
             return new IntVector2(Enumerable.Max(from intVector in intVectors select intVector.x), Enumerable.Max(from intVector in intVectors select intVector.y));
         }
+
         /// <summary>
         /// Takes the minimum of a and b component-wise.
         /// </summary>
@@ -428,11 +435,15 @@ namespace PAC.DataStructures
         /// <summary>
         /// Takes the minimum of the vectors component-wise.
         /// </summary>
-        public static IntVector2 Min(params IntVector2[] intVectors)
+        public static IntVector2 Min(params IntVector2[] intVectors) => Min((IEnumerable<IntVector2>)intVectors);
+        /// <summary>
+        /// Takes the minimum of the vectors component-wise.
+        /// </summary>
+        public static IntVector2 Min(IEnumerable<IntVector2> intVectors)
         {
-            if (intVectors.Length == 0)
+            if (intVectors.IsEmpty())
             {
-                throw new System.Exception("Cannot perform Min() on an empty array of IntVectors.");
+                throw new Exception("Cannot perform Min() on an empty collection of IntVector2s.");
             }
             return new IntVector2(Enumerable.Min(from intVector in intVectors select intVector.x), Enumerable.Min(from intVector in intVectors select intVector.y));
         }
