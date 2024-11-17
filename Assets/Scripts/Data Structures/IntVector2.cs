@@ -342,6 +342,14 @@ namespace PAC.DataStructures
         }
 
         /// <summary>
+        /// Takes the absolute value component-wise.
+        /// </summary>
+        public static IntVector2 Abs(IntVector2 a)
+        {
+            return new IntVector2(Math.Abs(a.x), Math.Abs(a.y));
+        }
+
+        /// <summary>
         /// Takes the maximum of a and b component-wise.
         /// </summary>
         public static IntVector2 Max(IntVector2 a, IntVector2 b)
