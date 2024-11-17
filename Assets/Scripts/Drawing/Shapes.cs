@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using PAC.DataStructures;
+using PAC.Extensions;
 using UnityEngine;
 
 namespace PAC.Drawing
@@ -291,6 +292,16 @@ namespace PAC.Drawing
                         {
                             return new IntVector2(Mathf.RoundToInt(x), y);
                         }
+                    }
+                }
+            }
+            public IEnumerable<IntVector2> this[Range range]
+            {
+                get
+                {
+                    foreach (int i in range.AsIEnumerable())
+                    {
+                        yield return this[i];
                     }
                 }
             }
