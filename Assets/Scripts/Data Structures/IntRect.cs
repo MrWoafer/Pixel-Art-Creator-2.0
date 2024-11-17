@@ -5,6 +5,7 @@ using UnityEngine;
 using PAC;
 using System.Collections.Generic;
 using System;
+using PAC.Extensions;
 
 namespace PAC.DataStructures
 {
@@ -198,11 +199,11 @@ namespace PAC.DataStructures
         {
             if (intRect.width > width)
             {
-                throw new System.Exception("An IntRect cannot clamp a wider IntRect. Width: " + width + " > " + intRect.width);
+                throw new ArgumentException("An IntRect cannot clamp a wider IntRect. Width: " + width + " > " + intRect.width, "intRect");
             }
             if (intRect.height > height)
             {
-                throw new System.Exception("An IntRect cannot clamp a taller IntRect. Height: " + height + " > " + intRect.height);
+                throw new ArgumentException("An IntRect cannot clamp a taller IntRect. Height: " + height + " > " + intRect.height, "intRect");
             }
 
             if (intRect.bottomLeft.x < bottomLeft.x)

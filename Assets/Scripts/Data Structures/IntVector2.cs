@@ -420,7 +420,7 @@ namespace PAC.DataStructures
         {
             if (intVectors.IsEmpty())
             {
-                throw new Exception("Cannot perform Max() on an empty collection of IntVector2s.");
+                throw new ArgumentException("Cannot perform Max() on an empty collection of IntVector2s.", "intVectors");
             }
             return new IntVector2(Enumerable.Max(from intVector in intVectors select intVector.x), Enumerable.Max(from intVector in intVectors select intVector.y));
         }
@@ -443,7 +443,7 @@ namespace PAC.DataStructures
         {
             if (intVectors.IsEmpty())
             {
-                throw new Exception("Cannot perform Min() on an empty collection of IntVector2s.");
+                throw new ArgumentException("Cannot perform Min() on an empty collection of IntVector2s.", "intVectors");
             }
             return new IntVector2(Enumerable.Min(from intVector in intVectors select intVector.x), Enumerable.Min(from intVector in intVectors select intVector.y));
         }
@@ -459,7 +459,7 @@ namespace PAC.DataStructures
                 case RotationAngle._90: return new IntVector2(y, -x);
                 case RotationAngle._180: return new IntVector2(-x, -y);
                 case RotationAngle.Minus90: return new IntVector2(-y, x);
-                default: throw new Exception("Unknown / unimplemented angle: " + angle);
+                default: throw new NotImplementedException("Unknown / unimplemented angle: " + angle);
             }
         }
 
