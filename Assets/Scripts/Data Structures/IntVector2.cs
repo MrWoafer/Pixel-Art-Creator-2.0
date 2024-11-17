@@ -320,7 +320,6 @@ namespace PAC.DataStructures
         {
             return a.x * b.x + a.y * b.y;
         }
-
         /// <summary>
         /// Determines whether the two vectors are perpendicular to each other.
         /// </summary>
@@ -329,20 +328,6 @@ namespace PAC.DataStructures
             return Dot(a, b) == 0;
         }
 
-        /// <summary>
-        /// Computes the Euclidean distance between the vectors, which is sqrt((a.x - b.x)^2 + (a.y - b.y)^2).
-        /// </summary>
-        public static float Distance(IntVector2 a, IntVector2 b)
-        {
-            return Magnitude(a - b);
-        }
-        /// <summary>
-        /// Computes the square of the Euclidean distance between the vectors, which is (a.x - b.x)^2 + (a.y - b.y)^2. Faster than using Distance() and squaring.
-        /// </summary>
-        public static float SqrDistance(IntVector2 a, IntVector2 b)
-        {
-            return SqrMagnitude(a - b);
-        }
         /// <summary>
         /// Computes the magnitude of the vector, which is sqrt(a.x^2 + a.y^2).
         /// </summary>
@@ -357,15 +342,21 @@ namespace PAC.DataStructures
         {
             return a.x * a.x + a.y * a.y;
         }
-
         /// <summary>
-        /// Computes the l1 distance of the vectors, which is abs(a.x - b.x) + abs(a.y - b.y).
-        /// Also known as the taxicab/Manhattan distance or rectilinear distance.
+        /// Computes the Euclidean distance between the vectors, which is sqrt((a.x - b.x)^2 + (a.y - b.y)^2).
         /// </summary>
-        public static int L1Distance(IntVector2 a, IntVector2 b)
+        public static float Distance(IntVector2 a, IntVector2 b)
         {
-            return L1Norm(a - b);
+            return Magnitude(a - b);
         }
+        /// <summary>
+        /// Computes the square of the Euclidean distance between the vectors, which is (a.x - b.x)^2 + (a.y - b.y)^2. Faster than using Distance() and squaring.
+        /// </summary>
+        public static float SqrDistance(IntVector2 a, IntVector2 b)
+        {
+            return SqrMagnitude(a - b);
+        }
+
         /// <summary>
         /// Computes the l1 norm of the vector, which is abs(a.x) + abs(a.y).
         /// Also known as the taxicab/Manhattan norm.
@@ -374,15 +365,15 @@ namespace PAC.DataStructures
         {
             return Math.Abs(a.x) + Math.Abs(a.y);
         }
-
         /// <summary>
-        /// Computes the supremum distance of the vectors, which is max(abs(a.x - b.y), abs(a.y - b.y)).
-        /// Also know as the Chebyshev distance or l-infinity distance.
+        /// Computes the l1 distance of the vectors, which is abs(a.x - b.x) + abs(a.y - b.y).
+        /// Also known as the taxicab/Manhattan distance or rectilinear distance.
         /// </summary>
-        public static int SupDistance(IntVector2 a, IntVector2 b)
+        public static int L1Distance(IntVector2 a, IntVector2 b)
         {
-            return SupNorm(a - b);
+            return L1Norm(a - b);
         }
+
         /// <summary>
         /// Computes the supremum norm of the vector, which is max(abs(a.x), abs(a.y)).
         /// Also know as the Chebyshev norm or l-infinity norm.
@@ -390,6 +381,14 @@ namespace PAC.DataStructures
         public static int SupNorm(IntVector2 a)
         {
             return Math.Max(Math.Abs(a.x), Math.Abs(a.y));
+        }
+        /// <summary>
+        /// Computes the supremum distance of the vectors, which is max(abs(a.x - b.y), abs(a.y - b.y)).
+        /// Also know as the Chebyshev distance or l-infinity distance.
+        /// </summary>
+        public static int SupDistance(IntVector2 a, IntVector2 b)
+        {
+            return SupNorm(a - b);
         }
 
         /// <summary>
