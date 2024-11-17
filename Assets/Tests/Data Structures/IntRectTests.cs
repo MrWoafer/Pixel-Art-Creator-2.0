@@ -144,7 +144,7 @@ namespace PAC.Tests
         [Category("Data Structures")]
         public void GetBoundingRect()
         {
-            (IntRect, IntRect[])[] testCases = new(IntRect, IntRect[])[]
+            (IntRect, IntRect[])[] testCases =
             {
                 (new IntRect(new IntVector2(3, 4), new IntVector2(5, 8)), new IntRect[] {
                     new IntRect(new IntVector2(3, 4), new IntVector2(5, 8))
