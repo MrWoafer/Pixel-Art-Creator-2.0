@@ -166,20 +166,7 @@ namespace PAC.Utils
 
         public static string ArrayToString<T>(T[] array)
         {
-            string str = "{";
-
-            for (int i = 0; i < array.Length; i++)
-            {
-                str += array[i].ToString();
-                if (i < array.Length - 1)
-                {
-                    str += ", ";
-                }
-            }
-
-            str += "}";
-
-            return str;
+            return "{" + string.Join(", ", array) + "}";
         }
 
         /// <summary>
