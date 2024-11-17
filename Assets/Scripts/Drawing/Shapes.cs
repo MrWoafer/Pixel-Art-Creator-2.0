@@ -76,7 +76,7 @@ namespace PAC.Drawing
 
             public IntRect boundingRect => new IntRect(start, end);
 
-            public int Count => isMoreHorizontal ? Math.Abs(end.x - start.x) + 1 : Math.Abs(end.y - start.y) + 1;
+            public int Count => IntVector2.SupDistance(start, end) + 1;
 
             public Line(IntVector2 start, IntVector2 end)
             {
