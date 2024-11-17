@@ -38,17 +38,17 @@ namespace PAC.DataStructures
         }
 
         /// <summary>The vector (0, 0).</summary>
-        public static IntVector2 zero = new IntVector2(0, 0);
+        public static readonly IntVector2 zero = new IntVector2(0, 0);
         /// <summary>The vector (1, 1).</summary>
-        public static IntVector2 one = new IntVector2(1, 1);
+        public static readonly IntVector2 one = new IntVector2(1, 1);
         /// <summary>The vector (1, 0).</summary>
-        public static IntVector2 right = new IntVector2(1, 0);
+        public static readonly IntVector2 right = new IntVector2(1, 0);
         /// <summary>The vector (-1, 0).</summary>
-        public static IntVector2 left = new IntVector2(-1, 0);
+        public static readonly IntVector2 left = new IntVector2(-1, 0);
         /// <summary>The vector (0, 1).</summary>
-        public static IntVector2 up = new IntVector2(0, 1);
+        public static readonly IntVector2 up = new IntVector2(0, 1);
         /// <summary>The vector (0, -1).</summary>
-        public static IntVector2 down = new IntVector2(0, -1);
+        public static readonly IntVector2 down = new IntVector2(0, -1);
 
         public static bool operator !=(IntVector2 a, IntVector2 b) => !(a == b);
         public static bool operator ==(IntVector2 a, IntVector2 b)
