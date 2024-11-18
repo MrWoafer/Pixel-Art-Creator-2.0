@@ -276,6 +276,46 @@ namespace PAC.DataStructures
         }
 
         /// <summary>
+        /// Returns whether the this vector is an integer multiple of the divisor. For example, (3, 6) is a multiple of (1, 2) as (3, 6) = 3 * (1, 2).
+        /// </summary>
+        public bool IsMultipleOf(IntVector2 divisor) => divisor.Divides(this);
+        /// <summary>
+        /// Returns whether the dividend is an integer multiple of this vector. For example, (1, 2) divides (3, 6) as (3, 6) = 3 * (1, 2).
+        /// </summary>
+        public bool Divides(IntVector2 dividend)
+        {
+            // Cases where x or y are 0
+            if (x == 0)
+            {
+                if (y == 0)
+                {
+                    return dividend == IntVector2.zero;
+                }
+
+                if (dividend.x != 0)
+                {
+                    return false;
+                }
+                return dividend.y % y == 0;
+            }
+            if (y == 0)
+            {
+                if (dividend.y != 0)
+                {
+                    return false;
+                }
+                return dividend.x % x == 0;
+            }
+
+            // Case where x, y both non-zero
+            if (dividend.x % x != 0 || dividend.y % y != 0)
+            {
+                return false;
+            }
+            return dividend.x / x == dividend.y / y;
+        }
+
+        /// <summary>
         /// Cast to Unity Vector2.
         /// </summary>
         public static implicit operator Vector2(IntVector2 intVector) => new Vector2(intVector.x, intVector.y);
