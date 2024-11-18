@@ -316,6 +316,23 @@ namespace PAC.DataStructures
         }
 
         /// <summary>
+        /// <para>
+        /// Scales the vector down so its components are coprime (have no common divisors). In other words, it computes the smallest IntVector2 dividing a.
+        /// </para>
+        /// <para>
+        /// Preserves signs.
+        /// </para>
+        /// </summary>
+        public static IntVector2 Simplify(IntVector2 a)
+        {
+            if (a == IntVector2.zero)
+            {
+                return IntVector2.zero;
+            }
+            return a / Functions.Gcd(a.x, a.y);
+        }
+
+        /// <summary>
         /// Cast to Unity Vector2.
         /// </summary>
         public static implicit operator Vector2(IntVector2 intVector) => new Vector2(intVector.x, intVector.y);
