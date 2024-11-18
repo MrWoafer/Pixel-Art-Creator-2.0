@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -14,6 +15,37 @@ namespace PAC
         public static int Mod(int a, int b)
         {
             return (a % b + b) % b;
+        }
+
+        /// <summary>
+        /// Computes the non-negative greatest common divisor of a and b.
+        /// </summary>
+        public static int Gcd(int a, int b)
+        {
+            a = Math.Abs(a);
+            b = Math.Abs(b);
+
+            // We use Euclid's algorithm
+            int r = b;
+            while (r != 0)
+            {
+                r = a % b;
+                a = b;
+                b = r;
+            }
+            return a;
+        }
+
+        /// <summary>
+        /// Computes the non-negative lowest common multiple of a and b.
+        /// </summary>
+        public static int Lcm(int a, int b)
+        {
+            if (a == 0 && b == 0)
+            {
+                return 0;
+            }
+            return Math.Abs(a * b) / Gcd(a, b);
         }
 
         public static int RoundToMultiple(float toRound, int multipleOf)
