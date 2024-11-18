@@ -151,10 +151,11 @@ namespace PAC.Tests
         public void IndexingRange()
         {
             Shapes.Line line = new Shapes.Line(IntVector2.zero, new IntVector2(4, 1));
-            IEnumerable<IntVector2> indexed = line[1..4];
-            IntVector2[] expected = { new IntVector2(1, 0), new IntVector2(2, 0), new IntVector2(3, 1) };
-
-            Assert.True(expected.SequenceEqual(indexed));
+            Assert.True(line[..].SequenceEqual(line));
+            Assert.True(line[1..].SequenceEqual(new IntVector2[] { new IntVector2(1, 0), new IntVector2(2, 0), new IntVector2(3, 1), new IntVector2(4, 1) }));
+            Assert.True(line[1..5].SequenceEqual(new IntVector2[] { new IntVector2(1, 0), new IntVector2(2, 0), new IntVector2(3, 1), new IntVector2(4, 1) }));
+            Assert.True(line[..^1].SequenceEqual(new IntVector2[] { new IntVector2(0, 0), new IntVector2(1, 0), new IntVector2(2, 0), new IntVector2(3, 1) }));
+            Assert.True(line[1..4].SequenceEqual(new IntVector2[] { new IntVector2(1, 0), new IntVector2(2, 0), new IntVector2(3, 1) }));
         }
 
         [Test]
