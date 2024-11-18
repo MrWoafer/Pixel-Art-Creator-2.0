@@ -364,6 +364,9 @@ namespace PAC.Drawing
 
             // To prevent creation of paths from 0 points/lines. (Those constructors have checks anyway but this stops the 'ambiguous call' error those give when trying to use an empty constructor)
             private Path() { }
+            /// <summary>
+            /// Creates a path through the given points.
+            /// </summary>
             public Path(params IntVector2[] points)
             {
                 if (points.Length == 0)
