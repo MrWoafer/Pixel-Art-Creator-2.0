@@ -750,33 +750,34 @@ namespace PAC.Drawing
             }
 
             /// <summary>
-            /// Determines whether the pixel is inside the filled ellipse (including the border).
-            /// </summary>
-            private bool IsInside(IntVector2 pixel) => IsInside(pixel.x, pixel.y);
-            /// <summary>
             /// Determines whether (x, y) is inside the filled ellipse (including the border).
             /// </summary>
-            private bool IsInside(int x, int y)
+            private bool IsInside(int x, int y) => IsInside(new IntVector2(x, y));
+            /// <summary>
+            /// Determines whether the pixel is inside the filled ellipse (including the border).
+            /// </summary>
+            private bool IsInside(IntVector2 pixel)
             {
                 // Manually override 1xn and 2xn case (as otherwise the algorithm doesn't include the top/bottom row in the 2xn case - the 1xn case is just because we might as well include it)
                 if (width <= 2)
                 {
-                    return boundingRect.Contains(x, y);
+                    return boundingRect.Contains(pixel);
                 }
                 // Manually override nx1 and nx2 case (as otherwise the algorithm doesn't include the left/right column in the 2xn case - the 1xn case is just because we might as well include it)
                 if (height <= 2)
                 {
-                    return boundingRect.Contains(x, y);
+                    return boundingRect.Contains(pixel);
                 }
 
                 // Manually override 3x3 case (as otherwise the algorithm gives a 3x3 square instead of the more aesthetic 'plus sign')
                 if (width == 3 && height == 3)
                 {
                     IntVector2 centre = bottomLeft + IntVector2.one;
-                    return Math.Abs(x - centre.x) + Math.Abs(y - centre.y) <= 1;
+                    // This just gives the 'plus sign' shape we want
+                    return IntVector2.L1Distance(pixel, centre) <= 1;
                 }
 
-                return (x - centre.x) * (x - centre.x) / (xRadius * xRadius) + (y  - centre.y) * (y - centre.y) / (yRadius * yRadius) <= 1f;
+                return (pixel.x - centre.x) * (pixel.x - centre.x) / (xRadius * xRadius) + (pixel.y - centre.y) * (pixel.y - centre.y) / (yRadius * yRadius) <= 1f;
             }
 
             public bool Contains(IntVector2 pixel)
