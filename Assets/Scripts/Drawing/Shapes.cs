@@ -360,7 +360,44 @@ namespace PAC.Drawing
 
             public IntRect boundingRect => IntRect.GetBoundingRect(from line in lines select line.boundingRect);
 
-            public int Count => ((IEnumerable<IntVector2>)this).Count();
+            public int Count
+            {
+                get
+                {
+                    // First line
+                    int count = lines[0].Count;
+                    if (lines.Count == 1)
+                    {
+                        return count;
+                    }
+
+                    // Middle lines (not first or last)
+                    for (int i = 1; i < lines.Count - 1; i++)
+                    {
+                        if (lines[i - 1].end == lines[i].start)
+                        {
+                            count += lines[i].Count - 1;
+                        }
+                        else
+                        {
+                            count += lines[i].Count;
+                        }
+                    }
+
+                    // Last line
+                    count += lines[^1].Count;
+                    if (lines[^2].end == lines[^1].start)
+                    {
+                        count--;
+                    }
+                    if (lines[^1].end == lines[0].start)
+                    {
+                        count--;
+                    }
+
+                    return count;
+                }
+            }
 
             // To prevent creation of paths from 0 points/lines. (Those constructors have checks anyway but this stops the 'ambiguous call' error those give when trying to use an empty constructor)
             private Path() { }
