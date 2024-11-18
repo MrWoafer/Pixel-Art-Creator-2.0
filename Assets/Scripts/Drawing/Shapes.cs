@@ -340,6 +340,160 @@ namespace PAC.Drawing
             public override string ToString() => "Line(" + start + ", " + end + ")";
         }
 
+        /// <summary>
+        /// <para>
+        /// Represents a sequence of Lines.
+        /// The lines must connect, meaning the end of each line must be equal to or adjacent to (including diagonally) the start of the next line.
+        /// </para>
+        /// <para>
+        /// When iterating through the Path, if the end of a line equals the start of the next line, that pixel with not be double-counted. Other than in that case, pixels can be double-counted.
+        /// </para>
+        /// </summary>
+        public class Path : IShape
+        {
+            List<Line> lines = new List<Line>();
+
+            /// <summary>
+            /// Whether the end of the last line is adjacent to (including diagonally) the start of the first line.
+            /// </summary>
+            public bool isLoop => IntVector2.SupDistance(lines[0].start, lines[^1].end) <= 1;
+
+            public IntRect boundingRect => IntRect.GetBoundingRect(from line in lines select line.boundingRect);
+
+            public int Count => ((IEnumerable<IntVector2>)this).Count();
+
+            // To prevent creation of paths from 0 points/lines. (Those constructors have checks anyway but this stops the 'ambiguous call' error those give when trying to use an empty constructor)
+            private Path() { }
+            public Path(params IntVector2[] points)
+            {
+                if (points.Length == 0)
+                {
+                    throw new ArgumentException("Cannot create a path from 0 points.", "lines");
+                }
+
+                if (points.Length == 1)
+                {
+                    lines.Add(new Line(points[0], points[0]));
+                }
+
+                for (int i = 0; i < points.Length - 1; i++)
+                {
+                    lines.Add(new Line(points[i], points[i + 1]));
+                }
+            }
+            /// <summary>
+            /// The lines must connect, meaning the end of each line must be equal to or adjacent to (including diagonally) the start of the next line.
+            /// </summary>
+            public Path(params Line[] lines)
+            {
+                if (lines.Length == 0)
+                {
+                    throw new ArgumentException("Cannot create a path from 0 lines.", "lines");
+                }
+
+                this.lines.Add(lines[0]);
+                for (int i = 1; i < lines.Length; i++)
+                {
+                    if (IntVector2.SupDistance(lines[i - 1].end, lines[i].start) > 1)
+                    {
+                        throw new ArgumentException("Lines " + (i - 1) + " and " + i + " do not connect.", "lines");
+                    }
+                    this.lines.Add(lines[i]);
+                }
+            }
+
+            public bool Contains(IntVector2 pixel)
+            {
+                foreach (Line line in lines)
+                {
+                    if (line.Contains(pixel))
+                    {
+                        return true;
+                    }
+                }
+                return false;
+            }
+
+            IEnumerator IEnumerable.GetEnumerator() => this.GetEnumerator();
+            public IEnumerator<IntVector2> GetEnumerator()
+            {
+                // First line
+                foreach (IntVector2 pixel in lines[0])
+                {
+                    yield return pixel;
+                }
+                if (lines.Count == 1)
+                {
+                    yield break;
+                }
+
+                // Middle lines (not first or last)
+                for (int i = 1; i < lines.Count - 1; i++)
+                {
+                    int start = 0;
+                    if (lines[i - 1].end == lines[i].start)
+                    {
+                        start = 1;
+                    }
+                    foreach (IntVector2 pixel in lines[i][start..])
+                    {
+                        yield return pixel;
+                    }
+                }
+
+                // Last line
+                {
+                    int start = 0;
+                    int end = lines[^1].Count;
+                    if (lines[^2].end == lines[^1].start)
+                    {
+                        start = 1;
+                    }
+                    if (lines[^1].end == lines[0].start)
+                    {
+                        end = lines[^1].Count - 1;
+                    }
+                    foreach (IntVector2 pixel in lines[^1][start..end])
+                    {
+                        yield return pixel;
+                    }
+                }
+            }
+
+            public static bool operator !=(Path a, Path b) => !(a == b);
+            public static bool operator ==(Path a, Path b)
+            {
+                if (a.lines.Count != b.lines.Count)
+                {
+                    return false;
+                }
+
+                for (int i = 0; i < a.lines.Count; i++)
+                {
+                    if (a.lines[i] != b.lines[i])
+                    {
+                        return false;
+                    }
+                }
+                return true;
+            }
+            public override bool Equals(object obj)
+            {
+                if (obj == null || !GetType().Equals(obj.GetType()))
+                {
+                    return false;
+                }
+                else
+                {
+                    return this == (Path)obj;
+                }
+            }
+
+            public override int GetHashCode() => lines.GetHashCode();
+
+            public override string ToString() => "Path(" + string.Join(", ", lines) + ")";
+        }
+
         public struct Rectangle : IShape
         {
             public IntVector2 bottomLeft
