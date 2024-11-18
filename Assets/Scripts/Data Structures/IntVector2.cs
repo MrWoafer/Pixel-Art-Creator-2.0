@@ -333,24 +333,12 @@ namespace PAC.DataStructures
         }
 
         /// <summary>
-        /// Returns whether the two vectors lie on the same line through (0, 0).
+        /// Returns whether the two vectors lie on the same real line through (0, 0). This is equivalent to whether there is an IntVector2 dividing both of them.
         /// </summary>
         public static bool AreColinear(IntVector2 a, IntVector2 b)
         {
-            // Proof that this method works:
-            //      The case where a = 0 or b = 0 is trivial, so assume a and b are non-zero. Without loss of generality, let a, b be in the top-right quadrant. Let c be the smallest positive
-            //      integer point on the line. It is enough to the prove that c divides a (as then, by symmetry, c divides b; and by definition of Simplify() and minimality of c, c = Simplify(a),
-            //      Simplify(b)). So suppose c did not divide a. Let d be the greatest multiple of c less than a (note c < a). Note d is on the line too, and hence so is a - d, which is an integer
-            //      vector. But, by definition of d, 0 < a - d < c, contradicting minimality of c!
-
-            if (a == IntVector2.zero || b == IntVector2.zero)
-            {
-                return true;
-            }
-
-            a = Simplify(a);
-            b = Simplify(b);
-            return a == b || a == -b;
+            // This is a rearrangement of a.y / a.x == b.y / b.x (comparing gradients) which avoids floats and division by 0.
+            return a.y * b.x == b.y * a.x;
         }
 
         /// <summary>
