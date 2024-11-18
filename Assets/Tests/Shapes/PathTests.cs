@@ -33,15 +33,15 @@ namespace PAC.Tests
         [Category("Shapes")]
         public void IsLoop()
         {
-            Assert.AreEqual(false, new Shapes.Path(new Shapes.Line(IntVector2.zero, new IntVector2(2, 1))).isLoop);
-            Assert.AreEqual(false, new Shapes.Path(new Shapes.Line(IntVector2.zero, new IntVector2(1, 1)), new Shapes.Line(new IntVector2(2, 2), new IntVector2(5, 5))).isLoop);
-            Assert.AreEqual(false, new Shapes.Path(new Shapes.Line(IntVector2.zero, new IntVector2(1, 1)), new Shapes.Line(new IntVector2(2, 2), new IntVector2(2, 1))).isLoop);
+            Assert.AreEqual(false, new Shapes.Path(IntVector2.zero, new IntVector2(2, 1)).isLoop);
+            Assert.AreEqual(false, new Shapes.Path(IntVector2.zero, new IntVector2(1, 1), new IntVector2(2, 2), new IntVector2(5, 5)).isLoop);
+            Assert.AreEqual(false, new Shapes.Path(IntVector2.zero, new IntVector2(1, 1), new IntVector2(2, 2), new IntVector2(2, 1)).isLoop);
 
             Assert.AreEqual(true, new Shapes.Path(IntVector2.zero).isLoop);
-            Assert.AreEqual(true, new Shapes.Path(new Shapes.Line(IntVector2.zero, new IntVector2(1, 1))).isLoop);
-            Assert.AreEqual(true, new Shapes.Path(new Shapes.Line(IntVector2.zero, new IntVector2(1, 1)), new Shapes.Line(new IntVector2(2, 2), IntVector2.zero)).isLoop);
-            Assert.AreEqual(true, new Shapes.Path(new Shapes.Line(IntVector2.zero, new IntVector2(1, 1)), new Shapes.Line(new IntVector2(2, 2), new IntVector2(0, 1))).isLoop);
-            Assert.AreEqual(true, new Shapes.Path(new Shapes.Line(IntVector2.zero, new IntVector2(1, 1)), new Shapes.Line(new IntVector2(2, 2), new IntVector2(1, 1))).isLoop);
+            Assert.AreEqual(true, new Shapes.Path(IntVector2.zero, new IntVector2(1, 1)).isLoop);
+            Assert.AreEqual(true, new Shapes.Path(IntVector2.zero, new IntVector2(1, 1), new IntVector2(2, 2), IntVector2.zero).isLoop);
+            Assert.AreEqual(true, new Shapes.Path(IntVector2.zero, new IntVector2(1, 1), new IntVector2(2, 2), new IntVector2(0, 1)).isLoop);
+            Assert.AreEqual(true, new Shapes.Path(IntVector2.zero, new IntVector2(1, 1), new IntVector2(2, 2), new IntVector2(1, 1)).isLoop);
         }
 
         [Test]
