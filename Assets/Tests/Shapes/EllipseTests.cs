@@ -6,7 +6,7 @@ using System.Linq;
 
 namespace PAC.Tests
 {
-    public class EllipseTests
+    public class EllipseTests : IShapeTests
     {
         /// <summary>
         /// Tests that ellipses that are single points have the correct shape.
