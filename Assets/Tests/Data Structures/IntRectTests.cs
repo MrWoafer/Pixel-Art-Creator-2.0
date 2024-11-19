@@ -157,6 +157,9 @@ namespace PAC.Tests
                 (new IntRect(new IntVector2(2, 4), new IntVector2(9, 7)), new IntVector2[] {
                     new IntVector2(3, 4), new IntVector2(2, 6), new IntVector2(9, 7)
                 }),
+                (new IntRect(new IntVector2(2, 4), new IntVector2(9, 7)), new IntVector2[] {
+                    new IntVector2(3, 4), new IntVector2(3, 4), new IntVector2(2, 6), new IntVector2(2, 6), new IntVector2(9, 7), new IntVector2(9, 7)
+                }),
                 (new IntRect(new IntVector2(-3, -2), new IntVector2(10, 7)), new IntVector2[] {
                     new IntVector2(-3, -1), new IntVector2(2, 6), new IntVector2(9, 7), new IntVector2(5, -2), new IntVector2(5, 5), new IntVector2(10, 1)
                 })
