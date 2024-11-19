@@ -230,6 +230,30 @@ namespace PAC.Tests
         }
 
         /// <summary>
+        /// Tests that reflecting an ellipse gives the same shape as creating one with the corners reflected.
+        /// </summary>
+        [Test]
+        [Category("Shapes")]
+        public void ReflectiveInvariance()
+        {
+            foreach (FlipAxis axis in new FlipAxis[] { FlipAxis.Vertical, FlipAxis.Horizontal, FlipAxis._45Degrees, FlipAxis.Minus45Degrees })
+            {
+                foreach (bool filled in new bool[] { false, true })
+                {
+                    foreach (IntVector2 topRight in new IntRect(IntVector2.zero, new IntVector2(10, 10)))
+                    {
+                        Shapes.Ellipse ellipse = new Shapes.Ellipse(IntVector2.zero, topRight, filled);
+
+                        Shapes.Ellipse expected = new Shapes.Ellipse(ellipse.bottomLeft.Flip(axis), ellipse.topRight.Flip(axis), filled);
+                        IEnumerable<IntVector2> reflected = ellipse.Select(p => p.Flip(axis));
+
+                        Assert.True(expected.ToHashSet().SetEquals(reflected), "Failed with " + ellipse + " and FlipAxis." + axis);
+                    }
+                }
+            }
+        }
+
+        /// <summary>
         /// Tests that ellipses has reflective symmetry across the vertical axis and across the horizontal axis. Note that together these also imply 180-degree rotational symmetry.
         /// </summary>
         [Test]
