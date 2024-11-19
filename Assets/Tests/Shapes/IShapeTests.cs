@@ -33,7 +33,7 @@ namespace PAC.Tests
         /// </summary>
         public void TranslationalInvariance();
         /// <summary>
-        /// Tests that rotating the shape 90 degrees gives the same shape as creating one with the width/height swapped. (Note that this implies the same holds for 180 and 270 degrees.)
+        /// Tests that rotating the shape gives the same shape as creating one with the width/height swapped.
         /// </summary>
         public void RotationalInvariance();
         /// <summary>
