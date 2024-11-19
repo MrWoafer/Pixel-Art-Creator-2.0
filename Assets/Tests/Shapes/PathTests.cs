@@ -14,7 +14,7 @@ namespace PAC.Tests
         [Category("Shapes")]
         public void Constructor()
         {
-            //Assert.Throws<ArgumentException>(() => new Shapes.Path()); // The empty constructor is now private
+            //Assert.Throws<ArgumentException>(() => new Shapes.Path());    // The empty constructor is now private
             Assert.Throws<ArgumentException>(() => new Shapes.Path(new Shapes.Line(IntVector2.zero, new IntVector2(1, 1)), new Shapes.Line(new IntVector2(2, 3), new IntVector2(5, 5))));
             Assert.Throws<ArgumentException>(() => new Shapes.Path(new Shapes.Line(IntVector2.zero, new IntVector2(1, 1)), new Shapes.Line(new IntVector2(2, 3), new IntVector2(1, 1))));
 
