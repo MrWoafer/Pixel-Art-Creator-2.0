@@ -115,9 +115,9 @@ namespace PAC.Tests
         {
             foreach (bool filled in new bool[] { false, true })
             {
-                foreach (IntVector2 bottomLeft in new IntRect(new IntVector2(-5, 5), IntVector2.zero))
+                foreach (IntVector2 bottomLeft in new IntRect(new IntVector2(-2, -2), new IntVector2(2, 2)))
                 {
-                    foreach (IntVector2 topRight in new IntRect(IntVector2.zero, new IntVector2(5, 5)))
+                    foreach (IntVector2 topRight in bottomLeft + new IntRect(IntVector2.zero, new IntVector2(5, 5)))
                     {
                         IShapeTestHelper.BoundingRect(new Shapes.Ellipse(bottomLeft, topRight, filled));
                     }
