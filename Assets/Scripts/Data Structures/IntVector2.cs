@@ -101,7 +101,7 @@ namespace PAC.DataStructures
 
         public override string ToString()
         {
-            return "(" + x.ToString() + ", " + y.ToString() + ")";
+            return "(" + x + ", " + y + ")";
         }
 
         /// <summary>

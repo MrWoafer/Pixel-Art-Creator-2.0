@@ -78,7 +78,7 @@ namespace PAC.DataStructures
 
         public override string ToString()
         {
-            return "(" + bottomLeft.ToString() + ", " + topRight.ToString() + ")";
+            return "(" + bottomLeft + ", " + topRight + ")";
         }
 
         /// <summary>
