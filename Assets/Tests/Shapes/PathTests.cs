@@ -31,6 +31,32 @@ namespace PAC.Tests
 
         [Test]
         [Category("Shapes")]
+        public void ShapeExamples()
+        {
+            (IEnumerable<IntVector2>, Shapes.Path)[] testCases =
+            {
+                (new IntVector2[] { IntVector2.zero }, new Shapes.Path(IntVector2.zero)),
+                (new Shapes.Line(IntVector2.zero, new IntVector2(2, 3)), new Shapes.Path(IntVector2.zero, new IntVector2(2, 3))),
+                (new Shapes.Line(IntVector2.zero, new IntVector2(2, 3)).Concat(new Shapes.Line(new IntVector2(2, 3), new IntVector2(4, 4))[1..]),
+                    new Shapes.Path(IntVector2.zero, new IntVector2(2, 3), new IntVector2(4, 4))),
+                // Loop
+                (new Shapes.Line(IntVector2.zero, new IntVector2(2, 3)).Concat(new Shapes.Line(new IntVector2(2, 3), new IntVector2(4, 4))[1..])
+                    .Concat(new Shapes.Line(new IntVector2(4, 4), IntVector2.zero)[1..^1]),
+                    new Shapes.Path(IntVector2.zero, new IntVector2(2, 3), new IntVector2(4, 4), IntVector2.zero)),
+                // Crossing previous values
+                (new Shapes.Line(IntVector2.zero, new IntVector2(2, 3)).Concat(new Shapes.Line(new IntVector2(2, 3), new IntVector2(4, 4))[1..])
+                    .Concat(new Shapes.Line(new IntVector2(4, 4), new IntVector2(2, 4))[1..]).Concat(new Shapes.Line(new IntVector2(2, 4), new IntVector2(2, 0))[1..]),
+                    new Shapes.Path(IntVector2.zero, new IntVector2(2, 3), new IntVector2(4, 4), new IntVector2(2, 4), new IntVector2(2, 0)))
+            };
+
+            foreach ((IEnumerable<IntVector2> expected, Shapes.Path path) in testCases)
+            {
+                Assert.True(expected.SequenceEqual(path), "Failed with " + path);
+            }
+        }
+
+        [Test]
+        [Category("Shapes")]
         public void IsLoop()
         {
             Assert.AreEqual(false, new Shapes.Path(IntVector2.zero, new IntVector2(2, 1)).isLoop);
@@ -64,32 +90,6 @@ namespace PAC.Tests
                 Assert.AreEqual(expected, path.Count, "Failed with " + path);
                 // Check that what we have implemented Count to count is the number of pixels in the IEnumerable
                 Assert.AreEqual(((IEnumerable<IntVector2>)path).Count(), path.Count, "Failed with " + path);
-            }
-        }
-
-        [Test]
-        [Category("Shapes")]
-        public void GetEnumerator()
-        {
-            (IEnumerable<IntVector2>, Shapes.Path)[] testCases =
-            {
-                (new IntVector2[] { IntVector2.zero }, new Shapes.Path(IntVector2.zero)),
-                (new Shapes.Line(IntVector2.zero, new IntVector2(2, 3)), new Shapes.Path(IntVector2.zero, new IntVector2(2, 3))),
-                (new Shapes.Line(IntVector2.zero, new IntVector2(2, 3)).Concat(new Shapes.Line(new IntVector2(2, 3), new IntVector2(4, 4))[1..]),
-                    new Shapes.Path(IntVector2.zero, new IntVector2(2, 3), new IntVector2(4, 4))),
-                // Loop
-                (new Shapes.Line(IntVector2.zero, new IntVector2(2, 3)).Concat(new Shapes.Line(new IntVector2(2, 3), new IntVector2(4, 4))[1..])
-                    .Concat(new Shapes.Line(new IntVector2(4, 4), IntVector2.zero)[1..^1]),
-                    new Shapes.Path(IntVector2.zero, new IntVector2(2, 3), new IntVector2(4, 4), IntVector2.zero)),
-                // Crossing previous values
-                (new Shapes.Line(IntVector2.zero, new IntVector2(2, 3)).Concat(new Shapes.Line(new IntVector2(2, 3), new IntVector2(4, 4))[1..])
-                    .Concat(new Shapes.Line(new IntVector2(4, 4), new IntVector2(2, 4))[1..]).Concat(new Shapes.Line(new IntVector2(2, 4), new IntVector2(2, 0))[1..]),
-                    new Shapes.Path(IntVector2.zero, new IntVector2(2, 3), new IntVector2(4, 4), new IntVector2(2, 4), new IntVector2(2, 0)))
-            };
-
-            foreach ((IEnumerable<IntVector2> expected, Shapes.Path path) in testCases)
-            {
-                Assert.True(expected.SequenceEqual(path), "Failed with " + path);
             }
         }
     }
