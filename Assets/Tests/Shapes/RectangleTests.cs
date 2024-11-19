@@ -32,20 +32,7 @@ namespace PAC.Tests
             {
                 foreach (IntVector2 topRight in new IntRect(IntVector2.zero, new IntVector2(10, 10)))
                 {
-                    Shapes.Rectangle rectangle = new Shapes.Rectangle(IntVector2.zero, topRight, filled);
-
-                    int count = 0;
-                    HashSet<IntVector2> visited = new HashSet<IntVector2>();
-                    foreach (IntVector2 pixel in rectangle)
-                    {
-                        if (!visited.Contains(pixel))
-                        {
-                            count++;
-                            visited.Add(pixel);
-                        }
-                    }
-
-                    Assert.AreEqual(count, rectangle.Count, "Failed with " + rectangle);
+                    IShapeTestHelper.Count(new Shapes.Rectangle(IntVector2.zero, topRight, filled));
                 }
             }
         }
@@ -58,18 +45,7 @@ namespace PAC.Tests
             {
                 foreach (IntVector2 topRight in new IntRect(IntVector2.zero, new IntVector2(10, 10)))
                 {
-                    Shapes.Rectangle rectangle = new Shapes.Rectangle(IntVector2.zero, topRight, filled);
-
-                    IntRect testRegion = rectangle.boundingRect;
-                    testRegion.bottomLeft -= IntVector2.one;
-                    testRegion.topRight += IntVector2.one;
-
-                    HashSet<IntVector2> rectanglePixels = rectangle.ToHashSet();
-
-                    foreach (IntVector2 pixel in testRegion)
-                    {
-                        Assert.AreEqual(rectanglePixels.Contains(pixel), rectangle.Contains(pixel), "Failed with " + rectangle + " and " + pixel);
-                    }
+                    IShapeTestHelper.Contains(new Shapes.Rectangle(IntVector2.zero, topRight, filled));
                 }
             }
         }
@@ -85,14 +61,7 @@ namespace PAC.Tests
             {
                 foreach (IntVector2 topRight in new IntRect(IntVector2.zero, new IntVector2(10, 10)))
                 {
-                    Shapes.Rectangle rectangle = new Shapes.Rectangle(IntVector2.zero, topRight, filled);
-
-                    HashSet<IntVector2> visited = new HashSet<IntVector2>();
-                    foreach (IntVector2 pixel in rectangle)
-                    {
-                        Assert.False(visited.Contains(pixel), "Failed with " + rectangle + " and " + pixel);
-                        visited.Add(pixel);
-                    }
+                    IShapeTestHelper.NoRepeatsAtAll(new Shapes.Rectangle(IntVector2.zero, topRight, filled));
                 }
             }
         }

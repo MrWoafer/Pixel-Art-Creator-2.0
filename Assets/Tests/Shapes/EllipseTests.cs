@@ -111,26 +111,29 @@ namespace PAC.Tests
 
         [Test]
         [Category("Shapes")]
+        public void BoundingRect()
+        {
+            foreach (bool filled in new bool[] { false, true })
+            {
+                foreach (IntVector2 bottomLeft in new IntRect(new IntVector2(-5, 5), IntVector2.zero))
+                {
+                    foreach (IntVector2 topRight in new IntRect(IntVector2.zero, new IntVector2(5, 5)))
+                    {
+                        IShapeTestHelper.BoundingRect(new Shapes.Ellipse(bottomLeft, topRight, filled));
+                    }
+                }
+            }
+        }
+
+        [Test]
+        [Category("Shapes")]
         public void Count()
         {
             foreach (bool filled in new bool[] { false, true })
             {
                 foreach (IntVector2 topRight in new IntRect(IntVector2.zero, new IntVector2(10, 10)))
                 {
-                    Shapes.Ellipse ellipse = new Shapes.Ellipse(IntVector2.zero, topRight, filled);
-
-                    int count = 0;
-                    HashSet<IntVector2> visited = new HashSet<IntVector2>();
-                    foreach (IntVector2 pixel in ellipse)
-                    {
-                        if (!visited.Contains(pixel))
-                        {
-                            count++;
-                            visited.Add(pixel);
-                        }
-                    }
-
-                    Assert.AreEqual(count, ellipse.Count, "Failed with " + ellipse);
+                    IShapeTestHelper.Count(new Shapes.Ellipse(IntVector2.zero, topRight, filled));
                 }
             }
         }
@@ -143,18 +146,7 @@ namespace PAC.Tests
             {
                 foreach (IntVector2 topRight in new IntRect(IntVector2.zero, new IntVector2(10, 10)))
                 {
-                    Shapes.Ellipse ellipse = new Shapes.Ellipse(IntVector2.zero, topRight, filled);
-
-                    IntRect testRegion = ellipse.boundingRect;
-                    testRegion.bottomLeft -= IntVector2.one;
-                    testRegion.topRight += IntVector2.one;
-
-                    HashSet<IntVector2> ellipsePixels = ellipse.ToHashSet();
-
-                    foreach (IntVector2 pixel in testRegion)
-                    {
-                        Assert.AreEqual(ellipsePixels.Contains(pixel), ellipse.Contains(pixel), "Failed with " + ellipse + " and " + pixel);
-                    }
+                    IShapeTestHelper.Contains(new Shapes.Ellipse(IntVector2.zero, topRight, filled));
                 }
             }
         }
@@ -170,14 +162,7 @@ namespace PAC.Tests
             {
                 foreach (IntVector2 topRight in new IntRect(IntVector2.zero, new IntVector2(10, 10)))
                 {
-                    Shapes.Ellipse ellipse = new Shapes.Ellipse(IntVector2.zero, topRight, filled);
-
-                    HashSet<IntVector2> visited = new HashSet<IntVector2>();
-                    foreach (IntVector2 pixel in ellipse)
-                    {
-                        Assert.False(visited.Contains(pixel), "Failed with " + ellipse + " and " + pixel);
-                        visited.Add(pixel);
-                    }
+                    IShapeTestHelper.NoRepeatsAtAll(new Shapes.Ellipse(IntVector2.zero, topRight, filled));
                 }
             }
         }
@@ -220,8 +205,6 @@ namespace PAC.Tests
                     Shapes.Ellipse ellipse = new Shapes.Ellipse(IntVector2.zero, topRight, filled);
 
                     Shapes.Ellipse expected = new Shapes.Ellipse(IntVector2.zero, new IntVector2(ellipse.height - 1, ellipse.width - 1), ellipse.filled);
-                    Assert.True(expected.ToHashSet().SetEquals(ellipse.Select(p => (p - ellipse.bottomLeft).Rotate(RotationAngle._90) + new IntVector2(0, ellipse.width - 1))),
-                        "Failed with " + ellipse);
                     IEnumerable<IntVector2> rotated = ellipse.Select(p => (p - ellipse.bottomLeft).Rotate(RotationAngle._90) + new IntVector2(0, ellipse.width - 1));
 
                     Assert.True(expected.ToHashSet().SetEquals(rotated), "Failed with " + ellipse);
@@ -258,7 +241,7 @@ namespace PAC.Tests
         /// </summary>
         [Test]
         [Category("Shapes")]
-        public void Symmetry()
+        public void ReflectiveSymmetry()
         {
             foreach (bool filled in new bool[] { false, true })
             {
@@ -266,10 +249,8 @@ namespace PAC.Tests
                 {
                     Shapes.Ellipse ellipse = new Shapes.Ellipse(IntVector2.zero, topRight, filled);
 
-                    // Reflect across vertical axis
-                    Assert.True(ellipse.ToHashSet().SetEquals(ellipse.Select(p => new IntVector2(ellipse.bottomLeft.x + ellipse.topRight.x - p.x, p.y))), "Failed with " + ellipse);
-                    // Reflect across horizontal axis
-                    Assert.True(ellipse.ToHashSet().SetEquals(ellipse.Select(p => new IntVector2(p.x, ellipse.bottomLeft.y + ellipse.topRight.y - p.y))), "Failed with " + ellipse);
+                    IShapeTestHelper.ReflectiveSymmetry(ellipse, FlipAxis.Vertical);
+                    IShapeTestHelper.ReflectiveSymmetry(ellipse, FlipAxis.Horizontal);
                 }
             }
         }
@@ -286,7 +267,7 @@ namespace PAC.Tests
                 for (int diameter = 1; diameter <= 10; diameter++)
                 {
                     Shapes.Ellipse circle = new Shapes.Ellipse(IntVector2.zero, new IntVector2(diameter - 1, diameter - 1), filled);
-                    Assert.True(circle.ToHashSet().SetEquals(circle.Select(p => p.Rotate(RotationAngle._90) + new IntVector2(0, diameter - 1))), "Failed with diamater " + diameter);
+                    IShapeTestHelper.RotationalSymmetry(circle, RotationAngle._90);
                 }
             }
         }
@@ -296,17 +277,18 @@ namespace PAC.Tests
         /// </summary>
         [Test]
         [Category("Shapes")]
-        public void CircleDiagonalSymmetry()
+        public void CircleReflectiveSymmetry()
         {
             foreach (bool filled in new bool[] { false, true })
             {
                 for (int diameter = 1; diameter <= 10; diameter++)
                 {
                     Shapes.Ellipse circle = new Shapes.Ellipse(IntVector2.zero, new IntVector2(diameter - 1, diameter - 1), filled);
-                    // 45-degree line
-                    Assert.True(circle.ToHashSet().SetEquals(circle.Select(p => circle.bottomRight + (p - circle.topLeft).Flip(FlipAxis._45Degrees))), "Failed with diamater " + diameter);
-                    // -45-degree line
-                    Assert.True(circle.ToHashSet().SetEquals(circle.Select(p => circle.bottomLeft + (p - circle.topRight).Flip(FlipAxis.Minus45Degrees))), "Failed with diamater " + diameter);
+
+                    IShapeTestHelper.ReflectiveSymmetry(circle, FlipAxis.Vertical);
+                    IShapeTestHelper.ReflectiveSymmetry(circle, FlipAxis.Horizontal);
+                    IShapeTestHelper.ReflectiveSymmetry(circle, FlipAxis._45Degrees);
+                    IShapeTestHelper.ReflectiveSymmetry(circle, FlipAxis.Minus45Degrees);
                 }
             }
         }

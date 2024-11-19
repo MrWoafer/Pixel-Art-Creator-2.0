@@ -164,19 +164,7 @@ namespace PAC.Tests
         {
             foreach (IntVector2 end in new IntRect(new IntVector2(-5, -5), new IntVector2(5, 5)))
             {
-                Shapes.Line line = new Shapes.Line(IntVector2.zero, end);
-
-                int count = 0;
-                HashSet<IntVector2> visited = new HashSet<IntVector2>();
-                foreach (IntVector2 pixel in line)
-                {
-                    if (!visited.Contains(pixel))
-                    {
-                        count++;
-                        visited.Add(pixel);
-                    }
-                }
-                Assert.AreEqual(count, line.Count, "Failed with " + line);
+                IShapeTestHelper.Count(new Shapes.Line(IntVector2.zero, end));
             }
         }
 
@@ -186,18 +174,7 @@ namespace PAC.Tests
         {
             foreach (IntVector2 end in new IntRect(new IntVector2(-5, -5), new IntVector2(5, 5)))
             {
-                Shapes.Line line = new Shapes.Line(IntVector2.zero, end);
-
-                IntRect testRegion = line.boundingRect;
-                testRegion.bottomLeft -= IntVector2.one;
-                testRegion.topRight += IntVector2.one;
-
-                HashSet<IntVector2> linePixels = line.ToHashSet();
-
-                foreach (IntVector2 pixel in testRegion)
-                {
-                    Assert.AreEqual(linePixels.Contains(pixel), line.Contains(pixel), "Failed with " + line + " and " + pixel);
-                }
+                IShapeTestHelper.Contains(new Shapes.Line(IntVector2.zero, end));
             }
         }
 
@@ -210,14 +187,7 @@ namespace PAC.Tests
         {
             foreach (IntVector2 end in new IntRect(new IntVector2(-5, -5), new IntVector2(5, 5)))
             {
-                Shapes.Line line = new Shapes.Line(IntVector2.zero, end);
-
-                HashSet<IntVector2> visited = new HashSet<IntVector2>();
-                foreach (IntVector2 pixel in line)
-                {
-                    Assert.False(visited.Contains(pixel), "Failed with " + line + " and " + pixel);
-                    visited.Add(pixel);
-                }
+                IShapeTestHelper.NoRepeatsAtAll(new Shapes.Line(IntVector2.zero, end));
             }
         }
 
