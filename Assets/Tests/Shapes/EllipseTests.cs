@@ -198,7 +198,9 @@ namespace PAC.Tests
                         Shapes.Ellipse ellipse = new Shapes.Ellipse(bottomLeft, topRight, filled);
 
                         Shapes.Ellipse expected = new Shapes.Ellipse(IntVector2.zero, topRight - bottomLeft, filled);
-                        Assert.True(expected.SequenceEqual(ellipse.Select(p => p - bottomLeft)), "Failed with " + ellipse);
+                        IEnumerable<IntVector2> translated = ellipse.Select(p => p - bottomLeft);
+
+                        Assert.True(expected.SequenceEqual(translated), "Failed with " + ellipse);
                     }
                 }
             }
@@ -220,6 +222,9 @@ namespace PAC.Tests
                     Shapes.Ellipse expected = new Shapes.Ellipse(IntVector2.zero, new IntVector2(ellipse.height - 1, ellipse.width - 1), ellipse.filled);
                     Assert.True(expected.ToHashSet().SetEquals(ellipse.Select(p => (p - ellipse.bottomLeft).Rotate(RotationAngle._90) + new IntVector2(0, ellipse.width - 1))),
                         "Failed with " + ellipse);
+                    IEnumerable<IntVector2> rotated = ellipse.Select(p => (p - ellipse.bottomLeft).Rotate(RotationAngle._90) + new IntVector2(0, ellipse.width - 1));
+
+                    Assert.True(expected.ToHashSet().SetEquals(rotated), "Failed with " + ellipse);
                 }
             }
         }
