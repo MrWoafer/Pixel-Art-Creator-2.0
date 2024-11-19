@@ -7,7 +7,7 @@ using PAC.Drawing;
 
 namespace PAC.Tests
 {
-    public class LineTests
+    public class LineTests : IShapeTests
     {
         /// <summary>
         /// Tests that lines that are single points have the correct shape.
@@ -93,6 +93,19 @@ namespace PAC.Tests
             };
 
             Assert.True(expected.SequenceEqual(line));
+        }
+
+        [Test]
+        [Category("Shapes")]
+        public void BoundingRect()
+        {
+            foreach (IntVector2 start in new IntRect(new IntVector2(-1, -1), new IntVector2(1, 1)))
+            {
+                foreach (IntVector2 end in start + new IntRect(new IntVector2(-5, -5), new IntVector2(5, 5)))
+                {
+                    IShapeTestHelper.BoundingRect(new Shapes.Line(start, end));
+                }
+            }
         }
 
         /// <summary>
