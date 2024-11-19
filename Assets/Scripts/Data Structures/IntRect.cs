@@ -74,7 +74,7 @@ namespace PAC.DataStructures
 
         public override int GetHashCode()
         {
-            return System.HashCode.Combine(bottomLeft, topRight);
+            return HashCode.Combine(bottomLeft, topRight);
         }
 
         public override string ToString()
