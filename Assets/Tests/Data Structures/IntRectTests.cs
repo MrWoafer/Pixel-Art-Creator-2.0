@@ -142,7 +142,7 @@ namespace PAC.Tests
 
         [Test]
         [Category("Data Structures")]
-        public void GetBoundingRect()
+        public void BoundingRect()
         {
             (IntRect, IntRect[])[] testCases =
             {
@@ -162,7 +162,7 @@ namespace PAC.Tests
 
             foreach ((IntRect expected, IntRect[] rects) in testCases)
             {
-                IntRect boundingRect = IntRect.GetBoundingRect(rects);
+                IntRect boundingRect = IntRect.BoundingRect(rects);
 
                 Assert.AreEqual(expected, boundingRect);
 
@@ -173,7 +173,7 @@ namespace PAC.Tests
             }
 
             // Cannot get bounding rect of 0 IntRects
-            Assert.Throws<ArgumentException>(() => IntRect.GetBoundingRect());
+            Assert.Throws<ArgumentException>(() => IntRect.BoundingRect());
         }
     }
 }

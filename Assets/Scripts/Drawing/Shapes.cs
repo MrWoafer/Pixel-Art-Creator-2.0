@@ -358,7 +358,7 @@ namespace PAC.Drawing
             /// </summary>
             public bool isLoop => IntVector2.SupDistance(lines[0].start, lines[^1].end) <= 1;
 
-            public IntRect boundingRect => IntRect.GetBoundingRect(from line in lines select line.boundingRect);
+            public IntRect boundingRect => IntRect.BoundingRect(from line in lines select line.boundingRect);
 
             public int Count
             {

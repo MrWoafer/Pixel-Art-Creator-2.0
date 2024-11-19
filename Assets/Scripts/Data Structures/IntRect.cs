@@ -247,18 +247,18 @@ namespace PAC.DataStructures
         /// <summary>
         /// Gets the smallest IntRect containing both the given IntRects.
         /// </summary>
-        public IntRect GetBoundingRect(IntRect a, IntRect b)
+        public IntRect BoundingRect(IntRect a, IntRect b)
         {
             return new IntRect(IntVector2.Min(a.bottomLeft, b.bottomLeft), IntVector2.Max(a.topRight, b.topRight));
         }
         /// <summary>
         /// Gets the smallest IntRect containing all the given IntRects.
         /// </summary>
-        public static IntRect GetBoundingRect(params IntRect[] intRects) => GetBoundingRect((IEnumerable<IntRect>)intRects);
+        public static IntRect BoundingRect(params IntRect[] intRects) => BoundingRect((IEnumerable<IntRect>)intRects);
         /// <summary>
         /// Gets the smallest IntRect containing all the given IntRects.
         /// </summary>
-        public static IntRect GetBoundingRect(IEnumerable<IntRect> intRects)
+        public static IntRect BoundingRect(IEnumerable<IntRect> intRects)
         {
             if (intRects.IsEmpty())
             {
