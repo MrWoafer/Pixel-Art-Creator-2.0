@@ -67,8 +67,7 @@ namespace PAC.DataStructures
             }
             else
             {
-                IntRect rect = (IntRect)obj;
-                return this == rect;
+                return this == (IntRect)obj;
             }
         }
 

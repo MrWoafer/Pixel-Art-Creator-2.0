@@ -90,8 +90,7 @@ namespace PAC.DataStructures
             }
             else
             {
-                IntVector2 vector = (IntVector2)obj;
-                return this == vector;
+                return this == (IntVector2)obj;
             }
         }
 
