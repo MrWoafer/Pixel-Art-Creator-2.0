@@ -157,8 +157,8 @@ namespace PAC.Tests
                 (new IntRect(new IntVector2(2, 4), new IntVector2(9, 7)), new IntVector2[] {
                     new IntVector2(3, 4), new IntVector2(2, 6), new IntVector2(9, 7)
                 }),
-                (new IntRect(new IntVector2(-3, -2), new IntVector2(10, 9)), new IntVector2[] {
-                    new IntVector2(-3, -1), new IntVector2(2, 6), new IntVector2(9, 7), new IntVector2(5, -2), new IntVector2(5, 5), new IntVector2(-3, -1), new IntVector2(10, 1)
+                (new IntRect(new IntVector2(-3, -2), new IntVector2(10, 7)), new IntVector2[] {
+                    new IntVector2(-3, -1), new IntVector2(2, 6), new IntVector2(9, 7), new IntVector2(5, -2), new IntVector2(5, 5), new IntVector2(10, 1)
                 })
             };
 
@@ -166,11 +166,11 @@ namespace PAC.Tests
             {
                 IntRect boundingRect = IntRect.BoundingRect(points);
 
-                Assert.AreEqual(expected, boundingRect);
+                Assert.AreEqual(expected, boundingRect, "Failed with " + Functions.ArrayToString(points));
 
                 foreach (IntVector2 point in points)
                 {
-                    Assert.True(boundingRect.Contains(point));
+                    Assert.True(boundingRect.Contains(point), "Failed with " + point + " in " + Functions.ArrayToString(points));
                 }
             }
 
@@ -196,11 +196,11 @@ namespace PAC.Tests
             {
                 IntRect boundingRect = IntRect.BoundingRect(rects);
 
-                Assert.AreEqual(expected, boundingRect);
+                Assert.AreEqual(expected, boundingRect, "Failed with " + Functions.ArrayToString(rects));
 
                 foreach (IntRect rect in rects)
                 {
-                    Assert.True(boundingRect.Contains(rect));
+                    Assert.True(boundingRect.Contains(rect), "Failed with " + rect + " in " + Functions.ArrayToString(rects));
                 }
             }
 
