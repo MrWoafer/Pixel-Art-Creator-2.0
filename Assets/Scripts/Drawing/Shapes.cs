@@ -358,7 +358,27 @@ namespace PAC.Drawing
             /// </summary>
             public bool isLoop => IntVector2.SupDistance(lines[0].start, lines[^1].end) <= 1;
 
-            public IntRect boundingRect => IntRect.BoundingRect(from line in lines select line.boundingRect);
+            /// <summary>
+            /// Whether the path crosses itself. Does not include the end of one line being equal to the start of the next.
+            /// </summary>
+            public bool selfIntersects
+            {
+                get
+                {
+                    HashSet<IntVector2> visited = new HashSet<IntVector2>();
+                    foreach (IntVector2 point in this)
+                    {
+                        if (visited.Contains(point))
+                        {
+                            return true;
+                        }
+                        visited.Add(point);
+                    }
+                    return false;
+                }
+            }
+
+            public IntRect boundingRect => IntRect.BoundingRect(from line in _lines select line.boundingRect);
 
             public int Count
             {
