@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using PAC.DataStructures;
 using PAC.Extensions;
@@ -351,12 +352,13 @@ namespace PAC.Drawing
         /// </summary>
         public class Path : IShape
         {
-            List<Line> lines = new List<Line>();
+            private List<Line> _lines = new List<Line>();
+            public ReadOnlyCollection<Line> lines => _lines.AsReadOnly();
 
             /// <summary>
             /// Whether the end of the last line is adjacent to (including diagonally) the start of the first line.
             /// </summary>
-            public bool isLoop => IntVector2.SupDistance(lines[0].start, lines[^1].end) <= 1;
+            public bool isLoop => IntVector2.SupDistance(_lines[0].start, _lines[^1].end) <= 1;
 
             /// <summary>
             /// Whether the path crosses itself. Does not include the end of one line being equal to the start of the next.
@@ -385,32 +387,32 @@ namespace PAC.Drawing
                 get
                 {
                     // First line
-                    int count = lines[0].Count;
-                    if (lines.Count == 1)
+                    int count = _lines[0].Count;
+                    if (_lines.Count == 1)
                     {
                         return count;
                     }
 
-                    // Middle lines (not first or last)
-                    for (int i = 1; i < lines.Count - 1; i++)
+                    // Middle _lines (not first or last)
+                    for (int i = 1; i < _lines.Count - 1; i++)
                     {
-                        if (lines[i - 1].end == lines[i].start)
+                        if (_lines[i - 1].end == _lines[i].start)
                         {
-                            count += lines[i].Count - 1;
+                            count += _lines[i].Count - 1;
                         }
                         else
                         {
-                            count += lines[i].Count;
+                            count += _lines[i].Count;
                         }
                     }
 
                     // Last line
-                    count += lines[^1].Count;
-                    if (lines[^2].end == lines[^1].start)
+                    count += _lines[^1].Count;
+                    if (_lines[^2].end == _lines[^1].start)
                     {
                         count--;
                     }
-                    if (lines[^1].end == lines[0].start)
+                    if (_lines[^1].end == _lines[0].start)
                     {
                         count--;
                     }
@@ -433,12 +435,12 @@ namespace PAC.Drawing
 
                 if (points.Length == 1)
                 {
-                    lines.Add(new Line(points[0], points[0]));
+                    _lines.Add(new Line(points[0], points[0]));
                 }
 
                 for (int i = 0; i < points.Length - 1; i++)
                 {
-                    lines.Add(new Line(points[i], points[i + 1]));
+                    _lines.Add(new Line(points[i], points[i + 1]));
                 }
             }
             /// <summary>
@@ -451,20 +453,20 @@ namespace PAC.Drawing
                     throw new ArgumentException("Cannot create a path from 0 lines.", "lines");
                 }
 
-                this.lines.Add(lines[0]);
+                this._lines.Add(lines[0]);
                 for (int i = 1; i < lines.Length; i++)
                 {
                     if (IntVector2.SupDistance(lines[i - 1].end, lines[i].start) > 1)
                     {
                         throw new ArgumentException("Lines " + (i - 1) + " and " + i + " do not connect.", "lines");
                     }
-                    this.lines.Add(lines[i]);
+                    this._lines.Add(lines[i]);
                 }
             }
 
             public bool Contains(IntVector2 pixel)
             {
-                foreach (Line line in lines)
+                foreach (Line line in _lines)
                 {
                     if (line.Contains(pixel))
                     {
@@ -478,24 +480,24 @@ namespace PAC.Drawing
             public IEnumerator<IntVector2> GetEnumerator()
             {
                 // First line
-                foreach (IntVector2 pixel in lines[0])
+                foreach (IntVector2 pixel in _lines[0])
                 {
                     yield return pixel;
                 }
-                if (lines.Count == 1)
+                if (_lines.Count == 1)
                 {
                     yield break;
                 }
 
-                // Middle lines (not first or last)
-                for (int i = 1; i < lines.Count - 1; i++)
+                // Middle _lines (not first or last)
+                for (int i = 1; i < _lines.Count - 1; i++)
                 {
                     int start = 0;
-                    if (lines[i - 1].end == lines[i].start)
+                    if (_lines[i - 1].end == _lines[i].start)
                     {
                         start = 1;
                     }
-                    foreach (IntVector2 pixel in lines[i][start..])
+                    foreach (IntVector2 pixel in _lines[i][start..])
                     {
                         yield return pixel;
                     }
@@ -504,16 +506,16 @@ namespace PAC.Drawing
                 // Last line
                 {
                     int start = 0;
-                    int end = lines[^1].Count;
-                    if (lines[^2].end == lines[^1].start)
+                    int end = _lines[^1].Count;
+                    if (_lines[^2].end == _lines[^1].start)
                     {
                         start = 1;
                     }
-                    if (lines[^1].end == lines[0].start)
+                    if (_lines[^1].end == _lines[0].start)
                     {
-                        end = lines[^1].Count - 1;
+                        end = _lines[^1].Count - 1;
                     }
-                    foreach (IntVector2 pixel in lines[^1][start..end])
+                    foreach (IntVector2 pixel in _lines[^1][start..end])
                     {
                         yield return pixel;
                     }
@@ -523,14 +525,14 @@ namespace PAC.Drawing
             public static bool operator !=(Path a, Path b) => !(a == b);
             public static bool operator ==(Path a, Path b)
             {
-                if (a.lines.Count != b.lines.Count)
+                if (a._lines.Count != b._lines.Count)
                 {
                     return false;
                 }
 
-                for (int i = 0; i < a.lines.Count; i++)
+                for (int i = 0; i < a._lines.Count; i++)
                 {
-                    if (a.lines[i] != b.lines[i])
+                    if (a._lines[i] != b._lines[i])
                     {
                         return false;
                     }
@@ -549,9 +551,9 @@ namespace PAC.Drawing
                 }
             }
 
-            public override int GetHashCode() => lines.GetHashCode();
+            public override int GetHashCode() => _lines.GetHashCode();
 
-            public override string ToString() => "Path(" + string.Join(", ", lines) + ")";
+            public override string ToString() => "Path(" + string.Join(", ", _lines) + ")";
         }
 
         public struct Rectangle : IShape
