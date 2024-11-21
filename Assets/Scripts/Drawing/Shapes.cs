@@ -926,6 +926,332 @@ namespace PAC.Drawing
             public override string ToString() => "Ellipse(" + bottomLeft + ", " + topRight + ", " + (filled ? "filled" : "unfilled") + ")";
         }
 
+        public struct RightTriangle : IShape
+        {
+            public enum RightAngleLocation
+            {
+                Bottom = -1,
+                Top = 1,
+                Left = -2,
+                Right = 2
+            }
+
+            private IntVector2 _bottomCorner;
+            /// <summary>
+            /// The lower of the two corners that don't contain the right angle. This should always be distinct from topCorner, unless the triangle is a single point.
+            /// </summary>
+            public IntVector2 bottomCorner
+            {
+                get => _bottomCorner;
+                set
+                {
+                    if (value.y <= _topCorner.y)
+                    {
+                        _bottomCorner = value;
+                    }
+                    else
+                    {
+                        _bottomCorner = _topCorner;
+                        _topCorner = value;
+                    }
+                }
+            }
+            private IntVector2 _topCorner;
+            /// <summary>
+            /// The higher of the two corners that don't contain the right angle. This should always be distinct from bottomCorner, unless the triangle is a single point.
+            /// </summary>
+            public IntVector2 topCorner
+            {
+                get => _topCorner;
+                set
+                {
+                    if (value.y >= _bottomCorner.y)
+                    {
+                        _topCorner = value;
+                    }
+                    else
+                    {
+                        _topCorner = _bottomCorner;
+                        _bottomCorner = value;
+                    }
+                }
+            }
+            /// <summary>
+            /// The left-most of the two corners that don't contain the right angle. This should always be distinct from rightCorner, unless the triangle is a single point.
+            /// </summary>
+            public IntVector2 leftCorner
+            {
+                get => _bottomCorner.x <= _topCorner.x ? _bottomCorner : _topCorner;
+                set
+                {
+                    if (leftCorner == _bottomCorner)
+                    {
+                        bottomCorner = value;
+                    }
+                    else
+                    {
+                        topCorner = value;
+                    }
+                }
+            }
+            /// <summary>
+            /// The right-most of the two corners that don't contain the right angle. This should always be distinct from leftCorner, unless the triangle is a single point.
+            /// </summary>
+            public IntVector2 rightCorner
+            {
+                // We do > here and <= in leftCorner to ensure that if the triangle's corners have the same x coord then leftCorner and rightCorner are still different corners.
+                get => _bottomCorner.x > _topCorner.x ? _bottomCorner : _topCorner;
+                set
+                {
+                    if (rightCorner == _bottomCorner)
+                    {
+                        bottomCorner = value;
+                    }
+                    else
+                    {
+                        topCorner = value;
+                    }
+                }
+            }
+            /// <summary>
+            /// The corner that contains the right angle.
+            /// </summary>
+            public IntVector2 rightAngleCorner
+            {
+                get
+                {
+                    switch (rightAngleLocation)
+                    {
+                        case RightAngleLocation.Bottom: return new IntVector2(topCorner.x, bottomCorner.y);
+                        case RightAngleLocation.Top: return new IntVector2(bottomCorner.x, topCorner.y);
+                        case RightAngleLocation.Left: return new IntVector2(leftCorner.x, rightCorner.y);
+                        case RightAngleLocation.Right: return new IntVector2(rightCorner.x, leftCorner.y);
+                        default: throw new NotImplementedException("Unknown / unimplemented RightAngleLocation: " + rightAngleLocation);
+                    }
+                }
+            }
+
+            public RightAngleLocation rightAngleLocation { get; set; }
+
+            public bool filled { get; set; }
+
+            public int width => boundingRect.width;
+            public int height => boundingRect.height;
+
+            /// <summary>True if the triangle is an isosceles triangle.</summary>
+            public bool isIsosceles => width == height;
+
+            public IntRect boundingRect => new IntRect(bottomCorner, topCorner);
+
+            public int Count
+            {
+                get
+                {
+                    if (width == 1)
+                    {
+                        return height;
+                    }
+                    if (height == 1)
+                    {
+                        return width;
+                    }
+
+                    if (!filled)
+                    {
+                        return GetPath().Count;
+                    }
+
+                    if (width >= height)
+                    {
+                        // The vertical side of the triangle won't be counted in the loop
+                        int count = height;
+                        // Go along the hypotenuse
+                        foreach (IntVector2 pixel in GetPath().lines[0])
+                        {
+                            count += Math.Abs(pixel.y - rightAngleCorner.y) + 1;
+                        }
+                        return count;
+                    }
+                    else
+                    {
+                        // The horizontal side of the triangle won't be counted in the loop
+                        int count = width;
+                        // Go along the hypotenuse
+                        foreach (IntVector2 pixel in GetPath().lines[0])
+                        {
+                            count += Math.Abs(pixel.x - rightAngleCorner.x) + 1;
+                        }
+                        return count;
+                    }
+                }
+            }
+
+            public RightTriangle(IntVector2 corner, IntVector2 oppositeCorner, RightAngleLocation rightAngleLocation, bool filled)
+            {
+                if (corner.y <= oppositeCorner.y)
+                {
+                    _bottomCorner = corner;
+                    _topCorner = oppositeCorner;
+                }
+                else
+                {
+                    _bottomCorner = oppositeCorner;
+                    _topCorner = corner;
+                }
+
+                this.rightAngleLocation = rightAngleLocation;
+                this.filled = filled;
+            }
+
+            public bool Contains(IntVector2 pixel)
+            {
+                if (!filled)
+                {
+                    return GetPath().Contains(pixel);
+                }
+
+                // Non-zero winding number algorithm
+                if (width <= 1 || height <= 1)
+                {
+                    return boundingRect.Contains(pixel);
+                }
+
+                Path path = GetPath();
+                int previousY = path.First().y + (path.lines[0].start.y < path.lines[0].end.y ? -1 : 1);
+                int windingNumber = 0;
+                foreach (IntVector2 borderPixel in path)
+                {
+                    if (borderPixel == pixel)
+                    {
+                        return true;
+                    }
+                    if (borderPixel.y != bottomCorner.y && borderPixel.y != topCorner.y)
+                    {
+                        if (borderPixel.y == pixel.y && borderPixel.x > pixel.x)
+                        {
+                            windingNumber += borderPixel.y - previousY;
+                        }
+                    }
+                    previousY = borderPixel.y;
+                }
+                return windingNumber != 0;
+            }
+
+            private Path GetPath()
+            {
+                // Single points / vertical lines / horizontal lines
+                if (bottomCorner.x == topCorner.x || bottomCorner.y == topCorner.y)
+                {
+                    return new Path (new Line(bottomCorner, topCorner));
+                }
+
+                IntVector2 startCorner = bottomCorner;
+                IntVector2 endCorner = topCorner;
+                IntVector2 startAdjusted;
+                IntVector2 endAdjusted;
+
+                if (rightAngleLocation == RightAngleLocation.Bottom)
+                {
+                    startAdjusted = bottomCorner + IntVector2.up;
+                    endAdjusted = topCorner + (startCorner == leftCorner ? IntVector2.left : IntVector2.right);
+                }
+                else if (rightAngleLocation == RightAngleLocation.Top)
+                {
+                    startAdjusted = bottomCorner + (endCorner == leftCorner ? IntVector2.left : IntVector2.right);
+                    endAdjusted = topCorner + IntVector2.down;
+                }
+                else if (rightAngleLocation == RightAngleLocation.Left)
+                {
+                    startAdjusted = bottomCorner + (startCorner == leftCorner ? IntVector2.right : IntVector2.up);
+                    endAdjusted = topCorner + (startCorner == leftCorner ? IntVector2.down : IntVector2.right);
+                }
+                else if (rightAngleLocation == RightAngleLocation.Right)
+                {
+                    startAdjusted = bottomCorner + (startCorner == leftCorner ? IntVector2.up : IntVector2.left);
+                    endAdjusted = topCorner + (startCorner == leftCorner ? IntVector2.left : IntVector2.down);
+                }
+                else
+                {
+                    throw new NotImplementedException("Unknown / unimplemented RightAngleLocation: " + rightAngleLocation);
+                }
+
+                // This is to ensure reflective invariance
+                // If width >= height, we draw the hypotenuse starting from the corner with the same y coord as the right angle corner
+                // If width < height, we draw the hypotenuse starting from the corner with the same x coord as the right angle corner
+                if ((width < height) != (startCorner.y != rightAngleCorner.y))
+                {
+                    IntVector2 temp;
+
+                    temp = startCorner;
+                    startCorner = endCorner;
+                    endCorner = temp;
+
+                    temp = startAdjusted;
+                    startAdjusted = endAdjusted;
+                    endAdjusted = temp;
+                }
+
+                // The line order is start corner -> end corner -> right angle corner -> start corner
+
+                return new Path(
+                        new Line(startAdjusted, endAdjusted),
+                        new Line(endCorner, rightAngleCorner),
+                        new Line(rightAngleCorner, startCorner)
+                    );
+            }
+
+            IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();
+            public IEnumerator<IntVector2> GetEnumerator()
+            {
+                Path path = GetPath();
+                foreach (IntVector2 pixel in path)
+                {
+                    yield return pixel;
+                }
+
+                if (!filled)
+                {
+                    yield break;
+                }
+
+                // either up, left or right
+                IntVector2 directionToTopCorner = IntVector2.Simplify(topCorner - rightAngleCorner);
+                // either down, left or right
+                IntVector2 directionToBottomCorner = IntVector2.Simplify(bottomCorner - rightAngleCorner);
+                int iterations = 0;
+
+                for(IntVector2 rowStart = rightAngleCorner + directionToTopCorner + directionToBottomCorner; !path.Contains(rowStart) && iterations < 10_000; rowStart += directionToTopCorner)
+                {
+                    for (IntVector2 pixel = rowStart; !path.Contains(pixel) && iterations < 10_000; pixel += directionToBottomCorner)
+                    {
+                        iterations++;
+                        yield return pixel;
+                    }
+                }
+            }
+
+            public static bool operator !=(RightTriangle a, RightTriangle b) => !(a == b);
+            public static bool operator ==(RightTriangle a, RightTriangle b)
+            {
+                return a.bottomCorner == b.bottomCorner && a.topCorner == b.topCorner && a.rightAngleCorner == b.rightAngleCorner && a.filled == b.filled;
+            }
+            public override bool Equals(object obj)
+            {
+                if (obj == null || !GetType().Equals(obj.GetType()))
+                {
+                    return false;
+                }
+                else
+                {
+                    return this == (RightTriangle)obj;
+                }
+            }
+
+            public override int GetHashCode() => HashCode.Combine(bottomCorner, topCorner, rightAngleLocation, filled);
+
+            public override string ToString() => "RightTriangle(" + bottomCorner + ", " + topCorner + ", " + rightAngleLocation + ", " + (filled ? "filled" : "unfilled") + ")";
+        }
+
         public static Texture2D LineTex(int texWidth, int texHeight, IntVector2 start, IntVector2 end, Color colour)
         {
             Texture2D tex = Tex2DSprite.BlankTexture(texWidth, texHeight);
@@ -1004,70 +1330,16 @@ namespace PAC.Drawing
             return EllipseTex(texWidth, texHeight, start, SnapEndCoordToSquare(texWidth, texHeight, start, end, stayWithinImageBounds), colour, filled);
         }
 
-        public static Texture2D RightTriangle(int texWidth, int texHeight, IntVector2 start, IntVector2 end, Color colour, bool rightAngleOnBottom, bool filled)
+        public static Texture2D RightTriangleTex(int texWidth, int texHeight, IntVector2 start, IntVector2 end, Color colour, bool rightAngleOnBottom, bool filled)
         {
-            IntVector2 corner;
-            if (!rightAngleOnBottom)
+            Texture2D tex = Tex2DSprite.BlankTexture(texWidth, texHeight);
+
+            foreach (IntVector2 pixel in new RightTriangle(start, end, rightAngleOnBottom ? RightTriangle.RightAngleLocation.Bottom : RightTriangle.RightAngleLocation.Top, filled))
             {
-                corner = new IntVector2(start.y <= end.y ? start.x : end.x, Mathf.Max(start.y, end.y));
-            }
-            else
-            {
-                corner = new IntVector2(start.y <= end.y ? end.x : start.x, Mathf.Min(start.y, end.y));
+                tex.SetPixel(pixel, colour);
             }
 
-            Texture2D tex = LineTex(texWidth, texHeight, start, corner, colour);
-            tex = Tex2DSprite.Overlay(LineTex(texWidth, texHeight, end, corner, colour), tex);
-
-            if (start.x > end.x)
-            {
-                IntVector2 temp = start;
-                start = end;
-                end = temp;
-            }
-
-            IntVector2 fillStartPoint;
-            if (start.x != end.x && start.y != end.y)
-            {
-                if (!rightAngleOnBottom)
-                {
-                    if (start.y >= end.y)
-                    {
-                        start = new IntVector2(start.x, start.y - 1);
-                        end = new IntVector2(end.x - 1, end.y);
-                        fillStartPoint = corner + new IntVector2(-1, -1);
-                    }
-                    else
-                    {
-                        start = new IntVector2(start.x + 1, start.y);
-                        end = new IntVector2(end.x, end.y - 1);
-                        fillStartPoint = corner + new IntVector2(1, -1);
-                    }
-                }
-                else
-                {
-                    if (start.y >= end.y)
-                    {
-                        start = new IntVector2(start.x + 1, start.y);
-                        end = new IntVector2(end.x, end.y + 1);
-                        fillStartPoint = corner + new IntVector2(1, 1);
-                    }
-                    else
-                    {
-                        start = new IntVector2(start.x, start.y + 1);
-                        end = new IntVector2(end.x - 1, end.y);
-                        fillStartPoint = corner + new IntVector2(-1, 1);
-                    }
-                }
-
-                tex = Tex2DSprite.Overlay(LineTex(texWidth, texHeight, start, end, colour), tex);
-
-                if (filled)
-                {
-                    tex = Tex2DSprite.Fill(tex, fillStartPoint, colour);
-                }
-            }
-
+            tex.Apply();
             return tex;
         }
 

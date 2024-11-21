@@ -148,7 +148,7 @@ namespace PAC.Drawing
             {
                 throw new System.Exception("Layer is not a normal layer. Layer type: " + file.layers[layer].layerType);
             }
-            Texture2D triangle = Shapes.RightTriangle(file.width, file.height, start, end, colour, rightAngleOnBottom, filled);
+            Texture2D triangle = Shapes.RightTriangleTex(file.width, file.height, start, end, colour, rightAngleOnBottom, filled);
             ((NormalLayer)file.layers[layer]).OverlayTexture(frame, triangle, AnimFrameRefMode.NewKeyFrame);
         }
 

@@ -925,7 +925,7 @@ namespace PAC.Drawing
         private void PreviewTriangle(IntVector2 start, IntVector2 end, Color colour, bool rightAngleOnBottom, bool filled)
         {
             IntRect rect = new IntRect(start, end);
-            Texture2D tex = Shapes.RightTriangle(rect.width, rect.height, start - rect.bottomLeft, end - rect.bottomLeft, colour, rightAngleOnBottom, filled);
+            Texture2D tex = Shapes.RightTriangleTex(rect.width, rect.height, start - rect.bottomLeft, end - rect.bottomLeft, colour, rightAngleOnBottom, filled);
 
             SetPreview(tex, rect.bottomLeft);
         }
