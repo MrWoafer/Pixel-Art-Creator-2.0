@@ -932,7 +932,7 @@ namespace PAC.Drawing
 
             foreach (IntVector2 pixel in new Line(start, end))
             {
-                tex.SetPixel(pixel.x, pixel.y, colour);
+                tex.SetPixel(pixel, colour);
             }
 
             tex.Apply();
@@ -945,7 +945,7 @@ namespace PAC.Drawing
 
             foreach (IntVector2 pixel in new Rectangle(start, end, filled))
             {
-                tex.SetPixel(pixel.x, pixel.y, colour);
+                tex.SetPixel(pixel, colour);
             }
 
             tex.Apply();
@@ -992,7 +992,7 @@ namespace PAC.Drawing
 
             foreach (IntVector2 pixel in new Ellipse(start, end, filled))
             {
-                tex.SetPixel(pixel.x, pixel.y, colour);
+                tex.SetPixel(pixel, colour);
             }
 
             tex.Apply();
