@@ -85,7 +85,7 @@ namespace PAC.Tests
 
             foreach (IntVector2 pixel in testRegion)
             {
-                Assert.AreEqual(pixels.Contains(pixel), shape.Contains(pixel), "Failed with " + shape + " and " + pixel);
+                Assert.True(pixels.Contains(pixel) == shape.Contains(pixel), "Failed with " + shape + " and " + pixel + ". Expected " + pixels.Contains(pixel));
             }
         }
 
