@@ -430,7 +430,7 @@ namespace PAC.Drawing
             {
                 if (points.Length == 0)
                 {
-                    throw new ArgumentException("Cannot create a path from 0 points.", "lines");
+                    throw new ArgumentException("Cannot create a path from 0 points.", "points");
                 }
 
                 if (points.Length == 1)
