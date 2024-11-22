@@ -208,6 +208,43 @@ namespace PAC.Drawing
                 return this[index] == pixel;
             }
 
+            /// <summary>
+            /// Whether the point lies to the left of / on the line (including lying within the y range of the line).
+            /// </summary>
+            public bool PointIsToLeft(IntVector2 pixel)
+            {
+                if (!isMoreHorizontal)
+                {
+                    int index = (pixel.y - start.y) * Math.Sign(end.y - start.y);
+                    if (index < 0 || index >= Count)
+                    {
+                        return false;
+                    }
+                    return pixel.x <= this[index].x;
+                }
+                else
+                {
+                    if (pixel.y < boundingRect.bottomLeft.y || pixel.y > boundingRect.topRight.y || pixel.x > boundingRect.topRight.x)
+                    {
+                        return false;
+                    }
+                    if (pixel.x < boundingRect.bottomLeft.x)
+                    {
+                        return true;
+                    }
+
+                    // pixel now lies within bounding rect
+
+                    int index = (pixel.x - start.x) * Math.Sign(end.x - start.x);
+                    if (index < 0 || index >= Count)
+                    {
+                        return false;
+                    }
+                    bool positiveGradient = Math.Sign(end.x - start.x) == Math.Sign(end.y - start.y);
+                    return positiveGradient ? pixel.y >= this[index].y : pixel.y <= this[index].y;
+                }
+            }
+
             public IntVector2 this[int index]
             {
                 get
