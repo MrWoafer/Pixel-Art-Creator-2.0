@@ -105,28 +105,28 @@ namespace PAC.DataStructures
         }
 
         /// <summary>
-        /// Returns true iff &lt; holds for every component.
+        /// Returns true iff &lt; holds for both components.
         /// </summary>
         public static bool operator <(IntVector2 a, IntVector2 b)
         {
             return a.x < b.x && a.y < b.y;
         }
         /// <summary>
-        /// Returns true iff &gt; holds for every component.
+        /// Returns true iff &gt; holds for both components.
         /// </summary>
         public static bool operator >(IntVector2 a, IntVector2 b)
         {
             return a.x > b.x && a.y > b.y;
         }
         /// <summary>
-        /// Returns true iff &lt;= holds for every component.
+        /// Returns true iff &lt;= holds for both components.
         /// </summary>
         public static bool operator <=(IntVector2 a, IntVector2 b)
         {
             return a.x <= b.x && a.y <= b.y;
         }
         /// <summary>
-        /// Returns true iff &gt;= holds for every component.
+        /// Returns true iff &gt;= holds for both components.
         /// </summary>
         public static bool operator >=(IntVector2 a, IntVector2 b)
         {
