@@ -1148,6 +1148,29 @@ namespace PAC.Drawing
                 this.filled = filled;
             }
 
+            private int WindingNumber(IntVector2 pixel)
+            {
+                Path path = GetPath();
+                int previousY = path.First().y + (path.lines[0].start.y < path.lines[0].end.y ? -1 : 1);
+                int windingNumber = 0;
+                foreach (IntVector2 borderPixel in path)
+                {
+                    if (borderPixel == pixel)
+                    {
+                        return 1;
+                    }
+                    if (borderPixel.y != bottomCorner.y && borderPixel.y != topCorner.y)
+                    {
+                        if (borderPixel.y == pixel.y && borderPixel.x > pixel.x)
+                        {
+                            windingNumber += borderPixel.y - previousY;
+                        }
+                    }
+                    previousY = borderPixel.y;
+                }
+                return windingNumber;
+            }
+
             public bool Contains(IntVector2 pixel)
             {
                 if (!filled)
@@ -1160,26 +1183,7 @@ namespace PAC.Drawing
                 {
                     return boundingRect.Contains(pixel);
                 }
-
-                Path path = GetPath();
-                int previousY = path.First().y + (path.lines[0].start.y < path.lines[0].end.y ? -1 : 1);
-                int windingNumber = 0;
-                foreach (IntVector2 borderPixel in path)
-                {
-                    if (borderPixel == pixel)
-                    {
-                        return true;
-                    }
-                    if (borderPixel.y != bottomCorner.y && borderPixel.y != topCorner.y)
-                    {
-                        if (borderPixel.y == pixel.y && borderPixel.x > pixel.x)
-                        {
-                            windingNumber += borderPixel.y - previousY;
-                        }
-                    }
-                    previousY = borderPixel.y;
-                }
-                return windingNumber != 0;
+                return WindingNumber(pixel) != 0;
             }
 
             private Path GetPath()
