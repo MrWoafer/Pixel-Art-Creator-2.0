@@ -436,7 +436,7 @@ namespace PAC.Drawing
                         return count;
                     }
 
-                    // Middle _lines (not first or last)
+                    // Middle lines (not first or last)
                     for (int i = 1; i < _lines.Count - 1; i++)
                     {
                         if (_lines[i - 1].end == _lines[i].start)
@@ -532,7 +532,7 @@ namespace PAC.Drawing
                     yield break;
                 }
 
-                // Middle _lines (not first or last)
+                // Middle lines (not first or last)
                 for (int i = 1; i < _lines.Count - 1; i++)
                 {
                     int start = 0;
