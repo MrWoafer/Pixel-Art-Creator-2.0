@@ -74,6 +74,14 @@ namespace PAC.Drawing
             /// Whether this line is divided into blocks of a constant size. E.g. a 12x4 line is perfect as it is drawn as 4 horizontal blocks of 3 pixels.
             /// </summary>
             public bool isPerfect => isMoreHorizontal ? (end.x - start.x + 1) % (end.y - start.y + 1) == 0 : (end.y - start.y + 1) % (end.x - start.x + 1) == 0;
+            /// <summary>
+            /// True iff the line has a constant x coord.
+            /// </summary>
+            public bool isVertical => start.x == end.x;
+            /// <summary>
+            /// True iff the line has a constant y coord.
+            /// </summary>
+            public bool isHorizontal => start.y == end.y;
 
             public IntRect boundingRect => new IntRect(start, end);
 
