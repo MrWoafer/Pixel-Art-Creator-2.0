@@ -30,7 +30,7 @@ namespace PAC.DataStructures
         public int l1Norm => L1Norm(this);
         /// <summary>
         /// The supremum norm of the vector, which is max(abs(x), abs(y)).
-        /// Also know as the Chebyshev norm or l-infinity norm.
+        /// Also known as the Chebyshev norm or l-infinity norm.
         /// </summary>
         public int supNorm => SupNorm(this);
 
@@ -449,7 +449,7 @@ namespace PAC.DataStructures
 
         /// <summary>
         /// Computes the supremum norm of the vector, which is max(abs(a.x), abs(a.y)).
-        /// Also know as the Chebyshev norm or l-infinity norm.
+        /// Also known as the Chebyshev norm or l-infinity norm.
         /// </summary>
         public static int SupNorm(IntVector2 a)
         {
@@ -457,7 +457,7 @@ namespace PAC.DataStructures
         }
         /// <summary>
         /// Computes the supremum distance of the vectors, which is max(abs(a.x - b.y), abs(a.y - b.y)).
-        /// Also know as the Chebyshev distance or l-infinity distance.
+        /// Also known as the Chebyshev distance or l-infinity distance.
         /// </summary>
         public static int SupDistance(IntVector2 a, IntVector2 b)
         {
