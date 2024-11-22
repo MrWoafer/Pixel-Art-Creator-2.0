@@ -257,7 +257,7 @@ namespace PAC.Tests
 
         [Test]
         [Category("Shapes")]
-        public void PointLiesToLeft()
+        public void PointIsToLeft()
         {
             foreach (IntVector2 start in new IntRect(new IntVector2(-2, -2), new IntVector2(2, 2)))
             {
