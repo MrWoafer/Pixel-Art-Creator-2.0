@@ -496,14 +496,14 @@ namespace PAC.Drawing
                     throw new ArgumentException("Cannot create a path from 0 lines.", "lines");
                 }
 
-                this._lines.Add(lines[0]);
+                _lines.Add(lines[0]);
                 for (int i = 1; i < lines.Length; i++)
                 {
                     if (IntVector2.SupDistance(lines[i - 1].end, lines[i].start) > 1)
                     {
                         throw new ArgumentException("Lines " + (i - 1) + " and " + i + " do not connect.", "lines");
                     }
-                    this._lines.Add(lines[i]);
+                    _lines.Add(lines[i]);
                 }
             }
 
@@ -519,7 +519,7 @@ namespace PAC.Drawing
                 return false;
             }
 
-            IEnumerator IEnumerable.GetEnumerator() => this.GetEnumerator();
+            IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();
             public IEnumerator<IntVector2> GetEnumerator()
             {
                 // First line
