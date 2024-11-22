@@ -68,8 +68,6 @@ namespace PAC.Drawing
             /// </summary>
             private bool isMoreHorizontal;
 
-            public Line reverse => new Line(end, start);
-
             /// <summary>
             /// Whether this line is divided into blocks of a constant size. E.g. a 12x4 line is perfect as it is drawn as 4 horizontal blocks of 3 pixels.
             /// </summary>
