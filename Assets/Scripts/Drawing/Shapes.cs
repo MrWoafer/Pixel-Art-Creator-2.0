@@ -73,6 +73,10 @@ namespace PAC.Drawing
             /// </summary>
             public bool isPerfect => isMoreHorizontal ? (end.x - start.x + 1) % (end.y - start.y + 1) == 0 : (end.y - start.y + 1) % (end.x - start.x + 1) == 0;
             /// <summary>
+            /// True iff the start and end are equal.
+            /// </summary>
+            public bool isPoint => start == end;
+            /// <summary>
             /// True iff the line has a constant x coord.
             /// </summary>
             public bool isVertical => start.x == end.x;
