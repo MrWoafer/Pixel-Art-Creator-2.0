@@ -612,6 +612,159 @@ namespace PAC.Drawing
                 return false;
             }
 
+            private enum WindingNumberCornerType
+            {
+                /// <summary>
+                /// At this point, the path is going downward (or horizontal between two downward sections).
+                /// </summary>
+                Downward = -1,
+                /// <summary>
+                /// On both sides of this point, the path goes down before it goes up; or on both sides of this point, the path goes up before it goes down.
+                /// </summary>
+                LocalYExtremum = 0,
+                /// <summary>
+                /// At this point, the path is going upward (or horizontal between two upward sections).
+                /// </summary>
+                Upward = 1
+            }
+
+            /// <summary>
+            /// <para>
+            /// Computes how many times the path goes round the given point. Each anticlockwise rotation adds +1; each clockwise rotation adds -1.
+            /// </para>
+            /// <para>
+            /// Only defined for paths that are loops and for points not on the path.
+            /// </para>
+            /// </summary>
+            public int WindingNumber(IntVector2 pixel)
+            {
+                if (!isLoop)
+                {
+                    throw new ArgumentException("Winding number is only defined for paths that are loops.");
+                }
+                if (Contains(pixel))
+                {
+                    throw new ArgumentException("Winding number is undefined for points on the path.");
+                }
+
+                if (isVertical || isHorizontal)
+                {
+                    return 0;
+                }
+
+                int windingNumber = 0;
+                for (int i = 0; i < _lines.Count ; i++)
+                {
+                    Line line = _lines[i];
+
+                    // Check if start of line is a local y extremum
+
+                    // This starting value doesn't mean anything as it should always get overwritten in the loop
+                    WindingNumberCornerType startCornerType = WindingNumberCornerType.Downward;
+                    for (int index = Functions.Mod(i - 1, _lines.Count); index != i; index = Functions.Mod(index - 1, _lines.Count))
+                    {
+                        if (_lines[index].end.y != line.start.y)
+                        {
+                            if (Math.Sign(line.start.y - _lines[index].end.y) == Math.Sign(line.start.y - line.end.y))
+                            {
+                                startCornerType = WindingNumberCornerType.LocalYExtremum;
+                            }
+                            else
+                            {
+                                // Will be Upward or Downward
+                                startCornerType = (WindingNumberCornerType)Math.Sign(line.start.y - _lines[index].end.y);
+                            }
+                            break;
+                        }
+                        else if (!_lines[index].isHorizontal)
+                        {
+                            if (Math.Sign(_lines[index].end.y - _lines[index].start.y) != Math.Sign(line.end.y - line.start.y))
+                            {
+                                startCornerType = WindingNumberCornerType.LocalYExtremum;
+                            }
+                            else
+                            {
+                                // Will be Upward or Downward
+                                startCornerType = (WindingNumberCornerType)Math.Sign(_lines[index].end.y - _lines[index].start.y);
+                            }
+                            break;
+                        }
+                    }
+
+                    // Check if end of line is a local y extremum
+
+                    // This starting value doesn't mean anything as it should should always get overwritten in the loop
+                    WindingNumberCornerType endCornerType = WindingNumberCornerType.Downward;
+                    for (int index = (i + 1) % _lines.Count; index != i; index = (index + 1) % _lines.Count)
+                    {
+                        if (_lines[index].start.y != line.end.y)
+                        {
+                            if (Math.Sign(line.end.y - _lines[index].start.y) == Math.Sign(line.end.y - line.start.y))
+                            {
+                                endCornerType = WindingNumberCornerType.LocalYExtremum;
+                            }
+                            else
+                            {
+                                // Will be Upward or Downward
+                                endCornerType = (WindingNumberCornerType)Math.Sign(_lines[index].start.y - line.end.y);
+                            }
+                            break;
+                        }
+                        else if (!_lines[index].isHorizontal)
+                        {
+                            if (Math.Sign(_lines[index].end.y - _lines[index].start.y) != Math.Sign(line.end.y - line.start.y))
+                            {
+                                endCornerType = WindingNumberCornerType.LocalYExtremum;
+                            }
+                            else
+                            {
+                                // Will be Upward or Downward
+                                endCornerType = (WindingNumberCornerType)Math.Sign(_lines[index].end.y - _lines[index].start.y);
+                            }
+                            break;
+                        }
+                    }
+
+                    // The loops above don't identify local y extrema for horizontal lines. They do calculate whether the next change in y is up or down. Using this we can deduce whether it's
+                    // a local y extremum or not.
+                    if (line.isHorizontal && startCornerType != endCornerType)
+                    {
+                        startCornerType = WindingNumberCornerType.LocalYExtremum;
+                        endCornerType = WindingNumberCornerType.LocalYExtremum;
+                    }
+
+                    // Decide whether to count the start/end y coord of the line in the raycast
+
+                    Line nextLine = _lines[(i + 1) % _lines.Count];
+                    bool countStartY = startCornerType != WindingNumberCornerType.LocalYExtremum;
+                    bool countEndY = endCornerType != WindingNumberCornerType.LocalYExtremum && line.end.y != nextLine.start.y;
+
+                    if (line.PointIsToLeft(pixel))
+                    {
+                        if (pixel.y == line.end.y)
+                        {
+                            if (countEndY)
+                            {
+                                windingNumber += (int)endCornerType;
+                            }
+                        }
+                        else if (pixel.y == line.start.y)
+                        {
+                            if (countStartY)
+                            {
+                                windingNumber += (int)startCornerType;
+                            }
+                        }
+                        else
+                        {
+                            windingNumber += Math.Sign(line.end.y - line.start.y);
+                        }
+                    }
+                }
+
+                return windingNumber;
+            }
+
             IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();
             public IEnumerator<IntVector2> GetEnumerator()
             {
@@ -1194,7 +1347,7 @@ namespace PAC.Drawing
 
                     if (!filled)
                     {
-                        return GetPath().Count;
+                        return path.Count;
                     }
 
                     if (width >= height)
@@ -1202,7 +1355,7 @@ namespace PAC.Drawing
                         // The vertical side of the triangle won't be counted in the loop
                         int count = height;
                         // Go along the hypotenuse
-                        foreach (IntVector2 pixel in GetPath().lines[0])
+                        foreach (IntVector2 pixel in path.lines[0])
                         {
                             count += Math.Abs(pixel.y - rightAngleCorner.y) + 1;
                         }
@@ -1213,12 +1366,73 @@ namespace PAC.Drawing
                         // The horizontal side of the triangle won't be counted in the loop
                         int count = width;
                         // Go along the hypotenuse
-                        foreach (IntVector2 pixel in GetPath().lines[0])
+                        foreach (IntVector2 pixel in path.lines[0])
                         {
                             count += Math.Abs(pixel.x - rightAngleCorner.x) + 1;
                         }
                         return count;
                     }
+                }
+            }
+
+            private Path path
+            {
+                get
+                {
+                    // Single points / vertical lines / horizontal lines
+                    if (bottomCorner.x == topCorner.x || bottomCorner.y == topCorner.y)
+                    {
+                        return new Path(new Line(bottomCorner, topCorner));
+                    }
+
+                    IntVector2 startCorner = bottomCorner;
+                    IntVector2 endCorner = topCorner;
+                    IntVector2 startAdjusted;
+                    IntVector2 endAdjusted;
+
+                    if (rightAngleLocation == RightAngleLocation.Bottom)
+                    {
+                        startAdjusted = bottomCorner + IntVector2.up;
+                        endAdjusted = topCorner + (startCorner == leftCorner ? IntVector2.left : IntVector2.right);
+                    }
+                    else if (rightAngleLocation == RightAngleLocation.Top)
+                    {
+                        startAdjusted = bottomCorner + (endCorner == leftCorner ? IntVector2.left : IntVector2.right);
+                        endAdjusted = topCorner + IntVector2.down;
+                    }
+                    else if (rightAngleLocation == RightAngleLocation.Left)
+                    {
+                        startAdjusted = bottomCorner + (startCorner == leftCorner ? IntVector2.right : IntVector2.up);
+                        endAdjusted = topCorner + (startCorner == leftCorner ? IntVector2.down : IntVector2.right);
+                    }
+                    else if (rightAngleLocation == RightAngleLocation.Right)
+                    {
+                        startAdjusted = bottomCorner + (startCorner == leftCorner ? IntVector2.up : IntVector2.left);
+                        endAdjusted = topCorner + (startCorner == leftCorner ? IntVector2.left : IntVector2.down);
+                    }
+                    else
+                    {
+                        throw new NotImplementedException("Unknown / unimplemented RightAngleLocation: " + rightAngleLocation);
+                    }
+
+                    // This is to ensure reflective invariance
+                    // If width >= height, we draw the hypotenuse starting from the corner with the same y coord as the right angle corner
+                    // If width < height, we draw the hypotenuse starting from the corner with the same x coord as the right angle corner
+                    if ((width < height) != (startCorner.y != rightAngleCorner.y))
+                    {
+                        IntVector2 temp;
+
+                        temp = startCorner;
+                        startCorner = endCorner;
+                        endCorner = temp;
+
+                        temp = startAdjusted;
+                        startAdjusted = endAdjusted;
+                        endAdjusted = temp;
+                    }
+
+                    // The line order is start corner -> end corner -> right angle corner -> start corner
+                    return new Path(new Line(startAdjusted, endAdjusted), new Line(endCorner, rightAngleCorner), new Line(rightAngleCorner, startCorner));
                 }
             }
 
@@ -1239,34 +1453,11 @@ namespace PAC.Drawing
                 this.filled = filled;
             }
 
-            private int WindingNumber(IntVector2 pixel)
-            {
-                Path path = GetPath();
-                int previousY = path.First().y + (path.lines[0].start.y < path.lines[0].end.y ? -1 : 1);
-                int windingNumber = 0;
-                foreach (IntVector2 borderPixel in path)
-                {
-                    if (borderPixel == pixel)
-                    {
-                        return 1;
-                    }
-                    if (borderPixel.y != bottomCorner.y && borderPixel.y != topCorner.y)
-                    {
-                        if (borderPixel.y == pixel.y && borderPixel.x > pixel.x)
-                        {
-                            windingNumber += borderPixel.y - previousY;
-                        }
-                    }
-                    previousY = borderPixel.y;
-                }
-                return windingNumber;
-            }
-
             public bool Contains(IntVector2 pixel)
             {
                 if (!filled)
                 {
-                    return GetPath().Contains(pixel);
+                    return path.Contains(pixel);
                 }
 
                 // Non-zero winding number algorithm
@@ -1274,76 +1465,13 @@ namespace PAC.Drawing
                 {
                     return boundingRect.Contains(pixel);
                 }
-                return WindingNumber(pixel) != 0;
-            }
-
-            private Path GetPath()
-            {
-                // Single points / vertical lines / horizontal lines
-                if (bottomCorner.x == topCorner.x || bottomCorner.y == topCorner.y)
-                {
-                    return new Path (new Line(bottomCorner, topCorner));
-                }
-
-                IntVector2 startCorner = bottomCorner;
-                IntVector2 endCorner = topCorner;
-                IntVector2 startAdjusted;
-                IntVector2 endAdjusted;
-
-                if (rightAngleLocation == RightAngleLocation.Bottom)
-                {
-                    startAdjusted = bottomCorner + IntVector2.up;
-                    endAdjusted = topCorner + (startCorner == leftCorner ? IntVector2.left : IntVector2.right);
-                }
-                else if (rightAngleLocation == RightAngleLocation.Top)
-                {
-                    startAdjusted = bottomCorner + (endCorner == leftCorner ? IntVector2.left : IntVector2.right);
-                    endAdjusted = topCorner + IntVector2.down;
-                }
-                else if (rightAngleLocation == RightAngleLocation.Left)
-                {
-                    startAdjusted = bottomCorner + (startCorner == leftCorner ? IntVector2.right : IntVector2.up);
-                    endAdjusted = topCorner + (startCorner == leftCorner ? IntVector2.down : IntVector2.right);
-                }
-                else if (rightAngleLocation == RightAngleLocation.Right)
-                {
-                    startAdjusted = bottomCorner + (startCorner == leftCorner ? IntVector2.up : IntVector2.left);
-                    endAdjusted = topCorner + (startCorner == leftCorner ? IntVector2.left : IntVector2.down);
-                }
-                else
-                {
-                    throw new NotImplementedException("Unknown / unimplemented RightAngleLocation: " + rightAngleLocation);
-                }
-
-                // This is to ensure reflective invariance
-                // If width >= height, we draw the hypotenuse starting from the corner with the same y coord as the right angle corner
-                // If width < height, we draw the hypotenuse starting from the corner with the same x coord as the right angle corner
-                if ((width < height) != (startCorner.y != rightAngleCorner.y))
-                {
-                    IntVector2 temp;
-
-                    temp = startCorner;
-                    startCorner = endCorner;
-                    endCorner = temp;
-
-                    temp = startAdjusted;
-                    startAdjusted = endAdjusted;
-                    endAdjusted = temp;
-                }
-
-                // The line order is start corner -> end corner -> right angle corner -> start corner
-
-                return new Path(
-                        new Line(startAdjusted, endAdjusted),
-                        new Line(endCorner, rightAngleCorner),
-                        new Line(rightAngleCorner, startCorner)
-                    );
+                return path.Contains(pixel) || path.WindingNumber(pixel) != 0;
             }
 
             IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();
             public IEnumerator<IntVector2> GetEnumerator()
             {
-                Path path = GetPath();
+                Path path = this.path;
                 foreach (IntVector2 pixel in path)
                 {
                     yield return pixel;

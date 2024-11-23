@@ -92,5 +92,66 @@ namespace PAC.Tests
                 Assert.AreEqual(((IEnumerable<IntVector2>)path).Count(), path.Count, "Failed with " + path);
             }
         }
+
+        [Test]
+        [Category("Shapes")]
+        public void WindingNumber()
+        {
+            (Shapes.Path path, (int windingNumber, IntVector2 point)[])[] testCases =
+            {
+                (new Shapes.Path(IntVector2.downRight, IntVector2.upRight, IntVector2.upLeft, IntVector2.downLeft, IntVector2.downRight), new (int, IntVector2)[] {
+                    (1, IntVector2.zero),
+                    (0, new IntVector2(2, 0)),
+                    (0, new IntVector2(-2, 1)),
+                    (0, new IntVector2(2, -1)),
+                    (0, new IntVector2(0, 2))
+                }),
+                (new Shapes.Path(IntVector2.zero, new IntVector2(3, 0), new IntVector2(3, 3), IntVector2.zero), new (int, IntVector2)[] {
+                    (1, new IntVector2(2, 1)),
+                    (0, new IntVector2(2, 3)),
+                    (0, new IntVector2(-1, 0)),
+                    (0, new IntVector2(4, 0)),
+                    (0, new IntVector2(4, 1)),
+                    (0, new IntVector2(2, 4))
+                }),
+                (new Shapes.Path(IntVector2.zero), new (int, IntVector2)[] {
+                    (0, IntVector2.up),
+                    (0, IntVector2.right),
+                    (0, IntVector2.downLeft),
+                    (0, new IntVector2(4, -3))
+                }),
+                (new Shapes.Path(
+                    new Shapes.Line(IntVector2.zero, new IntVector2(3, 0)),
+                    new Shapes.Line(new IntVector2(4, 1), new IntVector2(6, 1)),
+                    new Shapes.Line(new IntVector2(7, 2), new IntVector2(3, 10)),
+                    new Shapes.Line(new IntVector2(3, 10), IntVector2.zero)
+                ),
+                new (int, IntVector2)[] {
+                    (1, new IntVector2(3, 1)),
+                    (1, new IntVector2(2, 2)),
+                    (1, new IntVector2(5, 2)),
+                    (1, new IntVector2(3, 7)),
+                    (0, new IntVector2(0, 6)),
+                    (0, new IntVector2(-1, 0)),
+                    (0, new IntVector2(-3, 1)),
+                    (0, new IntVector2(-1, 2))
+                }),
+            };
+
+            foreach ((Shapes.Path path, (int, IntVector2)[] pathTestCases) in testCases)
+            {
+                foreach ((int windingNumber, IntVector2 point) in pathTestCases)
+                {
+                    Assert.AreEqual(windingNumber, path.WindingNumber(point), "Failed with " + path + " and " + point);
+                }
+            }
+
+            // Path must be a loop
+            Assert.Throws<ArgumentException>(() => new Shapes.Path(IntVector2.zero, IntVector2.right, IntVector2.upRight).WindingNumber(IntVector2.zero));
+
+            // Winding number of point on path is undefined
+            Assert.Throws<ArgumentException>(() => new Shapes.Path(IntVector2.zero).WindingNumber(IntVector2.zero));
+            Assert.Throws<ArgumentException>(() => new Shapes.Path(IntVector2.zero, IntVector2.right, new IntVector2(1, 2), IntVector2.zero).WindingNumber(IntVector2.one));
+        }
     }
 }
