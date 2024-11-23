@@ -7,7 +7,7 @@ using System.Linq;
 
 namespace PAC.Tests
 {
-    public class RightTriangleTests
+    public class RightTriangleTests : IShapeTests
     {
         /// <summary>
         /// Tests that right triangles that are single points have the correct shape.
