@@ -8,9 +8,6 @@ namespace PAC.Tests
 {
     public class RectangleTests
     {
-        /// <summary>
-        /// Tests that rectangles that are single points have the correct shape.
-        /// </summary>
         [Test]
         [Category("Shapes")]
         public void ShapeSinglePoint()
@@ -51,7 +48,7 @@ namespace PAC.Tests
         }
 
         /// <summary>
-        /// Tests that the rectangle enumerator doesn't repeat any pixels.
+        /// Tests that the enumerator doesn't repeat any pixels.
         /// </summary>
         [Test]
         [Category("Shapes")]

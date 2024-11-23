@@ -9,9 +9,6 @@ namespace PAC.Tests
 {
     public class LineTests : IShapeTests
     {
-        /// <summary>
-        /// Tests that lines that are single points have the correct shape.
-        /// </summary>
         [Test]
         [Category("Shapes")]
         public void ShapeSinglePoint()
@@ -192,7 +189,7 @@ namespace PAC.Tests
         }
 
         /// <summary>
-        /// Tests that the line enumerator doesn't repeat any pixels.
+        /// Tests that the enumerator doesn't repeat any pixels.
         /// </summary>
         [Test]
         [Category("Shapes")]
@@ -204,9 +201,6 @@ namespace PAC.Tests
             }
         }
 
-        /// <summary>
-        /// Tests that the shape of a line is only determined by the width and height, not by the position.
-        /// </summary>
         [Test]
         [Category("Shapes")]
         public void TranslationalInvariance()
@@ -222,9 +216,6 @@ namespace PAC.Tests
             }
         }
 
-        /// <summary>
-        /// Tests that rotating a line 90 degrees gives the same shape as creating one with the width/height swapped.
-        /// </summary>
         [Test]
         [Category("Shapes")]
         public void RotationalInvariance()
@@ -237,9 +228,6 @@ namespace PAC.Tests
             }
         }
 
-        /// <summary>
-        /// Tests that reflecting a line gives the same shape as creating one with the start/end reflected.
-        /// </summary>
         [Test]
         [Category("Shapes")]
         public void ReflectiveInvariance()

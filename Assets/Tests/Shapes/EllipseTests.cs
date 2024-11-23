@@ -8,9 +8,6 @@ namespace PAC.Tests
 {
     public class EllipseTests : IShapeTests
     {
-        /// <summary>
-        /// Tests that ellipses that are single points have the correct shape.
-        /// </summary>
         [Test]
         [Category("Shapes")]
         public void ShapeSinglePoint()
@@ -152,7 +149,7 @@ namespace PAC.Tests
         }
 
         /// <summary>
-        /// Tests that the ellipse enumerator doesn't repeat any pixels.
+        /// Tests that the enumerator doesn't repeat any pixels.
         /// </summary>
         [Test]
         [Category("Shapes")]
@@ -167,9 +164,6 @@ namespace PAC.Tests
             }
         }
 
-        /// <summary>
-        /// Tests that the shape of an ellipse is only determined by the width and height, not by the position.
-        /// </summary>
         [Test]
         [Category("Shapes")]
         public void TranslationalInvariance()
@@ -191,9 +185,6 @@ namespace PAC.Tests
             }
         }
 
-        /// <summary>
-        /// Tests that rotating an ellipse 90 degrees gives the same shape as creating one with the width/height swapped.
-        /// </summary>
         [Test]
         [Category("Shapes")]
         public void RotationalInvariance()
@@ -212,9 +203,6 @@ namespace PAC.Tests
             }
         }
 
-        /// <summary>
-        /// Tests that reflecting an ellipse gives the same shape as creating one with the corners reflected.
-        /// </summary>
         [Test]
         [Category("Shapes")]
         public void ReflectiveInvariance()
