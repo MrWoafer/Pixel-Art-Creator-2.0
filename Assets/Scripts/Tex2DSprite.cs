@@ -323,12 +323,6 @@ namespace PAC
         /// <summary>
         /// Adds the given number of transparent pixels to each side of the texture. Negative amounts will crop the image.
         /// </summary>
-        /// <param name="texture"></param>
-        /// <param name="left"></param>
-        /// <param name="right"></param>
-        /// <param name="up"></param>
-        /// <param name="down"></param>
-        /// <returns></returns>
         public static Texture2D Extend(Texture2D texture, int left, int right, int up, int down)
         {
             if (left + right <= -texture.width || up + down <= -texture.height)
@@ -343,9 +337,7 @@ namespace PAC
         /// <summary>
         /// Changes the dimensions of the texture to the new rect.
         /// </summary>
-        /// <param name="texture"></param>
         /// <param name="newRect">The coords of the new rect relative to the coords of the old rect.</param>
-        /// <returns></returns>
         public static Texture2D ChangeRect(Texture2D texture, IntRect newRect)
         {
             return Extend(texture, -newRect.bottomLeft.x, newRect.topRight.x - texture.width + 1, newRect.topRight.y - texture.height + 1, -newRect.bottomLeft.y);
@@ -406,9 +398,6 @@ namespace PAC
         /// <summary>
         /// Overlays topTex onto bottomTex, placing the bottom-left corner on the bottom-left corner. Uses Normal blend mode.
         /// </summary>
-        /// <param name="topTex"></param>
-        /// <param name="bottomTex"></param>
-        /// <returns></returns>
         public static Texture2D Overlay(Texture2D topTex, Texture2D bottomTex)
         {
             return Overlay(topTex, bottomTex, IntVector2.zero);
@@ -416,9 +405,6 @@ namespace PAC
         /// <summary>
         /// Overlays topTex onto bottomTex, placing the bottom-left corner at the coordinates topTexOffset (which don't have to be within the image). Uses Normal blend mode.
         /// </summary>
-        /// <param name="topTex"></param>
-        /// <param name="bottomTex"></param>
-        /// <returns></returns>
         public static Texture2D Overlay(Texture2D topTex, Texture2D bottomTex, IntVector2 topTexOffset)
         {
             return Blend(topTex, bottomTex, topTexOffset, BlendMode.Normal);
