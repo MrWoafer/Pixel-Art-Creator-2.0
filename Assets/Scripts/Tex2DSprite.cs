@@ -553,7 +553,7 @@ namespace PAC
             return filledTex;
         }
 
-        public static Texture2D GetFillMask(Texture2D texture, IntVector2 startPoint, int maxNumOfIterations = 100000)
+        public static Texture2D GetFillMask(Texture2D texture, IntVector2 startPoint, int maxNumOfIterations = 1_000_000)
         {
             Texture2D fillMask = BlankTexture(texture.width, texture.height);
 
@@ -566,7 +566,7 @@ namespace PAC
             return fillMask;
         }
 
-        public static IntVector2[] GetPixelsToFill(Texture2D texture, IntVector2 startPoint, int maxNumOfIterations = 100000)
+        public static IEnumerable<IntVector2> GetPixelsToFill(Texture2D texture, IntVector2 startPoint, int maxNumOfIterations = 1_000_000)
         {
             IntRect texRect = new IntRect(IntVector2.zero, new IntVector2(texture.width - 1, texture.height - 1));
 
@@ -577,6 +577,7 @@ namespace PAC
 
             toVisit.Enqueue(startPoint);
             visited.Add(startPoint);
+            yield return startPoint;
 
             int iterations = 0;
             while (toVisit.Count > 0 && iterations < maxNumOfIterations)
@@ -590,13 +591,12 @@ namespace PAC
                     {
                         toVisit.Enqueue(offsetCoord);
                         visited.Add(offsetCoord);
+                        yield return offsetCoord;
                     }
                 }
 
                 iterations++;
             }
-
-            return visited.ToArray();
         }
 
         /// <summary>
