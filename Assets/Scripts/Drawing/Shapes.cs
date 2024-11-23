@@ -1345,7 +1345,7 @@ namespace PAC.Drawing
                         return width;
                     }
 
-                    if (!filled)
+                    if (!filled || width == 2 || height == 2)
                     {
                         return path.Count;
                     }
@@ -1431,6 +1431,17 @@ namespace PAC.Drawing
                         endAdjusted = temp;
                     }
 
+                    // Override shape of 2xn and nx2 triangles to be more aesthetic (otherwise they are just rectangles).
+                    if (width == 2 && height == 2)
+                    {
+                        startAdjusted = startCorner;
+                        endAdjusted = endCorner;
+                    }
+                    if (width == 2 || height == 2)
+                    {
+                        startAdjusted = endAdjusted + (startAdjusted - endAdjusted) / 2;
+                    }
+
                     // The line order is start corner -> end corner -> right angle corner -> start corner
                     return new Path(new Line(startAdjusted, endAdjusted), new Line(endCorner, rightAngleCorner), new Line(rightAngleCorner, startCorner));
                 }
@@ -1460,10 +1471,11 @@ namespace PAC.Drawing
                     return path.Contains(pixel);
                 }
 
-                // Non-zero winding number algorithm
-                if (width <= 1 || height <= 1)
+                // These cases are separate as the winding number is only defined for paths that are loops, but these cases don't give loops.
+                // (Actually the 1x1, 1x2 and 2x1 cases don't need to be included in this, but it's easier to just include them.)
+                if (width <= 2 || height <= 2)
                 {
-                    return boundingRect.Contains(pixel);
+                    return path.Contains(pixel);
                 }
                 return path.Contains(pixel) || path.WindingNumber(pixel) != 0;
             }
@@ -1477,7 +1489,7 @@ namespace PAC.Drawing
                     yield return pixel;
                 }
 
-                if (!filled)
+                if (!filled || width == 2 || height == 2)
                 {
                     yield break;
                 }
@@ -1486,11 +1498,12 @@ namespace PAC.Drawing
                 IntVector2 directionToTopCorner = IntVector2.Simplify(topCorner - rightAngleCorner);
                 // either down, left or right
                 IntVector2 directionToBottomCorner = IntVector2.Simplify(bottomCorner - rightAngleCorner);
-                int iterations = 0;
 
-                for(IntVector2 rowStart = rightAngleCorner + directionToTopCorner + directionToBottomCorner; !path.Contains(rowStart) && iterations < 10_000; rowStart += directionToTopCorner)
+                // This counter is just for safety to avoid bugs causing an infinite loop
+                int iterations = 0;
+                for (IntVector2 rowStart = rightAngleCorner + directionToTopCorner + directionToBottomCorner; !path.Contains(rowStart) && iterations < 10_000_000; rowStart += directionToTopCorner)
                 {
-                    for (IntVector2 pixel = rowStart; !path.Contains(pixel) && iterations < 10_000; pixel += directionToBottomCorner)
+                    for (IntVector2 pixel = rowStart; !path.Contains(pixel) && iterations < 10_000_000; pixel += directionToBottomCorner)
                     {
                         iterations++;
                         yield return pixel;
