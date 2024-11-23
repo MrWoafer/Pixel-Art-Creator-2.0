@@ -189,6 +189,7 @@ namespace PAC.Drawing
                 }
                 else
                 {
+                    // This is the gradient of x with respect to y, whereas all the others are of y with respect to x
                     imaginaryGradient = (imaginaryEnd.x - imaginaryStart.x) / (imaginaryEnd.y - imaginaryStart.y);
                 }
             }
