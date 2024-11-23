@@ -1494,9 +1494,9 @@ namespace PAC.Drawing
                     yield break;
                 }
 
-                // either up, left or right
+                // either IntVector2.up, IntVector2.left or IntVector2.right
                 IntVector2 directionToTopCorner = IntVector2.Simplify(topCorner - rightAngleCorner);
-                // either down, left or right
+                // either IntVector2.down, IntVector2.left or IntVector2.right
                 IntVector2 directionToBottomCorner = IntVector2.Simplify(bottomCorner - rightAngleCorner);
 
                 // This counter is just for safety to avoid bugs causing an infinite loop
