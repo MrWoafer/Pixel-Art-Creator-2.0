@@ -409,6 +409,94 @@ namespace PAC.Drawing
             public bool isLoop => IntVector2.SupDistance(_lines[0].start, _lines[^1].end) <= 1;
 
             /// <summary>
+            /// True iff the path never changes pixel.
+            /// </summary>
+            public bool isPoint
+            {
+                get
+                {
+                    // First and middle lines (not last)
+                    for (int i = 0; i < _lines.Count - 1; i++)
+                    {
+                        if (_lines[i].start != _lines[i].end)
+                        {
+                            return false;
+                        }
+                        if (_lines[i].end != _lines[i + 1].start)
+                        {
+                            return false;
+                        }
+                    }
+
+                    // Last line
+                    if (_lines[^1].start != _lines[^1].end)
+                    {
+                        return false;
+                    }
+
+                    return true;
+                }
+            }
+            /// <summary>
+            /// True iff the path never changes x coord.
+            /// </summary>
+            public bool isVertical
+            {
+                get
+                {
+                    // First and middle lines (not last)
+                    for (int i = 0; i < _lines.Count - 1; i++)
+                    {
+                        if (_lines[i].start.x != _lines[i].end.x)
+                        {
+                            return false;
+                        }
+                        if (_lines[i].end.x != _lines[i + 1].start.x)
+                        {
+                            return false;
+                        }
+                    }
+
+                    // Last line
+                    if (_lines[^1].start.x != _lines[^1].end.x)
+                    {
+                        return false;
+                    }
+
+                    return true;
+                }
+            }
+            /// <summary>
+            /// True iff the path never changes y coord.
+            /// </summary>
+            public bool isHorizontal
+            {
+                get
+                {
+                    // First and middle lines (not last)
+                    for (int i = 0; i < _lines.Count - 1; i++)
+                    {
+                        if (_lines[i].start.y != _lines[i].end.y)
+                        {
+                            return false;
+                        }
+                        if (_lines[i].end.y != _lines[i + 1].start.y)
+                        {
+                            return false;
+                        }
+                    }
+
+                    // Last line
+                    if (_lines[^1].start.y != _lines[^1].end.y)
+                    {
+                        return false;
+                    }
+
+                    return true;
+                }
+            }
+
+            /// <summary>
             /// Whether the path crosses itself. Does not include the end of one line being equal to the start of the next.
             /// </summary>
             public bool selfIntersects
