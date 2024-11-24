@@ -9,9 +9,6 @@ namespace PAC.Tests
 {
     public class RightTriangleTests : IShapeTests
     {
-        /// <summary>
-        /// Tests that right triangles that are single points have the correct shape.
-        /// </summary>
         [Test]
         [Category("Shapes")]
         public void ShapeSinglePoint()
