@@ -71,10 +71,52 @@ namespace PAC.Tests
             Assert.AreEqual(true, new Shapes.Path(IntVector2.zero, new IntVector2(1, 1), new IntVector2(2, 2), new IntVector2(1, 1)).isLoop);
         }
 
+        private Shapes.Path RandomPath(int length, bool isLoop)
+        {
+            List<Shapes.Line> lines = new List<Shapes.Line>
+            {
+                new Shapes.Line(new IntRect(new IntVector2(-5, -5), new IntVector2(5, 5)).RandomPoint(), new IntRect(new IntVector2(-5, -5), new IntVector2(5, 5)).RandomPoint())
+            };
+
+            for (int i = 0; i < length - 1; i++)
+            {
+                IntVector2 start = lines[^1].end + new IntRect(new IntVector2(-1, -1), new IntVector2(1, 1)).RandomPoint();
+                lines.Add(new Shapes.Line(start, start + new IntRect(new IntVector2(-5, -5), new IntVector2(5, 5)).RandomPoint()));
+            }
+
+            if (isLoop)
+            {
+                lines.Add(new Shapes.Line(
+                    lines[^1].end + new IntRect(new IntVector2(-1, -1), new IntVector2(1, 1)).RandomPoint(),
+                    lines[0].start + new IntRect(new IntVector2(-1, -1), new IntVector2(1, 1)).RandomPoint()
+                    ));
+            }
+
+            return new Shapes.Path(lines);
+        }
+
+        [Test]
+        [Category("Shapes")]
+        public void BoundingRect()
+        {
+            for (int length = 1; length < 3; length++)
+            {
+                foreach (bool isLoop in new bool[] { false, true })
+                {
+                    for (int iteration = 0; iteration < 2_000; iteration++)
+                    {
+                        IShapeTestHelper.BoundingRect(RandomPath(length, isLoop));
+                    }
+                }
+            }
+        }
+
         [Test]
         [Category("Shapes")]
         public void Count()
         {
+            // Pre-defined example-based tests
+
             (int, Shapes.Path)[] testCases =
             {
                 (1, new Shapes.Path(IntVector2.zero)),
@@ -92,6 +134,36 @@ namespace PAC.Tests
                 Assert.AreEqual(expected, path.Count, "Failed with " + path);
                 // Check that what we have implemented Count to count is the number of pixels in the IEnumerable
                 Assert.AreEqual(((IEnumerable<IntVector2>)path).Count(), path.Count, "Failed with " + path);
+            }
+
+            // Random tests
+
+            for (int length = 1; length < 3; length++)
+            {
+                foreach (bool isLoop in new bool[] { false, true })
+                {
+                    for (int iteration = 0; iteration < 2_000; iteration++)
+                    {
+                        Shapes.Path path = RandomPath(length, isLoop);
+                        Assert.AreEqual(((IEnumerable<IntVector2>)path).Count(), path.Count, "Failed with " + path);
+                    }
+                }
+            }
+        }
+
+        [Test]
+        [Category("Shapes")]
+        public void Contains()
+        {
+            for (int length = 1; length < 3; length++)
+            {
+                foreach (bool isLoop in new bool[] { false, true })
+                {
+                    for (int iteration = 0; iteration < 1_000; iteration++)
+                    {
+                        IShapeTestHelper.Contains(RandomPath(length, isLoop));
+                    }
+                }
             }
         }
 
