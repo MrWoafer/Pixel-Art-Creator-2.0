@@ -168,5 +168,37 @@ namespace PAC.Extensions
             }
             return true;
         }
+
+        /// <summary>
+        /// <para>
+        /// Returns (elements[0], elements[1]), (elements[1], elements[2]), ..., (elements[^2], elements[^1]).
+        /// </para>
+        /// <para>
+        /// Returns an empty IEnumerable if elements has length 0 or 1.
+        /// </para>
+        /// </summary>
+        public static IEnumerable<(T, T)> PairCurrentAndNext<T>(this IEnumerable<T> elements)
+        {
+            if (elements is null)
+            {
+                throw new ArgumentException("Given IEnumerable<" + typeof(T).Name + "> is null.", "elements");
+            }
+
+            T previousElement = default;
+            bool passedFirstElement = false;
+            foreach(T element in elements)
+            {
+                if (passedFirstElement)
+                {
+                    yield return (previousElement, element);
+                }
+                else
+                {
+                    passedFirstElement = true;
+                }
+
+                previousElement = element;
+            }
+        }
     }
 }
