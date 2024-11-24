@@ -562,41 +562,55 @@ namespace PAC.Drawing
             /// <summary>
             /// Creates a path through the given points.
             /// </summary>
-            public Path(params IntVector2[] points)
+            public Path(params IntVector2[] points) : this((IEnumerable<IntVector2>)points) { }
+            /// <summary>
+            /// Creates a path through the given points.
+            /// </summary>
+            public Path(IEnumerable<IntVector2> points)
             {
-                if (points.Length == 0)
+                if (points.IsEmpty())
                 {
                     throw new ArgumentException("Cannot create a path from 0 points.", "points");
                 }
 
-                if (points.Length == 1)
+                if (points.CountExactly(1))
                 {
-                    _lines.Add(new Line(points[0], points[0]));
+                    _lines.Add(new Line(points.First(), points.First()));
                 }
-
-                for (int i = 0; i < points.Length - 1; i++)
+                else
                 {
-                    _lines.Add(new Line(points[i], points[i + 1]));
+                    foreach ((IntVector2 point, IntVector2 nextPoint) in points.PairCurrentAndNext())
+                    {
+                        _lines.Add(new Line(point, nextPoint));
+                    }
                 }
             }
             /// <summary>
             /// The lines must connect, meaning the end of each line must be equal to or adjacent to (including diagonally) the start of the next line.
             /// </summary>
-            public Path(params Line[] lines)
+            public Path(params Line[] lines) : this((IEnumerable<Line>)lines) { }
+            public Path(IEnumerable<Line> lines)
             {
-                if (lines.Length == 0)
+                if (lines.IsEmpty())
                 {
                     throw new ArgumentException("Cannot create a path from 0 lines.", "lines");
                 }
 
-                _lines.Add(lines[0]);
-                for (int i = 1; i < lines.Length; i++)
+                if (lines.CountExactly(1))
                 {
-                    if (IntVector2.SupDistance(lines[i - 1].end, lines[i].start) > 1)
+                    _lines.Add(lines.First());
+                }
+                else
+                {
+                    _lines.Add(lines.First());
+                    foreach ((Line line, Line nextLine) in lines.PairCurrentAndNext())
                     {
-                        throw new ArgumentException("Lines " + (i - 1) + " and " + i + " do not connect.", "lines");
+                        if (IntVector2.SupDistance(line.end, nextLine.start) > 1)
+                        {
+                            throw new ArgumentException(line + " and " + nextLine + " do not connect.", "lines");
+                        }
+                        _lines.Add(nextLine);
                     }
-                    _lines.Add(lines[i]);
                 }
             }
 
