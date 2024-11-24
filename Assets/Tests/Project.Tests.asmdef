@@ -9,7 +9,8 @@
         "Project.Json",
         "Project.Extensions.JsonConverters",
         "Project.Extensions.Type",
-        "Project.Extensions.TextReader"
+        "Project.Extensions.TextReader",
+        "Project.Extensions.IEnumerable"
     ],
     "includePlatforms": [
         "Editor"

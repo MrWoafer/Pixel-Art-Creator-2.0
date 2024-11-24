@@ -22,6 +22,11 @@ namespace PAC.Extensions
         /// </summary>
         public static IEnumerable RepeatIEnumerable(IEnumerable elements)
         {
+            if (elements is null)
+            {
+                throw new ArgumentException("Given IEnumerable is null.", "elements");
+            }
+
             while (true)
             {
                 foreach (object element in elements)
@@ -35,6 +40,11 @@ namespace PAC.Extensions
         /// </summary>
         public static IEnumerable<T> RepeatIEnumerable<T>(IEnumerable<T> elements)
         {
+            if (elements is null)
+            {
+                throw new ArgumentException("Given IEnumerable<" + typeof(T).Name + "> is null.", "elements");
+            }
+
             while (true)
             {
                 foreach (T element in elements)
@@ -44,27 +54,117 @@ namespace PAC.Extensions
             }
         }
 
+        /// <summary>
+        /// Returns whether the given IEnumerable has no elements.
+        /// </summary>
         public static bool IsEmpty(this IEnumerable elements)
         {
             if (elements is null)
             {
                 throw new ArgumentException("Given IEnumerable is null.", "elements");
             }
+
             foreach (object element in elements)
             {
                 return false;
             }
             return true;
         }
+        /// <summary>
+        /// Returns whether the given IEnumerable has no elements.
+        /// </summary>
         public static bool IsEmpty<T>(this IEnumerable<T> elements)
         {
             if (elements is null)
             {
                 throw new ArgumentException("Given IEnumerable<" + typeof(T).Name + "> is null.", "elements");
             }
+
             foreach (T element in elements)
             {
                 return false;
+            }
+            return true;
+        }
+
+        /// <summary>
+        /// Returns whether the given IEnumerable has exactly n elements.
+        /// </summary>
+        public static bool CountExactly<T>(this IEnumerable<T> elements, int n)
+        {
+            if (elements is null)
+            {
+                throw new ArgumentException("Given IEnumerable<" + typeof(T).Name + "> is null.", "elements");
+            }
+
+            if (n < 0)
+            {
+                return false;
+            }
+
+            int count = 0;
+            foreach (T element in elements)
+            {
+                count++;
+                if (count > n)
+                {
+                    return false;
+                }
+            }
+            return count == n;
+        }
+
+        /// <summary>
+        /// Returns whether the given IEnumerable has &gt;= n elements.
+        /// </summary>
+        public static bool CountAtLeast<T>(this IEnumerable<T> elements, int n)
+        {
+            if (elements is null)
+            {
+                throw new ArgumentException("Given IEnumerable<" + typeof(T).Name + "> is null.", "elements");
+            }
+
+            if (n < 0)
+            {
+                return true;
+            }
+
+            int count = 0;
+            foreach (T element in elements)
+            {
+                count++;
+                if (count >= n)
+                {
+                    return true;
+                }
+            }
+            // We check n == 0 instead of just returning false to deal with the case when elements is empty.
+            return n == 0;
+        }
+
+        /// <summary>
+        /// Returns whether the given IEnumerable has &lt;= n elements.
+        /// </summary>
+        public static bool CountAtMost<T>(this IEnumerable<T> elements, int n)
+        {
+            if (elements is null)
+            {
+                throw new ArgumentException("Given IEnumerable<" + typeof(T).Name + "> is null.", "elements");
+            }
+
+            if (n < 0)
+            {
+                return false;
+            }
+
+            int count = 0;
+            foreach (T element in elements)
+            {
+                count++;
+                if (count > n)
+                {
+                    return false;
+                }
             }
             return true;
         }
