@@ -32,6 +32,20 @@ namespace PAC.Tests
 
         [Test]
         [Category("Shapes")]
+        public void ShapeSinglePoint()
+        {
+            foreach (IntVector2 pixel in new IntRect(new IntVector2(-5, -5), new IntVector2(5, 5)))
+            {
+                for (int repetitions = 1; repetitions <= 5; repetitions++)
+                {
+                    Shapes.Path path = new Shapes.Path(Enumerable.Repeat(pixel, repetitions));
+                    Assert.True(path.SequenceEqual(new IntVector2[] { pixel }), "Failed with " + path);
+                }
+            }
+        }
+
+        [Test]
+        [Category("Shapes")]
         public void ShapeExamples()
         {
             (IEnumerable<IntVector2>, Shapes.Path)[] testCases =
