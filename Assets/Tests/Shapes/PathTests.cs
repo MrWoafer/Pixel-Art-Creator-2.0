@@ -47,7 +47,8 @@ namespace PAC.Tests
                 // Crossing previous values
                 (new Shapes.Line(IntVector2.zero, new IntVector2(2, 3)).Concat(new Shapes.Line(new IntVector2(2, 3), new IntVector2(4, 4))[1..])
                     .Concat(new Shapes.Line(new IntVector2(4, 4), new IntVector2(2, 4))[1..]).Concat(new Shapes.Line(new IntVector2(2, 4), new IntVector2(2, 0))[1..]),
-                    new Shapes.Path(IntVector2.zero, new IntVector2(2, 3), new IntVector2(4, 4), new IntVector2(2, 4), new IntVector2(2, 0)))
+                    new Shapes.Path(IntVector2.zero, new IntVector2(2, 3), new IntVector2(4, 4), new IntVector2(2, 4), new IntVector2(2, 0))),
+                (new IntVector2[] { IntVector2.zero, IntVector2.right, IntVector2.upRight }, new Shapes.Path(IntVector2.zero, IntVector2.right, IntVector2.upRight, IntVector2.zero)),
             };
 
             foreach ((IEnumerable<IntVector2> expected, Shapes.Path path) in testCases)
@@ -126,7 +127,8 @@ namespace PAC.Tests
                 (9, new Shapes.Path(IntVector2.zero, new IntVector2(2, 3), new IntVector2(4, 4), IntVector2.zero)),
                 // Crossing previous values
                 (12, new Shapes.Path(IntVector2.zero, new IntVector2(2, 3), new IntVector2(4, 4), new IntVector2(2, 4), new IntVector2(2, 0))),
-                (3, new Shapes.Path(IntVector2.zero, IntVector2.upRight, IntVector2.right, IntVector2.zero))
+                (3, new Shapes.Path(IntVector2.zero, IntVector2.right, IntVector2.upRight, IntVector2.zero)),
+                (3, new Shapes.Path(IntVector2.zero, IntVector2.upRight, IntVector2.right, IntVector2.zero)),
             };
             
             foreach ((int expected, Shapes.Path path) in testCases)

@@ -818,6 +818,12 @@ namespace PAC.Drawing
                     {
                         end = _lines[^1].Count - 1;
                     }
+
+                    if (end < start)
+                    {
+                        yield break;
+                    }
+
                     foreach (IntVector2 pixel in _lines[^1][start..end])
                     {
                         yield return pixel;
