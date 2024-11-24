@@ -1,4 +1,3 @@
-using PAC.DataStructures;
 using System.Collections;
 using System.Linq;
 using UnityEngine;
@@ -291,6 +290,14 @@ namespace PAC.DataStructures
         public IntRect Flip(FlipAxis axis)
         {
             return new IntRect(bottomLeft.Flip(axis), topRight.Flip(axis));
+        }
+
+        /// <summary>
+        /// Generates a uniformly random point within the rect.
+        /// </summary>
+        public IntVector2 RandomPoint()
+        {
+            return new IntVector2(UnityEngine.Random.Range(bottomLeft.x, topRight.x + 1), UnityEngine.Random.Range(bottomLeft.y, topRight.y + 1));
         }
 
         /// <summary>
