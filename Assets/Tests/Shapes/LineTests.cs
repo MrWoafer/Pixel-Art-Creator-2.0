@@ -174,7 +174,7 @@ namespace PAC.Tests
         {
             foreach (IntVector2 end in new IntRect(new IntVector2(-5, -5), new IntVector2(5, 5)))
             {
-                IShapeTestHelper.Count(new Shapes.Line(IntVector2.zero, end));
+                IShapeTestHelper.CountDistinct(new Shapes.Line(IntVector2.zero, end));
             }
         }
 

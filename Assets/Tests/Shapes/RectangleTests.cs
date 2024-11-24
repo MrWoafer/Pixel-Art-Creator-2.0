@@ -47,7 +47,7 @@ namespace PAC.Tests
                 {
                     foreach (IntVector2 topRight in bottomLeft + new IntRect(IntVector2.zero, new IntVector2(5, 5)))
                     {
-                        IShapeTestHelper.Count(new Shapes.Rectangle(bottomLeft, topRight, filled));
+                        IShapeTestHelper.CountDistinct(new Shapes.Rectangle(bottomLeft, topRight, filled));
                     }
                 }
             }

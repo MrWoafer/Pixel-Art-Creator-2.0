@@ -56,7 +56,7 @@ namespace PAC.Tests
         /// <summary>
         /// Tests that the shape's Count property matches the number of distinct pixels in its enumerator.
         /// </summary>
-        public static void Count(Shapes.IShape shape)
+        public static void CountDistinct(Shapes.IShape shape)
         {
             int count = 0;
             HashSet<IntVector2> visited = new HashSet<IntVector2>();

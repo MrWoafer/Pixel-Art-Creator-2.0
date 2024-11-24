@@ -130,7 +130,7 @@ namespace PAC.Tests
             {
                 foreach (IntVector2 topRight in new IntRect(IntVector2.zero, new IntVector2(10, 10)))
                 {
-                    IShapeTestHelper.Count(new Shapes.Ellipse(IntVector2.zero, topRight, filled));
+                    IShapeTestHelper.CountDistinct(new Shapes.Ellipse(IntVector2.zero, topRight, filled));
                 }
             }
         }
