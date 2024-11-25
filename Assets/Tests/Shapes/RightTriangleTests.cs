@@ -2,7 +2,6 @@ using NUnit.Framework;
 using PAC.DataStructures;
 using PAC.Drawing;
 using System;
-using System.Collections.Generic;
 using System.Linq;
 
 namespace PAC.Tests
