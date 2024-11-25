@@ -25,6 +25,36 @@ namespace PAC.Drawing
             /// Returns whether the pixel is in the shape.
             /// </summary>
             public bool Contains(IntVector2 pixel);
+
+            /// <summary>
+            /// Translates the shape by the given vector.
+            /// </summary>
+            public static IShape operator +(IntVector2 translation, IShape shape) => shape + translation;
+            /// <summary>
+            /// Translates the shape by the given vector.
+            /// </summary>
+            public static IShape operator +(IShape shape, IntVector2 translation) => shape.Translate(translation);
+            /// <summary>
+            /// Translates the shape by the given vector.
+            /// </summary>
+            public static IShape operator -(IShape shape, IntVector2 translation) => shape + (-translation);
+            /// <summary>
+            /// Reflects the shape through the origin.
+            /// </summary>
+            public static IShape operator -(IShape shape) => shape.Rotate(RotationAngle._180);
+
+            /// <summary>
+            /// Translates the shape by the given vector.
+            /// </summary>
+            public IShape Translate(IntVector2 translation);
+            /// <summary>
+            /// Rotates the shape by the given angle.
+            /// </summary>
+            public IShape Rotate(RotationAngle angle);
+            /// <summary>
+            /// Reflects the shape across the given axis.
+            /// </summary>
+            public IShape Flip(FlipAxis axis);
         }
 
         /// <summary>
@@ -246,6 +276,50 @@ namespace PAC.Drawing
                     bool positiveGradient = Math.Sign(end.x - start.x) == Math.Sign(end.y - start.y);
                     return positiveGradient ? pixel.y >= this[index].y : pixel.y <= this[index].y;
                 }
+            }
+
+            /// <summary>
+            /// Translates the line by the given vector.
+            /// </summary>
+            public static Line operator +(IntVector2 translation, Line line) => line + translation;
+            /// <summary>
+            /// Translates the line by the given vector.
+            /// </summary>
+            public static Line operator +(Line line, IntVector2 translation) => line.Translate(translation);
+            /// <summary>
+            /// Translates the line by the given vector.
+            /// </summary>
+            public static Line operator -(Line line, IntVector2 translation) => line + (-translation);
+            /// <summary>
+            /// Reflects the line through the origin.
+            /// </summary>
+            public static Line operator -(Line line) => new Line(-line.start, -line.end);
+
+            IShape IShape.Translate(IntVector2 translation) => Translate(translation);
+            /// <summary>
+            /// Translates the line by the given vector.
+            /// </summary>
+            public Line Translate(IntVector2 translation)
+            {
+                return new Line(start + translation, end + translation);
+            }
+
+            IShape IShape.Rotate(RotationAngle angle) => Rotate(angle);
+            /// <summary>
+            /// Rotates the line by the given angle.
+            /// </summary>
+            public Line Rotate(RotationAngle angle)
+            {
+                return new Line(start.Rotate(angle), end.Rotate(angle));
+            }
+
+            IShape IShape.Flip(FlipAxis axis) => Flip(axis);
+            /// <summary>
+            /// Reflects the line across the given axis.
+            /// </summary>
+            public Line Flip(FlipAxis axis)
+            {
+                return new Line(start.Flip(axis), end.Flip(axis));
             }
 
             public IntVector2 this[int index]
@@ -629,6 +703,50 @@ namespace PAC.Drawing
                 return false;
             }
 
+            /// <summary>
+            /// Translates the path by the given vector.
+            /// </summary>
+            public static Path operator +(IntVector2 translation, Path path) => path + translation;
+            /// <summary>
+            /// Translates the path by the given vector.
+            /// </summary>
+            public static Path operator +(Path path, IntVector2 translation) => path.Translate(translation);
+            /// <summary>
+            /// Translates the path by the given vector.
+            /// </summary>
+            public static Path operator -(Path path, IntVector2 translation) => path + (-translation);
+            /// <summary>
+            /// Reflects the path through the origin.
+            /// </summary>
+            public static Path operator -(Path path) => path.Rotate(RotationAngle._180);
+
+            IShape IShape.Translate(IntVector2 translation) => Translate(translation);
+            /// <summary>
+            /// Translates the path by the given vector.
+            /// </summary>
+            public Path Translate(IntVector2 translation)
+            {
+                return new Path(_lines.Select(l => l.Translate(translation)));
+            }
+
+            IShape IShape.Rotate(RotationAngle angle) => Rotate(angle);
+            /// <summary>
+            /// Rotates the path by the given angle.
+            /// </summary>
+            public Path Rotate(RotationAngle angle)
+            {
+                return new Path(_lines.Select(l => l.Rotate(angle)));
+            }
+
+            IShape IShape.Flip(FlipAxis axis) => Flip(axis);
+            /// <summary>
+            /// Reflects the path across the given axis.
+            /// </summary>
+            public Path Flip(FlipAxis axis)
+            {
+                return new Path(_lines.Select(l => l.Flip(axis)));
+            }
+
             private enum WindingNumberCornerType
             {
                 /// <summary>
@@ -938,6 +1056,50 @@ namespace PAC.Drawing
                 return boundingRect.Contains(pixel) && !(pixel > bottomLeft && pixel < topRight);
             }
 
+            /// <summary>
+            /// Translates the rectangle by the given vector.
+            /// </summary>
+            public static Rectangle operator +(IntVector2 translation, Rectangle rectangle) => rectangle + translation;
+            /// <summary>
+            /// Translates the rectangle by the given vector.
+            /// </summary>
+            public static Rectangle operator +(Rectangle rectangle, IntVector2 translation) => rectangle.Translate(translation);
+            /// <summary>
+            /// Translates the rectangle by the given vector.
+            /// </summary>
+            public static Rectangle operator -(Rectangle rectangle, IntVector2 translation) => rectangle + (-translation);
+            /// <summary>
+            /// Reflects the rectangle through the origin.
+            /// </summary>
+            public static Rectangle operator -(Rectangle rectangle) => new Rectangle(-rectangle.bottomLeft, -rectangle.topRight, rectangle.filled);
+
+            IShape IShape.Translate(IntVector2 translation) => Translate(translation);
+            /// <summary>
+            /// Translates the rectangle by the given vector.
+            /// </summary>
+            public Rectangle Translate(IntVector2 translation)
+            {
+                return new Rectangle(bottomLeft + translation, topRight + translation, filled);
+            }
+
+            IShape IShape.Rotate(RotationAngle angle) => Rotate(angle);
+            /// <summary>
+            /// Rotates the rectangle by the given angle.
+            /// </summary>
+            public Rectangle Rotate(RotationAngle angle)
+            {
+                return new Rectangle(bottomLeft.Rotate(angle), topRight.Rotate(angle), filled);
+            }
+
+            IShape IShape.Flip(FlipAxis axis) => Flip(axis);
+            /// <summary>
+            /// Reflects the rectangle across the given axis.
+            /// </summary>
+            public Rectangle Flip(FlipAxis axis)
+            {
+                return new Rectangle(bottomLeft.Flip(axis), topRight.Flip(axis), filled);
+            }
+
             IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();
             public IEnumerator<IntVector2> GetEnumerator()
             {
@@ -1133,6 +1295,50 @@ namespace PAC.Drawing
                     return true;
                 }
                 return false;
+            }
+
+            /// <summary>
+            /// Translates the ellipse by the given vector.
+            /// </summary>
+            public static Ellipse operator +(IntVector2 translation, Ellipse ellipse) => ellipse + translation;
+            /// <summary>
+            /// Translates the ellipse by the given vector.
+            /// </summary>
+            public static Ellipse operator +(Ellipse ellipse, IntVector2 translation) => ellipse.Translate(translation);
+            /// <summary>
+            /// Translates the ellipse by the given vector.
+            /// </summary>
+            public static Ellipse operator -(Ellipse ellipse, IntVector2 translation) => ellipse + (-translation);
+            /// <summary>
+            /// Reflects the ellipse through the origin.
+            /// </summary>
+            public static Ellipse operator -(Ellipse ellipse) => new Ellipse(-ellipse.bottomLeft, -ellipse.topRight, ellipse.filled);
+
+            IShape IShape.Translate(IntVector2 translation) => Translate(translation);
+            /// <summary>
+            /// Translates the ellipse by the given vector.
+            /// </summary>
+            public Ellipse Translate(IntVector2 translation)
+            {
+                return new Ellipse(bottomLeft + translation, topRight + translation, filled);
+            }
+
+            IShape IShape.Rotate(RotationAngle angle) => Rotate(angle);
+            /// <summary>
+            /// Rotates the ellipse by the given angle.
+            /// </summary>
+            public Ellipse Rotate(RotationAngle angle)
+            {
+                return new Ellipse(bottomLeft.Rotate(angle), topRight.Rotate(angle), filled);
+            }
+
+            IShape IShape.Flip(FlipAxis axis) => Flip(axis);
+            /// <summary>
+            /// Reflects the ellipse across the given axis.
+            /// </summary>
+            public Ellipse Flip(FlipAxis axis)
+            {
+                return new Ellipse(bottomLeft.Flip(axis), topRight.Flip(axis), filled);
             }
 
             IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();
@@ -1501,6 +1707,131 @@ namespace PAC.Drawing
                     return path.Contains(pixel);
                 }
                 return path.Contains(pixel) || path.WindingNumber(pixel) != 0;
+            }
+
+            /// <summary>
+            /// Translates the triangle by the given vector.
+            /// </summary>
+            public static RightTriangle operator +(IntVector2 translation, RightTriangle triangle) => triangle + translation;
+            /// <summary>
+            /// Translates the triangle by the given vector.
+            /// </summary>
+            public static RightTriangle operator +(RightTriangle triangle, IntVector2 translation) => triangle.Translate(translation);
+            /// <summary>
+            /// Translates the triangle by the given vector.
+            /// </summary>
+            public static RightTriangle operator -(RightTriangle triangle, IntVector2 translation) => triangle + (-translation);
+            /// <summary>
+            /// Reflects the triangle through the origin.
+            /// </summary>
+            public static RightTriangle operator -(RightTriangle triangle) => triangle.Rotate(RotationAngle._180);
+
+            IShape IShape.Translate(IntVector2 translation) => Translate(translation);
+            /// <summary>
+            /// Translates the triangle by the given vector.
+            /// </summary>
+            public RightTriangle Translate(IntVector2 translation)
+            {
+                return new RightTriangle(bottomCorner + translation, topCorner + translation, rightAngleLocation, filled);
+            }
+
+            IShape IShape.Rotate(RotationAngle angle) => Rotate(angle);
+            /// <summary>
+            /// Rotates the triangle by the given angle.
+            /// </summary>
+            public RightTriangle Rotate(RotationAngle angle)
+            {
+                RightAngleLocation RotateRightAngleLocation(RightAngleLocation rightAngleLocation, RotationAngle angle)
+                {
+                    switch (angle)
+                    {
+                        case RotationAngle._0: return rightAngleLocation;
+                        case RotationAngle._90:
+                            switch (rightAngleLocation)
+                            {
+                                case RightAngleLocation.Top: return RightAngleLocation.Right;
+                                case RightAngleLocation.Bottom: return RightAngleLocation.Left;
+                                case RightAngleLocation.Left: return RightAngleLocation.Top;
+                                case RightAngleLocation.Right: return RightAngleLocation.Bottom;
+                                default: throw new NotImplementedException("Unknown / unimplemented RightAngleLocation: " + rightAngleLocation);
+                            }
+                        case RotationAngle._180:
+                            switch (rightAngleLocation)
+                            {
+                                case RightAngleLocation.Top: return RightAngleLocation.Bottom;
+                                case RightAngleLocation.Bottom: return RightAngleLocation.Top;
+                                case RightAngleLocation.Left: return RightAngleLocation.Right;
+                                case RightAngleLocation.Right: return RightAngleLocation.Left;
+                                default: throw new NotImplementedException("Unknown / unimplemented RightAngleLocation: " + rightAngleLocation);
+                            }
+                        case RotationAngle.Minus90:
+                            switch (rightAngleLocation)
+                            {
+                                case RightAngleLocation.Top: return RightAngleLocation.Left;
+                                case RightAngleLocation.Bottom: return RightAngleLocation.Right;
+                                case RightAngleLocation.Left: return RightAngleLocation.Bottom;
+                                case RightAngleLocation.Right: return RightAngleLocation.Top;
+                                default: throw new NotImplementedException("Unknown / unimplemented RightAngleLocation: " + rightAngleLocation);
+                            }
+                        default: throw new NotImplementedException("Unknown / unimplemented RotationAngle: " + angle);
+                    }
+                }
+
+                return new RightTriangle(bottomCorner.Rotate(angle), topCorner.Rotate(angle), RotateRightAngleLocation(rightAngleLocation, angle), filled);
+            }
+
+            IShape IShape.Flip(FlipAxis axis) => Flip(axis);
+            /// <summary>
+            /// Reflects the triangle across the given axis.
+            /// </summary>
+            public RightTriangle Flip(FlipAxis axis)
+            {
+                RightAngleLocation FlipRightAngleLocation(RightAngleLocation rightAngleLocation, FlipAxis axis)
+                {
+                    switch (axis)
+                    {
+                        case FlipAxis.None: return rightAngleLocation;
+                        case FlipAxis.Vertical:
+                            switch (rightAngleLocation)
+                            {
+                                case RightAngleLocation.Top: return RightAngleLocation.Top;
+                                case RightAngleLocation.Bottom: return RightAngleLocation.Bottom;
+                                case RightAngleLocation.Left: return RightAngleLocation.Right;
+                                case RightAngleLocation.Right: return RightAngleLocation.Left;
+                                default: throw new NotImplementedException("Unknown / unimplemented RightAngleLocation: " + rightAngleLocation);
+                            }
+                        case FlipAxis.Horizontal:
+                            switch (rightAngleLocation)
+                            {
+                                case RightAngleLocation.Top: return RightAngleLocation.Bottom;
+                                case RightAngleLocation.Bottom: return RightAngleLocation.Top;
+                                case RightAngleLocation.Left: return RightAngleLocation.Left;
+                                case RightAngleLocation.Right: return RightAngleLocation.Right;
+                                default: throw new NotImplementedException("Unknown / unimplemented RightAngleLocation: " + rightAngleLocation);
+                            }
+                        case FlipAxis._45Degrees:
+                            switch (rightAngleLocation)
+                            {
+                                case RightAngleLocation.Top: return RightAngleLocation.Right;
+                                case RightAngleLocation.Bottom: return RightAngleLocation.Left;
+                                case RightAngleLocation.Left: return RightAngleLocation.Bottom;
+                                case RightAngleLocation.Right: return RightAngleLocation.Top;
+                                default: throw new NotImplementedException("Unknown / unimplemented RightAngleLocation: " + rightAngleLocation);
+                            }
+                        case FlipAxis.Minus45Degrees:
+                            switch (rightAngleLocation)
+                            {
+                                case RightAngleLocation.Top: return RightAngleLocation.Left;
+                                case RightAngleLocation.Bottom: return RightAngleLocation.Right;
+                                case RightAngleLocation.Left: return RightAngleLocation.Top;
+                                case RightAngleLocation.Right: return RightAngleLocation.Bottom;
+                                default: throw new NotImplementedException("Unknown / unimplemented RightAngleLocation: " + rightAngleLocation);
+                            }
+                        default: throw new NotImplementedException("Unknown / unimplemented FlipAxis: " + axis);
+                    }
+                }
+
+                return new RightTriangle(bottomCorner.Flip(axis), topCorner.Flip(axis), FlipRightAngleLocation(rightAngleLocation, axis), filled);
             }
 
             IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();

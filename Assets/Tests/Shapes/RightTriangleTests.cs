@@ -102,7 +102,7 @@ namespace PAC.Tests
 
         [Test]
         [Category("Shapes")]
-        public void TranslationalInvariance()
+        public void Translate()
         {
             foreach (Shapes.RightTriangle.RightAngleLocation rightAngleLocation in new Shapes.RightTriangle.RightAngleLocation[]
                 {
@@ -116,12 +116,7 @@ namespace PAC.Tests
                     {
                         foreach (IntVector2 topCorner in bottomCorner + new IntRect(new IntVector2(-5, 0), new IntVector2(5, 5)))
                         {
-                            Shapes.RightTriangle triangle = new Shapes.RightTriangle(bottomCorner, topCorner, rightAngleLocation, filled);
-
-                            Shapes.RightTriangle expected = new Shapes.RightTriangle(IntVector2.zero, topCorner - bottomCorner, rightAngleLocation, filled);
-                            IEnumerable<IntVector2> translated = triangle.Select(p => p - bottomCorner);
-
-                            Assert.True(expected.SequenceEqual(translated), "Failed with " + triangle);
+                            IShapeTestHelper.Translate(new Shapes.RightTriangle(bottomCorner, topCorner, rightAngleLocation, filled));
                         }
                     }
                 }
@@ -130,20 +125,8 @@ namespace PAC.Tests
 
         [Test]
         [Category("Shapes")]
-        public void RotationalInvariance()
+        public void Rotate()
         {
-            Shapes.RightTriangle.RightAngleLocation RotateRightAngleLocation(Shapes.RightTriangle.RightAngleLocation rightAngleLocation)
-            {
-                switch (rightAngleLocation)
-                {
-                    case Shapes.RightTriangle.RightAngleLocation.Top: return Shapes.RightTriangle.RightAngleLocation.Top;
-                    case Shapes.RightTriangle.RightAngleLocation.Bottom: return Shapes.RightTriangle.RightAngleLocation.Bottom;
-                    case Shapes.RightTriangle.RightAngleLocation.Left: return Shapes.RightTriangle.RightAngleLocation.Right;
-                    case Shapes.RightTriangle.RightAngleLocation.Right: return Shapes.RightTriangle.RightAngleLocation.Left;
-                    default: throw new NotImplementedException("Unknown / unimplemented RightAngleLocation: " + rightAngleLocation);
-                }
-            }
-
             foreach (Shapes.RightTriangle.RightAngleLocation rightAngleLocation in new Shapes.RightTriangle.RightAngleLocation[]
                 {
                 Shapes.RightTriangle.RightAngleLocation.Top, Shapes.RightTriangle.RightAngleLocation.Bottom,
@@ -152,15 +135,12 @@ namespace PAC.Tests
             {
                 foreach (bool filled in new bool[] { false, true })
                 {
-                    foreach (IntVector2 topRight in new IntRect(IntVector2.zero, new IntVector2(10, 10)))
+                    foreach (IntVector2 bottomCorner in new IntRect(new IntVector2(-2, -2), new IntVector2(2, 2)))
                     {
-                        Shapes.RightTriangle triangle = new Shapes.RightTriangle(IntVector2.zero, topRight, rightAngleLocation, filled);
-
-                        Shapes.RightTriangle expected = new Shapes.RightTriangle(triangle.bottomCorner.Rotate(RotationAngle._90), triangle.topCorner.Rotate(RotationAngle._90),
-                            RotateRightAngleLocation(rightAngleLocation), filled);
-                        IEnumerable<IntVector2> rotated = triangle.Select(p => p.Rotate(RotationAngle._90));
-
-                        Assert.True(expected.ToHashSet().SetEquals(rotated), "Failed with " + triangle);
+                        foreach (IntVector2 topCorner in bottomCorner + new IntRect(new IntVector2(-5, 0), new IntVector2(5, 5)))
+                        {
+                            IShapeTestHelper.Rotate(new Shapes.RightTriangle(bottomCorner, topCorner, rightAngleLocation, filled));
+                        }
                     }
                 }
             }
@@ -168,80 +148,21 @@ namespace PAC.Tests
 
         [Test]
         [Category("Shapes")]
-        public void ReflectiveInvariance()
+        public void Flip()
         {
-            Shapes.RightTriangle.RightAngleLocation FlipRightAngleLocation(Shapes.RightTriangle.RightAngleLocation rightAngleLocation, FlipAxis axis)
-            {
-                switch (axis)
-                {
-                    case FlipAxis.None: return rightAngleLocation;
-                    case FlipAxis.Vertical:
-                        {
-                            switch (rightAngleLocation)
-                            {
-                                case Shapes.RightTriangle.RightAngleLocation.Top: return Shapes.RightTriangle.RightAngleLocation.Top;
-                                case Shapes.RightTriangle.RightAngleLocation.Bottom: return Shapes.RightTriangle.RightAngleLocation.Bottom;
-                                case Shapes.RightTriangle.RightAngleLocation.Left: return Shapes.RightTriangle.RightAngleLocation.Right;
-                                case Shapes.RightTriangle.RightAngleLocation.Right: return Shapes.RightTriangle.RightAngleLocation.Left;
-                                default: throw new NotImplementedException("Unknown / unimplemented RightAngleLocation: " + rightAngleLocation);
-                            }
-                        }
-                    case FlipAxis.Horizontal:
-                        {
-                            switch (rightAngleLocation)
-                            {
-                                case Shapes.RightTriangle.RightAngleLocation.Top: return Shapes.RightTriangle.RightAngleLocation.Bottom;
-                                case Shapes.RightTriangle.RightAngleLocation.Bottom: return Shapes.RightTriangle.RightAngleLocation.Top;
-                                case Shapes.RightTriangle.RightAngleLocation.Left: return Shapes.RightTriangle.RightAngleLocation.Left;
-                                case Shapes.RightTriangle.RightAngleLocation.Right: return Shapes.RightTriangle.RightAngleLocation.Right;
-                                default: throw new NotImplementedException("Unknown / unimplemented RightAngleLocation: " + rightAngleLocation);
-                            }
-                        }
-                    case FlipAxis._45Degrees:
-                        {
-                            switch (rightAngleLocation)
-                            {
-                                case Shapes.RightTriangle.RightAngleLocation.Top: return Shapes.RightTriangle.RightAngleLocation.Right;
-                                case Shapes.RightTriangle.RightAngleLocation.Bottom: return Shapes.RightTriangle.RightAngleLocation.Left;
-                                case Shapes.RightTriangle.RightAngleLocation.Left: return Shapes.RightTriangle.RightAngleLocation.Bottom;
-                                case Shapes.RightTriangle.RightAngleLocation.Right: return Shapes.RightTriangle.RightAngleLocation.Top;
-                                default: throw new NotImplementedException("Unknown / unimplemented RightAngleLocation: " + rightAngleLocation);
-                            }
-                        }
-                    case FlipAxis.Minus45Degrees:
-                        {
-                            switch (rightAngleLocation)
-                            {
-                                case Shapes.RightTriangle.RightAngleLocation.Top: return Shapes.RightTriangle.RightAngleLocation.Left;
-                                case Shapes.RightTriangle.RightAngleLocation.Bottom: return Shapes.RightTriangle.RightAngleLocation.Right;
-                                case Shapes.RightTriangle.RightAngleLocation.Left: return Shapes.RightTriangle.RightAngleLocation.Top;
-                                case Shapes.RightTriangle.RightAngleLocation.Right: return Shapes.RightTriangle.RightAngleLocation.Bottom;
-                                default: throw new NotImplementedException("Unknown / unimplemented RightAngleLocation: " + rightAngleLocation);
-                            }
-                        }
-                    default: throw new NotImplementedException("Unknown / unimplemented FlipAxis: " + axis);
-                }
-            }
-
-            foreach (FlipAxis axis in new FlipAxis[] { FlipAxis.Vertical, FlipAxis.Horizontal, FlipAxis._45Degrees, FlipAxis.Minus45Degrees })
-            {
-                foreach (Shapes.RightTriangle.RightAngleLocation rightAngleLocation in new Shapes.RightTriangle.RightAngleLocation[]
+            foreach (Shapes.RightTriangle.RightAngleLocation rightAngleLocation in new Shapes.RightTriangle.RightAngleLocation[]
                 {
                 Shapes.RightTriangle.RightAngleLocation.Top, Shapes.RightTriangle.RightAngleLocation.Bottom,
                 Shapes.RightTriangle.RightAngleLocation.Right, Shapes.RightTriangle.RightAngleLocation.Left
                 })
+            {
+                foreach (bool filled in new bool[] { false, true })
                 {
-                    foreach (bool filled in new bool[] { false, true })
+                    foreach (IntVector2 bottomCorner in new IntRect(new IntVector2(-2, -2), new IntVector2(2, 2)))
                     {
-                        foreach (IntVector2 topRight in new IntRect(IntVector2.zero, new IntVector2(10, 10)))
+                        foreach (IntVector2 topCorner in bottomCorner + new IntRect(new IntVector2(-5, 0), new IntVector2(5, 5)))
                         {
-                            Shapes.RightTriangle triangle = new Shapes.RightTriangle(IntVector2.zero, topRight, rightAngleLocation, filled);
-
-                            Shapes.RightTriangle expected = new Shapes.RightTriangle(triangle.bottomCorner.Flip(axis), triangle.topCorner.Flip(axis),
-                                FlipRightAngleLocation(rightAngleLocation, axis), filled);
-                            IEnumerable<IntVector2> reflected = triangle.Select(p => p.Flip(axis));
-
-                            Assert.True(expected.ToHashSet().SetEquals(reflected), "Failed with " + triangle + " and FlipAxis." + axis);
+                            IShapeTestHelper.Flip(new Shapes.RightTriangle(bottomCorner, topCorner, rightAngleLocation, filled));
                         }
                     }
                 }

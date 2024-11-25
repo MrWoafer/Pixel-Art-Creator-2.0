@@ -87,20 +87,15 @@ namespace PAC.Tests
 
         [Test]
         [Category("Shapes")]
-        public void TranslationalInvariance()
+        public void Translate()
         {
             foreach (bool filled in new bool[] { false, true })
             {
-                foreach (IntVector2 bottomLeft in new IntRect(new IntVector2(-5, -5), new IntVector2(5, 5)))
+                foreach (IntVector2 bottomLeft in new IntRect(new IntVector2(-2, -2), new IntVector2(2, 2)))
                 {
                     foreach (IntVector2 topRight in bottomLeft + new IntRect(IntVector2.zero, new IntVector2(5, 5)))
                     {
-                        Shapes.Rectangle rectangle = new Shapes.Rectangle(bottomLeft, topRight, filled);
-
-                        Shapes.Rectangle expected = new Shapes.Rectangle(IntVector2.zero, topRight - bottomLeft, filled);
-                        IEnumerable<IntVector2> translated = rectangle.Select(p => p - bottomLeft);
-
-                        Assert.True(expected.SequenceEqual(translated), "Failed with " + rectangle);
+                        IShapeTestHelper.Translate(new Shapes.Rectangle(bottomLeft, topRight, filled));
                     }
                 }
             }
@@ -108,20 +103,15 @@ namespace PAC.Tests
 
         [Test]
         [Category("Shapes")]
-        public void RotationalInvariance()
+        public void Rotate()
         {
             foreach (bool filled in new bool[] { false, true })
             {
-                foreach (IntVector2 bottomLeft in new IntRect(new IntVector2(-5, -5), new IntVector2(5, 5)))
+                foreach (IntVector2 bottomLeft in new IntRect(new IntVector2(-2, -2), new IntVector2(2, 2)))
                 {
                     foreach (IntVector2 topRight in bottomLeft + new IntRect(IntVector2.zero, new IntVector2(5, 5)))
                     {
-                        Shapes.Rectangle rectangle = new Shapes.Rectangle(bottomLeft, topRight, filled);
-
-                        Shapes.Rectangle expected = new Shapes.Rectangle(rectangle.bottomLeft.Rotate(RotationAngle._90), rectangle.topRight.Rotate(RotationAngle._90), filled);
-                        IEnumerable<IntVector2> rotated = rectangle.Select(p => p.Rotate(RotationAngle._90));
-
-                        Assert.True(expected.ToHashSet().SetEquals(rotated), "Failed with " + rectangle);
+                        IShapeTestHelper.Rotate(new Shapes.Rectangle(bottomLeft, topRight, filled));
                     }
                 }
             }
@@ -129,23 +119,15 @@ namespace PAC.Tests
 
         [Test]
         [Category("Shapes")]
-        public void ReflectiveInvariance()
+        public void Flip()
         {
-            foreach (FlipAxis axis in new FlipAxis[] { FlipAxis.Vertical, FlipAxis.Horizontal, FlipAxis._45Degrees, FlipAxis.Minus45Degrees })
+            foreach (bool filled in new bool[] { false, true })
             {
-                foreach (bool filled in new bool[] { false, true })
+                foreach (IntVector2 bottomLeft in new IntRect(new IntVector2(-2, -2), new IntVector2(2, 2)))
                 {
-                    foreach (IntVector2 bottomLeft in new IntRect(new IntVector2(-5, -5), new IntVector2(5, 5)))
+                    foreach (IntVector2 topRight in bottomLeft + new IntRect(IntVector2.zero, new IntVector2(5, 5)))
                     {
-                        foreach (IntVector2 topRight in bottomLeft + new IntRect(IntVector2.zero, new IntVector2(5, 5)))
-                        {
-                            Shapes.Rectangle rectangle = new Shapes.Rectangle(bottomLeft, topRight, filled);
-
-                            Shapes.Rectangle expected = new Shapes.Rectangle(rectangle.bottomLeft.Flip(axis), rectangle.topRight.Flip(axis), filled);
-                            IEnumerable<IntVector2> reflected = rectangle.Select(p => p.Flip(axis));
-
-                            Assert.True(expected.ToHashSet().SetEquals(reflected), "Failed with " + rectangle + " and FlipAxis." + axis);
-                        }
+                        IShapeTestHelper.Flip(new Shapes.Rectangle(bottomLeft, topRight, filled));
                     }
                 }
             }

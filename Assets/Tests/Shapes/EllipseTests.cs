@@ -166,20 +166,15 @@ namespace PAC.Tests
 
         [Test]
         [Category("Shapes")]
-        public void TranslationalInvariance()
+        public void Translate()
         {
             foreach (bool filled in new bool[] { false, true })
             {
-                foreach (IntVector2 bottomLeft in  new IntRect(new IntVector2(-5, -5), new IntVector2(5, 5)))
+                foreach (IntVector2 bottomLeft in  new IntRect(new IntVector2(-2, -2), new IntVector2(2, 2)))
                 {
-                    foreach (IntVector2 topRight in bottomLeft + new IntRect(IntVector2.zero, new IntVector2(10, 10)))
+                    foreach (IntVector2 topRight in bottomLeft + new IntRect(IntVector2.zero, new IntVector2(6, 6)))
                     {
-                        Shapes.Ellipse ellipse = new Shapes.Ellipse(bottomLeft, topRight, filled);
-
-                        Shapes.Ellipse expected = new Shapes.Ellipse(IntVector2.zero, topRight - bottomLeft, filled);
-                        IEnumerable<IntVector2> translated = ellipse.Select(p => p - bottomLeft);
-
-                        Assert.True(expected.SequenceEqual(translated), "Failed with " + ellipse);
+                        IShapeTestHelper.Translate(new Shapes.Ellipse(bottomLeft, topRight, filled));
                     }
                 }
             }
@@ -187,38 +182,31 @@ namespace PAC.Tests
 
         [Test]
         [Category("Shapes")]
-        public void RotationalInvariance()
+        public void Rotate()
         {
             foreach (bool filled in new bool[] { false, true })
             {
-                foreach (IntVector2 topRight in new IntRect(IntVector2.zero, new IntVector2(10, 10)))
+                foreach (IntVector2 bottomLeft in new IntRect(new IntVector2(-2, -2), new IntVector2(2, 2)))
                 {
-                    Shapes.Ellipse ellipse = new Shapes.Ellipse(IntVector2.zero, topRight, filled);
-
-                    Shapes.Ellipse expected = new Shapes.Ellipse(IntVector2.zero, new IntVector2(ellipse.height - 1, ellipse.width - 1), ellipse.filled);
-                    IEnumerable<IntVector2> rotated = ellipse.Select(p => (p - ellipse.bottomLeft).Rotate(RotationAngle._90) + new IntVector2(0, ellipse.width - 1));
-
-                    Assert.True(expected.ToHashSet().SetEquals(rotated), "Failed with " + ellipse);
+                    foreach (IntVector2 topRight in bottomLeft + new IntRect(IntVector2.zero, new IntVector2(6, 6)))
+                    {
+                        IShapeTestHelper.Rotate(new Shapes.Ellipse(bottomLeft, topRight, filled));
+                    }
                 }
             }
         }
 
         [Test]
         [Category("Shapes")]
-        public void ReflectiveInvariance()
+        public void Flip()
         {
-            foreach (FlipAxis axis in new FlipAxis[] { FlipAxis.Vertical, FlipAxis.Horizontal, FlipAxis._45Degrees, FlipAxis.Minus45Degrees })
+            foreach (bool filled in new bool[] { false, true })
             {
-                foreach (bool filled in new bool[] { false, true })
+                foreach (IntVector2 bottomLeft in new IntRect(new IntVector2(-2, -2), new IntVector2(2, 2)))
                 {
-                    foreach (IntVector2 topRight in new IntRect(IntVector2.zero, new IntVector2(10, 10)))
+                    foreach (IntVector2 topRight in bottomLeft + new IntRect(IntVector2.zero, new IntVector2(6, 6)))
                     {
-                        Shapes.Ellipse ellipse = new Shapes.Ellipse(IntVector2.zero, topRight, filled);
-
-                        Shapes.Ellipse expected = new Shapes.Ellipse(ellipse.bottomLeft.Flip(axis), ellipse.topRight.Flip(axis), filled);
-                        IEnumerable<IntVector2> reflected = ellipse.Select(p => p.Flip(axis));
-
-                        Assert.True(expected.ToHashSet().SetEquals(reflected), "Failed with " + ellipse + " and FlipAxis." + axis);
+                        IShapeTestHelper.Flip(new Shapes.Ellipse(bottomLeft, topRight, filled));
                     }
                 }
             }

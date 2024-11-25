@@ -203,42 +203,39 @@ namespace PAC.Tests
 
         [Test]
         [Category("Shapes")]
-        public void TranslationalInvariance()
+        public void Translate()
         {
-            foreach (IntVector2 start in new IntRect(new IntVector2(-5, -5), new IntVector2(5, 5)))
+            foreach (IntVector2 start in new IntRect(new IntVector2(-2, -2), new IntVector2(2, 2)))
             {
                 foreach (IntVector2 end in start + new IntRect(new IntVector2(-5, -5), new IntVector2(5, 5)))
                 {
-                    Shapes.Line line = new Shapes.Line(start, end);
-                    Shapes.Line expected = new Shapes.Line(IntVector2.zero, line.end - line.start);
-                    Assert.True(expected.SequenceEqual(line.Select(p => p - line.start)), "Failed with " + line);
+                    IShapeTestHelper.Translate(new Shapes.Line(start, end));
                 }
             }
         }
 
         [Test]
         [Category("Shapes")]
-        public void RotationalInvariance()
+        public void Rotate()
         {
-            foreach (IntVector2 end in new IntRect(new IntVector2(-5, -5), new IntVector2(5, 5)))
+            foreach (IntVector2 start in new IntRect(new IntVector2(-2, -2), new IntVector2(2, 2)))
             {
-                Shapes.Line line = new Shapes.Line(IntVector2.zero, end);
-                Shapes.Line expected = new Shapes.Line(IntVector2.zero, (line.end - line.start).Rotate(RotationAngle._90));
-                Assert.True(expected.SequenceEqual(line.Select(p => (p - line.start).Rotate(RotationAngle._90))), "Failed with " + line);
+                foreach (IntVector2 end in start + new IntRect(new IntVector2(-5, -5), new IntVector2(5, 5)))
+                {
+                    IShapeTestHelper.Rotate(new Shapes.Line(start, end));
+                }
             }
         }
 
         [Test]
         [Category("Shapes")]
-        public void ReflectiveInvariance()
+        public void Flip()
         {
-            foreach (FlipAxis axis in new FlipAxis[] { FlipAxis.Vertical, FlipAxis.Horizontal, FlipAxis._45Degrees, FlipAxis.Minus45Degrees })
+            foreach (IntVector2 start in new IntRect(new IntVector2(-2, -2), new IntVector2(2, 2)))
             {
-                foreach (IntVector2 end in new IntRect(new IntVector2(-5, -5), new IntVector2(5, 5)))
+                foreach (IntVector2 end in start + new IntRect(new IntVector2(-5, -5), new IntVector2(5, 5)))
                 {
-                    Shapes.Line line = new Shapes.Line(IntVector2.zero, end);
-                    Shapes.Line expected = new Shapes.Line(line.start.Flip(axis), line.end.Flip(axis));
-                    Assert.True(expected.SequenceEqual(line.Select(p => p.Flip(axis))), "Failed with " + line + " and FlipAxis." + axis);
+                    IShapeTestHelper.Flip(new Shapes.Line(start, end));
                 }
             }
         }

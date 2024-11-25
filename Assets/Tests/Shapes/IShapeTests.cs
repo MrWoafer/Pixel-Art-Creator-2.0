@@ -28,18 +28,9 @@ namespace PAC.Tests
         /// </summary>
         public void NoRepeats();
 
-        /// <summary>
-        /// Tests that the shape of the shape is only determined by the width and height, not by the position.
-        /// </summary>
-        public void TranslationalInvariance();
-        /// <summary>
-        /// Tests that rotating the shape gives the same shape as creating one with the width/height swapped.
-        /// </summary>
-        public void RotationalInvariance();
-        /// <summary>
-        /// Tests that reflecting the shape gives the same shape as creating one with the corners reflected.
-        /// </summary>
-        public void ReflectiveInvariance();
+        public void Translate();
+        public void Rotate();
+        public void Flip();
     }
 
     public static class IShapeTestHelper
@@ -86,6 +77,33 @@ namespace PAC.Tests
             foreach (IntVector2 pixel in testRegion)
             {
                 Assert.True(pixels.Contains(pixel) == shape.Contains(pixel), "Failed with " + shape + " and " + pixel + ". Expected " + pixels.Contains(pixel));
+            }
+        }
+
+        public static void Translate(Shapes.IShape shape)
+        {
+            foreach (IntVector2 translation in new IntRect(new IntVector2(-2, -2), new IntVector2(2, 2)))
+            {
+                IEnumerable<IntVector2> expected = shape.Select(p => p + translation);
+                Assert.True(expected.SequenceEqual(shape.Translate(translation)), "Failed with " + shape + " and " + translation);
+            }
+        }
+
+        public static void Rotate(Shapes.IShape shape)
+        {
+            foreach (RotationAngle angle in new RotationAngle[] { RotationAngle._0, RotationAngle._90, RotationAngle._180, RotationAngle.Minus90 })
+            {
+                IEnumerable<IntVector2> expected = shape.Select(p => p.Rotate(angle));
+                Assert.True(expected.ToHashSet().SetEquals(shape.Rotate(angle)), "Failed with " + shape + " and " + angle);
+            }
+        }
+
+        public static void Flip(Shapes.IShape shape)
+        {
+            foreach (FlipAxis axis in new FlipAxis[] { FlipAxis.None, FlipAxis.Vertical, FlipAxis.Horizontal, FlipAxis._45Degrees, FlipAxis.Minus45Degrees })
+            {
+                IEnumerable<IntVector2> expected = shape.Select(p => p.Flip(axis));
+                Assert.True(expected.ToHashSet().SetEquals(shape.Flip(axis)), "Failed with " + shape + " and " + axis);
             }
         }
 
