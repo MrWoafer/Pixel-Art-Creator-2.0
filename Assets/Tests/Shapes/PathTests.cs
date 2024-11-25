@@ -7,7 +7,7 @@ using PAC.Drawing;
 
 namespace PAC.Tests
 {
-    public class PathTests
+    public class PathTests : IShapeTests
     {
         [Test]
         [Category("Shapes")]
@@ -62,6 +62,7 @@ namespace PAC.Tests
                     .Concat(new Shapes.Line(new IntVector2(4, 4), new IntVector2(2, 4))[1..]).Concat(new Shapes.Line(new IntVector2(2, 4), new IntVector2(2, 0))[1..]),
                     new Shapes.Path(IntVector2.zero, new IntVector2(2, 3), new IntVector2(4, 4), new IntVector2(2, 4), new IntVector2(2, 0))),
                 (new IntVector2[] { IntVector2.zero, IntVector2.right, IntVector2.upRight }, new Shapes.Path(IntVector2.zero, IntVector2.right, IntVector2.upRight, IntVector2.zero)),
+                (new IntVector2[] { new IntVector2(4, 2), new IntVector2(5, 1) }, new Shapes.Path(new IntVector2(4, 2), new IntVector2(5, 1)))
             };
 
             foreach ((IEnumerable<IntVector2> expected, Shapes.Path path) in testCases)
@@ -181,6 +182,36 @@ namespace PAC.Tests
                     for (int iteration = 0; iteration < 1_000; iteration++)
                     {
                         IShapeTestHelper.Contains(RandomPath(length, isLoop));
+                    }
+                }
+            }
+        }
+
+        /// <summary>
+        /// Tests that pixels never appear twice in a row in a path.
+        /// </summary>
+        [Test]
+        [Category("Shapes")]
+        public void NoRepeats()
+        {
+            for (int length = 1; length <= 3; length++)
+            {
+                foreach (bool isLoop in new bool[] { false, true })
+                {
+                    for (int iteration = 0; iteration < 1_000; iteration++)
+                    {
+                        Shapes.Path path = RandomPath(length, isLoop);
+                        IntVector2[] pixels = path.ToArray();
+
+                        if (pixels.Length == 1)
+                        {
+                            continue;
+                        }
+
+                        for (int i = 0; i < pixels.Length; i++)
+                        {
+                            Assert.AreNotEqual(pixels[(i + 1) % pixels.Length], pixels[i], "Failed with " + path + " at index " + i);
+                        }
                     }
                 }
             }
