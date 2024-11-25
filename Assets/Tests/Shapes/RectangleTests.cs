@@ -23,6 +23,20 @@ namespace PAC.Tests
 
         [Test]
         [Category("Shapes")]
+        public void Shape()
+        {
+            foreach (IntVector2 bottomLeft in new IntRect(new IntVector2(-5, -5), new IntVector2(5, 5)))
+            {
+                foreach (IntVector2 topRight in bottomLeft + new IntRect(IntVector2.zero, new IntVector2(5, 5)))
+                {
+                    Shapes.Rectangle rectangle = new Shapes.Rectangle(bottomLeft, topRight, true);
+                    Assert.True(rectangle.boundingRect.ToHashSet().SetEquals(rectangle), "Failed with " + rectangle);
+                }
+            }
+        }
+
+        [Test]
+        [Category("Shapes")]
         public void BoundingRect()
         {
             foreach (bool filled in new bool[] { false, true })
