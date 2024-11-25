@@ -78,6 +78,9 @@ namespace PAC.Tests
             }
         }
 
+        /// <summary>
+        /// Applies Translate() to the shape and checks that the enumerator of the resulting shape is a translation of the original shape's enumerator.
+        /// </summary>
         public static void Translate(Shapes.IShape shape)
         {
             foreach (IntVector2 translation in new IntRect(new IntVector2(-2, -2), new IntVector2(2, 2)))
@@ -87,6 +90,9 @@ namespace PAC.Tests
             }
         }
 
+        /// <summary>
+        /// Applies Rotate() to the shape and checks that the enumerator of the resulting shape is a rotation of the original shape's enumerator.
+        /// </summary>
         public static void Rotate(Shapes.IShape shape)
         {
             foreach (RotationAngle angle in new RotationAngle[] { RotationAngle._0, RotationAngle._90, RotationAngle._180, RotationAngle.Minus90 })
@@ -96,6 +102,9 @@ namespace PAC.Tests
             }
         }
 
+        /// <summary>
+        /// Applies Flip() to the shape and checks that the enumerator of the resulting shape is a reflection of the original shape's enumerator.
+        /// </summary>
         public static void Flip(Shapes.IShape shape)
         {
             foreach (FlipAxis axis in new FlipAxis[] { FlipAxis.None, FlipAxis.Vertical, FlipAxis.Horizontal, FlipAxis._45Degrees, FlipAxis.Minus45Degrees })
