@@ -185,6 +185,54 @@ namespace PAC.Tests
 
         [Test]
         [Category("Shapes")]
+        public void Translate()
+        {
+            for (int length = 1; length <= 3; length++)
+            {
+                foreach (bool isLoop in new bool[] { false, true })
+                {
+                    for (int iteration = 0; iteration < 1_000; iteration++)
+                    {
+                        IShapeTestHelper.Translate(RandomPath(length, isLoop));
+                    }
+                }
+            }
+        }
+
+        [Test]
+        [Category("Shapes")]
+        public void Rotate()
+        {
+            for (int length = 1; length <= 3; length++)
+            {
+                foreach (bool isLoop in new bool[] { false, true })
+                {
+                    for (int iteration = 0; iteration < 1_000; iteration++)
+                    {
+                        IShapeTestHelper.Rotate(RandomPath(length, isLoop));
+                    }
+                }
+            }
+        }
+
+        [Test]
+        [Category("Shapes")]
+        public void Flip()
+        {
+            for (int length = 1; length <= 3; length++)
+            {
+                foreach (bool isLoop in new bool[] { false, true })
+                {
+                    for (int iteration = 0; iteration < 1_000; iteration++)
+                    {
+                        IShapeTestHelper.Flip(RandomPath(length, isLoop));
+                    }
+                }
+            }
+        }
+
+        [Test]
+        [Category("Shapes")]
         public void WindingNumber()
         {
             (Shapes.Path path, (int windingNumber, IntVector2 point)[])[] testCases =
