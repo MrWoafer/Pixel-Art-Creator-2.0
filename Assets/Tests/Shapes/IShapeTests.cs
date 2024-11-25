@@ -90,7 +90,7 @@ namespace PAC.Tests
         }
 
         /// <summary>
-        /// Tests that no pixels are repeated at all in the shape's enuemrator.
+        /// Tests that no pixels are repeated at all in the shape's enumerator.
         /// </summary>
         public static void NoRepeatsAtAll(Shapes.IShape shape)
         {
