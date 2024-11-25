@@ -1,5 +1,4 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using NUnit.Framework;
@@ -143,6 +142,10 @@ namespace PAC.Tests
                 (12, new Shapes.Path(IntVector2.zero, new IntVector2(2, 3), new IntVector2(4, 4), new IntVector2(2, 4), new IntVector2(2, 0))),
                 (3, new Shapes.Path(IntVector2.zero, IntVector2.right, IntVector2.upRight, IntVector2.zero)),
                 (3, new Shapes.Path(IntVector2.zero, IntVector2.upRight, IntVector2.right, IntVector2.zero)),
+                (12, new Shapes.Path(
+                    new Shapes.Line(new IntVector2(-1, 5), new IntVector2(0, 4)), new Shapes.Line(new IntVector2(1, 3), new IntVector2(-4, 7)),
+                    new Shapes.Line(new IntVector2(-4, 6), new IntVector2(-1, 5)), new Shapes.Line(new IntVector2(-1, 5), new IntVector2(-1, 5))
+                ))
             };
             
             foreach ((int expected, Shapes.Path path) in testCases)

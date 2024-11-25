@@ -620,14 +620,20 @@ namespace PAC.Drawing
                     }
 
                     // Last line
-                    count += _lines[^1].Count;
+                    int start = 0;
+                    int end = _lines[^1].Count;
                     if (_lines[^2].end == _lines[^1].start)
                     {
-                        count--;
+                        start++;
                     }
                     if (_lines[^1].end == _lines[0].start)
                     {
-                        count--;
+                        end--;
+                    }
+
+                    if (end >= start)
+                    {
+                        count += end - start;
                     }
 
                     return count;
@@ -933,11 +939,11 @@ namespace PAC.Drawing
                     int end = _lines[^1].Count;
                     if (_lines[^2].end == _lines[^1].start)
                     {
-                        start = 1;
+                        start++;
                     }
                     if (_lines[^1].end == _lines[0].start)
                     {
-                        end = _lines[^1].Count - 1;
+                        end--;
                     }
 
                     if (end < start)
