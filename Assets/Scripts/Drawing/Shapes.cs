@@ -403,10 +403,13 @@ namespace PAC.Drawing
             private List<Line> _lines = new List<Line>();
             public ReadOnlyCollection<Line> lines => _lines.AsReadOnly();
 
+            public IntVector2 start => _lines[0].start;
+            public IntVector2 end => _lines[^1].end;
+
             /// <summary>
             /// Whether the end of the last line is adjacent to (including diagonally) the start of the first line.
             /// </summary>
-            public bool isLoop => IntVector2.SupDistance(_lines[0].start, _lines[^1].end) <= 1;
+            public bool isLoop => IntVector2.SupDistance(start, end) <= 1;
 
             /// <summary>
             /// True iff the path never changes pixel.
