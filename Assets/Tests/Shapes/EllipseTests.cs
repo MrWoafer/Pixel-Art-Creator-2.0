@@ -127,9 +127,12 @@ namespace PAC.Tests
         {
             foreach (bool filled in new bool[] { false, true })
             {
-                foreach (IntVector2 topRight in new IntRect(IntVector2.zero, new IntVector2(10, 10)))
+                foreach (IntVector2 bottomLeft in new IntRect(new IntVector2(-2, -2), new IntVector2(2, 2)))
                 {
-                    IShapeTestHelper.CountDistinct(new Shapes.Ellipse(IntVector2.zero, topRight, filled));
+                    foreach (IntVector2 topRight in bottomLeft + new IntRect(IntVector2.zero, new IntVector2(6, 6)))
+                    {
+                        IShapeTestHelper.CountDistinct(new Shapes.Ellipse(bottomLeft, topRight, filled));
+                    }
                 }
             }
         }
@@ -140,9 +143,12 @@ namespace PAC.Tests
         {
             foreach (bool filled in new bool[] { false, true })
             {
-                foreach (IntVector2 topRight in new IntRect(IntVector2.zero, new IntVector2(10, 10)))
+                foreach (IntVector2 bottomLeft in new IntRect(new IntVector2(-2, -2), new IntVector2(2, 2)))
                 {
-                    IShapeTestHelper.Contains(new Shapes.Ellipse(IntVector2.zero, topRight, filled));
+                    foreach (IntVector2 topRight in bottomLeft + new IntRect(IntVector2.zero, new IntVector2(6, 6)))
+                    {
+                        IShapeTestHelper.Contains(new Shapes.Ellipse(bottomLeft, topRight, filled));
+                    }
                 }
             }
         }

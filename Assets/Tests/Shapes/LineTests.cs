@@ -26,36 +26,31 @@ namespace PAC.Tests
         [Category("Shapes")]
         public void ShapePerfect()
         {
-            IEnumerable<IntVector2> Expected(bool isMoreHorizontal, int blockSize, int numBlocks)
+            IEnumerable<IntVector2> Expected(int blockSize, int numBlocks)
             {
-                if (isMoreHorizontal)
-                {
-                    for (int i = 0; i < numBlocks * blockSize; i++)
-                    {
-                        yield return new IntVector2(i, i / blockSize);
-                    }
-                    yield break;
-                }
-
                 for (int i = 0; i < numBlocks * blockSize; i++)
                 {
-                    yield return new IntVector2(i / blockSize, i);
+                    yield return new IntVector2(i, i / blockSize);
                 }
             }
 
-            for (int numBlocks = 1; numBlocks <= 10; numBlocks++)
+            foreach (IntVector2 start in new IntRect(new IntVector2(-2, -2), new IntVector2(2, 2)))
             {
-                for (int blockSize = 1; blockSize <= 10; blockSize++)
+                for (int numBlocks = 1; numBlocks <= 10; numBlocks++)
                 {
-                    // More horizontal than vertical
-                    Shapes.Line line = new Shapes.Line(IntVector2.zero, new IntVector2(blockSize * numBlocks - 1, numBlocks - 1));
-                    Assert.True(line.SequenceEqual(Expected(true, blockSize, numBlocks)), "Failed with " + line);
-                    Assert.True(line.isPerfect, "Failed with " + line);
-
-                    // More vertical than horizontal
-                    line = new Shapes.Line(IntVector2.zero, new IntVector2(numBlocks - 1, blockSize * numBlocks - 1));
-                    Assert.True(line.SequenceEqual(Expected(false, blockSize, numBlocks)), "Failed with " + line);
-                    Assert.True(line.isPerfect, "Failed with " + line);
+                    for (int blockSize = 1; blockSize <= 10; blockSize++)
+                    {
+                        foreach (RotationAngle angle in new RotationAngle[] { RotationAngle._0, RotationAngle._90, RotationAngle._180, RotationAngle.Minus90 })
+                        {
+                            foreach (FlipAxis axis in new FlipAxis[] { FlipAxis.None, FlipAxis._45Degrees })
+                            {
+                                Shapes.Line line = new Shapes.Line(start, start + new IntVector2(blockSize * numBlocks - 1, numBlocks - 1).Flip(axis).Rotate(angle));
+                                IEnumerable<IntVector2> expected = Expected(blockSize, numBlocks).Select(p => start + p.Flip(axis).Rotate(angle));
+                                Assert.True(expected.SequenceEqual(line), "Failed with " + line);
+                                Assert.True(line.isPerfect, "Failed with " + line);
+                            }
+                        }
+                    }
                 }
             }
         }
@@ -172,9 +167,12 @@ namespace PAC.Tests
         [Category("Shapes")]
         public void Count()
         {
-            foreach (IntVector2 end in new IntRect(new IntVector2(-5, -5), new IntVector2(5, 5)))
+            foreach (IntVector2 start in new IntRect(new IntVector2(-2, -2), new IntVector2(2, 2)))
             {
-                IShapeTestHelper.CountDistinct(new Shapes.Line(IntVector2.zero, end));
+                foreach (IntVector2 end in start + new IntRect(new IntVector2(-5, -5), new IntVector2(5, 5)))
+                {
+                    IShapeTestHelper.CountDistinct(new Shapes.Line(start, end));
+                }
             }
         }
 
@@ -182,9 +180,12 @@ namespace PAC.Tests
         [Category("Shapes")]
         public void Contains()
         {
-            foreach (IntVector2 end in new IntRect(new IntVector2(-5, -5), new IntVector2(5, 5)))
+            foreach (IntVector2 start in new IntRect(new IntVector2(-2, -2), new IntVector2(2, 2)))
             {
-                IShapeTestHelper.Contains(new Shapes.Line(IntVector2.zero, end));
+                foreach (IntVector2 end in start + new IntRect(new IntVector2(-5, -5), new IntVector2(5, 5)))
+                {
+                    IShapeTestHelper.Contains(new Shapes.Line(start, end));
+                }
             }
         }
 
