@@ -38,7 +38,6 @@ namespace PAC.Tests
         /// <summary>
         /// Tests that the shape's boundingRect property is the correct bounding rect.
         /// </summary>
-        /// <param name="shape"></param>
         public static void BoundingRect(Shapes.IShape shape)
         {
             Assert.AreEqual(IntRect.BoundingRect(shape), shape.boundingRect, "Failed with " + shape);
@@ -68,9 +67,8 @@ namespace PAC.Tests
         /// </summary>
         public static void Contains(Shapes.IShape shape)
         {
-            IntRect testRegion = shape.boundingRect;
-            testRegion.bottomLeft -= IntVector2.one;
-            testRegion.topRight += IntVector2.one;
+            IntRect boundingRect = shape.boundingRect;
+            IntRect testRegion = new IntRect(boundingRect.bottomLeft + IntVector2.downLeft, boundingRect.topRight + IntVector2.upRight);
 
             HashSet<IntVector2> pixels = shape.ToHashSet();
 
