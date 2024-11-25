@@ -114,7 +114,7 @@ namespace PAC.Tests
         [Category("Shapes")]
         public void BoundingRect()
         {
-            for (int length = 1; length < 3; length++)
+            for (int length = 1; length <= 3; length++)
             {
                 foreach (bool isLoop in new bool[] { false, true })
                 {
@@ -154,7 +154,7 @@ namespace PAC.Tests
 
             // Random tests
 
-            for (int length = 1; length < 3; length++)
+            for (int length = 1; length <= 3; length++)
             {
                 foreach (bool isLoop in new bool[] { false, true })
                 {
@@ -171,7 +171,7 @@ namespace PAC.Tests
         [Category("Shapes")]
         public void Contains()
         {
-            for (int length = 1; length < 3; length++)
+            for (int length = 1; length <= 3; length++)
             {
                 foreach (bool isLoop in new bool[] { false, true })
                 {
