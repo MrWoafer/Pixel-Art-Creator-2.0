@@ -1586,7 +1586,7 @@ namespace PAC.Drawing
 
                     if (!filled || width == 2 || height == 2)
                     {
-                        return path.Count;
+                        return border.Count;
                     }
 
                     if (width >= height)
@@ -1594,7 +1594,7 @@ namespace PAC.Drawing
                         // The vertical side of the triangle won't be counted in the loop
                         int count = height;
                         // Go along the hypotenuse
-                        foreach (IntVector2 pixel in path.lines[0])
+                        foreach (IntVector2 pixel in border.lines[0])
                         {
                             count += Math.Abs(pixel.y - rightAngleCorner.y) + 1;
                         }
@@ -1605,7 +1605,7 @@ namespace PAC.Drawing
                         // The horizontal side of the triangle won't be counted in the loop
                         int count = width;
                         // Go along the hypotenuse
-                        foreach (IntVector2 pixel in path.lines[0])
+                        foreach (IntVector2 pixel in border.lines[0])
                         {
                             count += Math.Abs(pixel.x - rightAngleCorner.x) + 1;
                         }
@@ -1614,7 +1614,7 @@ namespace PAC.Drawing
                 }
             }
 
-            private Path path
+            private Path border
             {
                 get
                 {
@@ -1670,7 +1670,7 @@ namespace PAC.Drawing
                         endAdjusted = temp;
                     }
 
-                    // Override shape of 2xn and nx2 triangles to be more aesthetic (otherwise they are just rectangles).
+                    // Override shape of 2xn and nx2 triangles to be more aesthetic (otherwise they are just diamonds).
                     if (width == 2 && height == 2)
                     {
                         startAdjusted = startCorner;
@@ -1707,16 +1707,16 @@ namespace PAC.Drawing
             {
                 if (!filled)
                 {
-                    return path.Contains(pixel);
+                    return border.Contains(pixel);
                 }
 
                 // These cases are separate as the winding number is only defined for paths that are loops, but these cases don't give loops.
                 // (Actually the 1x1, 1x2 and 2x1 cases don't need to be included in this, but it's easier to just include them.)
                 if (width <= 2 || height <= 2)
                 {
-                    return path.Contains(pixel);
+                    return border.Contains(pixel);
                 }
-                return path.Contains(pixel) || path.WindingNumber(pixel) != 0;
+                return border.Contains(pixel) || border.WindingNumber(pixel) != 0;
             }
 
             /// <summary>
@@ -1847,7 +1847,7 @@ namespace PAC.Drawing
             IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();
             public IEnumerator<IntVector2> GetEnumerator()
             {
-                Path path = this.path;
+                Path path = this.border;
                 foreach (IntVector2 pixel in path)
                 {
                     yield return pixel;
