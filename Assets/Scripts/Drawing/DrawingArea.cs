@@ -59,7 +59,7 @@ namespace PAC.Drawing
         /// <summary>The pixel the mouse is currently on.</summary>
         private IntVector2 mousePixel => WorldPosToPixel(mouse.worldPos);
         private readonly IntVector2 mouseDragInactiveCoords = new IntVector2(-1, -1);
-        /// <summary>For tools that involve dragging, this are the pixels the mouse started dragged from/to, in order.</summary>
+        /// <summary>For tools that involve dragging, these are the pixels the mouse dragged from/to, in order.</summary>
         private List<IntVector2> mouseDragPoints = new List<IntVector2>();
         private IntVector2 previousPixelUsedToolOn = new IntVector2(-1, -1);
         /// <summary>The pixel the mouse was on before the current pixel.</summary>
