@@ -85,71 +85,14 @@ namespace PAC.Drawing
             file.layers[layer].SetPixels(Tex2DSprite.GetPixelsToFill(file.layers[layer][frame].texture, pixel, maxNumOfIterations), frame, colour, AnimFrameRefMode.NewKeyFrame);
         }
 
-        public static void UseLine(File file, int layer, int frame, IntVector2 start, IntVector2 end, Color colour)
+        public static void UseShape(File file, int layer, int frame, Shapes.IShape shape, Color colour)
         {
             if (file.layers[layer].layerType != LayerType.Normal)
             {
                 throw new System.Exception("Layer is not a normal layer. Layer type: " + file.layers[layer].layerType);
             }
 
-            Shapes.Line line = new Shapes.Line(start, end);
-
-            ((NormalLayer)file.layers[layer]).SetPixels(line, frame, colour, AnimFrameRefMode.NewKeyFrame);
-        }
-
-        public static void UseSquare(File file, int layer, int frame, IntVector2 start, IntVector2 end, Color colour, bool filled, bool stayWithinImageBounds)
-        {
-            if (file.layers[layer].layerType != LayerType.Normal)
-            {
-                throw new System.Exception("Layer is not a normal layer. Layer type: " + file.layers[layer].layerType);
-            }
-
-            end = Shapes.SnapEndCoordToSquare(file.width, file.height, start, end, stayWithinImageBounds);
-            Shapes.Rectangle line = new Shapes.Rectangle(start, end, filled);
-
-            ((NormalLayer)file.layers[layer]).SetPixels(line.ToArray(), frame, colour, AnimFrameRefMode.NewKeyFrame);
-        }
-
-        public static void UseRectangle(File file, int layer, int frame, IntVector2 start, IntVector2 end, Color colour, bool filled)
-        {
-            if (file.layers[layer].layerType != LayerType.Normal)
-            {
-                throw new System.Exception("Layer is not a normal layer. Layer type: " + file.layers[layer].layerType);
-            }
-
-            Shapes.Rectangle line = new Shapes.Rectangle(start, end, filled);
-
-            ((NormalLayer)file.layers[layer]).SetPixels(line.ToArray(), frame, colour, AnimFrameRefMode.NewKeyFrame);
-        }
-
-        public static void UseCircle(File file, int layer, int frame, IntVector2 start, IntVector2 end, Color colour, bool filled, bool stayWithinImageBounds)
-        {
-            if (file.layers[layer].layerType != LayerType.Normal)
-            {
-                throw new System.Exception("Layer is not a normal layer. Layer type: " + file.layers[layer].layerType);
-            }
-            Texture2D circle = Shapes.Circle(file.width, file.height, start, end, colour, filled, stayWithinImageBounds);
-            ((NormalLayer)file.layers[layer]).OverlayTexture(frame, circle, AnimFrameRefMode.NewKeyFrame);
-        }
-
-        public static void UseEllipse(File file, int layer, int frame, IntVector2 start, IntVector2 end, Color colour, bool filled)
-        {
-            if (file.layers[layer].layerType != LayerType.Normal)
-            {
-                throw new System.Exception("Layer is not a normal layer. Layer type: " + file.layers[layer].layerType);
-            }
-            Texture2D ellipse = Shapes.EllipseTex(file.width, file.height, start, end, colour, filled);
-            ((NormalLayer)file.layers[layer]).OverlayTexture(frame, ellipse, AnimFrameRefMode.NewKeyFrame);
-        }
-
-        public static void UseRightTriangle(File file, int layer, int frame, IntVector2 start, IntVector2 end, Color colour, bool rightAngleOnBottom, bool filled)
-        {
-            if (file.layers[layer].layerType != LayerType.Normal)
-            {
-                throw new System.Exception("Layer is not a normal layer. Layer type: " + file.layers[layer].layerType);
-            }
-            Texture2D triangle = Shapes.RightTriangleTex(file.width, file.height, start, end, colour, rightAngleOnBottom, filled);
-            ((NormalLayer)file.layers[layer]).OverlayTexture(frame, triangle, AnimFrameRefMode.NewKeyFrame);
+            file.layers[layer].SetPixels(shape.Where(p => file.rect.Contains(p)), frame, colour, AnimFrameRefMode.NewKeyFrame);
         }
 
         public static void UseIsoRectangle(File file, int layer, int frame, IntVector2 start, IntVector2 end, Color colour, bool filled)

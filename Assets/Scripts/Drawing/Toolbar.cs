@@ -328,7 +328,7 @@ namespace PAC.Drawing
                 }
                 else if (brushShape == BrushShape.Circle)
                 {
-                    brushTexture = Shapes.Circle(brushSize * 2 - 1, brushSize * 2 - 1, IntVector2.zero, IntVector2.one * (brushSize * 2 - 2), Config.Colours.mask, true, false);
+                    brushTexture = Shapes.ShapeToTexture(new Shapes.Ellipse(IntVector2.zero, IntVector2.one * (brushSize * 2 - 2), true), Config.Colours.mask);
                 }
                 else if (brushShape == BrushShape.Diamond)
                 {

@@ -1897,95 +1897,37 @@ namespace PAC.Drawing
             public override string ToString() => "RightTriangle(" + bottomCorner + ", " + topCorner + ", " + rightAngleLocation + ", " + (filled ? "filled" : "unfilled") + ")";
         }
 
-        public static Texture2D LineTex(int texWidth, int texHeight, IntVector2 start, IntVector2 end, Color colour)
+        /// <summary>
+        /// Turns the pixels in the shape's bounding rect into a Texture2D.
+        /// </summary>
+        public static Texture2D ShapeToTexture(IShape shape, Color colour) => ShapeToTexture(shape, colour, shape.boundingRect);
+        /// <summary>
+        /// Turns the pixels in the given IntRect into a Texture2D, using any of the shape's pixels that lie in that rect. 
+        /// </summary>
+        public static Texture2D ShapeToTexture(IShape shape, Color colour, IntRect texRect)
         {
-            Texture2D tex = Tex2DSprite.BlankTexture(texWidth, texHeight);
+            Texture2D tex = Tex2DSprite.BlankTexture(texRect.width, texRect.height);
 
-            foreach (IntVector2 pixel in new Line(start, end))
+            foreach (IntVector2 pixel in shape)
             {
-                tex.SetPixel(pixel, colour);
+                if (texRect.Contains(pixel))
+                {
+                    tex.SetPixel(pixel - texRect.bottomLeft, colour);
+                }
             }
 
             tex.Apply();
             return tex;
-        }
-
-        public static Texture2D RectangleTex(int texWidth, int texHeight, IntVector2 start, IntVector2 end, Color colour, bool filled)
-        {
-            Texture2D tex = Tex2DSprite.BlankTexture(texWidth, texHeight);
-
-            foreach (IntVector2 pixel in new Rectangle(start, end, filled))
-            {
-                tex.SetPixel(pixel, colour);
-            }
-
-            tex.Apply();
-            return tex;
-        }
-
-        public static Texture2D Square(int texWidth, int texHeight, IntVector2 start, IntVector2 end, Color colour, bool filled, bool stayWithinImageBounds)
-        {
-            return RectangleTex(texWidth, texHeight, start, SnapEndCoordToSquare(texWidth, texHeight, start, end, stayWithinImageBounds), colour, filled);
         }
 
         /// <summary>
-        /// Snaps the end coord so that the rect it forms with the start coord is a square.
+        /// Either changes the end coord's x or changes its y so that the rect it forms with the start coord is a square. Chooses the largest such square.
         /// </summary>
         public static IntVector2 SnapEndCoordToSquare(IntVector2 start, IntVector2 end)
         {
             int sideLength = Mathf.Max(Mathf.Abs(end.x - start.x), Mathf.Abs(end.y - start.y));
 
             return start + new IntVector2(sideLength * (int)Mathf.Sign(end.x - start.x), sideLength * (int)Mathf.Sign(end.y - start.y));
-        }
-        /// <summary>
-        /// Snaps the end coord so that the rect it forms with the start coord is a square.
-        /// </summary>
-        public static IntVector2 SnapEndCoordToSquare(int texWidth, int texHeight, IntVector2 start, IntVector2 end, bool stayWithinImageBounds)
-        {
-            int width = Mathf.Abs(end.x - start.x);
-            int height = Mathf.Abs(end.y - start.y);
-
-            int sideLength = Mathf.Max(width, height);
-
-            do
-            {
-                end = start + new IntVector2(sideLength * (int)Mathf.Sign(end.x - start.x), sideLength * (int)Mathf.Sign(end.y - start.y));
-                sideLength--;
-            }
-            while (stayWithinImageBounds && !new IntRect(IntVector2.zero, new IntVector2(texWidth - 1, texHeight - 1)).Contains(end) && sideLength >= 0);
-
-            return end;
-        }
-
-        public static Texture2D EllipseTex(int texWidth, int texHeight, IntVector2 start, IntVector2 end, Color colour, bool filled)
-        {
-            Texture2D tex = Tex2DSprite.BlankTexture(texWidth, texHeight);
-
-            foreach (IntVector2 pixel in new Ellipse(start, end, filled))
-            {
-                tex.SetPixel(pixel, colour);
-            }
-
-            tex.Apply();
-            return tex;
-        }
-
-        public static Texture2D Circle(int texWidth, int texHeight, IntVector2 start, IntVector2 end, Color colour, bool filled, bool stayWithinImageBounds)
-        {
-            return EllipseTex(texWidth, texHeight, start, SnapEndCoordToSquare(texWidth, texHeight, start, end, stayWithinImageBounds), colour, filled);
-        }
-
-        public static Texture2D RightTriangleTex(int texWidth, int texHeight, IntVector2 start, IntVector2 end, Color colour, bool rightAngleOnBottom, bool filled)
-        {
-            Texture2D tex = Tex2DSprite.BlankTexture(texWidth, texHeight);
-
-            foreach (IntVector2 pixel in new RightTriangle(start, end, rightAngleOnBottom ? RightTriangle.RightAngleLocation.Bottom : RightTriangle.RightAngleLocation.Top, filled))
-            {
-                tex.SetPixel(pixel, colour);
-            }
-
-            tex.Apply();
-            return tex;
         }
 
         public static Texture2D Diamond(int texWidth, int texHeight, IntVector2 start, IntVector2 end, Color colour, bool filled)

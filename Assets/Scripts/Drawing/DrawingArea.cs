@@ -749,23 +749,32 @@ namespace PAC.Drawing
             }
             else if (tool == Tool.Line)
             {
-                if (leftClickedOn) { PreviewLine(mouseDragPoints[0], pixel, colour); }
+                if (leftClickedOn) { PreviewShape(new Shapes.Line(mouseDragPoints[0], pixel), colour); }
             }
             else if (tool == Tool.Shape && (leftClickedOn || rightClickedOn))
             {
                 if (toolbar.shapeToolShape == Shape.Rectangle)
                 {
-                    if (holdingCtrl) { PreviewSquare(mouseDragPoints[0], pixel, colour, rightClickedOn); }
-                    else { PreviewRectangle(mouseDragPoints[0], pixel, colour, rightClickedOn); }
+                    IntVector2 end = pixel;
+                    if (holdingCtrl)
+                    {
+                        end = Shapes.SnapEndCoordToSquare(mouseDragPoints[0], end);
+                    }
+                    PreviewShape(new Shapes.Rectangle(mouseDragPoints[0], end, rightClickedOn), colour);
                 }
                 else if (toolbar.shapeToolShape == Shape.Ellipse)
                 {
-                    if (holdingCtrl) { PreviewCircle(mouseDragPoints[0], pixel, colour, rightClickedOn); }
-                    else { PreviewEllipse(mouseDragPoints[0], pixel, colour, rightClickedOn); }
+                    IntVector2 end = pixel;
+                    if (holdingCtrl)
+                    {
+                        end = Shapes.SnapEndCoordToSquare(mouseDragPoints[0], end);
+                    }
+                    PreviewShape(new Shapes.Ellipse(mouseDragPoints[0], end, rightClickedOn), colour);
                 }
                 else if (toolbar.shapeToolShape == Shape.Triangle)
                 {
-                    PreviewTriangle(mouseDragPoints[0], pixel, colour, !holdingCtrl, rightClickedOn);
+                    Shapes.RightTriangle.RightAngleLocation rightAngleLocation = holdingCtrl ? Shapes.RightTriangle.RightAngleLocation.Top : Shapes.RightTriangle.RightAngleLocation.Bottom;
+                    PreviewShape(new Shapes.RightTriangle(mouseDragPoints[0], pixel, rightAngleLocation, rightClickedOn), colour);
                 }
             }
             else if (tool == Tool.IsoBox && (leftClickedOn || rightClickedOn))
@@ -791,13 +800,21 @@ namespace PAC.Drawing
                 }
                 else if (toolbar.selectionMode == SelectionMode.Rectangle)
                 {
-                    if (holdingCtrl) { SelectionSquare(mouseDragPoints[0], pixel, rightClickedOn); }
-                    else { SelectionRectangle(mouseDragPoints[0], pixel, rightClickedOn); }
+                    IntVector2 end = pixel;
+                    if (holdingCtrl)
+                    {
+                        end = Shapes.SnapEndCoordToSquare(mouseDragPoints[0], end);
+                    }
+                    SelectionShape(new Shapes.Rectangle(mouseDragPoints[0], end, true), rightClickedOn);
                 }
                 else if (toolbar.selectionMode == SelectionMode.Ellipse)
                 {
-                    if (holdingCtrl) { SelectionCircle(mouseDragPoints[0], pixel, rightClickedOn); }
-                    else { SelectionEllipse(mouseDragPoints[0], pixel, rightClickedOn); }
+                    IntVector2 end = pixel;
+                    if (holdingCtrl)
+                    {
+                        end = Shapes.SnapEndCoordToSquare(mouseDragPoints[0], end);
+                    }
+                    SelectionShape(new Shapes.Ellipse(mouseDragPoints[0], end, true), rightClickedOn);
                 }
             }
             else if (tool == Tool.Move)
@@ -813,26 +830,38 @@ namespace PAC.Drawing
         {
             if (tool == Tool.Line && leftClickedOn)
             {
-                Tools.UseLine(file, layer, frame, mouseDragPoints[0], pixel, colour);
+                Tools.UseShape(file, layer, frame, new Shapes.Line(mouseDragPoints[0], pixel), colour);
                 UpdateDrawing();
             }
             else if (tool == Tool.Shape && (leftClickedOn || rightClickedOn))
             {
                 if (toolbar.shapeToolShape == Shape.Rectangle)
                 {
-                    if (holdingCtrl) { Tools.UseSquare(file, layer, frame, mouseDragPoints[0], pixel, colour, rightClickedOn, true); }
-                    else { Tools.UseRectangle(file, layer, frame, mouseDragPoints[0], pixel, colour, rightClickedOn); }
+                    IntVector2 end = pixel;
+                    if (holdingCtrl)
+                    {
+                        end = Shapes.SnapEndCoordToSquare(mouseDragPoints[0], end);
+                    }
+                    Tools.UseShape(file, layer, frame, new Shapes.Rectangle(mouseDragPoints[0], end, rightClickedOn), colour);
+
                     UpdateDrawing();
                 }
                 else if (toolbar.shapeToolShape == Shape.Ellipse)
                 {
-                    if (holdingCtrl) { Tools.UseCircle(file, layer, frame, mouseDragPoints[0], pixel, colour, rightClickedOn, true); }
-                    else { Tools.UseEllipse(file, layer, frame, mouseDragPoints[0], pixel, colour, rightClickedOn); }
+                    IntVector2 end = pixel;
+                    if (holdingCtrl)
+                    {
+                        end = Shapes.SnapEndCoordToSquare(mouseDragPoints[0], end);
+                    }
+                    Tools.UseShape(file, layer, frame, new Shapes.Ellipse(mouseDragPoints[0], end, rightClickedOn), colour);
+
                     UpdateDrawing();
                 }
                 else if (toolbar.shapeToolShape == Shape.Triangle)
                 {
-                    Tools.UseRightTriangle(file, layer, frame, mouseDragPoints[0], pixel, colour, !holdingCtrl, rightClickedOn);
+                    Shapes.RightTriangle.RightAngleLocation rightAngleLocation = holdingCtrl ? Shapes.RightTriangle.RightAngleLocation.Top : Shapes.RightTriangle.RightAngleLocation.Bottom;
+                    Tools.UseShape(file, layer, frame, new Shapes.RightTriangle(mouseDragPoints[0], pixel, rightAngleLocation, rightClickedOn), colour);
+
                     UpdateDrawing();
                 }
             }
@@ -880,54 +909,9 @@ namespace PAC.Drawing
             }
         }
 
-        private void PreviewLine(IntVector2 start, IntVector2 end, Color colour)
+        private void PreviewShape(Shapes.IShape shape, Color colour)
         {
-            IntRect rect = new IntRect(start, 2 * end - start);
-            Texture2D tex = Shapes.LineTex(rect.width, rect.height, start - rect.bottomLeft, end - rect.bottomLeft, colour);
-
-            SetPreview(tex, rect.bottomLeft);
-        }
-
-        private void PreviewSquare(IntVector2 start, IntVector2 end, Color colour, bool filled)
-        {
-            end = Shapes.SnapEndCoordToSquare(file.width, file.height, start, end, true);
-            IntRect rect = new IntRect(start, end);
-            Texture2D tex = Shapes.Square(rect.width, rect.height, start - rect.bottomLeft, end - rect.bottomLeft, colour, filled, true);
-
-            SetPreview(tex, rect.bottomLeft);
-        }
-
-        private void PreviewRectangle(IntVector2 start, IntVector2 end, Color colour, bool filled)
-        {
-            IntRect rect = new IntRect(start, end);
-            Texture2D tex = Shapes.RectangleTex(rect.width, rect.height, start - rect.bottomLeft, end - rect.bottomLeft, colour, filled);
-
-            SetPreview(tex, rect.bottomLeft);
-        }
-
-        private void PreviewCircle(IntVector2 start, IntVector2 end, Color colour, bool filled)
-        {
-            end = Shapes.SnapEndCoordToSquare(file.width, file.height, start, end, true);
-            IntRect rect = new IntRect(start, end);
-            Texture2D tex = Shapes.Circle(rect.width, rect.height, start - rect.bottomLeft, end - rect.bottomLeft, colour, filled, true);
-
-            SetPreview(tex, rect.bottomLeft);
-        }
-
-        private void PreviewEllipse(IntVector2 start, IntVector2 end, Color colour, bool filled)
-        {
-            IntRect rect = new IntRect(start, end);
-            Texture2D tex = Shapes.EllipseTex(rect.width, rect.height, start - rect.bottomLeft, end - rect.bottomLeft, colour, filled);
-
-            SetPreview(tex, rect.bottomLeft);
-        }
-
-        private void PreviewTriangle(IntVector2 start, IntVector2 end, Color colour, bool rightAngleOnBottom, bool filled)
-        {
-            IntRect rect = new IntRect(start, end);
-            Texture2D tex = Shapes.RightTriangleTex(rect.width, rect.height, start - rect.bottomLeft, end - rect.bottomLeft, colour, rightAngleOnBottom, filled);
-
-            SetPreview(tex, rect.bottomLeft);
+            SetPreview(Shapes.ShapeToTexture(shape, colour), shape.boundingRect.bottomLeft);
         }
 
         private void PreviewIsoRectangle(IntVector2 start, IntVector2 end, Color colour, bool filled)
@@ -1064,48 +1048,12 @@ namespace PAC.Drawing
             }
         }
 
-        private void SelectionSquare(IntVector2 start, IntVector2 end, bool erase)
+        private void SelectionShape(Shapes.IShape shape, bool erase)
         {
+            Texture2D tex = Shapes.ShapeToTexture(shape, Config.Colours.mask, file.rect);
             if (erase)
             {
-                selectionMask = Tex2DSprite.Subtract(selectionMask, Shapes.Square(file.width, file.height, start, end, Config.Colours.mask, true, true));
-            }
-            else
-            {
-                selectionMask = Shapes.Square(file.width, file.height, start, end, Config.Colours.mask, true, true);
-            }
-        }
-        private void SelectionRectangle(IntVector2 start, IntVector2 end, bool erase)
-        {
-            if (erase)
-            {
-                selectionMask = Tex2DSprite.Subtract(selectionMask, Shapes.RectangleTex(file.width, file.height, start, end, Config.Colours.mask, true));
-            }
-            else
-            {
-                selectionMask = Shapes.RectangleTex(file.width, file.height, start, end, Config.Colours.mask, true);
-            }
-        }
-        private void SelectionCircle(IntVector2 start, IntVector2 end, bool erase)
-        {
-            if (erase)
-            {
-                selectionMask = Tex2DSprite.Subtract(selectionMask, Shapes.Circle(file.width, file.height, start, end, Config.Colours.mask, true, true));
-            }
-            else
-            {
-                selectionMask = Shapes.Circle(file.width, file.height, start, end, Config.Colours.mask, true, true);
-            }
-        }
-        private void SelectionEllipse(IntVector2 start, IntVector2 end, bool erase)
-        {
-            if (erase)
-            {
-                selectionMask = Tex2DSprite.Subtract(selectionMask, Shapes.EllipseTex(file.width, file.height, start, end, Config.Colours.mask, true));
-            }
-            else
-            {
-                selectionMask = Shapes.EllipseTex(file.width, file.height, start, end, Config.Colours.mask, true);
+                selectionMask = Tex2DSprite.Subtract(selectionMask, tex);
             }
         }
 
