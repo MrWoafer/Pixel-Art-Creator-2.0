@@ -499,7 +499,7 @@ namespace PAC.Input
             {
                 return new Tuple<Texture2D, Vector2>(cursorSpriteEllipse, cursorHotSpotEllipse);
             }
-            else if (shape == Shape.Triangle)
+            else if (shape == Shape.RightTriangle)
             {
                 if (inputSystem.globalKeyboardTarget.IsHeldExactly(KeyCode.LeftControl))
                 {

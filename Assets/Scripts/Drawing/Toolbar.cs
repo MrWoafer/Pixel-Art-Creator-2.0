@@ -13,7 +13,7 @@ namespace PAC.Drawing
     {
         Rectangle = 0,
         Ellipse = 1,
-        Triangle = 2
+        RightTriangle = 2,
     }
 
     public enum SelectionMode
@@ -230,7 +230,7 @@ namespace PAC.Drawing
             {
                 if (inputSystem.globalKeyboardTarget.IsHeldExactly(KeyCode.Alpha1)) { shapeToolShape = Shape.Rectangle; }
                 else if (inputSystem.globalKeyboardTarget.IsHeldExactly(KeyCode.Alpha2)) { shapeToolShape = Shape.Ellipse; }
-                else if (inputSystem.globalKeyboardTarget.IsHeldExactly(KeyCode.Alpha3)) { shapeToolShape = Shape.Triangle; }
+                else if (inputSystem.globalKeyboardTarget.IsHeldExactly(KeyCode.Alpha3)) { shapeToolShape = Shape.RightTriangle; }
             }
             else if (selectedTool == Tool.Selection)
             {

@@ -771,7 +771,7 @@ namespace PAC.Drawing
                     }
                     PreviewShape(new Shapes.Ellipse(mouseDragPoints[0], end, rightClickedOn), colour);
                 }
-                else if (toolbar.shapeToolShape == Shape.Triangle)
+                else if (toolbar.shapeToolShape == Shape.RightTriangle)
                 {
                     Shapes.RightTriangle.RightAngleLocation rightAngleLocation = holdingCtrl ? Shapes.RightTriangle.RightAngleLocation.Top : Shapes.RightTriangle.RightAngleLocation.Bottom;
                     PreviewShape(new Shapes.RightTriangle(mouseDragPoints[0], pixel, rightAngleLocation, rightClickedOn), colour);
@@ -857,7 +857,7 @@ namespace PAC.Drawing
 
                     UpdateDrawing();
                 }
-                else if (toolbar.shapeToolShape == Shape.Triangle)
+                else if (toolbar.shapeToolShape == Shape.RightTriangle)
                 {
                     Shapes.RightTriangle.RightAngleLocation rightAngleLocation = holdingCtrl ? Shapes.RightTriangle.RightAngleLocation.Top : Shapes.RightTriangle.RightAngleLocation.Bottom;
                     Tools.UseShape(file, layer, frame, new Shapes.RightTriangle(mouseDragPoints[0], pixel, rightAngleLocation, rightClickedOn), colour);
