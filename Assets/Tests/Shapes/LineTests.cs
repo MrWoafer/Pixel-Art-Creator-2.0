@@ -236,5 +236,69 @@ namespace PAC.Tests
                 }
             }
         }
+
+        [Test]
+        [Category("Shapes")]
+        public void MinX()
+        {
+            foreach (Shapes.Line line in testCases)
+            {
+                for (int y = line.boundingRect.bottomLeft.y; y <= line.boundingRect.topRight.y; y++)
+                {
+                    Assert.AreEqual(line.Where(p => p.y == y).Select(p => p.x).Min(), line.MinX(y));
+                }
+
+                Assert.Throws<ArgumentOutOfRangeException>(() => line.MinX(line.boundingRect.bottomLeft.y - 1));
+                Assert.Throws<ArgumentOutOfRangeException>(() => line.MinX(line.boundingRect.topRight.y + 1));
+            }
+        }
+
+        [Test]
+        [Category("Shapes")]
+        public void MaxX()
+        {
+            foreach (Shapes.Line line in testCases)
+            {
+                for (int y = line.boundingRect.bottomLeft.y; y <= line.boundingRect.topRight.y; y++)
+                {
+                    Assert.AreEqual(line.Where(p => p.y == y).Select(p => p.x).Max(), line.MaxX(y));
+                }
+
+                Assert.Throws<ArgumentOutOfRangeException>(() => line.MaxX(line.boundingRect.bottomLeft.y - 1));
+                Assert.Throws<ArgumentOutOfRangeException>(() => line.MaxX(line.boundingRect.topRight.y + 1));
+            }
+        }
+
+        [Test]
+        [Category("Shapes")]
+        public void MinY()
+        {
+            foreach (Shapes.Line line in testCases)
+            {
+                for (int x = line.boundingRect.bottomLeft.x; x <= line.boundingRect.topRight.x; x++)
+                {
+                    Assert.AreEqual(line.Where(p => p.x == x).Select(p => p.y).Min(), line.MinY(x));
+                }
+
+                Assert.Throws<ArgumentOutOfRangeException>(() => line.MinY(line.boundingRect.bottomLeft.x - 1));
+                Assert.Throws<ArgumentOutOfRangeException>(() => line.MinY(line.boundingRect.topRight.x + 1));
+            }
+        }
+
+        [Test]
+        [Category("Shapes")]
+        public void MaxY()
+        {
+            foreach (Shapes.Line line in testCases)
+            {
+                for (int x = line.boundingRect.bottomLeft.x; x <= line.boundingRect.topRight.x; x++)
+                {
+                    Assert.AreEqual(line.Where(p => p.x == x).Select(p => p.y).Max(), line.MaxY(x));
+                }
+
+                Assert.Throws<ArgumentOutOfRangeException>(() => line.MaxY(line.boundingRect.bottomLeft.x - 1));
+                Assert.Throws<ArgumentOutOfRangeException>(() => line.MaxY(line.boundingRect.topRight.x + 1));
+            }
+        }
     }
 }

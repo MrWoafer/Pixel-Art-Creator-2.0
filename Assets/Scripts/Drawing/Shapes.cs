@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using PAC.DataStructures;
+using PAC.Exceptions;
 using PAC.Extensions;
 using UnityEngine;
 
@@ -316,6 +317,170 @@ namespace PAC.Drawing
                     bool positiveGradient = Math.Sign(end.x - start.x) == Math.Sign(end.y - start.y);
                     return positiveGradient ? pixel.y <= this[index].y : pixel.y >= this[index].y;
                 }
+            }
+
+            /// <summary>
+            /// Returns the minimum x coord of the pixels on the line that have the given y coord.
+            /// </summary>
+            public int MinX(int y)
+            {
+                if (y < boundingRect.bottomLeft.y || y > boundingRect.topRight.y)
+                {
+                    throw new ArgumentOutOfRangeException("y must be within the y range of the line. y: " + y + "; line y range: [" + boundingRect.bottomLeft.y + ", " +  boundingRect.topRight.y + "]");
+                }
+
+                if (!isMoreHorizontal)
+                {
+                    return this[(y - start.y) * Math.Sign(end.y - start.y)].x;
+                }
+
+                if (start.x <= end.x)
+                {
+                    for (int i = 0; i < Count; i++)
+                    {
+                        IntVector2 pixel = this[i];
+                        if (pixel.y == y)
+                        {
+                            return pixel.x;
+                        }
+                    }
+                }
+                else
+                {
+                    for (int i = Count - 1; i >= 0; i--)
+                    {
+                        IntVector2 pixel = this[i];
+                        if (pixel.y == y)
+                        {
+                            return pixel.x;
+                        }
+                    }
+                }
+
+                throw new UnreachableException("A value should have been returned already.");
+            }
+
+            /// <summary>
+            /// Returns the maximum x coord of the pixels on the line that have the given y coord.
+            /// </summary>
+            public int MaxX(int y)
+            {
+                if (y < boundingRect.bottomLeft.y || y > boundingRect.topRight.y)
+                {
+                    throw new ArgumentOutOfRangeException("y must be within the y range of the line. y: " + y + "; line y range: [" + boundingRect.bottomLeft.y + ", " + boundingRect.topRight.y + "]");
+                }
+
+                if (!isMoreHorizontal)
+                {
+                    return this[(y - start.y) * Math.Sign(end.y - start.y)].x;
+                }
+
+                if (start.x <= end.x)
+                {
+                    for (int i = Count - 1; i >= 0; i--)
+                    {
+                        IntVector2 pixel = this[i];
+                        if (pixel.y == y)
+                        {
+                            return pixel.x;
+                        }
+                    }
+                }
+                else
+                {
+                    for (int i = 0; i < Count; i++)
+                    {
+                        IntVector2 pixel = this[i];
+                        if (pixel.y == y)
+                        {
+                            return pixel.x;
+                        }
+                    }
+                }
+
+                throw new UnreachableException("A value should have been returned already.");
+            }
+
+            /// <summary>
+            /// Returns the minimum y coord of the pixels on the line that have the given x coord.
+            /// </summary>
+            public int MinY(int x)
+            {
+                if (x < boundingRect.bottomLeft.x || x > boundingRect.topRight.x)
+                {
+                    throw new ArgumentOutOfRangeException("x must be within the x range of the line. x: " + x + "; line x range: [" + boundingRect.bottomLeft.x + ", " + boundingRect.topRight.x + "]");
+                }
+
+                if (isMoreHorizontal)
+                {
+                    return this[(x - start.x) * Math.Sign(end.x - start.x)].y;
+                }
+
+                if (start.y <= end.y)
+                {
+                    for (int i = 0; i < Count; i++)
+                    {
+                        IntVector2 pixel = this[i];
+                        if (pixel.x == x)
+                        {
+                            return pixel.y;
+                        }
+                    }
+                }
+                else
+                {
+                    for (int i = Count - 1; i >= 0; i--)
+                    {
+                        IntVector2 pixel = this[i];
+                        if (pixel.x == x)
+                        {
+                            return pixel.y;
+                        }
+                    }
+                }
+
+                throw new UnreachableException("A value should have been returned already.");
+            }
+
+            /// <summary>
+            /// Returns the maximum y coord of the pixels on the line that have the given x coord.
+            /// </summary>
+            public int MaxY(int x)
+            {
+                if (x < boundingRect.bottomLeft.x || x > boundingRect.topRight.x)
+                {
+                    throw new ArgumentOutOfRangeException("x must be within the x range of the line. x: " + x + "; line x range: [" + boundingRect.bottomLeft.x + ", " + boundingRect.topRight.x + "]");
+                }
+
+                if (isMoreHorizontal)
+                {
+                    return this[(x - start.x) * Math.Sign(end.x - start.x)].y;
+                }
+
+                if (start.y <= end.y)
+                {
+                    for (int i = Count - 1; i >= 0; i--)
+                    {
+                        IntVector2 pixel = this[i];
+                        if (pixel.x == x)
+                        {
+                            return pixel.y;
+                        }
+                    }
+                }
+                else
+                {
+                    for (int i = 0; i < Count; i++)
+                    {
+                        IntVector2 pixel = this[i];
+                        if (pixel.x == x)
+                        {
+                            return pixel.y;
+                        }
+                    }
+                }
+
+                throw new UnreachableException("A value should have been returned already.");
             }
 
             /// <summary>
