@@ -508,6 +508,22 @@ namespace PAC.Drawing
             }
 
             /// <summary>
+            /// Returns the number of pixels on the line with the given x coord.
+            /// </summary>
+            public int CountOnX(int x)
+            {
+                return MaxY(x) - MinY(x) + 1;
+            }
+
+            /// <summary>
+            /// Returns the number of pixels on the line with the given y coord.
+            /// </summary>
+            public int CountOnY(int y)
+            {
+                return MaxX(y) - MinX(y) + 1;
+            }
+
+            /// <summary>
             /// Translates the line by the given vector.
             /// </summary>
             public static Line operator +(IntVector2 translation, Line line) => line + translation;
@@ -1474,23 +1490,17 @@ namespace PAC.Drawing
                         int count = edges.bottomLeft.Count;
 
                         // Bottom-right edge
+                        count += edges.bottomRight.Count;
                         if (edges.bottomRight.boundingRect.bottomLeft.x == edges.bottomLeft.boundingRect.topRight.x)
                         {
-                            count += edges.bottomRight.Count - (edges.bottomLeft.MaxY(edges.bottomRight.boundingRect.bottomLeft.x) - edges.bottomLeft.MinY(edges.bottomRight.boundingRect.bottomLeft.x) + 1);
-                        }
-                        else
-                        {
-                            count += edges.bottomRight.Count;
+                            count -= edges.bottomLeft.CountOnX(edges.bottomRight.boundingRect.bottomLeft.x);
                         }
 
                         // Top-right edge
+                        count += edges.topRight.Count;
                         if (edges.topRight.boundingRect.bottomLeft.y == edges.bottomRight.boundingRect.topRight.y)
                         {
-                            count += edges.topRight.Count - (edges.bottomRight.MaxX(edges.topRight.boundingRect.bottomLeft.y) - edges.bottomRight.MinX(edges.topRight.boundingRect.bottomLeft.y) + 1);
-                        }
-                        else
-                        {
-                            count += edges.topRight.Count;
+                            count -= edges.bottomRight.CountOnY(edges.topRight.boundingRect.bottomLeft.y);
                         }
 
                         // Top-left edge
@@ -1498,11 +1508,11 @@ namespace PAC.Drawing
                         // If I'm correct, these two if statements should never both be true
                         if (edges.topLeft.boundingRect.topRight.x == edges.topRight.boundingRect.bottomLeft.x)
                         {
-                            count -= edges.topRight.MaxY(edges.topLeft.boundingRect.topRight.x) - edges.topRight.MinY(edges.topLeft.boundingRect.topRight.x) + 1;
+                            count -= edges.topRight.CountOnX(edges.topLeft.boundingRect.topRight.x);
                         }
                         if (edges.topLeft.boundingRect.bottomLeft.y == edges.bottomLeft.boundingRect.topRight.y)
                         {
-                            count -= edges.bottomLeft.MaxX(edges.topLeft.boundingRect.bottomLeft.y) - edges.bottomLeft.MinX(edges.topLeft.boundingRect.bottomLeft.y) + 1;
+                            count -= edges.bottomLeft.CountOnY(edges.topLeft.boundingRect.bottomLeft.y);
                         }
 
                         return count;
