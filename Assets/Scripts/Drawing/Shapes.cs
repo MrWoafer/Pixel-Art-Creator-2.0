@@ -246,7 +246,7 @@ namespace PAC.Drawing
             }
 
             /// <summary>
-            /// Whether the point lies to the left of / on the line (including lying within the y range of the line).
+            /// Whether the point lies to the left of / on the line (and lies within the y range of the line).
             /// </summary>
             public bool PointIsToLeft(IntVector2 pixel)
             {
@@ -283,7 +283,7 @@ namespace PAC.Drawing
             }
 
             /// <summary>
-            /// Whether the point lies to the right of / on the line (including lying within the y range of the line).
+            /// Whether the point lies to the right of / on the line (and lies within the y range of the line).
             /// </summary>
             public bool PointIsToRight(IntVector2 pixel)
             {
