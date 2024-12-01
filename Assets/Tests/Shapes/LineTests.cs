@@ -285,5 +285,50 @@ namespace PAC.Tests
                 }
             }
         }
+
+        [Test]
+        [Category("Shapes")]
+        public void PointIsToRight()
+        {
+            foreach (IntVector2 start in new IntRect(new IntVector2(-2, -2), new IntVector2(2, 2)))
+            {
+                foreach (IntVector2 end in new IntRect(new IntVector2(-5, -5), new IntVector2(5, 5)))
+                {
+                    Shapes.Line line = new Shapes.Line(start, end);
+                    foreach (IntVector2 pixel in line)
+                    {
+                        for (int x = pixel.x; x <= line.boundingRect.topRight.x + 2; x++)
+                        {
+                            IntVector2 test = new IntVector2(x, pixel.y);
+                            Assert.True(line.PointIsToRight(test), "Failed with " + line + " and " + test);
+                        }
+
+                        for (int x = pixel.x - 1; x >= line.boundingRect.bottomLeft.x - 2; x--)
+                        {
+                            IntVector2 test = new IntVector2(x, pixel.y);
+                            if (!line.Contains(pixel))
+                            {
+                                Assert.False(line.PointIsToRight(test), "Failed with " + line + " and " + test);
+                            }
+                        }
+                    }
+
+                    for (int x = line.boundingRect.bottomLeft.x - 2; x <= line.boundingRect.topRight.x + 2; x++)
+                    {
+                        for (int y = line.boundingRect.topRight.y + 1; y <= line.boundingRect.topRight.y + 2; y++)
+                        {
+                            IntVector2 test = new IntVector2(x, y);
+                            Assert.False(line.PointIsToRight(test), "Failed with " + line + " and " + test);
+                        }
+
+                        for (int y = line.boundingRect.bottomLeft.y - 1; y >= line.boundingRect.topRight.y - 2; y--)
+                        {
+                            IntVector2 test = new IntVector2(x, y);
+                            Assert.False(line.PointIsToRight(test), "Failed with " + line + " and " + test);
+                        }
+                    }
+                }
+            }
+        }
     }
 }

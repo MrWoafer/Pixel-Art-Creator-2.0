@@ -282,6 +282,43 @@ namespace PAC.Drawing
             }
 
             /// <summary>
+            /// Whether the point lies to the right of / on the line (including lying within the y range of the line).
+            /// </summary>
+            public bool PointIsToRight(IntVector2 pixel)
+            {
+                if (!isMoreHorizontal)
+                {
+                    int index = (pixel.y - start.y) * Math.Sign(end.y - start.y);
+                    if (index < 0 || index >= Count)
+                    {
+                        return false;
+                    }
+                    return pixel.x >= this[index].x;
+                }
+                else
+                {
+                    if (pixel.y < boundingRect.bottomLeft.y || pixel.y > boundingRect.topRight.y || pixel.x < boundingRect.bottomLeft.x)
+                    {
+                        return false;
+                    }
+                    if (pixel.x > boundingRect.topRight.x)
+                    {
+                        return true;
+                    }
+
+                    // pixel now lies within bounding rect
+
+                    int index = (pixel.x - start.x) * Math.Sign(end.x - start.x);
+                    if (index < 0 || index >= Count)
+                    {
+                        return false;
+                    }
+                    bool positiveGradient = Math.Sign(end.x - start.x) == Math.Sign(end.y - start.y);
+                    return positiveGradient ? pixel.y <= this[index].y : pixel.y >= this[index].y;
+                }
+            }
+
+            /// <summary>
             /// Translates the line by the given vector.
             /// </summary>
             public static Line operator +(IntVector2 translation, Line line) => line + translation;
