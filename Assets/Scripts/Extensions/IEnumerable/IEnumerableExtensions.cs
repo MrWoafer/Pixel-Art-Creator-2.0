@@ -24,7 +24,7 @@ namespace PAC.Extensions
         {
             if (elements is null)
             {
-                throw new ArgumentException("Given IEnumerable is null.", "elements");
+                throw new ArgumentException("The given IEnumerable is null.", "elements");
             }
 
             while (true)
@@ -42,7 +42,7 @@ namespace PAC.Extensions
         {
             if (elements is null)
             {
-                throw new ArgumentException("Given IEnumerable<" + typeof(T).Name + "> is null.", "elements");
+                throw new ArgumentException("The given IEnumerable<" + typeof(T).Name + "> is null.", "elements");
             }
 
             while (true)
@@ -61,7 +61,7 @@ namespace PAC.Extensions
         {
             if (elements is null)
             {
-                throw new ArgumentException("Given IEnumerable is null.", "elements");
+                throw new ArgumentException("The given IEnumerable is null.", "elements");
             }
 
             foreach (object element in elements)
@@ -77,7 +77,7 @@ namespace PAC.Extensions
         {
             if (elements is null)
             {
-                throw new ArgumentException("Given IEnumerable<" + typeof(T).Name + "> is null.", "elements");
+                throw new ArgumentException("The given IEnumerable<" + typeof(T).Name + "> is null.", "elements");
             }
 
             foreach (T element in elements)
@@ -94,7 +94,7 @@ namespace PAC.Extensions
         {
             if (elements is null)
             {
-                throw new ArgumentException("Given IEnumerable<" + typeof(T).Name + "> is null.", "elements");
+                throw new ArgumentException("The given IEnumerable<" + typeof(T).Name + "> is null.", "elements");
             }
 
             if (n < 0)
@@ -121,7 +121,7 @@ namespace PAC.Extensions
         {
             if (elements is null)
             {
-                throw new ArgumentException("Given IEnumerable<" + typeof(T).Name + "> is null.", "elements");
+                throw new ArgumentException("The given IEnumerable<" + typeof(T).Name + "> is null.", "elements");
             }
 
             if (n < 0)
@@ -149,7 +149,7 @@ namespace PAC.Extensions
         {
             if (elements is null)
             {
-                throw new ArgumentException("Given IEnumerable<" + typeof(T).Name + "> is null.", "elements");
+                throw new ArgumentException("The given IEnumerable<" + typeof(T).Name + "> is null.", "elements");
             }
 
             if (n < 0)
@@ -181,7 +181,7 @@ namespace PAC.Extensions
         {
             if (elements is null)
             {
-                throw new ArgumentException("Given IEnumerable<" + typeof(T).Name + "> is null.", "elements");
+                throw new ArgumentException("The given IEnumerable<" + typeof(T).Name + "> is null.", "elements");
             }
 
             T previousElement = default;
