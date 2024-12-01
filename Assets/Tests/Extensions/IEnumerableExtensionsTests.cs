@@ -1,5 +1,6 @@
 using NUnit.Framework;
 using PAC.Extensions;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -77,6 +78,44 @@ namespace PAC.Tests
             {
                 Assert.True(expected.SequenceEqual(input.PairCurrentAndNext()));
             }
+        }
+
+        [Test]
+        [Category("Extensions")]
+        public void ArgMin()
+        {
+            (string expected, IEnumerable<string> elements, Func<string, int> function)[] testCases =
+            {
+                ("h", new[] { "h", "el", "lo!" }, s => s.Length),
+                ("e", new[] { "he", "e", "lo!" }, s => s.Length),
+                ("ij", new[] { "abcde", "fgh", "ij", "klmnop", "qr", "tuv", "wxyz" }, s => s.Length)
+            };
+
+            foreach ((string expected, IEnumerable<string> elements, Func<string, int> function) in testCases)
+            {
+                Assert.AreEqual(expected, elements.ArgMin(function));
+            }
+
+            Assert.Throws<ArgumentException>(() => new string[] { }.ArgMin(s => s.Length));
+        }
+
+        [Test]
+        [Category("Extensions")]
+        public void ArgMax()
+        {
+            (string expected, IEnumerable<string> elements, Func<string, int> function)[] testCases =
+            {
+                ("lo!", new[] { "h", "el", "lo!" }, s => s.Length),
+                ("ell", new[] { "h", "ell", "o!" }, s => s.Length),
+                ("abcde", new[] { "abcde", "fgh", "ij", "klmno", "pqr", "tuv", "wxyz" }, s => s.Length)
+            };
+
+            foreach ((string expected, IEnumerable<string> elements, Func<string, int> function) in testCases)
+            {
+                Assert.AreEqual(expected, elements.ArgMax(function));
+            }
+
+            Assert.Throws<ArgumentException>(() => new string[] { }.ArgMin(s => s.Length));
         }
     }
 }
