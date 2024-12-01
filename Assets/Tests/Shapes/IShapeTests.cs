@@ -34,6 +34,9 @@ namespace PAC.Tests
             }
         }
 
+        /// <summary>
+        /// The default implementation tests that the Count property matches the number of distinct pixels in the enumerator.
+        /// </summary>
         [Test]
         [Category("Shapes")]
         public virtual void Count()
