@@ -75,6 +75,19 @@ namespace PAC.Tests
             }
         }
 
+        /// <summary>
+        /// Tests that the shape has exactly one connected component (defined in terms of pixels being adjacent, including diagonally).
+        /// </summary>
+        [Test]
+        [Category("Shapes")]
+        public virtual void Connected()
+        {
+            foreach (T shape in testCases)
+            {
+                IShapeTestHelper.Connected(shape);
+            }
+        }
+
         [Test]
         [Category("Shapes")]
         public virtual void Translate()
@@ -154,6 +167,72 @@ namespace PAC.Tests
         }
 
         /// <summary>
+        /// Tests that no pixels are repeated at all in the shape's enumerator.
+        /// </summary>
+        public static void NoRepeatsAtAll(Shapes.IShape shape)
+        {
+            HashSet<IntVector2> visited = new HashSet<IntVector2>();
+            foreach (IntVector2 pixel in shape)
+            {
+                Assert.False(visited.Contains(pixel), "Failed with " + shape + " and " + pixel);
+                visited.Add(pixel);
+            }
+        }
+
+        /// <summary>
+        /// <para>
+        /// Tests that every pixel has another pixel adjacent to it (including diagonally).
+        /// </para>
+        /// <para>
+        /// Note this is a strictly weaker test than Connected().
+        /// </para>
+        /// </summary>
+        public static void NoIsolatedPoints(Shapes.IShape shape)
+        {
+            HashSet<IntVector2> pixels = shape.ToHashSet();
+            foreach (IntVector2 pixel in shape)
+            {
+                bool hasAdjacent = false;
+                foreach (IntVector2 check in (pixel + new IntRect(-IntVector2.one, IntVector2.one)).Where(p => p != pixel))
+                {
+                    if (pixels.Contains(check))
+                    {
+                        hasAdjacent = true;
+                        break;
+                    }
+                }
+
+                Assert.True(hasAdjacent, "Failed with " + shape + " and " + pixel);
+            }
+        }
+
+        /// <summary>
+        /// Tests that the shape has exactly one connected component (defined it terms of pixels being adjacent, including diagonally).
+        /// </summary>
+        public static void Connected(Shapes.IShape shape)
+        {
+            HashSet<IntVector2> pixels = shape.ToHashSet();
+            HashSet<IntVector2> visited = new HashSet<IntVector2>();
+            Queue<IntVector2> toVisit = new Queue<IntVector2>();
+            toVisit.Enqueue(shape.First());
+            
+            while (toVisit.Count > 0)
+            {
+                IntVector2 pixel = toVisit.Dequeue();
+                visited.Add(pixel);
+                foreach (IntVector2 offsetPixel in pixel + new IntRect(-IntVector2.one, IntVector2.one))
+                {
+                    if (pixels.Contains(offsetPixel) && !visited.Contains(offsetPixel))
+                    {
+                        toVisit.Enqueue(offsetPixel);
+                    }
+                }
+            }
+
+            Assert.AreEqual(pixels.Count(), visited.Count, "Failed with " + shape);
+        }
+
+        /// <summary>
         /// Applies Translate() to the shape and checks that the enumerator of the resulting shape is a translation of the original shape's enumerator.
         /// </summary>
         public static void Translate(Shapes.IShape shape)
@@ -186,19 +265,6 @@ namespace PAC.Tests
             {
                 IEnumerable<IntVector2> expected = shape.Select(p => p.Flip(axis));
                 Assert.True(expected.ToHashSet().SetEquals(shape.Flip(axis)), "Failed with " + shape + " and " + axis);
-            }
-        }
-
-        /// <summary>
-        /// Tests that no pixels are repeated at all in the shape's enumerator.
-        /// </summary>
-        public static void NoRepeatsAtAll(Shapes.IShape shape)
-        {
-            HashSet<IntVector2> visited = new HashSet<IntVector2>();
-            foreach (IntVector2 pixel in shape)
-            {
-                Assert.False(visited.Contains(pixel), "Failed with " + shape + " and " + pixel);
-                visited.Add(pixel);
             }
         }
 
