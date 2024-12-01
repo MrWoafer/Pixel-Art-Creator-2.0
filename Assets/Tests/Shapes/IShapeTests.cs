@@ -144,6 +144,7 @@ namespace PAC.Tests
 
             foreach (IntVector2 pixel in testRegion)
             {
+                // Using Assert.True(x == y) seems to be faster than Assert.AreEqual(x, y)
                 Assert.True(pixels.Contains(pixel) == shape.Contains(pixel), "Failed with " + shape + " and " + pixel + ". Expected " + pixels.Contains(pixel));
             }
         }
