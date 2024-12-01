@@ -7,32 +7,102 @@ using System;
 
 namespace PAC.Tests
 {
-    // I guess this should technically be IIShapeTests
     /// <summary>
     /// The tests that should be implemented for every shape.
     /// </summary>
-    public interface IShapeTests
+    public abstract class IShapeTests<T> where T : Shapes.IShape
     {
+        protected abstract IEnumerable<T> testCases
+        {
+            get;
+        }
+
         /// <summary>
         /// Tests that instances of the shape that are single points have the correct shape.
         /// </summary>
-        public void ShapeSinglePoint();
+        [Test]
+        [Category("Shapes")]
+        public abstract void ShapeSinglePoint();
 
-        public void BoundingRect();
+        [Test]
+        [Category("Shapes")]
+        public virtual void BoundingRect()
+        {
+            foreach (T shape in testCases)
+            {
+                IShapeTestHelper.BoundingRect(shape);
+            }
+        }
 
-        public void Count();
-        public void Contains();
+        [Test]
+        [Category("Shapes")]
+        public virtual void Count()
+        {
+            foreach (T shape in testCases)
+            {
+                IShapeTestHelper.CountDistinct(shape);
+            }
+        }
+        [Test]
+        [Category("Shapes")]
+        public virtual void Contains()
+        {
+            foreach (T shape in testCases)
+            {
+                IShapeTestHelper.Contains(shape);
+            }
+        }
 
         /// <summary>
+        /// <para>
         /// Tests that the shape's enumerator doesn't repeat any pixels it doesn't need to.
+        /// </para>
+        /// <para>
+        /// The default implementation tests that no pixels are repeated at all.
+        /// </para>
         /// </summary>
-        public void NoRepeats();
+        [Test]
+        [Category("Shapes")]
+        public virtual void NoRepeats()
+        {
+            foreach (T shape in testCases)
+            {
+                IShapeTestHelper.NoRepeatsAtAll(shape);
+            }
+        }
 
-        public void Translate();
-        public void Rotate();
-        public void Flip();
+        [Test]
+        [Category("Shapes")]
+        public virtual void Translate()
+        {
+            foreach (T shape in testCases)
+            {
+                IShapeTestHelper.Translate(shape);
+            }
+        }
+        [Test]
+        [Category("Shapes")]
+        public virtual void Rotate()
+        {
+            foreach (T shape in testCases)
+            {
+                IShapeTestHelper.Rotate(shape);
+            }
+        }
+        [Test]
+        [Category("Shapes")]
+        public virtual void Flip()
+        {
+            foreach (T shape in testCases)
+            {
+                IShapeTestHelper.Flip(shape);
+            }
+        }
     }
 
+    /// <summary>
+    /// Helper functions for making tests for IShapes.
+    /// </summary>
     public static class IShapeTestHelper
     {
         /// <summary>

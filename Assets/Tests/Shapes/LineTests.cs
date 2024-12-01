@@ -7,11 +7,25 @@ using PAC.Drawing;
 
 namespace PAC.Tests
 {
-    public class LineTests : IShapeTests
+    public class LineTests : IShapeTests<Shapes.Line>
     {
+        protected override IEnumerable<Shapes.Line> testCases
+        {
+            get
+            {
+                foreach (IntVector2 start in new IntRect(new IntVector2(-2, -2), new IntVector2(2, 2)))
+                {
+                    foreach (IntVector2 end in start + new IntRect(new IntVector2(-5, -5), new IntVector2(5, 5)))
+                    {
+                        yield return new Shapes.Line(start, end);
+                    }
+                }
+            }
+        }
+
         [Test]
         [Category("Shapes")]
-        public void ShapeSinglePoint()
+        public override void ShapeSinglePoint()
         {
             foreach (IntVector2 pixel in new IntRect(new IntVector2(-5, -5), new IntVector2(5, 5)))
             {
@@ -87,19 +101,6 @@ namespace PAC.Tests
             Assert.True(expected.SequenceEqual(line));
         }
 
-        [Test]
-        [Category("Shapes")]
-        public void BoundingRect()
-        {
-            foreach (IntVector2 start in new IntRect(new IntVector2(-1, -1), new IntVector2(1, 1)))
-            {
-                foreach (IntVector2 end in start + new IntRect(new IntVector2(-5, -5), new IntVector2(5, 5)))
-                {
-                    IShapeTestHelper.BoundingRect(new Shapes.Line(start, end));
-                }
-            }
-        }
-
         /// <summary>
         /// Tests that lines are oriented from start to end.
         /// </summary>
@@ -107,14 +108,10 @@ namespace PAC.Tests
         [Category("Shapes")]
         public void Orientation()
         {
-            foreach (IntVector2 start in new IntRect(new IntVector2(-1, -1), new IntVector2(1, 1)))
+            foreach (Shapes.Line line in testCases)
             {
-                foreach (IntVector2 end in start + new IntRect(new IntVector2(-5, -5), new IntVector2(5, 5)))
-                {
-                    Shapes.Line line = new Shapes.Line(start, end);
-                    Assert.True(line.First() == line.start, "Failed with " + line);
-                    Assert.True(line.Last() == line.end, "Failed with " + line);
-                }
+                Assert.True(line.First() == line.start, "Failed with " + line);
+                Assert.True(line.Last() == line.end, "Failed with " + line);
             }
         }
 
@@ -125,26 +122,21 @@ namespace PAC.Tests
         [Category("Shapes")]
         public void Indexing()
         {
-            foreach (IntVector2 start in new IntRect(new IntVector2(-1, -1), new IntVector2(1, 1)))
+            foreach (Shapes.Line line in testCases)
             {
-                foreach (IntVector2 end in start + new IntRect(new IntVector2(-5, -5), new IntVector2(5, 5)))
+                Assert.Throws<IndexOutOfRangeException>(() => { IntVector2 x = line[-1]; }, "Failed with " + line);
+
+                int index = 0;
+                foreach (IntVector2 pixel in line)
                 {
-                    Shapes.Line line = new Shapes.Line(start, end);
-
-                    Assert.Throws<IndexOutOfRangeException>(() => { IntVector2 x = line[-1]; }, "Failed with " + line);
-
-                    int index = 0;
-                    foreach (IntVector2 pixel in line)
-                    {
-                        Assert.AreEqual(pixel, line[index], "Failed with " + line + " at index " + index);
-                        index++;
-                    }
-
-                    Assert.Throws<IndexOutOfRangeException>(() => { IntVector2 x = line[index]; }, "Failed with " + line);
-
-                    // Test hat syntax
-                    Assert.AreEqual(line.end, line[^1], "Failed with " + line);
+                    Assert.AreEqual(pixel, line[index], "Failed with " + line + " at index " + index);
+                    index++;
                 }
+
+                Assert.Throws<IndexOutOfRangeException>(() => { IntVector2 x = line[index]; }, "Failed with " + line);
+
+                // Test hat syntax
+                Assert.AreEqual(line.end, line[^1], "Failed with " + line);
             }
         }
 
@@ -165,122 +157,40 @@ namespace PAC.Tests
 
         [Test]
         [Category("Shapes")]
-        public void Count()
-        {
-            foreach (IntVector2 start in new IntRect(new IntVector2(-2, -2), new IntVector2(2, 2)))
-            {
-                foreach (IntVector2 end in start + new IntRect(new IntVector2(-5, -5), new IntVector2(5, 5)))
-                {
-                    IShapeTestHelper.CountDistinct(new Shapes.Line(start, end));
-                }
-            }
-        }
-
-        [Test]
-        [Category("Shapes")]
-        public void Contains()
-        {
-            foreach (IntVector2 start in new IntRect(new IntVector2(-2, -2), new IntVector2(2, 2)))
-            {
-                foreach (IntVector2 end in start + new IntRect(new IntVector2(-5, -5), new IntVector2(5, 5)))
-                {
-                    IShapeTestHelper.Contains(new Shapes.Line(start, end));
-                }
-            }
-        }
-
-        /// <summary>
-        /// Tests that the enumerator doesn't repeat any pixels.
-        /// </summary>
-        [Test]
-        [Category("Shapes")]
-        public void NoRepeats()
-        {
-            foreach (IntVector2 end in new IntRect(new IntVector2(-5, -5), new IntVector2(5, 5)))
-            {
-                IShapeTestHelper.NoRepeatsAtAll(new Shapes.Line(IntVector2.zero, end));
-            }
-        }
-
-        [Test]
-        [Category("Shapes")]
-        public void Translate()
-        {
-            foreach (IntVector2 start in new IntRect(new IntVector2(-2, -2), new IntVector2(2, 2)))
-            {
-                foreach (IntVector2 end in start + new IntRect(new IntVector2(-5, -5), new IntVector2(5, 5)))
-                {
-                    IShapeTestHelper.Translate(new Shapes.Line(start, end));
-                }
-            }
-        }
-
-        [Test]
-        [Category("Shapes")]
-        public void Rotate()
-        {
-            foreach (IntVector2 start in new IntRect(new IntVector2(-2, -2), new IntVector2(2, 2)))
-            {
-                foreach (IntVector2 end in start + new IntRect(new IntVector2(-5, -5), new IntVector2(5, 5)))
-                {
-                    IShapeTestHelper.Rotate(new Shapes.Line(start, end));
-                }
-            }
-        }
-
-        [Test]
-        [Category("Shapes")]
-        public void Flip()
-        {
-            foreach (IntVector2 start in new IntRect(new IntVector2(-2, -2), new IntVector2(2, 2)))
-            {
-                foreach (IntVector2 end in start + new IntRect(new IntVector2(-5, -5), new IntVector2(5, 5)))
-                {
-                    IShapeTestHelper.Flip(new Shapes.Line(start, end));
-                }
-            }
-        }
-
-        [Test]
-        [Category("Shapes")]
         public void PointIsToLeft()
         {
-            foreach (IntVector2 start in new IntRect(new IntVector2(-2, -2), new IntVector2(2, 2)))
+            foreach (Shapes.Line line in testCases)
             {
-                foreach (IntVector2 end in new IntRect(new IntVector2(-5, -5), new IntVector2(5, 5)))
+                foreach (IntVector2 pixel in line)
                 {
-                    Shapes.Line line = new Shapes.Line(start, end);
-                    foreach (IntVector2 pixel in line)
+                    for (int x = pixel.x; x >= line.boundingRect.bottomLeft.x - 2; x--)
                     {
-                        for (int x = pixel.x; x >= line.boundingRect.bottomLeft.x - 2; x--)
-                        {
-                            IntVector2 test = new IntVector2(x, pixel.y);
-                            Assert.True(line.PointIsToLeft(test), "Failed with " + line + " and " + test);
-                        }
-
-                        for (int x = pixel.x + 1; x <= line.boundingRect.topRight.x + 2; x++)
-                        {
-                            IntVector2 test = new IntVector2(x, pixel.y);
-                            if (!line.Contains(pixel))
-                            {
-                                Assert.False(line.PointIsToLeft(test), "Failed with " + line + " and " + test);
-                            }
-                        }
+                        IntVector2 test = new IntVector2(x, pixel.y);
+                        Assert.True(line.PointIsToLeft(test), "Failed with " + line + " and " + test);
                     }
 
-                    for (int x = line.boundingRect.bottomLeft.x - 2; x <= line.boundingRect.topRight.x + 2; x++)
+                    for (int x = pixel.x + 1; x <= line.boundingRect.topRight.x + 2; x++)
                     {
-                        for (int y = line.boundingRect.topRight.y + 1; y <= line.boundingRect.topRight.y + 2; y++)
+                        IntVector2 test = new IntVector2(x, pixel.y);
+                        if (!line.Contains(pixel))
                         {
-                            IntVector2 test = new IntVector2(x, y);
                             Assert.False(line.PointIsToLeft(test), "Failed with " + line + " and " + test);
                         }
+                    }
+                }
 
-                        for (int y = line.boundingRect.bottomLeft.y - 1; y >= line.boundingRect.topRight.y - 2; y--)
-                        {
-                            IntVector2 test = new IntVector2(x, y);
-                            Assert.False(line.PointIsToLeft(test), "Failed with " + line + " and " + test);
-                        }
+                for (int x = line.boundingRect.bottomLeft.x - 2; x <= line.boundingRect.topRight.x + 2; x++)
+                {
+                    for (int y = line.boundingRect.topRight.y + 1; y <= line.boundingRect.topRight.y + 2; y++)
+                    {
+                        IntVector2 test = new IntVector2(x, y);
+                        Assert.False(line.PointIsToLeft(test), "Failed with " + line + " and " + test);
+                    }
+
+                    for (int y = line.boundingRect.bottomLeft.y - 1; y >= line.boundingRect.topRight.y - 2; y--)
+                    {
+                        IntVector2 test = new IntVector2(x, y);
+                        Assert.False(line.PointIsToLeft(test), "Failed with " + line + " and " + test);
                     }
                 }
             }
@@ -290,42 +200,38 @@ namespace PAC.Tests
         [Category("Shapes")]
         public void PointIsToRight()
         {
-            foreach (IntVector2 start in new IntRect(new IntVector2(-2, -2), new IntVector2(2, 2)))
+            foreach (Shapes.Line line in testCases)
             {
-                foreach (IntVector2 end in new IntRect(new IntVector2(-5, -5), new IntVector2(5, 5)))
+                foreach (IntVector2 pixel in line)
                 {
-                    Shapes.Line line = new Shapes.Line(start, end);
-                    foreach (IntVector2 pixel in line)
+                    for (int x = pixel.x; x <= line.boundingRect.topRight.x + 2; x++)
                     {
-                        for (int x = pixel.x; x <= line.boundingRect.topRight.x + 2; x++)
-                        {
-                            IntVector2 test = new IntVector2(x, pixel.y);
-                            Assert.True(line.PointIsToRight(test), "Failed with " + line + " and " + test);
-                        }
-
-                        for (int x = pixel.x - 1; x >= line.boundingRect.bottomLeft.x - 2; x--)
-                        {
-                            IntVector2 test = new IntVector2(x, pixel.y);
-                            if (!line.Contains(pixel))
-                            {
-                                Assert.False(line.PointIsToRight(test), "Failed with " + line + " and " + test);
-                            }
-                        }
+                        IntVector2 test = new IntVector2(x, pixel.y);
+                        Assert.True(line.PointIsToRight(test), "Failed with " + line + " and " + test);
                     }
 
-                    for (int x = line.boundingRect.bottomLeft.x - 2; x <= line.boundingRect.topRight.x + 2; x++)
+                    for (int x = pixel.x - 1; x >= line.boundingRect.bottomLeft.x - 2; x--)
                     {
-                        for (int y = line.boundingRect.topRight.y + 1; y <= line.boundingRect.topRight.y + 2; y++)
+                        IntVector2 test = new IntVector2(x, pixel.y);
+                        if (!line.Contains(pixel))
                         {
-                            IntVector2 test = new IntVector2(x, y);
                             Assert.False(line.PointIsToRight(test), "Failed with " + line + " and " + test);
                         }
+                    }
+                }
 
-                        for (int y = line.boundingRect.bottomLeft.y - 1; y >= line.boundingRect.topRight.y - 2; y--)
-                        {
-                            IntVector2 test = new IntVector2(x, y);
-                            Assert.False(line.PointIsToRight(test), "Failed with " + line + " and " + test);
-                        }
+                for (int x = line.boundingRect.bottomLeft.x - 2; x <= line.boundingRect.topRight.x + 2; x++)
+                {
+                    for (int y = line.boundingRect.topRight.y + 1; y <= line.boundingRect.topRight.y + 2; y++)
+                    {
+                        IntVector2 test = new IntVector2(x, y);
+                        Assert.False(line.PointIsToRight(test), "Failed with " + line + " and " + test);
+                    }
+
+                    for (int y = line.boundingRect.bottomLeft.y - 1; y >= line.boundingRect.topRight.y - 2; y--)
+                    {
+                        IntVector2 test = new IntVector2(x, y);
+                        Assert.False(line.PointIsToRight(test), "Failed with " + line + " and " + test);
                     }
                 }
             }

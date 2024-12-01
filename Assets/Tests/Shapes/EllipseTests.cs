@@ -1,15 +1,33 @@
 using NUnit.Framework;
 using PAC.DataStructures;
 using PAC.Drawing;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace PAC.Tests
 {
-    public class EllipseTests : IShapeTests
+    public class EllipseTests : IShapeTests<Shapes.Ellipse>
     {
+        protected override IEnumerable<Shapes.Ellipse> testCases
+        {
+            get
+            {
+                foreach (bool filled in new bool[] { false, true })
+                {
+                    foreach (IntVector2 bottomLeft in new IntRect(new IntVector2(-2, -2), new IntVector2(2, 2)))
+                    {
+                        foreach (IntVector2 topRight in bottomLeft + new IntRect(IntVector2.zero, new IntVector2(5, 5)))
+                        {
+                            yield return new Shapes.Ellipse(bottomLeft, topRight, filled);
+                        }
+                    }
+                }
+            }
+        }
+
         [Test]
         [Category("Shapes")]
-        public void ShapeSinglePoint()
+        public override void ShapeSinglePoint()
         {
             foreach (bool filled in new bool[] { false, true})
             {
@@ -103,118 +121,6 @@ namespace PAC.Tests
             };
 
             Assert.True(expected.SequenceEqual(ellipse));
-        }
-
-        [Test]
-        [Category("Shapes")]
-        public void BoundingRect()
-        {
-            foreach (bool filled in new bool[] { false, true })
-            {
-                foreach (IntVector2 bottomLeft in new IntRect(new IntVector2(-2, -2), new IntVector2(2, 2)))
-                {
-                    foreach (IntVector2 topRight in bottomLeft + new IntRect(IntVector2.zero, new IntVector2(5, 5)))
-                    {
-                        IShapeTestHelper.BoundingRect(new Shapes.Ellipse(bottomLeft, topRight, filled));
-                    }
-                }
-            }
-        }
-
-        [Test]
-        [Category("Shapes")]
-        public void Count()
-        {
-            foreach (bool filled in new bool[] { false, true })
-            {
-                foreach (IntVector2 bottomLeft in new IntRect(new IntVector2(-2, -2), new IntVector2(2, 2)))
-                {
-                    foreach (IntVector2 topRight in bottomLeft + new IntRect(IntVector2.zero, new IntVector2(6, 6)))
-                    {
-                        IShapeTestHelper.CountDistinct(new Shapes.Ellipse(bottomLeft, topRight, filled));
-                    }
-                }
-            }
-        }
-
-        [Test]
-        [Category("Shapes")]
-        public void Contains()
-        {
-            foreach (bool filled in new bool[] { false, true })
-            {
-                foreach (IntVector2 bottomLeft in new IntRect(new IntVector2(-2, -2), new IntVector2(2, 2)))
-                {
-                    foreach (IntVector2 topRight in bottomLeft + new IntRect(IntVector2.zero, new IntVector2(6, 6)))
-                    {
-                        IShapeTestHelper.Contains(new Shapes.Ellipse(bottomLeft, topRight, filled));
-                    }
-                }
-            }
-        }
-
-        /// <summary>
-        /// Tests that the enumerator doesn't repeat any pixels.
-        /// </summary>
-        [Test]
-        [Category("Shapes")]
-        public void NoRepeats()
-        {
-            foreach (bool filled in new bool[] { false, true })
-            {
-                foreach (IntVector2 topRight in new IntRect(IntVector2.zero, new IntVector2(10, 10)))
-                {
-                    IShapeTestHelper.NoRepeatsAtAll(new Shapes.Ellipse(IntVector2.zero, topRight, filled));
-                }
-            }
-        }
-
-        [Test]
-        [Category("Shapes")]
-        public void Translate()
-        {
-            foreach (bool filled in new bool[] { false, true })
-            {
-                foreach (IntVector2 bottomLeft in  new IntRect(new IntVector2(-2, -2), new IntVector2(2, 2)))
-                {
-                    foreach (IntVector2 topRight in bottomLeft + new IntRect(IntVector2.zero, new IntVector2(6, 6)))
-                    {
-                        IShapeTestHelper.Translate(new Shapes.Ellipse(bottomLeft, topRight, filled));
-                    }
-                }
-            }
-        }
-
-        [Test]
-        [Category("Shapes")]
-        public void Rotate()
-        {
-            foreach (bool filled in new bool[] { false, true })
-            {
-                foreach (IntVector2 bottomLeft in new IntRect(new IntVector2(-2, -2), new IntVector2(2, 2)))
-                {
-                    foreach (IntVector2 topRight in bottomLeft + new IntRect(IntVector2.zero, new IntVector2(6, 6)))
-                    {
-                        IShapeTestHelper.Rotate(new Shapes.Ellipse(bottomLeft, topRight, filled));
-                    }
-                }
-            }
-        }
-
-        [Test]
-        [Category("Shapes")]
-        public void Flip()
-        {
-            foreach (bool filled in new bool[] { false, true })
-            {
-                foreach (IntVector2 bottomLeft in new IntRect(new IntVector2(-2, -2), new IntVector2(2, 2)))
-                {
-                    foreach (IntVector2 topRight in bottomLeft + new IntRect(IntVector2.zero, new IntVector2(6, 6)))
-                    {
-                        IShapeTestHelper.Flip(new Shapes.Ellipse(bottomLeft, topRight, filled));
-                    }
-                }
-            }
         }
 
         /// <summary>

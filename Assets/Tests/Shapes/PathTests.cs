@@ -7,8 +7,26 @@ using PAC.Drawing;
 
 namespace PAC.Tests
 {
-    public class PathTests : IShapeTests
+    public class PathTests : IShapeTests<Shapes.Path>
     {
+        protected override IEnumerable<Shapes.Path> testCases
+        {
+            get => RandomTestCases(1_000);
+        }
+        private IEnumerable<Shapes.Path> RandomTestCases(int numOfTestCases)
+        {
+            for (int length = 1; length <= 3; length++)
+            {
+                foreach (bool isLoop in new bool[] { false, true })
+                {
+                    for (int iteration = 0; iteration < numOfTestCases; iteration++)
+                    {
+                        yield return RandomPath(length, isLoop);
+                    }
+                }
+            }
+        }
+
         [Test]
         [Category("Shapes")]
         public void Constructor()
@@ -31,7 +49,7 @@ namespace PAC.Tests
 
         [Test]
         [Category("Shapes")]
-        public void ShapeSinglePoint()
+        public override void ShapeSinglePoint()
         {
             foreach (IntVector2 pixel in new IntRect(new IntVector2(-5, -5), new IntVector2(5, 5)))
             {
@@ -112,23 +130,17 @@ namespace PAC.Tests
 
         [Test]
         [Category("Shapes")]
-        public void BoundingRect()
+        public override void BoundingRect()
         {
-            for (int length = 1; length <= 3; length++)
+            foreach (Shapes.Path path in RandomTestCases(2_000))
             {
-                foreach (bool isLoop in new bool[] { false, true })
-                {
-                    for (int iteration = 0; iteration < 2_000; iteration++)
-                    {
-                        IShapeTestHelper.BoundingRect(RandomPath(length, isLoop));
-                    }
-                }
+                IShapeTestHelper.BoundingRect(path);
             }
         }
 
         [Test]
         [Category("Shapes")]
-        public void Count()
+        public override void Count()
         {
             // Pre-defined example-based tests
 
@@ -158,32 +170,9 @@ namespace PAC.Tests
 
             // Random tests
 
-            for (int length = 1; length <= 3; length++)
+            foreach (Shapes.Path path in RandomTestCases(2_000))
             {
-                foreach (bool isLoop in new bool[] { false, true })
-                {
-                    for (int iteration = 0; iteration < 2_000; iteration++)
-                    {
-                        Shapes.Path path = RandomPath(length, isLoop);
-                        Assert.AreEqual(((IEnumerable<IntVector2>)path).Count(), path.Count, "Failed with " + path);
-                    }
-                }
-            }
-        }
-
-        [Test]
-        [Category("Shapes")]
-        public void Contains()
-        {
-            for (int length = 1; length <= 3; length++)
-            {
-                foreach (bool isLoop in new bool[] { false, true })
-                {
-                    for (int iteration = 0; iteration < 1_000; iteration++)
-                    {
-                        IShapeTestHelper.Contains(RandomPath(length, isLoop));
-                    }
-                }
+                Assert.AreEqual(((IEnumerable<IntVector2>)path).Count(), path.Count, "Failed with " + path);
             }
         }
 
@@ -192,7 +181,7 @@ namespace PAC.Tests
         /// </summary>
         [Test]
         [Category("Shapes")]
-        public void NoRepeats()
+        public override void NoRepeats()
         {
             for (int length = 1; length <= 3; length++)
             {
@@ -212,54 +201,6 @@ namespace PAC.Tests
                         {
                             Assert.AreNotEqual(pixels[(i + 1) % pixels.Length], pixels[i], "Failed with " + path + " at index " + i);
                         }
-                    }
-                }
-            }
-        }
-
-        [Test]
-        [Category("Shapes")]
-        public void Translate()
-        {
-            for (int length = 1; length <= 3; length++)
-            {
-                foreach (bool isLoop in new bool[] { false, true })
-                {
-                    for (int iteration = 0; iteration < 1_000; iteration++)
-                    {
-                        IShapeTestHelper.Translate(RandomPath(length, isLoop));
-                    }
-                }
-            }
-        }
-
-        [Test]
-        [Category("Shapes")]
-        public void Rotate()
-        {
-            for (int length = 1; length <= 3; length++)
-            {
-                foreach (bool isLoop in new bool[] { false, true })
-                {
-                    for (int iteration = 0; iteration < 1_000; iteration++)
-                    {
-                        IShapeTestHelper.Rotate(RandomPath(length, isLoop));
-                    }
-                }
-            }
-        }
-
-        [Test]
-        [Category("Shapes")]
-        public void Flip()
-        {
-            for (int length = 1; length <= 3; length++)
-            {
-                foreach (bool isLoop in new bool[] { false, true })
-                {
-                    for (int iteration = 0; iteration < 1_000; iteration++)
-                    {
-                        IShapeTestHelper.Flip(RandomPath(length, isLoop));
                     }
                 }
             }
