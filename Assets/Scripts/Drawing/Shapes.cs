@@ -1856,7 +1856,7 @@ namespace PAC.Drawing
                         throw new NotImplementedException("Unknown / unimplemented RightAngleLocation: " + rightAngleLocation);
                     }
 
-                    // This is to ensure reflective invariance
+                    // This is to ensure reflecting doesn't change the shape (up to reflecting)
                     // If width >= height, we draw the hypotenuse starting from the corner with the same y coord as the right angle corner
                     // If width < height, we draw the hypotenuse starting from the corner with the same x coord as the right angle corner
                     if ((width < height) != (startCorner.y != rightAngleCorner.y))
