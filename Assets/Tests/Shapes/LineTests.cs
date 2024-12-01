@@ -102,6 +102,22 @@ namespace PAC.Tests
         }
 
         /// <summary>
+        /// Tests that an example line has the correct shape.
+        /// </summary>
+        [Test]
+        [Category("Shapes")]
+        public void ShapeExample3()
+        {
+            Shapes.Line line = new Shapes.Line(IntVector2.zero, new IntVector2(5, 3));
+            IntVector2[] expected =
+            {
+                new IntVector2(0, 0), new IntVector2(1, 0), new IntVector2(2, 1), new IntVector2(3, 2), new IntVector2(4, 3), new IntVector2(5, 3)
+            };
+
+            Assert.True(expected.SequenceEqual(line));
+        }
+
+        /// <summary>
         /// Tests that lines are oriented from start to end.
         /// </summary>
         [Test]
