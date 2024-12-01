@@ -46,6 +46,7 @@ namespace PAC.Tests
                 IShapeTestHelper.CountDistinct(shape);
             }
         }
+
         [Test]
         [Category("Shapes")]
         public virtual void Contains()
