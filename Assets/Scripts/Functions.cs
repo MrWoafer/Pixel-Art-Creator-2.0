@@ -16,6 +16,10 @@ namespace PAC
         {
             return (a % b + b) % b;
         }
+        public static float Mod(float a, float b)
+        {
+            return (a % b + b) % b;
+        }
 
         /// <summary>
         /// Computes the non-negative greatest common divisor of a and b.
