@@ -574,7 +574,6 @@ namespace PAC.Drawing
 
                         // Line equation is:
                         //      gradient = (y - lineStart.y) / (x - lineStart.x)
-                        // We plug in x + 0.5 (the + 0.5 if because we use the centre of the pixel)
                         float y = (x - imaginaryStart.x) * imaginaryGradient + imaginaryStart.y;
 
                         // Deal with edge case of y being exactly on the border of two pixels
@@ -602,7 +601,6 @@ namespace PAC.Drawing
 
                         // Line equation is:
                         //      gradient = (x - lineStart.x) / (y - lineStart.y)
-                        // We plug in y + 0.5 (the + 0.5 if because we use the centre of the pixel)
                         float x = (y - imaginaryStart.y) * imaginaryGradient + imaginaryStart.x;
 
                         // Deal with edge case of x being exactly on the border of two pixels
