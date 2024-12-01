@@ -1,6 +1,7 @@
 using PAC.Drawing;
 using NUnit.Framework;
 using PAC.DataStructures;
+using PAC.Extensions;
 using System.Collections.Generic;
 using System.Linq;
 using System;
@@ -15,6 +16,16 @@ namespace PAC.Tests
         protected abstract IEnumerable<T> testCases
         {
             get;
+        }
+
+        [Test]
+        [Category("Shapes")]
+        public void NotEmpty()
+        {
+            foreach (T shape in testCases)
+            {
+                Assert.False(shape.IsEmpty(), "Failed with " + shape);
+            }
         }
 
         /// <summary>
