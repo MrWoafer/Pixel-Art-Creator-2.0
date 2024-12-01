@@ -10,7 +10,8 @@
         "Project.Extensions.JsonConverters",
         "Project.Extensions.Type",
         "Project.Extensions.TextReader",
-        "Project.Extensions.IEnumerable"
+        "Project.Extensions.IEnumerable",
+        "Project.Extensions.Range"
     ],
     "includePlatforms": [
         "Editor"
