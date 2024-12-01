@@ -776,6 +776,15 @@ namespace PAC.Drawing
                     Shapes.RightTriangle.RightAngleLocation rightAngleLocation = holdingCtrl ? Shapes.RightTriangle.RightAngleLocation.Top : Shapes.RightTriangle.RightAngleLocation.Bottom;
                     PreviewShape(new Shapes.RightTriangle(mouseDragPoints[0], pixel, rightAngleLocation, rightClickedOn), colour);
                 }
+                else if (toolbar.shapeToolShape == Shape.Diamond)
+                {
+                    IntVector2 end = pixel;
+                    if (holdingCtrl)
+                    {
+                        end = Shapes.SnapEndCoordToSquare(mouseDragPoints[0], end);
+                    }
+                    PreviewShape(new Shapes.Diamond(mouseDragPoints[0], end, rightClickedOn), colour);
+                }
             }
             else if (tool == Tool.IsoBox && (leftClickedOn || rightClickedOn))
             {
@@ -861,6 +870,17 @@ namespace PAC.Drawing
                 {
                     Shapes.RightTriangle.RightAngleLocation rightAngleLocation = holdingCtrl ? Shapes.RightTriangle.RightAngleLocation.Top : Shapes.RightTriangle.RightAngleLocation.Bottom;
                     Tools.UseShape(file, layer, frame, new Shapes.RightTriangle(mouseDragPoints[0], pixel, rightAngleLocation, rightClickedOn), colour);
+
+                    UpdateDrawing();
+                }
+                else if (toolbar.shapeToolShape == Shape.Diamond)
+                {
+                    IntVector2 end = pixel;
+                    if (holdingCtrl)
+                    {
+                        end = Shapes.SnapEndCoordToSquare(mouseDragPoints[0], end);
+                    }
+                    Tools.UseShape(file, layer, frame, new Shapes.Diamond(mouseDragPoints[0], end, rightClickedOn), colour);
 
                     UpdateDrawing();
                 }

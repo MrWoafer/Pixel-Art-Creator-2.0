@@ -1411,6 +1411,285 @@ namespace PAC.Drawing
             public override string ToString() => "Rectangle(" + bottomLeft + ", " + topRight + ", " + (filled ? "filled" : "unfilled") + ")";
         }
 
+        public struct Diamond : IShape
+        {
+            public IntVector2 bottomLeft
+            {
+                get => boundingRect.bottomLeft;
+                set => boundingRect = new IntRect(value, topRight);
+            }
+            public IntVector2 topRight
+            {
+                get => boundingRect.topRight;
+                set => boundingRect = new IntRect(value, bottomLeft);
+            }
+            public IntVector2 bottomRight
+            {
+                get => boundingRect.bottomRight;
+                set => boundingRect = new IntRect(value, topLeft);
+            }
+            public IntVector2 topLeft
+            {
+                get => boundingRect.topLeft;
+                set => boundingRect = new IntRect(value, bottomRight);
+            }
+
+            public bool filled { get; set; }
+
+            public int width => boundingRect.width;
+            public int height => boundingRect.height;
+
+            /// <summary>True if the rect is a square.</summary>
+            public bool isSquare => width == height;
+
+            public IntRect boundingRect { get; private set; }
+
+            public int Count
+            {
+                get
+                {
+                    if (width == 1 || height == 1)
+                    {
+                        return Math.Max(width, height);
+                    }
+
+                    var edges = this.edges;
+                    if (filled)
+                    {
+                        int count = 0;
+                        for (int y = bottomLeft.y; y <= edges.bottomLeft.boundingRect.topRight.y; y++)
+                        {
+                            count += edges.bottomRight.MaxX(y) - edges.bottomLeft.MinX(y) + 1;
+                        }
+                        // The potential + 1 for the starting y is to avoid repeating pixels
+                        for (int y = edges.topLeft.boundingRect.bottomLeft.y + (edges.bottomLeft.boundingRect.topRight.y == edges.topLeft.boundingRect.bottomLeft.y ? 1 : 0); y <= topRight.y; y++)
+                        {
+                            count += edges.topRight.MaxX(y) - edges.topLeft.MinX(y) + 1;
+                        }
+                        return count;
+                    }
+                    else
+                    {
+                        // Bottom-left edge
+                        int count = edges.bottomLeft.Count;
+
+                        // Bottom-right edge
+                        if (edges.bottomRight.boundingRect.bottomLeft.x == edges.bottomLeft.boundingRect.topRight.x)
+                        {
+                            count += edges.bottomRight.Count - (edges.bottomLeft.MaxY(edges.bottomRight.boundingRect.bottomLeft.x) - edges.bottomLeft.MinY(edges.bottomRight.boundingRect.bottomLeft.x) + 1);
+                        }
+                        else
+                        {
+                            count += edges.bottomRight.Count;
+                        }
+
+                        // Top-right edge
+                        if (edges.topRight.boundingRect.bottomLeft.y == edges.bottomRight.boundingRect.topRight.y)
+                        {
+                            count += edges.topRight.Count - (edges.bottomRight.MaxX(edges.topRight.boundingRect.bottomLeft.y) - edges.bottomRight.MinX(edges.topRight.boundingRect.bottomLeft.y) + 1);
+                        }
+                        else
+                        {
+                            count += edges.topRight.Count;
+                        }
+
+                        // Top-left edge
+                        count += edges.topLeft.Count;
+                        // If I'm correct, these two if statements should never both be true
+                        if (edges.topLeft.boundingRect.topRight.x == edges.topRight.boundingRect.bottomLeft.x)
+                        {
+                            count -= edges.topRight.MaxY(edges.topLeft.boundingRect.topRight.x) - edges.topRight.MinY(edges.topLeft.boundingRect.topRight.x) + 1;
+                        }
+                        if (edges.topLeft.boundingRect.bottomLeft.y == edges.bottomLeft.boundingRect.topRight.y)
+                        {
+                            count -= edges.bottomLeft.MaxX(edges.topLeft.boundingRect.bottomLeft.y) - edges.bottomLeft.MinX(edges.topLeft.boundingRect.bottomLeft.y) + 1;
+                        }
+
+                        return count;
+                    }
+                }
+            }
+
+            private (Line bottomLeft, Line bottomRight, Line topLeft, Line topRight) edges
+            {
+                get
+                {
+                    Line[] lines =  new Line[] {
+                        // Bottom-left edge
+                        new Line(topLeft + height / 2 * IntVector2.down, bottomRight + width / 2 * IntVector2.left),
+                        // Bottom-right edge
+                        new Line(topRight + height / 2 * IntVector2.down, bottomLeft + width / 2 * IntVector2.right),
+                        // Top-left edge
+                        new Line(bottomLeft + height / 2 * IntVector2.up, topRight + width / 2 * IntVector2.left),
+                        // Top-right edge
+                        new Line(bottomRight + height / 2 * IntVector2.up, topLeft + width / 2 * IntVector2.right)
+                    };
+
+                    // This is to ensure rotating / reflecting doesn't change the shape (up to rotating / reflecting)
+                    if (width > height)
+                    {
+                        for (int i = 0; i < lines.Length; i++)
+                        {
+                            lines[i] = new Line(lines[i].end, lines[i].start);
+                        }
+                    }
+
+                    return (lines[0], lines[1], lines[2], lines[3]);
+                }
+            }
+
+            public Diamond(IntVector2 corner, IntVector2 oppositeCorner, bool filled)
+            {
+                boundingRect = new IntRect(corner, oppositeCorner);
+                this.filled = filled;
+            }
+
+            public bool Contains(IntVector2 pixel)
+            {
+                if (filled)
+                {
+                    var edges = this.edges;
+                    return (edges.bottomLeft.PointIsToRight(pixel) && edges.bottomRight.PointIsToLeft(pixel)) || (edges.topLeft.PointIsToRight(pixel) && edges.topRight.PointIsToLeft(pixel));
+                }
+
+                foreach (Line edge in edges.AsIEnumerable())
+                {
+                    if (edge.Contains(pixel))
+                    {
+                        return true;
+                    }
+                }
+                return false;
+            }
+
+            /// <summary>
+            /// Translates the diamond by the given vector.
+            /// </summary>
+            public static Diamond operator +(IntVector2 translation, Diamond diamond) => diamond + translation;
+            /// <summary>
+            /// Translates the diamond by the given vector.
+            /// </summary>
+            public static Diamond operator +(Diamond diamond, IntVector2 translation) => diamond.Translate(translation);
+            /// <summary>
+            /// Translates the diamond by the given vector.
+            /// </summary>
+            public static Diamond operator -(Diamond diamond, IntVector2 translation) => diamond + (-translation);
+            /// <summary>
+            /// Reflects the diamond through the origin.
+            /// </summary>
+            public static Diamond operator -(Diamond diamond) => new Diamond(-diamond.bottomLeft, -diamond.topRight, diamond.filled);
+
+            IShape IShape.Translate(IntVector2 translation) => Translate(translation);
+            /// <summary>
+            /// Translates the diamond by the given vector.
+            /// </summary>
+            public Diamond Translate(IntVector2 translation)
+            {
+                return new Diamond(bottomLeft + translation, topRight + translation, filled);
+            }
+
+            IShape IShape.Rotate(RotationAngle angle) => Rotate(angle);
+            /// <summary>
+            /// Rotates the diamond by the given angle.
+            /// </summary>
+            public Diamond Rotate(RotationAngle angle)
+            {
+                return new Diamond(bottomLeft.Rotate(angle), topRight.Rotate(angle), filled);
+            }
+
+            IShape IShape.Flip(FlipAxis axis) => Flip(axis);
+            /// <summary>
+            /// Reflects the diamond across the given axis.
+            /// </summary>
+            public Diamond Flip(FlipAxis axis)
+            {
+                return new Diamond(bottomLeft.Flip(axis), topRight.Flip(axis), filled);
+            }
+
+            IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();
+            public IEnumerator<IntVector2> GetEnumerator()
+            {
+                var edges = this.edges;
+                if (filled)
+                {
+                    for (int y = bottomLeft.y; y <= edges.bottomLeft.boundingRect.topRight.y; y++)
+                    {
+                        for (int x = edges.bottomLeft.MinX(y); x <= edges.bottomRight.MaxX(y); x++)
+                        {
+                            yield return new IntVector2(x, y);
+                        }
+                    }
+                    // The potential + 1 for the starting y is to avoid repeating pixels
+                    for (int y = edges.topLeft.boundingRect.bottomLeft.y + (edges.bottomLeft.boundingRect.topRight.y == edges.topLeft.boundingRect.bottomLeft.y ? 1 : 0); y <= topRight.y; y++)
+                    {
+                        for (int x = edges.topLeft.MinX(y); x <= edges.topRight.MaxX(y); x++)
+                        {
+                            yield return new IntVector2(x, y);
+                        }
+                    }
+                }
+                else
+                {
+                    // Bottom-left edge
+                    foreach (IntVector2 pixel in edges.bottomLeft)
+                    {
+                        yield return pixel;
+                    }
+
+                    // Bottom-right edge
+                    foreach (IntVector2 pixel in edges.bottomRight)
+                    {
+                        // This check avoids repeating pixels
+                        if (pixel.x > edges.bottomLeft.boundingRect.topRight.x)
+                        {
+                            yield return pixel;
+                        }
+                    }
+
+                    // Top-right edge
+                    foreach (IntVector2 pixel in edges.topRight)
+                    {
+                        // This check avoids repeating pixels
+                        if (pixel.y > edges.bottomRight.boundingRect.topRight.y)
+                        {
+                            yield return pixel;
+                        }
+                    }
+
+                    // Top-left edge
+                    foreach (IntVector2 pixel in edges.topLeft)
+                    {
+                        // This check avoids repeating pixels
+                        if (pixel.x < edges.topRight.boundingRect.bottomLeft.x && pixel.y > edges.bottomLeft.boundingRect.topRight.y)
+                        {
+                            yield return pixel;
+                        }
+                    }
+                }
+            }
+
+            public static bool operator !=(Diamond a, Diamond b) => !(a == b);
+            public static bool operator ==(Diamond a, Diamond b)
+            {
+                return a.boundingRect == b.boundingRect && a.filled == b.filled;
+            }
+            public override bool Equals(object obj)
+            {
+                if (obj == null || !GetType().Equals(obj.GetType()))
+                {
+                    return false;
+                }
+                else
+                {
+                    return this == (Diamond)obj;
+                }
+            }
+
+            public override int GetHashCode() => HashCode.Combine(bottomLeft, topRight, filled);
+
+            public override string ToString() => "Diamond(" + bottomLeft + ", " + topRight + ", " + (filled ? "filled" : "unfilled") + ")";
+        }
+
         public struct Ellipse : IShape
         {
             // NOTE: For this shape, we work in a coordinate system where integer coordinates refer to the CENTRE of a pixel - e.g. the centre of pixel (0, 0) is (0, 0), not (0.5, 0.5).
@@ -2152,48 +2431,6 @@ namespace PAC.Drawing
             int sideLength = Mathf.Max(Mathf.Abs(end.x - start.x), Mathf.Abs(end.y - start.y));
 
             return start + new IntVector2(sideLength * (int)Mathf.Sign(end.x - start.x), sideLength * (int)Mathf.Sign(end.y - start.y));
-        }
-
-        public static Texture2D Diamond(int texWidth, int texHeight, IntVector2 start, IntVector2 end, Color colour, bool filled)
-        {
-            if (!new IntRect(start, end).isSquare)
-            {
-                throw new System.NotImplementedException("Not yet implemented for non-square diamond dimensions.");
-            }
-            if (Mathf.Abs(start.x - end.x) % 2 == 1)
-            {
-                throw new System.NotImplementedException("Not yet implemented for diamonds of even width/height.");
-            }
-
-            IntVector2 bottomLeft = new IntVector2(Mathf.Min(start.x, end.x), Mathf.Min(start.y, end.y));
-            IntVector2 topRight = new IntVector2(Mathf.Max(start.x, end.x), Mathf.Max(start.y, end.y));
-            IntVector2 centre = (bottomLeft + topRight) / 2;
-            int radius = Mathf.Abs(start.x - end.x) / 2;
-
-            Texture2D tex = Tex2DSprite.BlankTexture(texWidth, texHeight);
-
-            if (filled)
-            {
-                for (int x = bottomLeft.x; x <= topRight.x; x++)
-                {
-                    for (int y = bottomLeft.y; y <= topRight.y; y++)
-                    {
-                        int offX = x - centre.x;
-                        int offY = y - centre.y;
-                        if (Mathf.Abs(offX + offY) <= radius && Mathf.Abs(offX - offY) <= radius)
-                        {
-                            tex.SetPixel(x, y, colour);
-                        }
-                    }
-                }
-            }
-            else
-            {
-                throw new System.NotImplementedException("Not yet implemented for unfilled diamonds.");
-            }
-
-            tex.Apply();
-            return tex;
         }
 
         public static Texture2D IsoRectangle(int texWidth, int texHeight, IntVector2 start, IntVector2 end, Color colour, bool filled)
