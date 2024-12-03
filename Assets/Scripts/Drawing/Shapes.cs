@@ -11,6 +11,24 @@ using UnityEngine;
 namespace PAC.Drawing
 {
     /// <summary>
+    /// These methods could be defined as default implementations in IShape, but that would require casting to IShape to use them. Making them as extension methods avoids needing this cast.
+    /// </summary>
+    public static class IShapeExtensions
+    {
+        public static bool Contains(this Shapes.IShape shape, IEnumerable<IntVector2> pixels)
+        {
+            foreach (IntVector2 pixel in pixels)
+            {
+                if (!shape.Contains(pixel))
+                {
+                    return false;
+                }
+            }
+            return true;
+        }
+    }
+
+    /// <summary>
     /// A class to define how different shapes are drawn.
     /// </summary>
     public static class Shapes
