@@ -1496,7 +1496,7 @@ namespace PAC.Drawing
                             count += edges.bottomRight.MaxX(y) - edges.bottomLeft.MinX(y) + 1;
                         }
                         // The potential + 1 for the starting y is to avoid repeating pixels
-                        for (int y = edges.topLeft.boundingRect.bottomLeft.y + (edges.bottomLeft.boundingRect.topRight.y == edges.topLeft.boundingRect.bottomLeft.y ? 1 : 0); y <= topRight.y; y++)
+                        for (int y = edges.bottomLeft.boundingRect.topRight.y + 1; y <= topRight.y; y++)
                         {
                             count += edges.topRight.MaxX(y) - edges.topLeft.MinX(y) + 1;
                         }
@@ -1504,41 +1504,32 @@ namespace PAC.Drawing
                     }
                     else
                     {
-                        // Bottom-left edge
+                        if (width <= 2 || height <= 2)
+                        {
+                            return width * height;
+                        }
+
+                        // We exploit the symmetry of the diamond across the vertical and horizontal axes
+                        // However, it's not just as simple as multiplying the count of one edge by 4, since the edges can overlap
+
                         int count = edges.bottomLeft.Count;
-
-                        // Bottom-right edge
-                        count += edges.bottomRight.Count;
-                        if (edges.bottomRight.boundingRect.bottomLeft.x == edges.bottomLeft.boundingRect.topRight.x)
-                        {
-                            count -= edges.bottomLeft.CountOnX(edges.bottomRight.boundingRect.bottomLeft.x);
-                        }
-
-                        // Top-right edge
-                        count += edges.topRight.Count;
-                        if (edges.topRight.boundingRect.bottomLeft.y == edges.bottomRight.boundingRect.topRight.y)
-                        {
-                            count -= edges.bottomRight.CountOnY(edges.topRight.boundingRect.bottomLeft.y);
-                        }
-
-                        // Top-left edge
-                        count += edges.topLeft.Count;
-                        // If I'm correct, these two if statements should never both be true
-                        if (edges.topLeft.boundingRect.topRight.x == edges.topRight.boundingRect.bottomLeft.x)
-                        {
-                            count -= edges.topRight.CountOnX(edges.topLeft.boundingRect.topRight.x);
-                        }
-                        if (edges.topLeft.boundingRect.bottomLeft.y == edges.bottomLeft.boundingRect.topRight.y)
-                        {
-                            count -= edges.bottomLeft.CountOnY(edges.topLeft.boundingRect.bottomLeft.y);
-                        }
+                        // Remove left-most block of the line
+                        count -= edges.bottomLeft.CountOnX(bottomLeft.x) * edges.bottomLeft.CountOnY(edges.bottomLeft.boundingRect.topRight.y);
+                        // Remove bottom block of the line
+                        count -= edges.bottomLeft.CountOnY(bottomLeft.y) * edges.bottomLeft.CountOnX(edges.bottomLeft.boundingRect.topRight.x);
+                        // Count it for the other 3 edges
+                        count *= 4;
+                        // Count the left-most block of the diamond (doubled to also count the right-most block)
+                        count += 2 * (edges.topLeft.MaxY(bottomLeft.x) - edges.bottomLeft.MinY(bottomLeft.x) + 1) * edges.bottomLeft.CountOnY(edges.bottomLeft.boundingRect.topRight.y);
+                        // Count the bottom block of the diamond (doubled to also count the top block)
+                        count += 2 * (edges.bottomRight.MaxX(bottomLeft.y) - edges.bottomLeft.MinX(bottomLeft.y) + 1) * edges.bottomLeft.CountOnX(edges.bottomLeft.boundingRect.topRight.x);
 
                         return count;
                     }
                 }
             }
 
-            private (Line bottomLeft, Line bottomRight, Line topLeft, Line topRight) edges
+            private (Line bottomLeft, Line bottomRight, Line topRight, Line topLeft) edges
             {
                 get
                 {
@@ -1547,10 +1538,10 @@ namespace PAC.Drawing
                         new Line(topLeft + height / 2 * IntVector2.down, bottomRight + width / 2 * IntVector2.left),
                         // Bottom-right edge
                         new Line(topRight + height / 2 * IntVector2.down, bottomLeft + width / 2 * IntVector2.right),
-                        // Top-left edge
-                        new Line(bottomLeft + height / 2 * IntVector2.up, topRight + width / 2 * IntVector2.left),
                         // Top-right edge
-                        new Line(bottomRight + height / 2 * IntVector2.up, topLeft + width / 2 * IntVector2.right)
+                        new Line(bottomRight + height / 2 * IntVector2.up, topLeft + width / 2 * IntVector2.right),
+                        // Top-left edge
+                        new Line(bottomLeft + height / 2 * IntVector2.up, topRight + width / 2 * IntVector2.left)
                     };
 
                     // This is to ensure rotating / reflecting doesn't change the shape (up to rotating / reflecting)
@@ -1560,6 +1551,40 @@ namespace PAC.Drawing
                         {
                             lines[i] = new Line(lines[i].end, lines[i].start);
                         }
+                    }
+
+                    // This is to make the the diamonds more aesthetic by overlapping the edges as much as possible
+                    // One such effect this has is making sure diamonds that can be drawn with perfect lines are drawn as such
+                    if (width > height)
+                    {
+                        // Not particularly efficient, but does the job and really isn't slow even when drawing diamonds with a width of 1000
+                        while (lines[0].boundingRect.bottomRight.x <= lines[1].MaxX(bottomLeft.y))
+                        {
+                            lines[0].start += IntVector2.right;
+                            lines[1].start += IntVector2.left;
+                            lines[2].start += IntVector2.left;
+                            lines[3].start += IntVector2.right;
+                        }
+
+                        lines[0].start += IntVector2.left;
+                        lines[1].start += IntVector2.right;
+                        lines[2].start += IntVector2.right;
+                        lines[3].start += IntVector2.left;
+                    }
+                    else if (width < height)
+                    {
+                        while (lines[0].boundingRect.topLeft.y <= lines[3].MaxY(bottomLeft.x))
+                        {
+                            lines[0].start += IntVector2.up;
+                            lines[1].start += IntVector2.up;
+                            lines[2].start += IntVector2.down;
+                            lines[3].start += IntVector2.down;
+                        }
+
+                        lines[0].start += IntVector2.down;
+                        lines[1].start += IntVector2.down;
+                        lines[2].start += IntVector2.up;
+                        lines[3].start += IntVector2.up;
                     }
 
                     return (lines[0], lines[1], lines[2], lines[3]);
@@ -1648,7 +1673,7 @@ namespace PAC.Drawing
                         }
                     }
                     // The potential + 1 for the starting y is to avoid repeating pixels
-                    for (int y = edges.topLeft.boundingRect.bottomLeft.y + (edges.bottomLeft.boundingRect.topRight.y == edges.topLeft.boundingRect.bottomLeft.y ? 1 : 0); y <= topRight.y; y++)
+                    for (int y = edges.bottomLeft.boundingRect.topRight.y + 1; y <= topRight.y; y++)
                     {
                         for (int x = edges.topLeft.MinX(y); x <= edges.topRight.MaxX(y); x++)
                         {
