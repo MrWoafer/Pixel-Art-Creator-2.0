@@ -21,9 +21,9 @@ namespace PAC.Drawing
         /// <summary>
         /// Smooth the meeting point of the two lines (given as coords) so it is pixel-perfect - i.e. no hard 90-degree corner.
         /// </summary>
-        public static bool PencilLineSmoothing(Shapes.Line line, Shapes.Line? previousLine, bool previousLineWasSmoothed)
+        public static bool PencilLineSmoothing(Shapes.Line line, Shapes.Line previousLine, bool previousLineWasSmoothed)
         {
-            if (!previousLine.HasValue)
+            if (previousLine is null)
             {
                 return false;
             }
@@ -38,7 +38,7 @@ namespace PAC.Drawing
                         continue;
                     }
 
-                    if (previousLineWasSmoothed && line.start + offset1 == previousLine.Value.start)
+                    if (previousLineWasSmoothed && line.start + offset1 == previousLine.start)
                     {
                         continue;
                     }

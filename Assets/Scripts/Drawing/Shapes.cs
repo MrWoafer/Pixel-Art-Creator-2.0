@@ -61,7 +61,7 @@ namespace PAC.Drawing
         /// <summary>
         /// A pixel-perfect line between two points, ordered from start to end.
         /// </summary>
-        public struct Line : IShape
+        public class Line : IShape
         {
             // NOTE: For this shape, we work in a coordinate system where integer coordinates refer to the CENTRE of a pixel - e.g. the centre of pixel (0, 0) is (0, 0), not (0.5, 0.5).
 
@@ -1236,7 +1236,7 @@ namespace PAC.Drawing
             public override string ToString() => "Path(" + string.Join(", ", _lines) + ")";
         }
 
-        public struct Rectangle : IShape
+        public class Rectangle : IShape
         {
             public IntVector2 bottomLeft
             {
@@ -1427,7 +1427,7 @@ namespace PAC.Drawing
             public override string ToString() => "Rectangle(" + bottomLeft + ", " + topRight + ", " + (filled ? "filled" : "unfilled") + ")";
         }
 
-        public struct Diamond : IShape
+        public class Diamond : IShape
         {
             public IntVector2 bottomLeft
             {
@@ -1700,7 +1700,7 @@ namespace PAC.Drawing
             public override string ToString() => "Diamond(" + bottomLeft + ", " + topRight + ", " + (filled ? "filled" : "unfilled") + ")";
         }
 
-        public struct Ellipse : IShape
+        public class Ellipse : IShape
         {
             // NOTE: For this shape, we work in a coordinate system where integer coordinates refer to the CENTRE of a pixel - e.g. the centre of pixel (0, 0) is (0, 0), not (0.5, 0.5).
 
@@ -1967,7 +1967,7 @@ namespace PAC.Drawing
             public override string ToString() => "Ellipse(" + bottomLeft + ", " + topRight + ", " + (filled ? "filled" : "unfilled") + ")";
         }
 
-        public struct RightTriangle : IShape
+        public class RightTriangle : IShape
         {
             public enum RightAngleLocation
             {

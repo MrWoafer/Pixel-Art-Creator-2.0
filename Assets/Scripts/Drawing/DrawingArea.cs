@@ -163,7 +163,7 @@ namespace PAC.Drawing
         private IntVector2 tileBeingMovedLastValidPosition;
 
         // Line smoothing variables
-        private Shapes.Line? lineSmoothingPreviousLine = null;
+        private Shapes.Line lineSmoothingPreviousLine = null;
         private bool lineSmoothingPreviousLineWasSmoothed = false;
         private Color lineSmoothingColourUnderLineEnd = Config.Colours.transparent;
         private float lineSmoothingCountdown = 0f;
@@ -326,7 +326,7 @@ namespace PAC.Drawing
             }
 
             // Stop line smoothing from happening if it has been too long since the last pixel was painted
-            if (lineSmoothingPreviousLine.HasValue)
+            if (lineSmoothingPreviousLine is not null)
             {
                 lineSmoothingCountdown -= Time.deltaTime;
 
