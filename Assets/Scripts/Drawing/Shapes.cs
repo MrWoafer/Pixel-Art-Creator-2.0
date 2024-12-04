@@ -1284,7 +1284,7 @@ namespace PAC.Drawing
             public int width => boundingRect.width;
             public int height => boundingRect.height;
 
-            /// <summary>True if the rect is a square.</summary>
+            /// <summary>True if the rectangle is a square.</summary>
             public bool isSquare => width == height;
 
             public IntRect boundingRect { get; private set; }
@@ -1475,7 +1475,7 @@ namespace PAC.Drawing
             public int width => boundingRect.width;
             public int height => boundingRect.height;
 
-            /// <summary>True if the rect is a square.</summary>
+            /// <summary>True if the diamond is a square.</summary>
             public bool isSquare => width == height;
 
             public IntRect boundingRect { get; private set; }
