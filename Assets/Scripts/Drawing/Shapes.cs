@@ -12,6 +12,8 @@ namespace PAC.Drawing
 {
     /// <summary>
     /// These methods could be defined as default implementations in IShape, but that would require casting to IShape to use them. Making them as extension methods avoids needing this cast.
+    /// We could turn IShape into an abstract class to avoid this default implementation casting issue, but then to have a more specific return type in methods like Translate() (e.g.
+    /// Line.Translate() returns a Line instead of just IShape) we need covariant return types, which isn't yet supported in Unity's compiler.
     /// </summary>
     public static class IShapeExtensions
     {
