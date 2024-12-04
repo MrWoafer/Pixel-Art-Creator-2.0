@@ -2405,8 +2405,8 @@ namespace PAC.Drawing
             IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();
             public IEnumerator<IntVector2> GetEnumerator()
             {
-                Path path = this.border;
-                foreach (IntVector2 pixel in path)
+                Path border = this.border;
+                foreach (IntVector2 pixel in border)
                 {
                     yield return pixel;
                 }
@@ -2423,9 +2423,9 @@ namespace PAC.Drawing
 
                 // This counter is just for safety to avoid bugs causing an infinite loop
                 int iterations = 0;
-                for (IntVector2 rowStart = rightAngleCorner + directionToTopCorner + directionToBottomCorner; !path.Contains(rowStart) && iterations < 10_000_000; rowStart += directionToTopCorner)
+                for (IntVector2 rowStart = rightAngleCorner + directionToTopCorner + directionToBottomCorner; !border.Contains(rowStart) && iterations < 10_000_000; rowStart += directionToTopCorner)
                 {
-                    for (IntVector2 pixel = rowStart; !path.Contains(pixel) && iterations < 10_000_000; pixel += directionToBottomCorner)
+                    for (IntVector2 pixel = rowStart; !border.Contains(pixel) && iterations < 10_000_000; pixel += directionToBottomCorner)
                     {
                         iterations++;
                         yield return pixel;
