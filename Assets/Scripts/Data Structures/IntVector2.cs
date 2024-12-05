@@ -34,6 +34,11 @@ namespace PAC.DataStructures
         /// </summary>
         public int supNorm => SupNorm(this);
 
+        /// <summary>
+        /// The sign of each component of the vector.
+        /// </summary>
+        public IntVector2 sign => Sign(this);
+
         public IntVector2(int x, int y)
         {
             this.x = x;
@@ -462,6 +467,14 @@ namespace PAC.DataStructures
         public static int SupDistance(IntVector2 a, IntVector2 b)
         {
             return SupNorm(a - b);
+        }
+
+        /// <summary>
+        /// Returns the sign of each component of the vector.
+        /// </summary>
+        public static IntVector2 Sign(IntVector2 a)
+        {
+            return new IntVector2(Math.Sign(a.x), Math.Sign(a.y));
         }
 
         /// <summary>
