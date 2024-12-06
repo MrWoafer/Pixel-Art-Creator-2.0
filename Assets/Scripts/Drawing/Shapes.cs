@@ -2483,9 +2483,9 @@ namespace PAC.Drawing
         /// </summary>
         public static IntVector2 SnapEndCoordToSquare(IntVector2 start, IntVector2 end)
         {
-            int sideLength = Mathf.Max(Mathf.Abs(end.x - start.x), Mathf.Abs(end.y - start.y));
+            int sideLength = Math.Max(Math.Abs(end.x - start.x), Mathf.Abs(end.y - start.y));
 
-            return start + new IntVector2(sideLength * (int)Mathf.Sign(end.x - start.x), sideLength * (int)Mathf.Sign(end.y - start.y));
+            return start + new IntVector2(sideLength * (int)Math.Sign(end.x - start.x), sideLength * (int)Math.Sign(end.y - start.y));
         }
 
         public static Texture2D IsoRectangle(int texWidth, int texHeight, IntVector2 start, IntVector2 end, Color colour, bool filled)
