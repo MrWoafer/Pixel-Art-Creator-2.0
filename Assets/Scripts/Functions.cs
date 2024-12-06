@@ -7,6 +7,22 @@ namespace PAC
     public static class Functions
     {
         /// <summary>
+        /// <para>
+        /// Returns the sign of the given float.
+        /// </para>
+        /// <para>
+        /// Note: this is different from Unity's Mathf.Sign() since this method defines the sign of 0 to be 0, whereas Mathf.Sign() defines it as 1.
+        /// </para>
+        /// </summary>
+        public static float Sign(float x) => x switch
+        {
+            0 => 0f,
+            > 0 => 1f,
+            < 0 => -1f,
+            float.NaN => float.NaN
+        };
+
+        /// <summary>
         /// Returns a mod b, giving a non-negative result.
         /// </summary>
         /// <param name="a"></param>
