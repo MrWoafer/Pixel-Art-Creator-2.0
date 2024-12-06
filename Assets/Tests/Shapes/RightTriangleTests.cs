@@ -7,7 +7,7 @@ using System.Linq;
 
 namespace PAC.Tests
 {
-    public class RightTriangleTests : IShapeTests<Shapes.RightTriangle>
+    public class RightTriangleTests : I2DShapeTests<Shapes.RightTriangle>
     {
         protected override IEnumerable<Shapes.RightTriangle> testCases
         {

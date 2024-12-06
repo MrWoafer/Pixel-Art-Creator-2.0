@@ -7,7 +7,7 @@ using PAC.Drawing;
 
 namespace PAC.Tests
 {
-    public class LineTests : IShapeTests<Shapes.Line>
+    public class LineTests : I2DShapeTests<Shapes.Line>
     {
         protected override IEnumerable<Shapes.Line> testCases
         {

@@ -11,13 +11,13 @@ using UnityEngine;
 namespace PAC.Drawing
 {
     /// <summary>
-    /// These methods could be defined as default implementations in IShape, but that would require casting to IShape to use them. Making them as extension methods avoids needing this cast.
-    /// We could turn IShape into an abstract class to avoid this default implementation casting issue, but then to have a more specific return type in methods like Translate() (e.g.
-    /// Line.Translate() returns a Line instead of just IShape) we need covariant return types, which isn't yet supported in Unity's compiler.
+    /// These methods could be defined as default implementations in I2DShape, but that would require casting to I2DShape to use them. Making them as extension methods avoids needing this cast.
+    /// We could turn I2DShape into an abstract class to avoid this default implementation casting issue, but then to have a more specific return type in methods like Translate() (e.g.
+    /// Line.Translate() returns a Line instead of just I2DShape) we need covariant return types, which isn't yet supported in Unity's compiler.
     /// </summary>
-    public static class IShapeExtensions
+    public static class I2DShapeExtensions
     {
-        public static bool Contains(this Shapes.IShape shape, IEnumerable<IntVector2> pixels)
+        public static bool Contains(this Shapes.I2DShape shape, IEnumerable<IntVector2> pixels)
         {
             foreach (IntVector2 pixel in pixels)
             {
@@ -35,7 +35,7 @@ namespace PAC.Drawing
     /// </summary>
     public static class Shapes
     {
-        public interface IShape : IReadOnlyCollection<IntVector2>
+        public interface I2DShape : IReadOnlyCollection<IntVector2>
         {
             /// <summary>
             /// The smallest IntRect containing the whole shape.
@@ -50,38 +50,38 @@ namespace PAC.Drawing
             /// <summary>
             /// Translates the shape by the given vector.
             /// </summary>
-            public static IShape operator +(IntVector2 translation, IShape shape) => shape + translation;
+            public static I2DShape operator +(IntVector2 translation, I2DShape shape) => shape + translation;
             /// <summary>
             /// Translates the shape by the given vector.
             /// </summary>
-            public static IShape operator +(IShape shape, IntVector2 translation) => shape.Translate(translation);
+            public static I2DShape operator +(I2DShape shape, IntVector2 translation) => shape.Translate(translation);
             /// <summary>
             /// Translates the shape by the given vector.
             /// </summary>
-            public static IShape operator -(IShape shape, IntVector2 translation) => shape + (-translation);
+            public static I2DShape operator -(I2DShape shape, IntVector2 translation) => shape + (-translation);
             /// <summary>
             /// Reflects the shape through the origin.
             /// </summary>
-            public static IShape operator -(IShape shape) => shape.Rotate(RotationAngle._180);
+            public static I2DShape operator -(I2DShape shape) => shape.Rotate(RotationAngle._180);
 
             /// <summary>
             /// Translates the shape by the given vector.
             /// </summary>
-            public IShape Translate(IntVector2 translation);
+            public I2DShape Translate(IntVector2 translation);
             /// <summary>
             /// Rotates the shape by the given angle.
             /// </summary>
-            public IShape Rotate(RotationAngle angle);
+            public I2DShape Rotate(RotationAngle angle);
             /// <summary>
             /// Reflects the shape across the given axis.
             /// </summary>
-            public IShape Flip(FlipAxis axis);
+            public I2DShape Flip(FlipAxis axis);
         }
 
         /// <summary>
         /// A pixel-perfect line between two points, ordered from start to end.
         /// </summary>
-        public class Line : IShape
+        public class Line : I2DShape
         {
             // NOTE: For this shape, we work in a coordinate system where integer coordinates refer to the CENTRE of a pixel - e.g. the centre of pixel (0, 0) is (0, 0), not (0.5, 0.5).
 
@@ -560,7 +560,7 @@ namespace PAC.Drawing
             /// </summary>
             public static Line operator -(Line line) => new Line(-line.start, -line.end);
 
-            IShape IShape.Translate(IntVector2 translation) => Translate(translation);
+            I2DShape I2DShape.Translate(IntVector2 translation) => Translate(translation);
             /// <summary>
             /// Translates the line by the given vector.
             /// </summary>
@@ -569,7 +569,7 @@ namespace PAC.Drawing
                 return new Line(start + translation, end + translation);
             }
 
-            IShape IShape.Rotate(RotationAngle angle) => Rotate(angle);
+            I2DShape I2DShape.Rotate(RotationAngle angle) => Rotate(angle);
             /// <summary>
             /// Rotates the line by the given angle.
             /// </summary>
@@ -578,7 +578,7 @@ namespace PAC.Drawing
                 return new Line(start.Rotate(angle), end.Rotate(angle));
             }
 
-            IShape IShape.Flip(FlipAxis axis) => Flip(axis);
+            I2DShape I2DShape.Flip(FlipAxis axis) => Flip(axis);
             /// <summary>
             /// Reflects the line across the given axis.
             /// </summary>
@@ -736,7 +736,7 @@ namespace PAC.Drawing
         /// counted if it's the same as first pixel of the path. Other than those cases, pixels can be double-counted.
         /// </para>
         /// </summary>
-        public class Path : IShape
+        public class Path : I2DShape
         {
             private List<Line> _lines = new List<Line>();
             public ReadOnlyCollection<Line> lines => _lines.AsReadOnly();
@@ -990,7 +990,7 @@ namespace PAC.Drawing
             /// </summary>
             public static Path operator -(Path path) => path.Rotate(RotationAngle._180);
 
-            IShape IShape.Translate(IntVector2 translation) => Translate(translation);
+            I2DShape I2DShape.Translate(IntVector2 translation) => Translate(translation);
             /// <summary>
             /// Translates the path by the given vector.
             /// </summary>
@@ -999,7 +999,7 @@ namespace PAC.Drawing
                 return new Path(_lines.Select(l => l.Translate(translation)));
             }
 
-            IShape IShape.Rotate(RotationAngle angle) => Rotate(angle);
+            I2DShape I2DShape.Rotate(RotationAngle angle) => Rotate(angle);
             /// <summary>
             /// Rotates the path by the given angle.
             /// </summary>
@@ -1008,7 +1008,7 @@ namespace PAC.Drawing
                 return new Path(_lines.Select(l => l.Rotate(angle)));
             }
 
-            IShape IShape.Flip(FlipAxis axis) => Flip(axis);
+            I2DShape I2DShape.Flip(FlipAxis axis) => Flip(axis);
             /// <summary>
             /// Reflects the path across the given axis.
             /// </summary>
@@ -1256,7 +1256,7 @@ namespace PAC.Drawing
             public override string ToString() => "Path(" + string.Join(", ", _lines) + ")";
         }
 
-        public class Rectangle : IShape
+        public class Rectangle : I2DShape
         {
             public IntVector2 bottomLeft
             {
@@ -1343,7 +1343,7 @@ namespace PAC.Drawing
             /// </summary>
             public static Rectangle operator -(Rectangle rectangle) => new Rectangle(-rectangle.bottomLeft, -rectangle.topRight, rectangle.filled);
 
-            IShape IShape.Translate(IntVector2 translation) => Translate(translation);
+            I2DShape I2DShape.Translate(IntVector2 translation) => Translate(translation);
             /// <summary>
             /// Translates the rectangle by the given vector.
             /// </summary>
@@ -1352,7 +1352,7 @@ namespace PAC.Drawing
                 return new Rectangle(bottomLeft + translation, topRight + translation, filled);
             }
 
-            IShape IShape.Rotate(RotationAngle angle) => Rotate(angle);
+            I2DShape I2DShape.Rotate(RotationAngle angle) => Rotate(angle);
             /// <summary>
             /// Rotates the rectangle by the given angle.
             /// </summary>
@@ -1361,7 +1361,7 @@ namespace PAC.Drawing
                 return new Rectangle(bottomLeft.Rotate(angle), topRight.Rotate(angle), filled);
             }
 
-            IShape IShape.Flip(FlipAxis axis) => Flip(axis);
+            I2DShape I2DShape.Flip(FlipAxis axis) => Flip(axis);
             /// <summary>
             /// Reflects the rectangle across the given axis.
             /// </summary>
@@ -1447,7 +1447,7 @@ namespace PAC.Drawing
             public override string ToString() => "Rectangle(" + bottomLeft + ", " + topRight + ", " + (filled ? "filled" : "unfilled") + ")";
         }
 
-        public class Diamond : IShape
+        public class Diamond : I2DShape
         {
             public IntVector2 bottomLeft
             {
@@ -1634,7 +1634,7 @@ namespace PAC.Drawing
             /// </summary>
             public static Diamond operator -(Diamond diamond) => new Diamond(-diamond.bottomLeft, -diamond.topRight, diamond.filled);
 
-            IShape IShape.Translate(IntVector2 translation) => Translate(translation);
+            I2DShape I2DShape.Translate(IntVector2 translation) => Translate(translation);
             /// <summary>
             /// Translates the diamond by the given vector.
             /// </summary>
@@ -1643,7 +1643,7 @@ namespace PAC.Drawing
                 return new Diamond(bottomLeft + translation, topRight + translation, filled);
             }
 
-            IShape IShape.Rotate(RotationAngle angle) => Rotate(angle);
+            I2DShape I2DShape.Rotate(RotationAngle angle) => Rotate(angle);
             /// <summary>
             /// Rotates the diamond by the given angle.
             /// </summary>
@@ -1652,7 +1652,7 @@ namespace PAC.Drawing
                 return new Diamond(bottomLeft.Rotate(angle), topRight.Rotate(angle), filled);
             }
 
-            IShape IShape.Flip(FlipAxis axis) => Flip(axis);
+            I2DShape I2DShape.Flip(FlipAxis axis) => Flip(axis);
             /// <summary>
             /// Reflects the diamond across the given axis.
             /// </summary>
@@ -1745,7 +1745,7 @@ namespace PAC.Drawing
             public override string ToString() => "Diamond(" + bottomLeft + ", " + topRight + ", " + (filled ? "filled" : "unfilled") + ")";
         }
 
-        public class Ellipse : IShape
+        public class Ellipse : I2DShape
         {
             // NOTE: For this shape, we work in a coordinate system where integer coordinates refer to the CENTRE of a pixel - e.g. the centre of pixel (0, 0) is (0, 0), not (0.5, 0.5).
 
@@ -1882,7 +1882,7 @@ namespace PAC.Drawing
             /// </summary>
             public static Ellipse operator -(Ellipse ellipse) => new Ellipse(-ellipse.bottomLeft, -ellipse.topRight, ellipse.filled);
 
-            IShape IShape.Translate(IntVector2 translation) => Translate(translation);
+            I2DShape I2DShape.Translate(IntVector2 translation) => Translate(translation);
             /// <summary>
             /// Translates the ellipse by the given vector.
             /// </summary>
@@ -1891,7 +1891,7 @@ namespace PAC.Drawing
                 return new Ellipse(bottomLeft + translation, topRight + translation, filled);
             }
 
-            IShape IShape.Rotate(RotationAngle angle) => Rotate(angle);
+            I2DShape I2DShape.Rotate(RotationAngle angle) => Rotate(angle);
             /// <summary>
             /// Rotates the ellipse by the given angle.
             /// </summary>
@@ -1900,7 +1900,7 @@ namespace PAC.Drawing
                 return new Ellipse(bottomLeft.Rotate(angle), topRight.Rotate(angle), filled);
             }
 
-            IShape IShape.Flip(FlipAxis axis) => Flip(axis);
+            I2DShape I2DShape.Flip(FlipAxis axis) => Flip(axis);
             /// <summary>
             /// Reflects the ellipse across the given axis.
             /// </summary>
@@ -2012,7 +2012,7 @@ namespace PAC.Drawing
             public override string ToString() => "Ellipse(" + bottomLeft + ", " + topRight + ", " + (filled ? "filled" : "unfilled") + ")";
         }
 
-        public class RightTriangle : IShape
+        public class RightTriangle : I2DShape
         {
             public enum RightAngleLocation
             {
@@ -2294,7 +2294,7 @@ namespace PAC.Drawing
             /// </summary>
             public static RightTriangle operator -(RightTriangle triangle) => triangle.Rotate(RotationAngle._180);
 
-            IShape IShape.Translate(IntVector2 translation) => Translate(translation);
+            I2DShape I2DShape.Translate(IntVector2 translation) => Translate(translation);
             /// <summary>
             /// Translates the triangle by the given vector.
             /// </summary>
@@ -2303,7 +2303,7 @@ namespace PAC.Drawing
                 return new RightTriangle(bottomCorner + translation, topCorner + translation, rightAngleLocation, filled);
             }
 
-            IShape IShape.Rotate(RotationAngle angle) => Rotate(angle);
+            I2DShape I2DShape.Rotate(RotationAngle angle) => Rotate(angle);
             /// <summary>
             /// Rotates the triangle by the given angle.
             /// </summary>
@@ -2348,7 +2348,7 @@ namespace PAC.Drawing
                 return new RightTriangle(bottomCorner.Rotate(angle), topCorner.Rotate(angle), RotateRightAngleLocation(rightAngleLocation, angle), filled);
             }
 
-            IShape IShape.Flip(FlipAxis axis) => Flip(axis);
+            I2DShape I2DShape.Flip(FlipAxis axis) => Flip(axis);
             /// <summary>
             /// Reflects the triangle across the given axis.
             /// </summary>
@@ -2458,11 +2458,11 @@ namespace PAC.Drawing
         /// <summary>
         /// Turns the pixels in the shape's bounding rect into a Texture2D.
         /// </summary>
-        public static Texture2D ShapeToTexture(IShape shape, Color colour) => ShapeToTexture(shape, colour, shape.boundingRect);
+        public static Texture2D ShapeToTexture(I2DShape shape, Color colour) => ShapeToTexture(shape, colour, shape.boundingRect);
         /// <summary>
         /// Turns the pixels in the given IntRect into a Texture2D, using any of the shape's pixels that lie in that rect. 
         /// </summary>
-        public static Texture2D ShapeToTexture(IShape shape, Color colour, IntRect texRect)
+        public static Texture2D ShapeToTexture(I2DShape shape, Color colour, IntRect texRect)
         {
             Texture2D tex = Tex2DSprite.BlankTexture(texRect.width, texRect.height);
 

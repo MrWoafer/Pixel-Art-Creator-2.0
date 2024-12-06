@@ -11,7 +11,7 @@ namespace PAC.Tests
     /// <summary>
     /// The tests that should be implemented for every shape.
     /// </summary>
-    public abstract class IShapeTests<T> where T : Shapes.IShape
+    public abstract class I2DShapeTests<T> where T : Shapes.I2DShape
     {
         protected abstract IEnumerable<T> testCases
         {
@@ -41,7 +41,7 @@ namespace PAC.Tests
         {
             foreach (T shape in testCases)
             {
-                IShapeTestHelper.BoundingRect(shape);
+                I2DShapeTestHelper.BoundingRect(shape);
             }
         }
 
@@ -54,7 +54,7 @@ namespace PAC.Tests
         {
             foreach (T shape in testCases)
             {
-                IShapeTestHelper.CountDistinct(shape);
+                I2DShapeTestHelper.CountDistinct(shape);
             }
         }
 
@@ -64,7 +64,7 @@ namespace PAC.Tests
         {
             foreach (T shape in testCases)
             {
-                IShapeTestHelper.Contains(shape);
+                I2DShapeTestHelper.Contains(shape);
             }
         }
 
@@ -82,7 +82,7 @@ namespace PAC.Tests
         {
             foreach (T shape in testCases)
             {
-                IShapeTestHelper.NoRepeatsAtAll(shape);
+                I2DShapeTestHelper.NoRepeatsAtAll(shape);
             }
         }
 
@@ -95,7 +95,7 @@ namespace PAC.Tests
         {
             foreach (T shape in testCases)
             {
-                IShapeTestHelper.Connected(shape);
+                I2DShapeTestHelper.Connected(shape);
             }
         }
 
@@ -105,7 +105,7 @@ namespace PAC.Tests
         {
             foreach (T shape in testCases)
             {
-                IShapeTestHelper.Translate(shape);
+                I2DShapeTestHelper.Translate(shape);
             }
         }
         [Test]
@@ -114,7 +114,7 @@ namespace PAC.Tests
         {
             foreach (T shape in testCases)
             {
-                IShapeTestHelper.Rotate(shape);
+                I2DShapeTestHelper.Rotate(shape);
             }
         }
         [Test]
@@ -123,20 +123,20 @@ namespace PAC.Tests
         {
             foreach (T shape in testCases)
             {
-                IShapeTestHelper.Flip(shape);
+                I2DShapeTestHelper.Flip(shape);
             }
         }
     }
 
     /// <summary>
-    /// Helper functions for making tests for IShapes.
+    /// Helper functions for making tests for I2DShapes.
     /// </summary>
-    public static class IShapeTestHelper
+    public static class I2DShapeTestHelper
     {
         /// <summary>
         /// Tests that the shape's boundingRect property is the correct bounding rect.
         /// </summary>
-        public static void BoundingRect(Shapes.IShape shape)
+        public static void BoundingRect(Shapes.I2DShape shape)
         {
             Assert.AreEqual(IntRect.BoundingRect(shape), shape.boundingRect, "Failed with " + shape);
         }
@@ -144,7 +144,7 @@ namespace PAC.Tests
         /// <summary>
         /// Tests that the shape's Count property matches the number of distinct pixels in its enumerator.
         /// </summary>
-        public static void CountDistinct(Shapes.IShape shape)
+        public static void CountDistinct(Shapes.I2DShape shape)
         {
             int count = 0;
             HashSet<IntVector2> visited = new HashSet<IntVector2>();
@@ -163,7 +163,7 @@ namespace PAC.Tests
         /// <summary>
         /// Tests that the shape's Contains() method matches the set of pixels obtained from the shape's enumerator.
         /// </summary>
-        public static void Contains(Shapes.IShape shape)
+        public static void Contains(Shapes.I2DShape shape)
         {
             IntRect boundingRect = shape.boundingRect;
             IntRect testRegion = new IntRect(boundingRect.bottomLeft + IntVector2.downLeft, boundingRect.topRight + IntVector2.upRight);
@@ -180,7 +180,7 @@ namespace PAC.Tests
         /// <summary>
         /// Tests that no pixels are repeated at all in the shape's enumerator.
         /// </summary>
-        public static void NoRepeatsAtAll(Shapes.IShape shape)
+        public static void NoRepeatsAtAll(Shapes.I2DShape shape)
         {
             HashSet<IntVector2> visited = new HashSet<IntVector2>();
             foreach (IntVector2 pixel in shape)
@@ -198,7 +198,7 @@ namespace PAC.Tests
         /// Note this is a strictly weaker test than Connected().
         /// </para>
         /// </summary>
-        public static void NoIsolatedPoints(Shapes.IShape shape)
+        public static void NoIsolatedPoints(Shapes.I2DShape shape)
         {
             HashSet<IntVector2> pixels = shape.ToHashSet();
             foreach (IntVector2 pixel in shape)
@@ -220,7 +220,7 @@ namespace PAC.Tests
         /// <summary>
         /// Tests that the shape has exactly one connected component (defined it terms of pixels being adjacent, including diagonally).
         /// </summary>
-        public static void Connected(Shapes.IShape shape)
+        public static void Connected(Shapes.I2DShape shape)
         {
             HashSet<IntVector2> pixels = shape.ToHashSet();
             HashSet<IntVector2> visited = new HashSet<IntVector2>();
@@ -246,7 +246,7 @@ namespace PAC.Tests
         /// <summary>
         /// Applies Translate() to the shape and checks that the enumerator of the resulting shape is a translation of the original shape's enumerator.
         /// </summary>
-        public static void Translate(Shapes.IShape shape)
+        public static void Translate(Shapes.I2DShape shape)
         {
             foreach (IntVector2 translation in new IntRect(new IntVector2(-2, -2), new IntVector2(2, 2)))
             {
@@ -258,7 +258,7 @@ namespace PAC.Tests
         /// <summary>
         /// Applies Rotate() to the shape and checks that the enumerator of the resulting shape is a rotation of the original shape's enumerator.
         /// </summary>
-        public static void Rotate(Shapes.IShape shape)
+        public static void Rotate(Shapes.I2DShape shape)
         {
             foreach (RotationAngle angle in new RotationAngle[] { RotationAngle._0, RotationAngle._90, RotationAngle._180, RotationAngle.Minus90 })
             {
@@ -270,7 +270,7 @@ namespace PAC.Tests
         /// <summary>
         /// Applies Flip() to the shape and checks that the enumerator of the resulting shape is a reflection of the original shape's enumerator.
         /// </summary>
-        public static void Flip(Shapes.IShape shape)
+        public static void Flip(Shapes.I2DShape shape)
         {
             foreach (FlipAxis axis in new FlipAxis[] { FlipAxis.None, FlipAxis.Vertical, FlipAxis.Horizontal, FlipAxis._45Degrees, FlipAxis.Minus45Degrees })
             {
@@ -282,7 +282,7 @@ namespace PAC.Tests
         /// <summary>
         /// Tests that the shape has reflective symmetry across the given axis.
         /// </summary>
-        public static void ReflectiveSymmetry(Shapes.IShape shape, FlipAxis axis)
+        public static void ReflectiveSymmetry(Shapes.I2DShape shape, FlipAxis axis)
         {
             if (axis == FlipAxis.None)
             {
@@ -317,7 +317,7 @@ namespace PAC.Tests
         /// <summary>
         /// Tests that the shape has rotational symmetry by the given angle.
         /// </summary>
-        public static void RotationalSymmetry(Shapes.IShape shape, RotationAngle angle)
+        public static void RotationalSymmetry(Shapes.I2DShape shape, RotationAngle angle)
         {
             Assert.True(shape.ToHashSet().SetEquals(shape.Select(p => p.Rotate(angle) + shape.boundingRect.bottomLeft - shape.boundingRect.Rotate(angle).bottomLeft)),
                 "Failed with " + shape + " and RotationAngle." + angle);

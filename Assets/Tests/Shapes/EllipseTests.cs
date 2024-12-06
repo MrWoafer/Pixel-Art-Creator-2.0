@@ -6,7 +6,7 @@ using System.Linq;
 
 namespace PAC.Tests
 {
-    public class EllipseTests : IShapeTests<Shapes.Ellipse>
+    public class EllipseTests : I2DShapeTests<Shapes.Ellipse>
     {
         protected override IEnumerable<Shapes.Ellipse> testCases
         {
@@ -136,8 +136,8 @@ namespace PAC.Tests
                 {
                     Shapes.Ellipse ellipse = new Shapes.Ellipse(IntVector2.zero, topRight, filled);
 
-                    IShapeTestHelper.ReflectiveSymmetry(ellipse, FlipAxis.Vertical);
-                    IShapeTestHelper.ReflectiveSymmetry(ellipse, FlipAxis.Horizontal);
+                    I2DShapeTestHelper.ReflectiveSymmetry(ellipse, FlipAxis.Vertical);
+                    I2DShapeTestHelper.ReflectiveSymmetry(ellipse, FlipAxis.Horizontal);
                 }
             }
         }
@@ -154,7 +154,7 @@ namespace PAC.Tests
                 for (int diameter = 1; diameter <= 10; diameter++)
                 {
                     Shapes.Ellipse circle = new Shapes.Ellipse(IntVector2.zero, new IntVector2(diameter - 1, diameter - 1), filled);
-                    IShapeTestHelper.RotationalSymmetry(circle, RotationAngle._90);
+                    I2DShapeTestHelper.RotationalSymmetry(circle, RotationAngle._90);
                 }
             }
         }
@@ -172,10 +172,10 @@ namespace PAC.Tests
                 {
                     Shapes.Ellipse circle = new Shapes.Ellipse(IntVector2.zero, new IntVector2(diameter - 1, diameter - 1), filled);
 
-                    IShapeTestHelper.ReflectiveSymmetry(circle, FlipAxis.Vertical);
-                    IShapeTestHelper.ReflectiveSymmetry(circle, FlipAxis.Horizontal);
-                    IShapeTestHelper.ReflectiveSymmetry(circle, FlipAxis._45Degrees);
-                    IShapeTestHelper.ReflectiveSymmetry(circle, FlipAxis.Minus45Degrees);
+                    I2DShapeTestHelper.ReflectiveSymmetry(circle, FlipAxis.Vertical);
+                    I2DShapeTestHelper.ReflectiveSymmetry(circle, FlipAxis.Horizontal);
+                    I2DShapeTestHelper.ReflectiveSymmetry(circle, FlipAxis._45Degrees);
+                    I2DShapeTestHelper.ReflectiveSymmetry(circle, FlipAxis.Minus45Degrees);
                 }
             }
         }

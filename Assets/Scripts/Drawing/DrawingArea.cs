@@ -929,7 +929,7 @@ namespace PAC.Drawing
             }
         }
 
-        private void PreviewShape(Shapes.IShape shape, Color colour)
+        private void PreviewShape(Shapes.I2DShape shape, Color colour)
         {
             SetPreview(Shapes.ShapeToTexture(shape, colour), shape.boundingRect.bottomLeft);
         }
@@ -1068,7 +1068,7 @@ namespace PAC.Drawing
             }
         }
 
-        private void SelectionShape(Shapes.IShape shape, bool erase)
+        private void SelectionShape(Shapes.I2DShape shape, bool erase)
         {
             Texture2D tex = Shapes.ShapeToTexture(shape, Config.Colours.mask, file.rect);
             if (erase)

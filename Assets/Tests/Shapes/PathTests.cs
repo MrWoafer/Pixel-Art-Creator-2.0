@@ -7,7 +7,7 @@ using PAC.Drawing;
 
 namespace PAC.Tests
 {
-    public class PathTests : IShapeTests<Shapes.Path>
+    public class PathTests : I2DShapeTests<Shapes.Path>
     {
         protected override IEnumerable<Shapes.Path> testCases
         {
@@ -134,7 +134,7 @@ namespace PAC.Tests
         {
             foreach (Shapes.Path path in RandomTestCases(2_000))
             {
-                IShapeTestHelper.BoundingRect(path);
+                I2DShapeTestHelper.BoundingRect(path);
             }
         }
 

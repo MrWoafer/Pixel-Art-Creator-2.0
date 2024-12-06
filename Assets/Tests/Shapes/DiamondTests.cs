@@ -7,7 +7,7 @@ using System.Linq;
 
 namespace PAC.Tests
 {
-    public class DiamondTests : IShapeTests<Shapes.Diamond>
+    public class DiamondTests : I2DShapeTests<Shapes.Diamond>
     {
         protected override IEnumerable<Shapes.Diamond> testCases
         {
@@ -80,8 +80,8 @@ namespace PAC.Tests
                 {
                     Shapes.Ellipse ellipse = new Shapes.Ellipse(IntVector2.zero, topRight, filled);
 
-                    IShapeTestHelper.ReflectiveSymmetry(ellipse, FlipAxis.Vertical);
-                    IShapeTestHelper.ReflectiveSymmetry(ellipse, FlipAxis.Horizontal);
+                    I2DShapeTestHelper.ReflectiveSymmetry(ellipse, FlipAxis.Vertical);
+                    I2DShapeTestHelper.ReflectiveSymmetry(ellipse, FlipAxis.Horizontal);
                 }
             }
         }
