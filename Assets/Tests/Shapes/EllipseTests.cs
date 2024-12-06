@@ -136,8 +136,8 @@ namespace PAC.Tests
                 {
                     Shapes.Ellipse ellipse = new Shapes.Ellipse(IntVector2.zero, topRight, filled);
 
-                    I2DShapeTestHelper.ReflectiveSymmetry(ellipse, FlipAxis.Vertical);
-                    I2DShapeTestHelper.ReflectiveSymmetry(ellipse, FlipAxis.Horizontal);
+                    IShapeTestHelper.ReflectiveSymmetry(ellipse, FlipAxis.Vertical);
+                    IShapeTestHelper.ReflectiveSymmetry(ellipse, FlipAxis.Horizontal);
                 }
             }
         }
@@ -172,10 +172,10 @@ namespace PAC.Tests
                 {
                     Shapes.Ellipse circle = new Shapes.Ellipse(IntVector2.zero, new IntVector2(diameter - 1, diameter - 1), filled);
 
-                    I2DShapeTestHelper.ReflectiveSymmetry(circle, FlipAxis.Vertical);
-                    I2DShapeTestHelper.ReflectiveSymmetry(circle, FlipAxis.Horizontal);
-                    I2DShapeTestHelper.ReflectiveSymmetry(circle, FlipAxis._45Degrees);
-                    I2DShapeTestHelper.ReflectiveSymmetry(circle, FlipAxis.Minus45Degrees);
+                    IShapeTestHelper.ReflectiveSymmetry(circle, FlipAxis.Vertical);
+                    IShapeTestHelper.ReflectiveSymmetry(circle, FlipAxis.Horizontal);
+                    IShapeTestHelper.ReflectiveSymmetry(circle, FlipAxis._45Degrees);
+                    IShapeTestHelper.ReflectiveSymmetry(circle, FlipAxis.Minus45Degrees);
                 }
             }
         }

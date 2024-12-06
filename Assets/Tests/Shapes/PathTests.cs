@@ -134,7 +134,7 @@ namespace PAC.Tests
         {
             foreach (Shapes.Path path in RandomTestCases(2_000))
             {
-                I2DShapeTestHelper.BoundingRect(path);
+                IShapeTestHelper.BoundingRect(path);
             }
         }
 

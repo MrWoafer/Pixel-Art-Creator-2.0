@@ -80,8 +80,8 @@ namespace PAC.Tests
                 {
                     Shapes.Ellipse ellipse = new Shapes.Ellipse(IntVector2.zero, topRight, filled);
 
-                    I2DShapeTestHelper.ReflectiveSymmetry(ellipse, FlipAxis.Vertical);
-                    I2DShapeTestHelper.ReflectiveSymmetry(ellipse, FlipAxis.Horizontal);
+                    IShapeTestHelper.ReflectiveSymmetry(ellipse, FlipAxis.Vertical);
+                    IShapeTestHelper.ReflectiveSymmetry(ellipse, FlipAxis.Horizontal);
                 }
             }
         }

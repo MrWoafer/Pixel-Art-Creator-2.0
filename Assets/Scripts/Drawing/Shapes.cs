@@ -15,9 +15,9 @@ namespace PAC.Drawing
     /// We could turn I2DShape into an abstract class to avoid this default implementation casting issue, but then to have a more specific return type in methods like Translate() (e.g.
     /// Line.Translate() returns a Line instead of just I2DShape) we need covariant return types, which isn't yet supported in Unity's compiler.
     /// </summary>
-    public static class I2DShapeExtensions
+    public static class IShapeExtensions
     {
-        public static bool Contains(this Shapes.I2DShape shape, IEnumerable<IntVector2> pixels)
+        public static bool Contains(this Shapes.IShape shape, IEnumerable<IntVector2> pixels)
         {
             foreach (IntVector2 pixel in pixels)
             {
@@ -35,7 +35,7 @@ namespace PAC.Drawing
     /// </summary>
     public static class Shapes
     {
-        public interface I2DShape : IReadOnlyCollection<IntVector2>
+        public interface IShape : IReadOnlyCollection<IntVector2>
         {
             /// <summary>
             /// The smallest IntRect containing the whole shape.
@@ -47,6 +47,35 @@ namespace PAC.Drawing
             /// </summary>
             public bool Contains(IntVector2 pixel);
 
+            /// <summary>
+            /// Translates the shape by the given vector.
+            /// </summary>
+            public static IShape operator +(IntVector2 translation, IShape shape) => shape + translation;
+            /// <summary>
+            /// Translates the shape by the given vector.
+            /// </summary>
+            public static IShape operator +(IShape shape, IntVector2 translation) => shape.Translate(translation);
+            /// <summary>
+            /// Translates the shape by the given vector.
+            /// </summary>
+            public static IShape operator -(IShape shape, IntVector2 translation) => shape + (-translation);
+            /// <summary>
+            /// Reflects the shape through the origin.
+            /// </summary>
+            public static IShape operator -(IShape shape) => shape.Flip(FlipAxis.Vertical).Flip(FlipAxis.Horizontal);
+
+            /// <summary>
+            /// Translates the shape by the given vector.
+            /// </summary>
+            public IShape Translate(IntVector2 translation);
+            /// <summary>
+            /// Reflects the shape across the given axis.
+            /// </summary>
+            public IShape Flip(FlipAxis axis);
+        }
+
+        public interface I2DShape : IShape
+        {
             /// <summary>
             /// Translates the shape by the given vector.
             /// </summary>
@@ -67,15 +96,17 @@ namespace PAC.Drawing
             /// <summary>
             /// Translates the shape by the given vector.
             /// </summary>
-            public I2DShape Translate(IntVector2 translation);
+            public new I2DShape Translate(IntVector2 translation);
+            IShape IShape.Translate(IntVector2 translation) => Translate(translation);
+            /// <summary>
+            /// Reflects the shape across the given axis.
+            /// </summary>
+            public new I2DShape Flip(FlipAxis axis);
+            IShape IShape.Flip(FlipAxis axis) => Flip(axis);
             /// <summary>
             /// Rotates the shape by the given angle.
             /// </summary>
             public I2DShape Rotate(RotationAngle angle);
-            /// <summary>
-            /// Reflects the shape across the given axis.
-            /// </summary>
-            public I2DShape Flip(FlipAxis axis);
         }
 
         /// <summary>
