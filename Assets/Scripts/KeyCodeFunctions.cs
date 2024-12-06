@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace PAC
+namespace PAC.Utils
 {
     public static class KeyCodeFunctions
     {

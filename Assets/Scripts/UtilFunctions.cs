@@ -1,70 +1,80 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace PAC
+namespace PAC.Utils
 {
-    public static class Functions
+    public static class UtilFunctions
     {
         /// <summary>
         /// Returns a mod b, giving a non-negative result.
         /// </summary>
-        /// <param name="a"></param>
-        /// <param name="b"></param>
-        /// <returns></returns>
         public static int Mod(int a, int b)
         {
             return (a % b + b) % b;
         }
 
-        public static int RoundToMultiple(float toRound, int multipleOf)
-        {
-            return (int)RoundToMultiple(toRound, (float)multipleOf);
-        }
-        public static float RoundToMultiple(float toRound, float multipleOf)
+        public static int RoundToMultipleOf(float toRound, int multipleOf) => (int)RoundToMultipleOf(toRound, (float) multipleOf);
+        public static float RoundToMultipleOf(float toRound, float multipleOf)
         {
             if (multipleOf == 0)
             {
                 throw new System.Exception("Cannot round to a multiple of 0.");
             }
-
             return Mathf.Round(toRound / multipleOf) * multipleOf;
         }
 
-        public static int FloorToMultiple(float toRound, int multipleOf)
-        {
-            return (int)FloorToMultiple(toRound, (float)multipleOf);
-        }
-        public static float FloorToMultiple(float toRound, float multipleOf)
+        public static int FloorToMultipleOf(float toRound, int multipleOf) => (int)FloorToMultipleOf(toRound, (float)multipleOf);
+        public static float FloorToMultipleOf(float toRound, float multipleOf)
         {
             if (multipleOf == 0)
             {
                 throw new System.Exception("Cannot round to a multiple of 0.");
             }
-
             return Mathf.Floor(toRound / multipleOf) * multipleOf;
         }
 
-        public static int CeilToMultiple(float toRound, int multipleOf)
-        {
-            return (int)CeilToMultiple(toRound, (float)multipleOf);
-        }
-        public static float CeilToMultiple(float toRound, float multipleOf)
+        public static int CeilToMultipleOf(float toRound, int multipleOf) => (int)CeilToMultipleOf(toRound, (float)multipleOf);
+        public static float CeilToMultipleOf(float toRound, float multipleOf)
         {
             if (multipleOf == 0)
             {
                 throw new System.Exception("Cannot round to a multiple of 0.");
             }
-
             return Mathf.Ceil(toRound / multipleOf) * multipleOf;
         }
 
-        public static Vector2 Vector3ToVector2(Vector3 vector3)
+        public static float RoundTowards(float toRound, int towards)
         {
-            return new Vector2(vector3.x, vector3.y);
+            if (toRound >= towards)
+            {
+                return Mathf.Floor(toRound);
+            }
+            return Mathf.Ceil(toRound);
         }
-        public static Vector3 Vector2ToVector3(Vector3 vector2)
+        public static int RoundToIntTowards(float toRound, int towards)
         {
-            return new Vector3(vector2.x, vector2.y, 0f);
+            if (toRound >= towards)
+            {
+                return Mathf.FloorToInt(toRound);
+            }
+            return Mathf.CeilToInt(toRound);
+        }
+
+        public static float RoundAwayFrom(float toRound, int awayFrom)
+        {
+            if (toRound >= awayFrom)
+            {
+                return Mathf.Ceil(toRound);
+            }
+            return Mathf.Floor(toRound);
+        }
+        public static int RoundToIntAwayFrom(float toRound, int awayFrom)
+        {
+            if (toRound >= awayFrom)
+            {
+                return Mathf.CeilToInt(toRound);
+            }
+            return Mathf.FloorToInt(toRound);
         }
 
         public static string FirstNChars(string str, int numOfChars)
@@ -82,49 +92,9 @@ namespace PAC
             return str;
         }
 
-        public static float SymmetricFloor(float f)
-        {
-            if (f >= 0)
-            {
-                return Mathf.Floor(f);
-            }
-
-            return Mathf.Ceil(f);
-        }
-
-        public static float SymmetricCeil(float f)
-        {
-            if (f >= 0)
-            {
-                return Mathf.Ceil(f);
-            }
-
-            return Mathf.Floor(f);
-        }
-
-        public static int SymmetricFloorToInt(float f)
-        {
-            if (f >= 0)
-            {
-                return Mathf.FloorToInt(f);
-            }
-
-            return Mathf.CeilToInt(f);
-        }
-
-        public static int SymmetricCeilToInt(float f)
-        {
-            if (f >= 0)
-            {
-                return Mathf.CeilToInt(f);
-            }
-
-            return Mathf.FloorToInt(f);
-        }
-
         public static float TruncateDecimalPlaces(float f, int decimalPlaces)
         {
-            int integerPart = Functions.SymmetricFloorToInt(f);
+            int integerPart = UtilFunctions.RoundToIntTowards(f, 0);
             float decimalPart = Mathf.Abs(f - integerPart);
 
             if (decimalPart.ToString() == "0")
@@ -158,6 +128,9 @@ namespace PAC
             return array;
         }
 
+        /// <summary>
+        /// Creates a copy of the array, but DOES NOT create a deep copy of the elements: reference types will just have the reference copied.
+        /// </summary>
         public static T[] CopyArray<T>(T[] array)
         {
             T[] copy = new T[array.Length];
@@ -170,6 +143,9 @@ namespace PAC
             return copy;
         }
 
+        /// <summary>
+        /// Compares the arrays element-wise using .Equals()
+        /// </summary>
         public static bool CompareArrays<T>(T[] array1, T[] array2)
         {
             if (array1.Length != array2.Length)
@@ -190,52 +166,28 @@ namespace PAC
 
         public static string ArrayToString<T>(T[] array)
         {
-            string str = "{";
-
-            for (int i = 0; i < array.Length; i++)
-            {
-                str += array[i].ToString();
-                if (i < array.Length - 1)
-                {
-                    str += ", ";
-                }
-            }
-
-            str += "}";
-
-            return str;
+            return "{" + string.Join(", ", array) + "}";
         }
 
         /// <summary>
-        /// Creates an array starting at start and ending at end (inclusive).
+        /// Creates an IEnumerable starting at start and ending at end (inclusive).
         /// </summary>
-        public static int[] Range(int start, int end)
+        public static IEnumerable<int> Range(int start, int end)
         {
             if (start <= end)
             {
-                int[] range = new int[end - start + 1];
                 for (int i = start; i <= end; i++)
                 {
-                    range[i - start] = i;
+                    yield return i;
                 }
-                return range;
             }
             else
             {
-                int[] range = new int[start - end + 1];
                 for (int i = start; i >= end; i--)
                 {
-                    range[start - i] = i;
+                    yield return i;
                 }
-                return range;
             }
-        }
-
-        public static T[] ToArray<T>(this HashSet<T> hashSet)
-        {
-            T[] array = new T[hashSet.Count];
-            hashSet.CopyTo(array);
-            return array;
         }
     }
 }

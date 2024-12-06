@@ -2,13 +2,14 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Runtime.Serialization;
 using PAC.DataStructures;
+using PAC.Json;
 using PAC.Layers;
 using PAC.Tilesets;
+using PAC.Utils;
 using UnityEngine;
 using UnityEngine.Events;
-using PAC.Json;
-using System.Runtime.Serialization;
 
 namespace PAC.Files
 {
@@ -744,7 +745,7 @@ namespace PAC.Files
                 return Tex2DSprite.BlankTexture(width, height);
             }
 
-            return RenderLayers(Functions.Range(highestVisibleLayer, lowestVisibleLayer), frame);
+            return RenderLayers(UtilFunctions.Range(highestVisibleLayer, lowestVisibleLayer), frame);
         }
 
         /// <summary>
@@ -752,9 +753,9 @@ namespace PAC.Files
         /// Does not apply the texture.
         /// </summary>
         /// <param name="layerIndices">The layer indices in the order you want them to be rendered, from highest layer (so lowest index) to lowest.</param>
-        public Texture2D RenderLayers(int[] layerIndices, int frame)
+        public Texture2D RenderLayers(IEnumerable<int> layerIndices, int frame)
         {
-            if (layerIndices.Length == 0)
+            if (layerIndices.Count() == 0)
             {
                 return Tex2DSprite.BlankTexture(width, height);
             }
@@ -836,29 +837,31 @@ namespace PAC.Files
                 throw new System.Exception("inclusive == false and there are no layers strictly between the highest layer and the lowest layer. highestLayer: " + highestLayer + "; lowestLayer: " + lowestLayer);
             }
 
-            return RenderPixel(x, y, Functions.Range(highestLayer + (inclusive ? 0 : 1), lowestLayer - (inclusive ? 0 : 1)), frame);
+            return RenderPixel(x, y, UtilFunctions.Range(highestLayer + (inclusive ? 0 : 1), lowestLayer - (inclusive ? 0 : 1)), frame);
         }
         /// <summary>
         /// Renders the colour of the pixel on the layers at the given layer indices. Throws an error if there are no layer indices.
         /// </summary>
-        public Color RenderPixel(IntVector2 pixel, int[] layerIndices, int frame) => RenderPixel(pixel.x, pixel.y, layerIndices, frame);
+        public Color RenderPixel(IntVector2 pixel, IEnumerable<int> layerIndices, int frame) => RenderPixel(pixel.x, pixel.y, layerIndices, frame);
         /// <summary>
         /// Renders the colour of pixel (x, y) on the layers at the given layer indices. Throws an error if there are no layer indices.
         /// </summary>
-        public Color RenderPixel(int x, int y, int[] layerIndices, int frame)
+        public Color RenderPixel(int x, int y, IEnumerable<int> layerIndices, int frame)
         {
-            if (layerIndices.Length == 0)
+            if (layerIndices.Count() == 0)
             {
                 throw new System.Exception("layerIndices cannot be empty.");
             }
 
+            layerIndices = layerIndices.Reverse();
+
             Color pixelColour = new Color(0f, 0f, 0f, 0f);
-            for (int i = layerIndices.Length - 1; i >= 0; i--)
+            foreach (int i in layerIndices)
             {
-                if (layers[layerIndices[i]].visible)
+                if (layers[i].visible)
                 {
-                    Color layerPixelColour = layers[layerIndices[i]].GetPixel(x, y, frame);
-                    pixelColour = layers[layerIndices[i]].blendMode.Blend(layerPixelColour, pixelColour);
+                    Color layerPixelColour = layers[i].GetPixel(x, y, frame);
+                    pixelColour = layers[i].blendMode.Blend(layerPixelColour, pixelColour);
                 }
             }
 
@@ -871,7 +874,7 @@ namespace PAC.Files
         private void RerenderLiveRender()
         {
             Color[] pixels = new Color[rect.area];
-            int[] layerIndices = Functions.Range(0, layers.Count() - 1);
+            IEnumerable<int> layerIndices = UtilFunctions.Range(0, layers.Count() - 1);
 
             int index = 0;
             for (int y = 0; y < height; y++)
