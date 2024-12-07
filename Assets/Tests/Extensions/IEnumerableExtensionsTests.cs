@@ -117,5 +117,26 @@ namespace PAC.Tests
 
             Assert.Throws<ArgumentException>(() => new string[] { }.ArgMin(s => s.Length));
         }
+
+        [Test]
+        [Category("Extensions")]
+        public void Zip()
+        {
+            (IEnumerable<int> input1, IEnumerable<string> input2, IEnumerable<(int, string)> expected)[] testCases =
+            {
+                (new int[] { }, new string[] { }, new (int, string)[] { }),
+                (new int[] { 1 }, new string[] { }, new (int, string)[] { }),
+                (new int[] { }, new string[] { "a" }, new (int, string)[] { }),
+                (new int[] { 2 }, new string[] { "b" }, new (int, string)[] { (2, "b") }),
+                (new int[] { 1, 2, 3 }, new string[] { "a", "b", "c" }, new (int, string)[] { (1, "a"), (2, "b"), (3, "c") }),
+                (new int[] { 1, 2 }, new string[] { "a", "b", "c", "d" }, new (int, string)[] { (1, "a"), (2, "b") }),
+                (new int[] { 1, 2, 3, 4, 5 }, new string[] { "a", "b", "c" }, new (int, string)[] { (1, "a"), (2, "b"), (3, "c") })
+            };
+
+            foreach ((IEnumerable<int> input1, IEnumerable<string> input2, IEnumerable<(int, string)> expected) in testCases)
+            {
+                Assert.True(expected.SequenceEqual(input1.Zip(input2)));
+            }
+        }
     }
 }

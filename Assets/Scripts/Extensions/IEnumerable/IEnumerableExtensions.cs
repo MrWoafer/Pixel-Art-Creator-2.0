@@ -182,29 +182,7 @@ namespace PAC.Extensions
         /// Returns an empty IEnumerable if elements has length 0 or 1.
         /// </para>
         /// </summary>
-        public static IEnumerable<(T, T)> PairCurrentAndNext<T>(this IEnumerable<T> elements)
-        {
-            if (elements is null)
-            {
-                throw new ArgumentException("The given IEnumerable<" + typeof(T).Name + "> is null.", "elements");
-            }
-
-            T previousElement = default;
-            bool passedFirstElement = false;
-            foreach(T element in elements)
-            {
-                if (passedFirstElement)
-                {
-                    yield return (previousElement, element);
-                }
-                else
-                {
-                    passedFirstElement = true;
-                }
-
-                previousElement = element;
-            }
-        }
+        public static IEnumerable<(T, T)> PairCurrentAndNext<T>(this IEnumerable<T> elements) => elements.Zip(elements.Skip(1));
 
         /// <summary>
         /// Applies the function to each element and returns the element that gives the lowest output. If multiple elements give the lowest output, the first one will be returned.
@@ -259,5 +237,10 @@ namespace PAC.Extensions
 
             return max.element;
         }
+
+        /// <summary>
+        /// Returns (first[0], second[0]), (first[1], second[1]), ..., until one of the IEnumerables ends.
+        /// </summary>
+        public static IEnumerable<(T1, T2)> Zip<T1, T2>(this IEnumerable<T1> first, IEnumerable<T2> second) => first.Zip(second, (x, y) => (x, y));
     }
 }
