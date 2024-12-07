@@ -131,6 +131,15 @@ namespace PAC.DataStructures
         public bool IsContainedIn(IntRect rect) => rect.Contains(this);
 
         /// <summary>
+        /// Returns whether the rect contains any points with the given x coord.
+        /// </summary>
+        public bool ContainsX(int x) => bottomLeft.x <= x && x <= topRight.x;
+        /// <summary>
+        /// Returns whether the rect contains any points with the given y coord.
+        /// </summary>
+        public bool ContainsY(int y) => bottomLeft.y <= y && y <= topRight.y;
+
+        /// <summary>
         /// Returns true if the two rects overlap at all.
         /// </summary>
         public static bool Overlap(IntRect a, IntRect b)
