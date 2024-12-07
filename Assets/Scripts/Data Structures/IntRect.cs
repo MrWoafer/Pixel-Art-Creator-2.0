@@ -53,11 +53,8 @@ namespace PAC.DataStructures
             _topRight = new IntVector2(Math.Max(corner.x, oppositeCorner.x), Math.Max(corner.y, oppositeCorner.y));
         }
 
+        public static bool operator ==(IntRect a, IntRect b) => a.bottomLeft == b.bottomLeft && a.topRight == b.topRight;
         public static bool operator !=(IntRect a, IntRect b) => !(a == b);
-        public static bool operator ==(IntRect a, IntRect b)
-        {
-            return a.bottomLeft == b.bottomLeft && a.topRight == b.topRight;
-        }
         public override bool Equals(object obj)
         {
             if (obj == null || !GetType().Equals(obj.GetType()))
@@ -70,15 +67,9 @@ namespace PAC.DataStructures
             }
         }
 
-        public override int GetHashCode()
-        {
-            return HashCode.Combine(bottomLeft, topRight);
-        }
+        public override int GetHashCode() => HashCode.Combine(bottomLeft, topRight);
 
-        public override string ToString()
-        {
-            return "(" + bottomLeft + ", " + topRight + ")";
-        }
+        public override string ToString() => "(" + bottomLeft + ", " + topRight + ")";
 
         /// <summary>
         /// Shifts the whole rect by the given vector.
@@ -87,10 +78,7 @@ namespace PAC.DataStructures
         /// <summary>
         /// Shifts the whole rect by the given vector.
         /// </summary>
-        public static IntRect operator +(IntRect rect, IntVector2 vector)
-        {
-            return new IntRect(rect.bottomLeft + vector, rect.topRight + vector);
-        }
+        public static IntRect operator +(IntRect rect, IntVector2 vector) => new IntRect(rect.bottomLeft + vector, rect.topRight + vector);
 
         /// <summary>
         /// Shifts the whole rect by the given vector.
@@ -108,15 +96,9 @@ namespace PAC.DataStructures
         /// <summary>
         /// Returns true if the rect is a square.
         /// </summary>
-        public static bool IsSquare(IntRect rect)
-        {
-            return rect.width == rect.height;
-        }
+        public static bool IsSquare(IntRect rect) => rect.width == rect.height;
 
-        public static int Area(IntRect rect)
-        {
-            return rect.width * rect.height;
-        }
+        public static int Area(IntRect rect) => rect.width * rect.height;
 
         /// <summary>
         /// Returns true if the point is in the rect.
@@ -125,10 +107,7 @@ namespace PAC.DataStructures
         /// <summary>
         /// Returns true if the point is in the rect.
         /// </summary>
-        public bool Contains(int x, int y)
-        {
-            return x >= bottomLeft.x && y >= bottomLeft.y && x <= topRight.x && y <= topRight.y;
-        }
+        public bool Contains(int x, int y) => x >= bottomLeft.x && y >= bottomLeft.y && x <= topRight.x && y <= topRight.y;
         /// <summary>
         /// Returns true if the point is in the rect.
         /// Behaves differently than the overload when point is an IntVector2. This overload considers an IntVector2 comprising the rect as taking up the whole 1x1 square.
@@ -140,25 +119,16 @@ namespace PAC.DataStructures
         /// Behaves differently than the overload when point is an IntVector2. This overload considers an IntVector2 comprising the rect as taking up the whole 1x1 square.
         /// e.g. a rect comprised of just the point (1, 1) is treated in this overload as the square [0,1]x[0,1], where [0,1] = {x : 0 <= x <= 1}.
         /// </summary>
-        public bool Contains(float x, float y)
-        {
-            return x >= bottomLeft.x && y >= bottomLeft.y && x <= topRight.x + 1 && y <= topRight.y + 1;
-        }
+        public bool Contains(float x, float y) => x >= bottomLeft.x && y >= bottomLeft.y && x <= topRight.x + 1 && y <= topRight.y + 1;
 
         /// <summary>
         /// Returns true if the given rect is (weakly) contained in this rect.
         /// </summary>
-        public bool Contains(IntRect rect)
-        {
-            return bottomLeft <= rect.bottomLeft && topRight >= rect.topRight;
-        }
+        public bool Contains(IntRect rect) => bottomLeft <= rect.bottomLeft && topRight >= rect.topRight;
         /// <summary>
         /// Returns true if this rect is (weakly) contained in the given rect.
         /// </summary>
-        public bool IsContainedIn(IntRect rect)
-        {
-            return rect.Contains(this);
-        }
+        public bool IsContainedIn(IntRect rect) => rect.Contains(this);
 
         /// <summary>
         /// Returns true if the two rects overlap at all.
@@ -178,18 +148,12 @@ namespace PAC.DataStructures
         /// <summary>
         /// Returns true if this rect overlaps the given rect at all.
         /// </summary>
-        public bool Overlaps(IntRect rect)
-        {
-            return Overlap(this, rect);
-        }
+        public bool Overlaps(IntRect rect) => Overlap(this, rect);
 
         /// <summary>
         /// Clamps the vector component-wise so its coordinates are within the rect.
         /// </summary>
-        public IntVector2 Clamp(IntVector2 vector)
-        {
-            return new IntVector2(Math.Clamp(vector.x, bottomRight.x, topRight.x), Math.Clamp(vector.y, bottomRight.y, topRight.y));
-        }
+        public IntVector2 Clamp(IntVector2 vector) => new IntVector2(Math.Clamp(vector.x, bottomRight.x, topRight.x), Math.Clamp(vector.y, bottomRight.y, topRight.y));
         /// <summary>
         /// Shifts the given rect so it is (weakly) contained within the rect.
         /// </summary>
@@ -249,17 +213,11 @@ namespace PAC.DataStructures
         /// <summary>
         /// Gets the smallest IntRect containing all the given IntVector2s.
         /// </summary>
-        public static IntRect BoundingRect(IEnumerable<IntVector2> vectors)
-        {
-            return new IntRect(IntVector2.Min(vectors), IntVector2.Max(vectors));
-        }
+        public static IntRect BoundingRect(IEnumerable<IntVector2> vectors) => new IntRect(IntVector2.Min(vectors), IntVector2.Max(vectors));
         /// <summary>
         /// Gets the smallest IntRect containing both the given IntRects.
         /// </summary>
-        public static IntRect BoundingRect(IntRect a, IntRect b)
-        {
-            return new IntRect(IntVector2.Min(a.bottomLeft, b.bottomLeft), IntVector2.Max(a.topRight, b.topRight));
-        }
+        public static IntRect BoundingRect(IntRect a, IntRect b) => new IntRect(IntVector2.Min(a.bottomLeft, b.bottomLeft), IntVector2.Max(a.topRight, b.topRight));
         /// <summary>
         /// Gets the smallest IntRect containing all the given IntRects.
         /// </summary>
@@ -279,26 +237,16 @@ namespace PAC.DataStructures
         /// <summary>
         /// Returns the IntRect rotated clockwise by the given angle.
         /// </summary>
-        public IntRect Rotate(RotationAngle angle)
-        {
-            return new IntRect(bottomLeft.Rotate(angle), topRight.Rotate(angle));
-        }
-
+        public IntRect Rotate(RotationAngle angle) => new IntRect(bottomLeft.Rotate(angle), topRight.Rotate(angle));
         /// <summary>
         /// Returns the IntRect flipped across the given axis.
         /// </summary>
-        public IntRect Flip(FlipAxis axis)
-        {
-            return new IntRect(bottomLeft.Flip(axis), topRight.Flip(axis));
-        }
+        public IntRect Flip(FlipAxis axis) => new IntRect(bottomLeft.Flip(axis), topRight.Flip(axis));
 
         /// <summary>
         /// Generates a uniformly random point within the rect.
         /// </summary>
-        public IntVector2 RandomPoint()
-        {
-            return new IntVector2(UnityEngine.Random.Range(bottomLeft.x, topRight.x + 1), UnityEngine.Random.Range(bottomLeft.y, topRight.y + 1));
-        }
+        public IntVector2 RandomPoint() => new IntVector2(UnityEngine.Random.Range(bottomLeft.x, topRight.x + 1), UnityEngine.Random.Range(bottomLeft.y, topRight.y + 1));
 
         /// <summary>
         /// Indexes the points in the rect, starting with the bottom row, read left to right, then the next row, etc.
@@ -351,6 +299,10 @@ namespace PAC.DataStructures
         /// <summary>
         /// Enumerates the points in the rect, starting with the bottom row, read left to right, then the next row, etc.
         /// </summary>
+        IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();
+        /// <summary>
+        /// Enumerates the points in the rect, starting with the bottom row, read left to right, then the next row, etc.
+        /// </summary>
         public IEnumerator<IntVector2> GetEnumerator()
         {
             for (int y = bottomLeft.y; y <= topRight.y; y++)
@@ -360,10 +312,6 @@ namespace PAC.DataStructures
                     yield return new IntVector2(x, y);
                 }
             }
-        }
-        IEnumerator IEnumerable.GetEnumerator()
-        {
-            return GetEnumerator();
         }
     }
 }

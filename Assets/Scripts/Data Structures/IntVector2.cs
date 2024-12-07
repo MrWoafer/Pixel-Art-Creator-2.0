@@ -86,11 +86,8 @@ namespace PAC.DataStructures
         /// </summary>
         public static readonly IEnumerable<IntVector2> upDownLeftRight = new IntVector2[] {up, down, left, right };
 
+        public static bool operator ==(IntVector2 a, IntVector2 b) => a.x == b.x && a.y == b.y;
         public static bool operator !=(IntVector2 a, IntVector2 b) => !(a == b);
-        public static bool operator ==(IntVector2 a, IntVector2 b)
-        {
-            return a.x == b.x && a.y == b.y;
-        }
         public override bool Equals(object obj)
         {
             if (obj == null || !GetType().Equals(obj.GetType()))
@@ -103,52 +100,31 @@ namespace PAC.DataStructures
             }
         }
 
-        public override int GetHashCode()
-        {
-            return HashCode.Combine(x, y);
-        }
+        public override int GetHashCode() => HashCode.Combine(x, y);
 
-        public override string ToString()
-        {
-            return "(" + x + ", " + y + ")";
-        }
+        public override string ToString() => "(" + x + ", " + y + ")";
 
         /// <summary>
         /// Returns true iff &lt; holds for both components.
         /// </summary>
-        public static bool operator <(IntVector2 a, IntVector2 b)
-        {
-            return a.x < b.x && a.y < b.y;
-        }
+        public static bool operator <(IntVector2 a, IntVector2 b) => a.x < b.x && a.y < b.y;
         /// <summary>
         /// Returns true iff &gt; holds for both components.
         /// </summary>
-        public static bool operator >(IntVector2 a, IntVector2 b)
-        {
-            return a.x > b.x && a.y > b.y;
-        }
+        public static bool operator >(IntVector2 a, IntVector2 b) => a.x > b.x && a.y > b.y;
         /// <summary>
         /// Returns true iff &lt;= holds for both components.
         /// </summary>
-        public static bool operator <=(IntVector2 a, IntVector2 b)
-        {
-            return a.x <= b.x && a.y <= b.y;
-        }
+        public static bool operator <=(IntVector2 a, IntVector2 b) => a.x <= b.x && a.y <= b.y;
         /// <summary>
         /// Returns true iff &gt;= holds for both components.
         /// </summary>
-        public static bool operator >=(IntVector2 a, IntVector2 b)
-        {
-            return a.x >= b.x && a.y >= b.y;
-        }
+        public static bool operator >=(IntVector2 a, IntVector2 b) => a.x >= b.x && a.y >= b.y;
 
         /// <summary>
         /// Adds component-wise.
         /// </summary>
-        public static IntVector2 operator +(IntVector2 a, IntVector2 b)
-        {
-            return new IntVector2(a.x + b.x, a.y + b.y);
-        }
+        public static IntVector2 operator +(IntVector2 a, IntVector2 b) => new IntVector2(a.x + b.x, a.y + b.y);
         /// <summary>
         /// Adds the vector to each element of the array.
         /// </summary>
@@ -164,25 +140,16 @@ namespace PAC.DataStructures
         /// <summary>
         /// Adds the vector to each element of the array.
         /// </summary>
-        public static IntVector2[] operator +(IntVector2[] vectorArray, IntVector2 vector)
-        {
-            return vector + vectorArray;
-        }
+        public static IntVector2[] operator +(IntVector2[] vectorArray, IntVector2 vector) => vector + vectorArray;
 
         /// <summary>
         /// Subtracts component-wise.
         /// </summary>
-        public static IntVector2 operator -(IntVector2 a, IntVector2 b)
-        {
-            return new IntVector2(a.x - b.x, a.y - b.y);
-        }
+        public static IntVector2 operator -(IntVector2 a, IntVector2 b) => new IntVector2(a.x - b.x, a.y - b.y);
         /// <summary>
         /// Negates component-wise.
         /// </summary>
-        public static IntVector2 operator -(IntVector2 a)
-        {
-            return new IntVector2(-a.x, -a.y);
-        }
+        public static IntVector2 operator -(IntVector2 a) => new IntVector2(-a.x, -a.y);
         /// <summary>
         /// Subtracts each element of the array from the vector.
         /// </summary>
@@ -198,32 +165,20 @@ namespace PAC.DataStructures
         /// <summary>
         /// Subtracts the vector from each element of the array.
         /// </summary>
-        public static IntVector2[] operator -(IntVector2[] vectorArray, IntVector2 vector)
-        {
-            return vectorArray + (-vector);
-        }
+        public static IntVector2[] operator -(IntVector2[] vectorArray, IntVector2 vector) => vectorArray + (-vector); 
 
         /// <summary>
         /// Multiplies component-wise.
         /// </summary>
-        public static IntVector2 operator *(IntVector2 a, IntVector2 b)
-        {
-            return new IntVector2(a.x * b.x, a.y * b.y);
-        }
+        public static IntVector2 operator *(IntVector2 a, IntVector2 b) => new IntVector2(a.x * b.x, a.y * b.y);
         /// <summary>
         /// Multiplies component-wise.
         /// </summary>
-        public static IntVector2 operator *(int scalar, IntVector2 vector)
-        {
-            return new IntVector2(vector.x * scalar, vector.y * scalar);
-        }
+        public static IntVector2 operator *(int scalar, IntVector2 vector) => new IntVector2(vector.x * scalar, vector.y * scalar);
         /// <summary>
         /// Multiplies component-wise.
         /// </summary>
-        public static IntVector2 operator *(IntVector2 vector, int scalar)
-        {
-            return scalar * vector;
-        }
+        public static IntVector2 operator *(IntVector2 vector, int scalar) => scalar * vector;
         /// <summary>
         /// Multiplies each element of the array by the vector.
         /// </summary>
@@ -239,25 +194,16 @@ namespace PAC.DataStructures
         /// <summary>
         /// Multiplies each element of the array by the vector.
         /// </summary>
-        public static IntVector2[] operator *(IntVector2[] vectorArray, IntVector2 vector)
-        {
-            return vector * vectorArray;
-        }
+        public static IntVector2[] operator *(IntVector2[] vectorArray, IntVector2 vector) => vector * vectorArray;
 
         /// <summary>
         /// Divides (integer division) component-wise.
         /// </summary>
-        public static IntVector2 operator /(IntVector2 a, IntVector2 b)
-        {
-            return new IntVector2(a.x / b.x, a.y / b.y);
-        }
+        public static IntVector2 operator /(IntVector2 a, IntVector2 b) => new IntVector2(a.x / b.x, a.y / b.y);
         /// <summary>
         /// Divides (integer division) component-wise.
         /// </summary>
-        public static IntVector2 operator /(IntVector2 vector, int scalar)
-        {
-            return new IntVector2(vector.x / scalar, vector.y / scalar);
-        }
+        public static IntVector2 operator /(IntVector2 vector, int scalar) => new IntVector2(vector.x / scalar, vector.y / scalar);
         /// <summary>
         /// Divides the vector by each element of the array.
         /// </summary>
@@ -376,127 +322,77 @@ namespace PAC.DataStructures
         /// <summary>
         /// Floors component-wise.
         /// </summary>
-        public static IntVector2 FloorToIntVector2(Vector2 vector2)
-        {
-            return new IntVector2(Mathf.FloorToInt(vector2.x), Mathf.FloorToInt(vector2.y));
-        }
+        public static IntVector2 FloorToIntVector2(Vector2 vector2) => new IntVector2(Mathf.FloorToInt(vector2.x), Mathf.FloorToInt(vector2.y));
         /// <summary>
         /// Ceils component-wise.
         /// </summary>
-        public static IntVector2 CeilToIntVector2(Vector2 vector2)
-        {
-            return new IntVector2(Mathf.CeilToInt(vector2.x), Mathf.CeilToInt(vector2.y));
-        }
+        public static IntVector2 CeilToIntVector2(Vector2 vector2) => new IntVector2(Mathf.CeilToInt(vector2.x), Mathf.CeilToInt(vector2.y));
         /// <summary>
         /// Rounds component-wise.
         /// </summary>
-        public static IntVector2 RoundToIntVector2(Vector2 vector2)
-        {
-            return new IntVector2(Mathf.RoundToInt(vector2.x), Mathf.RoundToInt(vector2.y));
-        }
+        public static IntVector2 RoundToIntVector2(Vector2 vector2) => new IntVector2(Mathf.RoundToInt(vector2.x), Mathf.RoundToInt(vector2.y));
 
         /// <summary>
         /// Computes the dot product.
         /// </summary>
-        public static int Dot(IntVector2 a, IntVector2 b)
-        {
-            return a.x * b.x + a.y * b.y;
-        }
+        public static int Dot(IntVector2 a, IntVector2 b) => a.x * b.x + a.y * b.y;
         /// <summary>
         /// Determines whether the two vectors are perpendicular to each other.
         /// </summary>
-        public static bool ArePerpendicular(IntVector2 a, IntVector2 b)
-        {
-            return Dot(a, b) == 0;
-        }
+        public static bool ArePerpendicular(IntVector2 a, IntVector2 b) => Dot(a, b) == 0;
 
         /// <summary>
         /// Computes the magnitude of the vector, which is sqrt(a.x^2 + a.y^2).
         /// </summary>
-        public static float Magnitude(IntVector2 a)
-        {
-            return Mathf.Sqrt(a.x * a.x + a.y * a.y);
-        }
+        public static float Magnitude(IntVector2 a) => Mathf.Sqrt(a.x * a.x + a.y * a.y);
         /// <summary>
         /// Computes the square of the magnitude of the vector, which is a.x^2 + a.y^2. Faster than using Magnitude() and squaring.
         /// </summary>
-        public static float SqrMagnitude(IntVector2 a)
-        {
-            return a.x * a.x + a.y * a.y;
-        }
+        public static float SqrMagnitude(IntVector2 a) => a.x * a.x + a.y * a.y;
         /// <summary>
         /// Computes the Euclidean distance between the vectors, which is sqrt((a.x - b.x)^2 + (a.y - b.y)^2).
         /// </summary>
-        public static float Distance(IntVector2 a, IntVector2 b)
-        {
-            return Magnitude(a - b);
-        }
+        public static float Distance(IntVector2 a, IntVector2 b) => Magnitude(a - b);
         /// <summary>
         /// Computes the square of the Euclidean distance between the vectors, which is (a.x - b.x)^2 + (a.y - b.y)^2. Faster than using Distance() and squaring.
         /// </summary>
-        public static float SqrDistance(IntVector2 a, IntVector2 b)
-        {
-            return SqrMagnitude(a - b);
-        }
+        public static float SqrDistance(IntVector2 a, IntVector2 b) => SqrMagnitude(a - b);
 
         /// <summary>
         /// Computes the l1 norm of the vector, which is abs(a.x) + abs(a.y).
         /// Also known as the taxicab/Manhattan norm.
         /// </summary>
-        public static int L1Norm(IntVector2 a)
-        {
-            return Math.Abs(a.x) + Math.Abs(a.y);
-        }
+        public static int L1Norm(IntVector2 a) => Math.Abs(a.x) + Math.Abs(a.y);
         /// <summary>
         /// Computes the l1 distance of the vectors, which is abs(a.x - b.x) + abs(a.y - b.y).
         /// Also known as the taxicab/Manhattan distance or rectilinear distance.
         /// </summary>
-        public static int L1Distance(IntVector2 a, IntVector2 b)
-        {
-            return L1Norm(a - b);
-        }
+        public static int L1Distance(IntVector2 a, IntVector2 b) => L1Norm(a - b);
 
         /// <summary>
         /// Computes the supremum norm of the vector, which is max(abs(a.x), abs(a.y)).
         /// Also known as the Chebyshev norm or l-infinity norm.
         /// </summary>
-        public static int SupNorm(IntVector2 a)
-        {
-            return Math.Max(Math.Abs(a.x), Math.Abs(a.y));
-        }
+        public static int SupNorm(IntVector2 a) => Math.Max(Math.Abs(a.x), Math.Abs(a.y));
         /// <summary>
         /// Computes the supremum distance of the vectors, which is max(abs(a.x - b.y), abs(a.y - b.y)).
         /// Also known as the Chebyshev distance or l-infinity distance.
         /// </summary>
-        public static int SupDistance(IntVector2 a, IntVector2 b)
-        {
-            return SupNorm(a - b);
-        }
+        public static int SupDistance(IntVector2 a, IntVector2 b) => SupNorm(a - b);
 
         /// <summary>
         /// Returns the sign of each component of the vector.
         /// </summary>
-        public static IntVector2 Sign(IntVector2 a)
-        {
-            return new IntVector2(Math.Sign(a.x), Math.Sign(a.y));
-        }
-
+        public static IntVector2 Sign(IntVector2 a) => new IntVector2(Math.Sign(a.x), Math.Sign(a.y));
         /// <summary>
         /// Takes the absolute value component-wise.
         /// </summary>
-        public static IntVector2 Abs(IntVector2 a)
-        {
-            return new IntVector2(Math.Abs(a.x), Math.Abs(a.y));
-        }
+        public static IntVector2 Abs(IntVector2 a) => new IntVector2(Math.Abs(a.x), Math.Abs(a.y));
 
         /// <summary>
         /// Takes the maximum of a and b component-wise.
         /// </summary>
-        public static IntVector2 Max(IntVector2 a, IntVector2 b)
-        {
-            return new IntVector2(Math.Max(a.x, b.x), Math.Max(a.y, b.y));
-    
-        }
+        public static IntVector2 Max(IntVector2 a, IntVector2 b) => new IntVector2(Math.Max(a.x, b.x), Math.Max(a.y, b.y));
         /// <summary>
         /// Takes the maximum of the vectors component-wise.
         /// </summary>
@@ -517,10 +413,7 @@ namespace PAC.DataStructures
         /// <summary>
         /// Takes the minimum of a and b component-wise.
         /// </summary>
-        public static IntVector2 Min(IntVector2 a, IntVector2 b)
-        {
-            return new IntVector2(Math.Min(a.x, b.x), Math.Min(a.y, b.y));
-        }
+        public static IntVector2 Min(IntVector2 a, IntVector2 b) => new IntVector2(Math.Min(a.x, b.x), Math.Min(a.y, b.y));
         /// <summary>
         /// Takes the minimum of the vectors component-wise.
         /// </summary>
@@ -541,32 +434,25 @@ namespace PAC.DataStructures
         /// <summary>
         /// Returns the IntVector2 rotated clockwise by the given angle.
         /// </summary>
-        public IntVector2 Rotate(RotationAngle angle)
+        public IntVector2 Rotate(RotationAngle angle) => angle switch
         {
-            switch (angle)
-            {
-                case RotationAngle._0: return new IntVector2(x, y);
-                case RotationAngle._90: return new IntVector2(y, -x);
-                case RotationAngle._180: return new IntVector2(-x, -y);
-                case RotationAngle.Minus90: return new IntVector2(-y, x);
-                default: throw new NotImplementedException("Unknown / unimplemented angle: " + angle);
-            }
-        }
-
+            RotationAngle._0 => this,
+            RotationAngle._90 => new IntVector2(y, -x),
+            RotationAngle._180 => new IntVector2(-x, -y),
+            RotationAngle.Minus90 => new IntVector2(-y, x),
+            _ => throw new NotImplementedException("Unknown / unimplemented angle: " + angle)
+        };
         /// <summary>
         /// Returns the IntVector2 flipped across the given axis.
         /// </summary>
-        public IntVector2 Flip(FlipAxis axis)
+        public IntVector2 Flip(FlipAxis axis) => axis switch
         {
-            switch (axis)
-            {
-                case FlipAxis.None: return this;
-                case FlipAxis.Vertical: return new IntVector2(-x, y);
-                case FlipAxis.Horizontal: return new IntVector2(x, -y);
-                case FlipAxis._45Degrees: return new IntVector2(y, x);
-                case FlipAxis.Minus45Degrees: return new IntVector2(-y, -x);
-                default: throw new NotImplementedException("Unknown / unimplemented FlipAxis: " + axis);
-            }
-        }
+            FlipAxis.None => this,
+            FlipAxis.Vertical => new IntVector2(-x, y),
+            FlipAxis.Horizontal => new IntVector2(x, -y),
+            FlipAxis._45Degrees => new IntVector2(y, x),
+            FlipAxis.Minus45Degrees => new IntVector2(-y, -x),
+            _ => throw new NotImplementedException("Unknown / unimplemented FlipAxis: " + axis)
+        };
     }
 }
