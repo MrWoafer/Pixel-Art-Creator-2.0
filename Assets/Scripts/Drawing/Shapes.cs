@@ -27,6 +27,9 @@ namespace PAC.Drawing
     /// </summary>
     public static class IShapeExtensions
     {
+        /// <summary>
+        /// Returns whether the shape contains all the given pixels.
+        /// </summary>
         public static bool Contains(this Shapes.IShape shape, IEnumerable<IntVector2> pixels)
         {
             foreach (IntVector2 pixel in pixels)
