@@ -194,20 +194,20 @@ namespace PAC.DataStructures
         /// <summary>
         /// Removes all IntVector2s outside the rect.
         /// </summary>
-        public IntVector2[] FilterPointsInside(IntVector2[] vectors)
+        public IEnumerable<IntVector2> FilterPointsInside(IEnumerable<IntVector2> vectors)
         {
             // C# can't access 'this' inside lambda expressions.
             IntRect rect = this;
-            return vectors.Where(x => rect.Contains(x)).ToArray();
+            return vectors.Where(x => rect.Contains(x));
         }
         /// <summary>
         /// Removes all IntVector2s inside the rect.
         /// </summary>
-        public IntVector2[] FilterPointsOutside(IntVector2[] vectors)
+        public IEnumerable<IntVector2> FilterPointsOutside(IEnumerable<IntVector2> vectors)
         {
             // C# can't access 'this' inside lambda expressions.
             IntRect rect = this;
-            return vectors.Where(x => !rect.Contains(x)).ToArray();
+            return vectors.Where(x => !rect.Contains(x));
         }
 
         /// <summary>
