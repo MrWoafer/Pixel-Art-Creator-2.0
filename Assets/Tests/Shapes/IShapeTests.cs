@@ -336,6 +336,41 @@ namespace PAC.Tests
                 throw new NotImplementedException("Unknown / unimplemented FlipAxis: " + axis);
             }
         }
+
+        /// <summary>
+        /// Tests that the shape doesn't have reflective symmetry across the given axis.
+        /// </summary>
+        public static void ReflectiveAsymmetry(Shapes.IShape shape, FlipAxis axis)
+        {
+            if (axis == FlipAxis.None)
+            {
+                Assert.Fail();
+            }
+            else if (axis == FlipAxis.Vertical)
+            {
+                Assert.False(shape.ToHashSet().SetEquals(shape.Select(p => new IntVector2(shape.boundingRect.bottomLeft.x + shape.boundingRect.topRight.x - p.x, p.y))),
+                    "Failed with " + shape + " and FlipAxis." + axis);
+            }
+            else if (axis == FlipAxis.Horizontal)
+            {
+                Assert.False(shape.ToHashSet().SetEquals(shape.Select(p => new IntVector2(p.x, shape.boundingRect.bottomLeft.y + shape.boundingRect.topRight.y - p.y))),
+                    "Failed with " + shape + " and FlipAxis." + axis);
+            }
+            else if (axis == FlipAxis._45Degrees)
+            {
+                Assert.False(shape.ToHashSet().SetEquals(shape.Select(p => shape.boundingRect.bottomRight + (p - shape.boundingRect.topLeft).Flip(FlipAxis._45Degrees))),
+                    "Failed with " + shape + " and FlipAxis." + axis);
+            }
+            else if (axis == FlipAxis.Minus45Degrees)
+            {
+                Assert.False(shape.ToHashSet().SetEquals(shape.Select(p => shape.boundingRect.bottomLeft + (p - shape.boundingRect.topRight).Flip(FlipAxis.Minus45Degrees))),
+                    "Failed with " + shape + " and FlipAxis." + axis);
+            }
+            else
+            {
+                throw new NotImplementedException("Unknown / unimplemented FlipAxis: " + axis);
+            }
+        }
     }
 
     /// <summary>
