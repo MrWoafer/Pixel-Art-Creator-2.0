@@ -7,7 +7,7 @@ using PAC.Extensions;
 namespace PAC.DataStructures
 {
     /// <summary>
-    /// A struct to represent a 2-dimensional vector with integer coordinates.
+    /// Represents a 2-dimensional vector with integer coordinates.
     /// </summary>
     public struct IntVector2
     {

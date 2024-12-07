@@ -9,7 +9,7 @@ using PAC.Extensions;
 namespace PAC.DataStructures
 {
     /// <summary>
-    /// A struct to represent a rectangular region of integer coordinates.
+    /// Represents a rectangular region of integer coordinates.
     /// </summary>
     public struct IntRect : IReadOnlyCollection<IntVector2>
     {
