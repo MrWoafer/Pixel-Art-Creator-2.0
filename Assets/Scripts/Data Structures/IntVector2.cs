@@ -142,7 +142,7 @@ namespace PAC.DataStructures
         /// <summary>
         /// Multiplies component-wise.
         /// </summary>
-        public static IntVector2 operator *(int scalar, IntVector2 vector) => new IntVector2(vector.x * scalar, vector.y * scalar);
+        public static IntVector2 operator *(int scalar, IntVector2 vector) => new IntVector2(scalar * vector.x, scalar * vector.y);
         /// <summary>
         /// Multiplies component-wise.
         /// </summary>
