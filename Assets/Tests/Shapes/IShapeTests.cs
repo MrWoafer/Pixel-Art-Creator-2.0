@@ -61,7 +61,14 @@ namespace PAC.Tests
         {
             foreach (T shape in testCases)
             {
-                IShapeTestHelper.Contains(shape);
+                try
+                {
+                    IShapeTestHelper.Contains(shape);
+                }
+                catch (Exception e)
+                {
+                    throw new TestException("Exception with " + shape, e);
+                }
             }
         }
 
