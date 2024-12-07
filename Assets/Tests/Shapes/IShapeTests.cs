@@ -111,7 +111,10 @@ namespace PAC.Tests
         {
             foreach (T shape in testCases)
             {
-                IShapeTestHelper.Flip(shape);
+                foreach (FlipAxis axis in new FlipAxis[] { FlipAxis.None, FlipAxis.Vertical, FlipAxis.Horizontal })
+                {
+                    IShapeTestHelper.Flip(shape, axis);
+                }
             }
         }
     }
@@ -138,11 +141,27 @@ namespace PAC.Tests
 
         [Test]
         [Category("Shapes")]
+        public override void Flip()
+        {
+            foreach (T shape in testCases)
+            {
+                foreach (FlipAxis axis in new FlipAxis[] { FlipAxis.None, FlipAxis.Vertical, FlipAxis.Horizontal, FlipAxis._45Degrees, FlipAxis.Minus45Degrees })
+                {
+                    IShapeTestHelper.Flip(shape, axis);
+                }
+            }
+        }
+
+        [Test]
+        [Category("Shapes")]
         public virtual void Rotate()
         {
             foreach (T shape in testCases)
             {
-                I2DShapeTestHelper.Rotate(shape);
+                foreach (RotationAngle angle in new RotationAngle[] { RotationAngle._0, RotationAngle._90, RotationAngle._180, RotationAngle.Minus90 })
+                {
+                    I2DShapeTestHelper.Rotate(shape, angle);
+                }
             }
         }
     }
@@ -277,13 +296,10 @@ namespace PAC.Tests
         /// <summary>
         /// Applies Flip() to the shape and checks that the enumerator of the resulting shape is a reflection of the original shape's enumerator.
         /// </summary>
-        public static void Flip(Shapes.IShape shape)
+        public static void Flip(Shapes.IShape shape, FlipAxis axis)
         {
-            foreach (FlipAxis axis in new FlipAxis[] { FlipAxis.None, FlipAxis.Vertical, FlipAxis.Horizontal, FlipAxis._45Degrees, FlipAxis.Minus45Degrees })
-            {
-                IEnumerable<IntVector2> expected = shape.Select(p => p.Flip(axis));
-                Assert.True(expected.ToHashSet().SetEquals(shape.Flip(axis)), "Failed with " + shape + " and " + axis);
-            }
+            IEnumerable<IntVector2> expected = shape.Select(p => p.Flip(axis));
+            Assert.True(expected.ToHashSet().SetEquals(shape.Flip(axis)), "Failed with " + shape + " and " + axis);
         }
 
         /// <summary>
@@ -354,13 +370,10 @@ namespace PAC.Tests
         /// <summary>
         /// Applies Rotate() to the shape and checks that the enumerator of the resulting shape is a rotation of the original shape's enumerator.
         /// </summary>
-        public static void Rotate(Shapes.I2DShape shape)
+        public static void Rotate(Shapes.I2DShape shape, RotationAngle angle)
         {
-            foreach (RotationAngle angle in new RotationAngle[] { RotationAngle._0, RotationAngle._90, RotationAngle._180, RotationAngle.Minus90 })
-            {
-                IEnumerable<IntVector2> expected = shape.Select(p => p.Rotate(angle));
-                Assert.True(expected.ToHashSet().SetEquals(shape.Rotate(angle)), "Failed with " + shape + " and " + angle);
-            }
+            IEnumerable<IntVector2> expected = shape.Select(p => p.Rotate(angle));
+            Assert.True(expected.ToHashSet().SetEquals(shape.Rotate(angle)), "Failed with " + shape + " and " + angle);
         }
 
         /// <summary>
