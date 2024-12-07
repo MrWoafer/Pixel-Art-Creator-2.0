@@ -152,21 +152,21 @@ namespace PAC.DataStructures
         /// <summary>
         /// Adds the vector to each element of the array.
         /// </summary>
-        public static IntVector2[] operator +(IntVector2 intVector, IntVector2[] intVectorArray)
+        public static IntVector2[] operator +(IntVector2 vector, IntVector2[] vectorArray)
         {
-            IntVector2[] result = new IntVector2[intVectorArray.Length];
-            for (int i = 0; i < intVectorArray.Length; i++)
+            IntVector2[] result = new IntVector2[vectorArray.Length];
+            for (int i = 0; i < vectorArray.Length; i++)
             {
-                result[i] = intVector + intVectorArray[i];
+                result[i] = vector + vectorArray[i];
             }
             return result;
         }
         /// <summary>
         /// Adds the vector to each element of the array.
         /// </summary>
-        public static IntVector2[] operator +(IntVector2[] intVectorArray, IntVector2 intVector)
+        public static IntVector2[] operator +(IntVector2[] vectorArray, IntVector2 vector)
         {
-            return intVector + intVectorArray;
+            return vector + vectorArray;
         }
 
         /// <summary>
@@ -186,21 +186,21 @@ namespace PAC.DataStructures
         /// <summary>
         /// Subtracts each element of the array from the vector.
         /// </summary>
-        public static IntVector2[] operator -(IntVector2 intVector, IntVector2[] intVectorArray)
+        public static IntVector2[] operator -(IntVector2 vector, IntVector2[] vectorArray)
         {
-            IntVector2[] result = new IntVector2[intVectorArray.Length];
-            for (int i = 0; i < intVectorArray.Length; i++)
+            IntVector2[] result = new IntVector2[vectorArray.Length];
+            for (int i = 0; i < vectorArray.Length; i++)
             {
-                result[i] = intVector - intVectorArray[i];
+                result[i] = vector - vectorArray[i];
             }
             return result;
         }
         /// <summary>
         /// Subtracts the vector from each element of the array.
         /// </summary>
-        public static IntVector2[] operator -(IntVector2[] intVectorArray, IntVector2 intVector)
+        public static IntVector2[] operator -(IntVector2[] vectorArray, IntVector2 vector)
         {
-            return intVectorArray + (-intVector);
+            return vectorArray + (-vector);
         }
 
         /// <summary>
@@ -227,21 +227,21 @@ namespace PAC.DataStructures
         /// <summary>
         /// Multiplies each element of the array by the vector.
         /// </summary>
-        public static IntVector2[] operator *(IntVector2 intVector, IntVector2[] intVectorArray)
+        public static IntVector2[] operator *(IntVector2 vector, IntVector2[] vectorArray)
         {
-            IntVector2[] result = new IntVector2[intVectorArray.Length];
-            for (int i = 0; i < intVectorArray.Length; i++)
+            IntVector2[] result = new IntVector2[vectorArray.Length];
+            for (int i = 0; i < vectorArray.Length; i++)
             {
-                result[i] = intVector * intVectorArray[i];
+                result[i] = vector * vectorArray[i];
             }
             return result;
         }
         /// <summary>
         /// Multiplies each element of the array by the vector.
         /// </summary>
-        public static IntVector2[] operator *(IntVector2[] intVectorArray, IntVector2 intVector)
+        public static IntVector2[] operator *(IntVector2[] vectorArray, IntVector2 vector)
         {
-            return intVector * intVectorArray;
+            return vector * vectorArray;
         }
 
         /// <summary>
@@ -261,24 +261,24 @@ namespace PAC.DataStructures
         /// <summary>
         /// Divides the vector by each element of the array.
         /// </summary>
-        public static IntVector2[] operator /(IntVector2 intVector, IntVector2[] intVectorArray)
+        public static IntVector2[] operator /(IntVector2 vector, IntVector2[] vectorArray)
         {
-            IntVector2[] result = new IntVector2[intVectorArray.Length];
-            for (int i = 0; i < intVectorArray.Length; i++)
+            IntVector2[] result = new IntVector2[vectorArray.Length];
+            for (int i = 0; i < vectorArray.Length; i++)
             {
-                result[i] = intVector / intVectorArray[i];
+                result[i] = vector / vectorArray[i];
             }
             return result;
         }
         /// <summary>
         /// Divides each element of the array by the vector.
         /// </summary>
-        public static IntVector2[] operator /(IntVector2[] intVectorArray, IntVector2 intVector)
+        public static IntVector2[] operator /(IntVector2[] vectorArray, IntVector2 vector)
         {
-            IntVector2[] result = new IntVector2[intVectorArray.Length];
-            for (int i = 0; i < intVectorArray.Length; i++)
+            IntVector2[] result = new IntVector2[vectorArray.Length];
+            for (int i = 0; i < vectorArray.Length; i++)
             {
-                result[i] = intVectorArray[i] / intVector;
+                result[i] = vectorArray[i] / vector;
             }
             return result;
         }
@@ -358,7 +358,7 @@ namespace PAC.DataStructures
         /// <summary>
         /// Cast to Unity Vector2.
         /// </summary>
-        public static implicit operator Vector2(IntVector2 intVector) => new Vector2(intVector.x, intVector.y);
+        public static implicit operator Vector2(IntVector2 vector) => new Vector2(vector.x, vector.y);
         /// <summary>
         /// Cast from Unity Vector2, by casting each coordinate to int.
         /// </summary>
@@ -367,7 +367,7 @@ namespace PAC.DataStructures
         /// <summary>
         /// Cast to Unity Vector3, with a 0 in the z-coord.
         /// </summary>
-        public static implicit operator Vector3(IntVector2 intVector) => new Vector3(intVector.x, intVector.y, 0f);
+        public static implicit operator Vector3(IntVector2 vector) => new Vector3(vector.x, vector.y, 0f);
         /// <summary>
         /// Cast from Unity Vector3, by casting the x and y coordinates to int and ignoring the z coordinate.
         /// </summary>
@@ -500,18 +500,18 @@ namespace PAC.DataStructures
         /// <summary>
         /// Takes the maximum of the vectors component-wise.
         /// </summary>
-        public static IntVector2 Max(params IntVector2[] intVectors) => Max((IEnumerable<IntVector2>)intVectors);
+        public static IntVector2 Max(params IntVector2[] vectors) => Max((IEnumerable<IntVector2>)vectors);
         /// <summary>
         /// Takes the maximum of the vectors component-wise.
         /// </summary>
         // NOTE: This is not provided as an extension method to IEnumerable<IntVector2> since it seems C# will favour using the LINQ Enumerable.Max() instead, which causes errors.
-        public static IntVector2 Max(IEnumerable<IntVector2> intVectors)
+        public static IntVector2 Max(IEnumerable<IntVector2> vectors)
         {
-            if (intVectors.IsEmpty())
+            if (vectors.IsEmpty())
             {
-                throw new ArgumentException("Cannot perform Max() on an empty collection of IntVector2s.", "intVectors");
+                throw new ArgumentException("Cannot perform Max() on an empty collection of IntVector2s.", "vectors");
             }
-            return new IntVector2(intVectors.Select(vector => vector.x).Max(), intVectors.Select(vector => vector.y).Max());
+            return new IntVector2(vectors.Select(vector => vector.x).Max(), vectors.Select(vector => vector.y).Max());
         }
 
         /// <summary>
@@ -524,18 +524,18 @@ namespace PAC.DataStructures
         /// <summary>
         /// Takes the minimum of the vectors component-wise.
         /// </summary>
-        public static IntVector2 Min(params IntVector2[] intVectors) => Min((IEnumerable<IntVector2>)intVectors);
+        public static IntVector2 Min(params IntVector2[] vectors) => Min((IEnumerable<IntVector2>)vectors);
         /// <summary>
         /// Takes the minimum of the vectors component-wise.
         /// </summary>
         // NOTE: This is not provided as an extension method to IEnumerable<IntVector2> since it seems C# will favour using the LINQ Enumerable.Min() instead, which causes errors.
-        public static IntVector2 Min(IEnumerable<IntVector2> intVectors)
+        public static IntVector2 Min(IEnumerable<IntVector2> vectors)
         {
-            if (intVectors.IsEmpty())
+            if (vectors.IsEmpty())
             {
-                throw new ArgumentException("Cannot perform Min() on an empty collection of IntVector2s.", "intVectors");
+                throw new ArgumentException("Cannot perform Min() on an empty collection of IntVector2s.", "vectors");
             }
-            return new IntVector2(intVectors.Select(vector => vector.x).Min(), intVectors.Select(vector => vector.y).Min());
+            return new IntVector2(vectors.Select(vector => vector.x).Min(), vectors.Select(vector => vector.y).Min());
         }
 
         /// <summary>

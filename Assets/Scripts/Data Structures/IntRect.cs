@@ -83,24 +83,24 @@ namespace PAC.DataStructures
         /// <summary>
         /// Shifts the whole rect by the given vector.
         /// </summary>
-        public static IntRect operator +(IntVector2 intVector, IntRect intRect) => intRect + intVector;
+        public static IntRect operator +(IntVector2 vector, IntRect rect) => rect + vector;
         /// <summary>
         /// Shifts the whole rect by the given vector.
         /// </summary>
-        public static IntRect operator +(IntRect intRect, IntVector2 intVector)
+        public static IntRect operator +(IntRect rect, IntVector2 vector)
         {
-            return new IntRect(intRect.bottomLeft + intVector, intRect.topRight + intVector);
+            return new IntRect(rect.bottomLeft + vector, rect.topRight + vector);
         }
 
         /// <summary>
         /// Shifts the whole rect by the given vector.
         /// </summary>
-        public static IntRect operator -(IntRect intRect, IntVector2 intVector) => intRect + (-intVector);
+        public static IntRect operator -(IntRect rect, IntVector2 vector) => rect + (-vector);
 
         /// <summary>
         /// Cast to Unity Rect. Doesn't just convert each coordinate to a float. It expands the rect so it contains all the pixels described by the IntRect.
         /// </summary>
-        public static implicit operator Rect(IntRect intRect) => new Rect(intRect.bottomLeft, new Vector2(intRect.width, intRect.height));
+        public static implicit operator Rect(IntRect rect) => new Rect(rect.bottomLeft, new Vector2(rect.width, rect.height));
         // I haven't yet added a cast from Rect since it's more complicated than just 'new IntRect(new IntVector2(rect.xMin, rect.yMin), new IntVector2(rect.xMax, rect.yMax))'.
         // Doing that would mean casting to Rect and from Rect aren't inverses. To make that the case I also need to decide how Rects that don't lie on integer coords get rounded.
         // It would also mean that the way the top-right corners gets rounded is different from the bottom-left.
@@ -108,9 +108,9 @@ namespace PAC.DataStructures
         /// <summary>
         /// Returns true if the rect is a square.
         /// </summary>
-        public static bool IsSquare(IntRect intRect)
+        public static bool IsSquare(IntRect rect)
         {
-            return intRect.width == intRect.height;
+            return rect.width == rect.height;
         }
 
         public static int Area(IntRect rect)
@@ -148,16 +148,16 @@ namespace PAC.DataStructures
         /// <summary>
         /// Returns true if the given rect is (weakly) contained in this rect.
         /// </summary>
-        public bool Contains(IntRect intRect)
+        public bool Contains(IntRect rect)
         {
-            return bottomLeft <= intRect.bottomLeft && topRight >= intRect.topRight;
+            return bottomLeft <= rect.bottomLeft && topRight >= rect.topRight;
         }
         /// <summary>
         /// Returns true if this rect is (weakly) contained in the given rect.
         /// </summary>
-        public bool IsContainedIn(IntRect intRect)
+        public bool IsContainedIn(IntRect rect)
         {
-            return intRect.Contains(this);
+            return rect.Contains(this);
         }
 
         /// <summary>
@@ -178,80 +178,80 @@ namespace PAC.DataStructures
         /// <summary>
         /// Returns true if this rect overlaps the given rect at all.
         /// </summary>
-        public bool Overlaps(IntRect intRect)
+        public bool Overlaps(IntRect rect)
         {
-            return Overlap(this, intRect);
+            return Overlap(this, rect);
         }
 
         /// <summary>
         /// Clamps the vector component-wise so its coordinates are within the rect.
         /// </summary>
-        public IntVector2 Clamp(IntVector2 intVector)
+        public IntVector2 Clamp(IntVector2 vector)
         {
-            return new IntVector2(Math.Clamp(intVector.x, bottomRight.x, topRight.x), Math.Clamp(intVector.y, bottomRight.y, topRight.y));
+            return new IntVector2(Math.Clamp(vector.x, bottomRight.x, topRight.x), Math.Clamp(vector.y, bottomRight.y, topRight.y));
         }
         /// <summary>
         /// Shifts the given rect so it is (weakly) contained within the rect.
         /// </summary>
-        public IntRect Clamp(IntRect intRect)
+        public IntRect Clamp(IntRect rect)
         {
-            if (intRect.width > width)
+            if (rect.width > width)
             {
-                throw new ArgumentException("An IntRect cannot clamp a wider IntRect. Width: " + width + " > " + intRect.width, "intRect");
+                throw new ArgumentException("An IntRect cannot clamp a wider IntRect. Width: " + width + " > " + rect.width, "rect");
             }
-            if (intRect.height > height)
+            if (rect.height > height)
             {
-                throw new ArgumentException("An IntRect cannot clamp a taller IntRect. Height: " + height + " > " + intRect.height, "intRect");
+                throw new ArgumentException("An IntRect cannot clamp a taller IntRect. Height: " + height + " > " + rect.height, "rect");
             }
 
-            if (intRect.bottomLeft.x < bottomLeft.x)
+            if (rect.bottomLeft.x < bottomLeft.x)
             {
-                intRect += new IntVector2(bottomLeft.x - intRect.bottomLeft.x, 0);
+                rect += new IntVector2(bottomLeft.x - rect.bottomLeft.x, 0);
             }
-            else if (intRect.topRight.x > topRight.x)
+            else if (rect.topRight.x > topRight.x)
             {
-                intRect -= new IntVector2(intRect.topRight.x - topRight.x, 0);
+                rect -= new IntVector2(rect.topRight.x - topRight.x, 0);
             }
-            if (intRect.bottomLeft.y < bottomLeft.y)
+            if (rect.bottomLeft.y < bottomLeft.y)
             {
-                intRect += new IntVector2(0, bottomLeft.y - intRect.bottomLeft.y);
+                rect += new IntVector2(0, bottomLeft.y - rect.bottomLeft.y);
             }
-            else if (intRect.topRight.y > topRight.y)
+            else if (rect.topRight.y > topRight.y)
             {
-                intRect -= new IntVector2(0, intRect.topRight.y - topRight.y);
+                rect -= new IntVector2(0, rect.topRight.y - topRight.y);
             }
-            return intRect;
+            return rect;
         }
 
         /// <summary>
         /// Removes all IntVector2s outside the rect.
         /// </summary>
-        public IntVector2[] FilterPointsInside(IntVector2[] intVectors)
+        public IntVector2[] FilterPointsInside(IntVector2[] vectors)
         {
             // C# can't access 'this' inside lambda expressions.
             IntRect rect = this;
-            return intVectors.Where(x => rect.Contains(x)).ToArray();
+            return vectors.Where(x => rect.Contains(x)).ToArray();
         }
         /// <summary>
         /// Removes all IntVector2s inside the rect.
         /// </summary>
-        public IntVector2[] FilterPointsOutside(IntVector2[] intVectors)
+        public IntVector2[] FilterPointsOutside(IntVector2[] vectors)
         {
             // C# can't access 'this' inside lambda expressions.
             IntRect rect = this;
-            return intVectors.Where(x => !rect.Contains(x)).ToArray();
+            return vectors.Where(x => !rect.Contains(x)).ToArray();
         }
 
         /// <summary>
         /// Gets the smallest IntRect containing all the given IntVector2s.
         /// </summary>
-        public static IntRect BoundingRect(params IntVector2[] intVectors) => BoundingRect((IEnumerable<IntVector2>)intVectors);
+        public static IntRect BoundingRect(params IntVector2[] vectors) => BoundingRect((IEnumerable<IntVector2>)vectors);
         /// <summary>
         /// Gets the smallest IntRect containing all the given IntVector2s.
         /// </summary>
-        public static IntRect BoundingRect(IEnumerable<IntVector2> intVectors)
+        public static IntRect BoundingRect(IEnumerable<IntVector2> vectors)
         {
-            return new IntRect(IntVector2.Min(intVectors), IntVector2.Max(intVectors));
+            return new IntRect(IntVector2.Min(vectors), IntVector2.Max(vectors));
         }
         /// <summary>
         /// Gets the smallest IntRect containing both the given IntRects.
@@ -263,17 +263,17 @@ namespace PAC.DataStructures
         /// <summary>
         /// Gets the smallest IntRect containing all the given IntRects.
         /// </summary>
-        public static IntRect BoundingRect(params IntRect[] intRects) => BoundingRect((IEnumerable<IntRect>)intRects);
+        public static IntRect BoundingRect(params IntRect[] rects) => BoundingRect((IEnumerable<IntRect>)rects);
         /// <summary>
         /// Gets the smallest IntRect containing all the given IntRects.
         /// </summary>
-        public static IntRect BoundingRect(IEnumerable<IntRect> intRects)
+        public static IntRect BoundingRect(IEnumerable<IntRect> rects)
         {
-            if (intRects.IsEmpty())
+            if (rects.IsEmpty())
             {
-                throw new ArgumentException("Cannot perform GetBoundingRect() on an empty collection of IntRects.", "intRects");
+                throw new ArgumentException("Cannot perform GetBoundingRect() on an empty collection of IntRects.", "rects");
             }
-            return new IntRect(IntVector2.Min(intRects.Select(rect => rect.bottomLeft)), IntVector2.Max(intRects.Select(rect => rect.topRight)));
+            return new IntRect(IntVector2.Min(rects.Select(rect => rect.bottomLeft)), IntVector2.Max(rects.Select(rect => rect.topRight)));
         }
 
         /// <summary>
