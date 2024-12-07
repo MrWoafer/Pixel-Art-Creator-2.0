@@ -56,6 +56,28 @@ namespace PAC.Extensions
         }
 
         /// <summary>
+        /// Creates a new IEnumerable that iterates through all of this one, then all of second, etc.
+        /// </summary>
+        public static IEnumerable<T> Chain<T>(this IEnumerable<T> first, IEnumerable<T> second, params IEnumerable<T>[] subsequent)
+        {
+            foreach (T element in first)
+            {
+                yield return element;
+            }
+            foreach (T element in second)
+            {
+                yield return element;
+            }
+            foreach (IEnumerable<T> ienumerable in subsequent)
+            {
+                foreach (T element in ienumerable)
+                {
+                    yield return element;
+                }
+            }
+        }
+
+        /// <summary>
         /// Returns whether the given IEnumerable has no elements.
         /// </summary>
         public static bool IsEmpty(this IEnumerable elements)
