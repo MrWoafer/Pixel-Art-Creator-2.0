@@ -131,7 +131,7 @@ namespace PAC.Tests
 
     }
 
-    public abstract class I2DShapeTests<T> : IShapeTests<T> where T : Shapes.I2DShape
+    public abstract class IFillableShapeTests<T> : IShapeTests<T> where T : Shapes.IFillableShape
     {
         /// <summary>
         /// Tests that the unfilled version of a shape is precisely the border of the filled version.
@@ -142,10 +142,13 @@ namespace PAC.Tests
         {
             foreach (T shape in testCases)
             {
-                I2DShapeTestHelper.UnfilledIsBorderOfFilled(shape);
+                IFillableShapeTestHelper.UnfilledIsBorderOfFilled(shape);
             }
         }
+    }
 
+    public abstract class I2DShapeTests<T> : IFillableShapeTests<T> where T : Shapes.I2DShape
+    {
         [Test]
         [Category("Shapes")]
         public override void Flip()
@@ -173,7 +176,7 @@ namespace PAC.Tests
         }
     }
 
-    public abstract class IIsometricShapeTests<T> : IShapeTests<T> where T : Shapes.IIsometricShape
+    public abstract class IIsometricShapeTests<T> : IFillableShapeTests<T> where T : Shapes.IIsometricShape
     {
 
     }
@@ -386,14 +389,14 @@ namespace PAC.Tests
     }
 
     /// <summary>
-    /// Helper functions for making tests for I2DShapes.
+    /// Helper functions for making tests for IFillableShapes.
     /// </summary>
-    public static class I2DShapeTestHelper
+    public static class IFillableShapeTestHelper
     {
         /// <summary>
         /// Tests that the unfilled version of the shape is precisely the border of the filled version.
         /// </summary>
-        public static void UnfilledIsBorderOfFilled(Shapes.I2DShape shape)
+        public static void UnfilledIsBorderOfFilled(Shapes.IFillableShape shape)
         {
             shape.filled = true;
             HashSet<IntVector2> filled = shape.ToHashSet();
@@ -413,7 +416,13 @@ namespace PAC.Tests
             shape.filled = false;
             Assert.True(borderOfFilled.SetEquals(shape.ToHashSet()), "Failed with " + shape);
         }
+    }
 
+    /// <summary>
+    /// Helper functions for making tests for I2DShapes.
+    /// </summary>
+    public static class I2DShapeTestHelper
+    {
         /// <summary>
         /// Applies Rotate() to the shape and checks that the enumerator of the resulting shape is a rotation of the original shape's enumerator.
         /// </summary>
