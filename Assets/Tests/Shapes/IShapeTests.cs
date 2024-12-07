@@ -123,6 +123,19 @@ namespace PAC.Tests
 
     public abstract class I2DShapeTests<T> : IShapeTests<T> where T : Shapes.I2DShape
     {
+        /// <summary>
+        /// Tests that the unfilled version of a shape is precisely the border of the filled version.
+        /// </summary>
+        [Test]
+        [Category("Shapes")]
+        public virtual void UnfilledIsBorderOfFilled()
+        {
+            foreach (T shape in testCases)
+            {
+                I2DShapeTestHelper.UnfilledIsBorderOfFilled(shape);
+            }
+        }
+
         [Test]
         [Category("Shapes")]
         public virtual void Rotate()
@@ -314,6 +327,30 @@ namespace PAC.Tests
     /// </summary>
     public static class I2DShapeTestHelper
     {
+        /// <summary>
+        /// Tests that the unfilled version of the shape is precisely the border of the filled version.
+        /// </summary>
+        public static void UnfilledIsBorderOfFilled(Shapes.I2DShape shape)
+        {
+            shape.filled = true;
+            HashSet<IntVector2> filled = shape.ToHashSet();
+            HashSet<IntVector2> borderOfFilled = new HashSet<IntVector2>();
+            foreach (IntVector2 pixel in filled)
+            {
+                foreach (IntVector2 offset in IntVector2.upDownLeftRight)
+                {
+                    if (!filled.Contains(pixel + offset))
+                    {
+                        borderOfFilled.Add(pixel);
+                        break;
+                    }
+                }
+            }
+
+            shape.filled = false;
+            Assert.True(borderOfFilled.SetEquals(shape.ToHashSet()), "Failed with " + shape);
+        }
+
         /// <summary>
         /// Applies Rotate() to the shape and checks that the enumerator of the resulting shape is a rotation of the original shape's enumerator.
         /// </summary>
