@@ -127,13 +127,13 @@ namespace PAC.DataStructures
         public static IntVector2 operator +(IntVector2 a, IntVector2 b) => new IntVector2(a.x + b.x, a.y + b.y);
 
         /// <summary>
-        /// Subtracts component-wise.
-        /// </summary>
-        public static IntVector2 operator -(IntVector2 a, IntVector2 b) => new IntVector2(a.x - b.x, a.y - b.y);
-        /// <summary>
         /// Negates component-wise.
         /// </summary>
         public static IntVector2 operator -(IntVector2 a) => new IntVector2(-a.x, -a.y);
+        /// <summary>
+        /// Subtracts component-wise.
+        /// </summary>
+        public static IntVector2 operator -(IntVector2 a, IntVector2 b) => new IntVector2(a.x - b.x, a.y - b.y);
 
         /// <summary>
         /// Multiplies component-wise.
