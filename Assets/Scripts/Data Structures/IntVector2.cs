@@ -504,13 +504,14 @@ namespace PAC.DataStructures
         /// <summary>
         /// Takes the maximum of the vectors component-wise.
         /// </summary>
+        // NOTE: This is not provided as an extension method to IEnumerable<IntVector2> since it seems C# will favour using the LINQ Enumerable.Max() instead, which causes errors.
         public static IntVector2 Max(IEnumerable<IntVector2> intVectors)
         {
             if (intVectors.IsEmpty())
             {
                 throw new ArgumentException("Cannot perform Max() on an empty collection of IntVector2s.", "intVectors");
             }
-            return new IntVector2(Enumerable.Max(from intVector in intVectors select intVector.x), Enumerable.Max(from intVector in intVectors select intVector.y));
+            return new IntVector2(intVectors.Select(vector => vector.x).Max(), intVectors.Select(vector => vector.y).Max());
         }
 
         /// <summary>
@@ -527,13 +528,14 @@ namespace PAC.DataStructures
         /// <summary>
         /// Takes the minimum of the vectors component-wise.
         /// </summary>
+        // NOTE: This is not provided as an extension method to IEnumerable<IntVector2> since it seems C# will favour using the LINQ Enumerable.Min() instead, which causes errors.
         public static IntVector2 Min(IEnumerable<IntVector2> intVectors)
         {
             if (intVectors.IsEmpty())
             {
                 throw new ArgumentException("Cannot perform Min() on an empty collection of IntVector2s.", "intVectors");
             }
-            return new IntVector2(Enumerable.Min(from intVector in intVectors select intVector.x), Enumerable.Min(from intVector in intVectors select intVector.y));
+            return new IntVector2(intVectors.Select(vector => vector.x).Min(), intVectors.Select(vector => vector.y).Min());
         }
 
         /// <summary>

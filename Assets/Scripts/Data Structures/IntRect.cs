@@ -273,7 +273,7 @@ namespace PAC.DataStructures
             {
                 throw new ArgumentException("Cannot perform GetBoundingRect() on an empty collection of IntRects.", "intRects");
             }
-            return new IntRect(IntVector2.Min(from intRect in intRects select intRect.bottomLeft), IntVector2.Max(from intRect in intRects select intRect.topRight));
+            return new IntRect(IntVector2.Min(intRects.Select(rect => rect.bottomLeft)), IntVector2.Max(intRects.Select(rect => rect.topRight)));
         }
 
         /// <summary>
