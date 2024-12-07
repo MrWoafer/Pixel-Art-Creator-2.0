@@ -2492,13 +2492,10 @@ namespace PAC.Drawing
                 // either IntVector2.down, IntVector2.left or IntVector2.right
                 IntVector2 directionToBottomCorner = IntVector2.Simplify(bottomCorner - rightAngleCorner);
 
-                // This counter is just for safety to avoid bugs causing an infinite loop
-                int iterations = 0;
-                for (IntVector2 rowStart = rightAngleCorner + directionToTopCorner + directionToBottomCorner; !border.Contains(rowStart) && iterations < 10_000_000; rowStart += directionToTopCorner)
+                for (IntVector2 rowStart = rightAngleCorner + directionToTopCorner + directionToBottomCorner; !border.Contains(rowStart); rowStart += directionToTopCorner)
                 {
-                    for (IntVector2 pixel = rowStart; !border.Contains(pixel) && iterations < 10_000_000; pixel += directionToBottomCorner)
+                    for (IntVector2 pixel = rowStart; !border.Contains(pixel); pixel += directionToBottomCorner)
                     {
-                        iterations++;
                         yield return pixel;
                     }
                 }
