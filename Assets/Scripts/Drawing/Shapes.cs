@@ -2637,11 +2637,453 @@ namespace PAC.Drawing
             IShape IShape.Flip(FlipAxis axis) => Flip(axis);
         }
 
+        public class IsometricRectangle : IIsometricShape
+        {
+            private IntVector2 startCorner;
+            private IntVector2 endCorner;
+
+            private IntVector2[] inferredCorners;
+            private Path border;
+
+            public IntVector2 leftCorner
+            {
+                get => inferredCorners.ArgMin(p => p.x);
+                set
+                {
+                    startCorner = rightCorner;
+                    endCorner = leftCorner;
+                    InferCornersAndBorder();
+                }
+            }
+            public IntVector2 rightCorner
+            {
+                get => inferredCorners.ArgMax(p => p.x);
+                set
+                {
+                    startCorner = leftCorner;
+                    endCorner = rightCorner;
+                    InferCornersAndBorder();
+                }
+            }
+            public IntVector2 bottomCorner
+            {
+                get => inferredCorners.ArgMin(p => p.y);
+                set
+                {
+                    startCorner = topCorner;
+                    endCorner = bottomCorner;
+                    InferCornersAndBorder();
+                }
+            }
+            public IntVector2 topCorner
+            {
+                get => inferredCorners.ArgMax(p => p.y);
+                set
+                {
+                    startCorner = bottomCorner;
+                    endCorner = topCorner;
+                    InferCornersAndBorder();
+                }
+            }
+
+            public bool filled { get; set; }
+
+            public int width => boundingRect.width;
+            public int height => boundingRect.height;
+
+            /// <summary>True if the isometric rectangle is an isometric square.</summary>
+            public bool isIsometricSquare => leftCorner.y == rightCorner.y || topCorner.x == bottomCorner.x;
+
+            public IntRect boundingRect => new IntRect(new IntVector2(leftCorner.x, bottomCorner.y), new IntVector2(rightCorner.x, topCorner.y));
+
+            public int Count
+            {
+                get
+                {
+                    if (!filled)
+                    {
+                        return border.Count;
+                    }
+                    throw new NotImplementedException();
+                }
+            }
+
+            public IsometricRectangle(IntVector2 startCorner, IntVector2 endCorner, bool filled)
+            {
+                this.startCorner = startCorner;
+                this.endCorner = endCorner;
+                this.filled = filled;
+
+                InferCornersAndBorder();
+            }
+
+            /// <summary>
+            /// Using just the start and end corners, deduces the other two corners and the shape of the border.
+            /// </summary>
+            private void InferCornersAndBorder()
+            {
+                // Specific cases
+
+                if (startCorner == endCorner)
+                {
+                    inferredCorners = new IntVector2[] { startCorner };
+                    border = new Path(startCorner);
+                    return;
+                }
+                if (Math.Abs(startCorner.y - endCorner.y) == 1)
+                {
+                    if (startCorner.x == endCorner.x)
+                    {
+                        IntVector2 leftCorner = new IntVector2(startCorner.x - 1, Math.Min(startCorner.y, endCorner.y));
+                        IntVector2 rightCorner = new IntVector2(startCorner.x + 1, Math.Max(startCorner.y, endCorner.y));
+                        inferredCorners = new IntVector2[] { startCorner, endCorner, leftCorner, rightCorner };
+                        border = new Path(leftCorner, rightCorner + IntVector2.down, rightCorner, leftCorner + IntVector2.up, leftCorner);
+                        return;
+                    }
+                    else if (Math.Abs(startCorner.x - endCorner.x) == 1)
+                    {
+                        IntRect rect = new IntRect(startCorner, endCorner);
+                        IntVector2 leftCorner = rect.bottomLeft;
+                        IntVector2 rightCorner = rect.topRight;
+                        inferredCorners = new IntVector2[] { startCorner, endCorner, leftCorner, rightCorner };
+                        border = new Path(leftCorner, rightCorner + IntVector2.down, rightCorner, leftCorner + IntVector2.up, leftCorner);
+                        return;
+                    }
+                }
+
+                // General cases
+
+                IntVector2 sign = IntVector2.Sign(endCorner - startCorner);
+                IntVector2 diff = endCorner - startCorner;
+                IntVector2 absDiff = IntVector2.Abs(diff);
+                IntVector2 adjustedEndCorner = endCorner + ((absDiff.x + 1) % 2) * new IntVector2(sign.x, 0);
+                int region = Math.Abs(adjustedEndCorner.x - startCorner.x) + 1 - 2 * (Math.Abs(adjustedEndCorner.y - startCorner.y) + 1);
+                // If startCorner and endCorner are on a line with gradient +/- 1/2
+                if (region == 0)
+                {
+                    inferredCorners = new IntVector2[] { startCorner, endCorner };
+                    if ((absDiff.x + 1) % 2 == 0)
+                    {
+                        border = new Path(startCorner, endCorner);
+                    }
+                    else
+                    {
+                        border = new Path(new Line(startCorner, endCorner - sign), new Line(endCorner, endCorner));
+                    }
+                    return;
+                }
+
+                // In comments below, '= 2 horizontal' etc signifies the size of the block (in the border lines) that corner is in
+                // E.g. 'start = 2 horizontal' indicates that startCorner will be in a horizontal block of 2 pixels in the border
+                //
+                // This value completely determines these block sizes / directions
+                int shapeType = (absDiff.x + 2 * absDiff.y) % 4;
+
+                // If {startCorner, endCorner} = {leftCorner, rightCorner}
+                if (region > 0)
+                {
+                    if (shapeType == 0)
+                    {
+                        // start = 2 horizontal, end = 1, top / bottom = 2 horizontal
+                        int numBlocks = Mathf.CeilToInt((absDiff.x + 2) / 4f) - Mathf.FloorToInt(diff.y / 2f);
+                        IntVector2 offset = numBlocks * new IntVector2(2 * sign.x, -1) + new IntVector2(-sign.x, 1);
+                        IntVector2 bottomCorner = startCorner + offset;
+                        IntVector2 topCorner = adjustedEndCorner - offset;
+
+                        inferredCorners = new IntVector2[] { startCorner, endCorner, bottomCorner, topCorner };
+                        border = new Path(
+                            new Line(startCorner, bottomCorner),
+                            new Line(bottomCorner + new IntVector2(sign.x, 1), endCorner - new IntVector2(sign.x, 1)),
+                            new Line(endCorner, endCorner),
+                            new Line(endCorner + new IntVector2(-sign.x, 1), topCorner),
+                            new Line(topCorner - new IntVector2(sign.x, 1), startCorner + new IntVector2(2 * sign.x, 1))
+                            );
+                    }
+                    else if (shapeType == 1)
+                    {
+                        // start = 2 horizontal, end = 2 horizontal, top / bottom = 2 horizontal
+                        int numBlocks = Mathf.CeilToInt((absDiff.x + 1) / 4f) - Mathf.FloorToInt(diff.y / 2f);
+                        IntVector2 offset = numBlocks * new IntVector2(2 * sign.x, -1) + new IntVector2(-sign.x, 1);
+                        IntVector2 bottomCorner = startCorner + offset;
+                        IntVector2 topCorner = endCorner - offset;
+
+                        inferredCorners = new IntVector2[] { startCorner, endCorner, bottomCorner, topCorner };
+                        border = new Path(
+                            new Line(startCorner, bottomCorner),
+                            new Line(bottomCorner + new IntVector2(sign.x, 1), endCorner),
+                            new Line(endCorner, topCorner),
+                            new Line(topCorner - new IntVector2(sign.x, 1), startCorner)
+                            );
+                    }
+                    else if (shapeType == 2)
+                    {
+                        // start = 2 horizontal, end = 2 horizontal, top / bottom = 3 horizontal
+                        int numBlocks = Mathf.CeilToInt(absDiff.x / 4f) - Mathf.FloorToInt(diff.y / 2f);
+                        IntVector2 offset = numBlocks * new IntVector2(2 * sign.x, -1) + new IntVector2(-sign.x, 1);
+                        IntVector2 bottomCorner = startCorner + offset;
+                        IntVector2 topCorner = endCorner - offset;
+
+                        inferredCorners = new IntVector2[] { startCorner, endCorner, bottomCorner, topCorner };
+                        border = new Path(
+                            new Line(startCorner, bottomCorner),
+                            new Line(bottomCorner, endCorner),
+                            new Line(endCorner, topCorner),
+                            new Line(topCorner, startCorner)
+                            );
+                    }
+                    else if (shapeType == 3)
+                    {
+                        // start = 1, end = 1, top / bottom = 2 horizontal
+                        int numBlocks = Mathf.CeilToInt((absDiff.x - 1) / 4f) - Mathf.FloorToInt(diff.y / 2f);
+                        IntVector2 offset = numBlocks * new IntVector2(2 * sign.x, -1);
+                        IntVector2 bottomCorner = startCorner + offset;
+                        IntVector2 topCorner = adjustedEndCorner - offset;
+
+                        inferredCorners = new IntVector2[] { startCorner, endCorner, bottomCorner, topCorner };
+                        border = new Path(
+                            new Line(startCorner, startCorner),
+                            new Line(startCorner + new IntVector2(sign.x, -1), bottomCorner),
+                            new Line(bottomCorner + new IntVector2(sign.x, 1), endCorner - new IntVector2(sign.x, 1)),
+                            new Line(endCorner, endCorner),
+                            new Line(endCorner + new IntVector2(-sign.x, 1), topCorner),
+                            new Line(topCorner - new IntVector2(sign.x, 1), startCorner + new IntVector2(sign.x, 1))
+                            );
+                    }
+                    else
+                    {
+                        throw new UnreachableException();
+                    }
+                }
+                // If {startCorner, endCorner} = {topCorner, bottomCorner}
+                else
+                {
+                    if (Math.Abs(adjustedEndCorner.x - startCorner.x) + 1 == 2 * Math.Abs(adjustedEndCorner.y - startCorner.y))
+                    {
+                        IntVector2 corner1 = startCorner + sign.y * IntVector2.up;
+                        IntVector2 corner2 = endCorner + sign.y * IntVector2.down;
+                        inferredCorners = new IntVector2[] { startCorner, endCorner, corner1, corner2 };
+                        if ((absDiff.x + 1) % 2 == 0)
+                        {
+                            border = new Path(new Line(startCorner, corner2), new Line(endCorner, corner1));
+                        }
+                        else
+                        {
+                            border = new Path(new Line(startCorner, corner2 - sign), new Line(corner2, endCorner), new Line(endCorner - sign, corner1));
+                        }
+                    }
+                    else if (shapeType == 0)
+                    {
+                        if (startCorner.x == endCorner.x)
+                        {
+                            // start / end = 3 horizontal, left / right = 1
+                            int numBlocks = absDiff.y / 2;
+                            IntVector2 offset = numBlocks * new IntVector2(2, sign.y);
+                            IntVector2 rightCorner = startCorner + offset;
+                            IntVector2 leftCorner = endCorner - offset;
+
+                            inferredCorners = new IntVector2[] { startCorner, endCorner, rightCorner, leftCorner };
+                            border = new Path(
+                                new Line(leftCorner, leftCorner),
+                                new Line(leftCorner + new IntVector2(1, -sign.y), startCorner),
+                                new Line(startCorner, rightCorner - new IntVector2(1, sign.y)),
+                                new Line(rightCorner, rightCorner),
+                                new Line(rightCorner - new IntVector2(1, -sign.y), endCorner),
+                                new Line(endCorner, leftCorner + new IntVector2(1, sign.y))
+                                );
+                        }
+                        else
+                        {
+                            // start / end = 2 horizontal, left / right = 1
+                            int numBlocks = absDiff.y / 2 + Mathf.CeilToInt(absDiff.x / 4f);
+                            IntVector2 offset = numBlocks * new IntVector2(2, 1) * sign;
+                            IntVector2 corner1 = startCorner + offset;
+                            IntVector2 corner2 = endCorner - offset;
+
+                            inferredCorners = new IntVector2[] { startCorner, endCorner, corner1, corner2 };
+                            border = new Path(
+                                new Line(corner2, corner2),
+                                new Line(corner2 + new IntVector2(sign.x, -sign.y), startCorner),
+                                new Line(startCorner, corner1 - new IntVector2(sign.x, sign.y)),
+                                new Line(corner1, corner1),
+                                new Line(corner1 - new IntVector2(sign.x, -sign.y), endCorner),
+                                new Line(endCorner, corner2 + new IntVector2(sign.x, sign.y))
+                                );
+                        }
+                    }
+                    else if (shapeType == 1)
+                    {
+                        // start / end = 2 horizontal, left / right = 1
+                        int numBlocks = absDiff.y / 2 + Mathf.CeilToInt((absDiff.x - 1) / 4f);
+                        IntVector2 offset = numBlocks * new IntVector2(2, 1) * sign;
+                        IntVector2 corner1 = startCorner + offset;
+                        IntVector2 corner2 = endCorner - offset;
+
+                        inferredCorners = new IntVector2[] { startCorner, endCorner, corner1, corner2 };
+                        border = new Path(
+                            new Line(corner2, corner2),
+                            new Line(corner2 + new IntVector2(sign.x, -sign.y), startCorner + new IntVector2(-sign.x, sign.y)),
+                            new Line(startCorner, corner1 - new IntVector2(sign.x, sign.y)),
+                            new Line(corner1, corner1),
+                            new Line(corner1 - new IntVector2(sign.x, -sign.y), endCorner - new IntVector2(-sign.x, sign.y)),
+                            new Line(endCorner, corner2 + new IntVector2(sign.x, sign.y))
+                            );
+                    }
+                    else if (shapeType == 2)
+                    {
+                        if (startCorner.x == endCorner.x)
+                        {
+                            // start / end = 3 horizontal, left / right = 2 vertical
+                            int numBlocks = (absDiff.y - 1) / 2;
+                            IntVector2 offset = numBlocks * new IntVector2(2, sign.y);
+                            // On the y level closer to startCorner
+                            IntVector2 rightCorner = startCorner + offset;
+                            // On the y level closer to endCorner
+                            IntVector2 leftCorner = endCorner - offset;
+
+                            inferredCorners = new IntVector2[] { startCorner, endCorner, rightCorner, leftCorner };
+                            border = new Path(
+                                new Line(leftCorner, leftCorner - new IntVector2(0, sign.y)),
+                                new Line(leftCorner + new IntVector2(1, -2 * sign.y), startCorner),
+                                new Line(startCorner, rightCorner - new IntVector2(1, sign.y)),
+                                new Line(rightCorner, rightCorner + new IntVector2(0, sign.y)),
+                                new Line(rightCorner - new IntVector2(1, -2 * sign.y), endCorner),
+                                new Line(endCorner, leftCorner + new IntVector2(1, sign.y))
+                                );
+                        }
+                        else
+                        {
+                            // start / end = 2 horizontal, left / right = 2 vertical
+                            int numBlocks = (absDiff.y - 1) / 2 + Mathf.CeilToInt(absDiff.x / 4f);
+                            IntVector2 offset = numBlocks * new IntVector2(2, 1) * sign;
+                            // On the y level closer to startCorner
+                            IntVector2 corner1 = startCorner + offset;
+                            // On the y level closer to endCorner
+                            IntVector2 corner2 = endCorner - offset;
+
+                            inferredCorners = new IntVector2[] { startCorner, endCorner, corner1, corner2 };
+                            border = new Path(
+                                new Line(corner2, corner2 - new IntVector2(0, sign.y)),
+                                new Line(corner2 + new IntVector2(sign.x, -2 * sign.y), startCorner),
+                                new Line(startCorner, corner1 - new IntVector2(sign.x, sign.y)),
+                                new Line(corner1, corner1 + new IntVector2(0, sign.y)),
+                                new Line(corner1 - new IntVector2(sign.x, -2 * sign.y), endCorner),
+                                new Line(endCorner, corner2 + new IntVector2(sign.x, sign.y))
+                                );
+                        }
+                    }
+                    else if (shapeType == 3)
+                    {
+                        // start / end = 2 horizontal, left / right = 2 horizontal
+                        int numBlocks = (absDiff.y - 1) / 2 + Mathf.CeilToInt((absDiff.x - 1) / 4f);
+                        IntVector2 offset = numBlocks * new IntVector2(2, 1) * sign;
+                        // On the y level closer to startCorner
+                        IntVector2 corner1 = startCorner + offset;
+                        // On the y level closer to endCorner
+                        IntVector2 corner2 = endCorner - offset;
+
+                        inferredCorners = new IntVector2[] { startCorner, endCorner, corner1, corner2 };
+                        border = new Path(
+                            new Line(corner2, corner2 - new IntVector2(0, sign.y)),
+                            new Line(corner2 + new IntVector2(sign.x, -2 * sign.y), startCorner + new IntVector2(-sign.x, sign.y)),
+                            new Line(startCorner, corner1 - new IntVector2(sign.x, sign.y)),
+                            new Line(corner1, corner1 + new IntVector2(0, sign.y)),
+                            new Line(corner1 - new IntVector2(sign.x, -2 * sign.y), endCorner - new IntVector2(-sign.x, sign.y)),
+                            new Line(endCorner, corner2 + new IntVector2(sign.x, sign.y))
+                            );
+                    }
+                }
+            }
+
+            public bool Contains(IntVector2 pixel)
+            {
+                if (!filled)
+                {
+                    return border.Contains(pixel);
+                }
+                return border.Contains(pixel) || border.WindingNumber(pixel) != 0;
+            }
+
+            /// <summary>
+            /// Translates the isometric rectangle by the given vector.
+            /// </summary>
+            public static IsometricRectangle operator +(IntVector2 translation, IsometricRectangle isoRectangle) => isoRectangle + translation;
+            /// <summary>
+            /// Translates the isometric rectangle by the given vector.
+            /// </summary>
+            public static IsometricRectangle operator +(IsometricRectangle isoRectangle, IntVector2 translation) => isoRectangle.Translate(translation);
+            /// <summary>
+            /// Translates the isometric rectangle by the given vector.
+            /// </summary>
+            public static IsometricRectangle operator -(IsometricRectangle isoRectangle, IntVector2 translation) => isoRectangle + (-translation);
+            /// <summary>
+            /// Reflects the isometric rectangle through the origin.
+            /// </summary>
+            public static IsometricRectangle operator -(IsometricRectangle isoRectangle) => new IsometricRectangle(-isoRectangle.startCorner, -isoRectangle.endCorner, isoRectangle.filled);
+
+            IIsometricShape IIsometricShape.Translate(IntVector2 translation) => Translate(translation);
+            /// <summary>
+            /// Translates the isometric rectangle by the given vector.
+            /// </summary>
+            public IsometricRectangle Translate(IntVector2 translation)
+            {
+                return new IsometricRectangle(startCorner + translation, endCorner + translation, filled);
+            }
+
+            IIsometricShape IIsometricShape.Flip(FlipAxis axis) => Flip(axis);
+            /// <summary>
+            /// Reflects the isometric rectangle across the given axis.
+            /// </summary>
+            public IsometricRectangle Flip(FlipAxis axis)
+            {
+                return new IsometricRectangle(startCorner.Flip(axis), endCorner.Flip(axis), filled);
+            }
+
+            IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();
+            public IEnumerator<IntVector2> GetEnumerator()
+            {
+                if (!filled)
+                {
+                    foreach (IntVector2 pixel in border)
+                    {
+                        yield return pixel;
+                    }
+                    yield break;
+                }
+
+                for (int y = boundingRect.bottomLeft.y; y <= boundingRect.topRight.y; y++)
+                {
+                    for (int x = border.MinX(y); x <= border.MaxX(y); x++)
+                    {
+                        yield return new IntVector2(x, y);
+                    }
+                }
+            }
+
+            public static bool operator !=(IsometricRectangle a, IsometricRectangle b) => !(a == b);
+            public static bool operator ==(IsometricRectangle a, IsometricRectangle b)
+            {
+                return a.startCorner == b.startCorner && a.endCorner == b.endCorner && a.filled == b.filled;
+            }
+            public override bool Equals(object obj)
+            {
+                if (obj == null || !GetType().Equals(obj.GetType()))
+                {
+                    return false;
+                }
+                else
+                {
+                    return this == (IsometricRectangle)obj;
+                }
+            }
+
+            public override int GetHashCode() => HashCode.Combine(startCorner, endCorner, filled);
+
+            public override string ToString() => "IsometricRectangle(" + startCorner + ", " + endCorner + ", " + (filled ? "filled" : "unfilled") + ")";
+        }
+
         public static Texture2D IsoRectangle(int texWidth, int texHeight, IntVector2 start, IntVector2 end, Color colour, bool filled)
         {
-            Texture2D tex = IsoRectangleOnExistingTex(Tex2DSprite.BlankTexture(texWidth, texHeight), texWidth, texHeight, start, end, colour, filled, true);
-            tex.Apply();
-            return tex;
+            return IsoRectangleOnExistingTex(Tex2DSprite.BlankTexture(texWidth, texHeight), texWidth, texHeight, start, end, colour, filled, true);
         }
         /// <summary>
         /// Draws the isometric rectangle on the given texture.
@@ -2655,275 +3097,17 @@ namespace PAC.Drawing
         /// </summary>
         private static Tuple<Texture2D, IntVector2, IntVector2, IntVector2, IntVector2> IsoRectangleOnExistingTexReturnCorners(Texture2D texture, int texWidth, int texHeight, IntVector2 start, IntVector2 end, Color colour, bool filled, bool drawTopLines)
         {
-            if (start == end)
+            IntRect texRect = new IntRect(IntVector2.zero, new IntVector2(texWidth - 1, texHeight - 1));
+            IsometricRectangle rectangle = new IsometricRectangle(start, end, filled);
+            foreach (IntVector2 pixel in rectangle)
             {
-                texture.SetPixel(start, colour);
-                texture.Apply();
-                return new Tuple<Texture2D, IntVector2, IntVector2, IntVector2, IntVector2>(texture, start, start, start, start);
+                if (texRect.Contains(pixel))
+                {
+                    texture.SetPixel(pixel, colour);
+                }
             }
-
-            IntRect rect = new IntRect(IntVector2.zero, new IntVector2(texWidth - 1, texHeight - 1));
-
-            /// Relabel start/end corners so that start is the left corner and end is the right corner.
-            if (start.x > end.x)
-            {
-                IntVector2 temp = start;
-                start = end;
-                end = temp;
-            }
-
-            /// If start is the left corner and end is the right (instead of top/bottom)
-            if (2 * Mathf.Abs(end.y - start.y) <= Mathf.Abs(end.x - start.x))
-            {
-                Vector2 lineStart = new Vector2(start.x, start.y + 1f);
-                Vector2 lineEnd = new Vector2(end.x + 1f, end.y + 1f);
-                bool startOf2PixelBlockStartValueStart = true;
-                bool startOf2PixelBlockStartValueEnd = true;
-
-                int cornerType = (end.x - start.x + 1 + (end.y - start.y) * 2) % 4;
-                if (cornerType == 0 || cornerType == 3)
-                {
-                    lineStart += new Vector2(1f, -1f);
-                    lineEnd += new Vector2(-1f, -1f);
-
-                    startOf2PixelBlockStartValueStart = false;
-                    startOf2PixelBlockStartValueEnd = false;
-                }
-                else if (cornerType == 1)
-                {
-                    lineEnd += new Vector2(-1f, -1f);
-
-                    startOf2PixelBlockStartValueEnd = false;
-                }
-
-                float meetingX = (lineStart.x + lineEnd.x) / 2f + lineStart.y - lineEnd.y;
-                float meetingY = (meetingX - lineEnd.x) / 2f + lineEnd.y;
-                IntVector2 lowerMeetingPoint = new IntVector2(Mathf.FloorToInt(meetingX), Mathf.FloorToInt(meetingY));
-                IntVector2 upperMeetingPoint = end - (lowerMeetingPoint - start);
-
-                int x = start.x;
-                int y = start.y;
-                bool startOf2PixelBlock = startOf2PixelBlockStartValueStart;
-
-                while (x <= lowerMeetingPoint.x && y >= lowerMeetingPoint.y)
-                {
-                    if (rect.Contains(x, y))
-                    {
-                        texture.SetPixel(x, y, colour);
-                    }
-
-                    startOf2PixelBlock = !startOf2PixelBlock;
-                    x++;
-
-                    if (startOf2PixelBlock)
-                    {
-                        y--;
-                    }
-                }
-
-                x = end.x;
-                y = end.y;
-                startOf2PixelBlock = startOf2PixelBlockStartValueEnd;
-
-                while (x >= lowerMeetingPoint.x && y >= lowerMeetingPoint.y)
-                {
-                    if (rect.Contains(x, y))
-                    {
-                        texture.SetPixel(x, y, colour);
-                    }
-
-                    startOf2PixelBlock = !startOf2PixelBlock;
-
-                    x--;
-
-                    if (startOf2PixelBlock)
-                    {
-                        y--;
-                    }
-                }
-
-                if (drawTopLines)
-                {
-                    x = start.x;
-                    y = start.y;
-                    startOf2PixelBlock = startOf2PixelBlockStartValueStart;
-
-                    while (x <= upperMeetingPoint.x && y <= upperMeetingPoint.y)
-                    {
-                        if (rect.Contains(x, y))
-                        {
-                            texture.SetPixel(x, y, colour);
-                        }
-
-                        x++;
-                        startOf2PixelBlock = !startOf2PixelBlock;
-
-                        if (startOf2PixelBlock)
-                        {
-                            y++;
-                        }
-                    }
-
-                    x = end.x;
-                    y = end.y;
-                    startOf2PixelBlock = startOf2PixelBlockStartValueEnd;
-
-                    while (x >= upperMeetingPoint.x && y <= upperMeetingPoint.y)
-                    {
-                        if (rect.Contains(x, y))
-                        {
-                            texture.SetPixel(x, y, colour);
-                        }
-
-                        x--;
-                        startOf2PixelBlock = !startOf2PixelBlock;
-
-                        if (startOf2PixelBlock)
-                        {
-                            y++;
-                        }
-                    }
-                }
-
-                if (filled && Mathf.Abs(end.y - start.y) > 1)
-                {
-                    texture = Tex2DSprite.Fill(texture, lowerMeetingPoint + IntVector2.up, colour);
-                }
-
-                return new Tuple<Texture2D, IntVector2, IntVector2, IntVector2, IntVector2>(texture, start, upperMeetingPoint, end, lowerMeetingPoint);
-            }
-            else
-            {
-                /// Relabel start/end corners so that start is the bottom corner and end is the top corner.
-                if (start.y > end.y)
-                {
-                    IntVector2 temp = start;
-                    start = end;
-                    end = temp;
-                }
-
-                Vector2 lineStart = new Vector2(start.x + 1f, start.y + 0.5f);
-                Vector2 lineEnd = new Vector2(end.x, end.y + 0.5f);
-                bool startOf2PixelBlockStartValueStartLeft = false;
-                bool startOf2PixelBlockStartValueStartRight = true;
-                bool startOf2PixelBlockStartValueEndLeft = true;
-                bool startOf2PixelBlockStartValueEndRight = false;
-
-                int cornerType = (end.x - start.x + 1 + (end.y - start.y) * 2) % 4;
-                if (cornerType == 1 || cornerType == 3)
-                {
-                    lineEnd += new Vector2(1f, 0f);
-
-                    startOf2PixelBlockStartValueEndLeft = false;
-                    startOf2PixelBlockStartValueEndRight = true;
-                }
-
-                float meetingX = (lineStart.x + lineEnd.x) / 2f + lineStart.y - lineEnd.y;
-                float meetingY = (meetingX - lineEnd.x) / 2f + lineEnd.y;
-                IntVector2 leftMeetingPoint = new IntVector2(Mathf.FloorToInt(meetingX), Mathf.FloorToInt(meetingY));
-                IntVector2 rightMeetingPoint = end + (start - leftMeetingPoint);
-
-                if (cornerType == 0)
-                {
-                    leftMeetingPoint += IntVector2.right;
-                    rightMeetingPoint += IntVector2.left;
-                }
-                else if (cornerType == 1)
-                {
-                    rightMeetingPoint += IntVector2.right;
-                }
-                else if (cornerType == 3)
-                {
-                    leftMeetingPoint += IntVector2.right;
-                }
-
-                int x = start.x;
-                int y = start.y;
-
-                while (x >= leftMeetingPoint.x && y <= leftMeetingPoint.y)
-                {
-                    if (rect.Contains(x, y))
-                    {
-                        texture.SetPixel(x, y, colour);
-                    }
-
-                    startOf2PixelBlockStartValueStartLeft = !startOf2PixelBlockStartValueStartLeft;
-                    x--;
-
-                    if (startOf2PixelBlockStartValueStartLeft)
-                    {
-                        y++;
-                    }
-                }
-
-                x = start.x;
-                y = start.y;
-
-                while (x <= rightMeetingPoint.x && y <= rightMeetingPoint.y)
-                {
-                    if (rect.Contains(x, y))
-                    {
-                        texture.SetPixel(x, y, colour);
-                    }
-
-                    x++;
-                    startOf2PixelBlockStartValueStartRight = !startOf2PixelBlockStartValueStartRight;
-
-                    if (startOf2PixelBlockStartValueStartRight)
-                    {
-                        y++;
-                    }
-                }
-
-                if (drawTopLines)
-                {
-                    x = end.x;
-                    y = end.y;
-
-                    while (x >= leftMeetingPoint.x && y >= leftMeetingPoint.y)
-                    {
-                        if (rect.Contains(x, y))
-                        {
-                            texture.SetPixel(x, y, colour);
-                        }
-
-                        startOf2PixelBlockStartValueEndLeft = !startOf2PixelBlockStartValueEndLeft;
-
-                        x--;
-
-                        if (startOf2PixelBlockStartValueEndLeft)
-                        {
-                            y--;
-                        }
-                    }
-
-                    x = end.x;
-                    y = end.y;
-
-                    while (x <= rightMeetingPoint.x && y >= rightMeetingPoint.y)
-                    {
-                        if (rect.Contains(x, y))
-                        {
-                            texture.SetPixel(x, y, colour);
-                        }
-
-                        x++;
-                        startOf2PixelBlockStartValueEndRight = !startOf2PixelBlockStartValueEndRight;
-
-                        if (startOf2PixelBlockStartValueEndRight)
-                        {
-                            y--;
-                        }
-                    }
-                }
-
-                if (filled && Mathf.Abs(end.x - start.x) > 1)
-                {
-                    texture = Tex2DSprite.Fill(texture, leftMeetingPoint + IntVector2.right, colour);
-                }
-
-                return new Tuple<Texture2D, IntVector2, IntVector2, IntVector2, IntVector2>(texture, leftMeetingPoint, end, rightMeetingPoint, start);
-            }
+            texture.Apply();
+            return (texture, rectangle.leftCorner, rectangle.topCorner, rectangle.rightCorner, rectangle.bottomCorner).ToTuple();
         }
 
         public static Texture2D IsoBox(int texWidth, int texHeight, IntVector2 baseStart, IntVector2 baseEnd, IntVector2 heightEnd, Color colour, bool filled)
