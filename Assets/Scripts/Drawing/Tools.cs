@@ -59,7 +59,7 @@ namespace PAC.Drawing
         }
         public static void UseBrush(File file, int layer, int frame, IntVector2 pixel, IntVector2[] brushBorderMaskPixels, Color colour)
         {
-            file.layers[layer].SetPixels(file.rect.FilterPointsInside(pixel + brushBorderMaskPixels), frame, colour, AnimFrameRefMode.NewKeyFrame);
+            file.layers[layer].SetPixels(file.rect.FilterPointsInside(brushBorderMaskPixels.Select(p => p + pixel)), frame, colour, AnimFrameRefMode.NewKeyFrame);
         }
 
         public static void UseRubber(File file, int layer, int frame, int x, int y) => UseRubber(file, layer, frame, new IntVector2(x, y));

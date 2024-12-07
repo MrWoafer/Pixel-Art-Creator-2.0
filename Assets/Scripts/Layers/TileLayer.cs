@@ -499,7 +499,7 @@ namespace PAC.Layers
             {
                 if (tile.TileLayerToLayerInTile(this) == layer)
                 {
-                    IEnumerable<IntVector2> linkedPixels = GetLinkedPixels(pixels.ToArray() + tile.bottomLeft);
+                    IEnumerable<IntVector2> linkedPixels = GetLinkedPixels(pixels.Select(p => p + tile.bottomLeft));
                     RerenderKeyFrames(frames, linkedPixels);
                     onPixelsChanged.Invoke(linkedPixels, frames);
 

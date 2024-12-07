@@ -125,22 +125,6 @@ namespace PAC.DataStructures
         /// Adds component-wise.
         /// </summary>
         public static IntVector2 operator +(IntVector2 a, IntVector2 b) => new IntVector2(a.x + b.x, a.y + b.y);
-        /// <summary>
-        /// Adds the vector to each element of the array.
-        /// </summary>
-        public static IntVector2[] operator +(IntVector2 vector, IntVector2[] vectorArray)
-        {
-            IntVector2[] result = new IntVector2[vectorArray.Length];
-            for (int i = 0; i < vectorArray.Length; i++)
-            {
-                result[i] = vector + vectorArray[i];
-            }
-            return result;
-        }
-        /// <summary>
-        /// Adds the vector to each element of the array.
-        /// </summary>
-        public static IntVector2[] operator +(IntVector2[] vectorArray, IntVector2 vector) => vector + vectorArray;
 
         /// <summary>
         /// Subtracts component-wise.
@@ -150,22 +134,6 @@ namespace PAC.DataStructures
         /// Negates component-wise.
         /// </summary>
         public static IntVector2 operator -(IntVector2 a) => new IntVector2(-a.x, -a.y);
-        /// <summary>
-        /// Subtracts each element of the array from the vector.
-        /// </summary>
-        public static IntVector2[] operator -(IntVector2 vector, IntVector2[] vectorArray)
-        {
-            IntVector2[] result = new IntVector2[vectorArray.Length];
-            for (int i = 0; i < vectorArray.Length; i++)
-            {
-                result[i] = vector - vectorArray[i];
-            }
-            return result;
-        }
-        /// <summary>
-        /// Subtracts the vector from each element of the array.
-        /// </summary>
-        public static IntVector2[] operator -(IntVector2[] vectorArray, IntVector2 vector) => vectorArray + (-vector); 
 
         /// <summary>
         /// Multiplies component-wise.
@@ -179,22 +147,6 @@ namespace PAC.DataStructures
         /// Multiplies component-wise.
         /// </summary>
         public static IntVector2 operator *(IntVector2 vector, int scalar) => scalar * vector;
-        /// <summary>
-        /// Multiplies each element of the array by the vector.
-        /// </summary>
-        public static IntVector2[] operator *(IntVector2 vector, IntVector2[] vectorArray)
-        {
-            IntVector2[] result = new IntVector2[vectorArray.Length];
-            for (int i = 0; i < vectorArray.Length; i++)
-            {
-                result[i] = vector * vectorArray[i];
-            }
-            return result;
-        }
-        /// <summary>
-        /// Multiplies each element of the array by the vector.
-        /// </summary>
-        public static IntVector2[] operator *(IntVector2[] vectorArray, IntVector2 vector) => vector * vectorArray;
 
         /// <summary>
         /// Divides (integer division) component-wise.
@@ -204,30 +156,6 @@ namespace PAC.DataStructures
         /// Divides (integer division) component-wise.
         /// </summary>
         public static IntVector2 operator /(IntVector2 vector, int scalar) => new IntVector2(vector.x / scalar, vector.y / scalar);
-        /// <summary>
-        /// Divides the vector by each element of the array.
-        /// </summary>
-        public static IntVector2[] operator /(IntVector2 vector, IntVector2[] vectorArray)
-        {
-            IntVector2[] result = new IntVector2[vectorArray.Length];
-            for (int i = 0; i < vectorArray.Length; i++)
-            {
-                result[i] = vector / vectorArray[i];
-            }
-            return result;
-        }
-        /// <summary>
-        /// Divides each element of the array by the vector.
-        /// </summary>
-        public static IntVector2[] operator /(IntVector2[] vectorArray, IntVector2 vector)
-        {
-            IntVector2[] result = new IntVector2[vectorArray.Length];
-            for (int i = 0; i < vectorArray.Length; i++)
-            {
-                result[i] = vectorArray[i] / vector;
-            }
-            return result;
-        }
 
         /// <summary>
         /// Returns whether the this vector is an integer multiple of the divisor. For example, (3, 6) is a multiple of (1, 2) as (3, 6) = 3 * (1, 2).

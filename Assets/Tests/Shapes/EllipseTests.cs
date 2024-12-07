@@ -80,10 +80,10 @@ namespace PAC.Tests
             foreach (IntVector2 centre in new IntRect(new IntVector2(-5, -5), new IntVector2(5, 5)))
             {
                 Shapes.Ellipse ellipse = new Shapes.Ellipse(centre - IntVector2.one, centre + IntVector2.one, false);
-                Assert.True(ellipse.ToHashSet().SetEquals(centre + new IntVector2[] { IntVector2.up, IntVector2.right, IntVector2.down, IntVector2.left }));
+                Assert.True(ellipse.ToHashSet().SetEquals(new IntVector2[] { IntVector2.up, IntVector2.right, IntVector2.down, IntVector2.left }.Select(p => p + centre)));
 
                 ellipse = new Shapes.Ellipse(centre - IntVector2.one, centre + IntVector2.one, true);
-                Assert.True(ellipse.ToHashSet().SetEquals(centre + new IntVector2[] { IntVector2.zero, IntVector2.up, IntVector2.right, IntVector2.down, IntVector2.left }));
+                Assert.True(ellipse.ToHashSet().SetEquals(new IntVector2[] { IntVector2.zero, IntVector2.up, IntVector2.right, IntVector2.down, IntVector2.left }.Select(p => p + centre)));
             }
         }
 
