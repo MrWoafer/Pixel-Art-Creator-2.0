@@ -151,21 +151,25 @@ namespace PAC.DataStructures
         public bool Overlaps(IntRect rect) => Overlap(this, rect);
 
         /// <summary>
-        /// Clamps the vector component-wise so its coordinates are within the rect.
+        /// Clamps the vector component-wise so its coordinates are within this rect.
         /// </summary>
         public IntVector2 Clamp(IntVector2 vector) => new IntVector2(Math.Clamp(vector.x, bottomRight.x, topRight.x), Math.Clamp(vector.y, bottomRight.y, topRight.y));
         /// <summary>
-        /// Shifts the given rect so it is (weakly) contained within the rect.
+        /// Clamps the corners of the given rect component-wise so they are within this rect.
         /// </summary>
-        public IntRect Clamp(IntRect rect)
+        public IntRect Clamp(IntRect rect) => new IntRect(Clamp(rect.bottomLeft), Clamp(rect.topRight));
+        /// <summary>
+        /// Shifts the given rect so it is (weakly) contained within this rect.
+        /// </summary>
+        public IntRect ShiftClamp(IntRect rect)
         {
             if (rect.width > width)
             {
-                throw new ArgumentException("An IntRect cannot clamp a wider IntRect. Width: " + width + " > " + rect.width, "rect");
+                throw new ArgumentException("Cannot shift-clamp a wider rect. Width: " + width + " < " + rect.width, "rect");
             }
             if (rect.height > height)
             {
-                throw new ArgumentException("An IntRect cannot clamp a taller IntRect. Height: " + height + " > " + rect.height, "rect");
+                throw new ArgumentException("Cannot shift-clamp a taller rect. Height: " + height + " < " + rect.height, "rect");
             }
 
             if (rect.bottomLeft.x < bottomLeft.x)
