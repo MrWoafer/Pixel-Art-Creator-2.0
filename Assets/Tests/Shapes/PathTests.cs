@@ -7,7 +7,7 @@ using PAC.Drawing;
 
 namespace PAC.Tests
 {
-    public class PathTests : I2DShapeTests<Shapes.Path>
+    public class PathTests : I1DShapeTests<Shapes.Path>
     {
         protected override IEnumerable<Shapes.Path> testCases
         {

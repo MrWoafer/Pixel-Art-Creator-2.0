@@ -119,6 +119,11 @@ namespace PAC.Tests
         }
     }
 
+    public abstract class I1DShapeTests<T> : IShapeTests<T> where T : Shapes.I1DShape
+    {
+
+    }
+
     public abstract class I2DShapeTests<T> : IShapeTests<T> where T : Shapes.I2DShape
     {
         [Test]

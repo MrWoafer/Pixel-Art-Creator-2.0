@@ -929,7 +929,7 @@ namespace PAC.Drawing
             }
         }
 
-        private void PreviewShape(Shapes.I2DShape shape, Color colour)
+        private void PreviewShape(Shapes.IShape shape, Color colour)
         {
             SetPreview(Shapes.ShapeToTexture(shape, colour), shape.boundingRect.bottomLeft);
         }

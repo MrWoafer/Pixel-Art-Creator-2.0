@@ -85,7 +85,7 @@ namespace PAC.Drawing
             file.layers[layer].SetPixels(Tex2DSprite.GetPixelsToFill(file.layers[layer][frame].texture, pixel, maxNumOfIterations), frame, colour, AnimFrameRefMode.NewKeyFrame);
         }
 
-        public static void UseShape(File file, int layer, int frame, Shapes.I2DShape shape, Color colour)
+        public static void UseShape(File file, int layer, int frame, Shapes.IShape shape, Color colour)
         {
             if (file.layers[layer].layerType != LayerType.Normal)
             {
