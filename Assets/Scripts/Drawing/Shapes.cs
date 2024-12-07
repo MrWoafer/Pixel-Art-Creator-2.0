@@ -1005,6 +1005,51 @@ namespace PAC.Drawing
             }
 
             /// <summary>
+            /// Returns the minimum x coord of the pixels on the path that have the given y coord.
+            /// </summary>
+            public int MinX(int y)
+            {
+                if (!boundingRect.ContainsY(y))
+                {
+                    throw new ArgumentOutOfRangeException("y must be within the y range of the path. y: " + y + "; path y range: [" + boundingRect.bottomLeft.y + ", " + boundingRect.topRight.y + "]");
+                }
+                return _lines.Where(l => l.boundingRect.ContainsY(y)).Select(l => l.MinX(y)).Min();
+            }
+            /// <summary>
+            /// Returns the maximum x coord of the pixels on the path that have the given y coord.
+            /// </summary>
+            public int MaxX(int y)
+            {
+                if (!boundingRect.ContainsY(y))
+                {
+                    throw new ArgumentOutOfRangeException("y must be within the y range of the path. y: " + y + "; path y range: [" + boundingRect.bottomLeft.y + ", " + boundingRect.topRight.y + "]");
+                }
+                return _lines.Where(l => l.boundingRect.ContainsY(y)).Select(l => l.MaxX(y)).Max();
+            }
+            /// <summary>
+            /// Returns the minimum y coord of the pixels on the path that have the given x coord.
+            /// </summary>
+            public int MinY(int x)
+            {
+                if (!boundingRect.ContainsX(x))
+                {
+                    throw new ArgumentOutOfRangeException("x must be within the x range of the path. x: " + x + "; path x range: [" + boundingRect.bottomLeft.x + ", " + boundingRect.topRight.x + "]");
+                }
+                return _lines.Where(l => l.boundingRect.ContainsX(x)).Select(l => l.MinY(x)).Min();
+            }
+            /// <summary>
+            /// Returns the maximum y coord of the pixels on the path that have the given x coord.
+            /// </summary>
+            public int MaxY(int x)
+            {
+                if (!boundingRect.ContainsX(x))
+                {
+                    throw new ArgumentOutOfRangeException("x must be within the x range of the path. x: " + x + "; path x range: [" + boundingRect.bottomLeft.x + ", " + boundingRect.topRight.x + "]");
+                }
+                return _lines.Where(l => l.boundingRect.ContainsX(x)).Select(l => l.MaxY(x)).Max();
+            }
+
+            /// <summary>
             /// Translates the path by the given vector.
             /// </summary>
             public static Path operator +(IntVector2 translation, Path path) => path + translation;
