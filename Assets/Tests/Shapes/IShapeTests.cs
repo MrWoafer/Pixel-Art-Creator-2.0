@@ -13,10 +13,7 @@ namespace PAC.Tests
     /// </summary>
     public abstract class IShapeTests<T> where T : Shapes.IShape
     {
-        protected abstract IEnumerable<T> testCases
-        {
-            get;
-        }
+        public abstract IEnumerable<T> testCases { get; }
 
         [Test]
         [Category("Shapes")]

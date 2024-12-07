@@ -9,7 +9,7 @@ namespace PAC.Tests
 {
     public class RightTriangleTests : I2DShapeTests<Shapes.RightTriangle>
     {
-        protected override IEnumerable<Shapes.RightTriangle> testCases
+        public override IEnumerable<Shapes.RightTriangle> testCases
         {
             get
             {

@@ -9,7 +9,7 @@ namespace PAC.Tests
 {
     public class PathTests : I1DShapeTests<Shapes.Path>
     {
-        protected override IEnumerable<Shapes.Path> testCases
+        public override IEnumerable<Shapes.Path> testCases
         {
             get => RandomTestCases(1_000);
         }

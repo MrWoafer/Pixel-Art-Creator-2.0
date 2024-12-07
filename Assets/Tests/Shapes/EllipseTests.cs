@@ -8,7 +8,7 @@ namespace PAC.Tests
 {
     public class EllipseTests : I2DShapeTests<Shapes.Ellipse>
     {
-        protected override IEnumerable<Shapes.Ellipse> testCases
+        public override IEnumerable<Shapes.Ellipse> testCases
         {
             get
             {

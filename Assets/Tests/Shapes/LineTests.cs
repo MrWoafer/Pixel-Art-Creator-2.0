@@ -9,7 +9,7 @@ namespace PAC.Tests
 {
     public class LineTests : I1DShapeTests<Shapes.Line>
     {
-        protected override IEnumerable<Shapes.Line> testCases
+        public override IEnumerable<Shapes.Line> testCases
         {
             get
             {

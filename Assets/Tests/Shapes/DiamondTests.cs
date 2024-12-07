@@ -9,7 +9,7 @@ namespace PAC.Tests
 {
     public class DiamondTests : I2DShapeTests<Shapes.Diamond>
     {
-        protected override IEnumerable<Shapes.Diamond> testCases
+        public override IEnumerable<Shapes.Diamond> testCases
         {
             get
             {

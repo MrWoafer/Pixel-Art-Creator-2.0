@@ -8,7 +8,7 @@ namespace PAC.Tests
 {
     public class RectangleTests : I2DShapeTests<Shapes.Rectangle>
     {
-        protected override IEnumerable<Shapes.Rectangle> testCases
+        public override IEnumerable<Shapes.Rectangle> testCases
         {
             get
             {
