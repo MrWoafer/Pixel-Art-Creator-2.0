@@ -1290,6 +1290,11 @@ namespace PAC.Drawing
         public interface I2DShape : IShape
         {
             /// <summary>
+            /// Whether the shape has its inside filled-in, or whether it's just the border.
+            /// </summary>
+            public bool filled { get; set; }
+
+            /// <summary>
             /// Translates the shape by the given vector.
             /// </summary>
             public static I2DShape operator +(IntVector2 translation, I2DShape shape) => shape + translation;
