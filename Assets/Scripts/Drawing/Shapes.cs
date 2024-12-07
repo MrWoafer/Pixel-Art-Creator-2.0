@@ -2601,6 +2601,42 @@ namespace PAC.Drawing
             return start + new IntVector2(sideLength * (int)Math.Sign(end.x - start.x), sideLength * (int)Math.Sign(end.y - start.y));
         }
 
+        public interface IIsometricShape : IShape
+        {
+            /// <summary>
+            /// Whether the shape has its inside filled-in, or whether it's just the border.
+            /// </summary>
+            public bool filled { get; set; }
+
+            /// <summary>
+            /// Translates the shape by the given vector.
+            /// </summary>
+            public static IIsometricShape operator +(IntVector2 translation, IIsometricShape shape) => shape + translation;
+            /// <summary>
+            /// Translates the shape by the given vector.
+            /// </summary>
+            public static IIsometricShape operator +(IIsometricShape shape, IntVector2 translation) => shape.Translate(translation);
+            /// <summary>
+            /// Translates the shape by the given vector.
+            /// </summary>
+            public static IIsometricShape operator -(IIsometricShape shape, IntVector2 translation) => shape + (-translation);
+            /// <summary>
+            /// Reflects the shape through the origin.
+            /// </summary>
+            public static IIsometricShape operator -(IIsometricShape shape) => shape.Flip(FlipAxis.Vertical).Flip(FlipAxis.Horizontal);
+
+            /// <summary>
+            /// Translates the shape by the given vector.
+            /// </summary>
+            public new IIsometricShape Translate(IntVector2 translation);
+            IShape IShape.Translate(IntVector2 translation) => Translate(translation);
+            /// <summary>
+            /// Reflects the shape across the given axis.
+            /// </summary>
+            public new IIsometricShape Flip(FlipAxis axis);
+            IShape IShape.Flip(FlipAxis axis) => Flip(axis);
+        }
+
         public static Texture2D IsoRectangle(int texWidth, int texHeight, IntVector2 start, IntVector2 end, Color colour, bool filled)
         {
             Texture2D tex = IsoRectangleOnExistingTex(Tex2DSprite.BlankTexture(texWidth, texHeight), texWidth, texHeight, start, end, colour, filled, true);

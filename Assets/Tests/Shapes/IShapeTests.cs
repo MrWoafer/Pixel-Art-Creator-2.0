@@ -173,6 +173,11 @@ namespace PAC.Tests
         }
     }
 
+    public abstract class IIsometricShapeTests<T> : IShapeTests<T> where T : Shapes.IIsometricShape
+    {
+
+    }
+
     /// <summary>
     /// Helper functions for making tests for IShapes.
     /// </summary>
