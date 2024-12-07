@@ -931,7 +931,7 @@ namespace PAC.Drawing
 
         private void PreviewShape(Shapes.IShape shape, Color colour)
         {
-            SetPreview(Shapes.ShapeToTexture(shape, colour), shape.boundingRect.bottomLeft);
+            SetPreview(shape.ToTexture(colour), shape.boundingRect.bottomLeft);
         }
 
         private void PreviewIsoRectangle(IntVector2 start, IntVector2 end, Color colour, bool filled)
@@ -1070,7 +1070,7 @@ namespace PAC.Drawing
 
         private void SelectionShape(Shapes.I2DShape shape, bool erase)
         {
-            Texture2D tex = Shapes.ShapeToTexture(shape, Config.Colours.mask, file.rect);
+            Texture2D tex = shape.ToTexture(Config.Colours.mask, file.rect);
             if (erase)
             {
                 selectionMask = Tex2DSprite.Subtract(selectionMask, tex);
