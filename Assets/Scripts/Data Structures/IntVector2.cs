@@ -171,7 +171,7 @@ namespace PAC.DataStructures
             {
                 if (y == 0)
                 {
-                    return dividend == IntVector2.zero;
+                    return dividend == zero;
                 }
 
                 if (dividend.x != 0)
@@ -207,9 +207,9 @@ namespace PAC.DataStructures
         /// </summary>
         public static IntVector2 Simplify(IntVector2 a)
         {
-            if (a == IntVector2.zero)
+            if (a == zero)
             {
-                return IntVector2.zero;
+                return zero;
             }
             return a / Functions.Gcd(a.x, a.y);
         }
