@@ -1,9 +1,12 @@
 using System;
 
-/// <summary>
-/// Indicates that an exception arose when running a test. Used to add an extra message, such as printing the test case, on top of the exception that occurred in the test.
-/// </summary>
-public class TestException : AggregateException
+namespace PAC.Exceptions
 {
-    public TestException(string message, Exception innerException) : base(message, innerException) { }
+    /// <summary>
+    /// Indicates that an exception arose when running a test. Used to add an extra message, such as printing the test case, on top of the exception that occurred in the test.
+    /// </summary>
+    public class TestException : AggregateException
+    {
+        public TestException(string message, Exception innerException) : base(message, innerException) { }
+    }
 }
