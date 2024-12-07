@@ -63,25 +63,6 @@ namespace PAC.Tests
 
         [Test]
         [Category("Extensions")]
-        public void PairCurrentAndNext()
-        {
-            (IEnumerable<int> input, IEnumerable<(int, int)> expected)[] testCases =
-            {
-                (new int[] { }, new (int, int)[] { }),
-                (new int[] { 7 }, new (int, int)[] { }),
-                (new int[] { 10, 12 }, new (int, int)[] { (10, 12) }),
-                (new int[] { 3, -2, 13 }, new (int, int)[] { (3, -2), (-2, 13) }),
-                (new int[] { 3, 1, 4, 2 }, new (int, int)[] { (3, 1), (1, 4), (4, 2) }),
-            };
-
-            foreach ((IEnumerable<int> input, IEnumerable<(int, int)> expected) in testCases)
-            {
-                Assert.True(expected.SequenceEqual(input.PairCurrentAndNext()));
-            }
-        }
-
-        [Test]
-        [Category("Extensions")]
         public void ArgMin()
         {
             (string expected, IEnumerable<string> elements, Func<string, int> function)[] testCases =
@@ -136,6 +117,25 @@ namespace PAC.Tests
             foreach ((IEnumerable<int> input1, IEnumerable<string> input2, IEnumerable<(int, string)> expected) in testCases)
             {
                 Assert.True(expected.SequenceEqual(input1.Zip(input2)));
+            }
+        }
+
+        [Test]
+        [Category("Extensions")]
+        public void ZipCurrentAndNext()
+        {
+            (IEnumerable<int> input, IEnumerable<(int, int)> expected)[] testCases =
+            {
+                (new int[] { }, new (int, int)[] { }),
+                (new int[] { 7 }, new (int, int)[] { }),
+                (new int[] { 10, 12 }, new (int, int)[] { (10, 12) }),
+                (new int[] { 3, -2, 13 }, new (int, int)[] { (3, -2), (-2, 13) }),
+                (new int[] { 3, 1, 4, 2 }, new (int, int)[] { (3, 1), (1, 4), (4, 2) }),
+            };
+
+            foreach ((IEnumerable<int> input, IEnumerable<(int, int)> expected) in testCases)
+            {
+                Assert.True(expected.SequenceEqual(input.ZipCurrentAndNext()));
             }
         }
     }

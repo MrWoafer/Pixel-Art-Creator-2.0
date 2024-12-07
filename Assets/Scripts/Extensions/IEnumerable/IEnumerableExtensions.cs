@@ -175,16 +175,6 @@ namespace PAC.Extensions
         }
 
         /// <summary>
-        /// <para>
-        /// Returns (elements[0], elements[1]), (elements[1], elements[2]), ..., (elements[^2], elements[^1]).
-        /// </para>
-        /// <para>
-        /// Returns an empty IEnumerable if elements has length 0 or 1.
-        /// </para>
-        /// </summary>
-        public static IEnumerable<(T, T)> PairCurrentAndNext<T>(this IEnumerable<T> elements) => elements.Zip(elements.Skip(1));
-
-        /// <summary>
         /// Applies the function to each element and returns the element that gives the lowest output. If multiple elements give the lowest output, the first one will be returned.
         /// </summary>
         public static T1 ArgMin<T1, T2>(this IEnumerable<T1> elements, Func<T1, T2> function) where T2 : IComparable<T2>
@@ -242,5 +232,14 @@ namespace PAC.Extensions
         /// Returns (first[0], second[0]), (first[1], second[1]), ..., until one of the IEnumerables ends.
         /// </summary>
         public static IEnumerable<(T1, T2)> Zip<T1, T2>(this IEnumerable<T1> first, IEnumerable<T2> second) => first.Zip(second, (x, y) => (x, y));
+        /// <summary>
+        /// <para>
+        /// Returns (elements[0], elements[1]), (elements[1], elements[2]), ..., (elements[^2], elements[^1]).
+        /// </para>
+        /// <para>
+        /// Returns an empty IEnumerable if elements has length 0 or 1.
+        /// </para>
+        /// </summary>
+        public static IEnumerable<(T, T)> ZipCurrentAndNext<T>(this IEnumerable<T> elements) => elements.Zip(elements.Skip(1));
     }
 }

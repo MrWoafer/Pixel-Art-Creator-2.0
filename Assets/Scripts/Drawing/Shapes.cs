@@ -993,7 +993,7 @@ namespace PAC.Drawing
                 }
                 else
                 {
-                    foreach ((IntVector2 point, IntVector2 nextPoint) in points.PairCurrentAndNext())
+                    foreach ((IntVector2 point, IntVector2 nextPoint) in points.ZipCurrentAndNext())
                     {
                         _lines.Add(new Line(point, nextPoint));
                     }
@@ -1017,7 +1017,7 @@ namespace PAC.Drawing
                 else
                 {
                     _lines.Add(lines.First());
-                    foreach ((Line line, Line nextLine) in lines.PairCurrentAndNext())
+                    foreach ((Line line, Line nextLine) in lines.ZipCurrentAndNext())
                     {
                         if (IntVector2.SupDistance(line.end, nextLine.start) > 1)
                         {
