@@ -2629,7 +2629,7 @@ namespace PAC.Drawing
         {
             int sideLength = Math.Max(Math.Abs(end.x - start.x), Mathf.Abs(end.y - start.y));
 
-            return start + new IntVector2(sideLength * (int)Math.Sign(end.x - start.x), sideLength * (int)Math.Sign(end.y - start.y));
+            return start + new IntVector2(sideLength * Math.Sign(end.x - start.x), sideLength * Math.Sign(end.y - start.y));
         }
 
         public interface IIsometricShape : IFillableShape
