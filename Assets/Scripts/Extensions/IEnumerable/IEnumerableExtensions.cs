@@ -21,24 +21,6 @@ namespace PAC.Extensions
         /// <summary>
         /// Creates an IEnumerable that repeats the given IEnumerable indefinitely, looping back round to the beginning when it reaches the end.
         /// </summary>
-        public static IEnumerable RepeatIEnumerable(IEnumerable elements)
-        {
-            if (elements is null)
-            {
-                throw new ArgumentException("The given IEnumerable is null.", "elements");
-            }
-
-            while (true)
-            {
-                foreach (object element in elements)
-                {
-                    yield return element;
-                }
-            }
-        }
-        /// <summary>
-        /// Creates an IEnumerable that repeats the given IEnumerable indefinitely, looping back round to the beginning when it reaches the end.
-        /// </summary>
         public static IEnumerable<T> RepeatIEnumerable<T>(IEnumerable<T> elements)
         {
             if (elements is null)
