@@ -9,22 +9,40 @@ namespace PAC.Tests
 {
     public class PathTests : I1DShapeTests<Shapes.Path>
     {
-        public override IEnumerable<Shapes.Path> testCases
-        {
-            get => RandomTestCases(1_000);
-        }
-        private IEnumerable<Shapes.Path> RandomTestCases(int numOfTestCases)
+        public override IEnumerable<Shapes.Path> testCases => RandomTestCases(1_000);
+        private IEnumerable<Shapes.Path> RandomTestCases(int numOfTestCases) => RandomTestCases(numOfTestCases, false).Concat(RandomTestCases(numOfTestCases, true));
+        private IEnumerable<Shapes.Path> RandomTestCases(int numOfTestCases, bool isLoop)
         {
             for (int length = 1; length <= 3; length++)
             {
-                foreach (bool isLoop in new bool[] { false, true })
+                for (int iteration = 0; iteration < numOfTestCases; iteration++)
                 {
-                    for (int iteration = 0; iteration < numOfTestCases; iteration++)
-                    {
-                        yield return RandomPath(length, isLoop);
-                    }
+                    yield return RandomPath(length, isLoop);
                 }
             }
+        }
+        private Shapes.Path RandomPath(int length, bool isLoop)
+        {
+            List<Shapes.Line> lines = new List<Shapes.Line>
+            {
+                new Shapes.Line(new IntRect(new IntVector2(-5, -5), new IntVector2(5, 5)).RandomPoint(), new IntRect(new IntVector2(-5, -5), new IntVector2(5, 5)).RandomPoint())
+            };
+
+            for (int i = 0; i < length - 1; i++)
+            {
+                IntVector2 start = lines[^1].end + new IntRect(new IntVector2(-1, -1), new IntVector2(1, 1)).RandomPoint();
+                lines.Add(new Shapes.Line(start, start + new IntRect(new IntVector2(-5, -5), new IntVector2(5, 5)).RandomPoint()));
+            }
+
+            if (isLoop)
+            {
+                lines.Add(new Shapes.Line(
+                    lines[^1].end + new IntRect(new IntVector2(-1, -1), new IntVector2(1, 1)).RandomPoint(),
+                    lines[0].start + new IntRect(new IntVector2(-1, -1), new IntVector2(1, 1)).RandomPoint()
+                    ));
+            }
+
+            return new Shapes.Path(lines);
         }
 
         [Test]
@@ -102,30 +120,6 @@ namespace PAC.Tests
             Assert.AreEqual(true, new Shapes.Path(IntVector2.zero, new IntVector2(1, 1), new IntVector2(2, 2), IntVector2.zero).isLoop);
             Assert.AreEqual(true, new Shapes.Path(IntVector2.zero, new IntVector2(1, 1), new IntVector2(2, 2), new IntVector2(0, 1)).isLoop);
             Assert.AreEqual(true, new Shapes.Path(IntVector2.zero, new IntVector2(1, 1), new IntVector2(2, 2), new IntVector2(1, 1)).isLoop);
-        }
-
-        private Shapes.Path RandomPath(int length, bool isLoop)
-        {
-            List<Shapes.Line> lines = new List<Shapes.Line>
-            {
-                new Shapes.Line(new IntRect(new IntVector2(-5, -5), new IntVector2(5, 5)).RandomPoint(), new IntRect(new IntVector2(-5, -5), new IntVector2(5, 5)).RandomPoint())
-            };
-
-            for (int i = 0; i < length - 1; i++)
-            {
-                IntVector2 start = lines[^1].end + new IntRect(new IntVector2(-1, -1), new IntVector2(1, 1)).RandomPoint();
-                lines.Add(new Shapes.Line(start, start + new IntRect(new IntVector2(-5, -5), new IntVector2(5, 5)).RandomPoint()));
-            }
-
-            if (isLoop)
-            {
-                lines.Add(new Shapes.Line(
-                    lines[^1].end + new IntRect(new IntVector2(-1, -1), new IntVector2(1, 1)).RandomPoint(),
-                    lines[0].start + new IntRect(new IntVector2(-1, -1), new IntVector2(1, 1)).RandomPoint()
-                    ));
-            }
-
-            return new Shapes.Path(lines);
         }
 
         [Test]
