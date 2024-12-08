@@ -160,6 +160,26 @@ namespace PAC.Tests
 
     public abstract class IFillableShapeTests<T> : IShapeTests<T> where T : Shapes.IFillableShape
     {
+        [Test]
+        [Category("Shapes")]
+        public virtual void Width()
+        {
+            foreach (T shape in testCases)
+            {
+                Assert.AreEqual(shape.boundingRect.width, shape.width, "Failed with " + shape);
+            }
+        }
+
+        [Test]
+        [Category("Shapes")]
+        public virtual void Height()
+        {
+            foreach (T shape in testCases)
+            {
+                Assert.AreEqual(shape.boundingRect.height, shape.height, "Failed with " + shape);
+            }
+        }
+
         /// <summary>
         /// Tests that the unfilled version of a shape is precisely the border of the filled version.
         /// </summary>

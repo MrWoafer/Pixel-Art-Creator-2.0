@@ -1610,6 +1610,9 @@ namespace PAC.Drawing
             /// </summary>
             public bool filled { get; set; }
 
+            public int width { get; }
+            public int height { get; }
+
             /// <summary>
             /// Translates the shape by the given vector.
             /// </summary>
