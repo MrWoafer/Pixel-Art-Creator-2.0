@@ -612,18 +612,11 @@ namespace PAC.Drawing
             /// <summary>
             /// Returns the number of pixels on the line with the given x coord.
             /// </summary>
-            public int CountOnX(int x)
-            {
-                return MaxY(x) - MinY(x) + 1;
-            }
-
+            public int CountOnX(int x) => MaxY(x) - MinY(x) + 1;
             /// <summary>
             /// Returns the number of pixels on the line with the given y coord.
             /// </summary>
-            public int CountOnY(int y)
-            {
-                return MaxX(y) - MinX(y) + 1;
-            }
+            public int CountOnY(int y) => MaxX(y) - MinX(y) + 1;
 
             /// <summary>
             /// Translates the line by the given vector.
@@ -646,28 +639,19 @@ namespace PAC.Drawing
             /// <summary>
             /// Translates the line by the given vector.
             /// </summary>
-            public Line Translate(IntVector2 translation)
-            {
-                return new Line(start + translation, end + translation);
-            }
+            public Line Translate(IntVector2 translation) => new Line(start + translation, end + translation);
 
             I1DShape I1DShape.Rotate(RotationAngle angle) => Rotate(angle);
             /// <summary>
             /// Rotates the line by the given angle.
             /// </summary>
-            public Line Rotate(RotationAngle angle)
-            {
-                return new Line(start.Rotate(angle), end.Rotate(angle));
-            }
+            public Line Rotate(RotationAngle angle) => new Line(start.Rotate(angle), end.Rotate(angle));
 
             I1DShape I1DShape.Flip(FlipAxis axis) => Flip(axis);
             /// <summary>
             /// Reflects the line across the given axis.
             /// </summary>
-            public Line Flip(FlipAxis axis)
-            {
-                return new Line(start.Flip(axis), end.Flip(axis));
-            }
+            public Line Flip(FlipAxis axis) => new Line(start.Flip(axis), end.Flip(axis));
 
             public IntVector2 this[int index]
             {
@@ -786,11 +770,8 @@ namespace PAC.Drawing
                 }
             }
 
+            public static bool operator ==(Line a, Line b) => a.start == b.start && a.end == b.end;
             public static bool operator !=(Line a, Line b) => !(a == b);
-            public static bool operator ==(Line a, Line b)
-            {
-                return a.start == b.start && a.end == b.end;
-            }
             public override bool Equals(object obj)
             {
                 if (obj == null || !GetType().Equals(obj.GetType()))
@@ -1309,28 +1290,19 @@ namespace PAC.Drawing
             /// <summary>
             /// Translates the path by the given vector.
             /// </summary>
-            public Path Translate(IntVector2 translation)
-            {
-                return new Path(_lines.Select(l => l.Translate(translation)));
-            }
+            public Path Translate(IntVector2 translation) => new Path(_lines.Select(l => l.Translate(translation)));
 
             I1DShape I1DShape.Rotate(RotationAngle angle) => Rotate(angle);
             /// <summary>
             /// Rotates the path by the given angle.
             /// </summary>
-            public Path Rotate(RotationAngle angle)
-            {
-                return new Path(_lines.Select(l => l.Rotate(angle)));
-            }
+            public Path Rotate(RotationAngle angle) => new Path(_lines.Select(l => l.Rotate(angle)));
 
             I1DShape I1DShape.Flip(FlipAxis axis) => Flip(axis);
             /// <summary>
             /// Reflects the path across the given axis.
             /// </summary>
-            public Path Flip(FlipAxis axis)
-            {
-                return new Path(_lines.Select(l => l.Flip(axis)));
-            }
+            public Path Flip(FlipAxis axis) => new Path(_lines.Select(l => l.Flip(axis)));
 
             private enum WindingNumberCornerType
             {
@@ -1547,7 +1519,6 @@ namespace PAC.Drawing
             IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();
             public IEnumerator<IntVector2> GetEnumerator() => EnumerateWithLineIndex().Select(x => x.pixel).GetEnumerator();
 
-            public static bool operator !=(Path a, Path b) => !(a == b);
             public static bool operator ==(Path a, Path b)
             {
                 if (a._lines.Count != b._lines.Count)
@@ -1564,6 +1535,7 @@ namespace PAC.Drawing
                 }
                 return true;
             }
+            public static bool operator !=(Path a, Path b) => !(a == b);
             public override bool Equals(object obj)
             {
                 if (obj == null || !GetType().Equals(obj.GetType()))
@@ -1760,28 +1732,19 @@ namespace PAC.Drawing
             /// <summary>
             /// Translates the rectangle by the given vector.
             /// </summary>
-            public Rectangle Translate(IntVector2 translation)
-            {
-                return new Rectangle(bottomLeft + translation, topRight + translation, filled);
-            }
+            public Rectangle Translate(IntVector2 translation) => new Rectangle(bottomLeft + translation, topRight + translation, filled);
 
             I2DShape I2DShape.Rotate(RotationAngle angle) => Rotate(angle);
             /// <summary>
             /// Rotates the rectangle by the given angle.
             /// </summary>
-            public Rectangle Rotate(RotationAngle angle)
-            {
-                return new Rectangle(bottomLeft.Rotate(angle), topRight.Rotate(angle), filled);
-            }
+            public Rectangle Rotate(RotationAngle angle) => new Rectangle(bottomLeft.Rotate(angle), topRight.Rotate(angle), filled);
 
             I2DShape I2DShape.Flip(FlipAxis axis) => Flip(axis);
             /// <summary>
             /// Reflects the rectangle across the given axis.
             /// </summary>
-            public Rectangle Flip(FlipAxis axis)
-            {
-                return new Rectangle(bottomLeft.Flip(axis), topRight.Flip(axis), filled);
-            }
+            public Rectangle Flip(FlipAxis axis) => new Rectangle(bottomLeft.Flip(axis), topRight.Flip(axis), filled);
 
             IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();
             public IEnumerator<IntVector2> GetEnumerator()
@@ -1838,11 +1801,8 @@ namespace PAC.Drawing
                 }
             }
 
+            public static bool operator ==(Rectangle a, Rectangle b) => a.boundingRect == b.boundingRect && a.filled == b.filled;
             public static bool operator !=(Rectangle a, Rectangle b) => !(a == b);
-            public static bool operator ==(Rectangle a, Rectangle b)
-            {
-                return a.boundingRect == b.boundingRect && a.filled == b.filled;
-            }
             public override bool Equals(object obj)
             {
                 if (obj == null || !GetType().Equals(obj.GetType()))
@@ -2054,28 +2014,19 @@ namespace PAC.Drawing
             /// <summary>
             /// Translates the diamond by the given vector.
             /// </summary>
-            public Diamond Translate(IntVector2 translation)
-            {
-                return new Diamond(bottomLeft + translation, topRight + translation, filled);
-            }
+            public Diamond Translate(IntVector2 translation) => new Diamond(bottomLeft + translation, topRight + translation, filled);
 
             I2DShape I2DShape.Rotate(RotationAngle angle) => Rotate(angle);
             /// <summary>
             /// Rotates the diamond by the given angle.
             /// </summary>
-            public Diamond Rotate(RotationAngle angle)
-            {
-                return new Diamond(bottomLeft.Rotate(angle), topRight.Rotate(angle), filled);
-            }
+            public Diamond Rotate(RotationAngle angle) => new Diamond(bottomLeft.Rotate(angle), topRight.Rotate(angle), filled);
 
             I2DShape I2DShape.Flip(FlipAxis axis) => Flip(axis);
             /// <summary>
             /// Reflects the diamond across the given axis.
             /// </summary>
-            public Diamond Flip(FlipAxis axis)
-            {
-                return new Diamond(bottomLeft.Flip(axis), topRight.Flip(axis), filled);
-            }
+            public Diamond Flip(FlipAxis axis) => new Diamond(bottomLeft.Flip(axis), topRight.Flip(axis), filled);
 
             IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();
             public IEnumerator<IntVector2> GetEnumerator()
@@ -2139,11 +2090,8 @@ namespace PAC.Drawing
                 }
             }
 
+            public static bool operator ==(Diamond a, Diamond b) => a.boundingRect == b.boundingRect && a.filled == b.filled;
             public static bool operator !=(Diamond a, Diamond b) => !(a == b);
-            public static bool operator ==(Diamond a, Diamond b)
-            {
-                return a.boundingRect == b.boundingRect && a.filled == b.filled;
-            }
             public override bool Equals(object obj)
             {
                 if (obj == null || !GetType().Equals(obj.GetType()))
@@ -2305,28 +2253,19 @@ namespace PAC.Drawing
             /// <summary>
             /// Translates the ellipse by the given vector.
             /// </summary>
-            public Ellipse Translate(IntVector2 translation)
-            {
-                return new Ellipse(bottomLeft + translation, topRight + translation, filled);
-            }
+            public Ellipse Translate(IntVector2 translation) => new Ellipse(bottomLeft + translation, topRight + translation, filled);
 
             I2DShape I2DShape.Rotate(RotationAngle angle) => Rotate(angle);
             /// <summary>
             /// Rotates the ellipse by the given angle.
             /// </summary>
-            public Ellipse Rotate(RotationAngle angle)
-            {
-                return new Ellipse(bottomLeft.Rotate(angle), topRight.Rotate(angle), filled);
-            }
+            public Ellipse Rotate(RotationAngle angle) => new Ellipse(bottomLeft.Rotate(angle), topRight.Rotate(angle), filled);
 
             I2DShape I2DShape.Flip(FlipAxis axis) => Flip(axis);
             /// <summary>
             /// Reflects the ellipse across the given axis.
             /// </summary>
-            public Ellipse Flip(FlipAxis axis)
-            {
-                return new Ellipse(bottomLeft.Flip(axis), topRight.Flip(axis), filled);
-            }
+            public Ellipse Flip(FlipAxis axis) => new Ellipse(bottomLeft.Flip(axis), topRight.Flip(axis), filled);
 
             IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();
             public IEnumerator<IntVector2> GetEnumerator()
@@ -2409,11 +2348,8 @@ namespace PAC.Drawing
                 while (pixel != start && iterations < 10_000);
             }
 
+            public static bool operator ==(Ellipse a, Ellipse b) => a.boundingRect == b.boundingRect && a.filled == b.filled;
             public static bool operator !=(Ellipse a, Ellipse b) => !(a == b);
-            public static bool operator ==(Ellipse a, Ellipse b)
-            {
-                return a.boundingRect == b.boundingRect && a.filled == b.filled;
-            }
             public override bool Equals(object obj)
             {
                 if (obj == null || !GetType().Equals(obj.GetType()))
@@ -2720,10 +2656,7 @@ namespace PAC.Drawing
             /// <summary>
             /// Translates the triangle by the given vector.
             /// </summary>
-            public RightTriangle Translate(IntVector2 translation)
-            {
-                return new RightTriangle(bottomCorner + translation, topCorner + translation, rightAngleLocation, filled);
-            }
+            public RightTriangle Translate(IntVector2 translation) => new RightTriangle(bottomCorner + translation, topCorner + translation, rightAngleLocation, filled);
 
             I2DShape I2DShape.Rotate(RotationAngle angle) => Rotate(angle);
             /// <summary>
@@ -2852,11 +2785,11 @@ namespace PAC.Drawing
                 }
             }
 
-            public static bool operator !=(RightTriangle a, RightTriangle b) => !(a == b);
             public static bool operator ==(RightTriangle a, RightTriangle b)
             {
                 return a.bottomCorner == b.bottomCorner && a.topCorner == b.topCorner && a.rightAngleCorner == b.rightAngleCorner && a.filled == b.filled;
             }
+            public static bool operator !=(RightTriangle a, RightTriangle b) => !(a == b);
             public override bool Equals(object obj)
             {
                 if (obj == null || !GetType().Equals(obj.GetType()))
@@ -2883,7 +2816,6 @@ namespace PAC.Drawing
         public static IntVector2 SnapEndCoordToSquare(IntVector2 start, IntVector2 end)
         {
             int sideLength = Math.Max(Math.Abs(end.x - start.x), Mathf.Abs(end.y - start.y));
-
             return start + new IntVector2(sideLength * Math.Sign(end.x - start.x), sideLength * Math.Sign(end.y - start.y));
         }
 
@@ -3395,19 +3327,13 @@ namespace PAC.Drawing
             /// <summary>
             /// Translates the isometric rectangle by the given vector.
             /// </summary>
-            public IsometricRectangle Translate(IntVector2 translation)
-            {
-                return new IsometricRectangle(startCorner + translation, endCorner + translation, filled);
-            }
+            public IsometricRectangle Translate(IntVector2 translation) => new IsometricRectangle(startCorner + translation, endCorner + translation, filled);
 
             IIsometricShape IIsometricShape.Flip(FlipAxis axis) => Flip(axis);
             /// <summary>
             /// Reflects the isometric rectangle across the given axis.
             /// </summary>
-            public IsometricRectangle Flip(FlipAxis axis)
-            {
-                return new IsometricRectangle(startCorner.Flip(axis), endCorner.Flip(axis), filled);
-            }
+            public IsometricRectangle Flip(FlipAxis axis) => new IsometricRectangle(startCorner.Flip(axis), endCorner.Flip(axis), filled);
 
             IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();
             public IEnumerator<IntVector2> GetEnumerator()
@@ -3430,11 +3356,8 @@ namespace PAC.Drawing
                 }
             }
 
+            public static bool operator ==(IsometricRectangle a, IsometricRectangle b) => a.startCorner == b.startCorner && a.endCorner == b.endCorner && a.filled == b.filled;
             public static bool operator !=(IsometricRectangle a, IsometricRectangle b) => !(a == b);
-            public static bool operator ==(IsometricRectangle a, IsometricRectangle b)
-            {
-                return a.startCorner == b.startCorner && a.endCorner == b.endCorner && a.filled == b.filled;
-            }
             public override bool Equals(object obj)
             {
                 if (obj == null || !GetType().Equals(obj.GetType()))
