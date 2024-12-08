@@ -1053,6 +1053,50 @@ namespace PAC.Drawing
                 }
             }
 
+            /// <summary>
+            /// <para>
+            /// Puts the paths one after the other to create a new path. The paths must connect.
+            /// </para>
+            /// <para>
+            /// Creates deep copies of the paths.
+            /// </para>
+            /// </summary>
+            public static Path Concat(params Path[] paths) => Concat((IEnumerable<Path>)paths);
+            /// <summary>
+            /// <para>
+            /// Puts the paths one after the other to create a new path. The paths must connect.
+            /// </para>
+            /// <para>
+            /// Creates deep copies of the paths.
+            /// </para>
+            /// </summary>
+            public static Path Concat(IEnumerable<Path> paths)
+            {
+                if (paths.IsEmpty())
+                {
+                    throw new ArgumentException("Cannot concat an empty collection of paths.", "paths");
+                }
+
+                if (paths.CountExactly(1))
+                {
+                    return paths.First().DeepCopy();
+                }
+                else
+                {
+                    List<Line> lines = new List<Line>();
+                    lines.AddRange(paths.First()._lines);
+                    foreach ((Path path, Path nextPath) in paths.ZipCurrentAndNext())
+                    {
+                        if (IntVector2.SupDistance(path.end, nextPath.start) > 1)
+                        {
+                            throw new ArgumentException(path + " and " + nextPath + " do not connect.", "paths");
+                        }
+                        lines.AddRange(nextPath._lines);
+                    }
+                    return new Path(lines);
+                }
+            }
+
             public bool Contains(IntVector2 pixel)
             {
                 foreach (Line line in _lines)
