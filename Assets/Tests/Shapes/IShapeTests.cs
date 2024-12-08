@@ -322,34 +322,8 @@ namespace PAC.Tests
         /// </summary>
         public static void ReflectiveSymmetry(Shapes.IShape shape, FlipAxis axis)
         {
-            if (axis == FlipAxis.None)
-            {
-                Assert.Pass();
-            }
-            else if (axis == FlipAxis.Vertical)
-            {
-                CollectionAssert.AreEquivalent(shape, shape.Select(p => new IntVector2(shape.boundingRect.bottomLeft.x + shape.boundingRect.topRight.x - p.x, p.y)),
-                    "Failed with " + shape + " and FlipAxis." + axis);
-            }
-            else if (axis == FlipAxis.Horizontal)
-            {
-                CollectionAssert.AreEquivalent(shape, shape.Select(p => new IntVector2(p.x, shape.boundingRect.bottomLeft.y + shape.boundingRect.topRight.y - p.y)),
-                    "Failed with " + shape + " and FlipAxis." + axis);
-            }
-            else if (axis == FlipAxis._45Degrees)
-            {
-                CollectionAssert.AreEquivalent(shape, shape.Select(p => shape.boundingRect.bottomRight + (p - shape.boundingRect.topLeft).Flip(FlipAxis._45Degrees)),
-                    "Failed with " + shape + " and FlipAxis." + axis);
-            }
-            else if (axis == FlipAxis.Minus45Degrees)
-            {
-                CollectionAssert.AreEquivalent(shape, shape.Select(p => shape.boundingRect.bottomLeft + (p - shape.boundingRect.topRight).Flip(FlipAxis.Minus45Degrees)),
-                    "Failed with " + shape + " and FlipAxis." + axis);
-            }
-            else
-            {
-                throw new NotImplementedException("Unknown / unimplemented FlipAxis: " + axis);
-            }
+            CollectionAssert.AreEquivalent(shape, shape.Select(p => p.Flip(axis) + shape.boundingRect.bottomLeft - shape.boundingRect.Flip(axis).bottomLeft),
+                "Failed with " + shape + " and FlipAxis." + axis);
         }
 
         /// <summary>
@@ -357,34 +331,8 @@ namespace PAC.Tests
         /// </summary>
         public static void ReflectiveAsymmetry(Shapes.IShape shape, FlipAxis axis)
         {
-            if (axis == FlipAxis.None)
-            {
-                Assert.Fail();
-            }
-            else if (axis == FlipAxis.Vertical)
-            {
-                CollectionAssert.AreNotEquivalent(shape, shape.Select(p => new IntVector2(shape.boundingRect.bottomLeft.x + shape.boundingRect.topRight.x - p.x, p.y)),
-                    "Failed with " + shape + " and FlipAxis." + axis);
-            }
-            else if (axis == FlipAxis.Horizontal)
-            {
-                CollectionAssert.AreNotEquivalent(shape, shape.Select(p => new IntVector2(p.x, shape.boundingRect.bottomLeft.y + shape.boundingRect.topRight.y - p.y)),
-                    "Failed with " + shape + " and FlipAxis." + axis);
-            }
-            else if (axis == FlipAxis._45Degrees)
-            {
-                CollectionAssert.AreNotEquivalent(shape, shape.Select(p => shape.boundingRect.bottomRight + (p - shape.boundingRect.topLeft).Flip(FlipAxis._45Degrees)),
-                    "Failed with " + shape + " and FlipAxis." + axis);
-            }
-            else if (axis == FlipAxis.Minus45Degrees)
-            {
-                CollectionAssert.AreNotEquivalent(shape, shape.Select(p => shape.boundingRect.bottomLeft + (p - shape.boundingRect.topRight).Flip(FlipAxis.Minus45Degrees)),
-                    "Failed with " + shape + " and FlipAxis." + axis);
-            }
-            else
-            {
-                throw new NotImplementedException("Unknown / unimplemented FlipAxis: " + axis);
-            }
+            CollectionAssert.AreNotEquivalent(shape, shape.Select(p => p.Flip(axis) + shape.boundingRect.bottomLeft - shape.boundingRect.Flip(axis).bottomLeft),
+                "Failed with " + shape + " and FlipAxis." + axis);
         }
 
         /// <summary>
