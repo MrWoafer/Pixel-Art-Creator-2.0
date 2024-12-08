@@ -83,10 +83,12 @@ namespace PAC.Tests
         [Category("Shapes")]
         public void ShapeExamples()
         {
-            (IEnumerable<IntVector2>, Shapes.Path)[] testCases =
+            (IEnumerable<IntVector2> expected, Shapes.Path path)[] testCases =
             {
-                (new IntVector2[] { IntVector2.zero }, new Shapes.Path(IntVector2.zero)),
-                (new Shapes.Line(IntVector2.zero, new IntVector2(2, 3)), new Shapes.Path(IntVector2.zero, new IntVector2(2, 3))),
+                (new IntVector2[] { IntVector2.zero },
+                    new Shapes.Path(IntVector2.zero)),
+                (new Shapes.Line(IntVector2.zero, new IntVector2(2, 3)),
+                    new Shapes.Path(IntVector2.zero, new IntVector2(2, 3))),
                 (new Shapes.Line(IntVector2.zero, new IntVector2(2, 3)).Concat(new Shapes.Line(new IntVector2(2, 3), new IntVector2(4, 4))[1..]),
                     new Shapes.Path(IntVector2.zero, new IntVector2(2, 3), new IntVector2(4, 4))),
                 // Loop
@@ -97,8 +99,17 @@ namespace PAC.Tests
                 (new Shapes.Line(IntVector2.zero, new IntVector2(2, 3)).Concat(new Shapes.Line(new IntVector2(2, 3), new IntVector2(4, 4))[1..])
                     .Concat(new Shapes.Line(new IntVector2(4, 4), new IntVector2(2, 4))[1..]).Concat(new Shapes.Line(new IntVector2(2, 4), new IntVector2(2, 0))[1..]),
                     new Shapes.Path(IntVector2.zero, new IntVector2(2, 3), new IntVector2(4, 4), new IntVector2(2, 4), new IntVector2(2, 0))),
-                (new IntVector2[] { IntVector2.zero, IntVector2.right, IntVector2.upRight }, new Shapes.Path(IntVector2.zero, IntVector2.right, IntVector2.upRight, IntVector2.zero)),
-                (new IntVector2[] { new IntVector2(4, 2), new IntVector2(5, 1) }, new Shapes.Path(new IntVector2(4, 2), new IntVector2(5, 1)))
+                (new IntVector2[] { IntVector2.zero, IntVector2.right, IntVector2.upRight },
+                    new Shapes.Path(IntVector2.zero, IntVector2.right, IntVector2.upRight, IntVector2.zero)),
+                (new IntVector2[] { new IntVector2(4, 2), new IntVector2(5, 1) },
+                    new Shapes.Path(new IntVector2(4, 2), new IntVector2(5, 1))),
+                (new IntVector2[] { IntVector2.zero },
+                    new Shapes.Path(IntVector2.zero, IntVector2.zero, IntVector2.zero, IntVector2.zero)),
+                (new Shapes.Line(IntVector2.zero, new IntVector2(2, 5)).Concat(new Shapes.Line(new IntVector2(2, 5), new IntVector2(3, 2))[1..]),
+                    new Shapes.Path(IntVector2.zero, new IntVector2(2, 5), new IntVector2(3, 2), new IntVector2(3, 2))),
+                (new Shapes.Line(IntVector2.zero, new IntVector2(2, 5)).Concat(new Shapes.Line(new IntVector2(2, 5), new IntVector2(3, 2))[1..])
+                    .Concat(new Shapes.Line(new IntVector2(3, 2), IntVector2.zero)[1..^1]),
+                    new Shapes.Path(IntVector2.zero, new IntVector2(2, 5), new IntVector2(3, 2), new IntVector2(3, 2), IntVector2.zero))
             };
 
             foreach ((IEnumerable<IntVector2> expected, Shapes.Path path) in testCases)

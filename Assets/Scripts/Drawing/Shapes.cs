@@ -1213,7 +1213,6 @@ namespace PAC.Drawing
                 /// </summary>
                 Upward = 1
             }
-
             /// <summary>
             /// <para>
             /// Computes how many times the path goes round the given point. Each anticlockwise rotation adds +1; each clockwise rotation adds -1.
@@ -1357,6 +1356,9 @@ namespace PAC.Drawing
             /// </summary>
             private IEnumerable<(IntVector2 pixel, int lineIndex)> EnumerateWithLineIndex()
             {
+                // This is an initial value guaranteed to not be any of the pixels on the path.
+                IntVector2 previousPixel = boundingRect.bottomLeft + IntVector2.downLeft;
+
                 // First line
                 foreach (IntVector2 pixel in _lines[0])
                 {
@@ -1366,12 +1368,13 @@ namespace PAC.Drawing
                 {
                     yield break;
                 }
+                previousPixel = _lines[0].end;
 
                 // Middle lines (not first or last)
                 for (int i = 1; i < _lines.Count - 1; i++)
                 {
                     int start = 0;
-                    if (_lines[i - 1].end == _lines[i].start)
+                    if (_lines[i].start == previousPixel)
                     {
                         start = 1;
                     }
@@ -1379,13 +1382,14 @@ namespace PAC.Drawing
                     {
                         yield return (pixel, i);
                     }
+                    previousPixel = _lines[i].end;
                 }
 
                 // Last line
                 {
                     int start = 0;
                     int end = _lines[^1].Count;
-                    if (_lines[^2].end == _lines[^1].start)
+                    if (_lines[^1].start == previousPixel)
                     {
                         start++;
                     }
