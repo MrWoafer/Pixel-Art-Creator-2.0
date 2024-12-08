@@ -272,6 +272,34 @@ namespace PAC.Tests
 
         [Test]
         [Category("Shapes")]
+        public void SelfIntersects()
+        {
+            foreach (Shapes.Path path in testCases)
+            {
+                if (!path.selfIntersects)
+                {
+                    IShapeTestHelper.NoRepeatsAtAll(path);
+                }
+                else
+                {
+                    bool hasDuplicate = false;
+                    HashSet<IntVector2> visited = new HashSet<IntVector2>();
+                    foreach (IntVector2 pixel in path)
+                    {
+                        if (visited.Contains(pixel))
+                        {
+                            hasDuplicate = true;
+                            break;
+                        }
+                        visited.Add(pixel);
+                    }
+                    Assert.True(hasDuplicate, "Failed with " + path);
+                }
+            }
+        }
+
+        [Test]
+        [Category("Shapes")]
         public void WindingNumber()
         {
             (Shapes.Path path, (int windingNumber, IntVector2 point)[])[] testCases =
