@@ -108,6 +108,8 @@ namespace PAC.Drawing
             /// Reflects the shape across the given axis.
             /// </summary>
             public IShape Flip(FlipAxis axis);
+
+            public IShape DeepCopy();
         }
 
         public interface I1DShape : IShape
@@ -143,6 +145,9 @@ namespace PAC.Drawing
             /// Rotates the shape by the given angle.
             /// </summary>
             public I1DShape Rotate(RotationAngle angle);
+
+            IShape IShape.DeepCopy() => DeepCopy();
+            public new I1DShape DeepCopy();
         }
 
         /// <summary>
@@ -791,6 +796,9 @@ namespace PAC.Drawing
             public override int GetHashCode() => HashCode.Combine(start, end);
 
             public override string ToString() => "Line(" + start + ", " + end + ")";
+
+            I1DShape I1DShape.DeepCopy() => DeepCopy();
+            public Line DeepCopy() => new Line(start, end);
         }
 
         /// <summary>
@@ -1366,6 +1374,17 @@ namespace PAC.Drawing
             public override int GetHashCode() => _lines.GetHashCode();
 
             public override string ToString() => "Path(" + string.Join(", ", _lines) + ")";
+
+            I1DShape I1DShape.DeepCopy() => DeepCopy();
+            public Path DeepCopy()
+            {
+                List<Line> copiedLines = new List<Line>(_lines.Count);
+                foreach (Line line in _lines)
+                {
+                    copiedLines.Add(line.DeepCopy());
+                }
+                return new Path(copiedLines);
+            }
         }
 
         public interface IFillableShape : IShape
@@ -1402,6 +1421,9 @@ namespace PAC.Drawing
             /// </summary>
             public new IFillableShape Flip(FlipAxis axis);
             IShape IShape.Flip(FlipAxis axis) => Flip(axis);
+
+            IShape IShape.DeepCopy() => DeepCopy();
+            public new IFillableShape DeepCopy();
         }
 
         public interface I2DShape : IFillableShape
@@ -1437,6 +1459,9 @@ namespace PAC.Drawing
             /// Rotates the shape by the given angle.
             /// </summary>
             public I2DShape Rotate(RotationAngle angle);
+
+            IFillableShape IFillableShape.DeepCopy() => DeepCopy();
+            public new I2DShape DeepCopy();
         }
 
         public class Rectangle : I2DShape
@@ -1628,6 +1653,9 @@ namespace PAC.Drawing
             public override int GetHashCode() => HashCode.Combine(bottomLeft, topRight, filled);
 
             public override string ToString() => "Rectangle(" + bottomLeft + ", " + topRight + ", " + (filled ? "filled" : "unfilled") + ")";
+
+            I2DShape I2DShape.DeepCopy() => DeepCopy();
+            public Rectangle DeepCopy() => new Rectangle(bottomLeft, topRight, filled);
         }
 
         public class Diamond : I2DShape
@@ -1926,6 +1954,9 @@ namespace PAC.Drawing
             public override int GetHashCode() => HashCode.Combine(bottomLeft, topRight, filled);
 
             public override string ToString() => "Diamond(" + bottomLeft + ", " + topRight + ", " + (filled ? "filled" : "unfilled") + ")";
+
+            I2DShape I2DShape.DeepCopy() => DeepCopy();
+            public Diamond DeepCopy() => new Diamond(bottomLeft, topRight, filled);
         }
 
         public class Ellipse : I2DShape
@@ -2193,6 +2224,9 @@ namespace PAC.Drawing
             public override int GetHashCode() => HashCode.Combine(bottomLeft, topRight, filled);
 
             public override string ToString() => "Ellipse(" + bottomLeft + ", " + topRight + ", " + (filled ? "filled" : "unfilled") + ")";
+
+            I2DShape I2DShape.DeepCopy() => DeepCopy();
+            public Ellipse DeepCopy() => new Ellipse(bottomLeft, topRight, filled);
         }
 
         public class RightTriangle : I2DShape
@@ -2633,6 +2667,9 @@ namespace PAC.Drawing
             public override int GetHashCode() => HashCode.Combine(bottomCorner, topCorner, rightAngleLocation, filled);
 
             public override string ToString() => "RightTriangle(" + bottomCorner + ", " + topCorner + ", " + rightAngleLocation + ", " + (filled ? "filled" : "unfilled") + ")";
+
+            I2DShape I2DShape.DeepCopy() => DeepCopy();
+            public RightTriangle DeepCopy() => new RightTriangle(bottomCorner, topCorner, rightAngleLocation, filled);
         }
 
         /// <summary>
@@ -2674,6 +2711,9 @@ namespace PAC.Drawing
             /// </summary>
             public new IIsometricShape Flip(FlipAxis axis);
             IFillableShape IFillableShape.Flip(FlipAxis axis) => Flip(axis);
+
+            IFillableShape IFillableShape.DeepCopy() => DeepCopy();
+            public new IIsometricShape DeepCopy();
         }
 
         public class IsometricRectangle : IIsometricShape
@@ -3119,6 +3159,9 @@ namespace PAC.Drawing
             public override int GetHashCode() => HashCode.Combine(startCorner, endCorner, filled);
 
             public override string ToString() => "IsometricRectangle(" + startCorner + ", " + endCorner + ", " + (filled ? "filled" : "unfilled") + ")";
+
+            IIsometricShape IIsometricShape.DeepCopy() => DeepCopy();
+            public IsometricRectangle DeepCopy() => new IsometricRectangle(startCorner, endCorner, filled);
         }
 
         public static Texture2D IsoRectangle(int texWidth, int texHeight, IntVector2 start, IntVector2 end, Color colour, bool filled)

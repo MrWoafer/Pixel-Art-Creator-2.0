@@ -124,6 +124,17 @@ namespace PAC.Tests
                 }
             }
         }
+
+        [Test]
+        [Category("Shapes")]
+        public virtual void DeepCopy()
+        {
+            foreach (T shape in testCases)
+            {
+                Assert.AreEqual(shape, shape.DeepCopy(), "Failed with " + shape);
+                Assert.False(ReferenceEquals(shape, shape.DeepCopy()), "Failed with " + shape);
+            }
+        }
     }
 
     public abstract class I1DShapeTests<T> : IShapeTests<T> where T : Shapes.I1DShape
