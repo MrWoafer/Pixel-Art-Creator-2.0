@@ -2,7 +2,6 @@ using NUnit.Framework;
 using PAC.DataStructures;
 using PAC.Drawing;
 using System.Collections.Generic;
-using System.Linq;
 
 namespace PAC.Tests
 {
@@ -33,7 +32,7 @@ namespace PAC.Tests
             {
                 foreach (IntVector2 pixel in new IntRect(new IntVector2(-5, -5), new IntVector2(5, 5)))
                 {
-                    Assert.True(new Shapes.IsometricRectangle(pixel, pixel, filled).SequenceEqual(new IntVector2[] { pixel }), "Failed with " + pixel + " " + (filled ? "filled" : "unfilled"));
+                    CollectionAssert.AreEquivalent(new IntVector2[] { pixel }, new Shapes.IsometricRectangle(pixel, pixel, filled), "Failed with " + pixel + " " + (filled ? "filled" : "unfilled"));
                 }
             }
         }

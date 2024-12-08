@@ -29,7 +29,7 @@ namespace PAC.Tests
         {
             foreach (IntVector2 pixel in new IntRect(new IntVector2(-5, -5), new IntVector2(5, 5)))
             {
-                Assert.True(new Shapes.Line(pixel, pixel).SequenceEqual(new IntVector2[] { pixel }), "Failed with " + pixel);
+                CollectionAssert.AreEqual(new IntVector2[] { pixel }, new Shapes.Line(pixel, pixel), "Failed with " + pixel);
             }
         }
 
@@ -60,7 +60,7 @@ namespace PAC.Tests
                             {
                                 Shapes.Line line = new Shapes.Line(start, start + new IntVector2(blockSize * numBlocks - 1, numBlocks - 1).Flip(axis).Rotate(angle));
                                 IEnumerable<IntVector2> expected = Expected(blockSize, numBlocks).Select(p => start + p.Flip(axis).Rotate(angle));
-                                Assert.True(expected.SequenceEqual(line), "Failed with " + line);
+                                CollectionAssert.AreEqual(expected, line, "Failed with " + line);
                                 Assert.True(line.isPerfect, "Failed with " + line);
                             }
                         }
@@ -82,7 +82,7 @@ namespace PAC.Tests
                 new IntVector2(0, 0), new IntVector2(0, 1), new IntVector2(1, 2), new IntVector2(2, 3), new IntVector2(2, 4)
             };
 
-            Assert.True(expected.SequenceEqual(line));
+            CollectionAssert.AreEqual(expected, line);
         }
 
         /// <summary>
@@ -98,7 +98,7 @@ namespace PAC.Tests
                 new IntVector2(0, 0), new IntVector2(1, 0), new IntVector2(2, 0), new IntVector2(3, 1), new IntVector2(4, 1)
             };
 
-            Assert.True(expected.SequenceEqual(line));
+            CollectionAssert.AreEqual(expected, line);
         }
 
         /// <summary>
@@ -114,7 +114,7 @@ namespace PAC.Tests
                 new IntVector2(0, 0), new IntVector2(1, 0), new IntVector2(2, 1), new IntVector2(3, 2), new IntVector2(4, 3), new IntVector2(5, 3)
             };
 
-            Assert.True(expected.SequenceEqual(line));
+            CollectionAssert.AreEqual(expected, line);
         }
 
         /// <summary>
@@ -126,8 +126,8 @@ namespace PAC.Tests
         {
             foreach (Shapes.Line line in testCases)
             {
-                Assert.True(line.First() == line.start, "Failed with " + line);
-                Assert.True(line.Last() == line.end, "Failed with " + line);
+                Assert.AreEqual(line.First(),  line.start, "Failed with " + line);
+                Assert.AreEqual(line.Last(), line.end, "Failed with " + line);
             }
         }
 
@@ -164,11 +164,11 @@ namespace PAC.Tests
         public void IndexingRange()
         {
             Shapes.Line line = new Shapes.Line(IntVector2.zero, new IntVector2(4, 1));
-            Assert.True(line[..].SequenceEqual(line));
-            Assert.True(line[1..].SequenceEqual(new IntVector2[] { new IntVector2(1, 0), new IntVector2(2, 0), new IntVector2(3, 1), new IntVector2(4, 1) }));
-            Assert.True(line[1..5].SequenceEqual(new IntVector2[] { new IntVector2(1, 0), new IntVector2(2, 0), new IntVector2(3, 1), new IntVector2(4, 1) }));
-            Assert.True(line[..^1].SequenceEqual(new IntVector2[] { new IntVector2(0, 0), new IntVector2(1, 0), new IntVector2(2, 0), new IntVector2(3, 1) }));
-            Assert.True(line[1..4].SequenceEqual(new IntVector2[] { new IntVector2(1, 0), new IntVector2(2, 0), new IntVector2(3, 1) }));
+            CollectionAssert.AreEqual(line, line[..]);
+            CollectionAssert.AreEqual(new IntVector2[] { new IntVector2(1, 0), new IntVector2(2, 0), new IntVector2(3, 1), new IntVector2(4, 1) }, line[1..]);
+            CollectionAssert.AreEqual(new IntVector2[] { new IntVector2(1, 0), new IntVector2(2, 0), new IntVector2(3, 1), new IntVector2(4, 1) }, line[1..5]);
+            CollectionAssert.AreEqual(new IntVector2[] { new IntVector2(0, 0), new IntVector2(1, 0), new IntVector2(2, 0), new IntVector2(3, 1) }, line[..^1]);
+            CollectionAssert.AreEqual(new IntVector2[] { new IntVector2(1, 0), new IntVector2(2, 0), new IntVector2(3, 1) }, line[1..4]);
         }
 
         [Test]

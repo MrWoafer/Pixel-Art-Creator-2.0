@@ -2,7 +2,6 @@ using PAC.Drawing;
 using NUnit.Framework;
 using PAC.DataStructures;
 using PAC.Exceptions;
-using PAC.Extensions;
 using System.Collections.Generic;
 using System.Linq;
 using System;
@@ -22,7 +21,7 @@ namespace PAC.Tests
         {
             foreach (T shape in testCases)
             {
-                Assert.False(shape.IsEmpty(), "Failed with " + shape);
+                CollectionAssert.IsNotEmpty(shape, "Failed with " + shape);
             }
         }
 
@@ -305,7 +304,7 @@ namespace PAC.Tests
             foreach (IntVector2 translation in new IntRect(new IntVector2(-2, -2), new IntVector2(2, 2)))
             {
                 IEnumerable<IntVector2> expected = shape.Select(p => p + translation);
-                Assert.True(expected.SequenceEqual(shape.Translate(translation)), "Failed with " + shape + " and " + translation);
+                CollectionAssert.AreEqual(expected, shape.Translate(translation), "Failed with " + shape + " and " + translation);
             }
         }
 
@@ -315,7 +314,7 @@ namespace PAC.Tests
         public static void Flip(Shapes.IShape shape, FlipAxis axis)
         {
             IEnumerable<IntVector2> expected = shape.Select(p => p.Flip(axis));
-            Assert.True(expected.ToHashSet().SetEquals(shape.Flip(axis)), "Failed with " + shape + " and " + axis);
+            CollectionAssert.AreEquivalent(expected, shape.Flip(axis), "Failed with " + shape + " and " + axis);
         }
 
         /// <summary>
@@ -329,22 +328,22 @@ namespace PAC.Tests
             }
             else if (axis == FlipAxis.Vertical)
             {
-                Assert.True(shape.ToHashSet().SetEquals(shape.Select(p => new IntVector2(shape.boundingRect.bottomLeft.x + shape.boundingRect.topRight.x - p.x, p.y))),
+                CollectionAssert.AreEquivalent(shape, shape.Select(p => new IntVector2(shape.boundingRect.bottomLeft.x + shape.boundingRect.topRight.x - p.x, p.y)),
                     "Failed with " + shape + " and FlipAxis." + axis);
             }
             else if (axis == FlipAxis.Horizontal)
             {
-                Assert.True(shape.ToHashSet().SetEquals(shape.Select(p => new IntVector2(p.x, shape.boundingRect.bottomLeft.y + shape.boundingRect.topRight.y - p.y))),
+                CollectionAssert.AreEquivalent(shape, shape.Select(p => new IntVector2(p.x, shape.boundingRect.bottomLeft.y + shape.boundingRect.topRight.y - p.y)),
                     "Failed with " + shape + " and FlipAxis." + axis);
             }
             else if (axis == FlipAxis._45Degrees)
             {
-                Assert.True(shape.ToHashSet().SetEquals(shape.Select(p => shape.boundingRect.bottomRight + (p - shape.boundingRect.topLeft).Flip(FlipAxis._45Degrees))),
+                CollectionAssert.AreEquivalent(shape, shape.Select(p => shape.boundingRect.bottomRight + (p - shape.boundingRect.topLeft).Flip(FlipAxis._45Degrees)),
                     "Failed with " + shape + " and FlipAxis." + axis);
             }
             else if (axis == FlipAxis.Minus45Degrees)
             {
-                Assert.True(shape.ToHashSet().SetEquals(shape.Select(p => shape.boundingRect.bottomLeft + (p - shape.boundingRect.topRight).Flip(FlipAxis.Minus45Degrees))),
+                CollectionAssert.AreEquivalent(shape, shape.Select(p => shape.boundingRect.bottomLeft + (p - shape.boundingRect.topRight).Flip(FlipAxis.Minus45Degrees)),
                     "Failed with " + shape + " and FlipAxis." + axis);
             }
             else
@@ -364,22 +363,22 @@ namespace PAC.Tests
             }
             else if (axis == FlipAxis.Vertical)
             {
-                Assert.False(shape.ToHashSet().SetEquals(shape.Select(p => new IntVector2(shape.boundingRect.bottomLeft.x + shape.boundingRect.topRight.x - p.x, p.y))),
+                CollectionAssert.AreNotEquivalent(shape, shape.Select(p => new IntVector2(shape.boundingRect.bottomLeft.x + shape.boundingRect.topRight.x - p.x, p.y)),
                     "Failed with " + shape + " and FlipAxis." + axis);
             }
             else if (axis == FlipAxis.Horizontal)
             {
-                Assert.False(shape.ToHashSet().SetEquals(shape.Select(p => new IntVector2(p.x, shape.boundingRect.bottomLeft.y + shape.boundingRect.topRight.y - p.y))),
+                CollectionAssert.AreNotEquivalent(shape, shape.Select(p => new IntVector2(p.x, shape.boundingRect.bottomLeft.y + shape.boundingRect.topRight.y - p.y)),
                     "Failed with " + shape + " and FlipAxis." + axis);
             }
             else if (axis == FlipAxis._45Degrees)
             {
-                Assert.False(shape.ToHashSet().SetEquals(shape.Select(p => shape.boundingRect.bottomRight + (p - shape.boundingRect.topLeft).Flip(FlipAxis._45Degrees))),
+                CollectionAssert.AreNotEquivalent(shape, shape.Select(p => shape.boundingRect.bottomRight + (p - shape.boundingRect.topLeft).Flip(FlipAxis._45Degrees)),
                     "Failed with " + shape + " and FlipAxis." + axis);
             }
             else if (axis == FlipAxis.Minus45Degrees)
             {
-                Assert.False(shape.ToHashSet().SetEquals(shape.Select(p => shape.boundingRect.bottomLeft + (p - shape.boundingRect.topRight).Flip(FlipAxis.Minus45Degrees))),
+                CollectionAssert.AreNotEquivalent(shape, shape.Select(p => shape.boundingRect.bottomLeft + (p - shape.boundingRect.topRight).Flip(FlipAxis.Minus45Degrees)),
                     "Failed with " + shape + " and FlipAxis." + axis);
             }
             else
@@ -415,7 +414,7 @@ namespace PAC.Tests
             }
 
             shape.filled = false;
-            Assert.True(borderOfFilled.SetEquals(shape.ToHashSet()), "Failed with " + shape);
+            CollectionAssert.AreEquivalent(borderOfFilled, shape, "Failed with " + shape);
         }
     }
 
@@ -430,7 +429,7 @@ namespace PAC.Tests
         public static void Rotate(Shapes.I2DShape shape, RotationAngle angle)
         {
             IEnumerable<IntVector2> expected = shape.Select(p => p.Rotate(angle));
-            Assert.True(expected.ToHashSet().SetEquals(shape.Rotate(angle)), "Failed with " + shape + " and " + angle);
+            CollectionAssert.AreEquivalent(expected, shape.Rotate(angle), "Failed with " + shape + " and " + angle);
         }
 
         /// <summary>
@@ -438,7 +437,7 @@ namespace PAC.Tests
         /// </summary>
         public static void RotationalSymmetry(Shapes.I2DShape shape, RotationAngle angle)
         {
-            Assert.True(shape.ToHashSet().SetEquals(shape.Select(p => p.Rotate(angle) + shape.boundingRect.bottomLeft - shape.boundingRect.Rotate(angle).bottomLeft)),
+            CollectionAssert.AreEquivalent(shape, shape.Select(p => p.Rotate(angle) + shape.boundingRect.bottomLeft - shape.boundingRect.Rotate(angle).bottomLeft),
                 "Failed with " + shape + " and RotationAngle." + angle);
         }
     }

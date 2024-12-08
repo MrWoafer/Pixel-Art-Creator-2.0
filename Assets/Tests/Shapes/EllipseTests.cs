@@ -33,7 +33,7 @@ namespace PAC.Tests
             {
                 foreach (IntVector2 pixel in new IntRect(new IntVector2(-5, -5), new IntVector2(5, 5)))
                 {
-                    Assert.True(new Shapes.Ellipse(pixel, pixel, filled).SequenceEqual(new IntVector2[] { pixel }), "Failed with " + pixel + " " + (filled ? "filled" : "unfilled"));
+                    CollectionAssert.AreEqual(new IntVector2[] { pixel }, new Shapes.Ellipse(pixel, pixel, filled), "Failed with " + pixel + " " + (filled ? "filled" : "unfilled"));
                 }
             }
         }
@@ -52,7 +52,7 @@ namespace PAC.Tests
                     for (int y = -5; y <= 5; y++)
                     {
                         Shapes.Ellipse ellipse = new Shapes.Ellipse(IntVector2.zero, new IntVector2(x, y), filled);
-                        Assert.True(ellipse.ToHashSet().SetEquals(ellipse.boundingRect), "Failed with " + ellipse);
+                        CollectionAssert.AreEquivalent(ellipse.boundingRect, ellipse, "Failed with " + ellipse);
                     }
                 }
             }
@@ -64,7 +64,7 @@ namespace PAC.Tests
                     for (int x = -5; x <= 5; x++)
                     {
                         Shapes.Ellipse ellipse = new Shapes.Ellipse(IntVector2.zero, new IntVector2(x, y), filled);
-                        Assert.True(ellipse.ToHashSet().SetEquals(ellipse.boundingRect), "Failed with " + ellipse);
+                        CollectionAssert.AreEquivalent(ellipse.boundingRect, ellipse, "Failed with " + ellipse);
                     }
                 }
             }
@@ -80,10 +80,10 @@ namespace PAC.Tests
             foreach (IntVector2 centre in new IntRect(new IntVector2(-5, -5), new IntVector2(5, 5)))
             {
                 Shapes.Ellipse ellipse = new Shapes.Ellipse(centre - IntVector2.one, centre + IntVector2.one, false);
-                Assert.True(ellipse.ToHashSet().SetEquals(new IntVector2[] { IntVector2.up, IntVector2.right, IntVector2.down, IntVector2.left }.Select(p => p + centre)));
+                CollectionAssert.AreEquivalent(new IntVector2[] { IntVector2.up, IntVector2.right, IntVector2.down, IntVector2.left }.Select(p => p + centre), ellipse);
 
                 ellipse = new Shapes.Ellipse(centre - IntVector2.one, centre + IntVector2.one, true);
-                Assert.True(ellipse.ToHashSet().SetEquals(new IntVector2[] { IntVector2.zero, IntVector2.up, IntVector2.right, IntVector2.down, IntVector2.left }.Select(p => p + centre)));
+                CollectionAssert.AreEquivalent(new IntVector2[] { IntVector2.zero, IntVector2.up, IntVector2.right, IntVector2.down, IntVector2.left }.Select(p => p + centre), ellipse);
             }
         }
 
@@ -102,7 +102,7 @@ namespace PAC.Tests
                 new IntVector2(0, 3), new IntVector2(0, 4), new IntVector2(0, 5), new IntVector2(0, 6), new IntVector2(0, 7), new IntVector2(1, 8), new IntVector2(1, 9), new IntVector2(2, 10)
             };
 
-            Assert.True(expected.SequenceEqual(ellipse));
+            CollectionAssert.AreEqual(expected, ellipse);
         }
 
         /// <summary>
@@ -120,7 +120,7 @@ namespace PAC.Tests
                 new IntVector2(0, 5), new IntVector2(0, 6), new IntVector2(0, 7), new IntVector2(0, 8), new IntVector2(1, 9), new IntVector2(2, 10)
             };
 
-            Assert.True(expected.SequenceEqual(ellipse));
+            CollectionAssert.AreEqual(expected, ellipse);
         }
 
         /// <summary>

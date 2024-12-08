@@ -116,7 +116,7 @@ namespace PAC.Tests
 
             foreach ((IEnumerable<int> input1, IEnumerable<string> input2, IEnumerable<(int, string)> expected) in testCases)
             {
-                Assert.True(expected.SequenceEqual(input1.Zip(input2)));
+                CollectionAssert.AreEqual(expected, input1.Zip(input2));
             }
         }
 
@@ -135,7 +135,7 @@ namespace PAC.Tests
 
             foreach ((IEnumerable<int> input, IEnumerable<(int, int)> expected) in testCases)
             {
-                Assert.True(expected.SequenceEqual(input.ZipCurrentAndNext()));
+                CollectionAssert.AreEqual(expected, input.ZipCurrentAndNext());
             }
         }
     }

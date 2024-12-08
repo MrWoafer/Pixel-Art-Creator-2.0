@@ -1,6 +1,5 @@
 using NUnit.Framework;
 using PAC.DataStructures;
-using System;
 using System.Collections.Generic;
 
 namespace PAC.Tests

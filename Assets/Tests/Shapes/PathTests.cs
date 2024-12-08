@@ -56,7 +56,7 @@ namespace PAC.Tests
                 for (int repetitions = 1; repetitions <= 5; repetitions++)
                 {
                     Shapes.Path path = new Shapes.Path(Enumerable.Repeat(pixel, repetitions));
-                    Assert.True(path.SequenceEqual(new IntVector2[] { pixel }), "Failed with " + path);
+                    CollectionAssert.AreEqual(new IntVector2[] { pixel }, path, "Failed with " + path);
                 }
             }
         }
@@ -85,7 +85,7 @@ namespace PAC.Tests
 
             foreach ((IEnumerable<IntVector2> expected, Shapes.Path path) in testCases)
             {
-                Assert.True(expected.SequenceEqual(path), "Failed with " + path);
+                CollectionAssert.AreEqual(expected, path, "Failed with " + path);
             }
         }
 
