@@ -233,6 +233,10 @@ namespace PAC.Extensions
         }
 
         /// <summary>
+        /// Returns (elements[0], 0), (elements[1], 1), ..., (elements[^1], elements.Count - 1)
+        /// </summary>
+        public static IEnumerable<(T element, int index)> Enumerate<T>(this IEnumerable<T> elements) => elements.Select((x, i) => (x, i));
+        /// <summary>
         /// Returns (left[0], right[0]), (left[1], right[1]), ..., until one of the IEnumerables ends.
         /// </summary>
         public static IEnumerable<(T1 left, T2 right)> Zip<T1, T2>(this IEnumerable<T1> left, IEnumerable<T2> right) => left.Zip(right, (x, y) => (x, y));

@@ -101,6 +101,24 @@ namespace PAC.Tests
 
         [Test]
         [Category("Extensions")]
+        public void Enumerate()
+        {
+            (IEnumerable<string> input, IEnumerable<(string, int)> expected)[] testCases =
+            {
+                (new string[] { }, new (string, int)[] { }),
+                (new string[] { "a" }, new (string, int)[] { ("a", 0) }),
+                (new string[] { "a", "z" }, new (string, int)[] { ("a", 0), ("z", 1) }),
+                (new string[] { "a", "z", "hello" }, new (string, int)[] { ("a", 0), ("z", 1), ("hello", 2) }),
+            };
+
+            foreach ((IEnumerable<string> input, IEnumerable<(string, int)> expected) in testCases)
+            {
+                CollectionAssert.AreEqual(expected, input.Enumerate());
+            }
+        }
+
+        [Test]
+        [Category("Extensions")]
         public void Zip()
         {
             (IEnumerable<int> input1, IEnumerable<string> input2, IEnumerable<(int, string)> expected)[] testCases =
