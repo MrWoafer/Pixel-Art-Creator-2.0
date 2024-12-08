@@ -2927,7 +2927,6 @@ namespace PAC.Drawing
             private IntVector2 endCorner;
 
             private IntVector2[] inferredCorners;
-            private Path border;
 
             public IntVector2 leftCorner
             {
@@ -2970,6 +2969,16 @@ namespace PAC.Drawing
                 }
             }
 
+            public Path border => Path.Concat(lowerBorder, upperBorder);
+            /// <summary>
+            /// The lower edges of the border, i.e. (leftCorner, bottomCorner) and (rightCorner, bottomCorner).
+            /// </summary>
+            public Path lowerBorder { get; private set; }
+            /// <summary>
+            /// The upper edges of the border, i.e. (leftCorner, topCorner) and (rightCorner, topCorner).
+            /// </summary>
+            public Path upperBorder { get; private set; }
+
             public bool filled { get; set; }
 
             public int width => boundingRect.width;
@@ -3011,7 +3020,7 @@ namespace PAC.Drawing
                 if (startCorner == endCorner)
                 {
                     inferredCorners = new IntVector2[] { startCorner };
-                    border = new Path(startCorner);
+                    lowerBorder = upperBorder = new Path(startCorner);
                     return;
                 }
                 if (Math.Abs(startCorner.y - endCorner.y) == 1)
@@ -3022,7 +3031,8 @@ namespace PAC.Drawing
                         IntVector2 leftCorner = rect.bottomLeft + IntVector2.left;
                         IntVector2 rightCorner = rect.topRight + IntVector2.right;
                         inferredCorners = new IntVector2[] { startCorner, endCorner, leftCorner, rightCorner };
-                        border = new Path(leftCorner, rightCorner + IntVector2.down, rightCorner, leftCorner + IntVector2.up, leftCorner);
+                        lowerBorder = new Path(leftCorner, rightCorner + IntVector2.down);
+                        upperBorder = new Path(rightCorner, leftCorner + IntVector2.up);
                         return;
                     }
                     else if (Math.Abs(startCorner.x - endCorner.x) == 1)
@@ -3031,7 +3041,8 @@ namespace PAC.Drawing
                         IntVector2 leftCorner = rect.bottomLeft;
                         IntVector2 rightCorner = rect.topRight;
                         inferredCorners = new IntVector2[] { startCorner, endCorner, leftCorner, rightCorner };
-                        border = new Path(leftCorner, rightCorner + IntVector2.down, rightCorner, leftCorner + IntVector2.up, leftCorner);
+                        lowerBorder = new Path(leftCorner, rightCorner + IntVector2.down);
+                        upperBorder = new Path(rightCorner, leftCorner + IntVector2.up);
                         return;
                     }
                 }
@@ -3049,11 +3060,13 @@ namespace PAC.Drawing
                     inferredCorners = new IntVector2[] { startCorner, endCorner };
                     if ((absDiff.x + 1) % 2 == 0)
                     {
-                        border = new Path(startCorner, endCorner);
+                        lowerBorder = new Path(startCorner, endCorner);
+                        upperBorder = lowerBorder.reverse;
                     }
                     else
                     {
-                        border = new Path(new Line(startCorner, endCorner - sign), new Line(endCorner, endCorner));
+                        lowerBorder = new Path(new Line(startCorner, endCorner - sign), new Line(endCorner, endCorner));
+                        upperBorder = lowerBorder.reverse;
                     }
                     return;
                 }
@@ -3070,32 +3083,39 @@ namespace PAC.Drawing
                     if (shapeType == 0)
                     {
                         // start = 2 horizontal, end = 1, top / bottom = 2 horizontal
+
                         int numBlocks = Mathf.CeilToInt((absDiff.x + 2) / 4f) - Mathf.FloorToInt(diff.y / 2f);
                         IntVector2 offset = numBlocks * new IntVector2(2 * sign.x, -1) + new IntVector2(-sign.x, 1);
                         IntVector2 bottomCorner = startCorner + offset;
                         IntVector2 topCorner = adjustedEndCorner - offset;
 
                         inferredCorners = new IntVector2[] { startCorner, endCorner, bottomCorner, topCorner };
-                        border = new Path(
+                        lowerBorder = new Path(
                             new Line(startCorner, bottomCorner),
                             new Line(bottomCorner + new IntVector2(sign.x, 1), endCorner - new IntVector2(sign.x, 1)),
+                            new Line(endCorner, endCorner)
+                            );
+                        upperBorder = new Path(
                             new Line(endCorner, endCorner),
                             new Line(endCorner + new IntVector2(-sign.x, 1), topCorner),
-                            new Line(topCorner - new IntVector2(sign.x, 1), startCorner + new IntVector2(2 * sign.x, 1))
+                            new Line(topCorner - new IntVector2(sign.x, 1), startCorner)
                             );
                     }
                     else if (shapeType == 1)
                     {
                         // start = 2 horizontal, end = 2 horizontal, top / bottom = 2 horizontal
+
                         int numBlocks = Mathf.CeilToInt((absDiff.x + 1) / 4f) - Mathf.FloorToInt(diff.y / 2f);
                         IntVector2 offset = numBlocks * new IntVector2(2 * sign.x, -1) + new IntVector2(-sign.x, 1);
                         IntVector2 bottomCorner = startCorner + offset;
                         IntVector2 topCorner = endCorner - offset;
 
                         inferredCorners = new IntVector2[] { startCorner, endCorner, bottomCorner, topCorner };
-                        border = new Path(
+                        lowerBorder = new Path(
                             new Line(startCorner, bottomCorner),
-                            new Line(bottomCorner + new IntVector2(sign.x, 1), endCorner),
+                            new Line(bottomCorner + new IntVector2(sign.x, 1), endCorner)
+                            );
+                        upperBorder = new Path(
                             new Line(endCorner, topCorner),
                             new Line(topCorner - new IntVector2(sign.x, 1), startCorner)
                             );
@@ -3103,15 +3123,18 @@ namespace PAC.Drawing
                     else if (shapeType == 2)
                     {
                         // start = 2 horizontal, end = 2 horizontal, top / bottom = 3 horizontal
+
                         int numBlocks = Mathf.CeilToInt(absDiff.x / 4f) - Mathf.FloorToInt(diff.y / 2f);
                         IntVector2 offset = numBlocks * new IntVector2(2 * sign.x, -1) + new IntVector2(-sign.x, 1);
                         IntVector2 bottomCorner = startCorner + offset;
                         IntVector2 topCorner = endCorner - offset;
 
                         inferredCorners = new IntVector2[] { startCorner, endCorner, bottomCorner, topCorner };
-                        border = new Path(
+                        lowerBorder = new Path(
                             new Line(startCorner, bottomCorner),
-                            new Line(bottomCorner, endCorner),
+                            new Line(bottomCorner, endCorner)
+                            );
+                        upperBorder = new Path(
                             new Line(endCorner, topCorner),
                             new Line(topCorner, startCorner)
                             );
@@ -3119,19 +3142,24 @@ namespace PAC.Drawing
                     else if (shapeType == 3)
                     {
                         // start = 1, end = 1, top / bottom = 2 horizontal
+
                         int numBlocks = Mathf.CeilToInt((absDiff.x - 1) / 4f) - Mathf.FloorToInt(diff.y / 2f);
                         IntVector2 offset = numBlocks * new IntVector2(2 * sign.x, -1);
                         IntVector2 bottomCorner = startCorner + offset;
                         IntVector2 topCorner = adjustedEndCorner - offset;
 
                         inferredCorners = new IntVector2[] { startCorner, endCorner, bottomCorner, topCorner };
-                        border = new Path(
+                        lowerBorder = new Path(
                             new Line(startCorner, startCorner),
                             new Line(startCorner + new IntVector2(sign.x, -1), bottomCorner),
                             new Line(bottomCorner + new IntVector2(sign.x, 1), endCorner - new IntVector2(sign.x, 1)),
+                            new Line(endCorner, endCorner)
+                            );
+                        upperBorder = new Path(
                             new Line(endCorner, endCorner),
                             new Line(endCorner + new IntVector2(-sign.x, 1), topCorner),
-                            new Line(topCorner - new IntVector2(sign.x, 1), startCorner + new IntVector2(sign.x, 1))
+                            new Line(topCorner - new IntVector2(sign.x, 1), startCorner + new IntVector2(sign.x, 1)),
+                            new Line(startCorner, startCorner)
                             );
                     }
                     else
@@ -3147,133 +3175,191 @@ namespace PAC.Drawing
                         IntVector2 corner1 = startCorner + sign.y * IntVector2.up;
                         IntVector2 corner2 = endCorner + sign.y * IntVector2.down;
                         inferredCorners = new IntVector2[] { startCorner, endCorner, corner1, corner2 };
-                        if ((absDiff.x + 1) % 2 == 0)
+                        if (startCorner.y < endCorner.y)
                         {
-                            border = new Path(new Line(startCorner, corner2), new Line(endCorner, corner1));
+                            if ((absDiff.x + 1) % 2 == 0)
+                            {
+                                lowerBorder = new Path(startCorner, corner2);
+                                upperBorder = new Path(endCorner, corner1);
+                            }
+                            else
+                            {
+                                lowerBorder = new Path(new Line(startCorner, corner2 - sign), new Line(corner2, corner2));
+                                upperBorder = new Path(new Line(endCorner, endCorner), new Line(endCorner - sign, corner1));
+                            }
                         }
                         else
                         {
-                            border = new Path(new Line(startCorner, corner2 - sign), new Line(corner2, endCorner), new Line(endCorner - sign, corner1));
+                            if ((absDiff.x + 1) % 2 == 0)
+                            {
+                                lowerBorder = new Path(new Line(endCorner, corner1));
+                                upperBorder = new Path(new Line(startCorner, corner2));
+                            }
+                            else
+                            {
+                                lowerBorder = new Path(new Line(endCorner, endCorner), new Line(endCorner - sign, corner1));
+                                upperBorder = new Path(new Line(startCorner, corner2 - sign), new Line(corner2, corner2));
+                            }
                         }
+                        return;
                     }
-                    else if (shapeType == 0)
+
+                    (IntVector2 topCorner, IntVector2 bottomCorner) = (endCorner.y - startCorner.y) switch
                     {
-                        if (startCorner.x == endCorner.x)
+                        > 0 => (endCorner, startCorner),
+                        < 0 => (startCorner, endCorner),
+                        _ => throw new UnreachableException()
+                    };
+                    sign = IntVector2.Sign(topCorner - bottomCorner);
+
+                    if (shapeType == 0)
+                    {
+                        if (bottomCorner.x == topCorner.x)
                         {
                             // start / end = 3 horizontal, left / right = 1
-                            int numBlocks = absDiff.y / 2;
-                            IntVector2 offset = numBlocks * new IntVector2(2, sign.y);
-                            IntVector2 rightCorner = startCorner + offset;
-                            IntVector2 leftCorner = endCorner - offset;
 
-                            inferredCorners = new IntVector2[] { startCorner, endCorner, rightCorner, leftCorner };
-                            border = new Path(
+                            int numBlocks = absDiff.y / 2;
+                            IntVector2 offset = numBlocks * new IntVector2(2, 1);
+                            IntVector2 rightCorner = bottomCorner + offset;
+                            IntVector2 leftCorner = topCorner - offset;
+
+                            inferredCorners = new IntVector2[] { bottomCorner, topCorner, rightCorner, leftCorner };
+                            lowerBorder = new Path(
                                 new Line(leftCorner, leftCorner),
-                                new Line(leftCorner + new IntVector2(1, -sign.y), startCorner),
-                                new Line(startCorner, rightCorner - new IntVector2(1, sign.y)),
+                                new Line(leftCorner + IntVector2.downRight, bottomCorner),
+                                new Line(bottomCorner, rightCorner + IntVector2.downLeft),
+                                new Line(rightCorner, rightCorner)
+                                );
+                            upperBorder = new Path(
                                 new Line(rightCorner, rightCorner),
-                                new Line(rightCorner - new IntVector2(1, -sign.y), endCorner),
-                                new Line(endCorner, leftCorner + new IntVector2(1, sign.y))
+                                new Line(rightCorner + IntVector2.upLeft, topCorner),
+                                new Line(topCorner, leftCorner + IntVector2.upRight),
+                                new Line(leftCorner, leftCorner)
                                 );
                         }
                         else
                         {
                             // start / end = 2 horizontal, left / right = 1
-                            int numBlocks = absDiff.y / 2 + Mathf.CeilToInt(absDiff.x / 4f);
-                            IntVector2 offset = numBlocks * new IntVector2(2, 1) * sign;
-                            IntVector2 corner1 = startCorner + offset;
-                            IntVector2 corner2 = endCorner - offset;
 
-                            inferredCorners = new IntVector2[] { startCorner, endCorner, corner1, corner2 };
-                            border = new Path(
+                            int numBlocks = absDiff.y / 2 + Mathf.CeilToInt(absDiff.x / 4f);
+                            IntVector2 offset = numBlocks * new IntVector2(2 * sign.x, 1);
+                            IntVector2 corner1 = bottomCorner + offset;
+                            IntVector2 corner2 = topCorner - offset;
+
+                            inferredCorners = new IntVector2[] { bottomCorner, topCorner, corner1, corner2 };
+                            lowerBorder = new Path(
                                 new Line(corner2, corner2),
-                                new Line(corner2 + new IntVector2(sign.x, -sign.y), startCorner),
-                                new Line(startCorner, corner1 - new IntVector2(sign.x, sign.y)),
+                                new Line(corner2 + new IntVector2(sign.x, -1), bottomCorner),
+                                new Line(bottomCorner, corner1 - new IntVector2(sign.x, 1)),
+                                new Line(corner1, corner1)
+                                );
+                            upperBorder = new Path(
                                 new Line(corner1, corner1),
-                                new Line(corner1 - new IntVector2(sign.x, -sign.y), endCorner),
-                                new Line(endCorner, corner2 + new IntVector2(sign.x, sign.y))
+                                new Line(corner1 - new IntVector2(sign.x, -1), topCorner),
+                                new Line(topCorner, corner2 + new IntVector2(sign.x, 1)),
+                                new Line(corner2, corner2)
                                 );
                         }
                     }
                     else if (shapeType == 1)
                     {
                         // start / end = 2 horizontal, left / right = 1
-                        int numBlocks = absDiff.y / 2 + Mathf.CeilToInt((absDiff.x - 1) / 4f);
-                        IntVector2 offset = numBlocks * new IntVector2(2, 1) * sign;
-                        IntVector2 corner1 = startCorner + offset;
-                        IntVector2 corner2 = endCorner - offset;
 
-                        inferredCorners = new IntVector2[] { startCorner, endCorner, corner1, corner2 };
-                        border = new Path(
+                        int numBlocks = absDiff.y / 2 + Mathf.CeilToInt((absDiff.x - 1) / 4f);
+                        IntVector2 offset = numBlocks * new IntVector2(2 * sign.x, 1);
+                        IntVector2 corner1 = bottomCorner + offset;
+                        IntVector2 corner2 = topCorner - offset;
+
+                        inferredCorners = new IntVector2[] { bottomCorner, topCorner, corner1, corner2 };
+                        lowerBorder = new Path(
                             new Line(corner2, corner2),
-                            new Line(corner2 + new IntVector2(sign.x, -sign.y), startCorner + new IntVector2(-sign.x, sign.y)),
-                            new Line(startCorner, corner1 - new IntVector2(sign.x, sign.y)),
+                            new Line(corner2 + new IntVector2(sign.x, -1), bottomCorner + new IntVector2(-sign.x, 1)),
+                            new Line(bottomCorner, corner1 - new IntVector2(sign.x, 1)),
+                            new Line(corner1, corner1)
+                            );
+                        upperBorder = new Path(
                             new Line(corner1, corner1),
-                            new Line(corner1 - new IntVector2(sign.x, -sign.y), endCorner - new IntVector2(-sign.x, sign.y)),
-                            new Line(endCorner, corner2 + new IntVector2(sign.x, sign.y))
+                            new Line(corner1 - new IntVector2(sign.x, -1), topCorner - new IntVector2(-sign.x, 1)),
+                            new Line(topCorner, corner2 + new IntVector2(sign.x, 1)),
+                            new Line(corner2, corner2)
                             );
                     }
                     else if (shapeType == 2)
                     {
-                        if (startCorner.x == endCorner.x)
+                        if (bottomCorner.x == topCorner.x)
                         {
                             // start / end = 3 horizontal, left / right = 2 vertical
-                            int numBlocks = (absDiff.y - 1) / 2;
-                            IntVector2 offset = numBlocks * new IntVector2(2, sign.y);
-                            // On the y level closer to startCorner
-                            IntVector2 rightCorner = startCorner + offset;
-                            // On the y level closer to endCorner
-                            IntVector2 leftCorner = endCorner - offset;
 
-                            inferredCorners = new IntVector2[] { startCorner, endCorner, rightCorner, leftCorner };
-                            border = new Path(
-                                new Line(leftCorner, leftCorner - new IntVector2(0, sign.y)),
-                                new Line(leftCorner + new IntVector2(1, -2 * sign.y), startCorner),
-                                new Line(startCorner, rightCorner - new IntVector2(1, sign.y)),
-                                new Line(rightCorner, rightCorner + new IntVector2(0, sign.y)),
-                                new Line(rightCorner - new IntVector2(1, -2 * sign.y), endCorner),
-                                new Line(endCorner, leftCorner + new IntVector2(1, sign.y))
+                            int numBlocks = (absDiff.y - 1) / 2;
+                            IntVector2 offset = numBlocks * new IntVector2(2, 1);
+                            // On the y level closer to bottomCorner
+                            IntVector2 rightCorner = bottomCorner + offset;
+                            // On the y level closer to topCorner
+                            IntVector2 leftCorner = topCorner - offset;
+
+                            inferredCorners = new IntVector2[] { bottomCorner, topCorner, rightCorner, leftCorner };
+                            lowerBorder = new Path(
+                                new Line(leftCorner + IntVector2.down, leftCorner + IntVector2.down),
+                                new Line(leftCorner + new IntVector2(1, -2 * 1), bottomCorner),
+                                new Line(bottomCorner, rightCorner + IntVector2.downLeft),
+                                new Line(rightCorner, rightCorner)
+                                );
+                            upperBorder = new Path(
+                                new Line(rightCorner + IntVector2.up, rightCorner + IntVector2.up),
+                                new Line(rightCorner - new IntVector2(1, -2 * 1), topCorner),
+                                new Line(topCorner, leftCorner + IntVector2.upRight),
+                                new Line(leftCorner, leftCorner)
                                 );
                         }
                         else
                         {
                             // start / end = 2 horizontal, left / right = 2 vertical
-                            int numBlocks = (absDiff.y - 1) / 2 + Mathf.CeilToInt(absDiff.x / 4f);
-                            IntVector2 offset = numBlocks * new IntVector2(2, 1) * sign;
-                            // On the y level closer to startCorner
-                            IntVector2 corner1 = startCorner + offset;
-                            // On the y level closer to endCorner
-                            IntVector2 corner2 = endCorner - offset;
 
-                            inferredCorners = new IntVector2[] { startCorner, endCorner, corner1, corner2 };
-                            border = new Path(
-                                new Line(corner2, corner2 - new IntVector2(0, sign.y)),
-                                new Line(corner2 + new IntVector2(sign.x, -2 * sign.y), startCorner),
-                                new Line(startCorner, corner1 - new IntVector2(sign.x, sign.y)),
-                                new Line(corner1, corner1 + new IntVector2(0, sign.y)),
-                                new Line(corner1 - new IntVector2(sign.x, -2 * sign.y), endCorner),
-                                new Line(endCorner, corner2 + new IntVector2(sign.x, sign.y))
+                            int numBlocks = (absDiff.y - 1) / 2 + Mathf.CeilToInt(absDiff.x / 4f);
+                            IntVector2 offset = numBlocks * new IntVector2(2 * sign.x, 1);
+                            // On the y level closer to bottomCorner
+                            IntVector2 corner1 = bottomCorner + offset;
+                            // On the y level closer to topCorner
+                            IntVector2 corner2 = topCorner - offset;
+
+                            inferredCorners = new IntVector2[] { bottomCorner, topCorner, corner1, corner2 };
+                            lowerBorder = new Path(
+                                new Line(corner2 + IntVector2.down, corner2 + IntVector2.down),
+                                new Line(corner2 + new IntVector2(sign.x, -2 * 1), bottomCorner),
+                                new Line(bottomCorner, corner1 - new IntVector2(sign.x, 1)),
+                                new Line(corner1, corner1)
+                                );
+                            upperBorder = new Path(
+                                new Line(corner1 + IntVector2.up, corner1 + IntVector2.up),
+                                new Line(corner1 - new IntVector2(sign.x, -2 * 1), topCorner),
+                                new Line(topCorner, corner2 + new IntVector2(sign.x, 1)),
+                                new Line(corner2, corner2)
                                 );
                         }
                     }
                     else if (shapeType == 3)
                     {
-                        // start / end = 2 horizontal, left / right = 2 horizontal
-                        int numBlocks = (absDiff.y - 1) / 2 + Mathf.CeilToInt((absDiff.x - 1) / 4f);
-                        IntVector2 offset = numBlocks * new IntVector2(2, 1) * sign;
-                        // On the y level closer to startCorner
-                        IntVector2 corner1 = startCorner + offset;
-                        // On the y level closer to endCorner
-                        IntVector2 corner2 = endCorner - offset;
+                        // start / end = 2 horizontal, left / right = 2 vertical
 
-                        inferredCorners = new IntVector2[] { startCorner, endCorner, corner1, corner2 };
-                        border = new Path(
-                            new Line(corner2, corner2 - new IntVector2(0, sign.y)),
-                            new Line(corner2 + new IntVector2(sign.x, -2 * sign.y), startCorner + new IntVector2(-sign.x, sign.y)),
-                            new Line(startCorner, corner1 - new IntVector2(sign.x, sign.y)),
-                            new Line(corner1, corner1 + new IntVector2(0, sign.y)),
-                            new Line(corner1 - new IntVector2(sign.x, -2 * sign.y), endCorner - new IntVector2(-sign.x, sign.y)),
-                            new Line(endCorner, corner2 + new IntVector2(sign.x, sign.y))
+                        int numBlocks = (absDiff.y - 1) / 2 + Mathf.CeilToInt((absDiff.x - 1) / 4f);
+                        IntVector2 offset = numBlocks * new IntVector2(2 * sign.x, 1);
+                        // On the y level closer to bottomCorner
+                        IntVector2 corner1 = bottomCorner + offset;
+                        // On the y level closer to topCorner
+                        IntVector2 corner2 = topCorner - offset;
+
+                        inferredCorners = new IntVector2[] { bottomCorner, topCorner, corner1, corner2 };
+                        lowerBorder = new Path(
+                            new Line(corner2 + IntVector2.down, corner2 + IntVector2.down),
+                            new Line(corner2 + new IntVector2(sign.x, -2 * 1), bottomCorner + new IntVector2(-sign.x, 1)),
+                            new Line(bottomCorner, corner1 - new IntVector2(sign.x, 1)),
+                            new Line(corner1, corner1)
+                            );
+                        upperBorder = new Path(
+                            new Line(corner1 + IntVector2.up, corner1 + IntVector2.up),
+                            new Line(corner1 - new IntVector2(sign.x, -2 * 1), topCorner - new IntVector2(-sign.x, 1)),
+                            new Line(topCorner, corner2 + new IntVector2(sign.x, 1)),
+                            new Line(corner2, corner2)
                             );
                     }
                 }

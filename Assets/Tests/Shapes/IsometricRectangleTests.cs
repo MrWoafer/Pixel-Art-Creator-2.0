@@ -2,6 +2,7 @@ using NUnit.Framework;
 using PAC.DataStructures;
 using PAC.Drawing;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace PAC.Tests
 {
@@ -50,6 +51,45 @@ namespace PAC.Tests
                 Assert.AreEqual(rectangle.boundingRect.topRight.x, rectangle.rightCorner.x, "Failed with " + rectangle);
                 Assert.AreEqual(rectangle.boundingRect.bottomLeft.y, rectangle.bottomCorner.y, "Failed with " + rectangle);
                 Assert.AreEqual(rectangle.boundingRect.topRight.y, rectangle.topCorner.y, "Failed with " + rectangle);
+            }
+        }
+
+        /// <summary>
+        /// Tests that the shape of the border is just the combination of the lower border and upper border.
+        /// </summary>
+        [Test]
+        [Category("Shapes")]
+        public void BorderIsCombinationOfLowerAndUpperBorder()
+        {
+            foreach (Shapes.IsometricRectangle rectangle in testCases)
+            {
+                CollectionAssert.AreEquivalent(Shapes.Path.Concat(rectangle.lowerBorder, rectangle.upperBorder).ToHashSet(), rectangle.border.ToHashSet(), "Failed with " + rectangle);
+            }
+        }
+
+        /// <summary>
+        /// Tests that the lowerBorder property is indeed the lower edges of the border.
+        /// </summary>
+        [Test]
+        [Category("Shapes")]
+        public void LowerBorderIsLowerPartOfBorder()
+        {
+            foreach (Shapes.IsometricRectangle rectangle in testCases)
+            {
+                CollectionAssert.AreEquivalent(rectangle.Where(p => p.y == rectangle.border.MinY(p.x)).ToHashSet(), rectangle.lowerBorder.ToHashSet(), "Failed with " + rectangle);
+            }
+        }
+
+        /// <summary>
+        /// Tests that the upperBorder property is indeed the upper edges of the border.
+        /// </summary>
+        [Test]
+        [Category("Shapes")]
+        public void UpperBorderIsUpperPartOfBorder()
+        {
+            foreach (Shapes.IsometricRectangle rectangle in testCases)
+            {
+                CollectionAssert.AreEquivalent(rectangle.Where(p => p.y == rectangle.border.MaxY(p.x)).ToHashSet(), rectangle.upperBorder.ToHashSet(), "Failed with " + rectangle);
             }
         }
 
