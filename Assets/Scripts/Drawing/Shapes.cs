@@ -813,6 +813,10 @@ namespace PAC.Drawing
         /// </summary>
         public class Path : I1DShape
         {
+            /// <summary>
+            /// The lines in this list should not be referenced by anything other than this object, as editing them can potentially causing us to lose the property that the lines connect. For this
+            /// reason, we deep-copy lines in the constructor.
+            /// </summary>
             private List<Line> _lines = new List<Line>();
             public ReadOnlyCollection<Line> lines => _lines.AsReadOnly();
 
@@ -1008,9 +1012,22 @@ namespace PAC.Drawing
                 }
             }
             /// <summary>
+            /// <para>
             /// The lines must connect, meaning the end of each line must be equal to or adjacent to (including diagonally) the start of the next line.
+            /// </para>
+            /// <para>
+            /// Creates deep copies of the lines.
+            /// </para>
             /// </summary>
             public Path(params Line[] lines) : this((IEnumerable<Line>)lines) { }
+            /// <summary>
+            /// <para>
+            /// The lines must connect, meaning the end of each line must be equal to or adjacent to (including diagonally) the start of the next line.
+            /// </para>
+            /// <para>
+            /// Creates deep copies of the lines.
+            /// </para>
+            /// </summary>
             public Path(IEnumerable<Line> lines)
             {
                 if (lines.IsEmpty())
@@ -1020,18 +1037,18 @@ namespace PAC.Drawing
 
                 if (lines.CountExactly(1))
                 {
-                    _lines.Add(lines.First());
+                    _lines.Add(lines.First().DeepCopy());
                 }
                 else
                 {
-                    _lines.Add(lines.First());
+                    _lines.Add(lines.First().DeepCopy());
                     foreach ((Line line, Line nextLine) in lines.ZipCurrentAndNext())
                     {
                         if (IntVector2.SupDistance(line.end, nextLine.start) > 1)
                         {
                             throw new ArgumentException(line + " and " + nextLine + " do not connect.", "lines");
                         }
-                        _lines.Add(nextLine);
+                        _lines.Add(nextLine.DeepCopy());
                     }
                 }
             }
