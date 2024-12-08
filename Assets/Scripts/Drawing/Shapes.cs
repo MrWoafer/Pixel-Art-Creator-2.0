@@ -807,8 +807,8 @@ namespace PAC.Drawing
         /// The lines must connect, meaning the end of each line must be equal to or adjacent to (including diagonally) the start of the next line.
         /// </para>
         /// <para>
-        /// When iterating through the Path, if the end of a line equals the start of the next line, that pixel with not be double-counted. Additionally, the last pixel of the path will not be
-        /// counted if it's the same as first pixel of the path. Other than those cases, pixels can be double-counted.
+        /// When iterating through the Path, pixels will never appear twice in succession. E.g. if the end of a line equals the start of the next line, that pixel with not be double-counted.
+        /// Additionally, the last pixel of the path will not be counted if it's the same as first pixel of the path. Other than those cases, pixels can be double-counted.
         /// </para>
         /// </summary>
         public class Path : I1DShape
