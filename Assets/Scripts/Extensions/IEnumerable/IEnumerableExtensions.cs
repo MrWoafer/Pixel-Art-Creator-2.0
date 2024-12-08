@@ -177,21 +177,21 @@ namespace PAC.Extensions
         /// <summary>
         /// Applies the function to each element and returns the element that gives the lowest output. If multiple elements give the lowest output, the first one will be returned.
         /// </summary>
-        public static T1 ArgMin<T1, T2>(this IEnumerable<T1> elements, Func<T1, T2> function) where T2 : IComparable<T2>
+        public static TElement ArgMin<TElement, TCompare>(this IEnumerable<TElement> elements, Func<TElement, TCompare> function) where TCompare : IComparable<TCompare>
         {
             if (elements is null)
             {
-                throw new ArgumentException("The given IEnumerable<" + typeof(T1).Name + "> is null.", "elements");
+                throw new ArgumentException("The given IEnumerable<" + typeof(TElement).Name + "> is null.", "elements");
             }
             if (elements.IsEmpty())
             {
-                throw new ArgumentException("The given IEnumerable<" + typeof(T1).Name + "> is empty.", "elements");
+                throw new ArgumentException("The given IEnumerable<" + typeof(TElement).Name + "> is empty.", "elements");
             }
 
-            (T1 element, T2 value) min = (elements.First(), function.Invoke(elements.First()));
-            foreach (T1 element in elements)
+            (TElement element, TCompare value) min = (elements.First(), function.Invoke(elements.First()));
+            foreach (TElement element in elements)
             {
-                T2 value = function.Invoke(element);
+                TCompare value = function.Invoke(element);
                 if (value.CompareTo(min.value) < 0)
                 {
                     min = (element, value);
@@ -204,21 +204,21 @@ namespace PAC.Extensions
         /// <summary>
         /// Applies the function to each element and returns the element that gives the highest output. If multiple elements give the highest output, the first one will be returned.
         /// </summary>
-        public static T1 ArgMax<T1, T2>(this IEnumerable<T1> elements, Func<T1, T2> function) where T2 : IComparable<T2>
+        public static TElement ArgMax<TElement, TCompare>(this IEnumerable<TElement> elements, Func<TElement, TCompare> function) where TCompare : IComparable<TCompare>
         {
             if (elements is null)
             {
-                throw new ArgumentException("The given IEnumerable<" + typeof(T1).Name + "> is null.", "elements");
+                throw new ArgumentException("The given IEnumerable<" + typeof(TElement).Name + "> is null.", "elements");
             }
             if (elements.IsEmpty())
             {
-                throw new ArgumentException("The given IEnumerable<" + typeof(T1).Name + "> is empty.", "elements");
+                throw new ArgumentException("The given IEnumerable<" + typeof(TElement).Name + "> is empty.", "elements");
             }
 
-            (T1 element, T2 value) max = (elements.First(), function.Invoke(elements.First()));
-            foreach (T1 element in elements)
+            (TElement element, TCompare value) max = (elements.First(), function.Invoke(elements.First()));
+            foreach (TElement element in elements)
             {
-                T2 value = function.Invoke(element);
+                TCompare value = function.Invoke(element);
                 if (value.CompareTo(max.value) > 0)
                 {
                     max = (element, value);
