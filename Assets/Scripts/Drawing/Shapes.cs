@@ -3473,7 +3473,7 @@ namespace PAC.Drawing
         {
             IntRect texRect = new IntRect(IntVector2.zero, new IntVector2(texWidth - 1, texHeight - 1));
             IsometricRectangle rectangle = new IsometricRectangle(start, end, filled);
-            foreach (IntVector2 pixel in rectangle)
+            foreach (IntVector2 pixel in (drawTopLines ? (IEnumerable<IntVector2>)rectangle : rectangle.lowerBorder))
             {
                 if (texRect.Contains(pixel))
                 {
