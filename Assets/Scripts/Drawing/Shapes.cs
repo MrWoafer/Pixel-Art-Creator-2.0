@@ -839,6 +839,27 @@ namespace PAC.Drawing
             public bool isLoop => IntVector2.SupDistance(start, end) <= 1;
 
             /// <summary>
+            /// <para>
+            /// Returns a new path going through the lines in reverse order and with their starts / ends swapped.
+            /// </para>
+            /// <para>
+            /// Note: this is not guaranteed to give the same shape - the centre pixel of a line can change when swapping its start / end.
+            /// </para>
+            /// </summary>
+            public Path reverse
+            {
+                get
+                {
+                    List<Line> reversedLines = new List<Line>(_lines.Count);
+                    for (int i = _lines.Count - 1; i >= 0; i--)
+                    {
+                        reversedLines.Add(_lines[i].reverse);
+                    }
+                    return new Path(reversedLines);
+                }
+            }
+
+            /// <summary>
             /// True iff the path never changes pixel.
             /// </summary>
             public bool isPoint
