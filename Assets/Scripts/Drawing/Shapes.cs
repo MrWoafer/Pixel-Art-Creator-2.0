@@ -1351,13 +1351,16 @@ namespace PAC.Drawing
                 return windingNumber;
             }
 
-            IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();
-            public IEnumerator<IntVector2> GetEnumerator()
+            /// <summary>
+            /// Iterates through the points in the path, but also returns the index of the line that pixel came from. (If a pixel appears multiple times in the path, the line index of the i-th
+            /// occurrence will be the index of the i-th line it appears in. In other words, the line index is non-decreasing and can only increment in steps of 1.)
+            /// </summary>
+            private IEnumerable<(IntVector2 pixel, int lineIndex)> EnumerateWithLineIndex()
             {
                 // First line
                 foreach (IntVector2 pixel in _lines[0])
                 {
-                    yield return pixel;
+                    yield return (pixel, 0);
                 }
                 if (_lines.Count == 1)
                 {
@@ -1374,7 +1377,7 @@ namespace PAC.Drawing
                     }
                     foreach (IntVector2 pixel in _lines[i][start..])
                     {
-                        yield return pixel;
+                        yield return (pixel, i);
                     }
                 }
 
@@ -1398,10 +1401,13 @@ namespace PAC.Drawing
 
                     foreach (IntVector2 pixel in _lines[^1][start..end])
                     {
-                        yield return pixel;
+                        yield return (pixel, _lines.Count - 1);
                     }
                 }
             }
+
+            IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();
+            public IEnumerator<IntVector2> GetEnumerator() => EnumerateWithLineIndex().Select(x => x.pixel).GetEnumerator();
 
             public static bool operator !=(Path a, Path b) => !(a == b);
             public static bool operator ==(Path a, Path b)
