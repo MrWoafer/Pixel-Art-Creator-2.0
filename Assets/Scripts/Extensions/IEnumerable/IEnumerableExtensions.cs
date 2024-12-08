@@ -233,9 +233,9 @@ namespace PAC.Extensions
         }
 
         /// <summary>
-        /// Returns (first[0], second[0]), (first[1], second[1]), ..., until one of the IEnumerables ends.
+        /// Returns (left[0], right[0]), (left[1], right[1]), ..., until one of the IEnumerables ends.
         /// </summary>
-        public static IEnumerable<(T1, T2)> Zip<T1, T2>(this IEnumerable<T1> first, IEnumerable<T2> second) => first.Zip(second, (x, y) => (x, y));
+        public static IEnumerable<(T1 left, T2 right)> Zip<T1, T2>(this IEnumerable<T1> left, IEnumerable<T2> right) => left.Zip(right, (x, y) => (x, y));
         /// <summary>
         /// <para>
         /// Returns (elements[0], elements[1]), (elements[1], elements[2]), ..., (elements[^2], elements[^1]).
@@ -244,6 +244,6 @@ namespace PAC.Extensions
         /// Returns an empty IEnumerable if elements has length 0 or 1.
         /// </para>
         /// </summary>
-        public static IEnumerable<(T, T)> ZipCurrentAndNext<T>(this IEnumerable<T> elements) => elements.Zip(elements.Skip(1));
+        public static IEnumerable<(T current, T next)> ZipCurrentAndNext<T>(this IEnumerable<T> elements) => elements.Zip(elements.Skip(1));
     }
 }
