@@ -23,6 +23,60 @@ namespace PAC
         };
 
         /// <summary>
+        /// <para>
+        /// Returns x if x &gt; 0, and returns 0 if x &lt;= 0.
+        /// </para>
+        /// <para>
+        /// The same as ClampPositive().
+        /// </para>
+        /// </summary>
+        public static int ReLU(int x) => x switch
+        {
+            > 0 => x,
+            <= 0 => 0
+        };
+        /// <summary>
+        /// <para>
+        /// Returns x if x &gt; 0, and returns 0 if x &lt;= 0.
+        /// </para>
+        /// <para>
+        /// The same as ClampPositive().
+        /// </para>
+        /// </summary>
+        public static float ReLU(float x) => x switch
+        {
+            > 0 => x,
+            <= 0 => 0f,
+            float.NaN => float.NaN
+        };
+        /// <summary>
+        /// <para>
+        /// Returns x if x &gt; 0, and returns 0 if x &lt;= 0.
+        /// </para>
+        /// <para>
+        /// The same as ReLU().
+        /// </para>
+        /// </summary>
+        public static int ClampPositive(int x) => ReLU(x);
+        /// <summary>
+        /// <para>
+        /// Returns x if x &gt; 0, and returns 0 if x &lt;= 0.
+        /// </para>
+        /// <para>
+        /// The same as ReLU().
+        /// </para>
+        /// </summary>
+        public static float ClampPositive(float x) => ReLU(x);
+        /// <summary>
+        /// Returns x if x &lt; 0, and returns 0 if x &gt;= 0.
+        /// </summary>
+        public static int ClampNegative(int x) => -ReLU(-x);
+        /// <summary>
+        /// Returns x if x &lt; 0, and returns 0 if x &gt;= 0.
+        /// </summary>
+        public static float ClampNegative(float x) => -ReLU(-x);
+
+        /// <summary>
         /// Returns a mod b, giving a non-negative result.
         /// </summary>
         /// <param name="a"></param>
