@@ -414,7 +414,7 @@ namespace PAC.Tests
             }
 
             shape.filled = false;
-            CollectionAssert.AreEquivalent(borderOfFilled, shape, "Failed with " + shape);
+            CollectionAssert.AreEquivalent(borderOfFilled, shape.ToHashSet(), "Failed with " + shape);
         }
     }
 
