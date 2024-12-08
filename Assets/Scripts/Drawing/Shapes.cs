@@ -112,7 +112,45 @@ namespace PAC.Drawing
             public IShape DeepCopy();
         }
 
-        public interface I1DShape : IShape
+        public interface IRotatableShape : IShape
+        {
+            /// <summary>
+            /// Translates the shape by the given vector.
+            /// </summary>
+            public static IRotatableShape operator +(IntVector2 translation, IRotatableShape shape) => shape + translation;
+            /// <summary>
+            /// Translates the shape by the given vector.
+            /// </summary>
+            public static IRotatableShape operator +(IRotatableShape shape, IntVector2 translation) => shape.Translate(translation);
+            /// <summary>
+            /// Translates the shape by the given vector.
+            /// </summary>
+            public static IRotatableShape operator -(IRotatableShape shape, IntVector2 translation) => shape + (-translation);
+            /// <summary>
+            /// Reflects the shape through the origin.
+            /// </summary>
+            public static IRotatableShape operator -(IRotatableShape shape) => shape.Rotate(RotationAngle._180);
+
+            /// <summary>
+            /// Translates the shape by the given vector.
+            /// </summary>
+            public new IRotatableShape Translate(IntVector2 translation);
+            IShape IShape.Translate(IntVector2 translation) => Translate(translation);
+            /// <summary>
+            /// Reflects the shape across the given axis.
+            /// </summary>
+            public new IRotatableShape Flip(FlipAxis axis);
+            IShape IShape.Flip(FlipAxis axis) => Flip(axis);
+            /// <summary>
+            /// Rotates the shape by the given angle.
+            /// </summary>
+            public IRotatableShape Rotate(RotationAngle angle);
+
+            public new IRotatableShape DeepCopy();
+            IShape IShape.DeepCopy() => DeepCopy();
+        }
+
+        public interface I1DShape : IRotatableShape
         {
             /// <summary>
             /// Translates the shape by the given vector.
@@ -135,19 +173,20 @@ namespace PAC.Drawing
             /// Translates the shape by the given vector.
             /// </summary>
             public new I1DShape Translate(IntVector2 translation);
-            IShape IShape.Translate(IntVector2 translation) => Translate(translation);
+            IRotatableShape IRotatableShape.Translate(IntVector2 translation) => Translate(translation);
             /// <summary>
             /// Reflects the shape across the given axis.
             /// </summary>
             public new I1DShape Flip(FlipAxis axis);
-            IShape IShape.Flip(FlipAxis axis) => Flip(axis);
+            IRotatableShape IRotatableShape.Flip(FlipAxis axis) => Flip(axis);
             /// <summary>
             /// Rotates the shape by the given angle.
             /// </summary>
-            public I1DShape Rotate(RotationAngle angle);
+            public new I1DShape Rotate(RotationAngle angle);
+            IRotatableShape IRotatableShape.Rotate(RotationAngle angle) => Rotate(angle);
 
             public new I1DShape DeepCopy();
-            IShape IShape.DeepCopy() => DeepCopy();
+            IRotatableShape IRotatableShape.DeepCopy() => DeepCopy();
         }
 
         /// <summary>
@@ -1599,11 +1638,11 @@ namespace PAC.Drawing
             public new IFillableShape Flip(FlipAxis axis);
             IShape IShape.Flip(FlipAxis axis) => Flip(axis);
 
-            IShape IShape.DeepCopy() => DeepCopy();
             public new IFillableShape DeepCopy();
+            IShape IShape.DeepCopy() => DeepCopy();
         }
 
-        public interface I2DShape : IFillableShape
+        public interface I2DShape : IFillableShape, IRotatableShape
         {
             /// <summary>
             /// Translates the shape by the given vector.
@@ -1626,19 +1665,26 @@ namespace PAC.Drawing
             /// Translates the shape by the given vector.
             /// </summary>
             public new I2DShape Translate(IntVector2 translation);
+            IShape IShape.Translate(IntVector2 translation) => Translate(translation);
             IFillableShape IFillableShape.Translate(IntVector2 translation) => Translate(translation);
+            IRotatableShape IRotatableShape.Translate(IntVector2 translation) => Translate(translation);
             /// <summary>
             /// Reflects the shape across the given axis.
             /// </summary>
             public new I2DShape Flip(FlipAxis axis);
+            IShape IShape.Flip(FlipAxis axis) => Flip(axis);
             IFillableShape IFillableShape.Flip(FlipAxis axis) => Flip(axis);
+            IRotatableShape IRotatableShape.Flip(FlipAxis axis) => Flip(axis);
             /// <summary>
             /// Rotates the shape by the given angle.
             /// </summary>
-            public I2DShape Rotate(RotationAngle angle);
+            public new I2DShape Rotate(RotationAngle angle);
+            IRotatableShape IRotatableShape.Rotate(RotationAngle angle) => Rotate(angle);
 
             public new I2DShape DeepCopy();
+            IShape IShape.DeepCopy() => DeepCopy();
             IFillableShape IFillableShape.DeepCopy() => DeepCopy();
+            IRotatableShape IRotatableShape.DeepCopy() => DeepCopy();
         }
 
         public class Rectangle : I2DShape

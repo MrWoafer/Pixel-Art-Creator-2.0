@@ -137,7 +137,23 @@ namespace PAC.Tests
         }
     }
 
-    public abstract class I1DShapeTests<T> : IShapeTests<T> where T : Shapes.I1DShape
+    public abstract class IRotatableShapeTests<T> : IShapeTests<T> where T : Shapes.IRotatableShape
+    {
+        [Test]
+        [Category("Shapes")]
+        public virtual void Rotate()
+        {
+            foreach (T shape in testCases)
+            {
+                foreach (RotationAngle angle in new RotationAngle[] { RotationAngle._0, RotationAngle._90, RotationAngle._180, RotationAngle.Minus90 })
+                {
+                    IRotatableShapeHelper.Rotate(shape, angle);
+                }
+            }
+        }
+    }
+
+    public abstract class I1DShapeTests<T> : IRotatableShapeTests<T> where T : Shapes.I1DShape
     {
 
     }
@@ -181,7 +197,7 @@ namespace PAC.Tests
             {
                 foreach (RotationAngle angle in new RotationAngle[] { RotationAngle._0, RotationAngle._90, RotationAngle._180, RotationAngle.Minus90 })
                 {
-                    I2DShapeTestHelper.Rotate(shape, angle);
+                    IRotatableShapeHelper.Rotate(shape, angle);
                 }
             }
         }
@@ -388,14 +404,14 @@ namespace PAC.Tests
     }
 
     /// <summary>
-    /// Helper functions for making tests for I2DShapes.
+    /// Helper functions for making tests for IRotatableShapes.
     /// </summary>
-    public static class I2DShapeTestHelper
+    public static class IRotatableShapeHelper
     {
         /// <summary>
         /// Applies Rotate() to the shape and checks that the enumerator of the resulting shape is a rotation of the original shape's enumerator.
         /// </summary>
-        public static void Rotate(Shapes.I2DShape shape, RotationAngle angle)
+        public static void Rotate(Shapes.IRotatableShape shape, RotationAngle angle)
         {
             IEnumerable<IntVector2> expected = shape.Select(p => p.Rotate(angle));
             CollectionAssert.AreEquivalent(expected, shape.Rotate(angle), "Failed with " + shape + " and " + angle);
@@ -404,7 +420,7 @@ namespace PAC.Tests
         /// <summary>
         /// Tests that the shape has rotational symmetry by the given angle.
         /// </summary>
-        public static void RotationalSymmetry(Shapes.I2DShape shape, RotationAngle angle)
+        public static void RotationalSymmetry(Shapes.IRotatableShape shape, RotationAngle angle)
         {
             CollectionAssert.AreEquivalent(shape, shape.Select(p => p.Rotate(angle) + shape.boundingRect.bottomLeft - shape.boundingRect.Rotate(angle).bottomLeft),
                 "Failed with " + shape + " and RotationAngle." + angle);
