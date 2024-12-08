@@ -261,7 +261,7 @@ namespace PAC.Tests
             {
                 for (int y = line.boundingRect.bottomLeft.y; y <= line.boundingRect.topRight.y; y++)
                 {
-                    Assert.AreEqual(line.Where(p => p.y == y).Select(p => p.x).Min(), line.MinX(y), "Failed with " + line + " and y = " + y);
+                    Assert.AreEqual(line.Where(p => p.y == y).Min(p => p.x), line.MinX(y), "Failed with " + line + " and y = " + y);
                 }
 
                 Assert.Throws<ArgumentOutOfRangeException>(() => line.MinX(line.boundingRect.bottomLeft.y - 1));
@@ -277,7 +277,7 @@ namespace PAC.Tests
             {
                 for (int y = line.boundingRect.bottomLeft.y; y <= line.boundingRect.topRight.y; y++)
                 {
-                    Assert.AreEqual(line.Where(p => p.y == y).Select(p => p.x).Max(), line.MaxX(y), "Failed with " + line + " and y = " + y);
+                    Assert.AreEqual(line.Where(p => p.y == y).Max(p => p.x), line.MaxX(y), "Failed with " + line + " and y = " + y);
                 }
 
                 Assert.Throws<ArgumentOutOfRangeException>(() => line.MaxX(line.boundingRect.bottomLeft.y - 1));
@@ -293,7 +293,7 @@ namespace PAC.Tests
             {
                 for (int x = line.boundingRect.bottomLeft.x; x <= line.boundingRect.topRight.x; x++)
                 {
-                    Assert.AreEqual(line.Where(p => p.x == x).Select(p => p.y).Min(), line.MinY(x), "Failed with " + line + " and x = " + x);
+                    Assert.AreEqual(line.Where(p => p.x == x).Min(p => p.y), line.MinY(x), "Failed with " + line + " and x = " + x);
                 }
 
                 Assert.Throws<ArgumentOutOfRangeException>(() => line.MinY(line.boundingRect.bottomLeft.x - 1));
@@ -309,7 +309,7 @@ namespace PAC.Tests
             {
                 for (int x = line.boundingRect.bottomLeft.x; x <= line.boundingRect.topRight.x; x++)
                 {
-                    Assert.AreEqual(line.Where(p => p.x == x).Select(p => p.y).Max(), line.MaxY(x), "Failed with " + line + " and x = " + x);
+                    Assert.AreEqual(line.Where(p => p.x == x).Max(p => p.y), line.MaxY(x), "Failed with " + line + " and x = " + x);
                 }
 
                 Assert.Throws<ArgumentOutOfRangeException>(() => line.MaxY(line.boundingRect.bottomLeft.x - 1));
