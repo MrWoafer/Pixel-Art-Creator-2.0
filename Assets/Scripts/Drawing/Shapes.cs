@@ -211,6 +211,16 @@ namespace PAC.Drawing
             /// </summary>
             public bool isHorizontal => start.y == end.y;
 
+            /// <summary>
+            /// <para>
+            /// Returns a new line with the start / end swapped.
+            /// </para>
+            /// <para>
+            /// Note: this is not guaranteed to give the same shape - the centre pixel can change when swapping the start / end.
+            /// </para>
+            /// </summary>
+            public Line reverse => new Line(end, start);
+
             public IntRect boundingRect => new IntRect(start, end);
 
             public int Count => IntVector2.SupDistance(start, end) + 1;
