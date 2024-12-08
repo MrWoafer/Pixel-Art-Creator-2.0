@@ -610,11 +610,11 @@ namespace PAC.Drawing
             }
 
             /// <summary>
-            /// Returns the number of pixels on the line with the given x coord.
+            /// Returns the number of pixels on the line that have the given x coord.
             /// </summary>
             public int CountOnX(int x) => MaxY(x) - MinY(x) + 1;
             /// <summary>
-            /// Returns the number of pixels on the line with the given y coord.
+            /// Returns the number of pixels on the line that have the given y coord.
             /// </summary>
             public int CountOnY(int y) => MaxX(y) - MinX(y) + 1;
 
