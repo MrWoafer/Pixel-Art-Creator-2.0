@@ -935,6 +935,109 @@ namespace PAC.Drawing
                     return false;
                 }
             }
+            /// <summary>
+            /// Whether the path defines a simple polygon (one that doesn't self-intersect - note however that lines are allowed to go back over).
+            /// </summary>
+            public bool isSimplePolygon
+            {
+                get
+                {
+                    /// <summary>
+                    /// Returns whether the line (in1, meetingPoint, out1) crosses the line (in2, meetingPoint, out2).
+                    /// </summary>
+                    static bool IsCrossingPoint(IntVector2 meetingPoint, IntVector2 in1, IntVector2 out1, IntVector2 in2, IntVector2 out2)
+                    {
+                        foreach (IntVector2 point in new IntVector2[] { in1, out1, in2, out2 })
+                        {
+                            if (IntVector2.SupDistance(point, meetingPoint) > 1)
+                            {
+                                throw new ArgumentException("The points do not form connected lines.");
+                            }
+                        }
+
+                        // If any of the points are equal, the lines do not cross
+                        if (new IntVector2[] { in1, out1, in2, out2 }.CountDistinct() < 4)
+                        {
+                            return false;
+                        }
+
+                        // Go round the border of the 3x3 square centred on meeting point. The lines cross if and only if we see in2 or out2 (but not both) strictly between in1 and out1 or
+                        // vice versa.
+                        // E.g.
+                        //
+                        // Lines cross:
+                        //      1  _  2
+                        //      _     1
+                        //      _  2  _
+                        //
+                        // Lines don't cross:
+                        //      1  _  _
+                        //      _     1
+                        //      _  2  2
+                        //
+
+                        // How many of in1 / out1 we've seen
+                        int count1 = 0;
+                        // How many of in2 / out2 we've seen
+                        int count2 = 0;
+                        // Whether the last of in1 / out1 / in2 / out2 we saw was on line 1 or line 2
+                        int lastSeen = 0;
+                        foreach (IntVector2 point in new Rectangle(meetingPoint + IntVector2.downLeft, meetingPoint + IntVector2.upRight, false))
+                        {
+                            if (point == in1 || point == out1)
+                            {
+                                count1++;
+                                if (count1 == 2)
+                                {
+                                    return lastSeen == 2;
+                                }
+                                lastSeen = 1;
+                            }
+                            if (point == in2 || point == out2)
+                            {
+                                count2++;
+                                if (count2 == 2)
+                                {
+                                    return lastSeen == 1;
+                                }
+                                lastSeen = 2;
+                            }
+                        }
+
+                        throw new UnreachableException();
+                    }
+
+                    if (!isLoop)
+                    {
+                        return false;
+                    }
+
+                    IntVector2[] points = this.ToArray();
+                    HashSet<IntVector2> visited = new HashSet<IntVector2>();
+                    foreach ((IntVector2 pixel, int index) in points.Enumerate())
+                    {
+                        if (visited.Contains(pixel))
+                        {
+                            int indexOfPreviousVisit = Functions.Mod(index - 1, points.Length);
+                            while (points[indexOfPreviousVisit] != pixel)
+                            {
+                                indexOfPreviousVisit = Functions.Mod(indexOfPreviousVisit - 1, points.Length);
+                            }
+
+                            if (IsCrossingPoint(pixel,
+                                points[Functions.Mod(index - 1, points.Length)], points[Functions.Mod(index + 1, points.Length)],
+                                points[Functions.Mod(indexOfPreviousVisit - 1, points.Length)], points[Functions.Mod(indexOfPreviousVisit + 1, points.Length)]
+                                )
+                            )
+                            {
+                                return false;
+                            }
+                        }
+                        visited.Add(points[index]);
+                    }
+                    return true;
+                }
+            }
 
             public IntRect boundingRect => IntRect.BoundingRect(from line in _lines select line.boundingRect);
 

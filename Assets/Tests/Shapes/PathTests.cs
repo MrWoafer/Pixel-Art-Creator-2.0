@@ -314,6 +314,52 @@ namespace PAC.Tests
 
         [Test]
         [Category("Shapes")]
+        public void IsSimplePolygon()
+        {
+            (bool isSimplePolygon, Shapes.Path path)[] testCases =
+            {
+                (true, new Shapes.Path(IntVector2.zero, IntVector2.up, IntVector2.upRight, IntVector2.right, IntVector2.zero)),
+                (true, new Shapes.Path(IntVector2.downLeft, IntVector2.upLeft, IntVector2.upRight, IntVector2.downRight, IntVector2.downLeft)),
+                (true, new Shapes.Path(IntVector2.zero, IntVector2.upRight, IntVector2.right, IntVector2.zero)),
+                (true, new Shapes.Path(IntVector2.zero, IntVector2.zero)),
+                (true, new Shapes.Path(IntVector2.zero, IntVector2.zero, IntVector2.zero)),
+                (true, new Shapes.Path(IntVector2.zero, IntVector2.right, IntVector2.zero)),
+                (true, new Shapes.Path(IntVector2.zero, new IntVector2(5, 0), IntVector2.zero)),
+                (true, new Shapes.Path(IntVector2.zero, new IntVector2(5, 0), new IntVector2(0, 7), new IntVector2(0, -4), IntVector2.zero)),
+                (true, new Shapes.Path(IntVector2.zero, new IntVector2(5, 0), new IntVector2(0, 7), new IntVector2(0, -4), new IntVector2(4, -4), IntVector2.zero)),
+                (true, new Shapes.Path(IntVector2.zero, new IntVector2(5, 0), new IntVector2(-1, 7), new IntVector2(-1, -4), new IntVector2(4, -4), new IntVector2(3, 0), IntVector2.zero)),
+                (true, new Shapes.Path(IntVector2.zero, new IntVector2(5, 0), new IntVector2(0, 7), new IntVector2(0, -4), new IntVector2(4, -4), new IntVector2(3, 0), IntVector2.zero)),
+                (false, new Shapes.Path(new IntVector2(5, 0), new IntVector2(0, 7), new IntVector2(0, -4), new IntVector2(-4, 0), new IntVector2(5, 0))),
+                (false, new Shapes.Path(IntVector2.zero, new IntVector2(5, 0), new IntVector2(0, 7), new IntVector2(0, -4), new IntVector2(-4, 0), IntVector2.zero)),
+                (false, new Shapes.Path(IntVector2.zero, new IntVector2(5, 0), new IntVector2(0, 7), new IntVector2(0, -4), new IntVector2(-4, -4), IntVector2.zero)),
+                (true, new Shapes.Path(IntVector2.zero, new IntVector2(2, 0), new IntVector2(1, 0), new IntVector2(1, 1), new IntVector2(1, 0))),
+                (true, new Shapes.Path(IntVector2.zero, new IntVector2(2, 0), new IntVector2(1, 0), new IntVector2(1, 1), new IntVector2(1, -1))),
+                (false, new Shapes.Path(IntVector2.zero, new IntVector2(2, 0), new IntVector2(1, 1), new IntVector2(1, -1))),
+            };
+
+            foreach ((bool isSimplePolygon, Shapes.Path path) in testCases)
+            {
+                Assert.AreEqual(isSimplePolygon, path.isSimplePolygon, "Failed with " + path);
+            }
+
+            // Check that simple polygons must be loops
+            foreach (Shapes.Path path in RandomTestCases(1_000, false))
+            {
+                Assert.False(path.isSimplePolygon, "Failed with " + path);
+            }
+
+            foreach (Shapes.Path path in RandomTestCases(1_000, true))
+            {
+                // Check the logical implication 'not self-intersecting => simple polygon'
+                if (!path.selfIntersects)
+                {
+                    Assert.True(path.isSimplePolygon, "Failed with " + path);
+                }
+            }
+        }
+
+        [Test]
+        [Category("Shapes")]
         public void WindingNumber()
         {
             (Shapes.Path path, (int windingNumber, IntVector2 point)[])[] testCases =
