@@ -386,6 +386,16 @@ namespace PAC.Tests
                 throw new NotImplementedException("Unknown / unimplemented FlipAxis: " + axis);
             }
         }
+
+        /// <summary>
+        /// Tests that the shape has 180-degree rotational symmetry.
+        /// </summary>
+        public static void RotationalSymmetry180(Shapes.IIsometricShape shape)
+        {
+            CollectionAssert.AreEquivalent(shape,shape.Select(p =>
+                p.Flip(FlipAxis.Vertical).Flip(FlipAxis.Horizontal) + shape.boundingRect.bottomLeft - shape.boundingRect.Flip(FlipAxis.Vertical).Flip(FlipAxis.Horizontal).bottomLeft),
+                "Failed with " + shape);
+        }
     }
 
     /// <summary>
