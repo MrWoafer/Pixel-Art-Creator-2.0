@@ -40,9 +40,18 @@ namespace PAC.Tests
                     lines[^1].end + new IntRect(new IntVector2(-1, -1), new IntVector2(1, 1)).RandomPoint(),
                     lines[0].start + new IntRect(new IntVector2(-1, -1), new IntVector2(1, 1)).RandomPoint()
                     ));
-            }
 
-            return new Shapes.Path(lines);
+                return new Shapes.Path(lines);
+            }
+            else
+            {
+                Shapes.Path path = new Shapes.Path(lines);
+                while (path.isLoop)
+                {
+                    return RandomPath(length, false);
+                }
+                return path;
+            }
         }
 
         [Test]
