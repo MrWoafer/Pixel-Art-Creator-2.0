@@ -38,15 +38,19 @@ namespace PAC.Extensions
         }
 
         /// <summary>
-        /// Creates a new IEnumerable that iterates through all of this one, then all of second, etc.
+        /// Creates a new IEnumerable that iterates through all of this one, then all of second, etc. Extends the LINQ Concat() method to concat multiple IEnumerables.
         /// </summary>
-        public static IEnumerable<T> Chain<T>(this IEnumerable<T> first, IEnumerable<T> second, params IEnumerable<T>[] subsequent)
+        public static IEnumerable<T> Concat<T>(this IEnumerable<T> first, IEnumerable<T> second, IEnumerable<T> third, params IEnumerable<T>[] subsequent)
         {
             foreach (T element in first)
             {
                 yield return element;
             }
             foreach (T element in second)
+            {
+                yield return element;
+            }
+            foreach (T element in third)
             {
                 yield return element;
             }
