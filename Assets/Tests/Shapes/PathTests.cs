@@ -208,6 +208,70 @@ namespace PAC.Tests
 
         [Test]
         [Category("Shapes")]
+        public void MinX()
+        {
+            foreach (Shapes.Path path in testCases)
+            {
+                for (int y = path.boundingRect.bottomLeft.y; y <= path.boundingRect.topRight.y; y++)
+                {
+                    Assert.AreEqual(path.Where(p => p.y == y).Min(p => p.x), path.MinX(y), "Failed with " + path + " and y = " + y);
+                }
+
+                Assert.Throws<ArgumentOutOfRangeException>(() => path.MinX(path.boundingRect.bottomLeft.y - 1));
+                Assert.Throws<ArgumentOutOfRangeException>(() => path.MinX(path.boundingRect.topRight.y + 1));
+            }
+        }
+
+        [Test]
+        [Category("Shapes")]
+        public void MaxX()
+        {
+            foreach (Shapes.Path path in testCases)
+            {
+                for (int y = path.boundingRect.bottomLeft.y; y <= path.boundingRect.topRight.y; y++)
+                {
+                    Assert.AreEqual(path.Where(p => p.y == y).Max(p => p.x), path.MaxX(y), "Failed with " + path + " and y = " + y);
+                }
+
+                Assert.Throws<ArgumentOutOfRangeException>(() => path.MaxX(path.boundingRect.bottomLeft.y - 1));
+                Assert.Throws<ArgumentOutOfRangeException>(() => path.MaxX(path.boundingRect.topRight.y + 1));
+            }
+        }
+
+        [Test]
+        [Category("Shapes")]
+        public void MinY()
+        {
+            foreach (Shapes.Path path in testCases)
+            {
+                for (int x = path.boundingRect.bottomLeft.x; x <= path.boundingRect.topRight.x; x++)
+                {
+                    Assert.AreEqual(path.Where(p => p.x == x).Min(p => p.y), path.MinY(x), "Failed with " + path + " and x = " + x);
+                }
+
+                Assert.Throws<ArgumentOutOfRangeException>(() => path.MinY(path.boundingRect.bottomLeft.x - 1));
+                Assert.Throws<ArgumentOutOfRangeException>(() => path.MinY(path.boundingRect.topRight.x + 1));
+            }
+        }
+
+        [Test]
+        [Category("Shapes")]
+        public void MaxY()
+        {
+            foreach (Shapes.Path path in testCases)
+            {
+                for (int x = path.boundingRect.bottomLeft.x; x <= path.boundingRect.topRight.x; x++)
+                {
+                    Assert.AreEqual(path.Where(p => p.x == x).Max(p => p.y), path.MaxY(x), "Failed with " + path + " and x = " + x);
+                }
+
+                Assert.Throws<ArgumentOutOfRangeException>(() => path.MaxY(path.boundingRect.bottomLeft.x - 1));
+                Assert.Throws<ArgumentOutOfRangeException>(() => path.MaxY(path.boundingRect.topRight.x + 1));
+            }
+        }
+
+        [Test]
+        [Category("Shapes")]
         public void WindingNumber()
         {
             (Shapes.Path path, (int windingNumber, IntVector2 point)[])[] testCases =
