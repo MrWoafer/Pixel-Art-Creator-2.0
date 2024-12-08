@@ -390,17 +390,36 @@ namespace PAC.Tests
                     new Shapes.Line(new IntVector2(4, 1), new IntVector2(6, 1)),
                     new Shapes.Line(new IntVector2(7, 2), new IntVector2(3, 10)),
                     new Shapes.Line(new IntVector2(3, 10), IntVector2.zero)
-                ),
-                new (int, IntVector2)[] {
-                    (1, new IntVector2(3, 1)),
-                    (1, new IntVector2(2, 2)),
-                    (1, new IntVector2(5, 2)),
-                    (1, new IntVector2(3, 7)),
-                    (0, new IntVector2(0, 6)),
-                    (0, new IntVector2(-1, 0)),
-                    (0, new IntVector2(-3, 1)),
-                    (0, new IntVector2(-1, 2))
-                }),
+                    ),
+                    new (int, IntVector2)[] {
+                        (1, new IntVector2(3, 1)),
+                        (1, new IntVector2(2, 2)),
+                        (1, new IntVector2(5, 2)),
+                        (1, new IntVector2(3, 7)),
+                        (0, new IntVector2(0, 6)),
+                        (0, new IntVector2(-1, 0)),
+                        (0, new IntVector2(-3, 1)),
+                        (0, new IntVector2(-1, 2))
+                    }),
+                (new Shapes.Path(
+                    new Shapes.Line(IntVector2.zero, IntVector2.zero),
+                    new Shapes.Line(IntVector2.zero, IntVector2.one)
+                    ),
+                    new (int, IntVector2)[] {
+                        (0, new IntVector2(0, 1)),
+                        (0, new IntVector2(-1, 0)),
+                        (0, new IntVector2(-1, 1))
+                    }),
+                (new Shapes.Path(
+                    new Shapes.Line(IntVector2.zero, new IntVector2(5, 0)),
+                    new Shapes.Line(new IntVector2(5, 0), IntVector2.zero)
+                    ),
+                    new (int, IntVector2)[] {
+                        (0, new IntVector2(0, 1)),
+                        (0, new IntVector2(0, -1)),
+                        (0, new IntVector2(-1, 0)),
+                        (0, new IntVector2(6, 0))
+                    })
             };
 
             foreach ((Shapes.Path path, (int, IntVector2)[] pathTestCases) in testCases)
@@ -417,6 +436,74 @@ namespace PAC.Tests
             // Winding number of point on path is undefined
             Assert.Throws<ArgumentException>(() => new Shapes.Path(IntVector2.zero).WindingNumber(IntVector2.zero));
             Assert.Throws<ArgumentException>(() => new Shapes.Path(IntVector2.zero, IntVector2.right, new IntVector2(1, 2), IntVector2.zero).WindingNumber(IntVector2.one));
+
+            // Check it correctly determines whether the winding number is non-zero for simple polygons (those that don't self-intersect)
+            foreach (Shapes.Path path in RandomTestCases(1_000, true))
+            {
+                if (!path.isSimplePolygon)
+                {
+                    continue;
+                }
+
+                HashSet<IntVector2> pixels = path.ToHashSet();
+                IntRect boundingRect = path.boundingRect;
+                boundingRect = new IntRect(boundingRect.bottomLeft + IntVector2.downLeft, boundingRect.topRight + IntVector2.upRight);
+
+                foreach (IntVector2 pixel in boundingRect)
+                {
+                    if (pixels.Contains(pixel))
+                    {
+                        continue;
+                    }
+
+                    bool outside = false;
+                    bool hitLine = false;
+                    for (IntVector2 check = pixel; boundingRect.Contains(check); check += IntVector2.up)
+                    {
+                        if (pixels.Contains(check))
+                        {
+                            hitLine = true;
+                            break;
+                        }
+                    }
+                    outside |= !hitLine;
+
+                    hitLine = false;
+                    for (IntVector2 check = pixel; boundingRect.Contains(check); check += IntVector2.down)
+                    {
+                        if (pixels.Contains(check))
+                        {
+                            hitLine = true;
+                            break;
+                        }
+                    }
+
+                    outside |= !hitLine;
+                    hitLine = false;
+                    for (IntVector2 check = pixel; boundingRect.Contains(check); check += IntVector2.left)
+                    {
+                        if (pixels.Contains(check))
+                        {
+                            hitLine = true;
+                            break;
+                        }
+                    }
+                    outside |= !hitLine;
+
+                    hitLine = false;
+                    for (IntVector2 check = pixel; boundingRect.Contains(check); check += IntVector2.right)
+                    {
+                        if (pixels.Contains(check))
+                        {
+                            hitLine = true;
+                            break;
+                        }
+                    }
+                    outside |= !hitLine;
+
+                    Assert.AreEqual(outside, path.WindingNumber(pixel) == 0, "Failed with " + path + " and " + pixel);
+                }
+            }
         }
     }
 }
