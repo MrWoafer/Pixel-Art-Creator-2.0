@@ -179,6 +179,11 @@ namespace PAC.Extensions
         }
 
         /// <summary>
+        /// Returns the number of distinct elements in the IEnumerable.
+        /// </summary>
+        public static int CountDistinct<T>(this IEnumerable<T> elements) => elements.ToHashSet().Count;
+
+        /// <summary>
         /// Applies the function to each element and returns the element that gives the lowest output. If multiple elements give the lowest output, the first one will be returned.
         /// </summary>
         public static TElement ArgMin<TElement, TCompare>(this IEnumerable<TElement> elements, Func<TElement, TCompare> function) where TCompare : IComparable<TCompare>
