@@ -86,11 +86,11 @@ namespace PAC.Drawing
             /// <summary>
             /// Translates the shape by the given vector.
             /// </summary>
-            public static IShape operator +(IntVector2 translation, IShape shape) => shape + translation;
+            public static IShape operator +(IShape shape, IntVector2 translation) => shape.Translate(translation);
             /// <summary>
             /// Translates the shape by the given vector.
             /// </summary>
-            public static IShape operator +(IShape shape, IntVector2 translation) => shape.Translate(translation);
+            public static IShape operator +(IntVector2 translation, IShape shape) => shape + translation;
             /// <summary>
             /// Translates the shape by the given vector.
             /// </summary>
@@ -117,11 +117,11 @@ namespace PAC.Drawing
             /// <summary>
             /// Translates the shape by the given vector.
             /// </summary>
-            public static IRotatableShape operator +(IntVector2 translation, IRotatableShape shape) => shape + translation;
+            public static IRotatableShape operator +(IRotatableShape shape, IntVector2 translation) => shape.Translate(translation);
             /// <summary>
             /// Translates the shape by the given vector.
             /// </summary>
-            public static IRotatableShape operator +(IRotatableShape shape, IntVector2 translation) => shape.Translate(translation);
+            public static IRotatableShape operator +(IntVector2 translation, IRotatableShape shape) => shape + translation;
             /// <summary>
             /// Translates the shape by the given vector.
             /// </summary>
@@ -155,11 +155,11 @@ namespace PAC.Drawing
             /// <summary>
             /// Translates the shape by the given vector.
             /// </summary>
-            public static I1DShape operator +(IntVector2 translation, I1DShape shape) => shape + translation;
+            public static I1DShape operator +(I1DShape shape, IntVector2 translation) => shape.Translate(translation);
             /// <summary>
             /// Translates the shape by the given vector.
             /// </summary>
-            public static I1DShape operator +(I1DShape shape, IntVector2 translation) => shape.Translate(translation);
+            public static I1DShape operator +(IntVector2 translation, I1DShape shape) => shape + translation;
             /// <summary>
             /// Translates the shape by the given vector.
             /// </summary>
@@ -660,11 +660,11 @@ namespace PAC.Drawing
             /// <summary>
             /// Translates the line by the given vector.
             /// </summary>
-            public static Line operator +(IntVector2 translation, Line line) => line + translation;
+            public static Line operator +(Line line, IntVector2 translation) => line.Translate(translation);
             /// <summary>
             /// Translates the line by the given vector.
             /// </summary>
-            public static Line operator +(Line line, IntVector2 translation) => line.Translate(translation);
+            public static Line operator +(IntVector2 translation, Line line) => line + translation;
             /// <summary>
             /// Translates the line by the given vector.
             /// </summary>
@@ -1311,11 +1311,11 @@ namespace PAC.Drawing
             /// <summary>
             /// Translates the path by the given vector.
             /// </summary>
-            public static Path operator +(IntVector2 translation, Path path) => path + translation;
+            public static Path operator +(Path path, IntVector2 translation) => path.Translate(translation);
             /// <summary>
             /// Translates the path by the given vector.
             /// </summary>
-            public static Path operator +(Path path, IntVector2 translation) => path.Translate(translation);
+            public static Path operator +(IntVector2 translation, Path path) => path + translation;
             /// <summary>
             /// Translates the path by the given vector.
             /// </summary>
@@ -1613,11 +1613,11 @@ namespace PAC.Drawing
             /// <summary>
             /// Translates the shape by the given vector.
             /// </summary>
-            public static IFillableShape operator +(IntVector2 translation, IFillableShape shape) => shape + translation;
+            public static IFillableShape operator +(IFillableShape shape, IntVector2 translation) => shape.Translate(translation);
             /// <summary>
             /// Translates the shape by the given vector.
             /// </summary>
-            public static IFillableShape operator +(IFillableShape shape, IntVector2 translation) => shape.Translate(translation);
+            public static IFillableShape operator +(IntVector2 translation, IFillableShape shape) => shape + translation;
             /// <summary>
             /// Translates the shape by the given vector.
             /// </summary>
@@ -1647,11 +1647,11 @@ namespace PAC.Drawing
             /// <summary>
             /// Translates the shape by the given vector.
             /// </summary>
-            public static I2DShape operator +(IntVector2 translation, I2DShape shape) => shape + translation;
+            public static I2DShape operator +(I2DShape shape, IntVector2 translation) => shape.Translate(translation);
             /// <summary>
             /// Translates the shape by the given vector.
             /// </summary>
-            public static I2DShape operator +(I2DShape shape, IntVector2 translation) => shape.Translate(translation);
+            public static I2DShape operator +(IntVector2 translation, I2DShape shape) => shape + translation;
             /// <summary>
             /// Translates the shape by the given vector.
             /// </summary>
@@ -1760,11 +1760,11 @@ namespace PAC.Drawing
             /// <summary>
             /// Translates the rectangle by the given vector.
             /// </summary>
-            public static Rectangle operator +(IntVector2 translation, Rectangle rectangle) => rectangle + translation;
+            public static Rectangle operator +(Rectangle rectangle, IntVector2 translation) => rectangle.Translate(translation);
             /// <summary>
             /// Translates the rectangle by the given vector.
             /// </summary>
-            public static Rectangle operator +(Rectangle rectangle, IntVector2 translation) => rectangle.Translate(translation);
+            public static Rectangle operator +(IntVector2 translation, Rectangle rectangle) => rectangle + translation;
             /// <summary>
             /// Translates the rectangle by the given vector.
             /// </summary>
@@ -2042,11 +2042,11 @@ namespace PAC.Drawing
             /// <summary>
             /// Translates the diamond by the given vector.
             /// </summary>
-            public static Diamond operator +(IntVector2 translation, Diamond diamond) => diamond + translation;
+            public static Diamond operator +(Diamond diamond, IntVector2 translation) => diamond.Translate(translation);
             /// <summary>
             /// Translates the diamond by the given vector.
             /// </summary>
-            public static Diamond operator +(Diamond diamond, IntVector2 translation) => diamond.Translate(translation);
+            public static Diamond operator +(IntVector2 translation, Diamond diamond) => diamond + translation;
             /// <summary>
             /// Translates the diamond by the given vector.
             /// </summary>
@@ -2281,11 +2281,11 @@ namespace PAC.Drawing
             /// <summary>
             /// Translates the ellipse by the given vector.
             /// </summary>
-            public static Ellipse operator +(IntVector2 translation, Ellipse ellipse) => ellipse + translation;
+            public static Ellipse operator +(Ellipse ellipse, IntVector2 translation) => ellipse.Translate(translation);
             /// <summary>
             /// Translates the ellipse by the given vector.
             /// </summary>
-            public static Ellipse operator +(Ellipse ellipse, IntVector2 translation) => ellipse.Translate(translation);
+            public static Ellipse operator +(IntVector2 translation, Ellipse ellipse) => ellipse + translation;
             /// <summary>
             /// Translates the ellipse by the given vector.
             /// </summary>
@@ -2684,11 +2684,11 @@ namespace PAC.Drawing
             /// <summary>
             /// Translates the triangle by the given vector.
             /// </summary>
-            public static RightTriangle operator +(IntVector2 translation, RightTriangle triangle) => triangle + translation;
+            public static RightTriangle operator +(RightTriangle triangle, IntVector2 translation) => triangle.Translate(translation);
             /// <summary>
             /// Translates the triangle by the given vector.
             /// </summary>
-            public static RightTriangle operator +(RightTriangle triangle, IntVector2 translation) => triangle.Translate(translation);
+            public static RightTriangle operator +(IntVector2 translation, RightTriangle triangle) => triangle + translation;
             /// <summary>
             /// Translates the triangle by the given vector.
             /// </summary>
@@ -2870,11 +2870,11 @@ namespace PAC.Drawing
             /// <summary>
             /// Translates the shape by the given vector.
             /// </summary>
-            public static IIsometricShape operator +(IntVector2 translation, IIsometricShape shape) => shape + translation;
+            public static IIsometricShape operator +(IIsometricShape shape, IntVector2 translation) => shape.Translate(translation);
             /// <summary>
             /// Translates the shape by the given vector.
             /// </summary>
-            public static IIsometricShape operator +(IIsometricShape shape, IntVector2 translation) => shape.Translate(translation);
+            public static IIsometricShape operator +(IntVector2 translation, IIsometricShape shape) => shape + translation;
             /// <summary>
             /// Translates the shape by the given vector.
             /// </summary>
@@ -3355,11 +3355,11 @@ namespace PAC.Drawing
             /// <summary>
             /// Translates the isometric rectangle by the given vector.
             /// </summary>
-            public static IsometricRectangle operator +(IntVector2 translation, IsometricRectangle isoRectangle) => isoRectangle + translation;
+            public static IsometricRectangle operator +(IsometricRectangle isoRectangle, IntVector2 translation) => isoRectangle.Translate(translation);
             /// <summary>
             /// Translates the isometric rectangle by the given vector.
             /// </summary>
-            public static IsometricRectangle operator +(IsometricRectangle isoRectangle, IntVector2 translation) => isoRectangle.Translate(translation);
+            public static IsometricRectangle operator +(IntVector2 translation, IsometricRectangle isoRectangle) => isoRectangle + translation;
             /// <summary>
             /// Translates the isometric rectangle by the given vector.
             /// </summary>
