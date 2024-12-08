@@ -2773,8 +2773,9 @@ namespace PAC.Drawing
                 {
                     if (startCorner.x == endCorner.x)
                     {
-                        IntVector2 leftCorner = new IntVector2(startCorner.x - 1, Math.Min(startCorner.y, endCorner.y));
-                        IntVector2 rightCorner = new IntVector2(startCorner.x + 1, Math.Max(startCorner.y, endCorner.y));
+                        IntRect rect = new IntRect(startCorner, endCorner);
+                        IntVector2 leftCorner = rect.bottomLeft + IntVector2.left;
+                        IntVector2 rightCorner = rect.topRight + IntVector2.right;
                         inferredCorners = new IntVector2[] { startCorner, endCorner, leftCorner, rightCorner };
                         border = new Path(leftCorner, rightCorner + IntVector2.down, rightCorner, leftCorner + IntVector2.up, leftCorner);
                         return;
