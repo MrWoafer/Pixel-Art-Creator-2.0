@@ -146,8 +146,8 @@ namespace PAC.Drawing
             /// </summary>
             public I1DShape Rotate(RotationAngle angle);
 
-            IShape IShape.DeepCopy() => DeepCopy();
             public new I1DShape DeepCopy();
+            IShape IShape.DeepCopy() => DeepCopy();
         }
 
         /// <summary>
@@ -1637,8 +1637,8 @@ namespace PAC.Drawing
             /// </summary>
             public I2DShape Rotate(RotationAngle angle);
 
-            IFillableShape IFillableShape.DeepCopy() => DeepCopy();
             public new I2DShape DeepCopy();
+            IFillableShape IFillableShape.DeepCopy() => DeepCopy();
         }
 
         public class Rectangle : I2DShape
@@ -2849,8 +2849,8 @@ namespace PAC.Drawing
             public new IIsometricShape Flip(FlipAxis axis);
             IFillableShape IFillableShape.Flip(FlipAxis axis) => Flip(axis);
 
-            IFillableShape IFillableShape.DeepCopy() => DeepCopy();
             public new IIsometricShape DeepCopy();
+            IFillableShape IFillableShape.DeepCopy() => DeepCopy();
         }
 
         public class IsometricRectangle : IIsometricShape
