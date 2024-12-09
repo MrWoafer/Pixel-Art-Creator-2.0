@@ -316,5 +316,31 @@ namespace PAC.Tests
                 Assert.Throws<ArgumentOutOfRangeException>(() => line.MaxY(line.boundingRect.topRight.x + 1));
             }
         }
+
+        [Test]
+        [Category("Shapes")]
+        public void CountOnX()
+        {
+            foreach (Shapes.Line line in testCases)
+            {
+                for (int x = line.boundingRect.bottomLeft.x - 2; x <= line.boundingRect.topRight.x + 2; x++)
+                {
+                    Assert.AreEqual(line.Count(p => p.x == x), line.CountOnX(x), "Failed with " + line + " and x = " + x);
+                }
+            }
+        }
+
+        [Test]
+        [Category("Shapes")]
+        public void CountOnY()
+        {
+            foreach (Shapes.Line line in testCases)
+            {
+                for (int y = line.boundingRect.bottomLeft.y - 2; y <= line.boundingRect.topRight.y + 2; y++)
+                {
+                    Assert.AreEqual(line.Count(p => p.y == y), line.CountOnY(y), "Failed with " + line + " and y = " + y);
+                }
+            }
+        }
     }
 }
