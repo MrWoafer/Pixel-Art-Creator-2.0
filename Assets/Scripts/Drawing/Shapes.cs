@@ -1020,7 +1020,7 @@ namespace PAC.Drawing
                 }
             }
 
-            public IntRect boundingRect => IntRect.BoundingRect(from line in _lines select line.boundingRect);
+            public IntRect boundingRect => IntRect.BoundingRect(_lines.Select(l => l.boundingRect));
 
             public int Count
             {
