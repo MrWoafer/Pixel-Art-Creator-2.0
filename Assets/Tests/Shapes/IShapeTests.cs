@@ -44,7 +44,7 @@ namespace PAC.Tests
         }
 
         /// <summary>
-        /// The default implementation tests that the Count property matches the number of distinct pixels in the enumerator.
+        /// The default implementation tests that the Count property matches the length of the enumerator.
         /// </summary>
         [Test]
         [Category("Shapes")]
@@ -52,7 +52,7 @@ namespace PAC.Tests
         {
             foreach (T shape in testCases)
             {
-                IShapeTestHelper.CountDistinct(shape);
+                IShapeTestHelper.Count(shape);
             }
         }
 
@@ -247,6 +247,14 @@ namespace PAC.Tests
         public static void BoundingRect(Shapes.IShape shape)
         {
             Assert.AreEqual(IntRect.BoundingRect(shape), shape.boundingRect, "Failed with " + shape);
+        }
+
+        /// <summary>
+        /// Tests that the shape's Count property matches the length of its enumerator.
+        /// </summary>
+        public static void Count(Shapes.IShape shape)
+        {
+            Assert.AreEqual(shape.Count(), shape.Count, "Failed with " + shape);
         }
 
         /// <summary>

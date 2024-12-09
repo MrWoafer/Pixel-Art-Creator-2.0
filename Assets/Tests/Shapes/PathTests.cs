@@ -179,14 +179,14 @@ namespace PAC.Tests
             {
                 Assert.AreEqual(expected, path.Count, "Failed with " + path);
                 // Check that what we have implemented Count to count is the number of pixels in the IEnumerable
-                Assert.AreEqual(((IEnumerable<IntVector2>)path).Count(), path.Count, "Failed with " + path);
+                IShapeTestHelper.Count(path);
             }
 
             // Random tests
 
             foreach (Shapes.Path path in RandomTestCases(2_000))
             {
-                Assert.AreEqual(((IEnumerable<IntVector2>)path).Count(), path.Count, "Failed with " + path);
+                IShapeTestHelper.Count(path);
             }
         }
 
