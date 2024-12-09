@@ -1108,10 +1108,12 @@ namespace PAC.Drawing
                         return count;
                     }
 
+                    IntVector2 previousPixel = _lines[0].end;
+
                     // Middle lines (not first or last)
                     for (int i = 1; i < _lines.Count - 1; i++)
                     {
-                        if (_lines[i - 1].end == _lines[i].start)
+                        if ( _lines[i].start == previousPixel)
                         {
                             count += _lines[i].Count - 1;
                         }
@@ -1119,12 +1121,13 @@ namespace PAC.Drawing
                         {
                             count += _lines[i].Count;
                         }
+                        previousPixel = _lines[i].end;
                     }
 
                     // Last line
                     int start = 0;
                     int end = _lines[^1].Count;
-                    if (_lines[^2].end == _lines[^1].start)
+                    if (_lines[^1].start == previousPixel)
                     {
                         start++;
                     }
