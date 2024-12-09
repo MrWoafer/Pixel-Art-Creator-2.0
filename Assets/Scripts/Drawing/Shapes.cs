@@ -3076,15 +3076,21 @@ namespace PAC.Drawing
                         IntVector2 topCorner = adjustedEndCorner - offset;
 
                         inferredCorners = new IntVector2[] { startCorner, endCorner, bottomCorner, topCorner };
-                        lowerBorder = new Path(
+                        lowerBorder = new Path(new Line[] {
                             new Line(startCorner, bottomCorner),
                             new Line(bottomCorner + new IntVector2(sign.x, 1), endCorner - new IntVector2(sign.x, 1)),
                             new Line(endCorner, endCorner)
+                            }
+                            // Remove any lines that go in the wrong direction (possible when bottomCorner and endCorner are diagonally adjacent).
+                            // This doesn't affect how it looks, but it's useful for making the enumerator not repeat any pixels.
+                            .Where(l => l.vector.sign.x != -Math.Sign(endCorner.x - startCorner.x))
                             );
-                        upperBorder = new Path(
+                        upperBorder = new Path(new Line[] {
                             new Line(endCorner, endCorner),
                             new Line(endCorner + new IntVector2(-sign.x, 1), topCorner),
                             new Line(topCorner - new IntVector2(sign.x, 1), startCorner)
+                            }
+                            .Where(l => l.vector.sign.x != -Math.Sign(startCorner.x - endCorner.x))
                             );
                     }
                     else if (shapeType == 1)
@@ -3097,13 +3103,17 @@ namespace PAC.Drawing
                         IntVector2 topCorner = endCorner - offset;
 
                         inferredCorners = new IntVector2[] { startCorner, endCorner, bottomCorner, topCorner };
-                        lowerBorder = new Path(
+                        lowerBorder = new Path(new Line[] {
                             new Line(startCorner, bottomCorner),
                             new Line(bottomCorner + new IntVector2(sign.x, 1), endCorner)
+                            }
+                            .Where(l => l.vector.sign.x != -Math.Sign(endCorner.x - startCorner.x))
                             );
-                        upperBorder = new Path(
+                        upperBorder = new Path(new Line[] {
                             new Line(endCorner, topCorner),
                             new Line(topCorner - new IntVector2(sign.x, 1), startCorner)
+                            }
+                            .Where(l => l.vector.sign.x != -Math.Sign(startCorner.x - endCorner.x))
                             );
                     }
                     else if (shapeType == 2)
@@ -3116,13 +3126,17 @@ namespace PAC.Drawing
                         IntVector2 topCorner = endCorner - offset;
 
                         inferredCorners = new IntVector2[] { startCorner, endCorner, bottomCorner, topCorner };
-                        lowerBorder = new Path(
+                        lowerBorder = new Path(new Line[] {
                             new Line(startCorner, bottomCorner),
                             new Line(bottomCorner, endCorner)
+                            }
+                            .Where(l => l.vector.sign.x != -Math.Sign(endCorner.x - startCorner.x))
                             );
-                        upperBorder = new Path(
+                        upperBorder = new Path(new Line[] {
                             new Line(endCorner, topCorner),
                             new Line(topCorner, startCorner)
+                            }
+                            .Where(l => l.vector.sign.x != -Math.Sign(startCorner.x - endCorner.x))
                             );
                     }
                     else if (shapeType == 3)
@@ -3135,17 +3149,21 @@ namespace PAC.Drawing
                         IntVector2 topCorner = adjustedEndCorner - offset;
 
                         inferredCorners = new IntVector2[] { startCorner, endCorner, bottomCorner, topCorner };
-                        lowerBorder = new Path(
+                        lowerBorder = new Path(new Line[] {
                             new Line(startCorner, startCorner),
                             new Line(startCorner + new IntVector2(sign.x, -1), bottomCorner),
                             new Line(bottomCorner + new IntVector2(sign.x, 1), endCorner - new IntVector2(sign.x, 1)),
                             new Line(endCorner, endCorner)
+                            }
+                            .Where(l => l.vector.sign.x != -Math.Sign(endCorner.x - startCorner.x))
                             );
-                        upperBorder = new Path(
+                        upperBorder = new Path(new Line[] {
                             new Line(endCorner, endCorner),
                             new Line(endCorner + new IntVector2(-sign.x, 1), topCorner),
                             new Line(topCorner - new IntVector2(sign.x, 1), startCorner + new IntVector2(sign.x, 1)),
                             new Line(startCorner, startCorner)
+                            }
+                            .Where(l => l.vector.sign.x != -Math.Sign(startCorner.x - endCorner.x))
                             );
                     }
                     else
@@ -3233,17 +3251,21 @@ namespace PAC.Drawing
                             IntVector2 corner2 = topCorner - offset;
 
                             inferredCorners = new IntVector2[] { bottomCorner, topCorner, corner1, corner2 };
-                            lowerBorder = new Path(
+                            lowerBorder = new Path(new Line[] {
                                 new Line(corner2, corner2),
                                 new Line(corner2 + new IntVector2(sign.x, -1), bottomCorner),
                                 new Line(bottomCorner, corner1 - new IntVector2(sign.x, 1)),
                                 new Line(corner1, corner1)
+                                }
+                                .Where(l => l.vector.sign.x != -Math.Sign(corner1.x - corner2.x))
                                 );
-                            upperBorder = new Path(
+                            upperBorder = new Path(new Line[] {
                                 new Line(corner1, corner1),
                                 new Line(corner1 - new IntVector2(sign.x, -1), topCorner),
                                 new Line(topCorner, corner2 + new IntVector2(sign.x, 1)),
                                 new Line(corner2, corner2)
+                                }
+                                .Where(l => l.vector.sign.x != -Math.Sign(corner2.x - corner1.x))
                                 );
                         }
                     }
@@ -3257,17 +3279,21 @@ namespace PAC.Drawing
                         IntVector2 corner2 = topCorner - offset;
 
                         inferredCorners = new IntVector2[] { bottomCorner, topCorner, corner1, corner2 };
-                        lowerBorder = new Path(
+                        lowerBorder = new Path(new Line[] {
                             new Line(corner2, corner2),
                             new Line(corner2 + new IntVector2(sign.x, -1), bottomCorner + new IntVector2(-sign.x, 1)),
                             new Line(bottomCorner, corner1 - new IntVector2(sign.x, 1)),
                             new Line(corner1, corner1)
+                            }
+                            .Where(l => l.vector.sign.x != -Math.Sign(corner1.x - corner2.x))
                             );
-                        upperBorder = new Path(
+                        upperBorder = new Path(new Line[] {
                             new Line(corner1, corner1),
                             new Line(corner1 - new IntVector2(sign.x, -1), topCorner - new IntVector2(-sign.x, 1)),
                             new Line(topCorner, corner2 + new IntVector2(sign.x, 1)),
                             new Line(corner2, corner2)
+                            }
+                            .Where(l => l.vector.sign.x != -Math.Sign(corner2.x - corner1.x))
                             );
                     }
                     else if (shapeType == 2)
@@ -3309,17 +3335,21 @@ namespace PAC.Drawing
                             IntVector2 corner2 = topCorner - offset;
 
                             inferredCorners = new IntVector2[] { bottomCorner, topCorner, corner1, corner2 };
-                            lowerBorder = new Path(
+                            lowerBorder = new Path(new Line[] {
                                 new Line(corner2 + IntVector2.down, corner2 + IntVector2.down),
                                 new Line(corner2 + new IntVector2(sign.x, -2 * 1), bottomCorner),
                                 new Line(bottomCorner, corner1 - new IntVector2(sign.x, 1)),
                                 new Line(corner1, corner1)
+                                }
+                                .Where(l => l.vector.sign.x != -Math.Sign(corner1.x - corner2.x))
                                 );
-                            upperBorder = new Path(
+                            upperBorder = new Path(new Line[] {
                                 new Line(corner1 + IntVector2.up, corner1 + IntVector2.up),
                                 new Line(corner1 - new IntVector2(sign.x, -2 * 1), topCorner),
                                 new Line(topCorner, corner2 + new IntVector2(sign.x, 1)),
                                 new Line(corner2, corner2)
+                                }
+                                .Where(l => l.vector.sign.x != -Math.Sign(corner2.x - corner1.x))
                                 );
                         }
                     }
@@ -3335,17 +3365,21 @@ namespace PAC.Drawing
                         IntVector2 corner2 = topCorner - offset;
 
                         inferredCorners = new IntVector2[] { bottomCorner, topCorner, corner1, corner2 };
-                        lowerBorder = new Path(
+                        lowerBorder = new Path(new Line[] {
                             new Line(corner2 + IntVector2.down, corner2 + IntVector2.down),
                             new Line(corner2 + new IntVector2(sign.x, -2 * 1), bottomCorner + new IntVector2(-sign.x, 1)),
                             new Line(bottomCorner, corner1 - new IntVector2(sign.x, 1)),
                             new Line(corner1, corner1)
+                            }
+                            .Where(l => l.vector.sign.x != -Math.Sign(corner1.x - corner2.x))
                             );
-                        upperBorder = new Path(
+                        upperBorder = new Path(new Line[] {
                             new Line(corner1 + IntVector2.up, corner1 + IntVector2.up),
                             new Line(corner1 - new IntVector2(sign.x, -2 * 1), topCorner - new IntVector2(-sign.x, 1)),
                             new Line(topCorner, corner2 + new IntVector2(sign.x, 1)),
                             new Line(corner2, corner2)
+                            }
+                            .Where(l => l.vector.sign.x != -Math.Sign(corner2.x - corner1.x))
                             );
                     }
                 }
@@ -3394,13 +3428,14 @@ namespace PAC.Drawing
             {
                 if (!filled)
                 {
-                    foreach (IntVector2 pixel in border)
+                    foreach (IntVector2 pixel in lowerBorder.Concat(upperBorder.SkipWhile(p => lowerBorder.Contains(p)).TakeWhile(p => !lowerBorder.Contains(p))))
                     {
                         yield return pixel;
                     }
                     yield break;
                 }
 
+                Path border = this.border;
                 for (int y = boundingRect.bottomLeft.y; y <= boundingRect.topRight.y; y++)
                 {
                     for (int x = border.MinX(y); x <= border.MaxX(y); x++)
