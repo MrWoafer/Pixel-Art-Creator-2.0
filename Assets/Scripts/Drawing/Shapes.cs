@@ -2984,11 +2984,42 @@ namespace PAC.Drawing
             {
                 get
                 {
-                    if (!filled)
+                    if (filled)
                     {
-                        return border.Count;
+                        Path border = this.border;
+                        int count = 0;
+                        for (int y = boundingRect.bottomLeft.y; y <= boundingRect.topRight.y; y++)
+                        {
+                            count += border.MaxX(y) - border.MinX(y) + 1;
+                        }
+                        return count;
                     }
-                    throw new NotImplementedException();
+                    else
+                    {
+                        // Deal with the case where upper border just goes back over lower border
+                        if (upperBorder == lowerBorder.reverse)
+                        {
+                            return lowerBorder.Count;
+                        }
+
+                        int count = lowerBorder.Count + upperBorder.Count;
+                        if (lowerBorder.start.y == upperBorder.end.y)
+                        {
+                            if (lowerBorder.end.y == lowerBorder.start.y)
+                            {
+                                count -= lowerBorder.CountOnY(lowerBorder.start.y);
+                            }
+                            else if (lowerBorder.end.y < lowerBorder.start.y)
+                            {
+                                count -= lowerBorder.CountOnY(lowerBorder.start.y) + upperBorder.CountOnY(upperBorder.start.y);
+                            }
+                            else
+                            {
+                                count -= lowerBorder.CountOnY(lowerBorder.end.y) + upperBorder.CountOnY(upperBorder.end.y);
+                            }
+                        }
+                        return count;
+                    }                    
                 }
             }
 
