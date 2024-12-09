@@ -1506,9 +1506,6 @@ namespace PAC.Drawing
             /// </summary>
             private IEnumerable<(IntVector2 pixel, int lineIndex)> EnumerateWithLineIndex()
             {
-                // This is an initial value guaranteed to not be any of the pixels on the path.
-                IntVector2 previousPixel = boundingRect.bottomLeft + IntVector2.downLeft;
-
                 // First line
                 foreach (IntVector2 pixel in _lines[0])
                 {
@@ -1518,7 +1515,8 @@ namespace PAC.Drawing
                 {
                     yield break;
                 }
-                previousPixel = _lines[0].end;
+
+                IntVector2 previousPixel = _lines[0].end;
 
                 // Middle lines (not first or last)
                 for (int i = 1; i < _lines.Count - 1; i++)
