@@ -457,49 +457,24 @@ namespace PAC.Tests
                     }
 
                     bool outside = false;
-                    bool hitLine = false;
-                    for (IntVector2 check = pixel; boundingRect.Contains(check); check += IntVector2.up)
+                    foreach (IntVector2 direction in IntVector2.upDownLeftRight)
                     {
-                        if (pixels.Contains(check))
+                        bool hitLine = false;
+                        for (IntVector2 check = pixel; boundingRect.Contains(check); check += direction)
                         {
-                            hitLine = true;
-                            break;
+                            if (pixels.Contains(check))
+                            {
+                                hitLine = true;
+                                break;
+                            }
                         }
-                    }
-                    outside |= !hitLine;
 
-                    hitLine = false;
-                    for (IntVector2 check = pixel; boundingRect.Contains(check); check += IntVector2.down)
-                    {
-                        if (pixels.Contains(check))
+                        if (!hitLine)
                         {
-                            hitLine = true;
+                            outside = true;
                             break;
                         }
                     }
-
-                    outside |= !hitLine;
-                    hitLine = false;
-                    for (IntVector2 check = pixel; boundingRect.Contains(check); check += IntVector2.left)
-                    {
-                        if (pixels.Contains(check))
-                        {
-                            hitLine = true;
-                            break;
-                        }
-                    }
-                    outside |= !hitLine;
-
-                    hitLine = false;
-                    for (IntVector2 check = pixel; boundingRect.Contains(check); check += IntVector2.right)
-                    {
-                        if (pixels.Contains(check))
-                        {
-                            hitLine = true;
-                            break;
-                        }
-                    }
-                    outside |= !hitLine;
 
                     Assert.AreEqual(outside, path.WindingNumber(pixel) == 0, "Failed with " + path + " and " + pixel);
                 }
