@@ -1242,6 +1242,85 @@ namespace PAC.Drawing
             }
 
             /// <summary>
+            /// Returns the number of pixels on the path that have the given x coord. A pixel that appears n times in the enumerator will be counted n times.
+            /// </summary>
+            public int CountOnX(int x)
+            {
+                // First line
+                int count = _lines[0].CountOnX(x);
+                if (_lines.Count == 1)
+                {
+                    return count;
+                }
+
+                IntVector2 previousPixel = _lines[0].end;
+
+                // Middle lines (not first or last)
+                for (int i = 1; i < _lines.Count - 1; i++)
+                {
+                    count += _lines[i].CountOnX(x);
+                    if (_lines[i].start == previousPixel && x == previousPixel.x)
+                    {
+                        count--;
+                    }
+                    previousPixel = _lines[i].end;
+                }
+
+                // Last line
+                int toAdd = _lines[^1].CountOnX(x);
+                if (_lines[^1].start == previousPixel && x == previousPixel.x)
+                {
+                    toAdd--;
+                }
+                if (_lines[^1].end == _lines[0].start && x == _lines[0].start.x)
+                {
+                    toAdd--;
+                }
+                count += Functions.ClampPositive(toAdd);
+
+                return count;
+            }
+            /// <summary>
+            /// Returns the number of pixels on the path that have the given y coord. A pixel that appears n times in the enumerator will be counted n times.
+            /// </summary>
+            public int CountOnY(int y)
+            {
+                // First line
+                int count = _lines[0].CountOnY(y);
+                if (_lines.Count == 1)
+                {
+                    return count;
+                }
+
+                IntVector2 previousPixel = _lines[0].end;
+
+                // Middle lines (not first or last)
+                for (int i = 1; i < _lines.Count - 1; i++)
+                {
+                    count += _lines[i].CountOnY(y);
+                    if (_lines[i].start == previousPixel && y == previousPixel.y)
+                    {
+                        count--;
+                    }
+                    previousPixel = _lines[i].end;
+                }
+
+                // Last line
+                int toAdd = _lines[^1].CountOnY(y);
+                if (_lines[^1].start == previousPixel && y == previousPixel.y)
+                {
+                    toAdd--;
+                }
+                if (_lines[^1].end == _lines[0].start && y == _lines[0].start.y)
+                {
+                    toAdd--;
+                }
+                count += Functions.ClampPositive(toAdd);
+
+                return count;
+            }
+
+            /// <summary>
             /// Translates the path by the given vector.
             /// </summary>
             public static Path operator +(Path path, IntVector2 translation) => path.Translate(translation);

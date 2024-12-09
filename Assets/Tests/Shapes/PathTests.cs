@@ -286,6 +286,32 @@ namespace PAC.Tests
 
         [Test]
         [Category("Shapes")]
+        public void CountOnX()
+        {
+            foreach (Shapes.Path path in testCases)
+            {
+                for (int x = path.boundingRect.bottomLeft.x - 2; x <= path.boundingRect.topRight.x + 2; x++)
+                {
+                    Assert.AreEqual(path.Count(p => p.x == x), path.CountOnX(x), "Failed with " + path + " and x = " + x);
+                }
+            }
+        }
+
+        [Test]
+        [Category("Shapes")]
+        public void CountOnY()
+        {
+            foreach (Shapes.Path path in testCases)
+            {
+                for (int y = path.boundingRect.bottomLeft.y - 2; y <= path.boundingRect.topRight.y + 2; y++)
+                {
+                    Assert.AreEqual(path.Count(p => p.y == y), path.CountOnY(y), "Failed with " + path + " and y = " + y);
+                }
+            }
+        }
+
+        [Test]
+        [Category("Shapes")]
         public void SelfIntersects()
         {
             foreach (Shapes.Path path in testCases)
