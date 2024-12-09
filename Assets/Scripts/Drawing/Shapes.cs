@@ -2971,7 +2971,7 @@ namespace PAC.Drawing
             public int height => boundingRect.height;
 
             /// <summary>True if the isometric rectangle is an isometric square.</summary>
-            public bool isIsometricSquare => leftCorner.y == rightCorner.y || topCorner.x == bottomCorner.x;
+            public bool isIsometricSquare => lowerBorder.start.y == lowerBorder.end.y;
 
             public IntRect boundingRect => new IntRect(new IntVector2(leftCorner.x, bottomCorner.y), new IntVector2(rightCorner.x, topCorner.y));
 
