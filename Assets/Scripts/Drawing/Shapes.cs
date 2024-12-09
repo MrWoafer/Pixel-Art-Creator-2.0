@@ -3086,7 +3086,7 @@ namespace PAC.Drawing
                             new Line(bottomCorner + new IntVector2(sign.x, 1), endCorner - new IntVector2(sign.x, 1)),
                             new Line(endCorner, endCorner)
                             }
-                            // Remove any lines that go in the wrong direction (possible when bottomCorner and endCorner are diagonally adjacent).
+                            // Remove any lines that go backwards (possible when bottomCorner and endCorner are diagonally adjacent).
                             // This doesn't affect how it looks, but it's useful for making the enumerator not repeat any pixels.
                             .Where(l => l.vector.sign.x != -Math.Sign(endCorner.x - startCorner.x))
                             );
