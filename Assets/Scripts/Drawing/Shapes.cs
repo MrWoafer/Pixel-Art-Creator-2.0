@@ -470,7 +470,7 @@ namespace PAC.Drawing
             /// </summary>
             public int MinX(int y)
             {
-                if (y < boundingRect.bottomLeft.y || y > boundingRect.topRight.y)
+                if (!boundingRect.ContainsY(y))
                 {
                     throw new ArgumentOutOfRangeException("y must be within the y range of the line. y: " + y + "; line y range: [" + boundingRect.bottomLeft.y + ", " +  boundingRect.topRight.y + "]");
                 }
@@ -517,7 +517,7 @@ namespace PAC.Drawing
             /// </summary>
             public int MaxX(int y)
             {
-                if (y < boundingRect.bottomLeft.y || y > boundingRect.topRight.y)
+                if (!boundingRect.ContainsY(y))
                 {
                     throw new ArgumentOutOfRangeException("y must be within the y range of the line. y: " + y + "; line y range: [" + boundingRect.bottomLeft.y + ", " +  boundingRect.topRight.y + "]");
                 }
@@ -564,7 +564,7 @@ namespace PAC.Drawing
             /// </summary>
             public int MinY(int x)
             {
-                if (x < boundingRect.bottomLeft.x || x > boundingRect.topRight.x)
+                if (!boundingRect.ContainsX(x))
                 {
                     throw new ArgumentOutOfRangeException("x must be within the x range of the line. x: " + x + "; line y range: [" + boundingRect.bottomLeft.x + ", " + boundingRect.topRight.x + "]");
                 }
@@ -611,7 +611,7 @@ namespace PAC.Drawing
             /// </summary>
             public int MaxY(int x)
             {
-                if (x < boundingRect.bottomLeft.x || x > boundingRect.topRight.x)
+                if (!boundingRect.ContainsX(x))
                 {
                     throw new ArgumentOutOfRangeException("x must be within the x range of the line. x: " + x + "; line y range: [" + boundingRect.bottomLeft.x + ", " + boundingRect.topRight.x + "]");
                 }
