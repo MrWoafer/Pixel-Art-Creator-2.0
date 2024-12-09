@@ -247,18 +247,7 @@ namespace PAC.Tests
         /// </summary>
         public static void CountDistinct(Shapes.IShape shape)
         {
-            int count = 0;
-            HashSet<IntVector2> visited = new HashSet<IntVector2>();
-            foreach (IntVector2 pixel in shape)
-            {
-                if (!visited.Contains(pixel))
-                {
-                    count++;
-                    visited.Add(pixel);
-                }
-            }
-
-            Assert.AreEqual(count, shape.Count, "Failed with " + shape);
+            Assert.AreEqual(shape.CountDistinct(), shape.Count, "Failed with " + shape);
         }
 
         /// <summary>
