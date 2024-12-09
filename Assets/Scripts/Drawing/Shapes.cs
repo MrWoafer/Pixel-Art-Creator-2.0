@@ -260,6 +260,11 @@ namespace PAC.Drawing
             /// </summary>
             public Line reverse => new Line(end, start);
 
+            /// <summary>
+            /// end - start.
+            /// </summary>
+            public IntVector2 vector => end - start;
+
             public IntRect boundingRect => new IntRect(start, end);
 
             public int Count => IntVector2.SupDistance(start, end) + 1;
