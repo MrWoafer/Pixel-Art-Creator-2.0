@@ -43,6 +43,19 @@ namespace PAC
         /// The same as ClampPositive().
         /// </para>
         /// </summary>
+        public static long ReLU(long x) => x switch
+        {
+            > 0 => x,
+            <= 0 => 0
+        };
+        /// <summary>
+        /// <para>
+        /// Returns x if x &gt; 0, and returns 0 if x &lt;= 0.
+        /// </para>
+        /// <para>
+        /// The same as ClampPositive().
+        /// </para>
+        /// </summary>
         public static float ReLU(float x) => x switch
         {
             > 0 => x,
@@ -58,6 +71,15 @@ namespace PAC
         /// </para>
         /// </summary>
         public static int ClampNonNegative(int x) => ReLU(x);
+        /// <summary>
+        /// <para>
+        /// Returns x if x &gt; 0, and returns 0 if x &lt;= 0.
+        /// </para>
+        /// <para>
+        /// The same as ReLU().
+        /// </para>
+        /// </summary>
+        public static long ClampNonNegative(long x) => ReLU(x);
         /// <summary>
         /// <para>
         /// Returns x if x &gt; 0, and returns 0 if x &lt;= 0.
@@ -89,6 +111,13 @@ namespace PAC
         /// <summary>
         /// Returns a mod b, giving a non-negative result.
         /// </summary>
+        public static long Mod(long a, long b)
+        {
+            return (a % b + b) % b;
+        }
+        /// <summary>
+        /// Returns a mod b, giving a non-negative result.
+        /// </summary>
         public static float Mod(float a, float b)
         {
             return (a % b + b) % b;
@@ -112,11 +141,40 @@ namespace PAC
             }
             return a;
         }
+        /// <summary>
+        /// Computes the greatest non-negative common divisor of a and b.
+        /// </summary>
+        public static long Gcd(long a, long b)
+        {
+            a = Math.Abs(a);
+            b = Math.Abs(b);
+
+            // We use Euclid's algorithm
+            long r = b;
+            while (r != 0)
+            {
+                r = a % b;
+                a = b;
+                b = r;
+            }
+            return a;
+        }
 
         /// <summary>
         /// Computes the lowest non-negative common multiple of a and b.
         /// </summary>
         public static int Lcm(int a, int b)
+        {
+            if (a == 0 && b == 0)
+            {
+                return 0;
+            }
+            return Math.Abs(a * b) / Gcd(a, b);
+        }
+        /// <summary>
+        /// Computes the lowest non-negative common multiple of a and b.
+        /// </summary>
+        public static long Lcm(long a, long b)
         {
             if (a == 0 && b == 0)
             {
