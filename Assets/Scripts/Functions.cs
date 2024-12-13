@@ -57,7 +57,7 @@ namespace PAC
         /// The same as ReLU().
         /// </para>
         /// </summary>
-        public static int ClampPositive(int x) => ReLU(x);
+        public static int ClampNonNegative(int x) => ReLU(x);
         /// <summary>
         /// <para>
         /// Returns x if x &gt; 0, and returns 0 if x &lt;= 0.
@@ -66,15 +66,15 @@ namespace PAC
         /// The same as ReLU().
         /// </para>
         /// </summary>
-        public static float ClampPositive(float x) => ReLU(x);
+        public static float ClampNonNegative(float x) => ReLU(x);
         /// <summary>
         /// Returns x if x &lt; 0, and returns 0 if x &gt;= 0.
         /// </summary>
-        public static int ClampNegative(int x) => -ReLU(-x);
+        public static int ClampNonPositive(int x) => -ReLU(-x);
         /// <summary>
         /// Returns x if x &lt; 0, and returns 0 if x &gt;= 0.
         /// </summary>
-        public static float ClampNegative(float x) => -ReLU(-x);
+        public static float ClampNonPositive(float x) => -ReLU(-x);
 
         /// <summary>
         /// Returns a mod b, giving a non-negative result.

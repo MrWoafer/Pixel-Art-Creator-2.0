@@ -1276,7 +1276,7 @@ namespace PAC.Drawing
                 {
                     toAdd--;
                 }
-                count += Functions.ClampPositive(toAdd);
+                count += Functions.ClampNonNegative(toAdd);
 
                 return count;
             }
@@ -1315,7 +1315,7 @@ namespace PAC.Drawing
                 {
                     toAdd--;
                 }
-                count += Functions.ClampPositive(toAdd);
+                count += Functions.ClampNonNegative(toAdd);
 
                 return count;
             }
