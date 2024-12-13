@@ -86,6 +86,9 @@ namespace PAC
         {
             return (a % b + b) % b;
         }
+        /// <summary>
+        /// Returns a mod b, giving a non-negative result.
+        /// </summary>
         public static float Mod(float a, float b)
         {
             return (a % b + b) % b;
