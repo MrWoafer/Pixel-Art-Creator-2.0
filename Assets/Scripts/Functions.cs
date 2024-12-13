@@ -92,7 +92,7 @@ namespace PAC
         }
 
         /// <summary>
-        /// Computes the non-negative greatest common divisor of a and b.
+        /// Computes the greatest non-negative common divisor of a and b.
         /// </summary>
         public static int Gcd(int a, int b)
         {
@@ -111,7 +111,7 @@ namespace PAC
         }
 
         /// <summary>
-        /// Computes the non-negative lowest common multiple of a and b.
+        /// Computes the lowest non-negative common multiple of a and b.
         /// </summary>
         public static int Lcm(int a, int b)
         {
