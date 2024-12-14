@@ -192,7 +192,7 @@ namespace PAC.Drawing
         /// <summary>
         /// A pixel-perfect line between two points, ordered from start to end.
         /// </summary>
-        public class Line : I1DShape
+        public class Line : I1DShape, IReadOnlyList<IntVector2>
         {
             // NOTE: For this shape, we work in a coordinate system where integer coordinates refer to the CENTRE of a pixel - e.g. the centre of pixel (0, 0) is (0, 0), not (0.5, 0.5).
 
