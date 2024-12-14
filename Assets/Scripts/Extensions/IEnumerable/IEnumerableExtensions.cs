@@ -5,6 +5,9 @@ using System.Linq;
 
 namespace PAC.Extensions
 {
+    /// <summary>
+    /// Extension methods for IEnumerable&lt;T&gt;.
+    /// </summary>
     public static class IEnumerableExtensions
     {
         /// <summary>
