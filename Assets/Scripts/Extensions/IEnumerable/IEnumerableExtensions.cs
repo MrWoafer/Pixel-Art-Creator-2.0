@@ -122,7 +122,6 @@ namespace PAC.Extensions
             }
             return count == n;
         }
-
         /// <summary>
         /// Returns whether the given IEnumerable has &gt;= n elements.
         /// </summary>
@@ -150,7 +149,6 @@ namespace PAC.Extensions
             // We check n == 0 instead of just returning false to deal with the case when elements is empty.
             return n == 0;
         }
-
         /// <summary>
         /// Returns whether the given IEnumerable has &lt;= n elements.
         /// </summary>
@@ -209,7 +207,6 @@ namespace PAC.Extensions
 
             return min.element;
         }
-
         /// <summary>
         /// Applies the function to each element and returns the element that gives the highest output. If multiple elements give the highest output, the first one will be returned.
         /// </summary>
