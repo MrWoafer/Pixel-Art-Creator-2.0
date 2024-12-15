@@ -114,6 +114,28 @@ namespace PAC.Tests
 
         [Test]
         [Category("Data Structures")]
+        public void asIncreasing()
+        {
+            foreach (IntRange range in testCases)
+            {
+                Assert.True(range.asIncreasing == range || range.asIncreasing == range.reverse, "Failed with " + range);
+                CollectionAssert.AreEqual(range.OrderBy(x => x), range.asIncreasing, "Failed with " + range);
+            }
+        }
+
+        [Test]
+        [Category("Data Structures")]
+        public void asDecreasing()
+        {
+            foreach (IntRange range in testCases)
+            {
+                Assert.True(range.asDecreasing == range || range.asDecreasing == range.reverse, "Failed with " + range);
+                CollectionAssert.AreEqual(range.OrderByDescending(x => x), range.asDecreasing, "Failed with " + range);
+            }
+        }
+
+        [Test]
+        [Category("Data Structures")]
         public void asExclExcl()
         {
             foreach (IntRange range in testCases)

@@ -167,6 +167,14 @@ namespace PAC.DataStructures
         /// A range with the start boundary and end boundary swapped (and startBoundaryInclusive and endBoundaryInclusive swapped).
         /// </summary>
         public IntRange reverse => new IntRange(endBoundary, startBoundary, endBoundaryInclusive, startBoundaryInclusive);
+        /// <summary>
+        /// Returns a range with the same elements, in increasing order. Will either return the range unchanged or <see cref="reverse"/>.
+        /// </summary>
+        public IntRange asIncreasing => startBoundary <= endBoundary ? this : reverse;
+        /// <summary>
+        /// Returns a range with the same elements, in decreasing order. Will either return the range unchanged or <see cref="reverse"/>.
+        /// </summary>
+        public IntRange asDecreasing => endBoundary <= startBoundary ? this : reverse;
 
         /// <summary>
         /// Returns a range with the same elements, in the same order, but expressed with the start boundary exclusive and the end boundary exclusive.
