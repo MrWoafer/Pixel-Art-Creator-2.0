@@ -96,6 +96,13 @@ namespace PAC.Tests
 
             Assert.Throws<OverflowException>(() => Functions.Pow(10, 100));
             Assert.Throws<OverflowException>(() => Functions.Pow(-10, 99));
+
+            Assert.DoesNotThrow(() => Functions.Pow(int.MinValue, 0));
+            Assert.DoesNotThrow(() => Functions.Pow(int.MaxValue, 0));
+            Assert.DoesNotThrow(() => Functions.Pow(int.MinValue, 1));
+            Assert.DoesNotThrow(() => Functions.Pow(int.MaxValue, 1));
+            Assert.Throws<OverflowException>(() => Functions.Pow(int.MinValue, 2));
+            Assert.Throws<OverflowException>(() => Functions.Pow(int.MaxValue, 2));
         }
     }
 }
