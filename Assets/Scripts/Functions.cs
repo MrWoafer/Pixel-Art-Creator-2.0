@@ -309,6 +309,65 @@ namespace PAC
             return float.Parse(f.ToString("0." + new string('#', decimalPlaces)));
         }
 
+        /// <summary>
+        /// <para>
+        /// Computes n ^ exponent (n raised to the exponent). 0^0 is defined to be 1.
+        /// </para>
+        /// <para>
+        /// Exponent must be non-negative.
+        /// </para>
+        /// </summary>
+        public static int Pow(this int n, int exponent)
+        {
+            if (exponent < 0)
+            {
+                throw new ArgumentOutOfRangeException($"Exponent cannot be negative: {exponent}.", nameof(exponent));
+            }
+
+            // Let's number bits so the 0-th bit is the least significant bit, etc.
+            //
+            // We exploit the fact that e.g.
+            //      n ^ (2^4 + 2^1 + 2^0) = n ^ (2^4) * n ^ (2^1) * n ^ (2^0)
+            //                            = f(4) * f(1) * f(0)
+            // Where we define f(i) = n ^ (2^i)
+            //
+            // So, n ^ exponent = product of f(i) over each i where the i-th bit of exponent is 1
+            //
+            // Therefore we could use the following algorithm:
+            //      output = 1
+            //      for i-th bit from 0-th bit to last bit of exponent
+            //          if i-th bit = 1
+            //              output = output * f(i)
+            //
+            // This doesn't work yet, as this requires computing exponents to compute f(i).
+            // However, f(i) satisfies the recurrence relation f(i + 1) = f(i) * f(i), so the algorithm can be changed to:
+            //      output = 1
+            //      f = n                                                   # f stores the value of f(i) and starts at f(0) = n 
+            //      for i-th bit from 0-th bit to last bit of exponent
+            //          if i-th bit = 1
+            //              output = output * f
+            //          f = f * f                                           # use the recurrence relation to set f = f(i + 1)
+            //
+            // The algorithm below is a slight rewriting of this. Instead of indexing the bits, we always look at the 0-th bit and just bit-shift so the next bit becomes the 0-th bit
+
+            int output = 1;
+            int f = n;
+            // Loop until we've looked at all bits that are 1
+            while (exponent > 0)
+            {
+                // If 0-th bit of exponent is 1
+                if ((exponent & 1) == 1)
+                {
+                    output = checked(output * f);
+                }
+                // Double the power in the part
+                f = checked(f * f);
+                // Move on to look at next bit
+                exponent >>= 1;
+            }
+            return output;
+        }
+
         public static T[] ConcatArrays<T>(T[] array1, T[] array2)
         {
             T[] array = new T[array1.Length + array2.Length];

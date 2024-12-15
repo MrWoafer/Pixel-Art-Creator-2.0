@@ -1,4 +1,4 @@
-using System.Collections;
+using System;
 using NUnit.Framework;
 
 namespace PAC.Tests
@@ -58,6 +58,44 @@ namespace PAC.Tests
                     Assert.AreEqual(expected, Functions.Lcm(signB * b, signA * a));
                 }
             }
+        }
+
+        [Test]
+        [Category("Utils")]
+        public void Pow()
+        {
+            Assert.AreEqual(1, Functions.Pow(0, 0), "Failed with 0 ^ 0.");
+            for (int exponent = 1; exponent <= 10; exponent++)
+            {
+                Assert.AreEqual(0, Functions.Pow(0, exponent), $"Failed with 0 ^ {exponent}.");
+            }
+
+            for (int n = -10; n <= 10; n++)
+            {
+                string baseStr = (n < 0) ? "(" + n + ")" : n.ToString();
+
+                Assert.AreEqual(1, Functions.Pow(n, 0), $"Failed with {baseStr} ^ 0.");
+                for (int exponent = 1; exponent <= 7; exponent++)
+                {
+                    int expected = 1;
+                    for (int i = 0; i < exponent; i++)
+                    {
+                        expected *= n;
+                    }
+
+                    try
+                    {
+                        Assert.AreEqual(expected, Functions.Pow(n, exponent), $"Failed with {baseStr} ^ {exponent}.");
+                    }
+                    catch (OverflowException)
+                    {
+                        Assert.Fail($"Overflow when computing {baseStr} ^ {exponent}.");
+                    }
+                }
+            }
+
+            Assert.Throws<OverflowException>(() => Functions.Pow(10, 100));
+            Assert.Throws<OverflowException>(() => Functions.Pow(-10, 99));
         }
     }
 }
