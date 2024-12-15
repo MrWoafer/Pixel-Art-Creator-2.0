@@ -259,5 +259,26 @@ namespace PAC.Extensions
         /// </para>
         /// </summary>
         public static IEnumerable<(T current, T next)> ZipCurrentAndNext<T>(this IEnumerable<T> elements) => elements.Zip(elements.Skip(1));
+
+        /// <summary>
+        /// Returns the product of all elements in the sequence, or 1 if the sequence is empty.
+        /// </summary>
+        public static int Product(this IEnumerable<int> elements) => elements.Aggregate(1, (accumulator, x) => accumulator * x);
+        /// <summary>
+        /// Returns the product of all elements in the sequence, or 1 if the sequence is empty.
+        /// </summary>
+        public static long Product(this IEnumerable<long> elements) => elements.Aggregate(1L, (accumulator, x) => accumulator * x);
+        /// <summary>
+        /// Returns the product of all elements in the sequence, or 1 if the sequence is empty.
+        /// </summary>
+        public static float Product(this IEnumerable<float> elements) => elements.Aggregate(1f, (accumulator, x) => accumulator * x);
+        /// <summary>
+        /// Returns the product of all elements in the sequence, or 1 if the sequence is empty.
+        /// </summary>
+        public static double Product(this IEnumerable<double> elements) => elements.Aggregate(1d, (accumulator, x) => accumulator * x);
+        /// <summary>
+        /// Returns the product of all elements in the sequence, or 1 if the sequence is empty.
+        /// </summary>
+        public static decimal Product(this IEnumerable<decimal> elements) => elements.Aggregate(1m, (accumulator, x) => accumulator * x);
     }
 }
