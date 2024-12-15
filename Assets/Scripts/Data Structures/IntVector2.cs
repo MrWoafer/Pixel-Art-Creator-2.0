@@ -84,7 +84,7 @@ namespace PAC.DataStructures
         /// <summary>
         /// An IEnumerable over the vectors (0, 1), (0, -1), (-1, 0), (1, 0).
         /// </summary>
-        public static readonly IEnumerable<IntVector2> upDownLeftRight = new IntVector2[] {up, down, left, right };
+        public static readonly IEnumerable<IntVector2> upDownLeftRight = new IntVector2[] { up, down, left, right };
 
         public static bool operator ==(IntVector2 a, IntVector2 b) => a.x == b.x && a.y == b.y;
         public static bool operator !=(IntVector2 a, IntVector2 b) => !(a == b);
