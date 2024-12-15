@@ -11,7 +11,7 @@ namespace PAC.DataStructures
     /// <summary>
     /// Represents a rectangular region of integer coordinates.
     /// </summary>
-    public struct IntRect : IReadOnlyCollection<IntVector2>
+    public struct IntRect : IReadOnlyList<IntVector2>
     {
         private IntVector2 _bottomLeft;
         public IntVector2 bottomLeft
