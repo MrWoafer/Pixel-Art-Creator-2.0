@@ -185,6 +185,11 @@ namespace PAC.Extensions
         public static int CountDistinct<T>(this IEnumerable<T> elements) => elements.ToHashSet().Count;
 
         /// <summary>
+        /// Determines whether none of the elements satisfy the predicate.
+        /// </summary>
+        public static bool None<T>(this IEnumerable<T> elements, Func<T, bool> predicate) => !elements.Any(predicate);
+
+        /// <summary>
         /// Applies the function to each element and returns the element that gives the lowest output. If multiple elements give the lowest output, the first one will be returned.
         /// </summary>
         public static TElement ArgMin<TElement, TCompare>(this IEnumerable<TElement> elements, Func<TElement, TCompare> function) where TCompare : IComparable<TCompare>
