@@ -10,6 +10,19 @@ namespace PAC.Extensions
     /// </summary>
     public static class IEnumerableExtensions
     {
+        public static IEnumerable<T> Singleton<T>(T element) { yield return element; }
+
+        /// <summary>
+        /// Creates an infinite random sequence.
+        /// </summary>
+        public static IEnumerable<int> Random(Random rng)
+        {
+            while (true)
+            {
+                yield return rng.Next();
+            }
+        }
+
         /// <summary>
         /// Creates an IEnumerable that repeats the given element indefinitely.
         /// </summary>
