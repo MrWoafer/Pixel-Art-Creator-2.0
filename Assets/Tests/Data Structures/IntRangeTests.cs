@@ -241,6 +241,33 @@ namespace PAC.Tests
                 }
             }
         }
+
+        [Test]
+        [Category("Data Structures")]
+        public void Intersects()
+        {
+            foreach (IntRange range1 in testCases)
+            {
+                foreach (IntRange range2 in testCases)
+                {
+                    // Using Assert.True(x == y) is much faster than Assert.AreEqual(x, y)
+                    Assert.True(((IEnumerable<int>)range1).Intersect((IEnumerable<int>)range2).IsNotEmpty() == range1.Intersects(range2), $"Failed with {range1} and {range2}.");
+                }
+            }
+        }
+
+        [Test]
+        [Category("Data Structures")]
+        public void Intersection()
+        {
+            foreach (IntRange range1 in testCases)
+            {
+                foreach (IntRange range2 in testCases)
+                {
+                    CollectionAssert.AreEquivalent(((IEnumerable<int>)range1).Intersect((IEnumerable<int>)range2), range1.Intersection(range2), $"Failed with {range1} and {range2}.");
+                }
+            }
+        }
         #endregion
 
         #region Tests: Operations
