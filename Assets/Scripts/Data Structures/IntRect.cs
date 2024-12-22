@@ -240,9 +240,13 @@ namespace PAC.DataStructures
         /// </summary>
         public static IntRect BoundingRect(IEnumerable<IntRect> rects)
         {
+            if (rects is null)
+            {
+                throw new ArgumentNullException($"Cannot perform {nameof(BoundingRect)}() on null.", nameof(rects));
+            }
             if (rects.IsEmpty())
             {
-                throw new ArgumentException("Cannot perform GetBoundingRect() on an empty collection of IntRects.", "rects");
+                throw new ArgumentException($"Cannot perform {nameof(BoundingRect)}() on an empty collection of {nameof(IntRect)}s.", nameof(rects));
             }
             return new IntRect(IntVector2.Min(rects.Select(rect => rect.bottomLeft)), IntVector2.Max(rects.Select(rect => rect.topRight)));
         }
