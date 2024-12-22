@@ -593,10 +593,6 @@ namespace PAC.DataStructures
         };
 
         /// <summary>
-        /// Returns the intersection of the ranges - that is, the elements the two ranges have in common.
-        /// </summary>
-        public static IntRange operator &(IntRange a, IntRange b) => Intersection(a, b);
-        /// <summary>
         /// Returns the elements the two ranges have in common.
         /// </summary>
         public IntRange Intersection(IntRange other) => Intersection(this, other);
