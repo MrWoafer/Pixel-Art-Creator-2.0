@@ -364,11 +364,21 @@ namespace PAC.DataStructures
         /// </summary>
         public static IntRange ExclExcl(int startBoundary, int endBoundary) => new IntRange(startBoundary, endBoundary, false, false);
         /// <summary>
+        /// <para>
         /// Creates a range from startBoundary (exclusive) to endBoundary (inclusive).
+        /// </para>
+        /// <para>
+        /// If the start boundary and end boundary are equal, we define the range to be empty.
+        /// </para>
         /// </summary>
         public static IntRange ExclIncl(int startBoundary, int endBoundary) => new IntRange(startBoundary, endBoundary, false, true);
         /// <summary>
+        /// <para>
         /// Creates a range from startBoundary (inclusive) to endBoundary (exclusive).
+        /// </para>
+        /// <para>
+        /// If the start boundary and end boundary are equal, we define the range to be empty.
+        /// </para>
         /// </summary>
         public static IntRange InclExcl(int startBoundary, int endBoundary) => new IntRange(startBoundary, endBoundary, true, false);
         /// <summary>
