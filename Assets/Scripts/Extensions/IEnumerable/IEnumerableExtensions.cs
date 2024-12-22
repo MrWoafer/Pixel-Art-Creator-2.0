@@ -82,22 +82,6 @@ namespace PAC.Extensions
         /// <summary>
         /// Returns whether the given IEnumerable has no elements.
         /// </summary>
-        public static bool IsEmpty(this IEnumerable elements)
-        {
-            if (elements is null)
-            {
-                throw new ArgumentException("The given IEnumerable is null.", "elements");
-            }
-
-            foreach (object element in elements)
-            {
-                return false;
-            }
-            return true;
-        }
-        /// <summary>
-        /// Returns whether the given IEnumerable has no elements.
-        /// </summary>
         public static bool IsEmpty<T>(this IEnumerable<T> elements)
         {
             if (elements is null)
