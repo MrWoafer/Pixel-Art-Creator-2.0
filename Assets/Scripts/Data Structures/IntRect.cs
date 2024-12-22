@@ -11,7 +11,7 @@ namespace PAC.DataStructures
     /// <summary>
     /// Represents a rectangular region of integer coordinates.
     /// </summary>
-    public struct IntRect : IReadOnlyList<IntVector2>
+    public struct IntRect : IReadOnlyList<IntVector2>, IEquatable<IntRect>
     {
         private IntVector2 _bottomLeft;
         public IntVector2 bottomLeft
@@ -55,17 +55,8 @@ namespace PAC.DataStructures
 
         public static bool operator ==(IntRect a, IntRect b) => a.bottomLeft == b.bottomLeft && a.topRight == b.topRight;
         public static bool operator !=(IntRect a, IntRect b) => !(a == b);
-        public override bool Equals(object obj)
-        {
-            if (obj == null || !GetType().Equals(obj.GetType()))
-            {
-                return false;
-            }
-            else
-            {
-                return this == (IntRect)obj;
-            }
-        }
+        public bool Equals(IntRect other) => this == other;
+        public override bool Equals(object obj) => obj is IntRect other && Equals(other);
 
         public override int GetHashCode() => HashCode.Combine(bottomLeft, topRight);
 
