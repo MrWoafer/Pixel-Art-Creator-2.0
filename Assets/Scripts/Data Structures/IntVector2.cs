@@ -230,6 +230,29 @@ namespace PAC.DataStructures
         }
 
         /// <summary>
+        /// This conversion should be inlined by the JIT compiler.
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static implicit operator (int x, int y)(IntVector2 vector) => (vector.x, vector.y);
+        /// <summary>
+        /// <para>
+        /// Allows writing <see cref="IntVector2"/>s in a more readable way, - e.g.
+        /// </para>
+        /// <code language="csharp">
+        /// <see cref="IntVector2"/> point = (5, 3);
+        /// </code>
+        /// instead of
+        /// <code language="csharp">
+        /// <see cref="IntVector2"/> point = new <see cref="IntVector2"/>(5, 3);
+        /// </code>
+        /// <para>
+        /// This conversion should be inlined by the JIT compiler.
+        /// </para>
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static implicit operator IntVector2((int x, int y) tuple) => new IntVector2(tuple.x, tuple.y);
+
+        /// <summary>
         /// Cast to Unity Vector2.
         /// </summary>
         public static implicit operator Vector2(IntVector2 vector) => new Vector2(vector.x, vector.y);
