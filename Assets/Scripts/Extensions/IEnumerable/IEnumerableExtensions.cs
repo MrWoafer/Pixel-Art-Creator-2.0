@@ -209,11 +209,11 @@ namespace PAC.Extensions
         {
             if (elements is null)
             {
-                throw new ArgumentException("The given IEnumerable<" + typeof(TElement).Name + "> is null.", "elements");
+                throw new ArgumentNullException($"The given IEnumerable<{typeof(TElement).Name}> is null.", nameof(elements));
             }
             if (elements.IsEmpty())
             {
-                throw new ArgumentException("The given IEnumerable<" + typeof(TElement).Name + "> is empty.", "elements");
+                throw new ArgumentException($"The given IEnumerable<{typeof(TElement).Name}> is empty.", nameof(elements));
             }
 
             (TElement element, TCompare value) min = (elements.First(), function.Invoke(elements.First()));
@@ -235,11 +235,11 @@ namespace PAC.Extensions
         {
             if (elements is null)
             {
-                throw new ArgumentException("The given IEnumerable<" + typeof(TElement).Name + "> is null.", "elements");
+                throw new ArgumentNullException($"The given IEnumerable<{typeof(TElement).Name}> is null.", nameof(elements));
             }
             if (elements.IsEmpty())
             {
-                throw new ArgumentException("The given IEnumerable<" + typeof(TElement).Name + "> is empty.", "elements");
+                throw new ArgumentException($"The given IEnumerable<{typeof(TElement).Name}> is empty.", nameof(elements));
             }
 
             (TElement element, TCompare value) max = (elements.First(), function.Invoke(elements.First()));
