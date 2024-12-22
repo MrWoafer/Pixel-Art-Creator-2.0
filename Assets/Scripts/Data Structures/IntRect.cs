@@ -69,7 +69,7 @@ namespace PAC.DataStructures
 
         public override int GetHashCode() => HashCode.Combine(bottomLeft, topRight);
 
-        public override string ToString() => "(" + bottomLeft + ", " + topRight + ")";
+        public override string ToString() => $"({bottomLeft}, {topRight})";
 
         /// <summary>
         /// Shifts the whole rect by the given vector.
