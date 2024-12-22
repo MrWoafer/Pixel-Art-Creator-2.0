@@ -95,6 +95,10 @@ namespace PAC.Extensions
             }
             return true;
         }
+        /// <summary>
+        /// Returns whether the given IEnumerable has at least one element.
+        /// </summary>
+        public static bool IsNotEmpty<T>(this IEnumerable<T> elements) => !elements.IsEmpty();
 
         /// <summary>
         /// Returns whether the given IEnumerable has exactly n elements.
