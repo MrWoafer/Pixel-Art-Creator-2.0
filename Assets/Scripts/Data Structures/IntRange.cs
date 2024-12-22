@@ -387,13 +387,6 @@ namespace PAC.DataStructures
         public static IntRange InclIncl(int startBoundary, int endBoundary) => new IntRange(startBoundary, endBoundary, true, true);
         #endregion
 
-        #region Casting
-        /// <summary>
-        /// Creates a range from x (inclusive) to x (inclusive).
-        /// </summary>
-        public static implicit operator IntRange(int x) => Singleton(x);
-        #endregion
-
         #region Comparison
         /// <summary>
         /// <para>
