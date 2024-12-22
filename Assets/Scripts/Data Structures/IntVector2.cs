@@ -62,6 +62,12 @@ namespace PAC.DataStructures
             y = (int)vector2.y;
         }
 
+        public void Deconstruct(out int x, out int y)
+        {
+            x = this.x;
+            y = this.y;
+        }
+
         /// <summary>The vector (0, 0).</summary>
         public static readonly IntVector2 zero = (0, 0);
         /// <summary>The vector (1, 1).</summary>
