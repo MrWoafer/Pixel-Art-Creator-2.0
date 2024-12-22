@@ -546,11 +546,21 @@ namespace PAC.DataStructures
         /// <summary>
         /// Whether the two ranges have any elements in common.
         /// </summary>
-        public static bool Intersect(IntRange a, IntRange b) => (a.isEmpty || b.isEmpty) ? false : ((a.maxElement <= b.maxElement) switch
+        public static bool Intersect(IntRange a, IntRange b)
         {
-            true => b.minElement <= a.maxElement,
-            false => a.minElement <= b.maxElement,
-        });
+            if (a.isEmpty || b.isEmpty)
+            {
+                return false;
+            }
+            if (a.maxElement <= b.maxElement)
+            {
+                return b.minElement <= a.maxElement;
+            }
+            else
+            {
+                return a.minElement <= b.maxElement;
+            }
+        }
         #endregion
 
         #region Operations
