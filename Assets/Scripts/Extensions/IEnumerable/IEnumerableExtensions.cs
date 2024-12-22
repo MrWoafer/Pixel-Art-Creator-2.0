@@ -217,7 +217,7 @@ namespace PAC.Extensions
             }
 
             (TElement element, TCompare value) min = (elements.First(), function.Invoke(elements.First()));
-            foreach (TElement element in elements)
+            foreach (TElement element in elements.Skip(1))
             {
                 TCompare value = function.Invoke(element);
                 if (value.CompareTo(min.value) < 0)
@@ -243,7 +243,7 @@ namespace PAC.Extensions
             }
 
             (TElement element, TCompare value) max = (elements.First(), function.Invoke(elements.First()));
-            foreach (TElement element in elements)
+            foreach (TElement element in elements.Skip(1))
             {
                 TCompare value = function.Invoke(element);
                 if (value.CompareTo(max.value) > 0)
