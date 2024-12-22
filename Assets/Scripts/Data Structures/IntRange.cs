@@ -427,7 +427,7 @@ namespace PAC.DataStructures
         /// Note that having the same elements does not necessarily mean they are equal in this sense, due to the boundaries being inclusive or exclusive.
         /// </para>
         /// </summary>
-        public override bool Equals(object obj) => obj is IntRange && Equals((IntRange)obj);
+        public override bool Equals(object obj) => obj is IntRange other && Equals(other);
 
         /// <summary>
         /// <para>
