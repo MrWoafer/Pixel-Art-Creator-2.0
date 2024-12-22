@@ -103,7 +103,7 @@ namespace PAC.DataStructures
 
         public override int GetHashCode() => HashCode.Combine(x, y);
 
-        public override string ToString() => "(" + x + ", " + y + ")";
+        public override string ToString() => $"({x}, {y})";
 
         /// <summary>
         /// Returns true iff &lt; holds for both components.
