@@ -256,6 +256,52 @@ namespace PAC.Extensions
         }
 
         /// <summary>
+        /// <para>
+        /// Returns the minimum and maximum element of the IEnumerable. Can be more efficient that calling Min() and Max() as this only iterates through the IEnumerable once.
+        /// </para>
+        /// <para>
+        /// Throws an exception if T doesn't have a default comparer.
+        /// </para>
+        /// </summary>
+        public static (T min, T max) MinAndMax<T>(this IEnumerable<T> elements)
+        {
+            if (elements is null)
+            {
+                throw new ArgumentNullException($"The given IEnumerable<{typeof(T).Name}> is null.", nameof(elements));
+            }
+            if (elements.IsEmpty())
+            {
+                throw new ArgumentException($"The given IEnumerable<{typeof(T).Name}> is empty.", nameof(elements));
+            }
+
+            Comparer<T> comparer;
+            try
+            {
+                comparer = Comparer<T>.Default;
+            }
+            catch (ArgumentException)
+            {
+                throw new ArgumentException($"Type {typeof(T).Name}> has no default comparer.", typeof(T).Name);
+            }
+
+            T min = elements.First();
+            T max = min;
+            foreach (T element in elements.Skip(1))
+            {
+                if (comparer.Compare(element, min) < 0)
+                {
+                    min = element;
+                }
+                if (comparer.Compare(element, max) > 0)
+                {
+                    max = element;
+                }
+            }
+
+            return (min, max);
+        }
+
+        /// <summary>
         /// Returns (elements[0], 0), (elements[1], 1), ..., (elements[^1], elements.Count - 1)
         /// </summary>
         public static IEnumerable<(T element, int index)> Enumerate<T>(this IEnumerable<T> elements) => elements.Select((x, i) => (x, i));

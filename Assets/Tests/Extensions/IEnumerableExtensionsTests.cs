@@ -99,6 +99,46 @@ namespace PAC.Tests
             Assert.Throws<ArgumentException>(() => new string[] { }.ArgMin(s => s.Length));
         }
 
+        private class NoComparer { }
+
+        [Test]
+        [Category("Extensions")]
+        public void MinAndMax()
+        {
+            Random rng = new Random(0);
+
+            const int maxTestCaseLength = 20;
+            const int numTestCasesPerLength = 1_000;
+
+            List<int[]> testCases = new List<int[]>();
+            for (int length = 1; length <= maxTestCaseLength; length++)
+            {
+                for (int i = 0; i < numTestCasesPerLength; i++)
+                {
+                    int[] testCase = new int[length];
+                    for (int j = 0; j < length; j++)
+                    {
+                        testCase[j] = rng.Next(-100, 100);
+                    }
+                    testCases.Add(testCase);
+                }
+            }
+
+            foreach (int[] testCase in testCases)
+            {
+                var output = testCase.MinAndMax();
+                Assert.AreEqual(((IEnumerable<int>)testCase).Min(), output.min);
+                Assert.AreEqual(((IEnumerable<int>)testCase).Max(), output.max);
+            }
+
+            // Empty check
+            Assert.Throws<ArgumentException>(() => new int[] { }.MinAndMax());
+            // Null check
+            Assert.Throws<ArgumentNullException>(() => IEnumerableExtensions.MinAndMax<int>(null));
+            // Test that it throws an exception if the element type doesn't have a default comparer
+            Assert.Throws<ArgumentException>(() => new NoComparer[] {new NoComparer(), new NoComparer(), new NoComparer() }.MinAndMax());
+        }
+
         [Test]
         [Category("Extensions")]
         public void Enumerate()
