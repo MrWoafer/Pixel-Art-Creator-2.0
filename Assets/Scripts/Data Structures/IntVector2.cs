@@ -10,7 +10,7 @@ namespace PAC.DataStructures
     /// <summary>
     /// Represents a 2-dimensional vector with integer coordinates.
     /// </summary>
-    public struct IntVector2
+    public struct IntVector2 : IEquatable<IntVector2>
     {
         public int x;
         public int y;
@@ -89,17 +89,8 @@ namespace PAC.DataStructures
 
         public static bool operator ==(IntVector2 a, IntVector2 b) => a.x == b.x && a.y == b.y;
         public static bool operator !=(IntVector2 a, IntVector2 b) => !(a == b);
-        public override bool Equals(object obj)
-        {
-            if (obj == null || !GetType().Equals(obj.GetType()))
-            {
-                return false;
-            }
-            else
-            {
-                return this == (IntVector2)obj;
-            }
-        }
+        public bool Equals(IntVector2 other) => this == other;
+        public override bool Equals(object obj) => obj is IntVector2 other && Equals(other);
 
         public override int GetHashCode() => HashCode.Combine(x, y);
 
