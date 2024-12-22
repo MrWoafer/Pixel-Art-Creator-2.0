@@ -11,10 +11,10 @@ namespace PAC.Tests
         {
             (IntVector2 input, IntVector2 expected)[] testCases =
             {
-                (new IntVector2(3, 9), new IntVector2(1, 3)),
-                (new IntVector2(4, 6), new IntVector2(2, 3)),
-                (new IntVector2(12, 25), new IntVector2(12, 25)),
-                (new IntVector2(18, 75), new IntVector2(6, 25))
+                ((3, 9), (1, 3)),
+                ((4, 6), (2, 3)),
+                ((12, 25), (12, 25)),
+                ((18, 75), (6, 25))
             };
 
             foreach ((IntVector2 input, IntVector2 expected) in testCases)

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using PAC.Extensions;
+using System.Runtime.CompilerServices;
 
 namespace PAC.DataStructures
 {
@@ -62,25 +63,25 @@ namespace PAC.DataStructures
         }
 
         /// <summary>The vector (0, 0).</summary>
-        public static readonly IntVector2 zero = new IntVector2(0, 0);
+        public static readonly IntVector2 zero = (0, 0);
         /// <summary>The vector (1, 1).</summary>
-        public static readonly IntVector2 one = new IntVector2(1, 1);
+        public static readonly IntVector2 one = (1, 1);
         /// <summary>The vector (1, 0).</summary>
-        public static readonly IntVector2 right = new IntVector2(1, 0);
+        public static readonly IntVector2 right = (1, 0);
         /// <summary>The vector (-1, 0).</summary>
-        public static readonly IntVector2 left = new IntVector2(-1, 0);
+        public static readonly IntVector2 left = (-1, 0);
         /// <summary>The vector (0, 1).</summary>
-        public static readonly IntVector2 up = new IntVector2(0, 1);
+        public static readonly IntVector2 up = (0, 1);
         /// <summary>The vector (0, -1).</summary>
-        public static readonly IntVector2 down = new IntVector2(0, -1);
+        public static readonly IntVector2 down = (0, -1);
         /// <summary>The vector (1, 1).</summary>
-        public static readonly IntVector2 upRight = new IntVector2(1, 1);
+        public static readonly IntVector2 upRight = (1, 1);
         /// <summary>The vector (-1, 1).</summary>
-        public static readonly IntVector2 upLeft = new IntVector2(-1, 1);
+        public static readonly IntVector2 upLeft = (-1, 1);
         /// <summary>The vector (1, -1).</summary>
-        public static readonly IntVector2 downRight = new IntVector2(1, -1);
+        public static readonly IntVector2 downRight = (1, -1);
         /// <summary>The vector (-1, -1).</summary>
-        public static readonly IntVector2 downLeft = new IntVector2(-1, -1);
+        public static readonly IntVector2 downLeft = (-1, -1);
         /// <summary>
         /// An IEnumerable over the vectors (0, 1), (0, -1), (-1, 0), (1, 0).
         /// </summary>
@@ -124,25 +125,25 @@ namespace PAC.DataStructures
         /// <summary>
         /// Adds component-wise.
         /// </summary>
-        public static IntVector2 operator +(IntVector2 a, IntVector2 b) => new IntVector2(a.x + b.x, a.y + b.y);
+        public static IntVector2 operator +(IntVector2 a, IntVector2 b) => (a.x + b.x, a.y + b.y);
 
         /// <summary>
         /// Negates component-wise.
         /// </summary>
-        public static IntVector2 operator -(IntVector2 a) => new IntVector2(-a.x, -a.y);
+        public static IntVector2 operator -(IntVector2 a) => (-a.x, -a.y);
         /// <summary>
         /// Subtracts component-wise.
         /// </summary>
-        public static IntVector2 operator -(IntVector2 a, IntVector2 b) => new IntVector2(a.x - b.x, a.y - b.y);
+        public static IntVector2 operator -(IntVector2 a, IntVector2 b) => (a.x - b.x, a.y - b.y);
 
         /// <summary>
         /// Multiplies component-wise.
         /// </summary>
-        public static IntVector2 operator *(IntVector2 a, IntVector2 b) => new IntVector2(a.x * b.x, a.y * b.y);
+        public static IntVector2 operator *(IntVector2 a, IntVector2 b) => (a.x * b.x, a.y * b.y);
         /// <summary>
         /// Multiplies component-wise.
         /// </summary>
-        public static IntVector2 operator *(int scalar, IntVector2 vector) => new IntVector2(scalar * vector.x, scalar * vector.y);
+        public static IntVector2 operator *(int scalar, IntVector2 vector) => (scalar * vector.x, scalar * vector.y);
         /// <summary>
         /// Multiplies component-wise.
         /// </summary>
@@ -151,11 +152,11 @@ namespace PAC.DataStructures
         /// <summary>
         /// Divides (integer division) component-wise.
         /// </summary>
-        public static IntVector2 operator /(IntVector2 a, IntVector2 b) => new IntVector2(a.x / b.x, a.y / b.y);
+        public static IntVector2 operator /(IntVector2 a, IntVector2 b) => (a.x / b.x, a.y / b.y);
         /// <summary>
         /// Divides (integer division) component-wise.
         /// </summary>
-        public static IntVector2 operator /(IntVector2 vector, int scalar) => new IntVector2(vector.x / scalar, vector.y / scalar);
+        public static IntVector2 operator /(IntVector2 vector, int scalar) => (vector.x / scalar, vector.y / scalar);
 
         /// <summary>
         /// Returns whether the this vector is an integer multiple of the divisor. For example, (3, 6) is a multiple of (1, 2) as (3, 6) = 3 * (1, 2).
@@ -259,7 +260,7 @@ namespace PAC.DataStructures
         /// <summary>
         /// Cast from Unity Vector2, by casting each coordinate to int.
         /// </summary>
-        public static explicit operator IntVector2(Vector2 vector) => new IntVector2((int)vector.x, (int)vector.y);
+        public static explicit operator IntVector2(Vector2 vector) => ((int)vector.x, (int)vector.y);
 
         /// <summary>
         /// Cast to Unity Vector3, with a 0 in the z-coord.
@@ -268,20 +269,20 @@ namespace PAC.DataStructures
         /// <summary>
         /// Cast from Unity Vector3, by casting the x and y coordinates to int and ignoring the z coordinate.
         /// </summary>
-        public static explicit operator IntVector2(Vector3 vector) => new IntVector2((int)vector.x, (int)vector.y);
+        public static explicit operator IntVector2(Vector3 vector) => ((int)vector.x, (int)vector.y);
 
         /// <summary>
         /// Floors component-wise.
         /// </summary>
-        public static IntVector2 FloorToIntVector2(Vector2 vector2) => new IntVector2(Mathf.FloorToInt(vector2.x), Mathf.FloorToInt(vector2.y));
+        public static IntVector2 FloorToIntVector2(Vector2 vector2) => (Mathf.FloorToInt(vector2.x), Mathf.FloorToInt(vector2.y));
         /// <summary>
         /// Ceils component-wise.
         /// </summary>
-        public static IntVector2 CeilToIntVector2(Vector2 vector2) => new IntVector2(Mathf.CeilToInt(vector2.x), Mathf.CeilToInt(vector2.y));
+        public static IntVector2 CeilToIntVector2(Vector2 vector2) => (Mathf.CeilToInt(vector2.x), Mathf.CeilToInt(vector2.y));
         /// <summary>
         /// Rounds component-wise.
         /// </summary>
-        public static IntVector2 RoundToIntVector2(Vector2 vector2) => new IntVector2(Mathf.RoundToInt(vector2.x), Mathf.RoundToInt(vector2.y));
+        public static IntVector2 RoundToIntVector2(Vector2 vector2) => (Mathf.RoundToInt(vector2.x), Mathf.RoundToInt(vector2.y));
 
         /// <summary>
         /// Computes the dot product.
@@ -334,16 +335,16 @@ namespace PAC.DataStructures
         /// <summary>
         /// Returns the sign of each component of the vector.
         /// </summary>
-        public static IntVector2 Sign(IntVector2 a) => new IntVector2(Math.Sign(a.x), Math.Sign(a.y));
+        public static IntVector2 Sign(IntVector2 a) => (Math.Sign(a.x), Math.Sign(a.y));
         /// <summary>
         /// Takes the absolute value component-wise.
         /// </summary>
-        public static IntVector2 Abs(IntVector2 a) => new IntVector2(Math.Abs(a.x), Math.Abs(a.y));
+        public static IntVector2 Abs(IntVector2 a) => (Math.Abs(a.x), Math.Abs(a.y));
 
         /// <summary>
         /// Takes the maximum of a and b component-wise.
         /// </summary>
-        public static IntVector2 Max(IntVector2 a, IntVector2 b) => new IntVector2(Math.Max(a.x, b.x), Math.Max(a.y, b.y));
+        public static IntVector2 Max(IntVector2 a, IntVector2 b) => (Math.Max(a.x, b.x), Math.Max(a.y, b.y));
         /// <summary>
         /// Takes the maximum of the vectors component-wise.
         /// </summary>
@@ -358,13 +359,13 @@ namespace PAC.DataStructures
             {
                 throw new ArgumentException("Cannot perform Max() on an empty collection of IntVector2s.", "vectors");
             }
-            return new IntVector2(vectors.Select(vector => vector.x).Max(), vectors.Select(vector => vector.y).Max());
+            return (vectors.Select(vector => vector.x).Max(), vectors.Select(vector => vector.y).Max());
         }
 
         /// <summary>
         /// Takes the minimum of a and b component-wise.
         /// </summary>
-        public static IntVector2 Min(IntVector2 a, IntVector2 b) => new IntVector2(Math.Min(a.x, b.x), Math.Min(a.y, b.y));
+        public static IntVector2 Min(IntVector2 a, IntVector2 b) => (Math.Min(a.x, b.x), Math.Min(a.y, b.y));
         /// <summary>
         /// Takes the minimum of the vectors component-wise.
         /// </summary>
@@ -379,7 +380,7 @@ namespace PAC.DataStructures
             {
                 throw new ArgumentException("Cannot perform Min() on an empty collection of IntVector2s.", "vectors");
             }
-            return new IntVector2(vectors.Select(vector => vector.x).Min(), vectors.Select(vector => vector.y).Min());
+            return (vectors.Select(vector => vector.x).Min(), vectors.Select(vector => vector.y).Min());
         }
 
         /// <summary>
@@ -388,9 +389,9 @@ namespace PAC.DataStructures
         public IntVector2 Rotate(RotationAngle angle) => angle switch
         {
             RotationAngle._0 => this,
-            RotationAngle._90 => new IntVector2(y, -x),
-            RotationAngle._180 => new IntVector2(-x, -y),
-            RotationAngle.Minus90 => new IntVector2(-y, x),
+            RotationAngle._90 => (y, -x),
+            RotationAngle._180 => (-x, -y),
+            RotationAngle.Minus90 => (-y, x),
             _ => throw new NotImplementedException("Unknown / unimplemented angle: " + angle)
         };
         /// <summary>
@@ -399,10 +400,10 @@ namespace PAC.DataStructures
         public IntVector2 Flip(FlipAxis axis) => axis switch
         {
             FlipAxis.None => this,
-            FlipAxis.Vertical => new IntVector2(-x, y),
-            FlipAxis.Horizontal => new IntVector2(x, -y),
-            FlipAxis._45Degrees => new IntVector2(y, x),
-            FlipAxis.Minus45Degrees => new IntVector2(-y, -x),
+            FlipAxis.Vertical => (-x, y),
+            FlipAxis.Horizontal => (x, -y),
+            FlipAxis._45Degrees => (y, x),
+            FlipAxis.Minus45Degrees => (-y, -x),
             _ => throw new NotImplementedException("Unknown / unimplemented FlipAxis: " + axis)
         };
     }
