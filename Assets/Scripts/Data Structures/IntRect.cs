@@ -5,6 +5,7 @@ using PAC;
 using System.Collections.Generic;
 using System;
 using PAC.Extensions;
+using System.Runtime.CompilerServices;
 
 namespace PAC.DataStructures
 {
@@ -75,6 +76,24 @@ namespace PAC.DataStructures
         /// Shifts the whole rect by the given vector.
         /// </summary>
         public static IntRect operator -(IntRect rect, IntVector2 vector) => rect + (-vector);
+
+        /// <summary>
+        /// <para>
+        /// Allows writing <see cref="IntRect"/>s in a more readable way, especially when combined with <see cref="IntVector2"/>'s implicit conversion from <c>(int, int)</c> - e.g.
+        /// </para>
+        /// <code language="csharp">
+        /// <see cref="IntRect"/> rect = ((5, 3), (-2, 1));
+        /// </code>
+        /// instead of
+        /// <code language="csharp">
+        /// <see cref="IntRect"/> point = new <see cref="IntRect"/>(new <see cref="IntVector2"/>(5, 3), new <see cref="IntVector2"/>(-2, 1));
+        /// </code>
+        /// <para>
+        /// This conversion should be inlined by the JIT compiler.
+        /// </para>
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static implicit operator IntRect((IntVector2 corner, IntVector2 oppositeCorner) tuple) => new IntRect(tuple.corner, tuple.oppositeCorner);
 
         /// <summary>
         /// Cast to Unity Rect. Doesn't just convert each coordinate to a float. It expands the rect so it contains all the pixels described by the IntRect.
