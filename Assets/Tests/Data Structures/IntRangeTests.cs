@@ -268,6 +268,51 @@ namespace PAC.Tests
                 }
             }
         }
+
+        [Test]
+        [Category("Data Structures")]
+        public void BoundingRange()
+        {
+            Random rng = new Random(0);
+
+            const int maxTestCaseLength = 20;
+            const int numTestCasesPerLength = 1_000;
+
+            List<int[]> testCases = new List<int[]>();
+            for (int length = 1; length <= maxTestCaseLength; length++)
+            {
+                for (int i = 0; i < numTestCasesPerLength; i++)
+                {
+                    int[] testCase = new int[length];
+                    for (int j = 0; j < length; j++)
+                    {
+                        testCase[j] = rng.Next(-100, 100);
+                    }
+                    testCases.Add(testCase);
+                }
+            }
+
+            /////
+            
+            Assert.True(IntRange.BoundingRange(new int[] { }).isEmpty);
+            Assert.True(IntRange.BoundingRange(new int[] { }).isExclExcl);
+
+            foreach (int[] testCase in testCases)
+            {
+                IntRange boundingRange = IntRange.BoundingRange(testCase);
+
+                foreach (int value in testCase)
+                {
+                    Assert.True(boundingRange.Contains(value), $"Failed with {testCase} and {value}.");
+                }
+                Assert.False(boundingRange.Contains(((IEnumerable<int>)boundingRange).Min() - 1), $"Failed with {testCase}.");
+                Assert.False(boundingRange.Contains(((IEnumerable<int>)boundingRange).Max() + 1), $"Failed with {testCase}.");
+
+                Assert.True(boundingRange.isInclIncl, $"Failed with {testCase}");
+            }
+
+            Assert.Throws<ArgumentNullException>(() => IntRange.BoundingRange(null));
+        }
         #endregion
 
         #region Tests: Operations

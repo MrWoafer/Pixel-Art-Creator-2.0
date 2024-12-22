@@ -613,6 +613,25 @@ namespace PAC.DataStructures
         /// Returns the elements the two ranges have in common.
         /// </summary>
         public static IntRange Intersection(IntRange a, IntRange b) => Intersect(a, b) ? InclIncl(Math.Max(a.minElement, b.minElement), Math.Min(a.maxElement, b.maxElement)) : Empty;
+
+        /// <summary>
+        /// Returns the smallest range containing all the given values. Expresses it with both boundaries inclusive, unless the sequence of values is empty, in which case it will be expressed
+        /// with both boundaries exclusive.
+        /// </summary>
+        public static IntRange BoundingRange(IEnumerable<int> integers)
+        {
+            if (integers is null)
+            {
+                throw new ArgumentNullException($"Cannot perform {nameof(BoundingRange)}() on null.", nameof(integers));
+            }
+            if (integers.IsEmpty())
+            {
+                return Empty;
+            }
+
+            (int min, int max) = integers.MinAndMax();
+            return InclIncl(min, max);
+        }
         #endregion
 
         #region Enumerator
