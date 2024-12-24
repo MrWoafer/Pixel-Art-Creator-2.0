@@ -65,4 +65,42 @@ public static class CreateAssetMenuItems
 
         CreateAssetMenuItemsHelper.CreateAssetWithRename<MonoScript>("Create extension methods script", "New Extension Methods Script.cs", FileNameGenerator, ContentGenerator);
     }
+
+    [MenuItem("Assets/Create/Scripting/Interface Script")]
+    public static void CreateInterfaceScript()
+    {
+        static string FileNameGenerator(string fileName)
+        {
+            if (fileName.Any(c => char.IsWhiteSpace(c)))
+            {
+                throw new ArgumentException("File name cannot contain whitespace.", nameof(fileName));
+            }
+
+            // Add "I" prefix if the file name doesn't already include it
+            if (fileName[0] != 'I' || fileName.Length == 1 || char.IsLower(fileName[1]))
+            {
+                return "I" + fileName;
+            }
+            return fileName;
+        }
+
+        static string ContentGenerator(string fileName)
+        {
+            string className = FileNameGenerator(fileName);
+
+            StringBuilder contents = new StringBuilder();
+
+            contents.AppendLine($"namespace {EditorSettings.projectGenerationRootNamespace}");
+            contents.AppendLine("{");
+            contents.AppendLine($"\tpublic interface {className}");
+            contents.AppendLine("\t{");
+            contents.AppendLine();
+            contents.AppendLine("\t}");
+            contents.AppendLine("}");
+
+            return contents.ToString().Replace("\t", new string(' ', scriptTabSize));
+        }
+
+        CreateAssetMenuItemsHelper.CreateAssetWithRename<MonoScript>("Create interface script", "New Interface.cs", FileNameGenerator, ContentGenerator);
+    }
 }
