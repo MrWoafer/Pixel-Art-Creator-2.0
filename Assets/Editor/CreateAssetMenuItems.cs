@@ -126,4 +126,46 @@ public static class CreateAssetMenuItems
 
         CreateAssetMenuItemsHelper.CreateAssetWithRename<MonoScript>("Create abstract class script", "New Abstract Class.cs", FileNameGenerator, ContentGenerator);
     }
+
+    [MenuItem("Assets/Create/Testing/C# Edit Mode Test Script")]
+    public static void CreateEditModeTestScript()
+    {
+        const string suffix = "Tests";
+
+        static string FileNameGenerator(string fileName)
+        {
+            if (fileName.Any(c => char.IsWhiteSpace(c)))
+            {
+                throw new ArgumentException("File name cannot contain whitespace.", nameof(fileName));
+            }
+
+            // Add suffix to file name if it doesn't already have it
+            return fileName + (fileName.EndsWith(suffix) ? "" : suffix);
+        }
+
+        static string ContentGenerator(string fileName)
+        {
+            string className = FileNameGenerator(fileName);
+
+            StringBuilder contents = new StringBuilder();
+
+            contents.AppendLine("using NUnit.Framework;");
+            contents.AppendLine();
+            contents.AppendLine($"namespace {EditorSettings.projectGenerationRootNamespace}.Tests");
+            contents.AppendLine("{");
+            contents.AppendLine($"\tpublic class {className}");
+            contents.AppendLine("\t{");
+            contents.AppendLine("\t\t[Test]");
+            contents.AppendLine("\t\tpublic void ExampleTest()");
+            contents.AppendLine("\t\t{");
+            contents.AppendLine("\t\t\tAssert.Pass();");
+            contents.AppendLine("\t\t}");
+            contents.AppendLine("\t}");
+            contents.AppendLine("}");
+
+            return contents.ToString().Replace("\t", new string(' ', scriptTabSize));
+        }
+
+        CreateAssetMenuItemsHelper.CreateAssetWithRename<MonoScript>("Create edit mode test script", "New Edit Mode Test Script.cs", FileNameGenerator, ContentGenerator);
+    }
 }
