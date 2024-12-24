@@ -10,33 +10,25 @@ namespace PAC.Extensions
         /// <summary>
         /// Determiens if the given type is a struct or not.
         /// </summary>
-        public static bool IsStruct(this Type type)
-        {
-            return type.IsValueType && !type.IsPrimitive && !type.IsEnum;
-        }
+        public static bool IsStruct(this Type type) => type.IsValueType && !type.IsPrimitive && !type.IsEnum;
 
         /// <summary>
-        /// Determines if the given type is List&lt;T&gt; for some type T.
+        /// Determines if the given type is <see cref="List{T}"/> for some type <typeparamref name="T"/>.
         /// </summary>
-        public static bool IsGenericList(this Type type)
-        {
-            return type.IsGenericType && type.GetGenericTypeDefinition() == typeof(List<>);
-        }
+        public static bool IsGenericList(this Type type) => type.IsGenericType && type.GetGenericTypeDefinition() == typeof(List<>);
 
         /// <summary>
-        /// Determines if the given type is a raw generic - e.g. List&lt;&gt; is a raw generic, but List&lt;int&gt; is not. Also returns false for non-generic types.
+        /// Determines if the given type is a raw generic - e.g. <c>List&lt;&gt;</c> is a raw generic, but <c>List&lt;<see langword="int"/>&gt;</c> is not. Also returns false for non-generic types.
         /// </summary>
-        public static bool IsRawGeneric(this Type type)
-        {
-            return type.IsGenericType && type.GetGenericTypeDefinition() == type;
-        }
+        public static bool IsRawGeneric(this Type type) => type.IsGenericType && type.GetGenericTypeDefinition() == type;
 
         /// <summary>
         /// <para>
-        /// Determines if the given type inherits from the given some concrete version of the given raw generic type - e.g. List&lt;int&gt; inherits from the raw generic IEnumerable&lt;&gt;.
+        /// Determines if the given type inherits from the given some concrete version of the given raw generic type - e.g. <c>List&lt;<see langword="int"/>&gt;</c> inherits from the raw generic
+        /// <c>IEnumerable&lt;&gt;</c>.
         /// </para>
         /// <para>
-        /// Throws an exception if 'rawGeneric' is not a raw generic. For example, List&lt;&gt; is a raw generic, but List&lt;int&gt; is not.
+        /// Throws an exception if <paramref name="rawGeneric"/> is not a raw generic. For example, <c>List&lt;&gt;</c> is a raw generic, but <c>List&lt;<see langword="int"/>&gt;</c> is not.
         /// </para>
         /// </summary>
         public static bool IsSubclassOfRawGeneric(this Type subType, Type rawGeneric)
@@ -60,14 +52,14 @@ namespace PAC.Extensions
 
         /// <summary>
         /// <para>
-        /// Gets the concrete version of the given raw generic type that 'subType' inherits - e.g. List&lt;int&gt; inherits from the raw generic IEnumerable&lt;&gt;, with the concrete type returned
-        /// by this method being IEnumerable&lt;int&gt;.
+        /// Gets the concrete version of the given raw generic type that <paramref name="subType"/> inherits from - e.g. <c>List&lt;<see langword="int"/>&gt;</c> inherits from the raw generic
+        /// <c>IEnumerable&lt;&gt;</c>, with the concrete type returned by this method being <c>IEnumerable&lt;<see langword="int"/>&gt;</c>.
         /// </para>
         /// <para>
-        /// Throws an exception if 'rawGeneric' is not a raw generic. For example, List&lt;&gt; is a raw generic, but List&lt;int&gt; is not.
+        /// Throws an exception if <paramref name="rawGeneric"/> is not a raw generic. For example, <c>List&lt;&gt;</c> is a raw generic, but <c>List&lt;<see langword="int"/>&gt;</c> is not.
         /// </para>
         /// <para>
-        /// Throws an exception if 'subType' does not inherit from 'rawGeneric'.
+        /// Throws an exception if <paramref name="subType"/> does not inherit from <paramref name="rawGeneric"/>.
         /// </para>
         /// </summary>
         public static Type GetTypeOfRawGenericSuperclass(this Type subType, Type rawGeneric)
@@ -90,7 +82,10 @@ namespace PAC.Extensions
         }
 
         /// <summary>
-        /// Determines if the given property is an auto property - i.e. it has both a getter and setter with no body, for example <code>public string name { get; set; }</code>
+        /// Determines if the given property is an auto property - i.e. it has both a getter and setter with no body, for example
+        /// <code>
+        /// <see langword="public"/> <see langword="string"/> name { <see langword="get"/>; <see langword="set"/>; }
+        /// </code>
         /// </summary>
         public static bool IsAutoProperty(this PropertyInfo property)
         {
