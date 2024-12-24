@@ -197,6 +197,42 @@ namespace PAC.Extensions
         public static bool None<T>(this IEnumerable<T> elements, Func<T, bool> predicate) => !elements.Any(predicate);
 
         /// <summary>
+        /// Whether all the given elements are in the <see cref="IEnumerable{T}"/>.
+        /// </summary>
+        public static bool ContainsAll<T>(this IEnumerable<T> iEnumerable, params T[] elements) => ContainsAll(iEnumerable, (IEnumerable<T>)elements);
+        /// <summary>
+        /// Whether all the given elements are in the <see cref="ICollection{T}"/>.
+        /// </summary>
+        public static bool ContainsAll<T>(this IEnumerable<T> iEnumerable, IEnumerable<T> elements) => elements.All(x => iEnumerable.Contains(x));
+
+        /// <summary>
+        /// Whether at least one of the given elements is not in the <see cref="IEnumerable{T}"/>.
+        /// </summary>
+        public static bool ContainsNotAll<T>(this IEnumerable<T> iEnumerable, params T[] elements) => ContainsNotAll(iEnumerable, (IEnumerable<T>)elements);
+        /// <summary>
+        /// Whether at least one of the given elements is not in the <see cref="ICollection{T}"/>.
+        /// </summary>
+        public static bool ContainsNotAll<T>(this IEnumerable<T> iEnumerable, IEnumerable<T> elements) => !elements.All(x => iEnumerable.Contains(x));
+
+        /// <summary>
+        /// Whether any of the given elements are in the <see cref="IEnumerable{T}"/>.
+        /// </summary>
+        public static bool ContainsAny<T>(this IEnumerable<T> iEnumerable, params T[] elements) => ContainsAny(iEnumerable, (IEnumerable<T>)elements);
+        /// <summary>
+        /// Whether any of the given elements are in the <see cref="IEnumerable{T}"/>.
+        /// </summary>
+        public static bool ContainsAny<T>(this IEnumerable<T> iEnumerable, IEnumerable<T> elements) => elements.Any(x => iEnumerable.Contains(x));
+
+        /// <summary>
+        /// Whether none of the given elements are in the <see cref="IEnumerable{T}"/>.
+        /// </summary>
+        public static bool ContainsNone<T>(this IEnumerable<T> iEnumerable, params T[] elements) => ContainsNone(iEnumerable, (IEnumerable<T>)elements);
+        /// <summary>
+        /// Whether none of the given elements are in the <see cref="IEnumerable{T}"/>.
+        /// </summary>
+        public static bool ContainsNone<T>(this IEnumerable<T> iEnumerable, IEnumerable<T> elements) => !elements.Any(x => iEnumerable.Contains(x));
+
+        /// <summary>
         /// Applies the function to each element and returns the element that gives the lowest output. If multiple elements give the lowest output, the first one will be returned.
         /// </summary>
         public static TElement ArgMin<TElement, TCompare>(this IEnumerable<TElement> elements, Func<TElement, TCompare> function) where TCompare : IComparable<TCompare>
