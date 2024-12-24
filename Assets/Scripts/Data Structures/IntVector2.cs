@@ -218,6 +218,7 @@ namespace PAC.DataStructures
         public static bool AreColinear(IntVector2 a, IntVector2 b)
         {
             // Proof that being colinear in the sense of real vectors is equivalent to there being an IntVector2 dividing both of them:
+            //      The <= direction is trivial, so we just prove the => direction.
             //      The case where a = 0 or b = 0 is trivial, so assume a and b are non-zero. Without loss of generality, let a, b be in the top-right quadrant. Let c be the smallest positive
             //      integer point on the line. It is enough to the prove that c divides a (as then, by symmetry, c divides b; and by definition of Simplify() and minimality of c, c = Simplify(a),
             //      Simplify(b)). So suppose c did not divide a. Let d be the greatest multiple of c less than a (note c < a). Note d is on the line too, and hence so is a - d, which is an integer
