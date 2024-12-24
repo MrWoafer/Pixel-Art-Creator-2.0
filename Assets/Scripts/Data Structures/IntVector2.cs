@@ -203,14 +203,7 @@ namespace PAC.DataStructures
         /// Preserves signs.
         /// </para>
         /// </summary>
-        public static IntVector2 Simplify(IntVector2 a)
-        {
-            if (a == zero)
-            {
-                return zero;
-            }
-            return a / Functions.Gcd(a.x, a.y);
-        }
+        public static IntVector2 Simplify(IntVector2 a) => (a == zero) ? zero : (a / Functions.Gcd(a.x, a.y));
 
         /// <summary>
         /// Returns whether the two vectors lie on the same real line through (0, 0). This is equivalent to whether there is an IntVector2 dividing both of them.
