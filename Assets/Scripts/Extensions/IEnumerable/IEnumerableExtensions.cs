@@ -1,15 +1,17 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 
 namespace PAC.Extensions
 {
     /// <summary>
-    /// Extension methods for IEnumerable&lt;T&gt;.
+    /// Extension methods for <see cref="IEnumerable{T}"/>.
     /// </summary>
     public static class IEnumerableExtensions
     {
+        /// <summary>
+        /// Creates an <see cref="IEnumerable{T}"/> with only one element.
+        /// </summary>
         public static IEnumerable<T> Singleton<T>(T element) { yield return element; }
 
         /// <summary>
@@ -24,7 +26,7 @@ namespace PAC.Extensions
         }
 
         /// <summary>
-        /// Creates an IEnumerable that repeats the given element indefinitely.
+        /// Creates an <see cref="IEnumerable{T}"/> that repeats the given element indefinitely.
         /// </summary>
         public static IEnumerable<T> Repeat<T>(T element)
         {
@@ -35,7 +37,7 @@ namespace PAC.Extensions
         }
 
         /// <summary>
-        /// Creates an IEnumerable that repeats the given IEnumerable indefinitely, looping back round to the beginning when it reaches the end.
+        /// Creates an <see cref="IEnumerable{T}"/> that repeats the given <see cref="IEnumerable{T}"/> indefinitely, looping back round to the beginning when it reaches the end.
         /// </summary>
         public static IEnumerable<T> RepeatIEnumerable<T>(IEnumerable<T> elements)
         {
@@ -54,7 +56,8 @@ namespace PAC.Extensions
         }
 
         /// <summary>
-        /// Creates a new IEnumerable that iterates through all of this one, then all of second, etc. Extends the LINQ Concat() method to concat multiple IEnumerables.
+        /// Creates a new <see cref="IEnumerable{T}"/> that iterates through all of this one, then all of second, etc. Extends <see cref="Enumerable.Concat{T}(IEnumerable{T}, IEnumerable{T})"/> to
+        /// allow concating multiple <see cref="IEnumerable{T}"/>s.
         /// </summary>
         public static IEnumerable<T> Concat<T>(this IEnumerable<T> first, IEnumerable<T> second, IEnumerable<T> third, params IEnumerable<T>[] subsequent)
         {
@@ -80,7 +83,7 @@ namespace PAC.Extensions
         }
 
         /// <summary>
-        /// Returns whether the given IEnumerable has no elements.
+        /// Returns true iff the given <see cref="IEnumerable{T}"/> has no elements.
         /// </summary>
         public static bool IsEmpty<T>(this IEnumerable<T> elements)
         {
@@ -96,12 +99,12 @@ namespace PAC.Extensions
             return true;
         }
         /// <summary>
-        /// Returns whether the given IEnumerable has at least one element.
+        /// Returns true iff the given <see cref="IEnumerable{T}"/> has at least one element.
         /// </summary>
         public static bool IsNotEmpty<T>(this IEnumerable<T> elements) => !elements.IsEmpty();
 
         /// <summary>
-        /// Returns whether the given IEnumerable has exactly n elements.
+        /// Returns whether the given <see cref="IEnumerable{T}"/> has exactly n elements.
         /// </summary>
         public static bool CountExactly<T>(this IEnumerable<T> elements, int n)
         {
@@ -127,7 +130,7 @@ namespace PAC.Extensions
             return count == n;
         }
         /// <summary>
-        /// Returns whether the given IEnumerable has &gt;= n elements.
+        /// Returns whether the given <see cref="IEnumerable{T}"/> has &gt;= n elements.
         /// </summary>
         public static bool CountAtLeast<T>(this IEnumerable<T> elements, int n)
         {
@@ -154,7 +157,7 @@ namespace PAC.Extensions
             return n == 0;
         }
         /// <summary>
-        /// Returns whether the given IEnumerable has &lt;= n elements.
+        /// Returns whether the given <see cref="IEnumerable{T}"/> has &lt;= n elements.
         /// </summary>
         public static bool CountAtMost<T>(this IEnumerable<T> elements, int n)
         {
@@ -181,12 +184,12 @@ namespace PAC.Extensions
         }
 
         /// <summary>
-        /// Returns the number of distinct elements in the IEnumerable.
+        /// Returns the number of distinct elements in the <see cref="IEnumerable{T}"/>.
         /// </summary>
         public static int CountDistinct<T>(this IEnumerable<T> elements) => elements.ToHashSet().Count;
 
         /// <summary>
-        /// Determines whether none of the elements satisfy the predicate.
+        /// Returns true iff none of the elements satisfy the predicate.
         /// </summary>
         public static bool None<T>(this IEnumerable<T> elements, Func<T, bool> predicate) => !elements.Any(predicate);
 
@@ -245,10 +248,11 @@ namespace PAC.Extensions
 
         /// <summary>
         /// <para>
-        /// Returns the minimum and maximum element of the IEnumerable. Can be more efficient that calling Min() and Max() as this only iterates through the IEnumerable once.
+        /// Returns the minimum and maximum element of the <see cref="IEnumerable{T}"/>. Can be more efficient than calling <see cref="Enumerable.Min{T}(IEnumerable{T})"/> and
+        /// <see cref="Enumerable.Max{T}(IEnumerable{T})"/> as this only iterates through the <see cref="IEnumerable{T}"/> once.
         /// </para>
         /// <para>
-        /// Throws an exception if T doesn't have a default comparer.
+        /// Throws an exception if <typeparamref name="T"/> doesn't have a default comparer.
         /// </para>
         /// </summary>
         public static (T min, T max) MinAndMax<T>(this IEnumerable<T> elements)
@@ -290,19 +294,21 @@ namespace PAC.Extensions
         }
 
         /// <summary>
-        /// Returns (elements[0], 0), (elements[1], 1), ..., (elements[^1], elements.Count - 1)
+        /// Returns (<paramref name="elements"/>[0], 0), (<paramref name="elements"/>[1], 1), ..., (<paramref name="elements"/>[^1], <paramref name="elements"/>.Count - 1).
         /// </summary>
         public static IEnumerable<(T element, int index)> Enumerate<T>(this IEnumerable<T> elements) => elements.Select((x, i) => (x, i));
         /// <summary>
-        /// Returns (left[0], right[0]), (left[1], right[1]), ..., until one of the IEnumerables ends.
+        /// Returns (<paramref name="left"/>[0], <paramref name="right"/>[0]), (<paramref name="left"/>[1], <paramref name="right"/>[1]), ..., until either <paramref name="left"/> or
+        /// <paramref name="right"/> ends.
         /// </summary>
         public static IEnumerable<(T1 left, T2 right)> Zip<T1, T2>(this IEnumerable<T1> left, IEnumerable<T2> right) => left.Zip(right, (x, y) => (x, y));
         /// <summary>
         /// <para>
-        /// Returns (elements[0], elements[1]), (elements[1], elements[2]), ..., (elements[^2], elements[^1]).
+        /// Returns (<paramref name="elements"/>[0], <paramref name="elements"/>[1]), (<paramref name="elements"/>[1], <paramref name="elements"/>[2]), ...,
+        /// (<paramref name="elements"/>[^2], <paramref name="elements"/>[^1]).
         /// </para>
         /// <para>
-        /// Returns an empty IEnumerable if elements has length 0 or 1.
+        /// Returns an empty <see cref="IEnumerable{T}"/> if <paramref name="elements"/> has length 0 or 1.
         /// </para>
         /// </summary>
         public static IEnumerable<(T current, T next)> ZipCurrentAndNext<T>(this IEnumerable<T> elements) => elements.Zip(elements.Skip(1));
