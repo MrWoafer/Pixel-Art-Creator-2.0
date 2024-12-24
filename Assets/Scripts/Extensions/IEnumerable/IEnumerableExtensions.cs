@@ -9,6 +9,9 @@ namespace PAC.Extensions
     /// </summary>
     public static class IEnumerableExtensions
     {
+        private static ArgumentNullException NullIEnumerableException<T>(string paramName) => new ArgumentNullException(paramName, $"The given IEnumerable<{typeof(T).Name}> is null.");
+        private static ArgumentException EmptyIEnumerableException<T>(string paramName) => new ArgumentException($"The given IEnumerable<{typeof(T).Name}> is empty.", paramName);
+
         /// <summary>
         /// Creates an <see cref="IEnumerable{T}"/> with only one element.
         /// </summary>
@@ -43,7 +46,7 @@ namespace PAC.Extensions
         {
             if (elements is null)
             {
-                throw new ArgumentException("The given IEnumerable<" + typeof(T).Name + "> is null.", "elements");
+                throw NullIEnumerableException<T>(nameof(elements));
             }
 
             while (true)
@@ -89,7 +92,7 @@ namespace PAC.Extensions
         {
             if (elements is null)
             {
-                throw new ArgumentException("The given IEnumerable<" + typeof(T).Name + "> is null.", "elements");
+                throw NullIEnumerableException<T>(nameof(elements));
             }
 
             foreach (T element in elements)
@@ -110,7 +113,7 @@ namespace PAC.Extensions
         {
             if (elements is null)
             {
-                throw new ArgumentException("The given IEnumerable<" + typeof(T).Name + "> is null.", "elements");
+                throw NullIEnumerableException<T>(nameof(elements));
             }
 
             if (n < 0)
@@ -136,7 +139,7 @@ namespace PAC.Extensions
         {
             if (elements is null)
             {
-                throw new ArgumentException("The given IEnumerable<" + typeof(T).Name + "> is null.", "elements");
+                throw NullIEnumerableException<T>(nameof(elements));
             }
 
             if (n < 0)
@@ -163,7 +166,7 @@ namespace PAC.Extensions
         {
             if (elements is null)
             {
-                throw new ArgumentException("The given IEnumerable<" + typeof(T).Name + "> is null.", "elements");
+                throw NullIEnumerableException<T>(nameof(elements));
             }
 
             if (n < 0)
@@ -200,11 +203,11 @@ namespace PAC.Extensions
         {
             if (elements is null)
             {
-                throw new ArgumentNullException($"The given IEnumerable<{typeof(TElement).Name}> is null.", nameof(elements));
+                throw NullIEnumerableException<TElement>(nameof(elements));
             }
             if (elements.IsEmpty())
             {
-                throw new ArgumentException($"The given IEnumerable<{typeof(TElement).Name}> is empty.", nameof(elements));
+                throw EmptyIEnumerableException<TElement>(nameof(elements));
             }
 
             (TElement element, TCompare value) min = (elements.First(), function.Invoke(elements.First()));
@@ -226,11 +229,11 @@ namespace PAC.Extensions
         {
             if (elements is null)
             {
-                throw new ArgumentNullException($"The given IEnumerable<{typeof(TElement).Name}> is null.", nameof(elements));
+                throw NullIEnumerableException<TElement>(nameof(elements));
             }
             if (elements.IsEmpty())
             {
-                throw new ArgumentException($"The given IEnumerable<{typeof(TElement).Name}> is empty.", nameof(elements));
+                throw EmptyIEnumerableException<TElement>(nameof(elements));
             }
 
             (TElement element, TCompare value) max = (elements.First(), function.Invoke(elements.First()));
@@ -259,11 +262,11 @@ namespace PAC.Extensions
         {
             if (elements is null)
             {
-                throw new ArgumentNullException($"The given IEnumerable<{typeof(T).Name}> is null.", nameof(elements));
+                throw NullIEnumerableException<T>(nameof(elements));
             }
             if (elements.IsEmpty())
             {
-                throw new ArgumentException($"The given IEnumerable<{typeof(T).Name}> is empty.", nameof(elements));
+                throw EmptyIEnumerableException<T>(nameof(elements));
             }
 
             Comparer<T> comparer;
