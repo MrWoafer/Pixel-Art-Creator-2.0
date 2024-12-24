@@ -94,6 +94,33 @@ public static class CreateAssetMenuItemsHelper
     /// </param>
     /// <param name="contents">The string to write into the asset.</param>
     public static void CreateAssetWithRename<AssetType>(string actionName, string defaultFilename, string contents) where AssetType : UnityEngine.Object
+        => CreateAssetWithRename<AssetType>(actionName, defaultFilename, (fileName) => fileName, (_) => contents);
+    /// <summary>
+    /// Creates an asset of the given type in the currently-open asset folder, and makes the user choose a name for it.
+    /// </summary>
+    /// <typeparam name="AssetType">The type of asset to create.</typeparam>
+    /// <param name="actionName">The name of the action being performed. Used when registering the asset creation with the undo system.</param>
+    /// <param name="defaultFilename">
+    /// <para>
+    /// The name of the asset before the user renames it.
+    /// </para>
+    /// <para>
+    /// Must not include any directories.
+    /// </para>
+    /// <para>
+    /// Must include the file extension, which must be a valid extension for <typeparamref name="AssetType"/>.
+    /// </para>
+    /// </param>
+    /// <param name="fileNameGenerator">
+    /// A function to generate the file name of the asset based on what the user named it - e.g. to add a suffix.
+    /// Takes in the file name of the asset (without the extension), once the asset's name has been chosen.
+    /// </param>
+    /// <param name="contentGenerator">
+    /// A function to generate the string to write into the asset.
+    /// Takes in the file name of the asset (without the extension), once the asset's name has been chosen.
+    /// </param>
+    public static void CreateAssetWithRename<AssetType>(string actionName, string defaultFilename, Func<string, string> fileNameGenerator, Func<string, string> contentGenerator)
+        where AssetType : UnityEngine.Object
     {
         if (!Path.HasExtension(defaultFilename))
         {
@@ -114,6 +141,9 @@ public static class CreateAssetMenuItemsHelper
 
         CustomisableEndNameEditAction endNameEditAction = ScriptableObject.CreateInstance<CustomisableEndNameEditAction>().SetEndAction((int instanceId, string filePath, string resourceFile) =>
         {
+            string fileName = Path.GetFileNameWithoutExtension(filePath);
+            filePath = ChangeFileName(filePath, fileNameGenerator.Invoke(fileName));
+            string contents = contentGenerator.Invoke(fileName);
             Selection.activeObject = CreateAssetAtPath<AssetType>(actionName, filePath, contents);
         });
 
@@ -184,5 +214,30 @@ public static class CreateAssetMenuItemsHelper
         }
 
         return EditorGUIUtility.IconContent(iconName).image as Texture2D;
+    }
+
+    /// <summary>
+    /// Changes the file name of the file path, without affecting the directories or extension.
+    /// </summary>
+    /// <param name="newFileName">
+    /// <para>
+    /// Must not contain any directories.
+    /// </para>
+    /// <para>
+    /// A file extension will not change the extension of the path, but will be included in the file name.
+    /// E.g. <paramref name="filePath"/> = "Folder/old_file.cs" and <paramref name="newFileName"/> = "new_file.txt" will become "Folder/new_file.txt.cs"
+    /// </para>
+    /// </param>
+    private static string ChangeFileName(string filePath, string newFileName)
+    {
+        if (Path.GetFileName(newFileName) != newFileName)
+        {
+            throw new ArgumentException($"{nameof(newFileName)} must not include any directories.", nameof(newFileName));
+        }
+
+        string directory = Path.GetDirectoryName(filePath);
+        string extension = Path.GetExtension(filePath);
+
+        return Path.ChangeExtension(Path.Combine(directory, newFileName), extension);
     }
 }
