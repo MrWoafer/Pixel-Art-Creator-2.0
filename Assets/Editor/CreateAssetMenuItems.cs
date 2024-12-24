@@ -103,4 +103,27 @@ public static class CreateAssetMenuItems
 
         CreateAssetMenuItemsHelper.CreateAssetWithRename<MonoScript>("Create interface script", "New Interface.cs", FileNameGenerator, ContentGenerator);
     }
+
+    [MenuItem("Assets/Create/Scripting/Abstract Class Script")]
+    public static void CreateAbstractClassScript()
+    {
+        static string FileNameGenerator(string fileName) => fileName;
+
+        static string ContentGenerator(string fileName)
+        {
+            StringBuilder contents = new StringBuilder();
+
+            contents.AppendLine($"namespace {EditorSettings.projectGenerationRootNamespace}");
+            contents.AppendLine("{");
+            contents.AppendLine($"\tpublic abstract class {fileName}");
+            contents.AppendLine("\t{");
+            contents.AppendLine();
+            contents.AppendLine("\t}");
+            contents.AppendLine("}");
+
+            return contents.ToString().Replace("\t", new string(' ', scriptTabSize));
+        }
+
+        CreateAssetMenuItemsHelper.CreateAssetWithRename<MonoScript>("Create abstract class script", "New Abstract Class.cs", FileNameGenerator, ContentGenerator);
+    }
 }
