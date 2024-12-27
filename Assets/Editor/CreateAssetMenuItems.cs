@@ -51,6 +51,9 @@ public static class CreateAssetMenuItems
 
             contents.AppendLine($"namespace {EditorSettings.projectGenerationRootNamespace}.Extensions");
             contents.AppendLine("{");
+            contents.AppendLine($"\t/// <summary>");
+            contents.AppendLine($"\t/// Extension methods for <see cref=\"{typeName}\"/>.");
+            contents.AppendLine($"\t/// </summary>");
             contents.AppendLine($"\tpublic static class {className}");
             contents.AppendLine("\t{");
             contents.AppendLine($"\t\tpublic static void ExtensionMethod(this {typeName} {variableName})");
@@ -132,7 +135,7 @@ public static class CreateAssetMenuItems
     {
         const string suffix = "Tests";
 
-        static string FileNameGenerator(string fileName)
+        static (string className, string typeName) NameGenerator(string fileName)
         {
             if (fileName.Any(c => char.IsWhiteSpace(c)))
             {
@@ -140,12 +143,18 @@ public static class CreateAssetMenuItems
             }
 
             // Add suffix to file name if it doesn't already have it
-            return fileName + (fileName.EndsWith(suffix) ? "" : suffix);
+            string className = fileName + (fileName.EndsWith(suffix) ? "" : suffix);
+            // Remove suffix from the end of the class name
+            string typeName = className.Remove(className.Length - suffix.Length);
+            
+            return (className, typeName);
         }
+
+        static string FileNameGenerator(string fileName) => NameGenerator(fileName).className;
 
         static string ContentGenerator(string fileName)
         {
-            string className = FileNameGenerator(fileName);
+            (string className, string typeName) = NameGenerator(fileName);
 
             StringBuilder contents = new StringBuilder();
 
@@ -153,6 +162,9 @@ public static class CreateAssetMenuItems
             contents.AppendLine();
             contents.AppendLine($"namespace {EditorSettings.projectGenerationRootNamespace}.Tests");
             contents.AppendLine("{");
+            contents.AppendLine($"\t/// <summary>");
+            contents.AppendLine($"\t/// Tests for <see cref=\"{typeName}\"/>.");
+            contents.AppendLine($"\t/// </summary>");
             contents.AppendLine($"\tpublic class {className}");
             contents.AppendLine("\t{");
             contents.AppendLine("\t\t[Test]");
