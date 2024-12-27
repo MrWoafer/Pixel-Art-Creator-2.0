@@ -275,6 +275,8 @@ namespace PAC.Tests
                 }
             }
 
+            /////
+
             foreach (int[] testCase in testCases)
             {
                 var output = testCase.MinAndMax();
