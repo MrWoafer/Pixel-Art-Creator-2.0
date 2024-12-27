@@ -18,17 +18,6 @@ namespace PAC.Extensions
         public static IEnumerable<T> Singleton<T>(T element) { yield return element; }
 
         /// <summary>
-        /// Creates an infinite random sequence.
-        /// </summary>
-        public static IEnumerable<int> Random(Random rng)
-        {
-            while (true)
-            {
-                yield return rng.Next();
-            }
-        }
-
-        /// <summary>
         /// Creates an <see cref="IEnumerable{T}"/> that repeats the given element indefinitely.
         /// </summary>
         public static IEnumerable<T> Repeat<T>(T element)
