@@ -233,6 +233,53 @@ namespace PAC.Extensions
         public static bool ContainsNone<T>(this IEnumerable<T> iEnumerable, IEnumerable<T> elements) => !elements.Any(x => iEnumerable.Contains(x));
 
         /// <summary>
+        /// Returns whether this <see cref="IEnumerable{T}"/> is a subsequence of <paramref name="otherSequence"/>; that is, <paramref name="otherSequence"/> is this <see cref="IEnumerable{T}"/>
+        /// with potentially extra elements added anywhere in the sequence.
+        /// </summary>
+        /// <seealso cref="IsSupersequenceOf{T}(IEnumerable{T}, IEnumerable{T})"/>
+        public static bool IsSubsequenceOf<T>(this IEnumerable<T> sequence, IEnumerable<T> otherSequence)
+        {
+            if (sequence is null)
+            {
+                throw NullIEnumerableException<T>(nameof(sequence));
+            }
+            if (otherSequence is null)
+            {
+                throw NullIEnumerableException<T>(nameof(otherSequence));
+            }
+
+            using (IEnumerator<T> enumerator = sequence.GetEnumerator())
+            {
+                // Check if sequence is empty
+                if (!enumerator.MoveNext())
+                {
+                    return true;
+                }
+
+                EqualityComparer<T> comparer = EqualityComparer<T>.Default;
+
+                foreach (T otherElement in otherSequence)
+                {
+                    if (comparer.Equals(enumerator.Current, otherElement))
+                    {
+                        // Check if sequence has ended
+                        if (!enumerator.MoveNext())
+                        {
+                            return true;
+                        }
+                    }
+                }
+                return false;
+            }
+        }
+        /// <summary>
+        /// Returns whether this <see cref="IEnumerable{T}"/> is a supersequence of <paramref name="otherSequence"/>; that is, this <see cref="IEnumerable{T}"/> is <paramref name="otherSequence"/> 
+        /// with potentially extra elements added anywhere in the sequence.
+        /// </summary>
+        /// <seealso cref="IsSubsequenceOf{T}(IEnumerable{T}, IEnumerable{T})"/>
+        public static bool IsSupersequenceOf<T>(this IEnumerable<T> sequence, IEnumerable<T> otherSequence) => otherSequence.IsSubsequenceOf(sequence);
+
+        /// <summary>
         /// Applies the function to each element and returns the element that gives the lowest output. If multiple elements give the lowest output, the first one will be returned.
         /// </summary>
         public static TElement ArgMin<TElement, TCompare>(this IEnumerable<TElement> elements, Func<TElement, TCompare> function) where TCompare : IComparable<TCompare>

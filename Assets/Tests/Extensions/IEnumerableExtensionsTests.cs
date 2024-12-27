@@ -72,6 +72,146 @@ namespace PAC.Tests
             }
         }
 
+        /// <summary>
+        /// Tests <see cref="IEnumerableExtensions.IsSubsequenceOf{T}(IEnumerable{T}, IEnumerable{T})"/> and <see cref="IEnumerableExtensions.IsSupersequenceOf{T}(IEnumerable{T}, IEnumerable{T})"/>.
+        /// </summary>
+        [Test]
+        [Category("Extensions")]
+        public void IsSubsequenceOf()
+        {
+            // Example test cases
+
+            (bool expected, IEnumerable<int> sequence, IEnumerable<int> otherSequence)[] exampleTestCases =
+            {
+                (true, new int[] { }, new int[] { }),
+                (true, new int[] { }, new int[] { 0 }),
+                (true, new int[] { }, new int[] { 0, 1 }),
+                (false, new int[] { 0 }, new int[] { }),
+                /////
+                (true, new int[] { 0 }, new int[] { 0 }),
+                (false, new int[] { 1 }, new int[] { 0 }),
+                (true, new int[] { 0 }, new int[] { 0, 1 }),
+                (true, new int[] { 1 }, new int[] { 0, 1 }),
+                (false, new int[] { 2 }, new int[] { 0, 1 }),
+                (true, new int[] { 0 }, new int[] { 0, 1, 2 }),
+                (true, new int[] { 0 }, new int[] { 0, 1, 2 }),
+                (true, new int[] { 1 }, new int[] { 0, 1, 2 }),
+                (true, new int[] { 2 }, new int[] { 0, 1, 2 }),
+                (false, new int[] { 3 }, new int[] { 0, 1, 2 }),
+                /////
+                (true, new int[] { 3, 1, 4, 1, 5 }, new int[] { 3, 1, 4, 1, 5 }),
+                (true, new int[] { 3, 1, 4, 1, 5 }, new int[] { 3, 1, 2, 4, 1, 5 }),
+                (true, new int[] { 3, 1, 4, 1, 5 }, new int[] { 3, 1, 3, 4, 1, 5 }),
+                (true, new int[] { 3, 1, 4, 1, 5 }, new int[] { 3, 1, 1, 4, 1, 5 }),
+                (true, new int[] { 3, 1, 4, 1, 5 }, new int[] { 0, 0, 3, 1, 4, 1, 5 }),
+                (true, new int[] { 3, 1, 4, 1, 5 }, new int[] { 3, 3, 1, 1, 4, 4, 1, 1, 5, 5 }),
+                (true, new int[] { 3, 1, 4, 1, 5 }, new int[] { 3, 1, 3, 1, 4, 1, 5 }),
+                (false, new int[] { 3, 1, 4, 1, 5 }, new int[] { 3, 1, 4, 2, 5 }),
+                (false, new int[] { 3, 1, 4, 1, 5 }, new int[] { 3, 1, 5, 1, 4 }),
+                (false, new int[] { 3, 1, 4, 1, 5 }, new int[] { 3, 1, 1, 4, 5 }),
+                (false, new int[] { 3, 1, 4, 1, 5 }, new int[] { 3, 1, 4, 5 }),
+                ///
+                (true, new int[] { 3, 3 }, new int[] { 3, 3 }),
+                (true, new int[] { 3, 3 }, new int[] { 2, 3, 1, 3 }),
+                (false, new int[] { 3, 3 }, new int[] { 3 }),
+                (false, new int[] { 3, 3 }, new int[] { 2, 3, 1 })
+            };
+
+            foreach ((bool expected, IEnumerable<int> sequence, IEnumerable<int> otherSequence) in exampleTestCases)
+            {
+                // Every sequence is a subsequence of itself
+                Assert.True(sequence.IsSubsequenceOf(sequence), $"Failed with {{ {string.Join(", ", sequence)} }}.");
+
+                bool isSubsequence = sequence.IsSubsequenceOf(otherSequence);
+                Assert.AreEqual(expected, isSubsequence, $"Failed with {{ {string.Join(", ", sequence)} }} and {{ {string.Join(", ", expected)} }}.");
+                Assert.AreEqual(isSubsequence, otherSequence.IsSupersequenceOf(sequence), $"Failed with {{ {string.Join(", ", sequence)} }} and {{ {string.Join(", ", expected)} }}.");
+            }
+
+            // Random test cases
+
+            Random rng = new Random(0);
+
+            const int maxTestCaseLength = 10;
+            const int numTestCasesPerLength = 100;
+
+            List<int[]> randomTestCases = new List<int[]>
+            {
+                new int[] { }
+            };
+            for (int length = 1; length <= maxTestCaseLength; length++)
+            {
+                for (int i = 0; i < numTestCasesPerLength; i++)
+                {
+                    int[] testCase = new int[length];
+                    for (int j = 0; j < length; j++)
+                    {
+                        testCase[j] = rng.Next(-10, 11);
+                    }
+                    randomTestCases.Add(testCase);
+                }
+            }
+
+            /////
+
+            foreach (int[] testCase1 in randomTestCases)
+            {
+                // Every sequence is a subsequence of itself
+                Assert.True(testCase1.IsSubsequenceOf(testCase1), $"Failed with {{ {string.Join(", ", testCase1)} }}.");
+
+                // Adding more elements to a sequence results in a supersequence
+                List<int> supersequence = new List<int>(testCase1);
+                for (int extra = 0; extra < 5; extra++)
+                {
+                    supersequence.Insert(rng.Next(0, supersequence.Count + 1), rng.Next(-10, 11));
+                    Assert.True(testCase1.IsSubsequenceOf(supersequence), $"Failed with {{ {string.Join(", ", testCase1)} }}.");
+                    Assert.True(supersequence.IsSupersequenceOf(testCase1), $"Failed with {{ {string.Join(", ", testCase1)} }}.");
+                }
+
+                foreach (int[] testCase2 in randomTestCases)
+                {
+                    bool isSubsequence = testCase1.IsSubsequenceOf(testCase2);
+
+                    Assert.AreEqual(isSubsequence, testCase2.IsSupersequenceOf(testCase1), $"Failed with {{ {string.Join(", ", testCase1)} }} and {{ {string.Join(", ", testCase2)} }}.");
+
+                    // The empty sequence is a subsequence of every sequence
+                    if (testCase1.Length == 0)
+                    {
+                        Assert.True(isSubsequence, $"Failed with {{ {string.Join(", ", testCase1)} }} and {{ {string.Join(", ", testCase2)} }}.");
+                    }
+                    // A sequence cannot be a subsequence of a shorter sequence
+                    if (testCase1.Length > testCase2.Length)
+                    {
+                        Assert.False(isSubsequence, $"Failed with {{ {string.Join(", ", testCase1)} }} and {{ {string.Join(", ", testCase2)} }}.");
+                    }
+                    // A subsequence must be a subset
+                    if (!testCase1.ToHashSet().IsSubsetOf(testCase2))
+                    {
+                        Assert.False(isSubsequence, $"Failed with {{ {string.Join(", ", testCase1)} }} and {{ {string.Join(", ", testCase2)} }}.");
+                    }
+
+                    bool expectedIsSubsequence = true;
+                    int indexOfPreviousTerm = -1;
+                    foreach (int term in testCase1)
+                    {
+                        if (indexOfPreviousTerm + 1 >= testCase2.Length)
+                        {
+                            expectedIsSubsequence = false;
+                            break;
+                        }
+
+                        indexOfPreviousTerm = Array.FindIndex(testCase2, indexOfPreviousTerm + 1, x => x == term);
+
+                        if (indexOfPreviousTerm == -1)
+                        {
+                            expectedIsSubsequence = false;
+                            break;
+                        }
+                    }
+                    Assert.AreEqual(expectedIsSubsequence, isSubsequence, $"Failed with {{ {string.Join(", ", testCase1)} }} and {{ {string.Join(", ", testCase2)} }}.");
+                }
+            }
+        }
+
         [Test]
         [Category("Extensions")]
         public void ArgMin()
