@@ -61,7 +61,7 @@ namespace PAC.Tests
                         IntVector2 bottomCorner = diamond.Where(p => p.y == diamond.bottomLeft.y).ArgMax(p => p.x);
                         Shapes.Line line = new Shapes.Line(leftCorner, bottomCorner);
 
-                        Assert.True(diamond.Contains(line), "Failed with " + diamond);
+                        Assert.True(diamond.ContainsAll(line), "Failed with " + diamond);
                     }
                 }
             }

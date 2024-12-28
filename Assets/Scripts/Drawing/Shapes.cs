@@ -6,6 +6,7 @@ using System.Linq;
 using PAC.DataStructures;
 using PAC.Exceptions;
 using PAC.Extensions;
+using PAC.Interfaces;
 using PAC.Maths;
 using UnityEngine;
 
@@ -28,21 +29,6 @@ namespace PAC.Drawing
     /// </summary>
     public static class IShapeExtensions
     {
-        /// <summary>
-        /// Returns whether the shape contains all the given pixels.
-        /// </summary>
-        public static bool Contains(this Shapes.IShape shape, IEnumerable<IntVector2> pixels)
-        {
-            foreach (IntVector2 pixel in pixels)
-            {
-                if (!shape.Contains(pixel))
-                {
-                    return false;
-                }
-            }
-            return true;
-        }
-
         /// <summary>
         /// Turns the pixels in the shape's bounding rect into a Texture2D.
         /// </summary>
@@ -72,7 +58,7 @@ namespace PAC.Drawing
     /// </summary>
     public static class Shapes
     {
-        public interface IShape : IReadOnlyCollection<IntVector2>
+        public interface IShape : IReadOnlyContains<IntVector2>
         {
             /// <summary>
             /// The smallest IntRect containing the whole shape.
@@ -82,7 +68,7 @@ namespace PAC.Drawing
             /// <summary>
             /// Returns whether the pixel is in the shape.
             /// </summary>
-            public bool Contains(IntVector2 pixel);
+            public new bool Contains(IntVector2 pixel);
 
             /// <summary>
             /// Translates the shape by the given vector.
