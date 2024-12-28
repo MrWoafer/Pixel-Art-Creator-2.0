@@ -363,6 +363,24 @@ namespace PAC.Tests
 
         [Test]
         [Category("Extensions")]
+        public void EnumerateOccurrences()
+        {
+            (IEnumerable<char> input, IEnumerable<(char, int)> expected)[] testCases =
+            {
+                (new char[] { }, new (char, int)[] { }),
+                (new char[] { 'a', 'b', 'c' }, new (char, int)[] { ('a', 0), ('b', 0), ('c', 0) }),
+                (new char[] { 'a', 'a', 'a' }, new (char, int)[] { ('a', 0), ('a', 1), ('a', 2) }),
+                (new char[] { 'a', 'b', 'a', 'c', 'b', 'a' }, new (char, int)[] { ('a', 0), ('b', 0), ('a', 1), ('c', 0), ('b', 1), ('a', 2) })
+            };
+
+            foreach ((IEnumerable<char> input, IEnumerable<(char, int)> expected) in testCases)
+            {
+                CollectionAssert.AreEqual(expected, input.EnumerateOccurrences());
+            }
+        }
+
+        [Test]
+        [Category("Extensions")]
         public void Zip()
         {
             (IEnumerable<int> input1, IEnumerable<string> input2, IEnumerable<(int, string)> expected)[] testCases =

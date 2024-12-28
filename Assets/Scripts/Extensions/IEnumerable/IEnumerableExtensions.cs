@@ -402,6 +402,35 @@ namespace PAC.Extensions
         /// </summary>
         public static IEnumerable<(T element, int index)> Enumerate<T>(this IEnumerable<T> elements) => elements.Select((x, i) => (x, i));
         /// <summary>
+        /// Pairs each element with the number of times that element has already occurred.
+        /// <example>
+        /// <code language="csharp">
+        /// char[] actual = new char[] { 'a', 'b', 'a', 'c', 'b', 'a' }.EnumerateOccurrences();
+        /// char[] expected = new (char, int)[] { ('a', 0), ('b', 0), ('a', 1), ('c', 0), ('b', 1), ('a', 2) };
+        /// expected.SequenceEqual(actual);  // true
+        /// </code>
+        /// </example>
+        /// </summary>
+        /// <remarks>
+        /// Uses the default equality comparer for type <typeparamref name="T"/>.
+        /// </remarks>
+        public static IEnumerable<(T element, int occurrence)> EnumerateOccurrences<T>(this IEnumerable<T> elements)
+        {
+            if (elements is null)
+            {
+                throw NullIEnumerableException<T>(nameof(elements));
+            }
+
+            Dictionary<T, int> occurrenceCounts = new Dictionary<T, int>();
+            foreach (T element in elements)
+            {
+                int occurrenceCount = occurrenceCounts.GetValueOrDefault(element, 0);
+                yield return (element, occurrenceCount);
+                occurrenceCounts[element] = occurrenceCount + 1;
+            }
+        }
+
+        /// <summary>
         /// Returns (<paramref name="left"/>[0], <paramref name="right"/>[0]), (<paramref name="left"/>[1], <paramref name="right"/>[1]), ..., until either <paramref name="left"/> or
         /// <paramref name="right"/> ends.
         /// </summary>
