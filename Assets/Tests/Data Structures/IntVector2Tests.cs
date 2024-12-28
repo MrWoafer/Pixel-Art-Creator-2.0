@@ -1,5 +1,6 @@
 using NUnit.Framework;
 using PAC.DataStructures;
+using PAC.Maths;
 
 namespace PAC.Tests
 {
@@ -24,7 +25,7 @@ namespace PAC.Tests
                 Assert.AreEqual(expected.Flip(FlipAxis.Vertical), IntVector2.Simplify(input.Flip(FlipAxis.Vertical)), "Failed with " + input);
                 Assert.AreEqual(expected.Flip(FlipAxis.Horizontal), IntVector2.Simplify(input.Flip(FlipAxis.Horizontal)), "Failed with " + input);
 
-                Assert.AreEqual(1, Functions.Gcd(expected.x, expected.y), "Failed with " + input);
+                Assert.AreEqual(1, MathExtensions.Gcd(expected.x, expected.y), "Failed with " + input);
             }
         }
     }

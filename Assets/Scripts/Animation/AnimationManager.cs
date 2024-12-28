@@ -1,4 +1,6 @@
 using System.Collections.Generic;
+
+using PAC.Maths;
 using PAC.Files;
 using PAC.Input;
 using PAC.KeyboardShortcuts;
@@ -452,11 +454,11 @@ namespace PAC.Animation
             }
             if (inputSystem.globalKeyboardTarget.OneIsHeldExactly(KeyboardShortcuts.KeyboardShortcuts.GetShortcutsFor("previous frame")))
             {
-                currentFrameIndex = Functions.Mod(currentFrameIndex - 1, fileManager.currentFile.numOfFrames);
+                currentFrameIndex = MathExtensions.Mod(currentFrameIndex - 1, fileManager.currentFile.numOfFrames);
             }
             if (inputSystem.globalKeyboardTarget.OneIsHeldExactly(KeyboardShortcuts.KeyboardShortcuts.GetShortcutsFor("next frame")))
             {
-                currentFrameIndex = Functions.Mod(currentFrameIndex + 1, fileManager.currentFile.numOfFrames);
+                currentFrameIndex = MathExtensions.Mod(currentFrameIndex + 1, fileManager.currentFile.numOfFrames);
             }
             if (inputSystem.globalKeyboardTarget.OneIsHeldExactly(KeyboardShortcuts.KeyboardShortcuts.GetShortcutsFor("first frame")))
             {

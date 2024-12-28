@@ -4,6 +4,7 @@ using System.Linq;
 using UnityEngine;
 using PAC.Extensions;
 using System.Runtime.CompilerServices;
+using PAC.Maths;
 
 namespace PAC.DataStructures
 {
@@ -203,7 +204,7 @@ namespace PAC.DataStructures
         /// Preserves signs.
         /// </para>
         /// </summary>
-        public static IntVector2 Simplify(IntVector2 a) => (a == zero) ? zero : (a / Functions.Gcd(a.x, a.y));
+        public static IntVector2 Simplify(IntVector2 a) => (a == zero) ? zero : (a / MathExtensions.Gcd(a.x, a.y));
 
         /// <summary>
         /// Returns whether the two vectors lie on the same real line through (0, 0). This is equivalent to whether there is an IntVector2 dividing both of them.

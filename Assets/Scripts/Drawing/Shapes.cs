@@ -6,6 +6,7 @@ using System.Linq;
 using PAC.DataStructures;
 using PAC.Exceptions;
 using PAC.Extensions;
+using PAC.Maths;
 using UnityEngine;
 
 namespace PAC.Drawing
@@ -493,8 +494,8 @@ namespace PAC.Drawing
                 float minXWhereYOnLineRoundsToGivenY = (y - 0.5f * Mathf.Sign(end.y - start.y) * Mathf.Sign(end.x - start.x) - imaginaryStart.y) / imaginaryGradient + imaginaryStart.x;
 
                 // The case where minXWhereYOnLineRoundsToGivenY is an integer
-                if (Functions.Mod((y - 0.5f * Math.Sign(end.y - start.y) * Math.Sign(end.x - start.x) - imaginaryStart.y) * (imaginaryEnd.x - imaginaryStart.x), imaginaryEnd.y - imaginaryStart.y)
-                    == Functions.Mod((imaginaryEnd.y - imaginaryStart.y) / 2f, imaginaryEnd.y - imaginaryStart.y))
+                if (MathExtensions.Mod((y - 0.5f * Math.Sign(end.y - start.y) * Math.Sign(end.x - start.x) - imaginaryStart.y) * (imaginaryEnd.x - imaginaryStart.x), imaginaryEnd.y - imaginaryStart.y)
+                    == MathExtensions.Mod((imaginaryEnd.y - imaginaryStart.y) / 2f, imaginaryEnd.y - imaginaryStart.y))
                 {
                     // If minXWhereYOnLineRoundsToGivenY is in the first half of the line
                     if (2 * Math.Abs(Mathf.RoundToInt(minXWhereYOnLineRoundsToGivenY) - start.x) <= Math.Abs(end.x - start.x))
@@ -540,8 +541,8 @@ namespace PAC.Drawing
                 float maxXWhereYOnLineRoundsToGivenY = (y + 0.5f * Mathf.Sign(end.y - start.y) * Mathf.Sign(end.x - start.x) - imaginaryStart.y) / imaginaryGradient + imaginaryStart.x;
 
                 // The case where maxXWhereYOnLineRoundsToGivenY is an integer
-                if (Functions.Mod((y + 0.5f * Math.Sign(end.y - start.y) * Math.Sign(end.x - start.x) - imaginaryStart.y) * (imaginaryEnd.x - imaginaryStart.x), imaginaryEnd.y - imaginaryStart.y)
-                    == Functions.Mod((imaginaryEnd.y - imaginaryStart.y) / 2f, imaginaryEnd.y - imaginaryStart.y))
+                if (MathExtensions.Mod((y + 0.5f * Math.Sign(end.y - start.y) * Math.Sign(end.x - start.x) - imaginaryStart.y) * (imaginaryEnd.x - imaginaryStart.x), imaginaryEnd.y - imaginaryStart.y)
+                    == MathExtensions.Mod((imaginaryEnd.y - imaginaryStart.y) / 2f, imaginaryEnd.y - imaginaryStart.y))
                 {
                     // If maxXWhereYOnLineRoundsToGivenY is in the first half of the line
                     if (2 * Math.Abs(Mathf.RoundToInt(maxXWhereYOnLineRoundsToGivenY) - start.x) <= Math.Abs(end.x - start.x))
@@ -587,8 +588,8 @@ namespace PAC.Drawing
                 float minYWhereXOnLineRoundsToGivenX = (x - 0.5f * Mathf.Sign(end.x - start.x) * Mathf.Sign(end.y - start.y) - imaginaryStart.x) / imaginaryGradient + imaginaryStart.y;
 
                 // The case where minYWhereXOnLineRoundsToGivenX is an integer
-                if (Functions.Mod((x - 0.5f * Math.Sign(end.x - start.x) * Math.Sign(end.y - start.y) - imaginaryStart.x) * (imaginaryEnd.y - imaginaryStart.y), imaginaryEnd.x - imaginaryStart.x)
-                    == Functions.Mod((imaginaryEnd.x - imaginaryStart.x) / 2f, imaginaryEnd.x - imaginaryStart.x))
+                if (MathExtensions.Mod((x - 0.5f * Math.Sign(end.x - start.x) * Math.Sign(end.y - start.y) - imaginaryStart.x) * (imaginaryEnd.y - imaginaryStart.y), imaginaryEnd.x - imaginaryStart.x)
+                    == MathExtensions.Mod((imaginaryEnd.x - imaginaryStart.x) / 2f, imaginaryEnd.x - imaginaryStart.x))
                 {
                     // If minYWhereXOnLineRoundsToGivenX is in the first half of the line
                     if (2 * Math.Abs(Mathf.RoundToInt(minYWhereXOnLineRoundsToGivenX) - start.y) <= Math.Abs(end.y - start.y))
@@ -634,8 +635,8 @@ namespace PAC.Drawing
                 float maxYWhereXOnLineRoundsToGivenX = (x + 0.5f * Mathf.Sign(end.x - start.x) * Mathf.Sign(end.y - start.y) - imaginaryStart.x) / imaginaryGradient + imaginaryStart.y;
 
                 // The case where maxYWhereXOnLineRoundsToGivenX is an integer
-                if (Functions.Mod((x + 0.5f * Math.Sign(end.x - start.x) * Math.Sign(end.y - start.y) - imaginaryStart.x) * (imaginaryEnd.y - imaginaryStart.y), imaginaryEnd.x - imaginaryStart.x)
-                    == Functions.Mod((imaginaryEnd.x - imaginaryStart.x) / 2f, imaginaryEnd.x - imaginaryStart.x))
+                if (MathExtensions.Mod((x + 0.5f * Math.Sign(end.x - start.x) * Math.Sign(end.y - start.y) - imaginaryStart.x) * (imaginaryEnd.y - imaginaryStart.y), imaginaryEnd.x - imaginaryStart.x)
+                    == MathExtensions.Mod((imaginaryEnd.x - imaginaryStart.x) / 2f, imaginaryEnd.x - imaginaryStart.x))
                 {
                     // If maxYWhereXOnLineRoundsToGivenX is in the first half of the line
                     if (2 * Math.Abs(Mathf.RoundToInt(maxYWhereXOnLineRoundsToGivenX) - start.y) <= Math.Abs(end.y - start.y))
@@ -999,15 +1000,15 @@ namespace PAC.Drawing
                     {
                         if (visited.Contains(pixel))
                         {
-                            int indexOfPreviousVisit = Functions.Mod(index - 1, points.Length);
+                            int indexOfPreviousVisit = MathExtensions.Mod(index - 1, points.Length);
                             while (points[indexOfPreviousVisit] != pixel)
                             {
-                                indexOfPreviousVisit = Functions.Mod(indexOfPreviousVisit - 1, points.Length);
+                                indexOfPreviousVisit = MathExtensions.Mod(indexOfPreviousVisit - 1, points.Length);
                             }
 
                             if (IsCrossingPoint(pixel,
-                                points[Functions.Mod(index - 1, points.Length)], points[Functions.Mod(index + 1, points.Length)],
-                                points[Functions.Mod(indexOfPreviousVisit - 1, points.Length)], points[Functions.Mod(indexOfPreviousVisit + 1, points.Length)]
+                                points[MathExtensions.Mod(index - 1, points.Length)], points[MathExtensions.Mod(index + 1, points.Length)],
+                                points[MathExtensions.Mod(indexOfPreviousVisit - 1, points.Length)], points[MathExtensions.Mod(indexOfPreviousVisit + 1, points.Length)]
                                 )
                             )
                             {
@@ -1276,7 +1277,7 @@ namespace PAC.Drawing
                 {
                     toAdd--;
                 }
-                count += Functions.ClampNonNegative(toAdd);
+                count += MathExtensions.ClampNonNegative(toAdd);
 
                 return count;
             }
@@ -1315,7 +1316,7 @@ namespace PAC.Drawing
                 {
                     toAdd--;
                 }
-                count += Functions.ClampNonNegative(toAdd);
+                count += MathExtensions.ClampNonNegative(toAdd);
 
                 return count;
             }
@@ -1403,7 +1404,7 @@ namespace PAC.Drawing
 
                     // This starting value doesn't mean anything as it should always get overwritten in the loop
                     WindingNumberCornerType startCornerType = WindingNumberCornerType.Downward;
-                    for (int index = Functions.Mod(i - 1, _lines.Count); index != i; index = Functions.Mod(index - 1, _lines.Count))
+                    for (int index = MathExtensions.Mod(i - 1, _lines.Count); index != i; index = MathExtensions.Mod(index - 1, _lines.Count))
                     {
                         if (_lines[index].end.y != line.start.y)
                         {

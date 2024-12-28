@@ -1,9 +1,15 @@
 using System;
+
 using NUnit.Framework;
+
+using PAC.Maths;
 
 namespace PAC.Tests
 {
-    public class UtilFunctionsTests
+    /// <summary>
+    /// Tests for <see cref="MathExtensions"/>.
+    /// </summary>
+    public class MathExtensionsTests
     {
         [Test]
         [Category("Utils")]
@@ -25,8 +31,8 @@ namespace PAC.Tests
             {
                 foreach ((int signA, int signB) in new (int, int)[] { (1, 1), (-1, 1), (1, -1), (-1, -1) })
                 {
-                    Assert.AreEqual(expected, Functions.Gcd(signA * a, signB * b));
-                    Assert.AreEqual(expected, Functions.Gcd(signB * b, signA * a));
+                    Assert.AreEqual(expected, MathExtensions.Gcd(signA * a, signB * b));
+                    Assert.AreEqual(expected, MathExtensions.Gcd(signB * b, signA * a));
                 }
             }
         }
@@ -54,8 +60,8 @@ namespace PAC.Tests
             {
                 foreach ((int signA, int signB) in new (int, int)[] { (1, 1), (-1, 1), (1, -1), (-1, -1) })
                 {
-                    Assert.AreEqual(expected, Functions.Lcm(signA * a, signB * b));
-                    Assert.AreEqual(expected, Functions.Lcm(signB * b, signA * a));
+                    Assert.AreEqual(expected, MathExtensions.Lcm(signA * a, signB * b));
+                    Assert.AreEqual(expected, MathExtensions.Lcm(signB * b, signA * a));
                 }
             }
         }
@@ -64,17 +70,17 @@ namespace PAC.Tests
         [Category("Utils")]
         public void Pow()
         {
-            Assert.AreEqual(1, Functions.Pow(0, 0), "Failed with 0 ^ 0.");
+            Assert.AreEqual(1, MathExtensions.Pow(0, 0), "Failed with 0 ^ 0.");
             for (int exponent = 1; exponent <= 10; exponent++)
             {
-                Assert.AreEqual(0, Functions.Pow(0, exponent), $"Failed with 0 ^ {exponent}.");
+                Assert.AreEqual(0, MathExtensions.Pow(0, exponent), $"Failed with 0 ^ {exponent}.");
             }
 
             for (int n = -10; n <= 10; n++)
             {
                 string baseStr = (n < 0) ? "(" + n + ")" : n.ToString();
 
-                Assert.AreEqual(1, Functions.Pow(n, 0), $"Failed with {baseStr} ^ 0.");
+                Assert.AreEqual(1, MathExtensions.Pow(n, 0), $"Failed with {baseStr} ^ 0.");
                 for (int exponent = 1; exponent <= 7; exponent++)
                 {
                     int expected = 1;
@@ -85,7 +91,7 @@ namespace PAC.Tests
 
                     try
                     {
-                        Assert.AreEqual(expected, Functions.Pow(n, exponent), $"Failed with {baseStr} ^ {exponent}.");
+                        Assert.AreEqual(expected, MathExtensions.Pow(n, exponent), $"Failed with {baseStr} ^ {exponent}.");
                     }
                     catch (OverflowException)
                     {
@@ -94,15 +100,15 @@ namespace PAC.Tests
                 }
             }
 
-            Assert.Throws<OverflowException>(() => Functions.Pow(10, 100));
-            Assert.Throws<OverflowException>(() => Functions.Pow(-10, 99));
+            Assert.Throws<OverflowException>(() => MathExtensions.Pow(10, 100));
+            Assert.Throws<OverflowException>(() => MathExtensions.Pow(-10, 99));
 
-            Assert.DoesNotThrow(() => Functions.Pow(int.MinValue, 0));
-            Assert.DoesNotThrow(() => Functions.Pow(int.MaxValue, 0));
-            Assert.DoesNotThrow(() => Functions.Pow(int.MinValue, 1));
-            Assert.DoesNotThrow(() => Functions.Pow(int.MaxValue, 1));
-            Assert.Throws<OverflowException>(() => Functions.Pow(int.MinValue, 2));
-            Assert.Throws<OverflowException>(() => Functions.Pow(int.MaxValue, 2));
+            Assert.DoesNotThrow(() => MathExtensions.Pow(int.MinValue, 0));
+            Assert.DoesNotThrow(() => MathExtensions.Pow(int.MaxValue, 0));
+            Assert.DoesNotThrow(() => MathExtensions.Pow(int.MinValue, 1));
+            Assert.DoesNotThrow(() => MathExtensions.Pow(int.MaxValue, 1));
+            Assert.Throws<OverflowException>(() => MathExtensions.Pow(int.MinValue, 2));
+            Assert.Throws<OverflowException>(() => MathExtensions.Pow(int.MaxValue, 2));
         }
     }
 }
