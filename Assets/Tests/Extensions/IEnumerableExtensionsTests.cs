@@ -72,6 +72,36 @@ namespace PAC.Tests
             }
         }
 
+        [Test]
+        [Category("Extensions")]
+        public void AreAllDistinct()
+        {
+            IEnumerable<int> rngSequence = new Random(0).ToSequence(-10, 11);
+
+            const int maxTestCaseLength = 10;
+            const int numTestCasesPerLength = 100;
+
+            List<IEnumerable<int>> testCases = new List<IEnumerable<int>>
+            {
+                Enumerable.Empty<int>()
+            };
+            for (int length = 1; length <= maxTestCaseLength; length++)
+            {
+                for (int i = 0; i < numTestCasesPerLength; i++)
+                {
+                    // We do the ToArray() to 'save' the sequence, as iterating over a ToSequence() more than once can give a different sequence.
+                    testCases.Add(rngSequence.Take(length).ToArray());
+                }
+            }
+
+            /////
+            
+            foreach (IEnumerable<int> testCase in testCases)
+            {
+                Assert.AreEqual(testCase.Distinct().Count() == testCase.Count(), testCase.AreAllDistinct(), $"Failed with {{ {string.Join(", ", testCase)} }}");
+            }
+        }
+
         /// <summary>
         /// Tests <see cref="IEnumerableExtensions.IsSubsequenceOf{T}(IEnumerable{T}, IEnumerable{T})"/> and <see cref="IEnumerableExtensions.IsSupersequenceOf{T}(IEnumerable{T}, IEnumerable{T})"/>.
         /// </summary>

@@ -181,6 +181,22 @@ namespace PAC.Extensions
         public static int CountDistinct<T>(this IEnumerable<T> elements) => elements.Distinct().Count();
 
         /// <summary>
+        /// Returns whether all the elements in the <see cref="IEnumerable{T}"/> are distinct. Uses the default equality comparer for type <typeparamref name="T"/>.
+        /// </summary>
+        public static bool AreAllDistinct<T>(this IEnumerable<T> elements)
+        {
+            HashSet<T> visited = new HashSet<T>();
+            foreach (T element in elements)
+            {
+                if (!visited.Add(element))
+                {
+                    return false;
+                }
+            }
+            return true;
+        }
+
+        /// <summary>
         /// Returns true iff at least one of the elements doesn't satisfy the predicate.
         /// </summary>
         public static bool NotAll<T>(this IEnumerable<T> elements, Func<T, bool> predicate) => !elements.All(predicate);
