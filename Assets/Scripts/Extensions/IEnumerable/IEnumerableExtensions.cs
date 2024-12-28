@@ -75,6 +75,15 @@ namespace PAC.Extensions
         }
 
         /// <summary>
+        /// Replaces all occurrences of <paramref name="toReplace"/> with <paramref name="replaceWith"/>. Uses the default equality comparer for type <typeparamref name="T"/>.
+        /// </summary>
+        public static IEnumerable<T> Replace<T>(this IEnumerable<T> elements, T toReplace, T replaceWith)
+        {
+            EqualityComparer<T> comparer = EqualityComparer<T>.Default;
+            return elements.Select(x => comparer.Equals(x, toReplace) ? replaceWith : x);
+        }
+
+        /// <summary>
         /// Returns true iff the given <see cref="IEnumerable{T}"/> has no elements.
         /// </summary>
         public static bool IsEmpty<T>(this IEnumerable<T> elements)

@@ -10,6 +10,27 @@ namespace PAC.Tests
     {
         [Test]
         [Category("Extensions")]
+        public void Replace()
+        {
+            (int toReplace, int replaceWith, IEnumerable<int> sequence, IEnumerable<int> expected)[] testCases =
+            {
+                (0, 1, new int[] { }, new int[] { }),
+                (0, 1, new int[] { 0 }, new int[] { 1 }),
+                (1, 1, new int[] { 0 }, new int[] { 0 }),
+                (0, 1, new int[] { 0, 1, 0, 2 }, new int[] { 1, 1, 1, 2 }),
+                (2, 0, new int[] { 0, 1, 0, 2 }, new int[] { 0, 1, 0, 0 }),
+                (1, 3, new int[] { 0, 1, 0, 2 }, new int[] { 0, 3, 0, 2 }),
+                (5, 1, new int[] { 0, 1, 0, 2 }, new int[] { 0, 1, 0, 2 }),
+            };
+
+            foreach ((int toReplace, int replaceWith, IEnumerable<int> sequence, IEnumerable<int> expected) in testCases)
+            {
+                CollectionAssert.AreEqual(expected, sequence.Replace(toReplace, replaceWith), $"Failed with {{ {string.Join(", ", sequence)} }}.");
+            }
+        }
+
+        [Test]
+        [Category("Extensions")]
         public void IsEmpty()
         {
             for (int inputLength = 0; inputLength <= 10; inputLength++)
