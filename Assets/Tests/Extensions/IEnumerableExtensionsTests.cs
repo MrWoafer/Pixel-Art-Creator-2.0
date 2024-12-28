@@ -345,6 +345,36 @@ namespace PAC.Tests
 
         [Test]
         [Category("Extensions")]
+        public void SkipIndex()
+        {
+            (int indexToSkip, IEnumerable<char> input, IEnumerable<char> expected)[] testCases =
+            {
+                (0, new char[] { }, new char[] { }),
+                (0, new char[] { 'a' }, new char[] { }),
+                (0, new char[] { 'a', 'e' }, new char[] { 'e' }),
+                (1, new char[] { 'a', 'e' }, new char[] { 'a' }),
+                (0, new char[] { 'a', 'e', 'i' }, new char[] { 'e', 'i' }),
+                (1, new char[] { 'a', 'e', 'i' }, new char[] { 'a', 'i' }),
+                (2, new char[] { 'a', 'e', 'i' }, new char[] { 'a', 'e' }),
+            };
+
+            foreach ((int indexToSkip, IEnumerable<char> input, IEnumerable<char> expected) in testCases)
+            {
+                CollectionAssert.AreEqual(expected, input.SkipIndex(indexToSkip));
+
+                for (int index = -5; index < 0; index++)
+                {
+                    CollectionAssert.AreEqual(input, input.SkipIndex(index));
+                }
+                for (int index = input.Count() + 1; index <= input.Count() + 5; index++)
+                {
+                    CollectionAssert.AreEqual(input, input.SkipIndex(index));
+                }
+            }
+        }
+
+        [Test]
+        [Category("Extensions")]
         public void Enumerate()
         {
             (IEnumerable<string> input, IEnumerable<(string, int)> expected)[] testCases =

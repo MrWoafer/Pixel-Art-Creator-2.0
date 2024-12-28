@@ -398,6 +398,11 @@ namespace PAC.Extensions
         }
 
         /// <summary>
+        /// Returns the given sequence but without the element at the given index. If the index is outside the range of the sequence, the sequence will be unaffected.
+        /// </summary>
+        public static IEnumerable<T> SkipIndex<T>(this IEnumerable<T> elements, int index) => elements.Where((x, i) => i != index);
+
+        /// <summary>
         /// Returns (<paramref name="elements"/>[0], 0), (<paramref name="elements"/>[1], 1), ..., (<paramref name="elements"/>[^1], <paramref name="elements"/>.Count - 1).
         /// </summary>
         public static IEnumerable<(T element, int index)> Enumerate<T>(this IEnumerable<T> elements) => elements.Select((x, i) => (x, i));
