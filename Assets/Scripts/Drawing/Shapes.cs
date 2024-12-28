@@ -2043,7 +2043,7 @@ namespace PAC.Drawing
                     return (edges.bottomLeft.PointIsToRight(pixel) && edges.bottomRight.PointIsToLeft(pixel)) || (edges.topLeft.PointIsToRight(pixel) && edges.topRight.PointIsToLeft(pixel));
                 }
 
-                foreach (Line edge in edges.AsIEnumerable())
+                foreach (Line edge in edges.AsEnumerable())
                 {
                     if (edge.Contains(pixel))
                     {

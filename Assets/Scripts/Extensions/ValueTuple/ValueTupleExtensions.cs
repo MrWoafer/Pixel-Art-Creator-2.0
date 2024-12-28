@@ -5,29 +5,29 @@ namespace PAC
 {
     public static class ValueTupleExtensions
     {
-        public static IEnumerable<T> AsIEnumerable<T>(this ValueTuple<T> valueTuple)
+        public static IEnumerable<T> AsEnumerable<T>(this ValueTuple<T> valueTuple)
         {
             yield return valueTuple.Item1;
         }
-        public static IEnumerable<T> AsIEnumerable<T>(this ValueTuple<T, T> valueTuple)
+        public static IEnumerable<T> AsEnumerable<T>(this ValueTuple<T, T> valueTuple)
         {
             yield return valueTuple.Item1;
             yield return valueTuple.Item2;
         }
-        public static IEnumerable<T> AsIEnumerable<T>(this ValueTuple<T, T, T> valueTuple)
+        public static IEnumerable<T> AsEnumerable<T>(this ValueTuple<T, T, T> valueTuple)
         {
             yield return valueTuple.Item1;
             yield return valueTuple.Item2;
             yield return valueTuple.Item3;
         }
-        public static IEnumerable<T> AsIEnumerable<T>(this ValueTuple<T, T, T, T> valueTuple)
+        public static IEnumerable<T> AsEnumerable<T>(this ValueTuple<T, T, T, T> valueTuple)
         {
             yield return valueTuple.Item1;
             yield return valueTuple.Item2;
             yield return valueTuple.Item3;
             yield return valueTuple.Item4;
         }
-        public static IEnumerable<T> AsIEnumerable<T>(this ValueTuple<T, T, T, T, T> valueTuple)
+        public static IEnumerable<T> AsEnumerable<T>(this ValueTuple<T, T, T, T, T> valueTuple)
         {
             yield return valueTuple.Item1;
             yield return valueTuple.Item2;
@@ -35,7 +35,7 @@ namespace PAC
             yield return valueTuple.Item4;
             yield return valueTuple.Item5;
         }
-        public static IEnumerable<T> AsIEnumerable<T>(this ValueTuple<T, T, T, T, T, T> valueTuple)
+        public static IEnumerable<T> AsEnumerable<T>(this ValueTuple<T, T, T, T, T, T> valueTuple)
         {
             yield return valueTuple.Item1;
             yield return valueTuple.Item2;
@@ -44,7 +44,7 @@ namespace PAC
             yield return valueTuple.Item5;
             yield return valueTuple.Item6;
         }
-        public static IEnumerable<T> AsIEnumerable<T>(this ValueTuple<T, T, T, T, T, T, T> valueTuple)
+        public static IEnumerable<T> AsEnumerable<T>(this ValueTuple<T, T, T, T, T, T, T> valueTuple)
         {
             yield return valueTuple.Item1;
             yield return valueTuple.Item2;
