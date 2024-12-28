@@ -1,18 +1,18 @@
 using System.Collections;
 using System.Linq;
 using UnityEngine;
-using PAC;
 using System.Collections.Generic;
 using System;
 using PAC.Extensions;
 using System.Runtime.CompilerServices;
+using PAC.Interfaces;
 
 namespace PAC.DataStructures
 {
     /// <summary>
     /// Represents a rectangular region of integer coordinates.
     /// </summary>
-    public struct IntRect : IReadOnlyList<IntVector2>, IEquatable<IntRect>
+    public struct IntRect : IReadOnlyList<IntVector2>, IReadOnlyContains<IntVector2>, IEquatable<IntRect>
     {
         private IntVector2 _bottomLeft;
         public IntVector2 bottomLeft
