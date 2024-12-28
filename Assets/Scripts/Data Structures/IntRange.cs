@@ -1,5 +1,6 @@
 using PAC.Exceptions;
 using PAC.Extensions;
+using PAC.Interfaces;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -18,7 +19,7 @@ namespace PAC.DataStructures
     /// The enumerator iterates throught the elements from start to end.
     /// </para>
     /// </summary>
-    public readonly struct IntRange : IReadOnlyList<int>, IEquatable<IntRange>
+    public readonly struct IntRange : IReadOnlyList<int>, IReadOnlyContains<int>, IEquatable<IntRange>
     {
         #region Fields
         /// <summary>
@@ -493,51 +494,6 @@ namespace PAC.DataStructures
         /// Whether the given integer is in the range.
         /// </summary>
         public bool Contains(int x) => !isEmpty && minElement <= x && x <= maxElement;
-        /// <summary>
-        /// Whether all the given integers are in the range.
-        /// </summary>
-        public bool ContainsAll(params int[] elements) => ContainsAll((IEnumerable<int>)elements);
-        public bool ContainsAll(IEnumerable<int> elements)
-        {
-            if (elements.IsEmpty())
-            {
-                throw new ArgumentException("No elements were given.", nameof(elements));
-            }
-
-            // C# can't access 'this' inside lambda expressions.
-            IntRange range = this;
-            return elements.All(x => range.Contains(x));
-        }
-        /// <summary>
-        /// Whether any of the given integers are in the range.
-        /// </summary>
-        public bool ContainsAny(params int[] elements) => ContainsAny((IEnumerable<int>)elements);
-        public bool ContainsAny(IEnumerable<int> elements)
-        {
-            if (elements.IsEmpty())
-            {
-                throw new ArgumentException("No elements were given.", nameof(elements));
-            }
-
-            // C# can't access 'this' inside lambda expressions.
-            IntRange range = this;
-            return elements.Any(x => range.Contains(x));
-        }
-        /// <summary>
-        /// Whether none of the given integers are in the range.
-        /// </summary>
-        public bool ContainsNone(params int[] elements) => ContainsNone((IEnumerable<int>)elements);
-        public bool ContainsNone(IEnumerable<int> elements)
-        {
-            if (elements.IsEmpty())
-            {
-                throw new ArgumentException("No elements were given.", nameof(elements));
-            }
-
-            // C# can't access 'this' inside lambda expressions.
-            IntRange range = this;
-            return elements.None(x => range.Contains(x));
-        }
 
         /// <summary>
         /// Whether the two ranges have any elements in common.
