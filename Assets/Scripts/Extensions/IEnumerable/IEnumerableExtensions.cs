@@ -178,7 +178,7 @@ namespace PAC.Extensions
         /// <summary>
         /// Returns the number of distinct elements in the <see cref="IEnumerable{T}"/>.
         /// </summary>
-        public static int CountDistinct<T>(this IEnumerable<T> elements) => elements.ToHashSet().Count;
+        public static int CountDistinct<T>(this IEnumerable<T> elements) => elements.Distinct().Count();
 
         /// <summary>
         /// Returns true iff none of the elements satisfy the predicate.
