@@ -181,6 +181,10 @@ namespace PAC.Extensions
         public static int CountDistinct<T>(this IEnumerable<T> elements) => elements.Distinct().Count();
 
         /// <summary>
+        /// Returns true iff at least one of the elements doesn't satisfy the predicate.
+        /// </summary>
+        public static bool NotAll<T>(this IEnumerable<T> elements, Func<T, bool> predicate) => !elements.All(predicate);
+        /// <summary>
         /// Returns true iff none of the elements satisfy the predicate.
         /// </summary>
         public static bool None<T>(this IEnumerable<T> elements, Func<T, bool> predicate) => !elements.Any(predicate);
