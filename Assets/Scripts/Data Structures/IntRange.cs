@@ -74,7 +74,7 @@ namespace PAC.DataStructures
         /// </remarks>
         /// <exception cref="UndefinedOperationException">The range is empty.</exception>
         /// <seealso cref="endElement"/>
-        public readonly int startElement => (isEmpty, startBoundaryInclusive) switch
+        public int startElement => (isEmpty, startBoundaryInclusive) switch
         {
             (false, false) => (startBoundary < endBoundary) ? startBoundary + 1 : startBoundary - 1,
             (false, true) => startBoundary,
@@ -88,7 +88,7 @@ namespace PAC.DataStructures
         /// </remarks>
         /// <exception cref="UndefinedOperationException">The range is empty.</exception>
         /// <seealso cref="startElement"/>
-        public readonly int endElement => (isEmpty, endBoundaryInclusive) switch
+        public int endElement => (isEmpty, endBoundaryInclusive) switch
         {
             (false, false) => (startBoundary < endBoundary) ? endBoundary - 1 : endBoundary + 1,
             (false, true) => endBoundary,
@@ -103,7 +103,7 @@ namespace PAC.DataStructures
         /// </remarks>
         /// <seealso cref="minBoundaryInclusive"/>
         /// <seealso cref="maxBoundary"/>
-        public readonly int minBoundary => Math.Min(startBoundary, endBoundary);
+        public int minBoundary => Math.Min(startBoundary, endBoundary);
         /// <summary>
         /// The higher of <see cref="startBoundary"/> and <see cref="endBoundary"/>.
         /// </summary>
@@ -112,7 +112,7 @@ namespace PAC.DataStructures
         /// </remarks>
         /// <seealso cref="maxBoundaryInclusive"/>
         /// <seealso cref="minBoundary"/>
-        public readonly int maxBoundary => Math.Max(startBoundary, endBoundary);
+        public int maxBoundary => Math.Max(startBoundary, endBoundary);
         /// <summary>
         /// Whether <see cref="minBoundary"/> is inclusive or exclusive.
         /// </summary>
@@ -121,7 +121,7 @@ namespace PAC.DataStructures
         /// more details.
         /// </remarks>
         /// <seealso cref="maxBoundaryInclusive"/>
-        public readonly bool minBoundaryInclusive => (endBoundary - startBoundary) switch
+        public bool minBoundaryInclusive => (endBoundary - startBoundary) switch
         {
             > 0 => startBoundaryInclusive,
             0 => startBoundaryInclusive && endBoundaryInclusive,
@@ -135,7 +135,7 @@ namespace PAC.DataStructures
         /// more details.
         /// </remarks>
         /// <seealso cref="minBoundaryInclusive"/>
-        public readonly bool maxBoundaryInclusive => (endBoundary - startBoundary) switch
+        public bool maxBoundaryInclusive => (endBoundary - startBoundary) switch
         {
             > 0 => endBoundaryInclusive,
             0 => startBoundaryInclusive && endBoundaryInclusive,
@@ -150,7 +150,7 @@ namespace PAC.DataStructures
         /// </remarks>
         /// <exception cref="UndefinedOperationException">The range is empty.</exception>
         /// <seealso cref="maxElement"/>
-        public readonly int minElement => isEmpty switch
+        public int minElement => isEmpty switch
         {
             false => minBoundaryInclusive ? minBoundary : (minBoundary + 1),
             true => throw new UndefinedOperationException("An empty range has no minimum element.")
@@ -163,7 +163,7 @@ namespace PAC.DataStructures
         /// </remarks>
         /// <exception cref="UndefinedOperationException">The range is empty.</exception>
         /// <seealso cref="minElement"/>
-        public readonly int maxElement => isEmpty switch
+        public int maxElement => isEmpty switch
         {
             false => maxBoundaryInclusive ? maxBoundary : (maxBoundary - 1),
             true => throw new UndefinedOperationException("An empty range has no maximum element.")
@@ -172,7 +172,7 @@ namespace PAC.DataStructures
         /// <summary>
         /// The range with <see cref="startBoundary"/> and <see cref="endBoundary"/> swapped, and <see cref="startBoundaryInclusive"/> and <see cref="endBoundaryInclusive"/> swapped.
         /// </summary>
-        public readonly IntRange reverse => new IntRange(endBoundary, startBoundary, endBoundaryInclusive, startBoundaryInclusive);
+        public IntRange reverse => new IntRange(endBoundary, startBoundary, endBoundaryInclusive, startBoundaryInclusive);
         /// <summary>
         /// A range with the same elements, in increasing order.
         /// </summary>
@@ -180,7 +180,7 @@ namespace PAC.DataStructures
         /// Either the range unchanged or <see cref="reverse"/>.
         /// </returns>
         /// <seealso cref="asDecreasing"/>
-        public readonly IntRange asIncreasing => startBoundary <= endBoundary ? this : reverse;
+        public IntRange asIncreasing => startBoundary <= endBoundary ? this : reverse;
         /// <summary>
         /// A range with the same elements, in decreasing order.
         /// </summary>
@@ -188,7 +188,7 @@ namespace PAC.DataStructures
         /// Either the range unchanged or <see cref="reverse"/>.
         /// </returns>
         /// /// <seealso cref="asIncreasing"/>
-        public readonly IntRange asDecreasing => endBoundary <= startBoundary ? this : reverse;
+        public IntRange asDecreasing => endBoundary <= startBoundary ? this : reverse;
 
         /// <summary>
         /// A range with the same elements, in the same order, but expressed with <see cref="startBoundary"/> exclusive and <see cref="endBoundary"/> exclusive.
@@ -196,7 +196,7 @@ namespace PAC.DataStructures
         /// <seealso cref="asExclIncl"/>
         /// <seealso cref="asInclExcl"/>
         /// <seealso cref="asInclIncl"/>
-        public readonly IntRange asExclExcl
+        public IntRange asExclExcl
         {
             get
             {
@@ -221,7 +221,7 @@ namespace PAC.DataStructures
         /// <seealso cref="asExclExcl"/>
         /// <seealso cref="asInclExcl"/>
         /// <seealso cref="asInclIncl"/>
-        public readonly IntRange asExclIncl
+        public IntRange asExclIncl
         {
             get
             {
@@ -251,7 +251,7 @@ namespace PAC.DataStructures
         /// <seealso cref="asExclExcl"/>
         /// <seealso cref="asExclIncl"/>
         /// <seealso cref="asInclIncl"/>
-        public readonly IntRange asInclExcl
+        public IntRange asInclExcl
         {
             get
             {
@@ -282,13 +282,12 @@ namespace PAC.DataStructures
         /// <seealso cref="asExclExcl"/>
         /// <seealso cref="asExclIncl"/>
         /// <seealso cref="asInclExcl"/>
-        public readonly IntRange asInclIncl
-            => isEmpty ? throw new InvalidOperationException("Cannot express an empty range as a range with both boundaries inclusive.") : InclIncl(startElement, endElement);
+        public IntRange asInclIncl => isEmpty ? throw new InvalidOperationException("Cannot express an empty range as a range with both boundaries inclusive.") : InclIncl(startElement, endElement);
 
         /// <summary>
         /// Whether the range has no elements.
         /// </summary>
-        public readonly bool isEmpty => (endBoundary - startBoundary) switch
+        public bool isEmpty => (endBoundary - startBoundary) switch
         {
             0 => !startBoundaryInclusive || !endBoundaryInclusive,
             1 or -1 => !startBoundaryInclusive && !endBoundaryInclusive,
@@ -304,7 +303,7 @@ namespace PAC.DataStructures
         /// <seealso cref="isExclIncl"/>
         /// <seealso cref="isInclExcl"/>
         /// <seealso cref="isInclIncl"/>
-        public readonly bool isExclExcl => !startBoundaryInclusive && !endBoundaryInclusive;
+        public bool isExclExcl => !startBoundaryInclusive && !endBoundaryInclusive;
         /// <summary>
         /// Whether <see cref="startBoundary"/> is exclusive and <see cref="endBoundary"/> is inclusive.
         /// </summary>
@@ -314,7 +313,7 @@ namespace PAC.DataStructures
         /// <seealso cref="isExclExcl"/>
         /// <seealso cref="isInclExcl"/>
         /// <seealso cref="isInclIncl"/>
-        public readonly bool isExclIncl => !startBoundaryInclusive && endBoundaryInclusive;
+        public bool isExclIncl => !startBoundaryInclusive && endBoundaryInclusive;
         /// <summary>
         /// Whether <see cref="startBoundary"/> is inclusive and <see cref="endBoundary"/> is exclusive.
         /// </summary>
@@ -324,7 +323,7 @@ namespace PAC.DataStructures
         /// <seealso cref="isExclExcl"/>
         /// <seealso cref="isExclIncl"/>
         /// <seealso cref="isInclIncl"/>
-        public readonly bool isInclExcl => startBoundaryInclusive && !endBoundaryInclusive;
+        public bool isInclExcl => startBoundaryInclusive && !endBoundaryInclusive;
         /// <summary>
         /// Whether <see cref="startBoundary"/> is inclusive and <see cref="endBoundary"/> is inclusive.
         /// </summary>
@@ -334,7 +333,7 @@ namespace PAC.DataStructures
         /// <seealso cref="isExclExcl"/>
         /// <seealso cref="isExclIncl"/>
         /// <seealso cref="isInclExcl"/>
-        public readonly bool isInclIncl => startBoundaryInclusive && endBoundaryInclusive;
+        public bool isInclIncl => startBoundaryInclusive && endBoundaryInclusive;
 
         /// <summary>
         /// The number of elements in the range.
@@ -344,7 +343,7 @@ namespace PAC.DataStructures
         /// <see cref="int"/>. Using <see cref="LongCount"/> instead will never encounter this issue.
         /// </remarks>
         /// <exception cref="OverflowException">The number of elements is too large to represent as an <see cref="int"/>.</exception>
-        public readonly int Count => isEmpty ? 0 : checked(Math.Abs(endElement - startElement) + 1);
+        public int Count => isEmpty ? 0 : checked(Math.Abs(endElement - startElement) + 1);
 
         /// <summary>
         /// The same as <see cref="Count"/> but computed as a <see cref="long"/>.
@@ -353,7 +352,7 @@ namespace PAC.DataStructures
         /// Unlike <see cref="Count"/>, this will never throw an <see cref="OverflowException"/>. For example, the largest range, <see cref="int.MinValue"/> to <see cref="int.MaxValue"/>, cannot be
         /// expressed as an <see cref="int"/> but can be expressed as a <see cref="long"/>.
         /// </remarks>
-        public readonly long LongCount => isEmpty ? 0 : checked(Math.Abs((long)endElement - (long)startElement) + 1);
+        public long LongCount => isEmpty ? 0 : checked(Math.Abs((long)endElement - (long)startElement) + 1);
         #endregion
 
         #region Predefined Instances
