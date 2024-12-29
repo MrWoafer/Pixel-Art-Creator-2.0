@@ -543,19 +543,6 @@ namespace PAC.DataStructures
         public static IntRange operator -(IntRange range) => checked(new IntRange(-range.startBoundary, -range.endBoundary, range.startBoundaryInclusive, range.endBoundaryInclusive));
 
         /// <summary>
-        /// Returns the Cartesian product of the ranges, as an IntRect. x specifies the range of the x coords. y specifies the range of the y coords.
-        /// </summary>
-        public static IntRect operator *(IntRange x, IntRange y) => CartesianProduct(x, y);
-        /// <summary>
-        /// Returns the Cartesian product of the ranges, as an IntRect. This range specifies the range of the x coords. y specifies the range of the y coords.
-        /// </summary>
-        public IntRect CartesianProduct(IntRange y) => CartesianProduct(this, y);
-        /// <summary>
-        /// Returns the Cartesian product of the ranges, as an IntRect. x specifies the range of the x coords. y specifies the range of the y coords.
-        /// </summary>
-        public static IntRect CartesianProduct(IntRange x, IntRange y) => new IntRect(x, y);
-
-        /// <summary>
         /// Returns the elements the two ranges have in common.
         /// </summary>
         public IntRange Intersection(IntRange other) => Intersection(this, other);
