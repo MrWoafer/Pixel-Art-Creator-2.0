@@ -341,7 +341,7 @@ namespace PAC.DataStructures
         /// </summary>
         /// <remarks>
         /// May throw an <see cref="OverflowException"/>. For example, the <see cref="Count"/> of a range from <see cref="int.MinValue"/> to <see cref="int.MaxValue"/> cannot be expressed as an
-        /// <see cref="int"/>. Using <see cref="CountLong"/> instead will never encounter this issue.
+        /// <see cref="int"/>. Using <see cref="LongCount"/> instead will never encounter this issue.
         /// </remarks>
         /// <exception cref="OverflowException">The number of elements is too large to represent as an <see cref="int"/>.</exception>
         public int Count => isEmpty ? 0 : checked(Math.Abs(endElement - startElement) + 1);
@@ -353,7 +353,7 @@ namespace PAC.DataStructures
         /// Unlike <see cref="Count"/>, this will never throw an <see cref="OverflowException"/>. For example, the largest range, <see cref="int.MinValue"/> to <see cref="int.MaxValue"/>, cannot be
         /// expressed as an <see cref="int"/> but can be expressed as a <see cref="long"/>.
         /// </remarks>
-        public long CountLong => isEmpty ? 0 : checked(Math.Abs((long)endElement - (long)startElement) + 1);
+        public long LongCount => isEmpty ? 0 : checked(Math.Abs((long)endElement - (long)startElement) + 1);
         #endregion
 
         #region Predefined Instances
@@ -690,12 +690,12 @@ namespace PAC.DataStructures
                 }
                 catch (OverflowException)
                 {
-                    throw new ArgumentOutOfRangeException(nameof(index), $"The index is out of range of the number of elements. Range: {this}. Count: {CountLong}. Index: {index}.");
+                    throw new ArgumentOutOfRangeException(nameof(index), $"The index is out of range of the number of elements. Range: {this}. Count: {LongCount}. Index: {index}.");
                 }
 
                 return Contains(value) switch
                 {
-                    false => throw new ArgumentOutOfRangeException(nameof(index), $"The index is out of range of the number of elements. Range: {this}. Count: {CountLong}. Index: {index}."),
+                    false => throw new ArgumentOutOfRangeException(nameof(index), $"The index is out of range of the number of elements. Range: {this}. Count: {LongCount}. Index: {index}."),
                     true => value
                 };
             }

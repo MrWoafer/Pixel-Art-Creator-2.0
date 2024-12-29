@@ -219,11 +219,11 @@ namespace PAC.Tests
 
         [Test]
         [Category("Data Structures")]
-        public void CountLong()
+        public void LongCount()
         {
             foreach (IntRange range in testCases)
             {
-                Assert.AreEqual(range.LongCount(), range.CountLong, "Failed with " + range);
+                Assert.AreEqual(range.LongCount(), range.LongCount, "Failed with " + range);
             }
         }
         #endregion
