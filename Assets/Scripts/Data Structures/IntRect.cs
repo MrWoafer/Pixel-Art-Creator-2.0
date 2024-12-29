@@ -12,30 +12,13 @@ namespace PAC.DataStructures
     /// <summary>
     /// A non-empty rectangular region of integer coordinates.
     /// </summary>
-    public struct IntRect : IReadOnlyList<IntVector2>, IReadOnlyContains<IntVector2>, IEquatable<IntRect>
+    public readonly struct IntRect : IReadOnlyList<IntVector2>, IReadOnlyContains<IntVector2>, IEquatable<IntRect>
     {
-        private IntVector2 _bottomLeft;
-        public IntVector2 bottomLeft
-        {
-            get => _bottomLeft;
-            set => this = new IntRect(value, topRight);
-        }
-        private IntVector2 _topRight;
-        public IntVector2 topRight
-        {
-            get => _topRight;
-            set => this = new IntRect(value, bottomLeft);
-        }
-        public IntVector2 bottomRight
-        {
-            get => new IntVector2(topRight.x, bottomLeft.y);
-            set => this = new IntRect(value, topLeft);
-        }
-        public IntVector2 topLeft
-        {
-            get => new IntVector2(bottomLeft.x, topRight.y);
-            set => this = new IntRect(value, bottomRight);
-        }
+        public readonly IntVector2 bottomLeft;
+        public readonly IntVector2 topRight;
+
+        public IntVector2 bottomRight => new IntVector2(topRight.x, bottomLeft.y);
+        public IntVector2 topLeft => new IntVector2(bottomLeft.x, topRight.y);
 
         public Vector2 centre => (Vector2)(bottomLeft + topRight + IntVector2.one) / 2f;
 
@@ -59,8 +42,8 @@ namespace PAC.DataStructures
 
         public IntRect(IntVector2 corner, IntVector2 oppositeCorner)
         {
-            _bottomLeft = new IntVector2(Math.Min(corner.x, oppositeCorner.x), Math.Min(corner.y, oppositeCorner.y));
-            _topRight = new IntVector2(Math.Max(corner.x, oppositeCorner.x), Math.Max(corner.y, oppositeCorner.y));
+            bottomLeft = new IntVector2(Math.Min(corner.x, oppositeCorner.x), Math.Min(corner.y, oppositeCorner.y));
+            topRight = new IntVector2(Math.Max(corner.x, oppositeCorner.x), Math.Max(corner.y, oppositeCorner.y));
         }
 
         /// <summary>
@@ -75,8 +58,8 @@ namespace PAC.DataStructures
             switch ((xRange.isEmpty, yRange.isEmpty))
             {
                 case (false, false):
-                    _bottomLeft = new IntVector2(xRange.minElement, yRange.minElement);
-                    _topRight = new IntVector2(xRange.maxElement, yRange.maxElement);
+                    bottomLeft = new IntVector2(xRange.minElement, yRange.minElement);
+                    topRight = new IntVector2(xRange.maxElement, yRange.maxElement);
                     return;
                 case (true, false): throw new ArgumentException("The given x range is empty.", nameof(xRange));
                 case (false, true): throw new ArgumentException("The given y range is empty.", nameof(yRange));
