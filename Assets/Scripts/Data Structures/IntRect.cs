@@ -326,34 +326,6 @@ namespace PAC.DataStructures
         }
 
         /// <summary>
-        /// Indexes the points in the rect by coordinates relative to the bottom-left (so indexing with x = 0, y = 0 would give the bottom-left of the IntRect).
-        /// </summary>
-        public IntVector2 this[int x, int y]
-        {
-            get
-            {
-                if (x < 0)
-                {
-                    throw new IndexOutOfRangeException("Relative coords cannot be negative. x: " + x);
-                }
-                if (y < 0)
-                {
-                    throw new IndexOutOfRangeException("Relative coords cannot be negative. y: " + y);
-                }
-                if (x >= width)
-                {
-                    throw new IndexOutOfRangeException("Relative x coord cannot be >= width. x: " + x + "). Width: " + width);
-                }
-                if (y >= height)
-                {
-                    throw new IndexOutOfRangeException("Relative y coord cannot be >= height. y: " + y + "). Height: " + height);
-                }
-
-                return bottomLeft + new IntVector2(x, y);
-            }
-        }
-
-        /// <summary>
         /// Enumerates the points in the rect, starting with the bottom row, read left to right, then the next row, etc.
         /// </summary>
         IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();
