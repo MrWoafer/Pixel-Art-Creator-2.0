@@ -10,7 +10,7 @@ using PAC.Interfaces;
 namespace PAC.DataStructures
 {
     /// <summary>
-    /// Represents a rectangular region of integer coordinates.
+    /// A non-empty rectangular region of integer coordinates.
     /// </summary>
     public struct IntRect : IReadOnlyList<IntVector2>, IReadOnlyContains<IntVector2>, IEquatable<IntRect>
     {
