@@ -713,7 +713,10 @@ namespace PAC.DataStructures
             {
                 yield break;
             }
-            else if (startElement < endElement)
+
+            int startElement = this.startElement;
+            int endElement = this.endElement;
+            if (startElement < endElement)
             {
                 for (int i = startElement; i <= endElement; i++)
                 {
