@@ -448,5 +448,44 @@ namespace PAC.Tests
                 CollectionAssert.AreEqual(expected, input.ZipCurrentAndNext());
             }
         }
+
+        [Test]
+        [Category("Extensions")]
+        public void Flatten()
+        {
+            (IEnumerable<IEnumerable<int>> input, IEnumerable<int> expected)[] testCases =
+            {
+                (new int[][] { }, new int[] { }),
+                (new int[][] { new int[] { } }, new int[] { }),
+                (new int[][] { new int[] { }, new int[] { } }, new int[] { }),
+                /////
+                (new int[][] { new int[] { 7 } }, new int[] { 7 }),
+                (new int[][] { new int[] { 7 }, new int[] { 0 } }, new int[] { 7, 0 }),
+                (new int[][] { new int[] { 2, -1 } }, new int[] { 2, -1 }),
+                (new int[][] { new int[] { 0, 1, 2 }, new int[] { 3, 4 } }, new int[] { 0, 1, 2, 3, 4 }),
+                (new int[][] { new int[] { 1, 2, 3 }, new int[] { 4, 5 }, new int[] { 6, 7, 8, 9, 10 } }, new int[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 }),
+                (new int[][] { new int[] { 1, 2, 3 }, new int[] { 4, 5 }, new int[] { }, new int[] { 6, 7, 8, 9, 10 } }, new int[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 }),
+                (new int[][] { new int[] { 3, 1, 4 }, new int[] { 1, 5 }, new int[] { 9, 2, 6, 5 } }, new int[] { 3, 1, 4, 1, 5, 9, 2, 6, 5 }),
+                /////
+                (new int[][] { new int[] { }, new int[] { 3, -2 } }, new int[] { 3, -2 }),
+                (new int[][] { new int[] { 3, -2 }, new int[] { } }, new int[] { 3, -2 }),
+                (new int[][] { new int[] { }, new int[] { 5, 4 }, new int[] { 3, 2, 1 } }, new int[] { 5, 4, 3, 2, 1 }),
+                (new int[][] { new int[] { 5, 4 }, new int[] { }, new int[] { 3, 2, 1 } }, new int[] { 5, 4, 3, 2, 1 }),
+                (new int[][] { new int[] { 5, 4 }, new int[] { 3, 2, 1 }, new int[] { } }, new int[] { 5, 4, 3, 2, 1 }),
+                (new int[][] { new int[] { 5, 4 }, new int[] { }, new int[] { 3, 2, 1 }, new int[] { } }, new int[] { 5, 4, 3, 2, 1 }),
+                (new int[][] { new int[] { 5, 4 }, new int[] { }, new int[] { }, new int[] { 3, 2, 1 } }, new int[] { 5, 4, 3, 2, 1 }),
+            };
+            
+            /////
+
+            foreach ((IEnumerable<IEnumerable<int>> input, IEnumerable<int> expected) in testCases)
+            {
+                CollectionAssert.AreEqual(expected, input.Flatten(), $"Failed with {{ {string.Join(", ", input.Select(s => $"{{ {string.Join(", ", s)} }}"))} }}");
+            }
+
+            Assert.Throws<ArgumentNullException>(() => IEnumerableExtensions.Flatten<int>(null).ToArray());
+            Assert.Throws<ArgumentException>(() => new List<List<int>> { null }.Flatten().ToArray());
+            Assert.Throws<ArgumentException>(() => new List<List<int>> { new List<int> { 0, 1 }, null }.Flatten().ToArray());
+        }
     }
 }

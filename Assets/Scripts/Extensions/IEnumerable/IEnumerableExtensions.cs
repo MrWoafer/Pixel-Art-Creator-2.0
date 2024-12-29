@@ -452,6 +452,35 @@ namespace PAC.Extensions
         public static IEnumerable<(T current, T next)> ZipCurrentAndNext<T>(this IEnumerable<T> elements) => elements.Zip(elements.Skip(1));
 
         /// <summary>
+        /// Flattens a sequence of sequences into one sequence, by first iterating over the first sequence, then the second sequence, etc.
+        /// <example>
+        /// For example, <c>{ { 1, 2, 3 }, { 4, 5 }, { }, { 6, 7, 8, 9, 10 } }</c> flattens to <c>{ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 }</c>.
+        /// </example>
+        /// </summary>
+        /// <exception cref="ArgumentNullException"><paramref name="sequences"/> is null.</exception>
+        /// <exception cref="ArgumentException">One of the sequences in <paramref name="sequences"/> is null.</exception>
+        public static IEnumerable<T> Flatten<T>(this IEnumerable<IEnumerable<T>> sequences)
+        {
+            if (sequences is null)
+            {
+                throw new ArgumentNullException(nameof(sequences), "The outer sequence is null.");
+            }
+
+            foreach (IEnumerable<T> sequence in sequences)
+            {
+                if (sequence is null)
+                {
+                    throw new ArgumentException("One of the inner sequences is null.", nameof(sequences));
+                }
+                
+                foreach (T element in sequence)
+                {
+                    yield return element;
+                }
+            }
+        }
+
+        /// <summary>
         /// Returns the product of all elements in the sequence, or 1 if the sequence is empty.
         /// </summary>
         public static int Product(this IEnumerable<int> elements) => elements.Aggregate(1, (accumulator, x) => accumulator * x);
