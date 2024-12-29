@@ -644,7 +644,7 @@ namespace PAC.DataStructures
         {
             if (integers is null)
             {
-                throw new ArgumentNullException($"Cannot perform {nameof(BoundingRange)}() on null.", nameof(integers));
+                throw new ArgumentNullException(nameof(integers), $"Cannot perform {nameof(BoundingRange)}() on null.");
             }
 
             if (integers.IsEmpty())
@@ -665,7 +665,7 @@ namespace PAC.DataStructures
         /// Some ranges, such as a range from <see cref="int.MinValue"/> to <see cref="int.MaxValue"/>, are too long for every element to be indexed by an <see cref="int"/>. Using
         /// <see cref="this[long]"/> instead will never have this issue.
         /// </remarks>
-        /// <exception cref="IndexOutOfRangeException"><paramref name="index"/> is not a valid index in the range.</exception>
+        /// <exception cref="ArgumentOutOfRangeException"><paramref name="index"/> is not a valid index in the range.</exception>
         public int this[int index] => this[(long)index];
         /// <summary>
         /// Indexes the elements of the range from <see cref="startElement"/> to <see cref="endElement"/>.
@@ -674,7 +674,7 @@ namespace PAC.DataStructures
         /// Unlike <see cref="this[int]"/>, every element in a range can be indexed with a <see cref="long"/>. For example, the range from <see cref="int.MinValue"/> to <see cref="int.MaxValue"/>
         /// is too long for every element to be indexed by an <see cref="int"/>, but every element can be indexed by a <see cref="long"/>.
         /// </remarks>
-        /// <exception cref="IndexOutOfRangeException"><paramref name="index"/> is not a valid index in the range.</exception>
+        /// <exception cref="ArgumentOutOfRangeException"><paramref name="index"/> is not a valid index in the range.</exception>
         public int this[long index]
         {
             get
@@ -685,17 +685,17 @@ namespace PAC.DataStructures
                     value = isEmpty switch
                     {
                         false => checked((int)((startBoundary < endBoundary) ? (startElement + index) : (startElement - index))),
-                        true => throw new IndexOutOfRangeException("Range is empty.")
+                        true => throw new ArgumentOutOfRangeException(nameof(index), "The range is empty.")
                     };
                 }
                 catch (OverflowException)
                 {
-                    throw new IndexOutOfRangeException($"Index is out of range of the number of elements. Range: {this}. Count: {CountLong}. Index: {index}.");
+                    throw new ArgumentOutOfRangeException(nameof(index), $"The index is out of range of the number of elements. Range: {this}. Count: {CountLong}. Index: {index}.");
                 }
 
                 return Contains(value) switch
                 {
-                    false => throw new IndexOutOfRangeException($"Index is out of range of the number of elements. Range: {this}. Count: {CountLong}. Index: {index}."),
+                    false => throw new ArgumentOutOfRangeException(nameof(index), $"The index is out of range of the number of elements. Range: {this}. Count: {CountLong}. Index: {index}."),
                     true => value
                 };
             }

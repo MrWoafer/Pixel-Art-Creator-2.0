@@ -386,11 +386,11 @@ namespace PAC.Tests
             {
                 for (int i = -3; i < 0; i++)
                 {
-                    Assert.Throws<IndexOutOfRangeException>(() => { int _ = range[i]; }, "Failed with " + range + " and " + i);
+                    Assert.Throws<ArgumentOutOfRangeException>(() => { int _ = range[i]; }, "Failed with " + range + " and " + i);
                 }
                 for (int i = range.Count(); i <= range.Count() + 3; i++)
                 {
-                    Assert.Throws<IndexOutOfRangeException>(() => { int _ = range[i]; }, "Failed with " + range + " and " + i);
+                    Assert.Throws<ArgumentOutOfRangeException>(() => { int _ = range[i]; }, "Failed with " + range + " and " + i);
                 }
 
                 int[] expected = range.ToArray();
@@ -400,8 +400,8 @@ namespace PAC.Tests
                     Assert.AreEqual(expected[i], range[(long)i], "Failed with " + range + " and " + i);
                 }
 
-                Assert.Throws<IndexOutOfRangeException>(() => { int _ = range[long.MinValue]; }, "Failed with " + range);
-                Assert.Throws<IndexOutOfRangeException>(() => { int _ = range[long.MaxValue]; }, "Failed with " + range);
+                Assert.Throws<ArgumentOutOfRangeException>(() => { int _ = range[long.MinValue]; }, "Failed with " + range);
+                Assert.Throws<ArgumentOutOfRangeException>(() => { int _ = range[long.MaxValue]; }, "Failed with " + range);
             }
         }
         #endregion
