@@ -553,13 +553,7 @@ namespace PAC.DataStructures
         /// <summary>
         /// Returns the Cartesian product of the ranges, as an IntRect. x specifies the range of the x coords. y specifies the range of the y coords.
         /// </summary>
-        public static IntRect CartesianProduct(IntRange x, IntRange y) => (x.isEmpty, y.isEmpty) switch
-        {
-            (false, false) => new IntRect(new IntVector2(x.minElement, y.minElement), new IntVector2(x.maxElement, y.maxElement)),
-            (false, true) => throw new InvalidOperationException("The y range is empty."),
-            (true, false) => throw new InvalidOperationException("The x range is empty."),
-            (true, true) => throw new InvalidOperationException("The x range and the y range are both empty.")
-        };
+        public static IntRect CartesianProduct(IntRange x, IntRange y) => new IntRect(x, y);
 
         /// <summary>
         /// Returns the elements the two ranges have in common.

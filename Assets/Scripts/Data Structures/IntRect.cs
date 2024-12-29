@@ -36,10 +36,20 @@ namespace PAC.DataStructures
             get => new IntVector2(bottomLeft.x, topRight.y);
             set => this = new IntRect(value, bottomRight);
         }
+
         public Vector2 centre => (Vector2)(bottomLeft + topRight + IntVector2.one) / 2f;
 
         public int width => topRight.x - bottomLeft.x + 1;
         public int height => topRight.y - bottomLeft.y + 1;
+
+        /// <summary>
+        /// The inclusive range of x coordinates in the rect.
+        /// </summary>
+        public IntRange xRange => IntRange.InclIncl(bottomLeft.x, topRight.x);
+        /// <summary>
+        /// The inclusive range of y coordinates in the rect.
+        /// </summary>
+        public IntRange yRange => IntRange.InclIncl(bottomLeft.y, topRight.y);
 
         public int Count => width * height;
         public int area => Area(this);
@@ -47,11 +57,31 @@ namespace PAC.DataStructures
         /// <summary>True if the rect is a square.</summary>
         public bool isSquare => IsSquare(this);
 
-
         public IntRect(IntVector2 corner, IntVector2 oppositeCorner)
         {
             _bottomLeft = new IntVector2(Math.Min(corner.x, oppositeCorner.x), Math.Min(corner.y, oppositeCorner.y));
             _topRight = new IntVector2(Math.Max(corner.x, oppositeCorner.x), Math.Max(corner.y, oppositeCorner.y));
+        }
+
+        /// <summary>
+        /// Creates a rect with the given ranges of x and y values.
+        /// </summary>
+        /// <remarks>
+        /// The x and y ranges must be non-empty, as <see cref="IntRect"/>s are non-empty.
+        /// </remarks>
+        /// <exception cref="ArgumentException"><paramref name="xRange"/> is empty or <paramref name="yRange"/> is empty.</exception>
+        public IntRect(IntRange xRange, IntRange yRange)
+        {
+            switch ((xRange.isEmpty, yRange.isEmpty))
+            {
+                case (false, false):
+                    _bottomLeft = new IntVector2(xRange.minElement, yRange.minElement);
+                    _topRight = new IntVector2(xRange.maxElement, yRange.maxElement);
+                    return;
+                case (true, false): throw new ArgumentException("The given x range is empty.", nameof(xRange));
+                case (false, true): throw new ArgumentException("The given y range is empty.", nameof(yRange));
+                case (true, true): throw new ArgumentException("The given x range and y range are both empty.");
+            }
         }
 
         public static bool operator ==(IntRect a, IntRect b) => a.bottomLeft == b.bottomLeft && a.topRight == b.topRight;
