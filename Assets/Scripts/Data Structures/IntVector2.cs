@@ -11,10 +11,10 @@ namespace PAC.DataStructures
     /// <summary>
     /// A 2-dimensional vector with integer coordinates.
     /// </summary>
-    public struct IntVector2 : IEquatable<IntVector2>
+    public readonly struct IntVector2 : IEquatable<IntVector2>
     {
-        public int x;
-        public int y;
+        public readonly int x;
+        public readonly int y;
 
         /// <summary>
         /// The magnitude of the vector, which is sqrt(x^2 + y^2).
