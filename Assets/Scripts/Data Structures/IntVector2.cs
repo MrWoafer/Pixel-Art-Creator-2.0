@@ -9,7 +9,7 @@ using PAC.Maths;
 namespace PAC.DataStructures
 {
     /// <summary>
-    /// Represents a 2-dimensional vector with integer coordinates.
+    /// A 2-dimensional vector with integer coordinates.
     /// </summary>
     public struct IntVector2 : IEquatable<IntVector2>
     {
