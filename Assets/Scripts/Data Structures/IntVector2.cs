@@ -11,43 +11,87 @@ namespace PAC.DataStructures
     /// <summary>
     /// A 2-dimensional vector with integer coordinates.
     /// </summary>
+    /// <remarks>
+    /// Can be implicitly cast to/from <c>(<see cref="int"/> x, <see cref="int"/> y)</c>. This allows writing <see cref="IntVector2"/>s in a more readable way.
+    /// <example>
+    /// For example,
+    /// <code language="csharp">
+    /// IntVector2 point = (5, 3);
+    /// </code>
+    /// instead of
+    /// <code language="csharp">
+    /// IntVector2 point = new IntVector2(5, 3);
+    /// </code>
+    /// </example>
+    /// </remarks>
     public readonly struct IntVector2 : IEquatable<IntVector2>
     {
+        /// <summary>
+        /// The x coordinate.
+        /// </summary>
+        /// <seealso cref="y"/>
         public readonly int x;
+        /// <summary>
+        /// The y coordinate.
+        /// </summary>
+        /// <seealso cref="x"/>
         public readonly int y;
 
         /// <summary>
-        /// The magnitude of the vector, which is sqrt(x^2 + y^2).
+        /// The standard Euclidean magnitude of the vector, which is <c>sqrt(<see cref="x"/>^2 + <see cref="y"/>^2)</c>.
         /// </summary>
+        /// <seealso cref="Magnitude(IntVector2)"/>
+        /// <seealso cref="Distance(IntVector2, IntVector2)"/>
+        /// <seealso cref="sqrMagnitude"/>
+        /// <seealso href="https://en.wikipedia.org/wiki/Norm_(mathematics)#Euclidean_norm"/>
         public float magnitude => Magnitude(this);
         /// <summary>
-        /// The square of the magnitude of the vector, which is x^2 + y^2. Faster than squaring magnitude.
+        /// The square of the Euclidean magnitude of the vector, so <c><see cref="x"/>^2 + <see cref="y"/>^2</c>.
         /// </summary>
+        /// <remarks>
+        /// This is faster than squaring <see cref="magnitude"/>.
+        /// </remarks>
+        /// <seealso cref="SqrMagnitude(IntVector2)"/>
+        /// <seealso cref="SqrDistance(IntVector2, IntVector2)"/>
+        /// <seealso href="https://en.wikipedia.org/wiki/Norm_(mathematics)#Euclidean_norm"/>
         public float sqrMagnitude => SqrMagnitude(this);
 
         /// <summary>
-        /// The l1 norm of the vector, which is abs(x) + abs(y).
+        /// The l1 norm of the vector, which is <c>abs(<see cref="x"/>) + abs(<see cref="y"/>)</c>.
         /// Also known as the taxicab/Manhattan norm.
         /// </summary>
+        /// <seealso cref="L1Norm(IntVector2)"/>
+        /// <seealso cref="L1Distance(IntVector2, IntVector2)"/>
+        /// <seealso href="https://en.wikipedia.org/wiki/Norm_(mathematics)#Taxicab_norm_or_Manhattan_norm"/>
         public int l1Norm => L1Norm(this);
         /// <summary>
-        /// The supremum norm of the vector, which is max(abs(x), abs(y)).
+        /// The supremum norm of the vector, which is <c>max(abs(<see cref="x"/>), abs(<see cref="y"/>))</c>.
         /// Also known as the Chebyshev norm or l-infinity norm.
         /// </summary>
+        /// <seealso cref="SupNorm(IntVector2)"/>
+        /// <seealso cref="SupDistance(IntVector2, IntVector2)"/>
+        /// <seealso href="https://en.wikipedia.org/wiki/Uniform_norm"/>
         public int supNorm => SupNorm(this);
 
         /// <summary>
         /// The sign of each component of the vector.
         /// </summary>
+        /// <remarks>
+        /// The sign of a component that is 0 is defined to be 0.
+        /// </remarks>
+        /// <seealso cref="Sign(IntVector2)"/>
         public IntVector2 sign => Sign(this);
 
+        /// <summary>
+        /// Creates a new vector with the given x and y coordinates.
+        /// </summary>
         public IntVector2(int x, int y)
         {
             this.x = x;
             this.y = y;
         }
         /// <summary>
-        /// Rounds the coords towards zero.
+        /// Creates a new vector with the given x and y coordinates cast to <see cref="int"/>s, which truncates them towards zero.
         /// </summary>
         public IntVector2(float x, float y)
         {
@@ -55,7 +99,7 @@ namespace PAC.DataStructures
             this.y = (int)y;
         }
         /// <summary>
-        /// Rounds the coords towards zero.
+        /// Creates a new vector with the given x and y coordinates cast to <see cref="int"/>s, which truncates them towards zero.
         /// </summary>
         public IntVector2(Vector2 vector2)
         {
@@ -63,44 +107,111 @@ namespace PAC.DataStructures
             y = (int)vector2.y;
         }
 
+
+        /// <summary>
+        /// Deconstructs the vector into its x and y coordinates.
+        /// </summary>
         public void Deconstruct(out int x, out int y)
         {
             x = this.x;
             y = this.y;
         }
 
-        /// <summary>The vector (0, 0).</summary>
-        public static readonly IntVector2 zero = (0, 0);
-        /// <summary>The vector (1, 1).</summary>
-        public static readonly IntVector2 one = (1, 1);
-        /// <summary>The vector (1, 0).</summary>
-        public static readonly IntVector2 right = (1, 0);
-        /// <summary>The vector (-1, 0).</summary>
-        public static readonly IntVector2 left = (-1, 0);
-        /// <summary>The vector (0, 1).</summary>
-        public static readonly IntVector2 up = (0, 1);
-        /// <summary>The vector (0, -1).</summary>
-        public static readonly IntVector2 down = (0, -1);
-        /// <summary>The vector (1, 1).</summary>
-        public static readonly IntVector2 upRight = (1, 1);
-        /// <summary>The vector (-1, 1).</summary>
-        public static readonly IntVector2 upLeft = (-1, 1);
-        /// <summary>The vector (1, -1).</summary>
-        public static readonly IntVector2 downRight = (1, -1);
-        /// <summary>The vector (-1, -1).</summary>
-        public static readonly IntVector2 downLeft = (-1, -1);
         /// <summary>
-        /// An IEnumerable over the vectors (0, 1), (0, -1), (-1, 0), (1, 0).
+        /// The vector (0, 0).
         /// </summary>
+        public static readonly IntVector2 zero = (0, 0);
+        /// <summary>
+        /// The vector (1, 1).
+        /// </summary>
+        /// <remarks>
+        /// An alias for <see cref="upRight"/>.
+        /// </remarks>
+        public static readonly IntVector2 one = (1, 1);
+
+        /// <summary>
+        /// The vector (1, 0).
+        /// </summary>
+        /// <seealso cref="left"/><seealso cref="up"/><seealso cref="down"/>
+        /// <seealso cref="upRight"/><seealso cref="upLeft"/><seealso cref="downRight"/><seealso cref="downLeft"/>
+        public static readonly IntVector2 right = (1, 0);
+        /// <summary>
+        /// The vector (-1, 0).
+        /// </summary>
+        /// <seealso cref="right"/><seealso cref="up"/><seealso cref="down"/>
+        /// <seealso cref="upRight"/><seealso cref="upLeft"/><seealso cref="downRight"/><seealso cref="downLeft"/>
+        public static readonly IntVector2 left = (-1, 0);
+        /// <summary>
+        /// The vector (0, 1).
+        /// </summary>
+        /// <seealso cref="right"/><seealso cref="left"/><seealso cref="down"/>
+        /// <seealso cref="upRight"/><seealso cref="upLeft"/><seealso cref="downRight"/><seealso cref="downLeft"/>
+        public static readonly IntVector2 up = (0, 1);
+        /// <summary>
+        /// The vector (0, -1).
+        /// </summary>
+        /// <seealso cref="right"/><seealso cref="left"/><seealso cref="up"/>
+        /// <seealso cref="upRight"/><seealso cref="upLeft"/><seealso cref="downRight"/><seealso cref="downLeft"/>
+        public static readonly IntVector2 down = (0, -1);
+
+        /// <summary>
+        /// The vector (1, 1).
+        /// </summary>
+        /// <remarks>
+        /// An alias for <see cref="one"/>.
+        /// </remarks>
+        /// <seealso cref="right"/><seealso cref="left"/><seealso cref="up"/><seealso cref="down"/>
+        /// <seealso cref="upLeft"/><seealso cref="downRight"/><seealso cref="downLeft"/>
+        public static readonly IntVector2 upRight = (1, 1);
+        /// <summary>
+        /// The vector (-1, 1).
+        /// </summary>
+        /// <seealso cref="right"/><seealso cref="left"/><seealso cref="up"/><seealso cref="down"/>
+        /// <seealso cref="upRight"/><seealso cref="downRight"/><seealso cref="downLeft"/>
+        public static readonly IntVector2 upLeft = (-1, 1);
+        /// <summary>
+        /// The vector (1, -1).
+        /// </summary>
+        /// <seealso cref="right"/><seealso cref="left"/><seealso cref="up"/><seealso cref="down"/>
+        /// <seealso cref="upRight"/><seealso cref="upLeft"/><seealso cref="downLeft"/>
+        public static readonly IntVector2 downRight = (1, -1);
+        /// <summary>
+        /// The vector (-1, -1).
+        /// </summary>
+        /// <seealso cref="right"/><seealso cref="left"/><seealso cref="up"/><seealso cref="down"/>
+        /// <seealso cref="upRight"/><seealso cref="upLeft"/><seealso cref="downRight"/>
+        public static readonly IntVector2 downLeft = (-1, -1);
+
+        /// <summary>
+        /// An <see cref="IEnumerable{T}"/> over the vectors <c>(0, 1), (0, -1), (-1, 0), (1, 0)</c>.
+        /// </summary>
+        /// <seealso cref="up"/><seealso cref="down"/><seealso cref="left"/><seealso cref="right"/>
         public static readonly IEnumerable<IntVector2> upDownLeftRight = new IntVector2[] { up, down, left, right };
 
+        /// <summary>
+        /// Whether the two vectors have identical x and y coords.
+        /// </summary>
+        /// <seealso cref="Equals(IntVector2)"/>
         public static bool operator ==(IntVector2 a, IntVector2 b) => a.x == b.x && a.y == b.y;
+        /// <summary>
+        /// Whether the two vectors differ in their x and/or y coords.
+        /// </summary>
+        /// <seealso cref="Equals(IntVector2)"/>
         public static bool operator !=(IntVector2 a, IntVector2 b) => !(a == b);
+        /// <summary>
+        /// The same as <see cref="operator ==(IntVector2, IntVector2)"/>
+        /// </summary>
         public bool Equals(IntVector2 other) => this == other;
+        /// <summary>
+        /// The same as <see cref="Equals(IntVector2)"/>
+        /// </summary>
         public override bool Equals(object obj) => obj is IntVector2 other && Equals(other);
 
         public override int GetHashCode() => HashCode.Combine(x, y);
 
+        /// <summary>
+        /// Represents the vector as a string in the form <c>"(x, y)"</c>.
+        /// </summary>
         public override string ToString() => $"({x}, {y})";
 
         /// <summary>
@@ -121,51 +232,76 @@ namespace PAC.DataStructures
         public static bool operator >=(IntVector2 a, IntVector2 b) => a.x >= b.x && a.y >= b.y;
 
         /// <summary>
-        /// Adds component-wise.
+        /// Adds the two vectors component-wise.
         /// </summary>
         public static IntVector2 operator +(IntVector2 a, IntVector2 b) => (a.x + b.x, a.y + b.y);
 
         /// <summary>
-        /// Negates component-wise.
+        /// Negates each component of the vector.
         /// </summary>
         public static IntVector2 operator -(IntVector2 a) => (-a.x, -a.y);
         /// <summary>
-        /// Subtracts component-wise.
+        /// Subtracts the two vectors component-wise.
         /// </summary>
         public static IntVector2 operator -(IntVector2 a, IntVector2 b) => (a.x - b.x, a.y - b.y);
 
         /// <summary>
-        /// Multiplies component-wise.
+        /// Multiplies the two vectors component-wise.
         /// </summary>
         public static IntVector2 operator *(IntVector2 a, IntVector2 b) => (a.x * b.x, a.y * b.y);
         /// <summary>
-        /// Multiplies component-wise.
+        /// Multiplies each component of the vector by <paramref name="scalar"/>.
         /// </summary>
         public static IntVector2 operator *(int scalar, IntVector2 vector) => (scalar * vector.x, scalar * vector.y);
         /// <summary>
-        /// Multiplies component-wise.
+        /// Multiplies each component of the vector by <paramref name="scalar"/>.
         /// </summary>
         public static IntVector2 operator *(IntVector2 vector, int scalar) => scalar * vector;
 
         /// <summary>
-        /// Divides (integer division) component-wise.
+        /// Divides (integer division) the two vectors component-wise.
         /// </summary>
         public static IntVector2 operator /(IntVector2 a, IntVector2 b) => (a.x / b.x, a.y / b.y);
         /// <summary>
-        /// Divides (integer division) component-wise.
+        /// Divides (integer division) each component of the vector by <paramref name="scalar"/>.
         /// </summary>
         public static IntVector2 operator /(IntVector2 vector, int scalar) => (vector.x / scalar, vector.y / scalar);
 
         /// <summary>
-        /// Returns whether the this vector is an integer multiple of the divisor. For example, (3, 6) is a multiple of (1, 2) as (3, 6) = 3 * (1, 2).
+        /// <para>
+        /// Returns whether this vector is an integer multiple of <paramref name="divisor"/>.
+        /// </para>
+        /// <para>
+        /// <example>
+        /// For example, <c>(3, 6)</c> is a multiple of <c>(1, 2)</c> as <c>(3, 6) = 3 * (1, 2)</c>.
+        /// </example>
+        /// </para>
         /// </summary>
+        /// <remarks>
+        /// More precisely, this determines whether there exists an integer <c>n</c> such that <c>this = n * <paramref name="divisor"/></c>.
+        /// This means, for example, that <c>(0, 6)</c> is a multiple of <c>(0, 3)</c>, and that <c>(0, 0)</c> is a multiple of everything. 
+        /// </remarks>
+        /// <seealso cref="Divides(IntVector2)"/>
         public bool IsMultipleOf(IntVector2 divisor) => divisor.Divides(this);
         /// <summary>
-        /// Returns whether the dividend is an integer multiple of this vector. For example, (1, 2) divides (3, 6) as (3, 6) = 3 * (1, 2).
+        /// <para>
+        /// Returns whether <paramref name="dividend"/> is an integer multiple of this vector.
+        /// </para>
+        /// <para>
+        /// <example>
+        /// For example, <c>(1, 2)</c> divides <c>(3, 6)</c> as <c>(3, 6) = 3 * (1, 2)</c>.
+        /// </example>
+        /// </para>
         /// </summary>
+        /// <remarks>
+        /// More precisely, this determines whether there exists an integer <c>n</c> such that <c><paramref name="dividend"/> = n * this</c>.
+        /// This means, for example, that <c>(0, 3)</c> divides <c>(0, 6)</c>, and that everything divides <c>(0, 0)</c>. 
+        /// </remarks>
+        /// <seealso cref="IsMultipleOf(IntVector2)"/>
         public bool Divides(IntVector2 dividend)
         {
             // Cases where x or y are 0
+
             if (x == 0)
             {
                 if (y == 0)
@@ -177,6 +313,7 @@ namespace PAC.DataStructures
                 {
                     return false;
                 }
+
                 return dividend.y % y == 0;
             }
             if (y == 0)
@@ -185,30 +322,35 @@ namespace PAC.DataStructures
                 {
                     return false;
                 }
+
                 return dividend.x % x == 0;
             }
 
             // Case where x, y both non-zero
+
             if (dividend.x % x != 0 || dividend.y % y != 0)
             {
                 return false;
             }
+
             return dividend.x / x == dividend.y / y;
         }
 
         /// <summary>
-        /// <para>
-        /// Scales the vector down so its components are coprime (have no common divisors). In other words, it computes the smallest IntVector2 dividing a.
-        /// </para>
-        /// <para>
-        /// Preserves signs.
-        /// </para>
+        /// Scales the vector down so its components are coprime (have no common divisors). In other words, it computes the smallest <see cref="IntVector2"/> dividing <paramref name="a"/>.
         /// </summary>
+        /// <remarks>
+        /// Preserves signs.
+        /// </remarks>
         public static IntVector2 Simplify(IntVector2 a) => (a == zero) ? zero : (a / MathExtensions.Gcd(a.x, a.y));
 
         /// <summary>
-        /// Returns whether the two vectors lie on the same real line through (0, 0). This is equivalent to whether there is an IntVector2 dividing both of them.
+        /// Returns whether the two vectors lie on the same real line through <c>(0, 0)</c>. This is equivalent to whether there is an <see cref="IntVector2"/> dividing both of them.
         /// </summary>
+        /// <remarks>
+        /// For a proof that the two statements given in the summary are logically equivalent, see the source code for this method.
+        /// </remarks>
+        /// <seealso cref="Divides(IntVector2)"/>
         public static bool AreColinear(IntVector2 a, IntVector2 b)
         {
             // Proof that being colinear in the sense of real vectors is equivalent to there being an IntVector2 dividing both of them:
@@ -222,104 +364,146 @@ namespace PAC.DataStructures
             return a.y * b.x == b.y * a.x;
         }
 
-        /// <summary>
+        /// <remarks>
         /// This conversion should be inlined by the JIT compiler.
-        /// </summary>
+        /// </remarks>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static implicit operator (int x, int y)(IntVector2 vector) => (vector.x, vector.y);
         /// <summary>
         /// <para>
-        /// Allows writing <see cref="IntVector2"/>s in a more readable way, - e.g.
+        /// Allows writing <see cref="IntVector2"/>s in a more readable way
         /// </para>
+        /// <example>
+        /// For example,
         /// <code language="csharp">
-        /// <see cref="IntVector2"/> point = (5, 3);
+        /// IntVector2 point = (5, 3);
         /// </code>
         /// instead of
         /// <code language="csharp">
-        /// <see cref="IntVector2"/> point = new <see cref="IntVector2"/>(5, 3);
+        /// IntVector2 point = new IntVector2(5, 3);
         /// </code>
-        /// <para>
-        /// This conversion should be inlined by the JIT compiler.
-        /// </para>
+        /// </example>
         /// </summary>
+        /// <remarks>
+        /// This conversion should be inlined by the JIT compiler.
+        /// </remarks>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static implicit operator IntVector2((int x, int y) tuple) => new IntVector2(tuple.x, tuple.y);
 
         /// <summary>
-        /// Cast to Unity Vector2.
+        /// Casts to Unity's <see cref="Vector2"/>.
         /// </summary>
         public static implicit operator Vector2(IntVector2 vector) => new Vector2(vector.x, vector.y);
         /// <summary>
-        /// Cast from Unity Vector2, by casting each coordinate to int.
+        /// Casts from Unity's <see cref="Vector2"/>, by casting each coordinate to <see cref="int"/>, which truncates them towards zero.
         /// </summary>
         public static explicit operator IntVector2(Vector2 vector) => ((int)vector.x, (int)vector.y);
 
         /// <summary>
-        /// Cast to Unity Vector3, with a 0 in the z-coord.
+        /// Casts to Unity's <see cref="Vector3"/>, with a 0 in the z-coord.
         /// </summary>
         public static implicit operator Vector3(IntVector2 vector) => new Vector3(vector.x, vector.y, 0f);
         /// <summary>
-        /// Cast from Unity Vector3, by casting the x and y coordinates to int and ignoring the z coordinate.
+        /// Casts from Unity's <see cref="Vector3"/>, by casting each coordinate to <see cref="int"/>, which truncates them towards zero. The z coordinate is ignored.
         /// </summary>
         public static explicit operator IntVector2(Vector3 vector) => ((int)vector.x, (int)vector.y);
 
         /// <summary>
-        /// Floors component-wise.
+        /// Floors the vector component-wise.
         /// </summary>
+        /// <remarks>
+        /// Uses <see cref="Mathf.FloorToInt(float)"/>.
+        /// </remarks>
+        /// <seealso cref="CeilToIntVector2(Vector2)"/>
+        /// <seealso cref="RoundToIntVector2(Vector2)"/>
         public static IntVector2 FloorToIntVector2(Vector2 vector2) => (Mathf.FloorToInt(vector2.x), Mathf.FloorToInt(vector2.y));
         /// <summary>
-        /// Ceils component-wise.
+        /// Ceils the vector component-wise.
         /// </summary>
+        /// <remarks>
+        /// Uses <see cref="Mathf.CeilToInt(float)"/>.
+        /// </remarks>
+        /// <seealso cref="FloorToIntVector2(Vector2)"/>
+        /// <seealso cref="RoundToIntVector2(Vector2)"/>
         public static IntVector2 CeilToIntVector2(Vector2 vector2) => (Mathf.CeilToInt(vector2.x), Mathf.CeilToInt(vector2.y));
         /// <summary>
-        /// Rounds component-wise.
+        /// Rounds the vector component-wise.
         /// </summary>
+        /// <remarks>
+        /// Uses <see cref="Mathf.RoundToInt(float)"/>.
+        /// </remarks>
+        /// <seealso cref="FloorToIntVector2(Vector2)"/>
+        /// <seealso cref="CeilToIntVector2(Vector2)"/>
         public static IntVector2 RoundToIntVector2(Vector2 vector2) => (Mathf.RoundToInt(vector2.x), Mathf.RoundToInt(vector2.y));
 
         /// <summary>
-        /// Computes the dot product.
+        /// Computes the dot product of the two vectors.
         /// </summary>
         public static int Dot(IntVector2 a, IntVector2 b) => a.x * b.x + a.y * b.y;
         /// <summary>
         /// Determines whether the two vectors are perpendicular to each other.
         /// </summary>
+        /// <remarks>
+        /// Being <i>perpendicular</i> is also known as being <i>orthogonal</i>.
+        /// </remarks>
+        /// <seealso cref="Dot(IntVector2, IntVector2)"/>
         public static bool ArePerpendicular(IntVector2 a, IntVector2 b) => Dot(a, b) == 0;
 
         /// <summary>
-        /// Computes the magnitude of the vector, which is sqrt(a.x^2 + a.y^2).
+        /// The standard Euclidean magnitude of the vector, which is <c>sqrt(<see cref="x"/>^2 + <see cref="y"/>^2)</c>.
         /// </summary>
+        /// <seealso cref="magnitude"/>
+        /// <seealso cref="Distance(IntVector2, IntVector2)"/>
+        /// <seealso cref="SqrMagnitude(IntVector2)"/>
+        /// <seealso href="https://en.wikipedia.org/wiki/Norm_(mathematics)#Euclidean_norm"/>
         public static float Magnitude(IntVector2 a) => Mathf.Sqrt(a.x * a.x + a.y * a.y);
         /// <summary>
-        /// Computes the square of the magnitude of the vector, which is a.x^2 + a.y^2. Faster than using Magnitude() and squaring.
+        /// The square of the Euclidean magnitude of the vector, so <c><see cref="x"/>^2 + <see cref="y"/>^2</c>.
         /// </summary>
+        /// <remarks>
+        /// This is faster than squaring <see cref="Magnitude(IntVector2)"/>.
+        /// </remarks>
+        /// <seealso cref="sqrMagnitude"/>
+        /// <seealso cref="SqrDistance(IntVector2, IntVector2)"/>
+        /// <seealso href="https://en.wikipedia.org/wiki/Norm_(mathematics)#Euclidean_norm"/>
         public static float SqrMagnitude(IntVector2 a) => a.x * a.x + a.y * a.y;
         /// <summary>
-        /// Computes the Euclidean distance between the vectors, which is sqrt((a.x - b.x)^2 + (a.y - b.y)^2).
+        /// Computes the standard Euclidean distance between the two vectors - i.e. the <see cref="Magnitude(IntVector2)"/> of <c><paramref name="a"/> - <paramref name="b"/></c>.
         /// </summary>
+        /// <seealso cref="SqrDistance(IntVector2, IntVector2)"/>
         public static float Distance(IntVector2 a, IntVector2 b) => Magnitude(a - b);
         /// <summary>
-        /// Computes the square of the Euclidean distance between the vectors, which is (a.x - b.x)^2 + (a.y - b.y)^2. Faster than using Distance() and squaring.
+        /// Computes the square of the Euclidean distance between the two vectors - i.e. the <see cref="SqrMagnitude(IntVector2)"/> of <c><paramref name="a"/> - <paramref name="b"/></c>.
         /// </summary>
+        /// <remarks>
+        /// This is faster than squaring <see cref="Distance(IntVector2, IntVector2)"/>.
+        /// </remarks>
         public static float SqrDistance(IntVector2 a, IntVector2 b) => SqrMagnitude(a - b);
 
         /// <summary>
-        /// Computes the l1 norm of the vector, which is abs(a.x) + abs(a.y).
+        /// The l1 norm of the vector, which is <c>abs(<see cref="x"/>) + abs(<see cref="y"/>)</c>.
         /// Also known as the taxicab/Manhattan norm.
         /// </summary>
+        /// <seealso cref="l1Norm"/>
+        /// <seealso cref="L1Distance(IntVector2, IntVector2)"/>
+        /// <seealso href="https://en.wikipedia.org/wiki/Norm_(mathematics)#Taxicab_norm_or_Manhattan_norm"/>
         public static int L1Norm(IntVector2 a) => Math.Abs(a.x) + Math.Abs(a.y);
         /// <summary>
-        /// Computes the l1 distance of the vectors, which is abs(a.x - b.x) + abs(a.y - b.y).
+        /// Computes the l1 distance between the two vectors - i.e. the <see cref="L1Norm(IntVector2)"/> of <c><paramref name="a"/> - <paramref name="b"/></c>.
         /// Also known as the taxicab/Manhattan distance or rectilinear distance.
         /// </summary>
         public static int L1Distance(IntVector2 a, IntVector2 b) => L1Norm(a - b);
 
         /// <summary>
-        /// Computes the supremum norm of the vector, which is max(abs(a.x), abs(a.y)).
+        /// The supremum norm of the vector, which is <c>max(abs(<see cref="x"/>), abs(<see cref="y"/>))</c>.
         /// Also known as the Chebyshev norm or l-infinity norm.
         /// </summary>
+        /// <seealso cref="supNorm"/>
+        /// <seealso cref="SupDistance(IntVector2, IntVector2)"/>
+        /// <seealso href="https://en.wikipedia.org/wiki/Uniform_norm"/>
         public static int SupNorm(IntVector2 a) => Math.Max(Math.Abs(a.x), Math.Abs(a.y));
         /// <summary>
-        /// Computes the supremum distance of the vectors, which is max(abs(a.x - b.y), abs(a.y - b.y)).
+        /// Computes the supremum distance between the two vectors - i.e. the <see cref="SupNorm(IntVector2)"/> of <c><paramref name="a"/> - <paramref name="b"/></c>.
         /// Also known as the Chebyshev distance or l-infinity distance.
         /// </summary>
         public static int SupDistance(IntVector2 a, IntVector2 b) => SupNorm(a - b);
@@ -327,6 +511,10 @@ namespace PAC.DataStructures
         /// <summary>
         /// Returns the sign of each component of the vector.
         /// </summary>
+        /// <remarks>
+        /// The sign of a component that is 0 is defined to be 0.
+        /// </remarks>
+        /// <seealso cref="sign"/>
         public static IntVector2 Sign(IntVector2 a) => (Math.Sign(a.x), Math.Sign(a.y));
         /// <summary>
         /// Takes the absolute value component-wise.
@@ -334,17 +522,27 @@ namespace PAC.DataStructures
         public static IntVector2 Abs(IntVector2 a) => (Math.Abs(a.x), Math.Abs(a.y));
 
         /// <summary>
-        /// Takes the maximum of a and b component-wise.
+        /// Takes the maximum of the two vectors component-wise.
         /// </summary>
+        /// <seealso cref="Min(IntVector2, IntVector2)"/>
         public static IntVector2 Max(IntVector2 a, IntVector2 b) => (Math.Max(a.x, b.x), Math.Max(a.y, b.y));
         /// <summary>
         /// Takes the maximum of the vectors component-wise.
         /// </summary>
+        /// <exception cref="ArgumentNullException"><paramref name="vectors"/> is null.</exception>
+        /// <exception cref="ArgumentException"><paramref name="vectors"/> is empty.</exception>
+        /// <seealso cref="Min(IntVector2[])"/>
         public static IntVector2 Max(params IntVector2[] vectors) => Max((IEnumerable<IntVector2>)vectors);
         /// <summary>
         /// Takes the maximum of the vectors component-wise.
         /// </summary>
-        // NOTE: This is not provided as an extension method to IEnumerable<IntVector2> since it seems C# will favour using the LINQ Enumerable.Max() instead, which causes errors.
+        /// <remarks>
+        /// This is not provided as an <see cref="IEnumerable{T}"/> extension method since it seems C# will favour using the LINQ <see cref="Enumerable.Max{TSource}(IEnumerable{TSource})"/>
+        /// instead, which causes errors.
+        /// </remarks>
+        /// <exception cref="ArgumentNullException"><paramref name="vectors"/> is null.</exception>
+        /// <exception cref="ArgumentException"><paramref name="vectors"/> is empty.</exception>
+        /// <seealso cref="Min(IEnumerable{IntVector2})"/>
         public static IntVector2 Max(IEnumerable<IntVector2> vectors)
         {
             if (vectors is null)
@@ -355,21 +553,32 @@ namespace PAC.DataStructures
             {
                 throw new ArgumentException($"Cannot perform {nameof(Max)}() on an empty collection of {nameof(IntVector2)}s.", nameof(vectors));
             }
+
             return (vectors.Select(vector => vector.x).Max(), vectors.Select(vector => vector.y).Max());
         }
 
         /// <summary>
-        /// Takes the minimum of a and b component-wise.
+        /// Takes the minimum of the two vectors component-wise.
         /// </summary>
+        /// <seealso cref="Max(IntVector2, IntVector2)"/>
         public static IntVector2 Min(IntVector2 a, IntVector2 b) => (Math.Min(a.x, b.x), Math.Min(a.y, b.y));
         /// <summary>
-        /// Takes the minimum of the vectors component-wise.
+        /// Takes the minmum of the vectors component-wise.
         /// </summary>
+        /// <exception cref="ArgumentNullException"><paramref name="vectors"/> is null.</exception>
+        /// <exception cref="ArgumentException"><paramref name="vectors"/> is empty.</exception>
+        /// <seealso cref="Max(IntVector2[])"/>
         public static IntVector2 Min(params IntVector2[] vectors) => Min((IEnumerable<IntVector2>)vectors);
         /// <summary>
-        /// Takes the minimum of the vectors component-wise.
+        /// Takes the minmum of the vectors component-wise.
         /// </summary>
-        // NOTE: This is not provided as an extension method to IEnumerable<IntVector2> since it seems C# will favour using the LINQ Enumerable.Min() instead, which causes errors.
+        /// <remarks>
+        /// This is not provided as an <see cref="IEnumerable{T}"/> extension method since it seems C# will favour using the LINQ <see cref="Enumerable.Min{TSource}(IEnumerable{TSource})"/>
+        /// instead, which causes errors.
+        /// </remarks>
+        /// <exception cref="ArgumentNullException"><paramref name="vectors"/> is null.</exception>
+        /// <exception cref="ArgumentException"><paramref name="vectors"/> is empty.</exception>
+        /// <seealso cref="Max(IEnumerable{IntVector2})"/>
         public static IntVector2 Min(IEnumerable<IntVector2> vectors)
         {
             if (vectors is null)
@@ -380,11 +589,12 @@ namespace PAC.DataStructures
             {
                 throw new ArgumentException($"Cannot perform {nameof(Min)}() on an empty collection of {nameof(IntVector2)}s.", nameof(vectors));
             }
+
             return (vectors.Select(vector => vector.x).Min(), vectors.Select(vector => vector.y).Min());
         }
 
         /// <summary>
-        /// Returns the IntVector2 rotated clockwise by the given angle.
+        /// Returns the vector rotated clockwise by the given angle.
         /// </summary>
         public IntVector2 Rotate(RotationAngle angle) => angle switch
         {
@@ -395,7 +605,7 @@ namespace PAC.DataStructures
             _ => throw new NotImplementedException("Unknown / unimplemented angle: " + angle)
         };
         /// <summary>
-        /// Returns the IntVector2 flipped across the given axis.
+        /// Returns the vector flipped across the given axis.
         /// </summary>
         public IntVector2 Flip(FlipAxis axis) => axis switch
         {
