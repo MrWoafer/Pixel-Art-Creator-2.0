@@ -870,7 +870,7 @@ namespace PAC.Files
         /// </summary>
         private void RerenderLiveRender()
         {
-            Color[] pixels = new Color[rect.area];
+            Color[] pixels = new Color[rect.Count];
             int[] layerIndices = Functions.Range(0, layers.Count() - 1);
 
             int index = 0;

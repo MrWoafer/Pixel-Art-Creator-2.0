@@ -32,7 +32,6 @@ namespace PAC.DataStructures
         public IntRange yRange => IntRange.InclIncl(bottomLeft.y, topRight.y);
 
         public int Count => width * height;
-        public int area => Area(this);
 
         /// <summary>True if the rect is a square.</summary>
         public bool isSquare => IsSquare(this);
@@ -99,8 +98,6 @@ namespace PAC.DataStructures
         /// Returns true if the rect is a square.
         /// </summary>
         public static bool IsSquare(IntRect rect) => rect.width == rect.height;
-
-        public static int Area(IntRect rect) => rect.width * rect.height;
 
         /// <summary>
         /// Returns true if the point is in the rect.
