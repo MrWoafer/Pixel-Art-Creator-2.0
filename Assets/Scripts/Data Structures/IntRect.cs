@@ -19,8 +19,6 @@ namespace PAC.DataStructures
         public IntVector2 bottomRight => new IntVector2(topRight.x, bottomLeft.y);
         public IntVector2 topLeft => new IntVector2(bottomLeft.x, topRight.y);
 
-        public Vector2 centre => (Vector2)(bottomLeft + topRight + IntVector2.one) / 2f;
-
         public int width => topRight.x - bottomLeft.x + 1;
         public int height => topRight.y - bottomLeft.y + 1;
 

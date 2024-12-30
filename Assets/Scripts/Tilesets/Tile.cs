@@ -60,7 +60,7 @@ namespace PAC.Tilesets
                 bottomLeft = new IntVector2(value.x - width + 1, value.y - height + 1);
             }
         }
-        public Vector2 centre { get => rect.centre; }
+        public Vector2 centre { get => (Vector2)(bottomLeft + topRight + IntVector2.one) / 2f; }
         public IntRect rect { get => new IntRect(bottomLeft, topRight); }
 
         /// <summary>
