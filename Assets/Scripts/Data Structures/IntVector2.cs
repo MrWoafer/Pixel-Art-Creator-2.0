@@ -391,6 +391,15 @@ namespace PAC.DataStructures
         public static implicit operator IntVector2((int x, int y) tuple) => new IntVector2(tuple.x, tuple.y);
 
         /// <summary>
+        /// Casts to Unity's <see cref="Vector2Int"/>.
+        /// </summary>
+        public static implicit operator Vector2Int(IntVector2 vector) => new Vector2Int(vector.x, vector.y);
+        /// <summary>
+        /// Casts from Unity's <see cref="Vector2Int"/>.
+        /// </summary>
+        public static implicit operator IntVector2(Vector2Int vector) => new IntVector2(vector.x, vector.y);
+
+        /// <summary>
         /// Casts to Unity's <see cref="Vector2"/>.
         /// </summary>
         public static implicit operator Vector2(IntVector2 vector) => new Vector2(vector.x, vector.y);
