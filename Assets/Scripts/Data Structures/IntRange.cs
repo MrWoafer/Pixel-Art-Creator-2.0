@@ -634,6 +634,21 @@ namespace PAC.DataStructures
         public static IntRange Intersection(IntRange a, IntRange b) => Intersect(a, b) ? InclIncl(Math.Max(a.minElement, b.minElement), Math.Min(a.maxElement, b.maxElement)) : Empty;
 
         /// <summary>
+        /// Clamps the given integer to be within the <see cref="IntRange"/>.
+        /// </summary>
+        /// <returns>
+        /// <list type="bullet">
+        /// <item><paramref name="n"/> if <see cref="minElement"/> &lt;= <paramref name="n"/> &lt;= <see cref="maxElement"/></item>
+        /// <item><see cref="minElement"/> if <paramref name="n"/> &lt; <see cref="minElement"/></item>
+        /// <item><see cref="maxElement"/> if <see cref="maxElement"/> &lt; <paramref name="n"/></item>
+        /// </list>
+        /// </returns>
+        /// <param name="n">The value to clamp.</param>
+        /// <exception cref="InvalidOperationException">The range is empty.</exception>
+        /// <seealso cref="Math.Clamp(int, int, int)"/>
+        public int Clamp(int n) => isEmpty ? throw new InvalidOperationException("The range is empty.") : Math.Clamp(n, minElement, maxElement);
+
+        /// <summary>
         /// Returns the smallest range containing all the given values.
         /// </summary>
         /// <returns>

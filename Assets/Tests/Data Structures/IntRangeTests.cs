@@ -271,6 +271,41 @@ namespace PAC.Tests
 
         [Test]
         [Category("Data Structures")]
+        public void Clamp()
+        {
+            foreach (IntRange range in testCases)
+            {
+                if (range.IsEmpty())
+                {
+                    for (int n = -5; n <= 5; n++)
+                    {
+                        Assert.Throws<InvalidOperationException>(() => range.Clamp(n), $"Failed with {range} and {n}.");
+                    }
+                    continue;
+                }
+
+                int min = range.Min();
+                int max = range.Max();
+                for (int n = min - 5; n <= max + 5; n++)
+                {
+                    if (n < min)
+                    {
+                        Assert.AreEqual(min, range.Clamp(n), $"Failed with {range} and {n}.");
+                    }
+                    else if (min <= n && n <= max)
+                    {
+                        Assert.AreEqual(n, range.Clamp(n), $"Failed with {range} and {n}.");
+                    }
+                    else if (n > max)
+                    {
+                        Assert.AreEqual(max, range.Clamp(n), $"Failed with {range} and {n}.");
+                    }
+                }
+            }
+        }
+
+        [Test]
+        [Category("Data Structures")]
         public void BoundingRange()
         {
             Random rng = new Random(0);
