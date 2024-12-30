@@ -148,7 +148,7 @@ namespace PAC.DataStructures
         /// <summary>
         /// Clamps the vector component-wise so its coordinates are within this rect.
         /// </summary>
-        public IntVector2 Clamp(IntVector2 vector) => new IntVector2(Math.Clamp(vector.x, bottomRight.x, topRight.x), Math.Clamp(vector.y, bottomRight.y, topRight.y));
+        public IntVector2 Clamp(IntVector2 vector) => new IntVector2(Math.Clamp(vector.x, bottomLeft.x, topRight.x), Math.Clamp(vector.y, bottomLeft.y, topRight.y));
         /// <summary>
         /// Clamps the corners of the given rect component-wise so they are within this rect.
         /// </summary>
