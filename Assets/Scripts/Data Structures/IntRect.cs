@@ -128,18 +128,7 @@ namespace PAC.DataStructures
         /// <summary>
         /// Returns true if the two rects overlap at all.
         /// </summary>
-        public static bool Overlap(IntRect a, IntRect b)
-        {
-            bool xOverlaps = (a.bottomLeft.x >= b.bottomLeft.x && a.bottomLeft.x <= b.topRight.x) ||
-                             (a.topRight.x >= b.bottomLeft.x && a.topRight.x <= b.topRight.x) ||
-                             (a.bottomLeft.x <= b.bottomLeft.x && a.topRight.x >= b.topRight.x);
-
-            bool yOverlaps = (a.bottomLeft.y >= b.bottomLeft.y && a.bottomLeft.y <= b.topRight.y) ||
-                             (a.topRight.y >= b.bottomLeft.y && a.topRight.y <= b.topRight.y) ||
-                             (a.bottomLeft.y <= b.bottomLeft.y && a.topRight.y >= b.topRight.y);
-
-            return xOverlaps && yOverlaps;
-        }
+        public static bool Overlap(IntRect a, IntRect b) => a.xRange.Intersects(b.xRange) && a.yRange.Intersects(b.yRange);
         /// <summary>
         /// Returns true if this rect overlaps the given rect at all.
         /// </summary>
