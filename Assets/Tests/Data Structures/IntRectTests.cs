@@ -12,7 +12,7 @@ namespace PAC.Tests
         {
             // Bounding rect of IntVector2s
 
-            (IntRect, IntVector2[])[] testCases =
+            (IntRect expected, IntVector2[] input)[] testCases =
             {
                 (new IntRect(new IntVector2(1, -4), new IntVector2(1, -4)), new IntVector2[] {
                     new IntVector2(1, -4)
@@ -31,21 +31,21 @@ namespace PAC.Tests
                 })
             };
 
-            foreach ((IntRect expected, IntVector2[] points) in testCases)
+            foreach ((IntRect expected, IntVector2[] inputs) in testCases)
             {
-                IntRect boundingRect = IntRect.BoundingRect(points);
+                IntRect boundingRect = IntRect.BoundingRect(inputs);
 
-                Assert.AreEqual(expected, boundingRect, "Failed with " + Functions.ArrayToString(points));
+                Assert.AreEqual(expected, boundingRect, "Failed with " + Functions.ArrayToString(inputs));
 
-                foreach (IntVector2 point in points)
+                foreach (IntVector2 point in inputs)
                 {
-                    Assert.True(boundingRect.Contains(point), "Failed with " + point + " in " + Functions.ArrayToString(points));
+                    Assert.True(boundingRect.Contains(point), "Failed with " + point + " in " + Functions.ArrayToString(inputs));
                 }
             }
 
             // Bounding rect of IntRects
 
-            (IntRect, IntRect[])[] testCases2 =
+            (IntRect expected, IntRect[] inputs)[] testCases2 =
             {
                 (new IntRect(new IntVector2(3, 4), new IntVector2(5, 8)), new IntRect[] {
                     new IntRect(new IntVector2(3, 4), new IntVector2(5, 8))
@@ -61,15 +61,15 @@ namespace PAC.Tests
                 })
             };
 
-            foreach ((IntRect expected, IntRect[] rects) in testCases2)
+            foreach ((IntRect expected, IntRect[] inputs) in testCases2)
             {
-                IntRect boundingRect = IntRect.BoundingRect(rects);
+                IntRect boundingRect = IntRect.BoundingRect(inputs);
 
-                Assert.AreEqual(expected, boundingRect, "Failed with " + Functions.ArrayToString(rects));
+                Assert.AreEqual(expected, boundingRect, "Failed with " + Functions.ArrayToString(inputs));
 
-                foreach (IntRect rect in rects)
+                foreach (IntRect rect in inputs)
                 {
-                    Assert.True(boundingRect.Contains(rect), "Failed with " + rect + " in " + Functions.ArrayToString(rects));
+                    Assert.True(boundingRect.Contains(rect), "Failed with " + rect + " in " + Functions.ArrayToString(inputs));
                 }
             }
 
