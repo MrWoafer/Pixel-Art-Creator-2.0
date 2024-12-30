@@ -26,6 +26,7 @@ namespace PAC.DataStructures
     /// </remarks>
     public readonly struct IntVector2 : IEquatable<IntVector2>
     {
+        #region Fields
         /// <summary>
         /// The x coordinate.
         /// </summary>
@@ -36,7 +37,9 @@ namespace PAC.DataStructures
         /// </summary>
         /// <seealso cref="x"/>
         public readonly int y;
+        #endregion
 
+        #region Properties
         /// <summary>
         /// The standard Euclidean magnitude of the vector, which is <c>sqrt(<see cref="x"/>^2 + <see cref="y"/>^2)</c>.
         /// </summary>
@@ -81,42 +84,9 @@ namespace PAC.DataStructures
         /// </remarks>
         /// <seealso cref="Sign(IntVector2)"/>
         public IntVector2 sign => Sign(this);
+        #endregion
 
-        /// <summary>
-        /// Creates a new vector with the given x and y coordinates.
-        /// </summary>
-        public IntVector2(int x, int y)
-        {
-            this.x = x;
-            this.y = y;
-        }
-        /// <summary>
-        /// Creates a new vector with the given x and y coordinates cast to <see cref="int"/>s, which truncates them towards zero.
-        /// </summary>
-        public IntVector2(float x, float y)
-        {
-            this.x = (int)x;
-            this.y = (int)y;
-        }
-        /// <summary>
-        /// Creates a new vector with the given x and y coordinates cast to <see cref="int"/>s, which truncates them towards zero.
-        /// </summary>
-        public IntVector2(Vector2 vector2)
-        {
-            x = (int)vector2.x;
-            y = (int)vector2.y;
-        }
-
-
-        /// <summary>
-        /// Deconstructs the vector into its x and y coordinates.
-        /// </summary>
-        public void Deconstruct(out int x, out int y)
-        {
-            x = this.x;
-            y = this.y;
-        }
-
+        #region Predefined Instances
         /// <summary>
         /// The vector (0, 0).
         /// </summary>
@@ -187,183 +157,45 @@ namespace PAC.DataStructures
         /// </summary>
         /// <seealso cref="up"/><seealso cref="down"/><seealso cref="left"/><seealso cref="right"/>
         public static readonly IEnumerable<IntVector2> upDownLeftRight = new IntVector2[] { up, down, left, right };
+        #endregion
 
+        #region Constructors
         /// <summary>
-        /// Whether the two vectors have identical x and y coords.
+        /// Creates a new vector with the given x and y coordinates.
         /// </summary>
-        /// <seealso cref="Equals(IntVector2)"/>
-        public static bool operator ==(IntVector2 a, IntVector2 b) => a.x == b.x && a.y == b.y;
-        /// <summary>
-        /// Whether the two vectors differ in their x and/or y coords.
-        /// </summary>
-        /// <seealso cref="Equals(IntVector2)"/>
-        public static bool operator !=(IntVector2 a, IntVector2 b) => !(a == b);
-        /// <summary>
-        /// The same as <see cref="operator ==(IntVector2, IntVector2)"/>
-        /// </summary>
-        public bool Equals(IntVector2 other) => this == other;
-        /// <summary>
-        /// The same as <see cref="Equals(IntVector2)"/>
-        /// </summary>
-        public override bool Equals(object obj) => obj is IntVector2 other && Equals(other);
-
-        public override int GetHashCode() => HashCode.Combine(x, y);
-
-        /// <summary>
-        /// Represents the vector as a string in the form <c>"(x, y)"</c>.
-        /// </summary>
-        public override string ToString() => $"({x}, {y})";
-
-        /// <summary>
-        /// Returns true iff &lt; holds for both components.
-        /// </summary>
-        public static bool operator <(IntVector2 a, IntVector2 b) => a.x < b.x && a.y < b.y;
-        /// <summary>
-        /// Returns true iff &gt; holds for both components.
-        /// </summary>
-        public static bool operator >(IntVector2 a, IntVector2 b) => a.x > b.x && a.y > b.y;
-        /// <summary>
-        /// Returns true iff &lt;= holds for both components.
-        /// </summary>
-        public static bool operator <=(IntVector2 a, IntVector2 b) => a.x <= b.x && a.y <= b.y;
-        /// <summary>
-        /// Returns true iff &gt;= holds for both components.
-        /// </summary>
-        public static bool operator >=(IntVector2 a, IntVector2 b) => a.x >= b.x && a.y >= b.y;
-
-        /// <summary>
-        /// Adds the two vectors component-wise.
-        /// </summary>
-        public static IntVector2 operator +(IntVector2 a, IntVector2 b) => (a.x + b.x, a.y + b.y);
-
-        /// <summary>
-        /// Negates each component of the vector.
-        /// </summary>
-        public static IntVector2 operator -(IntVector2 a) => (-a.x, -a.y);
-        /// <summary>
-        /// Subtracts the two vectors component-wise.
-        /// </summary>
-        public static IntVector2 operator -(IntVector2 a, IntVector2 b) => (a.x - b.x, a.y - b.y);
-
-        /// <summary>
-        /// Multiplies the two vectors component-wise.
-        /// </summary>
-        public static IntVector2 operator *(IntVector2 a, IntVector2 b) => (a.x * b.x, a.y * b.y);
-        /// <summary>
-        /// Multiplies each component of the vector by <paramref name="scalar"/>.
-        /// </summary>
-        public static IntVector2 operator *(int scalar, IntVector2 vector) => (scalar * vector.x, scalar * vector.y);
-        /// <summary>
-        /// Multiplies each component of the vector by <paramref name="scalar"/>.
-        /// </summary>
-        public static IntVector2 operator *(IntVector2 vector, int scalar) => scalar * vector;
-
-        /// <summary>
-        /// Divides (integer division) the two vectors component-wise.
-        /// </summary>
-        public static IntVector2 operator /(IntVector2 a, IntVector2 b) => (a.x / b.x, a.y / b.y);
-        /// <summary>
-        /// Divides (integer division) each component of the vector by <paramref name="scalar"/>.
-        /// </summary>
-        public static IntVector2 operator /(IntVector2 vector, int scalar) => (vector.x / scalar, vector.y / scalar);
-
-        /// <summary>
-        /// <para>
-        /// Returns whether this vector is an integer multiple of <paramref name="divisor"/>.
-        /// </para>
-        /// <para>
-        /// <example>
-        /// For example, <c>(3, 6)</c> is a multiple of <c>(1, 2)</c> as <c>(3, 6) = 3 * (1, 2)</c>.
-        /// </example>
-        /// </para>
-        /// </summary>
-        /// <remarks>
-        /// More precisely, this determines whether there exists an integer <c>n</c> such that <c>this = n * <paramref name="divisor"/></c>.
-        /// This means, for example, that <c>(0, 6)</c> is a multiple of <c>(0, 3)</c>, and that <c>(0, 0)</c> is a multiple of everything. 
-        /// </remarks>
-        /// <seealso cref="Divides(IntVector2)"/>
-        public bool IsMultipleOf(IntVector2 divisor) => divisor.Divides(this);
-        /// <summary>
-        /// <para>
-        /// Returns whether <paramref name="dividend"/> is an integer multiple of this vector.
-        /// </para>
-        /// <para>
-        /// <example>
-        /// For example, <c>(1, 2)</c> divides <c>(3, 6)</c> as <c>(3, 6) = 3 * (1, 2)</c>.
-        /// </example>
-        /// </para>
-        /// </summary>
-        /// <remarks>
-        /// More precisely, this determines whether there exists an integer <c>n</c> such that <c><paramref name="dividend"/> = n * this</c>.
-        /// This means, for example, that <c>(0, 3)</c> divides <c>(0, 6)</c>, and that everything divides <c>(0, 0)</c>. 
-        /// </remarks>
-        /// <seealso cref="IsMultipleOf(IntVector2)"/>
-        public bool Divides(IntVector2 dividend)
+        public IntVector2(int x, int y)
         {
-            // Cases where x or y are 0
-
-            if (x == 0)
-            {
-                if (y == 0)
-                {
-                    return dividend == zero;
-                }
-
-                if (dividend.x != 0)
-                {
-                    return false;
-                }
-
-                return dividend.y % y == 0;
-            }
-            if (y == 0)
-            {
-                if (dividend.y != 0)
-                {
-                    return false;
-                }
-
-                return dividend.x % x == 0;
-            }
-
-            // Case where x, y both non-zero
-
-            if (dividend.x % x != 0 || dividend.y % y != 0)
-            {
-                return false;
-            }
-
-            return dividend.x / x == dividend.y / y;
+            this.x = x;
+            this.y = y;
+        }
+        /// <summary>
+        /// Creates a new vector with the given x and y coordinates cast to <see cref="int"/>s, which truncates them towards zero.
+        /// </summary>
+        public IntVector2(float x, float y)
+        {
+            this.x = (int)x;
+            this.y = (int)y;
+        }
+        /// <summary>
+        /// Creates a new vector with the given x and y coordinates cast to <see cref="int"/>s, which truncates them towards zero.
+        /// </summary>
+        public IntVector2(Vector2 vector2)
+        {
+            x = (int)vector2.x;
+            y = (int)vector2.y;
         }
 
         /// <summary>
-        /// Scales the vector down so its components are coprime (have no common divisors). In other words, it computes the smallest <see cref="IntVector2"/> dividing <paramref name="a"/>.
+        /// Deconstructs the vector into its x and y coordinates.
         /// </summary>
-        /// <remarks>
-        /// Preserves signs.
-        /// </remarks>
-        public static IntVector2 Simplify(IntVector2 a) => (a == zero) ? zero : (a / MathExtensions.Gcd(a.x, a.y));
-
-        /// <summary>
-        /// Returns whether the two vectors lie on the same real line through <c>(0, 0)</c>. This is equivalent to whether there is an <see cref="IntVector2"/> dividing both of them.
-        /// </summary>
-        /// <remarks>
-        /// For a proof that the two statements given in the summary are logically equivalent, see the source code for this method.
-        /// </remarks>
-        /// <seealso cref="Divides(IntVector2)"/>
-        public static bool AreColinear(IntVector2 a, IntVector2 b)
+        public void Deconstruct(out int x, out int y)
         {
-            // Proof that being colinear in the sense of real vectors is equivalent to there being an IntVector2 dividing both of them:
-            //      The <= direction is trivial, so we just prove the => direction.
-            //      The case where a = 0 or b = 0 is trivial, so assume a and b are non-zero. Without loss of generality, let a, b be in the top-right quadrant. Let c be the smallest positive
-            //      integer point on the line. It is enough to the prove that c divides a (as then, by symmetry, c divides b; and by definition of Simplify() and minimality of c, c = Simplify(a),
-            //      Simplify(b)). So suppose c did not divide a. Let d be the greatest multiple of c less than a (note c < a). Note d is on the line too, and hence so is a - d, which is an integer
-            //      vector. But, by definition of d, 0 < a - d < c, contradicting minimality of c!
-
-            // This is a rearrangement of a.y / a.x == b.y / b.x (comparing gradients) which avoids floats and division by 0.
-            return a.y * b.x == b.y * a.x;
+            x = this.x;
+            y = this.y;
         }
+        #endregion
 
+        #region Conversion
         /// <remarks>
         /// This conversion should be inlined by the JIT compiler.
         /// </remarks>
@@ -444,11 +276,136 @@ namespace PAC.DataStructures
         /// <seealso cref="FloorToIntVector2(Vector2)"/>
         /// <seealso cref="CeilToIntVector2(Vector2)"/>
         public static IntVector2 RoundToIntVector2(Vector2 vector2) => (Mathf.RoundToInt(vector2.x), Mathf.RoundToInt(vector2.y));
+        #endregion
+
+        #region Comparison
+        /// <summary>
+        /// Whether the two vectors have identical x and y coords.
+        /// </summary>
+        /// <seealso cref="Equals(IntVector2)"/>
+        public static bool operator ==(IntVector2 a, IntVector2 b) => a.x == b.x && a.y == b.y;
+        /// <summary>
+        /// Whether the two vectors differ in their x and/or y coords.
+        /// </summary>
+        /// <seealso cref="Equals(IntVector2)"/>
+        public static bool operator !=(IntVector2 a, IntVector2 b) => !(a == b);
+        /// <summary>
+        /// The same as <see cref="operator ==(IntVector2, IntVector2)"/>
+        /// </summary>
+        public bool Equals(IntVector2 other) => this == other;
+        /// <summary>
+        /// The same as <see cref="Equals(IntVector2)"/>
+        /// </summary>
+        public override bool Equals(object obj) => obj is IntVector2 other && Equals(other);
+
+        public override int GetHashCode() => HashCode.Combine(x, y);
 
         /// <summary>
-        /// Computes the dot product of the two vectors.
+        /// Returns true iff &lt; holds for both components.
         /// </summary>
-        public static int Dot(IntVector2 a, IntVector2 b) => a.x * b.x + a.y * b.y;
+        public static bool operator <(IntVector2 a, IntVector2 b) => a.x < b.x && a.y < b.y;
+        /// <summary>
+        /// Returns true iff &gt; holds for both components.
+        /// </summary>
+        public static bool operator >(IntVector2 a, IntVector2 b) => a.x > b.x && a.y > b.y;
+        /// <summary>
+        /// Returns true iff &lt;= holds for both components.
+        /// </summary>
+        public static bool operator <=(IntVector2 a, IntVector2 b) => a.x <= b.x && a.y <= b.y;
+        /// <summary>
+        /// Returns true iff &gt;= holds for both components.
+        /// </summary>
+        public static bool operator >=(IntVector2 a, IntVector2 b) => a.x >= b.x && a.y >= b.y;
+
+        /// <summary>
+        /// <para>
+        /// Returns whether this vector is an integer multiple of <paramref name="divisor"/>.
+        /// </para>
+        /// <para>
+        /// <example>
+        /// For example, <c>(3, 6)</c> is a multiple of <c>(1, 2)</c> as <c>(3, 6) = 3 * (1, 2)</c>.
+        /// </example>
+        /// </para>
+        /// </summary>
+        /// <remarks>
+        /// More precisely, this determines whether there exists an integer <c>n</c> such that <c>this = n * <paramref name="divisor"/></c>.
+        /// This means, for example, that <c>(0, 6)</c> is a multiple of <c>(0, 3)</c>, and that <c>(0, 0)</c> is a multiple of everything. 
+        /// </remarks>
+        /// <seealso cref="Divides(IntVector2)"/>
+        public bool IsMultipleOf(IntVector2 divisor) => divisor.Divides(this);
+        /// <summary>
+        /// <para>
+        /// Returns whether <paramref name="dividend"/> is an integer multiple of this vector.
+        /// </para>
+        /// <para>
+        /// <example>
+        /// For example, <c>(1, 2)</c> divides <c>(3, 6)</c> as <c>(3, 6) = 3 * (1, 2)</c>.
+        /// </example>
+        /// </para>
+        /// </summary>
+        /// <remarks>
+        /// More precisely, this determines whether there exists an integer <c>n</c> such that <c><paramref name="dividend"/> = n * this</c>.
+        /// This means, for example, that <c>(0, 3)</c> divides <c>(0, 6)</c>, and that everything divides <c>(0, 0)</c>. 
+        /// </remarks>
+        /// <seealso cref="IsMultipleOf(IntVector2)"/>
+        public bool Divides(IntVector2 dividend)
+        {
+            // Cases where x or y are 0
+
+            if (x == 0)
+            {
+                if (y == 0)
+                {
+                    return dividend == zero;
+                }
+
+                if (dividend.x != 0)
+                {
+                    return false;
+                }
+
+                return dividend.y % y == 0;
+            }
+            if (y == 0)
+            {
+                if (dividend.y != 0)
+                {
+                    return false;
+                }
+
+                return dividend.x % x == 0;
+            }
+
+            // Case where x, y both non-zero
+
+            if (dividend.x % x != 0 || dividend.y % y != 0)
+            {
+                return false;
+            }
+
+            return dividend.x / x == dividend.y / y;
+        }
+
+        /// <summary>
+        /// Returns whether the two vectors lie on the same real line through <c>(0, 0)</c>. This is equivalent to whether there is an <see cref="IntVector2"/> dividing both of them.
+        /// </summary>
+        /// <remarks>
+        /// For a proof that the two statements given in the summary are logically equivalent, see the source code for this method.
+        /// </remarks>
+        /// <seealso cref="Divides(IntVector2)"/>
+        public static bool AreColinear(IntVector2 a, IntVector2 b)
+        {
+            // Proof that being colinear in the sense of real vectors is equivalent to there being an IntVector2 dividing both of them:
+            //      The <= direction is trivial, so we just prove the => direction.
+            //      The case where a = 0 or b = 0 is trivial, so assume a and b are non-zero. Without loss of generality, let a, b be in the top-right quadrant. Let c be the smallest positive
+            //      integer point on the line. It is enough to the prove that c divides a (as then, by symmetry, c divides b; and by definition of Simplify() and minimality of c, c = Simplify(a),
+            //      Simplify(b)). So suppose c did not divide a. Let d be the greatest multiple of c less than a (note c < a). Note d is on the line too, and hence so is a - d, which is an integer
+            //      vector. But, by definition of d, 0 < a - d < c, contradicting minimality of c!
+
+            // This is a rearrangement of a.y / a.x == b.y / b.x (comparing gradients) which avoids floats and division by 0.
+            return a.y * b.x == b.y * a.x;
+        }
+
         /// <summary>
         /// Determines whether the two vectors are perpendicular to each other.
         /// </summary>
@@ -457,6 +414,57 @@ namespace PAC.DataStructures
         /// </remarks>
         /// <seealso cref="Dot(IntVector2, IntVector2)"/>
         public static bool ArePerpendicular(IntVector2 a, IntVector2 b) => Dot(a, b) == 0;
+        #endregion
+
+        #region Operations
+        /// <summary>
+        /// Adds the two vectors component-wise.
+        /// </summary>
+        public static IntVector2 operator +(IntVector2 a, IntVector2 b) => (a.x + b.x, a.y + b.y);
+
+        /// <summary>
+        /// Negates each component of the vector.
+        /// </summary>
+        public static IntVector2 operator -(IntVector2 a) => (-a.x, -a.y);
+        /// <summary>
+        /// Subtracts the two vectors component-wise.
+        /// </summary>
+        public static IntVector2 operator -(IntVector2 a, IntVector2 b) => (a.x - b.x, a.y - b.y);
+
+        /// <summary>
+        /// Multiplies the two vectors component-wise.
+        /// </summary>
+        public static IntVector2 operator *(IntVector2 a, IntVector2 b) => (a.x * b.x, a.y * b.y);
+        /// <summary>
+        /// Multiplies each component of the vector by <paramref name="scalar"/>.
+        /// </summary>
+        public static IntVector2 operator *(int scalar, IntVector2 vector) => (scalar * vector.x, scalar * vector.y);
+        /// <summary>
+        /// Multiplies each component of the vector by <paramref name="scalar"/>.
+        /// </summary>
+        public static IntVector2 operator *(IntVector2 vector, int scalar) => scalar * vector;
+
+        /// <summary>
+        /// Divides (integer division) the two vectors component-wise.
+        /// </summary>
+        public static IntVector2 operator /(IntVector2 a, IntVector2 b) => (a.x / b.x, a.y / b.y);
+        /// <summary>
+        /// Divides (integer division) each component of the vector by <paramref name="scalar"/>.
+        /// </summary>
+        public static IntVector2 operator /(IntVector2 vector, int scalar) => (vector.x / scalar, vector.y / scalar);
+
+        /// <summary>
+        /// Scales the vector down so its components are coprime (have no common divisors). In other words, it computes the smallest <see cref="IntVector2"/> dividing <paramref name="a"/>.
+        /// </summary>
+        /// <remarks>
+        /// Preserves signs.
+        /// </remarks>
+        public static IntVector2 Simplify(IntVector2 a) => (a == zero) ? zero : (a / MathExtensions.Gcd(a.x, a.y));
+
+        /// <summary>
+        /// Computes the dot product of the two vectors.
+        /// </summary>
+        public static int Dot(IntVector2 a, IntVector2 b) => a.x * b.x + a.y * b.y;
 
         /// <summary>
         /// The standard Euclidean magnitude of the vector, which is <c>sqrt(<see cref="x"/>^2 + <see cref="y"/>^2)</c>.
@@ -613,6 +621,7 @@ namespace PAC.DataStructures
             RotationAngle.Minus90 => (-y, x),
             _ => throw new NotImplementedException("Unknown / unimplemented angle: " + angle)
         };
+
         /// <summary>
         /// Returns the vector flipped across the given axis.
         /// </summary>
@@ -625,5 +634,11 @@ namespace PAC.DataStructures
             FlipAxis.Minus45Degrees => (-y, -x),
             _ => throw new NotImplementedException("Unknown / unimplemented FlipAxis: " + axis)
         };
+        #endregion
+
+        /// <summary>
+        /// Represents the vector as a string in the form <c>"(x, y)"</c>.
+        /// </summary>
+        public override string ToString() => $"({x}, {y})";
     }
 }
