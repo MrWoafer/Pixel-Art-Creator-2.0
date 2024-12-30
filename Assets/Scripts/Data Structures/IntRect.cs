@@ -139,10 +139,6 @@ namespace PAC.DataStructures
         /// </summary>
         public IntVector2 Clamp(IntVector2 vector) => new IntVector2(Math.Clamp(vector.x, bottomLeft.x, topRight.x), Math.Clamp(vector.y, bottomLeft.y, topRight.y));
         /// <summary>
-        /// Clamps the corners of the given rect component-wise so they are within this rect.
-        /// </summary>
-        public IntRect Clamp(IntRect rect) => new IntRect(Clamp(rect.bottomLeft), Clamp(rect.topRight));
-        /// <summary>
         /// Shifts the given rect so it is (weakly) contained within this rect.
         /// </summary>
         public IntRect ShiftClamp(IntRect rect)
