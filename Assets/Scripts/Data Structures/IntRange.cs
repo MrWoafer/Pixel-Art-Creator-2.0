@@ -494,6 +494,8 @@ namespace PAC.DataStructures
         /// <seealso cref="SetEquals(IntRange)"/>
         public override bool Equals(object obj) => obj is IntRange other && Equals(other);
 
+        public override int GetHashCode() => HashCode.Combine(startBoundary, endBoundary, startBoundaryInclusive, endBoundaryInclusive);
+
         /// <summary>
         /// Whether the two ranges have exactly the same elements in the same order.
         /// </summary>
@@ -744,7 +746,5 @@ namespace PAC.DataStructures
         /// </para>
         /// </summary>
         public override string ToString() => $"{(startBoundaryInclusive ? "[" : "(")}{startBoundary}, {endBoundary}{(endBoundaryInclusive ? "]" : ")")}";
-
-        public override int GetHashCode() => HashCode.Combine(startBoundary, endBoundary, startBoundaryInclusive, endBoundaryInclusive);
     }
 }
