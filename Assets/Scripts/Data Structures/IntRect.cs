@@ -86,10 +86,9 @@ namespace PAC.DataStructures
         /// </summary>
         public static IntRect operator -(IntRect rect, IntVector2 vector) => rect + (-vector);
 
-        /// <summary>
-        /// Cast to Unity Rect. Doesn't just convert each coordinate to a float. It expands the rect so it contains all the pixels described by the IntRect.
-        /// </summary>
-        public static implicit operator Rect(IntRect rect) => new Rect(rect.bottomLeft, new Vector2(rect.width, rect.height));
+        // I haven't added a cast to Unity's Rect because of the lack of a convention as to where an IntVector2 refers to in a pixel (the centre of the pixel? the bottom-left of the pixel?),
+        // which affects which coordinates to use for the corners of the Rect.
+
         // I haven't yet added a cast from Rect since it's more complicated than just 'new IntRect(new IntVector2(rect.xMin, rect.yMin), new IntVector2(rect.xMax, rect.yMax))'.
         // Doing that would mean casting to Rect and from Rect aren't inverses. To make that the case I also need to decide how Rects that don't lie on integer coords get rounded.
         // It would also mean that the way the top-right corners gets rounded is different from the bottom-left.
