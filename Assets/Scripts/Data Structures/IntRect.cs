@@ -11,7 +11,7 @@ namespace PAC.DataStructures
     /// <summary>
     /// A non-empty rectangular region of integer coordinates.
     /// </summary>
-    public readonly struct IntRect : IReadOnlyList<IntVector2>, IReadOnlyContains<IntVector2>, IEquatable<IntRect>
+    public readonly struct IntRect : IReadOnlyContains<IntVector2>, IEquatable<IntRect>
     {
         public readonly IntVector2 bottomLeft;
         public readonly IntVector2 topRight;
@@ -268,26 +268,6 @@ namespace PAC.DataStructures
         /// Generates a uniformly random point within the rect.
         /// </summary>
         public IntVector2 RandomPoint() => new IntVector2(UnityEngine.Random.Range(bottomLeft.x, topRight.x + 1), UnityEngine.Random.Range(bottomLeft.y, topRight.y + 1));
-
-        /// <summary>
-        /// Indexes the points in the rect, starting with the bottom row, read left to right, then the next row, etc.
-        /// </summary>
-        public IntVector2 this[int index]
-        {
-            get
-            {
-                if (index < 0)
-                {
-                    throw new IndexOutOfRangeException("Index cannot be negative. Index: " + index);
-                }
-                if (index >= Count)
-                {
-                    throw new IndexOutOfRangeException("Index cannot be more than or equal to the number of pixels in the IntRect. Index: " + index + ". Count: " + Count);
-                }
-
-                return bottomLeft + new IntVector2(index % width, index / width);
-            }
-        }
 
         /// <summary>
         /// Enumerates the points in the rect, starting with the bottom row, read left to right, then the next row, etc.
