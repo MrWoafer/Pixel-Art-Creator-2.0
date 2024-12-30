@@ -106,18 +106,6 @@ namespace PAC.DataStructures
         /// Returns true if the point is in the rect.
         /// </summary>
         public bool Contains(int x, int y) => x >= bottomLeft.x && y >= bottomLeft.y && x <= topRight.x && y <= topRight.y;
-        /// <summary>
-        /// Returns true if the point is in the rect.
-        /// Behaves differently than the overload when the point is an IntVector2. This overload considers an IntVector2 comprising the rect as taking up the whole 1x1 square.
-        /// e.g. a rect comprised of just the point (1, 1) is treated in this overload as the square [0,1]x[0,1], where [0,1] = {x : 0 <= x <= 1}.
-        /// </summary>
-        public bool Contains(Vector2 point) => Contains(point.x, point.y);
-        /// <summary>
-        /// Returns true if the point is in the rect.
-        /// Behaves differently than the overload when the point is an IntVector2. This overload considers an IntVector2 comprising the rect as taking up the whole 1x1 square.
-        /// e.g. a rect comprised of just the point (1, 1) is treated in this overload as the square [0,1]x[0,1], where [0,1] = {x : 0 <= x <= 1}.
-        /// </summary>
-        public bool Contains(float x, float y) => x >= bottomLeft.x && y >= bottomLeft.y && x <= topRight.x + 1 && y <= topRight.y + 1;
 
         /// <summary>
         /// Returns true if the given rect is (weakly) contained in this rect.
