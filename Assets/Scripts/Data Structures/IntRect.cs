@@ -275,15 +275,15 @@ namespace PAC.DataStructures
         /// Note this is only possible when <paramref name="toClamp"/> is at most as wide and at most as tall as this rect.
         /// </remarks>
         /// <exception cref="ArgumentException"><paramref name="toClamp"/> is wider and/or taller than this rect.</exception>
-        public IntRect ShiftClamp(IntRect toClamp)
+        public IntRect TranslateClamp(IntRect toClamp)
         {
             if (toClamp.width > width)
             {
-                throw new ArgumentException($"Cannot shift-clamp a wider rect. Width of this: {width}. Width of {nameof(toClamp)}: {toClamp.width}.", nameof(toClamp));
+                throw new ArgumentException($"Cannot translate-clamp a wider rect. Width of this: {width}. Width of {nameof(toClamp)}: {toClamp.width}.", nameof(toClamp));
             }
             if (toClamp.height > height)
             {
-                throw new ArgumentException($"Cannot shift-clamp a taller rect. Height of this: {height}. Height of {nameof(toClamp)}: {toClamp.height}.", nameof(toClamp));
+                throw new ArgumentException($"Cannot translate-clamp a taller rect. Height of this: {height}. Height of {nameof(toClamp)}: {toClamp.height}.", nameof(toClamp));
             }
 
             if (toClamp.bottomLeft.x < bottomLeft.x)

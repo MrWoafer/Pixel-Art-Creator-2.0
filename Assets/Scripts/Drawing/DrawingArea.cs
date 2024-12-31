@@ -966,7 +966,7 @@ namespace PAC.Drawing
 
             if (selectedLayer.layerType == LayerType.Tile && tileBeingMoved != null)
             {
-                IntRect shiftedRect = file.rect.ShiftClamp(tileBeingMoved.rect + pixel - mouseDragPoints[0]);
+                IntRect shiftedRect = file.rect.TranslateClamp(tileBeingMoved.rect + pixel - mouseDragPoints[0]);
 
                 bool validPosition = true;
                 foreach (TileLayer tileLayer in tileBeingMoved.tileLayersAppearsOn)
@@ -1017,7 +1017,7 @@ namespace PAC.Drawing
 
                         IntVector2 offset = offsetsToVisit.Dequeue();
                         visitedOffsets.Add(offset);
-                        shiftedRect = file.rect.ShiftClamp(tileBeingMoved.rect + pixel - mouseDragPoints[0] + offset);
+                        shiftedRect = file.rect.TranslateClamp(tileBeingMoved.rect + pixel - mouseDragPoints[0] + offset);
 
                         validPosition = true;
                         foreach (TileLayer tileLayer in tileBeingMoved.tileLayersAppearsOn)
