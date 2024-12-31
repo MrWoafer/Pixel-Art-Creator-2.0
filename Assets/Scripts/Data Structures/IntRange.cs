@@ -32,7 +32,7 @@ namespace PAC.DataStructures
     /// </code>
     /// </para>
     /// </remarks>
-    public readonly struct IntRange : IReadOnlyList<int>, IReadOnlyContains<int>, IEquatable<IntRange>
+    public readonly struct IntRange : IReadOnlyList<int>, IReadOnlyContains<int>, IEquatable<IntRange>, ISetComparable<IntRange>
     {
         #region Fields
         /// <summary>
@@ -520,6 +520,12 @@ namespace PAC.DataStructures
             (true, true) => true,
         };
 
+        public bool IsSubsequenceOf(IntRange other) => isEmpty || (!other.isEmpty && other.minElement <= minElement && maxElement <= other.maxElement);
+        public bool IsProperSubsequenceOf(IntRange other) => IsSubsequenceOf(other) && !SequenceEqual(this, other);
+
+        public bool IsSupersequenceOf(IntRange other) => other.IsSubsequenceOf(this);
+        public bool IsProperSupersequenceOf(IntRange other) => IsSupersequenceOf(other) && !SequenceEqual(this, other);
+
         /// <summary>
         /// Whether the two ranges have exactly the same elements, ignoring order.
         /// </summary>
@@ -544,17 +550,8 @@ namespace PAC.DataStructures
             (true, true) => true,
         };
 
-        public bool IsSubsequenceOf(IntRange other) => isEmpty || (!other.isEmpty && other.minElement <= minElement && maxElement <= other.maxElement);
-        public bool IsProperSubsequenceOf(IntRange other) => IsSubsequenceOf(other) && !SequenceEqual(this, other);
-
-        public bool IsSupersequenceOf(IntRange other) => other.IsSubsequenceOf(this);
-        public bool IsProperSupersequenceOf(IntRange other) => IsSupersequenceOf(other) && !SequenceEqual(this, other);
-
         public bool IsSubsetOf(IntRange other) => isEmpty || (!other.isEmpty && other.minElement <= minElement && maxElement <= other.maxElement);
-        public bool IsProperSubsetOf(IntRange other) => IsSubsetOf(other) && !SetEqual(this, other);
-
         public bool IsSupersetOf(IntRange other) => other.IsSubsetOf(this);
-        public bool IsProperSupersetOf(IntRange other) => IsSupersetOf(other) && !SetEqual(this, other);
 
         /// <summary>
         /// Whether the given integer is in the range.
