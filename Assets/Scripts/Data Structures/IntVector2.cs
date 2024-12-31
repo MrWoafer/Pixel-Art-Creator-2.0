@@ -168,22 +168,6 @@ namespace PAC.DataStructures
             this.x = x;
             this.y = y;
         }
-        /// <summary>
-        /// Creates a new vector with the given x and y coordinates cast to <see cref="int"/>s, which truncates them towards zero.
-        /// </summary>
-        public IntVector2(float x, float y)
-        {
-            this.x = (int)x;
-            this.y = (int)y;
-        }
-        /// <summary>
-        /// Creates a new vector with the given x and y coordinates cast to <see cref="int"/>s, which truncates them towards zero.
-        /// </summary>
-        public IntVector2(Vector2 vector2)
-        {
-            x = (int)vector2.x;
-            y = (int)vector2.y;
-        }
 
         /// <summary>
         /// Deconstructs the vector into its x and y coordinates.
@@ -232,7 +216,7 @@ namespace PAC.DataStructures
         public static implicit operator IntVector2(Vector2Int vector) => new IntVector2(vector.x, vector.y);
 
         /// <summary>
-        /// Casts to Unity's <see cref="Vector2"/>.
+        /// Casts to Unity's <see cref="Vector2"/>, by casting each coordinate to <see cref="float"/>.
         /// </summary>
         public static implicit operator Vector2(IntVector2 vector) => new Vector2(vector.x, vector.y);
         /// <summary>
@@ -241,7 +225,7 @@ namespace PAC.DataStructures
         public static explicit operator IntVector2(Vector2 vector) => ((int)vector.x, (int)vector.y);
 
         /// <summary>
-        /// Casts to Unity's <see cref="Vector3"/>, with a 0 in the z-coord.
+        /// Casts to Unity's <see cref="Vector3"/>, by casting each coordinate to <see cref="float"/>, with a 0 in the z-coord.
         /// </summary>
         public static implicit operator Vector3(IntVector2 vector) => new Vector3(vector.x, vector.y, 0f);
         /// <summary>
