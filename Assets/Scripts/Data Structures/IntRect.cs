@@ -209,15 +209,15 @@ namespace PAC.DataStructures
         public bool Contains(int x, int y) => x >= bottomLeft.x && y >= bottomLeft.y && x <= topRight.x && y <= topRight.y;
 
         /// <summary>
-        /// Whether <paramref name="other"/> is a subset of this rect.
-        /// </summary>
-        /// <seealso cref="IsContainedIn(IntRect)"/>
-        public bool Contains(IntRect other) => bottomLeft <= other.bottomLeft && topRight >= other.topRight;
-        /// <summary>
         /// Whether this rect is a subset of <paramref name="other"/>.
         /// </summary>
-        /// <seealso cref="Contains(IntRect)"/>
-        public bool IsContainedIn(IntRect other) => other.Contains(this);
+        /// <seealso cref="IsSupersetOf(IntRect)"/>
+        public bool IsSubsetOf(IntRect other) => other.IsSupersetOf(this);
+        /// <summary>
+        /// Whether <paramref name="other"/> is a subset of this rect.
+        /// </summary>
+        /// <seealso cref="IsSubsetOf(IntRect)"/>
+        public bool IsSupersetOf(IntRect other) => bottomLeft <= other.bottomLeft && other.topRight <= topRight;
 
         /// <summary>
         /// Returns whether the rect contains any points with the given x coord.

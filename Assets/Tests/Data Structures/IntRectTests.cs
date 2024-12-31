@@ -95,7 +95,7 @@ namespace PAC.Tests
 
                 foreach (IntRect rect in inputs)
                 {
-                    Assert.True(boundingRect.Contains(rect), "Failed with " + rect + " in " + Functions.ArrayToString(inputs));
+                    Assert.True(rect.ToHashSet().IsSubsetOf(boundingRect), "Failed with " + rect + " in " + Functions.ArrayToString(inputs));
                 }
             }
 
