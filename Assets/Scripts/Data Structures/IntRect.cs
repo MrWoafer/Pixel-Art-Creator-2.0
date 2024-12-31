@@ -26,7 +26,7 @@ namespace PAC.DataStructures
     /// </remarks>
     /// <seealso cref="IntVector2"/>
     /// <seealso cref="IntRange"/>
-    public readonly struct IntRect : IReadOnlyContains<IntVector2>, IEquatable<IntRect>
+    public readonly struct IntRect : IReadOnlyContains<IntVector2>, IEquatable<IntRect>, ISetComparable<IntRect>
     {
         #region Fields
         /// <summary>
@@ -206,6 +206,7 @@ namespace PAC.DataStructures
         /// This is just the default <see langword="struct"/> comparison (comparing fields).
         /// </remarks>
         /// <seealso cref="Equals(IntRect)"/>
+        /// <seealso cref="SetEquals(IntRect)"/>
         public static bool operator ==(IntRect a, IntRect b) => a.bottomLeft == b.bottomLeft && a.topRight == b.topRight;
         /// <summary>
         /// Whether the two rects describe different sets of points.
@@ -214,6 +215,7 @@ namespace PAC.DataStructures
         /// This is just the default <see langword="struct"/> comparison (comparing fields).
         /// </remarks>
         /// <seealso cref="Equals(IntRect)"/>
+        /// <seealso cref="SetEquals(IntRect)"/>
         public static bool operator !=(IntRect a, IntRect b) => !(a == b);
         /// <summary>
         /// The same as <see cref="operator ==(IntRect, IntRect)"/>.
@@ -227,6 +229,24 @@ namespace PAC.DataStructures
         public override int GetHashCode() => HashCode.Combine(bottomLeft, topRight);
 
         /// <summary>
+        /// Whether the two rects describe the same set of points.
+        /// </summary>
+        /// <remarks>
+        /// The is the same as <see cref="operator ==(IntRect, IntRect)"/>.
+        /// </remarks>
+        public bool SetEquals(IntRect other) => this == other;
+        /// <summary>
+        /// Whether this rect is a subset of <paramref name="other"/>.
+        /// </summary>
+        /// <seealso cref="IsSupersetOf(IntRect)"/>
+        public bool IsSubsetOf(IntRect other) => other.IsSupersetOf(this);
+        /// <summary>
+        /// Whether this rect is a superset of <paramref name="other"/>.
+        /// </summary>
+        /// <seealso cref="IsSubsetOf(IntRect)"/>
+        public bool IsSupersetOf(IntRect other) => bottomLeft <= other.bottomLeft && other.topRight <= topRight;
+
+        /// <summary>
         /// Whether the point is in the rect.
         /// </summary>
         /// <seealso cref="Contains(int, int)"/>
@@ -236,17 +256,6 @@ namespace PAC.DataStructures
         /// </summary>
         /// <seealso cref="Contains(IntVector2)"/>
         public bool Contains(int x, int y) => minX <= x && minY <= y && x <= maxX && y <= maxY;
-
-        /// <summary>
-        /// Whether this rect is a subset of <paramref name="other"/>.
-        /// </summary>
-        /// <seealso cref="IsSupersetOf(IntRect)"/>
-        public bool IsSubsetOf(IntRect other) => other.IsSupersetOf(this);
-        /// <summary>
-        /// Whether <paramref name="other"/> is a subset of this rect.
-        /// </summary>
-        /// <seealso cref="IsSubsetOf(IntRect)"/>
-        public bool IsSupersetOf(IntRect other) => bottomLeft <= other.bottomLeft && other.topRight <= topRight;
 
         /// <summary>
         /// Returns whether the rect contains any points with the given x coord.
