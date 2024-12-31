@@ -65,12 +65,20 @@ namespace PAC.DataStructures
         /// The number of integer points the rect covers horizontally.
         /// </summary>
         /// <seealso cref="height"/>
+        /// <seealso cref="size"/>
         public int width => topRight.x - bottomLeft.x + 1;
         /// <summary>
         /// The number of integer points the rect covers vertically.
         /// </summary>
         /// <seealso cref="width"/>
+        /// <seealso cref="size"/>
         public int height => topRight.y - bottomLeft.y + 1;
+        /// <summary>
+        /// The vector <c>(<see cref="width"/>, <see cref="height"/>)</c>.
+        /// </summary>
+        /// <seealso cref="width"/>
+        /// <seealso cref="height"/>
+        public IntVector2 size => new IntVector2(width, height);
 
         /// <summary>
         /// The inclusive range of x coordinates in the rect.
