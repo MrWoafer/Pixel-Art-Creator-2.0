@@ -95,13 +95,13 @@ namespace PAC.DataStructures
         /// </summary>
         /// <seealso cref="height"/>
         /// <seealso cref="size"/>
-        public int width => topRight.x - bottomLeft.x + 1;
+        public int width => maxX - minX + 1;
         /// <summary>
         /// The number of integer points the rect covers vertically.
         /// </summary>
         /// <seealso cref="width"/>
         /// <seealso cref="size"/>
-        public int height => topRight.y - bottomLeft.y + 1;
+        public int height => maxY - minY + 1;
         /// <summary>
         /// The vector <c>(<see cref="width"/>, <see cref="height"/>)</c>.
         /// </summary>
@@ -113,12 +113,12 @@ namespace PAC.DataStructures
         /// The inclusive range of x coordinates in the rect.
         /// </summary>
         /// <seealso cref="yRange"/>
-        public IntRange xRange => IntRange.InclIncl(bottomLeft.x, topRight.x);
+        public IntRange xRange => IntRange.InclIncl(minX, maxX);
         /// <summary>
         /// The inclusive range of y coordinates in the rect.
         /// </summary>
         /// <see cref="xRange"/>
-        public IntRange yRange => IntRange.InclIncl(bottomLeft.y, topRight.y);
+        public IntRange yRange => IntRange.InclIncl(minY, maxY);
 
         /// <summary>
         /// The number of points in the rect.
@@ -235,7 +235,7 @@ namespace PAC.DataStructures
         /// Whether the point <c>(<paramref name="x"/>, <paramref name="y"/>)</c> is in the rect.
         /// </summary>
         /// <seealso cref="Contains(IntVector2)"/>
-        public bool Contains(int x, int y) => x >= bottomLeft.x && y >= bottomLeft.y && x <= topRight.x && y <= topRight.y;
+        public bool Contains(int x, int y) => minX <= x && minY <= y && x <= maxX && y <= maxY;
 
         /// <summary>
         /// Whether this rect is a subset of <paramref name="other"/>.
@@ -252,12 +252,12 @@ namespace PAC.DataStructures
         /// Returns whether the rect contains any points with the given x coord.
         /// </summary>
         /// <seealso cref="ContainsY(int)"/>
-        public bool ContainsX(int x) => bottomLeft.x <= x && x <= topRight.x;
+        public bool ContainsX(int x) => minX <= x && x <= maxX;
         /// <summary>
         /// Returns whether the rect contains any points with the given y coord.
         /// </summary>
         /// <seealso cref="ContainsX(int)"/>
-        public bool ContainsY(int y) => bottomLeft.y <= y && y <= topRight.y;
+        public bool ContainsY(int y) => minY <= y && y <= maxY;
 
         /// <summary>
         /// Whether the two rects have any points in common.
@@ -318,7 +318,7 @@ namespace PAC.DataStructures
         /// Equivalently, it clamps the vector's x coord to be in the rect's range of x coords, and clamps the vector's y coord to be in the rect's range of y coords.
         /// </summary>
         /// <seealso cref="Math.Clamp(int, int, int)"/>
-        public IntVector2 Clamp(IntVector2 vector) => new IntVector2(Math.Clamp(vector.x, bottomLeft.x, topRight.x), Math.Clamp(vector.y, bottomLeft.y, topRight.y));
+        public IntVector2 Clamp(IntVector2 vector) => new IntVector2(Math.Clamp(vector.x, minX, maxX), Math.Clamp(vector.y, minY, maxY));
 
         /// <summary>
         /// Translates <paramref name="toClamp"/> so it is a subset of this rect. Chooses the smallest such translation.
@@ -338,21 +338,21 @@ namespace PAC.DataStructures
                 throw new ArgumentException($"Cannot translate-clamp a taller rect. Height of this: {height}. Height of {nameof(toClamp)}: {toClamp.height}.", nameof(toClamp));
             }
 
-            if (toClamp.bottomLeft.x < bottomLeft.x)
+            if (toClamp.minX < minX)
             {
-                toClamp += new IntVector2(bottomLeft.x - toClamp.bottomLeft.x, 0);
+                toClamp += new IntVector2(minX - toClamp.minX, 0);
             }
-            else if (toClamp.topRight.x > topRight.x)
+            else if (toClamp.maxX > maxX)
             {
-                toClamp -= new IntVector2(toClamp.topRight.x - topRight.x, 0);
+                toClamp -= new IntVector2(toClamp.maxX - maxX, 0);
             }
-            if (toClamp.bottomLeft.y < bottomLeft.y)
+            if (toClamp.minY < minY)
             {
-                toClamp += new IntVector2(0, bottomLeft.y - toClamp.bottomLeft.y);
+                toClamp += new IntVector2(0, minY - toClamp.minY);
             }
-            else if (toClamp.topRight.y > topRight.y)
+            else if (toClamp.maxY > maxY)
             {
-                toClamp -= new IntVector2(0, toClamp.topRight.y - topRight.y);
+                toClamp -= new IntVector2(0, toClamp.maxY - maxY);
             }
             return toClamp;
         }
@@ -450,7 +450,7 @@ namespace PAC.DataStructures
         /// <summary>
         /// Generates a uniformly random point within the rect.
         /// </summary>
-        public IntVector2 RandomPoint() => new IntVector2(UnityEngine.Random.Range(bottomLeft.x, topRight.x + 1), UnityEngine.Random.Range(bottomLeft.y, topRight.y + 1));
+        public IntVector2 RandomPoint() => new IntVector2(UnityEngine.Random.Range(minX, maxX + 1), UnityEngine.Random.Range(minY, maxY + 1));
 
         /// <summary>
         /// Iterates over the points in the rect, starting with the bottom row, read left to right, then the next row, etc.
@@ -461,9 +461,9 @@ namespace PAC.DataStructures
         /// </summary>
         public IEnumerator<IntVector2> GetEnumerator()
         {
-            for (int y = bottomLeft.y; y <= topRight.y; y++)
+            for (int y = minY; y <= maxY; y++)
             {
-                for (int x = bottomLeft.x; x <= topRight.x; x++)
+                for (int x = minX; x <= maxX; x++)
                 {
                     yield return new IntVector2(x, y);
                 }
