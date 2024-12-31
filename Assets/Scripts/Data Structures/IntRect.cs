@@ -62,6 +62,35 @@ namespace PAC.DataStructures
         public IntVector2 topLeft => new IntVector2(bottomLeft.x, topRight.y);
 
         /// <summary>
+        /// The minimum x coordinate of points in the rect.
+        /// </summary>
+        /// <seealso cref="maxX"/>
+        /// <seealso cref="minY"/>
+        /// <seealso cref="maxY"/>
+        public int minX => bottomLeft.x;
+        /// <summary>
+        /// The maximum x coordinate of points in the rect.
+        /// </summary>
+        /// <seealso cref="minX"/>
+        /// <seealso cref="minY"/>
+        /// <seealso cref="maxY"/>
+        public int maxX => topRight.x;
+        /// <summary>
+        /// The minimum y coordinate of points in the rect.
+        /// </summary>
+        /// <seealso cref="minX"/>
+        /// <seealso cref="maxX"/>
+        /// <seealso cref="maxY"/>
+        public int minY => bottomLeft.y;
+        /// <summary>
+        /// The maximum y coordinate of points in the rect.
+        /// </summary>
+        /// <seealso cref="minX"/>
+        /// <seealso cref="maxX"/>
+        /// <seealso cref="minY"/>
+        public int maxY => topRight.y;
+
+        /// <summary>
         /// The number of integer points the rect covers horizontally.
         /// </summary>
         /// <seealso cref="height"/>

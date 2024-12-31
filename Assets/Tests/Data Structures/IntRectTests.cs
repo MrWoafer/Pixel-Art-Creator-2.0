@@ -34,6 +34,43 @@ namespace PAC.Tests
 
         [Test]
         [Category("Data Structures")]
+        public void minX()
+        {
+            foreach (IntRect rect in randomTestCases.Take(10_000))
+            {
+                Assert.AreEqual(rect.Min(p => p.x), rect.minX, $"Failed with {rect}");
+            }
+        }
+        [Test]
+        [Category("Data Structures")]
+        public void maxX()
+        {
+            foreach (IntRect rect in randomTestCases.Take(10_000))
+            {
+                Assert.AreEqual(rect.Max(p => p.x), rect.maxX, $"Failed with {rect}");
+            }
+        }
+        [Test]
+        [Category("Data Structures")]
+        public void minY()
+        {
+            foreach (IntRect rect in randomTestCases.Take(10_000))
+            {
+                Assert.AreEqual(rect.Min(p => p.y), rect.minY, $"Failed with {rect}");
+            }
+        }
+        [Test]
+        [Category("Data Structures")]
+        public void maxY()
+        {
+            foreach (IntRect rect in randomTestCases.Take(10_000))
+            {
+                Assert.AreEqual(rect.Max(p => p.y), rect.maxY, $"Failed with {rect}");
+            }
+        }
+
+        [Test]
+        [Category("Data Structures")]
         public void BoundingRect()
         {
             // Bounding rect of IntVector2s
