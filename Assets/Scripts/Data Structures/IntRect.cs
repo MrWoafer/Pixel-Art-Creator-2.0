@@ -152,6 +152,15 @@ namespace PAC.DataStructures
         #endregion
 
         #region Conversion
+        /// <summary>
+        /// Casts to Unity's <see cref="RectInt"/>.
+        /// </summary>
+        public static implicit operator RectInt(IntRect rect) => new RectInt(rect.topLeft, rect.size);
+        /// <summary>
+        /// Casts from Unity's <see cref="RectInt"/>.
+        /// </summary>
+        public static implicit operator IntRect(RectInt rect) => new IntRect(new IntVector2(rect.xMin, rect.yMin), new IntVector2(rect.xMax, rect.yMax));
+
         // I haven't added a cast to Unity's Rect because of the lack of a convention as to where an IntVector2 refers to in a pixel (the centre of the pixel? the bottom-left of the pixel?),
         // which affects which coordinates to use for the corners of the Rect.
 
