@@ -785,7 +785,7 @@ namespace PAC.Drawing
             {
                 get
                 {
-                    foreach (int i in range.AsIEnumerable(Count))
+                    foreach (int i in range.AsEnumerable(Count))
                     {
                         yield return this[i];
                     }

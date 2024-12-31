@@ -5,7 +5,7 @@ namespace PAC.Extensions
 {
     public static class RangeExtensions
     {
-        public static IEnumerable<int> AsIEnumerable(this Range range, int indexedObjectLength)
+        public static IEnumerable<int> AsEnumerable(this Range range, int indexedObjectLength)
         {
             int start = range.Start.IsFromEnd ? indexedObjectLength - range.Start.Value : range.Start.Value;
             int end = range.End.IsFromEnd ? indexedObjectLength - range.End.Value : range.End.Value;
