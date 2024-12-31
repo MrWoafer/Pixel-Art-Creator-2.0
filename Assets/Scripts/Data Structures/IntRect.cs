@@ -279,11 +279,11 @@ namespace PAC.DataStructures
         {
             if (toClamp.width > width)
             {
-                throw new ArgumentException("Cannot shift-clamp a wider rect. Width: " + width + " < " + toClamp.width, "toClamp");
+                throw new ArgumentException($"Cannot shift-clamp a wider rect. Width of this: {width}. Width of {nameof(toClamp)}: {toClamp.width}.", nameof(toClamp));
             }
             if (toClamp.height > height)
             {
-                throw new ArgumentException("Cannot shift-clamp a taller rect. Height: " + height + " < " + toClamp.height, "toClamp");
+                throw new ArgumentException($"Cannot shift-clamp a taller rect. Height of this: {height}. Height of {nameof(toClamp)}: {toClamp.height}.", nameof(toClamp));
             }
 
             if (toClamp.bottomLeft.x < bottomLeft.x)
@@ -371,11 +371,11 @@ namespace PAC.DataStructures
         {
             if (rects is null)
             {
-                throw new ArgumentNullException($"Cannot perform {nameof(BoundingRect)}() on null.", nameof(rects));
+                throw new ArgumentNullException(nameof(rects), "The given collection of rects is null.");
             }
             if (rects.IsEmpty())
             {
-                throw new ArgumentException($"Cannot perform {nameof(BoundingRect)}() on an empty collection of {nameof(IntRect)}s.", nameof(rects));
+                throw new ArgumentException("The given collection of rects is empty.", nameof(rects));
             }
 
             return new IntRect(IntVector2.Min(rects.Select(rect => rect.bottomLeft)), IntVector2.Max(rects.Select(rect => rect.topRight)));
