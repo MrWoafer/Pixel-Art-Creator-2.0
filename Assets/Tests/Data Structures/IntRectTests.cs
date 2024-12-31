@@ -8,6 +8,9 @@ using PAC.DataStructures;
 
 namespace PAC.Tests
 {
+    /// <summary>
+    /// Tests for <see cref="IntRect"/>.
+    /// </summary>
     public class IntRectTests
     {
         /// <summary>

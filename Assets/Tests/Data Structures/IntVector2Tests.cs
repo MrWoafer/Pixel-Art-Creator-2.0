@@ -4,6 +4,9 @@ using PAC.Maths;
 
 namespace PAC.Tests
 {
+    /// <summary>
+    /// Tests for <see cref="IntVector2"/>.
+    /// </summary>
     public class IntVector2Tests
     {
         [Test]
