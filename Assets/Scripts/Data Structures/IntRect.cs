@@ -28,6 +28,7 @@ namespace PAC.DataStructures
     /// <seealso cref="IntRange"/>
     public readonly struct IntRect : IReadOnlyContains<IntVector2>, IEquatable<IntRect>
     {
+        #region Fields
         /// <summary>
         /// The coordinates of the bottom-left point in the rect (inclusive).
         /// </summary>
@@ -42,7 +43,9 @@ namespace PAC.DataStructures
         /// <seealso cref="bottomRight"/>
         /// <seealso cref="topLeft"/>
         public readonly IntVector2 topRight;
+        #endregion
 
+        #region Properties
         /// <summary>
         /// The coordinates of the bottom-right point in the rect (inclusive).
         /// </summary>
@@ -90,7 +93,9 @@ namespace PAC.DataStructures
         /// </summary>
         /// <seealso cref="IsSquare(IntRect)"/>
         public bool isSquare => IsSquare(this);
+        #endregion
 
+        #region Constructors
         /// <summary>
         /// Creates an <see cref="IntRect"/> with the two given points as opposite corners (inclusive) of the rect.
         /// </summary>
@@ -136,7 +141,18 @@ namespace PAC.DataStructures
                 case (true, true): throw new ArgumentException("The given x range and y range are both empty.");
             }
         }
+        #endregion
 
+        #region Conversion
+        // I haven't added a cast to Unity's Rect because of the lack of a convention as to where an IntVector2 refers to in a pixel (the centre of the pixel? the bottom-left of the pixel?),
+        // which affects which coordinates to use for the corners of the Rect.
+
+        // I haven't added a cast from Unity's Rect since it's more complicated than just 'new IntRect(new IntVector2(rect.xMin, rect.yMin), new IntVector2(rect.xMax, rect.yMax))'.
+        // Doing that would mean casting to Rect and from Rect aren't inverses. To make that the case I also need to decide how Rects that don't lie on integer coords get rounded.
+        // It would also mean that the way the top-right corners gets rounded is different from the bottom-left.
+        #endregion
+
+        #region Comparison
         /// <summary>
         /// Whether the two rects describe the same set of points.
         /// </summary>
@@ -163,38 +179,6 @@ namespace PAC.DataStructures
         public override bool Equals(object obj) => obj is IntRect other && Equals(other);
 
         public override int GetHashCode() => HashCode.Combine(bottomLeft, topRight);
-
-        /// <summary>
-        /// Represents the rect as a string in the form <c>"((bottom-left x coord, bottom-left y coord), (top-right x coord, top-right y coord))"</c>.
-        /// </summary>
-        public override string ToString() => $"({bottomLeft}, {topRight})";
-
-        /// <summary>
-        /// Translates the rect by the given vector.
-        /// </summary>
-        public static IntRect operator +(IntVector2 vector, IntRect rect) => rect + vector;
-        /// <summary>
-        /// Translates the rect by the given vector.
-        /// </summary>
-        public static IntRect operator +(IntRect rect, IntVector2 vector) => new IntRect(rect.bottomLeft + vector, rect.topRight + vector);
-
-        /// <summary>
-        /// Translates the rect by the given vector.
-        /// </summary>
-        public static IntRect operator -(IntRect rect, IntVector2 vector) => rect + (-vector);
-
-        // I haven't added a cast to Unity's Rect because of the lack of a convention as to where an IntVector2 refers to in a pixel (the centre of the pixel? the bottom-left of the pixel?),
-        // which affects which coordinates to use for the corners of the Rect.
-
-        // I haven't added a cast from Unity's Rect since it's more complicated than just 'new IntRect(new IntVector2(rect.xMin, rect.yMin), new IntVector2(rect.xMax, rect.yMax))'.
-        // Doing that would mean casting to Rect and from Rect aren't inverses. To make that the case I also need to decide how Rects that don't lie on integer coords get rounded.
-        // It would also mean that the way the top-right corners gets rounded is different from the bottom-left.
-
-        /// <summary>
-        /// Whether the rect is a square - i.e. the <see cref="width"/> and <see cref="height"/> are equal.
-        /// </summary>
-        /// <seealso cref="isSquare"/>
-        public static bool IsSquare(IntRect rect) => rect.width == rect.height;
 
         /// <summary>
         /// Whether the point is in the rect.
@@ -239,6 +223,28 @@ namespace PAC.DataStructures
         /// </summary>
         /// <seealso cref="Overlaps(IntRect)"/>
         public static bool Overlap(IntRect a, IntRect b) => a.xRange.Intersects(b.xRange) && a.yRange.Intersects(b.yRange);
+        #endregion
+
+        #region Operations
+        /// <summary>
+        /// Translates the rect by the given vector.
+        /// </summary>
+        public static IntRect operator +(IntVector2 vector, IntRect rect) => rect + vector;
+        /// <summary>
+        /// Translates the rect by the given vector.
+        /// </summary>
+        public static IntRect operator +(IntRect rect, IntVector2 vector) => new IntRect(rect.bottomLeft + vector, rect.topRight + vector);
+
+        /// <summary>
+        /// Translates the rect by the given vector.
+        /// </summary>
+        public static IntRect operator -(IntRect rect, IntVector2 vector) => rect + (-vector);
+
+        /// <summary>
+        /// Whether the rect is a square - i.e. the <see cref="width"/> and <see cref="height"/> are equal.
+        /// </summary>
+        /// <seealso cref="isSquare"/>
+        public static bool IsSquare(IntRect rect) => rect.width == rect.height;
 
         /// <summary>
         /// Returns the set intersection of the two rects.
@@ -392,7 +398,9 @@ namespace PAC.DataStructures
         /// </summary>
         /// <seealso cref="IntVector2.Flip(FlipAxis)"/>
         public IntRect Flip(FlipAxis axis) => new IntRect(bottomLeft.Flip(axis), topRight.Flip(axis));
+        #endregion
 
+        #region Enumerator
         /// <summary>
         /// Generates a uniformly random point within the rect.
         /// </summary>
@@ -415,5 +423,11 @@ namespace PAC.DataStructures
                 }
             }
         }
+        #endregion
+
+        /// <summary>
+        /// Represents the rect as a string in the form <c>"((bottom-left x coord, bottom-left y coord), (top-right x coord, top-right y coord))"</c>.
+        /// </summary>
+        public override string ToString() => $"({bottomLeft}, {topRight})";
     }
 }
