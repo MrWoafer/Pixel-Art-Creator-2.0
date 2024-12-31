@@ -1,11 +1,34 @@
-using NUnit.Framework;
-using PAC.DataStructures;
+using System;
 using System.Collections.Generic;
+using System.Linq;
+
+using NUnit.Framework;
+
+using PAC.DataStructures;
 
 namespace PAC.Tests
 {
     public class IntRectTests
     {
+        /// <summary>
+        /// An infinite sequence of random <see cref="IntRect"/>s for tests.
+        /// </summary>
+        private IEnumerable<IntRect> randomTestCases
+        {
+            get
+            {
+                Random rng = new Random(0);
+                const int minInclusive = -10;
+                const int maxInclusive = 10;
+                while (true)
+                {
+                    IntVector2 bottomLeft = new IntVector2(rng.Next(minInclusive, maxInclusive + 1), rng.Next(minInclusive, maxInclusive + 1));
+                    IntVector2 topRight = new IntVector2(rng.Next(minInclusive, maxInclusive + 1), rng.Next(minInclusive, maxInclusive + 1));
+                    yield return new IntRect(bottomLeft, topRight);
+                }
+            }
+        }
+
         [Test]
         [Category("Data Structures")]
         public void BoundingRect()
@@ -75,6 +98,27 @@ namespace PAC.Tests
 
             // Cannot get bounding rect of 0 IntRects
             //Assert.Throws<ArgumentException>(() => IntRect.BoundingRect());   // The call is now ambiguous
+        }
+
+        [Test]
+        [Category("Data Structures")]
+        public void Intersection()
+        {
+            const int iterations = 100;
+            foreach (IntRect rect1 in randomTestCases.Take(iterations))
+            {
+                foreach (IntRect rect2 in randomTestCases.Take(iterations))
+                {
+                    if (Enumerable.Intersect(rect1, rect2).Any())
+                    {
+                        CollectionAssert.AreEquivalent(Enumerable.Intersect(rect1, rect2), rect1.Intersection(rect2), $"Failed with {rect1} and {rect2}");
+                    }
+                    else
+                    {
+                        Assert.Throws<InvalidOperationException>(() => rect1.Intersection(rect2), $"Failed with {rect1} and {rect2}");
+                    }
+                }
+            }
         }
 
         [Test]

@@ -135,6 +135,27 @@ namespace PAC.DataStructures
         public bool Overlaps(IntRect rect) => Overlap(this, rect);
 
         /// <summary>
+        /// Returns the set intersection of the two rects.
+        /// </summary>
+        /// <exception cref="InvalidOperationException">This rect and <paramref name="other"/> do not intersect.</exception>
+        /// <seealso cref="Intersection(IntRect, IntRect)"/>
+        public IntRect Intersection(IntRect other) => Intersection(this, other);
+        /// <summary>
+        /// Returns the set intersection of the two rects.
+        /// </summary>
+        /// <exception cref="InvalidOperationException"><paramref name="a"/> and <paramref name="b"/> do not intersect.</exception>
+        /// <seealso cref="Intersection(IntRect)"/>
+        public static IntRect Intersection(IntRect a, IntRect b)
+        {
+            if (!a.Overlaps(b))
+            {
+                throw new InvalidOperationException($"The given rects do not intersect. (This is an issue because the intersection would be empty, but {nameof(IntRect)}s cannot be empty.)");
+            }
+
+            return new IntRect(a.xRange.Intersection(b.xRange), a.yRange.Intersection(b.yRange));
+        }
+
+        /// <summary>
         /// Clamps the vector component-wise so its coordinates are within this rect.
         /// </summary>
         public IntVector2 Clamp(IntVector2 vector) => new IntVector2(Math.Clamp(vector.x, bottomLeft.x, topRight.x), Math.Clamp(vector.y, bottomLeft.y, topRight.y));
