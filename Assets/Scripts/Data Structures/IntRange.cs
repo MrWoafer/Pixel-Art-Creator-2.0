@@ -50,7 +50,7 @@ namespace PAC.DataStructures
         /// <remarks>
         /// Will be different from <see cref="endElement"/> if this boundary is exclusive.
         /// </remarks>
-        /// /// <seealso cref="endBoundaryInclusive"/>
+        /// <seealso cref="endBoundaryInclusive"/>
         /// <seealso cref="startBoundary"/>
         public readonly int endBoundary;
         /// <summary>
@@ -187,7 +187,7 @@ namespace PAC.DataStructures
         /// <returns>
         /// Either the range unchanged or <see cref="reverse"/>.
         /// </returns>
-        /// /// <seealso cref="asIncreasing"/>
+        /// <seealso cref="asIncreasing"/>
         public IntRange asDecreasing => endBoundary <= startBoundary ? this : reverse;
 
         /// <summary>
