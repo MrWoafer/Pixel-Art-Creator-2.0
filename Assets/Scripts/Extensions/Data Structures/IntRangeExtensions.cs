@@ -1,11 +1,12 @@
-using PAC.DataStructures;
 using System;
 using System.Collections.Generic;
+
+using PAC.DataStructures;
 
 namespace PAC.Extensions
 {
     /// <summary>
-    /// Extension methods for <see cref="IntRange"/>.
+    /// Extension methods involving <see cref="IntRange"/>.
     /// </summary>
     public static class IntRangeExtensions
     {
@@ -23,6 +24,24 @@ namespace PAC.Extensions
             while (true)
             {
                 yield return rng.Next(range);
+            }
+        }
+
+        /// <summary>
+        /// Lazily iterates over the indices in the <see cref="IntRange"/> and yields the <see cref="IReadOnlyList{T}"/>'s element at that position.
+        /// </summary>
+        /// <param name="indices">The range of indices to iterate over.</param>
+        /// <exception cref="ArgumentNullException"><paramref name="list"/> is empty.</exception>
+        public static IEnumerable<T> GetRange<T>(this IReadOnlyList<T> list, IntRange indices)
+        {
+            if (list is null)
+            {
+                throw new ArgumentNullException(nameof(list), $"The given IReadOnlyList<{typeof(T).Name}> is null.");
+            }
+
+            foreach (int index in indices)
+            {
+                yield return list[index];
             }
         }
     }

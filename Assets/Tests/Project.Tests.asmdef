@@ -13,7 +13,8 @@
         "Project.Extensions.IEnumerable",
         "Project.Extensions.Range",
         "Project.Maths",
-        "Project.Extensions.IReadOnlyList"
+        "Project.Extensions.IReadOnlyList",
+        "Project.Extensions.DataStructures"
     ],
     "includePlatforms": [
         "Editor"
