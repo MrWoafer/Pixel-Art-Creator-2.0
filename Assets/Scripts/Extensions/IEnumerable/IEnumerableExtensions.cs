@@ -365,36 +365,34 @@ namespace PAC.Extensions
             {
                 throw NullIEnumerableException<T>(nameof(elements));
             }
-            if (elements.IsEmpty())
-            {
-                throw EmptyIEnumerableException<T>(nameof(elements));
-            }
 
-            Comparer<T> comparer;
-            try
-            {
-                comparer = Comparer<T>.Default;
-            }
-            catch (ArgumentException)
-            {
-                throw new ArgumentException($"Type {typeof(T).Name}> has no default comparer.", typeof(T).Name);
-            }
+            Comparer<T> comparer = Comparer<T>.Default ?? throw new ArgumentException($"Type {typeof(T).Name}> has no default comparer.", typeof(T).Name);
 
-            T min = elements.First();
-            T max = min;
-            foreach (T element in elements.Skip(1))
+            using (IEnumerator<T> enumerator = elements.GetEnumerator())
             {
-                if (comparer.Compare(element, min) < 0)
+                if (!enumerator.MoveNext())
                 {
-                    min = element;
+                    throw EmptyIEnumerableException<T>(nameof(elements));
                 }
-                if (comparer.Compare(element, max) > 0)
-                {
-                    max = element;
-                }
-            }
 
-            return (min, max);
+                T min = enumerator.Current;
+                T max = min;
+
+                while (enumerator.MoveNext())
+                {
+                    T element = enumerator.Current;
+                    if (comparer.Compare(element, min) < 0)
+                    {
+                        min = element;
+                    }
+                    if (comparer.Compare(element, max) > 0)
+                    {
+                        max = element;
+                    }
+                }
+
+                return (min, max);
+            }
         }
 
         /// <summary>
