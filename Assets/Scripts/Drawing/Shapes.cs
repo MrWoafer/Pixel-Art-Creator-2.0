@@ -179,7 +179,7 @@ namespace PAC.Drawing
         /// <summary>
         /// A pixel-perfect line between two points, ordered from start to end.
         /// </summary>
-        public class Line : I1DShape, IReadOnlyList<IntVector2>
+        public class Line : I1DShape, IReadOnlyList<IntVector2>, IEquatable<Line>
         {
             // NOTE: For this shape, we work in a coordinate system where integer coordinates refer to the CENTRE of a pixel - e.g. the centre of pixel (0, 0) is (0, 0), not (0.5, 0.5).
 
@@ -794,17 +794,8 @@ namespace PAC.Drawing
 
             public static bool operator ==(Line a, Line b) => a.start == b.start && a.end == b.end;
             public static bool operator !=(Line a, Line b) => !(a == b);
-            public override bool Equals(object obj)
-            {
-                if (obj == null || !GetType().Equals(obj.GetType()))
-                {
-                    return false;
-                }
-                else
-                {
-                    return this == (Line)obj;
-                }
-            }
+            public bool Equals(Line other) => this == other;
+            public override bool Equals(object obj) => obj is Line other && Equals(other);
 
             public override int GetHashCode() => HashCode.Combine(start, end);
 
@@ -824,7 +815,7 @@ namespace PAC.Drawing
         /// Additionally, the last pixel of the path will not be counted if it's the same as first pixel of the path. Other than those cases, pixels can be double-counted.
         /// </para>
         /// </summary>
-        public class Path : I1DShape
+        public class Path : I1DShape, IEquatable<Path>
         {
             /// <summary>
             /// The lines in this list should not be referenced by anything other than this object, as editing them can potentially causing us to lose the property that the lines connect. For this
@@ -1563,17 +1554,8 @@ namespace PAC.Drawing
                 return true;
             }
             public static bool operator !=(Path a, Path b) => !(a == b);
-            public override bool Equals(object obj)
-            {
-                if (obj == null || !GetType().Equals(obj.GetType()))
-                {
-                    return false;
-                }
-                else
-                {
-                    return this == (Path)obj;
-                }
-            }
+            public bool Equals(Path other) => this == other;
+            public override bool Equals(object obj) => obj is Path other && Equals(other);
 
             public override int GetHashCode() => _lines.GetHashCode();
 
@@ -1678,7 +1660,7 @@ namespace PAC.Drawing
             IRotatableShape IRotatableShape.DeepCopy() => DeepCopy();
         }
 
-        public class Rectangle : I2DShape
+        public class Rectangle : I2DShape, IEquatable<Rectangle>
         {
             public IntVector2 bottomLeft
             {
@@ -1840,17 +1822,8 @@ namespace PAC.Drawing
 
             public static bool operator ==(Rectangle a, Rectangle b) => a.boundingRect == b.boundingRect && a.filled == b.filled;
             public static bool operator !=(Rectangle a, Rectangle b) => !(a == b);
-            public override bool Equals(object obj)
-            {
-                if (obj == null || !GetType().Equals(obj.GetType()))
-                {
-                    return false;
-                }
-                else
-                {
-                    return this == (Rectangle)obj;
-                }
-            }
+            public bool Equals(Rectangle other) => this == other;
+            public override bool Equals(object obj) => obj is Rectangle other && Equals(other);
 
             public override int GetHashCode() => HashCode.Combine(bottomLeft, topRight, filled);
 
@@ -1860,7 +1833,7 @@ namespace PAC.Drawing
             public Rectangle DeepCopy() => new Rectangle(bottomLeft, topRight, filled);
         }
 
-        public class Diamond : I2DShape
+        public class Diamond : I2DShape, IEquatable<Diamond>
         {
             public IntVector2 bottomLeft
             {
@@ -2129,17 +2102,8 @@ namespace PAC.Drawing
 
             public static bool operator ==(Diamond a, Diamond b) => a.boundingRect == b.boundingRect && a.filled == b.filled;
             public static bool operator !=(Diamond a, Diamond b) => !(a == b);
-            public override bool Equals(object obj)
-            {
-                if (obj == null || !GetType().Equals(obj.GetType()))
-                {
-                    return false;
-                }
-                else
-                {
-                    return this == (Diamond)obj;
-                }
-            }
+            public bool Equals(Diamond other) => this == other;
+            public override bool Equals(object obj) => obj is Diamond other && Equals(other);
 
             public override int GetHashCode() => HashCode.Combine(bottomLeft, topRight, filled);
 
@@ -2149,7 +2113,7 @@ namespace PAC.Drawing
             public Diamond DeepCopy() => new Diamond(bottomLeft, topRight, filled);
         }
 
-        public class Ellipse : I2DShape
+        public class Ellipse : I2DShape, IEquatable<Ellipse>
         {
             // NOTE: For this shape, we work in a coordinate system where integer coordinates refer to the CENTRE of a pixel - e.g. the centre of pixel (0, 0) is (0, 0), not (0.5, 0.5).
 
@@ -2387,17 +2351,8 @@ namespace PAC.Drawing
 
             public static bool operator ==(Ellipse a, Ellipse b) => a.boundingRect == b.boundingRect && a.filled == b.filled;
             public static bool operator !=(Ellipse a, Ellipse b) => !(a == b);
-            public override bool Equals(object obj)
-            {
-                if (obj == null || !GetType().Equals(obj.GetType()))
-                {
-                    return false;
-                }
-                else
-                {
-                    return this == (Ellipse)obj;
-                }
-            }
+            public bool Equals(Ellipse other) => this == other;
+            public override bool Equals(object obj) => obj is Ellipse other && Equals(other);
 
             public override int GetHashCode() => HashCode.Combine(bottomLeft, topRight, filled);
 
@@ -2407,7 +2362,7 @@ namespace PAC.Drawing
             public Ellipse DeepCopy() => new Ellipse(bottomLeft, topRight, filled);
         }
 
-        public class RightTriangle : I2DShape
+        public class RightTriangle : I2DShape, IEquatable<RightTriangle>
         {
             public enum RightAngleLocation
             {
@@ -2823,21 +2778,10 @@ namespace PAC.Drawing
             }
 
             public static bool operator ==(RightTriangle a, RightTriangle b)
-            {
-                return a.bottomCorner == b.bottomCorner && a.topCorner == b.topCorner && a.rightAngleCorner == b.rightAngleCorner && a.filled == b.filled;
-            }
+                => a.bottomCorner == b.bottomCorner && a.topCorner == b.topCorner && a.rightAngleCorner == b.rightAngleCorner && a.filled == b.filled;
             public static bool operator !=(RightTriangle a, RightTriangle b) => !(a == b);
-            public override bool Equals(object obj)
-            {
-                if (obj == null || !GetType().Equals(obj.GetType()))
-                {
-                    return false;
-                }
-                else
-                {
-                    return this == (RightTriangle)obj;
-                }
-            }
+            public bool Equals(RightTriangle other) => this == other;
+            public override bool Equals(object obj) => obj is RightTriangle other && Equals(other);
 
             public override int GetHashCode() => HashCode.Combine(bottomCorner, topCorner, rightAngleLocation, filled);
 
@@ -2890,7 +2834,7 @@ namespace PAC.Drawing
             IFillableShape IFillableShape.DeepCopy() => DeepCopy();
         }
 
-        public class IsometricRectangle : IIsometricShape
+        public class IsometricRectangle : IIsometricShape, IEquatable<IsometricRectangle>
         {
             private IntVector2 startCorner;
             private IntVector2 endCorner;
@@ -3461,17 +3405,8 @@ namespace PAC.Drawing
 
             public static bool operator ==(IsometricRectangle a, IsometricRectangle b) => a.startCorner == b.startCorner && a.endCorner == b.endCorner && a.filled == b.filled;
             public static bool operator !=(IsometricRectangle a, IsometricRectangle b) => !(a == b);
-            public override bool Equals(object obj)
-            {
-                if (obj == null || !GetType().Equals(obj.GetType()))
-                {
-                    return false;
-                }
-                else
-                {
-                    return this == (IsometricRectangle)obj;
-                }
-            }
+            public bool Equals(IsometricRectangle other) => this == other;
+            public override bool Equals(object obj) => obj is IsometricRectangle other && Equals(other);
 
             public override int GetHashCode() => HashCode.Combine(startCorner, endCorner, filled);
 
