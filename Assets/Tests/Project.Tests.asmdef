@@ -12,7 +12,8 @@
         "Project.Extensions.TextReader",
         "Project.Extensions.IEnumerable",
         "Project.Extensions.Range",
-        "Project.Maths"
+        "Project.Maths",
+        "Project.Extensions.IReadOnlyList"
     ],
     "includePlatforms": [
         "Editor"
