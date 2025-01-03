@@ -157,7 +157,7 @@ namespace PAC.Tests
         }
 
         /// <summary>
-        /// Tests that indexing with Range lines works correctly.
+        /// Tests that indexing lines with <see cref="Range"/> works correctly.
         /// </summary>
         [Test]
         [Category("Shapes")]

@@ -781,16 +781,7 @@ namespace PAC.Drawing
                     }
                 }
             }
-            public IEnumerable<IntVector2> this[Range range]
-            {
-                get
-                {
-                    foreach (int i in range.AsEnumerable(Count))
-                    {
-                        yield return this[i];
-                    }
-                }
-            }
+            public IEnumerable<IntVector2> this[Range range] => this.GetRange(range);
 
             IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();
             public IEnumerator<IntVector2> GetEnumerator()
