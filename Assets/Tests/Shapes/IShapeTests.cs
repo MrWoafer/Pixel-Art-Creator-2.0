@@ -107,7 +107,14 @@ namespace PAC.Tests
         {
             foreach (T shape in testCases)
             {
-                IShapeTestHelper.Connected(shape);
+                try
+                {
+                    IShapeTestHelper.Connected(shape);
+                }
+                catch (Exception e)
+                {
+                    throw new TestException($"Exception with {shape}", e);
+                }
             }
         }
 
@@ -330,22 +337,30 @@ namespace PAC.Tests
             HashSet<IntVector2> pixels = shape.ToHashSet();
             HashSet<IntVector2> visited = new HashSet<IntVector2>();
             Queue<IntVector2> toVisit = new Queue<IntVector2>();
-            toVisit.Enqueue(shape.First());
-            
+
+            IntVector2 startingPixel = pixels.First();
+            toVisit.Enqueue(startingPixel);
+            visited.Add(startingPixel);
+
             while (toVisit.Count > 0)
             {
                 IntVector2 pixel = toVisit.Dequeue();
-                visited.Add(pixel);
                 foreach (IntVector2 offsetPixel in pixel + new IntRect(-IntVector2.one, IntVector2.one))
                 {
                     if (pixels.Contains(offsetPixel) && !visited.Contains(offsetPixel))
                     {
                         toVisit.Enqueue(offsetPixel);
+                        visited.Add(offsetPixel);
+
+                        if (visited.Count == pixels.Count)
+                        {
+                            break;
+                        }
                     }
                 }
             }
 
-            Assert.AreEqual(pixels.CountDistinct(), visited.Count, "Failed with " + shape);
+            Assert.AreEqual(pixels.Count, visited.Count, $"Failed with {shape}");
         }
 
         /// <summary>
