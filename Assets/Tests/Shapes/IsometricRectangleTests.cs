@@ -1,6 +1,8 @@
 using NUnit.Framework;
 using PAC.DataStructures;
 using PAC.Drawing;
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -8,18 +10,34 @@ namespace PAC.Tests
 {
     public class IsometricRectangleTests : IIsometricShapeTests<Shapes.IsometricRectangle>
     {
-        public override IEnumerable<Shapes.IsometricRectangle> testCases
+        public override IEnumerable<Shapes.IsometricRectangle> testCases => exampleTestCases.Concat(randomTestCases);
+        public IEnumerable<Shapes.IsometricRectangle> exampleTestCases => new Shapes.IsometricRectangle[]
+        {
+            new Shapes.IsometricRectangle(IntVector2.zero, IntVector2.zero, false),
+            new Shapes.IsometricRectangle(IntVector2.zero, IntVector2.zero, true),
+            new Shapes.IsometricRectangle(IntVector2.zero, IntVector2.right, false),
+            new Shapes.IsometricRectangle(IntVector2.zero, IntVector2.right, true),
+            new Shapes.IsometricRectangle(IntVector2.zero, IntVector2.left, false),
+            new Shapes.IsometricRectangle(IntVector2.zero, IntVector2.left, true),
+            new Shapes.IsometricRectangle(IntVector2.zero, IntVector2.up, false),
+            new Shapes.IsometricRectangle(IntVector2.zero, IntVector2.up, true),
+            new Shapes.IsometricRectangle(IntVector2.zero, IntVector2.down, false),
+            new Shapes.IsometricRectangle(IntVector2.zero, IntVector2.down, true)
+        };
+        public IEnumerable<Shapes.IsometricRectangle> randomTestCases
         {
             get
             {
-                foreach (bool filled in new bool[] { false, true })
+                Random rng = new Random(0);
+                const int numTestCases = 1_000;
+                for (int i = 0; i < numTestCases; i++)
                 {
-                    foreach (IntVector2 bottomLeft in new IntRect(new IntVector2(-2, -2), new IntVector2(2, 2)))
+                    IntVector2 start = new IntVector2(rng.Next(-20, 21), rng.Next(-20, 21));
+                    IntVector2 end = start + new IntVector2(rng.Next(-20, 21), rng.Next(-20, 21));
+                    foreach (bool filled in new bool[] { false, true })
                     {
-                        foreach (IntVector2 topRight in bottomLeft + new IntRect(IntVector2.zero, new IntVector2(5, 5)))
-                        {
-                            yield return new Shapes.IsometricRectangle(bottomLeft, topRight, filled);
-                        }
+
+                        yield return new Shapes.IsometricRectangle(start, end, filled);
                     }
                 }
             }
