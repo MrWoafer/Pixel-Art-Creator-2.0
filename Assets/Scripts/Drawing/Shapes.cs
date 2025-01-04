@@ -2918,27 +2918,12 @@ namespace PAC.Drawing
                     }
                     else
                     {
-                        // Deal with the case where upper border just goes back over lower border
-                        if (upperBorder == lowerBorder.reverse)
+                        // This computation uses the fact that each column of x coords contains exactly 1 or 2 points on the isometric rectangle's border
+                        Path border = this.border;
+                        int count = 0;
+                        for (int x = boundingRect.bottomLeft.x; x <= boundingRect.topRight.x; x++)
                         {
-                            return lowerBorder.Count;
-                        }
-
-                        int count = lowerBorder.Count + upperBorder.Count;
-                        if (lowerBorder.start.y == upperBorder.end.y)
-                        {
-                            if (lowerBorder.end.y == lowerBorder.start.y)
-                            {
-                                count -= lowerBorder.CountOnY(lowerBorder.start.y);
-                            }
-                            else if (lowerBorder.end.y < lowerBorder.start.y)
-                            {
-                                count -= lowerBorder.CountOnY(lowerBorder.start.y) + upperBorder.CountOnY(upperBorder.start.y);
-                            }
-                            else
-                            {
-                                count -= lowerBorder.CountOnY(lowerBorder.end.y) + upperBorder.CountOnY(upperBorder.end.y);
-                            }
+                            count += (border.MinY(x) == border.MaxY(x)) ? 1 : 2;
                         }
                         return count;
                     }                    
@@ -3386,7 +3371,7 @@ namespace PAC.Drawing
             {
                 if (!filled)
                 {
-                    foreach (IntVector2 pixel in lowerBorder.Concat(upperBorder.SkipWhile(p => lowerBorder.Contains(p)).TakeWhile(p => !lowerBorder.Contains(p))))
+                    foreach (IntVector2 pixel in lowerBorder.Concat(upperBorder.Where(p => !lowerBorder.Contains(p))))
                     {
                         yield return pixel;
                     }
