@@ -162,7 +162,7 @@ namespace PAC.Tests
             {
                 foreach (RotationAngle angle in new RotationAngle[] { RotationAngle._0, RotationAngle._90, RotationAngle._180, RotationAngle.Minus90 })
                 {
-                    IRotatableShapeHelper.Rotate(shape, angle);
+                    IRotatableShapeTestHelper.Rotate(shape, angle);
                 }
             }
         }
@@ -232,7 +232,7 @@ namespace PAC.Tests
             {
                 foreach (RotationAngle angle in new RotationAngle[] { RotationAngle._0, RotationAngle._90, RotationAngle._180, RotationAngle.Minus90 })
                 {
-                    IRotatableShapeHelper.Rotate(shape, angle);
+                    IRotatableShapeTestHelper.Rotate(shape, angle);
                 }
             }
         }
@@ -447,7 +447,7 @@ namespace PAC.Tests
     /// <summary>
     /// Helper functions for making tests for IRotatableShapes.
     /// </summary>
-    public static class IRotatableShapeHelper
+    public static class IRotatableShapeTestHelper
     {
         /// <summary>
         /// Applies Rotate() to the shape and checks that the enumerator of the resulting shape is a rotation of the original shape's enumerator.

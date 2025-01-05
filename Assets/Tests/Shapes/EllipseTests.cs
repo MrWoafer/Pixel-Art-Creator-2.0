@@ -154,7 +154,7 @@ namespace PAC.Tests
                 for (int diameter = 1; diameter <= 10; diameter++)
                 {
                     Shapes.Ellipse circle = new Shapes.Ellipse(IntVector2.zero, new IntVector2(diameter - 1, diameter - 1), filled);
-                    IRotatableShapeHelper.RotationalSymmetry(circle, RotationAngle._90);
+                    IRotatableShapeTestHelper.RotationalSymmetry(circle, RotationAngle._90);
                 }
             }
         }
