@@ -352,7 +352,7 @@ namespace PAC.DataStructures
         /// Unlike <see cref="Count"/>, this will never throw an <see cref="OverflowException"/>. For example, the largest range, <see cref="int.MinValue"/> to <see cref="int.MaxValue"/>, cannot be
         /// expressed as an <see cref="int"/> but can be expressed as a <see cref="long"/>.
         /// </remarks>
-        public long LongCount => isEmpty ? 0 : checked(Math.Abs((long)endElement - (long)startElement) + 1);
+        public long LongCount => isEmpty ? 0 : (Math.Abs((long)endElement - (long)startElement) + 1);
         #endregion
 
         #region Predefined Instances
