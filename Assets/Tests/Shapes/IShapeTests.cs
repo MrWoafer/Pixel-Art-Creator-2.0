@@ -44,7 +44,7 @@ namespace PAC.Tests
         }
 
         /// <summary>
-        /// The default implementation tests that the Count property matches the length of the enumerator.
+        /// Tests that the <see cref="IReadOnlyCollection{T}.Count"/> property of the <see cref="Shapes.IShape"/> matches the length of the enumerator.
         /// </summary>
         [Test]
         [Category("Shapes")]
@@ -257,19 +257,11 @@ namespace PAC.Tests
         }
 
         /// <summary>
-        /// Tests that the shape's Count property matches the length of its enumerator.
+        /// Tests that the <see cref="IReadOnlyCollection{T}.Count"/> property of the <see cref="Shapes.IShape"/> matches the length of the enumerator.
         /// </summary>
         public static void Count(Shapes.IShape shape)
         {
             Assert.AreEqual(shape.Count(), shape.Count, "Failed with " + shape);
-        }
-
-        /// <summary>
-        /// Tests that the shape's Count property matches the number of distinct pixels in its enumerator.
-        /// </summary>
-        public static void CountDistinct(Shapes.IShape shape)
-        {
-            Assert.AreEqual(shape.CountDistinct(), shape.Count, "Failed with " + shape);
         }
 
         /// <summary>
