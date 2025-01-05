@@ -368,10 +368,13 @@ namespace PAC.Tests
         /// </summary>
         public static void Translate(Shapes.IShape shape)
         {
+            HashSet<IntVector2> original = shape.ToHashSet();
             foreach (IntVector2 translation in new IntRect(new IntVector2(-2, -2), new IntVector2(2, 2)))
             {
-                IEnumerable<IntVector2> expected = shape.Select(p => p + translation);
-                CollectionAssert.AreEquivalent(expected.ToHashSet(), shape.Translate(translation).ToHashSet(), "Failed with " + shape + " and " + translation);
+                HashSet<IntVector2> expected = original.Select(p => p + translation).ToHashSet();
+                HashSet<IntVector2> translated = shape.Translate(translation).ToHashSet();
+                
+                Assert.True(expected.SetEquals(translated), $"Failed with {shape} and {translation}");
             }
         }
 
@@ -380,8 +383,9 @@ namespace PAC.Tests
         /// </summary>
         public static void Flip(Shapes.IShape shape, FlipAxis axis)
         {
-            IEnumerable<IntVector2> expected = shape.Select(p => p.Flip(axis));
-            CollectionAssert.AreEquivalent(expected.ToHashSet(), shape.Flip(axis).ToHashSet(), "Failed with " + shape + " and " + axis);
+            HashSet<IntVector2> expected = shape.Select(p => p.Flip(axis)).ToHashSet();
+            HashSet<IntVector2> flipped = shape.Flip(axis).ToHashSet();
+            Assert.True(expected.SetEquals(flipped), $"Failed with {shape} and {axis}");
         }
 
         /// <summary>
@@ -454,8 +458,9 @@ namespace PAC.Tests
         /// </summary>
         public static void Rotate(Shapes.IRotatableShape shape, RotationAngle angle)
         {
-            IEnumerable<IntVector2> expected = shape.Select(p => p.Rotate(angle));
-            CollectionAssert.AreEquivalent(expected.ToHashSet(), shape.Rotate(angle).ToHashSet(), "Failed with " + shape + " and " + angle);
+            HashSet<IntVector2> expected = shape.Select(p => p.Rotate(angle)).ToHashSet();
+            HashSet<IntVector2> rotated = shape.Rotate(angle).ToHashSet();
+            Assert.True(expected.SetEquals(rotated), $"Failed with {shape} and {angle}");
         }
 
         /// <summary>
