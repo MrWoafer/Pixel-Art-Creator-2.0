@@ -415,28 +415,34 @@ namespace PAC.Tests
     /// </summary>
     public static class IFillableShapeTestHelper
     {
+        public static HashSet<IntVector2> GetBorder(Shapes.IFillableShape shape)
+        {
+            HashSet<IntVector2> pixels = shape.ToHashSet();
+            HashSet<IntVector2> border = new HashSet<IntVector2>();
+            foreach (IntVector2 pixel in pixels)
+            {
+                foreach (IntVector2 offset in IntVector2.upDownLeftRight)
+                {
+                    if (!pixels.Contains(pixel + offset))
+                    {
+                        border.Add(pixel);
+                        break;
+                    }
+                }
+            }
+            return border;
+        }
+
         /// <summary>
         /// Tests that the unfilled version of the shape is precisely the border of the filled version.
         /// </summary>
         public static void UnfilledIsBorderOfFilled(Shapes.IFillableShape shape)
         {
             shape.filled = true;
-            HashSet<IntVector2> filled = shape.ToHashSet();
-            HashSet<IntVector2> borderOfFilled = new HashSet<IntVector2>();
-            foreach (IntVector2 pixel in filled)
-            {
-                foreach (IntVector2 offset in IntVector2.upDownLeftRight)
-                {
-                    if (!filled.Contains(pixel + offset))
-                    {
-                        borderOfFilled.Add(pixel);
-                        break;
-                    }
-                }
-            }
+            HashSet<IntVector2> borderOfFilled = GetBorder(shape);
 
             shape.filled = false;
-            CollectionAssert.AreEquivalent(borderOfFilled, shape.ToHashSet(), "Failed with " + shape);
+            Assert.True(borderOfFilled.SetEquals(shape), $"Failed with {shape}");
         }
     }
 
