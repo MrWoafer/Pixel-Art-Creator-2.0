@@ -3401,80 +3401,160 @@ namespace PAC.Drawing
             public IsometricRectangle DeepCopy() => new IsometricRectangle(startCorner, endCorner, filled);
         }
 
-        public static Texture2D IsoRectangle(int texWidth, int texHeight, IntVector2 start, IntVector2 end, Color colour, bool filled)
+        public class IsometricCuboid : IIsometricShape, IEquatable<IsometricCuboid>
         {
-            return IsoRectangleOnExistingTex(Tex2DSprite.BlankTexture(texWidth, texHeight), texWidth, texHeight, start, end, colour, filled, true);
-        }
-        /// <summary>
-        /// Draws the isometric rectangle on the given texture.
-        /// </summary>
-        private static Texture2D IsoRectangleOnExistingTex(Texture2D texture, int texWidth, int texHeight, IntVector2 start, IntVector2 end, Color colour, bool filled, bool drawTopLines)
-        {
-            return IsoRectangleOnExistingTexReturnCorners(texture, texWidth, texHeight, start, end, colour, filled, drawTopLines).Item1;
-        }
-        /// <summary>
-        /// Draws the isometric rectangle on the given texture and returns the corners in the given order: left, top, right, bottom.
-        /// </summary>
-        private static Tuple<Texture2D, IntVector2, IntVector2, IntVector2, IntVector2> IsoRectangleOnExistingTexReturnCorners(Texture2D texture, int texWidth, int texHeight, IntVector2 start, IntVector2 end, Color colour, bool filled, bool drawTopLines)
-        {
-            IntRect texRect = new IntRect(IntVector2.zero, new IntVector2(texWidth - 1, texHeight - 1));
-            IsometricRectangle rectangle = new IsometricRectangle(start, end, filled);
-            foreach (IntVector2 pixel in (drawTopLines ? (IEnumerable<IntVector2>)rectangle : rectangle.lowerBorder))
+            private IntVector2 baseStart;
+            private IntVector2 baseEnd;
+
+            public bool filled { get; set; }
+            public bool showBackEdges { get; set; }
+
+            public int width => boundingRect.width;
+            /// <summary>
+            /// The height of the cuboid if you imagined it in 3D space. In other words, how much the bottom face / isometric rectangle is shifted up to form the top face / isometric rectangle.
+            /// </summary>
+            public int height { get; set; }
+
+            public IsometricRectangle bottomRectangle => new IsometricRectangle(baseStart, baseEnd, filled) + MathExtensions.ClampNonPositive(height) * IntVector2.up;
+            public IsometricRectangle topRectangle => bottomRectangle + Math.Abs(height) * IntVector2.up;
+            private I1DShape[] border
             {
-                if (texRect.Contains(pixel))
+                get
                 {
-                    texture.SetPixel(pixel, colour);
+                    I1DShape[] border = new I1DShape[showBackEdges ? 6 : 5];
+                    border[0] = showBackEdges ? bottomRectangle.border : bottomRectangle.lowerBorder;
+                    border[1] = topRectangle.border;
+                    border[2] = new Line(bottomRectangle.leftCorner, topRectangle.leftCorner);
+                    border[3] = new Line(bottomRectangle.rightCorner, topRectangle.rightCorner);
+                    border[4] = new Line(bottomRectangle.bottomCorner, topRectangle.bottomCorner);
+
+                    if (showBackEdges)
+                    {
+                        border[5] = new Line(bottomRectangle.topCorner, topRectangle.topCorner);
+                    }
+
+                    return border;
                 }
             }
-            texture.Apply();
-            return (texture, rectangle.leftCorner, rectangle.topCorner, rectangle.rightCorner, rectangle.bottomCorner).ToTuple();
-        }
 
-        public static Texture2D IsoBox(int texWidth, int texHeight, IntVector2 baseStart, IntVector2 baseEnd, IntVector2 heightEnd, Color colour, bool filled)
-        {
-            Texture2D tex = Tex2DSprite.BlankTexture(texWidth, texHeight);
-            IntRect rect = new IntRect(IntVector2.zero, new IntVector2(texWidth - 1, texHeight - 1));
+            public IntRect boundingRect => IntRect.BoundingRect(bottomRectangle.boundingRect, topRectangle.boundingRect);
 
-            IntVector2 offset = new IntVector2(0, heightEnd.y - baseEnd.y);
-            Tuple<Texture2D, IntVector2, IntVector2, IntVector2, IntVector2> texAndCorners = IsoRectangleOnExistingTexReturnCorners(tex, texWidth, texHeight, baseStart, baseEnd, colour, false, !(filled && offset.y > 0f));
-            tex = texAndCorners.Item1;
-
-            IntVector2 left = texAndCorners.Item2;
-            IntVector2 top = texAndCorners.Item3;
-            IntVector2 right = texAndCorners.Item4;
-            IntVector2 bottom = texAndCorners.Item5;
-
-            tex = IsoRectangleOnExistingTex(tex, texWidth, texHeight, baseStart + offset, baseEnd + offset, colour, false, !(filled && offset.y < 0f));
-
-            if (!filled)
+            public int Count
             {
-                foreach (IntVector2 corner in new IntVector2[] { left, top, right, bottom })
+                get
                 {
-                    for (int y = corner.y; y != corner.y + offset.y; y += MathF.Sign(offset.y))
+                    if (!filled)
                     {
-                        if (rect.Contains(corner.x, y))
+                        return border.Sum(path => path.Count);
+                    }
+
+                    int count = 0;
+                    Path lowerBorder = bottomRectangle.lowerBorder;
+                    Path upperBorder = topRectangle.upperBorder;
+                    foreach (int x in boundingRect.xRange)
+                    {
+                        count += upperBorder.MaxY(x) - lowerBorder.MinY(x) + 1;
+                    }
+                    return count;
+                }
+            }
+
+            public IsometricCuboid(IntVector2 baseStart, IntVector2 baseEnd, int height, bool filled, bool showBackEdges)
+            {
+                this.baseStart = baseStart;
+                this.baseEnd = baseEnd;
+                this.height = height;
+                this.filled = filled;
+                this.showBackEdges = showBackEdges;
+            }
+
+            public bool Contains(IntVector2 pixel)
+            {
+                if (filled)
+                {
+                    return boundingRect.ContainsX(pixel.x) && bottomRectangle.lowerBorder.MinY(pixel.x) <= pixel.y && pixel.y <= topRectangle.upperBorder.MaxY(pixel.x);
+                }
+                else
+                {
+                    foreach (I1DShape path in border)
+                    {
+                        if (path.Contains(pixel))
                         {
-                            tex.SetPixel(corner.x, y, colour);
+                            return true;
                         }
                     }
-                }
-            }
-            else
-            {
-                foreach (IntVector2 corner in new IntVector2[] { left, right, bottom })
-                {
-                    for (int y = corner.y; y != corner.y + offset.y; y += MathF.Sign(offset.y))
-                    {
-                        if (rect.Contains(corner.x, y))
-                        {
-                            tex.SetPixel(corner.x, y, colour);
-                        }
-                    }
+                    return false;
                 }
             }
 
-            tex.Apply();
-            return tex;
+            /// <summary>
+            /// Translates the isometric cuboid by the given vector.
+            /// </summary>
+            public static IsometricCuboid operator +(IsometricCuboid isoRectangle, IntVector2 translation) => isoRectangle.Translate(translation);
+            /// <summary>
+            /// Translates the isometric cuboid by the given vector.
+            /// </summary>
+            public static IsometricCuboid operator +(IntVector2 translation, IsometricCuboid isoRectangle) => isoRectangle + translation;
+            /// <summary>
+            /// Translates the isometric cuboid by the given vector.
+            /// </summary>
+            public static IsometricCuboid operator -(IsometricCuboid isoRectangle, IntVector2 translation) => isoRectangle + (-translation);
+
+            IIsometricShape IIsometricShape.Translate(IntVector2 translation) => Translate(translation);
+            /// <summary>
+            /// Translates the isometric cuboid by the given vector.
+            /// </summary>
+            public IsometricCuboid Translate(IntVector2 translation) => new IsometricCuboid(baseStart + translation, baseEnd + translation, height, filled, showBackEdges);
+
+            IIsometricShape IIsometricShape.Flip(FlipAxis axis) => Flip(axis);
+            /// <summary>
+            /// Reflects the isometric cuboid across the given axis.
+            /// </summary>
+            public IsometricCuboid Flip(FlipAxis axis) => axis switch
+            {
+                FlipAxis.None => DeepCopy(),
+                FlipAxis.Vertical => new IsometricCuboid(baseStart.Flip(axis), baseEnd.Flip(axis), height, filled, showBackEdges),
+                FlipAxis.Horizontal | FlipAxis._45Degrees | FlipAxis.Minus45Degrees
+                => throw new ArgumentException($"{nameof(Flip)}() is undefined for {nameof(IsometricCuboid)} across the {axis} axis.", nameof(axis)),
+                _ => throw new NotImplementedException($"Unknown / unimplemented FlipAxis: {axis}")
+            };
+
+            IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();
+            public IEnumerator<IntVector2> GetEnumerator()
+            {
+                if (filled)
+                {
+                    Path lowerBorder = bottomRectangle.lowerBorder;
+                    Path upperBorder = topRectangle.upperBorder;
+                    foreach (int x in boundingRect.xRange)
+                    {
+                        foreach (int y in IntRange.InclIncl(lowerBorder.MinY(x), upperBorder.MaxY(x)))
+                        {
+                            yield return new IntVector2(x, y);
+                        }
+                    }
+                    yield break;
+                }
+
+                foreach (IntVector2 pixel in border.Flatten())
+                {
+                    yield return pixel;
+                }
+            }
+
+            public static bool operator ==(IsometricCuboid a, IsometricCuboid b)
+                => a.bottomRectangle == b.bottomRectangle && a.height == b.height && a.filled == b.filled && a.showBackEdges == b.showBackEdges;
+            public static bool operator !=(IsometricCuboid a, IsometricCuboid b) => !(a == b);
+            public bool Equals(IsometricCuboid other) => this == other;
+            public override bool Equals(object obj) => obj is IsometricCuboid other && Equals(other);
+
+            public override int GetHashCode() => HashCode.Combine(bottomRectangle, height, filled, showBackEdges);
+
+            public override string ToString()
+                => $"IsometricCuboid({baseStart}, {baseEnd}, {height}, {(filled ? "filled" : "unfilled")}, {(showBackEdges ? "show back edges" : "don't show back edges")})";
+
+            IIsometricShape IIsometricShape.DeepCopy() => DeepCopy();
+            public IsometricCuboid DeepCopy() => new IsometricCuboid(baseStart, baseEnd, height, filled, showBackEdges);
         }
 
         public static Texture2D Gradient(int texWidth, int texHeight, IntVector2 start, IntVector2 end, Color startColour, Color endColour, GradientMode gradientMode)

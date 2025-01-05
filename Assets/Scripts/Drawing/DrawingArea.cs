@@ -716,7 +716,7 @@ namespace PAC.Drawing
         {
             if (tool == Tool.IsoBox)
             {
-                if (isoBoxPlacedBase) { PreviewIsoBox(mouseDragPoints[0], mouseDragPoints[1], pixel, colour, rightClickedOn); }
+                if (isoBoxPlacedBase) { PreviewShape(new Shapes.IsometricCuboid(mouseDragPoints[0], mouseDragPoints[1], pixel.y - mouseDragPoints[1].y, holdingCtrl, !rightClickedOn), colour); }
             }
         }
 
@@ -788,8 +788,8 @@ namespace PAC.Drawing
             }
             else if (tool == Tool.IsoBox && (leftClickedOn || rightClickedOn))
             {
-                if (!isoBoxPlacedBase) { PreviewIsoRectangle(mouseDragPoints[0], pixel, colour, false); }
-                else { PreviewIsoBox(mouseDragPoints[0], mouseDragPoints[1], pixel, colour, rightClickedOn); }
+                if (!isoBoxPlacedBase) { PreviewShape(new Shapes.IsometricCuboid(mouseDragPoints[0], pixel, 0, holdingCtrl, !rightClickedOn), colour); }
+                else { PreviewShape(new Shapes.IsometricCuboid(mouseDragPoints[0], mouseDragPoints[1], pixel.y - mouseDragPoints[1].y, holdingCtrl, !rightClickedOn), colour); }
             }
             else if (tool == Tool.Gradient && (leftClickedOn || rightClickedOn))
             {
@@ -893,7 +893,7 @@ namespace PAC.Drawing
                 }
                 else
                 {
-                    Tools.UseIsoBox(file, layer, frame, mouseDragPoints[0], mouseDragPoints[1], pixel, colour, rightClickedOn);
+                    Tools.UseShape(file, layer, frame, new Shapes.IsometricCuboid(mouseDragPoints[0], mouseDragPoints[1], pixel.y - mouseDragPoints[1].y, holdingCtrl, !rightClickedOn), colour);
                     UpdateDrawing();
 
                     isoBoxPlacedBase = false;
@@ -932,22 +932,6 @@ namespace PAC.Drawing
         private void PreviewShape(Shapes.IShape shape, Color colour)
         {
             SetPreview(shape.ToTexture(colour), shape.boundingRect.bottomLeft);
-        }
-
-        private void PreviewIsoRectangle(IntVector2 start, IntVector2 end, Color colour, bool filled)
-        {
-            IntRect rect = file.rect;
-            Texture2D tex = Shapes.IsoRectangle(rect.width, rect.height, start - rect.bottomLeft, end - rect.bottomLeft, colour, filled);
-
-            SetPreview(tex, rect.bottomLeft);
-        }
-
-        private void PreviewIsoBox(IntVector2 baseStart, IntVector2 baseEnd, IntVector2 heightEnd, Color colour, bool filled)
-        {
-            IntRect rect = file.rect;
-            Texture2D tex = Shapes.IsoBox(rect.width, rect.height, baseStart - rect.bottomLeft, baseEnd - rect.bottomLeft, heightEnd - rect.bottomLeft, colour, filled);
-
-            SetPreview(tex, rect.bottomLeft);
         }
 
         public void PreviewGradient(IntVector2 start, IntVector2 end, Color startColour, Color endColour, GradientMode gradientMode)

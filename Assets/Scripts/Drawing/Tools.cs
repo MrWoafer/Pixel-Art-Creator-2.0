@@ -95,26 +95,6 @@ namespace PAC.Drawing
             file.layers[layer].SetPixels(shape.Where(p => file.rect.Contains(p)), frame, colour, AnimFrameRefMode.NewKeyFrame);
         }
 
-        public static void UseIsoRectangle(File file, int layer, int frame, IntVector2 start, IntVector2 end, Color colour, bool filled)
-        {
-            if (file.layers[layer].layerType != LayerType.Normal)
-            {
-                throw new System.Exception("Layer is not a normal layer. Layer type: " + file.layers[layer].layerType);
-            }
-            Texture2D triangle = Shapes.IsoRectangle(file.width, file.height, start, end, colour, filled);
-            ((NormalLayer)file.layers[layer]).OverlayTexture(frame, triangle, AnimFrameRefMode.NewKeyFrame);
-        }
-
-        public static void UseIsoBox(File file, int layer, int frame, IntVector2 baseStart, IntVector2 baseEnd, IntVector2 heightEnd, Color colour, bool filled)
-        {
-            if (file.layers[layer].layerType != LayerType.Normal)
-            {
-                throw new System.Exception("Layer is not a normal layer. Layer type: " + file.layers[layer].layerType);
-            }
-            Texture2D triangle = Shapes.IsoBox(file.width, file.height, baseStart, baseEnd, heightEnd, colour, filled);
-            ((NormalLayer)file.layers[layer]).OverlayTexture(frame, triangle, AnimFrameRefMode.NewKeyFrame);
-        }
-
         public static void UseGradient(File file, int layer, int frame, IntVector2 start, IntVector2 end, Color startColour, Color endColour, GradientMode gradientMode)
         {
             UseGradient(file, layer, frame, start, end, startColour, endColour, gradientMode, new IntVector2[0]);
