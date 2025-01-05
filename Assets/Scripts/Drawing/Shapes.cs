@@ -1580,9 +1580,6 @@ namespace PAC.Drawing
             /// </summary>
             public bool filled { get; set; }
 
-            public int width { get; }
-            public int height { get; }
-
             /// <summary>
             /// Translates the shape by the given vector.
             /// </summary>
@@ -1685,11 +1682,8 @@ namespace PAC.Drawing
 
             public bool filled { get; set; }
 
-            public int width => boundingRect.width;
-            public int height => boundingRect.height;
-
             /// <summary>True if the rectangle is a square.</summary>
-            public bool isSquare => width == height;
+            public bool isSquare => boundingRect.width == boundingRect.height;
 
             public IntRect boundingRect { get; private set; }
 
@@ -1700,18 +1694,18 @@ namespace PAC.Drawing
                     // Filled
                     if (filled)
                     {
-                        return width * height;
+                        return boundingRect.width * boundingRect.height;
                     }
                     // Unfilled
-                    if (width == 1)
+                    if (boundingRect.width == 1)
                     {
-                        return height;
+                        return boundingRect.height;
                     }
-                    if (height == 1)
+                    if (boundingRect.height == 1)
                     {
-                        return width;
+                        return boundingRect.width;
                     }
-                    return 2 * (width + height) - 4;
+                    return 2 * (boundingRect.width + boundingRect.height) - 4;
                 }
             }
 
@@ -1858,11 +1852,8 @@ namespace PAC.Drawing
 
             public bool filled { get; set; }
 
-            public int width => boundingRect.width;
-            public int height => boundingRect.height;
-
             /// <summary>True if the diamond is a square.</summary>
-            public bool isSquare => width == height;
+            public bool isSquare => boundingRect.width == boundingRect.height;
 
             public IntRect boundingRect { get; private set; }
 
@@ -1870,9 +1861,9 @@ namespace PAC.Drawing
             {
                 get
                 {
-                    if (width == 1 || height == 1)
+                    if (boundingRect.width == 1 || boundingRect.height == 1)
                     {
-                        return Math.Max(width, height);
+                        return Math.Max(boundingRect.width, boundingRect.height);
                     }
 
                     var edges = this.edges;
@@ -1892,9 +1883,9 @@ namespace PAC.Drawing
                     }
                     else
                     {
-                        if (width <= 2 || height <= 2)
+                        if (boundingRect.width <= 2 || boundingRect.height <= 2)
                         {
-                            return width * height;
+                            return boundingRect.width * boundingRect.height;
                         }
 
                         // We exploit the symmetry of the diamond across the vertical and horizontal axes
@@ -1923,17 +1914,17 @@ namespace PAC.Drawing
                 {
                     Line[] lines =  new Line[] {
                         // Bottom-left edge
-                        new Line(topLeft + height / 2 * IntVector2.down, bottomRight + width / 2 * IntVector2.left),
+                        new Line(topLeft + boundingRect.height / 2 * IntVector2.down, bottomRight + boundingRect.width / 2 * IntVector2.left),
                         // Bottom-right edge
-                        new Line(topRight + height / 2 * IntVector2.down, bottomLeft + width / 2 * IntVector2.right),
+                        new Line(topRight + boundingRect.height / 2 * IntVector2.down, bottomLeft + boundingRect.width / 2 * IntVector2.right),
                         // Top-right edge
-                        new Line(bottomRight + height / 2 * IntVector2.up, topLeft + width / 2 * IntVector2.right),
+                        new Line(bottomRight + boundingRect.height / 2 * IntVector2.up, topLeft + boundingRect.width / 2 * IntVector2.right),
                         // Top-left edge
-                        new Line(bottomLeft + height / 2 * IntVector2.up, topRight + width / 2 * IntVector2.left)
+                        new Line(bottomLeft + boundingRect.height / 2 * IntVector2.up, topRight + boundingRect.width / 2 * IntVector2.left)
                     };
 
                     // This is to ensure rotating / reflecting doesn't change the shape (up to rotating / reflecting)
-                    if (width > height)
+                    if (boundingRect.width > boundingRect.height)
                     {
                         for (int i = 0; i < lines.Length; i++)
                         {
@@ -1943,7 +1934,7 @@ namespace PAC.Drawing
 
                     // This is to make the the diamonds more aesthetic by overlapping the edges as much as possible
                     // One such effect this has is making sure diamonds that can be drawn with perfect lines are drawn as such
-                    if (width > height)
+                    if (boundingRect.width > boundingRect.height)
                     {
                         // Not particularly efficient, but does the job and really isn't slow even when drawing diamonds with a width of 1000
                         while (lines[0].boundingRect.bottomRight.x <= lines[1].MaxX(bottomLeft.y))
@@ -1959,7 +1950,7 @@ namespace PAC.Drawing
                         lines[2].start += IntVector2.right;
                         lines[3].start += IntVector2.left;
                     }
-                    else if (width < height)
+                    else if (boundingRect.width < boundingRect.height)
                     {
                         while (lines[0].boundingRect.topLeft.y <= lines[3].MaxY(bottomLeft.x))
                         {
@@ -2141,14 +2132,12 @@ namespace PAC.Drawing
             public bool filled { get; set; }
 
             // These values are calculated and cached when you set the size of the ellipse
-            public int width { get; private set; }
-            public int height { get; private set; }
             private float xRadius;
             private float yRadius;
             private Vector2 centre;
 
             /// <summary>True if the ellipse is a circle.</summary>
-            public bool isCircle => width == height;
+            public bool isCircle => boundingRect.width == boundingRect.height;
 
             public IntRect boundingRect { get; private set; }
 
@@ -2158,9 +2147,6 @@ namespace PAC.Drawing
             {
                 boundingRect = new IntRect(IntVector2.zero, IntVector2.zero);
                 this.filled = filled;
-
-                width = 0;
-                height = 0;
 
                 xRadius = 0f;
                 yRadius = 0f;
@@ -2173,11 +2159,8 @@ namespace PAC.Drawing
             {
                 boundingRect = new IntRect(corner, oppositeCorner);
 
-                width = boundingRect.width;
-                height = boundingRect.height;
-
-                xRadius = width / 2f;
-                yRadius = height / 2f;
+                xRadius = boundingRect.width / 2f;
+                yRadius = boundingRect.height / 2f;
                 centre = ((Vector2)bottomLeft + topRight) / 2f;
             }
 
@@ -2191,18 +2174,18 @@ namespace PAC.Drawing
             private bool IsInside(IntVector2 pixel)
             {
                 // Manually override 1xn and 2xn case (as otherwise the algorithm doesn't include the top/bottom row in the 2xn case - the 1xn case is just because we might as well include it)
-                if (width <= 2)
+                if (boundingRect.width <= 2)
                 {
                     return boundingRect.Contains(pixel);
                 }
                 // Manually override nx1 and nx2 case (as otherwise the algorithm doesn't include the left/right column in the 2xn case - the 1xn case is just because we might as well include it)
-                if (height <= 2)
+                if (boundingRect.height <= 2)
                 {
                     return boundingRect.Contains(pixel);
                 }
 
                 // Manually override 3x3 case (as otherwise the algorithm gives a 3x3 square instead of the more aesthetic 'plus sign')
-                if (width == 3 && height == 3)
+                if (boundingRect.width == 3 && boundingRect.height == 3)
                 {
                     IntVector2 centre = bottomLeft + IntVector2.one;
                     // This just gives the 'plus sign' shape we want
@@ -2272,7 +2255,7 @@ namespace PAC.Drawing
             public IEnumerator<IntVector2> GetEnumerator()
             {
                 // Manually define horizontal/vertical lines to avoid repeating pixels
-                if (width == 1)
+                if (boundingRect.width == 1)
                 {
                     for (int y = bottomLeft.y; y <= topRight.y; y++)
                     {
@@ -2280,7 +2263,7 @@ namespace PAC.Drawing
                     }
                     yield break;
                 }
-                if (height == 1)
+                if (boundingRect.height == 1)
                 {
                     for (int x = bottomLeft.x; x <= topRight.x; x++)
                     {
@@ -2316,7 +2299,7 @@ namespace PAC.Drawing
                 IntVector2 primaryDirection = IntVector2.right;
                 IntVector2 secondaryDirection = new IntVector2(1, -1);
                 IntVector2 tertiaryDirection = IntVector2.down;
-                IntVector2 start = new IntVector2(bottomLeft.x + width / 2, topRight.y);
+                IntVector2 start = new IntVector2(bottomLeft.x + boundingRect.width / 2, topRight.y);
                 IntVector2 pixel = start;
 
                 int iterations = 0;
@@ -2471,11 +2454,8 @@ namespace PAC.Drawing
 
             public bool filled { get; set; }
 
-            public int width => boundingRect.width;
-            public int height => boundingRect.height;
-
             /// <summary>True if the triangle is an isosceles triangle.</summary>
-            public bool isIsosceles => width == height;
+            public bool isIsosceles => boundingRect.width == boundingRect.height;
 
             public IntRect boundingRect => new IntRect(bottomCorner, topCorner);
 
@@ -2483,24 +2463,24 @@ namespace PAC.Drawing
             {
                 get
                 {
-                    if (width == 1)
+                    if (boundingRect.width == 1)
                     {
-                        return height;
+                        return boundingRect.height;
                     }
-                    if (height == 1)
+                    if (boundingRect.height == 1)
                     {
-                        return width;
+                        return boundingRect.width;
                     }
 
-                    if (!filled || width == 2 || height == 2)
+                    if (!filled || boundingRect.width == 2 || boundingRect.height == 2)
                     {
                         return border.Count;
                     }
 
-                    if (width >= height)
+                    if (boundingRect.width >= boundingRect.height)
                     {
                         // The vertical side of the triangle won't be counted in the loop
-                        int count = height;
+                        int count = boundingRect.height;
                         // Go along the hypotenuse
                         foreach (IntVector2 pixel in border.lines[0])
                         {
@@ -2511,7 +2491,7 @@ namespace PAC.Drawing
                     else
                     {
                         // The horizontal side of the triangle won't be counted in the loop
-                        int count = width;
+                        int count = boundingRect.width;
                         // Go along the hypotenuse
                         foreach (IntVector2 pixel in border.lines[0])
                         {
@@ -2565,7 +2545,7 @@ namespace PAC.Drawing
                     // This is to ensure reflecting doesn't change the shape (up to reflecting)
                     // If width >= height, we draw the hypotenuse starting from the corner with the same y coord as the right angle corner
                     // If width < height, we draw the hypotenuse starting from the corner with the same x coord as the right angle corner
-                    if ((width < height) != (startCorner.y != rightAngleCorner.y))
+                    if ((boundingRect.width < boundingRect.height) != (startCorner.y != rightAngleCorner.y))
                     {
                         IntVector2 temp;
 
@@ -2579,12 +2559,12 @@ namespace PAC.Drawing
                     }
 
                     // Override shape of 2xn and nx2 triangles to be more aesthetic (otherwise they are just diamonds).
-                    if (width == 2 && height == 2)
+                    if (boundingRect.width == 2 && boundingRect.height == 2)
                     {
                         startAdjusted = startCorner;
                         endAdjusted = endCorner;
                     }
-                    if (width == 2 || height == 2)
+                    if (boundingRect.width == 2 || boundingRect.height == 2)
                     {
                         startAdjusted = endAdjusted + (startAdjusted - endAdjusted) / 2;
                     }
@@ -2620,7 +2600,7 @@ namespace PAC.Drawing
 
                 // These cases are separate as the winding number is only defined for paths that are loops, but these cases don't give loops.
                 // (Actually the 1x1, 1x2 and 2x1 cases don't need to be included in this, but it's easier to just include them.)
-                if (width <= 2 || height <= 2)
+                if (boundingRect.width <= 2 || boundingRect.height <= 2)
                 {
                     return border.Contains(pixel);
                 }
@@ -2758,7 +2738,7 @@ namespace PAC.Drawing
                     yield return pixel;
                 }
 
-                if (!filled || width == 2 || height == 2)
+                if (!filled || boundingRect.width == 2 || boundingRect.height == 2)
                 {
                     yield break;
                 }
@@ -2893,9 +2873,6 @@ namespace PAC.Drawing
             public Path upperBorder { get; private set; }
 
             public bool filled { get; set; }
-
-            public int width => boundingRect.width;
-            public int height => boundingRect.height;
 
             /// <summary>True if the isometric rectangle is an isometric square.</summary>
             public bool isIsometricSquare => lowerBorder.start.y == lowerBorder.end.y;
@@ -3409,7 +3386,6 @@ namespace PAC.Drawing
             public bool filled { get; set; }
             public bool showBackEdges { get; set; }
 
-            public int width => boundingRect.width;
             /// <summary>
             /// The height of the cuboid if you imagined it in 3D space. In other words, how much the bottom face / isometric rectangle is shifted up to form the top face / isometric rectangle.
             /// </summary>

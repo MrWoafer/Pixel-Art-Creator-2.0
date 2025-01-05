@@ -176,32 +176,6 @@ namespace PAC.Tests
     public abstract class IFillableShapeTests<T> : IShapeTests<T> where T : Shapes.IFillableShape
     {
         /// <summary>
-        /// The default implementation tests the width property matches the bounding rect's width, though this is not the universally-intended behaviour for the width property.
-        /// </summary>
-        [Test]
-        [Category("Shapes")]
-        public virtual void Width()
-        {
-            foreach (T shape in testCases)
-            {
-                Assert.AreEqual(shape.boundingRect.width, shape.width, "Failed with " + shape);
-            }
-        }
-
-        /// <summary>
-        /// The default implementation tests the height property matches the bounding rect's height, though this is not the universally-intended behaviour for the height property.
-        /// </summary>
-        [Test]
-        [Category("Shapes")]
-        public virtual void Height()
-        {
-            foreach (T shape in testCases)
-            {
-                Assert.AreEqual(shape.boundingRect.height, shape.height, "Failed with " + shape);
-            }
-        }
-
-        /// <summary>
         /// Tests that the unfilled version of a shape is precisely the border of the filled version.
         /// </summary>
         [Test]

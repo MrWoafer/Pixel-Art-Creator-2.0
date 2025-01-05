@@ -100,16 +100,13 @@ namespace PAC.Tests
         [Category("Shapes")]
         public override void NoRepeats() => Assert.Pass();
 
-        /// <summary>
-        /// Override the default test since height does not equal the height of the bounding rect.
-        /// </summary>
         [Test]
         [Category("Shapes")]
-        public override void Height()
+        public void Height()
         {
             foreach (Shapes.IsometricCuboid shape in testCases)
             {
-                Assert.AreEqual(Math.Abs(shape.height), shape.topRectangle.boundingRect.bottomLeft.y - shape.bottomRectangle.boundingRect.bottomLeft.y, $"Failed with {shape}");
+                Assert.AreEqual(Math.Abs(shape.height), shape.topRectangle.boundingRect.minY - shape.bottomRectangle.boundingRect.minY, $"Failed with {shape}");
             }
         }
 
