@@ -660,7 +660,7 @@ namespace PAC.DataStructures
                 throw new ArgumentNullException(nameof(integers), $"Cannot perform {nameof(BoundingRange)}() on null.");
             }
 
-            if (integers.IsEmpty())
+            if (integers.None())
             {
                 return Empty;
             }

@@ -210,7 +210,7 @@ namespace PAC.Maths
             }
 
             // Optimisation - otherwise, if first is non-empty but second is empty, then we would still have to iterate over all of first
-            if (second.IsEmpty())
+            if (second.None())
             {
                 yield break;
             }
@@ -264,7 +264,7 @@ namespace PAC.Maths
             }
 
             // Optimisation - otherwise, if first is non-empty but second and/or third are empty, then we would still have to iterate over all of first and potentially second
-            if (second.IsEmpty() || third.IsEmpty())
+            if (second.None() || third.None())
             {
                 yield break;
             }
@@ -315,7 +315,7 @@ namespace PAC.Maths
             {
                 throw new ArgumentOutOfRangeException(nameof(length), $"Cannot generate tuples of negative length: {length}.");
             }
-            if (elements.IsEmpty())
+            if (elements.None())
             {
                 yield break;
             }
@@ -351,7 +351,7 @@ namespace PAC.Maths
         {
             static IEnumerable<IEnumerable<T>> PermutationsNonEmptyInput(IEnumerable<T> elements)
             {
-                if (elements.IsEmpty())
+                if (elements.None())
                 {
                     yield return Enumerable.Empty<T>();
                     yield break;
@@ -371,7 +371,7 @@ namespace PAC.Maths
                 throw new ArgumentNullException(nameof(elements), $"The given set of elements is null.");
             }
 
-            if (elements.IsEmpty())
+            if (elements.None())
             {
                 yield break;
             }
@@ -404,7 +404,7 @@ namespace PAC.Maths
             {
                 yield break;
             }
-            if (elements.IsEmpty())
+            if (elements.None())
             {
                 throw new ArgumentOutOfRangeException(nameof(length), $"Ran out of elements to pick from. Still have {length} left to choose.");
             }

@@ -40,7 +40,7 @@ namespace PAC.Tests
         {
             foreach (IntRange range in testCases)
             {
-                if (range.IsEmpty())
+                if (range.None())
                 {
                     Assert.Throws<UndefinedOperationException>(() => { int _ = range.startElement; }, "Failed with " + range);
                 }
@@ -57,7 +57,7 @@ namespace PAC.Tests
         {
             foreach (IntRange range in testCases)
             {
-                if (range.IsEmpty())
+                if (range.None())
                 {
                     Assert.Throws<UndefinedOperationException>(() => { int _ = range.endElement; }, "Failed with " + range);
                 }
@@ -74,7 +74,7 @@ namespace PAC.Tests
         {
             foreach (IntRange range in testCases)
             {
-                if (range.IsEmpty())
+                if (range.None())
                 {
                     Assert.Throws<UndefinedOperationException>(() => { int _ = range.minElement; }, "Failed with " + range);
                 }
@@ -91,7 +91,7 @@ namespace PAC.Tests
         {
             foreach (IntRange range in testCases)
             {
-                if (range.IsEmpty())
+                if (range.None())
                 {
                     Assert.Throws<UndefinedOperationException>(() => { int _ = range.maxElement; }, "Failed with " + range);
                 }
@@ -182,7 +182,7 @@ namespace PAC.Tests
         {
             foreach (IntRange range in testCases)
             {
-                if (range.IsEmpty())
+                if (range.None())
                 {
                     Assert.Throws<InvalidOperationException>(() => { IntRange _ = range.asInclIncl; }, "Failed with " + range);
                 }
@@ -203,7 +203,7 @@ namespace PAC.Tests
         {
             foreach (IntRange range in testCases)
             {
-                Assert.AreEqual(range.IsEmpty(), range.isEmpty, "Failed with " + range);
+                Assert.AreEqual(range.None(), range.isEmpty, "Failed with " + range);
             }
         }
 
@@ -251,7 +251,7 @@ namespace PAC.Tests
                 foreach (IntRange range2 in testCases)
                 {
                     // Using Assert.True(x == y) is much faster than Assert.AreEqual(x, y)
-                    Assert.True(((IEnumerable<int>)range1).Intersect((IEnumerable<int>)range2).IsNotEmpty() == range1.Intersects(range2), $"Failed with {range1} and {range2}.");
+                    Assert.True(((IEnumerable<int>)range1).Intersect((IEnumerable<int>)range2).Any() == range1.Intersects(range2), $"Failed with {range1} and {range2}.");
                 }
             }
         }
@@ -275,7 +275,7 @@ namespace PAC.Tests
         {
             foreach (IntRange range in testCases)
             {
-                if (range.IsEmpty())
+                if (range.None())
                 {
                     for (int n = -5; n <= 5; n++)
                     {

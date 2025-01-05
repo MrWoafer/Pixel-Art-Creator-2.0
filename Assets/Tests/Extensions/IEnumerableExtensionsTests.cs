@@ -31,23 +31,12 @@ namespace PAC.Tests
 
         [Test]
         [Category("Extensions")]
-        public void IsEmpty()
+        public void None()
         {
             for (int inputLength = 0; inputLength <= 10; inputLength++)
             {
                 int[] input = new int[inputLength];
-                Assert.AreEqual(input.Length == 0, input.IsEmpty(), "Failed with length " + inputLength);
-            }
-        }
-
-        [Test]
-        [Category("Extensions")]
-        public void IsNotEmpty()
-        {
-            for (int inputLength = 0; inputLength <= 10; inputLength++)
-            {
-                int[] input = new int[inputLength];
-                Assert.AreEqual(input.Length != 0, input.IsNotEmpty(), "Failed with length " + inputLength);
+                Assert.AreEqual(input.Length == 0, input.None(), $"Failed with length {inputLength}");
             }
         }
 

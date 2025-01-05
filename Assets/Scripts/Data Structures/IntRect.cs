@@ -434,7 +434,7 @@ namespace PAC.DataStructures
             {
                 throw new ArgumentNullException(nameof(rects), "The given collection of rects is null.");
             }
-            if (rects.IsEmpty())
+            if (rects.None())
             {
                 throw new ArgumentException("The given collection of rects is empty.", nameof(rects));
             }

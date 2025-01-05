@@ -1050,7 +1050,7 @@ namespace PAC.Drawing
             /// </summary>
             public Path(IEnumerable<IntVector2> points)
             {
-                if (points.IsEmpty())
+                if (points.None())
                 {
                     throw new ArgumentException("Cannot create a path from 0 points.", "points");
                 }
@@ -1086,7 +1086,7 @@ namespace PAC.Drawing
             /// </summary>
             public Path(IEnumerable<Line> lines)
             {
-                if (lines.IsEmpty())
+                if (lines.None())
                 {
                     throw new ArgumentException("Cannot create a path from 0 lines.", "lines");
                 }
@@ -1128,7 +1128,7 @@ namespace PAC.Drawing
             /// </summary>
             public static Path Concat(IEnumerable<Path> paths)
             {
-                if (paths.IsEmpty())
+                if (paths.None())
                 {
                     throw new ArgumentException("Cannot concat an empty collection of paths.", "paths");
                 }

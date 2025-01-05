@@ -550,7 +550,7 @@ namespace PAC.DataStructures
             {
                 throw new ArgumentNullException($"Cannot perform {nameof(Max)}() on null.", nameof(vectors));
             }
-            if (vectors.IsEmpty())
+            if (vectors.None())
             {
                 throw new ArgumentException($"Cannot perform {nameof(Max)}() on an empty collection of {nameof(IntVector2)}s.", nameof(vectors));
             }
@@ -586,7 +586,7 @@ namespace PAC.DataStructures
             {
                 throw new ArgumentNullException($"Cannot perform {nameof(Min)}() on null.", nameof(vectors));
             }
-            if (vectors.IsEmpty())
+            if (vectors.None())
             {
                 throw new ArgumentException($"Cannot perform {nameof(Min)}() on an empty collection of {nameof(IntVector2)}s.", nameof(vectors));
             }

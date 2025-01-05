@@ -84,27 +84,6 @@ namespace PAC.Extensions
         }
 
         /// <summary>
-        /// Returns true iff the given <see cref="IEnumerable{T}"/> has no elements.
-        /// </summary>
-        public static bool IsEmpty<T>(this IEnumerable<T> elements)
-        {
-            if (elements is null)
-            {
-                throw NullIEnumerableException<T>(nameof(elements));
-            }
-
-            foreach (T element in elements)
-            {
-                return false;
-            }
-            return true;
-        }
-        /// <summary>
-        /// Returns true iff the given <see cref="IEnumerable{T}"/> has at least one element.
-        /// </summary>
-        public static bool IsNotEmpty<T>(this IEnumerable<T> elements) => !elements.IsEmpty();
-
-        /// <summary>
         /// Returns whether the given <see cref="IEnumerable{T}"/> has exactly n elements.
         /// </summary>
         public static bool CountExactly<T>(this IEnumerable<T> elements, int n)
@@ -210,6 +189,10 @@ namespace PAC.Extensions
         /// </summary>
         public static bool NotAll<T>(this IEnumerable<T> elements, Func<T, bool> predicate) => !elements.All(predicate);
         /// <summary>
+        /// Returns true iff the given sequence is empty.
+        /// </summary>
+        public static bool None<T>(this IEnumerable<T> elements) => !elements.Any();
+        /// <summary>
         /// Returns true iff none of the elements satisfy the predicate.
         /// </summary>
         public static bool None<T>(this IEnumerable<T> elements, Func<T, bool> predicate) => !elements.Any(predicate);
@@ -306,7 +289,7 @@ namespace PAC.Extensions
             {
                 throw NullIEnumerableException<TElement>(nameof(elements));
             }
-            if (elements.IsEmpty())
+            if (elements.None())
             {
                 throw EmptyIEnumerableException<TElement>(nameof(elements));
             }
@@ -332,7 +315,7 @@ namespace PAC.Extensions
             {
                 throw NullIEnumerableException<TElement>(nameof(elements));
             }
-            if (elements.IsEmpty())
+            if (elements.None())
             {
                 throw EmptyIEnumerableException<TElement>(nameof(elements));
             }
