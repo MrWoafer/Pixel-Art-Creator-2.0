@@ -1,8 +1,12 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+
 using PAC.Colour;
 using PAC.DataStructures;
+using PAC.Extensions;
+using PAC.Patterns;
+
 using UnityEngine;
 
 namespace PAC
@@ -108,37 +112,8 @@ namespace PAC
                 throw new System.Exception("Dimensions must be positive: (width, height) = (" + width + ", " + height + ")");
             }
 
-            int texWidth = width * 2;
-            int texHeight = height * 2;
-
-            Texture2D tex = new Texture2D(texWidth, texHeight);
-            Color32[] pixels = new Color32[texWidth * texHeight];
-
-            Color32 transparentCheckerboardColour1 = Preferences.transparentCheckerboardColour1;
-            Color32 transparentCheckerboardColour2 = Preferences.transparentCheckerboardColour2;
-
-            int index = 0;
-            for (int x = 0; x < texWidth; x++)
-            {
-                for (int y = 0; y < texHeight; y++)
-                {
-                    if ((x + y) % 2 == 0)
-                    {
-                        pixels[index] = transparentCheckerboardColour1;
-                    }
-                    else
-                    {
-                        pixels[index] = transparentCheckerboardColour2;
-                    }
-
-                    index++;
-                }
-            }
-
-            tex.SetPixels32(pixels);
-            tex.Apply();
-
-            return tex;
+            IntRect texRect = new IntRect(IntVector2.zero, new IntVector2(width * 2 - 1, height * 2 - 1));
+            return new Checkerboard<Color32>(Preferences.transparentCheckerboardColour1, Preferences.transparentCheckerboardColour2).ToTexture(texRect);
         }
 
         public static Texture2D HSLHueSaturationGrid(int width, int height)
