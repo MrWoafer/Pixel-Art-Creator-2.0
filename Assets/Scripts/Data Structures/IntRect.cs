@@ -23,6 +23,8 @@ namespace PAC.DataStructures
     /// (0, 0) -&gt; # # # # &lt;- (3, 0)
     /// </code>
     /// </example>
+    /// The enumerator iterates over the points in the rect, starting with the bottom row, read left to right, then the next row, etc.
+    /// This ordering is useful since it matches the expected order of pixels in Unity's <see cref="Texture2D.SetPixels(Color[])"/>.
     /// </remarks>
     /// <seealso cref="IntVector2"/>
     /// <seealso cref="IntRange"/>
@@ -464,10 +466,16 @@ namespace PAC.DataStructures
         /// <summary>
         /// Iterates over the points in the rect, starting with the bottom row, read left to right, then the next row, etc.
         /// </summary>
+        /// <remarks>
+        /// The ordering of this enumerator is useful since it matches the expected order of pixels in Unity's <see cref="Texture2D.SetPixels(Color[])"/>.
+        /// </remarks>
         IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();
         /// <summary>
         /// Iterates over the points in the rect, starting with the bottom row, read left to right, then the next row, etc.
         /// </summary>
+        /// <remarks>
+        /// The ordering of this enumerator is useful since it matches the expected order of pixels in Unity's <see cref="Texture2D.SetPixels(Color[])"/>.
+        /// </remarks>
         public IEnumerator<IntVector2> GetEnumerator()
         {
             for (int y = minY; y <= maxY; y++)
