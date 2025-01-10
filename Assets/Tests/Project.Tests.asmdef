@@ -13,7 +13,8 @@
         "Project.Extensions.IEnumerable",
         "Project.Maths",
         "Project.Extensions.IReadOnlyList",
-        "Project.Extensions.DataStructures"
+        "Project.Extensions.DataStructures",
+        "Project.Extensions.UnityEngine"
     ],
     "includePlatforms": [
         "Editor"
