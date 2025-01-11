@@ -1,7 +1,7 @@
 ﻿using PAC.DataStructures;
 using PAC.Interfaces;
 
-namespace PAC.Drawing
+namespace PAC.Shapes
 {
     public interface IShape : IReadOnlyContains<IntVector2>
     {
@@ -26,7 +26,7 @@ namespace PAC.Drawing
         /// <summary>
         /// Translates the shape by the given vector.
         /// </summary>
-        public static IShape operator -(IShape shape, IntVector2 translation) => shape + (-translation);
+        public static IShape operator -(IShape shape, IntVector2 translation) => shape + -translation;
         /// <summary>
         /// Reflects the shape through the origin.
         /// </summary>

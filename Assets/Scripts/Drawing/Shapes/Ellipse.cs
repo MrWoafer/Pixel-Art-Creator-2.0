@@ -7,7 +7,7 @@ using PAC.DataStructures;
 
 using UnityEngine;
 
-namespace PAC.Drawing
+namespace PAC.Shapes
 {
     public class Ellipse : I2DShape, IEquatable<Ellipse>
     {
@@ -46,7 +46,7 @@ namespace PAC.Drawing
 
         public IntRect boundingRect { get; private set; }
 
-        public int Count => ((IEnumerable<IntVector2>)this).Count();
+        public int Count => this.Count();
 
         public Ellipse(IntVector2 corner, IntVector2 oppositeCorner, bool filled)
         {
@@ -132,7 +132,7 @@ namespace PAC.Drawing
         /// <summary>
         /// Translates the ellipse by the given vector.
         /// </summary>
-        public static Ellipse operator -(Ellipse ellipse, IntVector2 translation) => ellipse + (-translation);
+        public static Ellipse operator -(Ellipse ellipse, IntVector2 translation) => ellipse + -translation;
         /// <summary>
         /// Reflects the ellipse through the origin.
         /// </summary>

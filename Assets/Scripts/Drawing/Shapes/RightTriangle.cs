@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 using PAC.DataStructures;
 
-namespace PAC.Drawing
+namespace PAC.Shapes
 {
     public class RightTriangle : I2DShape, IEquatable<RightTriangle>
     {
@@ -206,7 +206,7 @@ namespace PAC.Drawing
                 // This is to ensure reflecting doesn't change the shape (up to reflecting)
                 // If width >= height, we draw the hypotenuse starting from the corner with the same y coord as the right angle corner
                 // If width < height, we draw the hypotenuse starting from the corner with the same x coord as the right angle corner
-                if ((boundingRect.width < boundingRect.height) != (startCorner.y != rightAngleCorner.y))
+                if (boundingRect.width < boundingRect.height != (startCorner.y != rightAngleCorner.y))
                 {
                     IntVector2 temp;
 
@@ -279,7 +279,7 @@ namespace PAC.Drawing
         /// <summary>
         /// Translates the triangle by the given vector.
         /// </summary>
-        public static RightTriangle operator -(RightTriangle triangle, IntVector2 translation) => triangle + (-translation);
+        public static RightTriangle operator -(RightTriangle triangle, IntVector2 translation) => triangle + -translation;
         /// <summary>
         /// Reflects the triangle through the origin.
         /// </summary>

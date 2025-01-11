@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 using PAC.DataStructures;
 
-namespace PAC.Drawing
+namespace PAC.Shapes
 {
     public class Rectangle : I2DShape, IEquatable<Rectangle>
     {
@@ -84,7 +84,7 @@ namespace PAC.Drawing
         /// <summary>
         /// Translates the rectangle by the given vector.
         /// </summary>
-        public static Rectangle operator -(Rectangle rectangle, IntVector2 translation) => rectangle + (-translation);
+        public static Rectangle operator -(Rectangle rectangle, IntVector2 translation) => rectangle + -translation;
         /// <summary>
         /// Reflects the rectangle through the origin.
         /// </summary>

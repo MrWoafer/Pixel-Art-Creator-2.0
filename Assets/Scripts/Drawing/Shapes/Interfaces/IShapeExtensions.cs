@@ -2,7 +2,7 @@
 
 using UnityEngine;
 
-namespace PAC.Drawing
+namespace PAC.Shapes
 {
     /// <summary>
     /// <para>

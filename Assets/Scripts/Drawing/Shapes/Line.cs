@@ -8,7 +8,7 @@ using PAC.Maths;
 
 using UnityEngine;
 
-namespace PAC.Drawing
+namespace PAC.Shapes
 {
     /// <summary>
     /// A pixel-perfect line between two points, ordered from start to end.
@@ -494,7 +494,7 @@ namespace PAC.Drawing
         /// <summary>
         /// Translates the line by the given vector.
         /// </summary>
-        public static Line operator -(Line line, IntVector2 translation) => line + (-translation);
+        public static Line operator -(Line line, IntVector2 translation) => line + -translation;
         /// <summary>
         /// Reflects the line through the origin.
         /// </summary>

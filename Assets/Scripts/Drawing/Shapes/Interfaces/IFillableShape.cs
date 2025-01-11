@@ -1,6 +1,6 @@
 ﻿using PAC.DataStructures;
 
-namespace PAC.Drawing
+namespace PAC.Shapes
 {
     public interface IFillableShape : IShape
     {
@@ -20,7 +20,7 @@ namespace PAC.Drawing
         /// <summary>
         /// Translates the shape by the given vector.
         /// </summary>
-        public static IFillableShape operator -(IFillableShape shape, IntVector2 translation) => shape + (-translation);
+        public static IFillableShape operator -(IFillableShape shape, IntVector2 translation) => shape + -translation;
         /// <summary>
         /// Reflects the shape through the origin.
         /// </summary>

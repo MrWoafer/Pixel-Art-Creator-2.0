@@ -4,12 +4,14 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 
+using PAC;
 using PAC.DataStructures;
+using PAC.Drawing;
 using PAC.Exceptions;
 using PAC.Extensions;
 using PAC.Maths;
 
-namespace PAC.Drawing
+namespace PAC.Shapes
 {
     /// <summary>
     /// <para>
@@ -506,7 +508,7 @@ namespace PAC.Drawing
         /// <summary>
         /// Translates the path by the given vector.
         /// </summary>
-        public static Path operator -(Path path, IntVector2 translation) => path + (-translation);
+        public static Path operator -(Path path, IntVector2 translation) => path + -translation;
         /// <summary>
         /// Reflects the path through the origin.
         /// </summary>

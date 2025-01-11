@@ -1,6 +1,6 @@
 ﻿using PAC.DataStructures;
 
-namespace PAC.Drawing
+namespace PAC.Shapes
 {
     public interface IRotatableShape : IShape
     {
@@ -15,7 +15,7 @@ namespace PAC.Drawing
         /// <summary>
         /// Translates the shape by the given vector.
         /// </summary>
-        public static IRotatableShape operator -(IRotatableShape shape, IntVector2 translation) => shape + (-translation);
+        public static IRotatableShape operator -(IRotatableShape shape, IntVector2 translation) => shape + -translation;
         /// <summary>
         /// Reflects the shape through the origin.
         /// </summary>

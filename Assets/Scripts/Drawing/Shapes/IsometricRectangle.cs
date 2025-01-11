@@ -9,7 +9,7 @@ using PAC.Extensions;
 
 using UnityEngine;
 
-namespace PAC.Drawing
+namespace PAC.Shapes
 {
     public class IsometricRectangle : IIsometricShape, IEquatable<IsometricRectangle>
     {
@@ -97,7 +97,7 @@ namespace PAC.Drawing
                     int count = 0;
                     for (int x = boundingRect.bottomLeft.x; x <= boundingRect.topRight.x; x++)
                     {
-                        count += (border.MinY(x) == border.MaxY(x)) ? 1 : 2;
+                        count += border.MinY(x) == border.MaxY(x) ? 1 : 2;
                     }
                     return count;
                 }
@@ -155,7 +155,7 @@ namespace PAC.Drawing
             IntVector2 sign = IntVector2.Sign(endCorner - startCorner);
             IntVector2 diff = endCorner - startCorner;
             IntVector2 absDiff = IntVector2.Abs(diff);
-            IntVector2 adjustedEndCorner = endCorner + ((absDiff.x + 1) % 2) * new IntVector2(sign.x, 0);
+            IntVector2 adjustedEndCorner = endCorner + (absDiff.x + 1) % 2 * new IntVector2(sign.x, 0);
             int region = Math.Abs(adjustedEndCorner.x - startCorner.x) + 1 - 2 * (Math.Abs(adjustedEndCorner.y - startCorner.y) + 1);
             // If startCorner and endCorner are on a line with gradient +/- 1/2
             if (region == 0)
@@ -522,7 +522,7 @@ namespace PAC.Drawing
         /// <summary>
         /// Translates the isometric rectangle by the given vector.
         /// </summary>
-        public static IsometricRectangle operator -(IsometricRectangle isoRectangle, IntVector2 translation) => isoRectangle + (-translation);
+        public static IsometricRectangle operator -(IsometricRectangle isoRectangle, IntVector2 translation) => isoRectangle + -translation;
         /// <summary>
         /// Reflects the isometric rectangle through the origin.
         /// </summary>

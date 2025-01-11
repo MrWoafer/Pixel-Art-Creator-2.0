@@ -7,7 +7,7 @@ using PAC.DataStructures;
 using PAC.Extensions;
 using PAC.Maths;
 
-namespace PAC.Drawing
+namespace PAC.Shapes
 {
     public class IsometricCuboid : IIsometricShape, IEquatable<IsometricCuboid>
     {
@@ -105,7 +105,7 @@ namespace PAC.Drawing
         /// <summary>
         /// Translates the isometric cuboid by the given vector.
         /// </summary>
-        public static IsometricCuboid operator -(IsometricCuboid isoRectangle, IntVector2 translation) => isoRectangle + (-translation);
+        public static IsometricCuboid operator -(IsometricCuboid isoRectangle, IntVector2 translation) => isoRectangle + -translation;
 
         IIsometricShape IIsometricShape.Translate(IntVector2 translation) => Translate(translation);
         /// <summary>

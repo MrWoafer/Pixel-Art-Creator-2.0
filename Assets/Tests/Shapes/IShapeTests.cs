@@ -1,4 +1,3 @@
-using PAC.Drawing;
 using NUnit.Framework;
 using PAC.DataStructures;
 using PAC.Exceptions;
@@ -6,6 +5,7 @@ using PAC.Extensions;
 using System.Collections.Generic;
 using System.Linq;
 using System;
+using PAC.Shapes;
 
 namespace PAC.Tests
 {

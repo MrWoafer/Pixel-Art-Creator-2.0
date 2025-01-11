@@ -16,6 +16,7 @@ using PAC.Patterns;
 using PAC.Extensions;
 
 using System;
+using PAC.Shapes;
 
 namespace PAC.Drawing
 {

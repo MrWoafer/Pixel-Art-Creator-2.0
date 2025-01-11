@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 using PAC.DataStructures;
 
-namespace PAC.Drawing
+namespace PAC.Shapes
 {
     public class Diamond : I2DShape, IEquatable<Diamond>
     {
@@ -160,7 +160,7 @@ namespace PAC.Drawing
             if (filled)
             {
                 var edges = this.edges;
-                return (edges.bottomLeft.PointIsToRight(pixel) && edges.bottomRight.PointIsToLeft(pixel)) || (edges.topLeft.PointIsToRight(pixel) && edges.topRight.PointIsToLeft(pixel));
+                return edges.bottomLeft.PointIsToRight(pixel) && edges.bottomRight.PointIsToLeft(pixel) || edges.topLeft.PointIsToRight(pixel) && edges.topRight.PointIsToLeft(pixel);
             }
 
             foreach (Line edge in edges.AsEnumerable())
@@ -184,7 +184,7 @@ namespace PAC.Drawing
         /// <summary>
         /// Translates the diamond by the given vector.
         /// </summary>
-        public static Diamond operator -(Diamond diamond, IntVector2 translation) => diamond + (-translation);
+        public static Diamond operator -(Diamond diamond, IntVector2 translation) => diamond + -translation;
         /// <summary>
         /// Reflects the diamond through the origin.
         /// </summary>
