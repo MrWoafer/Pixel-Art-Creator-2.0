@@ -114,7 +114,7 @@ namespace PAC.Shapes
                     }
 
                     // If any of the points are equal, the lines do not cross
-                    if (new IntVector2[] { in1, out1, in2, out2 }.CountDistinct() < 4)
+                    if (new IntVector2[] { in1, out1, in2, out2 }.Distinct().Count() < 4)
                     {
                         return false;
                     }

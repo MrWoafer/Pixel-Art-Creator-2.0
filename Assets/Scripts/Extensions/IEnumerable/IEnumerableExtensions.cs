@@ -164,11 +164,6 @@ namespace PAC.Extensions
         }
 
         /// <summary>
-        /// Returns the number of distinct elements in the <see cref="IEnumerable{T}"/>.
-        /// </summary>
-        public static int CountDistinct<T>(this IEnumerable<T> elements) => elements.Distinct().Count();
-
-        /// <summary>
         /// Returns whether all the elements in the <see cref="IEnumerable{T}"/> are distinct. Uses the default equality comparer for type <typeparamref name="T"/>.
         /// </summary>
         public static bool AreAllDistinct<T>(this IEnumerable<T> elements)
