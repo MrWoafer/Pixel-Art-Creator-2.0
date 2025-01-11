@@ -5,9 +5,9 @@ using System.Collections.Generic;
 
 namespace PAC.Tests
 {
-    public class RectangleTests : I2DShapeTests<Shapes.Rectangle>
+    public class RectangleTests : I2DShapeTests<Rectangle>
     {
-        public override IEnumerable<Shapes.Rectangle> testCases
+        public override IEnumerable<Rectangle> testCases
         {
             get
             {
@@ -17,7 +17,7 @@ namespace PAC.Tests
                     {
                         foreach (IntVector2 topRight in bottomLeft + new IntRect(IntVector2.zero, new IntVector2(5, 5)))
                         {
-                            yield return new Shapes.Rectangle(bottomLeft, topRight, filled);
+                            yield return new Rectangle(bottomLeft, topRight, filled);
                         }
                     }
                 }
@@ -32,7 +32,7 @@ namespace PAC.Tests
             {
                 foreach (IntVector2 pixel in new IntRect(new IntVector2(-5, -5), new IntVector2(5, 5)))
                 {
-                    CollectionAssert.AreEquivalent(new IntVector2[] { pixel }, new Shapes.Rectangle(pixel, pixel, filled), "Failed with " + pixel + " " + (filled ? "filled" : "unfilled"));
+                    CollectionAssert.AreEquivalent(new IntVector2[] { pixel }, new Rectangle(pixel, pixel, filled), "Failed with " + pixel + " " + (filled ? "filled" : "unfilled"));
                 }
             }
         }
@@ -45,7 +45,7 @@ namespace PAC.Tests
             {
                 foreach (IntVector2 topRight in bottomLeft + new IntRect(IntVector2.zero, new IntVector2(5, 5)))
                 {
-                    Shapes.Rectangle rectangle = new Shapes.Rectangle(bottomLeft, topRight, true);
+                    Rectangle rectangle = new Rectangle(bottomLeft, topRight, true);
                     CollectionAssert.AreEquivalent(rectangle.boundingRect, rectangle, "Failed with " + rectangle);
                 }
             }

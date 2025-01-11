@@ -24,7 +24,7 @@ namespace PAC.Drawing
         /// <summary>
         /// Smooth the meeting point of the two lines (given as coords) so it is pixel-perfect - i.e. no hard 90-degree corner.
         /// </summary>
-        public static bool PencilLineSmoothing(Shapes.Line line, Shapes.Line previousLine, bool previousLineWasSmoothed)
+        public static bool PencilLineSmoothing(Line line, Line previousLine, bool previousLineWasSmoothed)
         {
             if (previousLine is null)
             {
@@ -88,7 +88,7 @@ namespace PAC.Drawing
             file.layers[layer].SetPixels(Tex2DSprite.GetPixelsToFill(file.layers[layer][frame].texture, pixel, maxNumOfIterations), frame, colour, AnimFrameRefMode.NewKeyFrame);
         }
 
-        public static void UseShape(File file, int layer, int frame, Shapes.IShape shape, Color colour)
+        public static void UseShape(File file, int layer, int frame, IShape shape, Color colour)
         {
             if (file.layers[layer].layerType != LayerType.Normal)
             {

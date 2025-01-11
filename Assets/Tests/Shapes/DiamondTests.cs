@@ -7,9 +7,9 @@ using System.Linq;
 
 namespace PAC.Tests
 {
-    public class DiamondTests : I2DShapeTests<Shapes.Diamond>
+    public class DiamondTests : I2DShapeTests<Diamond>
     {
-        public override IEnumerable<Shapes.Diamond> testCases
+        public override IEnumerable<Diamond> testCases
         {
             get
             {
@@ -19,7 +19,7 @@ namespace PAC.Tests
                     {
                         foreach (IntVector2 topRight in bottomLeft + new IntRect(IntVector2.zero, new IntVector2(5, 5)))
                         {
-                            yield return new Shapes.Diamond(bottomLeft, topRight, filled);
+                            yield return new Diamond(bottomLeft, topRight, filled);
                         }
                     }
                 }
@@ -34,7 +34,7 @@ namespace PAC.Tests
             {
                 foreach (IntVector2 pixel in new IntRect(new IntVector2(-5, -5), new IntVector2(5, 5)))
                 {
-                    CollectionAssert.AreEqual(new IntVector2[] { pixel }, new Shapes.Diamond(pixel, pixel, filled), "Failed with " + pixel + " " + (filled ? "filled" : "unfilled"));
+                    CollectionAssert.AreEqual(new IntVector2[] { pixel }, new Diamond(pixel, pixel, filled), "Failed with " + pixel + " " + (filled ? "filled" : "unfilled"));
                 }
             }
         }
@@ -55,11 +55,11 @@ namespace PAC.Tests
                         int width = blockSize * (2 * numBlocks - 1);
                         int height = 2 * numBlocks - 1;
 
-                        Shapes.Diamond diamond = new Shapes.Diamond(start, start + new IntVector2(width - 1, height - 1), false);
+                        Diamond diamond = new Diamond(start, start + new IntVector2(width - 1, height - 1), false);
 
                         IntVector2 leftCorner = diamond.Where(p => p.x == diamond.bottomLeft.x).ArgMin(p => p.y);
                         IntVector2 bottomCorner = diamond.Where(p => p.y == diamond.bottomLeft.y).ArgMax(p => p.x);
-                        Shapes.Line line = new Shapes.Line(leftCorner, bottomCorner);
+                        Line line = new Line(leftCorner, bottomCorner);
 
                         Assert.True(diamond.ContainsAll(line), "Failed with " + diamond);
                     }
@@ -78,7 +78,7 @@ namespace PAC.Tests
             {
                 foreach (IntVector2 topRight in new IntRect(IntVector2.zero, new IntVector2(10, 10)))
                 {
-                    Shapes.Ellipse ellipse = new Shapes.Ellipse(IntVector2.zero, topRight, filled);
+                    Ellipse ellipse = new Ellipse(IntVector2.zero, topRight, filled);
 
                     IShapeTestHelper.ReflectiveSymmetry(ellipse, FlipAxis.Vertical);
                     IShapeTestHelper.ReflectiveSymmetry(ellipse, FlipAxis.Horizontal);

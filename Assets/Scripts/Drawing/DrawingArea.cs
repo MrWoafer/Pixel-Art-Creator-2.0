@@ -167,7 +167,7 @@ namespace PAC.Drawing
         private IntVector2 tileBeingMovedLastValidPosition;
 
         // Line smoothing variables
-        private Shapes.Line lineSmoothingPreviousLine = null;
+        private Line lineSmoothingPreviousLine = null;
         private bool lineSmoothingPreviousLineWasSmoothed = false;
         private Color lineSmoothingColourUnderLineEnd = Config.Colours.transparent;
         private float lineSmoothingCountdown = 0f;
@@ -263,7 +263,7 @@ namespace PAC.Drawing
                         else
                         {
                             // Mouse movement interpolation
-                            Shapes.Line line = new Shapes.Line(previousPixelUsedToolOn, mousePixel);
+                            Line line = new Line(previousPixelUsedToolOn, mousePixel);
                             Color colourUnderLineEnd = selectedLayer.GetPixel(line.end, animationManager.currentFrameIndex);
                             foreach (IntVector2 pixel in line)
                             {
@@ -720,7 +720,7 @@ namespace PAC.Drawing
         {
             if (tool == Tool.IsoBox)
             {
-                if (isoBoxPlacedBase) { PreviewShape(new Shapes.IsometricCuboid(mouseDragPoints[0], mouseDragPoints[1], pixel.y - mouseDragPoints[1].y, holdingCtrl, !rightClickedOn), colour); }
+                if (isoBoxPlacedBase) { PreviewShape(new IsometricCuboid(mouseDragPoints[0], mouseDragPoints[1], pixel.y - mouseDragPoints[1].y, holdingCtrl, !rightClickedOn), colour); }
             }
         }
 
@@ -753,7 +753,7 @@ namespace PAC.Drawing
             }
             else if (tool == Tool.Line)
             {
-                if (leftClickedOn) { PreviewShape(new Shapes.Line(mouseDragPoints[0], pixel), colour); }
+                if (leftClickedOn) { PreviewShape(new Line(mouseDragPoints[0], pixel), colour); }
             }
             else if (tool == Tool.Shape && (leftClickedOn || rightClickedOn))
             {
@@ -764,7 +764,7 @@ namespace PAC.Drawing
                     {
                         end = CoordSnapping.SnapToSquare(mouseDragPoints[0], end);
                     }
-                    PreviewShape(new Shapes.Rectangle(mouseDragPoints[0], end, rightClickedOn), colour);
+                    PreviewShape(new Rectangle(mouseDragPoints[0], end, rightClickedOn), colour);
                 }
                 else if (toolbar.shapeToolShape == Shape.Ellipse)
                 {
@@ -773,12 +773,12 @@ namespace PAC.Drawing
                     {
                         end = CoordSnapping.SnapToSquare(mouseDragPoints[0], end);
                     }
-                    PreviewShape(new Shapes.Ellipse(mouseDragPoints[0], end, rightClickedOn), colour);
+                    PreviewShape(new Ellipse(mouseDragPoints[0], end, rightClickedOn), colour);
                 }
                 else if (toolbar.shapeToolShape == Shape.RightTriangle)
                 {
-                    Shapes.RightTriangle.RightAngleLocation rightAngleLocation = holdingCtrl ? Shapes.RightTriangle.RightAngleLocation.Top : Shapes.RightTriangle.RightAngleLocation.Bottom;
-                    PreviewShape(new Shapes.RightTriangle(mouseDragPoints[0], pixel, rightAngleLocation, rightClickedOn), colour);
+                    RightTriangle.RightAngleLocation rightAngleLocation = holdingCtrl ? RightTriangle.RightAngleLocation.Top : RightTriangle.RightAngleLocation.Bottom;
+                    PreviewShape(new RightTriangle(mouseDragPoints[0], pixel, rightAngleLocation, rightClickedOn), colour);
                 }
                 else if (toolbar.shapeToolShape == Shape.Diamond)
                 {
@@ -787,13 +787,13 @@ namespace PAC.Drawing
                     {
                         end = CoordSnapping.SnapToSquare(mouseDragPoints[0], end);
                     }
-                    PreviewShape(new Shapes.Diamond(mouseDragPoints[0], end, rightClickedOn), colour);
+                    PreviewShape(new Diamond(mouseDragPoints[0], end, rightClickedOn), colour);
                 }
             }
             else if (tool == Tool.IsoBox && (leftClickedOn || rightClickedOn))
             {
-                if (!isoBoxPlacedBase) { PreviewShape(new Shapes.IsometricCuboid(mouseDragPoints[0], pixel, 0, holdingCtrl, !rightClickedOn), colour); }
-                else { PreviewShape(new Shapes.IsometricCuboid(mouseDragPoints[0], mouseDragPoints[1], pixel.y - mouseDragPoints[1].y, holdingCtrl, !rightClickedOn), colour); }
+                if (!isoBoxPlacedBase) { PreviewShape(new IsometricCuboid(mouseDragPoints[0], pixel, 0, holdingCtrl, !rightClickedOn), colour); }
+                else { PreviewShape(new IsometricCuboid(mouseDragPoints[0], mouseDragPoints[1], pixel.y - mouseDragPoints[1].y, holdingCtrl, !rightClickedOn), colour); }
             }
             else if (tool == Tool.Gradient && (leftClickedOn || rightClickedOn))
             {
@@ -826,7 +826,7 @@ namespace PAC.Drawing
                     {
                         end = CoordSnapping.SnapToSquare(mouseDragPoints[0], end);
                     }
-                    SelectionShape(new Shapes.Rectangle(mouseDragPoints[0], end, true), rightClickedOn);
+                    SelectionShape(new Rectangle(mouseDragPoints[0], end, true), rightClickedOn);
                 }
                 else if (toolbar.selectionMode == SelectionMode.Ellipse)
                 {
@@ -835,7 +835,7 @@ namespace PAC.Drawing
                     {
                         end = CoordSnapping.SnapToSquare(mouseDragPoints[0], end);
                     }
-                    SelectionShape(new Shapes.Ellipse(mouseDragPoints[0], end, true), rightClickedOn);
+                    SelectionShape(new Ellipse(mouseDragPoints[0], end, true), rightClickedOn);
                 }
             }
             else if (tool == Tool.Move)
@@ -851,7 +851,7 @@ namespace PAC.Drawing
         {
             if (tool == Tool.Line && leftClickedOn)
             {
-                Tools.UseShape(file, layer, frame, new Shapes.Line(mouseDragPoints[0], pixel), colour);
+                Tools.UseShape(file, layer, frame, new Line(mouseDragPoints[0], pixel), colour);
                 UpdateDrawing();
             }
             else if (tool == Tool.Shape && (leftClickedOn || rightClickedOn))
@@ -863,7 +863,7 @@ namespace PAC.Drawing
                     {
                         end = CoordSnapping.SnapToSquare(mouseDragPoints[0], end);
                     }
-                    Tools.UseShape(file, layer, frame, new Shapes.Rectangle(mouseDragPoints[0], end, rightClickedOn), colour);
+                    Tools.UseShape(file, layer, frame, new Rectangle(mouseDragPoints[0], end, rightClickedOn), colour);
 
                     UpdateDrawing();
                 }
@@ -874,14 +874,14 @@ namespace PAC.Drawing
                     {
                         end = CoordSnapping.SnapToSquare(mouseDragPoints[0], end);
                     }
-                    Tools.UseShape(file, layer, frame, new Shapes.Ellipse(mouseDragPoints[0], end, rightClickedOn), colour);
+                    Tools.UseShape(file, layer, frame, new Ellipse(mouseDragPoints[0], end, rightClickedOn), colour);
 
                     UpdateDrawing();
                 }
                 else if (toolbar.shapeToolShape == Shape.RightTriangle)
                 {
-                    Shapes.RightTriangle.RightAngleLocation rightAngleLocation = holdingCtrl ? Shapes.RightTriangle.RightAngleLocation.Top : Shapes.RightTriangle.RightAngleLocation.Bottom;
-                    Tools.UseShape(file, layer, frame, new Shapes.RightTriangle(mouseDragPoints[0], pixel, rightAngleLocation, rightClickedOn), colour);
+                    RightTriangle.RightAngleLocation rightAngleLocation = holdingCtrl ? RightTriangle.RightAngleLocation.Top : RightTriangle.RightAngleLocation.Bottom;
+                    Tools.UseShape(file, layer, frame, new RightTriangle(mouseDragPoints[0], pixel, rightAngleLocation, rightClickedOn), colour);
 
                     UpdateDrawing();
                 }
@@ -892,7 +892,7 @@ namespace PAC.Drawing
                     {
                         end = CoordSnapping.SnapToSquare(mouseDragPoints[0], end);
                     }
-                    Tools.UseShape(file, layer, frame, new Shapes.Diamond(mouseDragPoints[0], end, rightClickedOn), colour);
+                    Tools.UseShape(file, layer, frame, new Diamond(mouseDragPoints[0], end, rightClickedOn), colour);
 
                     UpdateDrawing();
                 }
@@ -905,7 +905,7 @@ namespace PAC.Drawing
                 }
                 else
                 {
-                    Tools.UseShape(file, layer, frame, new Shapes.IsometricCuboid(mouseDragPoints[0], mouseDragPoints[1], pixel.y - mouseDragPoints[1].y, holdingCtrl, !rightClickedOn), colour);
+                    Tools.UseShape(file, layer, frame, new IsometricCuboid(mouseDragPoints[0], mouseDragPoints[1], pixel.y - mouseDragPoints[1].y, holdingCtrl, !rightClickedOn), colour);
                     UpdateDrawing();
 
                     isoBoxPlacedBase = false;
@@ -949,7 +949,7 @@ namespace PAC.Drawing
             }
         }
 
-        private void PreviewShape(Shapes.IShape shape, Color colour) => SetPreview(shape.ToTexture(colour), shape.boundingRect.bottomLeft); 
+        private void PreviewShape(IShape shape, Color colour) => SetPreview(shape.ToTexture(colour), shape.boundingRect.bottomLeft); 
         private void PreviewPattern(IPattern2D<Color> pattern) => SetPreview(pattern.ToTexture(file.rect), IntVector2.zero);
         private void PreviewPattern(IPattern2D<Color32> pattern) => SetPreview(pattern.ToTexture(file.rect), IntVector2.zero); 
 
@@ -1062,7 +1062,7 @@ namespace PAC.Drawing
             }
         }
 
-        private void SelectionShape(Shapes.I2DShape shape, bool erase)
+        private void SelectionShape(I2DShape shape, bool erase)
         {
             Texture2D tex = shape.ToTexture(Config.Colours.mask, file.rect);
             if (erase)

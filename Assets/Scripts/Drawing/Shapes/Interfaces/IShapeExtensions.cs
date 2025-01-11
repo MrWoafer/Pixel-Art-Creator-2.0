@@ -24,11 +24,11 @@ namespace PAC.Drawing
         /// <summary>
         /// Turns the pixels in the shape's bounding rect into a Texture2D.
         /// </summary>
-        public static Texture2D ToTexture(this Shapes.IShape shape, Color colour) => shape.ToTexture(colour, shape.boundingRect);
+        public static Texture2D ToTexture(this IShape shape, Color colour) => shape.ToTexture(colour, shape.boundingRect);
         /// <summary>
         /// Turns the pixels in the given IntRect into a Texture2D, using any of the shape's pixels that lie within that rect. 
         /// </summary>
-        public static Texture2D ToTexture(this Shapes.IShape shape, Color colour, IntRect texRect)
+        public static Texture2D ToTexture(this IShape shape, Color colour, IntRect texRect)
         {
             Texture2D tex = Tex2DSprite.BlankTexture(texRect.width, texRect.height);
 

@@ -6,9 +6,9 @@ using System.Linq;
 
 namespace PAC.Tests
 {
-    public class EllipseTests : I2DShapeTests<Shapes.Ellipse>
+    public class EllipseTests : I2DShapeTests<Ellipse>
     {
-        public override IEnumerable<Shapes.Ellipse> testCases
+        public override IEnumerable<Ellipse> testCases
         {
             get
             {
@@ -18,7 +18,7 @@ namespace PAC.Tests
                     {
                         foreach (IntVector2 topRight in bottomLeft + new IntRect(IntVector2.zero, new IntVector2(5, 5)))
                         {
-                            yield return new Shapes.Ellipse(bottomLeft, topRight, filled);
+                            yield return new Ellipse(bottomLeft, topRight, filled);
                         }
                     }
                 }
@@ -33,7 +33,7 @@ namespace PAC.Tests
             {
                 foreach (IntVector2 pixel in new IntRect(new IntVector2(-5, -5), new IntVector2(5, 5)))
                 {
-                    CollectionAssert.AreEqual(new IntVector2[] { pixel }, new Shapes.Ellipse(pixel, pixel, filled), "Failed with " + pixel + " " + (filled ? "filled" : "unfilled"));
+                    CollectionAssert.AreEqual(new IntVector2[] { pixel }, new Ellipse(pixel, pixel, filled), "Failed with " + pixel + " " + (filled ? "filled" : "unfilled"));
                 }
             }
         }
@@ -51,7 +51,7 @@ namespace PAC.Tests
                 {
                     for (int y = -5; y <= 5; y++)
                     {
-                        Shapes.Ellipse ellipse = new Shapes.Ellipse(IntVector2.zero, new IntVector2(x, y), filled);
+                        Ellipse ellipse = new Ellipse(IntVector2.zero, new IntVector2(x, y), filled);
                         CollectionAssert.AreEquivalent(ellipse.boundingRect, ellipse, "Failed with " + ellipse);
                     }
                 }
@@ -63,7 +63,7 @@ namespace PAC.Tests
                 {
                     for (int x = -5; x <= 5; x++)
                     {
-                        Shapes.Ellipse ellipse = new Shapes.Ellipse(IntVector2.zero, new IntVector2(x, y), filled);
+                        Ellipse ellipse = new Ellipse(IntVector2.zero, new IntVector2(x, y), filled);
                         CollectionAssert.AreEquivalent(ellipse.boundingRect, ellipse, "Failed with " + ellipse);
                     }
                 }
@@ -79,10 +79,10 @@ namespace PAC.Tests
         {
             foreach (IntVector2 centre in new IntRect(new IntVector2(-5, -5), new IntVector2(5, 5)))
             {
-                Shapes.Ellipse ellipse = new Shapes.Ellipse(centre - IntVector2.one, centre + IntVector2.one, false);
+                Ellipse ellipse = new Ellipse(centre - IntVector2.one, centre + IntVector2.one, false);
                 CollectionAssert.AreEquivalent(new IntVector2[] { IntVector2.up, IntVector2.right, IntVector2.down, IntVector2.left }.Select(p => p + centre), ellipse);
 
-                ellipse = new Shapes.Ellipse(centre - IntVector2.one, centre + IntVector2.one, true);
+                ellipse = new Ellipse(centre - IntVector2.one, centre + IntVector2.one, true);
                 CollectionAssert.AreEquivalent(new IntVector2[] { IntVector2.zero, IntVector2.up, IntVector2.right, IntVector2.down, IntVector2.left }.Select(p => p + centre), ellipse);
             }
         }
@@ -94,7 +94,7 @@ namespace PAC.Tests
         [Category("Shapes")]
         public void ShapeExample1()
         {
-            Shapes.Ellipse ellipse = new Shapes.Ellipse(IntVector2.zero, new IntVector2(6, 10), false);
+            Ellipse ellipse = new Ellipse(IntVector2.zero, new IntVector2(6, 10), false);
             IntVector2[] expected =
             {
                 new IntVector2(3, 10), new IntVector2(4, 10), new IntVector2(5, 9), new IntVector2(5, 8), new IntVector2(6, 7), new IntVector2(6, 6), new IntVector2(6, 5), new IntVector2(6, 4),
@@ -112,7 +112,7 @@ namespace PAC.Tests
         [Category("Shapes")]
         public void ShapeExample2()
         {
-            Shapes.Ellipse ellipse = new Shapes.Ellipse(IntVector2.zero, new IntVector2(5, 10), false);
+            Ellipse ellipse = new Ellipse(IntVector2.zero, new IntVector2(5, 10), false);
             IntVector2[] expected =
             {
                 new IntVector2(3, 10), new IntVector2(4, 9), new IntVector2(5, 8), new IntVector2(5, 7), new IntVector2(5, 6), new IntVector2(5, 5), new IntVector2(5, 4), new IntVector2(5, 3),
@@ -134,7 +134,7 @@ namespace PAC.Tests
             {
                 foreach (IntVector2 topRight in new IntRect(IntVector2.zero, new IntVector2(10, 10)))
                 {
-                    Shapes.Ellipse ellipse = new Shapes.Ellipse(IntVector2.zero, topRight, filled);
+                    Ellipse ellipse = new Ellipse(IntVector2.zero, topRight, filled);
 
                     IShapeTestHelper.ReflectiveSymmetry(ellipse, FlipAxis.Vertical);
                     IShapeTestHelper.ReflectiveSymmetry(ellipse, FlipAxis.Horizontal);
@@ -153,7 +153,7 @@ namespace PAC.Tests
             {
                 for (int diameter = 1; diameter <= 10; diameter++)
                 {
-                    Shapes.Ellipse circle = new Shapes.Ellipse(IntVector2.zero, new IntVector2(diameter - 1, diameter - 1), filled);
+                    Ellipse circle = new Ellipse(IntVector2.zero, new IntVector2(diameter - 1, diameter - 1), filled);
                     IRotatableShapeTestHelper.RotationalSymmetry(circle, RotationAngle._90);
                 }
             }
@@ -170,7 +170,7 @@ namespace PAC.Tests
             {
                 for (int diameter = 1; diameter <= 10; diameter++)
                 {
-                    Shapes.Ellipse circle = new Shapes.Ellipse(IntVector2.zero, new IntVector2(diameter - 1, diameter - 1), filled);
+                    Ellipse circle = new Ellipse(IntVector2.zero, new IntVector2(diameter - 1, diameter - 1), filled);
 
                     IShapeTestHelper.ReflectiveSymmetry(circle, FlipAxis.Vertical);
                     IShapeTestHelper.ReflectiveSymmetry(circle, FlipAxis.Horizontal);

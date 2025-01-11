@@ -7,11 +7,11 @@ using PAC.Drawing;
 
 namespace PAC.Tests
 {
-    public class PathTests : I1DShapeTests<Shapes.Path>
+    public class PathTests : I1DShapeTests<Path>
     {
-        public override IEnumerable<Shapes.Path> testCases => RandomTestCases(1_000);
-        private IEnumerable<Shapes.Path> RandomTestCases(int numOfTestCases) => RandomTestCases(numOfTestCases, false).Concat(RandomTestCases(numOfTestCases, true));
-        private IEnumerable<Shapes.Path> RandomTestCases(int numOfTestCases, bool isLoop)
+        public override IEnumerable<Path> testCases => RandomTestCases(1_000);
+        private IEnumerable<Path> RandomTestCases(int numOfTestCases) => RandomTestCases(numOfTestCases, false).Concat(RandomTestCases(numOfTestCases, true));
+        private IEnumerable<Path> RandomTestCases(int numOfTestCases, bool isLoop)
         {
             for (int length = 1; length <= 3; length++)
             {
@@ -21,31 +21,31 @@ namespace PAC.Tests
                 }
             }
         }
-        private Shapes.Path RandomPath(int length, bool isLoop)
+        private Path RandomPath(int length, bool isLoop)
         {
-            List<Shapes.Line> lines = new List<Shapes.Line>
+            List<Line> lines = new List<Line>
             {
-                new Shapes.Line(new IntRect(new IntVector2(-5, -5), new IntVector2(5, 5)).RandomPoint(), new IntRect(new IntVector2(-5, -5), new IntVector2(5, 5)).RandomPoint())
+                new Line(new IntRect(new IntVector2(-5, -5), new IntVector2(5, 5)).RandomPoint(), new IntRect(new IntVector2(-5, -5), new IntVector2(5, 5)).RandomPoint())
             };
 
             for (int i = 0; i < length - 1; i++)
             {
                 IntVector2 start = lines[^1].end + new IntRect(new IntVector2(-1, -1), new IntVector2(1, 1)).RandomPoint();
-                lines.Add(new Shapes.Line(start, start + new IntRect(new IntVector2(-5, -5), new IntVector2(5, 5)).RandomPoint()));
+                lines.Add(new Line(start, start + new IntRect(new IntVector2(-5, -5), new IntVector2(5, 5)).RandomPoint()));
             }
 
             if (isLoop)
             {
-                lines.Add(new Shapes.Line(
+                lines.Add(new Line(
                     lines[^1].end + new IntRect(new IntVector2(-1, -1), new IntVector2(1, 1)).RandomPoint(),
                     lines[0].start + new IntRect(new IntVector2(-1, -1), new IntVector2(1, 1)).RandomPoint()
                     ));
 
-                return new Shapes.Path(lines);
+                return new Path(lines);
             }
             else
             {
-                Shapes.Path path = new Shapes.Path(lines);
+                Path path = new Path(lines);
                 while (path.isLoop)
                 {
                     return RandomPath(length, false);
@@ -58,20 +58,20 @@ namespace PAC.Tests
         [Category("Shapes")]
         public void Constructor()
         {
-            Assert.Throws<ArgumentException>(() => new Shapes.Path(new Shapes.Line[0]));
-            Assert.Throws<ArgumentException>(() => new Shapes.Path(new Shapes.Line(IntVector2.zero, new IntVector2(1, 1)), new Shapes.Line(new IntVector2(2, 3), new IntVector2(5, 5))));
-            Assert.Throws<ArgumentException>(() => new Shapes.Path(new Shapes.Line(IntVector2.zero, new IntVector2(1, 1)), new Shapes.Line(new IntVector2(2, 3), new IntVector2(1, 1))));
+            Assert.Throws<ArgumentException>(() => new Path(new Line[0]));
+            Assert.Throws<ArgumentException>(() => new Path(new Line(IntVector2.zero, new IntVector2(1, 1)), new Line(new IntVector2(2, 3), new IntVector2(5, 5))));
+            Assert.Throws<ArgumentException>(() => new Path(new Line(IntVector2.zero, new IntVector2(1, 1)), new Line(new IntVector2(2, 3), new IntVector2(1, 1))));
 
-            Assert.Throws<ArgumentException>(() => new Shapes.Path(new IntVector2[0]));
-            Assert.DoesNotThrow(() => new Shapes.Path(new Shapes.Line(IntVector2.zero, new IntVector2(1, 1))));
-            Assert.DoesNotThrow(() => new Shapes.Path(new Shapes.Line(IntVector2.zero, new IntVector2(1, 1)), new Shapes.Line(new IntVector2(1, 1), new IntVector2(5, 5))));
-            Assert.DoesNotThrow(() => new Shapes.Path(new Shapes.Line(IntVector2.zero, new IntVector2(1, 1)), new Shapes.Line(new IntVector2(1, 2), new IntVector2(5, 5))));
-            Assert.DoesNotThrow(() => new Shapes.Path(new Shapes.Line(IntVector2.zero, new IntVector2(1, 1)), new Shapes.Line(new IntVector2(2, 2), new IntVector2(5, 5))));
+            Assert.Throws<ArgumentException>(() => new Path(new IntVector2[0]));
+            Assert.DoesNotThrow(() => new Path(new Line(IntVector2.zero, new IntVector2(1, 1))));
+            Assert.DoesNotThrow(() => new Path(new Line(IntVector2.zero, new IntVector2(1, 1)), new Line(new IntVector2(1, 1), new IntVector2(5, 5))));
+            Assert.DoesNotThrow(() => new Path(new Line(IntVector2.zero, new IntVector2(1, 1)), new Line(new IntVector2(1, 2), new IntVector2(5, 5))));
+            Assert.DoesNotThrow(() => new Path(new Line(IntVector2.zero, new IntVector2(1, 1)), new Line(new IntVector2(2, 2), new IntVector2(5, 5))));
 
-            Assert.AreEqual(new Shapes.Path(new Shapes.Line(IntVector2.zero, IntVector2.zero)), new Shapes.Path(IntVector2.zero));
-            Assert.AreEqual(new Shapes.Path(new Shapes.Line(IntVector2.zero, IntVector2.one)), new Shapes.Path(IntVector2.zero, IntVector2.one));
-            Assert.AreEqual(new Shapes.Path(new Shapes.Line(IntVector2.zero, IntVector2.one), new Shapes.Line(IntVector2.one, new IntVector2(2, 4))),
-                new Shapes.Path(IntVector2.zero, IntVector2.one, new IntVector2(2, 4)));
+            Assert.AreEqual(new Path(new Line(IntVector2.zero, IntVector2.zero)), new Path(IntVector2.zero));
+            Assert.AreEqual(new Path(new Line(IntVector2.zero, IntVector2.one)), new Path(IntVector2.zero, IntVector2.one));
+            Assert.AreEqual(new Path(new Line(IntVector2.zero, IntVector2.one), new Line(IntVector2.one, new IntVector2(2, 4))),
+                new Path(IntVector2.zero, IntVector2.one, new IntVector2(2, 4)));
         }
 
         [Test]
@@ -82,7 +82,7 @@ namespace PAC.Tests
             {
                 for (int repetitions = 1; repetitions <= 5; repetitions++)
                 {
-                    Shapes.Path path = new Shapes.Path(Enumerable.Repeat(pixel, repetitions));
+                    Path path = new Path(Enumerable.Repeat(pixel, repetitions));
                     CollectionAssert.AreEqual(new IntVector2[] { pixel }, path, "Failed with " + path);
                 }
             }
@@ -92,36 +92,36 @@ namespace PAC.Tests
         [Category("Shapes")]
         public void ShapeExamples()
         {
-            (IEnumerable<IntVector2> expected, Shapes.Path path)[] testCases =
+            (IEnumerable<IntVector2> expected, Path path)[] testCases =
             {
                 (new IntVector2[] { IntVector2.zero },
-                    new Shapes.Path(IntVector2.zero)),
-                (new Shapes.Line(IntVector2.zero, new IntVector2(2, 3)),
-                    new Shapes.Path(IntVector2.zero, new IntVector2(2, 3))),
-                (new Shapes.Line(IntVector2.zero, new IntVector2(2, 3)).Concat(new Shapes.Line(new IntVector2(2, 3), new IntVector2(4, 4))[1..]),
-                    new Shapes.Path(IntVector2.zero, new IntVector2(2, 3), new IntVector2(4, 4))),
+                    new Path(IntVector2.zero)),
+                (new Line(IntVector2.zero, new IntVector2(2, 3)),
+                    new Path(IntVector2.zero, new IntVector2(2, 3))),
+                (new Line(IntVector2.zero, new IntVector2(2, 3)).Concat(new Line(new IntVector2(2, 3), new IntVector2(4, 4))[1..]),
+                    new Path(IntVector2.zero, new IntVector2(2, 3), new IntVector2(4, 4))),
                 // Loop
-                (new Shapes.Line(IntVector2.zero, new IntVector2(2, 3)).Concat(new Shapes.Line(new IntVector2(2, 3), new IntVector2(4, 4))[1..])
-                    .Concat(new Shapes.Line(new IntVector2(4, 4), IntVector2.zero)[1..^1]),
-                    new Shapes.Path(IntVector2.zero, new IntVector2(2, 3), new IntVector2(4, 4), IntVector2.zero)),
+                (new Line(IntVector2.zero, new IntVector2(2, 3)).Concat(new Line(new IntVector2(2, 3), new IntVector2(4, 4))[1..])
+                    .Concat(new Line(new IntVector2(4, 4), IntVector2.zero)[1..^1]),
+                    new Path(IntVector2.zero, new IntVector2(2, 3), new IntVector2(4, 4), IntVector2.zero)),
                 // Crossing previous values
-                (new Shapes.Line(IntVector2.zero, new IntVector2(2, 3)).Concat(new Shapes.Line(new IntVector2(2, 3), new IntVector2(4, 4))[1..])
-                    .Concat(new Shapes.Line(new IntVector2(4, 4), new IntVector2(2, 4))[1..]).Concat(new Shapes.Line(new IntVector2(2, 4), new IntVector2(2, 0))[1..]),
-                    new Shapes.Path(IntVector2.zero, new IntVector2(2, 3), new IntVector2(4, 4), new IntVector2(2, 4), new IntVector2(2, 0))),
+                (new Line(IntVector2.zero, new IntVector2(2, 3)).Concat(new Line(new IntVector2(2, 3), new IntVector2(4, 4))[1..])
+                    .Concat(new Line(new IntVector2(4, 4), new IntVector2(2, 4))[1..]).Concat(new Line(new IntVector2(2, 4), new IntVector2(2, 0))[1..]),
+                    new Path(IntVector2.zero, new IntVector2(2, 3), new IntVector2(4, 4), new IntVector2(2, 4), new IntVector2(2, 0))),
                 (new IntVector2[] { IntVector2.zero, IntVector2.right, IntVector2.upRight },
-                    new Shapes.Path(IntVector2.zero, IntVector2.right, IntVector2.upRight, IntVector2.zero)),
+                    new Path(IntVector2.zero, IntVector2.right, IntVector2.upRight, IntVector2.zero)),
                 (new IntVector2[] { new IntVector2(4, 2), new IntVector2(5, 1) },
-                    new Shapes.Path(new IntVector2(4, 2), new IntVector2(5, 1))),
+                    new Path(new IntVector2(4, 2), new IntVector2(5, 1))),
                 (new IntVector2[] { IntVector2.zero },
-                    new Shapes.Path(IntVector2.zero, IntVector2.zero, IntVector2.zero, IntVector2.zero)),
-                (new Shapes.Line(IntVector2.zero, new IntVector2(2, 5)).Concat(new Shapes.Line(new IntVector2(2, 5), new IntVector2(3, 2))[1..]),
-                    new Shapes.Path(IntVector2.zero, new IntVector2(2, 5), new IntVector2(3, 2), new IntVector2(3, 2))),
-                (new Shapes.Line(IntVector2.zero, new IntVector2(2, 5)).Concat(new Shapes.Line(new IntVector2(2, 5), new IntVector2(3, 2))[1..])
-                    .Concat(new Shapes.Line(new IntVector2(3, 2), IntVector2.zero)[1..^1]),
-                    new Shapes.Path(IntVector2.zero, new IntVector2(2, 5), new IntVector2(3, 2), new IntVector2(3, 2), IntVector2.zero))
+                    new Path(IntVector2.zero, IntVector2.zero, IntVector2.zero, IntVector2.zero)),
+                (new Line(IntVector2.zero, new IntVector2(2, 5)).Concat(new Line(new IntVector2(2, 5), new IntVector2(3, 2))[1..]),
+                    new Path(IntVector2.zero, new IntVector2(2, 5), new IntVector2(3, 2), new IntVector2(3, 2))),
+                (new Line(IntVector2.zero, new IntVector2(2, 5)).Concat(new Line(new IntVector2(2, 5), new IntVector2(3, 2))[1..])
+                    .Concat(new Line(new IntVector2(3, 2), IntVector2.zero)[1..^1]),
+                    new Path(IntVector2.zero, new IntVector2(2, 5), new IntVector2(3, 2), new IntVector2(3, 2), IntVector2.zero))
             };
 
-            foreach ((IEnumerable<IntVector2> expected, Shapes.Path path) in testCases)
+            foreach ((IEnumerable<IntVector2> expected, Path path) in testCases)
             {
                 CollectionAssert.AreEqual(expected, path, "Failed with " + path);
             }
@@ -131,22 +131,22 @@ namespace PAC.Tests
         [Category("Shapes")]
         public void IsLoop()
         {
-            Assert.AreEqual(false, new Shapes.Path(IntVector2.zero, new IntVector2(2, 1)).isLoop);
-            Assert.AreEqual(false, new Shapes.Path(IntVector2.zero, new IntVector2(1, 1), new IntVector2(2, 2), new IntVector2(5, 5)).isLoop);
-            Assert.AreEqual(false, new Shapes.Path(IntVector2.zero, new IntVector2(1, 1), new IntVector2(2, 2), new IntVector2(2, 1)).isLoop);
+            Assert.AreEqual(false, new Path(IntVector2.zero, new IntVector2(2, 1)).isLoop);
+            Assert.AreEqual(false, new Path(IntVector2.zero, new IntVector2(1, 1), new IntVector2(2, 2), new IntVector2(5, 5)).isLoop);
+            Assert.AreEqual(false, new Path(IntVector2.zero, new IntVector2(1, 1), new IntVector2(2, 2), new IntVector2(2, 1)).isLoop);
 
-            Assert.AreEqual(true, new Shapes.Path(IntVector2.zero).isLoop);
-            Assert.AreEqual(true, new Shapes.Path(IntVector2.zero, new IntVector2(1, 1)).isLoop);
-            Assert.AreEqual(true, new Shapes.Path(IntVector2.zero, new IntVector2(1, 1), new IntVector2(2, 2), IntVector2.zero).isLoop);
-            Assert.AreEqual(true, new Shapes.Path(IntVector2.zero, new IntVector2(1, 1), new IntVector2(2, 2), new IntVector2(0, 1)).isLoop);
-            Assert.AreEqual(true, new Shapes.Path(IntVector2.zero, new IntVector2(1, 1), new IntVector2(2, 2), new IntVector2(1, 1)).isLoop);
+            Assert.AreEqual(true, new Path(IntVector2.zero).isLoop);
+            Assert.AreEqual(true, new Path(IntVector2.zero, new IntVector2(1, 1)).isLoop);
+            Assert.AreEqual(true, new Path(IntVector2.zero, new IntVector2(1, 1), new IntVector2(2, 2), IntVector2.zero).isLoop);
+            Assert.AreEqual(true, new Path(IntVector2.zero, new IntVector2(1, 1), new IntVector2(2, 2), new IntVector2(0, 1)).isLoop);
+            Assert.AreEqual(true, new Path(IntVector2.zero, new IntVector2(1, 1), new IntVector2(2, 2), new IntVector2(1, 1)).isLoop);
         }
 
         [Test]
         [Category("Shapes")]
         public override void BoundingRect()
         {
-            foreach (Shapes.Path path in RandomTestCases(2_000))
+            foreach (Path path in RandomTestCases(2_000))
             {
                 IShapeTestHelper.BoundingRect(path);
             }
@@ -158,24 +158,24 @@ namespace PAC.Tests
         {
             // Pre-defined example-based tests
 
-            (int, Shapes.Path)[] testCases =
+            (int, Path)[] testCases =
             {
-                (1, new Shapes.Path(IntVector2.zero)),
-                (4, new Shapes.Path(IntVector2.zero, new IntVector2(2, 3))),
-                (6, new Shapes.Path(IntVector2.zero, new IntVector2(2, 3), new IntVector2(4, 4))),
+                (1, new Path(IntVector2.zero)),
+                (4, new Path(IntVector2.zero, new IntVector2(2, 3))),
+                (6, new Path(IntVector2.zero, new IntVector2(2, 3), new IntVector2(4, 4))),
                 // Loop
-                (9, new Shapes.Path(IntVector2.zero, new IntVector2(2, 3), new IntVector2(4, 4), IntVector2.zero)),
+                (9, new Path(IntVector2.zero, new IntVector2(2, 3), new IntVector2(4, 4), IntVector2.zero)),
                 // Crossing previous values
-                (12, new Shapes.Path(IntVector2.zero, new IntVector2(2, 3), new IntVector2(4, 4), new IntVector2(2, 4), new IntVector2(2, 0))),
-                (3, new Shapes.Path(IntVector2.zero, IntVector2.right, IntVector2.upRight, IntVector2.zero)),
-                (3, new Shapes.Path(IntVector2.zero, IntVector2.upRight, IntVector2.right, IntVector2.zero)),
-                (12, new Shapes.Path(
-                    new Shapes.Line(new IntVector2(-1, 5), new IntVector2(0, 4)), new Shapes.Line(new IntVector2(1, 3), new IntVector2(-4, 7)),
-                    new Shapes.Line(new IntVector2(-4, 6), new IntVector2(-1, 5)), new Shapes.Line(new IntVector2(-1, 5), new IntVector2(-1, 5))
+                (12, new Path(IntVector2.zero, new IntVector2(2, 3), new IntVector2(4, 4), new IntVector2(2, 4), new IntVector2(2, 0))),
+                (3, new Path(IntVector2.zero, IntVector2.right, IntVector2.upRight, IntVector2.zero)),
+                (3, new Path(IntVector2.zero, IntVector2.upRight, IntVector2.right, IntVector2.zero)),
+                (12, new Path(
+                    new Line(new IntVector2(-1, 5), new IntVector2(0, 4)), new Line(new IntVector2(1, 3), new IntVector2(-4, 7)),
+                    new Line(new IntVector2(-4, 6), new IntVector2(-1, 5)), new Line(new IntVector2(-1, 5), new IntVector2(-1, 5))
                 ))
             };
             
-            foreach ((int expected, Shapes.Path path) in testCases)
+            foreach ((int expected, Path path) in testCases)
             {
                 Assert.AreEqual(expected, path.Count, "Failed with " + path);
                 // Check that what we have implemented Count to count is the number of pixels in the IEnumerable
@@ -184,7 +184,7 @@ namespace PAC.Tests
 
             // Random tests
 
-            foreach (Shapes.Path path in RandomTestCases(2_000))
+            foreach (Path path in RandomTestCases(2_000))
             {
                 IShapeTestHelper.Count(path);
             }
@@ -203,7 +203,7 @@ namespace PAC.Tests
                 {
                     for (int iteration = 0; iteration < 1_000; iteration++)
                     {
-                        Shapes.Path path = RandomPath(length, isLoop);
+                        Path path = RandomPath(length, isLoop);
                         IntVector2[] pixels = path.ToArray();
 
                         if (pixels.Length == 1)
@@ -224,7 +224,7 @@ namespace PAC.Tests
         [Category("Shapes")]
         public void MinX()
         {
-            foreach (Shapes.Path path in testCases)
+            foreach (Path path in testCases)
             {
                 for (int y = path.boundingRect.bottomLeft.y; y <= path.boundingRect.topRight.y; y++)
                 {
@@ -240,7 +240,7 @@ namespace PAC.Tests
         [Category("Shapes")]
         public void MaxX()
         {
-            foreach (Shapes.Path path in testCases)
+            foreach (Path path in testCases)
             {
                 for (int y = path.boundingRect.bottomLeft.y; y <= path.boundingRect.topRight.y; y++)
                 {
@@ -256,7 +256,7 @@ namespace PAC.Tests
         [Category("Shapes")]
         public void MinY()
         {
-            foreach (Shapes.Path path in testCases)
+            foreach (Path path in testCases)
             {
                 for (int x = path.boundingRect.bottomLeft.x; x <= path.boundingRect.topRight.x; x++)
                 {
@@ -272,7 +272,7 @@ namespace PAC.Tests
         [Category("Shapes")]
         public void MaxY()
         {
-            foreach (Shapes.Path path in testCases)
+            foreach (Path path in testCases)
             {
                 for (int x = path.boundingRect.bottomLeft.x; x <= path.boundingRect.topRight.x; x++)
                 {
@@ -288,7 +288,7 @@ namespace PAC.Tests
         [Category("Shapes")]
         public void CountOnX()
         {
-            foreach (Shapes.Path path in testCases)
+            foreach (Path path in testCases)
             {
                 for (int x = path.boundingRect.bottomLeft.x - 2; x <= path.boundingRect.topRight.x + 2; x++)
                 {
@@ -301,7 +301,7 @@ namespace PAC.Tests
         [Category("Shapes")]
         public void CountOnY()
         {
-            foreach (Shapes.Path path in testCases)
+            foreach (Path path in testCases)
             {
                 for (int y = path.boundingRect.bottomLeft.y - 2; y <= path.boundingRect.topRight.y + 2; y++)
                 {
@@ -314,7 +314,7 @@ namespace PAC.Tests
         [Category("Shapes")]
         public void SelfIntersects()
         {
-            foreach (Shapes.Path path in testCases)
+            foreach (Path path in testCases)
             {
                 if (!path.selfIntersects)
                 {
@@ -342,39 +342,39 @@ namespace PAC.Tests
         [Category("Shapes")]
         public void IsSimplePolygon()
         {
-            (bool isSimplePolygon, Shapes.Path path)[] testCases =
+            (bool isSimplePolygon, Path path)[] testCases =
             {
-                (true, new Shapes.Path(IntVector2.zero, IntVector2.up, IntVector2.upRight, IntVector2.right, IntVector2.zero)),
-                (true, new Shapes.Path(IntVector2.downLeft, IntVector2.upLeft, IntVector2.upRight, IntVector2.downRight, IntVector2.downLeft)),
-                (true, new Shapes.Path(IntVector2.zero, IntVector2.upRight, IntVector2.right, IntVector2.zero)),
-                (true, new Shapes.Path(IntVector2.zero, IntVector2.zero)),
-                (true, new Shapes.Path(IntVector2.zero, IntVector2.zero, IntVector2.zero)),
-                (true, new Shapes.Path(IntVector2.zero, IntVector2.right, IntVector2.zero)),
-                (true, new Shapes.Path(IntVector2.zero, new IntVector2(5, 0), IntVector2.zero)),
-                (true, new Shapes.Path(IntVector2.zero, new IntVector2(5, 0), new IntVector2(0, 7), new IntVector2(0, -4), IntVector2.zero)),
-                (true, new Shapes.Path(IntVector2.zero, new IntVector2(5, 0), new IntVector2(0, 7), new IntVector2(0, -4), new IntVector2(4, -4), IntVector2.zero)),
-                (true, new Shapes.Path(IntVector2.zero, new IntVector2(5, 0), new IntVector2(-1, 7), new IntVector2(-1, -4), new IntVector2(4, -4), new IntVector2(3, 0), IntVector2.zero)),
-                (true, new Shapes.Path(IntVector2.zero, new IntVector2(5, 0), new IntVector2(0, 7), new IntVector2(0, -4), new IntVector2(4, -4), new IntVector2(3, 0), IntVector2.zero)),
-                (false, new Shapes.Path(new IntVector2(5, 0), new IntVector2(0, 7), new IntVector2(0, -4), new IntVector2(-4, 0), new IntVector2(5, 0))),
-                (false, new Shapes.Path(IntVector2.zero, new IntVector2(5, 0), new IntVector2(0, 7), new IntVector2(0, -4), new IntVector2(-4, 0), IntVector2.zero)),
-                (false, new Shapes.Path(IntVector2.zero, new IntVector2(5, 0), new IntVector2(0, 7), new IntVector2(0, -4), new IntVector2(-4, -4), IntVector2.zero)),
-                (true, new Shapes.Path(IntVector2.zero, new IntVector2(2, 0), new IntVector2(1, 0), new IntVector2(1, 1), new IntVector2(1, 0))),
-                (true, new Shapes.Path(IntVector2.zero, new IntVector2(2, 0), new IntVector2(1, 0), new IntVector2(1, 1), new IntVector2(1, -1))),
-                (false, new Shapes.Path(IntVector2.zero, new IntVector2(2, 0), new IntVector2(1, 1), new IntVector2(1, -1))),
+                (true, new Path(IntVector2.zero, IntVector2.up, IntVector2.upRight, IntVector2.right, IntVector2.zero)),
+                (true, new Path(IntVector2.downLeft, IntVector2.upLeft, IntVector2.upRight, IntVector2.downRight, IntVector2.downLeft)),
+                (true, new Path(IntVector2.zero, IntVector2.upRight, IntVector2.right, IntVector2.zero)),
+                (true, new Path(IntVector2.zero, IntVector2.zero)),
+                (true, new Path(IntVector2.zero, IntVector2.zero, IntVector2.zero)),
+                (true, new Path(IntVector2.zero, IntVector2.right, IntVector2.zero)),
+                (true, new Path(IntVector2.zero, new IntVector2(5, 0), IntVector2.zero)),
+                (true, new Path(IntVector2.zero, new IntVector2(5, 0), new IntVector2(0, 7), new IntVector2(0, -4), IntVector2.zero)),
+                (true, new Path(IntVector2.zero, new IntVector2(5, 0), new IntVector2(0, 7), new IntVector2(0, -4), new IntVector2(4, -4), IntVector2.zero)),
+                (true, new Path(IntVector2.zero, new IntVector2(5, 0), new IntVector2(-1, 7), new IntVector2(-1, -4), new IntVector2(4, -4), new IntVector2(3, 0), IntVector2.zero)),
+                (true, new Path(IntVector2.zero, new IntVector2(5, 0), new IntVector2(0, 7), new IntVector2(0, -4), new IntVector2(4, -4), new IntVector2(3, 0), IntVector2.zero)),
+                (false, new Path(new IntVector2(5, 0), new IntVector2(0, 7), new IntVector2(0, -4), new IntVector2(-4, 0), new IntVector2(5, 0))),
+                (false, new Path(IntVector2.zero, new IntVector2(5, 0), new IntVector2(0, 7), new IntVector2(0, -4), new IntVector2(-4, 0), IntVector2.zero)),
+                (false, new Path(IntVector2.zero, new IntVector2(5, 0), new IntVector2(0, 7), new IntVector2(0, -4), new IntVector2(-4, -4), IntVector2.zero)),
+                (true, new Path(IntVector2.zero, new IntVector2(2, 0), new IntVector2(1, 0), new IntVector2(1, 1), new IntVector2(1, 0))),
+                (true, new Path(IntVector2.zero, new IntVector2(2, 0), new IntVector2(1, 0), new IntVector2(1, 1), new IntVector2(1, -1))),
+                (false, new Path(IntVector2.zero, new IntVector2(2, 0), new IntVector2(1, 1), new IntVector2(1, -1))),
             };
 
-            foreach ((bool isSimplePolygon, Shapes.Path path) in testCases)
+            foreach ((bool isSimplePolygon, Path path) in testCases)
             {
                 Assert.AreEqual(isSimplePolygon, path.isSimplePolygon, "Failed with " + path);
             }
 
             // Check that simple polygons must be loops
-            foreach (Shapes.Path path in RandomTestCases(1_000, false))
+            foreach (Path path in RandomTestCases(1_000, false))
             {
                 Assert.False(path.isSimplePolygon, "Failed with " + path);
             }
 
-            foreach (Shapes.Path path in RandomTestCases(1_000, true))
+            foreach (Path path in RandomTestCases(1_000, true))
             {
                 // Check the logical implication 'not self-intersecting => simple polygon'
                 if (!path.selfIntersects)
@@ -388,16 +388,16 @@ namespace PAC.Tests
         [Category("Shapes")]
         public void WindingNumber()
         {
-            (Shapes.Path path, (int windingNumber, IntVector2 point)[])[] testCases =
+            (Path path, (int windingNumber, IntVector2 point)[])[] testCases =
             {
-                (new Shapes.Path(IntVector2.downRight, IntVector2.upRight, IntVector2.upLeft, IntVector2.downLeft, IntVector2.downRight), new (int, IntVector2)[] {
+                (new Path(IntVector2.downRight, IntVector2.upRight, IntVector2.upLeft, IntVector2.downLeft, IntVector2.downRight), new (int, IntVector2)[] {
                     (1, IntVector2.zero),
                     (0, new IntVector2(2, 0)),
                     (0, new IntVector2(-2, 1)),
                     (0, new IntVector2(2, -1)),
                     (0, new IntVector2(0, 2))
                 }),
-                (new Shapes.Path(IntVector2.zero, new IntVector2(3, 0), new IntVector2(3, 3), IntVector2.zero), new (int, IntVector2)[] {
+                (new Path(IntVector2.zero, new IntVector2(3, 0), new IntVector2(3, 3), IntVector2.zero), new (int, IntVector2)[] {
                     (1, new IntVector2(2, 1)),
                     (0, new IntVector2(2, 3)),
                     (0, new IntVector2(-1, 0)),
@@ -405,17 +405,17 @@ namespace PAC.Tests
                     (0, new IntVector2(4, 1)),
                     (0, new IntVector2(2, 4))
                 }),
-                (new Shapes.Path(IntVector2.zero), new (int, IntVector2)[] {
+                (new Path(IntVector2.zero), new (int, IntVector2)[] {
                     (0, IntVector2.up),
                     (0, IntVector2.right),
                     (0, IntVector2.downLeft),
                     (0, new IntVector2(4, -3))
                 }),
-                (new Shapes.Path(
-                    new Shapes.Line(IntVector2.zero, new IntVector2(3, 0)),
-                    new Shapes.Line(new IntVector2(4, 1), new IntVector2(6, 1)),
-                    new Shapes.Line(new IntVector2(7, 2), new IntVector2(3, 10)),
-                    new Shapes.Line(new IntVector2(3, 10), IntVector2.zero)
+                (new Path(
+                    new Line(IntVector2.zero, new IntVector2(3, 0)),
+                    new Line(new IntVector2(4, 1), new IntVector2(6, 1)),
+                    new Line(new IntVector2(7, 2), new IntVector2(3, 10)),
+                    new Line(new IntVector2(3, 10), IntVector2.zero)
                     ),
                     new (int, IntVector2)[] {
                         (1, new IntVector2(3, 1)),
@@ -427,18 +427,18 @@ namespace PAC.Tests
                         (0, new IntVector2(-3, 1)),
                         (0, new IntVector2(-1, 2))
                     }),
-                (new Shapes.Path(
-                    new Shapes.Line(IntVector2.zero, IntVector2.zero),
-                    new Shapes.Line(IntVector2.zero, IntVector2.one)
+                (new Path(
+                    new Line(IntVector2.zero, IntVector2.zero),
+                    new Line(IntVector2.zero, IntVector2.one)
                     ),
                     new (int, IntVector2)[] {
                         (0, new IntVector2(0, 1)),
                         (0, new IntVector2(-1, 0)),
                         (0, new IntVector2(-1, 1))
                     }),
-                (new Shapes.Path(
-                    new Shapes.Line(IntVector2.zero, new IntVector2(5, 0)),
-                    new Shapes.Line(new IntVector2(5, 0), IntVector2.zero)
+                (new Path(
+                    new Line(IntVector2.zero, new IntVector2(5, 0)),
+                    new Line(new IntVector2(5, 0), IntVector2.zero)
                     ),
                     new (int, IntVector2)[] {
                         (0, new IntVector2(0, 1)),
@@ -448,7 +448,7 @@ namespace PAC.Tests
                     })
             };
 
-            foreach ((Shapes.Path path, (int, IntVector2)[] pathTestCases) in testCases)
+            foreach ((Path path, (int, IntVector2)[] pathTestCases) in testCases)
             {
                 foreach ((int windingNumber, IntVector2 point) in pathTestCases)
                 {
@@ -457,14 +457,14 @@ namespace PAC.Tests
             }
 
             // Path must be a loop
-            Assert.Throws<ArgumentException>(() => new Shapes.Path(IntVector2.zero, IntVector2.right, IntVector2.upRight).WindingNumber(IntVector2.zero));
+            Assert.Throws<ArgumentException>(() => new Path(IntVector2.zero, IntVector2.right, IntVector2.upRight).WindingNumber(IntVector2.zero));
 
             // Winding number of point on path is undefined
-            Assert.Throws<ArgumentException>(() => new Shapes.Path(IntVector2.zero).WindingNumber(IntVector2.zero));
-            Assert.Throws<ArgumentException>(() => new Shapes.Path(IntVector2.zero, IntVector2.right, new IntVector2(1, 2), IntVector2.zero).WindingNumber(IntVector2.one));
+            Assert.Throws<ArgumentException>(() => new Path(IntVector2.zero).WindingNumber(IntVector2.zero));
+            Assert.Throws<ArgumentException>(() => new Path(IntVector2.zero, IntVector2.right, new IntVector2(1, 2), IntVector2.zero).WindingNumber(IntVector2.one));
 
             // Check it correctly determines whether the winding number is non-zero for simple polygons (those that don't self-intersect)
-            foreach (Shapes.Path path in RandomTestCases(1_000, true))
+            foreach (Path path in RandomTestCases(1_000, true))
             {
                 if (!path.isSimplePolygon)
                 {

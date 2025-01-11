@@ -10,12 +10,12 @@ using System.Linq;
 namespace PAC.Tests
 {
     /// <summary>
-    /// Tests for <see cref="Shapes.IsometricCuboid"/>.
+    /// Tests for <see cref="IsometricCuboid"/>.
     /// </summary>
-    public class IsometricCuboidTests : IIsometricShapeTests<Shapes.IsometricCuboid>
+    public class IsometricCuboidTests : IIsometricShapeTests<IsometricCuboid>
     {
-        public override IEnumerable<Shapes.IsometricCuboid> testCases => exampleTestCases.Concat(randomTestCases);
-        public IEnumerable<Shapes.IsometricCuboid> exampleTestCases
+        public override IEnumerable<IsometricCuboid> testCases => exampleTestCases.Concat(randomTestCases);
+        public IEnumerable<IsometricCuboid> exampleTestCases
         {
             get
             {
@@ -29,7 +29,7 @@ namespace PAC.Tests
                             {
                                 foreach (bool showBackEdges in new bool[] { false, true })
                                 {
-                                    yield return new Shapes.IsometricCuboid(IntVector2.zero, new IntVector2(x, y), height, filled, showBackEdges);
+                                    yield return new IsometricCuboid(IntVector2.zero, new IntVector2(x, y), height, filled, showBackEdges);
                                 }
                             }
                         }
@@ -37,7 +37,7 @@ namespace PAC.Tests
                 }
             }
         }
-        public IEnumerable<Shapes.IsometricCuboid> randomTestCases
+        public IEnumerable<IsometricCuboid> randomTestCases
         {
             get
             {
@@ -51,7 +51,7 @@ namespace PAC.Tests
                     bool filled = rng.Next(0, 2) == 0;
                     bool showBackEdges = rng.Next(0, 2) == 0;
 
-                    yield return new Shapes.IsometricCuboid(start, end, height, filled, showBackEdges);
+                    yield return new IsometricCuboid(start, end, height, filled, showBackEdges);
                 }
             }
         }
@@ -66,7 +66,7 @@ namespace PAC.Tests
                 {
                     foreach (IntVector2 pixel in new IntRect(new IntVector2(-5, -5), new IntVector2(5, 5)))
                     {
-                        CollectionAssert.AreEquivalent(new IntVector2[] { pixel }, new Shapes.IsometricCuboid(pixel, pixel, 0, filled, showBackEdges).ToHashSet(),
+                        CollectionAssert.AreEquivalent(new IntVector2[] { pixel }, new IsometricCuboid(pixel, pixel, 0, filled, showBackEdges).ToHashSet(),
                             $"Failed with {pixel} {(filled ? "filled" : "unfilled")} {(showBackEdges ? "show back edges" : "don't show back edges")}");
                     }
                 }
@@ -77,7 +77,7 @@ namespace PAC.Tests
         [Category("Shapes")]
         public override void Contains()
         {
-            foreach (Shapes.IsometricCuboid cuboid in testCases)
+            foreach (IsometricCuboid cuboid in testCases)
             {
                 IntRect boundingRect = cuboid.boundingRect;
                 IntRect testRegion = new IntRect(boundingRect.bottomLeft + IntVector2.downLeft, boundingRect.topRight + IntVector2.upRight);
@@ -94,7 +94,7 @@ namespace PAC.Tests
         }
 
         /// <summary>
-        /// Don't currently care about repeated pixels in <see cref="Shapes.IsometricCuboid"/>.
+        /// Don't currently care about repeated pixels in <see cref="IsometricCuboid"/>.
         /// </summary>
         [Test]
         [Category("Shapes")]
@@ -104,7 +104,7 @@ namespace PAC.Tests
         [Category("Shapes")]
         public void Height()
         {
-            foreach (Shapes.IsometricCuboid shape in testCases)
+            foreach (IsometricCuboid shape in testCases)
             {
                 Assert.AreEqual(Math.Abs(shape.height), shape.topRectangle.boundingRect.minY - shape.bottomRectangle.boundingRect.minY, $"Failed with {shape}");
             }
@@ -114,7 +114,7 @@ namespace PAC.Tests
         [Category("Shapes")]
         public override void UnfilledIsBorderOfFilled()
         {
-            foreach (Shapes.IsometricCuboid cuboid in testCases)
+            foreach (IsometricCuboid cuboid in testCases)
             {
                 cuboid.filled = true;
                 HashSet<IntVector2> borderOfFilled = IFillableShapeTestHelper.GetBorder(cuboid);
@@ -126,14 +126,14 @@ namespace PAC.Tests
         }
 
         /// <summary>
-        /// Tests that the shape obtained with <see cref="Shapes.IsometricCuboid.showBackEdges"/> = <see langword="false"/> is a subset of the shape with
-        /// <see cref="Shapes.IsometricCuboid.showBackEdges"/> = <see langword="true"/>.
+        /// Tests that the shape obtained with <see cref="IsometricCuboid.showBackEdges"/> = <see langword="false"/> is a subset of the shape with
+        /// <see cref="IsometricCuboid.showBackEdges"/> = <see langword="true"/>.
         /// </summary>
         [Test]
         [Category("Shapes")]
         public void ShowBackEdgesContainsDontShowBackEdges()
         {
-            foreach (Shapes.IsometricCuboid cuboid in testCases)
+            foreach (IsometricCuboid cuboid in testCases)
             {
                 cuboid.showBackEdges = false;
                 HashSet<IntVector2> dontShowBackEdges = cuboid.ToHashSet();
@@ -147,7 +147,7 @@ namespace PAC.Tests
         [Category("Shapes")]
         public override void Flip()
         {
-            foreach (Shapes.IsometricCuboid shape in testCases)
+            foreach (IsometricCuboid shape in testCases)
             {
                 foreach (FlipAxis axis in new FlipAxis[] { FlipAxis.None, FlipAxis.Vertical })
                 {

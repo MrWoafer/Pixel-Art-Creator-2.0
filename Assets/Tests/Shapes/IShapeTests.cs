@@ -12,7 +12,7 @@ namespace PAC.Tests
     /// <summary>
     /// The tests that should be implemented for every shape.
     /// </summary>
-    public abstract class IShapeTests<T> where T : Shapes.IShape
+    public abstract class IShapeTests<T> where T : IShape
     {
         public abstract IEnumerable<T> testCases { get; }
 
@@ -44,7 +44,7 @@ namespace PAC.Tests
         }
 
         /// <summary>
-        /// Tests that the <see cref="IReadOnlyCollection{T}.Count"/> property of the <see cref="Shapes.IShape"/> matches the length of the enumerator.
+        /// Tests that the <see cref="IReadOnlyCollection{T}.Count"/> property of the <see cref="IShape"/> matches the length of the enumerator.
         /// </summary>
         [Test]
         [Category("Shapes")]
@@ -152,7 +152,7 @@ namespace PAC.Tests
         }
     }
 
-    public abstract class IRotatableShapeTests<T> : IShapeTests<T> where T : Shapes.IRotatableShape
+    public abstract class IRotatableShapeTests<T> : IShapeTests<T> where T : IRotatableShape
     {
         [Test]
         [Category("Shapes")]
@@ -168,12 +168,12 @@ namespace PAC.Tests
         }
     }
 
-    public abstract class I1DShapeTests<T> : IRotatableShapeTests<T> where T : Shapes.I1DShape
+    public abstract class I1DShapeTests<T> : IRotatableShapeTests<T> where T : I1DShape
     {
 
     }
 
-    public abstract class IFillableShapeTests<T> : IShapeTests<T> where T : Shapes.IFillableShape
+    public abstract class IFillableShapeTests<T> : IShapeTests<T> where T : IFillableShape
     {
         /// <summary>
         /// Tests that the unfilled version of a shape is precisely the border of the filled version.
@@ -189,7 +189,7 @@ namespace PAC.Tests
         }
     }
 
-    public abstract class I2DShapeTests<T> : IFillableShapeTests<T> where T : Shapes.I2DShape
+    public abstract class I2DShapeTests<T> : IFillableShapeTests<T> where T : I2DShape
     {
         [Test]
         [Category("Shapes")]
@@ -218,28 +218,28 @@ namespace PAC.Tests
         }
     }
 
-    public abstract class IIsometricShapeTests<T> : IFillableShapeTests<T> where T : Shapes.IIsometricShape
+    public abstract class IIsometricShapeTests<T> : IFillableShapeTests<T> where T : IIsometricShape
     {
 
     }
 
     /// <summary>
-    /// Helper functions for making tests for IShapes.
+    /// Helper functions for making tests for I
     /// </summary>
     public static class IShapeTestHelper
     {
         /// <summary>
         /// Tests that the shape's boundingRect property is the correct bounding rect.
         /// </summary>
-        public static void BoundingRect(Shapes.IShape shape)
+        public static void BoundingRect(IShape shape)
         {
             Assert.AreEqual(IntRect.BoundingRect(shape), shape.boundingRect, "Failed with " + shape);
         }
 
         /// <summary>
-        /// Tests that the <see cref="IReadOnlyCollection{T}.Count"/> property of the <see cref="Shapes.IShape"/> matches the length of the enumerator.
+        /// Tests that the <see cref="IReadOnlyCollection{T}.Count"/> property of the <see cref="IShape"/> matches the length of the enumerator.
         /// </summary>
-        public static void Count(Shapes.IShape shape)
+        public static void Count(IShape shape)
         {
             Assert.AreEqual(shape.Count(), shape.Count, "Failed with " + shape);
         }
@@ -247,7 +247,7 @@ namespace PAC.Tests
         /// <summary>
         /// Tests that the shape's Contains() method matches the set of pixels obtained from the shape's enumerator.
         /// </summary>
-        public static void Contains(Shapes.IShape shape)
+        public static void Contains(IShape shape)
         {
             IntRect boundingRect = shape.boundingRect;
             IntRect testRegion = new IntRect(boundingRect.bottomLeft + IntVector2.downLeft, boundingRect.topRight + IntVector2.upRight);
@@ -264,7 +264,7 @@ namespace PAC.Tests
         /// <summary>
         /// Tests that no pixels are repeated at all in the shape's enumerator.
         /// </summary>
-        public static void NoRepeatsAtAll(Shapes.IShape shape)
+        public static void NoRepeatsAtAll(IShape shape)
         {
             HashSet<IntVector2> visited = new HashSet<IntVector2>();
             foreach (IntVector2 pixel in shape)
@@ -282,7 +282,7 @@ namespace PAC.Tests
         /// Note this is a strictly weaker test than Connected().
         /// </para>
         /// </summary>
-        public static void NoIsolatedPoints(Shapes.IShape shape)
+        public static void NoIsolatedPoints(IShape shape)
         {
             HashSet<IntVector2> pixels = shape.ToHashSet();
             foreach (IntVector2 pixel in shape)
@@ -304,7 +304,7 @@ namespace PAC.Tests
         /// <summary>
         /// Tests that the shape has exactly one connected component (defined it terms of pixels being adjacent, including diagonally).
         /// </summary>
-        public static void Connected(Shapes.IShape shape)
+        public static void Connected(IShape shape)
         {
             HashSet<IntVector2> pixels = shape.ToHashSet();
             HashSet<IntVector2> visited = new HashSet<IntVector2>();
@@ -338,7 +338,7 @@ namespace PAC.Tests
         /// <summary>
         /// Applies Translate() to the shape and checks that the enumerator of the resulting shape is a translation of the original shape's enumerator.
         /// </summary>
-        public static void Translate(Shapes.IShape shape)
+        public static void Translate(IShape shape)
         {
             HashSet<IntVector2> original = shape.ToHashSet();
             foreach (IntVector2 translation in new IntRect(new IntVector2(-2, -2), new IntVector2(2, 2)))
@@ -353,7 +353,7 @@ namespace PAC.Tests
         /// <summary>
         /// Applies Flip() to the shape and checks that the enumerator of the resulting shape is a reflection of the original shape's enumerator.
         /// </summary>
-        public static void Flip(Shapes.IShape shape, FlipAxis axis)
+        public static void Flip(IShape shape, FlipAxis axis)
         {
             HashSet<IntVector2> expected = shape.Select(p => p.Flip(axis)).ToHashSet();
             HashSet<IntVector2> flipped = shape.Flip(axis).ToHashSet();
@@ -363,7 +363,7 @@ namespace PAC.Tests
         /// <summary>
         /// Tests that the shape has reflective symmetry across the given axis.
         /// </summary>
-        public static void ReflectiveSymmetry(Shapes.IShape shape, FlipAxis axis)
+        public static void ReflectiveSymmetry(IShape shape, FlipAxis axis)
         {
             CollectionAssert.AreEquivalent(shape.ToHashSet(), shape.Select(p => p.Flip(axis) + shape.boundingRect.bottomLeft - shape.boundingRect.Flip(axis).bottomLeft).ToHashSet(),
                 "Failed with " + shape + " and FlipAxis." + axis);
@@ -372,7 +372,7 @@ namespace PAC.Tests
         /// <summary>
         /// Tests that the shape doesn't have reflective symmetry across the given axis.
         /// </summary>
-        public static void ReflectiveAsymmetry(Shapes.IShape shape, FlipAxis axis)
+        public static void ReflectiveAsymmetry(IShape shape, FlipAxis axis)
         {
             CollectionAssert.AreNotEquivalent(shape.ToHashSet(), shape.Select(p => p.Flip(axis) + shape.boundingRect.bottomLeft - shape.boundingRect.Flip(axis).bottomLeft).ToHashSet(),
                 "Failed with " + shape + " and FlipAxis." + axis);
@@ -381,7 +381,7 @@ namespace PAC.Tests
         /// <summary>
         /// Tests that the shape has 180-degree rotational symmetry.
         /// </summary>
-        public static void RotationalSymmetry180(Shapes.IIsometricShape shape)
+        public static void RotationalSymmetry180(IIsometricShape shape)
         {
             CollectionAssert.AreEquivalent(shape.ToHashSet(), shape.Select(p =>
                 p.Flip(FlipAxis.Vertical).Flip(FlipAxis.Horizontal) + shape.boundingRect.bottomLeft - shape.boundingRect.Flip(FlipAxis.Vertical).Flip(FlipAxis.Horizontal).bottomLeft
@@ -391,11 +391,11 @@ namespace PAC.Tests
     }
 
     /// <summary>
-    /// Helper functions for making tests for IFillableShapes.
+    /// Helper functions for making tests for IFillable
     /// </summary>
     public static class IFillableShapeTestHelper
     {
-        public static HashSet<IntVector2> GetBorder(Shapes.IFillableShape shape)
+        public static HashSet<IntVector2> GetBorder(IFillableShape shape)
         {
             HashSet<IntVector2> pixels = shape.ToHashSet();
             HashSet<IntVector2> border = new HashSet<IntVector2>();
@@ -416,7 +416,7 @@ namespace PAC.Tests
         /// <summary>
         /// Tests that the unfilled version of the shape is precisely the border of the filled version.
         /// </summary>
-        public static void UnfilledIsBorderOfFilled(Shapes.IFillableShape shape)
+        public static void UnfilledIsBorderOfFilled(IFillableShape shape)
         {
             shape.filled = true;
             HashSet<IntVector2> borderOfFilled = GetBorder(shape);
@@ -427,14 +427,14 @@ namespace PAC.Tests
     }
 
     /// <summary>
-    /// Helper functions for making tests for IRotatableShapes.
+    /// Helper functions for making tests for IRotatable
     /// </summary>
     public static class IRotatableShapeTestHelper
     {
         /// <summary>
         /// Applies Rotate() to the shape and checks that the enumerator of the resulting shape is a rotation of the original shape's enumerator.
         /// </summary>
-        public static void Rotate(Shapes.IRotatableShape shape, RotationAngle angle)
+        public static void Rotate(IRotatableShape shape, RotationAngle angle)
         {
             HashSet<IntVector2> expected = shape.Select(p => p.Rotate(angle)).ToHashSet();
             HashSet<IntVector2> rotated = shape.Rotate(angle).ToHashSet();
@@ -444,7 +444,7 @@ namespace PAC.Tests
         /// <summary>
         /// Tests that the shape has rotational symmetry by the given angle.
         /// </summary>
-        public static void RotationalSymmetry(Shapes.IRotatableShape shape, RotationAngle angle)
+        public static void RotationalSymmetry(IRotatableShape shape, RotationAngle angle)
         {
             CollectionAssert.AreEquivalent(shape.ToHashSet(), shape.Select(p => p.Rotate(angle) + shape.boundingRect.bottomLeft - shape.boundingRect.Rotate(angle).bottomLeft).ToHashSet(),
                 "Failed with " + shape + " and RotationAngle." + angle);

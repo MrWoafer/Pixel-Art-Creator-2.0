@@ -7,9 +7,9 @@ using PAC.Drawing;
 
 namespace PAC.Tests
 {
-    public class LineTests : I1DShapeTests<Shapes.Line>
+    public class LineTests : I1DShapeTests<Line>
     {
-        public override IEnumerable<Shapes.Line> testCases
+        public override IEnumerable<Line> testCases
         {
             get
             {
@@ -17,7 +17,7 @@ namespace PAC.Tests
                 {
                     foreach (IntVector2 end in start + new IntRect(new IntVector2(-5, -5), new IntVector2(5, 5)))
                     {
-                        yield return new Shapes.Line(start, end);
+                        yield return new Line(start, end);
                     }
                 }
             }
@@ -29,7 +29,7 @@ namespace PAC.Tests
         {
             foreach (IntVector2 pixel in new IntRect(new IntVector2(-5, -5), new IntVector2(5, 5)))
             {
-                CollectionAssert.AreEqual(new IntVector2[] { pixel }, new Shapes.Line(pixel, pixel), "Failed with " + pixel);
+                CollectionAssert.AreEqual(new IntVector2[] { pixel }, new Line(pixel, pixel), "Failed with " + pixel);
             }
         }
 
@@ -58,7 +58,7 @@ namespace PAC.Tests
                         {
                             foreach (FlipAxis axis in new FlipAxis[] { FlipAxis.None, FlipAxis._45Degrees })
                             {
-                                Shapes.Line line = new Shapes.Line(start, start + new IntVector2(blockSize * numBlocks - 1, numBlocks - 1).Flip(axis).Rotate(angle));
+                                Line line = new Line(start, start + new IntVector2(blockSize * numBlocks - 1, numBlocks - 1).Flip(axis).Rotate(angle));
                                 IEnumerable<IntVector2> expected = Expected(blockSize, numBlocks).Select(p => start + p.Flip(axis).Rotate(angle));
                                 CollectionAssert.AreEqual(expected, line, "Failed with " + line);
                                 Assert.True(line.isPerfect, "Failed with " + line);
@@ -76,7 +76,7 @@ namespace PAC.Tests
         [Category("Shapes")]
         public void ShapeExample1()
         {
-            Shapes.Line line = new Shapes.Line(IntVector2.zero, new IntVector2(2, 4));
+            Line line = new Line(IntVector2.zero, new IntVector2(2, 4));
             IntVector2[] expected =
             {
                 new IntVector2(0, 0), new IntVector2(0, 1), new IntVector2(1, 2), new IntVector2(2, 3), new IntVector2(2, 4)
@@ -92,7 +92,7 @@ namespace PAC.Tests
         [Category("Shapes")]
         public void ShapeExample2()
         {
-            Shapes.Line line = new Shapes.Line(IntVector2.zero, new IntVector2(4, 1));
+            Line line = new Line(IntVector2.zero, new IntVector2(4, 1));
             IntVector2[] expected =
             {
                 new IntVector2(0, 0), new IntVector2(1, 0), new IntVector2(2, 0), new IntVector2(3, 1), new IntVector2(4, 1)
@@ -108,7 +108,7 @@ namespace PAC.Tests
         [Category("Shapes")]
         public void ShapeExample3()
         {
-            Shapes.Line line = new Shapes.Line(IntVector2.zero, new IntVector2(5, 3));
+            Line line = new Line(IntVector2.zero, new IntVector2(5, 3));
             IntVector2[] expected =
             {
                 new IntVector2(0, 0), new IntVector2(1, 0), new IntVector2(2, 1), new IntVector2(3, 2), new IntVector2(4, 3), new IntVector2(5, 3)
@@ -124,7 +124,7 @@ namespace PAC.Tests
         [Category("Shapes")]
         public void Orientation()
         {
-            foreach (Shapes.Line line in testCases)
+            foreach (Line line in testCases)
             {
                 Assert.AreEqual(line.First(),  line.start, "Failed with " + line);
                 Assert.AreEqual(line.Last(), line.end, "Failed with " + line);
@@ -138,7 +138,7 @@ namespace PAC.Tests
         [Category("Shapes")]
         public void Indexing()
         {
-            foreach (Shapes.Line line in testCases)
+            foreach (Line line in testCases)
             {
                 Assert.Throws<IndexOutOfRangeException>(() => { IntVector2 x = line[-1]; }, "Failed with " + line);
 
@@ -163,7 +163,7 @@ namespace PAC.Tests
         [Category("Shapes")]
         public void IndexingRange()
         {
-            Shapes.Line line = new Shapes.Line(IntVector2.zero, new IntVector2(4, 1));
+            Line line = new Line(IntVector2.zero, new IntVector2(4, 1));
             CollectionAssert.AreEqual(line, line[..]);
             CollectionAssert.AreEqual(new IntVector2[] { new IntVector2(1, 0), new IntVector2(2, 0), new IntVector2(3, 1), new IntVector2(4, 1) }, line[1..]);
             CollectionAssert.AreEqual(new IntVector2[] { new IntVector2(1, 0), new IntVector2(2, 0), new IntVector2(3, 1), new IntVector2(4, 1) }, line[1..5]);
@@ -175,7 +175,7 @@ namespace PAC.Tests
         [Category("Shapes")]
         public void PointIsToLeft()
         {
-            foreach (Shapes.Line line in testCases)
+            foreach (Line line in testCases)
             {
                 foreach (IntVector2 pixel in line)
                 {
@@ -216,7 +216,7 @@ namespace PAC.Tests
         [Category("Shapes")]
         public void PointIsToRight()
         {
-            foreach (Shapes.Line line in testCases)
+            foreach (Line line in testCases)
             {
                 foreach (IntVector2 pixel in line)
                 {
@@ -257,7 +257,7 @@ namespace PAC.Tests
         [Category("Shapes")]
         public void MinX()
         {
-            foreach (Shapes.Line line in testCases)
+            foreach (Line line in testCases)
             {
                 for (int y = line.boundingRect.bottomLeft.y; y <= line.boundingRect.topRight.y; y++)
                 {
@@ -273,7 +273,7 @@ namespace PAC.Tests
         [Category("Shapes")]
         public void MaxX()
         {
-            foreach (Shapes.Line line in testCases)
+            foreach (Line line in testCases)
             {
                 for (int y = line.boundingRect.bottomLeft.y; y <= line.boundingRect.topRight.y; y++)
                 {
@@ -289,7 +289,7 @@ namespace PAC.Tests
         [Category("Shapes")]
         public void MinY()
         {
-            foreach (Shapes.Line line in testCases)
+            foreach (Line line in testCases)
             {
                 for (int x = line.boundingRect.bottomLeft.x; x <= line.boundingRect.topRight.x; x++)
                 {
@@ -305,7 +305,7 @@ namespace PAC.Tests
         [Category("Shapes")]
         public void MaxY()
         {
-            foreach (Shapes.Line line in testCases)
+            foreach (Line line in testCases)
             {
                 for (int x = line.boundingRect.bottomLeft.x; x <= line.boundingRect.topRight.x; x++)
                 {
@@ -321,7 +321,7 @@ namespace PAC.Tests
         [Category("Shapes")]
         public void CountOnX()
         {
-            foreach (Shapes.Line line in testCases)
+            foreach (Line line in testCases)
             {
                 for (int x = line.boundingRect.bottomLeft.x - 2; x <= line.boundingRect.topRight.x + 2; x++)
                 {
@@ -334,7 +334,7 @@ namespace PAC.Tests
         [Category("Shapes")]
         public void CountOnY()
         {
-            foreach (Shapes.Line line in testCases)
+            foreach (Line line in testCases)
             {
                 for (int y = line.boundingRect.bottomLeft.y - 2; y <= line.boundingRect.topRight.y + 2; y++)
                 {
