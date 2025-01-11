@@ -762,7 +762,7 @@ namespace PAC.Drawing
                     IntVector2 end = pixel;
                     if (holdingCtrl)
                     {
-                        end = Shapes.SnapEndCoordToSquare(mouseDragPoints[0], end);
+                        end = CoordSnapping.SnapToSquare(mouseDragPoints[0], end);
                     }
                     PreviewShape(new Shapes.Rectangle(mouseDragPoints[0], end, rightClickedOn), colour);
                 }
@@ -771,7 +771,7 @@ namespace PAC.Drawing
                     IntVector2 end = pixel;
                     if (holdingCtrl)
                     {
-                        end = Shapes.SnapEndCoordToSquare(mouseDragPoints[0], end);
+                        end = CoordSnapping.SnapToSquare(mouseDragPoints[0], end);
                     }
                     PreviewShape(new Shapes.Ellipse(mouseDragPoints[0], end, rightClickedOn), colour);
                 }
@@ -785,7 +785,7 @@ namespace PAC.Drawing
                     IntVector2 end = pixel;
                     if (holdingCtrl)
                     {
-                        end = Shapes.SnapEndCoordToSquare(mouseDragPoints[0], end);
+                        end = CoordSnapping.SnapToSquare(mouseDragPoints[0], end);
                     }
                     PreviewShape(new Shapes.Diamond(mouseDragPoints[0], end, rightClickedOn), colour);
                 }
@@ -824,7 +824,7 @@ namespace PAC.Drawing
                     IntVector2 end = pixel;
                     if (holdingCtrl)
                     {
-                        end = Shapes.SnapEndCoordToSquare(mouseDragPoints[0], end);
+                        end = CoordSnapping.SnapToSquare(mouseDragPoints[0], end);
                     }
                     SelectionShape(new Shapes.Rectangle(mouseDragPoints[0], end, true), rightClickedOn);
                 }
@@ -833,7 +833,7 @@ namespace PAC.Drawing
                     IntVector2 end = pixel;
                     if (holdingCtrl)
                     {
-                        end = Shapes.SnapEndCoordToSquare(mouseDragPoints[0], end);
+                        end = CoordSnapping.SnapToSquare(mouseDragPoints[0], end);
                     }
                     SelectionShape(new Shapes.Ellipse(mouseDragPoints[0], end, true), rightClickedOn);
                 }
@@ -861,7 +861,7 @@ namespace PAC.Drawing
                     IntVector2 end = pixel;
                     if (holdingCtrl)
                     {
-                        end = Shapes.SnapEndCoordToSquare(mouseDragPoints[0], end);
+                        end = CoordSnapping.SnapToSquare(mouseDragPoints[0], end);
                     }
                     Tools.UseShape(file, layer, frame, new Shapes.Rectangle(mouseDragPoints[0], end, rightClickedOn), colour);
 
@@ -872,7 +872,7 @@ namespace PAC.Drawing
                     IntVector2 end = pixel;
                     if (holdingCtrl)
                     {
-                        end = Shapes.SnapEndCoordToSquare(mouseDragPoints[0], end);
+                        end = CoordSnapping.SnapToSquare(mouseDragPoints[0], end);
                     }
                     Tools.UseShape(file, layer, frame, new Shapes.Ellipse(mouseDragPoints[0], end, rightClickedOn), colour);
 
@@ -890,7 +890,7 @@ namespace PAC.Drawing
                     IntVector2 end = pixel;
                     if (holdingCtrl)
                     {
-                        end = Shapes.SnapEndCoordToSquare(mouseDragPoints[0], end);
+                        end = CoordSnapping.SnapToSquare(mouseDragPoints[0], end);
                     }
                     Tools.UseShape(file, layer, frame, new Shapes.Diamond(mouseDragPoints[0], end, rightClickedOn), colour);
 
