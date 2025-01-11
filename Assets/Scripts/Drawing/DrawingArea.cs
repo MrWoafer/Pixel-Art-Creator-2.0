@@ -12,6 +12,10 @@ using PAC.Shaders;
 using PAC.Tilesets;
 using PAC.UndoRedo;
 using UnityEngine;
+using PAC.Patterns;
+using PAC.Extensions;
+
+using System;
 
 namespace PAC.Drawing
 {
@@ -795,7 +799,15 @@ namespace PAC.Drawing
             {
                 Color startColour = leftClickedOn ? colourPicker.primaryColour : colourPicker.secondaryColour;
                 Color endColour = leftClickedOn ? colourPicker.secondaryColour : colourPicker.primaryColour;
-                PreviewGradient(mouseDragPoints[0], pixel, startColour, endColour, toolbar.gradientMode);
+
+                IPattern2D<Color> gradient = toolbar.gradientMode switch
+                {
+                    GradientMode.Linear => new Patterns.Gradient.Linear((mouseDragPoints[0], startColour), (pixel, endColour)),
+                    GradientMode.Radial => new Patterns.Gradient.Radial((mouseDragPoints[0], startColour), (pixel, endColour)),
+                    _ => throw new InvalidOperationException($"Unknown / unimplemented gradient mode: {toolbar.gradientMode}")
+                };
+
+                PreviewPattern(gradient);
             }
             else if (tool == Tool.Selection && (leftClickedOn || rightClickedOn))
             {
@@ -924,24 +936,22 @@ namespace PAC.Drawing
             {
                 Color startColour = leftClickedOn ? colourPicker.primaryColour : colourPicker.secondaryColour;
                 Color endColour = leftClickedOn ? colourPicker.secondaryColour : colourPicker.primaryColour;
-                Tools.UseGradient(file, layer, frame, mouseDragPoints[0], pixel, startColour, endColour, toolbar.gradientMode);
+
+                IPattern2D<Color> gradient = toolbar.gradientMode switch
+                {
+                    GradientMode.Linear => new Patterns.Gradient.Linear((mouseDragPoints[0], startColour), (pixel, endColour)),
+                    GradientMode.Radial => new Patterns.Gradient.Radial((mouseDragPoints[0], startColour), (pixel, endColour)),
+                    _ => throw new InvalidOperationException($"Unknown / unimplemented gradient mode: {toolbar.gradientMode}")
+                };
+
+                Tools.UsePattern(file, layer, frame, gradient);
                 UpdateDrawing();
             }
         }
 
-        private void PreviewShape(Shapes.IShape shape, Color colour)
-        {
-            SetPreview(shape.ToTexture(colour), shape.boundingRect.bottomLeft);
-        }
-
-        public void PreviewGradient(IntVector2 start, IntVector2 end, Color startColour, Color endColour, GradientMode gradientMode)
-        {
-            Texture2D tex = Shapes.Gradient(file.width, file.height, start, end, startColour, endColour, gradientMode);
-
-            SetPreview(tex, 0, 0);
-        }
-        private void PreviewGradientLinear(IntVector2 start, IntVector2 end, Color startColour, Color endColour) => PreviewGradient(start, end, startColour, endColour, GradientMode.Linear);
-        private void PreviewGradientRadial(IntVector2 start, IntVector2 end, Color startColour, Color endColour) => PreviewGradient(start, end, startColour, endColour, GradientMode.Radial);
+        private void PreviewShape(Shapes.IShape shape, Color colour) => SetPreview(shape.ToTexture(colour), shape.boundingRect.bottomLeft); 
+        private void PreviewPattern(IPattern2D<Color> pattern) => SetPreview(pattern.ToTexture(file.rect), IntVector2.zero);
+        private void PreviewPattern(IPattern2D<Color32> pattern) => SetPreview(pattern.ToTexture(file.rect), IntVector2.zero); 
 
         private void PreviewMove(IntVector2 pixel)
         {

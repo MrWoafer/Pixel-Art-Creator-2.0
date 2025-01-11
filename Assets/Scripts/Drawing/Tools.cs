@@ -1,7 +1,10 @@
 using System.Linq;
 using PAC.DataStructures;
+using PAC.Extensions;
 using PAC.Files;
 using PAC.Layers;
+using PAC.Patterns;
+
 using UnityEngine;
 
 namespace PAC.Drawing
@@ -95,69 +98,23 @@ namespace PAC.Drawing
             file.layers[layer].SetPixels(shape.Where(p => file.rect.Contains(p)), frame, colour, AnimFrameRefMode.NewKeyFrame);
         }
 
-        public static void UseGradient(File file, int layer, int frame, IntVector2 start, IntVector2 end, Color startColour, Color endColour, GradientMode gradientMode)
-        {
-            UseGradient(file, layer, frame, start, end, startColour, endColour, gradientMode, new IntVector2[0]);
-        }
-        public static void UseGradient(File file, int layer, int frame, IntVector2 start, IntVector2 end, Color startColour, Color endColour, GradientMode gradientMode, Texture2D mask)
-        {
-            if (mask.width != file.width || mask.height != file.height)
-            {
-                throw new System.Exception("Mask dimensions " + mask.width + "x" + mask.height + " do not match file dimensions " + file.width + "x" + file.height);
-            }
-            if (file.layers[layer].layerType != LayerType.Normal)
-            {
-                throw new System.Exception("Layer is not a normal layer. Layer type: " + file.layers[layer].layerType);
-            }
-
-            Texture2D gradient = Shapes.Gradient(file.width, file.height, start, end, startColour, endColour, gradientMode);
-            if (mask != null)
-            {
-                gradient = Tex2DSprite.ApplyMask(gradient, mask);
-            }
-
-            ((NormalLayer)file.layers[layer]).OverlayTexture(frame, gradient, AnimFrameRefMode.NewKeyFrame);
-        }
-        public static void UseGradient(File file, int layer, int frame, IntVector2 start, IntVector2 end, Color startColour, Color endColour, GradientMode gradientMode, IntVector2[] mask)
+        public static void UsePattern(File file, int layer, int frame, IPattern2D<Color> pattern)
         {
             if (file.layers[layer].layerType != LayerType.Normal)
             {
-                throw new System.Exception("Layer is not a normal layer. Layer type: " + file.layers[layer].layerType);
+                throw new System.Exception($"Layer is not a normal layer. Layer type: {file.layers[layer].layerType}");
             }
 
-            Texture2D gradient = Shapes.Gradient(file.width, file.height, start, end, startColour, endColour, gradientMode);
-            if (mask.Length != 0)
+            (file.layers[layer] as NormalLayer).SetTexture(frame, pattern.ToTexture(file.rect), AnimFrameRefMode.NewKeyFrame);
+        }
+        public static void UsePattern(File file, int layer, int frame, IPattern2D<Color32> pattern)
+        {
+            if (file.layers[layer].layerType != LayerType.Normal)
             {
-                gradient = Tex2DSprite.ApplyMask(gradient, mask);
+                throw new System.Exception($"Layer is not a normal layer. Layer type: {file.layers[layer].layerType}");
             }
 
-            ((NormalLayer)file.layers[layer]).OverlayTexture(frame, gradient, AnimFrameRefMode.NewKeyFrame);
-        }
-
-        public static void UseGradientLinear(File file, int layer, int frame, IntVector2 start, IntVector2 end, Color startColour, Color endColour)
-        {
-            UseGradient(file, layer, frame, start, end, startColour, endColour, GradientMode.Linear);
-        }
-        public static void UseGradientLinear(File file, int layer, int frame, IntVector2 start, IntVector2 end, Color startColour, Color endColour, Texture2D mask)
-        {
-            UseGradient(file, layer, frame, start, end, startColour, endColour, GradientMode.Linear, mask);
-        }
-        public static void UseGradientLinear(File file, int layer, int frame, IntVector2 start, IntVector2 end, Color startColour, Color endColour, IntVector2[] mask)
-        {
-            UseGradient(file, layer, frame, start, end, startColour, endColour, GradientMode.Linear, mask);
-        }
-
-        public static void UseGradientRadial(File file, int layer, int frame, IntVector2 start, IntVector2 end, Color startColour, Color endColour)
-        {
-            UseGradient(file, layer, frame, start, end, startColour, endColour, GradientMode.Radial);
-        }
-        public static void UseGradientRadial(File file, int layer, int frame, IntVector2 start, IntVector2 end, Color startColour, Color endColour, Texture2D mask)
-        {
-            UseGradient(file, layer, frame, start, end, startColour, endColour, GradientMode.Radial, mask);
-        }
-        public static void UseGradientRadial(File file, int layer, int frame, IntVector2 start, IntVector2 end, Color startColour, Color endColour, IntVector2[] mask)
-        {
-            UseGradient(file, layer, frame, start, end, startColour, endColour, GradientMode.Radial, mask);
+            (file.layers[layer] as NormalLayer).SetTexture(frame, pattern.ToTexture(file.rect), AnimFrameRefMode.NewKeyFrame);
         }
     }
 }
