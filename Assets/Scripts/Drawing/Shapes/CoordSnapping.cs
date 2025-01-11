@@ -2,8 +2,6 @@ using System;
 
 using PAC.DataStructures;
 
-using UnityEngine;
-
 namespace PAC.Drawing
 {
     /// <summary>
@@ -12,12 +10,27 @@ namespace PAC.Drawing
     public static class CoordSnapping
     {
         /// <summary>
-        /// Either changes the end coord's x or changes its y so that the rect it forms with the start coord is a square. Chooses the largest such square.
+        /// Either changes <paramref name="movablePoint"/>'s x coord <i>or</i> changes its y coord so that the rectangle it forms with <paramref name="fixedPoint"/> is a square.
         /// </summary>
-        public static IntVector2 SnapToSquare(IntVector2 start, IntVector2 end)
+        /// <remarks>
+        /// Chooses the largest such square that preserves the sign of each component of <c><paramref name="movablePoint"/> - <paramref name="fixedPoint"/></c>.
+        /// If <paramref name="fixedPoint"/> and <paramref name="movablePoint"/> have the same x coord (but different y), the square will be made by increasing the x coord;
+        /// if <paramref name="fixedPoint"/> and <paramref name="movablePoint"/> have the same y coord (but different x), the square will be made by increasing the y coord.
+        /// </remarks>
+        public static IntVector2 SnapToSquare(IntVector2 fixedPoint, IntVector2 movablePoint)
         {
-            int sideLength = Math.Max(Math.Abs(end.x - start.x), Mathf.Abs(end.y - start.y));
-            return start + new IntVector2(sideLength * Math.Sign(end.x - start.x), sideLength * Math.Sign(end.y - start.y));
+            IntVector2 sign = IntVector2.Sign(movablePoint - fixedPoint);
+            sign = new IntVector2(
+                sign.x == 0 ? 1 : sign.x,
+                sign.y == 0 ? 1 : sign.y
+                );
+
+            int xDifference = Math.Abs(movablePoint.x - fixedPoint.x);
+            int yDifference = Math.Abs(movablePoint.y - fixedPoint.y);
+            // Actually this is the side length - 1. But if we do + 1 here to get the actual side length, we'll just have to do - 1 in the next line.
+            int squareSideLength = Math.Max(xDifference, yDifference);
+
+            return fixedPoint + squareSideLength * sign;
         }
     }
 }
