@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System;
 using PAC.Shapes;
+using PAC.Shapes.Interfaces;
 
 namespace PAC.Tests
 {
@@ -117,7 +118,24 @@ namespace PAC.Tests
                 }
             }
         }
+    }
 
+    public abstract class IDeepCopyableShapeTests<T> : IShapeTests<T> where T : IDeepCopyableShape<T>
+    {
+        [Test]
+        [Category("Shapes")]
+        public virtual void DeepCopy()
+        {
+            foreach (T shape in testCases)
+            {
+                Assert.AreEqual(shape, shape.DeepCopy(), "Failed with " + shape);
+                Assert.False(ReferenceEquals(shape, shape.DeepCopy()), "Failed with " + shape);
+            }
+        }
+    }
+
+    public abstract class ITranslatableShapeTests<T> : IDeepCopyableShapeTests<T> where T : ITranslatableShape<T>
+    {
         [Test]
         [Category("Shapes")]
         public virtual void Translate()
@@ -127,6 +145,10 @@ namespace PAC.Tests
                 IShapeTestHelper.Translate(shape);
             }
         }
+    }
+
+    public abstract class ITransformableShapeTests<T> : ITranslatableShapeTests<T> where T : ITransformableShape<T>
+    {
         [Test]
         [Category("Shapes")]
         public virtual void Flip()
@@ -142,20 +164,6 @@ namespace PAC.Tests
 
         [Test]
         [Category("Shapes")]
-        public virtual void DeepCopy()
-        {
-            foreach (T shape in testCases)
-            {
-                Assert.AreEqual(shape, shape.DeepCopy(), "Failed with " + shape);
-                Assert.False(ReferenceEquals(shape, shape.DeepCopy()), "Failed with " + shape);
-            }
-        }
-    }
-
-    public abstract class IRotatableShapeTests<T> : IShapeTests<T> where T : IRotatableShape
-    {
-        [Test]
-        [Category("Shapes")]
         public virtual void Rotate()
         {
             foreach (T shape in testCases)
@@ -168,7 +176,7 @@ namespace PAC.Tests
         }
     }
 
-    public abstract class I1DShapeTests<T> : IRotatableShapeTests<T> where T : I1DShape
+    public abstract class I1DShapeTests<T> : ITransformableShapeTests<T> where T : I1DShape<T>
     {
 
     }
@@ -189,38 +197,46 @@ namespace PAC.Tests
         }
     }
 
-    public abstract class I2DShapeTests<T> : IFillableShapeTests<T> where T : I2DShape
+    public abstract class I2DShapeTests<T> : ITransformableShapeTests<T> where T : I2DShape<T>
     {
+        /// <summary>
+        /// Tests that the unfilled version of a shape is precisely the border of the filled version.
+        /// </summary>
         [Test]
         [Category("Shapes")]
-        public override void Flip()
+        public virtual void UnfilledIsBorderOfFilled()
         {
             foreach (T shape in testCases)
             {
-                foreach (FlipAxis axis in new FlipAxis[] { FlipAxis.None, FlipAxis.Vertical, FlipAxis.Horizontal, FlipAxis._45Degrees, FlipAxis.Minus45Degrees })
+                IFillableShapeTestHelper.UnfilledIsBorderOfFilled(shape);
+            }
+        }
+    }
+
+    public abstract class IIsometricShapeTests<T> : IFillableShapeTests<T> where T : IIsometricShape<T>
+    {
+        [Test]
+        [Category("Shapes")]
+        public virtual void Translate()
+        {
+            foreach (T shape in testCases)
+            {
+                IShapeTestHelper.Translate(shape);
+            }
+        }
+
+        [Test]
+        [Category("Shapes")]
+        public virtual void Flip()
+        {
+            foreach (T shape in testCases)
+            {
+                foreach (FlipAxis axis in new FlipAxis[] { FlipAxis.None, FlipAxis.Vertical, FlipAxis.Horizontal })
                 {
                     IShapeTestHelper.Flip(shape, axis);
                 }
             }
         }
-
-        [Test]
-        [Category("Shapes")]
-        public virtual void Rotate()
-        {
-            foreach (T shape in testCases)
-            {
-                foreach (RotationAngle angle in new RotationAngle[] { RotationAngle._0, RotationAngle._90, RotationAngle._180, RotationAngle.Minus90 })
-                {
-                    IRotatableShapeTestHelper.Rotate(shape, angle);
-                }
-            }
-        }
-    }
-
-    public abstract class IIsometricShapeTests<T> : IFillableShapeTests<T> where T : IIsometricShape
-    {
-
     }
 
     /// <summary>
@@ -338,7 +354,7 @@ namespace PAC.Tests
         /// <summary>
         /// Applies Translate() to the shape and checks that the enumerator of the resulting shape is a translation of the original shape's enumerator.
         /// </summary>
-        public static void Translate(IShape shape)
+        public static void Translate<T>(ITranslatableShape<T> shape) where T : IShape
         {
             HashSet<IntVector2> original = shape.ToHashSet();
             foreach (IntVector2 translation in new IntRect(new IntVector2(-2, -2), new IntVector2(2, 2)))
@@ -353,7 +369,7 @@ namespace PAC.Tests
         /// <summary>
         /// Applies Flip() to the shape and checks that the enumerator of the resulting shape is a reflection of the original shape's enumerator.
         /// </summary>
-        public static void Flip(IShape shape, FlipAxis axis)
+        public static void Flip<T>(IFlippableShape<T> shape, FlipAxis axis) where T : IShape
         {
             HashSet<IntVector2> expected = shape.Select(p => p.Flip(axis)).ToHashSet();
             HashSet<IntVector2> flipped = shape.Flip(axis).ToHashSet();
@@ -381,7 +397,7 @@ namespace PAC.Tests
         /// <summary>
         /// Tests that the shape has 180-degree rotational symmetry.
         /// </summary>
-        public static void RotationalSymmetry180(IIsometricShape shape)
+        public static void RotationalSymmetry180<T>(IIsometricShape<T> shape) where T : IShape
         {
             CollectionAssert.AreEquivalent(shape.ToHashSet(), shape.Select(p =>
                 p.Flip(FlipAxis.Vertical).Flip(FlipAxis.Horizontal) + shape.boundingRect.bottomLeft - shape.boundingRect.Flip(FlipAxis.Vertical).Flip(FlipAxis.Horizontal).bottomLeft
@@ -434,7 +450,7 @@ namespace PAC.Tests
         /// <summary>
         /// Applies Rotate() to the shape and checks that the enumerator of the resulting shape is a rotation of the original shape's enumerator.
         /// </summary>
-        public static void Rotate(IRotatableShape shape, RotationAngle angle)
+        public static void Rotate<T>(IRotatableShape<T> shape, RotationAngle angle) where T : IShape
         {
             HashSet<IntVector2> expected = shape.Select(p => p.Rotate(angle)).ToHashSet();
             HashSet<IntVector2> rotated = shape.Rotate(angle).ToHashSet();
@@ -444,7 +460,7 @@ namespace PAC.Tests
         /// <summary>
         /// Tests that the shape has rotational symmetry by the given angle.
         /// </summary>
-        public static void RotationalSymmetry(IRotatableShape shape, RotationAngle angle)
+        public static void RotationalSymmetry<T>(IRotatableShape<T> shape, RotationAngle angle) where T : IShape
         {
             CollectionAssert.AreEquivalent(shape.ToHashSet(), shape.Select(p => p.Rotate(angle) + shape.boundingRect.bottomLeft - shape.boundingRect.Rotate(angle).bottomLeft).ToHashSet(),
                 "Failed with " + shape + " and RotationAngle." + angle);

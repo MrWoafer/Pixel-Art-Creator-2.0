@@ -6,12 +6,13 @@ using System.Linq;
 using PAC.DataStructures;
 using PAC.Exceptions;
 using PAC.Extensions;
+using PAC.Shapes.Interfaces;
 
 using UnityEngine;
 
 namespace PAC.Shapes
 {
-    public class IsometricRectangle : IIsometricShape, IEquatable<IsometricRectangle>
+    public class IsometricRectangle : IIsometricShape<IsometricRectangle>, IDeepCopyableShape<IsometricRectangle>, IEquatable<IsometricRectangle>
     {
         private IntVector2 startCorner;
         private IntVector2 endCorner;
@@ -528,13 +529,11 @@ namespace PAC.Shapes
         /// </summary>
         public static IsometricRectangle operator -(IsometricRectangle isoRectangle) => new IsometricRectangle(-isoRectangle.startCorner, -isoRectangle.endCorner, isoRectangle.filled);
 
-        IIsometricShape IIsometricShape.Translate(IntVector2 translation) => Translate(translation);
         /// <summary>
         /// Translates the isometric rectangle by the given vector.
         /// </summary>
         public IsometricRectangle Translate(IntVector2 translation) => new IsometricRectangle(startCorner + translation, endCorner + translation, filled);
 
-        IIsometricShape IIsometricShape.Flip(FlipAxis axis) => Flip(axis);
         /// <summary>
         /// Reflects the isometric rectangle across the given axis.
         /// </summary>
@@ -571,7 +570,6 @@ namespace PAC.Shapes
 
         public override string ToString() => "IsometricRectangle(" + startCorner + ", " + endCorner + ", " + (filled ? "filled" : "unfilled") + ")";
 
-        IIsometricShape IIsometricShape.DeepCopy() => DeepCopy();
         public IsometricRectangle DeepCopy() => new IsometricRectangle(startCorner, endCorner, filled);
     }
 }

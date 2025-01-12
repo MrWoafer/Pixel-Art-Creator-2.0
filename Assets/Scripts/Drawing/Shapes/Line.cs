@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using PAC.DataStructures;
 using PAC.Extensions;
 using PAC.Maths;
+using PAC.Shapes.Interfaces;
 
 using UnityEngine;
 
@@ -13,7 +14,7 @@ namespace PAC.Shapes
     /// <summary>
     /// A pixel-perfect line between two points, ordered from start to end.
     /// </summary>
-    public class Line : I1DShape, IReadOnlyList<IntVector2>, IEquatable<Line>
+    public class Line : I1DShape<Line>, IDeepCopyableShape<Line>, IReadOnlyList<IntVector2>, IEquatable<Line>
     {
         // NOTE: For this shape, we work in a coordinate system where integer coordinates refer to the CENTRE of a pixel - e.g. the centre of pixel (0, 0) is (0, 0), not (0.5, 0.5).
 
@@ -500,19 +501,16 @@ namespace PAC.Shapes
         /// </summary>
         public static Line operator -(Line line) => new Line(-line.start, -line.end);
 
-        I1DShape I1DShape.Translate(IntVector2 translation) => Translate(translation);
         /// <summary>
         /// Translates the line by the given vector.
         /// </summary>
         public Line Translate(IntVector2 translation) => new Line(start + translation, end + translation);
 
-        I1DShape I1DShape.Flip(FlipAxis axis) => Flip(axis);
         /// <summary>
         /// Reflects the line across the given axis.
         /// </summary>
         public Line Flip(FlipAxis axis) => new Line(start.Flip(axis), end.Flip(axis));
 
-        I1DShape I1DShape.Rotate(RotationAngle angle) => Rotate(angle);
         /// <summary>
         /// Rotates the line by the given angle.
         /// </summary>
@@ -635,7 +633,6 @@ namespace PAC.Shapes
 
         public override string ToString() => "Line(" + start + ", " + end + ")";
 
-        I1DShape I1DShape.DeepCopy() => DeepCopy();
         public Line DeepCopy() => new Line(start, end);
     }
 }

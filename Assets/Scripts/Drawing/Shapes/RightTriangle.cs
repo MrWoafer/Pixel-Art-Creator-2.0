@@ -3,10 +3,11 @@ using System.Collections;
 using System.Collections.Generic;
 
 using PAC.DataStructures;
+using PAC.Shapes.Interfaces;
 
 namespace PAC.Shapes
 {
-    public class RightTriangle : I2DShape, IEquatable<RightTriangle>
+    public class RightTriangle : I2DShape<RightTriangle>, IDeepCopyableShape<RightTriangle>, IEquatable<RightTriangle>
     {
         public enum RightAngleLocation
         {
@@ -285,13 +286,11 @@ namespace PAC.Shapes
         /// </summary>
         public static RightTriangle operator -(RightTriangle triangle) => triangle.Rotate(RotationAngle._180);
 
-        I2DShape I2DShape.Translate(IntVector2 translation) => Translate(translation);
         /// <summary>
         /// Translates the triangle by the given vector.
         /// </summary>
         public RightTriangle Translate(IntVector2 translation) => new RightTriangle(bottomCorner + translation, topCorner + translation, rightAngleLocation, filled);
 
-        I2DShape I2DShape.Flip(FlipAxis axis) => Flip(axis);
         /// <summary>
         /// Reflects the triangle across the given axis.
         /// </summary>
@@ -345,7 +344,6 @@ namespace PAC.Shapes
             return new RightTriangle(bottomCorner.Flip(axis), topCorner.Flip(axis), FlipRightAngleLocation(rightAngleLocation, axis), filled);
         }
 
-        I2DShape I2DShape.Rotate(RotationAngle angle) => Rotate(angle);
         /// <summary>
         /// Rotates the triangle by the given angle.
         /// </summary>
@@ -428,7 +426,6 @@ namespace PAC.Shapes
 
         public override string ToString() => "RightTriangle(" + bottomCorner + ", " + topCorner + ", " + rightAngleLocation + ", " + (filled ? "filled" : "unfilled") + ")";
 
-        I2DShape I2DShape.DeepCopy() => DeepCopy();
         public RightTriangle DeepCopy() => new RightTriangle(bottomCorner, topCorner, rightAngleLocation, filled);
     }
 }

@@ -6,6 +6,7 @@ using PAC.Files;
 using PAC.Layers;
 using PAC.Patterns;
 using PAC.Shapes;
+using PAC.Shapes.Interfaces;
 
 using UnityEngine;
 

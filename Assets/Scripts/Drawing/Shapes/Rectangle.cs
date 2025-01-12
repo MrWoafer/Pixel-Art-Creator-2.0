@@ -3,10 +3,11 @@ using System.Collections;
 using System.Collections.Generic;
 
 using PAC.DataStructures;
+using PAC.Shapes.Interfaces;
 
 namespace PAC.Shapes
 {
-    public class Rectangle : I2DShape, IEquatable<Rectangle>
+    public class Rectangle : I2DShape<Rectangle>, IDeepCopyableShape<Rectangle>, IEquatable<Rectangle>
     {
         public IntVector2 bottomLeft
         {
@@ -90,19 +91,16 @@ namespace PAC.Shapes
         /// </summary>
         public static Rectangle operator -(Rectangle rectangle) => new Rectangle(-rectangle.bottomLeft, -rectangle.topRight, rectangle.filled);
 
-        I2DShape I2DShape.Translate(IntVector2 translation) => Translate(translation);
         /// <summary>
         /// Translates the rectangle by the given vector.
         /// </summary>
         public Rectangle Translate(IntVector2 translation) => new Rectangle(bottomLeft + translation, topRight + translation, filled);
 
-        I2DShape I2DShape.Flip(FlipAxis axis) => Flip(axis);
         /// <summary>
         /// Reflects the rectangle across the given axis.
         /// </summary>
         public Rectangle Flip(FlipAxis axis) => new Rectangle(bottomLeft.Flip(axis), topRight.Flip(axis), filled);
 
-        I2DShape I2DShape.Rotate(RotationAngle angle) => Rotate(angle);
         /// <summary>
         /// Rotates the rectangle by the given angle.
         /// </summary>
@@ -172,7 +170,6 @@ namespace PAC.Shapes
 
         public override string ToString() => "Rectangle(" + bottomLeft + ", " + topRight + ", " + (filled ? "filled" : "unfilled") + ")";
 
-        I2DShape I2DShape.DeepCopy() => DeepCopy();
         public Rectangle DeepCopy() => new Rectangle(bottomLeft, topRight, filled);
     }
 }

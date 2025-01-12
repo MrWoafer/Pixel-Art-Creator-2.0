@@ -6,10 +6,11 @@ using System.Linq;
 using PAC.DataStructures;
 using PAC.Extensions;
 using PAC.Maths;
+using PAC.Shapes.Interfaces;
 
 namespace PAC.Shapes
 {
-    public class IsometricCuboid : IIsometricShape, IEquatable<IsometricCuboid>
+    public class IsometricCuboid : IIsometricShape<IsometricCuboid>, IDeepCopyableShape<IsometricCuboid>, IEquatable<IsometricCuboid>
     {
         private IntVector2 baseStart;
         private IntVector2 baseEnd;
@@ -24,11 +25,11 @@ namespace PAC.Shapes
 
         public IsometricRectangle bottomRectangle => new IsometricRectangle(baseStart, baseEnd, filled) + MathExtensions.ClampNonPositive(height) * IntVector2.up;
         public IsometricRectangle topRectangle => bottomRectangle + Math.Abs(height) * IntVector2.up;
-        private I1DShape[] border
+        private I1DShape<IShape>[] border
         {
             get
             {
-                I1DShape[] border = new I1DShape[showBackEdges ? 6 : 5];
+                I1DShape<IShape>[] border = new I1DShape<IShape>[showBackEdges ? 6 : 5];
                 border[0] = showBackEdges ? bottomRectangle.border : bottomRectangle.lowerBorder;
                 border[1] = topRectangle.border;
                 border[2] = new Line(bottomRectangle.leftCorner, topRectangle.leftCorner);
@@ -83,7 +84,7 @@ namespace PAC.Shapes
             }
             else
             {
-                foreach (I1DShape path in border)
+                foreach (I1DShape<IShape> path in border)
                 {
                     if (path.Contains(pixel))
                     {
@@ -107,13 +108,11 @@ namespace PAC.Shapes
         /// </summary>
         public static IsometricCuboid operator -(IsometricCuboid isoRectangle, IntVector2 translation) => isoRectangle + -translation;
 
-        IIsometricShape IIsometricShape.Translate(IntVector2 translation) => Translate(translation);
         /// <summary>
         /// Translates the isometric cuboid by the given vector.
         /// </summary>
         public IsometricCuboid Translate(IntVector2 translation) => new IsometricCuboid(baseStart + translation, baseEnd + translation, height, filled, showBackEdges);
 
-        IIsometricShape IIsometricShape.Flip(FlipAxis axis) => Flip(axis);
         /// <summary>
         /// Reflects the isometric cuboid across the given axis.
         /// </summary>
@@ -160,7 +159,6 @@ namespace PAC.Shapes
         public override string ToString()
             => $"IsometricCuboid({baseStart}, {baseEnd}, {height}, {(filled ? "filled" : "unfilled")}, {(showBackEdges ? "show back edges" : "don't show back edges")})";
 
-        IIsometricShape IIsometricShape.DeepCopy() => DeepCopy();
         public IsometricCuboid DeepCopy() => new IsometricCuboid(baseStart, baseEnd, height, filled, showBackEdges);
     }
 }

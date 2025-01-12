@@ -1,38 +1,14 @@
-﻿using PAC.DataStructures;
-
-namespace PAC.Shapes
+﻿namespace PAC.Shapes.Interfaces
 {
-    public interface IIsometricShape : IFillableShape
-    {
-        /// <summary>
-        /// Translates the shape by the given vector.
-        /// </summary>
-        public static IIsometricShape operator +(IIsometricShape shape, IntVector2 translation) => shape.Translate(translation);
-        /// <summary>
-        /// Translates the shape by the given vector.
-        /// </summary>
-        public static IIsometricShape operator +(IntVector2 translation, IIsometricShape shape) => shape + translation;
-        /// <summary>
-        /// Translates the shape by the given vector.
-        /// </summary>
-        public static IIsometricShape operator -(IIsometricShape shape, IntVector2 translation) => shape + -translation;
-        /// <summary>
-        /// Reflects the shape through the origin.
-        /// </summary>
-        public static IIsometricShape operator -(IIsometricShape shape) => shape.Flip(FlipAxis.Vertical).Flip(FlipAxis.Horizontal);
-
-        /// <summary>
-        /// Translates the shape by the given vector.
-        /// </summary>
-        public new IIsometricShape Translate(IntVector2 translation);
-        IFillableShape IFillableShape.Translate(IntVector2 translation) => Translate(translation);
-        /// <summary>
-        /// Reflects the shape across the given axis.
-        /// </summary>
-        public new IIsometricShape Flip(FlipAxis axis);
-        IFillableShape IFillableShape.Flip(FlipAxis axis) => Flip(axis);
-
-        public new IIsometricShape DeepCopy();
-        IFillableShape IFillableShape.DeepCopy() => DeepCopy();
-    }
+    /// <summary>
+    /// A pixel art representation of the isometric projection of a shape.
+    /// </summary>
+    /// <remarks>
+    /// See <see cref="ITranslatableShape{T}"/> for details of the design pattern regarding the generic type parameter.
+    /// </remarks>
+    /// <typeparam name="T">
+    /// The type of shape obtained from transformations on the shape.
+    /// When implementing this interface on a concrete type, this should be the same as the implementing type. See <see cref="ITranslatableShape{T}"/> for more detail on this design pattern.
+    /// </typeparam>
+    public interface IIsometricShape<out T> : IFillableShape, ITranslatableShape<T>, IFlippableShape<T> where T : IShape { }
 }

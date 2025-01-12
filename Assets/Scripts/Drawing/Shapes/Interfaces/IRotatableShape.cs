@@ -1,90 +1,31 @@
-﻿using PAC.DataStructures;
-
-namespace PAC.Shapes
+﻿namespace PAC.Shapes.Interfaces
 {
     /// <summary>
     /// An <see cref="IShape"/> that can be rotated.
     /// </summary>
-    public interface IRotatableShape : IShape
+    /// <remarks>
+    /// See <see cref="ITranslatableShape{T}"/> for details of the design pattern regarding the generic type parameter.
+    /// </remarks>
+    /// <typeparam name="T">
+    /// The type of shape obtained from rotating.
+    /// When implementing this interface on a concrete type, this should be the same as the implementing type. See <see cref="ITranslatableShape{T}"/> for more detail on this design pattern.
+    /// </typeparam>
+    public interface IRotatableShape<out T> : IDeepCopyableShape<T> where T : IShape
     {
-        #region Contract
-        #region New Contract
         /// <summary>
-        /// Rotates the shape by the given angle.
+        /// Returns a deep copy of the shape rotated by the given angle.
         /// </summary>
-        /// <remarks>
-        /// This should return the same type as the object it was called from.
-        /// </remarks>
-        /// <returns>
-        /// A deep copy of the shape rotated by the given angle.
-        /// </returns>
-        public IRotatableShape Rotate(RotationAngle angle);
-        #endregion
-
-        #region Parent Contracts With More Derived Types
-        /// <summary>
-        /// Translates the shape by the given vector.
-        /// </summary>
-        /// <remarks>
-        /// This should return the same type as the object it was called from.
-        /// </remarks>
-        /// <returns>
-        /// A deep copy of the shape translated by the given vector.
-        /// </returns>
-        /// <seealso cref="operator +(IShape, IntVector2)"/>
-        /// <seealso cref="operator +(IntVector2, IShape)"/>
-        /// <seealso cref="operator -(IShape, IntVector2)"/>
-        public new IRotatableShape Translate(IntVector2 translation);
-
-        /// <summary>
-        /// Reflects the shape across the given axis.
-        /// </summary>
-        /// <remarks>
-        /// This should return the same type as the object it was called from.
-        /// </remarks>
-        /// <returns>
-        /// A deep copy of the shape reflected across the given axis.
-        /// </returns>
-        /// <see cref="operator -(IShape)"/>
-        public new IRotatableShape Flip(FlipAxis axis);
-
-        public new IRotatableShape DeepCopy();
-        #endregion
-        #endregion
+        /// <seealso cref="operator -(IRotatableShape{T})"/>
+        public T Rotate(RotationAngle angle);
 
         #region Default Implementations
         /// <summary>
-        /// Translates the shape by the given vector.
+        /// Returns deep copy of the shape the rotated shape 180 degrees about the origin (equivalently, reflected through the origin).
         /// </summary>
-        /// <returns>
-        /// A deep copy of the shape translated by the given vector.
-        /// </returns>
-        /// <seealso cref="Translate(IntVector2)"/>
-        public static IRotatableShape operator +(IRotatableShape shape, IntVector2 translation) => shape.Translate(translation);
-        /// <summary>
-        /// Translates the shape by the given vector.
-        /// </summary>
-        /// <returns>
-        /// A deep copy of the shape translated by the given vector.
-        /// </returns>
-        /// <seealso cref="Translate(IntVector2)"/>
-        public static IRotatableShape operator +(IntVector2 translation, IRotatableShape shape) => shape + translation;
-        /// <summary>
-        /// Translates the shape by the given vector.
-        /// </summary>
-        /// <returns>
-        /// A deep copy of the shape translated by the given vector.
-        /// </returns>
-        /// <seealso cref="Translate(IntVector2)"/>
-        public static IRotatableShape operator -(IRotatableShape shape, IntVector2 translation) => shape + (-translation);
-        /// <summary>
-        /// Reflects the shape through the origin.
-        /// </summary>
-        /// <returns>
-        /// A deep copy of the shape reflected through the origin.
-        /// </returns>
-        /// <seealso cref="Flip(FlipAxis)"/>
-        public static IRotatableShape operator -(IRotatableShape shape) => shape.Flip(FlipAxis.Vertical).Flip(FlipAxis.Horizontal);
+        /// <seealso cref="Rotate(RotationAngle)"/>
+        public static T operator -(IRotatableShape<T> shape) => shape.Rotate(RotationAngle._180);
+
+        T IDeepCopyableShape<T>.DeepCopy() => Rotate(RotationAngle._0);
         #endregion
     }
 }

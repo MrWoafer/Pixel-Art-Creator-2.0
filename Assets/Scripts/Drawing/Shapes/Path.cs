@@ -10,6 +10,7 @@ using PAC.Drawing;
 using PAC.Exceptions;
 using PAC.Extensions;
 using PAC.Maths;
+using PAC.Shapes.Interfaces;
 
 namespace PAC.Shapes
 {
@@ -23,7 +24,7 @@ namespace PAC.Shapes
     /// Additionally, the last pixel of the path will not be counted if it's the same as first pixel of the path. Other than those cases, pixels can be double-counted.
     /// </para>
     /// </summary>
-    public class Path : I1DShape, IEquatable<Path>
+    public class Path : I1DShape<Path>, IDeepCopyableShape<Path>, IEquatable<Path>
     {
         /// <summary>
         /// The lines in this list should not be referenced by anything other than this object, as editing them can potentially causing us to lose the property that the lines connect. For this
@@ -514,19 +515,16 @@ namespace PAC.Shapes
         /// </summary>
         public static Path operator -(Path path) => path.Rotate(RotationAngle._180);
 
-        I1DShape I1DShape.Translate(IntVector2 translation) => Translate(translation);
         /// <summary>
         /// Translates the path by the given vector.
         /// </summary>
         public Path Translate(IntVector2 translation) => new Path(_lines.Select(l => l.Translate(translation)));
 
-        I1DShape I1DShape.Flip(FlipAxis axis) => Flip(axis);
         /// <summary>
         /// Reflects the path across the given axis.
         /// </summary>
         public Path Flip(FlipAxis axis) => new Path(_lines.Select(l => l.Flip(axis)));
 
-        I1DShape I1DShape.Rotate(RotationAngle angle) => Rotate(angle);
         /// <summary>
         /// Rotates the path by the given angle.
         /// </summary>
@@ -769,7 +767,6 @@ namespace PAC.Shapes
 
         public override string ToString() => "Path(" + string.Join(", ", _lines) + ")";
 
-        I1DShape I1DShape.DeepCopy() => DeepCopy();
         public Path DeepCopy()
         {
             List<Line> copiedLines = new List<Line>(_lines.Count);

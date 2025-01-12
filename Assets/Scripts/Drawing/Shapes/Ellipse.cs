@@ -4,12 +4,13 @@ using System.Collections.Generic;
 using System.Linq;
 
 using PAC.DataStructures;
+using PAC.Shapes.Interfaces;
 
 using UnityEngine;
 
 namespace PAC.Shapes
 {
-    public class Ellipse : I2DShape, IEquatable<Ellipse>
+    public class Ellipse : I2DShape<Ellipse>, IDeepCopyableShape<Ellipse>, IEquatable<Ellipse>
     {
         // NOTE: For this shape, we work in a coordinate system where integer coordinates refer to the CENTRE of a pixel - e.g. the centre of pixel (0, 0) is (0, 0), not (0.5, 0.5).
 
@@ -138,19 +139,16 @@ namespace PAC.Shapes
         /// </summary>
         public static Ellipse operator -(Ellipse ellipse) => new Ellipse(-ellipse.bottomLeft, -ellipse.topRight, ellipse.filled);
 
-        I2DShape I2DShape.Translate(IntVector2 translation) => Translate(translation);
         /// <summary>
         /// Translates the ellipse by the given vector.
         /// </summary>
         public Ellipse Translate(IntVector2 translation) => new Ellipse(bottomLeft + translation, topRight + translation, filled);
 
-        I2DShape I2DShape.Flip(FlipAxis axis) => Flip(axis);
         /// <summary>
         /// Reflects the ellipse across the given axis.
         /// </summary>
         public Ellipse Flip(FlipAxis axis) => new Ellipse(bottomLeft.Flip(axis), topRight.Flip(axis), filled);
 
-        I2DShape I2DShape.Rotate(RotationAngle angle) => Rotate(angle);
         /// <summary>
         /// Rotates the ellipse by the given angle.
         /// </summary>
@@ -246,7 +244,6 @@ namespace PAC.Shapes
 
         public override string ToString() => "Ellipse(" + bottomLeft + ", " + topRight + ", " + (filled ? "filled" : "unfilled") + ")";
 
-        I2DShape I2DShape.DeepCopy() => DeepCopy();
         public Ellipse DeepCopy() => new Ellipse(bottomLeft, topRight, filled);
     }
 }

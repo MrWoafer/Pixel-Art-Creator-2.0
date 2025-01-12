@@ -3,10 +3,11 @@ using System.Collections;
 using System.Collections.Generic;
 
 using PAC.DataStructures;
+using PAC.Shapes.Interfaces;
 
 namespace PAC.Shapes
 {
-    public class Diamond : I2DShape, IEquatable<Diamond>
+    public class Diamond : I2DShape<Diamond>, IDeepCopyableShape<Diamond>, IEquatable<Diamond>
     {
         public IntVector2 bottomLeft
         {
@@ -190,19 +191,16 @@ namespace PAC.Shapes
         /// </summary>
         public static Diamond operator -(Diamond diamond) => new Diamond(-diamond.bottomLeft, -diamond.topRight, diamond.filled);
 
-        I2DShape I2DShape.Translate(IntVector2 translation) => Translate(translation);
         /// <summary>
         /// Translates the diamond by the given vector.
         /// </summary>
         public Diamond Translate(IntVector2 translation) => new Diamond(bottomLeft + translation, topRight + translation, filled);
 
-        I2DShape I2DShape.Flip(FlipAxis axis) => Flip(axis);
         /// <summary>
         /// Reflects the diamond across the given axis.
         /// </summary>
         public Diamond Flip(FlipAxis axis) => new Diamond(bottomLeft.Flip(axis), topRight.Flip(axis), filled);
 
-        I2DShape I2DShape.Rotate(RotationAngle angle) => Rotate(angle);
         /// <summary>
         /// Rotates the diamond by the given angle.
         /// </summary>
@@ -279,7 +277,6 @@ namespace PAC.Shapes
 
         public override string ToString() => "Diamond(" + bottomLeft + ", " + topRight + ", " + (filled ? "filled" : "unfilled") + ")";
 
-        I2DShape I2DShape.DeepCopy() => DeepCopy();
         public Diamond DeepCopy() => new Diamond(bottomLeft, topRight, filled);
     }
 }

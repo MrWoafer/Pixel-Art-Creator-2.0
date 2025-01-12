@@ -17,6 +17,7 @@ using PAC.Extensions;
 
 using System;
 using PAC.Shapes;
+using PAC.Shapes.Interfaces;
 
 namespace PAC.Drawing
 {
@@ -1063,7 +1064,7 @@ namespace PAC.Drawing
             }
         }
 
-        private void SelectionShape(I2DShape shape, bool erase)
+        private void SelectionShape(I2DShape<IShape> shape, bool erase)
         {
             Texture2D tex = shape.ToTexture(Config.Colours.mask, file.rect);
             if (erase)
