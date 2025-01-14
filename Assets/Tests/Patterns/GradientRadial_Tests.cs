@@ -61,7 +61,7 @@ namespace PAC.Tests.Patterns
                 float radius = IntVector2.Distance(gradient.centre.coord, gradient.onCircumference.coord);
 
                 IntRect testRegion = new IntRect(gradient.centre.coord, gradient.onCircumference.coord);
-                testRegion = new IntRect(testRegion.bottomLeft + 1 * IntVector2.downLeft, testRegion.topRight + 1 * IntVector2.upRight);
+                testRegion = new IntRect(testRegion.bottomLeft + IntVector2.downLeft, testRegion.topRight + IntVector2.upRight);
                 foreach (IntVector2 point in testRegion)
                 {
                     float distance = IntVector2.Distance(gradient.centre.coord, point);
@@ -85,7 +85,7 @@ namespace PAC.Tests.Patterns
                 float radius = IntVector2.Distance(gradient.centre.coord, gradient.onCircumference.coord);
 
                 IntRect testRegion = new IntRect(gradient.centre.coord, gradient.onCircumference.coord);
-                testRegion = new IntRect(testRegion.bottomLeft + 1 * IntVector2.downLeft, testRegion.topRight + 1 * IntVector2.upRight);
+                testRegion = new IntRect(testRegion.bottomLeft + IntVector2.downLeft, testRegion.topRight + IntVector2.upRight);
                 foreach (IntVector2 point in testRegion)
                 {
                     float distance = IntVector2.Distance(gradient.centre.coord, point);
@@ -108,7 +108,7 @@ namespace PAC.Tests.Patterns
             foreach (PAC.Patterns.Gradient.Radial gradient in testCases)
             {
                 IntRect testRegion = new IntRect(gradient.centre.coord, gradient.onCircumference.coord);
-                testRegion = new IntRect(testRegion.bottomLeft + 1 * IntVector2.downLeft, testRegion.topRight + 1 * IntVector2.upRight);
+                testRegion = new IntRect(testRegion.bottomLeft + IntVector2.downLeft, testRegion.topRight + IntVector2.upRight);
                 foreach (IntVector2 point in testRegion)
                 {
                     Assert.True(gradient[point] == gradient[gradient.centre.coord + (point - gradient.centre.coord).Flip(FlipAxis.Vertical)], $"Failed with {gradient} and {point}.");
@@ -127,7 +127,7 @@ namespace PAC.Tests.Patterns
             foreach (PAC.Patterns.Gradient.Radial gradient in testCases)
             {
                 IntRect testRegion = new IntRect(gradient.centre.coord, gradient.onCircumference.coord);
-                testRegion = new IntRect(testRegion.bottomLeft + 1 * IntVector2.downLeft, testRegion.topRight + 1 * IntVector2.upRight);
+                testRegion = new IntRect(testRegion.bottomLeft + IntVector2.downLeft, testRegion.topRight + IntVector2.upRight);
                 foreach (IntVector2 point in testRegion)
                 {
                     Assert.True(gradient[point] == gradient[gradient.centre.coord + (point - gradient.centre.coord).Rotate(RotationAngle._90)], $"Failed with {gradient} and {point}.");

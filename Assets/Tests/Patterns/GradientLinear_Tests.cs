@@ -169,7 +169,7 @@ namespace PAC.Tests.Patterns
                 PAC.Patterns.Gradient.Linear gradientOrderSwapped = new PAC.Patterns.Gradient.Linear(gradient.end, gradient.start);
 
                 IntRect testRegion = new IntRect(gradient.start.coord, gradient.end.coord);
-                testRegion = new IntRect(testRegion.bottomLeft + 1 * IntVector2.downLeft, testRegion.topRight + 1 * IntVector2.upRight);
+                testRegion = new IntRect(testRegion.bottomLeft + IntVector2.downLeft, testRegion.topRight + IntVector2.upRight);
                 foreach (IntVector2 point in testRegion)
                 {
                     Assert.True(gradient[point].Equals(gradientOrderSwapped[point], 0.0001f), $"Failed with {gradient} and {point}.");
