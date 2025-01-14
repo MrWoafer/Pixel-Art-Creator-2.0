@@ -9,7 +9,7 @@ using PAC.Maths;
 
 namespace PAC.Tests
 {
-    public class CombinatoricsTests
+    public class Combinatorics_Tests
     {
         [Test]
         [Category("Maths")]

@@ -10,7 +10,7 @@ namespace PAC.Tests
     /// <summary>
     /// Tests for <see cref="Checkerboard{T}"/>.
     /// </summary>
-    public class CheckerboardTests
+    public class Checkerboard_Tests
     {
         /// <summary>
         /// Tests that <see cref="Checkerboard{T}.this[IntVector2]"/> works correctly.

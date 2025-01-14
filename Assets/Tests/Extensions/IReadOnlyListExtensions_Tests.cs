@@ -11,7 +11,7 @@ namespace PAC.Tests
     /// <summary>
     /// Tests for <see cref="IReadOnlyListExtensions"/>.
     /// </summary>
-    public class IReadOnlyListExtensionsTests
+    public class IReadOnlyListExtensions_Tests
     {
         /// <summary>
         /// Tests <see cref="IReadOnlyListExtensions.GetRange{T}(IReadOnlyList{T}, int, int)"/>

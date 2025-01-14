@@ -7,7 +7,7 @@ namespace PAC.Tests
     /// <summary>
     /// Tests for <see cref="IntVector2"/>.
     /// </summary>
-    public class IntVector2Tests
+    public class IntVector2_Tests
     {
         [Test]
         [Category("Data Structures")]

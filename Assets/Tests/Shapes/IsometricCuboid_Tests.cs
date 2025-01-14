@@ -16,7 +16,7 @@ namespace PAC.Tests.Shapes
     /// <summary>
     /// Tests for <see cref="IsometricCuboid"/>.
     /// </summary>
-    public class IsometricCuboidTests : IIsometricShape_DefaultTests<IsometricCuboid>, IIsometricShape_RequiredTests
+    public class IsometricCuboid_Tests : IIsometricShape_DefaultTests<IsometricCuboid>, IIsometricShape_RequiredTests
     {
         protected override IEnumerable<IsometricCuboid> testCases => exampleTestCases.Concat(randomTestCases);
         private IEnumerable<IsometricCuboid> exampleTestCases

@@ -8,7 +8,7 @@ namespace PAC.Tests
     /// <summary>
     /// Tests the 'JsonConversion.JsonConverter's in the JsonConverters class.
     /// </summary>
-    public class JsonConvertersTests
+    public class JsonConverters_Tests
     {
         /// <summary>
         /// Checks that ToJson() works properly for the custom JSON converter for type Vector2.

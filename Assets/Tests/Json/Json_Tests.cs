@@ -10,7 +10,7 @@ namespace PAC.Tests
     /// <summary>
     /// Tests the JSON system.
     /// </summary>
-    public class JsonTests
+    public class Json_Tests
     {
         private class Class1
         {

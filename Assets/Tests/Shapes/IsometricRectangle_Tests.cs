@@ -12,7 +12,7 @@ using System.Linq;
 
 namespace PAC.Tests.Shapes
 {
-    public class IsometricRectangleTests : IIsometricShape_DefaultTests<IsometricRectangle>, IIsometricShape_RequiredTests
+    public class IsometricRectangle_Tests : IIsometricShape_DefaultTests<IsometricRectangle>, IIsometricShape_RequiredTests
     {
         protected override IEnumerable<IsometricRectangle> testCases => exampleTestCases.Concat(randomTestCases);
         private IEnumerable<IsometricRectangle> exampleTestCases => new IsometricRectangle[]

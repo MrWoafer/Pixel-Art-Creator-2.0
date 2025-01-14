@@ -11,7 +11,7 @@ namespace PAC.Tests
     /// <summary>
     /// Tests for <see cref="IPattern2DExtensions"/>.
     /// </summary>
-    public class IPattern2DExtensionsTests
+    public class IPattern2DExtensions_Tests
     {
         private struct Pattern_Color : IPattern2D<Color>
         {

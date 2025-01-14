@@ -11,7 +11,7 @@ namespace PAC.Tests
     /// <summary>
     /// Tests for <see cref="IntRange"/>.
     /// </summary>
-    public class IntRangeTests
+    public class IntRange_Tests
     {
         public IEnumerable<IntRange> testCases
         {

@@ -11,7 +11,7 @@ namespace PAC.Tests
     /// <summary>
     /// Tests for <see cref="RandomExtensions"/>.
     /// </summary>
-    public class RandomExtensionsTests
+    public class RandomExtensions_Tests
     {
         [Test]
         public void ToSequence()

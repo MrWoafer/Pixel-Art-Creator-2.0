@@ -8,7 +8,7 @@ namespace PAC.Tests
     /// <summary>
     /// Tests the KeyboardShortcut and CustomKeyCode classes.
     /// </summary>
-    public class KeyboardShortcutTests
+    public class KeyboardShortcut_Tests
     {
         /// <summary>
         /// Checks that ToJson() works properly for the custom JSON converter for type CustomKeyCode.

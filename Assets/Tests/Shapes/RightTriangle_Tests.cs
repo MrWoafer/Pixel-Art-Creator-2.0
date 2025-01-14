@@ -10,7 +10,7 @@ using System.Collections.Generic;
 
 namespace PAC.Tests.Shapes
 {
-    public class RightTriangleTests : I2DShape_DefaultTests<RightTriangle>, I2DShape_RequiredTests
+    public class RightTriangle_Tests : I2DShape_DefaultTests<RightTriangle>, I2DShape_RequiredTests
     {
         protected override IEnumerable<RightTriangle> testCases
         {

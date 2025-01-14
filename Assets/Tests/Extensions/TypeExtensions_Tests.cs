@@ -9,7 +9,7 @@ namespace PAC.Tests
     /// <summary>
     /// Tests my extension methods for type Type.
     /// </summary>
-    public class TypeExtensionsTests
+    public class TypeExtensions_Tests
     {
         class Class1
         {

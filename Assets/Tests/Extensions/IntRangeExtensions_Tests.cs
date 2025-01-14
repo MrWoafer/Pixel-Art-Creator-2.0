@@ -12,7 +12,7 @@ namespace PAC.Tests
     /// <summary>
     /// Tests for <see cref="IntRangeExtensions"/>.
     /// </summary>
-    public class IntRangeExtensionsTests
+    public class IntRangeExtensions_Tests
     {
         [Test]
         [Category("Extensions")]

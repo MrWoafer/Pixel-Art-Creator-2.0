@@ -11,7 +11,7 @@ namespace PAC.Tests
     /// <summary>
     /// Tests for <see cref="IntRect"/>.
     /// </summary>
-    public class IntRectTests
+    public class IntRect_Tests
     {
         /// <summary>
         /// An infinite sequence of random <see cref="IntRect"/>s for tests.

@@ -12,7 +12,7 @@ using PAC.Tests.Shapes.TestUtils;
 
 namespace PAC.Tests.Shapes
 {
-    public class PathTests : I1DShape_DefaultTests<Path>, I1DShape_RequiredTests
+    public class Path_Tests : I1DShape_DefaultTests<Path>, I1DShape_RequiredTests
     {
         protected override IEnumerable<Path> testCases => RandomTestCases(1_000);
         private IEnumerable<Path> RandomTestCases(int numOfTestCases) => RandomTestCases(numOfTestCases, false).Concat(RandomTestCases(numOfTestCases, true));

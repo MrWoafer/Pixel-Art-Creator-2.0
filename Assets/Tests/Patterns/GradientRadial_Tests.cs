@@ -11,7 +11,7 @@ namespace PAC.Tests
     /// <summary>
     /// Tests for <see cref="Patterns.Gradient.Radial"/>.
     /// </summary>
-    public class GradientRadialTests
+    public class GradientRadial_Tests
     {
         private IEnumerable<Patterns.Gradient.Radial> testCases
         {

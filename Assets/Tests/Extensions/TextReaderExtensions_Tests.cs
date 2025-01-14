@@ -8,7 +8,7 @@ namespace PAC.Tests
     /// <summary>
     /// Tests my extension methods for type TextReader.
     /// </summary>
-    public class TextReaderExtensionsTests
+    public class TextReaderExtensions_Tests
     {
         /// <summary>
         /// Checks that the TextReader.ReadMatch() extension methods work correctly.

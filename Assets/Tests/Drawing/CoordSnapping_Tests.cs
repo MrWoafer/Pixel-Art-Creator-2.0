@@ -10,7 +10,7 @@ namespace PAC.Tests
     /// <summary>
     /// Tests for <see cref="CoordSnapping"/>.
     /// </summary>
-    public class CoordSnappingTests
+    public class CoordSnapping_Tests
     {
         /// <summary>
         /// Tests <see cref="CoordSnapping.SnapToSquare(IntVector2, IntVector2)"/>.

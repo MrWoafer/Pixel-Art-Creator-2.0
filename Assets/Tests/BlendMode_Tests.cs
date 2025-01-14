@@ -7,7 +7,7 @@ namespace PAC.Tests
     /// <summary>
     /// Tests the BlendMode class.
     /// </summary>
-    public class BlendModeTests
+    public class BlendMode_Tests
     {
         /// <summary>
         /// Checks that ToJson() works properly for the custom JSON converter for type BlendMode.

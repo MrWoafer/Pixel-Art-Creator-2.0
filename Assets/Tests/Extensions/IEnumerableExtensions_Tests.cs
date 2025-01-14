@@ -6,7 +6,7 @@ using System.Linq;
 
 namespace PAC.Tests
 {
-    public class IEnumerableExtensionsTests
+    public class IEnumerableExtensions_Tests
     {
         [Test]
         [Category("Extensions")]

@@ -13,7 +13,7 @@ namespace PAC.Tests
     /// <summary>
     /// Tests for <see cref="Patterns.Gradient.Linear"/>.
     /// </summary>
-    public class GradientLinearTests
+    public class GradientLinear_Tests
     {
         private IEnumerable<Patterns.Gradient.Linear> testCases
         {

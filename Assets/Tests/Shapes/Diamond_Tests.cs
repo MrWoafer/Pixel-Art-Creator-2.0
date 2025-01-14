@@ -12,7 +12,7 @@ using System.Linq;
 
 namespace PAC.Tests.Shapes
 {
-    public class DiamondTests : I2DShape_DefaultTests<Diamond>, I2DShape_RequiredTests
+    public class Diamond_Tests : I2DShape_DefaultTests<Diamond>, I2DShape_RequiredTests
     {
         protected override IEnumerable<Diamond> testCases
         {

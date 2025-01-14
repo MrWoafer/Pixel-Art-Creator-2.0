@@ -8,7 +8,7 @@ namespace PAC.Tests
     /// <summary>
     /// Tests the SemanticVersion struct.
     /// </summary>
-    public class SemanticVersionTests
+    public class SemanticVersion_Tests
     {
         /// <summary>
         /// Checks that major, minor and patch cannot be negative for SemanticVersion.

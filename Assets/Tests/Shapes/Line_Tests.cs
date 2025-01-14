@@ -12,7 +12,7 @@ using PAC.Tests.Shapes.TestUtils;
 
 namespace PAC.Tests.Shapes
 {
-    public class LineTests : I1DShape_DefaultTests<Line>, I1DShape_RequiredTests
+    public class Line_Tests : I1DShape_DefaultTests<Line>, I1DShape_RequiredTests
     {
         protected override IEnumerable<Line> testCases
         {

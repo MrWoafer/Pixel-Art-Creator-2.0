@@ -9,7 +9,7 @@ namespace PAC.Tests
     /// <summary>
     /// Tests for <see cref="ColorExtensions"/>.
     /// </summary>
-    public class ColorExtensionsTests
+    public class ColorExtensions_Tests
     {
         /// <summary>
         /// Tests <see cref="ColorExtensions.Equals(Color, Color, float)"/>.

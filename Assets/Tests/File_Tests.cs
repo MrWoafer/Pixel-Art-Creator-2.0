@@ -8,7 +8,7 @@ namespace PAC.Tests
     /// <summary>
     /// Tests the File class.
     /// </summary>
-    public class FileTests
+    public class File_Tests
     {
         /// <summary>
         /// Checks that ToJson() and FromJson() run without exceptions for the custom JSON converter for type File.

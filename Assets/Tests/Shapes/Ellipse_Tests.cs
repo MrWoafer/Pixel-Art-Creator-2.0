@@ -11,7 +11,7 @@ using System.Linq;
 
 namespace PAC.Tests.Shapes
 {
-    public class EllipseTests : I2DShape_DefaultTests<Ellipse>, I2DShape_RequiredTests
+    public class Ellipse_Tests : I2DShape_DefaultTests<Ellipse>, I2DShape_RequiredTests
     {
         protected override IEnumerable<Ellipse> testCases
         {

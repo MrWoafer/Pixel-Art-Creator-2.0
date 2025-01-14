@@ -9,7 +9,7 @@ namespace PAC.Tests
     /// <summary>
     /// Tests for <see cref="MathExtensions"/>.
     /// </summary>
-    public class MathExtensionsTests
+    public class MathExtensions_Tests
     {
         [Test]
         [Category("Utils")]
