@@ -2,7 +2,7 @@ using NUnit.Framework;
 using PAC.DataStructures;
 using PAC.Maths;
 
-namespace PAC.Tests
+namespace PAC.Tests.DataStructures
 {
     /// <summary>
     /// Tests for <see cref="IntVector2"/>.

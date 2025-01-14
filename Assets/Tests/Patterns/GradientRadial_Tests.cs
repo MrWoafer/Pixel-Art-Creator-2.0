@@ -6,14 +6,14 @@ using PAC.DataStructures;
 
 using UnityEngine;
 
-namespace PAC.Tests
+namespace PAC.Tests.Patterns
 {
     /// <summary>
-    /// Tests for <see cref="Patterns.Gradient.Radial"/>.
+    /// Tests for <see cref="PAC.Patterns.Gradient.Radial"/>.
     /// </summary>
     public class GradientRadial_Tests
     {
-        private IEnumerable<Patterns.Gradient.Radial> testCases
+        private IEnumerable<PAC.Patterns.Gradient.Radial> testCases
         {
             get
             {
@@ -25,7 +25,7 @@ namespace PAC.Tests
                         Color centreColour = new Color((float)rng.NextDouble(), (float)rng.NextDouble(), (float)rng.NextDouble(), (float)rng.NextDouble());
                         Color onCircumferenceColour = new Color((float)rng.NextDouble(), (float)rng.NextDouble(), (float)rng.NextDouble(), (float)rng.NextDouble());
 
-                        yield return new Patterns.Gradient.Radial((centreCoord, centreColour), (onCircumferenceCoord, onCircumferenceColour));
+                        yield return new PAC.Patterns.Gradient.Radial((centreCoord, centreColour), (onCircumferenceCoord, onCircumferenceColour));
                     }
                 }
             }
@@ -38,7 +38,7 @@ namespace PAC.Tests
         [Category("Patterns")]
         public void ColourOfParameters()
         {
-            foreach (Patterns.Gradient.Radial gradient in testCases)
+            foreach (PAC.Patterns.Gradient.Radial gradient in testCases)
             {
                 Assert.AreEqual(gradient.centre.colour, gradient[gradient.centre.coord], $"Failed with {gradient}.");
                 if (gradient.centre.coord != gradient.onCircumference.coord)
@@ -56,7 +56,7 @@ namespace PAC.Tests
         [Category("Patterns")]
         public void ColourOutsideCircle()
         {
-            foreach (Patterns.Gradient.Radial gradient in testCases)
+            foreach (PAC.Patterns.Gradient.Radial gradient in testCases)
             {
                 float radius = IntVector2.Distance(gradient.centre.coord, gradient.onCircumference.coord);
 
@@ -80,7 +80,7 @@ namespace PAC.Tests
         [Category("Patterns")]
         public void ColourInsideCircle()
         {
-            foreach (Patterns.Gradient.Radial gradient in testCases)
+            foreach (PAC.Patterns.Gradient.Radial gradient in testCases)
             {
                 float radius = IntVector2.Distance(gradient.centre.coord, gradient.onCircumference.coord);
 
@@ -105,7 +105,7 @@ namespace PAC.Tests
         [Category("Patterns")]
         public void ReflectionalSymmetry()
         {
-            foreach (Patterns.Gradient.Radial gradient in testCases)
+            foreach (PAC.Patterns.Gradient.Radial gradient in testCases)
             {
                 IntRect testRegion = new IntRect(gradient.centre.coord, gradient.onCircumference.coord);
                 testRegion = new IntRect(testRegion.bottomLeft + 1 * IntVector2.downLeft, testRegion.topRight + 1 * IntVector2.upRight);
@@ -124,7 +124,7 @@ namespace PAC.Tests
         [Category("Patterns")]
         public void RotationalSymmetry()
         {
-            foreach (Patterns.Gradient.Radial gradient in testCases)
+            foreach (PAC.Patterns.Gradient.Radial gradient in testCases)
             {
                 IntRect testRegion = new IntRect(gradient.centre.coord, gradient.onCircumference.coord);
                 testRegion = new IntRect(testRegion.bottomLeft + 1 * IntVector2.downLeft, testRegion.topRight + 1 * IntVector2.upRight);

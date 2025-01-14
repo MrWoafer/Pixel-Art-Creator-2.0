@@ -4,7 +4,7 @@ using PAC.Extensions;
 
 using UnityEngine;
 
-namespace PAC.Tests
+namespace PAC.Tests.Extensions.UnityEngine
 {
     /// <summary>
     /// Tests for <see cref="ColorExtensions"/>.

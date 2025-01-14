@@ -3,7 +3,7 @@ using NUnit.Framework;
 using PAC.DataStructures;
 using PAC.Json;
 
-namespace PAC.Tests
+namespace PAC.Tests.DataStructures
 {
     /// <summary>
     /// Tests the SemanticVersion struct.

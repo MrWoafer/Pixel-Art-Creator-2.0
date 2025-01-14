@@ -5,7 +5,7 @@ using PAC.Json;
 using System.Linq;
 using PAC.Exceptions;
 
-namespace PAC.Tests
+namespace PAC.Tests.Json
 {
     /// <summary>
     /// Tests the JSON system.

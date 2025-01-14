@@ -4,7 +4,7 @@ using NUnit.Framework;
 
 using PAC.Maths;
 
-namespace PAC.Tests
+namespace PAC.Tests.Maths
 {
     /// <summary>
     /// Tests for <see cref="MathExtensions"/>.

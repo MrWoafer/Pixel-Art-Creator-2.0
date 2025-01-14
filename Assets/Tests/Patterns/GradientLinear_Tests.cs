@@ -8,14 +8,14 @@ using PAC.Extensions;
 
 using UnityEngine;
 
-namespace PAC.Tests
+namespace PAC.Tests.Patterns
 {
     /// <summary>
-    /// Tests for <see cref="Patterns.Gradient.Linear"/>.
+    /// Tests for <see cref="PAC.Patterns.Gradient.Linear"/>.
     /// </summary>
     public class GradientLinear_Tests
     {
-        private IEnumerable<Patterns.Gradient.Linear> testCases
+        private IEnumerable<PAC.Patterns.Gradient.Linear> testCases
         {
             get
             {
@@ -27,7 +27,7 @@ namespace PAC.Tests
                         Color startColour = new Color((float)rng.NextDouble(), (float)rng.NextDouble(), (float)rng.NextDouble(), (float)rng.NextDouble());
                         Color endColour = new Color((float)rng.NextDouble(), (float)rng.NextDouble(), (float)rng.NextDouble(), (float)rng.NextDouble());
 
-                        yield return new Patterns.Gradient.Linear((startCoord, startColour), (endCoord, endColour));
+                        yield return new PAC.Patterns.Gradient.Linear((startCoord, startColour), (endCoord, endColour));
                     }
                 }
             }
@@ -55,7 +55,7 @@ namespace PAC.Tests
         [Category("Patterns")]
         public void ColourOfEndpoints()
         {
-            foreach (Patterns.Gradient.Linear gradient in testCases)
+            foreach (PAC.Patterns.Gradient.Linear gradient in testCases)
             {
                 Assert.AreEqual(gradient.start.colour, gradient[gradient.start.coord], $"Failed with {gradient}.");
                 if (gradient.start.coord != gradient.end.coord)
@@ -72,7 +72,7 @@ namespace PAC.Tests
         [Category("Patterns")]
         public void ColourBetweenEndpoints()
         {
-            foreach (Patterns.Gradient.Linear gradient in testCases)
+            foreach (PAC.Patterns.Gradient.Linear gradient in testCases)
             {
                 if (gradient.start.coord == gradient.end.coord)
                 {
@@ -106,7 +106,7 @@ namespace PAC.Tests
         [Category("Patterns")]
         public void ColourBeyondEndpoints()
         {
-            foreach (Patterns.Gradient.Linear gradient in testCases)
+            foreach (PAC.Patterns.Gradient.Linear gradient in testCases)
             {
                 if (gradient.start.coord == gradient.end.coord)
                 {
@@ -140,7 +140,7 @@ namespace PAC.Tests
         [Category("Patterns")]
         public void EndpointsEqual()
         {
-            foreach (Patterns.Gradient.Linear gradient in testCases)
+            foreach (PAC.Patterns.Gradient.Linear gradient in testCases)
             {
                 if (gradient.start.coord == gradient.end.coord)
                 {
@@ -159,14 +159,14 @@ namespace PAC.Tests
         [Category("Patterns")]
         public void OrderDoesNotMatter()
         {
-            foreach (Patterns.Gradient.Linear gradient in testCases)
+            foreach (PAC.Patterns.Gradient.Linear gradient in testCases)
             {
                 if (gradient.start.coord == gradient.end.coord)
                 {
                     continue;
                 }
 
-                Patterns.Gradient.Linear gradientOrderSwapped = new Patterns.Gradient.Linear(gradient.end, gradient.start);
+                PAC.Patterns.Gradient.Linear gradientOrderSwapped = new PAC.Patterns.Gradient.Linear(gradient.end, gradient.start);
 
                 IntRect testRegion = new IntRect(gradient.start.coord, gradient.end.coord);
                 testRegion = new IntRect(testRegion.bottomLeft + 1 * IntVector2.downLeft, testRegion.topRight + 1 * IntVector2.upRight);

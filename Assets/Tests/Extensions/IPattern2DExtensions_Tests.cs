@@ -6,7 +6,7 @@ using PAC.Patterns;
 
 using UnityEngine;
 
-namespace PAC.Tests
+namespace PAC.Tests.Extensions
 {
     /// <summary>
     /// Tests for <see cref="IPattern2DExtensions"/>.

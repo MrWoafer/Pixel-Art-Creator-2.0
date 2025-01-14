@@ -5,7 +5,7 @@ using NUnit.Framework;
 using PAC.DataStructures;
 using PAC.Drawing;
 
-namespace PAC.Tests
+namespace PAC.Tests.Drawing
 {
     /// <summary>
     /// Tests for <see cref="CoordSnapping"/>.

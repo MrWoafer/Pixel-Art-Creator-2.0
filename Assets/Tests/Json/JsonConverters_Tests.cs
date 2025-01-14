@@ -3,7 +3,7 @@ using PAC.Json;
 using PAC.Extensions;
 using UnityEngine;
 
-namespace PAC.Tests
+namespace PAC.Tests.Json
 {
     /// <summary>
     /// Tests the 'JsonConversion.JsonConverter's in the JsonConverters class.

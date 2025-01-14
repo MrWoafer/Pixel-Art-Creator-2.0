@@ -4,7 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace PAC.Tests
+namespace PAC.Tests.Extensions
 {
     public class IEnumerableExtensions_Tests
     {

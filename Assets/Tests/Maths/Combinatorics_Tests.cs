@@ -7,7 +7,7 @@ using NUnit.Framework;
 using PAC.Extensions;
 using PAC.Maths;
 
-namespace PAC.Tests
+namespace PAC.Tests.Maths
 {
     public class Combinatorics_Tests
     {

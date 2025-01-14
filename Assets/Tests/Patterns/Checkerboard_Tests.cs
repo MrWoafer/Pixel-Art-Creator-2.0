@@ -5,7 +5,7 @@ using PAC.Patterns;
 
 using UnityEngine;
 
-namespace PAC.Tests
+namespace PAC.Tests.Patterns
 {
     /// <summary>
     /// Tests for <see cref="Checkerboard{T}"/>.

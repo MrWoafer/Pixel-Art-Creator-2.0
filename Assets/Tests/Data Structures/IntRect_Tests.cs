@@ -6,7 +6,7 @@ using NUnit.Framework;
 
 using PAC.DataStructures;
 
-namespace PAC.Tests
+namespace PAC.Tests.DataStructures
 {
     /// <summary>
     /// Tests for <see cref="IntRect"/>.

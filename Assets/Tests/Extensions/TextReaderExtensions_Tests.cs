@@ -3,7 +3,7 @@ using PAC.Extensions;
 using System.IO;
 using System.Collections.Generic;
 
-namespace PAC.Tests
+namespace PAC.Tests.Extensions
 {
     /// <summary>
     /// Tests my extension methods for type TextReader.

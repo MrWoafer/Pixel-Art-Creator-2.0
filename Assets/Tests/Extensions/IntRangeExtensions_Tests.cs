@@ -7,7 +7,7 @@ using NUnit.Framework;
 using PAC.DataStructures;
 using PAC.Extensions;
 
-namespace PAC.Tests
+namespace PAC.Tests.Extensions
 {
     /// <summary>
     /// Tests for <see cref="IntRangeExtensions"/>.

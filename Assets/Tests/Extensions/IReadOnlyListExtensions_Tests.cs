@@ -6,7 +6,7 @@ using NUnit.Framework;
 
 using PAC.Extensions;
 
-namespace PAC.Tests
+namespace PAC.Tests.Extensions
 {
     /// <summary>
     /// Tests for <see cref="IReadOnlyListExtensions"/>.
