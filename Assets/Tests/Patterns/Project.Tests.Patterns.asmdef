@@ -1,0 +1,23 @@
+{
+    "name": "Project.Tests.Patterns",
+    "rootNamespace": "PAC.Tests.Patterns",
+    "references": [
+        "GUID:b5e1465cb1303124aa25df01ce14759e",
+        "GUID:2b46856cc7b42414b823cc2a19e6d617"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": true,
+    "precompiledReferences": [
+        "nunit.framework.dll"
+    ],
+    "autoReferenced": false,
+    "defineConstraints": [
+        "UNITY_INCLUDE_TESTS"
+    ],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
