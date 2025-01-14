@@ -2,14 +2,17 @@ using NUnit.Framework;
 
 using PAC.DataStructures;
 using PAC.Shapes;
+using PAC.Tests.Shapes.DefaultTests;
+using PAC.Tests.Shapes.RequiredTests;
+using PAC.Tests.Shapes.TestUtils;
 
 using System.Collections.Generic;
 
-namespace PAC.Tests
+namespace PAC.Tests.Shapes
 {
-    public class RightTriangleTests : I2DShapeTests<RightTriangle>
+    public class RightTriangleTests : I2DShape_DefaultTests<RightTriangle>, I2DShape_RequiredTests
     {
-        public override IEnumerable<RightTriangle> testCases
+        protected override IEnumerable<RightTriangle> testCases
         {
             get
             {
@@ -51,6 +54,16 @@ namespace PAC.Tests
                             (filled ? "filled" : "unfilled"));
                     }
                 }
+            }
+        }
+
+        [Test]
+        [Category("Shapes")]
+        public void NoRepeats()
+        {
+            foreach (RightTriangle triangle in testCases)
+            {
+                ShapeAssert.NoRepeats(triangle);
             }
         }
     }

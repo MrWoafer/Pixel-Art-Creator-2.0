@@ -3,15 +3,18 @@ using NUnit.Framework;
 using PAC.DataStructures;
 using PAC.Extensions;
 using PAC.Shapes;
+using PAC.Tests.Shapes.DefaultTests;
+using PAC.Tests.Shapes.RequiredTests;
+using PAC.Tests.Shapes.TestUtils;
 
 using System.Collections.Generic;
 using System.Linq;
 
-namespace PAC.Tests
+namespace PAC.Tests.Shapes
 {
-    public class DiamondTests : I2DShapeTests<Diamond>
+    public class DiamondTests : I2DShape_DefaultTests<Diamond>, I2DShape_RequiredTests
     {
-        public override IEnumerable<Diamond> testCases
+        protected override IEnumerable<Diamond> testCases
         {
             get
             {
@@ -69,6 +72,16 @@ namespace PAC.Tests
             }
         }
 
+        [Test]
+        [Category("Shapes")]
+        public void NoRepeats()
+        {
+            foreach (Diamond diamond in testCases)
+            {
+                ShapeAssert.NoRepeats(diamond);
+            }
+        }
+
         /// <summary>
         /// Tests that diamonds has reflective symmetry across the vertical axis and across the horizontal axis. Note that together these also imply 180-degree rotational symmetry.
         /// </summary>
@@ -82,8 +95,8 @@ namespace PAC.Tests
                 {
                     Ellipse ellipse = new Ellipse(IntVector2.zero, topRight, filled);
 
-                    IShapeTestHelper.ReflectiveSymmetry(ellipse, FlipAxis.Vertical);
-                    IShapeTestHelper.ReflectiveSymmetry(ellipse, FlipAxis.Horizontal);
+                    ShapeAssert.ReflectiveSymmetry(ellipse, FlipAxis.Vertical);
+                    ShapeAssert.ReflectiveSymmetry(ellipse, FlipAxis.Horizontal);
                 }
             }
         }

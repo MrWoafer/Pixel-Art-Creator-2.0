@@ -6,12 +6,15 @@ using NUnit.Framework;
 
 using PAC.DataStructures;
 using PAC.Shapes;
+using PAC.Tests.Shapes.DefaultTests;
+using PAC.Tests.Shapes.RequiredTests;
+using PAC.Tests.Shapes.TestUtils;
 
-namespace PAC.Tests
+namespace PAC.Tests.Shapes
 {
-    public class LineTests : I1DShapeTests<Line>
+    public class LineTests : I1DShape_DefaultTests<Line>, I1DShape_RequiredTests
     {
-        public override IEnumerable<Line> testCases
+        protected override IEnumerable<Line> testCases
         {
             get
             {
@@ -117,6 +120,16 @@ namespace PAC.Tests
             };
 
             CollectionAssert.AreEqual(expected, line);
+        }
+
+        [Test]
+        [Category("Shapes")]
+        public void NoRepeats()
+        {
+            foreach (Line line in testCases)
+            {
+                ShapeAssert.NoRepeats(line);
+            }
         }
 
         /// <summary>

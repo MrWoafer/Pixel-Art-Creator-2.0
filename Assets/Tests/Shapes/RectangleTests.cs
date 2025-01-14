@@ -2,14 +2,17 @@ using NUnit.Framework;
 
 using PAC.DataStructures;
 using PAC.Shapes;
+using PAC.Tests.Shapes.DefaultTests;
+using PAC.Tests.Shapes.RequiredTests;
+using PAC.Tests.Shapes.TestUtils;
 
 using System.Collections.Generic;
 
-namespace PAC.Tests
+namespace PAC.Tests.Shapes
 {
-    public class RectangleTests : I2DShapeTests<Rectangle>
+    public class RectangleTests : I2DShape_DefaultTests<Rectangle>, I2DShape_RequiredTests
     {
-        public override IEnumerable<Rectangle> testCases
+        protected override IEnumerable<Rectangle> testCases
         {
             get
             {
@@ -50,6 +53,16 @@ namespace PAC.Tests
                     Rectangle rectangle = new Rectangle(bottomLeft, topRight, true);
                     CollectionAssert.AreEquivalent(rectangle.boundingRect, rectangle, "Failed with " + rectangle);
                 }
+            }
+        }
+
+        [Test]
+        [Category("Shapes")]
+        public void NoRepeats()
+        {
+            foreach (Rectangle rectangle in testCases)
+            {
+                ShapeAssert.NoRepeats(rectangle);
             }
         }
     }

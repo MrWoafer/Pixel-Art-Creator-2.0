@@ -2,15 +2,18 @@ using NUnit.Framework;
 
 using PAC.DataStructures;
 using PAC.Shapes;
+using PAC.Tests.Shapes.DefaultTests;
+using PAC.Tests.Shapes.RequiredTests;
+using PAC.Tests.Shapes.TestUtils;
 
 using System.Collections.Generic;
 using System.Linq;
 
-namespace PAC.Tests
+namespace PAC.Tests.Shapes
 {
-    public class EllipseTests : I2DShapeTests<Ellipse>
+    public class EllipseTests : I2DShape_DefaultTests<Ellipse>, I2DShape_RequiredTests
     {
-        public override IEnumerable<Ellipse> testCases
+        protected override IEnumerable<Ellipse> testCases
         {
             get
             {
@@ -125,6 +128,16 @@ namespace PAC.Tests
             CollectionAssert.AreEqual(expected, ellipse);
         }
 
+        [Test]
+        [Category("Shapes")]
+        public void NoRepeats()
+        {
+            foreach (Ellipse ellipse in testCases)
+            {
+                ShapeAssert.NoRepeats(ellipse);
+            }
+        }
+
         /// <summary>
         /// Tests that ellipses has reflective symmetry across the vertical axis and across the horizontal axis. Note that together these also imply 180-degree rotational symmetry.
         /// </summary>
@@ -138,8 +151,8 @@ namespace PAC.Tests
                 {
                     Ellipse ellipse = new Ellipse(IntVector2.zero, topRight, filled);
 
-                    IShapeTestHelper.ReflectiveSymmetry(ellipse, FlipAxis.Vertical);
-                    IShapeTestHelper.ReflectiveSymmetry(ellipse, FlipAxis.Horizontal);
+                    ShapeAssert.ReflectiveSymmetry(ellipse, FlipAxis.Vertical);
+                    ShapeAssert.ReflectiveSymmetry(ellipse, FlipAxis.Horizontal);
                 }
             }
         }
@@ -156,7 +169,7 @@ namespace PAC.Tests
                 for (int diameter = 1; diameter <= 10; diameter++)
                 {
                     Ellipse circle = new Ellipse(IntVector2.zero, new IntVector2(diameter - 1, diameter - 1), filled);
-                    IRotatableShapeTestHelper.RotationalSymmetry(circle, RotationAngle._90);
+                    ShapeAssert.RotationalSymmetry(circle, RotationAngle._90);
                 }
             }
         }
@@ -174,10 +187,10 @@ namespace PAC.Tests
                 {
                     Ellipse circle = new Ellipse(IntVector2.zero, new IntVector2(diameter - 1, diameter - 1), filled);
 
-                    IShapeTestHelper.ReflectiveSymmetry(circle, FlipAxis.Vertical);
-                    IShapeTestHelper.ReflectiveSymmetry(circle, FlipAxis.Horizontal);
-                    IShapeTestHelper.ReflectiveSymmetry(circle, FlipAxis._45Degrees);
-                    IShapeTestHelper.ReflectiveSymmetry(circle, FlipAxis.Minus45Degrees);
+                    ShapeAssert.ReflectiveSymmetry(circle, FlipAxis.Vertical);
+                    ShapeAssert.ReflectiveSymmetry(circle, FlipAxis.Horizontal);
+                    ShapeAssert.ReflectiveSymmetry(circle, FlipAxis._45Degrees);
+                    ShapeAssert.ReflectiveSymmetry(circle, FlipAxis.Minus45Degrees);
                 }
             }
         }

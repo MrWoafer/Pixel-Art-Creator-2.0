@@ -6,12 +6,15 @@ using NUnit.Framework;
 
 using PAC.DataStructures;
 using PAC.Shapes;
+using PAC.Tests.Shapes.DefaultTests;
+using PAC.Tests.Shapes.RequiredTests;
+using PAC.Tests.Shapes.TestUtils;
 
-namespace PAC.Tests
+namespace PAC.Tests.Shapes
 {
-    public class PathTests : I1DShapeTests<Path>
+    public class PathTests : I1DShape_DefaultTests<Path>, I1DShape_RequiredTests
     {
-        public override IEnumerable<Path> testCases => RandomTestCases(1_000);
+        protected override IEnumerable<Path> testCases => RandomTestCases(1_000);
         private IEnumerable<Path> RandomTestCases(int numOfTestCases) => RandomTestCases(numOfTestCases, false).Concat(RandomTestCases(numOfTestCases, true));
         private IEnumerable<Path> RandomTestCases(int numOfTestCases, bool isLoop)
         {
@@ -150,7 +153,7 @@ namespace PAC.Tests
         {
             foreach (Path path in RandomTestCases(2_000))
             {
-                IShapeTestHelper.BoundingRect(path);
+                Assert.AreEqual(IntRect.BoundingRect(path), path.boundingRect, $"Failed with {path}.");
             }
         }
 
@@ -180,15 +183,14 @@ namespace PAC.Tests
             foreach ((int expected, Path path) in testCases)
             {
                 Assert.AreEqual(expected, path.Count, "Failed with " + path);
-                // Check that what we have implemented Count to count is the number of pixels in the IEnumerable
-                IShapeTestHelper.Count(path);
+                Assert.AreEqual(Enumerable.Count(path), path.Count, $"Failed with {path}.");
             }
 
             // Random tests
 
             foreach (Path path in RandomTestCases(2_000))
             {
-                IShapeTestHelper.Count(path);
+                Assert.AreEqual(Enumerable.Count(path), path.Count, $"Failed with {path}.");
             }
         }
 
@@ -197,7 +199,7 @@ namespace PAC.Tests
         /// </summary>
         [Test]
         [Category("Shapes")]
-        public override void NoRepeats()
+        public void NoConsecutiveRepeats()
         {
             for (int length = 1; length <= 3; length++)
             {
@@ -320,7 +322,7 @@ namespace PAC.Tests
             {
                 if (!path.selfIntersects)
                 {
-                    IShapeTestHelper.NoRepeatsAtAll(path);
+                    ShapeAssert.NoRepeats(path);
                 }
                 else
                 {

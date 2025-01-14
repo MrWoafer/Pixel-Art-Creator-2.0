@@ -2,17 +2,20 @@ using NUnit.Framework;
 
 using PAC.DataStructures;
 using PAC.Shapes;
+using PAC.Tests.Shapes.DefaultTests;
+using PAC.Tests.Shapes.RequiredTests;
+using PAC.Tests.Shapes.TestUtils;
 
 using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace PAC.Tests
+namespace PAC.Tests.Shapes
 {
-    public class IsometricRectangleTests : IIsometricShapeTests<IsometricRectangle>
+    public class IsometricRectangleTests : IIsometricShape_DefaultTests<IsometricRectangle>, IIsometricShape_RequiredTests
     {
-        public override IEnumerable<IsometricRectangle> testCases => exampleTestCases.Concat(randomTestCases);
-        public IEnumerable<IsometricRectangle> exampleTestCases => new IsometricRectangle[]
+        protected override IEnumerable<IsometricRectangle> testCases => exampleTestCases.Concat(randomTestCases);
+        private IEnumerable<IsometricRectangle> exampleTestCases => new IsometricRectangle[]
         {
             new IsometricRectangle(IntVector2.zero, IntVector2.zero, false),
             new IsometricRectangle(IntVector2.zero, IntVector2.zero, true),
@@ -25,7 +28,7 @@ namespace PAC.Tests
             new IsometricRectangle(IntVector2.zero, IntVector2.down, false),
             new IsometricRectangle(IntVector2.zero, IntVector2.down, true)
         };
-        public IEnumerable<IsometricRectangle> randomTestCases
+        private IEnumerable<IsometricRectangle> randomTestCases
         {
             get
             {
@@ -120,12 +123,22 @@ namespace PAC.Tests
             {
                 if (rectangle.isIsometricSquare)
                 {
-                    IShapeTestHelper.ReflectiveSymmetry(rectangle, FlipAxis.Horizontal);
+                    ShapeAssert.ReflectiveSymmetry(rectangle, FlipAxis.Horizontal);
                 }
                 else
                 {
-                    IShapeTestHelper.ReflectiveAsymmetry(rectangle, FlipAxis.Horizontal);
+                    ShapeAssert.ReflectiveAsymmetry(rectangle, FlipAxis.Horizontal);
                 }
+            }
+        }
+
+        [Test]
+        [Category("Shapes")]
+        public void NoRepeats()
+        {
+            foreach (IsometricRectangle rectangle in testCases)
+            {
+                ShapeAssert.NoRepeats(rectangle);
             }
         }
     }

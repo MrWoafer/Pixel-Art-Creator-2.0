@@ -3,20 +3,23 @@ using NUnit.Framework;
 using PAC.DataStructures;
 using PAC.Extensions;
 using PAC.Shapes;
+using PAC.Tests.Shapes.DefaultTests;
+using PAC.Tests.Shapes.RequiredTests;
+using PAC.Tests.Shapes.TestUtils;
 
 using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace PAC.Tests
+namespace PAC.Tests.Shapes
 {
     /// <summary>
     /// Tests for <see cref="IsometricCuboid"/>.
     /// </summary>
-    public class IsometricCuboidTests : IIsometricShapeTests<IsometricCuboid>
+    public class IsometricCuboidTests : IIsometricShape_DefaultTests<IsometricCuboid>, IIsometricShape_RequiredTests
     {
-        public override IEnumerable<IsometricCuboid> testCases => exampleTestCases.Concat(randomTestCases);
-        public IEnumerable<IsometricCuboid> exampleTestCases
+        protected override IEnumerable<IsometricCuboid> testCases => exampleTestCases.Concat(randomTestCases);
+        private IEnumerable<IsometricCuboid> exampleTestCases
         {
             get
             {
@@ -38,7 +41,7 @@ namespace PAC.Tests
                 }
             }
         }
-        public IEnumerable<IsometricCuboid> randomTestCases
+        private IEnumerable<IsometricCuboid> randomTestCases
         {
             get
             {
@@ -94,13 +97,6 @@ namespace PAC.Tests
             }
         }
 
-        /// <summary>
-        /// Don't currently care about repeated pixels in <see cref="IsometricCuboid"/>.
-        /// </summary>
-        [Test]
-        [Category("Shapes")]
-        public override void NoRepeats() => Assert.Pass();
-
         [Test]
         [Category("Shapes")]
         public void Height()
@@ -118,7 +114,7 @@ namespace PAC.Tests
             foreach (IsometricCuboid cuboid in testCases)
             {
                 cuboid.filled = true;
-                HashSet<IntVector2> borderOfFilled = IFillableShapeTestHelper.GetBorder(cuboid);
+                HashSet<IntVector2> borderOfFilled = ShapeUtils.GetBorder(cuboid);
 
                 cuboid.filled = false;
                 // We check subset instead of set-equal since the unfilled shape will have vertical lines inside the shape
@@ -152,7 +148,9 @@ namespace PAC.Tests
             {
                 foreach (FlipAxis axis in new FlipAxis[] { FlipAxis.None, FlipAxis.Vertical })
                 {
-                    IShapeTestHelper.Flip(shape, axis);
+                    HashSet<IntVector2> expected = shape.Select(p => p.Flip(axis)).ToHashSet();
+                    HashSet<IntVector2> flipped = shape.Flip(axis).ToHashSet();
+                    Assert.True(expected.SetEquals(flipped), $"Failed with {shape} and {axis}.");
                 }
             }
         }
