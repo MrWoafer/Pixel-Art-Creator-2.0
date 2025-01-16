@@ -296,6 +296,10 @@ namespace PAC.DataStructures
         /// Translates the rect by the given vector.
         /// </summary>
         public static IntRect operator -(IntRect rect, IntVector2 vector) => rect + (-vector);
+        /// <summary>
+        /// Negates each point in the rect.
+        /// </summary>
+        public static IntRect operator -(IntRect rect) => new IntRect(-rect.bottomLeft, -rect.topRight);
 
         /// <summary>
         /// Whether the rect is a square - i.e. the <see cref="width"/> and <see cref="height"/> are equal.
