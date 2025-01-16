@@ -9,27 +9,6 @@ namespace PAC.Shapes
 {
     public class Diamond : I2DShape<Diamond>, IDeepCopyableShape<Diamond>, IEquatable<Diamond>
     {
-        public IntVector2 bottomLeft
-        {
-            get => boundingRect.bottomLeft;
-            set => boundingRect = new IntRect(value, topRight);
-        }
-        public IntVector2 topRight
-        {
-            get => boundingRect.topRight;
-            set => boundingRect = new IntRect(value, bottomLeft);
-        }
-        public IntVector2 bottomRight
-        {
-            get => boundingRect.bottomRight;
-            set => boundingRect = new IntRect(value, topLeft);
-        }
-        public IntVector2 topLeft
-        {
-            get => boundingRect.topLeft;
-            set => boundingRect = new IntRect(value, bottomRight);
-        }
-
         public bool filled { get; set; }
 
         /// <summary>True if the diamond is a square.</summary>
@@ -50,12 +29,12 @@ namespace PAC.Shapes
                 if (filled)
                 {
                     int count = 0;
-                    for (int y = bottomLeft.y; y <= edges.bottomLeft.boundingRect.topRight.y; y++)
+                    for (int y = boundingRect.minY; y <= edges.bottomLeft.boundingRect.topRight.y; y++)
                     {
                         count += edges.bottomRight.MaxX(y) - edges.bottomLeft.MinX(y) + 1;
                     }
                     // The potential + 1 for the starting y is to avoid repeating pixels
-                    for (int y = edges.bottomLeft.boundingRect.topRight.y + 1; y <= topRight.y; y++)
+                    for (int y = edges.bottomLeft.boundingRect.topRight.y + 1; y <= boundingRect.maxY; y++)
                     {
                         count += edges.topRight.MaxX(y) - edges.topLeft.MinX(y) + 1;
                     }
@@ -73,15 +52,15 @@ namespace PAC.Shapes
 
                     int count = edges.bottomLeft.Count;
                     // Remove left-most block of the line
-                    count -= edges.bottomLeft.CountOnX(bottomLeft.x) * edges.bottomLeft.CountOnY(edges.bottomLeft.boundingRect.topRight.y);
+                    count -= edges.bottomLeft.CountOnX(boundingRect.minX) * edges.bottomLeft.CountOnY(edges.bottomLeft.boundingRect.topRight.y);
                     // Remove bottom block of the line
-                    count -= edges.bottomLeft.CountOnY(bottomLeft.y) * edges.bottomLeft.CountOnX(edges.bottomLeft.boundingRect.topRight.x);
+                    count -= edges.bottomLeft.CountOnY(boundingRect.minY) * edges.bottomLeft.CountOnX(edges.bottomLeft.boundingRect.topRight.x);
                     // Count it for the other 3 edges
                     count *= 4;
                     // Count the left-most block of the diamond (doubled to also count the right-most block)
-                    count += 2 * (edges.topLeft.MaxY(bottomLeft.x) - edges.bottomLeft.MinY(bottomLeft.x) + 1) * edges.bottomLeft.CountOnY(edges.bottomLeft.boundingRect.topRight.y);
+                    count += 2 * (edges.topLeft.MaxY(boundingRect.minX) - edges.bottomLeft.MinY(boundingRect.minX) + 1) * edges.bottomLeft.CountOnY(edges.bottomLeft.boundingRect.topRight.y);
                     // Count the bottom block of the diamond (doubled to also count the top block)
-                    count += 2 * (edges.bottomRight.MaxX(bottomLeft.y) - edges.bottomLeft.MinX(bottomLeft.y) + 1) * edges.bottomLeft.CountOnX(edges.bottomLeft.boundingRect.topRight.x);
+                    count += 2 * (edges.bottomRight.MaxX(boundingRect.minY) - edges.bottomLeft.MinX(boundingRect.minY) + 1) * edges.bottomLeft.CountOnX(edges.bottomLeft.boundingRect.topRight.x);
 
                     return count;
                 }
@@ -94,13 +73,13 @@ namespace PAC.Shapes
             {
                 Line[] lines = new Line[] {
                         // Bottom-left edge
-                        new Line(topLeft + boundingRect.height / 2 * IntVector2.down, bottomRight + boundingRect.width / 2 * IntVector2.left),
+                        new Line(boundingRect.topLeft + boundingRect.height / 2 * IntVector2.down, boundingRect.bottomRight + boundingRect.width / 2 * IntVector2.left),
                         // Bottom-right edge
-                        new Line(topRight + boundingRect.height / 2 * IntVector2.down, bottomLeft + boundingRect.width / 2 * IntVector2.right),
+                        new Line(boundingRect.topRight + boundingRect.height / 2 * IntVector2.down, boundingRect.bottomLeft + boundingRect.width / 2 * IntVector2.right),
                         // Top-right edge
-                        new Line(bottomRight + boundingRect.height / 2 * IntVector2.up, topLeft + boundingRect.width / 2 * IntVector2.right),
+                        new Line(boundingRect.bottomRight + boundingRect.height / 2 * IntVector2.up, boundingRect.topLeft + boundingRect.width / 2 * IntVector2.right),
                         // Top-left edge
-                        new Line(bottomLeft + boundingRect.height / 2 * IntVector2.up, topRight + boundingRect.width / 2 * IntVector2.left)
+                        new Line(boundingRect.bottomLeft + boundingRect.height / 2 * IntVector2.up, boundingRect.topRight + boundingRect.width / 2 * IntVector2.left)
                     };
 
                 // This is to ensure rotating / reflecting doesn't change the shape (up to rotating / reflecting)
@@ -117,7 +96,7 @@ namespace PAC.Shapes
                 if (boundingRect.width > boundingRect.height)
                 {
                     // Not particularly efficient, but does the job and really isn't slow even when drawing diamonds with a width of 1000
-                    while (lines[0].boundingRect.bottomRight.x <= lines[1].MaxX(bottomLeft.y))
+                    while (lines[0].boundingRect.bottomRight.x <= lines[1].MaxX(boundingRect.minY))
                     {
                         lines[0].start += IntVector2.right;
                         lines[1].start += IntVector2.left;
@@ -132,7 +111,7 @@ namespace PAC.Shapes
                 }
                 else if (boundingRect.width < boundingRect.height)
                 {
-                    while (lines[0].boundingRect.topLeft.y <= lines[3].MaxY(bottomLeft.x))
+                    while (lines[0].boundingRect.topLeft.y <= lines[3].MaxY(boundingRect.minX))
                     {
                         lines[0].start += IntVector2.up;
                         lines[1].start += IntVector2.up;
@@ -189,22 +168,22 @@ namespace PAC.Shapes
         /// <summary>
         /// Reflects the diamond through the origin.
         /// </summary>
-        public static Diamond operator -(Diamond diamond) => new Diamond(-diamond.bottomLeft, -diamond.topRight, diamond.filled);
+        public static Diamond operator -(Diamond diamond) => new Diamond(-diamond.boundingRect.bottomLeft, -diamond.boundingRect.topRight, diamond.filled);
 
         /// <summary>
         /// Translates the diamond by the given vector.
         /// </summary>
-        public Diamond Translate(IntVector2 translation) => new Diamond(bottomLeft + translation, topRight + translation, filled);
+        public Diamond Translate(IntVector2 translation) => new Diamond(boundingRect.bottomLeft + translation, boundingRect.topRight + translation, filled);
 
         /// <summary>
         /// Reflects the diamond across the given axis.
         /// </summary>
-        public Diamond Flip(FlipAxis axis) => new Diamond(bottomLeft.Flip(axis), topRight.Flip(axis), filled);
+        public Diamond Flip(FlipAxis axis) => new Diamond(boundingRect.bottomLeft.Flip(axis), boundingRect.topRight.Flip(axis), filled);
 
         /// <summary>
         /// Rotates the diamond by the given angle.
         /// </summary>
-        public Diamond Rotate(RotationAngle angle) => new Diamond(bottomLeft.Rotate(angle), topRight.Rotate(angle), filled);
+        public Diamond Rotate(RotationAngle angle) => new Diamond(boundingRect.bottomLeft.Rotate(angle), boundingRect.topRight.Rotate(angle), filled);
 
         IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();
         public IEnumerator<IntVector2> GetEnumerator()
@@ -212,7 +191,7 @@ namespace PAC.Shapes
             var edges = this.edges;
             if (filled)
             {
-                for (int y = bottomLeft.y; y <= edges.bottomLeft.boundingRect.topRight.y; y++)
+                for (int y = boundingRect.minY; y <= edges.bottomLeft.boundingRect.topRight.y; y++)
                 {
                     for (int x = edges.bottomLeft.MinX(y); x <= edges.bottomRight.MaxX(y); x++)
                     {
@@ -220,7 +199,7 @@ namespace PAC.Shapes
                     }
                 }
                 // The potential + 1 for the starting y is to avoid repeating pixels
-                for (int y = edges.bottomLeft.boundingRect.topRight.y + 1; y <= topRight.y; y++)
+                for (int y = edges.bottomLeft.boundingRect.topRight.y + 1; y <= boundingRect.maxY; y++)
                 {
                     for (int x = edges.topLeft.MinX(y); x <= edges.topRight.MaxX(y); x++)
                     {
@@ -273,10 +252,10 @@ namespace PAC.Shapes
         public bool Equals(Diamond other) => this == other;
         public override bool Equals(object obj) => obj is Diamond other && Equals(other);
 
-        public override int GetHashCode() => HashCode.Combine(bottomLeft, topRight, filled);
+        public override int GetHashCode() => HashCode.Combine(boundingRect.bottomLeft, boundingRect.topRight, filled);
 
-        public override string ToString() => "Diamond(" + bottomLeft + ", " + topRight + ", " + (filled ? "filled" : "unfilled") + ")";
+        public override string ToString() => "Diamond(" + boundingRect.bottomLeft + ", " + boundingRect.topRight + ", " + (filled ? "filled" : "unfilled") + ")";
 
-        public Diamond DeepCopy() => new Diamond(bottomLeft, topRight, filled);
+        public Diamond DeepCopy() => new Diamond(boundingRect.bottomLeft, boundingRect.topRight, filled);
     }
 }
