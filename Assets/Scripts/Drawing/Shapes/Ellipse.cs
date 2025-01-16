@@ -138,7 +138,7 @@ namespace PAC.Shapes
             // Manually define horizontal/vertical lines to avoid repeating pixels
             if (boundingRect.width == 1)
             {
-                for (int y = boundingRect.minY; y <= boundingRect.maxY; y++)
+                foreach (int y in boundingRect.yRange)
                 {
                     yield return new IntVector2(boundingRect.minX, y);
                 }
@@ -146,7 +146,7 @@ namespace PAC.Shapes
             }
             if (boundingRect.height == 1)
             {
-                for (int x = boundingRect.minX; x <= boundingRect.maxX; x++)
+                foreach (int x in boundingRect.xRange)
                 {
                     yield return new IntVector2(x, boundingRect.minY);
                 }
@@ -156,20 +156,15 @@ namespace PAC.Shapes
             // Filled
             if (filled)
             {
-                for (int y = boundingRect.minY; y <= boundingRect.maxY; y++)
+                foreach (int y in boundingRect.yRange)
                 {
-                    int x = Mathf.FloorToInt(centre.x);
-                    while (IsInside(x, y))
+                    for (int x = Mathf.FloorToInt(centre.x); IsInside(x, y); x--)
                     {
                         yield return new IntVector2(x, y);
-                        x--;
                     }
-
-                    x = Mathf.FloorToInt(centre.x) + 1;
-                    while (IsInside(x, y))
+                    for (int x = Mathf.FloorToInt(centre.x) + 1; IsInside(x, y); x++)
                     {
                         yield return new IntVector2(x, y);
-                        x++;
                     }
                 }
                 yield break;
