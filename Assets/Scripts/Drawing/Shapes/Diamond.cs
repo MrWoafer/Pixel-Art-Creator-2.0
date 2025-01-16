@@ -169,22 +169,22 @@ namespace PAC.Shapes
         /// <summary>
         /// Reflects the diamond through the origin.
         /// </summary>
-        public static Diamond operator -(Diamond diamond) => new Diamond(-diamond.boundingRect.bottomLeft, -diamond.boundingRect.topRight, diamond.filled);
+        public static Diamond operator -(Diamond diamond) => new Diamond(-diamond.boundingRect, diamond.filled);
 
         /// <summary>
         /// Translates the diamond by the given vector.
         /// </summary>
-        public Diamond Translate(IntVector2 translation) => new Diamond(boundingRect.bottomLeft + translation, boundingRect.topRight + translation, filled);
+        public Diamond Translate(IntVector2 translation) => new Diamond(boundingRect + translation, filled);
 
         /// <summary>
         /// Reflects the diamond across the given axis.
         /// </summary>
-        public Diamond Flip(FlipAxis axis) => new Diamond(boundingRect.bottomLeft.Flip(axis), boundingRect.topRight.Flip(axis), filled);
+        public Diamond Flip(FlipAxis axis) => new Diamond(boundingRect.Flip(axis), filled);
 
         /// <summary>
         /// Rotates the diamond by the given angle.
         /// </summary>
-        public Diamond Rotate(RotationAngle angle) => new Diamond(boundingRect.bottomLeft.Rotate(angle), boundingRect.topRight.Rotate(angle), filled);
+        public Diamond Rotate(RotationAngle angle) => new Diamond(boundingRect.Rotate(angle), filled);
 
         IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();
         public IEnumerator<IntVector2> GetEnumerator()
@@ -253,10 +253,10 @@ namespace PAC.Shapes
         public bool Equals(Diamond other) => this == other;
         public override bool Equals(object obj) => obj is Diamond other && Equals(other);
 
-        public override int GetHashCode() => HashCode.Combine(boundingRect.bottomLeft, boundingRect.topRight, filled);
+        public override int GetHashCode() => HashCode.Combine(boundingRect, filled);
 
         public override string ToString() => "Diamond(" + boundingRect.bottomLeft + ", " + boundingRect.topRight + ", " + (filled ? "filled" : "unfilled") + ")";
 
-        public Diamond DeepCopy() => new Diamond(boundingRect.bottomLeft, boundingRect.topRight, filled);
+        public Diamond DeepCopy() => new Diamond(boundingRect, filled);
     }
 }
