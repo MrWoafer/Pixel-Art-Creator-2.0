@@ -1,4 +1,5 @@
 using System;
+using System.Runtime.CompilerServices;
 
 using UnityEngine;
 
@@ -342,5 +343,16 @@ namespace PAC.Maths
             }
             return output;
         }
+
+        /// <summary>
+        /// Computes <c><paramref name="n"/> * <paramref name="n"/></c>.
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static float Square(this int n) => n * n;
+        /// <summary>
+        /// Computes <c><paramref name="n"/> * <paramref name="n"/></c>.
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static float Square(this float n) => n * n;
     }
 }
