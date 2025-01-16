@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 
 using PAC.DataStructures;
 using PAC.Shapes.Interfaces;
@@ -143,15 +144,7 @@ namespace PAC.Shapes
                 var edges = this.edges;
                 return edges.bottomLeft.PointIsToRight(pixel) && edges.bottomRight.PointIsToLeft(pixel) || edges.topLeft.PointIsToRight(pixel) && edges.topRight.PointIsToLeft(pixel);
             }
-
-            foreach (Line edge in edges.AsEnumerable())
-            {
-                if (edge.Contains(pixel))
-                {
-                    return true;
-                }
-            }
-            return false;
+            return edges.AsEnumerable().Any(edge => edge.Contains(pixel));
         }
 
         /// <summary>
