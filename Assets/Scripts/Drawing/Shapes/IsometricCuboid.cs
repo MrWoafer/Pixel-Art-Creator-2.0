@@ -56,14 +56,9 @@ namespace PAC.Shapes
                     return border.Sum(path => path.Count);
                 }
 
-                int count = 0;
                 Path lowerBorder = bottomRectangle.lowerBorder;
                 Path upperBorder = topRectangle.upperBorder;
-                foreach (int x in boundingRect.xRange)
-                {
-                    count += upperBorder.MaxY(x) - lowerBorder.MinY(x) + 1;
-                }
-                return count;
+                return boundingRect.xRange.Sum(x => upperBorder.MaxY(x) - lowerBorder.MinY(x) + 1);
             }
         }
 
