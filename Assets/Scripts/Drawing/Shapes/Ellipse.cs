@@ -24,29 +24,27 @@ namespace PAC.Shapes
         /// <summary>True if the ellipse is a circle.</summary>
         public bool isCircle => boundingRect.width == boundingRect.height;
 
-        public IntRect boundingRect { get; private set; }
+        private IntRect _boundingRect;
+        public IntRect boundingRect
+        {
+            get => _boundingRect;
+            set
+            {
+                _boundingRect = value;
+
+                xRadius = boundingRect.width / 2f;
+                yRadius = boundingRect.height / 2f;
+                centre = ((Vector2)boundingRect.bottomLeft + boundingRect.topRight) / 2f;
+            }
+        }
 
         public int Count => this.Count();
 
-        public Ellipse(IntVector2 corner, IntVector2 oppositeCorner, bool filled)
+        public Ellipse(IntVector2 corner, IntVector2 oppositeCorner, bool filled) : this(new IntRect(corner, oppositeCorner), filled) { }
+        public Ellipse(IntRect boundingRect, bool filled)
         {
-            boundingRect = new IntRect(IntVector2.zero, IntVector2.zero);
+            this.boundingRect = boundingRect;
             this.filled = filled;
-
-            xRadius = 0f;
-            yRadius = 0f;
-            centre = Vector2.zero;
-
-            SetValues(corner, oppositeCorner);
-        }
-
-        private void SetValues(IntVector2 corner, IntVector2 oppositeCorner)
-        {
-            boundingRect = new IntRect(corner, oppositeCorner);
-
-            xRadius = boundingRect.width / 2f;
-            yRadius = boundingRect.height / 2f;
-            centre = ((Vector2)boundingRect.bottomLeft + boundingRect.topRight) / 2f;
         }
 
         /// <summary>
