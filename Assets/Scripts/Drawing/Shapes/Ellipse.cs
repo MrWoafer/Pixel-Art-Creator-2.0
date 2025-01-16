@@ -173,30 +173,30 @@ namespace PAC.Shapes
             // Unfilled
 
             IntVector2 primaryDirection = IntVector2.right;
-            IntVector2 secondaryDirection = new IntVector2(1, -1);
+            IntVector2 secondaryDirection = IntVector2.downRight;
             IntVector2 tertiaryDirection = IntVector2.down;
             IntVector2 start = new IntVector2(boundingRect.minX + boundingRect.width / 2, boundingRect.maxY);
-            IntVector2 pixel = start;
+            IntVector2 currentPoint = start;
 
             int iterations = 0;
             do
             {
                 iterations++;
 
-                if (IsInside(pixel + primaryDirection))
+                if (IsInside(currentPoint + primaryDirection))
                 {
-                    yield return pixel;
-                    pixel += primaryDirection;
+                    yield return currentPoint;
+                    currentPoint += primaryDirection;
                 }
-                else if (IsInside(pixel + secondaryDirection))
+                else if (IsInside(currentPoint + secondaryDirection))
                 {
-                    yield return pixel;
-                    pixel += secondaryDirection;
+                    yield return currentPoint;
+                    currentPoint += secondaryDirection;
                 }
-                else if (IsInside(pixel + tertiaryDirection))
+                else if (IsInside(currentPoint + tertiaryDirection))
                 {
-                    yield return pixel;
-                    pixel += tertiaryDirection;
+                    yield return currentPoint;
+                    currentPoint += tertiaryDirection;
                 }
                 else
                 {
@@ -205,7 +205,7 @@ namespace PAC.Shapes
                     tertiaryDirection = tertiaryDirection.Rotate(RotationAngle._90);
                 }
             }
-            while (pixel != start && iterations < 10_000);
+            while (currentPoint != start && iterations < 10_000);
         }
 
         public static bool operator ==(Ellipse a, Ellipse b) => a.boundingRect == b.boundingRect && a.filled == b.filled;
