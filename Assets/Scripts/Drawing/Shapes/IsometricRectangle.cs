@@ -538,7 +538,7 @@ namespace PAC.Shapes
             }
 
             Path border = this.border;
-            for (int y = boundingRect.bottomLeft.y; y <= boundingRect.topRight.y; y++)
+            foreach (int y in boundingRect.yRange)
             {
                 for (int x = border.MinX(y); x <= border.MaxX(y); x++)
                 {
