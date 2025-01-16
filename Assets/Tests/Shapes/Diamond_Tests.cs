@@ -93,10 +93,10 @@ namespace PAC.Tests.Shapes
             {
                 foreach (IntVector2 topRight in new IntRect(IntVector2.zero, new IntVector2(10, 10)))
                 {
-                    Ellipse ellipse = new Ellipse(IntVector2.zero, topRight, filled);
+                    Diamond diamond = new Diamond(IntVector2.zero, topRight, filled);
 
-                    ShapeAssert.ReflectiveSymmetry(ellipse, FlipAxis.Vertical);
-                    ShapeAssert.ReflectiveSymmetry(ellipse, FlipAxis.Horizontal);
+                    ShapeAssert.ReflectiveSymmetry(diamond, FlipAxis.Vertical);
+                    ShapeAssert.ReflectiveSymmetry(diamond, FlipAxis.Horizontal);
                 }
             }
         }
