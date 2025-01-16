@@ -27,7 +27,7 @@ namespace PAC.Tests.Shapes.DefaultTests
                     HashSet<IntVector2> expected = original.Select(p => p + translation).ToHashSet();
                     HashSet<IntVector2> translated = shape.Translate(translation).ToHashSet();
 
-                    Assert.True(expected.SetEquals(translated), $"Failed with {shape} and {translation}");
+                    Assert.True(expected.SetEquals(translated), $"Failed with {shape} and {translation}.");
                 }
             }
         }

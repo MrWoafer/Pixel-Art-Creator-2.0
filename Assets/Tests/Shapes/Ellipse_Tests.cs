@@ -38,7 +38,7 @@ namespace PAC.Tests.Shapes
             {
                 foreach (IntVector2 pixel in new IntRect(new IntVector2(-5, -5), new IntVector2(5, 5)))
                 {
-                    CollectionAssert.AreEqual(new IntVector2[] { pixel }, new Ellipse(pixel, pixel, filled), "Failed with " + pixel + " " + (filled ? "filled" : "unfilled"));
+                    CollectionAssert.AreEqual(new IntVector2[] { pixel }, new Ellipse(pixel, pixel, filled), $"Failed with {pixel} {(filled ? "filled" : "unfilled")}.");
                 }
             }
         }
@@ -57,7 +57,7 @@ namespace PAC.Tests.Shapes
                     for (int y = -5; y <= 5; y++)
                     {
                         Ellipse ellipse = new Ellipse(IntVector2.zero, new IntVector2(x, y), filled);
-                        CollectionAssert.AreEquivalent(ellipse.boundingRect, ellipse, "Failed with " + ellipse);
+                        CollectionAssert.AreEquivalent(ellipse.boundingRect, ellipse, $"Failed with {ellipse}.");
                     }
                 }
             }
@@ -69,7 +69,7 @@ namespace PAC.Tests.Shapes
                     for (int x = -5; x <= 5; x++)
                     {
                         Ellipse ellipse = new Ellipse(IntVector2.zero, new IntVector2(x, y), filled);
-                        CollectionAssert.AreEquivalent(ellipse.boundingRect, ellipse, "Failed with " + ellipse);
+                        CollectionAssert.AreEquivalent(ellipse.boundingRect, ellipse, $"Failed with {ellipse}.");
                     }
                 }
             }

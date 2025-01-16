@@ -16,8 +16,8 @@ namespace PAC.Tests.Shapes.DefaultTests
         {
             foreach (T shape in testCases)
             {
-                Assert.AreEqual(shape, shape.DeepCopy(), "Failed with " + shape);
-                Assert.False(ReferenceEquals(shape, shape.DeepCopy()), "Failed with " + shape);
+                Assert.AreEqual(shape, shape.DeepCopy(), $"Failed with {shape}.");
+                Assert.False(ReferenceEquals(shape, shape.DeepCopy()), $"Failed with {shape}.");
             }
         }
     }

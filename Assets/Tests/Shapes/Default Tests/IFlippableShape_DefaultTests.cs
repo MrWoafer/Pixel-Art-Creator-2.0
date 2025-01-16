@@ -25,7 +25,7 @@ namespace PAC.Tests.Shapes.DefaultTests
                 {
                     HashSet<IntVector2> expected = shape.Select(p => p.Flip(axis)).ToHashSet();
                     HashSet<IntVector2> flipped = shape.Flip(axis).ToHashSet();
-                    Assert.True(expected.SetEquals(flipped), $"Failed with {shape} and {axis}");
+                    Assert.True(expected.SetEquals(flipped), $"Failed with {shape} and {axis}.");
                 }
             }
         }

@@ -88,7 +88,7 @@ namespace PAC.Tests.Shapes
                 for (int repetitions = 1; repetitions <= 5; repetitions++)
                 {
                     Path path = new Path(Enumerable.Repeat(pixel, repetitions));
-                    CollectionAssert.AreEqual(new IntVector2[] { pixel }, path, "Failed with " + path);
+                    CollectionAssert.AreEqual(new IntVector2[] { pixel }, path, $"Failed with {path}.");
                 }
             }
         }
@@ -128,7 +128,7 @@ namespace PAC.Tests.Shapes
 
             foreach ((IEnumerable<IntVector2> expected, Path path) in testCases)
             {
-                CollectionAssert.AreEqual(expected, path, "Failed with " + path);
+                CollectionAssert.AreEqual(expected, path, $"Failed with {path}.");
             }
         }
 
@@ -182,7 +182,7 @@ namespace PAC.Tests.Shapes
             
             foreach ((int expected, Path path) in testCases)
             {
-                Assert.AreEqual(expected, path.Count, "Failed with " + path);
+                Assert.AreEqual(expected, path.Count, $"Failed with {path}.");
                 Assert.AreEqual(Enumerable.Count(path), path.Count, $"Failed with {path}.");
             }
 
@@ -217,7 +217,7 @@ namespace PAC.Tests.Shapes
 
                         for (int i = 0; i < pixels.Length; i++)
                         {
-                            Assert.AreNotEqual(pixels[(i + 1) % pixels.Length], pixels[i], "Failed with " + path + " at index " + i);
+                            Assert.AreNotEqual(pixels[(i + 1) % pixels.Length], pixels[i], $"Failed with {path} at index {i}.");
                         }
                     }
                 }
@@ -232,7 +232,7 @@ namespace PAC.Tests.Shapes
             {
                 for (int y = path.boundingRect.bottomLeft.y; y <= path.boundingRect.topRight.y; y++)
                 {
-                    Assert.AreEqual(path.Where(p => p.y == y).Min(p => p.x), path.MinX(y), "Failed with " + path + " and y = " + y);
+                    Assert.AreEqual(path.Where(p => p.y == y).Min(p => p.x), path.MinX(y), $"Failed with {path} and y = {y}.");
                 }
 
                 Assert.Throws<ArgumentOutOfRangeException>(() => path.MinX(path.boundingRect.bottomLeft.y - 1));
@@ -248,7 +248,7 @@ namespace PAC.Tests.Shapes
             {
                 for (int y = path.boundingRect.bottomLeft.y; y <= path.boundingRect.topRight.y; y++)
                 {
-                    Assert.AreEqual(path.Where(p => p.y == y).Max(p => p.x), path.MaxX(y), "Failed with " + path + " and y = " + y);
+                    Assert.AreEqual(path.Where(p => p.y == y).Max(p => p.x), path.MaxX(y), $"Failed with {path} and y = {y}.");
                 }
 
                 Assert.Throws<ArgumentOutOfRangeException>(() => path.MaxX(path.boundingRect.bottomLeft.y - 1));
@@ -264,7 +264,7 @@ namespace PAC.Tests.Shapes
             {
                 for (int x = path.boundingRect.bottomLeft.x; x <= path.boundingRect.topRight.x; x++)
                 {
-                    Assert.AreEqual(path.Where(p => p.x == x).Min(p => p.y), path.MinY(x), "Failed with " + path + " and x = " + x);
+                    Assert.AreEqual(path.Where(p => p.x == x).Min(p => p.y), path.MinY(x), $"Failed with {path} and x = {x}.");
                 }
 
                 Assert.Throws<ArgumentOutOfRangeException>(() => path.MinY(path.boundingRect.bottomLeft.x - 1));
@@ -280,7 +280,7 @@ namespace PAC.Tests.Shapes
             {
                 for (int x = path.boundingRect.bottomLeft.x; x <= path.boundingRect.topRight.x; x++)
                 {
-                    Assert.AreEqual(path.Where(p => p.x == x).Max(p => p.y), path.MaxY(x), "Failed with " + path + " and x = " + x);
+                    Assert.AreEqual(path.Where(p => p.x == x).Max(p => p.y), path.MaxY(x), $"Failed with {path} and x = {x}.");
                 }
 
                 Assert.Throws<ArgumentOutOfRangeException>(() => path.MaxY(path.boundingRect.bottomLeft.x - 1));
@@ -296,7 +296,7 @@ namespace PAC.Tests.Shapes
             {
                 for (int x = path.boundingRect.bottomLeft.x - 2; x <= path.boundingRect.topRight.x + 2; x++)
                 {
-                    Assert.AreEqual(path.Count(p => p.x == x), path.CountOnX(x), "Failed with " + path + " and x = " + x);
+                    Assert.AreEqual(path.Count(p => p.x == x), path.CountOnX(x), $"Failed with {path} and x = {x}.");
                 }
             }
         }
@@ -309,7 +309,7 @@ namespace PAC.Tests.Shapes
             {
                 for (int y = path.boundingRect.bottomLeft.y - 2; y <= path.boundingRect.topRight.y + 2; y++)
                 {
-                    Assert.AreEqual(path.Count(p => p.y == y), path.CountOnY(y), "Failed with " + path + " and y = " + y);
+                    Assert.AreEqual(path.Count(p => p.y == y), path.CountOnY(y), $"Failed with {path} and y = {y}.");
                 }
             }
         }
@@ -337,7 +337,7 @@ namespace PAC.Tests.Shapes
                         }
                         visited.Add(pixel);
                     }
-                    Assert.True(hasDuplicate, "Failed with " + path);
+                    Assert.True(hasDuplicate, $"Failed with {path}.");
                 }
             }
         }
@@ -369,13 +369,13 @@ namespace PAC.Tests.Shapes
 
             foreach ((bool isSimplePolygon, Path path) in testCases)
             {
-                Assert.AreEqual(isSimplePolygon, path.isSimplePolygon, "Failed with " + path);
+                Assert.AreEqual(isSimplePolygon, path.isSimplePolygon, $"Failed with {path}.");
             }
 
             // Check that simple polygons must be loops
             foreach (Path path in RandomTestCases(1_000, false))
             {
-                Assert.False(path.isSimplePolygon, "Failed with " + path);
+                Assert.False(path.isSimplePolygon, $"Failed with {path}.");
             }
 
             foreach (Path path in RandomTestCases(1_000, true))
@@ -383,7 +383,7 @@ namespace PAC.Tests.Shapes
                 // Check the logical implication 'not self-intersecting => simple polygon'
                 if (!path.selfIntersects)
                 {
-                    Assert.True(path.isSimplePolygon, "Failed with " + path);
+                    Assert.True(path.isSimplePolygon, $"Failed with {path}.");
                 }
             }
         }
@@ -456,7 +456,7 @@ namespace PAC.Tests.Shapes
             {
                 foreach ((int windingNumber, IntVector2 point) in pathTestCases)
                 {
-                    Assert.AreEqual(windingNumber, path.WindingNumber(point), "Failed with " + path + " and " + point);
+                    Assert.AreEqual(windingNumber, path.WindingNumber(point), $"Failed with {path} and {point}.");
                 }
             }
 
@@ -506,7 +506,7 @@ namespace PAC.Tests.Shapes
                         }
                     }
 
-                    Assert.AreEqual(outside, path.WindingNumber(pixel) == 0, "Failed with " + path + " and " + pixel);
+                    Assert.AreEqual(outside, path.WindingNumber(pixel) == 0, $"Failed with {path} and {pixel}.");
                 }
             }
         }

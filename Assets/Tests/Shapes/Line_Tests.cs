@@ -34,7 +34,7 @@ namespace PAC.Tests.Shapes
         {
             foreach (IntVector2 pixel in new IntRect(new IntVector2(-5, -5), new IntVector2(5, 5)))
             {
-                CollectionAssert.AreEqual(new IntVector2[] { pixel }, new Line(pixel, pixel), "Failed with " + pixel);
+                CollectionAssert.AreEqual(new IntVector2[] { pixel }, new Line(pixel, pixel), $"Failed with {pixel}.");
             }
         }
 
@@ -65,8 +65,8 @@ namespace PAC.Tests.Shapes
                             {
                                 Line line = new Line(start, start + new IntVector2(blockSize * numBlocks - 1, numBlocks - 1).Flip(axis).Rotate(angle));
                                 IEnumerable<IntVector2> expected = Expected(blockSize, numBlocks).Select(p => start + p.Flip(axis).Rotate(angle));
-                                CollectionAssert.AreEqual(expected, line, "Failed with " + line);
-                                Assert.True(line.isPerfect, "Failed with " + line);
+                                CollectionAssert.AreEqual(expected, line, $"Failed with {line}.");
+                                Assert.True(line.isPerfect, $"Failed with {line}.");
                             }
                         }
                     }
@@ -141,8 +141,8 @@ namespace PAC.Tests.Shapes
         {
             foreach (Line line in testCases)
             {
-                Assert.AreEqual(line.First(),  line.start, "Failed with " + line);
-                Assert.AreEqual(line.Last(), line.end, "Failed with " + line);
+                Assert.AreEqual(line.First(),  line.start, $"Failed with {line}.");
+                Assert.AreEqual(line.Last(), line.end, $"Failed with {line}.");
             }
         }
 
@@ -155,19 +155,19 @@ namespace PAC.Tests.Shapes
         {
             foreach (Line line in testCases)
             {
-                Assert.Throws<IndexOutOfRangeException>(() => { IntVector2 x = line[-1]; }, "Failed with " + line);
+                Assert.Throws<IndexOutOfRangeException>(() => { IntVector2 x = line[-1]; }, $"Failed with {line}.");
 
                 int index = 0;
                 foreach (IntVector2 pixel in line)
                 {
-                    Assert.AreEqual(pixel, line[index], "Failed with " + line + " at index " + index);
+                    Assert.AreEqual(pixel, line[index], $"Failed with {line} at index {index}.");
                     index++;
                 }
 
-                Assert.Throws<IndexOutOfRangeException>(() => { IntVector2 x = line[index]; }, "Failed with " + line);
+                Assert.Throws<IndexOutOfRangeException>(() => { IntVector2 x = line[index]; }, $"Failed with {line}.");
 
                 // Test hat syntax
-                Assert.AreEqual(line.end, line[^1], "Failed with " + line);
+                Assert.AreEqual(line.end, line[^1], $"Failed with {line}.");
             }
         }
 
@@ -197,7 +197,7 @@ namespace PAC.Tests.Shapes
                     for (int x = pixel.x; x >= line.boundingRect.bottomLeft.x - 2; x--)
                     {
                         IntVector2 test = new IntVector2(x, pixel.y);
-                        Assert.True(line.PointIsToLeft(test), "Failed with " + line + " and " + test);
+                        Assert.True(line.PointIsToLeft(test), $"Failed with {line} and {test}.");
                     }
 
                     for (int x = pixel.x + 1; x <= line.boundingRect.topRight.x + 2; x++)
@@ -205,7 +205,7 @@ namespace PAC.Tests.Shapes
                         IntVector2 test = new IntVector2(x, pixel.y);
                         if (!line.Contains(pixel))
                         {
-                            Assert.False(line.PointIsToLeft(test), "Failed with " + line + " and " + test);
+                            Assert.False(line.PointIsToLeft(test), $"Failed with {line} and {test}.");
                         }
                     }
                 }
@@ -215,13 +215,13 @@ namespace PAC.Tests.Shapes
                     for (int y = line.boundingRect.topRight.y + 1; y <= line.boundingRect.topRight.y + 2; y++)
                     {
                         IntVector2 test = new IntVector2(x, y);
-                        Assert.False(line.PointIsToLeft(test), "Failed with " + line + " and " + test);
+                        Assert.False(line.PointIsToLeft(test), $"Failed with {line} and {test}.");
                     }
 
                     for (int y = line.boundingRect.bottomLeft.y - 1; y >= line.boundingRect.topRight.y - 2; y--)
                     {
                         IntVector2 test = new IntVector2(x, y);
-                        Assert.False(line.PointIsToLeft(test), "Failed with " + line + " and " + test);
+                        Assert.False(line.PointIsToLeft(test), $"Failed with {line} and {test}.");
                     }
                 }
             }
@@ -238,7 +238,7 @@ namespace PAC.Tests.Shapes
                     for (int x = pixel.x; x <= line.boundingRect.topRight.x + 2; x++)
                     {
                         IntVector2 test = new IntVector2(x, pixel.y);
-                        Assert.True(line.PointIsToRight(test), "Failed with " + line + " and " + test);
+                        Assert.True(line.PointIsToRight(test), $"Failed with {line} and {test}.");
                     }
 
                     for (int x = pixel.x - 1; x >= line.boundingRect.bottomLeft.x - 2; x--)
@@ -246,7 +246,7 @@ namespace PAC.Tests.Shapes
                         IntVector2 test = new IntVector2(x, pixel.y);
                         if (!line.Contains(pixel))
                         {
-                            Assert.False(line.PointIsToRight(test), "Failed with " + line + " and " + test);
+                            Assert.False(line.PointIsToRight(test), $"Failed with {line} and {test}.");
                         }
                     }
                 }
@@ -256,13 +256,13 @@ namespace PAC.Tests.Shapes
                     for (int y = line.boundingRect.topRight.y + 1; y <= line.boundingRect.topRight.y + 2; y++)
                     {
                         IntVector2 test = new IntVector2(x, y);
-                        Assert.False(line.PointIsToRight(test), "Failed with " + line + " and " + test);
+                        Assert.False(line.PointIsToRight(test), $"Failed with {line} and {test}.");
                     }
 
                     for (int y = line.boundingRect.bottomLeft.y - 1; y >= line.boundingRect.topRight.y - 2; y--)
                     {
                         IntVector2 test = new IntVector2(x, y);
-                        Assert.False(line.PointIsToRight(test), "Failed with " + line + " and " + test);
+                        Assert.False(line.PointIsToRight(test), $"Failed with {line} and {test}.");
                     }
                 }
             }
@@ -276,7 +276,7 @@ namespace PAC.Tests.Shapes
             {
                 for (int y = line.boundingRect.bottomLeft.y; y <= line.boundingRect.topRight.y; y++)
                 {
-                    Assert.AreEqual(line.Where(p => p.y == y).Min(p => p.x), line.MinX(y), "Failed with " + line + " and y = " + y);
+                    Assert.AreEqual(line.Where(p => p.y == y).Min(p => p.x), line.MinX(y), $"Failed with {line} and y = {y}.");
                 }
 
                 Assert.Throws<ArgumentOutOfRangeException>(() => line.MinX(line.boundingRect.bottomLeft.y - 1));
@@ -292,7 +292,7 @@ namespace PAC.Tests.Shapes
             {
                 for (int y = line.boundingRect.bottomLeft.y; y <= line.boundingRect.topRight.y; y++)
                 {
-                    Assert.AreEqual(line.Where(p => p.y == y).Max(p => p.x), line.MaxX(y), "Failed with " + line + " and y = " + y);
+                    Assert.AreEqual(line.Where(p => p.y == y).Max(p => p.x), line.MaxX(y), $"Failed with {line} and y = {y}.");
                 }
 
                 Assert.Throws<ArgumentOutOfRangeException>(() => line.MaxX(line.boundingRect.bottomLeft.y - 1));
@@ -308,7 +308,7 @@ namespace PAC.Tests.Shapes
             {
                 for (int x = line.boundingRect.bottomLeft.x; x <= line.boundingRect.topRight.x; x++)
                 {
-                    Assert.AreEqual(line.Where(p => p.x == x).Min(p => p.y), line.MinY(x), "Failed with " + line + " and x = " + x);
+                    Assert.AreEqual(line.Where(p => p.x == x).Min(p => p.y), line.MinY(x), $"Failed with {line} and x = {x}.");
                 }
 
                 Assert.Throws<ArgumentOutOfRangeException>(() => line.MinY(line.boundingRect.bottomLeft.x - 1));
@@ -324,7 +324,7 @@ namespace PAC.Tests.Shapes
             {
                 for (int x = line.boundingRect.bottomLeft.x; x <= line.boundingRect.topRight.x; x++)
                 {
-                    Assert.AreEqual(line.Where(p => p.x == x).Max(p => p.y), line.MaxY(x), "Failed with " + line + " and x = " + x);
+                    Assert.AreEqual(line.Where(p => p.x == x).Max(p => p.y), line.MaxY(x), $"Failed with {line} and x = {x}.");
                 }
 
                 Assert.Throws<ArgumentOutOfRangeException>(() => line.MaxY(line.boundingRect.bottomLeft.x - 1));
@@ -340,7 +340,7 @@ namespace PAC.Tests.Shapes
             {
                 for (int x = line.boundingRect.bottomLeft.x - 2; x <= line.boundingRect.topRight.x + 2; x++)
                 {
-                    Assert.AreEqual(line.Count(p => p.x == x), line.CountOnX(x), "Failed with " + line + " and x = " + x);
+                    Assert.AreEqual(line.Count(p => p.x == x), line.CountOnX(x), $"Failed with {line} and x = {x}.");
                 }
             }
         }
@@ -353,7 +353,7 @@ namespace PAC.Tests.Shapes
             {
                 for (int y = line.boundingRect.bottomLeft.y - 2; y <= line.boundingRect.topRight.y + 2; y++)
                 {
-                    Assert.AreEqual(line.Count(p => p.y == y), line.CountOnY(y), "Failed with " + line + " and y = " + y);
+                    Assert.AreEqual(line.Count(p => p.y == y), line.CountOnY(y), $"Failed with {line} and y = {y}.");
                 }
             }
         }

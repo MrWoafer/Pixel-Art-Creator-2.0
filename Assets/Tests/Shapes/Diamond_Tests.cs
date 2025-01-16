@@ -39,7 +39,7 @@ namespace PAC.Tests.Shapes
             {
                 foreach (IntVector2 pixel in new IntRect(new IntVector2(-5, -5), new IntVector2(5, 5)))
                 {
-                    CollectionAssert.AreEqual(new IntVector2[] { pixel }, new Diamond(pixel, pixel, filled), "Failed with " + pixel + " " + (filled ? "filled" : "unfilled"));
+                    CollectionAssert.AreEqual(new IntVector2[] { pixel }, new Diamond(pixel, pixel, filled), $"Failed with {pixel} {(filled ? "filled" : "unfilled")}.");
                 }
             }
         }
@@ -66,7 +66,7 @@ namespace PAC.Tests.Shapes
                         IntVector2 bottomCorner = diamond.Where(p => p.y == diamond.bottomLeft.y).ArgMax(p => p.x);
                         Line line = new Line(leftCorner, bottomCorner);
 
-                        Assert.True(diamond.ContainsAll(line), "Failed with " + diamond);
+                        Assert.True(diamond.ContainsAll(line), $"Failed with {diamond}.");
                     }
                 }
             }

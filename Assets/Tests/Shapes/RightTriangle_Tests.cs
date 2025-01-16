@@ -50,8 +50,7 @@ namespace PAC.Tests.Shapes
                 {
                     foreach (IntVector2 pixel in new IntRect(new IntVector2(-5, -5), new IntVector2(5, 5)))
                     {
-                        CollectionAssert.AreEqual(new IntVector2[] { pixel }, new RightTriangle(pixel, pixel, rightAngleLocation, filled), "Failed with " + pixel + " " +
-                            (filled ? "filled" : "unfilled"));
+                        CollectionAssert.AreEqual(new IntVector2[] { pixel }, new RightTriangle(pixel, pixel, rightAngleLocation, filled), $"Failed with {pixel} {(filled ? "filled" : "unfilled")}.");
                     }
                 }
             }

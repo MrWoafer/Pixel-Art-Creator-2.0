@@ -71,7 +71,7 @@ namespace PAC.Tests.Shapes
                     foreach (IntVector2 pixel in new IntRect(new IntVector2(-5, -5), new IntVector2(5, 5)))
                     {
                         CollectionAssert.AreEquivalent(new IntVector2[] { pixel }, new IsometricCuboid(pixel, pixel, 0, filled, showBackEdges).ToHashSet(),
-                            $"Failed with {pixel} {(filled ? "filled" : "unfilled")} {(showBackEdges ? "show back edges" : "don't show back edges")}");
+                            $"Failed with {pixel} {(filled ? "filled" : "unfilled")} {(showBackEdges ? "show back edges" : "don't show back edges")}.");
                     }
                 }
             }
@@ -92,7 +92,7 @@ namespace PAC.Tests.Shapes
                 for (int i = 0; i < numTestPoints; i++)
                 {
                     IntVector2 point = testRegion.RandomPoint();
-                    Assert.True(pixels.Contains(point) == cuboid.Contains(point), $"Failed with {cuboid} and {point}. Expected {pixels.Contains(point)}");
+                    Assert.True(pixels.Contains(point) == cuboid.Contains(point), $"Failed with {cuboid} and {point}. Expected {pixels.Contains(point)}.");
                 }
             }
         }
@@ -103,7 +103,7 @@ namespace PAC.Tests.Shapes
         {
             foreach (IsometricCuboid shape in testCases)
             {
-                Assert.AreEqual(Math.Abs(shape.height), shape.topRectangle.boundingRect.minY - shape.bottomRectangle.boundingRect.minY, $"Failed with {shape}");
+                Assert.AreEqual(Math.Abs(shape.height), shape.topRectangle.boundingRect.minY - shape.bottomRectangle.boundingRect.minY, $"Failed with {shape}.");
             }
         }
 
@@ -118,7 +118,7 @@ namespace PAC.Tests.Shapes
 
                 cuboid.filled = false;
                 // We check subset instead of set-equal since the unfilled shape will have vertical lines inside the shape
-                Assert.True(borderOfFilled.IsSubsetOf(cuboid), $"Failed with {cuboid}");
+                Assert.True(borderOfFilled.IsSubsetOf(cuboid), $"Failed with {cuboid}.");
             }
         }
 
@@ -136,7 +136,7 @@ namespace PAC.Tests.Shapes
                 HashSet<IntVector2> dontShowBackEdges = cuboid.ToHashSet();
 
                 cuboid.showBackEdges = true;
-                Assert.True(dontShowBackEdges.IsSubsetOf(cuboid), $"Failed with {cuboid}");
+                Assert.True(dontShowBackEdges.IsSubsetOf(cuboid), $"Failed with {cuboid}.");
             }
         }
 

@@ -55,7 +55,7 @@ namespace PAC.Tests.Shapes
             {
                 foreach (IntVector2 pixel in new IntRect(new IntVector2(-5, -5), new IntVector2(5, 5)))
                 {
-                    CollectionAssert.AreEquivalent(new IntVector2[] { pixel }, new IsometricRectangle(pixel, pixel, filled), "Failed with " + pixel + " " + (filled ? "filled" : "unfilled"));
+                    CollectionAssert.AreEquivalent(new IntVector2[] { pixel }, new IsometricRectangle(pixel, pixel, filled), $"Failed with {pixel} {(filled ? "filled" : "unfilled")}.");
                 }
             }
         }
@@ -69,10 +69,10 @@ namespace PAC.Tests.Shapes
         {
             foreach (IsometricRectangle rectangle in testCases)
             {
-                Assert.AreEqual(rectangle.boundingRect.bottomLeft.x, rectangle.leftCorner.x, "Failed with " + rectangle);
-                Assert.AreEqual(rectangle.boundingRect.topRight.x, rectangle.rightCorner.x, "Failed with " + rectangle);
-                Assert.AreEqual(rectangle.boundingRect.bottomLeft.y, rectangle.bottomCorner.y, "Failed with " + rectangle);
-                Assert.AreEqual(rectangle.boundingRect.topRight.y, rectangle.topCorner.y, "Failed with " + rectangle);
+                Assert.AreEqual(rectangle.boundingRect.bottomLeft.x, rectangle.leftCorner.x, $"Failed with {rectangle}.");
+                Assert.AreEqual(rectangle.boundingRect.topRight.x, rectangle.rightCorner.x, $"Failed with {rectangle}.");
+                Assert.AreEqual(rectangle.boundingRect.bottomLeft.y, rectangle.bottomCorner.y, $"Failed with {rectangle}.");
+                Assert.AreEqual(rectangle.boundingRect.topRight.y, rectangle.topCorner.y, $"Failed with {rectangle}.");
             }
         }
 
@@ -85,7 +85,7 @@ namespace PAC.Tests.Shapes
         {
             foreach (IsometricRectangle rectangle in testCases)
             {
-                CollectionAssert.AreEquivalent(Path.Concat(rectangle.lowerBorder, rectangle.upperBorder).ToHashSet(), rectangle.border.ToHashSet(), "Failed with " + rectangle);
+                CollectionAssert.AreEquivalent(Path.Concat(rectangle.lowerBorder, rectangle.upperBorder).ToHashSet(), rectangle.border.ToHashSet(), $"Failed with {rectangle}.");
             }
         }
 
@@ -98,7 +98,7 @@ namespace PAC.Tests.Shapes
         {
             foreach (IsometricRectangle rectangle in testCases)
             {
-                CollectionAssert.AreEquivalent(rectangle.Where(p => p.y == rectangle.border.MinY(p.x)).ToHashSet(), rectangle.lowerBorder.ToHashSet(), "Failed with " + rectangle);
+                CollectionAssert.AreEquivalent(rectangle.Where(p => p.y == rectangle.border.MinY(p.x)).ToHashSet(), rectangle.lowerBorder.ToHashSet(), $"Failed with {rectangle}.");
             }
         }
 
@@ -111,7 +111,7 @@ namespace PAC.Tests.Shapes
         {
             foreach (IsometricRectangle rectangle in testCases)
             {
-                CollectionAssert.AreEquivalent(rectangle.Where(p => p.y == rectangle.border.MaxY(p.x)).ToHashSet(), rectangle.upperBorder.ToHashSet(), "Failed with " + rectangle);
+                CollectionAssert.AreEquivalent(rectangle.Where(p => p.y == rectangle.border.MaxY(p.x)).ToHashSet(), rectangle.upperBorder.ToHashSet(), $"Failed with {rectangle}.");
             }
         }
 
