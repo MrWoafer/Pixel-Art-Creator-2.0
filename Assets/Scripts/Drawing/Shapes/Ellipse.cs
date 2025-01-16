@@ -14,27 +14,6 @@ namespace PAC.Shapes
     {
         // NOTE: For this shape, we work in a coordinate system where integer coordinates refer to the CENTRE of a pixel - e.g. the centre of pixel (0, 0) is (0, 0), not (0.5, 0.5).
 
-        public IntVector2 bottomLeft
-        {
-            get => boundingRect.bottomLeft;
-            set => SetValues(value, topRight);
-        }
-        public IntVector2 topRight
-        {
-            get => boundingRect.topRight;
-            set => SetValues(value, bottomLeft);
-        }
-        public IntVector2 bottomRight
-        {
-            get => boundingRect.bottomRight;
-            set => SetValues(value, topLeft);
-        }
-        public IntVector2 topLeft
-        {
-            get => boundingRect.topLeft;
-            set => SetValues(value, bottomRight);
-        }
-
         public bool filled { get; set; }
 
         // These values are calculated and cached when you set the size of the ellipse
@@ -67,7 +46,7 @@ namespace PAC.Shapes
 
             xRadius = boundingRect.width / 2f;
             yRadius = boundingRect.height / 2f;
-            centre = ((Vector2)bottomLeft + topRight) / 2f;
+            centre = ((Vector2)boundingRect.bottomLeft + boundingRect.topRight) / 2f;
         }
 
         /// <summary>
@@ -93,7 +72,7 @@ namespace PAC.Shapes
             // Manually override 3x3 case (as otherwise the algorithm gives a 3x3 square instead of the more aesthetic 'plus sign')
             if (boundingRect.width == 3 && boundingRect.height == 3)
             {
-                IntVector2 centre = bottomLeft + IntVector2.one;
+                IntVector2 centre = boundingRect.bottomLeft + IntVector2.one;
                 // This just gives the 'plus sign' shape we want
                 return IntVector2.L1Distance(pixel, centre) <= 1;
             }
@@ -137,22 +116,22 @@ namespace PAC.Shapes
         /// <summary>
         /// Reflects the ellipse through the origin.
         /// </summary>
-        public static Ellipse operator -(Ellipse ellipse) => new Ellipse(-ellipse.bottomLeft, -ellipse.topRight, ellipse.filled);
+        public static Ellipse operator -(Ellipse ellipse) => new Ellipse(-ellipse.boundingRect.bottomLeft, -ellipse.boundingRect.topRight, ellipse.filled);
 
         /// <summary>
         /// Translates the ellipse by the given vector.
         /// </summary>
-        public Ellipse Translate(IntVector2 translation) => new Ellipse(bottomLeft + translation, topRight + translation, filled);
+        public Ellipse Translate(IntVector2 translation) => new Ellipse(boundingRect.bottomLeft + translation, boundingRect.topRight + translation, filled);
 
         /// <summary>
         /// Reflects the ellipse across the given axis.
         /// </summary>
-        public Ellipse Flip(FlipAxis axis) => new Ellipse(bottomLeft.Flip(axis), topRight.Flip(axis), filled);
+        public Ellipse Flip(FlipAxis axis) => new Ellipse(boundingRect.bottomLeft.Flip(axis), boundingRect.topRight.Flip(axis), filled);
 
         /// <summary>
         /// Rotates the ellipse by the given angle.
         /// </summary>
-        public Ellipse Rotate(RotationAngle angle) => new Ellipse(bottomLeft.Rotate(angle), topRight.Rotate(angle), filled);
+        public Ellipse Rotate(RotationAngle angle) => new Ellipse(boundingRect.bottomLeft.Rotate(angle), boundingRect.topRight.Rotate(angle), filled);
 
         IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();
         public IEnumerator<IntVector2> GetEnumerator()
@@ -160,17 +139,17 @@ namespace PAC.Shapes
             // Manually define horizontal/vertical lines to avoid repeating pixels
             if (boundingRect.width == 1)
             {
-                for (int y = bottomLeft.y; y <= topRight.y; y++)
+                for (int y = boundingRect.bottomLeft.y; y <= boundingRect.topRight.y; y++)
                 {
-                    yield return new IntVector2(bottomLeft.x, y);
+                    yield return new IntVector2(boundingRect.bottomLeft.x, y);
                 }
                 yield break;
             }
             if (boundingRect.height == 1)
             {
-                for (int x = bottomLeft.x; x <= topRight.x; x++)
+                for (int x = boundingRect.bottomLeft.x; x <= boundingRect.topRight.x; x++)
                 {
-                    yield return new IntVector2(x, bottomLeft.y);
+                    yield return new IntVector2(x, boundingRect.bottomLeft.y);
                 }
                 yield break;
             }
@@ -178,7 +157,7 @@ namespace PAC.Shapes
             // Filled
             if (filled)
             {
-                for (int y = bottomLeft.y; y <= topRight.y; y++)
+                for (int y = boundingRect.bottomLeft.y; y <= boundingRect.topRight.y; y++)
                 {
                     int x = Mathf.FloorToInt(centre.x);
                     while (IsInside(x, y))
@@ -202,7 +181,7 @@ namespace PAC.Shapes
             IntVector2 primaryDirection = IntVector2.right;
             IntVector2 secondaryDirection = new IntVector2(1, -1);
             IntVector2 tertiaryDirection = IntVector2.down;
-            IntVector2 start = new IntVector2(bottomLeft.x + boundingRect.width / 2, topRight.y);
+            IntVector2 start = new IntVector2(boundingRect.bottomLeft.x + boundingRect.width / 2, boundingRect.topRight.y);
             IntVector2 pixel = start;
 
             int iterations = 0;
@@ -240,10 +219,10 @@ namespace PAC.Shapes
         public bool Equals(Ellipse other) => this == other;
         public override bool Equals(object obj) => obj is Ellipse other && Equals(other);
 
-        public override int GetHashCode() => HashCode.Combine(bottomLeft, topRight, filled);
+        public override int GetHashCode() => HashCode.Combine(boundingRect.bottomLeft, boundingRect.topRight, filled);
 
-        public override string ToString() => "Ellipse(" + bottomLeft + ", " + topRight + ", " + (filled ? "filled" : "unfilled") + ")";
+        public override string ToString() => "Ellipse(" + boundingRect.bottomLeft + ", " + boundingRect.topRight + ", " + (filled ? "filled" : "unfilled") + ")";
 
-        public Ellipse DeepCopy() => new Ellipse(bottomLeft, topRight, filled);
+        public Ellipse DeepCopy() => new Ellipse(boundingRect.bottomLeft, boundingRect.topRight, filled);
     }
 }
