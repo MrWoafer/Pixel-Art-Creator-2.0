@@ -67,6 +67,8 @@ namespace PAC.Shapes
             }
         }
 
+        public IsometricCuboid(IsometricRectangle baseRectangle, int height, bool showBackEdges)
+            : this(baseRectangle.startCorner, baseRectangle.endCorner, height, baseRectangle.filled, showBackEdges) { }
         public IsometricCuboid(IntVector2 baseStart, IntVector2 baseEnd, int height, bool filled, bool showBackEdges)
         {
             this.baseStart = baseStart;

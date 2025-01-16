@@ -14,8 +14,8 @@ namespace PAC.Shapes
 {
     public class IsometricRectangle : IIsometricShape<IsometricRectangle>, IDeepCopyableShape<IsometricRectangle>, IEquatable<IsometricRectangle>
     {
-        private IntVector2 startCorner;
-        private IntVector2 endCorner;
+        internal IntVector2 startCorner;
+        internal IntVector2 endCorner;
 
         private IntVector2[] inferredCorners;
 
