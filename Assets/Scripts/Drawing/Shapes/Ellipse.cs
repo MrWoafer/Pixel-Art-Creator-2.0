@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 
 using PAC.DataStructures;
+using PAC.Maths;
 using PAC.Shapes.Interfaces;
 
 using UnityEngine;
@@ -75,7 +76,7 @@ namespace PAC.Shapes
                 return IntVector2.L1Distance(pixel, centre) <= 1;
             }
 
-            return (pixel.x - centre.x) * (pixel.x - centre.x) / (xRadius * xRadius) + (pixel.y - centre.y) * (pixel.y - centre.y) / (yRadius * yRadius) <= 1f;
+            return (pixel.x - centre.x).Square() / xRadius.Square() + (pixel.y - centre.y).Square() / yRadius.Square() <= 1f;
         }
 
         public bool Contains(IntVector2 pixel)
