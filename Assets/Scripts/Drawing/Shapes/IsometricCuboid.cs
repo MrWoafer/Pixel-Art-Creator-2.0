@@ -84,17 +84,7 @@ namespace PAC.Shapes
             {
                 return boundingRect.ContainsX(pixel.x) && bottomRectangle.lowerBorder.MinY(pixel.x) <= pixel.y && pixel.y <= topRectangle.upperBorder.MaxY(pixel.x);
             }
-            else
-            {
-                foreach (I1DShape<IShape> path in border)
-                {
-                    if (path.Contains(pixel))
-                    {
-                        return true;
-                    }
-                }
-                return false;
-            }
+            return border.Any(path => path.Contains(pixel));
         }
 
         /// <summary>
