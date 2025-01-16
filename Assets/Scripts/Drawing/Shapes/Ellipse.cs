@@ -138,17 +138,17 @@ namespace PAC.Shapes
             // Manually define horizontal/vertical lines to avoid repeating pixels
             if (boundingRect.width == 1)
             {
-                for (int y = boundingRect.bottomLeft.y; y <= boundingRect.topRight.y; y++)
+                for (int y = boundingRect.minY; y <= boundingRect.maxY; y++)
                 {
-                    yield return new IntVector2(boundingRect.bottomLeft.x, y);
+                    yield return new IntVector2(boundingRect.minX, y);
                 }
                 yield break;
             }
             if (boundingRect.height == 1)
             {
-                for (int x = boundingRect.bottomLeft.x; x <= boundingRect.topRight.x; x++)
+                for (int x = boundingRect.minX; x <= boundingRect.maxX; x++)
                 {
-                    yield return new IntVector2(x, boundingRect.bottomLeft.y);
+                    yield return new IntVector2(x, boundingRect.minY);
                 }
                 yield break;
             }
@@ -156,7 +156,7 @@ namespace PAC.Shapes
             // Filled
             if (filled)
             {
-                for (int y = boundingRect.bottomLeft.y; y <= boundingRect.topRight.y; y++)
+                for (int y = boundingRect.minY; y <= boundingRect.maxY; y++)
                 {
                     int x = Mathf.FloorToInt(centre.x);
                     while (IsInside(x, y))
@@ -180,7 +180,7 @@ namespace PAC.Shapes
             IntVector2 primaryDirection = IntVector2.right;
             IntVector2 secondaryDirection = new IntVector2(1, -1);
             IntVector2 tertiaryDirection = IntVector2.down;
-            IntVector2 start = new IntVector2(boundingRect.bottomLeft.x + boundingRect.width / 2, boundingRect.topRight.y);
+            IntVector2 start = new IntVector2(boundingRect.minX + boundingRect.width / 2, boundingRect.maxY);
             IntVector2 pixel = start;
 
             int iterations = 0;
