@@ -29,12 +29,12 @@ namespace PAC.Shapes
                 if (filled)
                 {
                     int count = 0;
-                    for (int y = boundingRect.minY; y <= edges.bottomLeft.boundingRect.topRight.y; y++)
+                    for (int y = boundingRect.minY; y <= edges.bottomLeft.boundingRect.maxY; y++)
                     {
                         count += edges.bottomRight.MaxX(y) - edges.bottomLeft.MinX(y) + 1;
                     }
                     // The potential + 1 for the starting y is to avoid repeating pixels
-                    for (int y = edges.bottomLeft.boundingRect.topRight.y + 1; y <= boundingRect.maxY; y++)
+                    for (int y = edges.bottomLeft.boundingRect.maxY + 1; y <= boundingRect.maxY; y++)
                     {
                         count += edges.topRight.MaxX(y) - edges.topLeft.MinX(y) + 1;
                     }
@@ -52,15 +52,15 @@ namespace PAC.Shapes
 
                     int count = edges.bottomLeft.Count;
                     // Remove left-most block of the line
-                    count -= edges.bottomLeft.CountOnX(boundingRect.minX) * edges.bottomLeft.CountOnY(edges.bottomLeft.boundingRect.topRight.y);
+                    count -= edges.bottomLeft.CountOnX(boundingRect.minX) * edges.bottomLeft.CountOnY(edges.bottomLeft.boundingRect.maxY);
                     // Remove bottom block of the line
-                    count -= edges.bottomLeft.CountOnY(boundingRect.minY) * edges.bottomLeft.CountOnX(edges.bottomLeft.boundingRect.topRight.x);
+                    count -= edges.bottomLeft.CountOnY(boundingRect.minY) * edges.bottomLeft.CountOnX(edges.bottomLeft.boundingRect.maxX);
                     // Count it for the other 3 edges
                     count *= 4;
                     // Count the left-most block of the diamond (doubled to also count the right-most block)
-                    count += 2 * (edges.topLeft.MaxY(boundingRect.minX) - edges.bottomLeft.MinY(boundingRect.minX) + 1) * edges.bottomLeft.CountOnY(edges.bottomLeft.boundingRect.topRight.y);
+                    count += 2 * (edges.topLeft.MaxY(boundingRect.minX) - edges.bottomLeft.MinY(boundingRect.minX) + 1) * edges.bottomLeft.CountOnY(edges.bottomLeft.boundingRect.maxY);
                     // Count the bottom block of the diamond (doubled to also count the top block)
-                    count += 2 * (edges.bottomRight.MaxX(boundingRect.minY) - edges.bottomLeft.MinX(boundingRect.minY) + 1) * edges.bottomLeft.CountOnX(edges.bottomLeft.boundingRect.topRight.x);
+                    count += 2 * (edges.bottomRight.MaxX(boundingRect.minY) - edges.bottomLeft.MinX(boundingRect.minY) + 1) * edges.bottomLeft.CountOnX(edges.bottomLeft.boundingRect.maxX);
 
                     return count;
                 }
@@ -96,7 +96,7 @@ namespace PAC.Shapes
                 if (boundingRect.width > boundingRect.height)
                 {
                     // Not particularly efficient, but does the job and really isn't slow even when drawing diamonds with a width of 1000
-                    while (lines[0].boundingRect.bottomRight.x <= lines[1].MaxX(boundingRect.minY))
+                    while (lines[0].boundingRect.maxX <= lines[1].MaxX(boundingRect.minY))
                     {
                         lines[0].start += IntVector2.right;
                         lines[1].start += IntVector2.left;
@@ -111,7 +111,7 @@ namespace PAC.Shapes
                 }
                 else if (boundingRect.width < boundingRect.height)
                 {
-                    while (lines[0].boundingRect.topLeft.y <= lines[3].MaxY(boundingRect.minX))
+                    while (lines[0].boundingRect.maxY <= lines[3].MaxY(boundingRect.minX))
                     {
                         lines[0].start += IntVector2.up;
                         lines[1].start += IntVector2.up;
@@ -192,7 +192,7 @@ namespace PAC.Shapes
             var edges = this.edges;
             if (filled)
             {
-                for (int y = boundingRect.minY; y <= edges.bottomLeft.boundingRect.topRight.y; y++)
+                for (int y = boundingRect.minY; y <= edges.bottomLeft.boundingRect.maxY; y++)
                 {
                     for (int x = edges.bottomLeft.MinX(y); x <= edges.bottomRight.MaxX(y); x++)
                     {
@@ -200,7 +200,7 @@ namespace PAC.Shapes
                     }
                 }
                 // The potential + 1 for the starting y is to avoid repeating pixels
-                for (int y = edges.bottomLeft.boundingRect.topRight.y + 1; y <= boundingRect.maxY; y++)
+                for (int y = edges.bottomLeft.boundingRect.maxY + 1; y <= boundingRect.maxY; y++)
                 {
                     for (int x = edges.topLeft.MinX(y); x <= edges.topRight.MaxX(y); x++)
                     {
@@ -220,7 +220,7 @@ namespace PAC.Shapes
                 foreach (IntVector2 pixel in edges.bottomRight)
                 {
                     // This check avoids repeating pixels
-                    if (pixel.x > edges.bottomLeft.boundingRect.topRight.x)
+                    if (pixel.x > edges.bottomLeft.boundingRect.maxX)
                     {
                         yield return pixel;
                     }
@@ -230,7 +230,7 @@ namespace PAC.Shapes
                 foreach (IntVector2 pixel in edges.topRight)
                 {
                     // This check avoids repeating pixels
-                    if (pixel.y > edges.bottomRight.boundingRect.topRight.y)
+                    if (pixel.y > edges.bottomRight.boundingRect.maxY)
                     {
                         yield return pixel;
                     }
@@ -240,7 +240,7 @@ namespace PAC.Shapes
                 foreach (IntVector2 pixel in edges.topLeft)
                 {
                     // This check avoids repeating pixels
-                    if (pixel.x < edges.topRight.boundingRect.bottomLeft.x && pixel.y > edges.bottomLeft.boundingRect.topRight.y)
+                    if (pixel.x < edges.topRight.boundingRect.minX && pixel.y > edges.bottomLeft.boundingRect.maxY)
                     {
                         yield return pixel;
                     }
