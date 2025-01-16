@@ -114,22 +114,22 @@ namespace PAC.Shapes
         /// <summary>
         /// Reflects the ellipse through the origin.
         /// </summary>
-        public static Ellipse operator -(Ellipse ellipse) => new Ellipse(-ellipse.boundingRect.bottomLeft, -ellipse.boundingRect.topRight, ellipse.filled);
+        public static Ellipse operator -(Ellipse ellipse) => new Ellipse(-ellipse.boundingRect, ellipse.filled);
 
         /// <summary>
         /// Translates the ellipse by the given vector.
         /// </summary>
-        public Ellipse Translate(IntVector2 translation) => new Ellipse(boundingRect.bottomLeft + translation, boundingRect.topRight + translation, filled);
+        public Ellipse Translate(IntVector2 translation) => new Ellipse(boundingRect + translation, filled);
 
         /// <summary>
         /// Reflects the ellipse across the given axis.
         /// </summary>
-        public Ellipse Flip(FlipAxis axis) => new Ellipse(boundingRect.bottomLeft.Flip(axis), boundingRect.topRight.Flip(axis), filled);
+        public Ellipse Flip(FlipAxis axis) => new Ellipse(boundingRect.Flip(axis), filled);
 
         /// <summary>
         /// Rotates the ellipse by the given angle.
         /// </summary>
-        public Ellipse Rotate(RotationAngle angle) => new Ellipse(boundingRect.bottomLeft.Rotate(angle), boundingRect.topRight.Rotate(angle), filled);
+        public Ellipse Rotate(RotationAngle angle) => new Ellipse(boundingRect.Rotate(angle), filled);
 
         IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();
         public IEnumerator<IntVector2> GetEnumerator()
@@ -217,10 +217,10 @@ namespace PAC.Shapes
         public bool Equals(Ellipse other) => this == other;
         public override bool Equals(object obj) => obj is Ellipse other && Equals(other);
 
-        public override int GetHashCode() => HashCode.Combine(boundingRect.bottomLeft, boundingRect.topRight, filled);
+        public override int GetHashCode() => HashCode.Combine(boundingRect, filled);
 
         public override string ToString() => "Ellipse(" + boundingRect.bottomLeft + ", " + boundingRect.topRight + ", " + (filled ? "filled" : "unfilled") + ")";
 
-        public Ellipse DeepCopy() => new Ellipse(boundingRect.bottomLeft, boundingRect.topRight, filled);
+        public Ellipse DeepCopy() => new Ellipse(boundingRect, filled);
     }
 }
