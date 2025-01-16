@@ -81,27 +81,13 @@ namespace PAC.Shapes
         {
             get
             {
+                Path border = this.border;
                 if (filled)
                 {
-                    Path border = this.border;
-                    int count = 0;
-                    for (int y = boundingRect.bottomLeft.y; y <= boundingRect.topRight.y; y++)
-                    {
-                        count += border.MaxX(y) - border.MinX(y) + 1;
-                    }
-                    return count;
+                    return boundingRect.yRange.Sum(y => border.MaxX(y) - border.MinX(y) + 1);
                 }
-                else
-                {
-                    // This computation uses the fact that each column of x coords contains exactly 1 or 2 points on the isometric rectangle's border
-                    Path border = this.border;
-                    int count = 0;
-                    for (int x = boundingRect.bottomLeft.x; x <= boundingRect.topRight.x; x++)
-                    {
-                        count += border.MinY(x) == border.MaxY(x) ? 1 : 2;
-                    }
-                    return count;
-                }
+                // This computation uses the fact that each column of x coords contains exactly 1 or 2 points on the isometric rectangle's border
+                return boundingRect.xRange.Sum(x => border.MinY(x) == border.MaxY(x) ? 1 : 2);
             }
         }
 
