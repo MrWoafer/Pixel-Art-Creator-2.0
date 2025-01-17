@@ -218,7 +218,7 @@ namespace PAC.Tests.Shapes
                         Assert.False(line.PointIsToLeft(test), $"Failed with {line} and {test}.");
                     }
 
-                    for (int y = line.boundingRect.bottomLeft.y - 1; y >= line.boundingRect.topRight.y - 2; y--)
+                    for (int y = line.boundingRect.bottomLeft.y - 1; y >= line.boundingRect.bottomLeft.y - 2; y--)
                     {
                         IntVector2 test = new IntVector2(x, y);
                         Assert.False(line.PointIsToLeft(test), $"Failed with {line} and {test}.");
@@ -259,7 +259,7 @@ namespace PAC.Tests.Shapes
                         Assert.False(line.PointIsToRight(test), $"Failed with {line} and {test}.");
                     }
 
-                    for (int y = line.boundingRect.bottomLeft.y - 1; y >= line.boundingRect.topRight.y - 2; y--)
+                    for (int y = line.boundingRect.bottomLeft.y - 1; y >= line.boundingRect.bottomLeft.y - 2; y--)
                     {
                         IntVector2 test = new IntVector2(x, y);
                         Assert.False(line.PointIsToRight(test), $"Failed with {line} and {test}.");
