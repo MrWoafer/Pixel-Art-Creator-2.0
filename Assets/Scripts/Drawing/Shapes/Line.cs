@@ -91,18 +91,7 @@ namespace PAC.Shapes
 
         public int Count => IntVector2.SupDistance(start, end) + 1;
 
-        public Line(IntVector2 start, IntVector2 end)
-        {
-            // Initialise fields before we actually define them in SetEndpoints()
-            _start = start;
-            _end = end;
-            imaginaryStart = start;
-            imaginaryEnd = end;
-            imaginaryGradient = 0f;
-            isMoreHorizontal = false;
-
-            SetEndpoints(start, end);
-        }
+        public Line(IntVector2 start, IntVector2 end) => SetEndpoints(start, end);
 
         private void SetEndpoints(IntVector2 start, IntVector2 end)
         {
