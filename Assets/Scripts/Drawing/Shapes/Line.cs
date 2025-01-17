@@ -55,10 +55,7 @@ namespace PAC.Shapes
         /// <summary>
         /// Whether this line is divided into blocks of a constant size. E.g. a 12x4 line is perfect as it is drawn as 4 horizontal blocks of 3 pixels.
         /// </summary>
-        public bool isPerfect =>
-            isMoreHorizontal ?
-            (Math.Abs(end.x - start.x) + 1) % (Math.Abs(end.y - start.y) + 1) == 0 :
-            (Math.Abs(end.y - start.y) + 1) % (Math.Abs(end.x - start.x) + 1) == 0;
+        public bool isPerfect => isMoreHorizontal ? (boundingRect.width % boundingRect.height == 0) : (boundingRect.height % boundingRect.width == 0);
         /// <summary>
         /// True iff the start and end are equal.
         /// </summary>
