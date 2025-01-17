@@ -255,6 +255,68 @@ namespace PAC.Tests.DataStructures
                 }
             }
         }
+        #endregion
+
+        #region Tests: Operations
+        [Test]
+        [Category("Data Structures")]
+        public void Add()
+        {
+            foreach (IntRange range in testCases)
+            {
+                for (int add = -3; add <= 3; add++)
+                {
+                    Assert.AreEqual(range.startBoundary + add, (range + add).startBoundary, "Failed with " + range + " and " + add);
+                    Assert.AreEqual(range.endBoundary + add, (range + add).endBoundary, "Failed with " + range + " and " + add);
+                    Assert.AreEqual(range.startBoundaryInclusive, (range + add).startBoundaryInclusive, "Failed with " + range + " and " + add);
+                    Assert.AreEqual(range.endBoundaryInclusive, (range + add).endBoundaryInclusive, "Failed with " + range + " and " + add);
+                    CollectionAssert.AreEqual(range.Select(x => x + add), range + add, "Failed with " + range + " and " + add);
+
+                    Assert.AreEqual(add + range.startBoundary, (add + range).startBoundary, "Failed with " + range + " and " + add);
+                    Assert.AreEqual(add + range.endBoundary, (add + range).endBoundary, "Failed with " + range + " and " + add);
+                    Assert.AreEqual(range.startBoundaryInclusive, (add + range).startBoundaryInclusive, "Failed with " + range + " and " + add);
+                    Assert.AreEqual(range.endBoundaryInclusive, (add + range).endBoundaryInclusive, "Failed with " + range + " and " + add);
+                    CollectionAssert.AreEqual(range.Select(x => add + x), add + range, "Failed with " + range + " and " + add);
+                }
+            }
+        }
+
+        [Test]
+        [Category("Data Structures")]
+        public void Subtract()
+        {
+            foreach (IntRange range in testCases)
+            {
+                for (int subtract = -3; subtract <= 3; subtract++)
+                {
+                    Assert.AreEqual(range.startBoundary - subtract, (range - subtract).startBoundary, "Failed with " + range + " and " + subtract);
+                    Assert.AreEqual(range.endBoundary - subtract, (range - subtract).endBoundary, "Failed with " + range + " and " + subtract);
+                    Assert.AreEqual(range.startBoundaryInclusive, (range - subtract).startBoundaryInclusive, "Failed with " + range + " and " + subtract);
+                    Assert.AreEqual(range.endBoundaryInclusive, (range - subtract).endBoundaryInclusive, "Failed with " + range + " and " + subtract);
+                    CollectionAssert.AreEqual(range.Select(x => x - subtract), range - subtract, "Failed with " + range + " and " + subtract);
+
+                    Assert.AreEqual(subtract - range.startBoundary, (subtract - range).startBoundary, "Failed with " + range + " and " + subtract);
+                    Assert.AreEqual(subtract - range.endBoundary, (subtract - range).endBoundary, "Failed with " + range + " and " + subtract);
+                    Assert.AreEqual(range.startBoundaryInclusive, (subtract - range).startBoundaryInclusive, "Failed with " + range + " and " + subtract);
+                    Assert.AreEqual(range.endBoundaryInclusive, (subtract - range).endBoundaryInclusive, "Failed with " + range + " and " + subtract);
+                    CollectionAssert.AreEqual(range.Select(x => subtract - x), subtract - range, "Failed with " + range + " and " + subtract);
+                }
+            }
+        }
+
+        [Test]
+        [Category("Data Structures")]
+        public void Negate()
+        {
+            foreach (IntRange range in testCases)
+            {
+                Assert.AreEqual(-(range.startBoundary), (-range).startBoundary, "Failed with " + range);
+                Assert.AreEqual(-(range.endBoundary), (-range).endBoundary, "Failed with " + range);
+                Assert.AreEqual(range.startBoundaryInclusive, (-range).startBoundaryInclusive, "Failed with " + range);
+                Assert.AreEqual(range.endBoundaryInclusive, (-range).endBoundaryInclusive, "Failed with " + range);
+                CollectionAssert.AreEqual(range.Select(x => -x), -range, "Failed with " + range);
+            }
+        }
 
         [Test]
         [Category("Data Structures")]
@@ -328,7 +390,7 @@ namespace PAC.Tests.DataStructures
             }
 
             /////
-            
+
             Assert.True(IntRange.BoundingRange(new int[] { }).isEmpty);
             Assert.True(IntRange.BoundingRange(new int[] { }).isExclExcl);
 
@@ -347,68 +409,6 @@ namespace PAC.Tests.DataStructures
             }
 
             Assert.Throws<ArgumentNullException>(() => IntRange.BoundingRange(null));
-        }
-        #endregion
-
-        #region Tests: Operations
-        [Test]
-        [Category("Data Structures")]
-        public void Add()
-        {
-            foreach (IntRange range in testCases)
-            {
-                for (int add = -3; add <= 3; add++)
-                {
-                    Assert.AreEqual(range.startBoundary + add, (range + add).startBoundary, "Failed with " + range + " and " + add);
-                    Assert.AreEqual(range.endBoundary + add, (range + add).endBoundary, "Failed with " + range + " and " + add);
-                    Assert.AreEqual(range.startBoundaryInclusive, (range + add).startBoundaryInclusive, "Failed with " + range + " and " + add);
-                    Assert.AreEqual(range.endBoundaryInclusive, (range + add).endBoundaryInclusive, "Failed with " + range + " and " + add);
-                    CollectionAssert.AreEqual(range.Select(x => x + add), range + add, "Failed with " + range + " and " + add);
-
-                    Assert.AreEqual(add + range.startBoundary, (add + range).startBoundary, "Failed with " + range + " and " + add);
-                    Assert.AreEqual(add + range.endBoundary, (add + range).endBoundary, "Failed with " + range + " and " + add);
-                    Assert.AreEqual(range.startBoundaryInclusive, (add + range).startBoundaryInclusive, "Failed with " + range + " and " + add);
-                    Assert.AreEqual(range.endBoundaryInclusive, (add + range).endBoundaryInclusive, "Failed with " + range + " and " + add);
-                    CollectionAssert.AreEqual(range.Select(x => add + x), add + range, "Failed with " + range + " and " + add);
-                }
-            }
-        }
-
-        [Test]
-        [Category("Data Structures")]
-        public void Subtract()
-        {
-            foreach (IntRange range in testCases)
-            {
-                for (int subtract = -3; subtract <= 3; subtract++)
-                {
-                    Assert.AreEqual(range.startBoundary - subtract, (range - subtract).startBoundary, "Failed with " + range + " and " + subtract);
-                    Assert.AreEqual(range.endBoundary - subtract, (range - subtract).endBoundary, "Failed with " + range + " and " + subtract);
-                    Assert.AreEqual(range.startBoundaryInclusive, (range - subtract).startBoundaryInclusive, "Failed with " + range + " and " + subtract);
-                    Assert.AreEqual(range.endBoundaryInclusive, (range - subtract).endBoundaryInclusive, "Failed with " + range + " and " + subtract);
-                    CollectionAssert.AreEqual(range.Select(x => x - subtract), range - subtract, "Failed with " + range + " and " + subtract);
-
-                    Assert.AreEqual(subtract - range.startBoundary, (subtract - range).startBoundary, "Failed with " + range + " and " + subtract);
-                    Assert.AreEqual(subtract - range.endBoundary, (subtract - range).endBoundary, "Failed with " + range + " and " + subtract);
-                    Assert.AreEqual(range.startBoundaryInclusive, (subtract - range).startBoundaryInclusive, "Failed with " + range + " and " + subtract);
-                    Assert.AreEqual(range.endBoundaryInclusive, (subtract - range).endBoundaryInclusive, "Failed with " + range + " and " + subtract);
-                    CollectionAssert.AreEqual(range.Select(x => subtract - x), subtract - range, "Failed with " + range + " and " + subtract);
-                }
-            }
-        }
-
-        [Test]
-        [Category("Data Structures")]
-        public void Negate()
-        {
-            foreach (IntRange range in testCases)
-            {
-                Assert.AreEqual(-(range.startBoundary), (-range).startBoundary, "Failed with " + range);
-                Assert.AreEqual(-(range.endBoundary), (-range).endBoundary, "Failed with " + range);
-                Assert.AreEqual(range.startBoundaryInclusive, (-range).startBoundaryInclusive, "Failed with " + range);
-                Assert.AreEqual(range.endBoundaryInclusive, (-range).endBoundaryInclusive, "Failed with " + range);
-                CollectionAssert.AreEqual(range.Select(x => -x), -range, "Failed with " + range);
-            }
         }
         #endregion
 
