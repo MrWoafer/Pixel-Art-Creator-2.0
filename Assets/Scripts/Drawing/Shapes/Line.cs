@@ -22,14 +22,14 @@ namespace PAC.Shapes
         public IntVector2 start
         {
             get => _start;
-            set => SetValues(value, end);
+            set => SetEndpoints(value, end);
         }
 
         private IntVector2 _end;
         public IntVector2 end
         {
             get => _end;
-            set => SetValues(start, value);
+            set => SetEndpoints(start, value);
         }
 
         // These values are calculated and cached when you set the start/end of the line
@@ -93,7 +93,7 @@ namespace PAC.Shapes
 
         public Line(IntVector2 start, IntVector2 end)
         {
-            // Initialise fields before we actually define them in SetValues()
+            // Initialise fields before we actually define them in SetEndpoints()
             _start = start;
             _end = end;
             imaginaryStart = start;
@@ -101,10 +101,10 @@ namespace PAC.Shapes
             imaginaryGradient = 0f;
             isMoreHorizontal = false;
 
-            SetValues(start, end);
+            SetEndpoints(start, end);
         }
 
-        private void SetValues(IntVector2 start, IntVector2 end)
+        private void SetEndpoints(IntVector2 start, IntVector2 end)
         {
             _start = start;
             _end = end;
