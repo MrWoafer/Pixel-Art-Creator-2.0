@@ -286,11 +286,10 @@ namespace PAC.Shapes
                 throw new ArgumentOutOfRangeException("y must be within the y range of the line. y: " + y + "; line y range: [" + boundingRect.bottomLeft.y + ", " + boundingRect.topRight.y + "]");
             }
 
-            if (Math.Abs(end.y - start.y) >= Math.Abs(end.x - start.x))
+            if (!isMoreHorizontal)
             {
                 return this[(y - start.y) * Math.Sign(end.y - start.y)].x;
             }
-
             if (start.y == end.y)
             {
                 return Math.Min(start.x, end.x);
@@ -333,11 +332,10 @@ namespace PAC.Shapes
                 throw new ArgumentOutOfRangeException("y must be within the y range of the line. y: " + y + "; line y range: [" + boundingRect.bottomLeft.y + ", " + boundingRect.topRight.y + "]");
             }
 
-            if (Math.Abs(end.y - start.y) >= Math.Abs(end.x - start.x))
+            if (!isMoreHorizontal)
             {
                 return this[(y - start.y) * Math.Sign(end.y - start.y)].x;
             }
-
             if (start.y == end.y)
             {
                 return Math.Max(start.x, end.x);
@@ -380,11 +378,10 @@ namespace PAC.Shapes
                 throw new ArgumentOutOfRangeException("x must be within the x range of the line. x: " + x + "; line y range: [" + boundingRect.bottomLeft.x + ", " + boundingRect.topRight.x + "]");
             }
 
-            if (Math.Abs(end.x - start.x) >= Math.Abs(end.y - start.y))
+            if (isMoreHorizontal)
             {
                 return this[(x - start.x) * Math.Sign(end.x - start.x)].y;
             }
-
             if (start.x == end.x)
             {
                 return Math.Min(start.y, end.y);
@@ -427,11 +424,10 @@ namespace PAC.Shapes
                 throw new ArgumentOutOfRangeException("x must be within the x range of the line. x: " + x + "; line y range: [" + boundingRect.bottomLeft.x + ", " + boundingRect.topRight.x + "]");
             }
 
-            if (Math.Abs(end.x - start.x) >= Math.Abs(end.y - start.y))
+            if (isMoreHorizontal)
             {
                 return this[(x - start.x) * Math.Sign(end.x - start.x)].y;
             }
-
             if (start.x == end.x)
             {
                 return Math.Max(start.y, end.y);
