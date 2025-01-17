@@ -304,8 +304,8 @@ namespace PAC.Shapes
             float minXWhereYOnLineRoundsToGivenY = (y - 0.5f * Mathf.Sign(end.y - start.y) * Mathf.Sign(end.x - start.x) - imaginaryStart.y) / imaginaryGradient + imaginaryStart.x;
 
             // The case where minXWhereYOnLineRoundsToGivenY is an integer
-            if (MathExtensions.Mod((y - 0.5f * Math.Sign(end.y - start.y) * Math.Sign(end.x - start.x) - imaginaryStart.y) * (imaginaryEnd.x - imaginaryStart.x), imaginaryEnd.y - imaginaryStart.y)
-                == MathExtensions.Mod((imaginaryEnd.y - imaginaryStart.y) / 2f, imaginaryEnd.y - imaginaryStart.y))
+            if (((y - 0.5f * Math.Sign(end.y - start.y) * Math.Sign(end.x - start.x) - imaginaryStart.y) * (imaginaryEnd.x - imaginaryStart.x)).Mod(imaginaryEnd.y - imaginaryStart.y)
+                == ((imaginaryEnd.y - imaginaryStart.y) / 2f).Mod(imaginaryEnd.y - imaginaryStart.y))
             {
                 // If minXWhereYOnLineRoundsToGivenY is in the first half of the line
                 if (2 * Math.Abs(Mathf.RoundToInt(minXWhereYOnLineRoundsToGivenY) - start.x) <= Math.Abs(end.x - start.x))
@@ -351,8 +351,8 @@ namespace PAC.Shapes
             float maxXWhereYOnLineRoundsToGivenY = (y + 0.5f * Mathf.Sign(end.y - start.y) * Mathf.Sign(end.x - start.x) - imaginaryStart.y) / imaginaryGradient + imaginaryStart.x;
 
             // The case where maxXWhereYOnLineRoundsToGivenY is an integer
-            if (MathExtensions.Mod((y + 0.5f * Math.Sign(end.y - start.y) * Math.Sign(end.x - start.x) - imaginaryStart.y) * (imaginaryEnd.x - imaginaryStart.x), imaginaryEnd.y - imaginaryStart.y)
-                == MathExtensions.Mod((imaginaryEnd.y - imaginaryStart.y) / 2f, imaginaryEnd.y - imaginaryStart.y))
+            if (((y + 0.5f * Math.Sign(end.y - start.y) * Math.Sign(end.x - start.x) - imaginaryStart.y) * (imaginaryEnd.x - imaginaryStart.x)).Mod(imaginaryEnd.y - imaginaryStart.y)
+                == ((imaginaryEnd.y - imaginaryStart.y) / 2f).Mod(imaginaryEnd.y - imaginaryStart.y))
             {
                 // If maxXWhereYOnLineRoundsToGivenY is in the first half of the line
                 if (2 * Math.Abs(Mathf.RoundToInt(maxXWhereYOnLineRoundsToGivenY) - start.x) <= Math.Abs(end.x - start.x))
@@ -398,8 +398,8 @@ namespace PAC.Shapes
             float minYWhereXOnLineRoundsToGivenX = (x - 0.5f * Mathf.Sign(end.x - start.x) * Mathf.Sign(end.y - start.y) - imaginaryStart.x) / imaginaryGradient + imaginaryStart.y;
 
             // The case where minYWhereXOnLineRoundsToGivenX is an integer
-            if (MathExtensions.Mod((x - 0.5f * Math.Sign(end.x - start.x) * Math.Sign(end.y - start.y) - imaginaryStart.x) * (imaginaryEnd.y - imaginaryStart.y), imaginaryEnd.x - imaginaryStart.x)
-                == MathExtensions.Mod((imaginaryEnd.x - imaginaryStart.x) / 2f, imaginaryEnd.x - imaginaryStart.x))
+            if (((x - 0.5f * Math.Sign(end.x - start.x) * Math.Sign(end.y - start.y) - imaginaryStart.x) * (imaginaryEnd.y - imaginaryStart.y)).Mod(imaginaryEnd.x - imaginaryStart.x)
+                == ((imaginaryEnd.x - imaginaryStart.x) / 2f).Mod(imaginaryEnd.x - imaginaryStart.x))
             {
                 // If minYWhereXOnLineRoundsToGivenX is in the first half of the line
                 if (2 * Math.Abs(Mathf.RoundToInt(minYWhereXOnLineRoundsToGivenX) - start.y) <= Math.Abs(end.y - start.y))
@@ -445,8 +445,8 @@ namespace PAC.Shapes
             float maxYWhereXOnLineRoundsToGivenX = (x + 0.5f * Mathf.Sign(end.x - start.x) * Mathf.Sign(end.y - start.y) - imaginaryStart.x) / imaginaryGradient + imaginaryStart.y;
 
             // The case where maxYWhereXOnLineRoundsToGivenX is an integer
-            if (MathExtensions.Mod((x + 0.5f * Math.Sign(end.x - start.x) * Math.Sign(end.y - start.y) - imaginaryStart.x) * (imaginaryEnd.y - imaginaryStart.y), imaginaryEnd.x - imaginaryStart.x)
-                == MathExtensions.Mod((imaginaryEnd.x - imaginaryStart.x) / 2f, imaginaryEnd.x - imaginaryStart.x))
+            if (((x + 0.5f * Math.Sign(end.x - start.x) * Math.Sign(end.y - start.y) - imaginaryStart.x) * (imaginaryEnd.y - imaginaryStart.y)).Mod(imaginaryEnd.x - imaginaryStart.x)
+                == ((imaginaryEnd.x - imaginaryStart.x) / 2f).Mod(imaginaryEnd.x - imaginaryStart.x))
             {
                 // If maxYWhereXOnLineRoundsToGivenX is in the first half of the line
                 if (2 * Math.Abs(Mathf.RoundToInt(maxYWhereXOnLineRoundsToGivenX) - start.y) <= Math.Abs(end.y - start.y))

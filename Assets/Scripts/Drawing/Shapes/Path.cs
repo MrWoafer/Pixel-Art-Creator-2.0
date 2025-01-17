@@ -177,15 +177,15 @@ namespace PAC.Shapes
                 {
                     if (visited.Contains(pixel))
                     {
-                        int indexOfPreviousVisit = MathExtensions.Mod(index - 1, points.Length);
+                        int indexOfPreviousVisit = (index - 1).Mod(points.Length);
                         while (points[indexOfPreviousVisit] != pixel)
                         {
-                            indexOfPreviousVisit = MathExtensions.Mod(indexOfPreviousVisit - 1, points.Length);
+                            indexOfPreviousVisit = (indexOfPreviousVisit - 1).Mod(points.Length);
                         }
 
                         if (IsCrossingPoint(pixel,
-                            points[MathExtensions.Mod(index - 1, points.Length)], points[MathExtensions.Mod(index + 1, points.Length)],
-                            points[MathExtensions.Mod(indexOfPreviousVisit - 1, points.Length)], points[MathExtensions.Mod(indexOfPreviousVisit + 1, points.Length)]
+                            points[(index - 1).Mod(points.Length)], points[(index + 1).Mod(points.Length)],
+                            points[(indexOfPreviousVisit - 1).Mod(points.Length)], points[(indexOfPreviousVisit + 1).Mod(points.Length)]
                             )
                         )
                         {
@@ -454,7 +454,7 @@ namespace PAC.Shapes
             {
                 toAdd--;
             }
-            count += MathExtensions.ClampNonNegative(toAdd);
+            count += toAdd.ClampNonNegative();
 
             return count;
         }
@@ -493,7 +493,7 @@ namespace PAC.Shapes
             {
                 toAdd--;
             }
-            count += MathExtensions.ClampNonNegative(toAdd);
+            count += toAdd.ClampNonNegative();
 
             return count;
         }
@@ -578,7 +578,7 @@ namespace PAC.Shapes
 
                 // This starting value doesn't mean anything as it should always get overwritten in the loop
                 WindingNumberCornerType startCornerType = WindingNumberCornerType.Downward;
-                for (int index = MathExtensions.Mod(i - 1, _lines.Count); index != i; index = MathExtensions.Mod(index - 1, _lines.Count))
+                for (int index = (i - 1).Mod(_lines.Count); index != i; index = (index - 1).Mod(_lines.Count))
                 {
                     if (_lines[index].end.y != line.start.y)
                     {

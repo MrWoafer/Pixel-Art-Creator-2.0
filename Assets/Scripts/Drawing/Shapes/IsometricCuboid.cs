@@ -23,7 +23,7 @@ namespace PAC.Shapes
         /// </summary>
         public int height { get; set; }
 
-        public IsometricRectangle bottomRectangle => new IsometricRectangle(baseStart, baseEnd, filled) + MathExtensions.ClampNonPositive(height) * IntVector2.up;
+        public IsometricRectangle bottomRectangle => new IsometricRectangle(baseStart, baseEnd, filled) + height.ClampNonPositive() * IntVector2.up;
         public IsometricRectangle topRectangle => bottomRectangle + Math.Abs(height) * IntVector2.up;
         private I1DShape<IShape>[] border
         {
