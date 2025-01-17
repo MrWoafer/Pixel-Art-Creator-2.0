@@ -613,6 +613,15 @@ namespace PAC.DataStructures
         public static IntRange operator -(IntRange range) => checked(new IntRange(-range.startBoundary, -range.endBoundary, range.startBoundaryInclusive, range.endBoundaryInclusive));
 
         /// <summary>
+        /// Adds <paramref name="startBoundaryOffset"/> to <see cref="startBoundary"/> and adds <paramref name="endBoundaryOffset"/> to <see cref="endBoundary"/>.
+        /// </summary>
+        /// <remarks>
+        /// Preserves <see cref="startBoundaryInclusive"/> and <see cref="endBoundaryInclusive"/>.
+        /// </remarks>
+        public IntRange Extend(int startBoundaryOffset, int endBoundaryOffset)
+            => new IntRange(startBoundary + startBoundaryOffset, endBoundary + endBoundaryOffset, startBoundaryInclusive, endBoundaryInclusive);
+
+        /// <summary>
         /// Returns the elements the two ranges have in common.
         /// </summary>
         /// <returns>

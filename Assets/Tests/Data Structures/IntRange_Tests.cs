@@ -318,6 +318,29 @@ namespace PAC.Tests.DataStructures
             }
         }
 
+        /// <summary>
+        /// Tests <see cref="IntRange.Extend(int, int)"/>.
+        /// </summary>
+        [Test]
+        [Category("Data Structures")]
+        public void Extend()
+        {
+            foreach (IntRange range in testCases)
+            {
+                for (int startOffset = -2; startOffset <= 2; startOffset++)
+                {
+                    for (int endOffset = -2; endOffset <= 2; endOffset++)
+                    {
+                        IntRange extended = range.Extend(startOffset, endOffset);
+                        Assert.AreEqual(range.startBoundary + startOffset, extended.startBoundary, $"Failed with {range} and {startOffset}, {endOffset}.");
+                        Assert.AreEqual(range.endBoundary + endOffset, extended.endBoundary, $"Failed with {range} and {startOffset}, {endOffset}.");
+                        Assert.AreEqual(range.startBoundaryInclusive, extended.startBoundaryInclusive, $"Failed with {range} and {startOffset}, {endOffset}.");
+                        Assert.AreEqual(range.endBoundaryInclusive, extended.endBoundaryInclusive, $"Failed with {range} and {startOffset}, {endOffset}.");
+                    }
+                }
+            }
+        }
+
         [Test]
         [Category("Data Structures")]
         public void Intersection()
