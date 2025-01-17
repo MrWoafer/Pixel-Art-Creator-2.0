@@ -112,12 +112,12 @@ namespace PAC.DataStructures
         public IntVector2 size => new IntVector2(width, height);
 
         /// <summary>
-        /// The inclusive range of x coordinates in the rect.
+        /// The inclusive range of x coordinates in the rect, in increasing order.
         /// </summary>
         /// <seealso cref="yRange"/>
         public IntRange xRange => IntRange.InclIncl(minX, maxX);
         /// <summary>
-        /// The inclusive range of y coordinates in the rect.
+        /// The inclusive range of y coordinates in the rect, in increasing order.
         /// </summary>
         /// <see cref="xRange"/>
         public IntRange yRange => IntRange.InclIncl(minY, maxY);
