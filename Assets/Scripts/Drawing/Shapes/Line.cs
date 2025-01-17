@@ -239,6 +239,14 @@ namespace PAC.Shapes
         /// Whether the point lies to the right of / on the line (and lies within the y range of the line).
         /// </summary>
         public bool PointIsToRight(IntVector2 pixel) => (-this).PointIsToLeft(-pixel);
+        /// <summary>
+        /// Whether the point below / on the line (and lies within the x range of the line).
+        /// </summary>
+        public bool PointIsBelow(IntVector2 pixel) => Rotate(RotationAngle._90).PointIsToLeft(pixel.Rotate(RotationAngle._90));
+        /// <summary>
+        /// Whether the point above / on the line (and lies within the x range of the line).
+        /// </summary>
+        public bool PointIsAbove(IntVector2 pixel) => Rotate(RotationAngle.Minus90).PointIsToLeft(pixel.Rotate(RotationAngle.Minus90));
 
         /// <summary>
         /// Returns the minimum x coord of the pixels on the line that have the given y coord.

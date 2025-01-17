@@ -242,6 +242,60 @@ namespace PAC.Tests.Shapes
 
         [Test]
         [Category("Shapes")]
+        public void PointIsBelow()
+        {
+            foreach (Line line in testCases)
+            {
+                foreach (IntVector2 pixel in line)
+                {
+                    foreach (int y in line.boundingRect.xRange.Extend(-2, 2))
+                    {
+                        IntVector2 test = new IntVector2(pixel.x, y);
+                        bool expected = test.y <= pixel.y || Enumerable.Contains(line, test);
+                        Assert.True(expected == line.PointIsBelow(test), $"Failed with {line} and {test}.");
+                    }
+                }
+
+                foreach (int y in line.boundingRect.yRange.Extend(-2, 2))
+                {
+                    foreach (int x in (line.boundingRect.minX - IntRange.InclIncl(1, 2)).Concat(line.boundingRect.maxX + IntRange.InclIncl(1, 2)))
+                    {
+                        IntVector2 test = new IntVector2(x, y);
+                        Assert.False(line.PointIsBelow(test), $"Failed with {line} and {test}.");
+                    }
+                }
+            }
+        }
+
+        [Test]
+        [Category("Shapes")]
+        public void PointIsAbove()
+        {
+            foreach (Line line in testCases)
+            {
+                foreach (IntVector2 pixel in line)
+                {
+                    foreach (int y in line.boundingRect.xRange.Extend(-2, 2))
+                    {
+                        IntVector2 test = new IntVector2(pixel.x, y);
+                        bool expected = test.y >= pixel.y || Enumerable.Contains(line, test);
+                        Assert.True(expected == line.PointIsAbove(test), $"Failed with {line} and {test}.");
+                    }
+                }
+
+                foreach (int y in line.boundingRect.yRange.Extend(-2, 2))
+                {
+                    foreach (int x in (line.boundingRect.minX - IntRange.InclIncl(1, 2)).Concat(line.boundingRect.maxX + IntRange.InclIncl(1, 2)))
+                    {
+                        IntVector2 test = new IntVector2(x, y);
+                        Assert.False(line.PointIsAbove(test), $"Failed with {line} and {test}.");
+                    }
+                }
+            }
+        }
+
+        [Test]
+        [Category("Shapes")]
         public void MinX()
         {
             foreach (Line line in testCases)
