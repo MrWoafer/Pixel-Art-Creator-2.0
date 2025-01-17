@@ -293,144 +293,18 @@ namespace PAC.Shapes
                 return Mathf.CeilToInt(minXWhereYOnLineRoundsToGivenY);
             }
         }
-
         /// <summary>
         /// Returns the maximum x coord of the pixels on the line that have the given y coord.
         /// </summary>
-        public int MaxX(int y)
-        {
-            if (!boundingRect.ContainsY(y))
-            {
-                throw new ArgumentOutOfRangeException("y must be within the y range of the line. y: " + y + "; line y range: [" + boundingRect.bottomLeft.y + ", " + boundingRect.topRight.y + "]");
-            }
-
-            if (!isMoreHorizontal)
-            {
-                return this[(y - start.y) * Math.Sign(end.y - start.y)].x;
-            }
-            if (start.y == end.y)
-            {
-                return Math.Max(start.x, end.x);
-            }
-
-            // The maximum value of x such that plugging it into the the line and rounding gives you the parameter y.
-            // The line is:
-            //      y = (x - imaginaryStart.x) * imaginaryGradient + imaginaryStart.y
-            // Which rearranges to:
-            //      x = (y - imaginaryStart.y) / imaginaryGradient + imaginaryStart.x
-            float maxXWhereYOnLineRoundsToGivenY = (y + 0.5f * Mathf.Sign(end.y - start.y) * Mathf.Sign(end.x - start.x) - imaginaryStart.y) / imaginaryGradient + imaginaryStart.x;
-
-            // The case where maxXWhereYOnLineRoundsToGivenY is an integer
-            if (((y + 0.5f * Math.Sign(end.y - start.y) * Math.Sign(end.x - start.x) - imaginaryStart.y) * (imaginaryEnd.x - imaginaryStart.x)).Mod(imaginaryEnd.y - imaginaryStart.y)
-                == ((imaginaryEnd.y - imaginaryStart.y) / 2f).Mod(imaginaryEnd.y - imaginaryStart.y))
-            {
-                // If maxXWhereYOnLineRoundsToGivenY is in the first half of the line
-                if (2 * Math.Abs(Mathf.RoundToInt(maxXWhereYOnLineRoundsToGivenY) - start.x) <= Math.Abs(end.x - start.x))
-                {
-                    return start.x < end.x ? Mathf.RoundToInt(maxXWhereYOnLineRoundsToGivenY) : Mathf.RoundToInt(maxXWhereYOnLineRoundsToGivenY) - 1;
-                }
-                else
-                {
-                    return start.x < end.x ? Mathf.RoundToInt(maxXWhereYOnLineRoundsToGivenY) - 1 : Mathf.RoundToInt(maxXWhereYOnLineRoundsToGivenY);
-                }
-            }
-            else
-            {
-                return Mathf.FloorToInt(maxXWhereYOnLineRoundsToGivenY);
-            }
-        }
-
+        public int MaxX(int y) => -(-this).MinX(-y);
         /// <summary>
         /// Returns the minimum y coord of the pixels on the line that have the given x coord.
         /// </summary>
-        public int MinY(int x)
-        {
-            if (!boundingRect.ContainsX(x))
-            {
-                throw new ArgumentOutOfRangeException("x must be within the x range of the line. x: " + x + "; line y range: [" + boundingRect.bottomLeft.x + ", " + boundingRect.topRight.x + "]");
-            }
-
-            if (isMoreHorizontal)
-            {
-                return this[(x - start.x) * Math.Sign(end.x - start.x)].y;
-            }
-            if (start.x == end.x)
-            {
-                return Math.Min(start.y, end.y);
-            }
-
-            // The minimum value of y such that plugging it into the the line and rounding gives you the parameter x.
-            // The line is:
-            //      x = (y - imaginaryStart.y) * imaginaryGradient + imaginaryStart.x
-            // Which rearranges to:
-            //      y = (x - imaginaryStart.x) / imaginaryGradient + imaginaryStart.y
-            float minYWhereXOnLineRoundsToGivenX = (x - 0.5f * Mathf.Sign(end.x - start.x) * Mathf.Sign(end.y - start.y) - imaginaryStart.x) / imaginaryGradient + imaginaryStart.y;
-
-            // The case where minYWhereXOnLineRoundsToGivenX is an integer
-            if (((x - 0.5f * Math.Sign(end.x - start.x) * Math.Sign(end.y - start.y) - imaginaryStart.x) * (imaginaryEnd.y - imaginaryStart.y)).Mod(imaginaryEnd.x - imaginaryStart.x)
-                == ((imaginaryEnd.x - imaginaryStart.x) / 2f).Mod(imaginaryEnd.x - imaginaryStart.x))
-            {
-                // If minYWhereXOnLineRoundsToGivenX is in the first half of the line
-                if (2 * Math.Abs(Mathf.RoundToInt(minYWhereXOnLineRoundsToGivenX) - start.y) <= Math.Abs(end.y - start.y))
-                {
-                    return start.y < end.y ? Mathf.RoundToInt(minYWhereXOnLineRoundsToGivenX) + 1 : Mathf.RoundToInt(minYWhereXOnLineRoundsToGivenX);
-                }
-                else
-                {
-                    return start.y < end.y ? Mathf.RoundToInt(minYWhereXOnLineRoundsToGivenX) : Mathf.RoundToInt(minYWhereXOnLineRoundsToGivenX) + 1;
-                }
-            }
-            else
-            {
-                return Mathf.CeilToInt(minYWhereXOnLineRoundsToGivenX);
-            }
-        }
-
+        public int MinY(int x) => Rotate(RotationAngle._90).MinX(-x);
         /// <summary>
         /// Returns the maximum y coord of the pixels on the line that have the given x coord.
         /// </summary>
-        public int MaxY(int x)
-        {
-            if (!boundingRect.ContainsX(x))
-            {
-                throw new ArgumentOutOfRangeException("x must be within the x range of the line. x: " + x + "; line y range: [" + boundingRect.bottomLeft.x + ", " + boundingRect.topRight.x + "]");
-            }
-
-            if (isMoreHorizontal)
-            {
-                return this[(x - start.x) * Math.Sign(end.x - start.x)].y;
-            }
-            if (start.x == end.x)
-            {
-                return Math.Max(start.y, end.y);
-            }
-
-            // The maximum value of y such that plugging it into the the line and rounding gives you the parameter x.
-            // The line is:
-            //      x = (y - imaginaryStart.y) * imaginaryGradient + imaginaryStart.x
-            // Which rearranges to:
-            //      y = (x - imaginaryStart.x) / imaginaryGradient + imaginaryStart.y
-            float maxYWhereXOnLineRoundsToGivenX = (x + 0.5f * Mathf.Sign(end.x - start.x) * Mathf.Sign(end.y - start.y) - imaginaryStart.x) / imaginaryGradient + imaginaryStart.y;
-
-            // The case where maxYWhereXOnLineRoundsToGivenX is an integer
-            if (((x + 0.5f * Math.Sign(end.x - start.x) * Math.Sign(end.y - start.y) - imaginaryStart.x) * (imaginaryEnd.y - imaginaryStart.y)).Mod(imaginaryEnd.x - imaginaryStart.x)
-                == ((imaginaryEnd.x - imaginaryStart.x) / 2f).Mod(imaginaryEnd.x - imaginaryStart.x))
-            {
-                // If maxYWhereXOnLineRoundsToGivenX is in the first half of the line
-                if (2 * Math.Abs(Mathf.RoundToInt(maxYWhereXOnLineRoundsToGivenX) - start.y) <= Math.Abs(end.y - start.y))
-                {
-                    return start.y < end.y ? Mathf.RoundToInt(maxYWhereXOnLineRoundsToGivenX) : Mathf.RoundToInt(maxYWhereXOnLineRoundsToGivenX) - 1;
-                }
-                else
-                {
-                    return start.y < end.y ? Mathf.RoundToInt(maxYWhereXOnLineRoundsToGivenX) - 1 : Mathf.RoundToInt(maxYWhereXOnLineRoundsToGivenX);
-                }
-            }
-            else
-            {
-                return Mathf.FloorToInt(maxYWhereXOnLineRoundsToGivenX);
-            }
-        }
+        public int MaxY(int x) => -Rotate(RotationAngle.Minus90).MinX(x);
 
         /// <summary>
         /// Returns the number of pixels on the line that have the given x coord.
