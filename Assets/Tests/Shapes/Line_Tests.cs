@@ -194,31 +194,17 @@ namespace PAC.Tests.Shapes
             {
                 foreach (IntVector2 pixel in line)
                 {
-                    for (int x = pixel.x; x >= line.boundingRect.bottomLeft.x - 2; x--)
+                    foreach (int x in line.boundingRect.xRange.Extend(-2, 2))
                     {
                         IntVector2 test = new IntVector2(x, pixel.y);
-                        Assert.True(line.PointIsToLeft(test), $"Failed with {line} and {test}.");
-                    }
-
-                    for (int x = pixel.x + 1; x <= line.boundingRect.topRight.x + 2; x++)
-                    {
-                        IntVector2 test = new IntVector2(x, pixel.y);
-                        if (!line.Contains(pixel))
-                        {
-                            Assert.False(line.PointIsToLeft(test), $"Failed with {line} and {test}.");
-                        }
+                        bool expected = test.x <= pixel.x || Enumerable.Contains(line, test);
+                        Assert.True(expected == line.PointIsToLeft(test), $"Failed with {line} and {test}.");
                     }
                 }
 
-                for (int x = line.boundingRect.bottomLeft.x - 2; x <= line.boundingRect.topRight.x + 2; x++)
+                foreach (int x in line.boundingRect.xRange.Extend(-2, 2))
                 {
-                    for (int y = line.boundingRect.topRight.y + 1; y <= line.boundingRect.topRight.y + 2; y++)
-                    {
-                        IntVector2 test = new IntVector2(x, y);
-                        Assert.False(line.PointIsToLeft(test), $"Failed with {line} and {test}.");
-                    }
-
-                    for (int y = line.boundingRect.bottomLeft.y - 1; y >= line.boundingRect.bottomLeft.y - 2; y--)
+                    foreach (int y in (line.boundingRect.minY - IntRange.InclIncl(1, 2)).Concat(line.boundingRect.maxY + IntRange.InclIncl(1, 2)))
                     {
                         IntVector2 test = new IntVector2(x, y);
                         Assert.False(line.PointIsToLeft(test), $"Failed with {line} and {test}.");
@@ -235,31 +221,17 @@ namespace PAC.Tests.Shapes
             {
                 foreach (IntVector2 pixel in line)
                 {
-                    for (int x = pixel.x; x <= line.boundingRect.topRight.x + 2; x++)
+                    foreach (int x in line.boundingRect.xRange.Extend(-2, 2))
                     {
                         IntVector2 test = new IntVector2(x, pixel.y);
-                        Assert.True(line.PointIsToRight(test), $"Failed with {line} and {test}.");
-                    }
-
-                    for (int x = pixel.x - 1; x >= line.boundingRect.bottomLeft.x - 2; x--)
-                    {
-                        IntVector2 test = new IntVector2(x, pixel.y);
-                        if (!line.Contains(pixel))
-                        {
-                            Assert.False(line.PointIsToRight(test), $"Failed with {line} and {test}.");
-                        }
+                        bool expected = test.x >= pixel.x || Enumerable.Contains(line, test);
+                        Assert.True(expected == line.PointIsToRight(test), $"Failed with {line} and {test}.");
                     }
                 }
 
-                for (int x = line.boundingRect.bottomLeft.x - 2; x <= line.boundingRect.topRight.x + 2; x++)
+                foreach (int x in line.boundingRect.xRange.Extend(-2, 2))
                 {
-                    for (int y = line.boundingRect.topRight.y + 1; y <= line.boundingRect.topRight.y + 2; y++)
-                    {
-                        IntVector2 test = new IntVector2(x, y);
-                        Assert.False(line.PointIsToRight(test), $"Failed with {line} and {test}.");
-                    }
-
-                    for (int y = line.boundingRect.bottomLeft.y - 1; y >= line.boundingRect.bottomLeft.y - 2; y--)
+                    foreach (int y in (line.boundingRect.minY - IntRange.InclIncl(1, 2)).Concat(line.boundingRect.maxY + IntRange.InclIncl(1, 2)))
                     {
                         IntVector2 test = new IntVector2(x, y);
                         Assert.False(line.PointIsToRight(test), $"Failed with {line} and {test}.");
