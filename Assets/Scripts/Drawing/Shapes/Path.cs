@@ -501,27 +501,27 @@ namespace PAC.Shapes
                 {
                     if (_lines[index].end.y != line.start.y)
                     {
-                        if (Math.Sign(line.start.y - _lines[index].end.y) == Math.Sign(line.start.y - line.end.y))
+                        if ((line.start - _lines[index].end).sign.y == -line.vector.sign.y)
                         {
                             startCornerType = WindingNumberCornerType.LocalYExtremum;
                         }
                         else
                         {
                             // Will be Upward or Downward
-                            startCornerType = (WindingNumberCornerType)Math.Sign(line.start.y - _lines[index].end.y);
+                            startCornerType = (WindingNumberCornerType)(line.start - _lines[index].end).sign.y;
                         }
                         break;
                     }
                     else if (!_lines[index].isHorizontal)
                     {
-                        if (Math.Sign(_lines[index].end.y - _lines[index].start.y) != Math.Sign(line.end.y - line.start.y))
+                        if (_lines[index].vector.sign.y != line.vector.sign.y)
                         {
                             startCornerType = WindingNumberCornerType.LocalYExtremum;
                         }
                         else
                         {
                             // Will be Upward or Downward
-                            startCornerType = (WindingNumberCornerType)Math.Sign(_lines[index].end.y - _lines[index].start.y);
+                            startCornerType = (WindingNumberCornerType)_lines[index].vector.sign.y;
                         }
                         break;
                     }
@@ -535,27 +535,27 @@ namespace PAC.Shapes
                 {
                     if (_lines[index].start.y != line.end.y)
                     {
-                        if (Math.Sign(line.end.y - _lines[index].start.y) == Math.Sign(line.end.y - line.start.y))
+                        if ((line.end - _lines[index].start).sign.y == line.vector.sign.y)
                         {
                             endCornerType = WindingNumberCornerType.LocalYExtremum;
                         }
                         else
                         {
                             // Will be Upward or Downward
-                            endCornerType = (WindingNumberCornerType)Math.Sign(_lines[index].start.y - line.end.y);
+                            endCornerType = (WindingNumberCornerType)(_lines[index].start - line.end).sign.y;
                         }
                         break;
                     }
                     else if (!_lines[index].isHorizontal)
                     {
-                        if (Math.Sign(_lines[index].end.y - _lines[index].start.y) != Math.Sign(line.end.y - line.start.y))
+                        if (_lines[index].vector.sign.y != line.vector.sign.y)
                         {
                             endCornerType = WindingNumberCornerType.LocalYExtremum;
                         }
                         else
                         {
                             // Will be Upward or Downward
-                            endCornerType = (WindingNumberCornerType)Math.Sign(_lines[index].end.y - _lines[index].start.y);
+                            endCornerType = (WindingNumberCornerType)_lines[index].vector.sign.y;
                         }
                         break;
                     }
@@ -593,7 +593,7 @@ namespace PAC.Shapes
                     }
                     else
                     {
-                        windingNumber += Math.Sign(line.end.y - line.start.y);
+                        windingNumber += line.vector.sign.y;
                     }
                 }
             }
