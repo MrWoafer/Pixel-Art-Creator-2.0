@@ -319,6 +319,11 @@ namespace PAC.Shapes
         }
 
         /// <summary>
+        /// Treats the <see cref="Line"/> as a <see cref="Path"/> with one line segment.
+        /// </summary>
+        public static implicit operator Path(Line line) => new Path(line);
+
+        /// <summary>
         /// <para>
         /// Puts the paths one after the other to create a new path. The paths must connect.
         /// </para>
