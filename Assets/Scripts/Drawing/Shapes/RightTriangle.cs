@@ -296,50 +296,43 @@ namespace PAC.Shapes
         /// </summary>
         public RightTriangle Flip(FlipAxis axis)
         {
-            RightAngleLocation FlipRightAngleLocation(RightAngleLocation rightAngleLocation, FlipAxis axis)
+            RightAngleLocation FlipRightAngleLocation(RightAngleLocation rightAngleLocation, FlipAxis axis) => axis switch
             {
-                switch (axis)
+                FlipAxis.None => rightAngleLocation,
+                FlipAxis.Vertical => rightAngleLocation switch
                 {
-                    case FlipAxis.None: return rightAngleLocation;
-                    case FlipAxis.Vertical:
-                        switch (rightAngleLocation)
-                        {
-                            case RightAngleLocation.Top: return RightAngleLocation.Top;
-                            case RightAngleLocation.Bottom: return RightAngleLocation.Bottom;
-                            case RightAngleLocation.Left: return RightAngleLocation.Right;
-                            case RightAngleLocation.Right: return RightAngleLocation.Left;
-                            default: throw new NotImplementedException("Unknown / unimplemented RightAngleLocation: " + rightAngleLocation);
-                        }
-                    case FlipAxis.Horizontal:
-                        switch (rightAngleLocation)
-                        {
-                            case RightAngleLocation.Top: return RightAngleLocation.Bottom;
-                            case RightAngleLocation.Bottom: return RightAngleLocation.Top;
-                            case RightAngleLocation.Left: return RightAngleLocation.Left;
-                            case RightAngleLocation.Right: return RightAngleLocation.Right;
-                            default: throw new NotImplementedException("Unknown / unimplemented RightAngleLocation: " + rightAngleLocation);
-                        }
-                    case FlipAxis._45Degrees:
-                        switch (rightAngleLocation)
-                        {
-                            case RightAngleLocation.Top: return RightAngleLocation.Right;
-                            case RightAngleLocation.Bottom: return RightAngleLocation.Left;
-                            case RightAngleLocation.Left: return RightAngleLocation.Bottom;
-                            case RightAngleLocation.Right: return RightAngleLocation.Top;
-                            default: throw new NotImplementedException("Unknown / unimplemented RightAngleLocation: " + rightAngleLocation);
-                        }
-                    case FlipAxis.Minus45Degrees:
-                        switch (rightAngleLocation)
-                        {
-                            case RightAngleLocation.Top: return RightAngleLocation.Left;
-                            case RightAngleLocation.Bottom: return RightAngleLocation.Right;
-                            case RightAngleLocation.Left: return RightAngleLocation.Top;
-                            case RightAngleLocation.Right: return RightAngleLocation.Bottom;
-                            default: throw new NotImplementedException("Unknown / unimplemented RightAngleLocation: " + rightAngleLocation);
-                        }
-                    default: throw new NotImplementedException("Unknown / unimplemented FlipAxis: " + axis);
-                }
-            }
+                    RightAngleLocation.Top => RightAngleLocation.Top,
+                    RightAngleLocation.Bottom => RightAngleLocation.Bottom,
+                    RightAngleLocation.Left => RightAngleLocation.Right,
+                    RightAngleLocation.Right => RightAngleLocation.Left,
+                    _ => throw new NotImplementedException("Unknown / unimplemented RightAngleLocation: " + rightAngleLocation),
+                },
+                FlipAxis.Horizontal => rightAngleLocation switch
+                {
+                    RightAngleLocation.Top => RightAngleLocation.Bottom,
+                    RightAngleLocation.Bottom => RightAngleLocation.Top,
+                    RightAngleLocation.Left => RightAngleLocation.Left,
+                    RightAngleLocation.Right => RightAngleLocation.Right,
+                    _ => throw new NotImplementedException("Unknown / unimplemented RightAngleLocation: " + rightAngleLocation),
+                },
+                FlipAxis._45Degrees => rightAngleLocation switch
+                {
+                    RightAngleLocation.Top => RightAngleLocation.Right,
+                    RightAngleLocation.Bottom => RightAngleLocation.Left,
+                    RightAngleLocation.Left => RightAngleLocation.Bottom,
+                    RightAngleLocation.Right => RightAngleLocation.Top,
+                    _ => throw new NotImplementedException("Unknown / unimplemented RightAngleLocation: " + rightAngleLocation),
+                },
+                FlipAxis.Minus45Degrees => rightAngleLocation switch
+                {
+                    RightAngleLocation.Top => RightAngleLocation.Left,
+                    RightAngleLocation.Bottom => RightAngleLocation.Right,
+                    RightAngleLocation.Left => RightAngleLocation.Top,
+                    RightAngleLocation.Right => RightAngleLocation.Bottom,
+                    _ => throw new NotImplementedException("Unknown / unimplemented RightAngleLocation: " + rightAngleLocation),
+                },
+                _ => throw new NotImplementedException("Unknown / unimplemented FlipAxis: " + axis),
+            };
 
             return new RightTriangle(bottomCorner.Flip(axis), topCorner.Flip(axis), FlipRightAngleLocation(rightAngleLocation, axis), filled);
         }
@@ -349,41 +342,35 @@ namespace PAC.Shapes
         /// </summary>
         public RightTriangle Rotate(RotationAngle angle)
         {
-            RightAngleLocation RotateRightAngleLocation(RightAngleLocation rightAngleLocation, RotationAngle angle)
+            RightAngleLocation RotateRightAngleLocation(RightAngleLocation rightAngleLocation, RotationAngle angle) => angle switch
             {
-                switch (angle)
+                RotationAngle._0 => rightAngleLocation,
+                RotationAngle._90 => rightAngleLocation switch
                 {
-                    case RotationAngle._0: return rightAngleLocation;
-                    case RotationAngle._90:
-                        switch (rightAngleLocation)
-                        {
-                            case RightAngleLocation.Top: return RightAngleLocation.Right;
-                            case RightAngleLocation.Bottom: return RightAngleLocation.Left;
-                            case RightAngleLocation.Left: return RightAngleLocation.Top;
-                            case RightAngleLocation.Right: return RightAngleLocation.Bottom;
-                            default: throw new NotImplementedException("Unknown / unimplemented RightAngleLocation: " + rightAngleLocation);
-                        }
-                    case RotationAngle._180:
-                        switch (rightAngleLocation)
-                        {
-                            case RightAngleLocation.Top: return RightAngleLocation.Bottom;
-                            case RightAngleLocation.Bottom: return RightAngleLocation.Top;
-                            case RightAngleLocation.Left: return RightAngleLocation.Right;
-                            case RightAngleLocation.Right: return RightAngleLocation.Left;
-                            default: throw new NotImplementedException("Unknown / unimplemented RightAngleLocation: " + rightAngleLocation);
-                        }
-                    case RotationAngle.Minus90:
-                        switch (rightAngleLocation)
-                        {
-                            case RightAngleLocation.Top: return RightAngleLocation.Left;
-                            case RightAngleLocation.Bottom: return RightAngleLocation.Right;
-                            case RightAngleLocation.Left: return RightAngleLocation.Bottom;
-                            case RightAngleLocation.Right: return RightAngleLocation.Top;
-                            default: throw new NotImplementedException("Unknown / unimplemented RightAngleLocation: " + rightAngleLocation);
-                        }
-                    default: throw new NotImplementedException("Unknown / unimplemented RotationAngle: " + angle);
-                }
-            }
+                    RightAngleLocation.Top => RightAngleLocation.Right,
+                    RightAngleLocation.Bottom => RightAngleLocation.Left,
+                    RightAngleLocation.Left => RightAngleLocation.Top,
+                    RightAngleLocation.Right => RightAngleLocation.Bottom,
+                    _ => throw new NotImplementedException("Unknown / unimplemented RightAngleLocation: " + rightAngleLocation),
+                },
+                RotationAngle._180 => rightAngleLocation switch
+                {
+                    RightAngleLocation.Top => RightAngleLocation.Bottom,
+                    RightAngleLocation.Bottom => RightAngleLocation.Top,
+                    RightAngleLocation.Left => RightAngleLocation.Right,
+                    RightAngleLocation.Right => RightAngleLocation.Left,
+                    _ => throw new NotImplementedException("Unknown / unimplemented RightAngleLocation: " + rightAngleLocation),
+                },
+                RotationAngle.Minus90 => rightAngleLocation switch
+                {
+                    RightAngleLocation.Top => RightAngleLocation.Left,
+                    RightAngleLocation.Bottom => RightAngleLocation.Right,
+                    RightAngleLocation.Left => RightAngleLocation.Bottom,
+                    RightAngleLocation.Right => RightAngleLocation.Top,
+                    _ => throw new NotImplementedException("Unknown / unimplemented RightAngleLocation: " + rightAngleLocation),
+                },
+                _ => throw new NotImplementedException("Unknown / unimplemented RotationAngle: " + angle),
+            };
 
             return new RightTriangle(bottomCorner.Rotate(angle), topCorner.Rotate(angle), RotateRightAngleLocation(rightAngleLocation, angle), filled);
         }
