@@ -38,9 +38,10 @@ namespace PAC.Shapes
             }
         }
 
-        public Rectangle(IntVector2 corner, IntVector2 oppositeCorner, bool filled)
+        public Rectangle(IntVector2 corner, IntVector2 oppositeCorner, bool filled) : this(new IntRect(corner, oppositeCorner), filled) { }
+        public Rectangle(IntRect boundingRect, bool filled)
         {
-            boundingRect = new IntRect(corner, oppositeCorner);
+            this.boundingRect = boundingRect;
             this.filled = filled;
         }
 
