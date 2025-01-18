@@ -215,11 +215,11 @@ namespace PAC.Shapes
             }
             else
             {
-                if (pixel.y < boundingRect.bottomLeft.y || pixel.y > boundingRect.topRight.y || pixel.x > boundingRect.topRight.x)
+                if (!boundingRect.ContainsY(pixel.y) || pixel.x > boundingRect.maxX)
                 {
                     return false;
                 }
-                if (pixel.x < boundingRect.bottomLeft.x)
+                if (pixel.x < boundingRect.minX)
                 {
                     return true;
                 }
@@ -255,7 +255,7 @@ namespace PAC.Shapes
         {
             if (!boundingRect.ContainsY(y))
             {
-                throw new ArgumentOutOfRangeException("y must be within the y range of the line. y: " + y + "; line y range: [" + boundingRect.bottomLeft.y + ", " + boundingRect.topRight.y + "]");
+                throw new ArgumentOutOfRangeException($"y must be within the y range of the line. y: {y}; line y range: {boundingRect.yRange}");
             }
 
             if (!isMoreHorizontal)
