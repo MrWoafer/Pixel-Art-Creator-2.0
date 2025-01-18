@@ -501,19 +501,20 @@ namespace PAC.Shapes
         /// <summary>
         /// Translates the isometric rectangle by the given vector.
         /// </summary>
-        public static IsometricRectangle operator +(IsometricRectangle isoRectangle, IntVector2 translation) => isoRectangle.Translate(translation);
+        public static IsometricRectangle operator +(IsometricRectangle isometricRectangle, IntVector2 translation) => isometricRectangle.Translate(translation);
         /// <summary>
         /// Translates the isometric rectangle by the given vector.
         /// </summary>
-        public static IsometricRectangle operator +(IntVector2 translation, IsometricRectangle isoRectangle) => isoRectangle + translation;
+        public static IsometricRectangle operator +(IntVector2 translation, IsometricRectangle isometricRectangle) => isometricRectangle + translation;
         /// <summary>
         /// Translates the isometric rectangle by the given vector.
         /// </summary>
-        public static IsometricRectangle operator -(IsometricRectangle isoRectangle, IntVector2 translation) => isoRectangle + -translation;
+        public static IsometricRectangle operator -(IsometricRectangle isometricRectangle, IntVector2 translation) => isometricRectangle + -translation;
         /// <summary>
         /// Reflects the isometric rectangle through the origin.
         /// </summary>
-        public static IsometricRectangle operator -(IsometricRectangle isoRectangle) => new IsometricRectangle(-isoRectangle.startCorner, -isoRectangle.endCorner, isoRectangle.filled);
+        public static IsometricRectangle operator -(IsometricRectangle isometricRectangle)
+            => new IsometricRectangle(-isometricRectangle.startCorner, -isometricRectangle.endCorner, isometricRectangle.filled);
 
         /// <summary>
         /// Translates the isometric rectangle by the given vector.

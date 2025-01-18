@@ -85,15 +85,15 @@ namespace PAC.Shapes
         /// <summary>
         /// Translates the isometric cuboid by the given vector.
         /// </summary>
-        public static IsometricCuboid operator +(IsometricCuboid isoRectangle, IntVector2 translation) => isoRectangle.Translate(translation);
+        public static IsometricCuboid operator +(IsometricCuboid isometricCuboid, IntVector2 translation) => isometricCuboid.Translate(translation);
         /// <summary>
         /// Translates the isometric cuboid by the given vector.
         /// </summary>
-        public static IsometricCuboid operator +(IntVector2 translation, IsometricCuboid isoRectangle) => isoRectangle + translation;
+        public static IsometricCuboid operator +(IntVector2 translation, IsometricCuboid isometricCuboid) => isometricCuboid + translation;
         /// <summary>
         /// Translates the isometric cuboid by the given vector.
         /// </summary>
-        public static IsometricCuboid operator -(IsometricCuboid isoRectangle, IntVector2 translation) => isoRectangle + -translation;
+        public static IsometricCuboid operator -(IsometricCuboid isometricCuboid, IntVector2 translation) => isometricCuboid + -translation;
 
         /// <summary>
         /// Translates the isometric cuboid by the given vector.
