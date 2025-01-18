@@ -255,11 +255,28 @@ namespace PAC.Shapes
         /// <summary>
         /// Returns the minimum x coord of the pixels on the line that have the given y coord.
         /// </summary>
-        public int MinX(int y)
+        public int MinX(int y) => MinX_Impl(y, 'y', boundingRect.yRange);
+        /// <summary>
+        /// Returns the maximum x coord of the pixels on the line that have the given y coord.
+        /// </summary>
+        public int MaxX(int y) => -(-this).MinX_Impl(-y, 'y', boundingRect.yRange);
+        /// <summary>
+        /// Returns the minimum y coord of the pixels on the line that have the given x coord.
+        /// </summary>
+        public int MinY(int x) => Rotate(RotationAngle._90).MinX_Impl(-x, 'x', boundingRect.xRange);
+        /// <summary>
+        /// Returns the maximum y coord of the pixels on the line that have the given x coord.
+        /// </summary>
+        public int MaxY(int x) => -Rotate(RotationAngle.Minus90).MinX_Impl(x, 'x', boundingRect.xRange);
+        /// <summary>
+        /// Computes the value of <see cref="MinX(int)"/>, but takes in extra information to allow accurate exceptions when e.g. <see cref="MinY(int)"/> delegates its logic to
+        /// <see cref="MinX(int)"/>.
+        /// </summary>
+        public int MinX_Impl(int y, char coordName, IntRange coordRange)
         {
             if (!boundingRect.ContainsY(y))
             {
-                throw new ArgumentOutOfRangeException($"y must be within the y range of the line. y: {y}; line y range: {boundingRect.yRange}");
+                throw new ArgumentOutOfRangeException(coordName.ToString(), $"{coordName} must be within the {coordName} range of the line. {coordName}: {y}; line {coordName} range: {coordRange}");
             }
 
             if (!isMoreHorizontal)
@@ -297,18 +314,6 @@ namespace PAC.Shapes
                 return Mathf.CeilToInt(minXWhereYOnLineRoundsToGivenY);
             }
         }
-        /// <summary>
-        /// Returns the maximum x coord of the pixels on the line that have the given y coord.
-        /// </summary>
-        public int MaxX(int y) => -(-this).MinX(-y);
-        /// <summary>
-        /// Returns the minimum y coord of the pixels on the line that have the given x coord.
-        /// </summary>
-        public int MinY(int x) => Rotate(RotationAngle._90).MinX(-x);
-        /// <summary>
-        /// Returns the maximum y coord of the pixels on the line that have the given x coord.
-        /// </summary>
-        public int MaxY(int x) => -Rotate(RotationAngle.Minus90).MinX(x);
 
         /// <summary>
         /// Returns the number of pixels on the line that have the given x coord.
