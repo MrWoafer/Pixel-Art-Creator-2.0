@@ -361,17 +361,7 @@ namespace PAC.Shapes
             }
         }
 
-        public bool Contains(IntVector2 pixel)
-        {
-            foreach (Line line in _lines)
-            {
-                if (line.Contains(pixel))
-                {
-                    return true;
-                }
-            }
-            return false;
-        }
+        public bool Contains(IntVector2 point) => _lines.Any(line => line.Contains(point));
 
         /// <summary>
         /// Returns the minimum x coord of the pixels on the path that have the given y coord.
