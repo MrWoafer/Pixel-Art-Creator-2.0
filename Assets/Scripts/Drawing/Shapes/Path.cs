@@ -370,7 +370,7 @@ namespace PAC.Shapes
         {
             if (!boundingRect.ContainsY(y))
             {
-                throw new ArgumentOutOfRangeException("y must be within the y range of the path. y: " + y + "; path y range: [" + boundingRect.bottomLeft.y + ", " + boundingRect.topRight.y + "]");
+                throw new ArgumentOutOfRangeException(nameof(y), $"{nameof(y)} must be within the y range of the path. {nameof(y)}: {y}; path y range: {boundingRect.yRange}.");
             }
             return _lines.Where(l => l.boundingRect.ContainsY(y)).Min(l => l.MinX(y));
         }
@@ -381,7 +381,7 @@ namespace PAC.Shapes
         {
             if (!boundingRect.ContainsY(y))
             {
-                throw new ArgumentOutOfRangeException("y must be within the y range of the path. y: " + y + "; path y range: [" + boundingRect.bottomLeft.y + ", " + boundingRect.topRight.y + "]");
+                throw new ArgumentOutOfRangeException(nameof(y), $"{nameof(y)} must be within the y range of the path. {nameof(y)}: {y}; path y range: {boundingRect.yRange}.");
             }
             return _lines.Where(l => l.boundingRect.ContainsY(y)).Max(l => l.MaxX(y));
         }
@@ -392,7 +392,7 @@ namespace PAC.Shapes
         {
             if (!boundingRect.ContainsX(x))
             {
-                throw new ArgumentOutOfRangeException("x must be within the x range of the path. x: " + x + "; path x range: [" + boundingRect.bottomLeft.x + ", " + boundingRect.topRight.x + "]");
+                throw new ArgumentOutOfRangeException(nameof(x), $"{nameof(x)} must be within the x range of the path. {nameof(x)}: {x}; path x range: {boundingRect.xRange}.");
             }
             return _lines.Where(l => l.boundingRect.ContainsX(x)).Min(l => l.MinY(x));
         }
@@ -403,7 +403,7 @@ namespace PAC.Shapes
         {
             if (!boundingRect.ContainsX(x))
             {
-                throw new ArgumentOutOfRangeException("x must be within the x range of the path. x: " + x + "; path x range: [" + boundingRect.bottomLeft.x + ", " + boundingRect.topRight.x + "]");
+                throw new ArgumentOutOfRangeException(nameof(x), $"{nameof(x)} must be within the x range of the path. {nameof(x)}: {x}; path x range: {boundingRect.xRange}.");
             }
             return _lines.Where(l => l.boundingRect.ContainsX(x)).Max(l => l.MaxY(x));
         }
