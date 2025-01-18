@@ -88,6 +88,10 @@ namespace PAC.Shapes
 
         public int Count => IntVector2.SupDistance(start, end) + 1;
 
+        /// <summary>
+        /// Creates a <see cref="Line"/> that's just a single point.
+        /// </summary>
+        public Line(IntVector2 point) : this(point, point) { }
         public Line(IntVector2 start, IntVector2 end) => SetEndpoints(start, end);
 
         private void SetEndpoints(IntVector2 start, IntVector2 end)

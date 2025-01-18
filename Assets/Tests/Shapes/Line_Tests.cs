@@ -32,9 +32,10 @@ namespace PAC.Tests.Shapes
         [Category("Shapes")]
         public override void ShapeSinglePoint()
         {
-            foreach (IntVector2 pixel in new IntRect(new IntVector2(-5, -5), new IntVector2(5, 5)))
+            foreach (IntVector2 point in new IntRect(new IntVector2(-5, -5), new IntVector2(5, 5)))
             {
-                CollectionAssert.AreEqual(new IntVector2[] { pixel }, new Line(pixel, pixel), $"Failed with {pixel}.");
+                CollectionAssert.AreEqual(new IntVector2[] { point }, new Line(point), $"Failed with {point}.");
+                CollectionAssert.AreEqual(new Line(point), new Line(point, point), $"Failed with {point}.");
             }
         }
 
