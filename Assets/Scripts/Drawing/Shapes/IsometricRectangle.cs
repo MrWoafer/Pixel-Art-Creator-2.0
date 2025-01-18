@@ -110,7 +110,7 @@ namespace PAC.Shapes
             if (startCorner == endCorner)
             {
                 inferredCorners = new IntVector2[] { startCorner };
-                lowerBorder = upperBorder = new Path(startCorner);
+                lowerBorder = upperBorder = new Line(startCorner);
                 return;
             }
             if (Math.Abs(startCorner.y - endCorner.y) == 1)
@@ -121,8 +121,8 @@ namespace PAC.Shapes
                     IntVector2 leftCorner = rect.bottomLeft + IntVector2.left;
                     IntVector2 rightCorner = rect.topRight + IntVector2.right;
                     inferredCorners = new IntVector2[] { startCorner, endCorner, leftCorner, rightCorner };
-                    lowerBorder = new Path(leftCorner, rightCorner + IntVector2.down);
-                    upperBorder = new Path(rightCorner, leftCorner + IntVector2.up);
+                    lowerBorder = new Line(leftCorner, rightCorner + IntVector2.down);
+                    upperBorder = new Line(rightCorner, leftCorner + IntVector2.up);
                     return;
                 }
                 else if (Math.Abs(startCorner.x - endCorner.x) == 1)
@@ -131,8 +131,8 @@ namespace PAC.Shapes
                     IntVector2 leftCorner = rect.bottomLeft;
                     IntVector2 rightCorner = rect.topRight;
                     inferredCorners = new IntVector2[] { startCorner, endCorner, leftCorner, rightCorner };
-                    lowerBorder = new Path(leftCorner, rightCorner + IntVector2.down);
-                    upperBorder = new Path(rightCorner, leftCorner + IntVector2.up);
+                    lowerBorder = new Line(leftCorner, rightCorner + IntVector2.down);
+                    upperBorder = new Line(rightCorner, leftCorner + IntVector2.up);
                     return;
                 }
             }
@@ -150,7 +150,7 @@ namespace PAC.Shapes
                 inferredCorners = new IntVector2[] { startCorner, endCorner };
                 if ((absDiff.x + 1) % 2 == 0)
                 {
-                    lowerBorder = new Path(startCorner, endCorner);
+                    lowerBorder = new Line(startCorner, endCorner);
                     upperBorder = lowerBorder.reverse;
                 }
                 else
@@ -287,8 +287,8 @@ namespace PAC.Shapes
                     {
                         if ((absDiff.x + 1) % 2 == 0)
                         {
-                            lowerBorder = new Path(startCorner, corner2);
-                            upperBorder = new Path(endCorner, corner1);
+                            lowerBorder = new Line(startCorner, corner2);
+                            upperBorder = new Line(endCorner, corner1);
                         }
                         else
                         {
@@ -300,8 +300,8 @@ namespace PAC.Shapes
                     {
                         if ((absDiff.x + 1) % 2 == 0)
                         {
-                            lowerBorder = new Path(new Line(endCorner, corner1));
-                            upperBorder = new Path(new Line(startCorner, corner2));
+                            lowerBorder = new Line(endCorner, corner1);
+                            upperBorder = new Line(startCorner, corner2);
                         }
                         else
                         {
