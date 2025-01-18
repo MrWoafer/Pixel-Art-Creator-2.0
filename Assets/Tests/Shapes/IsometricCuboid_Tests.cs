@@ -77,6 +77,22 @@ namespace PAC.Tests.Shapes
             }
         }
 
+        /// <summary>
+        /// Tests that if an <see cref="IsometricCuboid"/> has <see cref="IsometricCuboid.height"/> == 0, then it looks the same as an <see cref="IsometricRectangle"/>.
+        /// </summary>
+        [Test]
+        [Category("Shapes")]
+        public void HeightZeroIsIsometricRectangle()
+        {
+            foreach (IsometricCuboid cuboid in testCases)
+            {
+                if (cuboid.height == 0)
+                {
+                    Assert.True(cuboid.bottomRectangle.ToHashSet().SetEquals(cuboid), $"Failed with {cuboid}.");
+                }
+            }
+        }
+
         [Test]
         [Category("Shapes")]
         public override void Contains()
