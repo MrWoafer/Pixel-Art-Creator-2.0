@@ -722,7 +722,7 @@ namespace PAC.Drawing
         {
             if (tool == Tool.IsoBox)
             {
-                if (isoBoxPlacedBase) { PreviewShape(new IsometricCuboid(mouseDragPoints[0], mouseDragPoints[1], pixel.y - mouseDragPoints[1].y, holdingCtrl, !rightClickedOn), colour); }
+                if (isoBoxPlacedBase) { PreviewShape(new IsometricCuboid(mouseDragPoints[0], mouseDragPoints[1], pixel.y - mouseDragPoints[1].y, rightClickedOn, holdingCtrl), colour); }
             }
         }
 
@@ -794,8 +794,8 @@ namespace PAC.Drawing
             }
             else if (tool == Tool.IsoBox && (leftClickedOn || rightClickedOn))
             {
-                if (!isoBoxPlacedBase) { PreviewShape(new IsometricCuboid(mouseDragPoints[0], pixel, 0, holdingCtrl, !rightClickedOn), colour); }
-                else { PreviewShape(new IsometricCuboid(mouseDragPoints[0], mouseDragPoints[1], pixel.y - mouseDragPoints[1].y, holdingCtrl, !rightClickedOn), colour); }
+                if (!isoBoxPlacedBase) { PreviewShape(new IsometricCuboid(mouseDragPoints[0], pixel, 0, rightClickedOn, holdingCtrl), colour); }
+                else { PreviewShape(new IsometricCuboid(mouseDragPoints[0], mouseDragPoints[1], pixel.y - mouseDragPoints[1].y, rightClickedOn, holdingCtrl), colour); }
             }
             else if (tool == Tool.Gradient && (leftClickedOn || rightClickedOn))
             {
@@ -907,7 +907,7 @@ namespace PAC.Drawing
                 }
                 else
                 {
-                    Tools.UseShape(file, layer, frame, new IsometricCuboid(mouseDragPoints[0], mouseDragPoints[1], pixel.y - mouseDragPoints[1].y, holdingCtrl, !rightClickedOn), colour);
+                    Tools.UseShape(file, layer, frame, new IsometricCuboid(mouseDragPoints[0], mouseDragPoints[1], pixel.y - mouseDragPoints[1].y, rightClickedOn, holdingCtrl), colour);
                     UpdateDrawing();
 
                     isoBoxPlacedBase = false;
