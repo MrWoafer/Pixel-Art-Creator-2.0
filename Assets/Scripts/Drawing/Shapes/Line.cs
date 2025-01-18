@@ -351,6 +351,13 @@ namespace PAC.Shapes
         {
             get
             {
+                // Delegate the more-vertical case to the more-horizontal case by considering a 90-degree rotation
+                if (!isMoreHorizontal)
+                {
+                    // This may put a lot of pressure on the garbage collector due to how often this is called when the user draws a line
+                    return Rotate(RotationAngle._90)[index].Rotate(RotationAngle.Minus90);
+                }
+
                 if (index < 0)
                 {
                     throw new IndexOutOfRangeException("Index cannot be negative. Index: " + index);
@@ -369,78 +376,36 @@ namespace PAC.Shapes
                     return end;
                 }
 
-                // Index is in the segment from start to end (exclusive).
+                // Index is now in the segment from start to end (exclusive).
 
-                if (start.x == end.x)
-                {
-                    // Single point
-                    if (start.y == end.y)
-                    {
-                        return start;
-                    }
+                int x = start.x + index * Math.Sign(end.x - start.x);
 
-                    // Vertical line
-                    return new IntVector2(start.x, start.y + index * Math.Sign(end.y - start.y));
-                }
-                // Horizontal line
-                if (start.y == end.y)
+                if (isHorizontal)
                 {
-                    return new IntVector2(start.x + index * Math.Sign(end.x - start.x), start.y);
+                    return new IntVector2(x, start.y);
                 }
 
-                if (isMoreHorizontal)
+                // Line equation is:
+                //      gradient = (y - lineStart.y) / (x - lineStart.x)
+                float y = (x - imaginaryStart.x) * imaginaryGradient + imaginaryStart.y;
+
+                // Deal with edge case of y being exactly on the border of two pixels
+                // We always pull the y so it's closer to the endpoint x is closest to (e.g. if x is closer to start.x than end.x then we round y up/down to whichever is closer to start.y)
+                if ((x - imaginaryStart.x) * (imaginaryEnd.y - imaginaryStart.y) % (imaginaryEnd.x - imaginaryStart.x) == 0)
                 {
-                    int x = start.x + index * Math.Sign(end.x - start.x);
-
-                    // Line equation is:
-                    //      gradient = (y - lineStart.y) / (x - lineStart.x)
-                    float y = (x - imaginaryStart.x) * imaginaryGradient + imaginaryStart.y;
-
-                    // Deal with edge case of y being exactly on the border of two pixels
-                    // We always pull the y so it's closer to the endpoint x is closest to (e.g. if x is closer to start.x than end.x then we round y up/down to whichever is closer to start.y)
-                    if ((x - imaginaryStart.x) * (imaginaryEnd.y - imaginaryStart.y) % (imaginaryEnd.x - imaginaryStart.x) == 0)
+                    // If we're in the first half of the line
+                    if (2 * Math.Abs(x - start.x) <= Math.Abs(end.x - start.x))
                     {
-                        // If we're in the first half of the line
-                        if (2 * Math.Abs(x - start.x) <= Math.Abs(end.x - start.x))
-                        {
-                            return new IntVector2(x, Mathf.FloorToInt(y) + (start.y < end.y ? 0 : 1));
-                        }
-                        else
-                        {
-                            return new IntVector2(x, Mathf.FloorToInt(y) + (start.y < end.y ? 1 : 0));
-                        }
+                        return new IntVector2(x, Mathf.FloorToInt(y) + (start.y < end.y ? 0 : 1));
                     }
                     else
                     {
-                        return new IntVector2(x, Mathf.RoundToInt(y));
+                        return new IntVector2(x, Mathf.FloorToInt(y) + (start.y < end.y ? 1 : 0));
                     }
                 }
                 else
                 {
-                    int y = start.y + index * Math.Sign(end.y - start.y);
-
-                    // Line equation is:
-                    //      gradient = (x - lineStart.x) / (y - lineStart.y)
-                    float x = (y - imaginaryStart.y) * imaginaryGradient + imaginaryStart.x;
-
-                    // Deal with edge case of x being exactly on the border of two pixels
-                    // We always pull the x so it's closer to the endpoint y is closest to (e.g. if y is closer to start.y than end.y then we round x up/down to whichever is closer to start.x)
-                    if ((y - imaginaryStart.y) * (imaginaryEnd.x - imaginaryStart.x) % (imaginaryEnd.y - imaginaryStart.y) == 0)
-                    {
-                        // If we're in the first half of the line
-                        if (2 * Math.Abs(y - start.y) <= Math.Abs(end.y - start.y))
-                        {
-                            return new IntVector2(Mathf.FloorToInt(x) + (start.x < end.x ? 0 : 1), y);
-                        }
-                        else
-                        {
-                            return new IntVector2(Mathf.FloorToInt(x) + (start.x < end.x ? 1 : 0), y);
-                        }
-                    }
-                    else
-                    {
-                        return new IntVector2(Mathf.RoundToInt(x), y);
-                    }
+                    return new IntVector2(x, Mathf.RoundToInt(y));
                 }
             }
         }
