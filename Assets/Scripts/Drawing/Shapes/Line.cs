@@ -360,62 +360,66 @@ namespace PAC.Shapes
         {
             get
             {
-                // Delegate the more-vertical case to the more-horizontal case by considering a 90-degree rotation
-                if (!isMoreHorizontal)
-                {
-                    // This may put a lot of pressure on the garbage collector due to how often this is called when the user draws a line
-                    return Rotate(RotationAngle._90)[index].Rotate(RotationAngle.Minus90);
-                }
-
                 if (index < 0)
                 {
-                    throw new IndexOutOfRangeException("Index cannot be negative. Index: " + index);
+                    throw new ArgumentOutOfRangeException(nameof(index), $"{nameof(index)} cannot be negative. {nameof(index)}: {index}.");
                 }
                 if (index >= Count)
                 {
-                    throw new IndexOutOfRangeException("Index cannot be >= Count. Index: " + index + ". Count: " + Count);
+                    throw new ArgumentOutOfRangeException(nameof(index), $"{nameof(index)} cannot be >= {nameof(Count)}. {nameof(index)}: {index}. {nameof(Count)}: {Count}.");
                 }
 
-                if (index == 0)
+                return IndexUnchecked(index);
+            }
+        }
+        private IntVector2 IndexUnchecked(int index)
+        {
+            // Delegate the more-vertical case to the more-horizontal case by considering a 90-degree rotation
+            if (!isMoreHorizontal)
+            {
+                // This may put a lot of pressure on the garbage collector due to how often this is called when the user draws a line
+                return Rotate(RotationAngle._90).IndexUnchecked(index).Rotate(RotationAngle.Minus90);
+            }
+
+            if (index == 0)
+            {
+                return start;
+            }
+            if (index == Count - 1)
+            {
+                return end;
+            }
+
+            // Index is now in the segment from start (exclusive) to end (exclusive).
+
+            int x = start.x + index * Math.Sign(end.x - start.x);
+
+            if (isHorizontal)
+            {
+                return new IntVector2(x, start.y);
+            }
+
+            // Line equation is:
+            //      imaginaryGradient = (y - imaginaryStart.y) / (x - imaginaryStart.x)
+            float y = (x - imaginaryStart.x) * imaginaryGradient + imaginaryStart.y;
+
+            // Deal with edge case of y being exactly on the border of two pixels
+            // We always pull the y so it's closer to the endpoint x is closest to (e.g. if x is closer to start.x than end.x then we round y up/down to whichever is closer to start.y)
+            if ((x - imaginaryStart.x) * (imaginaryEnd.y - imaginaryStart.y) % (imaginaryEnd.x - imaginaryStart.x) == 0)
+            {
+                // If we're in the first half of the line
+                if (2 * Math.Abs(x - start.x) <= Math.Abs(end.x - start.x))
                 {
-                    return start;
-                }
-                if (index == Count - 1)
-                {
-                    return end;
-                }
-
-                // Index is now in the segment from start to end (exclusive).
-
-                int x = start.x + index * Math.Sign(end.x - start.x);
-
-                if (isHorizontal)
-                {
-                    return new IntVector2(x, start.y);
-                }
-
-                // Line equation is:
-                //      gradient = (y - lineStart.y) / (x - lineStart.x)
-                float y = (x - imaginaryStart.x) * imaginaryGradient + imaginaryStart.y;
-
-                // Deal with edge case of y being exactly on the border of two pixels
-                // We always pull the y so it's closer to the endpoint x is closest to (e.g. if x is closer to start.x than end.x then we round y up/down to whichever is closer to start.y)
-                if ((x - imaginaryStart.x) * (imaginaryEnd.y - imaginaryStart.y) % (imaginaryEnd.x - imaginaryStart.x) == 0)
-                {
-                    // If we're in the first half of the line
-                    if (2 * Math.Abs(x - start.x) <= Math.Abs(end.x - start.x))
-                    {
-                        return new IntVector2(x, Mathf.FloorToInt(y) + (start.y < end.y ? 0 : 1));
-                    }
-                    else
-                    {
-                        return new IntVector2(x, Mathf.FloorToInt(y) + (start.y < end.y ? 1 : 0));
-                    }
+                    return new IntVector2(x, Mathf.FloorToInt(y) + (start.y < end.y ? 0 : 1));
                 }
                 else
                 {
-                    return new IntVector2(x, Mathf.RoundToInt(y));
+                    return new IntVector2(x, Mathf.FloorToInt(y) + (start.y < end.y ? 1 : 0));
                 }
+            }
+            else
+            {
+                return new IntVector2(x, Mathf.RoundToInt(y));
             }
         }
         public IEnumerable<IntVector2> this[Range range] => this.GetRange(range);
@@ -425,7 +429,7 @@ namespace PAC.Shapes
         {
             for (int i = 0; i < Count; i++)
             {
-                yield return this[i];
+                yield return IndexUnchecked(i);
             }
         }
 

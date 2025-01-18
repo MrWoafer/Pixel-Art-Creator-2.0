@@ -156,7 +156,7 @@ namespace PAC.Tests.Shapes
         {
             foreach (Line line in testCases)
             {
-                Assert.Throws<IndexOutOfRangeException>(() => { IntVector2 x = line[-1]; }, $"Failed with {line}.");
+                Assert.Throws<ArgumentOutOfRangeException>(() => { IntVector2 x = line[-1]; }, $"Failed with {line}.");
 
                 int index = 0;
                 foreach (IntVector2 pixel in line)
@@ -165,7 +165,7 @@ namespace PAC.Tests.Shapes
                     index++;
                 }
 
-                Assert.Throws<IndexOutOfRangeException>(() => { IntVector2 x = line[index]; }, $"Failed with {line}.");
+                Assert.Throws<ArgumentOutOfRangeException>(() => { IntVector2 x = line[index]; }, $"Failed with {line}.");
 
                 // Test hat syntax
                 Assert.AreEqual(line.end, line[^1], $"Failed with {line}.");
