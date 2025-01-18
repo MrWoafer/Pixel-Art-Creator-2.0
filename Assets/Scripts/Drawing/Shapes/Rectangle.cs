@@ -69,22 +69,22 @@ namespace PAC.Shapes
         /// <summary>
         /// Reflects the rectangle through the origin.
         /// </summary>
-        public static Rectangle operator -(Rectangle rectangle) => new Rectangle(-rectangle.boundingRect.bottomLeft, -rectangle.boundingRect.topRight, rectangle.filled);
+        public static Rectangle operator -(Rectangle rectangle) => new Rectangle(-rectangle.boundingRect, rectangle.filled);
 
         /// <summary>
         /// Translates the rectangle by the given vector.
         /// </summary>
-        public Rectangle Translate(IntVector2 translation) => new Rectangle(boundingRect.bottomLeft + translation, boundingRect.topRight + translation, filled);
+        public Rectangle Translate(IntVector2 translation) => new Rectangle(boundingRect + translation, filled);
 
         /// <summary>
         /// Reflects the rectangle across the given axis.
         /// </summary>
-        public Rectangle Flip(FlipAxis axis) => new Rectangle(boundingRect.bottomLeft.Flip(axis), boundingRect.topRight.Flip(axis), filled);
+        public Rectangle Flip(FlipAxis axis) => new Rectangle(boundingRect.Flip(axis), filled);
 
         /// <summary>
         /// Rotates the rectangle by the given angle.
         /// </summary>
-        public Rectangle Rotate(RotationAngle angle) => new Rectangle(boundingRect.bottomLeft.Rotate(angle), boundingRect.topRight.Rotate(angle), filled);
+        public Rectangle Rotate(RotationAngle angle) => new Rectangle(boundingRect.Rotate(angle), filled);
 
         IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();
         public IEnumerator<IntVector2> GetEnumerator()
@@ -146,10 +146,10 @@ namespace PAC.Shapes
         public bool Equals(Rectangle other) => this == other;
         public override bool Equals(object obj) => obj is Rectangle other && Equals(other);
 
-        public override int GetHashCode() => HashCode.Combine(boundingRect.bottomLeft, boundingRect.topRight, filled);
+        public override int GetHashCode() => HashCode.Combine(boundingRect, filled);
 
         public override string ToString() => "Rectangle(" + boundingRect.bottomLeft + ", " + boundingRect.topRight + ", " + (filled ? "filled" : "unfilled") + ")";
 
-        public Rectangle DeepCopy() => new Rectangle(boundingRect.bottomLeft, boundingRect.topRight, filled);
+        public Rectangle DeepCopy() => new Rectangle(boundingRect, filled);
     }
 }
