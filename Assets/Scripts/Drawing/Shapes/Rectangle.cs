@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 
 using PAC.DataStructures;
 using PAC.Shapes.Interfaces;
@@ -92,9 +93,9 @@ namespace PAC.Shapes
             // Filled - start with the bottom row, read left to right, then the next row, etc.
             if (filled)
             {
-                for (int y = boundingRect.bottomLeft.y; y <= boundingRect.topRight.y; y++)
+                foreach (int y in boundingRect.yRange)
                 {
-                    for (int x = boundingRect.bottomLeft.x; x <= boundingRect.topRight.x; x++)
+                    foreach (int x in boundingRect.xRange)
                     {
                         yield return new IntVector2(x, y);
                     }
@@ -105,39 +106,37 @@ namespace PAC.Shapes
             // Unfilled - go clockwise, starting at bottom-left
 
             // Up the left side
-            for (int y = boundingRect.bottomLeft.y; y <= boundingRect.topRight.y; y++)
+            foreach (int y in boundingRect.yRange)
             {
-                yield return new IntVector2(boundingRect.bottomLeft.x, y);
+                yield return new IntVector2(boundingRect.minX, y);
             }
 
-            // Rectangle has width 1
-            if (boundingRect.bottomLeft.x == boundingRect.topRight.x)
+            if (boundingRect.width == 1)
             {
                 yield break;
             }
 
-            // Along the top side (left to right)
-            for (int x = boundingRect.bottomLeft.x + 1; x <= boundingRect.topRight.x; x++)
+            // Along the top side (left to right), skipping the point we've already seen
+            foreach (int x in boundingRect.xRange.Skip(1))
             {
-                yield return new IntVector2(x, boundingRect.topRight.y);
+                yield return new IntVector2(x, boundingRect.maxY);
             }
 
-            // Rectangle has height 1
-            if (boundingRect.bottomLeft.y == boundingRect.topRight.y)
+            if (boundingRect.height == 1)
             {
                 yield break;
             }
 
-            // Down the right side
-            for (int y = boundingRect.topRight.y - 1; y >= boundingRect.bottomLeft.y; y--)
+            // Down the right side, skipping the point we've already seen
+            foreach (int y in boundingRect.yRange.reverse.Skip(1))
             {
-                yield return new IntVector2(boundingRect.topRight.x, y);
+                yield return new IntVector2(boundingRect.maxX, y);
             }
 
-            // Along the bottom side (right to left)
-            for (int x = boundingRect.topRight.x - 1; x >= boundingRect.bottomLeft.x + 1; x--)
+            // Along the bottom side (right to left), skipping the two endpoints as we've already seen them
+            for (int x = boundingRect.maxX - 1; x >= boundingRect.minX + 1; x--)
             {
-                yield return new IntVector2(x, boundingRect.bottomLeft.y);
+                yield return new IntVector2(x, boundingRect.minY);
             }
         }
 
