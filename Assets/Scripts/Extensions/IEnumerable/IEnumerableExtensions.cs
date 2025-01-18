@@ -125,7 +125,7 @@ namespace PAC.Extensions
                 throw NullIEnumerableException<T>(nameof(elements));
             }
 
-            if (n < 0)
+            if (n <= 0)
             {
                 return true;
             }
@@ -139,8 +139,7 @@ namespace PAC.Extensions
                     return true;
                 }
             }
-            // We check n == 0 instead of just returning false to deal with the case when elements is empty.
-            return n == 0;
+            return false;
         }
         /// <summary>
         /// Returns whether the given <see cref="IEnumerable{T}"/> has &lt;= <paramref name="n"/> elements.
