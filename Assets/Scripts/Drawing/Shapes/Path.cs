@@ -260,7 +260,7 @@ namespace PAC.Shapes
 
             if (points.CountIsExactly(1))
             {
-                _lines.Add(new Line(points.First(), points.First()));
+                _lines.Add(new Line(points.First()));
             }
             else
             {
