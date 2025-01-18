@@ -662,22 +662,7 @@ namespace PAC.Shapes
         IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();
         public IEnumerator<IntVector2> GetEnumerator() => EnumerateWithLineIndex().Select(x => x.pixel).GetEnumerator();
 
-        public static bool operator ==(Path a, Path b)
-        {
-            if (a._lines.Count != b._lines.Count)
-            {
-                return false;
-            }
-
-            for (int i = 0; i < a._lines.Count; i++)
-            {
-                if (a._lines[i] != b._lines[i])
-                {
-                    return false;
-                }
-            }
-            return true;
-        }
+        public static bool operator ==(Path a, Path b) => a._lines.SequenceEqual(b._lines);
         public static bool operator !=(Path a, Path b) => !(a == b);
         public bool Equals(Path other) => this == other;
         public override bool Equals(object obj) => obj is Path other && Equals(other);

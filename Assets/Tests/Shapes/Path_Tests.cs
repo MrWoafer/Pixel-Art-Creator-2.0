@@ -510,5 +510,38 @@ namespace PAC.Tests.Shapes
                 }
             }
         }
+
+        [Test]
+        [Category("Shapes")]
+        public void Equals()
+        {
+            static bool Expected(Path a, Path b)
+            {
+                if (a.lines.Count != b.lines.Count)
+                {
+                    return false;
+                }
+
+                for (int i = 0; i < a.lines.Count; i++)
+                {
+                    if (a.lines[i] != b.lines[i])
+                    {
+                        return false;
+                    }
+                }
+                return true;
+            }
+
+            foreach (Path a in RandomTestCases(100))
+            {
+                Assert.True(a.Equals(a), $"Failed with {a}.");
+                Assert.True(a.Equals(a.DeepCopy()), $"Failed with {a}.");
+
+                foreach (Path b in RandomTestCases(100))
+                {
+                    Assert.True(Expected(a, b) == a.Equals(b), $"Failed with {a} and {b}.");
+                }
+            }
+        }
     }
 }
