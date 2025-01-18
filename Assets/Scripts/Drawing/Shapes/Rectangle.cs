@@ -9,33 +9,12 @@ namespace PAC.Shapes
 {
     public class Rectangle : I2DShape<Rectangle>, IDeepCopyableShape<Rectangle>, IEquatable<Rectangle>
     {
-        public IntVector2 bottomLeft
-        {
-            get => boundingRect.bottomLeft;
-            set => boundingRect = new IntRect(value, topRight);
-        }
-        public IntVector2 topRight
-        {
-            get => boundingRect.topRight;
-            set => boundingRect = new IntRect(value, bottomLeft);
-        }
-        public IntVector2 bottomRight
-        {
-            get => boundingRect.bottomRight;
-            set => boundingRect = new IntRect(value, topLeft);
-        }
-        public IntVector2 topLeft
-        {
-            get => boundingRect.topLeft;
-            set => boundingRect = new IntRect(value, bottomRight);
-        }
-
         public bool filled { get; set; }
 
         /// <summary>True if the rectangle is a square.</summary>
         public bool isSquare => boundingRect.width == boundingRect.height;
 
-        public IntRect boundingRect { get; private set; }
+        public IntRect boundingRect { get; set; }
 
         public int Count
         {
@@ -71,7 +50,7 @@ namespace PAC.Shapes
             {
                 return boundingRect.Contains(pixel);
             }
-            return boundingRect.Contains(pixel) && !(pixel > bottomLeft && pixel < topRight);
+            return boundingRect.Contains(pixel) && !(pixel > boundingRect.bottomLeft && pixel < boundingRect.topRight);
         }
 
         /// <summary>
@@ -89,22 +68,22 @@ namespace PAC.Shapes
         /// <summary>
         /// Reflects the rectangle through the origin.
         /// </summary>
-        public static Rectangle operator -(Rectangle rectangle) => new Rectangle(-rectangle.bottomLeft, -rectangle.topRight, rectangle.filled);
+        public static Rectangle operator -(Rectangle rectangle) => new Rectangle(-rectangle.boundingRect.bottomLeft, -rectangle.boundingRect.topRight, rectangle.filled);
 
         /// <summary>
         /// Translates the rectangle by the given vector.
         /// </summary>
-        public Rectangle Translate(IntVector2 translation) => new Rectangle(bottomLeft + translation, topRight + translation, filled);
+        public Rectangle Translate(IntVector2 translation) => new Rectangle(boundingRect.bottomLeft + translation, boundingRect.topRight + translation, filled);
 
         /// <summary>
         /// Reflects the rectangle across the given axis.
         /// </summary>
-        public Rectangle Flip(FlipAxis axis) => new Rectangle(bottomLeft.Flip(axis), topRight.Flip(axis), filled);
+        public Rectangle Flip(FlipAxis axis) => new Rectangle(boundingRect.bottomLeft.Flip(axis), boundingRect.topRight.Flip(axis), filled);
 
         /// <summary>
         /// Rotates the rectangle by the given angle.
         /// </summary>
-        public Rectangle Rotate(RotationAngle angle) => new Rectangle(bottomLeft.Rotate(angle), topRight.Rotate(angle), filled);
+        public Rectangle Rotate(RotationAngle angle) => new Rectangle(boundingRect.bottomLeft.Rotate(angle), boundingRect.topRight.Rotate(angle), filled);
 
         IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();
         public IEnumerator<IntVector2> GetEnumerator()
@@ -112,9 +91,9 @@ namespace PAC.Shapes
             // Filled - start with the bottom row, read left to right, then the next row, etc.
             if (filled)
             {
-                for (int y = bottomLeft.y; y <= topRight.y; y++)
+                for (int y = boundingRect.bottomLeft.y; y <= boundingRect.topRight.y; y++)
                 {
-                    for (int x = bottomLeft.x; x <= topRight.x; x++)
+                    for (int x = boundingRect.bottomLeft.x; x <= boundingRect.topRight.x; x++)
                     {
                         yield return new IntVector2(x, y);
                     }
@@ -125,39 +104,39 @@ namespace PAC.Shapes
             // Unfilled - go clockwise, starting at bottom-left
 
             // Up the left side
-            for (int y = bottomLeft.y; y <= topRight.y; y++)
+            for (int y = boundingRect.bottomLeft.y; y <= boundingRect.topRight.y; y++)
             {
-                yield return new IntVector2(bottomLeft.x, y);
+                yield return new IntVector2(boundingRect.bottomLeft.x, y);
             }
 
             // Rectangle has width 1
-            if (bottomLeft.x == topRight.x)
+            if (boundingRect.bottomLeft.x == boundingRect.topRight.x)
             {
                 yield break;
             }
 
             // Along the top side (left to right)
-            for (int x = bottomLeft.x + 1; x <= topRight.x; x++)
+            for (int x = boundingRect.bottomLeft.x + 1; x <= boundingRect.topRight.x; x++)
             {
-                yield return new IntVector2(x, topRight.y);
+                yield return new IntVector2(x, boundingRect.topRight.y);
             }
 
             // Rectangle has height 1
-            if (bottomLeft.y == topRight.y)
+            if (boundingRect.bottomLeft.y == boundingRect.topRight.y)
             {
                 yield break;
             }
 
             // Down the right side
-            for (int y = topRight.y - 1; y >= bottomLeft.y; y--)
+            for (int y = boundingRect.topRight.y - 1; y >= boundingRect.bottomLeft.y; y--)
             {
-                yield return new IntVector2(topRight.x, y);
+                yield return new IntVector2(boundingRect.topRight.x, y);
             }
 
             // Along the bottom side (right to left)
-            for (int x = topRight.x - 1; x >= bottomLeft.x + 1; x--)
+            for (int x = boundingRect.topRight.x - 1; x >= boundingRect.bottomLeft.x + 1; x--)
             {
-                yield return new IntVector2(x, bottomLeft.y);
+                yield return new IntVector2(x, boundingRect.bottomLeft.y);
             }
         }
 
@@ -166,10 +145,10 @@ namespace PAC.Shapes
         public bool Equals(Rectangle other) => this == other;
         public override bool Equals(object obj) => obj is Rectangle other && Equals(other);
 
-        public override int GetHashCode() => HashCode.Combine(bottomLeft, topRight, filled);
+        public override int GetHashCode() => HashCode.Combine(boundingRect.bottomLeft, boundingRect.topRight, filled);
 
-        public override string ToString() => "Rectangle(" + bottomLeft + ", " + topRight + ", " + (filled ? "filled" : "unfilled") + ")";
+        public override string ToString() => "Rectangle(" + boundingRect.bottomLeft + ", " + boundingRect.topRight + ", " + (filled ? "filled" : "unfilled") + ")";
 
-        public Rectangle DeepCopy() => new Rectangle(bottomLeft, topRight, filled);
+        public Rectangle DeepCopy() => new Rectangle(boundingRect.bottomLeft, boundingRect.topRight, filled);
     }
 }
