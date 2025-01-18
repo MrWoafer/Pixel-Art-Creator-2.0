@@ -200,52 +200,46 @@ namespace PAC.Shapes
 
         public IntRect boundingRect => IntRect.BoundingRect(_lines.Select(l => l.boundingRect));
 
-        public int Count
+        public int Count => Count_Impl(line => line.Count(), point => true);
+        /// <summary>
+        /// An abstraction used to implement <see cref="Count"/>, <see cref="CountOnX(int)"/> and <see cref="CountOnY(int)"/>.
+        /// </summary>
+        /// <remarks>
+        /// Adds together the value of <paramref name="countingFunction"/> for each line in the <see cref="Path"/>. This may double-count points that are the end of one line and the start of
+        /// the next, so for each of these points it uses <paramref name="hasDoubledCountedJoiningPoint"/> to determine whether to correct it for each such point.
+        /// </remarks>
+        private int Count_Impl(Func<Line, int> countingFunction, Func<IntVector2, bool> hasDoubledCountedJoiningPoint)
         {
-            get
+            // First line
+            int count = countingFunction(_lines[0]);
+            if (_lines.Count == 1)
             {
-                // First line
-                int count = _lines[0].Count;
-                if (_lines.Count == 1)
-                {
-                    return count;
-                }
-
-                IntVector2 previousPixel = _lines[0].end;
-
-                // Middle lines (not first or last)
-                for (int i = 1; i < _lines.Count - 1; i++)
-                {
-                    if (_lines[i].start == previousPixel)
-                    {
-                        count += _lines[i].Count - 1;
-                    }
-                    else
-                    {
-                        count += _lines[i].Count;
-                    }
-                    previousPixel = _lines[i].end;
-                }
-
-                // Last line
-                int start = 0;
-                int end = _lines[^1].Count;
-                if (_lines[^1].start == previousPixel)
-                {
-                    start++;
-                }
-                if (_lines[^1].end == _lines[0].start)
-                {
-                    end--;
-                }
-
-                if (end >= start)
-                {
-                    count += end - start;
-                }
-
                 return count;
             }
+
+            // Middle lines (not first or last)
+            for (int i = 1; i < _lines.Count - 1; i++)
+            {
+                count += countingFunction(_lines[i]);
+                if (_lines[i].start == lines[i - 1].end && hasDoubledCountedJoiningPoint(lines[i - 1].end))
+                {
+                    count--;
+                }
+            }
+
+            // Last line (if there's more than one line)
+            int toAdd = countingFunction(_lines[^1]);
+            if (_lines[^1].start == lines[^2].end && hasDoubledCountedJoiningPoint(lines[^2].end))
+            {
+                toAdd--;
+            }
+            if (_lines[^1].end == _lines[0].start && hasDoubledCountedJoiningPoint(_lines[0].start))
+            {
+                toAdd--;
+            }
+            count += toAdd.ClampNonNegative();
+
+            return count;
         }
 
         // To prevent creation of paths from 0 points/lines. (Those constructors have checks anyway but this stops the 'ambiguous call' error those give when trying to use an empty constructor)
@@ -427,81 +421,11 @@ namespace PAC.Shapes
         /// <summary>
         /// Returns the number of pixels on the path that have the given x coord. A pixel that appears n times in the enumerator will be counted n times.
         /// </summary>
-        public int CountOnX(int x)
-        {
-            // First line
-            int count = _lines[0].CountOnX(x);
-            if (_lines.Count == 1)
-            {
-                return count;
-            }
-
-            IntVector2 previousPixel = _lines[0].end;
-
-            // Middle lines (not first or last)
-            for (int i = 1; i < _lines.Count - 1; i++)
-            {
-                count += _lines[i].CountOnX(x);
-                if (_lines[i].start == previousPixel && x == previousPixel.x)
-                {
-                    count--;
-                }
-                previousPixel = _lines[i].end;
-            }
-
-            // Last line
-            int toAdd = _lines[^1].CountOnX(x);
-            if (_lines[^1].start == previousPixel && x == previousPixel.x)
-            {
-                toAdd--;
-            }
-            if (_lines[^1].end == _lines[0].start && x == _lines[0].start.x)
-            {
-                toAdd--;
-            }
-            count += toAdd.ClampNonNegative();
-
-            return count;
-        }
+        public int CountOnX(int x) => Count_Impl(line => line.CountOnX(x), point => point.x == x);
         /// <summary>
         /// Returns the number of pixels on the path that have the given y coord. A pixel that appears n times in the enumerator will be counted n times.
         /// </summary>
-        public int CountOnY(int y)
-        {
-            // First line
-            int count = _lines[0].CountOnY(y);
-            if (_lines.Count == 1)
-            {
-                return count;
-            }
-
-            IntVector2 previousPixel = _lines[0].end;
-
-            // Middle lines (not first or last)
-            for (int i = 1; i < _lines.Count - 1; i++)
-            {
-                count += _lines[i].CountOnY(y);
-                if (_lines[i].start == previousPixel && y == previousPixel.y)
-                {
-                    count--;
-                }
-                previousPixel = _lines[i].end;
-            }
-
-            // Last line
-            int toAdd = _lines[^1].CountOnY(y);
-            if (_lines[^1].start == previousPixel && y == previousPixel.y)
-            {
-                toAdd--;
-            }
-            if (_lines[^1].end == _lines[0].start && y == _lines[0].start.y)
-            {
-                toAdd--;
-            }
-            count += toAdd.ClampNonNegative();
-
-            return count;
-        }
+        public int CountOnY(int y) => Count_Impl(line => line.CountOnY(y), point => point.y == y);
 
         /// <summary>
         /// Translates the path by the given vector.
