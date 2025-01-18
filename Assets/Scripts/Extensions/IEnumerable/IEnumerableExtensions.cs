@@ -86,7 +86,7 @@ namespace PAC.Extensions
         /// <summary>
         /// Returns whether the given <see cref="IEnumerable{T}"/> has exactly n elements.
         /// </summary>
-        public static bool CountExactly<T>(this IEnumerable<T> elements, int n)
+        public static bool CountIsExactly<T>(this IEnumerable<T> elements, int n)
         {
             if (elements is null)
             {
@@ -112,7 +112,7 @@ namespace PAC.Extensions
         /// <summary>
         /// Returns whether the given <see cref="IEnumerable{T}"/> has &gt;= n elements.
         /// </summary>
-        public static bool CountAtLeast<T>(this IEnumerable<T> elements, int n)
+        public static bool CountIsAtLeast<T>(this IEnumerable<T> elements, int n)
         {
             if (elements is null)
             {
@@ -139,7 +139,7 @@ namespace PAC.Extensions
         /// <summary>
         /// Returns whether the given <see cref="IEnumerable{T}"/> has &lt;= n elements.
         /// </summary>
-        public static bool CountAtMost<T>(this IEnumerable<T> elements, int n)
+        public static bool CountIsAtMost<T>(this IEnumerable<T> elements, int n)
         {
             if (elements is null)
             {

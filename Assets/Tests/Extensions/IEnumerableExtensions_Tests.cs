@@ -42,42 +42,42 @@ namespace PAC.Tests.Extensions
 
         [Test]
         [Category("Extensions")]
-        public void CountExactly()
+        public void CountIsExactly()
         {
             for (int inputLength = 0; inputLength <= 10; inputLength++)
             {
                 int[] input = new int[inputLength];
                 for (int testLength = -10; testLength <= 20; testLength++)
                 {
-                    Assert.AreEqual(input.Length == testLength, input.CountExactly(testLength), "Failed with input length " + inputLength + " and test length " + testLength);
+                    Assert.AreEqual(input.Length == testLength, input.CountIsExactly(testLength), "Failed with input length " + inputLength + " and test length " + testLength);
                 }
             }
         }
 
         [Test]
         [Category("Extensions")]
-        public void CountAtLeast()
+        public void CountIsAtLeast()
         {
             for (int inputLength = 0; inputLength <= 10; inputLength++)
             {
                 int[] input = new int[inputLength];
                 for (int testLength = -10; testLength <= 20; testLength++)
                 {
-                    Assert.AreEqual(input.Length >= testLength, input.CountAtLeast(testLength), "Failed with input length " + inputLength + " and test length " + testLength);
+                    Assert.AreEqual(input.Length >= testLength, input.CountIsAtLeast(testLength), "Failed with input length " + inputLength + " and test length " + testLength);
                 }
             }
         }
 
         [Test]
         [Category("Extensions")]
-        public void CountAtMost()
+        public void CountIsAtMost()
         {
             for (int inputLength = 0; inputLength <= 10; inputLength++)
             {
                 int[] input = new int[inputLength];
                 for (int testLength = -10; testLength <= 20; testLength++)
                 {
-                    Assert.AreEqual(input.Length <= testLength, input.CountAtMost(testLength), "Failed with input length " + inputLength + " and test length " + testLength);
+                    Assert.AreEqual(input.Length <= testLength, input.CountIsAtMost(testLength), "Failed with input length " + inputLength + " and test length " + testLength);
                 }
             }
         }

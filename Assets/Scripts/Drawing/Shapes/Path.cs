@@ -264,7 +264,7 @@ namespace PAC.Shapes
                 throw new ArgumentException("Cannot create a path from 0 points.", "points");
             }
 
-            if (points.CountExactly(1))
+            if (points.CountIsExactly(1))
             {
                 _lines.Add(new Line(points.First(), points.First()));
             }
@@ -300,7 +300,7 @@ namespace PAC.Shapes
                 throw new ArgumentException("Cannot create a path from 0 lines.", "lines");
             }
 
-            if (lines.CountExactly(1))
+            if (lines.CountIsExactly(1))
             {
                 _lines.Add(lines.First().DeepCopy());
             }
@@ -347,7 +347,7 @@ namespace PAC.Shapes
                 throw new ArgumentException("Cannot concat an empty collection of paths.", "paths");
             }
 
-            if (paths.CountExactly(1))
+            if (paths.CountIsExactly(1))
             {
                 return paths.First().DeepCopy();
             }
