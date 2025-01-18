@@ -84,8 +84,11 @@ namespace PAC.Extensions
         }
 
         /// <summary>
-        /// Returns whether the given <see cref="IEnumerable{T}"/> has exactly n elements.
+        /// Returns whether the given <see cref="IEnumerable{T}"/> has exactly <paramref name="n"/> elements.
         /// </summary>
+        /// <remarks>
+        /// Iterates through at most <paramref name="n"/> + 1 elements of the <see cref="IEnumerable{T}"/>.
+        /// </remarks>
         public static bool CountIsExactly<T>(this IEnumerable<T> elements, int n)
         {
             if (elements is null)
@@ -110,8 +113,11 @@ namespace PAC.Extensions
             return count == n;
         }
         /// <summary>
-        /// Returns whether the given <see cref="IEnumerable{T}"/> has &gt;= n elements.
+        /// Returns whether the given <see cref="IEnumerable{T}"/> has &gt;= <paramref name="n"/> elements.
         /// </summary>
+        /// <remarks>
+        /// Iterates through at most <paramref name="n"/> elements of the <see cref="IEnumerable{T}"/>.
+        /// </remarks>
         public static bool CountIsAtLeast<T>(this IEnumerable<T> elements, int n)
         {
             if (elements is null)
@@ -137,8 +143,11 @@ namespace PAC.Extensions
             return n == 0;
         }
         /// <summary>
-        /// Returns whether the given <see cref="IEnumerable{T}"/> has &lt;= n elements.
+        /// Returns whether the given <see cref="IEnumerable{T}"/> has &lt;= <paramref name="n"/> elements.
         /// </summary>
+        /// <remarks>
+        /// Iterates through at most <paramref name="n"/> + 1 elements of the <see cref="IEnumerable{T}"/>.
+        /// </remarks>
         public static bool CountIsAtMost<T>(this IEnumerable<T> elements, int n)
         {
             if (elements is null)
