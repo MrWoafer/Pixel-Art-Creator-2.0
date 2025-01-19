@@ -50,11 +50,11 @@ namespace PAC.Shapes
         /// <summary>
         /// Determines whether (x, y) is inside the filled ellipse (including the border).
         /// </summary>
-        private bool IsInside(int x, int y) => IsInside(new IntVector2(x, y));
+        private bool FilledContains(int x, int y) => FilledContains(new IntVector2(x, y));
         /// <summary>
         /// Determines whether the pixel is inside the filled ellipse (including the border).
         /// </summary>
-        private bool IsInside(IntVector2 pixel)
+        private bool FilledContains(IntVector2 pixel)
         {
             // Manually override 1xn and 2xn case (as otherwise the algorithm doesn't include the top/bottom row in the 2xn case - the 1xn case is just because we might as well include it)
             if (boundingRect.width <= 2)
@@ -83,16 +83,16 @@ namespace PAC.Shapes
             // Filled
             if (filled)
             {
-                return IsInside(pixel);
+                return FilledContains(pixel);
             }
 
             // Unfilled
 
-            if (!IsInside(pixel))
+            if (!FilledContains(pixel))
             {
                 return false;
             }
-            if (!IsInside(pixel + IntVector2.up) || !IsInside(pixel + IntVector2.down) || !IsInside(pixel + IntVector2.left) || !IsInside(pixel + IntVector2.right))
+            if (!FilledContains(pixel + IntVector2.up) || !FilledContains(pixel + IntVector2.down) || !FilledContains(pixel + IntVector2.left) || !FilledContains(pixel + IntVector2.right))
             {
                 return true;
             }
@@ -157,11 +157,11 @@ namespace PAC.Shapes
             {
                 foreach (int y in boundingRect.yRange)
                 {
-                    for (int x = Mathf.FloorToInt(centre.x); IsInside(x, y); x--)
+                    for (int x = Mathf.FloorToInt(centre.x); FilledContains(x, y); x--)
                     {
                         yield return new IntVector2(x, y);
                     }
-                    for (int x = Mathf.FloorToInt(centre.x) + 1; IsInside(x, y); x++)
+                    for (int x = Mathf.FloorToInt(centre.x) + 1; FilledContains(x, y); x++)
                     {
                         yield return new IntVector2(x, y);
                     }
@@ -182,17 +182,17 @@ namespace PAC.Shapes
             {
                 iterations++;
 
-                if (IsInside(currentPoint + primaryDirection))
+                if (FilledContains(currentPoint + primaryDirection))
                 {
                     yield return currentPoint;
                     currentPoint += primaryDirection;
                 }
-                else if (IsInside(currentPoint + secondaryDirection))
+                else if (FilledContains(currentPoint + secondaryDirection))
                 {
                     yield return currentPoint;
                     currentPoint += secondaryDirection;
                 }
-                else if (IsInside(currentPoint + tertiaryDirection))
+                else if (FilledContains(currentPoint + tertiaryDirection))
                 {
                     yield return currentPoint;
                     currentPoint += tertiaryDirection;
