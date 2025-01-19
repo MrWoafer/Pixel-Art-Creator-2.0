@@ -20,7 +20,7 @@
 
         #region Default Implementations
         /// <summary>
-        /// Returns deep copy of the shape the rotated shape 180 degrees about the origin (equivalently, reflected through the origin).
+        /// Returns a deep copy of the shape rotated 180 degrees about the origin (equivalently, reflected through the origin).
         /// </summary>
         /// <seealso cref="Rotate(RotationAngle)"/>
         public static T operator -(IRotatableShape<T> shape) => shape.Rotate(RotationAngle._180);
