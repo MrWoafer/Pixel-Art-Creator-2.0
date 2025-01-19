@@ -13,7 +13,7 @@ namespace PAC.Shapes.Interfaces
     public interface IFlippableShape<out T> : IDeepCopyableShape<T> where T : IShape
     {
         /// <summary>
-        /// Returns a deep copy of the shape translated by the given vector.
+        /// Returns a deep copy of the shape reflected across the given axis.
         /// </summary>
         public T Flip(FlipAxis axis);
 
