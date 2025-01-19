@@ -141,7 +141,7 @@ namespace PAC.Shapes
                     int count2 = 0;
                     // Whether the last of in1 / out1 / in2 / out2 we saw was on line 1 or line 2
                     int lastSeen = 0;
-                    foreach (IntVector2 point in new Rectangle(meetingPoint + IntVector2.downLeft, meetingPoint + IntVector2.upRight, false))
+                    foreach (IntVector2 point in new Rectangle(new IntRect(meetingPoint + IntVector2.downLeft, meetingPoint + IntVector2.upRight), false))
                     {
                         if (point == in1 || point == out1)
                         {

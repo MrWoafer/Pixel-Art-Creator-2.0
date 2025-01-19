@@ -766,7 +766,7 @@ namespace PAC.Drawing
                     {
                         end = CoordSnapping.SnapToSquare(mouseDragPoints[0], end);
                     }
-                    PreviewShape(new Rectangle(mouseDragPoints[0], end, rightClickedOn), colour);
+                    PreviewShape(new Rectangle(new IntRect(mouseDragPoints[0], end), rightClickedOn), colour);
                 }
                 else if (toolbar.shapeToolShape == Shape.Ellipse)
                 {
@@ -775,7 +775,7 @@ namespace PAC.Drawing
                     {
                         end = CoordSnapping.SnapToSquare(mouseDragPoints[0], end);
                     }
-                    PreviewShape(new Ellipse(mouseDragPoints[0], end, rightClickedOn), colour);
+                    PreviewShape(new Ellipse(new IntRect(mouseDragPoints[0], end), rightClickedOn), colour);
                 }
                 else if (toolbar.shapeToolShape == Shape.RightTriangle)
                 {
@@ -789,7 +789,7 @@ namespace PAC.Drawing
                     {
                         end = CoordSnapping.SnapToSquare(mouseDragPoints[0], end);
                     }
-                    PreviewShape(new Diamond(mouseDragPoints[0], end, rightClickedOn), colour);
+                    PreviewShape(new Diamond(new IntRect(mouseDragPoints[0], end), rightClickedOn), colour);
                 }
             }
             else if (tool == Tool.IsoBox && (leftClickedOn || rightClickedOn))
@@ -828,7 +828,7 @@ namespace PAC.Drawing
                     {
                         end = CoordSnapping.SnapToSquare(mouseDragPoints[0], end);
                     }
-                    SelectionShape(new Rectangle(mouseDragPoints[0], end, true), rightClickedOn);
+                    SelectionShape(new Rectangle(new IntRect(mouseDragPoints[0], end), true), rightClickedOn);
                 }
                 else if (toolbar.selectionMode == SelectionMode.Ellipse)
                 {
@@ -837,7 +837,7 @@ namespace PAC.Drawing
                     {
                         end = CoordSnapping.SnapToSquare(mouseDragPoints[0], end);
                     }
-                    SelectionShape(new Ellipse(mouseDragPoints[0], end, true), rightClickedOn);
+                    SelectionShape(new Ellipse(new IntRect(mouseDragPoints[0], end), true), rightClickedOn);
                 }
             }
             else if (tool == Tool.Move)
@@ -865,7 +865,7 @@ namespace PAC.Drawing
                     {
                         end = CoordSnapping.SnapToSquare(mouseDragPoints[0], end);
                     }
-                    Tools.UseShape(file, layer, frame, new Rectangle(mouseDragPoints[0], end, rightClickedOn), colour);
+                    Tools.UseShape(file, layer, frame, new Rectangle(new IntRect(mouseDragPoints[0], end), rightClickedOn), colour);
 
                     UpdateDrawing();
                 }
@@ -876,7 +876,7 @@ namespace PAC.Drawing
                     {
                         end = CoordSnapping.SnapToSquare(mouseDragPoints[0], end);
                     }
-                    Tools.UseShape(file, layer, frame, new Ellipse(mouseDragPoints[0], end, rightClickedOn), colour);
+                    Tools.UseShape(file, layer, frame, new Ellipse(new IntRect(mouseDragPoints[0], end), rightClickedOn), colour);
 
                     UpdateDrawing();
                 }
@@ -894,7 +894,7 @@ namespace PAC.Drawing
                     {
                         end = CoordSnapping.SnapToSquare(mouseDragPoints[0], end);
                     }
-                    Tools.UseShape(file, layer, frame, new Diamond(mouseDragPoints[0], end, rightClickedOn), colour);
+                    Tools.UseShape(file, layer, frame, new Diamond(new IntRect(mouseDragPoints[0], end), rightClickedOn), colour);
 
                     UpdateDrawing();
                 }

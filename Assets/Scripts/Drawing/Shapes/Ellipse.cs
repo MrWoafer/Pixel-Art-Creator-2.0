@@ -41,7 +41,6 @@ namespace PAC.Shapes
 
         public int Count => this.Count();
 
-        public Ellipse(IntVector2 corner, IntVector2 oppositeCorner, bool filled) : this(new IntRect(corner, oppositeCorner), filled) { }
         public Ellipse(IntRect boundingRect, bool filled)
         {
             this.boundingRect = boundingRect;

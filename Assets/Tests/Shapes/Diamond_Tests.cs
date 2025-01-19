@@ -24,7 +24,7 @@ namespace PAC.Tests.Shapes
                     {
                         foreach (IntVector2 topRight in bottomLeft + new IntRect(IntVector2.zero, new IntVector2(5, 5)))
                         {
-                            yield return new Diamond(bottomLeft, topRight, filled);
+                            yield return new Diamond(new IntRect(bottomLeft, topRight), filled);
                         }
                     }
                 }
@@ -39,7 +39,7 @@ namespace PAC.Tests.Shapes
             {
                 foreach (IntVector2 pixel in new IntRect(new IntVector2(-5, -5), new IntVector2(5, 5)))
                 {
-                    CollectionAssert.AreEqual(new IntVector2[] { pixel }, new Diamond(pixel, pixel, filled), $"Failed with {pixel} {(filled ? "filled" : "unfilled")}.");
+                    CollectionAssert.AreEqual(new IntVector2[] { pixel }, new Diamond(new IntRect(pixel, pixel), filled), $"Failed with {pixel} {(filled ? "filled" : "unfilled")}.");
                 }
             }
         }
@@ -60,7 +60,7 @@ namespace PAC.Tests.Shapes
                         int width = blockSize * (2 * numBlocks - 1);
                         int height = 2 * numBlocks - 1;
 
-                        Diamond diamond = new Diamond(start, start + new IntVector2(width - 1, height - 1), false);
+                        Diamond diamond = new Diamond(new IntRect(start, start + new IntVector2(width - 1, height - 1)), false);
 
                         IntVector2 leftCorner = diamond.Where(p => p.x == diamond.boundingRect.bottomLeft.x).ArgMin(p => p.y);
                         IntVector2 bottomCorner = diamond.Where(p => p.y == diamond.boundingRect.bottomLeft.y).ArgMax(p => p.x);
@@ -93,7 +93,7 @@ namespace PAC.Tests.Shapes
             {
                 foreach (IntVector2 topRight in new IntRect(IntVector2.zero, new IntVector2(10, 10)))
                 {
-                    Diamond diamond = new Diamond(IntVector2.zero, topRight, filled);
+                    Diamond diamond = new Diamond(new IntRect(IntVector2.zero, topRight), filled);
 
                     ShapeAssert.ReflectiveSymmetry(diamond, FlipAxis.Vertical);
                     ShapeAssert.ReflectiveSymmetry(diamond, FlipAxis.Horizontal);

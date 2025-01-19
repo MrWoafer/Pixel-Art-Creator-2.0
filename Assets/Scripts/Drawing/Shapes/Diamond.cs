@@ -130,7 +130,6 @@ namespace PAC.Shapes
             }
         }
 
-        public Diamond(IntVector2 corner, IntVector2 oppositeCorner, bool filled) : this(new IntRect(corner, oppositeCorner), filled) { }
         public Diamond(IntRect boundingRect, bool filled)
         {
             this.boundingRect = boundingRect;
