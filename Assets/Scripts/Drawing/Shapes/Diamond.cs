@@ -8,22 +8,66 @@ using PAC.Shapes.Interfaces;
 
 namespace PAC.Shapes
 {
+    /// <summary>
+    /// A pixel art diamond shape.
+    /// <example>
+    /// For example,
+    /// <code>
+    ///     #
+    ///     #
+    ///   #   #
+    ///   #   #
+    /// #       #
+    /// #       #
+    ///   #   #
+    ///   #   #
+    ///     #
+    ///     #
+    /// </code>
+    /// </example>
+    /// </summary>
+    /// <remarks>
+    /// <para>
+    /// <b>Shape:</b>
+    /// </para>
+    /// <para>
+    /// If the border can be drawn using perfect <see cref="Line"/>s, it will be. (See <see cref="Line"/> for a definition of 'perfect'.)
+    /// </para>
+    /// <para>
+    /// If the width or height of the <see cref="boundingRect"/> is &lt;= 2, it will look like a rectangle.
+    /// </para>
+    /// <para>
+    /// <b>Enumerator:</b>
+    /// </para>
+    /// <para>
+    /// The enumerator does not repeat any points.
+    /// </para>
+    /// </remarks>
     public class Diamond : I2DShape<Diamond>, IDeepCopyableShape<Diamond>, IEquatable<Diamond>
     {
         public bool filled { get; set; }
 
-        /// <summary>True if the diamond is a square.</summary>
-        public bool isSquare => boundingRect.width == boundingRect.height;
+        public IntRect boundingRect { get; set; }
 
-        public IntRect boundingRect { get; private set; }
+        /// <summary>
+        /// Whether the <see cref="Diamond"/> is a square (at a 45-degree angle).
+        /// </summary>
+        /// <remarks>
+        /// This is equivalent to its <see cref="boundingRect"/> being a square.
+        /// </remarks>
+        public bool isSquare => boundingRect.isSquare;
 
         public int Count
         {
             get
             {
-                if (boundingRect.width == 1 || boundingRect.height == 1)
+                if (boundingRect.width == 1)
                 {
-                    return Math.Max(boundingRect.width, boundingRect.height);
+                    return boundingRect.height;
+                }
+                if (boundingRect.height == 1)
+                {
+                    return boundingRect.width;
                 }
 
                 var edges = this.edges;
@@ -34,7 +78,7 @@ namespace PAC.Shapes
                     {
                         count += edges.bottomRight.MaxX(y) - edges.bottomLeft.MinX(y) + 1;
                     }
-                    // The potential + 1 for the starting y is to avoid repeating pixels
+                    // The + 1 for the starting y is to avoid repeating points
                     for (int y = edges.bottomLeft.boundingRect.maxY + 1; y <= boundingRect.maxY; y++)
                     {
                         count += edges.topRight.MaxX(y) - edges.topLeft.MinX(y) + 1;
@@ -68,6 +112,43 @@ namespace PAC.Shapes
             }
         }
 
+        /// <summary>
+        /// The four <see cref="Line"/>s that make up the border of the <see cref="Diamond"/>.
+        /// </summary>
+        /// <remarks>
+        /// <para>
+        /// Note this is in general not a <see cref="Path"/>. This is because we overlap the end blocks of the <see cref="Line"/>s to make the <see cref="Diamond"/> more aesthetic (without it, the
+        /// middle blocks on each side are longer than all the other blocks) and to ensure that <see cref="Diamond"/>s that can be drawn with perfect <see cref="Line"/>s are drawn as such.
+        /// </para>
+        /// <example>
+        /// For example, without overlapping:
+        /// <code>
+        ///     # &lt;- other endpoint of top-right edge
+        ///     #
+        ///   #   #
+        /// #       #
+        /// #       # &lt;- one endpoint of top-right edge
+        /// #       # &lt;- one endpoint of bottom-right edge
+        /// #       #
+        ///   #   #
+        ///     #
+        ///     # &lt;- other endpoint of bottom-right edge
+        /// </code>
+        /// With overlapping:
+        /// <code>
+        ///     # &lt;- other endpoint of top-right edge
+        ///     #
+        ///   #   #
+        ///   #   #
+        /// #       # &lt;- one endpoint of bottom-right edge
+        /// #       # &lt;- one endpoint of top-right edge
+        ///   #   #
+        ///   #   #
+        ///     #
+        ///     # &lt;- other endpoint of bottom-right edge
+        /// </code>
+        /// </example>
+        /// </remarks>
         private (Line bottomLeft, Line bottomRight, Line topRight, Line topLeft) edges
         {
             get
@@ -83,17 +164,17 @@ namespace PAC.Shapes
                         new Line(boundingRect.bottomLeft + boundingRect.height / 2 * IntVector2.up, boundingRect.topRight + boundingRect.width / 2 * IntVector2.left)
                     };
 
-                // This is to ensure rotating / reflecting doesn't change the shape (up to rotating / reflecting)
+                // This is to ensure rotating / reflecting doesn't change the geometry (up to rotating / reflecting)
                 if (boundingRect.width > boundingRect.height)
                 {
                     for (int i = 0; i < lines.Length; i++)
                     {
-                        lines[i] = new Line(lines[i].end, lines[i].start);
+                        lines[i] = lines[i].reverse;
                     }
                 }
 
-                // This is to make the the diamonds more aesthetic by overlapping the edges as much as possible
-                // One such effect this has is making sure diamonds that can be drawn with perfect lines are drawn as such
+                // Overlap the end blocks of the lines
+
                 if (boundingRect.width > boundingRect.height)
                 {
                     // Not particularly efficient, but does the job and really isn't slow even when drawing diamonds with a width of 1000
@@ -105,10 +186,11 @@ namespace PAC.Shapes
                         lines[3].start += IntVector2.right;
                     }
 
-                    lines[0].start += IntVector2.left;
-                    lines[1].start += IntVector2.right;
-                    lines[2].start += IntVector2.right;
-                    lines[3].start += IntVector2.left;
+                    // Undo the last step, so that the loop condition holds again (this process is done to obtain the boundary case for that condition)
+                    lines[0].start -= IntVector2.right;
+                    lines[1].start -= IntVector2.left;
+                    lines[2].start -= IntVector2.left;
+                    lines[3].start -= IntVector2.right;
                 }
                 else if (boundingRect.width < boundingRect.height)
                 {
@@ -120,62 +202,61 @@ namespace PAC.Shapes
                         lines[3].start += IntVector2.down;
                     }
 
-                    lines[0].start += IntVector2.down;
-                    lines[1].start += IntVector2.down;
-                    lines[2].start += IntVector2.up;
-                    lines[3].start += IntVector2.up;
+                    lines[0].start -= IntVector2.up;
+                    lines[1].start -= IntVector2.up;
+                    lines[2].start -= IntVector2.down;
+                    lines[3].start -= IntVector2.down;
                 }
 
                 return (lines[0], lines[1], lines[2], lines[3]);
             }
         }
 
+        /// <summary>
+        /// Creates the largest <see cref="Diamond"/> that can fit in the given rect.
+        /// </summary>
+        /// <param name="boundingRect">See <see cref="boundingRect"/>.</param>
+        /// <param name="filled">See <see cref="filled"/>.</param>
         public Diamond(IntRect boundingRect, bool filled)
         {
             this.boundingRect = boundingRect;
             this.filled = filled;
         }
 
-        public bool Contains(IntVector2 pixel)
+        public bool Contains(IntVector2 point)
         {
             if (filled)
             {
                 var edges = this.edges;
-                return edges.bottomLeft.PointIsToRight(pixel) && edges.bottomRight.PointIsToLeft(pixel) || edges.topLeft.PointIsToRight(pixel) && edges.topRight.PointIsToLeft(pixel);
+                return edges.bottomLeft.PointIsToRight(point) && edges.bottomRight.PointIsToLeft(point) || edges.topLeft.PointIsToRight(point) && edges.topRight.PointIsToLeft(point);
             }
-            return edges.AsEnumerable().Any(edge => edge.Contains(pixel));
+            return edges.AsEnumerable().Any(edge => edge.Contains(point));
         }
 
         /// <summary>
-        /// Translates the diamond by the given vector.
+        /// Returns a deep copy of the <see cref="Diamond"/> translated by the given vector.
         /// </summary>
+        /// <seealso cref="Translate(IntVector2)"/>
         public static Diamond operator +(Diamond diamond, IntVector2 translation) => diamond.Translate(translation);
         /// <summary>
-        /// Translates the diamond by the given vector.
+        /// Returns a deep copy of the <see cref="Diamond"/> translated by the given vector.
         /// </summary>
+        /// <seealso cref="Translate(IntVector2)"/>
         public static Diamond operator +(IntVector2 translation, Diamond diamond) => diamond + translation;
         /// <summary>
-        /// Translates the diamond by the given vector.
+        /// Returns a deep copy of the <see cref="Diamond"/> translated by the given vector.
         /// </summary>
-        public static Diamond operator -(Diamond diamond, IntVector2 translation) => diamond + -translation;
+        /// <seealso cref="Translate(IntVector2)"/>
+        public static Diamond operator -(Diamond diamond, IntVector2 translation) => diamond + (-translation);
         /// <summary>
-        /// Reflects the diamond through the origin.
+        /// Returns a deep copy of the <see cref="Diamond"/> rotated 180 degrees about the origin (equivalently, reflected through the origin).
         /// </summary>
+        /// <seealso cref="Rotate(RotationAngle)"/>
+        /// <seealso cref="Flip(FlipAxis)"/>
         public static Diamond operator -(Diamond diamond) => new Diamond(-diamond.boundingRect, diamond.filled);
 
-        /// <summary>
-        /// Translates the diamond by the given vector.
-        /// </summary>
         public Diamond Translate(IntVector2 translation) => new Diamond(boundingRect + translation, filled);
-
-        /// <summary>
-        /// Reflects the diamond across the given axis.
-        /// </summary>
         public Diamond Flip(FlipAxis axis) => new Diamond(boundingRect.Flip(axis), filled);
-
-        /// <summary>
-        /// Rotates the diamond by the given angle.
-        /// </summary>
         public Diamond Rotate(RotationAngle angle) => new Diamond(boundingRect.Rotate(angle), filled);
 
         IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();
@@ -191,7 +272,7 @@ namespace PAC.Shapes
                         yield return new IntVector2(x, y);
                     }
                 }
-                // The potential + 1 for the starting y is to avoid repeating pixels
+                // The + 1 for the starting y is to avoid repeating points
                 for (int y = edges.bottomLeft.boundingRect.maxY + 1; y <= boundingRect.maxY; y++)
                 {
                     for (int x = edges.topLeft.MinX(y); x <= edges.topRight.MaxX(y); x++)
@@ -203,51 +284,63 @@ namespace PAC.Shapes
             else
             {
                 // Bottom-left edge
-                foreach (IntVector2 pixel in edges.bottomLeft)
+                foreach (IntVector2 point in edges.bottomLeft)
                 {
-                    yield return pixel;
+                    yield return point;
                 }
 
                 // Bottom-right edge
-                foreach (IntVector2 pixel in edges.bottomRight)
+                foreach (IntVector2 point in edges.bottomRight)
                 {
-                    // This check avoids repeating pixels
-                    if (pixel.x > edges.bottomLeft.boundingRect.maxX)
+                    // This check avoids repeating points from previous line
+                    if (point.x > edges.bottomLeft.boundingRect.maxX)
                     {
-                        yield return pixel;
+                        yield return point;
                     }
                 }
 
                 // Top-right edge
-                foreach (IntVector2 pixel in edges.topRight)
+                foreach (IntVector2 point in edges.topRight)
                 {
-                    // This check avoids repeating pixels
-                    if (pixel.y > edges.bottomRight.boundingRect.maxY)
+                    // This check avoids repeating points from previous lines
+                    if (point.y > edges.bottomRight.boundingRect.maxY)
                     {
-                        yield return pixel;
+                        yield return point;
                     }
                 }
 
                 // Top-left edge
-                foreach (IntVector2 pixel in edges.topLeft)
+                foreach (IntVector2 point in edges.topLeft)
                 {
-                    // This check avoids repeating pixels
-                    if (pixel.x < edges.topRight.boundingRect.minX && pixel.y > edges.bottomLeft.boundingRect.maxY)
+                    // This check avoids repeating points from previous lines
+                    if (point.x < edges.topRight.boundingRect.minX && point.y > edges.bottomLeft.boundingRect.maxY)
                     {
-                        yield return pixel;
+                        yield return point;
                     }
                 }
             }
         }
 
+        /// <summary>
+        /// Whether the two <see cref="Diamond"/>s have the same shape, and the same value for <see cref="filled"/>.
+        /// </summary>
         public static bool operator ==(Diamond a, Diamond b) => a.boundingRect == b.boundingRect && a.filled == b.filled;
+        /// <summary>
+        /// See <see cref="operator ==(Diamond, Diamond)"/>.
+        /// </summary>
         public static bool operator !=(Diamond a, Diamond b) => !(a == b);
+        /// <summary>
+        /// See <see cref="operator ==(Diamond, Diamond)"/>.
+        /// </summary>
         public bool Equals(Diamond other) => this == other;
+        /// <summary>
+        /// See <see cref="Equals(Diamond)"/>.
+        /// </summary>
         public override bool Equals(object obj) => obj is Diamond other && Equals(other);
 
         public override int GetHashCode() => HashCode.Combine(boundingRect, filled);
 
-        public override string ToString() => "Diamond(" + boundingRect.bottomLeft + ", " + boundingRect.topRight + ", " + (filled ? "filled" : "unfilled") + ")";
+        public override string ToString() => $"{nameof(Diamond)}({boundingRect}, {(filled ? "filled" : "unfilled")})";
 
         public Diamond DeepCopy() => new Diamond(boundingRect, filled);
     }

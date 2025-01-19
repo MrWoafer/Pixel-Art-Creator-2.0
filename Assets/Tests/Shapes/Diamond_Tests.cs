@@ -44,6 +44,32 @@ namespace PAC.Tests.Shapes
             }
         }
 
+        [Test]
+        [Category("Shapes")]
+        public void Shape1xNAndNx1()
+        {
+            foreach (Diamond diamond in testCases)
+            {
+                if (diamond.boundingRect.width == 1 || diamond.boundingRect.height == 1)
+                {
+                    CollectionAssert.AreEquivalent(diamond.boundingRect, diamond, $"Failed with {diamond}.");
+                }
+            }
+        }
+
+        [Test]
+        [Category("Shapes")]
+        public void Shape2xNAndNx2()
+        {
+            foreach (Diamond diamond in testCases)
+            {
+                if (diamond.boundingRect.width == 2 || diamond.boundingRect.height == 2)
+                {
+                    CollectionAssert.AreEquivalent(diamond.boundingRect, diamond, $"Failed with {diamond}.");
+                }
+            }
+        }
+
         /// <summary>
         /// Tests that diamonds that can be drawn with perfect lines are drawn as such. E.g. a 6x3 diamond can be drawn with only blocks of size 2x1.
         /// </summary>
