@@ -48,6 +48,32 @@ namespace PAC.Tests.Shapes
         /// </summary>
         [Test]
         [Category("Shapes")]
+        public void Shape1xNAndNx1()
+        {
+            foreach (bool filled in new bool[] { false, true })
+            {
+                for (int y = -5; y <= 5; y++)
+                {
+                    Ellipse ellipse = new Ellipse(new IntRect(IntVector2.zero, new IntVector2(0, y)), filled);
+                    CollectionAssert.AreEquivalent(ellipse.boundingRect, ellipse, $"Failed with {ellipse}.");
+                }
+            }
+
+            foreach (bool filled in new bool[] { false, true })
+            {
+                for (int x = -5; x <= 5; x++)
+                {
+                    Ellipse ellipse = new Ellipse(new IntRect(IntVector2.zero, new IntVector2(x, 0)), filled);
+                    CollectionAssert.AreEquivalent(ellipse.boundingRect, ellipse, $"Failed with {ellipse}.");
+                }
+            }
+        }
+
+        /// <summary>
+        /// Tests that 2xn and nx2 ellipses have the correct shape.
+        /// </summary>
+        [Test]
+        [Category("Shapes")]
         public void Shape2xNAndNx2()
         {
             foreach (bool filled in new bool[] { false, true })
