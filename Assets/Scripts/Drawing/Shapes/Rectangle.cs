@@ -8,14 +8,38 @@ using PAC.Shapes.Interfaces;
 
 namespace PAC.Shapes
 {
+    /// <summary>
+    /// A pixel art rectangle shape.
+    /// <example>
+    /// For example,
+    /// <code>
+    /// # # # #
+    /// #     #
+    /// # # # #
+    /// </code>
+    /// </example>
+    /// </summary>
+    /// <remarks>
+    /// <para>
+    /// <b>Enumerator:</b>
+    /// </para>
+    /// <para>
+    /// The enumerator does not repeat any points.
+    /// </para>
+    /// </remarks>
     public class Rectangle : I2DShape<Rectangle>, IDeepCopyableShape<Rectangle>, IEquatable<Rectangle>
     {
         public bool filled { get; set; }
 
-        /// <summary>True if the rectangle is a square.</summary>
-        public bool isSquare => boundingRect.width == boundingRect.height;
-
         public IntRect boundingRect { get; set; }
+
+        /// <summary>
+        /// Whether the <see cref="Rectangle"/> is a square.
+        /// </summary>
+        /// <remarks>
+        /// This is equivalent to its <see cref="boundingRect"/> being a square.
+        /// </remarks>
+        public bool isSquare => boundingRect.isSquare;
 
         public int Count
         {
@@ -35,69 +59,65 @@ namespace PAC.Shapes
                 {
                     return boundingRect.width;
                 }
+                // Add the length of the left side, right side, top side and bottom side, then subtract 4 as we've double-counted each corner
                 return 2 * (boundingRect.width + boundingRect.height) - 4;
             }
         }
 
+        /// <summary>
+        /// Creates a <see cref="Rectangle"/> that takes up the region of the given <see cref="IntRect"/>.
+        /// </summary>
+        /// <param name="boundingRect">See <see cref="boundingRect"/>.</param>
+        /// <param name="filled">See <see cref="filled"/>.</param>
         public Rectangle(IntRect boundingRect, bool filled)
         {
             this.boundingRect = boundingRect;
             this.filled = filled;
         }
 
-        public bool Contains(IntVector2 pixel)
+        public bool Contains(IntVector2 point)
         {
             if (filled)
             {
-                return boundingRect.Contains(pixel);
+                return boundingRect.Contains(point);
             }
-            return boundingRect.Contains(pixel) && !(pixel > boundingRect.bottomLeft && pixel < boundingRect.topRight);
+            return boundingRect.Contains(point) && !(boundingRect.bottomLeft < point && point < boundingRect.topRight);
         }
 
         /// <summary>
-        /// Translates the rectangle by the given vector.
+        /// Returns a deep copy of the <see cref="Rectangle"/> translated by the given vector.
         /// </summary>
+        /// <seealso cref="Translate(IntVector2)"/>
         public static Rectangle operator +(Rectangle rectangle, IntVector2 translation) => rectangle.Translate(translation);
         /// <summary>
-        /// Translates the rectangle by the given vector.
+        /// Returns a deep copy of the <see cref="Rectangle"/> translated by the given vector.
         /// </summary>
+        /// <seealso cref="Translate(IntVector2)"/>
         public static Rectangle operator +(IntVector2 translation, Rectangle rectangle) => rectangle + translation;
         /// <summary>
-        /// Translates the rectangle by the given vector.
+        /// Returns a deep copy of the <see cref="Rectangle"/> translated by the given vector.
         /// </summary>
-        public static Rectangle operator -(Rectangle rectangle, IntVector2 translation) => rectangle + -translation;
+        /// <seealso cref="Translate(IntVector2)"/>
+        public static Rectangle operator -(Rectangle rectangle, IntVector2 translation) => rectangle + (-translation);
         /// <summary>
-        /// Reflects the rectangle through the origin.
+        /// Returns a deep copy of the <see cref="Rectangle"/> rotated 180 degrees about the origin (equivalently, reflected through the origin).
         /// </summary>
+        /// <seealso cref="Rotate(RotationAngle)"/>
+        /// <seealso cref="Flip(FlipAxis)"/>
         public static Rectangle operator -(Rectangle rectangle) => new Rectangle(-rectangle.boundingRect, rectangle.filled);
 
-        /// <summary>
-        /// Translates the rectangle by the given vector.
-        /// </summary>
         public Rectangle Translate(IntVector2 translation) => new Rectangle(boundingRect + translation, filled);
-
-        /// <summary>
-        /// Reflects the rectangle across the given axis.
-        /// </summary>
         public Rectangle Flip(FlipAxis axis) => new Rectangle(boundingRect.Flip(axis), filled);
-
-        /// <summary>
-        /// Rotates the rectangle by the given angle.
-        /// </summary>
         public Rectangle Rotate(RotationAngle angle) => new Rectangle(boundingRect.Rotate(angle), filled);
 
         IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();
         public IEnumerator<IntVector2> GetEnumerator()
         {
-            // Filled - start with the bottom row, read left to right, then the next row, etc.
             if (filled)
             {
-                foreach (int y in boundingRect.yRange)
+                foreach (IntVector2 point in boundingRect)
                 {
-                    foreach (int x in boundingRect.xRange)
-                    {
-                        yield return new IntVector2(x, y);
-                    }
+                    yield return point;
                 }
                 yield break;
             }
@@ -110,6 +130,7 @@ namespace PAC.Shapes
                 yield return new IntVector2(boundingRect.minX, y);
             }
 
+            // Avoid repeating points
             if (boundingRect.width == 1)
             {
                 yield break;
@@ -121,6 +142,7 @@ namespace PAC.Shapes
                 yield return new IntVector2(x, boundingRect.maxY);
             }
 
+            // Avoid repeating points
             if (boundingRect.height == 1)
             {
                 yield break;
@@ -133,20 +155,32 @@ namespace PAC.Shapes
             }
 
             // Along the bottom side (right to left), skipping the two endpoints as we've already seen them
-            for (int x = boundingRect.maxX - 1; x >= boundingRect.minX + 1; x--)
+            foreach (int x in boundingRect.xRange.reverse.Skip(1).SkipLast(1))
             {
                 yield return new IntVector2(x, boundingRect.minY);
             }
         }
 
+        /// <summary>
+        /// Whether the two <see cref="Rectangle"/>s have the same shape, and the same value for <see cref="filled"/>.
+        /// </summary>
         public static bool operator ==(Rectangle a, Rectangle b) => a.boundingRect == b.boundingRect && a.filled == b.filled;
+        /// <summary>
+        /// See <see cref="operator ==(Rectangle, Rectangle)"/>.
+        /// </summary>
         public static bool operator !=(Rectangle a, Rectangle b) => !(a == b);
+        /// <summary>
+        /// See <see cref="operator ==(Rectangle, Rectangle)"/>.
+        /// </summary>
         public bool Equals(Rectangle other) => this == other;
+        /// <summary>
+        /// See <see cref="Equals(Rectangle)"/>.
+        /// </summary>
         public override bool Equals(object obj) => obj is Rectangle other && Equals(other);
 
         public override int GetHashCode() => HashCode.Combine(boundingRect, filled);
 
-        public override string ToString() => "Rectangle(" + boundingRect.bottomLeft + ", " + boundingRect.topRight + ", " + (filled ? "filled" : "unfilled") + ")";
+        public override string ToString() => $"{nameof(Rectangle)}({boundingRect}, {(filled ? "filled" : "unfilled")})";
 
         public Rectangle DeepCopy() => new Rectangle(boundingRect, filled);
     }
