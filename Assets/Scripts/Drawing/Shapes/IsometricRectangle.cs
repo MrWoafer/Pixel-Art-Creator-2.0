@@ -72,8 +72,10 @@ namespace PAC.Shapes
 
         public bool filled { get; set; }
 
-        /// <summary>True if the isometric rectangle is an isometric square.</summary>
-        public bool isIsometricSquare => lowerBorder.start.y == lowerBorder.end.y;
+        /// <summary>
+        /// Whether the sides lengths of the <see cref="IsometricRectangle"/> are all equal.
+        /// </summary>
+        public bool isIsometricSquare => (lowerBorder.MinX(boundingRect.minY) - boundingRect.minX) == (boundingRect.maxX - lowerBorder.MaxX(boundingRect.minY));
 
         public IntRect boundingRect => new IntRect(new IntVector2(leftCorner.x, bottomCorner.y), new IntVector2(rightCorner.x, topCorner.y));
 
