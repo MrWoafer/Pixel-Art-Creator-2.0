@@ -60,6 +60,20 @@ namespace PAC.Tests.Shapes
             }
         }
 
+        [Test]
+        [Category("Shapes")]
+        public void ShapeExample()
+        {
+            IsometricRectangle rectangle = new IsometricRectangle((0, 0), (11, -1), false);
+            IntVector2[] expected = new IntVector2[]
+            {
+                (0, 0), (1, 0), (2, -1), (3, -1), (4, -2), (5, -2), (6, -3), (7, -3), (8, -2), (9, -2), (10, -1), (11, -1),
+                (10, -1), (9, 0), (8, 0), (7, 1), (6, 1), (5, 2), (4, 2), (3, 1), (2, 1), (1, 0), (0, 0)
+            };
+
+            ShapeAssert.SameGeometry(expected, rectangle);
+        }
+
         /// <summary>
         /// Tests that the topCorner, bottomCorner, leftCorner and rightCorner properties are indeed corners of the shape.
         /// </summary>
@@ -69,10 +83,27 @@ namespace PAC.Tests.Shapes
         {
             foreach (IsometricRectangle rectangle in testCases)
             {
-                Assert.AreEqual(rectangle.boundingRect.bottomLeft.x, rectangle.leftCorner.x, $"Failed with {rectangle}.");
-                Assert.AreEqual(rectangle.boundingRect.topRight.x, rectangle.rightCorner.x, $"Failed with {rectangle}.");
-                Assert.AreEqual(rectangle.boundingRect.bottomLeft.y, rectangle.bottomCorner.y, $"Failed with {rectangle}.");
-                Assert.AreEqual(rectangle.boundingRect.topRight.y, rectangle.topCorner.y, $"Failed with {rectangle}.");
+                Assert.AreEqual(rectangle.boundingRect.minX, rectangle.leftCorner.x, $"Failed with {rectangle}.");
+                Assert.AreEqual(rectangle.boundingRect.maxX, rectangle.rightCorner.x, $"Failed with {rectangle}.");
+                Assert.AreEqual(rectangle.boundingRect.minY, rectangle.bottomCorner.y, $"Failed with {rectangle}.");
+                Assert.AreEqual(rectangle.boundingRect.maxY, rectangle.topCorner.y, $"Failed with {rectangle}.");
+            }
+        }
+
+        /// <summary>
+        /// Tests that <see cref="IsometricRectangle.startCorner"/> and <see cref="IsometricRectangle.endCorner"/> are among <see cref="IsometricRectangle.leftCorner"/>,
+        /// <see cref="IsometricRectangle.rightCorner"/>, <see cref="IsometricRectangle.topCorner"/> and <see cref="IsometricRectangle.bottomCorner"/>.
+        /// </summary>
+        [Test]
+        [Category("Shapes")]
+        public void StartEndCornersAreAmongLeftRightTopBottomCorners()
+        {
+            foreach (IsometricRectangle rectangle in testCases)
+            {
+                IntVector2[] leftRightTopBottom = new IntVector2[] { rectangle.leftCorner, rectangle.rightCorner, rectangle.topCorner, rectangle.bottomCorner };
+
+                Assert.True(leftRightTopBottom.Contains(rectangle.startCorner), $"Failed with {rectangle}.");
+                Assert.True(leftRightTopBottom.Contains(rectangle.endCorner), $"Failed with {rectangle}.");
             }
         }
 

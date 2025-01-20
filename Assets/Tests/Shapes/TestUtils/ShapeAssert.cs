@@ -14,6 +14,13 @@ namespace PAC.Tests.Shapes.TestUtils
     public static class ShapeAssert
     {
         /// <summary>
+        /// Asserts that the two shapes look the same, i.e. they are set-equal.
+        /// </summary>
+        public static void SameGeometry(IEnumerable<IntVector2> expected, IEnumerable<IntVector2> actual) => Assert.True(SameGeometry_Impl(expected, actual));
+        public static void SameGeometry(IEnumerable<IntVector2> expected, IEnumerable<IntVector2> actual, string failMessage) => Assert.True(SameGeometry_Impl(expected, actual), failMessage);
+        public static bool SameGeometry_Impl(IEnumerable<IntVector2> expected, IEnumerable<IntVector2> actual) => expected.ToHashSet().SetEquals(actual);
+
+        /// <summary>
         /// Asserts that no pixels are repeated at all in the shape's enumerator.
         /// </summary>
         public static void NoRepeats(IShape shape)
