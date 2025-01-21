@@ -219,20 +219,26 @@ namespace PAC.Shapes
             InferCornersAndBorder();
         }
 
-        private enum IsometricGradient
+        /// <summary>
+        /// Classifies which pair of corners of the isometric rectangle the start and end corner will be.
+        /// </summary>
+        /// <remarks>
+        /// Note that the start/end corners are opposite corners of the isometric rectangle.
+        /// </remarks>
+        private enum StartEndCornerType
         {
             /// <summary>
-            /// The gradient is &lt; 1/2 and &gt; -1/2.
+            /// The shape will be a line between the start and end corner.
             /// </summary>
-            ShallowerThanHalf,
+            Line,
             /// <summary>
-            /// The gradient is +/- 1/2.
+            /// The start and end corner will be the left/right (not necessarily in that order) corners.
             /// </summary>
-            PlusMinusHalf,
+            LeftRight,
             /// <summary>
-            /// The gradient is &gt; 1/2 or &lt; -1/2.
+            /// The start and end corner will be the top/bottom(not necessarily in that order) corners.
             /// </summary>
-            SteeperThanHalf
+            TopBottom
         }
         /// <summary>
         /// Using just <see cref="startCorner"/> and <see cref="endCorner"/>, deduces the other two corners and the shape of the <see cref="border"/>.
@@ -279,45 +285,70 @@ namespace PAC.Shapes
 
             // General cases
 
-            IntVector2 sign = IntVector2.Sign(endCorner - startCorner);
+            /* We imagine the following perfect half-lines from the start corner:
+             * ...                               ...
+             *     # #                       # #
+             *         # #               # #
+             *             # #       # #     o o < evenWidthEndCorner
+             *                 # # #         ^
+             *             # #   ^   # #  end corner
+             *         # #     start     # #
+             *     # #         corner        # #
+             * ...                               ...
+             * 
+             * This divides the plane into regions. Which region the end corner is in completely determines which pair of corners of the isometric rectangle the start and end corner form:
+             * - The left/right corners (not necessarily in that order)
+             * - The top/bottom corners (not necessarily in that order)
+             * - The isometric rectangle is a line between the start and end corner
+             */
+            StartEndCornerType CalculateStartEndCornerType(IntVector2 startCorner, IntVector2 endCorner)
+            {
+                // This is endCorner, potentially shifted horizontally 1 away startCorner, so the (inclusive) range of x coords between it and startCorner has even length
+                IntVector2 evenWidthEndCorner = Math.Abs(endCorner.x - startCorner.x) % 2 == 0 ? endCorner + new IntVector2(Math.Sign(endCorner.x - startCorner.x), 0) : endCorner;
+
+                // These inequalities rearrange to comparing whether absolute value of the gradient between evenWidthEndCorner and startCorner is >, = or < 1/2, but done solely with integers
+                // to avoid potential float rounding errors
+                return (2 * (Math.Abs(evenWidthEndCorner.y - startCorner.y) + 1) - (Math.Abs(evenWidthEndCorner.x - startCorner.x) + 1)) switch
+                {
+                    < 0 => StartEndCornerType.LeftRight,
+                    0 => StartEndCornerType.Line,
+                    > 0 => StartEndCornerType.TopBottom,
+                };
+            }
+            StartEndCornerType startEndCornerType = CalculateStartEndCornerType(startCorner, endCorner);
+
             IntVector2 diff = endCorner - startCorner;
             IntVector2 absDiff = IntVector2.Abs(diff);
-            IntVector2 adjustedEndCorner = endCorner + ((absDiff.x + 1) % 2) * new IntVector2(sign.x, 0);
+            IntVector2 sign = IntVector2.Sign(diff);
 
-            IsometricGradient region = (Math.Abs(adjustedEndCorner.x - startCorner.x) + 1 - 2 * (Math.Abs(adjustedEndCorner.y - startCorner.y) + 1)) switch
-            {
-                > 0 => IsometricGradient.ShallowerThanHalf,
-                0 => IsometricGradient.PlusMinusHalf,
-                < 0 => IsometricGradient.SteeperThanHalf,
-            };
-
-            // If startCorner and endCorner are on a line with gradient +/- 1/2
-            if (region == IsometricGradient.PlusMinusHalf)
+            if (startEndCornerType == StartEndCornerType.Line)
             {
                 inferredCorners = new IntVector2[] { startCorner, endCorner };
                 int width = absDiff.x + 1;
                 if (width % 2 == 0)
                 {
                     lowerBorder = new Line(startCorner, endCorner);
-                    upperBorder = lowerBorder.reverse;
+                    upperBorder = lowerBorder.reverse; // This will be set-equal to the lower border
                 }
                 else
                 {
                     lowerBorder = new Path(new Line(startCorner, endCorner - sign), new Line(endCorner, endCorner));
-                    upperBorder = lowerBorder.reverse;
+                    upperBorder = lowerBorder.reverse; // This will be set-equal to the lower border
                 }
                 return;
             }
 
-            // In comments below, '= 2 horizontal' etc signifies the size of the block (in the border lines) that corner is in
+            // In comments below, '= 2 horizontal' etc signifies the size of the block (in the lines maing up the border) that corner is in
             // E.g. 'start = 2 horizontal' indicates that startCorner will be in a horizontal block of 2 pixels in the border
             //
-            // This value completely determines these block sizes / directions
+            // The value below, along with which region the end corner is in, completely determine these block sizes / directions
             int shapeType = (absDiff.x + 2 * absDiff.y) % 4;
 
-            // If {startCorner, endCorner} = {leftCorner, rightCorner}
-            if (region == IsometricGradient.ShallowerThanHalf)
+            if (startEndCornerType == StartEndCornerType.LeftRight)
             {
+                // Think of the start / end = 2 horizontal, top / bottom = 2 horizontal case as the normal case (it's probably the easiest to derive the formulas for),
+                // and all the others are derived by relating to this
+
                 if (shapeType == 0)
                 {
                     // start = 2 horizontal, end = 1, top / bottom = 2 horizontal
@@ -325,7 +356,7 @@ namespace PAC.Shapes
                     int numBlocks = Mathf.CeilToInt((absDiff.x + 2) / 4f) - Mathf.FloorToInt(diff.y / 2f);
                     IntVector2 offset = numBlocks * new IntVector2(2 * sign.x, -1) + new IntVector2(-sign.x, 1);
                     IntVector2 bottomCorner = startCorner + offset;
-                    IntVector2 topCorner = adjustedEndCorner - offset;
+                    IntVector2 topCorner = endCorner + new IntVector2(sign.x, 0) - offset;
 
                     inferredCorners = new IntVector2[] { startCorner, endCorner, bottomCorner, topCorner };
                     lowerBorder = new Path(new Line[] {
@@ -347,7 +378,7 @@ namespace PAC.Shapes
                 }
                 else if (shapeType == 1)
                 {
-                    // start = 2 horizontal, end = 2 horizontal, top / bottom = 2 horizontal
+                    // start / end = 2 horizontal, top / bottom = 2 horizontal
 
                     int numBlocks = Mathf.CeilToInt((absDiff.x + 1) / 4f) - Mathf.FloorToInt(diff.y / 2f);
                     IntVector2 offset = numBlocks * new IntVector2(2 * sign.x, -1) + new IntVector2(-sign.x, 1);
@@ -370,7 +401,7 @@ namespace PAC.Shapes
                 }
                 else if (shapeType == 2)
                 {
-                    // start = 2 horizontal, end = 2 horizontal, top / bottom = 3 horizontal
+                    // start / end = 2 horizontal, top / bottom = 3 horizontal
 
                     int numBlocks = Mathf.CeilToInt(absDiff.x / 4f) - Mathf.FloorToInt(diff.y / 2f);
                     IntVector2 offset = numBlocks * new IntVector2(2 * sign.x, -1) + new IntVector2(-sign.x, 1);
@@ -393,12 +424,12 @@ namespace PAC.Shapes
                 }
                 else if (shapeType == 3)
                 {
-                    // start = 1, end = 1, top / bottom = 2 horizontal
+                    // start / end = 1, top / bottom = 2 horizontal
 
                     int numBlocks = Mathf.CeilToInt((absDiff.x - 1) / 4f) - Mathf.FloorToInt(diff.y / 2f);
                     IntVector2 offset = numBlocks * new IntVector2(2 * sign.x, -1);
                     IntVector2 bottomCorner = startCorner + offset;
-                    IntVector2 topCorner = adjustedEndCorner - offset;
+                    IntVector2 topCorner = endCorner - offset;
 
                     inferredCorners = new IntVector2[] { startCorner, endCorner, bottomCorner, topCorner };
                     lowerBorder = new Path(new Line[] {
@@ -423,17 +454,21 @@ namespace PAC.Shapes
                     throw new UnreachableException();
                 }
             }
-            // If {startCorner, endCorner} = {topCorner, bottomCorner}
-            else if (region == IsometricGradient.SteeperThanHalf)
+            else if (startEndCornerType == StartEndCornerType.TopBottom)
             {
-                if (Math.Abs(adjustedEndCorner.x - startCorner.x) + 1 == 2 * Math.Abs(adjustedEndCorner.y - startCorner.y))
+                // Special case where moving the end corner's y coord 1 towards the start corner puts it on one of the lines in the diagram
+                if (CalculateStartEndCornerType(startCorner, endCorner - new IntVector2(0, sign.y)) == StartEndCornerType.Line)
                 {
+                    // Thick line between start corner and end corner
+
                     IntVector2 corner1 = startCorner + sign.y * IntVector2.up;
                     IntVector2 corner2 = endCorner + sign.y * IntVector2.down;
                     inferredCorners = new IntVector2[] { startCorner, endCorner, corner1, corner2 };
+
+                    int width = absDiff.x + 1;
                     if (startCorner.y < endCorner.y)
                     {
-                        if ((absDiff.x + 1) % 2 == 0)
+                        if (width % 2 == 0)
                         {
                             lowerBorder = new Line(startCorner, corner2);
                             upperBorder = new Line(endCorner, corner1);
@@ -446,7 +481,7 @@ namespace PAC.Shapes
                     }
                     else
                     {
-                        if ((absDiff.x + 1) % 2 == 0)
+                        if (width % 2 == 0)
                         {
                             lowerBorder = new Line(endCorner, corner1);
                             upperBorder = new Line(startCorner, corner2);
@@ -467,6 +502,9 @@ namespace PAC.Shapes
                     _ => throw new UnreachableException()
                 };
                 sign = IntVector2.Sign(topCorner - bottomCorner);
+
+                // Think of the start / end = 2 horizontal, left / right = 1 case as the normal case (it's probably the easiest to derive the formulas for),
+                // and all the others are derived by relating to this case
 
                 if (shapeType == 0)
                 {
@@ -556,10 +594,8 @@ namespace PAC.Shapes
 
                         int numBlocks = (absDiff.y - 1) / 2;
                         IntVector2 offset = numBlocks * new IntVector2(2, 1);
-                        // On the y level closer to bottomCorner
-                        IntVector2 rightCorner = bottomCorner + offset;
-                        // On the y level closer to topCorner
-                        IntVector2 leftCorner = topCorner - offset;
+                        IntVector2 rightCorner = bottomCorner + offset; // On the y level closer to bottom corner
+                        IntVector2 leftCorner = topCorner - offset; // On the y level closer to top corner
 
                         inferredCorners = new IntVector2[] { bottomCorner, topCorner, rightCorner, leftCorner };
                         lowerBorder = new Path(
@@ -581,10 +617,8 @@ namespace PAC.Shapes
 
                         int numBlocks = (absDiff.y - 1) / 2 + Mathf.CeilToInt(absDiff.x / 4f);
                         IntVector2 offset = numBlocks * new IntVector2(2 * sign.x, 1);
-                        // On the y level closer to bottomCorner
-                        IntVector2 corner1 = bottomCorner + offset;
-                        // On the y level closer to topCorner
-                        IntVector2 corner2 = topCorner - offset;
+                        IntVector2 corner1 = bottomCorner + offset; // On the y level closer to bottom corner
+                        IntVector2 corner2 = topCorner - offset; // On the y level closer to top corner
 
                         inferredCorners = new IntVector2[] { bottomCorner, topCorner, corner1, corner2 };
                         lowerBorder = new Path(new Line[] {
@@ -611,10 +645,8 @@ namespace PAC.Shapes
 
                     int numBlocks = (absDiff.y - 1) / 2 + Mathf.CeilToInt((absDiff.x - 1) / 4f);
                     IntVector2 offset = numBlocks * new IntVector2(2 * sign.x, 1);
-                    // On the y level closer to bottomCorner
-                    IntVector2 corner1 = bottomCorner + offset;
-                    // On the y level closer to topCorner
-                    IntVector2 corner2 = topCorner - offset;
+                    IntVector2 corner1 = bottomCorner + offset; // On the y level closer to bottom corner
+                    IntVector2 corner2 = topCorner - offset; // On the y level closer to top corner
 
                     inferredCorners = new IntVector2[] { bottomCorner, topCorner, corner1, corner2 };
                     lowerBorder = new Path(new Line[] {
@@ -637,7 +669,7 @@ namespace PAC.Shapes
             }
             else
             {
-                throw new UnreachableException($"Unexpected {nameof(IsometricGradient)}: {region}.");
+                throw new UnreachableException($"Unexpected {nameof(StartEndCornerType)}: {startEndCornerType}.");
             }
         }
 
