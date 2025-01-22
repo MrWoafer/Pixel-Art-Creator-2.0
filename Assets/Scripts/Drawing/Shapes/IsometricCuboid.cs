@@ -12,19 +12,24 @@ namespace PAC.Shapes
 {
     public class IsometricCuboid : IIsometricShape<IsometricCuboid>, IDeepCopyableShape<IsometricCuboid>, IEquatable<IsometricCuboid>
     {
-        private IntVector2 baseStart;
-        private IntVector2 baseEnd;
+        /// <remarks>
+        /// The <see cref="IsometricRectangle.filled"/> property of this is ignored, and the <see cref="IsometricCuboid.filled"/> property of the <see cref="IsometricCuboid"/> is used instead.
+        /// </remarks>
+        public IsometricRectangle bottomRectangle { get; private set; }
+        /// <remarks>
+        /// The <see cref="IsometricRectangle.filled"/> property of this is ignored, and the <see cref="IsometricCuboid.filled"/> property of the <see cref="IsometricCuboid"/> is used instead.
+        /// </remarks>
+        public IsometricRectangle topRectangle => bottomRectangle + Math.Abs(height) * IntVector2.up;
+
+        /// <summary>
+        /// The height of the cuboid if you imagined it in 3D space. In other words, how much the bottom face / <see cref="IsometricRectangle"/> is shifted up to form the top face /
+        /// <see cref="IsometricRectangle"/>.
+        /// </summary>
+        public int height { get; set; }
 
         public bool filled { get; set; }
         public bool showBackEdges { get; set; }
 
-        /// <summary>
-        /// The height of the cuboid if you imagined it in 3D space. In other words, how much the bottom face / isometric rectangle is shifted up to form the top face / isometric rectangle.
-        /// </summary>
-        public int height { get; set; }
-
-        public IsometricRectangle bottomRectangle => new IsometricRectangle(baseStart, baseEnd, filled) + height.ClampNonPositive() * IntVector2.up;
-        public IsometricRectangle topRectangle => bottomRectangle + Math.Abs(height) * IntVector2.up;
         private I1DShape<IShape>[] border
         {
             get
@@ -62,12 +67,23 @@ namespace PAC.Shapes
             }
         }
 
-        public IsometricCuboid(IsometricRectangle baseRectangle, int height, bool showBackEdges)
-            : this(baseRectangle.startCorner, baseRectangle.endCorner, height, baseRectangle.filled, showBackEdges) { }
-        public IsometricCuboid(IntVector2 baseStart, IntVector2 baseEnd, int height, bool filled, bool showBackEdges)
+        /// <summary>
+        /// Creates an <see cref="IsometricCuboid"/> with the given <see cref="IsometricRectangle"/> as either:
+        /// <list type="bullet">
+        /// <item>
+        /// The bottom face, if <paramref name="height"/> &gt;= 0
+        /// </item>
+        /// <item>
+        /// The top face, if <paramref name="height"/> &lt; 0
+        /// </item>
+        /// </list>
+        /// </summary>
+        /// <remarks>
+        /// The <see cref="IsometricRectangle.filled"/> property of the <see cref="IsometricRectangle"/> is ignored, and the parameter <paramref name="filled"/> is used instead.
+        /// </remarks>
+        public IsometricCuboid(IsometricRectangle topOrBottomFace, int height, bool filled, bool showBackEdges)
         {
-            this.baseStart = baseStart;
-            this.baseEnd = baseEnd;
+            bottomRectangle = height >= 0 ? topOrBottomFace : (topOrBottomFace + new IntVector2(0, height));
             this.height = height;
             this.filled = filled;
             this.showBackEdges = showBackEdges;
@@ -98,7 +114,7 @@ namespace PAC.Shapes
         /// <summary>
         /// Translates the isometric cuboid by the given vector.
         /// </summary>
-        public IsometricCuboid Translate(IntVector2 translation) => new IsometricCuboid(baseStart + translation, baseEnd + translation, height, filled, showBackEdges);
+        public IsometricCuboid Translate(IntVector2 translation) => new IsometricCuboid(bottomRectangle + translation, height, filled, showBackEdges);
 
         /// <summary>
         /// Reflects the isometric cuboid across the given axis.
@@ -106,7 +122,7 @@ namespace PAC.Shapes
         public IsometricCuboid Flip(FlipAxis axis) => axis switch
         {
             FlipAxis.None => DeepCopy(),
-            FlipAxis.Vertical => new IsometricCuboid(baseStart.Flip(axis), baseEnd.Flip(axis), height, filled, showBackEdges),
+            FlipAxis.Vertical => new IsometricCuboid(bottomRectangle.Flip(axis), height, filled, showBackEdges),
             FlipAxis.Horizontal | FlipAxis._45Degrees | FlipAxis.Minus45Degrees
             => throw new ArgumentException($"{nameof(Flip)}() is undefined for {nameof(IsometricCuboid)} across the {axis} axis.", nameof(axis)),
             _ => throw new NotImplementedException($"Unknown / unimplemented FlipAxis: {axis}")
@@ -144,8 +160,8 @@ namespace PAC.Shapes
         public override int GetHashCode() => HashCode.Combine(bottomRectangle, height, filled, showBackEdges);
 
         public override string ToString()
-            => $"IsometricCuboid({baseStart}, {baseEnd}, {height}, {(filled ? "filled" : "unfilled")}, {(showBackEdges ? "show back edges" : "don't show back edges")})";
+            => $"IsometricCuboid({bottomRectangle.startCorner}, {bottomRectangle.endCorner}, {height}, {(filled ? "filled" : "unfilled")}, {(showBackEdges ? "show back edges" : "don't show back edges")})";
 
-        public IsometricCuboid DeepCopy() => new IsometricCuboid(baseStart, baseEnd, height, filled, showBackEdges);
+        public IsometricCuboid DeepCopy() => new IsometricCuboid(bottomRectangle.DeepCopy(), height, filled, showBackEdges);
     }
 }

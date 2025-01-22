@@ -33,7 +33,7 @@ namespace PAC.Tests.Shapes
                             {
                                 foreach (bool showBackEdges in new bool[] { false, true })
                                 {
-                                    yield return new IsometricCuboid(IntVector2.zero, new IntVector2(x, y), height, filled, showBackEdges);
+                                    yield return new IsometricCuboid(new IsometricRectangle(IntVector2.zero, new IntVector2(x, y), false), height, filled, showBackEdges);
                                 }
                             }
                         }
@@ -55,7 +55,7 @@ namespace PAC.Tests.Shapes
                     bool filled = rng.Next(0, 2) == 0;
                     bool showBackEdges = rng.Next(0, 2) == 0;
 
-                    yield return new IsometricCuboid(start, end, height, filled, showBackEdges);
+                    yield return new IsometricCuboid(new IsometricRectangle(start, end, false), height, filled, showBackEdges);
                 }
             }
         }
@@ -70,7 +70,7 @@ namespace PAC.Tests.Shapes
                 {
                     foreach (IntVector2 pixel in new IntRect(new IntVector2(-5, -5), new IntVector2(5, 5)))
                     {
-                        CollectionAssert.AreEquivalent(new IntVector2[] { pixel }, new IsometricCuboid(pixel, pixel, 0, filled, showBackEdges).ToHashSet(),
+                        CollectionAssert.AreEquivalent(new IntVector2[] { pixel }, new IsometricCuboid(new IsometricRectangle(pixel, pixel, false), 0, filled, showBackEdges).ToHashSet(),
                             $"Failed with {pixel} {(filled ? "filled" : "unfilled")} {(showBackEdges ? "show back edges" : "don't show back edges")}.");
                     }
                 }
