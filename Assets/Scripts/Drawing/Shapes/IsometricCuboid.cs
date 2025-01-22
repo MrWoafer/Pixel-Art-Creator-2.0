@@ -10,47 +10,114 @@ using PAC.Shapes.Interfaces;
 
 namespace PAC.Shapes
 {
+    /// <summary>
+    /// An isometric pixel art cuboid shape.
+    /// <example>
+    /// For example,
+    /// <code>
+    ///         # #
+    ///     # #     # #
+    /// # #             # #
+    /// #   # #             # #
+    /// #       # #     # #   #
+    /// #           # #       #
+    /// # #           #       #
+    ///     # #       #     # #
+    ///         # #   # # #
+    ///             # #
+    /// </code>
+    /// </example>
+    /// </summary>
+    /// <remarks>
+    /// <para>
+    /// <b>Shape:</b>
+    /// </para>
+    /// <para>
+    /// The top/bottom faces are identical <see cref="IsometricRectangle"/>s.
+    /// </para>
+    /// <para>
+    /// If you imagine a real solid 3D cuboid, then 3 of the 12 edges are not visible in the isometric view as they are at the back of the cuboid. Whether the <see cref="IsometricCuboid"/>
+    /// includes these edges or not is determined by <see cref="includeBackEdges"/>. 
+    /// <example>
+    /// For example, the example <see cref="IsometricCuboid"/> diagram above has <see cref="includeBackEdges"/> set to <see langword="false"/>. Setting it to <see langword="true"/> would look like:
+    /// <code>
+    ///         # #
+    ///     # # #   # #
+    /// # #     #       # #
+    /// #   # # #           # #
+    /// #       # #     # #   #
+    /// #   # #     # #       #
+    /// # #           # # #   #
+    ///     # #       #     # #
+    ///         # #   # # #
+    ///             # #
+    /// </code>
+    /// </example>
+    /// </para>
+    /// <para>
+    /// <b>Enumerator:</b>
+    /// </para>
+    /// <para>
+    /// The enumerator may repeat some points.
+    /// </para>
+    /// </remarks>
     public class IsometricCuboid : IIsometricShape<IsometricCuboid>, IDeepCopyableShape<IsometricCuboid>, IEquatable<IsometricCuboid>
     {
+        /// <summary>
+        /// The bottom face of the <see cref="IsometricCuboid"/>.
+        /// </summary>
         /// <remarks>
-        /// The <see cref="IsometricRectangle.filled"/> property of this is ignored, and the <see cref="IsometricCuboid.filled"/> property of the <see cref="IsometricCuboid"/> is used instead.
+        /// The <see cref="IsometricRectangle.filled"/> property of this is ignored, and the <see cref="filled"/> property of the <see cref="IsometricCuboid"/> is used instead.
         /// </remarks>
-        public IsometricRectangle bottomRectangle { get; private set; }
+        /// <seealso cref="topFace"/>
+        public IsometricRectangle bottomFace { get; private set; }
+        /// <summary>
+        /// The top face of the <see cref="IsometricCuboid"/>.
+        /// </summary>
         /// <remarks>
-        /// The <see cref="IsometricRectangle.filled"/> property of this is ignored, and the <see cref="IsometricCuboid.filled"/> property of the <see cref="IsometricCuboid"/> is used instead.
+        /// The <see cref="IsometricRectangle.filled"/> property of this is ignored, and the <see cref="filled"/> property of the <see cref="IsometricCuboid"/> is used instead.
         /// </remarks>
-        public IsometricRectangle topRectangle => bottomRectangle + Math.Abs(height) * IntVector2.up;
+        /// <seealso cref="bottomFace"/>
+        public IsometricRectangle topFace => bottomFace + Math.Abs(height) * IntVector2.up;
 
         /// <summary>
-        /// The height of the cuboid if you imagined it in 3D space. In other words, how much the bottom face / <see cref="IsometricRectangle"/> is shifted up to form the top face /
-        /// <see cref="IsometricRectangle"/>.
+        /// The height of the cuboid if you imagined it in 3D space. In other words, how much <see cref="bottomFace"/> is translated upward to form <see cref="topFace"/>.
         /// </summary>
         public int height { get; set; }
 
         public bool filled { get; set; }
-        public bool showBackEdges { get; set; }
+        /// <summary>
+        /// Whether or not to show the 3 edges at the back of the cuboid. See <see cref="IsometricCuboid"/> for more details.
+        /// </summary>
+        /// <remarks>
+        /// This has no effect if <see cref="filled"/> is <see langword="true"/>.
+        /// </remarks>
+        public bool includeBackEdges { get; set; }
 
-        private I1DShape<IShape>[] border
+        /// <summary>
+        /// The edges of the <see cref="IsometricCuboid"/>.
+        /// </summary>
+        private I1DShape<IShape>[] wireframe
         {
             get
             {
-                I1DShape<IShape>[] border = new I1DShape<IShape>[showBackEdges ? 6 : 5];
-                border[0] = showBackEdges ? bottomRectangle.border : bottomRectangle.lowerBorder;
-                border[1] = topRectangle.border;
-                border[2] = new Line(bottomRectangle.leftCorner, topRectangle.leftCorner);
-                border[3] = new Line(bottomRectangle.rightCorner, topRectangle.rightCorner);
-                border[4] = new Line(bottomRectangle.bottomCorner, topRectangle.bottomCorner);
+                I1DShape<IShape>[] border = new I1DShape<IShape>[includeBackEdges ? 6 : 5];
 
-                if (showBackEdges)
+                border[0] = includeBackEdges ? bottomFace.border : bottomFace.lowerBorder; // Bottom face
+                border[1] = topFace.border;                                             // Top face
+                border[2] = new Line(bottomFace.leftCorner, topFace.leftCorner);        // Left vertical edge
+                border[3] = new Line(bottomFace.rightCorner, topFace.rightCorner);      // Right vertical edge
+                border[4] = new Line(bottomFace.bottomCorner, topFace.bottomCorner);    // Front vertical edge
+                if (includeBackEdges)
                 {
-                    border[5] = new Line(bottomRectangle.topCorner, topRectangle.topCorner);
+                    border[5] = new Line(bottomFace.topCorner, topFace.topCorner);      // Back vertical edge
                 }
 
                 return border;
             }
         }
 
-        public IntRect boundingRect => IntRect.BoundingRect(bottomRectangle.boundingRect, topRectangle.boundingRect);
+        public IntRect boundingRect => IntRect.BoundingRect(bottomFace.boundingRect, topFace.boundingRect);
 
         public int Count
         {
@@ -58,11 +125,11 @@ namespace PAC.Shapes
             {
                 if (!filled)
                 {
-                    return border.Sum(path => path.Count);
+                    return wireframe.Sum(path => path.Count);
                 }
 
-                Path lowerBorder = bottomRectangle.lowerBorder;
-                Path upperBorder = topRectangle.upperBorder;
+                Path lowerBorder = bottomFace.lowerBorder;
+                Path upperBorder = topFace.upperBorder;
                 return boundingRect.xRange.Sum(x => upperBorder.MaxY(x) - lowerBorder.MinY(x) + 1);
             }
         }
@@ -79,52 +146,57 @@ namespace PAC.Shapes
         /// </list>
         /// </summary>
         /// <remarks>
+        /// <para>
         /// The <see cref="IsometricRectangle.filled"/> property of the <see cref="IsometricRectangle"/> is ignored, and the parameter <paramref name="filled"/> is used instead.
+        /// </para>
+        /// <para>
+        /// The <see cref="IsometricRectangle"/> is not deep-copied, so changes to it will affect the <see cref="IsometricCuboid"/> as well.
+        /// </para>
         /// </remarks>
-        public IsometricCuboid(IsometricRectangle topOrBottomFace, int height, bool filled, bool showBackEdges)
+        /// <param name="height">See <see cref="height"/>.</param>
+        /// <param name="filled">See <see cref="filled"/>.</param>
+        /// <param name="includeBackEdges">See <see cref="includeBackEdges"/>.</param>
+        public IsometricCuboid(IsometricRectangle topOrBottomFace, int height, bool filled, bool includeBackEdges)
         {
-            bottomRectangle = height >= 0 ? topOrBottomFace : (topOrBottomFace + new IntVector2(0, height));
+            bottomFace = height >= 0 ? topOrBottomFace : (topOrBottomFace + new IntVector2(0, height));
             this.height = height;
             this.filled = filled;
-            this.showBackEdges = showBackEdges;
+            this.includeBackEdges = includeBackEdges;
         }
 
-        public bool Contains(IntVector2 pixel)
-        {
-            if (filled)
-            {
-                return boundingRect.ContainsX(pixel.x) && bottomRectangle.lowerBorder.MinY(pixel.x) <= pixel.y && pixel.y <= topRectangle.upperBorder.MaxY(pixel.x);
-            }
-            return border.Any(path => path.Contains(pixel));
-        }
+        public bool Contains(IntVector2 point)
+            => filled
+            ? boundingRect.ContainsX(point.x) && bottomFace.lowerBorder.MinY(point.x) <= point.y && point.y <= topFace.upperBorder.MaxY(point.x)
+            : wireframe.Any(path => path.Contains(point));
 
         /// <summary>
-        /// Translates the isometric cuboid by the given vector.
+        /// Returns a deep copy of the <see cref="IsometricCuboid"/> translated by the given vector.
         /// </summary>
+        /// <seealso cref="Translate(IntVector2)"/>
         public static IsometricCuboid operator +(IsometricCuboid isometricCuboid, IntVector2 translation) => isometricCuboid.Translate(translation);
         /// <summary>
-        /// Translates the isometric cuboid by the given vector.
+        /// Returns a deep copy of the <see cref="IsometricCuboid"/> translated by the given vector.
         /// </summary>
+        /// <seealso cref="Translate(IntVector2)"/>
         public static IsometricCuboid operator +(IntVector2 translation, IsometricCuboid isometricCuboid) => isometricCuboid + translation;
         /// <summary>
-        /// Translates the isometric cuboid by the given vector.
+        /// Returns a deep copy of the <see cref="IsometricCuboid"/> translated by the given vector.
         /// </summary>
-        public static IsometricCuboid operator -(IsometricCuboid isometricCuboid, IntVector2 translation) => isometricCuboid + -translation;
+        /// <seealso cref="Translate(IntVector2)"/>
+        public static IsometricCuboid operator -(IsometricCuboid isometricCuboid, IntVector2 translation) => isometricCuboid + (-translation);
 
-        /// <summary>
-        /// Translates the isometric cuboid by the given vector.
-        /// </summary>
-        public IsometricCuboid Translate(IntVector2 translation) => new IsometricCuboid(bottomRectangle + translation, height, filled, showBackEdges);
-
-        /// <summary>
-        /// Reflects the isometric cuboid across the given axis.
-        /// </summary>
+        public IsometricCuboid Translate(IntVector2 translation) => new IsometricCuboid(bottomFace + translation, height, filled, includeBackEdges);
+        /// <inheritdoc/>
+        /// <remarks>
+        /// Can only be flipped across the vertical axis (or none axis).
+        /// </remarks>
+        /// <exception cref="ArgumentException"><paramref name="axis"/> is an invalid axis.</exception>
         public IsometricCuboid Flip(FlipAxis axis) => axis switch
         {
             FlipAxis.None => DeepCopy(),
-            FlipAxis.Vertical => new IsometricCuboid(bottomRectangle.Flip(axis), height, filled, showBackEdges),
+            FlipAxis.Vertical => new IsometricCuboid(bottomFace.Flip(axis), height, filled, includeBackEdges),
             FlipAxis.Horizontal | FlipAxis._45Degrees | FlipAxis.Minus45Degrees
-            => throw new ArgumentException($"{nameof(Flip)}() is undefined for {nameof(IsometricCuboid)} across the {axis} axis.", nameof(axis)),
+                => throw new ArgumentException($"{nameof(Flip)}() is undefined for {nameof(IsometricCuboid)} across the {axis} axis.", nameof(axis)),
             _ => throw new NotImplementedException($"Unknown / unimplemented FlipAxis: {axis}")
         };
 
@@ -133,8 +205,8 @@ namespace PAC.Shapes
         {
             if (filled)
             {
-                Path lowerBorder = bottomRectangle.lowerBorder;
-                Path upperBorder = topRectangle.upperBorder;
+                Path lowerBorder = bottomFace.lowerBorder;
+                Path upperBorder = topFace.upperBorder;
                 foreach (int x in boundingRect.xRange)
                 {
                     foreach (int y in IntRange.InclIncl(lowerBorder.MinY(x), upperBorder.MaxY(x)))
@@ -145,23 +217,43 @@ namespace PAC.Shapes
                 yield break;
             }
 
-            foreach (IntVector2 pixel in border.Flatten())
+            foreach (IntVector2 point in wireframe.Flatten())
             {
-                yield return pixel;
+                yield return point;
             }
         }
 
+        /// <summary>
+        /// Whether the two <see cref="IsometricCuboid"/>s have the same <see cref="bottomFace"/> and the same values for <see cref="height"/>, <see cref="filled"/> and
+        /// <see cref="includeBackEdges"/>.
+        /// </summary>
+        /// <remarks>
+        /// Note that if two <see cref="IsometricCuboid"/>s have identical values except their <see cref="height"/>s differ in sign then they will look identical but will not be considered ==.
+        /// </remarks>
         public static bool operator ==(IsometricCuboid a, IsometricCuboid b)
-            => a.bottomRectangle == b.bottomRectangle && a.height == b.height && a.filled == b.filled && a.showBackEdges == b.showBackEdges;
+            => a.bottomFace == b.bottomFace && a.height == b.height && a.filled == b.filled && a.includeBackEdges == b.includeBackEdges;
+        /// <summary>
+        /// See <see cref="operator ==(IsometricCuboid, IsometricCuboid)"/>.
+        /// </summary>
         public static bool operator !=(IsometricCuboid a, IsometricCuboid b) => !(a == b);
+        /// <summary>
+        /// See <see cref="operator ==(IsometricCuboid, IsometricCuboid)"/>.
+        /// </summary>
         public bool Equals(IsometricCuboid other) => this == other;
+        /// <summary>
+        /// See <see cref="Equals(IsometricCuboid)"/>.
+        /// </summary>
         public override bool Equals(object obj) => obj is IsometricCuboid other && Equals(other);
 
-        public override int GetHashCode() => HashCode.Combine(bottomRectangle, height, filled, showBackEdges);
+        public override int GetHashCode() => HashCode.Combine(bottomFace, height, filled, includeBackEdges);
 
         public override string ToString()
-            => $"IsometricCuboid({bottomRectangle.startCorner}, {bottomRectangle.endCorner}, {height}, {(filled ? "filled" : "unfilled")}, {(showBackEdges ? "show back edges" : "don't show back edges")})";
+        {
+            string filledStr = (filled ? "filled" : "unfilled");
+            string includeBackEdgesStr = (includeBackEdges ? "show back edges" : "don't show back edges");
+            return $"{nameof(IsometricCuboid)}({bottomFace.startCorner}, {bottomFace.endCorner}, {height}, {filledStr}, {includeBackEdgesStr})";
+        }
 
-        public IsometricCuboid DeepCopy() => new IsometricCuboid(bottomRectangle.DeepCopy(), height, filled, showBackEdges);
+        public IsometricCuboid DeepCopy() => new IsometricCuboid(bottomFace.DeepCopy(), height, filled, includeBackEdges);
     }
 }

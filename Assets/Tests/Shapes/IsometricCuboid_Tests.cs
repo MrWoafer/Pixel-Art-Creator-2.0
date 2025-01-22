@@ -31,9 +31,9 @@ namespace PAC.Tests.Shapes
                         {
                             foreach (bool filled in new bool[] { false, true })
                             {
-                                foreach (bool showBackEdges in new bool[] { false, true })
+                                foreach (bool includeBackEdges in new bool[] { false, true })
                                 {
-                                    yield return new IsometricCuboid(new IsometricRectangle(IntVector2.zero, new IntVector2(x, y), false), height, filled, showBackEdges);
+                                    yield return new IsometricCuboid(new IsometricRectangle(IntVector2.zero, new IntVector2(x, y), false), height, filled, includeBackEdges);
                                 }
                             }
                         }
@@ -53,9 +53,9 @@ namespace PAC.Tests.Shapes
                     IntVector2 end = new IntVector2(rng.Next(-10, 11), rng.Next(-10, 11));
                     int height = rng.Next(-10, 11);
                     bool filled = rng.Next(0, 2) == 0;
-                    bool showBackEdges = rng.Next(0, 2) == 0;
+                    bool includeBackEdges = rng.Next(0, 2) == 0;
 
-                    yield return new IsometricCuboid(new IsometricRectangle(start, end, false), height, filled, showBackEdges);
+                    yield return new IsometricCuboid(new IsometricRectangle(start, end, false), height, filled, includeBackEdges);
                 }
             }
         }
@@ -66,12 +66,12 @@ namespace PAC.Tests.Shapes
         {
             foreach (bool filled in new bool[] { false, true })
             {
-                foreach (bool showBackEdges in new bool[] { false, true })
+                foreach (bool includeBackEdges in new bool[] { false, true })
                 {
                     foreach (IntVector2 pixel in new IntRect(new IntVector2(-5, -5), new IntVector2(5, 5)))
                     {
-                        CollectionAssert.AreEquivalent(new IntVector2[] { pixel }, new IsometricCuboid(new IsometricRectangle(pixel, pixel, false), 0, filled, showBackEdges).ToHashSet(),
-                            $"Failed with {pixel} {(filled ? "filled" : "unfilled")} {(showBackEdges ? "show back edges" : "don't show back edges")}.");
+                        CollectionAssert.AreEquivalent(new IntVector2[] { pixel }, new IsometricCuboid(new IsometricRectangle(pixel, pixel, false), 0, filled, includeBackEdges).ToHashSet(),
+                            $"Failed with {pixel} {(filled ? "filled" : "unfilled")} {(includeBackEdges ? "show back edges" : "don't show back edges")}.");
                     }
                 }
             }
@@ -88,7 +88,7 @@ namespace PAC.Tests.Shapes
             {
                 if (cuboid.height == 0)
                 {
-                    Assert.True(cuboid.bottomRectangle.ToHashSet().SetEquals(cuboid), $"Failed with {cuboid}.");
+                    Assert.True(cuboid.bottomFace.ToHashSet().SetEquals(cuboid), $"Failed with {cuboid}.");
                 }
             }
         }
@@ -119,7 +119,7 @@ namespace PAC.Tests.Shapes
         {
             foreach (IsometricCuboid shape in testCases)
             {
-                Assert.AreEqual(Math.Abs(shape.height), shape.topRectangle.boundingRect.minY - shape.bottomRectangle.boundingRect.minY, $"Failed with {shape}.");
+                Assert.AreEqual(Math.Abs(shape.height), shape.topFace.boundingRect.minY - shape.bottomFace.boundingRect.minY, $"Failed with {shape}.");
             }
         }
 
@@ -139,20 +139,20 @@ namespace PAC.Tests.Shapes
         }
 
         /// <summary>
-        /// Tests that the shape obtained with <see cref="IsometricCuboid.showBackEdges"/> = <see langword="false"/> is a subset of the shape with
-        /// <see cref="IsometricCuboid.showBackEdges"/> = <see langword="true"/>.
+        /// Tests that the shape obtained with <see cref="IsometricCuboid.includeBackEdges"/> = <see langword="false"/> is a subset of the shape with
+        /// <see cref="IsometricCuboid.includeBackEdges"/> = <see langword="true"/>.
         /// </summary>
         [Test]
         [Category("Shapes")]
-        public void ShowBackEdgesContainsDontShowBackEdges()
+        public void includeBackEdgesContainsDontincludeBackEdges()
         {
             foreach (IsometricCuboid cuboid in testCases)
             {
-                cuboid.showBackEdges = false;
-                HashSet<IntVector2> dontShowBackEdges = cuboid.ToHashSet();
+                cuboid.includeBackEdges = false;
+                HashSet<IntVector2> dontincludeBackEdges = cuboid.ToHashSet();
 
-                cuboid.showBackEdges = true;
-                Assert.True(dontShowBackEdges.IsSubsetOf(cuboid), $"Failed with {cuboid}.");
+                cuboid.includeBackEdges = true;
+                Assert.True(dontincludeBackEdges.IsSubsetOf(cuboid), $"Failed with {cuboid}.");
             }
         }
 
