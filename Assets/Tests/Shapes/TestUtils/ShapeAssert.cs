@@ -18,7 +18,7 @@ namespace PAC.Tests.Shapes.TestUtils
         /// </summary>
         public static void SameGeometry(IEnumerable<IntVector2> expected, IEnumerable<IntVector2> actual) => Assert.True(SameGeometry_Impl(expected, actual));
         public static void SameGeometry(IEnumerable<IntVector2> expected, IEnumerable<IntVector2> actual, string failMessage) => Assert.True(SameGeometry_Impl(expected, actual), failMessage);
-        public static bool SameGeometry_Impl(IEnumerable<IntVector2> expected, IEnumerable<IntVector2> actual) => expected.ToHashSet().SetEquals(actual);
+        private static bool SameGeometry_Impl(IEnumerable<IntVector2> expected, IEnumerable<IntVector2> actual) => expected.ToHashSet().SetEquals(actual);
 
         /// <summary>
         /// Asserts that no pixels are repeated at all in the shape's enumerator.
