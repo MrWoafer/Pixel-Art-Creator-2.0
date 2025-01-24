@@ -36,6 +36,7 @@ namespace PAC.Tests.Shapes
             {
                 CollectionAssert.AreEqual(new IntVector2[] { point }, new Line(point), $"Failed with {point}.");
                 CollectionAssert.AreEqual(new Line(point), new Line(point, point), $"Failed with {point}.");
+                Assert.True(new Line(point).isPoint, $"Failed wiht {point}.");
             }
         }
 
@@ -123,6 +124,19 @@ namespace PAC.Tests.Shapes
             CollectionAssert.AreEqual(expected, line);
         }
 
+        /// <summary>
+        /// Tests that an example <see cref="Line"/> has the correct shape.
+        /// </summary>
+        [Test]
+        [Category("Shapes")]
+        public void ShapeExample4()
+        {
+            Line line = new Line((1, 2), (5, 5));
+            IntVector2[] expected = { (1, 2), (2, 3), (3, 3), (4, 4), (5, 5) };
+
+            CollectionAssert.AreEqual(expected, line);
+        }
+
         [Test]
         [Category("Shapes")]
         public void NoRepeats()
@@ -144,6 +158,26 @@ namespace PAC.Tests.Shapes
             {
                 Assert.AreEqual(line.First(),  line.start, $"Failed with {line}.");
                 Assert.AreEqual(line.Last(), line.end, $"Failed with {line}.");
+            }
+        }
+
+        [Test]
+        [Category("Shapes")]
+        public void NoRightAngles()
+        {
+            foreach (Line line in testCases)
+            {
+                HashSet<IntVector2> points = line.ToHashSet();
+                foreach (IntVector2 point in line)
+                {
+                    foreach (IntVector2 direction in IntVector2.upDownLeftRight)
+                    {
+                        if (points.Contains(point + direction))
+                        {
+                            Assert.False(points.Contains(point + direction.Rotate(RotationAngle._90)), $"Failed with {line} and {point}.");
+                        }
+                    }
+                }
             }
         }
 
@@ -211,6 +245,25 @@ namespace PAC.Tests.Shapes
                         Assert.False(line.PointIsToLeft(test), $"Failed with {line} and {test}.");
                     }
                 }
+            }
+        }
+
+        [Test]
+        [Category("Shapes")]
+        public void IsPerfect()
+        {
+            static bool Expected(Line line)
+            {
+                if (line.boundingRect.width >= line.boundingRect.height)
+                {
+                    return line.GroupBy(p => p.y).Select(block => block.Count()).Distinct().Count() == 1;
+                }
+                return line.GroupBy(p => p.x).Select(block => block.Count()).Distinct().Count() == 1;
+            }
+
+            foreach (Line line in testCases)
+            {
+                Assert.AreEqual(Expected(line), line.isPerfect, $"Failed with {line}.");
             }
         }
 
@@ -382,6 +435,47 @@ namespace PAC.Tests.Shapes
                 {
                     Assert.AreEqual(line.Count(p => p.y == y), line.CountOnY(y), $"Failed with {line} and y = {y}.");
                 }
+            }
+        }
+
+        [Test]
+        [Category("Shapes")]
+        public void RotationalSymmetry()
+        {
+            foreach (Line line in testCases)
+            {
+                if (line.Count % 2 == 0)
+                {
+                    ShapeAssert.RotationalSymmetry(line, RotationAngle._180);
+                }
+                else
+                {
+                    HashSet<IntVector2> points = line.ToHashSet();
+                    points.Remove(line[line.Count / 2]); // Ignore midpoint
+                    foreach (IntVector2 point in points)
+                    {
+                        Assert.True(points.Contains(line.end - (point - line.start)), $"Failed with {line}.");
+                    }
+                }
+            }
+        }
+
+        /// <summary>
+        /// Tests <see cref="Line.reverse"/>.
+        /// </summary>
+        [Test]
+        [Category("Shapes")]
+        public void Reverse()
+        {
+            foreach (Line line in testCases)
+            {
+                Line reverse = line.reverse;
+
+                Assert.AreEqual(line.end, reverse.start, $"Failed with {line}.");
+                Assert.AreEqual(line.start, reverse.end, $"Failed with {line}.");
+
+                // Check that the reverse looks like the line rotated 180 degrees
+                ShapeAssert.SameGeometry(line.Select(p => line.end - (p - line.start)), reverse, $"Failed with {line}.");
             }
         }
     }
