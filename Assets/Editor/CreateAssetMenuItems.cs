@@ -133,7 +133,7 @@ public static class CreateAssetMenuItems
     [MenuItem("Assets/Create/Testing/C# Edit Mode Test Script")]
     public static void CreateEditModeTestScript()
     {
-        const string suffix = "Tests";
+        const string suffix = "_Tests";
 
         static (string className, string typeName) NameGenerator(string fileName)
         {
