@@ -13,6 +13,33 @@ namespace PAC.Tests.Maths
     {
         [Test]
         [Category("Utils")]
+        public void Mod()
+        {
+            for (int a = -50; a <= 50; a++)
+            {
+                if (a != 0)
+                {
+                    Assert.AreEqual(0, MathExtensions.Mod(a, a), $"Failed with {a}.");
+                }
+
+                for (int b = -50; b <= 50; b++)
+                {
+                    if (b == 0)
+                    {
+                        Assert.Throws<DivideByZeroException>(() => MathExtensions.Mod(a, b), $"Failed with {a}, {b}.");
+                        continue;
+                    }
+
+                    int mod = MathExtensions.Mod(a, b);
+                    Assert.True(mod >= 0, $"Failed with {a}, {b}. mod = {mod}.");
+                    Assert.True(mod < Math.Abs(b), $"Failed with {a}, {b}. mod = {mod}.");
+                    Assert.AreEqual(0, (a - mod) % b, $"Failed with {a}, {b}. mod = {mod}.");
+                }
+            }
+        }
+
+        [Test]
+        [Category("Utils")]
         public void Gcd()
         {
             // (a, b, gcd) - make sure all are non-negative

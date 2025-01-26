@@ -108,24 +108,33 @@ namespace PAC.Maths
         /// <param name="a"></param>
         /// <param name="b"></param>
         /// <returns></returns>
-        public static int Mod(this int a, int b)
+        public static int Mod(this int a, int b) => b == 0 ? throw new DivideByZeroException($"{nameof(b)} cannot be 0.") : ((a >= 0, b >= 0) switch
         {
-            return (a % b + b) % b;
-        }
+            (true, true) => a % b,
+            (false, true) => ((a % b) + b) % b,
+            (true, false) => a % b,
+            (false, false) => ((a % b) - b) % b,
+        });
         /// <summary>
         /// Returns a mod b, giving a non-negative result.
         /// </summary>
-        public static long Mod(this long a, long b)
+        public static long Mod(this long a, long b) => b == 0 ? throw new DivideByZeroException($"{nameof(b)} cannot be 0.") : ((a >= 0, b >= 0) switch
         {
-            return (a % b + b) % b;
-        }
+            (true, true) => a % b,
+            (false, true) => ((a % b) + b) % b,
+            (true, false) => a % b,
+            (false, false) => ((a % b) - b) % b,
+        });
         /// <summary>
         /// Returns a mod b, giving a non-negative result.
         /// </summary>
-        public static float Mod(this float a, float b)
+        public static float Mod(this float a, float b) => b == 0 ? throw new DivideByZeroException($"{nameof(b)} cannot be 0.") : ((a >= 0, b >= 0) switch
         {
-            return (a % b + b) % b;
-        }
+            (true, true) => a % b,
+            (false, true) => ((a % b) + b) % b,
+            (true, false) => a % b,
+            (false, false) => ((a % b) - b) % b,
+        });
 
         /// <summary>
         /// Computes the greatest non-negative common divisor of a and b.
