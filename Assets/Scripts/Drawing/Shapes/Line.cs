@@ -177,20 +177,10 @@ namespace PAC.Shapes
         /// <summary>
         /// Encapsulates the information about the imaginary line described in the 'How this shape works' comment.
         /// </summary>
-        /// <remarks>
-        /// The <see cref="Line"/> implementation doesn't need to know how this struct works.
-        /// </remarks>
         private readonly struct ImaginaryLine
         {
-            private readonly Vector2 start;
-            private readonly Vector2 end => start + new Vector2(deltaX, deltaY);
-
-            /// <remarks>
-            /// If the <see cref="ImaginaryLine"/> is vertical, this will be <see cref="float.PositiveInfinity"/>.
-            /// </remarks>
-            private readonly float gradient => deltaX == 0 ? float.PositiveInfinity : deltaY / (float)deltaX;
-            private readonly int deltaX;
-            private readonly int deltaY;
+            private readonly (Rational x, Rational y) start;
+            private readonly Rational gradient;
 
             /// <summary>
             /// Creates the <see cref="ImaginaryLine"/> from the start/end pixels.
@@ -198,60 +188,21 @@ namespace PAC.Shapes
             public ImaginaryLine(IntVector2 startPixel, IntVector2 endPixel)
             {
                 IntVector2 sign = (endPixel - startPixel).sign;
-                start = startPixel - 0.5f * (Vector2)sign;
-                deltaX = endPixel.x - startPixel.x + sign.x;
-                deltaY = endPixel.y - startPixel.y + sign.y;
+
+                start = (startPixel.x - Rational.Half * sign.x, startPixel.y - Rational.Half * sign.y);
+                (Rational x, Rational y) end = (endPixel.x + Rational.Half * sign.x, endPixel.y + Rational.Half * sign.y);
+
+                gradient = (end.y - start.y) / (end.x - start.x);
             }
 
             /// <summary>
             /// Determines the corresponding y coord for the given x coord.
             /// </summary>
-            /// <exception cref="InvalidOperationException">The line has infinite gradient.</exception>
-            public float CalculateY(int x) => float.IsFinite(gradient) ? (x - start.x) * gradient + start.y : throw new InvalidOperationException("The gradient is infinite.");
+            public Rational CalculateY(Rational x) => (x - start.x) * gradient + start.y;
             /// <summary>
             /// Determines the corresponding x coord for the given y coord.
             /// </summary>
-            /// <exception cref="InvalidOperationException">The line has gradient 0.</exception>
-            public float CalculateX(float y) => gradient != 0f ? (y - start.y) / gradient + start.x : throw new InvalidOperationException("The gradient is 0.");
-
-            /// <summary>
-            /// Determines whether <see cref="CalculateY(float)"/> should mathematically return a y value on the border of two pixels (i.e. has a decimal part of .5).
-            /// </summary>
-            /// <remarks>
-            /// The point of this method is that it avoids the floating point imprecision that arises in <see cref="CalculateY(float)"/>. In other words, there are some cases where mathematically
-            /// <see cref="CalculateY(float)"/> should return a y value with decimal part .5, but due to using <see cref="float"/>s it is slightly off. This method will identify that it should
-            /// have mathematically had decimal part .5.
-            /// </remarks>
-            /// <exception cref="InvalidOperationException">The line has infinite gradient.</exception>
-            public bool XMapsToBorderOfTwoPixels(int x) => gradient switch
-            {
-                0f => false,
-                float.PositiveInfinity => throw new InvalidOperationException("The gradient is infinite."),
-                // We have y = (x - start.x) * deltaY / deltaX + start.y, and in this case start.y has decimal part .5, so we just need to check whether (x - start.x) * deltaY / deltaX is an integer
-                //
-                // Note that although this computation uses floats, all floats involved have decimal part .0 or .5, so there should be no inaccuracies due to rounding
-                _ => ((x - start.x) * deltaY) % deltaX == 0
-            };
-            /// <summary>
-            /// Determines whether <see cref="CalculateX(float)"/> should mathematically return an integer x value.
-            /// </summary>
-            /// <remarks>
-            /// The point of this method is that it avoids the floating point imprecision that arises in <see cref="CalculateX(float)"/>. In other words, there are some cases where mathematically
-            /// <see cref="CalculateX(float)"/> should return an integer x value, but due to using <see cref="float"/>s it is slightly off. This method will identify that it should have
-            /// mathematically been an integer.
-            /// </remarks>
-            /// <exception cref="InvalidOperationException">The line has gradient 0.</exception>
-            public bool YMapsToInteger(float y) => gradient switch
-            {
-                0f => throw new InvalidOperationException("The gradient is 0."),
-                float.PositiveInfinity => true,
-                // We have x = (y - start.y) * deltaX / deltaY + start.x, and in this case start.y has decimal part .5, so we just need to check whether (x - start.x) * deltaY / deltaX has decimal
-                // part .5
-                //
-                // Note that although this computation uses floats, this method is only called on parameters y that have decimal part .5, so all floats involved have decimal part .0 or .5, so
-                // there should be no inaccuracies due to rounding
-                _ => ((y - start.y) * deltaX).Mod(deltaY) == (deltaY / 2f).Mod(deltaY)
-            };
+            public Rational CalculateX(Rational y) => (y - start.y) / gradient + start.x;
         }
 
         /// <summary>
@@ -482,12 +433,11 @@ namespace PAC.Shapes
                 return Math.Min(start.x, end.x);
             }
 
-            float yToInverseMap = y - 0.5f * Math.Sign(end.y - start.y) * Math.Sign(end.x - start.x);
+            Rational yToInverseMap = y - Rational.Half * Math.Sign(end.y - start.y) * Math.Sign(end.x - start.x);
             // The minimum value of x such that plugging it into the the line and rounding gives you the method parameter y
-            float minXWhereYOnLineRoundsToGivenY = imaginaryLine.CalculateX(yToInverseMap);
+            Rational minXWhereYOnLineRoundsToGivenY = imaginaryLine.CalculateX(yToInverseMap);
 
-            bool minXWhereYOnLineRoundsToGivenY_isInteger = imaginaryLine.YMapsToInteger(yToInverseMap);
-            if (minXWhereYOnLineRoundsToGivenY_isInteger)
+            if (minXWhereYOnLineRoundsToGivenY.isInteger)
             {
                 bool minXWhereYOnLineRoundsToGivenY_isInFirstHalfOfLine = 2 * Math.Abs(Mathf.RoundToInt(minXWhereYOnLineRoundsToGivenY) - start.x) <= Math.Abs(end.x - start.x);
                 if (minXWhereYOnLineRoundsToGivenY_isInFirstHalfOfLine)
@@ -587,10 +537,10 @@ namespace PAC.Shapes
                 // Index is now in the segment from start (exclusive) to end (exclusive).
 
                 int x = start.x + index * Math.Sign(end.x - start.x);
-                float y = imaginaryLine.CalculateY(x);
+                Rational y = imaginaryLine.CalculateY(x);
 
                 // Deal with edge case of y being exactly on the border of two pixels
-                if (imaginaryLine.XMapsToBorderOfTwoPixels(x))
+                if (y % 1 == Rational.Half)
                 {
                     // We always pull the y so it's closer to the endpoint x is closer to (e.g. if x is closer to start.x than end.x then we round y up/down to whichever is closer to start.y)
                     bool xIsInFirstHalfOfLine = 2 * Math.Abs(x - start.x) <= Math.Abs(end.x - start.x);
