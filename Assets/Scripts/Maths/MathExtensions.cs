@@ -139,8 +139,18 @@ namespace PAC.Maths
         /// <summary>
         /// Computes the greatest non-negative common divisor of a and b.
         /// </summary>
+        /// <exception cref="ArgumentOutOfRangeException"><paramref name="a"/> or <paramref name="b"/> are <see cref="int.MinValue"/>.</exception>
         public static int Gcd(this int a, int b)
         {
+            if (a == int.MinValue)
+            {
+                throw new ArgumentOutOfRangeException(nameof(a), $"{nameof(a)} cannot be int.MinValue.");
+            }
+            if (b == int.MinValue)
+            {
+                throw new ArgumentOutOfRangeException(nameof(b), $"{nameof(b)} cannot be int.MinValue.");
+            }
+
             a = Math.Abs(a);
             b = Math.Abs(b);
 
@@ -157,8 +167,18 @@ namespace PAC.Maths
         /// <summary>
         /// Computes the greatest non-negative common divisor of a and b.
         /// </summary>
+        /// <exception cref="ArgumentOutOfRangeException"><paramref name="a"/> or <paramref name="b"/> are <see cref="long.MinValue"/>.</exception>
         public static long Gcd(this long a, long b)
         {
+            if (a == long.MinValue)
+            {
+                throw new ArgumentOutOfRangeException(nameof(a), $"{nameof(a)} cannot be long.MinValue.");
+            }
+            if (b == long.MinValue)
+            {
+                throw new ArgumentOutOfRangeException(nameof(b), $"{nameof(b)} cannot be long.MinValue.");
+            }
+
             a = Math.Abs(a);
             b = Math.Abs(b);
 
