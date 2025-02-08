@@ -782,8 +782,7 @@ namespace PAC.Drawing
                 }
                 else if (toolbar.shapeToolShape == Shape.RightTriangle)
                 {
-                    RightTriangle.RightAngleLocation rightAngleLocation = holdingCtrl ? RightTriangle.RightAngleLocation.Top : RightTriangle.RightAngleLocation.Bottom;
-                    PreviewShape(new RightTriangle(mouseDragPoints[0], pixel, rightAngleLocation, rightClickedOn), colour);
+                    PreviewShape(new RightTriangle(mouseDragPoints[0], pixel, !holdingCtrl, rightClickedOn), colour);
                 }
                 else if (toolbar.shapeToolShape == Shape.Diamond)
                 {
@@ -885,8 +884,7 @@ namespace PAC.Drawing
                 }
                 else if (toolbar.shapeToolShape == Shape.RightTriangle)
                 {
-                    RightTriangle.RightAngleLocation rightAngleLocation = holdingCtrl ? RightTriangle.RightAngleLocation.Top : RightTriangle.RightAngleLocation.Bottom;
-                    Tools.UseShape(file, layer, frame, new RightTriangle(mouseDragPoints[0], pixel, rightAngleLocation, rightClickedOn), colour);
+                    Tools.UseShape(file, layer, frame, new RightTriangle(mouseDragPoints[0], pixel, !holdingCtrl, rightClickedOn), colour);
 
                     UpdateDrawing();
                 }

@@ -3,135 +3,228 @@ using System.Collections;
 using System.Collections.Generic;
 
 using PAC.DataStructures;
+using PAC.Exceptions;
 using PAC.Shapes.Interfaces;
 
 namespace PAC.Shapes
 {
+    /// <summary>
+    /// A pixel art right-angled triangle shape.
+    /// <example>
+    /// For example,
+    /// <code>
+    ///             # #
+    ///         # #   #
+    ///       #       #
+    ///   # #         #
+    /// #             #
+    /// # # # # # # # #
+    /// </code>
+    /// </example>
+    /// </summary>
+    /// <remarks>
+    /// <para>
+    /// <b>Shape:</b>
+    /// </para>
+    /// <para>
+    /// The hypotenuse is drawn as a <see cref="Line"/>. We draw this <see cref="Line"/> starting from the longer side of the <see cref="RightTriangle"/> (or the horizontal side if both sides have
+    /// the same length). This is done to ensure that rotating/reflecting the corners doesn't change the geometry (up to rotating/reflecting).
+    /// </para>
+    /// <para>
+    /// Except in some special cases, this <see cref="Line"/> is not drawn from the corners. Instead, the endpoints are inset by 1 from the corners.
+    /// <example>
+    /// For example,
+    /// <code>
+    ///                      line end
+    ///                          v
+    ///                          # #
+    ///                      # #   #
+    ///                    #       #
+    ///                # #         #
+    /// line start > #             #
+    ///              # # # # # # # #
+    /// </code>
+    /// </example>
+    /// This is done to make it look more aesthetic.
+    /// </para>
+    /// <para>
+    /// The special cases where the endpoints are not inset are:
+    /// <list type="bullet">
+    /// <item>
+    /// Width or height 1 - the <see cref="RightTriangle"/> looks like a straight line
+    /// </item>
+    /// <item>
+    /// Width or height 2 - the <see cref="RightTriangle"/> looks like, for example,
+    /// <code>
+    ///   #
+    ///   #
+    /// # #
+    /// # #
+    /// # #
+    /// </code>
+    /// where, if the width is 2, the height of the shorter vertical block is <c>ceil(height of triangle / 2)</c>, and analogously for when the height is 2.
+    /// </item>
+    /// </list>
+    /// </para>
+    /// <para>
+    /// <b>Enumerator:</b>
+    /// </para>
+    /// <para>
+    /// The enumerator does not repeat any points.
+    /// </para>
+    /// </remarks>
     public class RightTriangle : I2DShape<RightTriangle>, IDeepCopyableShape<RightTriangle>, IEquatable<RightTriangle>
     {
-        public enum RightAngleLocation
-        {
-            Bottom = -1,
-            Top = 1,
-            Left = -2,
-            Right = 2
-        }
-
-        private IntVector2 _bottomCorner;
         /// <summary>
-        /// The lower of the two corners that don't contain the right angle. This should always be distinct from topCorner, unless the triangle is a single point.
+        /// The lower of the two corners that don't contain the right angle.
         /// </summary>
-        public IntVector2 bottomCorner
+        /// <remarks>
+        /// This will be different from <see cref="topCorner"/>, unless the <see cref="RightTriangle"/> is a single point.
+        /// </remarks>
+        /// <seealso cref="topCorner"/>
+        /// <seealso cref="leftCorner"/>
+        /// <seealso cref="rightCorner"/>
+        /// <seealso cref="rightAngleCorner"/>
+        public IntVector2 bottomCorner => rightAngleLocation switch
         {
-            get => _bottomCorner;
-            set
-            {
-                if (value.y <= _topCorner.y)
-                {
-                    _bottomCorner = value;
-                }
-                else
-                {
-                    _bottomCorner = _topCorner;
-                    _topCorner = value;
-                }
-            }
-        }
-        private IntVector2 _topCorner;
+            RightAngleLocation.BottomLeft => boundingRect.bottomRight,
+            RightAngleLocation.BottomRight => boundingRect.bottomLeft,
+            RightAngleLocation.TopLeft => boundingRect.bottomLeft,
+            RightAngleLocation.TopRight => boundingRect.bottomRight,
+            _ => throw new UnreachableException($"Unknown / unimplemented {nameof(RightAngleLocation)}: {rightAngleLocation}.")
+        };
         /// <summary>
-        /// The higher of the two corners that don't contain the right angle. This should always be distinct from bottomCorner, unless the triangle is a single point.
+        /// The higher of the two corners that don't contain the right angle.
         /// </summary>
-        public IntVector2 topCorner
+        /// <remarks>
+        /// This will be different from <see cref="bottomCorner"/>, unless the <see cref="RightTriangle"/> is a single point.
+        /// </remarks>
+        /// <seealso cref="bottomCorner"/>
+        /// <seealso cref="leftCorner"/>
+        /// <seealso cref="rightCorner"/>
+        /// <seealso cref="rightAngleCorner"/>
+        public IntVector2 topCorner => rightAngleLocation switch
         {
-            get => _topCorner;
-            set
-            {
-                if (value.y >= _bottomCorner.y)
-                {
-                    _topCorner = value;
-                }
-                else
-                {
-                    _topCorner = _bottomCorner;
-                    _bottomCorner = value;
-                }
-            }
-        }
+            RightAngleLocation.BottomLeft => boundingRect.topLeft,
+            RightAngleLocation.BottomRight => boundingRect.topRight,
+            RightAngleLocation.TopLeft => boundingRect.topRight,
+            RightAngleLocation.TopRight => boundingRect.topLeft,
+            _ => throw new UnreachableException($"Unknown / unimplemented {nameof(RightAngleLocation)}: {rightAngleLocation}.")
+        };
         /// <summary>
-        /// The left-most of the two corners that don't contain the right angle. This should always be distinct from rightCorner, unless the triangle is a single point.
+        /// The left-most of the two corners that don't contain the right angle.
         /// </summary>
-        public IntVector2 leftCorner
+        /// <remarks>
+        /// This will be different from <see cref="rightCorner"/>, unless the <see cref="RightTriangle"/> is a single point.
+        /// </remarks>
+        /// <seealso cref="bottomCorner"/>
+        /// <seealso cref="topCorner"/>
+        /// <seealso cref="rightCorner"/>
+        /// <seealso cref="rightAngleCorner"/>
+        public IntVector2 leftCorner => rightAngleLocation switch
         {
-            get => _bottomCorner.x <= _topCorner.x ? _bottomCorner : _topCorner;
-            set
-            {
-                if (leftCorner == _bottomCorner)
-                {
-                    bottomCorner = value;
-                }
-                else
-                {
-                    topCorner = value;
-                }
-            }
-        }
+            RightAngleLocation.BottomLeft => boundingRect.topLeft,
+            RightAngleLocation.BottomRight => boundingRect.bottomLeft,
+            RightAngleLocation.TopLeft => boundingRect.bottomLeft,
+            RightAngleLocation.TopRight => boundingRect.topLeft,
+            _ => throw new UnreachableException($"Unknown / unimplemented {nameof(RightAngleLocation)}: {rightAngleLocation}.")
+        };
         /// <summary>
-        /// The right-most of the two corners that don't contain the right angle. This should always be distinct from leftCorner, unless the triangle is a single point.
+        /// The right-most of the two corners that don't contain the right angle.
         /// </summary>
-        public IntVector2 rightCorner
+        /// <remarks>
+        /// This will be different from <see cref="leftCorner"/>, unless the <see cref="RightTriangle"/> is a single point.
+        /// </remarks>
+        /// <seealso cref="bottomCorner"/>
+        /// <seealso cref="topCorner"/>
+        /// <seealso cref="leftCorner"/>
+        /// <seealso cref="rightAngleCorner"/>
+        public IntVector2 rightCorner => rightAngleLocation switch
         {
-            // We do > here and <= in leftCorner to ensure that if the triangle's corners have the same x coord then leftCorner and rightCorner are still different corners.
-            get => _bottomCorner.x > _topCorner.x ? _bottomCorner : _topCorner;
-            set
-            {
-                if (rightCorner == _bottomCorner)
-                {
-                    bottomCorner = value;
-                }
-                else
-                {
-                    topCorner = value;
-                }
-            }
-        }
+            RightAngleLocation.BottomLeft => boundingRect.bottomRight,
+            RightAngleLocation.BottomRight => boundingRect.topRight,
+            RightAngleLocation.TopLeft => boundingRect.topRight,
+            RightAngleLocation.TopRight => boundingRect.bottomRight,
+            _ => throw new UnreachableException($"Unknown / unimplemented {nameof(RightAngleLocation)}: {rightAngleLocation}.")
+        };
         /// <summary>
         /// The corner that contains the right angle.
         /// </summary>
-        public IntVector2 rightAngleCorner
+        /// <seealso cref="bottomCorner"/>
+        /// <seealso cref="topCorner"/>
+        /// <seealso cref="leftCorner"/>
+        /// <seealso cref="rightCorner"/>
+        public IntVector2 rightAngleCorner => rightAngleLocation switch
         {
-            get
-            {
-                switch (rightAngleLocation)
-                {
-                    case RightAngleLocation.Bottom: return new IntVector2(topCorner.x, bottomCorner.y);
-                    case RightAngleLocation.Top: return new IntVector2(bottomCorner.x, topCorner.y);
-                    case RightAngleLocation.Left: return new IntVector2(leftCorner.x, rightCorner.y);
-                    case RightAngleLocation.Right: return new IntVector2(rightCorner.x, leftCorner.y);
-                    default: throw new NotImplementedException("Unknown / unimplemented RightAngleLocation: " + rightAngleLocation);
-                }
-            }
-        }
-
-        public RightAngleLocation rightAngleLocation { get; set; }
+            RightAngleLocation.BottomLeft => boundingRect.bottomLeft,
+            RightAngleLocation.BottomRight => boundingRect.bottomRight,
+            RightAngleLocation.TopLeft => boundingRect.topLeft,
+            RightAngleLocation.TopRight => boundingRect.topRight,
+            _ => throw new UnreachableException($"Unknown / unimplemented {nameof(RightAngleLocation)}: {rightAngleLocation}.")
+        };
 
         public bool filled { get; set; }
 
-        /// <summary>True if the triangle is an isosceles triangle.</summary>
-        public bool isIsosceles => boundingRect.width == boundingRect.height;
+        /// <summary>
+        /// Whether the <see cref="RightTriangle"/> is an isosceles triangle.
+        /// </summary>
+        /// <remarks>
+        /// This is equivalent to its <see cref="boundingRect"/> being a square.
+        /// </remarks>
+        public bool isIsosceles => boundingRect.isSquare;
 
-        public IntRect boundingRect => new IntRect(bottomCorner, topCorner);
+        /// <summary>
+        /// Which corner of the <see cref="boundingRect"/> the right angle is in.
+        /// </summary>
+        public RightAngleLocation rightAngleLocation { get; set; }
+        /// <summary>
+        /// Which corner of the <see cref="boundingRect"/> the right angle is in.
+        /// </summary>
+        public enum RightAngleLocation
+        {
+            BottomLeft,
+            BottomRight,
+            TopLeft,
+            TopRight,
+        }
+        /// <summary>
+        /// Converts the <see cref="RightAngleLocation"/> into a 2-vector with +/- 1 in each component, representing the direction of that corner.
+        /// </summary>
+        /// <remarks>
+        /// This is used with <see cref="FromDirection(IntVector2)"/> to simplify rotating/reflecting <see cref="RightAngleLocation"/>s.
+        /// </remarks>
+        private IntVector2 AsDirection(RightAngleLocation rightAngleLocation) => rightAngleLocation switch
+        {
+            RightAngleLocation.BottomLeft => (-1, -1),
+            RightAngleLocation.BottomRight => (1, -1),
+            RightAngleLocation.TopLeft => (-1, 1),
+            RightAngleLocation.TopRight => (1, 1),
+            _ => throw new UnreachableException($"Unknown / unimplemented {nameof(RightAngleLocation)}: {rightAngleLocation}.")
+        };
+        /// <summary>
+        /// The inverse of <see cref="AsDirection"/>.
+        /// </summary>
+        /// <remarks>
+        /// This is used with <see cref="AsDirection(RightAngleLocation)"/> to simplify rotating/reflecting <see cref="RightAngleLocation"/>s.
+        /// </remarks>
+        private RightAngleLocation FromDirection(IntVector2 direction) => direction switch
+        {
+            (-1, -1) => RightAngleLocation.BottomLeft,
+            (1, -1) => RightAngleLocation.BottomRight,
+            (-1, 1) => RightAngleLocation.TopLeft,
+            (1, 1) => RightAngleLocation.TopRight,
+            _ => throw new ArgumentException($"Invalid value for {nameof(direction)}: {direction}. It must be +/- 1 in each component.")
+        };
+
+        public IntRect boundingRect { get; set; }
 
         public int Count
         {
             get
             {
-                if (boundingRect.width == 1)
+                if (boundingRect.width == 1 || boundingRect.height == 1)
                 {
-                    return boundingRect.height;
-                }
-                if (boundingRect.height == 1)
-                {
-                    return boundingRect.width;
+                    return boundingRect.Count;
                 }
 
                 if (!filled || boundingRect.width == 2 || boundingRect.height == 2)
@@ -139,280 +232,203 @@ namespace PAC.Shapes
                     return border.Count;
                 }
 
+                IntVector2 rightAngleCorner = this.rightAngleCorner;
                 if (boundingRect.width >= boundingRect.height)
                 {
-                    // The vertical side of the triangle won't be counted in the loop
-                    int count = boundingRect.height;
-                    // Go along the hypotenuse
-                    foreach (IntVector2 pixel in border.lines[0])
+                    int count = boundingRect.height; // The vertical edge of the triangle won't be counted in the loop
+                    foreach (IntVector2 point in border.lines[0])
                     {
-                        count += Math.Abs(pixel.y - rightAngleCorner.y) + 1;
+                        count += Math.Abs(point.y - rightAngleCorner.y) + 1;
                     }
                     return count;
                 }
                 else
                 {
-                    // The horizontal side of the triangle won't be counted in the loop
-                    int count = boundingRect.width;
-                    // Go along the hypotenuse
-                    foreach (IntVector2 pixel in border.lines[0])
+                    int count = boundingRect.width; // The horizontal edge of the triangle won't be counted in the loop
+                    foreach (IntVector2 point in border.lines[0])
                     {
-                        count += Math.Abs(pixel.x - rightAngleCorner.x) + 1;
+                        count += Math.Abs(point.x - rightAngleCorner.x) + 1;
                     }
                     return count;
                 }
             }
         }
 
+        /// <summary>
+        /// The outline of the <see cref="RightTriangle"/>.
+        /// </summary>
+        /// <remarks>
+        /// <para>
+        /// This will not self-intersect.
+        /// </para>
+        /// <para>
+        /// This will be a loop, except in the 2xn and nx2 cases for n >= 4.
+        /// </para>
+        /// </remarks>
         private Path border
         {
             get
             {
                 // Single points / vertical lines / horizontal lines
-                if (bottomCorner.x == topCorner.x || bottomCorner.y == topCorner.y)
+                if (boundingRect.width == 1 || boundingRect.height == 1)
                 {
-                    return new Path(new Line(bottomCorner, topCorner));
+                    return new Line(bottomCorner, topCorner);
                 }
 
-                IntVector2 startCorner = bottomCorner;
-                IntVector2 endCorner = topCorner;
-                IntVector2 startAdjusted;
-                IntVector2 endAdjusted;
-
-                if (rightAngleLocation == RightAngleLocation.Bottom)
+                (IntVector2 longerCorner, IntVector2 shorterCorner, IntVector2 longerCornerOffset, IntVector2 shorterCornerOffset) = rightAngleLocation switch
                 {
-                    startAdjusted = bottomCorner + IntVector2.up;
-                    endAdjusted = topCorner + (startCorner == leftCorner ? IntVector2.left : IntVector2.right);
-                }
-                else if (rightAngleLocation == RightAngleLocation.Top)
+                    RightAngleLocation.BottomLeft => (boundingRect.bottomRight, boundingRect.topLeft, IntVector2.up, IntVector2.right),
+                    RightAngleLocation.BottomRight => (boundingRect.bottomLeft, boundingRect.topRight, IntVector2.up, IntVector2.left),
+                    RightAngleLocation.TopLeft => (boundingRect.topRight, boundingRect.bottomLeft, IntVector2.down, IntVector2.right),
+                    RightAngleLocation.TopRight => (boundingRect.topLeft, boundingRect.bottomRight, IntVector2.down, IntVector2.left),
+                    _ => throw new UnreachableException($"Unknown / unimplemented {nameof(RightAngleLocation)}: {rightAngleLocation}.")
+                };
+                if (boundingRect.width < boundingRect.height)
                 {
-                    startAdjusted = bottomCorner + (endCorner == leftCorner ? IntVector2.left : IntVector2.right);
-                    endAdjusted = topCorner + IntVector2.down;
-                }
-                else if (rightAngleLocation == RightAngleLocation.Left)
-                {
-                    startAdjusted = bottomCorner + (startCorner == leftCorner ? IntVector2.right : IntVector2.up);
-                    endAdjusted = topCorner + (startCorner == leftCorner ? IntVector2.down : IntVector2.right);
-                }
-                else if (rightAngleLocation == RightAngleLocation.Right)
-                {
-                    startAdjusted = bottomCorner + (startCorner == leftCorner ? IntVector2.up : IntVector2.left);
-                    endAdjusted = topCorner + (startCorner == leftCorner ? IntVector2.left : IntVector2.down);
-                }
-                else
-                {
-                    throw new NotImplementedException("Unknown / unimplemented RightAngleLocation: " + rightAngleLocation);
+                    (longerCorner, shorterCorner) = (shorterCorner, longerCorner);
+                    (longerCornerOffset, shorterCornerOffset) = (shorterCornerOffset, longerCornerOffset);
                 }
 
-                // This is to ensure reflecting doesn't change the shape (up to reflecting)
-                // If width >= height, we draw the hypotenuse starting from the corner with the same y coord as the right angle corner
-                // If width < height, we draw the hypotenuse starting from the corner with the same x coord as the right angle corner
-                if (boundingRect.width < boundingRect.height != (startCorner.y != rightAngleCorner.y))
-                {
-                    IntVector2 temp;
-
-                    temp = startCorner;
-                    startCorner = endCorner;
-                    endCorner = temp;
-
-                    temp = startAdjusted;
-                    startAdjusted = endAdjusted;
-                    endAdjusted = temp;
-                }
-
-                // Override shape of 2xn and nx2 triangles to be more aesthetic (otherwise they are just diamonds).
-                if (boundingRect.width == 2 && boundingRect.height == 2)
-                {
-                    startAdjusted = startCorner;
-                    endAdjusted = endCorner;
-                }
+                // Override shape of 2xn and nx2 triangles
                 if (boundingRect.width == 2 || boundingRect.height == 2)
                 {
-                    startAdjusted = endAdjusted + (startAdjusted - endAdjusted) / 2;
+                    // In this case the border doesn't necessarily form a loop
+                    return new Path(
+                        new Line(shorterCorner + (longerCorner + longerCornerOffset - shorterCorner) / 2, shorterCorner),
+                        new Line(rightAngleCorner, longerCorner)
+                        );
                 }
 
-                // The line order is start corner -> end corner -> right angle corner -> start corner
-                return new Path(new Line(startAdjusted, endAdjusted), new Line(endCorner, rightAngleCorner), new Line(rightAngleCorner, startCorner));
+                return new Path(
+                    new Line(longerCorner + longerCornerOffset, shorterCorner + shorterCornerOffset),
+                    new Line(shorterCorner, rightAngleCorner),
+                    new Line(rightAngleCorner, longerCorner)
+                    );
             }
         }
 
-        public RightTriangle(IntVector2 corner, IntVector2 oppositeCorner, RightAngleLocation rightAngleLocation, bool filled)
+        /// <summary>
+        /// Creates the largest <see cref="RightTriangle"/> that can fit in the given rect, and that has the right angle in the specified corner of the rect.
+        /// </summary>
+        /// <param name="boundingRect">See <see cref="boundingRect"/>.</param>
+        /// <param name="rightAngleLocation">See <see cref="rightAngleLocation"/>.</param>
+        /// <param name="filled">See <see cref="filled"/>.</param>
+        public RightTriangle(IntRect boundingRect, RightAngleLocation rightAngleLocation, bool filled)
         {
-            if (corner.y <= oppositeCorner.y)
-            {
-                _bottomCorner = corner;
-                _topCorner = oppositeCorner;
-            }
-            else
-            {
-                _bottomCorner = oppositeCorner;
-                _topCorner = corner;
-            }
-
+            this.boundingRect = boundingRect;
             this.rightAngleLocation = rightAngleLocation;
             this.filled = filled;
         }
+        /// <summary>
+        /// Creates a <see cref="RightTriangle"/> with the two given non-right-angle corners.
+        /// </summary>
+        /// <param name="corner">One of the two non-right-angle corners of the <see cref="RightTriangle"/>.</param>
+        /// <param name="oppositeCorner">The non-right-angle corner opposite <paramref name="corner"/>.</param>
+        /// <param name="horizontalEdgeIsBottomEdge">Whether the horizontal edge of the <see cref="RightTriangle"/> is the bottom edge (as opposed to the top edge).</param>
+        /// <param name="filled">See <see cref="filled"/>.</param>
+        public RightTriangle(IntVector2 corner, IntVector2 oppositeCorner, bool horizontalEdgeIsBottomEdge, bool filled)
+        {
+            boundingRect = new IntRect(corner, oppositeCorner);
+            this.filled = filled;
 
-        public bool Contains(IntVector2 pixel)
+            rightAngleLocation = (corner.x >= oppositeCorner.x == corner.y >= oppositeCorner.y, horizontalEdgeIsBottomEdge) switch
+            {
+                (false, false) => RightAngleLocation.TopRight,
+                (false, true) => RightAngleLocation.BottomLeft,
+                (true, false) => RightAngleLocation.TopLeft,
+                (true, true) => RightAngleLocation.BottomRight
+            };
+        }
+
+        public bool Contains(IntVector2 point)
         {
             if (!filled)
             {
-                return border.Contains(pixel);
+                return border.Contains(point);
             }
 
-            // These cases are separate as the winding number is only defined for paths that are loops, but these cases don't give loops.
-            // (Actually the 1x1, 1x2 and 2x1 cases don't need to be included in this, but it's easier to just include them.)
+            // These cases are separate as the winding number is only defined for paths that are loops, but these cases don't necessarily give loops
             if (boundingRect.width <= 2 || boundingRect.height <= 2)
             {
-                return border.Contains(pixel);
+                return border.Contains(point);
             }
-            return border.Contains(pixel) || border.WindingNumber(pixel) != 0;
+
+            return border.Contains(point) || border.WindingNumber(point) != 0;
         }
 
         /// <summary>
-        /// Translates the triangle by the given vector.
+        /// Returns a deep copy of the <see cref="RightTriangle"/> translated by the given vector.
         /// </summary>
+        /// <seealso cref="Translate(IntVector2)"/>
         public static RightTriangle operator +(RightTriangle triangle, IntVector2 translation) => triangle.Translate(translation);
         /// <summary>
-        /// Translates the triangle by the given vector.
+        /// Returns a deep copy of the <see cref="RightTriangle"/> translated by the given vector.
         /// </summary>
+        /// <seealso cref="Translate(IntVector2)"/>
         public static RightTriangle operator +(IntVector2 translation, RightTriangle triangle) => triangle + translation;
         /// <summary>
-        /// Translates the triangle by the given vector.
+        /// Returns a deep copy of the <see cref="RightTriangle"/> translated by the given vector.
         /// </summary>
-        public static RightTriangle operator -(RightTriangle triangle, IntVector2 translation) => triangle + -translation;
+        /// <seealso cref="Translate(IntVector2)"/>
+        public static RightTriangle operator -(RightTriangle triangle, IntVector2 translation) => triangle + (-translation);
         /// <summary>
-        /// Reflects the triangle through the origin.
+        /// Returns a deep copy of the <see cref="RightTriangle"/> rotated 180 degrees about the origin (equivalently, reflected through the origin).
         /// </summary>
+        /// <seealso cref="Rotate(RotationAngle)"/>
+        /// <seealso cref="Flip(FlipAxis)"/>
         public static RightTriangle operator -(RightTriangle triangle) => triangle.Rotate(RotationAngle._180);
 
-        /// <summary>
-        /// Translates the triangle by the given vector.
-        /// </summary>
-        public RightTriangle Translate(IntVector2 translation) => new RightTriangle(bottomCorner + translation, topCorner + translation, rightAngleLocation, filled);
-
-        /// <summary>
-        /// Reflects the triangle across the given axis.
-        /// </summary>
-        public RightTriangle Flip(FlipAxis axis)
-        {
-            RightAngleLocation FlipRightAngleLocation(RightAngleLocation rightAngleLocation, FlipAxis axis) => axis switch
-            {
-                FlipAxis.None => rightAngleLocation,
-                FlipAxis.Vertical => rightAngleLocation switch
-                {
-                    RightAngleLocation.Top => RightAngleLocation.Top,
-                    RightAngleLocation.Bottom => RightAngleLocation.Bottom,
-                    RightAngleLocation.Left => RightAngleLocation.Right,
-                    RightAngleLocation.Right => RightAngleLocation.Left,
-                    _ => throw new NotImplementedException("Unknown / unimplemented RightAngleLocation: " + rightAngleLocation),
-                },
-                FlipAxis.Horizontal => rightAngleLocation switch
-                {
-                    RightAngleLocation.Top => RightAngleLocation.Bottom,
-                    RightAngleLocation.Bottom => RightAngleLocation.Top,
-                    RightAngleLocation.Left => RightAngleLocation.Left,
-                    RightAngleLocation.Right => RightAngleLocation.Right,
-                    _ => throw new NotImplementedException("Unknown / unimplemented RightAngleLocation: " + rightAngleLocation),
-                },
-                FlipAxis._45Degrees => rightAngleLocation switch
-                {
-                    RightAngleLocation.Top => RightAngleLocation.Right,
-                    RightAngleLocation.Bottom => RightAngleLocation.Left,
-                    RightAngleLocation.Left => RightAngleLocation.Bottom,
-                    RightAngleLocation.Right => RightAngleLocation.Top,
-                    _ => throw new NotImplementedException("Unknown / unimplemented RightAngleLocation: " + rightAngleLocation),
-                },
-                FlipAxis.Minus45Degrees => rightAngleLocation switch
-                {
-                    RightAngleLocation.Top => RightAngleLocation.Left,
-                    RightAngleLocation.Bottom => RightAngleLocation.Right,
-                    RightAngleLocation.Left => RightAngleLocation.Top,
-                    RightAngleLocation.Right => RightAngleLocation.Bottom,
-                    _ => throw new NotImplementedException("Unknown / unimplemented RightAngleLocation: " + rightAngleLocation),
-                },
-                _ => throw new NotImplementedException("Unknown / unimplemented FlipAxis: " + axis),
-            };
-
-            return new RightTriangle(bottomCorner.Flip(axis), topCorner.Flip(axis), FlipRightAngleLocation(rightAngleLocation, axis), filled);
-        }
-
-        /// <summary>
-        /// Rotates the triangle by the given angle.
-        /// </summary>
-        public RightTriangle Rotate(RotationAngle angle)
-        {
-            RightAngleLocation RotateRightAngleLocation(RightAngleLocation rightAngleLocation, RotationAngle angle) => angle switch
-            {
-                RotationAngle._0 => rightAngleLocation,
-                RotationAngle._90 => rightAngleLocation switch
-                {
-                    RightAngleLocation.Top => RightAngleLocation.Right,
-                    RightAngleLocation.Bottom => RightAngleLocation.Left,
-                    RightAngleLocation.Left => RightAngleLocation.Top,
-                    RightAngleLocation.Right => RightAngleLocation.Bottom,
-                    _ => throw new NotImplementedException("Unknown / unimplemented RightAngleLocation: " + rightAngleLocation),
-                },
-                RotationAngle._180 => rightAngleLocation switch
-                {
-                    RightAngleLocation.Top => RightAngleLocation.Bottom,
-                    RightAngleLocation.Bottom => RightAngleLocation.Top,
-                    RightAngleLocation.Left => RightAngleLocation.Right,
-                    RightAngleLocation.Right => RightAngleLocation.Left,
-                    _ => throw new NotImplementedException("Unknown / unimplemented RightAngleLocation: " + rightAngleLocation),
-                },
-                RotationAngle.Minus90 => rightAngleLocation switch
-                {
-                    RightAngleLocation.Top => RightAngleLocation.Left,
-                    RightAngleLocation.Bottom => RightAngleLocation.Right,
-                    RightAngleLocation.Left => RightAngleLocation.Bottom,
-                    RightAngleLocation.Right => RightAngleLocation.Top,
-                    _ => throw new NotImplementedException("Unknown / unimplemented RightAngleLocation: " + rightAngleLocation),
-                },
-                _ => throw new NotImplementedException("Unknown / unimplemented RotationAngle: " + angle),
-            };
-
-            return new RightTriangle(bottomCorner.Rotate(angle), topCorner.Rotate(angle), RotateRightAngleLocation(rightAngleLocation, angle), filled);
-        }
+        public RightTriangle Translate(IntVector2 translation) => new RightTriangle(boundingRect + translation, rightAngleLocation, filled);
+        public RightTriangle Flip(FlipAxis axis) => new RightTriangle(boundingRect.Flip(axis), FromDirection(AsDirection(rightAngleLocation).Flip(axis)), filled);
+        public RightTriangle Rotate(RotationAngle angle) => new RightTriangle(boundingRect.Rotate(angle), FromDirection(AsDirection(rightAngleLocation).Rotate(angle)), filled);
 
         IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();
         public IEnumerator<IntVector2> GetEnumerator()
         {
             Path border = this.border;
-            foreach (IntVector2 pixel in border)
+            foreach (IntVector2 point in border)
             {
-                yield return pixel;
+                yield return point;
             }
 
-            if (!filled || boundingRect.width == 2 || boundingRect.height == 2)
+            if (!filled || boundingRect.width <= 2 || boundingRect.height <= 2)
             {
                 yield break;
             }
 
-            // either IntVector2.up, IntVector2.left or IntVector2.right
-            IntVector2 directionToTopCorner = IntVector2.Simplify(topCorner - rightAngleCorner);
-            // either IntVector2.down, IntVector2.left or IntVector2.right
-            IntVector2 directionToBottomCorner = IntVector2.Simplify(bottomCorner - rightAngleCorner);
+            IntVector2 directionToTopCorner = IntVector2.Simplify(topCorner - rightAngleCorner); // either IntVector2.up, IntVector2.left or IntVector2.right
+            IntVector2 directionToBottomCorner = IntVector2.Simplify(bottomCorner - rightAngleCorner); // either IntVector2.down, IntVector2.left or IntVector2.right
 
-            for (IntVector2 rowStart = rightAngleCorner + directionToTopCorner + directionToBottomCorner; !border.Contains(rowStart); rowStart += directionToTopCorner)
+            for (IntVector2 scanLineStart = rightAngleCorner + directionToTopCorner + directionToBottomCorner; !border.Contains(scanLineStart); scanLineStart += directionToTopCorner)
             {
-                for (IntVector2 pixel = rowStart; !border.Contains(pixel); pixel += directionToBottomCorner)
+                for (IntVector2 point = scanLineStart; !border.Contains(point); point += directionToBottomCorner)
                 {
-                    yield return pixel;
+                    yield return point;
                 }
             }
         }
 
-        public static bool operator ==(RightTriangle a, RightTriangle b)
-            => a.bottomCorner == b.bottomCorner && a.topCorner == b.topCorner && a.rightAngleCorner == b.rightAngleCorner && a.filled == b.filled;
+        /// <summary>
+        /// Whether the two <see cref="RightTriangle"/>s have the same shape, and the same <see cref="rightAngleLocation"/>.
+        /// </summary>
+        public static bool operator ==(RightTriangle a, RightTriangle b) => a.boundingRect == b.boundingRect && a.rightAngleCorner == b.rightAngleCorner && a.filled == b.filled;
+        /// <summary>
+        /// See <see cref="operator ==(RightTriangle, RightTriangle)"/>.
+        /// </summary>
         public static bool operator !=(RightTriangle a, RightTriangle b) => !(a == b);
+        /// <summary>
+        /// See <see cref="operator ==(RightTriangle, RightTriangle)"/>.
+        /// </summary>
         public bool Equals(RightTriangle other) => this == other;
+        /// <summary>
+        /// See <see cref="Equals(RightTriangle)"/>.
+        /// </summary>
         public override bool Equals(object obj) => obj is RightTriangle other && Equals(other);
 
-        public override int GetHashCode() => HashCode.Combine(bottomCorner, topCorner, rightAngleLocation, filled);
+        public override int GetHashCode() => HashCode.Combine(boundingRect, rightAngleLocation, filled);
 
-        public override string ToString() => "RightTriangle(" + bottomCorner + ", " + topCorner + ", " + rightAngleLocation + ", " + (filled ? "filled" : "unfilled") + ")";
+        public override string ToString() => $"{nameof(RightTriangle)}({boundingRect}, {rightAngleLocation}, {(filled ? "filled" : "unfilled")})";
 
-        public RightTriangle DeepCopy() => new RightTriangle(bottomCorner, topCorner, rightAngleLocation, filled);
+        public RightTriangle DeepCopy() => new RightTriangle(boundingRect, rightAngleLocation, filled);
     }
 }
