@@ -98,5 +98,13 @@ namespace PAC.Extensions
             // so that its getters and setters use a new private field called MyClass___1<myProp>
             return property.DeclaringType.GetFields(BindingFlags.NonPublic | BindingFlags.Instance).Any(f => f.Name.Contains("<" + property.Name + ">"));
         }
+
+        /// <summary>
+        /// Gets all possible values of the <see langword="enum"/> type <typeparamref name="T"/>.
+        /// </summary>
+        public static T[] GetValues<T>() where T : Enum
+        {
+            return (T[])Enum.GetValues(typeof(T));
+        }
     }
 }

@@ -168,5 +168,35 @@ namespace PAC.Tests.Extensions
             Assert.False(typeof(Class5).GetProperty("prop3", BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance).IsAutoProperty());
             Assert.False(typeof(Class5).GetProperty("prop4", BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance).IsAutoProperty());
         }
+
+        private enum TestEnum0 { }
+        private enum TestEnum1
+        {
+            Value1
+        }
+        private enum TestEnum2
+        {
+            Hello,
+            There
+        }
+        private enum TestEnum3
+        {
+            How = 5,
+            Are = -1,
+            You = 2,
+        }
+
+        /// <summary>
+        /// Tests <see cref="TypeExtensions.GetValues{T}"/>.
+        /// </summary>
+        [Test]
+        [Category("Extensions")]
+        public void GetValues()
+        {
+            CollectionAssert.IsEmpty(TypeExtensions.GetValues<TestEnum0>());
+            CollectionAssert.AreEquivalent(new TestEnum1[] { TestEnum1.Value1 }, TypeExtensions.GetValues<TestEnum1>());
+            CollectionAssert.AreEquivalent(new TestEnum2[] { TestEnum2.Hello, TestEnum2.There }, TypeExtensions.GetValues<TestEnum2>());
+            CollectionAssert.AreEquivalent(new TestEnum3[] { TestEnum3.How, TestEnum3.Are, TestEnum3.You }, TypeExtensions.GetValues<TestEnum3>());
+        }
     }
 }
