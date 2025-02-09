@@ -388,11 +388,14 @@ namespace PAC.Tests.Shapes
             }
         }
 
+        /// <summary>
+        /// Tests <see cref="Path.WindingNumber(IntVector2)"/> for some handmade examples.
+        /// </summary>
         [Test]
         [Category("Shapes")]
-        public void WindingNumber()
+        public void WindingNumberExamples()
         {
-            (Path path, (int windingNumber, IntVector2 point)[])[] testCases =
+            (Path path, (int windingNumber, IntVector2 point)[] pathTestCases)[] testCases =
             {
                 (new Path(IntVector2.downRight, IntVector2.upRight, IntVector2.upLeft, IntVector2.downLeft, IntVector2.downRight), new (int, IntVector2)[] {
                     (1, IntVector2.zero),
@@ -449,6 +452,23 @@ namespace PAC.Tests.Shapes
                         (0, new IntVector2(0, -1)),
                         (0, new IntVector2(-1, 0)),
                         (0, new IntVector2(6, 0))
+                    }),
+                (new Path((0, 0), (0, -1), (1, -2), (2, -1), (1, 0), (0, 1), (-1, 2), (-2, 1), (-1, 0)),
+                    new (int, IntVector2)[] {
+                        (1, new IntVector2(1, -1)),
+                        (1, new IntVector2(-1, 1)),
+                        (0, new IntVector2(2, 0)),
+                        (0, new IntVector2(-2, 0)),
+                        (0, new IntVector2(0, -2)),
+                        (0, new IntVector2(-3, 1)),
+                    }),
+                (new Path(
+                    new Line((2, 2), (1, 2)),
+                    new Line((2, 1), (0, 3)),
+                    new Line((0, 3), (3, 2))
+                    ),
+                    new (int, IntVector2)[] {
+                        (0, new IntVector2(0, 2))
                     })
             };
 
@@ -466,47 +486,81 @@ namespace PAC.Tests.Shapes
             // Winding number of point on path is undefined
             Assert.Throws<ArgumentException>(() => new Path(IntVector2.zero).WindingNumber(IntVector2.zero));
             Assert.Throws<ArgumentException>(() => new Path(IntVector2.zero, IntVector2.right, new IntVector2(1, 2), IntVector2.zero).WindingNumber(IntVector2.one));
+        }
 
-            // Check it correctly determines whether the winding number is non-zero for simple polygons (those that don't self-intersect)
-            foreach (Path path in RandomTestCases(1_000, true))
+        private void TestWindingNumberZeroOrNonZero(Path path)
+        {
+            if (path.lines.Count > 3)
+                //throw new ArgumentException("This test is only guaranteed to work correctly for convex shapes. For this reason, we currently only allow test cases made of <= 3 lines.", nameof(path));
+            }
+
+            HashSet<IntVector2> points = path.ToHashSet();
+            IntRect boundingRect = path.boundingRect;
+            IntRect testRegion = new IntRect(boundingRect.bottomLeft + IntVector2.downLeft, boundingRect.topRight + IntVector2.upRight);
+
+            for (int iteration = 0; iteration < 10; iteration++)
             {
-                if (!path.isSimplePolygon)
+                IntVector2 point = testRegion.RandomPoint();
+
+                if (points.Contains(point))
                 {
                     continue;
                 }
 
-                HashSet<IntVector2> pixels = path.ToHashSet();
-                IntRect boundingRect = path.boundingRect;
-                boundingRect = new IntRect(boundingRect.bottomLeft + IntVector2.downLeft, boundingRect.topRight + IntVector2.upRight);
-
-                foreach (IntVector2 pixel in boundingRect)
+                bool outside = false;
+                foreach (IntVector2 direction in IntVector2.upDownLeftRight)
                 {
-                    if (pixels.Contains(pixel))
+                    bool hitLine = false;
+                    for (IntVector2 check = point; testRegion.Contains(check); check += direction)
                     {
-                        continue;
-                    }
-
-                    bool outside = false;
-                    foreach (IntVector2 direction in IntVector2.upDownLeftRight)
-                    {
-                        bool hitLine = false;
-                        for (IntVector2 check = pixel; boundingRect.Contains(check); check += direction)
+                        if (points.Contains(check))
                         {
-                            if (pixels.Contains(check))
-                            {
-                                hitLine = true;
-                                break;
-                            }
-                        }
-
-                        if (!hitLine)
-                        {
-                            outside = true;
+                            hitLine = true;
                             break;
                         }
                     }
 
-                    Assert.AreEqual(outside, path.WindingNumber(pixel) == 0, $"Failed with {path} and {pixel}.");
+                    if (!hitLine)
+                    {
+                        outside = true;
+                        break;
+                    }
+                }
+
+                Assert.AreEqual(outside, path.WindingNumber(point) == 0, $"Failed with {path} and {point}.");
+            }
+        }
+
+        /// <summary>
+        /// Tests that <see cref="Path.WindingNumber(IntVector2)"/> is correctly zero / non-zero for simple polygons.
+        /// </summary>
+        [Test]
+        [Category("Shapes")]
+        public void WindingNumberSimplePolygons()
+        {
+            foreach (Path path in RandomTestCases(100, true))
+            {
+                if (path.isSimplePolygon)
+                {
+                    TestWindingNumberZeroOrNonZero(path);
+                }
+            }
+        }
+
+        /// <summary>
+        /// Tests that <see cref="Path.WindingNumber(IntVector2)"/> is correctly zero / non-zero for <see cref="Path"/>s that don't self-intersect.
+        /// </summary>
+        [Test]
+        [Category("Shapes")]
+        public void WindingNumberNonSelfIntersecting()
+        {
+            TestWindingNumberZeroOrNonZero(new Path(new Line((5, 5), (4, 5)), new Line((4, 5), (5, 4))));
+
+            foreach (Path path in RandomTestCases(100, true))
+            {
+                if (!path.selfIntersects)
+                {
+                    TestWindingNumberZeroOrNonZero(path);
                 }
             }
         }

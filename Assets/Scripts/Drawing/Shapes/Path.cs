@@ -497,7 +497,7 @@ namespace PAC.Shapes
 
                 // This starting value doesn't mean anything as it should always get overwritten in the loop
                 WindingNumberCornerType startCornerType = WindingNumberCornerType.Downward;
-                for (int index = (i - 1).Mod(_lines.Count); index != i; index = (index - 1).Mod(_lines.Count))
+                for (int index = (i - 1).Mod(_lines.Count); true; index = (index - 1).Mod(_lines.Count))
                 {
                     if (_lines[index].end.y != line.start.y)
                     {
@@ -525,13 +525,18 @@ namespace PAC.Shapes
                         }
                         break;
                     }
+
+                    if (index == i)
+                    {
+                        throw new UnreachableException();
+                    }
                 }
 
                 // Check if end of line is a local y extremum
 
                 // This starting value doesn't mean anything as it should should always get overwritten in the loop
                 WindingNumberCornerType endCornerType = WindingNumberCornerType.Downward;
-                for (int index = (i + 1) % _lines.Count; index != i; index = (index + 1) % _lines.Count)
+                for (int index = (i + 1) % _lines.Count; true; index = (index + 1) % _lines.Count)
                 {
                     if (_lines[index].start.y != line.end.y)
                     {
@@ -558,6 +563,11 @@ namespace PAC.Shapes
                             endCornerType = (WindingNumberCornerType)_lines[index].vector.sign.y;
                         }
                         break;
+                    }
+
+                    if (index == i)
+                    {
+                        throw new UnreachableException();
                     }
                 }
 
