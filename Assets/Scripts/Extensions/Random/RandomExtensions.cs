@@ -57,5 +57,13 @@ namespace PAC.Extensions
                 yield return rand.Next(minValue, maxValue);
             }
         }
+
+        /// <summary>
+        /// Generates a uniformly random <see cref="bool"/> value.
+        /// </summary>
+        public static bool NextBool(this Random random)
+        {
+            return random.Next(2) == 0;
+        }
     }
 }
