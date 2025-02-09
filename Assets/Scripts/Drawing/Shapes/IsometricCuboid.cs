@@ -185,7 +185,7 @@ namespace PAC.Shapes
         /// <seealso cref="Translate(IntVector2)"/>
         public static IsometricCuboid operator -(IsometricCuboid isometricCuboid, IntVector2 translation) => isometricCuboid + (-translation);
 
-        public IsometricCuboid Translate(IntVector2 translation) => new IsometricCuboid(bottomFace + translation, height, filled, includeBackEdges);
+        public IsometricCuboid Translate(IntVector2 translation) => new IsometricCuboid((height >= 0 ? bottomFace.DeepCopy() : topFace.DeepCopy()) + translation, height, filled, includeBackEdges);
         /// <inheritdoc/>
         /// <remarks>
         /// Can only be flipped across the vertical axis (or none axis).
@@ -194,7 +194,7 @@ namespace PAC.Shapes
         public IsometricCuboid Flip(FlipAxis axis) => axis switch
         {
             FlipAxis.None => DeepCopy(),
-            FlipAxis.Vertical => new IsometricCuboid(bottomFace.Flip(axis), height, filled, includeBackEdges),
+            FlipAxis.Vertical => new IsometricCuboid((height >= 0 ? bottomFace.DeepCopy() : topFace.DeepCopy()).Flip(axis), height, filled, includeBackEdges),
             FlipAxis.Horizontal | FlipAxis._45Degrees | FlipAxis.Minus45Degrees
                 => throw new ArgumentException($"{nameof(Flip)}() is undefined for {nameof(IsometricCuboid)} across the {axis} axis.", nameof(axis)),
             _ => throw new NotImplementedException($"Unknown / unimplemented FlipAxis: {axis}")
@@ -254,6 +254,6 @@ namespace PAC.Shapes
             return $"{nameof(IsometricCuboid)}({bottomFace.startCorner}, {bottomFace.endCorner}, {height}, {filledStr}, {includeBackEdgesStr})";
         }
 
-        public IsometricCuboid DeepCopy() => new IsometricCuboid(bottomFace.DeepCopy(), height, filled, includeBackEdges);
+        public IsometricCuboid DeepCopy() => new IsometricCuboid(height >= 0 ? bottomFace.DeepCopy() : topFace.DeepCopy(), height, filled, includeBackEdges);
     }
 }

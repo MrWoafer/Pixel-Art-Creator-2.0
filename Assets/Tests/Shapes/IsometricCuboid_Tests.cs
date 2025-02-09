@@ -88,7 +88,9 @@ namespace PAC.Tests.Shapes
             {
                 if (cuboid.height == 0)
                 {
-                    Assert.True(cuboid.bottomFace.ToHashSet().SetEquals(cuboid), $"Failed with {cuboid}.");
+                    IsometricRectangle bottomFace = cuboid.bottomFace;
+                    bottomFace.filled = cuboid.filled;
+                    Assert.True(bottomFace.ToHashSet().SetEquals(cuboid), $"Failed with {cuboid}.");
                 }
             }
         }
