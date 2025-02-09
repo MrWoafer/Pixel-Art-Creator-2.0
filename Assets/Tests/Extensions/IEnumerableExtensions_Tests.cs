@@ -86,7 +86,7 @@ namespace PAC.Tests.Extensions
         [Category("Extensions")]
         public void AreAllDistinct()
         {
-            IEnumerable<int> rngSequence = new Random(0).ToSequence(-10, 11);
+            IEnumerable<int> randomSequence = new Random(0).ToSequence(-10, 11);
 
             const int maxTestCaseLength = 10;
             const int numTestCasesPerLength = 100;
@@ -100,7 +100,7 @@ namespace PAC.Tests.Extensions
                 for (int i = 0; i < numTestCasesPerLength; i++)
                 {
                     // We do the ToArray() to 'save' the sequence, as iterating over a ToSequence() more than once can give a different sequence.
-                    testCases.Add(rngSequence.Take(length).ToArray());
+                    testCases.Add(randomSequence.Take(length).ToArray());
                 }
             }
 
@@ -169,7 +169,7 @@ namespace PAC.Tests.Extensions
 
             // Random test cases
 
-            Random rng = new Random(0);
+            Random random = new Random(0);
 
             const int maxTestCaseLength = 10;
             const int numTestCasesPerLength = 100;
@@ -185,7 +185,7 @@ namespace PAC.Tests.Extensions
                     int[] testCase = new int[length];
                     for (int j = 0; j < length; j++)
                     {
-                        testCase[j] = rng.Next(-10, 11);
+                        testCase[j] = random.Next(-10, 11);
                     }
                     randomTestCases.Add(testCase);
                 }
@@ -202,7 +202,7 @@ namespace PAC.Tests.Extensions
                 List<int> supersequence = new List<int>(testCase1);
                 for (int extra = 0; extra < 5; extra++)
                 {
-                    supersequence.Insert(rng.Next(0, supersequence.Count + 1), rng.Next(-10, 11));
+                    supersequence.Insert(random.Next(0, supersequence.Count + 1), random.Next(-10, 11));
                     Assert.True(testCase1.IsSubsequenceOf(supersequence), $"Failed with {{ {string.Join(", ", testCase1)} }}.");
                     Assert.True(supersequence.IsSupersequenceOf(testCase1), $"Failed with {{ {string.Join(", ", testCase1)} }}.");
                 }
@@ -296,7 +296,7 @@ namespace PAC.Tests.Extensions
         [Category("Extensions")]
         public void MinAndMax()
         {
-            Random rng = new Random(0);
+            Random random = new Random(0);
 
             const int maxTestCaseLength = 20;
             const int numTestCasesPerLength = 1_000;
@@ -309,7 +309,7 @@ namespace PAC.Tests.Extensions
                     int[] testCase = new int[length];
                     for (int j = 0; j < length; j++)
                     {
-                        testCase[j] = rng.Next(-100, 100);
+                        testCase[j] = random.Next(-100, 100);
                     }
                     testCases.Add(testCase);
                 }

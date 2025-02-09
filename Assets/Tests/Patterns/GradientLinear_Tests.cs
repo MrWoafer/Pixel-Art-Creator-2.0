@@ -19,13 +19,13 @@ namespace PAC.Tests.Patterns
         {
             get
             {
-                System.Random rng = new System.Random(0);
+                System.Random random = new System.Random(0);
                 foreach (IntVector2 startCoord in new IntRect((-5, -5), (5, 5)))
                 {
                     foreach (IntVector2 endCoord in new IntRect((-5, -5), (5, 5)))
                     {
-                        Color startColour = new Color((float)rng.NextDouble(), (float)rng.NextDouble(), (float)rng.NextDouble(), (float)rng.NextDouble());
-                        Color endColour = new Color((float)rng.NextDouble(), (float)rng.NextDouble(), (float)rng.NextDouble(), (float)rng.NextDouble());
+                        Color startColour = new Color((float)random.NextDouble(), (float)random.NextDouble(), (float)random.NextDouble(), (float)random.NextDouble());
+                        Color endColour = new Color((float)random.NextDouble(), (float)random.NextDouble(), (float)random.NextDouble(), (float)random.NextDouble());
 
                         yield return new PAC.Patterns.Gradient.Linear((startCoord, startColour), (endCoord, endColour));
                     }

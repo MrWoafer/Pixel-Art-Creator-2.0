@@ -20,14 +20,14 @@ namespace PAC.Tests.DataStructures
         /// </remarks>
         private IEnumerable<Rational> RandomTestCases(int numTestCases)
         {
-            Random rng = new Random(0);
+            Random random = new Random(0);
             for (int i = 0; i < numTestCases; i++)
             {
-                int numerator = rng.Next(-100, 101);
-                int denominator = rng.Next(-100, 101);
+                int numerator = random.Next(-100, 101);
+                int denominator = random.Next(-100, 101);
                 while (denominator == 0)
                 {
-                    denominator = rng.Next(-100, 101);
+                    denominator = random.Next(-100, 101);
                 }
 
                 yield return new Rational(numerator, denominator);
@@ -50,11 +50,11 @@ namespace PAC.Tests.DataStructures
             Assert.AreEqual(3, new Rational(-3, -2).numerator);
             Assert.AreEqual(2, new Rational(-3, -2).denominator);
 
-            Random rng = new Random(0);
+            Random random = new Random(0);
             for (int i = 0; i < 1_000; i++)
             {
-                int numerator = rng.Next(-100, 101);
-                int denominator = rng.Next(-100, 101);
+                int numerator = random.Next(-100, 101);
+                int denominator = random.Next(-100, 101);
                 Rational rational = new Rational(numerator, denominator);
 
                 Assert.True(rational.denominator >= 0, $"Failed with {numerator} and {denominator}.");
@@ -66,10 +66,10 @@ namespace PAC.Tests.DataStructures
         [Category("Data Structures")]
         public void NumeratorAndDenominatorSpecialCases()
         {
-            Random rng = new Random(0);
+            Random random = new Random(0);
             for (int i = 0; i < 1_000; i++)
             {
-                int numerator = rng.Next(-100, 101);
+                int numerator = random.Next(-100, 101);
                 Rational rational = new Rational(numerator, 0);
 
                 Assert.AreEqual(0, rational.numerator, $"Failed with {numerator}.");
@@ -77,7 +77,7 @@ namespace PAC.Tests.DataStructures
             }
             for (int i = 0; i < 1_000; i++)
             {
-                int denominator = rng.Next(-100, 101);
+                int denominator = random.Next(-100, 101);
                 Rational rational = new Rational(0, denominator);
 
                 if (denominator == 0)
@@ -99,11 +99,11 @@ namespace PAC.Tests.DataStructures
         {
             Assert.AreEqual(new Rational(3, 2), new Rational(6, 4));
 
-            Random rng = new Random(0);
+            Random random = new Random(0);
             for (int i = 0; i < 1_000; i++)
             {
-                int numerator = rng.Next(-100, 101);
-                int denominator = rng.Next(-100, 101);
+                int numerator = random.Next(-100, 101);
+                int denominator = random.Next(-100, 101);
                 Rational rational = new Rational(numerator, denominator);
                 
                 if (denominator == 0)
@@ -213,11 +213,11 @@ namespace PAC.Tests.DataStructures
         [Category("Data Structures")]
         public void CastToInt()
         {
-            Random rng = new Random(0);
+            Random random = new Random(0);
             for (int i = 0; i < 1_000; i++)
             {
-                int numerator = rng.Next(-100, 101);
-                int denominator = rng.Next(-100, 101);
+                int numerator = random.Next(-100, 101);
+                int denominator = random.Next(-100, 101);
                 Rational rational = new Rational(numerator, denominator);
 
                 if (rational.isUndefined)
@@ -242,11 +242,11 @@ namespace PAC.Tests.DataStructures
             Assert.AreEqual(0.5f, (float)new Rational(1, 2));
             Assert.AreEqual(1.75f, (float)new Rational(7, 4));
 
-            Random rng = new Random(0);
+            Random random = new Random(0);
             for (int i = 0; i < 1_000; i++)
             {
-                int numerator = rng.Next(-100, 101);
-                int denominator = rng.Next(-100, 101);
+                int numerator = random.Next(-100, 101);
+                int denominator = random.Next(-100, 101);
                 Rational rational = new Rational(numerator, denominator);
 
                 if (rational.isUndefined)

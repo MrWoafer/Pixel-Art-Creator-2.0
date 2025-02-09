@@ -32,12 +32,12 @@ namespace PAC.Tests.Shapes
         {
             get
             {
-                Random rng = new Random(0);
+                Random random = new Random(0);
                 const int numTestCases = 1_000;
                 for (int i = 0; i < numTestCases; i++)
                 {
-                    IntVector2 start = new IntVector2(rng.Next(-20, 21), rng.Next(-20, 21));
-                    IntVector2 end = start + new IntVector2(rng.Next(-20, 21), rng.Next(-20, 21));
+                    IntVector2 start = new IntVector2(random.Next(-20, 21), random.Next(-20, 21));
+                    IntVector2 end = start + new IntVector2(random.Next(-20, 21), random.Next(-20, 21));
                     foreach (bool filled in new bool[] { false, true })
                     {
 

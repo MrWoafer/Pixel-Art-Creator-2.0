@@ -18,41 +18,41 @@ namespace PAC.Tests.Extensions
         public void ToSequence()
         {
             const int seed = 0;
-            Random rng = new Random(seed);
-            // We compare with a new System.Random with the same seed, instead of just against rng, because ToSequence() does not deep-copy the System.Random, so calling rng.Next() between the
-            // generation of two elements would affect the sequence.
-            Random rngCopy = new Random(seed);
+            Random random = new Random(seed);
+            // We compare with a new System.Random with the same seed, instead of just against random, because ToSequence() does not deep-copy the System.Random, so calling random.Next() between
+            // the generation of two elements would affect the sequence.
+            Random randomCopy = new Random(seed);
 
-            IEnumerable<int> sequence = rng.ToSequence();
+            IEnumerable<int> sequence = random.ToSequence();
 
             bool isEmpty = true;
             foreach (int i in sequence.Take(100))
             {
                 isEmpty = false;
-                Assert.AreEqual(rngCopy.Next(), i);
+                Assert.AreEqual(randomCopy.Next(), i);
             }
             Assert.False(isEmpty);
 
             /////
             
-            rng = new Random(seed);
-            rngCopy = new Random(seed);
+            random = new Random(seed);
+            randomCopy = new Random(seed);
 
             const int min = -12;
             const int max = 19;
-            sequence = rng.ToSequence(min, max);
+            sequence = random.ToSequence(min, max);
 
             isEmpty = true;
             foreach (int i in sequence.Take(100))
             {
                 isEmpty = false;
-                Assert.AreEqual(rngCopy.Next(min, max), i);
+                Assert.AreEqual(randomCopy.Next(min, max), i);
             }
             Assert.False(isEmpty);
 
             // Can't have maxValue < minValue
             // I'm doing the ToArray() because currently, due to using yield, the input validation only happens when you generate the first element 
-            Assert.Throws<ArgumentOutOfRangeException>(() => rng.ToSequence(10, 5).Take(1).ToArray());
+            Assert.Throws<ArgumentOutOfRangeException>(() => random.ToSequence(10, 5).Take(1).ToArray());
         }
 
         /// <summary>

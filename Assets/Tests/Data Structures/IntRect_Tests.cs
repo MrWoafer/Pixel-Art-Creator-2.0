@@ -20,13 +20,13 @@ namespace PAC.Tests.DataStructures
         {
             get
             {
-                Random rng = new Random(0);
+                Random random = new Random(0);
                 const int minInclusive = -10;
                 const int maxInclusive = 10;
                 while (true)
                 {
-                    IntVector2 bottomLeft = new IntVector2(rng.Next(minInclusive, maxInclusive + 1), rng.Next(minInclusive, maxInclusive + 1));
-                    IntVector2 topRight = new IntVector2(rng.Next(minInclusive, maxInclusive + 1), rng.Next(minInclusive, maxInclusive + 1));
+                    IntVector2 bottomLeft = new IntVector2(random.Next(minInclusive, maxInclusive + 1), random.Next(minInclusive, maxInclusive + 1));
+                    IntVector2 topRight = new IntVector2(random.Next(minInclusive, maxInclusive + 1), random.Next(minInclusive, maxInclusive + 1));
                     yield return new IntRect(bottomLeft, topRight);
                 }
             }

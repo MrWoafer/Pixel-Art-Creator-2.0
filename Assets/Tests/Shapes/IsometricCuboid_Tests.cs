@@ -45,15 +45,15 @@ namespace PAC.Tests.Shapes
         {
             get
             {
-                Random rng = new Random(0);
+                Random random = new Random(0);
                 const int numTestCases = 1_000;
                 for (int i = 0; i < numTestCases; i++)
                 {
-                    IntVector2 start = new IntVector2(rng.Next(-10, 11), rng.Next(-10, 11));
-                    IntVector2 end = new IntVector2(rng.Next(-10, 11), rng.Next(-10, 11));
-                    int height = rng.Next(-10, 11);
-                    bool filled = rng.Next(0, 2) == 0;
-                    bool includeBackEdges = rng.Next(0, 2) == 0;
+                    IntVector2 start = new IntVector2(random.Next(-10, 11), random.Next(-10, 11));
+                    IntVector2 end = new IntVector2(random.Next(-10, 11), random.Next(-10, 11));
+                    int height = random.Next(-10, 11);
+                    bool filled = random.Next(0, 2) == 0;
+                    bool includeBackEdges = random.Next(0, 2) == 0;
 
                     yield return new IsometricCuboid(new IsometricRectangle(start, end, false), height, filled, includeBackEdges);
                 }

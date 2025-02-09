@@ -17,13 +17,13 @@ namespace PAC.Tests.Patterns
         {
             get
             {
-                System.Random rng = new System.Random(0);
+                System.Random random = new System.Random(0);
                 foreach (IntVector2 centreCoord in new IntRect((-5, -5), (5, 5)))
                 {
                     foreach (IntVector2 onCircumferenceCoord in new IntRect((-5, -5), (5, 5)))
                     {
-                        Color centreColour = new Color((float)rng.NextDouble(), (float)rng.NextDouble(), (float)rng.NextDouble(), (float)rng.NextDouble());
-                        Color onCircumferenceColour = new Color((float)rng.NextDouble(), (float)rng.NextDouble(), (float)rng.NextDouble(), (float)rng.NextDouble());
+                        Color centreColour = new Color((float)random.NextDouble(), (float)random.NextDouble(), (float)random.NextDouble(), (float)random.NextDouble());
+                        Color onCircumferenceColour = new Color((float)random.NextDouble(), (float)random.NextDouble(), (float)random.NextDouble(), (float)random.NextDouble());
 
                         yield return new PAC.Patterns.Gradient.Radial((centreCoord, centreColour), (onCircumferenceCoord, onCircumferenceColour));
                     }

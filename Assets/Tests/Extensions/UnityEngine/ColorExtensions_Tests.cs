@@ -18,15 +18,15 @@ namespace PAC.Tests.Extensions.UnityEngine
         [Category("Extensions")]
         public void ApproxEquals()
         {
-            System.Random rng = new System.Random(0);
+            System.Random random = new System.Random(0);
             for (int i = 0; i < 1_000; i++)
             {
-                Color colour = new Color((float)rng.NextDouble(), (float)rng.NextDouble(), (float)rng.NextDouble(), (float)rng.NextDouble());
+                Color colour = new Color((float)random.NextDouble(), (float)random.NextDouble(), (float)random.NextDouble(), (float)random.NextDouble());
 
                 Assert.True(colour.Equals(colour, 0f), $"Failed with {colour}.");
 
-                Color otherColour = new Color((float)rng.NextDouble(), (float)rng.NextDouble(), (float)rng.NextDouble(), (float)rng.NextDouble());
-                float tolerance = (float)rng.NextDouble();
+                Color otherColour = new Color((float)random.NextDouble(), (float)random.NextDouble(), (float)random.NextDouble(), (float)random.NextDouble());
+                float tolerance = (float)random.NextDouble();
 
                 if (Mathf.Abs(colour.r - otherColour.r) <= tolerance &&
                     Mathf.Abs(colour.g - otherColour.g) <= tolerance &&

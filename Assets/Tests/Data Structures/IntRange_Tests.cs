@@ -393,7 +393,7 @@ namespace PAC.Tests.DataStructures
         [Category("Data Structures")]
         public void BoundingRange()
         {
-            Random rng = new Random(0);
+            Random random = new Random(0);
 
             const int maxTestCaseLength = 20;
             const int numTestCasesPerLength = 1_000;
@@ -406,7 +406,7 @@ namespace PAC.Tests.DataStructures
                     int[] testCase = new int[length];
                     for (int j = 0; j < length; j++)
                     {
-                        testCase[j] = rng.Next(-100, 100);
+                        testCase[j] = random.Next(-100, 100);
                     }
                     testCases.Add(testCase);
                 }
