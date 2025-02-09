@@ -113,21 +113,10 @@ namespace PAC.Tests.Shapes.TestUtils
         /// <summary>
         /// Asserts that the shape has rotational symmetry by the given angle.
         /// </summary>
-        public static void RotationalSymmetry(IRotatableShape<IShape> shape, RotationAngle angle)
+        public static void RotationalSymmetry(IShape shape, RotationAngle angle)
         {
             CollectionAssert.AreEquivalent(shape.ToHashSet(), shape.Select(p => p.Rotate(angle) + shape.boundingRect.bottomLeft - shape.boundingRect.Rotate(angle).bottomLeft).ToHashSet(),
                 $"Failed with {shape} and RotationAngle.{angle}.");
-        }
-
-        /// <summary>
-        /// Asserts that the shape has 180-degree rotational symmetry.
-        /// </summary>
-        public static void RotationalSymmetry180(IIsometricShape<IShape> shape)
-        {
-            CollectionAssert.AreEquivalent(shape.ToHashSet(), shape.Select(p =>
-                p.Flip(FlipAxis.Vertical).Flip(FlipAxis.Horizontal) + shape.boundingRect.bottomLeft - shape.boundingRect.Flip(FlipAxis.Vertical).Flip(FlipAxis.Horizontal).bottomLeft
-                ).ToHashSet(),
-                $"Failed with {shape}.");
         }
 
         /// <summary>
