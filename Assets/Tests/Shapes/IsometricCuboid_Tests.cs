@@ -99,6 +99,7 @@ namespace PAC.Tests.Shapes
         [Category("Shapes")]
         public override void Contains()
         {
+            Random random = new Random(0);
             foreach (IsometricCuboid cuboid in testCases)
             {
                 IntRect boundingRect = cuboid.boundingRect;
@@ -109,7 +110,7 @@ namespace PAC.Tests.Shapes
                 const int numTestPoints = 100;
                 for (int i = 0; i < numTestPoints; i++)
                 {
-                    IntVector2 point = testRegion.RandomPoint();
+                    IntVector2 point = testRegion.RandomPoint(random);
                     Assert.True(pixels.Contains(point) == cuboid.Contains(point), $"Failed with {cuboid} and {point}. Expected {pixels.Contains(point)}.");
                 }
             }

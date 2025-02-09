@@ -465,7 +465,7 @@ namespace PAC.DataStructures
         /// <summary>
         /// Generates a uniformly random point within the rect.
         /// </summary>
-        public IntVector2 RandomPoint() => new IntVector2(UnityEngine.Random.Range(minX, maxX + 1), UnityEngine.Random.Range(minY, maxY + 1));
+        public IntVector2 RandomPoint(System.Random random) => new IntVector2(random.Next(minX, maxX + 1), random.Next(minY, maxY + 1));
 
         /// <summary>
         /// Iterates over the points in the rect, starting with the bottom row, read left to right, then the next row, etc.

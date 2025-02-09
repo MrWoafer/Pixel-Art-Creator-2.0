@@ -18,32 +18,33 @@ namespace PAC.Tests.Shapes
         private IEnumerable<Path> RandomTestCases(int numOfTestCases) => RandomTestCases(numOfTestCases, false).Concat(RandomTestCases(numOfTestCases, true));
         private IEnumerable<Path> RandomTestCases(int numOfTestCases, bool isLoop)
         {
+            Random random = new Random(0);
             for (int length = 1; length <= 3; length++)
             {
                 for (int iteration = 0; iteration < numOfTestCases; iteration++)
                 {
-                    yield return RandomPath(length, isLoop);
+                    yield return RandomPath(random, length, isLoop);
                 }
             }
         }
-        private Path RandomPath(int length, bool isLoop)
+        private Path RandomPath(Random random, int length, bool isLoop)
         {
             List<Line> lines = new List<Line>
             {
-                new Line(new IntRect(new IntVector2(-5, -5), new IntVector2(5, 5)).RandomPoint(), new IntRect(new IntVector2(-5, -5), new IntVector2(5, 5)).RandomPoint())
+                new Line(new IntRect(new IntVector2(-5, -5), new IntVector2(5, 5)).RandomPoint(random), new IntRect(new IntVector2(-5, -5), new IntVector2(5, 5)).RandomPoint(random))
             };
 
             for (int i = 0; i < length - 1; i++)
             {
-                IntVector2 start = lines[^1].end + new IntRect(new IntVector2(-1, -1), new IntVector2(1, 1)).RandomPoint();
-                lines.Add(new Line(start, start + new IntRect(new IntVector2(-5, -5), new IntVector2(5, 5)).RandomPoint()));
+                IntVector2 start = lines[^1].end + new IntRect(new IntVector2(-1, -1), new IntVector2(1, 1)).RandomPoint(random);
+                lines.Add(new Line(start, start + new IntRect(new IntVector2(-5, -5), new IntVector2(5, 5)).RandomPoint(random)));
             }
 
             if (isLoop)
             {
                 lines.Add(new Line(
-                    lines[^1].end + new IntRect(new IntVector2(-1, -1), new IntVector2(1, 1)).RandomPoint(),
-                    lines[0].start + new IntRect(new IntVector2(-1, -1), new IntVector2(1, 1)).RandomPoint()
+                    lines[^1].end + new IntRect(new IntVector2(-1, -1), new IntVector2(1, 1)).RandomPoint(random),
+                    lines[0].start + new IntRect(new IntVector2(-1, -1), new IntVector2(1, 1)).RandomPoint(random)
                     ));
 
                 return new Path(lines);
@@ -53,7 +54,7 @@ namespace PAC.Tests.Shapes
                 Path path = new Path(lines);
                 while (path.isLoop)
                 {
-                    return RandomPath(length, false);
+                    return RandomPath(random, length, false);
                 }
                 return path;
             }
@@ -201,13 +202,15 @@ namespace PAC.Tests.Shapes
         [Category("Shapes")]
         public void NoConsecutiveRepeats()
         {
+            Random random = new Random(1);
+
             for (int length = 1; length <= 3; length++)
             {
                 foreach (bool isLoop in new bool[] { false, true })
                 {
                     for (int iteration = 0; iteration < 1_000; iteration++)
                     {
-                        Path path = RandomPath(length, isLoop);
+                        Path path = RandomPath(random, length, isLoop);
                         IntVector2[] pixels = path.ToArray();
 
                         if (pixels.Length == 1)

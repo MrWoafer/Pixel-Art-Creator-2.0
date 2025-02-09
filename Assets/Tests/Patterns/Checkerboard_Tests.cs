@@ -20,6 +20,7 @@ namespace PAC.Tests.Patterns
         public void Values()
         {
             Color[] colours = new Color[] { Color.red, Color.gray, Color.black, Color.white, Color.black, new Color(0.5f, 0.25f, 0.125f, 0.375f) };
+            System.Random random = new System.Random(0);
             foreach (Color colourOfOrigin in colours)
             {
                 foreach (Color otherColour in colours)
@@ -39,7 +40,7 @@ namespace PAC.Tests.Patterns
                     const int points = 100;
                     for (int i = 0; i < points; i++)
                     {
-                        IntVector2 point = new IntRect(new IntVector2(-100, -100), new IntVector2(100, 100)).RandomPoint();
+                        IntVector2 point = new IntRect(new IntVector2(-100, -100), new IntVector2(100, 100)).RandomPoint(random);
                         Color colour = checkerboard[point];
 
                         if (colour == colourOfOrigin)
