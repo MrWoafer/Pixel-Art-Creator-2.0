@@ -161,6 +161,9 @@ namespace PAC.Tests.DataStructures
             }
         }
 
+        /// <summary>
+        /// Tests <see cref="IntRect.RandomPoint(Random)"/>.
+        /// </summary>
         [Test]
         [Category("Data Structures"), Category("Random")]
         public void RandomPoint()
@@ -174,26 +177,27 @@ namespace PAC.Tests.DataStructures
                     foreach (IntVector2 topRight in bottomLeft + new IntRect(IntVector2.zero, new IntVector2(2, 3)))
                     {
                         IntRect rect = new IntRect(bottomLeft, topRight);
+
                         Dictionary<IntVector2, int> counts = new Dictionary<IntVector2, int>();
-                        foreach (IntVector2 pixel in rect)
+                        foreach (IntVector2 point in rect)
                         {
-                            counts[pixel] = 0;
+                            counts[point] = 0;
                         }
 
-                        const int iterations = 10_000;
-                        for (int i = 0; i < iterations; i++)
+                        const int numIterations = 10_000;
+                        for (int i = 0; i < numIterations; i++)
                         {
                             IntVector2 randomPoint = rect.RandomPoint(random);
-                            Assert.True(rect.Contains(randomPoint), "Failed with " + rect + " and " + randomPoint);
+                            Assert.True(rect.Contains(randomPoint), $"Failed with {rect} and {randomPoint}.");
 
                             counts[randomPoint]++;
                         }
 
                         float expected = 1f / rect.Count;
                         float tolerance = expected / 5f;
-                        foreach (IntVector2 pixel in rect)
+                        foreach (IntVector2 point in rect)
                         {
-                            Assert.That((float)counts[pixel] / iterations, Is.EqualTo(expected).Within(tolerance), "Failed with " + rect + " and " + pixel);
+                            Assert.AreEqual(expected, counts[point] / (float)numIterations, tolerance, $"Failed with {rect} and {point}.");
                         }
                     }
                 }
