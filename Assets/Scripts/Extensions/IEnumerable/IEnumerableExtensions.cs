@@ -420,14 +420,14 @@ namespace PAC.Extensions
         }
 
         /// <summary>
-        /// Returns (<paramref name="left"/>[0], <paramref name="right"/>[0]), (<paramref name="left"/>[1], <paramref name="right"/>[1]), ..., until either <paramref name="left"/> or
+        /// Returns <c>(<paramref name="left"/>[0], <paramref name="right"/>[0]), (<paramref name="left"/>[1], <paramref name="right"/>[1]), ...,</c> until either <paramref name="left"/> or
         /// <paramref name="right"/> ends.
         /// </summary>
         public static IEnumerable<(T1 left, T2 right)> Zip<T1, T2>(this IEnumerable<T1> left, IEnumerable<T2> right) => left.Zip(right, (x, y) => (x, y));
         /// <summary>
         /// <para>
-        /// Returns (<paramref name="elements"/>[0], <paramref name="elements"/>[1]), (<paramref name="elements"/>[1], <paramref name="elements"/>[2]), ...,
-        /// (<paramref name="elements"/>[^2], <paramref name="elements"/>[^1]).
+        /// Returns <c>(<paramref name="elements"/>[0], <paramref name="elements"/>[1]), (<paramref name="elements"/>[1], <paramref name="elements"/>[2]), ...,
+        /// (<paramref name="elements"/>[^2], <paramref name="elements"/>[^1])</c>.
         /// </para>
         /// <para>
         /// Returns an empty <see cref="IEnumerable{T}"/> if <paramref name="elements"/> has length 0 or 1.
