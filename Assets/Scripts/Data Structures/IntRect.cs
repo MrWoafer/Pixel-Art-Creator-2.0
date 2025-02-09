@@ -461,12 +461,18 @@ namespace PAC.DataStructures
         public IntRect Flip(FlipAxis axis) => new IntRect(bottomLeft.Flip(axis), topRight.Flip(axis));
         #endregion
 
-        #region Enumerator
+        #region Random
         /// <summary>
         /// Generates a uniformly random point within the rect.
         /// </summary>
         public IntVector2 RandomPoint(System.Random random) => new IntVector2(random.Next(minX, maxX + 1), random.Next(minY, maxY + 1));
+        /// <summary>
+        /// Returns the rect defined by two independently uniformly randomly generated points within the rect.
+        /// </summary>
+        public IntRect RandomSubRect(System.Random random) => new IntRect(RandomPoint(random), RandomPoint(random));
+        #endregion
 
+        #region Enumerator
         /// <summary>
         /// Iterates over the points in the rect, starting with the bottom row, read left to right, then the next row, etc.
         /// </summary>

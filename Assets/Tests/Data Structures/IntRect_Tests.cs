@@ -203,5 +203,72 @@ namespace PAC.Tests.DataStructures
                 }
             }
         }
+
+        /// <summary>
+        /// Tests <see cref="IntRect.RandomSubRect(Random)"/> is indeed a subrect of the rect.
+        /// </summary>
+        [Test]
+        [Category("Data Structures"), Category("Random")]
+        public void RandomSubRect_IsSubRect()
+        {
+            for (int seed = 0; seed <= 2; seed++)
+            {
+                Random random = new Random(seed);
+
+                foreach (IntVector2 bottomLeft in new IntRect(new IntVector2(-1, -1), IntVector2.zero))
+                {
+                    foreach (IntVector2 topRight in bottomLeft + new IntRect(IntVector2.zero, new IntVector2(2, 3)))
+                    {
+                        IntRect rect = new IntRect(bottomLeft, topRight);
+
+                        for (int i = 0; i < 10_000; i++)
+                        {
+                            IntRect randomSubRect = rect.RandomSubRect(random);
+                            Assert.True(randomSubRect.ToHashSet().IsSubsetOf(rect), $"Failed with {rect} and {randomSubRect}.");
+                        }
+                    }
+                }
+            }
+        }
+
+        /// <summary>
+        /// Tests that <see cref="IntRect.RandomSubRect(Random)"/> is not always a single point.
+        /// </summary>
+        [Test]
+        [Category("Data Structures"), Category("Random")]
+        public void RandomSubRect_IsNotAlwaysSinglePoint()
+        {
+            for (int seed = 0; seed <= 2; seed++)
+            {
+                Random random = new Random(seed);
+
+                foreach (IntVector2 bottomLeft in new IntRect(new IntVector2(-1, -1), IntVector2.zero))
+                {
+                    foreach (IntVector2 topRight in bottomLeft + new IntRect(IntVector2.zero, new IntVector2(2, 3)))
+                    {
+                        IntRect rect = new IntRect(bottomLeft, topRight);
+                        if (rect.Count == 1)
+                        {
+                            continue;
+                        }
+
+                        bool passed = false;
+                        for (int i = 0; i < 10_000; i++)
+                        {
+                            IntRect randomSubRect = rect.RandomSubRect(random);
+                            if (randomSubRect.Count > 1)
+                            {
+                                passed = true;
+                            }
+                        }
+
+                        if (!passed)
+                        {
+                            Assert.Fail($"Failed with {rect}.");
+                        }
+                    }
+                }
+            }
+        }
     }
 }
