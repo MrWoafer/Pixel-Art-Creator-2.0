@@ -673,7 +673,15 @@ namespace PAC.Shapes
             }
         }
 
-        public bool Contains(IntVector2 point) => filled ? (border.Contains(point) || border.WindingNumber(point) != 0) : border.Contains(point);
+        public bool Contains(IntVector2 point)
+        {
+            if (!filled)
+            {
+                return border.Contains(point);
+            }
+
+            return boundingRect.ContainsX(point.x) && lowerBorder.MinY(point.x) <= point.y && point.y <= upperBorder.MaxY(point.x);
+        }
 
         /// <summary>
         /// Returns a deep copy of the <see cref="IsometricRectangle"/> translated by the given vector.

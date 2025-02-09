@@ -353,7 +353,7 @@ namespace PAC.Shapes
                 return border.Contains(point);
             }
 
-            return border.Contains(point) || border.WindingNumber(point) != 0;
+            return boundingRect.ContainsX(point.x) && border.MinY(point.x) <= point.y && point.y <= border.MaxY(point.x);
         }
 
         /// <summary>
