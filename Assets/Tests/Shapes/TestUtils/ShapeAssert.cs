@@ -17,6 +17,9 @@ namespace PAC.Tests.Shapes.TestUtils
         /// Asserts that the two shapes look the same, i.e. they are set-equal.
         /// </summary>
         public static void SameGeometry(IEnumerable<IntVector2> expected, IEnumerable<IntVector2> actual) => Assert.True(SameGeometry_Impl(expected, actual));
+        /// <summary>
+        /// Asserts that the two shapes look the same, i.e. they are set-equal.
+        /// </summary>
         public static void SameGeometry(IEnumerable<IntVector2> expected, IEnumerable<IntVector2> actual, string failMessage) => Assert.True(SameGeometry_Impl(expected, actual), failMessage);
         private static bool SameGeometry_Impl(IEnumerable<IntVector2> expected, IEnumerable<IntVector2> actual) => expected.ToHashSet().SetEquals(actual);
 
