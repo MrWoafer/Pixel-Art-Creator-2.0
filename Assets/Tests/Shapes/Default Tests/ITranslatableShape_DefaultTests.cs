@@ -6,6 +6,7 @@ using NUnit.Framework;
 using PAC.DataStructures;
 using PAC.Shapes.Interfaces;
 using PAC.Tests.Shapes.RequiredTests;
+using PAC.Tests.Shapes.TestUtils;
 
 namespace PAC.Tests.Shapes.DefaultTests
 {
@@ -24,10 +25,9 @@ namespace PAC.Tests.Shapes.DefaultTests
                 HashSet<IntVector2> original = shape.ToHashSet();
                 foreach (IntVector2 translation in new IntRect(new IntVector2(-2, -2), new IntVector2(2, 2)))
                 {
-                    HashSet<IntVector2> expected = original.Select(p => p + translation).ToHashSet();
-                    HashSet<IntVector2> translated = shape.Translate(translation).ToHashSet();
-
-                    Assert.True(expected.SetEquals(translated), $"Failed with {shape} and {translation}.");
+                    IEnumerable<IntVector2> expected = original.Select(p => p + translation);
+                    IEnumerable<IntVector2> translated = shape.Translate(translation);
+                    ShapeAssert.SameGeometry(expected, translated, $"Failed with {shape} and {translation}.");
                 }
             }
         }

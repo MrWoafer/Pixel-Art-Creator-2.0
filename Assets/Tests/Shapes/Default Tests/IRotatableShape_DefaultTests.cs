@@ -6,6 +6,7 @@ using NUnit.Framework;
 using PAC.DataStructures;
 using PAC.Shapes.Interfaces;
 using PAC.Tests.Shapes.RequiredTests;
+using PAC.Tests.Shapes.TestUtils;
 
 namespace PAC.Tests.Shapes.DefaultTests
 {
@@ -23,9 +24,9 @@ namespace PAC.Tests.Shapes.DefaultTests
             {
                 foreach (RotationAngle angle in new RotationAngle[] { RotationAngle._0, RotationAngle._90, RotationAngle._180, RotationAngle.Minus90 })
                 {
-                    HashSet<IntVector2> expected = shape.Select(p => p.Rotate(angle)).ToHashSet();
-                    HashSet<IntVector2> rotated = shape.Rotate(angle).ToHashSet();
-                    Assert.True(expected.SetEquals(rotated), $"Failed with {shape} and {angle}.");
+                    IEnumerable<IntVector2> expected = shape.Select(p => p.Rotate(angle));
+                    IEnumerable<IntVector2> rotated = shape.Rotate(angle);
+                    ShapeAssert.SameGeometry(expected, rotated, $"Failed with {shape} and {angle}.");
                 }
             }
         }

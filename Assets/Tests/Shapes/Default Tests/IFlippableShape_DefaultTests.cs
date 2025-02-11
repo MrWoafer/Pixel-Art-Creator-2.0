@@ -6,6 +6,7 @@ using NUnit.Framework;
 using PAC.DataStructures;
 using PAC.Shapes.Interfaces;
 using PAC.Tests.Shapes.RequiredTests;
+using PAC.Tests.Shapes.TestUtils;
 
 namespace PAC.Tests.Shapes.DefaultTests
 {
@@ -23,9 +24,9 @@ namespace PAC.Tests.Shapes.DefaultTests
             {
                 foreach (FlipAxis axis in new FlipAxis[] { FlipAxis.None, FlipAxis.Vertical, FlipAxis.Horizontal })
                 {
-                    HashSet<IntVector2> expected = shape.Select(p => p.Flip(axis)).ToHashSet();
-                    HashSet<IntVector2> flipped = shape.Flip(axis).ToHashSet();
-                    Assert.True(expected.SetEquals(flipped), $"Failed with {shape} and {axis}.");
+                    IEnumerable<IntVector2> expected = shape.Select(p => p.Flip(axis));
+                    IEnumerable<IntVector2> flipped = shape.Flip(axis);
+                    ShapeAssert.SameGeometry(expected, flipped, $"Failed with {shape} and {axis}.");
                 }
             }
         }
