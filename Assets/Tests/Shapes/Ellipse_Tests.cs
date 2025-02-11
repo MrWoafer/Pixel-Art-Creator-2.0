@@ -1,31 +1,49 @@
 using NUnit.Framework;
 
 using PAC.DataStructures;
+using PAC.Extensions;
 using PAC.Shapes;
 using PAC.Tests.Shapes.DefaultTests;
 using PAC.Tests.Shapes.RequiredTests;
 using PAC.Tests.Shapes.TestUtils;
 
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
 namespace PAC.Tests.Shapes
 {
+    /// <summary>
+    /// Tests for <see cref="Ellipse"/>.
+    /// </summary>
     public class Ellipse_Tests : I2DShape_DefaultTests<Ellipse>, I2DShape_RequiredTests
     {
-        protected override IEnumerable<Ellipse> testCases
+        protected override IEnumerable<Ellipse> testCases => Enumerable.Concat(exampleTestCases, randomTestCases);
+        private IEnumerable<Ellipse> exampleTestCases
         {
             get
             {
                 foreach (bool filled in new bool[] { false, true })
                 {
-                    foreach (IntVector2 bottomLeft in new IntRect(new IntVector2(-2, -2), new IntVector2(2, 2)))
+                    for (int x = 0; x <= 5; x++)
                     {
-                        foreach (IntVector2 topRight in bottomLeft + new IntRect(IntVector2.zero, new IntVector2(5, 5)))
+                        for (int y = 0; y <= 5; y++)
                         {
-                            yield return new Ellipse(new IntRect(bottomLeft, topRight), filled);
+                            yield return new Ellipse(new IntRect((0, 0), (x, y)), filled);
                         }
                     }
+                }
+            }
+        }
+        private IEnumerable<Ellipse> randomTestCases
+        {
+            get
+            {
+                Random random = new Random(0);
+                IntRect testRegion = new IntRect((-20, -20), (20, 20));
+                for (int i = 0; i < 1_000; i++)
+                {
+                    yield return new Ellipse(testRegion.RandomSubRect(random), random.NextBool());
                 }
             }
         }
@@ -36,124 +54,147 @@ namespace PAC.Tests.Shapes
         {
             foreach (bool filled in new bool[] { false, true})
             {
-                foreach (IntVector2 pixel in new IntRect(new IntVector2(-5, -5), new IntVector2(5, 5)))
+                foreach (IntVector2 pixel in new IntRect((-5, -5), (5, 5)))
                 {
-                    CollectionAssert.AreEqual(new IntVector2[] { pixel }, new Ellipse(new IntRect(pixel, pixel), filled), $"Failed with {pixel} {(filled ? "filled" : "unfilled")}.");
+                    ShapeAssert.SameGeometry(new IntVector2[] { pixel }, new Ellipse(new IntRect(pixel, pixel), filled), $"Failed with {pixel} {(filled ? "filled" : "unfilled")}.");
                 }
             }
         }
 
         /// <summary>
-        /// Tests that 2xn and nx2 ellipses have the correct shape.
+        /// Tests that 1xN <see cref="Ellipse"/>s have the correct shape.
         /// </summary>
         [Test]
         [Category("Shapes")]
-        public void Shape1xNAndNx1()
+        public void Shape1xN()
         {
             foreach (bool filled in new bool[] { false, true })
             {
-                for (int y = -5; y <= 5; y++)
+                for (int y = -10; y <= 10; y++)
                 {
-                    Ellipse ellipse = new Ellipse(new IntRect(IntVector2.zero, new IntVector2(0, y)), filled);
-                    CollectionAssert.AreEquivalent(ellipse.boundingRect, ellipse, $"Failed with {ellipse}.");
+                    Ellipse ellipse = new Ellipse(new IntRect((0, 0), (0, y)), filled);
+                    IntRect expected = new IntRect((0, 0), (0, y));
+                    ShapeAssert.SameGeometry(expected, ellipse, $"Failed with {ellipse}.");
                 }
             }
-
+        }
+        /// <summary>
+        /// Tests that Nx1 <see cref="Ellipse"/>s have the correct shape.
+        /// </summary>
+        [Test]
+        [Category("Shapes")]
+        public void ShapeNx1()
+        {
             foreach (bool filled in new bool[] { false, true })
             {
-                for (int x = -5; x <= 5; x++)
+                for (int x = -10; x <= 10; x++)
                 {
-                    Ellipse ellipse = new Ellipse(new IntRect(IntVector2.zero, new IntVector2(x, 0)), filled);
-                    CollectionAssert.AreEquivalent(ellipse.boundingRect, ellipse, $"Failed with {ellipse}.");
+                    Ellipse ellipse = new Ellipse(new IntRect((0, 0), (x, 0)), filled);
+                    IntRect expected = new IntRect((0, 0), (x, 0));
+                    ShapeAssert.SameGeometry(expected, ellipse, $"Failed with {ellipse}.");
                 }
             }
         }
 
         /// <summary>
-        /// Tests that 2xn and nx2 ellipses have the correct shape.
+        /// Tests that 2xN <see cref="Ellipse"/>s have the correct shape.
         /// </summary>
         [Test]
         [Category("Shapes")]
-        public void Shape2xNAndNx2()
+        public void Shape2xN()
         {
             foreach (bool filled in new bool[] { false, true })
             {
                 foreach (int x in new int[] { -1, 1 })
                 {
-                    for (int y = -5; y <= 5; y++)
+                    for (int y = -10; y <= 10; y++)
                     {
-                        Ellipse ellipse = new Ellipse(new IntRect(IntVector2.zero, new IntVector2(x, y)), filled);
-                        CollectionAssert.AreEquivalent(ellipse.boundingRect, ellipse, $"Failed with {ellipse}.");
+                        Ellipse ellipse = new Ellipse(new IntRect((0, 0), (x, y)), filled);
+                        IntRect expected = new IntRect((0, 0), (x, y));
+                        ShapeAssert.SameGeometry(expected, ellipse, $"Failed with {ellipse}.");
                     }
                 }
             }
-
+        }
+        /// <summary>
+        /// Tests that Nx2 <see cref="Ellipse"/>s have the correct shape.
+        /// </summary>
+        [Test]
+        [Category("Shapes")]
+        public void ShapeNx2()
+        {
             foreach (bool filled in new bool[] { false, true })
             {
                 foreach (int y in new int[] { -1, 1 })
                 {
-                    for (int x = -5; x <= 5; x++)
+                    for (int x = -10; x <= 10; x++)
                     {
-                        Ellipse ellipse = new Ellipse(new IntRect(IntVector2.zero, new IntVector2(x, y)), filled);
-                        CollectionAssert.AreEquivalent(ellipse.boundingRect, ellipse, $"Failed with {ellipse}.");
+                        Ellipse ellipse = new Ellipse(new IntRect((0, 0), (x, y)), filled);
+                        IntRect expected = new IntRect((0, 0), (x, y));
+                        ShapeAssert.SameGeometry(expected, ellipse, $"Failed with {ellipse}.");
                     }
                 }
             }
         }
 
         /// <summary>
-        /// Tests that 3x3 ellipses have the correct shape.
+        /// Tests that 3x3 <see cref="Ellipse"/>s have the correct shape.
         /// </summary>
         [Test]
         [Category("Shapes")]
         public void Shape3x3()
         {
-            foreach (IntVector2 centre in new IntRect(new IntVector2(-5, -5), new IntVector2(5, 5)))
+            foreach (IntVector2 centre in new IntRect((-5, -5), (5, 5)))
             {
-                Ellipse ellipse = new Ellipse(new IntRect(centre - IntVector2.one, centre + IntVector2.one), false);
-                CollectionAssert.AreEquivalent(new IntVector2[] { IntVector2.up, IntVector2.right, IntVector2.down, IntVector2.left }.Select(p => p + centre), ellipse);
+                Ellipse ellipse = new Ellipse(new IntRect(centre - (1, 1), centre + (1, 1)), false);
+                IEnumerable<IntVector2> expected = new IntVector2[]
+                {
+                    centre + IntVector2.left, centre + IntVector2.right, centre + IntVector2.up, centre + IntVector2.down
+                };
+                ShapeAssert.SameGeometry(expected, ellipse);
 
-                ellipse = new Ellipse(new IntRect(centre - IntVector2.one, centre + IntVector2.one), true);
-                CollectionAssert.AreEquivalent(new IntVector2[] { IntVector2.zero, IntVector2.up, IntVector2.right, IntVector2.down, IntVector2.left }.Select(p => p + centre), ellipse);
+                ellipse.filled = true;
+                expected = expected.Append(centre);
+                ShapeAssert.SameGeometry(expected, ellipse);
             }
         }
 
         /// <summary>
-        /// Tests that an example ellipse has the correct shape.
+        /// Tests that an example <see cref="Ellipse"/> has the correct shape.
         /// </summary>
         [Test]
         [Category("Shapes")]
         public void ShapeExample1()
         {
-            Ellipse ellipse = new Ellipse(new IntRect(IntVector2.zero, new IntVector2(6, 10)), false);
+            Ellipse ellipse = new Ellipse(new IntRect((0, 0), (6, 10)), false);
             IntVector2[] expected =
             {
-                new IntVector2(3, 10), new IntVector2(4, 10), new IntVector2(5, 9), new IntVector2(5, 8), new IntVector2(6, 7), new IntVector2(6, 6), new IntVector2(6, 5), new IntVector2(6, 4),
-                new IntVector2(6, 3), new IntVector2(5, 2), new IntVector2(5, 1), new IntVector2(4, 0), new IntVector2(3, 0), new IntVector2(2, 0), new IntVector2(1, 1), new IntVector2(1, 2),
-                new IntVector2(0, 3), new IntVector2(0, 4), new IntVector2(0, 5), new IntVector2(0, 6), new IntVector2(0, 7), new IntVector2(1, 8), new IntVector2(1, 9), new IntVector2(2, 10)
+                (3, 10), (4, 10), (5, 9), (5, 8), (6, 7), (6, 6), (6, 5), (6, 4), (6, 3), (5, 2), (5, 1), (4, 0), (3, 0), (2, 0), (1, 1), (1, 2), (0, 3), (0, 4), (0, 5), (0, 6), (0, 7), (1, 8),
+                (1, 9), (2, 10)
             };
 
-            CollectionAssert.AreEqual(expected, ellipse);
+            ShapeAssert.SameGeometry(expected, ellipse);
         }
 
         /// <summary>
-        /// Tests that an example ellipse has the correct shape.
+        /// Tests that an example <see cref="Ellipse"/> has the correct shape.
         /// </summary>
         [Test]
         [Category("Shapes")]
         public void ShapeExample2()
         {
-            Ellipse ellipse = new Ellipse(new IntRect(IntVector2.zero, new IntVector2(5, 10)), false);
+            Ellipse ellipse = new Ellipse(new IntRect((0, 0), (5, 10)), false);
             IntVector2[] expected =
             {
-                new IntVector2(3, 10), new IntVector2(4, 9), new IntVector2(5, 8), new IntVector2(5, 7), new IntVector2(5, 6), new IntVector2(5, 5), new IntVector2(5, 4), new IntVector2(5, 3),
-                new IntVector2(5, 2), new IntVector2(4, 1), new IntVector2(3, 0), new IntVector2(2, 0), new IntVector2(1, 1), new IntVector2(0, 2), new IntVector2(0, 3), new IntVector2(0, 4),
-                new IntVector2(0, 5), new IntVector2(0, 6), new IntVector2(0, 7), new IntVector2(0, 8), new IntVector2(1, 9), new IntVector2(2, 10)
+                (3, 10), (4, 9), (5, 8), (5, 7), (5, 6), (5, 5), (5, 4), (5, 3), (5, 2), (4, 1), (3, 0), (2, 0), (1, 1), (0, 2), (0, 3), (0, 4), (0, 5), (0, 6), (0, 7), (0, 8), (1, 9), (2, 10)
             };
 
-            CollectionAssert.AreEqual(expected, ellipse);
+            ShapeAssert.SameGeometry(expected, ellipse);
         }
 
+        /// <summary>
+        /// Tests that the <see cref="Ellipse"/> enumerator doesn't repeat any points.
+        /// </summary>
         [Test]
         [Category("Shapes")]
         public void NoRepeats()
@@ -165,26 +206,41 @@ namespace PAC.Tests.Shapes
         }
 
         /// <summary>
-        /// Tests that ellipses has reflective symmetry across the vertical axis and across the horizontal axis. Note that together these also imply 180-degree rotational symmetry.
+        /// Tests that <see cref="Ellipse"/>s has reflective symmetry across the vertical axis.
         /// </summary>
         [Test]
         [Category("Shapes")]
-        public void ReflectiveSymmetry()
+        public void ReflectiveSymmetry_VerticalAxis()
         {
             foreach (bool filled in new bool[] { false, true })
             {
-                foreach (IntVector2 topRight in new IntRect(IntVector2.zero, new IntVector2(10, 10)))
+                foreach (IntVector2 topRight in new IntRect((0, 0), (10, 10)))
                 {
-                    Ellipse ellipse = new Ellipse(new IntRect(IntVector2.zero, topRight), filled);
-
+                    Ellipse ellipse = new Ellipse(new IntRect((0, 0), topRight), filled);
                     ShapeAssert.ReflectiveSymmetry(ellipse, FlipAxis.Vertical);
+                }
+            }
+        }
+
+        /// <summary>
+        /// Tests that <see cref="Ellipse"/>s has reflective symmetry across the horizontal axis.
+        /// </summary>
+        [Test]
+        [Category("Shapes")]
+        public void ReflectiveSymmetry_HorizontalAxis()
+        {
+            foreach (bool filled in new bool[] { false, true })
+            {
+                foreach (IntVector2 topRight in new IntRect((0, 0), (10, 10)))
+                {
+                    Ellipse ellipse = new Ellipse(new IntRect((0, 0), topRight), filled);
                     ShapeAssert.ReflectiveSymmetry(ellipse, FlipAxis.Horizontal);
                 }
             }
         }
 
         /// <summary>
-        /// Tests that circles have 90-degree rotational symmetry (and hence 180-degree, 270-degree, etc).
+        /// Tests that <see cref="Ellipse"/>s that are circles have 90-degree rotational symmetry (and hence 180-degree, 270-degree, etc).
         /// </summary>
         [Test]
         [Category("Shapes")]
@@ -192,29 +248,27 @@ namespace PAC.Tests.Shapes
         {
             foreach (bool filled in new bool[] { false, true })
             {
-                for (int diameter = 1; diameter <= 10; diameter++)
+                for (int diameter = 1; diameter <= 15; diameter++)
                 {
-                    Ellipse circle = new Ellipse(new IntRect(IntVector2.zero, new IntVector2(diameter - 1, diameter - 1)), filled);
+                    Ellipse circle = new Ellipse(new IntRect((0, 0), (diameter - 1, diameter - 1)), filled);
                     ShapeAssert.RotationalSymmetry(circle, RotationAngle._90);
                 }
             }
         }
 
         /// <summary>
-        /// Tests that circles have reflective symmetry across a +/- 45-degree line through the centre.
+        /// Tests that <see cref="Ellipse"/>s that are circles have reflective symmetry across a +/- 45-degree line through the centre.
         /// </summary>
         [Test]
         [Category("Shapes")]
-        public void CircleReflectiveSymmetry()
+        public void CircleReflectiveSymmetry_45Degrees()
         {
             foreach (bool filled in new bool[] { false, true })
             {
-                for (int diameter = 1; diameter <= 10; diameter++)
+                for (int diameter = 1; diameter <= 15; diameter++)
                 {
-                    Ellipse circle = new Ellipse(new IntRect(IntVector2.zero, new IntVector2(diameter - 1, diameter - 1)), filled);
+                    Ellipse circle = new Ellipse(new IntRect((0, 0), (diameter - 1, diameter - 1)), filled);
 
-                    ShapeAssert.ReflectiveSymmetry(circle, FlipAxis.Vertical);
-                    ShapeAssert.ReflectiveSymmetry(circle, FlipAxis.Horizontal);
                     ShapeAssert.ReflectiveSymmetry(circle, FlipAxis._45Degrees);
                     ShapeAssert.ReflectiveSymmetry(circle, FlipAxis.Minus45Degrees);
                 }
