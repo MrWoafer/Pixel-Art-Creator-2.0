@@ -5,6 +5,7 @@ using System.Linq;
 using NUnit.Framework;
 
 using PAC.DataStructures;
+using PAC.Extensions;
 using PAC.Shapes;
 using PAC.Tests.Shapes.DefaultTests;
 using PAC.Tests.Shapes.RequiredTests;
@@ -12,10 +13,28 @@ using PAC.Tests.Shapes.TestUtils;
 
 namespace PAC.Tests.Shapes
 {
+    /// <summary>
+    /// Tests for <see cref="Path"/>.
+    /// </summary>
     public class Path_Tests : I1DShape_DefaultTests<Path>, I1DShape_RequiredTests
     {
-        protected override IEnumerable<Path> testCases => RandomTestCases(1_000);
-        private IEnumerable<Path> RandomTestCases(int numOfTestCases) => RandomTestCases(numOfTestCases, false).Concat(RandomTestCases(numOfTestCases, true));
+        protected override IEnumerable<Path> testCases => Enumerable.Concat(exampleTestCases, randomTestCases);
+        private IEnumerable<Path> exampleTestCases
+        {
+            get
+            {
+                for (int x = 0; x <= 10; x++)
+                {
+                    yield return new Path((0, 0), (x, 0));
+                }
+
+                yield return new Path((0, 0), (1, 0), (1, 1));
+                yield return new Path((0, 0), (1, 0), (0, 0));
+                yield return new Path((0, 0), (3, 3), (-5, -5));
+            }
+        }
+        private IEnumerable<Path> randomTestCases => RandomTestCases(1_000);
+        private IEnumerable<Path> RandomTestCases(int numOfTestCases) => Enumerable.Concat(RandomTestCases(numOfTestCases, false), RandomTestCases(numOfTestCases, true));
         private IEnumerable<Path> RandomTestCases(int numOfTestCases, bool isLoop)
         {
             Random random = new Random(0);
@@ -27,24 +46,31 @@ namespace PAC.Tests.Shapes
                 }
             }
         }
+        /// <summary>
+        /// Generates a random <see cref="Path"/> with made up of <paramref name="length"/> many <see cref="Line"/>s.
+        /// </summary>
+        /// <remarks>
+        /// If <paramref name="isLoop"/> is <see langword="true"/> it will add an extra <see cref="Line"/> from the end point to the start point to make sure the <see cref="Path"/> is a loop.
+        /// If <paramref name="isLoop"/> is <see langword="false"/> the <see cref="Path"/> is guaranteed to not be a loop.
+        /// </remarks>
         private Path RandomPath(Random random, int length, bool isLoop)
         {
             List<Line> lines = new List<Line>
             {
-                new Line(new IntRect(new IntVector2(-5, -5), new IntVector2(5, 5)).RandomPoint(random), new IntRect(new IntVector2(-5, -5), new IntVector2(5, 5)).RandomPoint(random))
+                new Line(new IntRect((-5, -5), (5, 5)).RandomPoint(random), new IntRect((-5, -5), (5, 5)).RandomPoint(random))
             };
 
             for (int i = 0; i < length - 1; i++)
             {
-                IntVector2 start = lines[^1].end + new IntRect(new IntVector2(-1, -1), new IntVector2(1, 1)).RandomPoint(random);
-                lines.Add(new Line(start, start + new IntRect(new IntVector2(-5, -5), new IntVector2(5, 5)).RandomPoint(random)));
+                IntVector2 start = lines[^1].end + new IntRect((-1, -1), (1, 1)).RandomPoint(random);
+                lines.Add(new Line(start, start + new IntRect((-5, -5), (5, 5)).RandomPoint(random)));
             }
 
             if (isLoop)
             {
                 lines.Add(new Line(
-                    lines[^1].end + new IntRect(new IntVector2(-1, -1), new IntVector2(1, 1)).RandomPoint(random),
-                    lines[0].start + new IntRect(new IntVector2(-1, -1), new IntVector2(1, 1)).RandomPoint(random)
+                    lines[^1].end + new IntRect((-1, -1), (1, 1)).RandomPoint(random),
+                    lines[0].start + new IntRect((-1, -1), (1, 1)).RandomPoint(random)
                     ));
 
                 return new Path(lines);
@@ -60,71 +86,122 @@ namespace PAC.Tests.Shapes
             }
         }
 
+        /// <summary>
+        /// Tests <see cref="Path(IntVector2[])"/>.
+        /// </summary>
         [Test]
         [Category("Shapes")]
-        public void Constructor()
+        public void Constructor_Points()
+        {
+            Assert.Throws<ArgumentException>(() => new Path(new IntVector2[0]));
+
+            Assert.AreEqual(
+                new Path(new Line((0, 0), (0, 0))),
+                new Path((0, 0))
+                );
+            Assert.AreEqual(
+                new Path(new Line((0, 0), (1, 1))),
+                new Path((0, 0), (1, 1))
+                );
+            Assert.AreEqual(
+                new Path(new Line((0, 0), (1, 1)), new Line((1, 1), (2, 4))),
+                new Path((0, 0), (1, 1), (2, 4))
+                );
+        }
+        /// <summary>
+        /// Tests <see cref="Path(Line[])"/>.
+        /// </summary>
+        [Test]
+        [Category("Shapes")]
+        public void Constructor_Lines()
         {
             Assert.Throws<ArgumentException>(() => new Path(new Line[0]));
-            Assert.Throws<ArgumentException>(() => new Path(new Line(IntVector2.zero, new IntVector2(1, 1)), new Line(new IntVector2(2, 3), new IntVector2(5, 5))));
-            Assert.Throws<ArgumentException>(() => new Path(new Line(IntVector2.zero, new IntVector2(1, 1)), new Line(new IntVector2(2, 3), new IntVector2(1, 1))));
+            Assert.Throws<ArgumentException>(() => new Path(new Line((0, 0), (1, 1)), new Line((2, 3), (5, 5))));
+            Assert.Throws<ArgumentException>(() => new Path(new Line((0, 0), (1, 1)), new Line((2, 3), (1, 1))));
 
-            Assert.Throws<ArgumentException>(() => new Path(new IntVector2[0]));
-            Assert.DoesNotThrow(() => new Path(new Line(IntVector2.zero, new IntVector2(1, 1))));
-            Assert.DoesNotThrow(() => new Path(new Line(IntVector2.zero, new IntVector2(1, 1)), new Line(new IntVector2(1, 1), new IntVector2(5, 5))));
-            Assert.DoesNotThrow(() => new Path(new Line(IntVector2.zero, new IntVector2(1, 1)), new Line(new IntVector2(1, 2), new IntVector2(5, 5))));
-            Assert.DoesNotThrow(() => new Path(new Line(IntVector2.zero, new IntVector2(1, 1)), new Line(new IntVector2(2, 2), new IntVector2(5, 5))));
-
-            Assert.AreEqual(new Path(new Line(IntVector2.zero, IntVector2.zero)), new Path(IntVector2.zero));
-            Assert.AreEqual(new Path(new Line(IntVector2.zero, IntVector2.one)), new Path(IntVector2.zero, IntVector2.one));
-            Assert.AreEqual(new Path(new Line(IntVector2.zero, IntVector2.one), new Line(IntVector2.one, new IntVector2(2, 4))),
-                new Path(IntVector2.zero, IntVector2.one, new IntVector2(2, 4)));
+            Assert.DoesNotThrow(() => new Path(new Line((0, 0), (1, 1))));
+            Assert.DoesNotThrow(() => new Path(new Line((0, 0), (1, 1)), new Line((1, 1), (5, 5))));
+            Assert.DoesNotThrow(() => new Path(new Line((0, 0), (1, 1)), new Line((1, 2), (5, 5))));
+            Assert.DoesNotThrow(() => new Path(new Line((0, 0), (1, 1)), new Line((2, 2), (5, 5))));
         }
 
         [Test]
         [Category("Shapes")]
         public override void ShapeSinglePoint()
         {
-            foreach (IntVector2 pixel in new IntRect(new IntVector2(-5, -5), new IntVector2(5, 5)))
+            foreach (IntVector2 point in new IntRect((-5, -5), (5, 5)))
             {
                 for (int repetitions = 1; repetitions <= 5; repetitions++)
                 {
-                    Path path = new Path(Enumerable.Repeat(pixel, repetitions));
-                    CollectionAssert.AreEqual(new IntVector2[] { pixel }, path, $"Failed with {path}.");
+                    Path path = new Path(Enumerable.Repeat(point, repetitions));
+                    ShapeAssert.SameGeometry(new IntVector2[] { point }, path, $"Failed with {path}.");
                 }
             }
         }
 
+        /// <summary>
+        /// Tests <see cref="Path.start"/>.
+        /// </summary>
         [Test]
         [Category("Shapes")]
-        public void ShapeExamples()
+        public void start()
+        {
+            foreach (Path path in testCases)
+            {
+                Assert.AreEqual(Enumerable.First(path), path.start, $"Failed with {path}.");
+            }
+        }
+        /// <summary>
+        /// Tests <see cref="Path.end"/>.
+        /// </summary>
+        [Test]
+        [Category("Shapes")]
+        public void end()
+        {
+            foreach (Path path in testCases)
+            {
+                if (path.end == path.start && Enumerable.Count(path) > 1)
+                {
+                    Assert.AreNotEqual(Enumerable.Last(path), path.end, $"Failed with {path}.");
+                }
+                else
+                {
+                    Assert.AreEqual(Enumerable.Last(path), path.end, $"Failed with {path}.");
+                }
+            }
+        }
+
+        /// <summary>
+        /// Tests that some example <see cref="Path"/>s have the correct enumerator.
+        /// </summary>
+        [Test]
+        [Category("Shapes")]
+        public void EnumeratorExamples()
         {
             (IEnumerable<IntVector2> expected, Path path)[] testCases =
             {
-                (new IntVector2[] { IntVector2.zero },
-                    new Path(IntVector2.zero)),
-                (new Line(IntVector2.zero, new IntVector2(2, 3)),
-                    new Path(IntVector2.zero, new IntVector2(2, 3))),
-                (new Line(IntVector2.zero, new IntVector2(2, 3)).Concat(new Line(new IntVector2(2, 3), new IntVector2(4, 4))[1..]),
-                    new Path(IntVector2.zero, new IntVector2(2, 3), new IntVector2(4, 4))),
+                (new IntVector2[] { (0, 0) },
+                    new Path((0, 0))),
+                (new Line((0, 0), (2, 3)),
+                    new Path((0, 0), (2, 3))),
+                (Enumerable.Concat(new Line((0, 0), (2, 3)), new Line((2, 3), (4, 4))[1..]),
+                    new Path((0, 0), (2, 3), (4, 4))),
                 // Loop
-                (new Line(IntVector2.zero, new IntVector2(2, 3)).Concat(new Line(new IntVector2(2, 3), new IntVector2(4, 4))[1..])
-                    .Concat(new Line(new IntVector2(4, 4), IntVector2.zero)[1..^1]),
-                    new Path(IntVector2.zero, new IntVector2(2, 3), new IntVector2(4, 4), IntVector2.zero)),
+                (IEnumerableExtensions.Concat(new Line((0, 0), (2, 3)), new Line((2, 3), (4, 4))[1..], new Line((4, 4), (0, 0))[1..^1]),
+                    new Path((0, 0), (2, 3), (4, 4), (0, 0))),
                 // Crossing previous values
-                (new Line(IntVector2.zero, new IntVector2(2, 3)).Concat(new Line(new IntVector2(2, 3), new IntVector2(4, 4))[1..])
-                    .Concat(new Line(new IntVector2(4, 4), new IntVector2(2, 4))[1..]).Concat(new Line(new IntVector2(2, 4), new IntVector2(2, 0))[1..]),
-                    new Path(IntVector2.zero, new IntVector2(2, 3), new IntVector2(4, 4), new IntVector2(2, 4), new IntVector2(2, 0))),
-                (new IntVector2[] { IntVector2.zero, IntVector2.right, IntVector2.upRight },
-                    new Path(IntVector2.zero, IntVector2.right, IntVector2.upRight, IntVector2.zero)),
-                (new IntVector2[] { new IntVector2(4, 2), new IntVector2(5, 1) },
-                    new Path(new IntVector2(4, 2), new IntVector2(5, 1))),
-                (new IntVector2[] { IntVector2.zero },
-                    new Path(IntVector2.zero, IntVector2.zero, IntVector2.zero, IntVector2.zero)),
-                (new Line(IntVector2.zero, new IntVector2(2, 5)).Concat(new Line(new IntVector2(2, 5), new IntVector2(3, 2))[1..]),
-                    new Path(IntVector2.zero, new IntVector2(2, 5), new IntVector2(3, 2), new IntVector2(3, 2))),
-                (new Line(IntVector2.zero, new IntVector2(2, 5)).Concat(new Line(new IntVector2(2, 5), new IntVector2(3, 2))[1..])
-                    .Concat(new Line(new IntVector2(3, 2), IntVector2.zero)[1..^1]),
-                    new Path(IntVector2.zero, new IntVector2(2, 5), new IntVector2(3, 2), new IntVector2(3, 2), IntVector2.zero))
+                (IEnumerableExtensions.Concat(new Line((0, 0), (2, 3)), new Line((2, 3), (4, 4))[1..], new Line((4, 4), (2, 4))[1..], new Line((2, 4), (2, 0))[1..]),
+                    new Path((0, 0), (2, 3), (4, 4), (2, 4), (2, 0))),
+                (new IntVector2[] { (0, 0), (1, 0), (1, 1) },
+                    new Path((0, 0), (1, 0), (1, 1), (0, 0))),
+                (new IntVector2[] { (4, 2), (5, 1) },
+                    new Path((4, 2), (5, 1))),
+                (new IntVector2[] { (0, 0) },
+                    new Path((0, 0), (0, 0), (0, 0), (0, 0))),
+                (Enumerable.Concat(new Line((0, 0), (2, 5)), new Line((2, 5), (3, 2))[1..]),
+                    new Path((0, 0), (2, 5), (3, 2), (3, 2))),
+                (IEnumerableExtensions.Concat(new Line((0, 0),(2, 5)), new Line((2, 5),(3, 2))[1 ..], new Line((3, 2), (0, 0))[1..^1]),
+                    new Path((0, 0), (2, 5), (3, 2), (3, 2), (0, 0)))
             };
 
             foreach ((IEnumerable<IntVector2> expected, Path path) in testCases)
@@ -133,29 +210,22 @@ namespace PAC.Tests.Shapes
             }
         }
 
+        /// <summary>
+        /// Tests <see cref="Path.isLoop"/>.
+        /// </summary>
         [Test]
         [Category("Shapes")]
-        public void IsLoop()
+        public void isLoop()
         {
-            Assert.AreEqual(false, new Path(IntVector2.zero, new IntVector2(2, 1)).isLoop);
-            Assert.AreEqual(false, new Path(IntVector2.zero, new IntVector2(1, 1), new IntVector2(2, 2), new IntVector2(5, 5)).isLoop);
-            Assert.AreEqual(false, new Path(IntVector2.zero, new IntVector2(1, 1), new IntVector2(2, 2), new IntVector2(2, 1)).isLoop);
+            Assert.AreEqual(false, new Path((0, 0), (2, 1)).isLoop);
+            Assert.AreEqual(false, new Path((0, 0), (1, 1), (2, 2), (5, 5)).isLoop);
+            Assert.AreEqual(false, new Path((0, 0), (1, 1), (2, 2), (2, 1)).isLoop);
 
-            Assert.AreEqual(true, new Path(IntVector2.zero).isLoop);
-            Assert.AreEqual(true, new Path(IntVector2.zero, new IntVector2(1, 1)).isLoop);
-            Assert.AreEqual(true, new Path(IntVector2.zero, new IntVector2(1, 1), new IntVector2(2, 2), IntVector2.zero).isLoop);
-            Assert.AreEqual(true, new Path(IntVector2.zero, new IntVector2(1, 1), new IntVector2(2, 2), new IntVector2(0, 1)).isLoop);
-            Assert.AreEqual(true, new Path(IntVector2.zero, new IntVector2(1, 1), new IntVector2(2, 2), new IntVector2(1, 1)).isLoop);
-        }
-
-        [Test]
-        [Category("Shapes")]
-        public override void BoundingRect()
-        {
-            foreach (Path path in RandomTestCases(2_000))
-            {
-                Assert.AreEqual(IntRect.BoundingRect(path), path.boundingRect, $"Failed with {path}.");
-            }
+            Assert.AreEqual(true, new Path((0, 0)).isLoop);
+            Assert.AreEqual(true, new Path((0, 0), (1, 1)).isLoop);
+            Assert.AreEqual(true, new Path((0, 0), (1, 1), (2, 2), (0, 0)).isLoop);
+            Assert.AreEqual(true, new Path((0, 0), (1, 1), (2, 2), (0, 1)).isLoop);
+            Assert.AreEqual(true, new Path((0, 0), (1, 1), (2, 2), (1, 1)).isLoop);
         }
 
         [Test]
@@ -166,19 +236,16 @@ namespace PAC.Tests.Shapes
 
             (int, Path)[] testCases =
             {
-                (1, new Path(IntVector2.zero)),
-                (4, new Path(IntVector2.zero, new IntVector2(2, 3))),
-                (6, new Path(IntVector2.zero, new IntVector2(2, 3), new IntVector2(4, 4))),
+                (1, new Path((0, 0))),
+                (4, new Path((0, 0), (2, 3))),
+                (6, new Path((0, 0), (2, 3), (4, 4))),
                 // Loop
-                (9, new Path(IntVector2.zero, new IntVector2(2, 3), new IntVector2(4, 4), IntVector2.zero)),
+                (9, new Path((0, 0), (2, 3), (4, 4), (0, 0))),
                 // Crossing previous values
-                (12, new Path(IntVector2.zero, new IntVector2(2, 3), new IntVector2(4, 4), new IntVector2(2, 4), new IntVector2(2, 0))),
-                (3, new Path(IntVector2.zero, IntVector2.right, IntVector2.upRight, IntVector2.zero)),
-                (3, new Path(IntVector2.zero, IntVector2.upRight, IntVector2.right, IntVector2.zero)),
-                (12, new Path(
-                    new Line(new IntVector2(-1, 5), new IntVector2(0, 4)), new Line(new IntVector2(1, 3), new IntVector2(-4, 7)),
-                    new Line(new IntVector2(-4, 6), new IntVector2(-1, 5)), new Line(new IntVector2(-1, 5), new IntVector2(-1, 5))
-                ))
+                (12, new Path((0, 0), (2, 3), (4, 4), (2, 4), (2, 0))),
+                (3, new Path((0, 0), (1, 0), (1, 1), (0, 0))),
+                (3, new Path((0, 0), (1, 1), (1, 0), (0, 0))),
+                (12, new Path(new Line((-1, 5), (0, 4)), new Line((1, 3), (-4, 7)), new Line((-4, 6), (-1, 5)), new Line((-1, 5), (-1, 5))))
             };
             
             foreach ((int expected, Path path) in testCases)
@@ -196,158 +263,165 @@ namespace PAC.Tests.Shapes
         }
 
         /// <summary>
-        /// Tests that pixels never appear twice in a row in a path.
+        /// Tests that points never appear twice in a row in the <see cref="Path"/> enumerator.
         /// </summary>
         [Test]
         [Category("Shapes")]
         public void NoConsecutiveRepeats()
         {
-            Random random = new Random(1);
-
-            for (int length = 1; length <= 3; length++)
+            foreach (Path path in testCases)
             {
-                foreach (bool isLoop in new bool[] { false, true })
+                IntVector2[] points = Enumerable.ToArray(path);
+
+                if (points.Length == 1)
                 {
-                    for (int iteration = 0; iteration < 1_000; iteration++)
-                    {
-                        Path path = RandomPath(random, length, isLoop);
-                        IntVector2[] pixels = path.ToArray();
+                    continue;
+                }
 
-                        if (pixels.Length == 1)
-                        {
-                            continue;
-                        }
-
-                        for (int i = 0; i < pixels.Length; i++)
-                        {
-                            Assert.AreNotEqual(pixels[(i + 1) % pixels.Length], pixels[i], $"Failed with {path} at index {i}.");
-                        }
-                    }
+                for (int i = 0; i < points.Length; i++)
+                {
+                    Assert.AreNotEqual(points[(i + 1) % points.Length], points[i], $"Failed with {path} at index {i}.");
                 }
             }
         }
 
+        /// <summary>
+        /// Tests <see cref="Path.MinX(int)"/>.
+        /// </summary>
         [Test]
         [Category("Shapes")]
         public void MinX()
         {
             foreach (Path path in testCases)
             {
-                for (int y = path.boundingRect.bottomLeft.y; y <= path.boundingRect.topRight.y; y++)
+                IntRect boundingRect = IntRect.BoundingRect(path);
+
+                for (int y = boundingRect.minY; y <= boundingRect.maxY; y++)
                 {
                     Assert.AreEqual(path.Where(p => p.y == y).Min(p => p.x), path.MinX(y), $"Failed with {path} and y = {y}.");
                 }
 
-                Assert.Throws<ArgumentOutOfRangeException>(() => path.MinX(path.boundingRect.bottomLeft.y - 1));
-                Assert.Throws<ArgumentOutOfRangeException>(() => path.MinX(path.boundingRect.topRight.y + 1));
+                Assert.Throws<ArgumentOutOfRangeException>(() => path.MinX(boundingRect.minY - 1));
+                Assert.Throws<ArgumentOutOfRangeException>(() => path.MinX(boundingRect.maxY + 1));
             }
         }
-
+        /// <summary>
+        /// Tests <see cref="Path.MaxX(int)"/>.
+        /// </summary>
         [Test]
         [Category("Shapes")]
         public void MaxX()
         {
             foreach (Path path in testCases)
             {
-                for (int y = path.boundingRect.bottomLeft.y; y <= path.boundingRect.topRight.y; y++)
+                IntRect boundingRect = IntRect.BoundingRect(path);
+
+                for (int y = boundingRect.minY; y <= boundingRect.maxY; y++)
                 {
                     Assert.AreEqual(path.Where(p => p.y == y).Max(p => p.x), path.MaxX(y), $"Failed with {path} and y = {y}.");
                 }
 
-                Assert.Throws<ArgumentOutOfRangeException>(() => path.MaxX(path.boundingRect.bottomLeft.y - 1));
-                Assert.Throws<ArgumentOutOfRangeException>(() => path.MaxX(path.boundingRect.topRight.y + 1));
+                Assert.Throws<ArgumentOutOfRangeException>(() => path.MaxX(boundingRect.minY - 1));
+                Assert.Throws<ArgumentOutOfRangeException>(() => path.MaxX(boundingRect.maxY + 1));
             }
         }
-
+        /// <summary>
+        /// Tests <see cref="Path.MinY(int)"/>.
+        /// </summary>
         [Test]
         [Category("Shapes")]
         public void MinY()
         {
             foreach (Path path in testCases)
             {
-                for (int x = path.boundingRect.bottomLeft.x; x <= path.boundingRect.topRight.x; x++)
+                IntRect boundingRect = IntRect.BoundingRect(path);
+
+                for (int x = boundingRect.minX; x <= boundingRect.maxX; x++)
                 {
                     Assert.AreEqual(path.Where(p => p.x == x).Min(p => p.y), path.MinY(x), $"Failed with {path} and x = {x}.");
                 }
 
-                Assert.Throws<ArgumentOutOfRangeException>(() => path.MinY(path.boundingRect.bottomLeft.x - 1));
-                Assert.Throws<ArgumentOutOfRangeException>(() => path.MinY(path.boundingRect.topRight.x + 1));
+                Assert.Throws<ArgumentOutOfRangeException>(() => path.MinY(boundingRect.minX - 1));
+                Assert.Throws<ArgumentOutOfRangeException>(() => path.MinY(boundingRect.maxX + 1));
             }
         }
-
+        /// <summary>
+        /// Tests <see cref="Path.CountOnX(int)"/>.
+        /// </summary>
         [Test]
         [Category("Shapes")]
         public void MaxY()
         {
             foreach (Path path in testCases)
             {
-                for (int x = path.boundingRect.bottomLeft.x; x <= path.boundingRect.topRight.x; x++)
+                IntRect boundingRect = IntRect.BoundingRect(path);
+
+                for (int x = boundingRect.minX; x <= boundingRect.maxX; x++)
                 {
                     Assert.AreEqual(path.Where(p => p.x == x).Max(p => p.y), path.MaxY(x), $"Failed with {path} and x = {x}.");
                 }
 
-                Assert.Throws<ArgumentOutOfRangeException>(() => path.MaxY(path.boundingRect.bottomLeft.x - 1));
-                Assert.Throws<ArgumentOutOfRangeException>(() => path.MaxY(path.boundingRect.topRight.x + 1));
+                Assert.Throws<ArgumentOutOfRangeException>(() => path.MaxY(boundingRect.minX - 1));
+                Assert.Throws<ArgumentOutOfRangeException>(() => path.MaxY(boundingRect.maxX + 1));
             }
         }
 
+        /// <summary>
+        /// Tests <see cref="Path.CountOnX(int)"/>.
+        /// </summary>
         [Test]
         [Category("Shapes")]
         public void CountOnX()
         {
             foreach (Path path in testCases)
             {
-                for (int x = path.boundingRect.bottomLeft.x - 2; x <= path.boundingRect.topRight.x + 2; x++)
+                IntRect boundingRect = IntRect.BoundingRect(path);
+                for (int x = boundingRect.minX - 2; x <= boundingRect.maxX + 2; x++)
                 {
-                    Assert.AreEqual(path.Count(p => p.x == x), path.CountOnX(x), $"Failed with {path} and x = {x}.");
+                    Assert.AreEqual(Enumerable.Count(path, p => p.x == x), path.CountOnX(x), $"Failed with {path} and x = {x}.");
                 }
             }
         }
-
+        /// <summary>
+        /// Tests <see cref="Path.CountOnY(int)"/>.
+        /// </summary>
         [Test]
         [Category("Shapes")]
         public void CountOnY()
         {
             foreach (Path path in testCases)
             {
-                for (int y = path.boundingRect.bottomLeft.y - 2; y <= path.boundingRect.topRight.y + 2; y++)
+                IntRect boundingRect = IntRect.BoundingRect(path);
+                for (int y = boundingRect.minY - 2; y <= boundingRect.maxY + 2; y++)
                 {
-                    Assert.AreEqual(path.Count(p => p.y == y), path.CountOnY(y), $"Failed with {path} and y = {y}.");
+                    Assert.AreEqual(Enumerable.Count(path, p => p.y == y), path.CountOnY(y), $"Failed with {path} and y = {y}.");
                 }
             }
         }
 
+        /// <summary>
+        /// Tests <see cref="Path.selfIntersects"/>.
+        /// </summary>
         [Test]
         [Category("Shapes")]
-        public void SelfIntersects()
+        public void selfIntersects()
         {
             foreach (Path path in testCases)
             {
-                if (!path.selfIntersects)
-                {
-                    ShapeAssert.NoRepeats(path);
-                }
-                else
-                {
-                    bool hasDuplicate = false;
-                    HashSet<IntVector2> visited = new HashSet<IntVector2>();
-                    foreach (IntVector2 pixel in path)
-                    {
-                        if (visited.Contains(pixel))
-                        {
-                            hasDuplicate = true;
-                            break;
-                        }
-                        visited.Add(pixel);
-                    }
-                    Assert.True(hasDuplicate, $"Failed with {path}.");
-                }
+                Assert.AreEqual(
+                    Enumerable.Distinct(path).Count() != Enumerable.Count(path),
+                    path.selfIntersects,
+                    $"Failed with {path}."
+                    );
             }
         }
 
+        /// <summary>
+        /// Tests <see cref="Path.Equals(Path)"/>.
+        /// </summary>
         [Test]
         [Category("Shapes")]
-        public void Equals()
+        public void Equals_Path()
         {
             static bool Expected(Path a, Path b)
             {
