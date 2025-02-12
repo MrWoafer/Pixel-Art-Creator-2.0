@@ -12,18 +12,31 @@ using PAC.Tests.Shapes.TestUtils;
 
 namespace PAC.Tests.Shapes
 {
+    /// <summary>
+    /// Tests <see cref="Line"/>.
+    /// </summary>
     public class Line_Tests : I1DShape_DefaultTests<Line>, I1DShape_RequiredTests
     {
-        protected override IEnumerable<Line> testCases
+        protected override IEnumerable<Line> testCases => Enumerable.Concat(exampleTestCases, randomTestCases);
+        private IEnumerable<Line> exampleTestCases
         {
             get
             {
-                foreach (IntVector2 start in new IntRect(new IntVector2(-2, -2), new IntVector2(2, 2)))
+                foreach (IntVector2 end in new IntRect((-5, -5), (5, 5)))
                 {
-                    foreach (IntVector2 end in start + new IntRect(new IntVector2(-5, -5), new IntVector2(5, 5)))
-                    {
-                        yield return new Line(start, end);
-                    }
+                    yield return new Line((0, 0), end);
+                }
+            }
+        }
+        private IEnumerable<Line> randomTestCases
+        {
+            get
+            {
+                Random random = new Random(0);
+                IntRect testRegion = new IntRect((-20, -20), (20, 20));
+                for (int i = 0; i < 1_000; i++)
+                {
+                    yield return new Line(testRegion.RandomPoint(random), testRegion.RandomPoint(random));
                 }
             }
         }
@@ -32,16 +45,16 @@ namespace PAC.Tests.Shapes
         [Category("Shapes")]
         public override void ShapeSinglePoint()
         {
-            foreach (IntVector2 point in new IntRect(new IntVector2(-5, -5), new IntVector2(5, 5)))
+            foreach (IntVector2 point in new IntRect((-5, -5), (5, 5)))
             {
-                CollectionAssert.AreEqual(new IntVector2[] { point }, new Line(point), $"Failed with {point}.");
-                CollectionAssert.AreEqual(new Line(point), new Line(point, point), $"Failed with {point}.");
+                ShapeAssert.SameGeometry(new IntVector2[] { point }, new Line(point), $"Failed with {point}.");
+                Assert.AreEqual(new Line(point, point), new Line(point), $"Failed with {point}.");
                 Assert.True(new Line(point).isPoint, $"Failed wiht {point}.");
             }
         }
 
         /// <summary>
-        /// Tests that lines that can be drawn with constant-size blocks are drawn as such. E.g. a 12x4 line can be drawn as 4 horizontal blocks of 3 pixels.
+        /// Tests that <see cref="Line"/>s that can be drawn with constant-size blocks are drawn as such. E.g. a 12x4 <see cref="Line"/> can be drawn as 4 horizontal blocks of 3 pixels.
         /// </summary>
         [Test]
         [Category("Shapes")]
@@ -51,11 +64,11 @@ namespace PAC.Tests.Shapes
             {
                 for (int i = 0; i < numBlocks * blockSize; i++)
                 {
-                    yield return new IntVector2(i, i / blockSize);
+                    yield return (i, i / blockSize);
                 }
             }
 
-            foreach (IntVector2 start in new IntRect(new IntVector2(-2, -2), new IntVector2(2, 2)))
+            foreach (IntVector2 start in new IntRect((-2, -2), (2, 2)))
             {
                 for (int numBlocks = 1; numBlocks <= 10; numBlocks++)
                 {
@@ -67,8 +80,7 @@ namespace PAC.Tests.Shapes
                             {
                                 Line line = new Line(start, start + new IntVector2(blockSize * numBlocks - 1, numBlocks - 1).Flip(axis).Rotate(angle));
                                 IEnumerable<IntVector2> expected = Expected(blockSize, numBlocks).Select(p => start + p.Flip(axis).Rotate(angle));
-                                CollectionAssert.AreEqual(expected, line, $"Failed with {line}.");
-                                Assert.True(line.isPerfect, $"Failed with {line}.");
+                                ShapeAssert.SameGeometry(expected, line, $"Failed with {line}.");
                             }
                         }
                     }
@@ -77,51 +89,71 @@ namespace PAC.Tests.Shapes
         }
 
         /// <summary>
-        /// Tests that an example line has the correct shape.
+        /// Tests <see cref="Line.isPerfect"/>.
+        /// </summary>
+        [Test]
+        [Category("Shapes")]
+        public void isPerfect()
+        {
+            static bool Expected(Line line)
+            {
+                IntRect boundingRect = IntRect.BoundingRect(line);
+                if (boundingRect.width >= boundingRect.height)
+                {
+                    return Enumerable.GroupBy(line, p => p.y).Select(block => block.Count()).Distinct().Count() == 1;
+                }
+                return Enumerable.GroupBy(line, p => p.x).Select(block => block.Count()).Distinct().Count() == 1;
+            }
+
+            foreach (Line line in testCases)
+            {
+                Assert.AreEqual(Expected(line), line.isPerfect, $"Failed with {line}.");
+            }
+        }
+
+        /// <summary>
+        /// Tests that an example <see cref="Line"/> has the correct shape.
         /// </summary>
         [Test]
         [Category("Shapes")]
         public void ShapeExample1()
         {
-            Line line = new Line(IntVector2.zero, new IntVector2(2, 4));
+            Line line = new Line((0, 0), (2, 4));
             IntVector2[] expected =
             {
-                new IntVector2(0, 0), new IntVector2(0, 1), new IntVector2(1, 2), new IntVector2(2, 3), new IntVector2(2, 4)
+                (0, 0), (0, 1), (1, 2), (2, 3), (2, 4)
             };
-
-            CollectionAssert.AreEqual(expected, line);
+            ShapeAssert.SameGeometry(expected, line);
         }
 
         /// <summary>
-        /// Tests that an example line has the correct shape.
+        /// Tests that an example <see cref="Line"/> has the correct shape.
         /// </summary>
         [Test]
         [Category("Shapes")]
         public void ShapeExample2()
         {
-            Line line = new Line(IntVector2.zero, new IntVector2(4, 1));
+            Line line = new Line((0, 0), (4, 1));
             IntVector2[] expected =
             {
-                new IntVector2(0, 0), new IntVector2(1, 0), new IntVector2(2, 0), new IntVector2(3, 1), new IntVector2(4, 1)
+                (0, 0), (1, 0), (2, 0), (3, 1), (4, 1)
             };
-
-            CollectionAssert.AreEqual(expected, line);
+            ShapeAssert.SameGeometry(expected, line);
         }
 
         /// <summary>
-        /// Tests that an example line has the correct shape.
+        /// Tests that an example <see cref="Line"/> has the correct shape.
         /// </summary>
         [Test]
         [Category("Shapes")]
         public void ShapeExample3()
         {
-            Line line = new Line(IntVector2.zero, new IntVector2(5, 3));
+            Line line = new Line((0, 0), (5, 3));
             IntVector2[] expected =
             {
-                new IntVector2(0, 0), new IntVector2(1, 0), new IntVector2(2, 1), new IntVector2(3, 2), new IntVector2(4, 3), new IntVector2(5, 3)
+                (0, 0), (1, 0), (2, 1), (3, 2), (4, 3), (5, 3)
             };
-
-            CollectionAssert.AreEqual(expected, line);
+            ShapeAssert.SameGeometry(expected, line);
         }
 
         /// <summary>
@@ -132,9 +164,10 @@ namespace PAC.Tests.Shapes
         public void ShapeExample4()
         {
             Line line = new Line((1, 2), (5, 5));
-            IntVector2[] expected = { (1, 2), (2, 3), (3, 3), (4, 4), (5, 5) };
-
-            CollectionAssert.AreEqual(expected, line);
+            IntVector2[] expected = {
+                (1, 2), (2, 3), (3, 3), (4, 4), (5, 5)
+            };
+            ShapeAssert.SameGeometry(expected, line);
         }
 
         [Test]
@@ -148,314 +181,375 @@ namespace PAC.Tests.Shapes
         }
 
         /// <summary>
-        /// Tests that lines are oriented from start to end.
+        /// Tests that the <see cref="Line"/> enumerator starts at <see cref="Line.start"/>.
         /// </summary>
         [Test]
         [Category("Shapes")]
-        public void Orientation()
+        public void EnumeratorStartsAtStart()
         {
             foreach (Line line in testCases)
             {
-                Assert.AreEqual(line.First(),  line.start, $"Failed with {line}.");
-                Assert.AreEqual(line.Last(), line.end, $"Failed with {line}.");
+                Assert.AreEqual(Enumerable.First(line), line.start, $"Failed with {line}.");
+            }
+        }
+        /// <summary>
+        /// Tests that the <see cref="Line"/> enumerator ends at <see cref="Line.end"/>.
+        /// </summary>
+        [Test]
+        [Category("Shapes")]
+        public void EnumeratorEndsAtEnd()
+        {
+            foreach (Line line in testCases)
+            {
+                Assert.AreEqual(Enumerable.Last(line), line.end, $"Failed with {line}.");
             }
         }
 
+        /// <summary>
+        /// Tests that each point in the <see cref="Line"/> enumerator is closer to <see cref="Line.end"/> than the previous point was.
+        /// </summary>
+        [Test]
+        [Category("Shapes")]
+        public void PointsGetCloserToEnd()
+        {
+            foreach (Line line in testCases)
+            {
+                int previousDistance = int.MaxValue;
+                foreach (IntVector2 point in line)
+                {
+                    int distance = IntVector2.L1Distance(point, line.end);
+                    Assert.True(distance < previousDistance, $"Failed with {line} and {point}.");
+                    previousDistance = distance;
+                }
+            }
+        }
+
+        /// <summary>
+        /// Tests that <see cref="Line"/>s have no three pixels that form a right angle, such as:
+        /// <code>
+        ///   #
+        /// # #
+        /// </code>
+        /// </summary>
         [Test]
         [Category("Shapes")]
         public void NoRightAngles()
         {
             foreach (Line line in testCases)
             {
-                HashSet<IntVector2> points = line.ToHashSet();
+                HashSet<IntVector2> points = Enumerable.ToHashSet(line);
                 foreach (IntVector2 point in line)
                 {
                     foreach (IntVector2 direction in IntVector2.upDownLeftRight)
                     {
-                        if (points.Contains(point + direction))
-                        {
-                            Assert.False(points.Contains(point + direction.Rotate(RotationAngle._90)), $"Failed with {line} and {point}.");
-                        }
+                        Assert.False(
+                            points.Contains(point + direction) && points.Contains(point + direction.Rotate(RotationAngle._90)),
+                            $"Failed with {line} and {point}."
+                            );
                     }
                 }
             }
         }
 
         /// <summary>
-        /// Tests that indexing lines works correctly.
+        /// Tests <see cref="Line.this[int]"/>.
         /// </summary>
         [Test]
         [Category("Shapes")]
-        public void Indexing()
+        public void Indexer_int()
         {
             foreach (Line line in testCases)
             {
-                Assert.Throws<ArgumentOutOfRangeException>(() => { IntVector2 x = line[-1]; }, $"Failed with {line}.");
+                Assert.Throws<ArgumentOutOfRangeException>(() => { var x = line[-1]; }, $"Failed with {line}.");
 
                 int index = 0;
-                foreach (IntVector2 pixel in line)
+                foreach (IntVector2 point in line)
                 {
-                    Assert.AreEqual(pixel, line[index], $"Failed with {line} at index {index}.");
+                    Assert.AreEqual(point, line[index], $"Failed with {line} at index {index}.");
                     index++;
                 }
 
-                Assert.Throws<ArgumentOutOfRangeException>(() => { IntVector2 x = line[index]; }, $"Failed with {line}.");
+                Assert.Throws<ArgumentOutOfRangeException>(() => { var x = line[index]; }, $"Failed with {line}.");
 
                 // Test hat syntax
                 Assert.AreEqual(line.end, line[^1], $"Failed with {line}.");
             }
         }
-
         /// <summary>
-        /// Tests that indexing lines with <see cref="Range"/> works correctly.
+        /// Tests <see cref="Line.this[Range]"/>.
         /// </summary>
         [Test]
         [Category("Shapes")]
-        public void IndexingRange()
+        public void Indexer_Range()
         {
-            Line line = new Line(IntVector2.zero, new IntVector2(4, 1));
+            Line line = new Line((0, 0), (4, 1));
+            IntVector2[] points = Enumerable.ToArray(line);
+
             CollectionAssert.AreEqual(line, line[..]);
-            CollectionAssert.AreEqual(new IntVector2[] { new IntVector2(1, 0), new IntVector2(2, 0), new IntVector2(3, 1), new IntVector2(4, 1) }, line[1..]);
-            CollectionAssert.AreEqual(new IntVector2[] { new IntVector2(1, 0), new IntVector2(2, 0), new IntVector2(3, 1), new IntVector2(4, 1) }, line[1..5]);
-            CollectionAssert.AreEqual(new IntVector2[] { new IntVector2(0, 0), new IntVector2(1, 0), new IntVector2(2, 0), new IntVector2(3, 1) }, line[..^1]);
-            CollectionAssert.AreEqual(new IntVector2[] { new IntVector2(1, 0), new IntVector2(2, 0), new IntVector2(3, 1) }, line[1..4]);
+            CollectionAssert.AreEqual(points[1..], line[1..]);
+            CollectionAssert.AreEqual(points[1..5], line[1..5]);
+            CollectionAssert.AreEqual(points[..^1], line[..^1]);
+            CollectionAssert.AreEqual(points[2..4], line[2..4]);
         }
 
+        /// <summary>
+        /// Tests <see cref="Line.PointIsToLeft(IntVector2)"/>.
+        /// </summary>
         [Test]
         [Category("Shapes")]
         public void PointIsToLeft()
         {
             foreach (Line line in testCases)
             {
-                foreach (IntVector2 pixel in line)
+                IntRect boundingRect = IntRect.BoundingRect(line);
+
+                foreach (IntVector2 point in line)
                 {
-                    foreach (int x in line.boundingRect.xRange.Extend(-2, 2))
+                    foreach (int x in boundingRect.xRange.Extend(-2, 2))
                     {
-                        IntVector2 test = new IntVector2(x, pixel.y);
-                        bool expected = test.x <= pixel.x || Enumerable.Contains(line, test);
-                        Assert.True(expected == line.PointIsToLeft(test), $"Failed with {line} and {test}.");
+                        IntVector2 testPoint = (x, point.y);
+                        bool expected = testPoint.x <= point.x || Enumerable.Contains(line, testPoint);
+                        Assert.True(expected == line.PointIsToLeft(testPoint), $"Failed with {line} and {testPoint}.");
                     }
                 }
 
-                foreach (int x in line.boundingRect.xRange.Extend(-2, 2))
+                foreach (int x in boundingRect.xRange.Extend(-2, 2))
                 {
-                    foreach (int y in (line.boundingRect.minY - IntRange.InclIncl(1, 2)).Concat(line.boundingRect.maxY + IntRange.InclIncl(1, 2)))
+                    foreach (int y in (boundingRect.minY - IntRange.InclIncl(1, 2)).Concat(boundingRect.maxY + IntRange.InclIncl(1, 2)))
                     {
-                        IntVector2 test = new IntVector2(x, y);
-                        Assert.False(line.PointIsToLeft(test), $"Failed with {line} and {test}.");
+                        IntVector2 testPoint = (x, y);
+                        Assert.False(line.PointIsToLeft(testPoint), $"Failed with {line} and {testPoint}.");
                     }
                 }
             }
         }
-
-        [Test]
-        [Category("Shapes")]
-        public void IsPerfect()
-        {
-            static bool Expected(Line line)
-            {
-                if (line.boundingRect.width >= line.boundingRect.height)
-                {
-                    return line.GroupBy(p => p.y).Select(block => block.Count()).Distinct().Count() == 1;
-                }
-                return line.GroupBy(p => p.x).Select(block => block.Count()).Distinct().Count() == 1;
-            }
-
-            foreach (Line line in testCases)
-            {
-                Assert.AreEqual(Expected(line), line.isPerfect, $"Failed with {line}.");
-            }
-        }
-
+        /// <summary>
+        /// Tests <see cref="Line.PointIsToRight(IntVector2)"/>.
+        /// </summary>
         [Test]
         [Category("Shapes")]
         public void PointIsToRight()
         {
             foreach (Line line in testCases)
             {
-                foreach (IntVector2 pixel in line)
+                IntRect boundingRect = IntRect.BoundingRect(line);
+
+                foreach (IntVector2 point in line)
                 {
-                    foreach (int x in line.boundingRect.xRange.Extend(-2, 2))
+                    foreach (int x in boundingRect.xRange.Extend(-2, 2))
                     {
-                        IntVector2 test = new IntVector2(x, pixel.y);
-                        bool expected = test.x >= pixel.x || Enumerable.Contains(line, test);
-                        Assert.True(expected == line.PointIsToRight(test), $"Failed with {line} and {test}.");
+                        IntVector2 testPoint = (x, point.y);
+                        bool expected = testPoint.x >= point.x || Enumerable.Contains(line, testPoint);
+                        Assert.True(expected == line.PointIsToRight(testPoint), $"Failed with {line} and {testPoint}.");
                     }
                 }
 
-                foreach (int x in line.boundingRect.xRange.Extend(-2, 2))
+                foreach (int x in boundingRect.xRange.Extend(-2, 2))
                 {
-                    foreach (int y in (line.boundingRect.minY - IntRange.InclIncl(1, 2)).Concat(line.boundingRect.maxY + IntRange.InclIncl(1, 2)))
+                    foreach (int y in (boundingRect.minY - IntRange.InclIncl(1, 2)).Concat(boundingRect.maxY + IntRange.InclIncl(1, 2)))
                     {
-                        IntVector2 test = new IntVector2(x, y);
-                        Assert.False(line.PointIsToRight(test), $"Failed with {line} and {test}.");
+                        IntVector2 testPoint = (x, y);
+                        Assert.False(line.PointIsToRight(testPoint), $"Failed with {line} and {testPoint}.");
                     }
                 }
             }
         }
-
+        /// <summary>
+        /// Tests <see cref="Line.PointIsBelow(IntVector2)"/>.
+        /// </summary>
         [Test]
         [Category("Shapes")]
         public void PointIsBelow()
         {
             foreach (Line line in testCases)
             {
-                foreach (IntVector2 pixel in line)
+                IntRect boundingRect = IntRect.BoundingRect(line);
+
+                foreach (IntVector2 point in line)
                 {
-                    foreach (int y in line.boundingRect.xRange.Extend(-2, 2))
+                    foreach (int y in boundingRect.xRange.Extend(-2, 2))
                     {
-                        IntVector2 test = new IntVector2(pixel.x, y);
-                        bool expected = test.y <= pixel.y || Enumerable.Contains(line, test);
-                        Assert.True(expected == line.PointIsBelow(test), $"Failed with {line} and {test}.");
+                        IntVector2 testPoint = (point.x, y);
+                        bool expected = testPoint.y <= point.y || Enumerable.Contains(line, testPoint);
+                        Assert.True(expected == line.PointIsBelow(testPoint), $"Failed with {line} and {testPoint}.");
                     }
                 }
 
-                foreach (int y in line.boundingRect.yRange.Extend(-2, 2))
+                foreach (int y in boundingRect.yRange.Extend(-2, 2))
                 {
-                    foreach (int x in (line.boundingRect.minX - IntRange.InclIncl(1, 2)).Concat(line.boundingRect.maxX + IntRange.InclIncl(1, 2)))
+                    foreach (int x in (boundingRect.minX - IntRange.InclIncl(1, 2)).Concat(boundingRect.maxX + IntRange.InclIncl(1, 2)))
                     {
-                        IntVector2 test = new IntVector2(x, y);
-                        Assert.False(line.PointIsBelow(test), $"Failed with {line} and {test}.");
+                        IntVector2 testPoint = (x, y);
+                        Assert.False(line.PointIsBelow(testPoint), $"Failed with {line} and {testPoint}.");
                     }
                 }
             }
         }
-
+        /// <summary>
+        /// Tests <see cref="Line.PointIsAbove(IntVector2)"/>.
+        /// </summary>
         [Test]
         [Category("Shapes")]
         public void PointIsAbove()
         {
             foreach (Line line in testCases)
             {
-                foreach (IntVector2 pixel in line)
+                IntRect boundingRect = IntRect.BoundingRect(line);
+
+                foreach (IntVector2 point in line)
                 {
-                    foreach (int y in line.boundingRect.xRange.Extend(-2, 2))
+                    foreach (int y in boundingRect.xRange.Extend(-2, 2))
                     {
-                        IntVector2 test = new IntVector2(pixel.x, y);
-                        bool expected = test.y >= pixel.y || Enumerable.Contains(line, test);
-                        Assert.True(expected == line.PointIsAbove(test), $"Failed with {line} and {test}.");
+                        IntVector2 testPoint = (point.x, y);
+                        bool expected = testPoint.y >= point.y || Enumerable.Contains(line, testPoint);
+                        Assert.True(expected == line.PointIsAbove(testPoint), $"Failed with {line} and {testPoint}.");
                     }
                 }
 
-                foreach (int y in line.boundingRect.yRange.Extend(-2, 2))
+                foreach (int y in boundingRect.yRange.Extend(-2, 2))
                 {
-                    foreach (int x in (line.boundingRect.minX - IntRange.InclIncl(1, 2)).Concat(line.boundingRect.maxX + IntRange.InclIncl(1, 2)))
+                    foreach (int x in (boundingRect.minX - IntRange.InclIncl(1, 2)).Concat(boundingRect.maxX + IntRange.InclIncl(1, 2)))
                     {
-                        IntVector2 test = new IntVector2(x, y);
-                        Assert.False(line.PointIsAbove(test), $"Failed with {line} and {test}.");
+                        IntVector2 testPoint = (x, y);
+                        Assert.False(line.PointIsAbove(testPoint), $"Failed with {line} and {testPoint}.");
                     }
                 }
             }
         }
 
+        /// <summary>
+        /// Tests <see cref="Line.MinX(int)"/>.
+        /// </summary>
         [Test]
         [Category("Shapes")]
         public void MinX()
         {
             foreach (Line line in testCases)
             {
-                for (int y = line.boundingRect.bottomLeft.y; y <= line.boundingRect.topRight.y; y++)
+                IntRect boundingRect = IntRect.BoundingRect(line);
+
+                for (int y = boundingRect.minY; y <= boundingRect.maxY; y++)
                 {
                     Assert.AreEqual(line.Where(p => p.y == y).Min(p => p.x), line.MinX(y), $"Failed with {line} and y = {y}.");
                 }
 
-                Assert.Throws<ArgumentOutOfRangeException>(() => line.MinX(line.boundingRect.bottomLeft.y - 1));
-                Assert.Throws<ArgumentOutOfRangeException>(() => line.MinX(line.boundingRect.topRight.y + 1));
+                Assert.Throws<ArgumentOutOfRangeException>(() => line.MinX(boundingRect.minY - 1));
+                Assert.Throws<ArgumentOutOfRangeException>(() => line.MinX(boundingRect.maxY + 1));
             }
         }
-
+        /// <summary>
+        /// Tests <see cref="Line.MaxX(int)"/>.
+        /// </summary>
         [Test]
         [Category("Shapes")]
         public void MaxX()
         {
             foreach (Line line in testCases)
             {
-                for (int y = line.boundingRect.bottomLeft.y; y <= line.boundingRect.topRight.y; y++)
+                IntRect boundingRect = IntRect.BoundingRect(line);
+
+                for (int y = boundingRect.minY; y <= boundingRect.maxY; y++)
                 {
                     Assert.AreEqual(line.Where(p => p.y == y).Max(p => p.x), line.MaxX(y), $"Failed with {line} and y = {y}.");
                 }
 
-                Assert.Throws<ArgumentOutOfRangeException>(() => line.MaxX(line.boundingRect.bottomLeft.y - 1));
-                Assert.Throws<ArgumentOutOfRangeException>(() => line.MaxX(line.boundingRect.topRight.y + 1));
+                Assert.Throws<ArgumentOutOfRangeException>(() => line.MaxX(boundingRect.minY - 1));
+                Assert.Throws<ArgumentOutOfRangeException>(() => line.MaxX(boundingRect.maxY + 1));
             }
         }
-
+        /// <summary>
+        /// Tests <see cref="Line.MinY(int)"/>.
+        /// </summary>
         [Test]
         [Category("Shapes")]
         public void MinY()
         {
             foreach (Line line in testCases)
             {
-                for (int x = line.boundingRect.bottomLeft.x; x <= line.boundingRect.topRight.x; x++)
+                IntRect boundingRect = IntRect.BoundingRect(line);
+
+                for (int x = boundingRect.minX; x <= boundingRect.maxX; x++)
                 {
                     Assert.AreEqual(line.Where(p => p.x == x).Min(p => p.y), line.MinY(x), $"Failed with {line} and x = {x}.");
                 }
 
-                Assert.Throws<ArgumentOutOfRangeException>(() => line.MinY(line.boundingRect.bottomLeft.x - 1));
-                Assert.Throws<ArgumentOutOfRangeException>(() => line.MinY(line.boundingRect.topRight.x + 1));
+                Assert.Throws<ArgumentOutOfRangeException>(() => line.MinY(boundingRect.minX - 1));
+                Assert.Throws<ArgumentOutOfRangeException>(() => line.MinY(boundingRect.maxX + 1));
             }
         }
-
+        /// <summary>
+        /// Tests <see cref="Line.MaxY(int)"/>.
+        /// </summary>
         [Test]
         [Category("Shapes")]
         public void MaxY()
         {
             foreach (Line line in testCases)
             {
-                for (int x = line.boundingRect.bottomLeft.x; x <= line.boundingRect.topRight.x; x++)
+                IntRect boundingRect = IntRect.BoundingRect(line);
+
+                for (int x = boundingRect.minX; x <= boundingRect.maxX; x++)
                 {
                     Assert.AreEqual(line.Where(p => p.x == x).Max(p => p.y), line.MaxY(x), $"Failed with {line} and x = {x}.");
                 }
 
-                Assert.Throws<ArgumentOutOfRangeException>(() => line.MaxY(line.boundingRect.bottomLeft.x - 1));
-                Assert.Throws<ArgumentOutOfRangeException>(() => line.MaxY(line.boundingRect.topRight.x + 1));
+                Assert.Throws<ArgumentOutOfRangeException>(() => line.MaxY(boundingRect.minX - 1));
+                Assert.Throws<ArgumentOutOfRangeException>(() => line.MaxY(boundingRect.maxX + 1));
             }
         }
 
+        /// <summary>
+        /// Tests <see cref="Line.CountOnX(int)"/>.
+        /// </summary>
         [Test]
         [Category("Shapes")]
         public void CountOnX()
         {
             foreach (Line line in testCases)
             {
-                for (int x = line.boundingRect.bottomLeft.x - 2; x <= line.boundingRect.topRight.x + 2; x++)
+                IntRect boundingRect = IntRect.BoundingRect(line);
+                for (int x = boundingRect.minX - 2; x <= boundingRect.maxX + 2; x++)
                 {
-                    Assert.AreEqual(line.Count(p => p.x == x), line.CountOnX(x), $"Failed with {line} and x = {x}.");
+                    Assert.AreEqual(Enumerable.Count(line, p => p.x == x), line.CountOnX(x), $"Failed with {line} and x = {x}.");
                 }
             }
         }
-
+        /// <summary>
+        /// Tests <see cref="Line.CountOnY(int)"/>.
+        /// </summary>
         [Test]
         [Category("Shapes")]
         public void CountOnY()
         {
             foreach (Line line in testCases)
             {
-                for (int y = line.boundingRect.bottomLeft.y - 2; y <= line.boundingRect.topRight.y + 2; y++)
+                IntRect boundingRect = IntRect.BoundingRect(line);
+                for (int y = boundingRect.minY - 2; y <= boundingRect.maxY + 2; y++)
                 {
-                    Assert.AreEqual(line.Count(p => p.y == y), line.CountOnY(y), $"Failed with {line} and y = {y}.");
+                    Assert.AreEqual(Enumerable.Count(line, p => p.y == y), line.CountOnY(y), $"Failed with {line} and y = {y}.");
                 }
             }
         }
 
+        /// <summary>
+        /// Tests that <see cref="Line"/>s have 180-degree rotational symmetry, except potentially at the midpoint.
+        /// </summary>
         [Test]
         [Category("Shapes")]
-        public void RotationalSymmetry()
+        public void RotationalSymmetry_180Degrees()
         {
             foreach (Line line in testCases)
             {
-                if (line.Count % 2 == 0)
+                int Count = Enumerable.Count(line);
+                if (Count % 2 == 0)
                 {
                     ShapeAssert.RotationalSymmetry(line, RotationAngle._180);
                 }
                 else
                 {
-                    HashSet<IntVector2> points = line.ToHashSet();
-                    points.Remove(line[line.Count / 2]); // Ignore midpoint
-                    foreach (IntVector2 point in points)
-                    {
-                        Assert.True(points.Contains(line.end - (point - line.start)), $"Failed with {line}.");
-                    }
+                    List<IntVector2> points = Enumerable.ToList(line);
+                    points.Remove(line[Count / 2]); // Ignore midpoint
+                    ShapeAssert.RotationalSymmetry(points, RotationAngle._180);
                 }
             }
         }
@@ -465,7 +559,7 @@ namespace PAC.Tests.Shapes
         /// </summary>
         [Test]
         [Category("Shapes")]
-        public void Reverse()
+        public void reverse()
         {
             foreach (Line line in testCases)
             {
