@@ -65,12 +65,12 @@ namespace PAC.Tests.Shapes.DefaultTests
                 IntRect boundingRect = shape.boundingRect;
                 IntRect testRegion = new IntRect(boundingRect.bottomLeft + IntVector2.downLeft, boundingRect.topRight + IntVector2.upRight);
 
-                HashSet<IntVector2> pixels = shape.ToHashSet();
+                HashSet<IntVector2> points = shape.ToHashSet();
 
-                foreach (IntVector2 pixel in testRegion)
+                foreach (IntVector2 point in testRegion)
                 {
                     // Using Assert.True(x == y) seems to be faster than Assert.AreEqual(x, y)
-                    Assert.True(pixels.Contains(pixel) == shape.Contains(pixel), $"Failed with {shape} and {pixel}. Expected {pixels.Contains(pixel)}.");
+                    Assert.True(points.Contains(point) == shape.Contains(point), $"Failed with {shape} and {point}. Expected {points.Contains(point)}.");
                 }
             }
         }
