@@ -177,6 +177,24 @@ namespace PAC.Shapes
                 return IntVector2.L1Distance(point, centre) <= 1;
             }
 
+            // Deal with the edge case where the ellipse has even width or height and is so thin that grid square centres near the boundary of the bounding rect aren't inside the imaginary
+            // ellipse (and therefore the pixel art ellipse doesn't go all the way to the edge of the bounding rect).
+            // We solve this by just saying everything in the two middle strips is in the ellipse.
+            if (!boundingRect.Contains(point))
+            {
+                return false;
+            }
+            if (boundingRect.height % 2 == 0 &&
+                (point.y == Mathf.FloorToInt((boundingRect.minY + boundingRect.maxY) / 2f) || point.y == Mathf.FloorToInt((boundingRect.minY + boundingRect.maxY) / 2f) + 1))
+            {
+                return true;
+            }
+            if (boundingRect.width % 2 == 0 &&
+                (point.x == Mathf.FloorToInt((boundingRect.minX + boundingRect.maxX) / 2f) || point.x == Mathf.FloorToInt((boundingRect.minX + boundingRect.maxX) / 2f) + 1))
+            {
+                return true;
+            }
+
             // General case
             return imaginaryEllipse.Contains(point);
         }
