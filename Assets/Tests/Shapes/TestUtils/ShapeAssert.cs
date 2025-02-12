@@ -21,70 +21,79 @@ namespace PAC.Tests.Shapes.TestUtils
         /// Asserts that the two shapes look the same, i.e. they are set-equal.
         /// </summary>
         public static void SameGeometry(IEnumerable<IntVector2> expected, IEnumerable<IntVector2> actual, string failMessage) => Assert.True(SameGeometry_Impl(expected, actual), failMessage);
-        private static bool SameGeometry_Impl(IEnumerable<IntVector2> expected, IEnumerable<IntVector2> actual) => expected.ToHashSet().SetEquals(actual);
+        private static bool SameGeometry_Impl(IEnumerable<IntVector2> expected, IEnumerable<IntVector2> actual) => Enumerable.ToHashSet(expected).SetEquals(actual);
 
         /// <summary>
-        /// Asserts that no pixels are repeated at all in the shape's enumerator.
+        /// Asserts that the two shapes do not look the same, i.e. they are not set-equal.
         /// </summary>
-        public static void NoRepeats(IShape shape)
+        public static void NotSameGeometry(IEnumerable<IntVector2> expected, IEnumerable<IntVector2> actual) => Assert.False(SameGeometry_Impl(expected, actual));
+        /// <summary>
+        /// Asserts that the two shapes do not look the same, i.e. they are not set-equal.
+        /// </summary>
+        public static void NotSameGeometry(IEnumerable<IntVector2> expected, IEnumerable<IntVector2> actual, string failMessage) => Assert.False(SameGeometry_Impl(expected, actual), failMessage);
+
+        /// <summary>
+        /// Asserts that no points are repeated at all in the shape's enumerator.
+        /// </summary>
+        public static void NoRepeats(IEnumerable<IntVector2> shape)
         {
             HashSet<IntVector2> visited = new HashSet<IntVector2>();
-            foreach (IntVector2 pixel in shape)
+            foreach (IntVector2 point in shape)
             {
-                Assert.False(visited.Contains(pixel), $"Failed with {shape} and {pixel}.");
-                visited.Add(pixel);
+                Assert.False(visited.Contains(point), $"Failed with {shape} and {point}.");
+                visited.Add(point);
             }
         }
 
         /// <summary>
-        /// Asserts that every pixel has another pixel adjacent to it (including diagonally).
+        /// Asserts that every point has another point adjacent to it (including diagonally).
         /// </summary>
         /// <remarks>
-        /// Note this is a strictly weaker assertion than <see cref="Connected(IShape)"/>.
+        /// Note this is a strictly weaker assertion than <see cref="Connected(IEnumerable{IntVector2})"/>.
         /// </remarks>
-        public static void NoIsolatedPoints(IShape shape)
+        public static void NoIsolatedPoints(IEnumerable<IntVector2> shape)
         {
-            HashSet<IntVector2> pixels = shape.ToHashSet();
-            foreach (IntVector2 pixel in shape)
+            HashSet<IntVector2> points = Enumerable.ToHashSet(shape);
+            foreach (IntVector2 point in shape)
             {
                 bool hasAdjacent = false;
-                foreach (IntVector2 check in (pixel + new IntRect(-IntVector2.one, IntVector2.one)).Where(p => p != pixel))
+                foreach (IntVector2 check in (point + new IntRect((-1, -1), (1, 1))).Where(p => p != point))
                 {
-                    if (pixels.Contains(check))
+                    if (points.Contains(check))
                     {
                         hasAdjacent = true;
                         break;
                     }
                 }
 
-                Assert.True(hasAdjacent, $"Failed with {shape} and {pixel}.");
+                Assert.True(hasAdjacent, $"Failed with {shape} and {point}.");
             }
         }
 
         /// <summary>
-        /// Asserts that the shape has exactly one connected component (defined it terms of pixels being adjacent, including diagonally).
+        /// Asserts that the shape has exactly one connected component (defined in terms of points being adjacent, including diagonally).
         /// </summary>
-        public static void Connected(IShape shape)
+        public static void Connected(IEnumerable<IntVector2> shape)
         {
-            HashSet<IntVector2> pixels = shape.ToHashSet();
+            HashSet<IntVector2> points = Enumerable.ToHashSet(shape);
             HashSet<IntVector2> visited = new HashSet<IntVector2>();
             Queue<IntVector2> toVisit = new Queue<IntVector2>();
 
-            IntVector2 startingPixel = pixels.First();
-            toVisit.Enqueue(startingPixel);
-            visited.Add(startingPixel);
+            IntVector2 startingPoint = points.First();
+            toVisit.Enqueue(startingPoint);
+            visited.Add(startingPoint);
 
             while (toVisit.Count > 0)
             {
-                IntVector2 pixel = toVisit.Dequeue();
-                foreach (IntVector2 offsetPixel in pixel + new IntRect(-IntVector2.one, IntVector2.one))
+                IntVector2 point = toVisit.Dequeue();
+                foreach (IntVector2 adjacentPoint in point + new IntRect((-1, -1), (1, 1)))
                 {
-                    if (pixels.Contains(offsetPixel) && !visited.Contains(offsetPixel))
+                    if (points.Contains(adjacentPoint) && !visited.Contains(adjacentPoint))
                     {
-                        toVisit.Enqueue(offsetPixel);
-                        visited.Add(offsetPixel);
+                        toVisit.Enqueue(adjacentPoint);
+                        visited.Add(adjacentPoint);
 
-                        if (visited.Count == pixels.Count)
+                        if (visited.Count == points.Count)
                         {
                             break;
                         }
@@ -92,34 +101,62 @@ namespace PAC.Tests.Shapes.TestUtils
                 }
             }
 
-            Assert.AreEqual(pixels.Count, visited.Count, $"Failed with {shape}.");
+            Assert.AreEqual(points.Count, visited.Count, $"Failed with {shape}.");
         }
 
         /// <summary>
         /// Asserts that the shape has reflective symmetry across the given axis.
         /// </summary>
-        public static void ReflectiveSymmetry(IShape shape, FlipAxis axis)
+        public static void ReflectiveSymmetry(IEnumerable<IntVector2> shape, FlipAxis axis)
         {
-            CollectionAssert.AreEquivalent(shape.ToHashSet(), shape.Select(p => p.Flip(axis) + shape.boundingRect.bottomLeft - shape.boundingRect.Flip(axis).bottomLeft).ToHashSet(),
-                $"Failed with {shape} and FlipAxis.{axis}.");
+            if (!shape.Any())
+            {
+                return;
+            }
+
+            IntRect boundingRect = IntRect.BoundingRect(shape);
+            ShapeAssert.SameGeometry(
+                shape,
+                shape.Select(p => p.Flip(axis) + boundingRect.bottomLeft - boundingRect.Flip(axis).bottomLeft),
+                $"Failed with {shape} and FlipAxis.{axis}."
+                );
         }
 
         /// <summary>
         /// Asserts that the shape doesn't have reflective symmetry across the given axis.
         /// </summary>
-        public static void ReflectiveAsymmetry(IShape shape, FlipAxis axis)
+        public static void ReflectiveAsymmetry(IEnumerable<IntVector2> shape, FlipAxis axis)
         {
-            CollectionAssert.AreNotEquivalent(shape.ToHashSet(), shape.Select(p => p.Flip(axis) + shape.boundingRect.bottomLeft - shape.boundingRect.Flip(axis).bottomLeft).ToHashSet(),
-                $"Failed with {shape} and FlipAxis.{axis}.");
+            if (!shape.Any())
+            {
+                return;
+            }
+
+            IntRect boundingRect = IntRect.BoundingRect(shape);
+            ShapeAssert.NotSameGeometry(
+                shape,
+                shape.Select(p => p.Flip(axis) + boundingRect.bottomLeft - boundingRect.Flip(axis).bottomLeft),
+                $"Failed with {shape} and FlipAxis.{axis}."
+                );
         }
 
         /// <summary>
         /// Asserts that the shape has rotational symmetry by the given angle.
         /// </summary>
-        public static void RotationalSymmetry(IShape shape, RotationAngle angle)
+        public static void RotationalSymmetry(IEnumerable<IntVector2> shape, RotationAngle angle)
         {
-            CollectionAssert.AreEquivalent(shape.ToHashSet(), shape.Select(p => p.Rotate(angle) + shape.boundingRect.bottomLeft - shape.boundingRect.Rotate(angle).bottomLeft).ToHashSet(),
-                $"Failed with {shape} and RotationAngle.{angle}.");
+            if (!shape.Any())
+            {
+                return;
+            }
+
+            IntRect boundingRect = IntRect.BoundingRect(shape);
+            ShapeAssert.SameGeometry(
+                shape,
+                shape.Select(p => p.Rotate(angle) + boundingRect.bottomLeft - boundingRect.Rotate(angle).bottomLeft),
+                $"Failed with {shape} and RotationAngle.{angle}."
+                );
+            
         }
 
         /// <summary>
@@ -131,7 +168,7 @@ namespace PAC.Tests.Shapes.TestUtils
             HashSet<IntVector2> borderOfFilled = ShapeUtils.GetBorder(shape);
 
             shape.filled = false;
-            Assert.True(borderOfFilled.SetEquals(shape), $"Failed with {shape}.");
+            ShapeAssert.SameGeometry(borderOfFilled, shape, $"Failed with {shape}.");
         }
     }
 }
