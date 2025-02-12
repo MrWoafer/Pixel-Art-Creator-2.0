@@ -22,10 +22,9 @@ namespace PAC.Tests.Shapes.DefaultTests
         {
             foreach (T shape in testCases)
             {
-                HashSet<IntVector2> original = shape.ToHashSet();
                 foreach (IntVector2 translation in new IntRect(new IntVector2(-2, -2), new IntVector2(2, 2)))
                 {
-                    IEnumerable<IntVector2> expected = original.Select(p => p + translation);
+                    IEnumerable<IntVector2> expected = shape.Select(p => p + translation);
                     IEnumerable<IntVector2> translated = shape.Translate(translation);
                     ShapeAssert.SameGeometry(expected, translated, $"Failed with {shape} and {translation}.");
                 }
