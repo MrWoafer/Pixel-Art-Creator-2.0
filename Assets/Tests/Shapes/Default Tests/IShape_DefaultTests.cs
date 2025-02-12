@@ -62,10 +62,10 @@ namespace PAC.Tests.Shapes.DefaultTests
         {
             foreach (T shape in testCases)
             {
-                IntRect boundingRect = shape.boundingRect;
+                IntRect boundingRect = IntRect.BoundingRect(shape);
                 IntRect testRegion = new IntRect(boundingRect.bottomLeft + IntVector2.downLeft, boundingRect.topRight + IntVector2.upRight);
 
-                HashSet<IntVector2> points = shape.ToHashSet();
+                HashSet<IntVector2> points = Enumerable.ToHashSet(shape);
 
                 foreach (IntVector2 point in testRegion)
                 {
