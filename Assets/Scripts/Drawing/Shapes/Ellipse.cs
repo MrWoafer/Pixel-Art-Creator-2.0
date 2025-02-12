@@ -336,6 +336,7 @@ namespace PAC.Shapes
             IntVector2 tertiaryDirection = IntVector2.down;
             IntVector2 start = new IntVector2(boundingRect.minX + boundingRect.width / 2, boundingRect.maxY);
             IntVector2 currentPoint = start;
+            int numRotationsDone = 0;
 
             int iterations = 0; // Used to stop accidental infinite loops
             do
@@ -344,24 +345,42 @@ namespace PAC.Shapes
 
                 if (FilledContains(currentPoint + primaryDirection))
                 {
-                    yield return currentPoint;
                     currentPoint += primaryDirection;
+                    yield return currentPoint;
                 }
                 else if (FilledContains(currentPoint + secondaryDirection))
                 {
-                    yield return currentPoint;
                     currentPoint += secondaryDirection;
+                    yield return currentPoint;
                 }
                 else if (FilledContains(currentPoint + tertiaryDirection))
                 {
-                    yield return currentPoint;
                     currentPoint += tertiaryDirection;
+
+                    /* These two checks make sure we don't repeat any points in ellipses that are so thin that the algorithm walks back over the pointy end:
+                     * 
+                     *     # # # # # # # #
+                     * # #                 # #
+                     *     # # # # # # # # ^
+                     *                     This point needs to be walked over again, but without yielding it again
+                     */
+                    if (boundingRect.width > boundingRect.height && boundingRect.height % 2 == 1 && currentPoint.y == (boundingRect.minY + boundingRect.maxY) / 2 && numRotationsDone % 2 == 1)
+                    {
+                        continue;
+                    }
+                    if (boundingRect.width < boundingRect.height && boundingRect.width % 2 == 1 && currentPoint.x == (boundingRect.minX + boundingRect.maxX) / 2 && numRotationsDone % 2 == 0)
+                    {
+                        continue;
+                    }
+
+                    yield return currentPoint;
                 }
                 else
                 {
                     primaryDirection = primaryDirection.Rotate(RotationAngle._90);
                     secondaryDirection = secondaryDirection.Rotate(RotationAngle._90);
                     tertiaryDirection = tertiaryDirection.Rotate(RotationAngle._90);
+                    numRotationsDone++;
                 }
             }
             while (currentPoint != start && iterations < 10_000);
