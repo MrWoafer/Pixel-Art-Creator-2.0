@@ -65,10 +65,17 @@ namespace PAC.Shapes
         /// The first point in the <see cref="Path"/>.
         /// </summary>
         /// <seealso cref="end"/>
+        /// <remarks>
+        /// This will be the first point in the enumerator.
+        /// </remarks>
         public IntVector2 start => _lines[0].start;
         /// <summary>
         /// The last point in the <see cref="Path"/>.
         /// </summary>
+        /// <remarks>
+        /// This may not be the last point in the enumerator: if it's equal to <see cref="start"/>, and the enumerator has length > 1, it won't be counted at the end. Other than in that case,
+        /// it will be the last point in the enumerator.
+        /// </remarks>
         /// <seealso cref="start"/>
         public IntVector2 end => _lines[^1].end;
 
