@@ -7,16 +7,19 @@ using PAC.Tests.Shapes.DefaultTests;
 using PAC.Tests.Shapes.RequiredTests;
 using PAC.Tests.Shapes.TestUtils;
 
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
-using UnityEngine;
-
 namespace PAC.Tests.Shapes
 {
+    /// <summary>
+    /// Tests for <see cref="RightTriangle"/>.
+    /// </summary>
     public class RightTriangle_Tests : I2DShape_DefaultTests<RightTriangle>, I2DShape_RequiredTests
     {
-        protected override IEnumerable<RightTriangle> testCases
+        protected override IEnumerable<RightTriangle> testCases => Enumerable.Concat(exampleTestCases, randomTestCases);
+        private IEnumerable<RightTriangle> exampleTestCases
         {
             get
             {
@@ -24,14 +27,26 @@ namespace PAC.Tests.Shapes
                 {
                     foreach (bool filled in new bool[] { false, true })
                     {
-                        foreach (IntVector2 bottomLeft in new IntRect(new IntVector2(-5, -5), new IntVector2(2, 2)))
+                        for (int x = 0; x <= 2; x++)
                         {
-                            foreach (IntVector2 topRight in bottomLeft + new IntRect(IntVector2.zero, new IntVector2(5, 5)))
+                            for (int y = 0; y <= 2; y++)
                             {
-                                yield return new RightTriangle(new IntRect(bottomLeft, topRight), rightAngleLocation, filled);
+                                yield return new RightTriangle(new IntRect((0, 0), (x, y)), rightAngleLocation, filled);
                             }
                         }
                     }
+                }
+            }
+        }
+        private IEnumerable<RightTriangle> randomTestCases
+        {
+            get
+            {
+                Random random = new Random(0);
+                IntRect testRegion = new IntRect((-20, -20), (20, 20));
+                for (int i = 0; i < 1_000; i++)
+                {
+                    yield return new RightTriangle(testRegion.RandomSubRect(random), random.NextElement(TypeExtensions.GetValues<RightTriangle.RightAngleLocation>()), random.NextBool());
                 }
             }
         }
@@ -44,10 +59,13 @@ namespace PAC.Tests.Shapes
             {
                 foreach (bool filled in new bool[] { false, true })
                 {
-                    foreach (IntVector2 point in new IntRect(new IntVector2(-5, -5), new IntVector2(5, 5)))
+                    foreach (IntVector2 point in new IntRect((-5, -5), (5, 5)))
                     {
-                        CollectionAssert.AreEqual(new IntVector2[] { point }, new RightTriangle(new IntRect(point, point), rightAngleLocation, filled),
-                            $"Failed with {point} {(filled ? "filled" : "unfilled")}.");
+                        ShapeAssert.SameGeometry(
+                            new IntVector2[] { point },
+                            new RightTriangle(new IntRect(point, point), rightAngleLocation, filled),
+                            $"Failed with {point} {(filled ? "filled" : "unfilled")}."
+                            );
                     }
                 }
             }
@@ -72,7 +90,7 @@ namespace PAC.Tests.Shapes
 
                 foreach ((IntVector2[] expected, RightTriangle triangle) in testCases)
                 {
-                    CollectionAssert.AreEquivalent(expected, triangle, $"Failed with {triangle}.");
+                    ShapeAssert.SameGeometry(expected, triangle, $"Failed with {triangle}.");
                 }
             }
         }
@@ -116,7 +134,7 @@ namespace PAC.Tests.Shapes
                         expected.Add((n, y));
                     }
 
-                    CollectionAssert.AreEquivalent(expected, triangle, $"Failed with n = {n}.");
+                    ShapeAssert.SameGeometry(expected, triangle, $"Failed with n = {n}.");
                 }
             }
         }
@@ -134,10 +152,9 @@ namespace PAC.Tests.Shapes
                 {
                     for (int height = 1; height <= 10; height++)
                     {
-                        IntRect boundingRect = new IntRect((0, 0), (0, height - 1));
-                        RightTriangle triangle = new RightTriangle(boundingRect, rightAngleLocation, filled);
-
-                        CollectionAssert.AreEquivalent(boundingRect, triangle, $"Failed with height {height}.");
+                        RightTriangle triangle = new RightTriangle(new IntRect((0, 0), (0, height - 1)), rightAngleLocation, filled);
+                        IntRect expected = new IntRect((0, 0), (0, height - 1));
+                        ShapeAssert.SameGeometry(expected, triangle, $"Failed with height {height}.");
                     }
                 }
             }
@@ -161,12 +178,12 @@ namespace PAC.Tests.Shapes
                     {
                         expected.Add((0, y));
                     }
-                    for (int y = 0; y <= Mathf.Ceil(height / 2f) - 1; y++)
+                    for (int y = 0; y <= UnityEngine.Mathf.Ceil(height / 2f) - 1; y++)
                     {
                         expected.Add((1, y));
                     }
 
-                    CollectionAssert.AreEquivalent(expected, triangle, $"Failed with height {height}.");
+                    ShapeAssert.SameGeometry(expected, triangle, $"Failed with height {height}.");
                 }
             }
         }
@@ -180,7 +197,7 @@ namespace PAC.Tests.Shapes
         {
             RightTriangle triangle = new RightTriangle(new IntRect((0, 0), (1, 4)), RightTriangle.RightAngleLocation.BottomRight, false);
             IntVector2[] expected = new IntVector2[] { (0, 0), (0, 1), (0, 2), (1, 0), (1, 1), (1, 2), (1, 3), (1, 4) };
-            CollectionAssert.AreEquivalent(expected, triangle);
+            ShapeAssert.SameGeometry(expected, triangle);
         }
 
         /// <summary>
@@ -203,7 +220,7 @@ namespace PAC.Tests.Shapes
             }
             expected.AddRange(new Line((9, 19), (1, 3)));
 
-            CollectionAssert.AreEquivalent(expected, triangle);
+            ShapeAssert.SameGeometry(expected, triangle);
         }
 
         /// <summary>
@@ -221,23 +238,25 @@ namespace PAC.Tests.Shapes
                     CollectionAssert.Contains(triangle, corner, $"Failed with {triangle} and {corner}.");
                 }
 
-                CollectionAssert.Contains(
-                        new IntVector2[] { triangle.boundingRect.bottomLeft, triangle.boundingRect.bottomRight, triangle.boundingRect.topLeft, triangle.boundingRect.topRight },
-                        triangle.rightAngleCorner,
-                        $"Failed with {triangle} and {triangle.rightAngleCorner}."
-                        );
-                Assert.True(triangle.leftCorner == triangle.boundingRect.bottomLeft || triangle.leftCorner == triangle.boundingRect.topLeft, $"Failed with {triangle}.");
-                Assert.True(triangle.rightCorner == triangle.boundingRect.bottomRight || triangle.rightCorner == triangle.boundingRect.topRight, $"Failed with {triangle}.");
-                Assert.True(triangle.topCorner == triangle.boundingRect.topLeft || triangle.topCorner == triangle.boundingRect.topRight, $"Failed with {triangle}.");
-                Assert.True(triangle.bottomCorner == triangle.boundingRect.bottomLeft || triangle.bottomCorner == triangle.boundingRect.bottomRight, $"Failed with {triangle}.");
+                IntRect boundingRect = IntRect.BoundingRect(triangle);
 
-                if (triangle.boundingRect.Count > 1)
+                CollectionAssert.Contains(
+                    new IntVector2[] { boundingRect.bottomLeft, boundingRect.bottomRight, boundingRect.topLeft, boundingRect.topRight },
+                    triangle.rightAngleCorner,
+                    $"Failed with {triangle} and {triangle.rightAngleCorner}."
+                    );
+                Assert.True(triangle.leftCorner == boundingRect.bottomLeft || triangle.leftCorner == boundingRect.topLeft, $"Failed with {triangle}.");
+                Assert.True(triangle.rightCorner == boundingRect.bottomRight || triangle.rightCorner == boundingRect.topRight, $"Failed with {triangle}.");
+                Assert.True(triangle.topCorner == boundingRect.topLeft || triangle.topCorner == boundingRect.topRight, $"Failed with {triangle}.");
+                Assert.True(triangle.bottomCorner == boundingRect.bottomLeft || triangle.bottomCorner == boundingRect.bottomRight, $"Failed with {triangle}.");
+
+                if (boundingRect.Count > 1)
                 {
                     Assert.AreNotEqual(triangle.topCorner, triangle.bottomCorner, $"Failed with {triangle}.");
                     Assert.AreNotEqual(triangle.leftCorner, triangle.rightCorner, $"Failed with {triangle}.");
                 }
 
-                if (triangle.boundingRect.width >= 2 && triangle.boundingRect.height >= 2)
+                if (boundingRect.width >= 2 && boundingRect.height >= 2)
                 {
                     Assert.True(IntVector2.upDownLeftRight.Any(
                         direction => 
@@ -248,33 +267,33 @@ namespace PAC.Tests.Shapes
                         ),
                         $"Failed with {triangle}."); // Test it is actually a right angle at that corner
 
-                    if (triangle.rightAngleCorner == triangle.boundingRect.bottomLeft)
+                    if (triangle.rightAngleCorner == boundingRect.bottomLeft)
                     {
-                        Assert.AreEqual(triangle.boundingRect.bottomRight, triangle.bottomCorner, $"Failed with {triangle}.");
-                        Assert.AreEqual(triangle.boundingRect.topLeft, triangle.topCorner, $"Failed with {triangle}.");
-                        Assert.AreEqual(triangle.boundingRect.topLeft, triangle.leftCorner, $"Failed with {triangle}.");
-                        Assert.AreEqual(triangle.boundingRect.bottomRight, triangle.rightCorner, $"Failed with {triangle}.");
+                        Assert.AreEqual(boundingRect.bottomRight, triangle.bottomCorner, $"Failed with {triangle}.");
+                        Assert.AreEqual(boundingRect.topLeft, triangle.topCorner, $"Failed with {triangle}.");
+                        Assert.AreEqual(boundingRect.topLeft, triangle.leftCorner, $"Failed with {triangle}.");
+                        Assert.AreEqual(boundingRect.bottomRight, triangle.rightCorner, $"Failed with {triangle}.");
                     }
-                    else if (triangle.rightAngleCorner == triangle.boundingRect.bottomRight)
+                    else if (triangle.rightAngleCorner == boundingRect.bottomRight)
                     {
-                        Assert.AreEqual(triangle.boundingRect.bottomLeft, triangle.bottomCorner, $"Failed with {triangle}.");
-                        Assert.AreEqual(triangle.boundingRect.topRight, triangle.topCorner, $"Failed with {triangle}.");
-                        Assert.AreEqual(triangle.boundingRect.bottomLeft, triangle.leftCorner, $"Failed with {triangle}.");
-                        Assert.AreEqual(triangle.boundingRect.topRight, triangle.rightCorner, $"Failed with {triangle}.");
+                        Assert.AreEqual(boundingRect.bottomLeft, triangle.bottomCorner, $"Failed with {triangle}.");
+                        Assert.AreEqual(boundingRect.topRight, triangle.topCorner, $"Failed with {triangle}.");
+                        Assert.AreEqual(boundingRect.bottomLeft, triangle.leftCorner, $"Failed with {triangle}.");
+                        Assert.AreEqual(boundingRect.topRight, triangle.rightCorner, $"Failed with {triangle}.");
                     }
-                    else if (triangle.rightAngleCorner == triangle.boundingRect.topLeft)
+                    else if (triangle.rightAngleCorner == boundingRect.topLeft)
                     {
-                        Assert.AreEqual(triangle.boundingRect.bottomLeft, triangle.bottomCorner, $"Failed with {triangle}.");
-                        Assert.AreEqual(triangle.boundingRect.topRight, triangle.topCorner, $"Failed with {triangle}.");
-                        Assert.AreEqual(triangle.boundingRect.bottomLeft, triangle.leftCorner, $"Failed with {triangle}.");
-                        Assert.AreEqual(triangle.boundingRect.topRight, triangle.rightCorner, $"Failed with {triangle}.");
+                        Assert.AreEqual(boundingRect.bottomLeft, triangle.bottomCorner, $"Failed with {triangle}.");
+                        Assert.AreEqual(boundingRect.topRight, triangle.topCorner, $"Failed with {triangle}.");
+                        Assert.AreEqual(boundingRect.bottomLeft, triangle.leftCorner, $"Failed with {triangle}.");
+                        Assert.AreEqual(boundingRect.topRight, triangle.rightCorner, $"Failed with {triangle}.");
                     }
-                    else if (triangle.rightAngleCorner == triangle.boundingRect.topRight)
+                    else if (triangle.rightAngleCorner == boundingRect.topRight)
                     {
-                        Assert.AreEqual(triangle.boundingRect.bottomRight, triangle.bottomCorner, $"Failed with {triangle}.");
-                        Assert.AreEqual(triangle.boundingRect.topLeft, triangle.topCorner, $"Failed with {triangle}.");
-                        Assert.AreEqual(triangle.boundingRect.topLeft, triangle.leftCorner, $"Failed with {triangle}.");
-                        Assert.AreEqual(triangle.boundingRect.bottomRight, triangle.rightCorner, $"Failed with {triangle}.");
+                        Assert.AreEqual(boundingRect.bottomRight, triangle.bottomCorner, $"Failed with {triangle}.");
+                        Assert.AreEqual(boundingRect.topLeft, triangle.topCorner, $"Failed with {triangle}.");
+                        Assert.AreEqual(boundingRect.topLeft, triangle.leftCorner, $"Failed with {triangle}.");
+                        Assert.AreEqual(boundingRect.bottomRight, triangle.rightCorner, $"Failed with {triangle}.");
                     }
                     else
                     {
@@ -284,6 +303,44 @@ namespace PAC.Tests.Shapes
             }
         }
 
+        /// <summary>
+        /// Tests that <see cref="RightTriangle"/>s has at least one horizontal edge that's on the border of the <see cref="RightTriangle"/>'s bounding rect.
+        /// </summary>
+        [Test]
+        [Category("Shapes")]
+        public void HasAHorizontalEdgeAlongBorderOfBoundingRect()
+        {
+            foreach (RightTriangle triangle in testCases)
+            {
+                IntRect boundingRect = IntRect.BoundingRect(triangle);
+                Assert.True(
+                    new IntRect(boundingRect.bottomLeft, boundingRect.bottomRight).ToHashSet().IsSubsetOf(triangle) ||
+                    new IntRect(boundingRect.topLeft, boundingRect.topRight).ToHashSet().IsSubsetOf(triangle),
+                    $"Failed with {triangle}."
+                    );
+            }
+        }
+        /// <summary>
+        /// Tests that <see cref="RightTriangle"/>s has at least one vertical edge that's on the border of the <see cref="RightTriangle"/>'s bounding rect.
+        /// </summary>
+        [Test]
+        [Category("Shapes")]
+        public void HasAVerticalEdgeAlongBorderOfBoundingRect()
+        {
+            foreach (RightTriangle triangle in testCases)
+            {
+                IntRect boundingRect = IntRect.BoundingRect(triangle);
+                Assert.True(
+                    new IntRect(boundingRect.bottomLeft, boundingRect.topLeft).ToHashSet().IsSubsetOf(triangle) ||
+                    new IntRect(boundingRect.bottomRight, boundingRect.topRight).ToHashSet().IsSubsetOf(triangle),
+                    $"Failed with {triangle}."
+                    );
+            }
+        }
+
+        /// <summary>
+        /// Tests that the <see cref="RightTriangle"/> enumerator doesn't repeat any points.
+        /// </summary>
         [Test]
         [Category("Shapes")]
         public void NoRepeats()
