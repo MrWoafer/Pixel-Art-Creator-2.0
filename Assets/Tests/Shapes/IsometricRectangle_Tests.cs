@@ -12,35 +12,37 @@ using System.Linq;
 
 namespace PAC.Tests.Shapes
 {
+    /// <summary>
+    /// Tests for <see cref="IsometricRectangle"/>.
+    /// </summary>
     public class IsometricRectangle_Tests : IIsometricShape_DefaultTests<IsometricRectangle>, IIsometricShape_RequiredTests
     {
-        protected override IEnumerable<IsometricRectangle> testCases => exampleTestCases.Concat(randomTestCases);
+        protected override IEnumerable<IsometricRectangle> testCases => Enumerable.Concat(exampleTestCases, randomTestCases);
         private IEnumerable<IsometricRectangle> exampleTestCases => new IsometricRectangle[]
         {
-            new IsometricRectangle(IntVector2.zero, IntVector2.zero, false),
-            new IsometricRectangle(IntVector2.zero, IntVector2.zero, true),
-            new IsometricRectangle(IntVector2.zero, IntVector2.right, false),
-            new IsometricRectangle(IntVector2.zero, IntVector2.right, true),
-            new IsometricRectangle(IntVector2.zero, IntVector2.left, false),
-            new IsometricRectangle(IntVector2.zero, IntVector2.left, true),
-            new IsometricRectangle(IntVector2.zero, IntVector2.up, false),
-            new IsometricRectangle(IntVector2.zero, IntVector2.up, true),
-            new IsometricRectangle(IntVector2.zero, IntVector2.down, false),
-            new IsometricRectangle(IntVector2.zero, IntVector2.down, true)
+            new IsometricRectangle((0, 0), (0, 0), false),
+            new IsometricRectangle((0, 0), (0, 0), true),
+            new IsometricRectangle((0, 0), (1, 0), false),
+            new IsometricRectangle((0, 0), (1, 0), true),
+            new IsometricRectangle((0, 0), (-1, 0), false),
+            new IsometricRectangle((0, 0), (-1, 0), true),
+            new IsometricRectangle((0, 0), (0, 1), false),
+            new IsometricRectangle((0, 0), (0, 1), true),
+            new IsometricRectangle((0, 0), (0, -1), false),
+            new IsometricRectangle((0, 0), (0, -1), true)
         };
         private IEnumerable<IsometricRectangle> randomTestCases
         {
             get
             {
                 Random random = new Random(0);
-                const int numTestCases = 1_000;
-                for (int i = 0; i < numTestCases; i++)
+                IntRect testRegion = new IntRect((-20, -20), (20, 20));
+                for (int i = 0; i < 1_000; i++)
                 {
-                    IntVector2 start = new IntVector2(random.Next(-20, 21), random.Next(-20, 21));
-                    IntVector2 end = start + new IntVector2(random.Next(-20, 21), random.Next(-20, 21));
+                    IntVector2 start = testRegion.RandomPoint(random);
+                    IntVector2 end = start + testRegion.RandomPoint(random);
                     foreach (bool filled in new bool[] { false, true })
                     {
-
                         yield return new IsometricRectangle(start, end, filled);
                     }
                 }
@@ -53,13 +55,16 @@ namespace PAC.Tests.Shapes
         {
             foreach (bool filled in new bool[] { false, true })
             {
-                foreach (IntVector2 pixel in new IntRect(new IntVector2(-5, -5), new IntVector2(5, 5)))
+                foreach (IntVector2 point in new IntRect((-5, -5), (5, 5)))
                 {
-                    CollectionAssert.AreEquivalent(new IntVector2[] { pixel }, new IsometricRectangle(pixel, pixel, filled), $"Failed with {pixel} {(filled ? "filled" : "unfilled")}.");
+                    ShapeAssert.SameGeometry(new IntVector2[] { point }, new IsometricRectangle(point, point, filled), $"Failed with {point} {(filled ? "filled" : "unfilled")}.");
                 }
             }
         }
 
+        /// <summary>
+        /// Tests that an example <see cref="IsometricRectangle"/> has the correct shape.
+        /// </summary>
         [Test]
         [Category("Shapes")]
         public void ShapeExample()
@@ -67,15 +72,16 @@ namespace PAC.Tests.Shapes
             IsometricRectangle rectangle = new IsometricRectangle((0, 0), (11, -1), false);
             IntVector2[] expected = new IntVector2[]
             {
-                (0, 0), (1, 0), (2, -1), (3, -1), (4, -2), (5, -2), (6, -3), (7, -3), (8, -2), (9, -2), (10, -1), (11, -1),
-                (10, -1), (9, 0), (8, 0), (7, 1), (6, 1), (5, 2), (4, 2), (3, 1), (2, 1), (1, 0), (0, 0)
+                (0, 0), (1, 0), (2, -1), (3, -1), (4, -2), (5, -2), (6, -3), (7, -3), (8, -2), (9, -2), (10, -1), (11, -1), (10, -1), (9, 0), (8, 0), (7, 1), (6, 1), (5, 2), (4, 2), (3, 1),
+                (2, 1), (1, 0), (0, 0)
             };
 
             ShapeAssert.SameGeometry(expected, rectangle);
         }
 
         /// <summary>
-        /// Tests that the topCorner, bottomCorner, leftCorner and rightCorner properties are indeed corners of the shape.
+        /// Tests that <see cref="IsometricRectangle.topCorner"/>, <see cref="IsometricRectangle.bottomCorner"/>, <see cref="IsometricRectangle.leftCorner"/> and
+        /// <see cref="IsometricRectangle.rightCorner"/> are indeed corners of the shape.
         /// </summary>
         [Test]
         [Category("Shapes")]
@@ -83,10 +89,12 @@ namespace PAC.Tests.Shapes
         {
             foreach (IsometricRectangle rectangle in testCases)
             {
-                Assert.AreEqual(rectangle.boundingRect.minX, rectangle.leftCorner.x, $"Failed with {rectangle}.");
-                Assert.AreEqual(rectangle.boundingRect.maxX, rectangle.rightCorner.x, $"Failed with {rectangle}.");
-                Assert.AreEqual(rectangle.boundingRect.minY, rectangle.bottomCorner.y, $"Failed with {rectangle}.");
-                Assert.AreEqual(rectangle.boundingRect.maxY, rectangle.topCorner.y, $"Failed with {rectangle}.");
+                IntRect boundingRect = IntRect.BoundingRect(rectangle);
+
+                Assert.AreEqual(boundingRect.minX, rectangle.leftCorner.x, $"Failed with {rectangle}.");
+                Assert.AreEqual(boundingRect.maxX, rectangle.rightCorner.x, $"Failed with {rectangle}.");
+                Assert.AreEqual(boundingRect.minY, rectangle.bottomCorner.y, $"Failed with {rectangle}.");
+                Assert.AreEqual(boundingRect.maxY, rectangle.topCorner.y, $"Failed with {rectangle}.");
             }
         }
 
@@ -102,53 +110,72 @@ namespace PAC.Tests.Shapes
             {
                 IntVector2[] leftRightTopBottom = new IntVector2[] { rectangle.leftCorner, rectangle.rightCorner, rectangle.topCorner, rectangle.bottomCorner };
 
-                Assert.True(leftRightTopBottom.Contains(rectangle.startCorner), $"Failed with {rectangle}.");
-                Assert.True(leftRightTopBottom.Contains(rectangle.endCorner), $"Failed with {rectangle}.");
+                CollectionAssert.Contains(leftRightTopBottom, rectangle.startCorner, $"Failed with {rectangle}.");
+                CollectionAssert.Contains(leftRightTopBottom, rectangle.endCorner, $"Failed with {rectangle}.");
             }
         }
 
         /// <summary>
-        /// Tests that the shape of the border is just the combination of the lower border and upper border.
+        /// Tests that <see cref="IsometricRectangle.border"/> is indeed the border of the <see cref="IsometricRectangle"/>.
         /// </summary>
         [Test]
         [Category("Shapes")]
-        public void BorderIsCombinationOfLowerAndUpperBorder()
+        public void borderIsBorder()
         {
             foreach (IsometricRectangle rectangle in testCases)
             {
-                CollectionAssert.AreEquivalent(Path.Concat(rectangle.lowerBorder, rectangle.upperBorder).ToHashSet(), rectangle.border.ToHashSet(), $"Failed with {rectangle}.");
+                ShapeAssert.SameGeometry(ShapeUtils.GetBorder(rectangle), rectangle.border, $"Failed with {rectangle}.");
             }
         }
 
         /// <summary>
-        /// Tests that the lowerBorder property is indeed the lower edges of the border.
+        /// Tests that the shape of <see cref="IsometricRectangle.border"/> is just the combination of <see cref="IsometricRectangle.lowerBorder"/> and
+        /// <see cref="IsometricRectangle.upperBorder"/>.
         /// </summary>
         [Test]
         [Category("Shapes")]
-        public void LowerBorderIsLowerPartOfBorder()
+        public void borderIsConcatenationOfLowerAndUpperBorder()
         {
             foreach (IsometricRectangle rectangle in testCases)
             {
-                CollectionAssert.AreEquivalent(rectangle.Where(p => p.y == rectangle.border.MinY(p.x)).ToHashSet(), rectangle.lowerBorder.ToHashSet(), $"Failed with {rectangle}.");
+                ShapeAssert.SameGeometry(Path.Concat(rectangle.lowerBorder, rectangle.upperBorder), rectangle.border, $"Failed with {rectangle}.");
             }
         }
 
         /// <summary>
-        /// Tests that the upperBorder property is indeed the upper edges of the border.
+        /// Tests that <see cref="IsometricRectangle.lowerBorder"/> is indeed the lower edges of <see cref="IsometricRectangle.border"/>.
         /// </summary>
         [Test]
         [Category("Shapes")]
-        public void UpperBorderIsUpperPartOfBorder()
+        public void lowerBorderIsLowerPartOfBorder()
         {
             foreach (IsometricRectangle rectangle in testCases)
             {
-                CollectionAssert.AreEquivalent(rectangle.Where(p => p.y == rectangle.border.MaxY(p.x)).ToHashSet(), rectangle.upperBorder.ToHashSet(), $"Failed with {rectangle}.");
+                IEnumerable<IntVector2> expected = rectangle.Where(p => p.y == rectangle.border.Where(q => q.x == p.x).Min(q => q.y));
+                ShapeAssert.SameGeometry(expected, rectangle.lowerBorder, $"Failed with {rectangle}.");
             }
         }
 
+        /// <summary>
+        /// Tests that <see cref="IsometricRectangle.upperBorder"/> is indeed the upper edges of <see cref="IsometricRectangle.border"/>.
+        /// </summary>
         [Test]
         [Category("Shapes")]
-        public void IsIsometricSquare()
+        public void upperBorderIsUpperPartOfBorder()
+        {
+            foreach (IsometricRectangle rectangle in testCases)
+            {
+                IEnumerable<IntVector2> expected = rectangle.Where(p => p.y == rectangle.border.Where(q => q.x == p.x).Max(q => q.y));
+                ShapeAssert.SameGeometry(expected, rectangle.upperBorder, $"Failed with {rectangle}.");
+            }
+        }
+
+        /// <summary>
+        /// Tests <see cref="IsometricRectangle.isIsometricSquare"/>.
+        /// </summary>
+        [Test]
+        [Category("Shapes")]
+        public void isIsometricSquare()
         {
             foreach (IsometricRectangle rectangle in testCases)
             {
@@ -165,6 +192,9 @@ namespace PAC.Tests.Shapes
             }
         }
 
+        /// <summary>
+        /// Tests that the <see cref="IsometricRectangle"/> enumerator doesn't repeat any points.
+        /// </summary>
         [Test]
         [Category("Shapes")]
         public void NoRepeats()
