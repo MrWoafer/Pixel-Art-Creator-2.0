@@ -65,5 +65,19 @@ namespace PAC.Extensions
         {
             return random.Next(2) == 0;
         }
+
+        /// <summary>
+        /// Selects a uniformly random element from <paramref name="elements"/>.
+        /// </summary>
+        /// <exception cref="ArgumentException"><paramref name="elements"/> is empty.</exception>
+        public static T NextElement<T>(this Random random, IReadOnlyList<T> elements)
+        {
+            int Count = elements.Count;
+            if (Count == 0)
+            {
+                throw new ArgumentException($"{nameof(elements)} is empty.", nameof(elements));
+            }
+            return elements[random.Next(Count)];
+        }
     }
 }

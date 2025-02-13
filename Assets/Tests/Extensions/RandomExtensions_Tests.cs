@@ -84,5 +84,49 @@ namespace PAC.Tests.Extensions
                 Assert.AreEqual(numTrue / (float)numIterations, numFalse / (float)numIterations, 0.01f, $"Failed with seed {seed}.");
             }
         }
+
+        /// <summary>
+        /// Tests <see cref="RandomExtensions.NextElement{T}(Random, IReadOnlyList{T})"/>.
+        /// </summary>
+        [Test]
+        [Category("Extensions"), Category("Random")]
+        public void NextElement()
+        {
+            Assert.Throws<ArgumentException>(() =>
+            {
+                Random random = new Random(0);
+                RandomExtensions.NextElement(random, new char[0]);
+            });
+
+            for (int length = 1; length <= 5; length++)
+            {
+                int[] elements = new int[length];
+                for (int i = 0; i < length; i++)
+                {
+                    elements[i] = i * i * 17 - 3;
+                }
+
+                Random random = new Random(length);
+
+                Dictionary<int, int> counts = new Dictionary<int, int>();
+                foreach (int element in elements)
+                {
+                    counts[element] = 0;
+                }
+
+                const int numIterations = 10_000;
+                for (int iterations = 0; iterations < numIterations; iterations++)
+                {
+                    int nextElement = RandomExtensions.NextElement(random, elements);
+                    counts[nextElement]++;
+                }
+
+                float expected = 1f / length;
+                foreach (int element in elements)
+                {
+                    Assert.AreEqual(expected, counts[element] / (float)numIterations, 0.01f, $"Failed with seed {length}.");
+                }
+            }
+        }
     }
 }
