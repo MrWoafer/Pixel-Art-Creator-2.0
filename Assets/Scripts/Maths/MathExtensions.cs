@@ -161,15 +161,6 @@ namespace PAC.Maths
             return a;
         }
 
-        /// <summary>
-        /// Computes the lowest non-negative common multiple of a and b.
-        /// </summary>
-        public static int Lcm(this int a, int b) => (a == 0 && b == 0) ? 0 : Math.Abs(a * b) / Gcd(a, b);
-        /// <summary>
-        /// Computes the lowest non-negative common multiple of a and b.
-        /// </summary>
-        public static long Lcm(this long a, long b) => (a == 0 && b == 0) ? 0 : Math.Abs(a * b) / Gcd(a, b);
-
         public static int RoundToMultipleOf(this float toRound, int multipleOf) => (int)RoundToMultipleOf(toRound, (float)multipleOf);
         public static float RoundToMultipleOf(this float toRound, float multipleOf)
             => multipleOf == 0 ? throw new System.Exception("Cannot round to a multiple of 0.") : Mathf.Round(toRound / multipleOf) * multipleOf;

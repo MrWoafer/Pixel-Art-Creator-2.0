@@ -66,35 +66,6 @@ namespace PAC.Tests.Maths
 
         [Test]
         [Category("Utils")]
-        public void Lcm()
-        {
-            // (a, b, lcm) - make sure all are non-negative
-            (int, int, int)[] testCases =
-            {
-                (1, 3, 3),
-                (4, 2, 4),
-                (7, 7, 7),
-                (3, 4, 12),
-                (5, 11, 55),
-                (4, 6, 12),
-                (42, 54, 378),
-                (0, 0, 0),
-                (0, 3, 0),
-                (5, 0, 0)
-            };
-
-            foreach ((int a, int b, int expected) in testCases)
-            {
-                foreach ((int signA, int signB) in new (int, int)[] { (1, 1), (-1, 1), (1, -1), (-1, -1) })
-                {
-                    Assert.AreEqual(expected, MathExtensions.Lcm(signA * a, signB * b));
-                    Assert.AreEqual(expected, MathExtensions.Lcm(signB * b, signA * a));
-                }
-            }
-        }
-
-        [Test]
-        [Category("Utils")]
         public void Pow()
         {
             Assert.AreEqual(1, MathExtensions.Pow(0, 0), "Failed with 0 ^ 0.");
