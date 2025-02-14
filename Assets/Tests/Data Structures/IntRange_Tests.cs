@@ -42,7 +42,7 @@ namespace PAC.Tests.DataStructures
             {
                 if (range.None())
                 {
-                    Assert.Throws<UndefinedOperationException>(() => { int _ = range.startElement; }, "Failed with " + range);
+                    Assert.Throws<InvalidOperationException>(() => { int _ = range.startElement; }, "Failed with " + range);
                 }
                 else
                 {
@@ -59,7 +59,7 @@ namespace PAC.Tests.DataStructures
             {
                 if (range.None())
                 {
-                    Assert.Throws<UndefinedOperationException>(() => { int _ = range.endElement; }, "Failed with " + range);
+                    Assert.Throws<InvalidOperationException>(() => { int _ = range.endElement; }, "Failed with " + range);
                 }
                 else
                 {
@@ -76,7 +76,7 @@ namespace PAC.Tests.DataStructures
             {
                 if (range.None())
                 {
-                    Assert.Throws<UndefinedOperationException>(() => { int _ = range.minElement; }, "Failed with " + range);
+                    Assert.Throws<InvalidOperationException>(() => { int _ = range.minElement; }, "Failed with " + range);
                 }
                 else
                 {
@@ -93,7 +93,7 @@ namespace PAC.Tests.DataStructures
             {
                 if (range.None())
                 {
-                    Assert.Throws<UndefinedOperationException>(() => { int _ = range.maxElement; }, "Failed with " + range);
+                    Assert.Throws<InvalidOperationException>(() => { int _ = range.maxElement; }, "Failed with " + range);
                 }
                 else
                 {

@@ -78,7 +78,7 @@ namespace PAC.DataStructures
         {
             (false, false) => (startBoundary < endBoundary) ? startBoundary + 1 : startBoundary - 1,
             (false, true) => startBoundary,
-            (true, _) => throw new UndefinedOperationException("An empty range has no start element.")
+            (true, _) => throw new InvalidOperationException("An empty range has no start element.")
         };
         /// <summary>
         /// The last element when iterating through the range (from start to end).
@@ -92,7 +92,7 @@ namespace PAC.DataStructures
         {
             (false, false) => (startBoundary < endBoundary) ? endBoundary - 1 : endBoundary + 1,
             (false, true) => endBoundary,
-            (true, _) => throw new UndefinedOperationException("An empty range has no start element.")
+            (true, _) => throw new InvalidOperationException("An empty range has no start element.")
         };
 
         /// <summary>
@@ -153,7 +153,7 @@ namespace PAC.DataStructures
         public int minElement => isEmpty switch
         {
             false => minBoundaryInclusive ? minBoundary : (minBoundary + 1),
-            true => throw new UndefinedOperationException("An empty range has no minimum element.")
+            true => throw new InvalidOperationException("An empty range has no minimum element.")
         };
         /// <summary>
         /// The highest element in the range.
@@ -166,7 +166,7 @@ namespace PAC.DataStructures
         public int maxElement => isEmpty switch
         {
             false => maxBoundaryInclusive ? maxBoundary : (maxBoundary - 1),
-            true => throw new UndefinedOperationException("An empty range has no maximum element.")
+            true => throw new InvalidOperationException("An empty range has no maximum element.")
         };
 
         /// <summary>
