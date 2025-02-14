@@ -27,80 +27,48 @@ namespace PAC.Maths
         };
 
         /// <summary>
-        /// <para>
         /// Returns x if x &gt; 0, and returns 0 if x &lt;= 0.
-        /// </para>
-        /// <para>
-        /// The same as ClampPositive().
-        /// </para>
         /// </summary>
-        public static int ReLU(this int x) => x switch
+        public static int ClampNonNegative(this int x) => x switch
         {
             > 0 => x,
             <= 0 => 0
         };
         /// <summary>
-        /// <para>
         /// Returns x if x &gt; 0, and returns 0 if x &lt;= 0.
-        /// </para>
-        /// <para>
-        /// The same as ClampPositive().
-        /// </para>
         /// </summary>
-        public static long ReLU(this long x) => x switch
+        public static long ClampNonNegative(this long x) => x switch
         {
-            > 0 => x,
-            <= 0 => 0
+            > 0L => x,
+            <= 0L => 0L
         };
         /// <summary>
-        /// <para>
         /// Returns x if x &gt; 0, and returns 0 if x &lt;= 0.
-        /// </para>
-        /// <para>
-        /// The same as ClampPositive().
-        /// </para>
         /// </summary>
-        public static float ReLU(this float x) => x switch
+        public static float ClampNonNegative(this float x) => x switch
         {
-            > 0 => x,
-            <= 0 => 0f,
+            > 0f => x,
+            <= 0f => 0f,
             float.NaN => float.NaN
         };
-        /// <summary>
-        /// <para>
-        /// Returns x if x &gt; 0, and returns 0 if x &lt;= 0.
-        /// </para>
-        /// <para>
-        /// The same as ReLU().
-        /// </para>
-        /// </summary>
-        public static int ClampNonNegative(this int x) => ReLU(x);
-        /// <summary>
-        /// <para>
-        /// Returns x if x &gt; 0, and returns 0 if x &lt;= 0.
-        /// </para>
-        /// <para>
-        /// The same as ReLU().
-        /// </para>
-        /// </summary>
-        public static long ClampNonNegative(this long x) => ReLU(x);
-        /// <summary>
-        /// <para>
-        /// Returns x if x &gt; 0, and returns 0 if x &lt;= 0.
-        /// </para>
-        /// <para>
-        /// The same as ReLU().
-        /// </para>
-        /// </summary>
-        public static float ClampNonNegative(this float x) => ReLU(x);
+
         /// <summary>
         /// Returns x if x &lt; 0, and returns 0 if x &gt;= 0.
         /// </summary>
-        public static int ClampNonPositive(this int x) => -ReLU(-x);
+        public static int ClampNonPositive(this int x) => x switch
+        {
+            < 0 => x,
+            >= 0 => 0
+        };
         /// <summary>
         /// Returns x if x &lt; 0, and returns 0 if x &gt;= 0.
         /// </summary>
-        public static float ClampNonPositive(this float x) => -ReLU(-x);
+        public static float ClampNonPositive(this float x) => x switch
+        {
+            < 0f => x,
+            >= 0f => 0f,
+            float.NaN => float.NaN
+        };
 
         /// <summary>
         /// Returns a mod b, giving a non-negative result.
