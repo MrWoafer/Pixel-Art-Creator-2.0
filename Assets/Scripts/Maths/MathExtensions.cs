@@ -164,67 +164,23 @@ namespace PAC.Maths
         /// <summary>
         /// Computes the lowest non-negative common multiple of a and b.
         /// </summary>
-        public static int Lcm(this int a, int b)
-        {
-            if (a == 0 && b == 0)
-            {
-                return 0;
-            }
-            return Math.Abs(a * b) / Gcd(a, b);
-        }
+        public static int Lcm(this int a, int b) => (a == 0 && b == 0) ? 0 : Math.Abs(a * b) / Gcd(a, b);
         /// <summary>
         /// Computes the lowest non-negative common multiple of a and b.
         /// </summary>
-        public static long Lcm(this long a, long b)
-        {
-            if (a == 0 && b == 0)
-            {
-                return 0;
-            }
-            return Math.Abs(a * b) / Gcd(a, b);
-        }
+        public static long Lcm(this long a, long b) => (a == 0 && b == 0) ? 0 : Math.Abs(a * b) / Gcd(a, b);
 
-        public static int RoundToMultipleOf(this float toRound, int multipleOf)
-        {
-            return (int)RoundToMultipleOf(toRound, (float)multipleOf);
-        }
+        public static int RoundToMultipleOf(this float toRound, int multipleOf) => (int)RoundToMultipleOf(toRound, (float)multipleOf);
         public static float RoundToMultipleOf(this float toRound, float multipleOf)
-        {
-            if (multipleOf == 0)
-            {
-                throw new System.Exception("Cannot round to a multiple of 0.");
-            }
+            => multipleOf == 0 ? throw new System.Exception("Cannot round to a multiple of 0.") : Mathf.Round(toRound / multipleOf) * multipleOf;
 
-            return Mathf.Round(toRound / multipleOf) * multipleOf;
-        }
-
-        public static int FloorToMultipleOf(this float toRound, int multipleOf)
-        {
-            return (int)FloorToMultipleOf(toRound, (float)multipleOf);
-        }
+        public static int FloorToMultipleOf(this float toRound, int multipleOf) => (int)FloorToMultipleOf(toRound, (float)multipleOf);
         public static float FloorToMultipleOf(this float toRound, float multipleOf)
-        {
-            if (multipleOf == 0)
-            {
-                throw new System.Exception("Cannot round to a multiple of 0.");
-            }
+            => multipleOf == 0 ? throw new System.Exception("Cannot round to a multiple of 0.") : Mathf.Floor(toRound / multipleOf) * multipleOf;
 
-            return Mathf.Floor(toRound / multipleOf) * multipleOf;
-        }
-
-        public static int CeilToMultipleOf(this float toRound, int multipleOf)
-        {
-            return (int)CeilToMultipleOf(toRound, (float)multipleOf);
-        }
+        public static int CeilToMultipleOf(this float toRound, int multipleOf) => (int)CeilToMultipleOf(toRound, (float)multipleOf);
         public static float CeilToMultipleOf(this float toRound, float multipleOf)
-        {
-            if (multipleOf == 0)
-            {
-                throw new System.Exception("Cannot round to a multiple of 0.");
-            }
-
-            return Mathf.Ceil(toRound / multipleOf) * multipleOf;
-        }
+            => multipleOf == 0 ? throw new System.Exception("Cannot round to a multiple of 0.") : Mathf.Ceil(toRound / multipleOf) * multipleOf;
 
         public static float RoundTowards(this float toRound, int towards) => toRound >= towards ? Mathf.Floor(toRound) : Mathf.Ceil(toRound);
         public static int RoundToIntTowards(this float toRound, int towards) => toRound >= towards ? Mathf.FloorToInt(toRound) : Mathf.CeilToInt(toRound);
@@ -262,10 +218,7 @@ namespace PAC.Maths
             }
         }
 
-        public static float RoundDecimalPlaces(this float f, int decimalPlaces)
-        {
-            return float.Parse(f.ToString("0." + new string('#', decimalPlaces)));
-        }
+        public static float RoundDecimalPlaces(this float f, int decimalPlaces) => float.Parse(f.ToString("0." + new string('#', decimalPlaces)));
 
         /// <summary>
         /// <para>
