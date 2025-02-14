@@ -440,7 +440,7 @@ namespace PAC.Animation
         /// </summary>
         public void DebugLogKeyFrames()
         {
-            Debug.Log("Current frame: " + currentFrameIndex + ". Key frames at: " + Functions.ArrayToString(layerManager.selectedLayer.keyFrameIndices));
+            Debug.Log("Current frame: " + currentFrameIndex + ". Key frames at: " + (layerManager.selectedLayer.keyFrameIndices).ToPrettyString());
         }
 
         /// <summary>

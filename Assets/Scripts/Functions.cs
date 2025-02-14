@@ -61,7 +61,7 @@ namespace PAC
             return true;
         }
 
-        public static string ArrayToString<T>(T[] array)
+        public static string ToPrettyString<T>(this T[] array)
         {
             string str = "{";
 
