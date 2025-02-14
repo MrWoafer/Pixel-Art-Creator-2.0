@@ -79,31 +79,6 @@ namespace PAC
             return str;
         }
 
-        /// <summary>
-        /// Creates an array starting at start and ending at end (inclusive).
-        /// </summary>
-        public static int[] Range(int start, int end)
-        {
-            if (start <= end)
-            {
-                int[] range = new int[end - start + 1];
-                for (int i = start; i <= end; i++)
-                {
-                    range[i - start] = i;
-                }
-                return range;
-            }
-            else
-            {
-                int[] range = new int[start - end + 1];
-                for (int i = start; i >= end; i--)
-                {
-                    range[start - i] = i;
-                }
-                return range;
-            }
-        }
-
         public static T[] ToArray<T>(this HashSet<T> hashSet)
         {
             T[] array = new T[hashSet.Count];
