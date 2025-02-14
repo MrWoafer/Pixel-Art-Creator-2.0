@@ -257,7 +257,7 @@ namespace PAC.Layers
 
             if (selectedLayers.Length > 1)
             {
-                IEnumerable<int> keyFrames = selectedLayers.Select(layer => layer.keyFrameIndices).Flatten();
+                IEnumerable<int> keyFrames = selectedLayers.Select(layer => layer.keyFrameIndices).Flatten().Distinct();
 
                 foreach (int keyFrame in keyFrames)
                 {
