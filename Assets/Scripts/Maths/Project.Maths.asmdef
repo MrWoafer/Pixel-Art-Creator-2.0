@@ -1,0 +1,16 @@
+{
+    "name": "Project.Maths",
+    "rootNamespace": "",
+    "references": [
+        "GUID:610bb6352ece75b4db3041dbb75df0ce"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

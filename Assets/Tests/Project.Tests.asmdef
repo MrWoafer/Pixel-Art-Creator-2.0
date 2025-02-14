@@ -9,7 +9,12 @@
         "Project.Json",
         "Project.Extensions.JsonConverters",
         "Project.Extensions.Type",
-        "Project.Extensions.TextReader"
+        "Project.Extensions.TextReader",
+        "Project.Extensions.IEnumerable",
+        "Project.Maths",
+        "Project.Extensions.IReadOnlyList",
+        "Project.Extensions.DataStructures",
+        "Project.Extensions.UnityEngine"
     ],
     "includePlatforms": [
         "Editor"

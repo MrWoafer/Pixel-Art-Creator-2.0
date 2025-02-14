@@ -1,310 +1,506 @@
-using PAC.DataStructures;
 using System.Collections;
 using System.Linq;
 using UnityEngine;
-using PAC;
 using System.Collections.Generic;
+using System;
+using PAC.Extensions;
+using PAC.Interfaces;
 
 namespace PAC.DataStructures
 {
     /// <summary>
-    /// A struct to represent a rectangular region of integer coordinates.
+    /// A non-empty rectangular region of integer coordinates.
     /// </summary>
-    public struct IntRect : IEnumerable<IntVector2>
+    /// <remarks>
+    /// When we say an <see cref="IntVector2"/> is in the rect, we mean that whole grid square is in the rect.
+    /// <example>
+    /// For example, the rect with corners <c>(0, 0), (0, 4), (3, 0), (3, 4)</c> is a 4x5 rectangle:
+    /// <code>
+    /// (0, 4) -&gt; # # # # &lt;- (3, 4)
+    ///           # # # #
+    ///           # # # #
+    ///           # # # #
+    /// (0, 0) -&gt; # # # # &lt;- (3, 0)
+    /// </code>
+    /// </example>
+    /// The enumerator iterates over the points in the rect, starting with the bottom row, read left to right, then the next row, etc.
+    /// This ordering is useful since it matches the expected order of pixels in Unity's <see cref="Texture2D.SetPixels(Color[])"/>.
+    /// </remarks>
+    /// <seealso cref="IntVector2"/>
+    /// <seealso cref="IntRange"/>
+    public readonly struct IntRect : IReadOnlyContains<IntVector2>, IEquatable<IntRect>, ISetComparable<IntRect>
     {
-        private IntVector2 _bottomLeft;
-        public IntVector2 bottomLeft
-        {
-            get => _bottomLeft;
-            set
-            {
-                _bottomLeft = value;
-            }
-        }
-        private IntVector2 _topRight;
-        public IntVector2 topRight
-        {
-            get => _topRight;
-            set
-            {
-                _topRight = value;
-            }
-        }
-        public IntVector2 bottomRight
-        {
-            get => new IntVector2(topRight.x, bottomLeft.y);
-            set
-            {
-                _bottomLeft = new IntVector2(bottomLeft.x, value.y);
-                _topRight = new IntVector2(value.x, topRight.y);
-            }
-        }
-        public IntVector2 topLeft
-        {
-            get => new IntVector2(bottomLeft.x, topRight.y);
-            set
-            {
-                _bottomLeft = new IntVector2(value.x, bottomLeft.y);
-                _topRight = new IntVector2(topRight.x, value.y);
-            }
-        }
-        public Vector2 centre => (Vector2)(bottomLeft + topRight + IntVector2.one) / 2f;
+        #region Fields
+        /// <summary>
+        /// The coordinates of the bottom-left point in the rect (inclusive).
+        /// </summary>
+        /// <seealso cref="topRight"/>
+        /// <seealso cref="bottomRight"/>
+        /// <seealso cref="topLeft"/>
+        public readonly IntVector2 bottomLeft;
+        /// <summary>
+        /// The coordinates of the top-right point in the rect (inclusive).
+        /// </summary>
+        /// <seealso cref="bottomLeft"/>
+        /// <seealso cref="bottomRight"/>
+        /// <seealso cref="topLeft"/>
+        public readonly IntVector2 topRight;
+        #endregion
+
+        #region Properties
+        /// <summary>
+        /// The coordinates of the bottom-right point in the rect (inclusive).
+        /// </summary>
+        /// <seealso cref="bottomLeft"/>
+        /// <seealso cref="topRight"/>
+        /// <seealso cref="topLeft"/>
+        public IntVector2 bottomRight => new IntVector2(topRight.x, bottomLeft.y);
+        /// <summary>
+        /// The coordinates of the top-left point in the rect (inclusive).
+        /// </summary>
+        /// <seealso cref="bottomLeft"/>
+        /// <seealso cref="topRight"/>
+        /// <seealso cref="bottomRight"/>
+        public IntVector2 topLeft => new IntVector2(bottomLeft.x, topRight.y);
 
         /// <summary>
-        /// <para>Gets the points in the rect, starting with the bottom row, read left to right, then the next row, etc.
-        /// </para>
-        /// <para>
-        /// WARNING: this is very expensive for large rects.
-        /// </para>
+        /// The minimum x coordinate of points in the rect.
         /// </summary>
-        public IntVector2[] points => GetPoints();
+        /// <seealso cref="maxX"/>
+        /// <seealso cref="minY"/>
+        /// <seealso cref="maxY"/>
+        public int minX => bottomLeft.x;
+        /// <summary>
+        /// The maximum x coordinate of points in the rect.
+        /// </summary>
+        /// <seealso cref="minX"/>
+        /// <seealso cref="minY"/>
+        /// <seealso cref="maxY"/>
+        public int maxX => topRight.x;
+        /// <summary>
+        /// The minimum y coordinate of points in the rect.
+        /// </summary>
+        /// <seealso cref="minX"/>
+        /// <seealso cref="maxX"/>
+        /// <seealso cref="maxY"/>
+        public int minY => bottomLeft.y;
+        /// <summary>
+        /// The maximum y coordinate of points in the rect.
+        /// </summary>
+        /// <seealso cref="minX"/>
+        /// <seealso cref="maxX"/>
+        /// <seealso cref="minY"/>
+        public int maxY => topRight.y;
 
-        public int width => topRight.x - bottomLeft.x + 1;
-        public int height => topRight.y - bottomLeft.y + 1;
+        /// <summary>
+        /// The number of integer points the rect covers horizontally.
+        /// </summary>
+        /// <seealso cref="height"/>
+        /// <seealso cref="size"/>
+        public int width => maxX - minX + 1;
+        /// <summary>
+        /// The number of integer points the rect covers vertically.
+        /// </summary>
+        /// <seealso cref="width"/>
+        /// <seealso cref="size"/>
+        public int height => maxY - minY + 1;
+        /// <summary>
+        /// The vector <c>(<see cref="width"/>, <see cref="height"/>)</c>.
+        /// </summary>
+        /// <seealso cref="width"/>
+        /// <seealso cref="height"/>
+        public IntVector2 size => new IntVector2(width, height);
 
-        public int area => Area(this);
+        /// <summary>
+        /// The inclusive range of x coordinates in the rect, in increasing order.
+        /// </summary>
+        /// <seealso cref="yRange"/>
+        public IntRange xRange => IntRange.InclIncl(minX, maxX);
+        /// <summary>
+        /// The inclusive range of y coordinates in the rect, in increasing order.
+        /// </summary>
+        /// <see cref="xRange"/>
+        public IntRange yRange => IntRange.InclIncl(minY, maxY);
 
-        /// <summary>True if the rect is a square.</summary>
+        /// <summary>
+        /// The number of points in the rect.
+        /// </summary>
+        public int Count => width * height;
+
+        /// <summary>
+        /// Whether the rect is a square - i.e. the <see cref="width"/> and <see cref="height"/> are equal.
+        /// </summary>
+        /// <seealso cref="IsSquare(IntRect)"/>
         public bool isSquare => IsSquare(this);
+        #endregion
 
-
+        #region Constructors
+        /// <summary>
+        /// Creates an <see cref="IntRect"/> with the two given points as opposite corners (inclusive) of the rect.
+        /// </summary>
+        /// <remarks>
+        /// <example>
+        /// For example, with <c><paramref name="corner"/> = (3, 0)</c> and <c><paramref name="oppositeCorner"/> = (0, 4)</c>, the rect will have corners <c>(0, 0), (0, 4), (3, 0), (3, 4)</c>:
+        /// <code>
+        /// (0, 4) -&gt; # # # # &lt;- (3, 4)
+        ///           # # # #
+        ///           # # # #
+        ///           # # # #
+        /// (0, 0) -&gt; # # # # &lt;- (3, 0)
+        /// </code>
+        /// </example>
+        /// </remarks>
+        /// <param name="corner">The corner diagonally opposite <paramref name="oppositeCorner"/>.</param>
+        /// <param name="oppositeCorner">The corner diagonally opposite <paramref name="corner"/>.</param>
         public IntRect(IntVector2 corner, IntVector2 oppositeCorner)
         {
-            _bottomLeft = new IntVector2(Mathf.Min(corner.x, oppositeCorner.x), Mathf.Min(corner.y, oppositeCorner.y));
-            _topRight = new IntVector2(Mathf.Max(corner.x, oppositeCorner.x), Mathf.Max(corner.y, oppositeCorner.y));
+            bottomLeft = new IntVector2(Math.Min(corner.x, oppositeCorner.x), Math.Min(corner.y, oppositeCorner.y));
+            topRight = new IntVector2(Math.Max(corner.x, oppositeCorner.x), Math.Max(corner.y, oppositeCorner.y));
         }
 
-        public static bool operator ==(IntRect rect1, IntRect rect2)
+        /// <summary>
+        /// Creates a rect with the given ranges of x and y coordinates.
+        /// </summary>
+        /// <remarks>
+        /// The x and y ranges must be non-empty, as <see cref="IntRect"/>s are non-empty.
+        /// </remarks>
+        /// <param name="xRange">The range of x coordinates.</param>
+        /// <param name="yRange">The range of y coordinates.</param>
+        /// <exception cref="ArgumentException"><paramref name="xRange"/> is empty and/or <paramref name="yRange"/> is empty.</exception>
+        public IntRect(IntRange xRange, IntRange yRange)
         {
-            return rect1.bottomLeft == rect2.bottomLeft && rect1.topRight == rect2.topRight;
-        }
-        public static bool operator !=(IntRect a, IntRect b)
-        {
-            return !(a == b);
-        }
-        public override bool Equals(System.Object obj)
-        {
-            if (obj == null || !GetType().Equals(obj.GetType()))
+            switch ((xRange.isEmpty, yRange.isEmpty))
             {
-                return false;
+                case (false, false):
+                    bottomLeft = new IntVector2(xRange.minElement, yRange.minElement);
+                    topRight = new IntVector2(xRange.maxElement, yRange.maxElement);
+                    return;
+                case (true, false): throw new ArgumentException("The given x range is empty.", nameof(xRange));
+                case (false, true): throw new ArgumentException("The given y range is empty.", nameof(yRange));
+                case (true, true): throw new ArgumentException("The given x range and y range are both empty.");
             }
-            else
-            {
-                IntRect rect = (IntRect)obj;
-                return this == rect;
-            }
         }
+        #endregion
 
-        public override int GetHashCode()
-        {
-            return System.HashCode.Combine(bottomLeft, topRight);
-        }
+        #region Conversion
+        /// <summary>
+        /// Casts to Unity's <see cref="RectInt"/>.
+        /// </summary>
+        public static implicit operator RectInt(IntRect rect) => new RectInt(rect.topLeft, rect.size);
+        /// <summary>
+        /// Casts from Unity's <see cref="RectInt"/>.
+        /// </summary>
+        public static implicit operator IntRect(RectInt rect) => new IntRect(new IntVector2(rect.xMin, rect.yMin), new IntVector2(rect.xMax, rect.yMax));
 
-        public override string ToString()
-        {
-            return "(" + bottomLeft.ToString() + ", " + topRight.ToString() + ")";
-        }
+        // I haven't added a cast to Unity's Rect because of the lack of a convention as to where an IntVector2 refers to in a pixel (the centre of the pixel? the bottom-left of the pixel?),
+        // which affects which coordinates to use for the corners of the Rect.
+
+        // I haven't added a cast from Unity's Rect since it's more complicated than just 'new IntRect(new IntVector2(rect.xMin, rect.yMin), new IntVector2(rect.xMax, rect.yMax))'.
+        // Doing that would mean casting to Rect and from Rect aren't inverses. To make that the case I also need to decide how Rects that don't lie on integer coords get rounded.
+        // It would also mean that the way the top-right corners gets rounded is different from the bottom-left.
+        #endregion
+
+        #region Comparison
+        /// <summary>
+        /// Whether the two rects describe the same set of points.
+        /// </summary>
+        /// <remarks>
+        /// This is just the default <see langword="struct"/> comparison (comparing fields).
+        /// </remarks>
+        /// <seealso cref="Equals(IntRect)"/>
+        /// <seealso cref="SetEquals(IntRect)"/>
+        public static bool operator ==(IntRect a, IntRect b) => a.bottomLeft == b.bottomLeft && a.topRight == b.topRight;
+        /// <summary>
+        /// Whether the two rects describe different sets of points.
+        /// </summary>
+        /// <remarks>
+        /// This is just the default <see langword="struct"/> comparison (comparing fields).
+        /// </remarks>
+        /// <seealso cref="Equals(IntRect)"/>
+        /// <seealso cref="SetEquals(IntRect)"/>
+        public static bool operator !=(IntRect a, IntRect b) => !(a == b);
+        /// <summary>
+        /// The same as <see cref="operator ==(IntRect, IntRect)"/>.
+        /// </summary>
+        public bool Equals(IntRect other) => this == other;
+        /// <summary>
+        /// The same as <see cref="Equals(IntRect)"/>.
+        /// </summary>
+        public override bool Equals(object obj) => obj is IntRect other && Equals(other);
+
+        public override int GetHashCode() => HashCode.Combine(bottomLeft, topRight);
 
         /// <summary>
-        /// Shifts the whole rect by the given vector.
+        /// Whether the two rects describe the same set of points.
         /// </summary>
-        public static IntRect operator +(IntVector2 intVector, IntRect intRect) => intRect + intVector;
+        /// <remarks>
+        /// The is the same as <see cref="operator ==(IntRect, IntRect)"/>.
+        /// </remarks>
+        public bool SetEquals(IntRect other) => this == other;
         /// <summary>
-        /// Shifts the whole rect by the given vector.
+        /// Whether this rect is a subset of <paramref name="other"/>.
         /// </summary>
-        public static IntRect operator +(IntRect intRect, IntVector2 intVector)
-        {
-            return new IntRect(intRect.bottomLeft + intVector, intRect.topRight + intVector);
-        }
+        /// <seealso cref="IsSupersetOf(IntRect)"/>
+        public bool IsSubsetOf(IntRect other) => other.IsSupersetOf(this);
+        /// <summary>
+        /// Whether this rect is a superset of <paramref name="other"/>.
+        /// </summary>
+        /// <seealso cref="IsSubsetOf(IntRect)"/>
+        public bool IsSupersetOf(IntRect other) => bottomLeft <= other.bottomLeft && other.topRight <= topRight;
 
         /// <summary>
-        /// Shifts the whole rect by the given vector.
+        /// Whether the point is in the rect.
         /// </summary>
-        public static IntRect operator -(IntRect intRect, IntVector2 intVector) => intRect + (-intVector);
-
-        /// <summary>
-        /// Cast to Unity Rect.
-        /// </summary>
-        public static explicit operator Rect(IntRect intRect) => intRect.ToRect();
-        /// <summary>
-        /// Cast to Unity Rect.
-        /// </summary>
-        public Rect ToRect()
-        {
-            return new Rect(bottomLeft, new Vector2(width + 1, height + 1));
-        }
-
-        /// <summary>
-        /// Returns true if the rect is a square.
-        /// </summary>
-        public static bool IsSquare(IntRect intRect)
-        {
-            return intRect.width == intRect.height;
-        }
-
-        public static int Area(IntRect rect)
-        {
-            return rect.width * rect.height;
-        }
-
-        /// <summary>
-        /// Returns true if the point is in the rect.
-        /// </summary>
+        /// <seealso cref="Contains(int, int)"/>
         public bool Contains(IntVector2 point) => Contains(point.x, point.y);
         /// <summary>
-        /// Returns true if the point is in the rect.
+        /// Whether the point <c>(<paramref name="x"/>, <paramref name="y"/>)</c> is in the rect.
         /// </summary>
-        public bool Contains(int x, int y)
-        {
-            return x >= bottomLeft.x && y >= bottomLeft.y && x <= topRight.x && y <= topRight.y;
-        }
-        /// <summary>
-        /// Returns true if the point is in the rect.
-        /// Behaves differently than the overload when point is an IntVector2. This overload considers an IntVector2 comprising the rect as taking up the whole 1x1 square.
-        /// e.g. a rect comprised of just the point (1, 1) is treated in this overload as the square [0,1]x[0,1], where [0,1] = {x : 0 <= x <= 1}.
-        /// </summary>
-        public bool Contains(Vector2 point) => Contains(point.x, point.y);
-        /// <summary>
-        /// Returns true if the point is in the rect.
-        /// Behaves differently than the overload when point is an IntVector2. This overload considers an IntVector2 comprising the rect as taking up the whole 1x1 square.
-        /// e.g. a rect comprised of just the point (1, 1) is treated in this overload as the square [0,1]x[0,1], where [0,1] = {x : 0 <= x <= 1}.
-        /// </summary>
-        public bool Contains(float x, float y)
-        {
-            return x >= bottomLeft.x && y >= bottomLeft.y && x <= topRight.x + 1 && y <= topRight.y + 1;
-        }
+        /// <seealso cref="Contains(IntVector2)"/>
+        public bool Contains(int x, int y) => minX <= x && minY <= y && x <= maxX && y <= maxY;
 
         /// <summary>
-        /// Returns true if the given rect is (weakly) contained in this rect.
+        /// Returns whether the rect contains any points with the given x coord.
         /// </summary>
-        public bool Contains(IntRect intRect)
-        {
-            return bottomLeft <= intRect.bottomLeft && topRight >= intRect.topRight;
-        }
+        /// <seealso cref="ContainsY(int)"/>
+        public bool ContainsX(int x) => minX <= x && x <= maxX;
         /// <summary>
-        /// Returns true if this rect is (weakly) contained in the given rect.
+        /// Returns whether the rect contains any points with the given y coord.
         /// </summary>
-        public bool IsContainedIn(IntRect intRect)
-        {
-            return intRect.Contains(this);
-        }
+        /// <seealso cref="ContainsX(int)"/>
+        public bool ContainsY(int y) => minY <= y && y <= maxY;
 
         /// <summary>
-        /// Returns true if the two rects overlap at all.
+        /// Whether the two rects have any points in common.
         /// </summary>
-        public static bool Overlap(IntRect rect1, IntRect rect2)
-        {
-            bool xOverlaps = (rect1.bottomLeft.x >= rect2.bottomLeft.x && rect1.bottomLeft.x <= rect2.topRight.x) ||
-                             (rect1.topRight.x >= rect2.bottomLeft.x && rect1.topRight.x <= rect2.topRight.x) ||
-                             (rect1.bottomLeft.x <= rect2.bottomLeft.x && rect1.topRight.x >= rect2.topRight.x);
-
-            bool yOverlaps = (rect1.bottomLeft.y >= rect2.bottomLeft.y && rect1.bottomLeft.y <= rect2.topRight.y) ||
-                             (rect1.topRight.y >= rect2.bottomLeft.y && rect1.topRight.y <= rect2.topRight.y) ||
-                             (rect1.bottomLeft.y <= rect2.bottomLeft.y && rect1.topRight.y >= rect2.topRight.y);
-
-            return xOverlaps && yOverlaps;
-        }
+        /// <seealso cref="Overlap(IntRect, IntRect)"/>
+        public bool Overlaps(IntRect rect) => Overlap(this, rect);
         /// <summary>
-        /// Returns true if this rect overlaps the given rect at all.
+        /// Whether the two rects have any points in common.
         /// </summary>
-        public bool Overlaps(IntRect intRect)
-        {
-            return Overlap(this, intRect);
-        }
+        /// <seealso cref="Overlaps(IntRect)"/>
+        public static bool Overlap(IntRect a, IntRect b) => a.xRange.Intersects(b.xRange) && a.yRange.Intersects(b.yRange);
+        #endregion
+
+        #region Operations
+        /// <summary>
+        /// Translates the rect by the given vector.
+        /// </summary>
+        public static IntRect operator +(IntVector2 vector, IntRect rect) => rect + vector;
+        /// <summary>
+        /// Translates the rect by the given vector.
+        /// </summary>
+        public static IntRect operator +(IntRect rect, IntVector2 vector) => new IntRect(rect.bottomLeft + vector, rect.topRight + vector);
 
         /// <summary>
-        /// Clamps the vector component-wise so its coordinates are within the rect.
+        /// Translates the rect by the given vector.
         /// </summary>
-        public IntVector2 Clamp(IntVector2 intVector)
-        {
-            return new IntVector2(Mathf.Clamp(intVector.x, bottomRight.x, topRight.x), Mathf.Clamp(intVector.y, bottomRight.y, topRight.y));
-        }
+        public static IntRect operator -(IntRect rect, IntVector2 vector) => rect + (-vector);
         /// <summary>
-        /// Shifts the given rect so it is (weakly) contained within the rect.
+        /// Negates each point in the rect.
         /// </summary>
-        public IntRect Clamp(IntRect intRect)
+        public static IntRect operator -(IntRect rect) => new IntRect(-rect.bottomLeft, -rect.topRight);
+
+        /// <summary>
+        /// Whether the rect is a square - i.e. the <see cref="width"/> and <see cref="height"/> are equal.
+        /// </summary>
+        /// <seealso cref="isSquare"/>
+        public static bool IsSquare(IntRect rect) => rect.width == rect.height;
+
+        /// <summary>
+        /// Returns the set intersection of the two rects.
+        /// </summary>
+        /// <exception cref="InvalidOperationException">This rect and <paramref name="other"/> do not intersect.</exception>
+        /// <seealso cref="Intersection(IntRect, IntRect)"/>
+        public IntRect Intersection(IntRect other) => Intersection(this, other);
+        /// <summary>
+        /// Returns the set intersection of the two rects.
+        /// </summary>
+        /// <exception cref="InvalidOperationException"><paramref name="a"/> and <paramref name="b"/> do not intersect.</exception>
+        /// <seealso cref="Intersection(IntRect)"/>
+        public static IntRect Intersection(IntRect a, IntRect b)
         {
-            if (intRect.width > width)
+            if (!a.Overlaps(b))
             {
-                throw new System.Exception("An IntRect cannot clamp a wider IntRect. Width: " + width + " > " + intRect.width);
-            }
-            if (intRect.height > height)
-            {
-                throw new System.Exception("An IntRect cannot clamp a taller IntRect. Height: " + height + " > " + intRect.height);
+                throw new InvalidOperationException($"The given rects do not intersect. (This is an issue because the intersection would be empty, but {nameof(IntRect)}s cannot be empty.)");
             }
 
-            if (intRect.bottomLeft.x < bottomLeft.x)
-            {
-                intRect += new IntVector2(bottomLeft.x - intRect.bottomLeft.x, 0);
-            }
-            else if (intRect.topRight.x > topRight.x)
-            {
-                intRect -= new IntVector2(intRect.topRight.x - topRight.x, 0);
-            }
-            if (intRect.bottomLeft.y < bottomLeft.y)
-            {
-                intRect += new IntVector2(0, bottomLeft.y - intRect.bottomLeft.y);
-            }
-            else if (intRect.topRight.y > topRight.y)
-            {
-                intRect -= new IntVector2(0, intRect.topRight.y - topRight.y);
-            }
-            return intRect;
+            return new IntRect(a.xRange.Intersection(b.xRange), a.yRange.Intersection(b.yRange));
         }
 
         /// <summary>
-        /// Removes all IntVector2s outside the rect.
+        /// Returns the point in the rect that is closest to the given vector.
+        /// Equivalently, it clamps the vector's x coord to be in the rect's range of x coords, and clamps the vector's y coord to be in the rect's range of y coords.
         /// </summary>
-        public IntVector2[] FilterPointsInside(IntVector2[] intVectors)
+        /// <seealso cref="Math.Clamp(int, int, int)"/>
+        public IntVector2 Clamp(IntVector2 vector) => new IntVector2(Math.Clamp(vector.x, minX, maxX), Math.Clamp(vector.y, minY, maxY));
+
+        /// <summary>
+        /// Translates <paramref name="toClamp"/> so it is a subset of this rect. Chooses the smallest such translation.
+        /// </summary>
+        /// <remarks>
+        /// Note this is only possible when <paramref name="toClamp"/> is at most as wide and at most as tall as this rect.
+        /// </remarks>
+        /// <exception cref="ArgumentException"><paramref name="toClamp"/> is wider and/or taller than this rect.</exception>
+        public IntRect TranslateClamp(IntRect toClamp)
+        {
+            if (toClamp.width > width)
+            {
+                throw new ArgumentException($"Cannot translate-clamp a wider rect. Width of this: {width}. Width of {nameof(toClamp)}: {toClamp.width}.", nameof(toClamp));
+            }
+            if (toClamp.height > height)
+            {
+                throw new ArgumentException($"Cannot translate-clamp a taller rect. Height of this: {height}. Height of {nameof(toClamp)}: {toClamp.height}.", nameof(toClamp));
+            }
+
+            if (toClamp.minX < minX)
+            {
+                toClamp += new IntVector2(minX - toClamp.minX, 0);
+            }
+            else if (toClamp.maxX > maxX)
+            {
+                toClamp -= new IntVector2(toClamp.maxX - maxX, 0);
+            }
+            if (toClamp.minY < minY)
+            {
+                toClamp += new IntVector2(0, minY - toClamp.minY);
+            }
+            else if (toClamp.maxY > maxY)
+            {
+                toClamp -= new IntVector2(0, toClamp.maxY - maxY);
+            }
+            return toClamp;
+        }
+
+        /// <summary>
+        /// Returns the elements of the sequence that are in this rect.
+        /// </summary>
+        /// <returns>
+        /// A lazily-generated sequence containing the elements of <paramref name="vectors"/> that are in this rect.
+        /// </returns>
+        /// <remarks>
+        /// Preserves the order of the sequence.
+        /// </remarks>
+        /// <exception cref="ArgumentNullException"><paramref name="vectors"/> is null.</exception>
+        /// <seealso cref="FilterPointsOutside(IEnumerable{IntVector2})"/>
+        public IEnumerable<IntVector2> FilterPointsInside(IEnumerable<IntVector2> vectors)
         {
             // C# can't access 'this' inside lambda expressions.
             IntRect rect = this;
-            return intVectors.Where(x => rect.Contains(x)).ToArray();
+            return vectors.Where(x => rect.Contains(x));
         }
         /// <summary>
-        /// Removes all IntVector2s inside the rect.
+        /// Returns the elements of the sequence that are outside this rect.
         /// </summary>
-        public IntVector2[] FilterPointsOutside(IntVector2[] intVectors)
+        /// <returns>
+        /// A lazily-generated sequence containing the elements of <paramref name="vectors"/> that are not in this rect.
+        /// </returns>
+        /// <remarks>
+        /// Preserves the order of the sequence.
+        /// </remarks>
+        /// <exception cref="ArgumentNullException"><paramref name="vectors"/> is null.</exception>
+        /// <seealso cref="FilterPointsInside(IEnumerable{IntVector2})"/>
+        public IEnumerable<IntVector2> FilterPointsOutside(IEnumerable<IntVector2> vectors)
         {
             // C# can't access 'this' inside lambda expressions.
             IntRect rect = this;
-            return intVectors.Where(x => !rect.Contains(x)).ToArray();
+            return vectors.Where(x => !rect.Contains(x));
         }
 
         /// <summary>
-        /// <para>Gets the points in the rect, starting with the bottom row, read left to right, then the next row, etc.
-        /// </para>
-        /// <para>
-        /// WARNING: this is very expensive for large rects.
-        /// </para>
+        /// Returns the smallest rect containing all the given vectors.
         /// </summary>
-        public IntVector2[] GetPoints()
+        /// <exception cref="ArgumentNullException"><paramref name="vectors"/> is null.</exception>
+        /// <exception cref="ArgumentException"><paramref name="vectors"/> is empty.</exception>
+        public static IntRect BoundingRect(params IntVector2[] vectors) => BoundingRect((IEnumerable<IntVector2>)vectors);
+        /// <summary>
+        /// Returns the smallest rect containing all the given vectors.
+        /// </summary>
+        /// <exception cref="ArgumentNullException"><paramref name="vectors"/> is null.</exception>
+        /// <exception cref="ArgumentException"><paramref name="vectors"/> is empty.</exception>
+        public static IntRect BoundingRect(IEnumerable<IntVector2> vectors) => new IntRect(IntVector2.Min(vectors), IntVector2.Max(vectors));
+        /// <summary>
+        /// Returns the smallest rect containing both the given rects.
+        /// </summary>
+        public static IntRect BoundingRect(IntRect a, IntRect b) => new IntRect(IntVector2.Min(a.bottomLeft, b.bottomLeft), IntVector2.Max(a.topRight, b.topRight));
+        /// <summary>
+        /// Returns the smallest rect containing all the given rects.
+        /// </summary>
+        /// <exception cref="ArgumentNullException"><paramref name="rects"/> is null.</exception>
+        /// <exception cref="ArgumentException"><paramref name="rects"/> is empty.</exception>
+        public static IntRect BoundingRect(params IntRect[] rects) => BoundingRect((IEnumerable<IntRect>)rects);
+        /// <summary>
+        /// Returns the smallest rect containing all the given rects.
+        /// </summary>
+        /// <exception cref="ArgumentNullException"><paramref name="rects"/> is null.</exception>
+        /// <exception cref="ArgumentException"><paramref name="rects"/> is empty.</exception>
+        public static IntRect BoundingRect(IEnumerable<IntRect> rects)
         {
-            IntVector2[] points = new IntVector2[area];
-
-            int index = 0;
-            foreach (IntVector2 point in this)
+            if (rects is null)
             {
-                points[index] = point;
-                index++;
+                throw new ArgumentNullException(nameof(rects), "The given collection of rects is null.");
+            }
+            if (rects.None())
+            {
+                throw new ArgumentException("The given collection of rects is empty.", nameof(rects));
             }
 
-            return points;
+            return new IntRect(IntVector2.Min(rects.Select(rect => rect.bottomLeft)), IntVector2.Max(rects.Select(rect => rect.topRight)));
         }
 
         /// <summary>
-        /// Enumerates the points in the rect, starting with the bottom row, read left to right, then the next row, etc.
+        /// Returns the rect rotated clockwise by the given angle.
         /// </summary>
+        /// <seealso cref="IntVector2.Rotate(RotationAngle)"/>
+        public IntRect Rotate(RotationAngle angle) => new IntRect(bottomLeft.Rotate(angle), topRight.Rotate(angle));
+
+        /// <summary>
+        /// Returns the rect flipped across the given axis.
+        /// </summary>
+        /// <seealso cref="IntVector2.Flip(FlipAxis)"/>
+        public IntRect Flip(FlipAxis axis) => new IntRect(bottomLeft.Flip(axis), topRight.Flip(axis));
+        #endregion
+
+        #region Random
+        /// <summary>
+        /// Generates a uniformly random point within the rect.
+        /// </summary>
+        public IntVector2 RandomPoint(System.Random random) => new IntVector2(random.Next(minX, maxX + 1), random.Next(minY, maxY + 1));
+        /// <summary>
+        /// Returns the rect defined by two independently uniformly randomly generated points within the rect.
+        /// </summary>
+        public IntRect RandomSubRect(System.Random random) => new IntRect(RandomPoint(random), RandomPoint(random));
+        #endregion
+
+        #region Enumerator
+        /// <summary>
+        /// Iterates over the points in the rect, starting with the bottom row, read left to right, then the next row, etc.
+        /// </summary>
+        /// <remarks>
+        /// The ordering of this enumerator is useful since it matches the expected order of pixels in Unity's <see cref="Texture2D.SetPixels(Color[])"/>.
+        /// </remarks>
+        IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();
+        /// <summary>
+        /// Iterates over the points in the rect, starting with the bottom row, read left to right, then the next row, etc.
+        /// </summary>
+        /// <remarks>
+        /// The ordering of this enumerator is useful since it matches the expected order of pixels in Unity's <see cref="Texture2D.SetPixels(Color[])"/>.
+        /// </remarks>
         public IEnumerator<IntVector2> GetEnumerator()
         {
-            for (int i = 0; i < area; i++)
+            for (int y = minY; y <= maxY; y++)
             {
-                yield return bottomLeft + new IntVector2(i % width, i / height);
+                for (int x = minX; x <= maxX; x++)
+                {
+                    yield return new IntVector2(x, y);
+                }
             }
         }
-        IEnumerator IEnumerable.GetEnumerator()
-        {
-            return GetEnumerator();
-        }
+        #endregion
+
+        /// <summary>
+        /// Represents the rect as a string in the form <c>"((bottom-left x coord, bottom-left y coord), (top-right x coord, top-right y coord))"</c>.
+        /// </summary>
+        public override string ToString() => $"({bottomLeft}, {topRight})";
     }
 }

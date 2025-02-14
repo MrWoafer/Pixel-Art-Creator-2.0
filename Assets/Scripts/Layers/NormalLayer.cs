@@ -30,7 +30,7 @@ namespace PAC.Layers
             return new NormalLayer(this);
         }
 
-        protected override IntVector2[] SetPixelsNoEvent(IntVector2[] pixels, int frame, Color colour, AnimFrameRefMode frameRefMode)
+        protected override IEnumerable<IntVector2> SetPixelsNoEvent(IEnumerable<IntVector2> pixels, int frame, Color colour, AnimFrameRefMode frameRefMode)
         {
             foreach (IntVector2 pixel in pixels)
             {
@@ -68,7 +68,7 @@ namespace PAC.Layers
                 GetKeyFrame(frame).texture = texture;
             }
 
-            onPixelsChanged.Invoke(rect.points, new int[] { GetKeyFrame(frame).frame });
+            onPixelsChanged.Invoke(rect, new int[] { GetKeyFrame(frame).frame });
         }
 
         /// <summary>
@@ -86,7 +86,7 @@ namespace PAC.Layers
             }
 
             GetKeyFrame(frame).texture = Tex2DSprite.Overlay(overlayTex, GetKeyFrame(frame).texture, offset);
-            onPixelsChanged.Invoke(rect.points, new int[] { GetKeyFrame(frame).frame });
+            onPixelsChanged.Invoke(rect, new int[] { GetKeyFrame(frame).frame });
         }
         /// <summary>
         /// Overlays the texture onto every frame. Uses Normal blend mode.
@@ -129,22 +129,22 @@ namespace PAC.Layers
         /// <summary>
         /// Flips the given frame of the layer.
         /// </summary>
-        public void Flip(int frame, FlipDirection direction, AnimFrameRefMode frameRefMode)
+        public void Flip(int frame, FlipAxis axis, AnimFrameRefMode frameRefMode)
         {
             if (frameRefMode == AnimFrameRefMode.NewKeyFrame)
             {
                 AddKeyFrame(frame);
             }
 
-            GetKeyFrame(frame).texture = Tex2DSprite.Flip(GetKeyFrame(frame).texture, direction);
+            GetKeyFrame(frame).texture = Tex2DSprite.Flip(GetKeyFrame(frame).texture, axis);
 
-            onPixelsChanged.Invoke(rect.points, new int[] { GetKeyFrame(frame).frame });
+            onPixelsChanged.Invoke(rect, new int[] { GetKeyFrame(frame).frame });
         }
-        protected override void FlipNoEvent(FlipDirection direction)
+        protected override void FlipNoEvent(FlipAxis axis)
         {
             foreach (AnimationKeyFrame keyFrame in keyFrames)
             {
-                keyFrame.texture = Tex2DSprite.Flip(keyFrame.texture, direction);
+                keyFrame.texture = Tex2DSprite.Flip(keyFrame.texture, axis);
             }
         }
 
@@ -165,7 +165,7 @@ namespace PAC.Layers
 
             GetKeyFrame(frame).texture = Tex2DSprite.Rotate(GetKeyFrame(frame).texture, angle);
 
-            onPixelsChanged.Invoke(rect.points, new int[] { GetKeyFrame(frame).frame });
+            onPixelsChanged.Invoke(rect, new int[] { GetKeyFrame(frame).frame });
         }
         protected override void RotateNoEvent(RotationAngle angle)
         {

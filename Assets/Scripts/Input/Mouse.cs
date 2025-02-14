@@ -103,6 +103,10 @@ namespace PAC.Input
         [SerializeField]
         private Vector2 cursorHotSpotTriangleUpsideDown;
         [SerializeField]
+        private Texture2D cursorSpriteDiamond;
+        [SerializeField]
+        private Vector2 cursorHotSpotDiamond;
+        [SerializeField]
         private Texture2D cursorSpriteCrossArrows;
         [SerializeField]
         private Vector2 cursorHotSpotCrossArrows;
@@ -499,7 +503,7 @@ namespace PAC.Input
             {
                 return new Tuple<Texture2D, Vector2>(cursorSpriteEllipse, cursorHotSpotEllipse);
             }
-            else if (shape == Shape.Triangle)
+            else if (shape == Shape.RightTriangle)
             {
                 if (inputSystem.globalKeyboardTarget.IsHeldExactly(KeyCode.LeftControl))
                 {
@@ -509,6 +513,10 @@ namespace PAC.Input
                 {
                     return new Tuple<Texture2D, Vector2>(cursorSpriteTriangle, cursorHotSpotTriangle);
                 }
+            }
+            else if (shape == Shape.Diamond)
+            {
+                return new Tuple<Texture2D, Vector2>(cursorSpriteDiamond, cursorHotSpotDiamond);
             }
             else
             {

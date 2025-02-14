@@ -1,8 +1,12 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+
 using PAC.Colour;
 using PAC.DataStructures;
+using PAC.Extensions;
+using PAC.Patterns;
+
 using UnityEngine;
 
 namespace PAC
@@ -108,37 +112,8 @@ namespace PAC
                 throw new System.Exception("Dimensions must be positive: (width, height) = (" + width + ", " + height + ")");
             }
 
-            int texWidth = width * 2;
-            int texHeight = height * 2;
-
-            Texture2D tex = new Texture2D(texWidth, texHeight);
-            Color32[] pixels = new Color32[texWidth * texHeight];
-
-            Color32 transparentCheckerboardColour1 = Preferences.transparentCheckerboardColour1;
-            Color32 transparentCheckerboardColour2 = Preferences.transparentCheckerboardColour2;
-
-            int index = 0;
-            for (int x = 0; x < texWidth; x++)
-            {
-                for (int y = 0; y < texHeight; y++)
-                {
-                    if ((x + y) % 2 == 0)
-                    {
-                        pixels[index] = transparentCheckerboardColour1;
-                    }
-                    else
-                    {
-                        pixels[index] = transparentCheckerboardColour2;
-                    }
-
-                    index++;
-                }
-            }
-
-            tex.SetPixels32(pixels);
-            tex.Apply();
-
-            return tex;
+            IntRect texRect = new IntRect(IntVector2.zero, new IntVector2(width * 2 - 1, height * 2 - 1));
+            return new Checkerboard<Color32>(Preferences.transparentCheckerboardColour1, Preferences.transparentCheckerboardColour2).ToTexture(texRect);
         }
 
         public static Texture2D HSLHueSaturationGrid(int width, int height)
@@ -163,23 +138,23 @@ namespace PAC
             return tex;
         }
 
-        public static Texture2D Flip(Texture2D texture, FlipDirection direction)
+        public static Texture2D Flip(Texture2D texture, FlipAxis axis)
         {
-            if (direction == FlipDirection.None)
+            if (axis == FlipAxis.None)
             {
                 return texture;
             }
-            else if (direction == FlipDirection.X)
+            else if (axis == FlipAxis.Vertical)
             {
                 return FlipX(texture);
             }
-            else if (direction == FlipDirection.Y)
+            else if (axis == FlipAxis.Horizontal)
             {
                 return FlipY(texture);
             }
             else
             {
-                throw new System.Exception("Unknown / unimplemented FlipDirection: " + direction);
+                throw new NotImplementedException("Unknown / unimplemented FlipAxis: " + axis);
             }
         }
 
@@ -323,12 +298,6 @@ namespace PAC
         /// <summary>
         /// Adds the given number of transparent pixels to each side of the texture. Negative amounts will crop the image.
         /// </summary>
-        /// <param name="texture"></param>
-        /// <param name="left"></param>
-        /// <param name="right"></param>
-        /// <param name="up"></param>
-        /// <param name="down"></param>
-        /// <returns></returns>
         public static Texture2D Extend(Texture2D texture, int left, int right, int up, int down)
         {
             if (left + right <= -texture.width || up + down <= -texture.height)
@@ -343,9 +312,7 @@ namespace PAC
         /// <summary>
         /// Changes the dimensions of the texture to the new rect.
         /// </summary>
-        /// <param name="texture"></param>
         /// <param name="newRect">The coords of the new rect relative to the coords of the old rect.</param>
-        /// <returns></returns>
         public static Texture2D ChangeRect(Texture2D texture, IntRect newRect)
         {
             return Extend(texture, -newRect.bottomLeft.x, newRect.topRight.x - texture.width + 1, newRect.topRight.y - texture.height + 1, -newRect.bottomLeft.y);
@@ -406,9 +373,6 @@ namespace PAC
         /// <summary>
         /// Overlays topTex onto bottomTex, placing the bottom-left corner on the bottom-left corner. Uses Normal blend mode.
         /// </summary>
-        /// <param name="topTex"></param>
-        /// <param name="bottomTex"></param>
-        /// <returns></returns>
         public static Texture2D Overlay(Texture2D topTex, Texture2D bottomTex)
         {
             return Overlay(topTex, bottomTex, IntVector2.zero);
@@ -416,9 +380,6 @@ namespace PAC
         /// <summary>
         /// Overlays topTex onto bottomTex, placing the bottom-left corner at the coordinates topTexOffset (which don't have to be within the image). Uses Normal blend mode.
         /// </summary>
-        /// <param name="topTex"></param>
-        /// <param name="bottomTex"></param>
-        /// <returns></returns>
         public static Texture2D Overlay(Texture2D topTex, Texture2D bottomTex, IntVector2 topTexOffset)
         {
             return Blend(topTex, bottomTex, topTexOffset, BlendMode.Normal);
@@ -567,7 +528,7 @@ namespace PAC
             return filledTex;
         }
 
-        public static Texture2D GetFillMask(Texture2D texture, IntVector2 startPoint, int maxNumOfIterations = 100000)
+        public static Texture2D GetFillMask(Texture2D texture, IntVector2 startPoint, int maxNumOfIterations = 1_000_000)
         {
             Texture2D fillMask = BlankTexture(texture.width, texture.height);
 
@@ -580,7 +541,7 @@ namespace PAC
             return fillMask;
         }
 
-        public static IntVector2[] GetPixelsToFill(Texture2D texture, IntVector2 startPoint, int maxNumOfIterations = 100000)
+        public static IEnumerable<IntVector2> GetPixelsToFill(Texture2D texture, IntVector2 startPoint, int maxNumOfIterations = 1_000_000)
         {
             IntRect texRect = new IntRect(IntVector2.zero, new IntVector2(texture.width - 1, texture.height - 1));
 
@@ -591,6 +552,7 @@ namespace PAC
 
             toVisit.Enqueue(startPoint);
             visited.Add(startPoint);
+            yield return startPoint;
 
             int iterations = 0;
             while (toVisit.Count > 0 && iterations < maxNumOfIterations)
@@ -604,13 +566,12 @@ namespace PAC
                     {
                         toVisit.Enqueue(offsetCoord);
                         visited.Add(offsetCoord);
+                        yield return offsetCoord;
                     }
                 }
 
                 iterations++;
             }
-
-            return visited.ToArray();
         }
 
         /// <summary>

@@ -1,6 +1,7 @@
 using PAC.Drawing;
 using PAC.Input;
 using PAC.KeyboardShortcuts;
+using PAC.Maths;
 using PAC.UI;
 using UnityEngine;
 using UnityEngine.Events;
@@ -116,7 +117,7 @@ namespace PAC.ColourPicker
         /// </summary>
         private void CycleColourPreview(int numOfSteps)
         {
-            SelectColourPreview(Functions.Mod(currentColourPreviewIndex + numOfSteps, colourPreviews.Length));
+            SelectColourPreview(MathExtensions.Mod(currentColourPreviewIndex + numOfSteps, colourPreviews.Length));
         }
 
         /// <summary>

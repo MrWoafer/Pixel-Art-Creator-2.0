@@ -1,3 +1,5 @@
+using PAC.Maths;
+
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -125,7 +127,7 @@ namespace PAC.UI
 
         private void UpdateDisplay()
         {
-            textbox.SetText(Functions.RoundDecimalPlaces(value, textDecimalPlaces).ToString());
+            textbox.SetText(MathExtensions.RoundDecimalPlaces(value, textDecimalPlaces).ToString());
         }
 
         public void AddNumOfIncrements(int numOfIncrements)

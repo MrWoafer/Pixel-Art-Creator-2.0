@@ -1,9 +1,13 @@
 using System.Collections.Generic;
 using System.Linq;
+
 using PAC.DataStructures;
+using PAC.Extensions;
 using PAC.Input;
 using PAC.KeyboardShortcuts;
+using PAC.Shapes;
 using PAC.UI;
+
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -13,7 +17,8 @@ namespace PAC.Drawing
     {
         Rectangle = 0,
         Ellipse = 1,
-        Triangle = 2
+        RightTriangle = 2,
+        Diamond = 3
     }
 
     public enum SelectionMode
@@ -230,7 +235,8 @@ namespace PAC.Drawing
             {
                 if (inputSystem.globalKeyboardTarget.IsHeldExactly(KeyCode.Alpha1)) { shapeToolShape = Shape.Rectangle; }
                 else if (inputSystem.globalKeyboardTarget.IsHeldExactly(KeyCode.Alpha2)) { shapeToolShape = Shape.Ellipse; }
-                else if (inputSystem.globalKeyboardTarget.IsHeldExactly(KeyCode.Alpha3)) { shapeToolShape = Shape.Triangle; }
+                else if (inputSystem.globalKeyboardTarget.IsHeldExactly(KeyCode.Alpha3)) { shapeToolShape = Shape.RightTriangle; }
+                else if (inputSystem.globalKeyboardTarget.IsHeldExactly(KeyCode.Alpha4)) { shapeToolShape = Shape.Diamond; }
             }
             else if (selectedTool == Tool.Selection)
             {
@@ -328,11 +334,11 @@ namespace PAC.Drawing
                 }
                 else if (brushShape == BrushShape.Circle)
                 {
-                    brushTexture = Shapes.Circle(brushSize * 2 - 1, brushSize * 2 - 1, IntVector2.zero, IntVector2.one * (brushSize * 2 - 2), Config.Colours.mask, true, false);
+                    brushTexture = new Ellipse(new IntRect(IntVector2.zero, IntVector2.one * (brushSize * 2 - 2)), true).ToTexture(Config.Colours.mask);
                 }
                 else if (brushShape == BrushShape.Diamond)
                 {
-                    brushTexture = Shapes.Diamond(brushSize * 2 - 1, brushSize * 2 - 1, IntVector2.zero, IntVector2.one * (brushSize * 2 - 2), Config.Colours.mask, true);
+                    brushTexture = new Diamond(new IntRect(IntVector2.zero, IntVector2.one * (brushSize * 2 - 2)), true).ToTexture(Config.Colours.mask);
                 }
                 else if (brushShape == BrushShape.Custom)
                 {

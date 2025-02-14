@@ -1,7 +1,13 @@
 using System.Linq;
+
 using PAC.DataStructures;
+using PAC.Extensions;
 using PAC.Files;
 using PAC.Layers;
+using PAC.Patterns;
+using PAC.Shapes;
+using PAC.Shapes.Interfaces;
+
 using UnityEngine;
 
 namespace PAC.Drawing
@@ -21,22 +27,32 @@ namespace PAC.Drawing
         /// <summary>
         /// Smooth the meeting point of the two lines (given as coords) so it is pixel-perfect - i.e. no hard 90-degree corner.
         /// </summary>
-        public static bool PencilLineSmoothing(File file, int layer, int frame, IntVector2[] line, IntVector2[] previousLine, Color colourLineMeetingPoint)
+        public static bool PencilLineSmoothing(Line line, Line previousLine, bool previousLineWasSmoothed)
         {
-            if (previousLine.Length != 0)
+            if (previousLine is null)
             {
-                IntVector2[] offsets = new IntVector2[] { IntVector2.left, IntVector2.right, IntVector2.down, IntVector2.up };
-                foreach (IntVector2 offset1 in offsets)
+                return false;
+            }
+
+            IntVector2[] offsets = new IntVector2[] { IntVector2.left, IntVector2.right, IntVector2.down, IntVector2.up };
+            foreach (IntVector2 offset1 in offsets)
+            {
+                foreach (IntVector2 offset2 in offsets)
                 {
-                    foreach (IntVector2 offset2 in offsets)
+                    if (!IntVector2.ArePerpendicular(offset1, offset2))
                     {
-                        bool pixelShouldBeSmoothed = IntVector2.Dot(offset1, offset2) == 0 && previousLine.Contains(line[0] + offset1) && line.Contains(line[0] + offset2) &&
-                                                     !line.Contains(line[0] - offset1);
-                        if (pixelShouldBeSmoothed)
-                        {
-                            file.layers[layer].SetPixel(line[0], frame, colourLineMeetingPoint, AnimFrameRefMode.NewKeyFrame);
-                            return true;
-                        }
+                        continue;
+                    }
+
+                    if (previousLineWasSmoothed && line.start + offset1 == previousLine.start)
+                    {
+                        continue;
+                    }
+
+                    bool pixelShouldBeSmoothed = previousLine.Contains(line.start + offset1) && line.Contains(line.start + offset2) && !line.Contains(line.start - offset1);
+                    if (pixelShouldBeSmoothed)
+                    {
+                        return true;
                     }
                 }
             }
@@ -49,7 +65,7 @@ namespace PAC.Drawing
         }
         public static void UseBrush(File file, int layer, int frame, IntVector2 pixel, IntVector2[] brushBorderMaskPixels, Color colour)
         {
-            file.layers[layer].SetPixels(file.rect.FilterPointsInside(pixel + brushBorderMaskPixels), frame, colour, AnimFrameRefMode.NewKeyFrame);
+            file.layers[layer].SetPixels(file.rect.FilterPointsInside(brushBorderMaskPixels.Select(p => p + pixel)), frame, colour, AnimFrameRefMode.NewKeyFrame);
         }
 
         public static void UseRubber(File file, int layer, int frame, int x, int y) => UseRubber(file, layer, frame, new IntVector2(x, y));
@@ -75,149 +91,33 @@ namespace PAC.Drawing
             file.layers[layer].SetPixels(Tex2DSprite.GetPixelsToFill(file.layers[layer][frame].texture, pixel, maxNumOfIterations), frame, colour, AnimFrameRefMode.NewKeyFrame);
         }
 
-        public static void UseLine(File file, int layer, int frame, IntVector2 start, IntVector2 end, Color colour)
-        {
-            if (file.layers[layer].layerType != LayerType.Normal)
-            {
-                throw new System.Exception("Layer is not a normal layer. Layer type: " + file.layers[layer].layerType);
-            }
-            Texture2D line = Shapes.Line(file.width, file.height, start, end, colour);
-            ((NormalLayer)file.layers[layer]).OverlayTexture(frame, line, AnimFrameRefMode.NewKeyFrame);
-        }
-
-        public static void UseSquare(File file, int layer, int frame, IntVector2 start, IntVector2 end, Color colour, bool filled, bool stayWithinImageBounds)
-        {
-            if (file.layers[layer].layerType != LayerType.Normal)
-            {
-                throw new System.Exception("Layer is not a normal layer. Layer type: " + file.layers[layer].layerType);
-            }
-            Texture2D square = Shapes.Square(file.width, file.height, start, end, colour, filled, stayWithinImageBounds);
-            ((NormalLayer)file.layers[layer]).OverlayTexture(frame, square, AnimFrameRefMode.NewKeyFrame);
-        }
-
-        public static void UseRectangle(File file, int layer, int frame, IntVector2 start, IntVector2 end, Color colour, bool filled)
-        {
-            if (file.layers[layer].layerType != LayerType.Normal)
-            {
-                throw new System.Exception("Layer is not a normal layer. Layer type: " + file.layers[layer].layerType);
-            }
-            Texture2D rectangle = Shapes.Rectangle(file.width, file.height, start, end, colour, filled);
-            ((NormalLayer)file.layers[layer]).OverlayTexture(frame, rectangle, AnimFrameRefMode.NewKeyFrame);
-        }
-
-        public static void UseCircle(File file, int layer, int frame, IntVector2 start, IntVector2 end, Color colour, bool filled, bool stayWithinImageBounds)
-        {
-            if (file.layers[layer].layerType != LayerType.Normal)
-            {
-                throw new System.Exception("Layer is not a normal layer. Layer type: " + file.layers[layer].layerType);
-            }
-            Texture2D circle = Shapes.Circle(file.width, file.height, start, end, colour, filled, stayWithinImageBounds);
-            ((NormalLayer)file.layers[layer]).OverlayTexture(frame, circle, AnimFrameRefMode.NewKeyFrame);
-        }
-
-        public static void UseEllipse(File file, int layer, int frame, IntVector2 start, IntVector2 end, Color colour, bool filled)
-        {
-            if (file.layers[layer].layerType != LayerType.Normal)
-            {
-                throw new System.Exception("Layer is not a normal layer. Layer type: " + file.layers[layer].layerType);
-            }
-            Texture2D ellipse = Shapes.Ellipse(file.width, file.height, start, end, colour, filled);
-            ((NormalLayer)file.layers[layer]).OverlayTexture(frame, ellipse, AnimFrameRefMode.NewKeyFrame);
-        }
-
-        public static void UseRightTriangle(File file, int layer, int frame, IntVector2 start, IntVector2 end, Color colour, bool rightAngleOnBottom, bool filled)
-        {
-            if (file.layers[layer].layerType != LayerType.Normal)
-            {
-                throw new System.Exception("Layer is not a normal layer. Layer type: " + file.layers[layer].layerType);
-            }
-            Texture2D triangle = Shapes.RightTriangle(file.width, file.height, start, end, colour, rightAngleOnBottom, filled);
-            ((NormalLayer)file.layers[layer]).OverlayTexture(frame, triangle, AnimFrameRefMode.NewKeyFrame);
-        }
-
-        public static void UseIsoRectangle(File file, int layer, int frame, IntVector2 start, IntVector2 end, Color colour, bool filled)
-        {
-            if (file.layers[layer].layerType != LayerType.Normal)
-            {
-                throw new System.Exception("Layer is not a normal layer. Layer type: " + file.layers[layer].layerType);
-            }
-            Texture2D triangle = Shapes.IsoRectangle(file.width, file.height, start, end, colour, filled);
-            ((NormalLayer)file.layers[layer]).OverlayTexture(frame, triangle, AnimFrameRefMode.NewKeyFrame);
-        }
-
-        public static void UseIsoBox(File file, int layer, int frame, IntVector2 baseStart, IntVector2 baseEnd, IntVector2 heightEnd, Color colour, bool filled)
-        {
-            if (file.layers[layer].layerType != LayerType.Normal)
-            {
-                throw new System.Exception("Layer is not a normal layer. Layer type: " + file.layers[layer].layerType);
-            }
-            Texture2D triangle = Shapes.IsoBox(file.width, file.height, baseStart, baseEnd, heightEnd, colour, filled);
-            ((NormalLayer)file.layers[layer]).OverlayTexture(frame, triangle, AnimFrameRefMode.NewKeyFrame);
-        }
-
-        public static void UseGradient(File file, int layer, int frame, IntVector2 start, IntVector2 end, Color startColour, Color endColour, GradientMode gradientMode)
-        {
-            UseGradient(file, layer, frame, start, end, startColour, endColour, gradientMode, new IntVector2[0]);
-        }
-        public static void UseGradient(File file, int layer, int frame, IntVector2 start, IntVector2 end, Color startColour, Color endColour, GradientMode gradientMode, Texture2D mask)
-        {
-            if (mask.width != file.width || mask.height != file.height)
-            {
-                throw new System.Exception("Mask dimensions " + mask.width + "x" + mask.height + " do not match file dimensions " + file.width + "x" + file.height);
-            }
-            if (file.layers[layer].layerType != LayerType.Normal)
-            {
-                throw new System.Exception("Layer is not a normal layer. Layer type: " + file.layers[layer].layerType);
-            }
-
-            Texture2D gradient = Shapes.Gradient(file.width, file.height, start, end, startColour, endColour, gradientMode);
-            if (mask != null)
-            {
-                gradient = Tex2DSprite.ApplyMask(gradient, mask);
-            }
-
-            ((NormalLayer)file.layers[layer]).OverlayTexture(frame, gradient, AnimFrameRefMode.NewKeyFrame);
-        }
-        public static void UseGradient(File file, int layer, int frame, IntVector2 start, IntVector2 end, Color startColour, Color endColour, GradientMode gradientMode, IntVector2[] mask)
+        public static void UseShape(File file, int layer, int frame, IShape shape, Color colour)
         {
             if (file.layers[layer].layerType != LayerType.Normal)
             {
                 throw new System.Exception("Layer is not a normal layer. Layer type: " + file.layers[layer].layerType);
             }
 
-            Texture2D gradient = Shapes.Gradient(file.width, file.height, start, end, startColour, endColour, gradientMode);
-            if (mask.Length != 0)
+            file.layers[layer].SetPixels(shape.Where(p => file.rect.Contains(p)), frame, colour, AnimFrameRefMode.NewKeyFrame);
+        }
+
+        public static void UsePattern(File file, int layer, int frame, IPattern2D<Color> pattern)
+        {
+            if (file.layers[layer].layerType != LayerType.Normal)
             {
-                gradient = Tex2DSprite.ApplyMask(gradient, mask);
+                throw new System.Exception($"Layer is not a normal layer. Layer type: {file.layers[layer].layerType}");
             }
 
-            ((NormalLayer)file.layers[layer]).OverlayTexture(frame, gradient, AnimFrameRefMode.NewKeyFrame);
+            (file.layers[layer] as NormalLayer).SetTexture(frame, pattern.ToTexture(file.rect), AnimFrameRefMode.NewKeyFrame);
         }
+        public static void UsePattern(File file, int layer, int frame, IPattern2D<Color32> pattern)
+        {
+            if (file.layers[layer].layerType != LayerType.Normal)
+            {
+                throw new System.Exception($"Layer is not a normal layer. Layer type: {file.layers[layer].layerType}");
+            }
 
-        public static void UseGradientLinear(File file, int layer, int frame, IntVector2 start, IntVector2 end, Color startColour, Color endColour)
-        {
-            UseGradient(file, layer, frame, start, end, startColour, endColour, GradientMode.Linear);
-        }
-        public static void UseGradientLinear(File file, int layer, int frame, IntVector2 start, IntVector2 end, Color startColour, Color endColour, Texture2D mask)
-        {
-            UseGradient(file, layer, frame, start, end, startColour, endColour, GradientMode.Linear, mask);
-        }
-        public static void UseGradientLinear(File file, int layer, int frame, IntVector2 start, IntVector2 end, Color startColour, Color endColour, IntVector2[] mask)
-        {
-            UseGradient(file, layer, frame, start, end, startColour, endColour, GradientMode.Linear, mask);
-        }
-
-        public static void UseGradientRadial(File file, int layer, int frame, IntVector2 start, IntVector2 end, Color startColour, Color endColour)
-        {
-            UseGradient(file, layer, frame, start, end, startColour, endColour, GradientMode.Radial);
-        }
-        public static void UseGradientRadial(File file, int layer, int frame, IntVector2 start, IntVector2 end, Color startColour, Color endColour, Texture2D mask)
-        {
-            UseGradient(file, layer, frame, start, end, startColour, endColour, GradientMode.Radial, mask);
-        }
-        public static void UseGradientRadial(File file, int layer, int frame, IntVector2 start, IntVector2 end, Color startColour, Color endColour, IntVector2[] mask)
-        {
-            UseGradient(file, layer, frame, start, end, startColour, endColour, GradientMode.Radial, mask);
+            (file.layers[layer] as NormalLayer).SetTexture(frame, pattern.ToTexture(file.rect), AnimFrameRefMode.NewKeyFrame);
         }
     }
 }

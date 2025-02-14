@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using PAC.Animation;
@@ -133,7 +134,7 @@ namespace PAC.Layers
             return tiles.Contains(tile);
         }
 
-        protected override IntVector2[] SetPixelsNoEvent(IntVector2[] pixels, int frame, Color colour, AnimFrameRefMode frameRefMode)
+        protected override IEnumerable<IntVector2> SetPixelsNoEvent(IEnumerable<IntVector2> pixels, int frame, Color colour, AnimFrameRefMode frameRefMode)
         {
             HashSet<IntVector2> pixelsFilled = new HashSet<IntVector2>();
             foreach (IntVector2 pixel in pixels)
@@ -206,11 +207,11 @@ namespace PAC.Layers
         /// <summary>
         /// Get the pixels that are linked to the given pixel due to multiple tiles having the same file - i.e. they point to the same pixel within the tiles' file.
         /// </summary>
-        public IntVector2[] GetLinkedPixels(IntVector2 pixel) => GetLinkedPixels(new IntVector2[] { pixel });
+        public IEnumerable<IntVector2> GetLinkedPixels(IntVector2 pixel) => GetLinkedPixels(new IntVector2[] { pixel });
         /// <summary>
         /// Get the pixels that are linked to the given pixels due to multiple tiles having the same file - i.e. they point to the same pixels within the tiles' file.
         /// </summary>
-        public IntVector2[] GetLinkedPixels(IntVector2[] pixels)
+        public IEnumerable<IntVector2> GetLinkedPixels(IEnumerable<IntVector2> pixels)
         {
             HashSet<IntVector2> pixelsFilled = new HashSet<IntVector2>();
             foreach (IntVector2 pixel in pixels)
@@ -243,7 +244,7 @@ namespace PAC.Layers
             return pixelsFilled.ToArray();
         }
 
-        protected override void FlipNoEvent(FlipDirection direction)
+        protected override void FlipNoEvent(FlipAxis axis)
         {
             ignoreOnTilePixelsChanged = true;
             HashSet<Layer> flippedLayers = new HashSet<Layer>();
@@ -251,17 +252,21 @@ namespace PAC.Layers
             {
                 if (!flippedLayers.Contains(tile.TileLayerToLayerInTile(this)))
                 {
-                    tile.TileLayerToLayerInTile(this).Flip(direction);
+                    tile.TileLayerToLayerInTile(this).Flip(axis);
                     flippedLayers.Add(tile.TileLayerToLayerInTile(this));
                 }
 
-                if (direction == FlipDirection.X)
+                if (axis == FlipAxis.Vertical)
                 {
                     tile.bottomRight = new IntVector2(-tile.bottomLeft.x + width - 1, tile.bottomLeft.y);
                 }
-                else if (direction == FlipDirection.Y)
+                else if (axis == FlipAxis.Horizontal)
                 {
                     tile.topLeft = new IntVector2(tile.bottomLeft.x, -tile.bottomLeft.y + height - 1);
+                }
+                else
+                {
+                    throw new NotImplementedException("Unknown / unimplemented FlipAxis: " + axis);
                 }
             }
 
@@ -432,7 +437,7 @@ namespace PAC.Layers
         /// <summary>
         /// Rerenders the given pixels of every keyframe.
         /// </summary>
-        public void RerenderKeyFrames(IntVector2[] pixels) => RerenderKeyFrames(keyFrameIndices, pixels);
+        public void RerenderKeyFrames(IEnumerable<IntVector2> pixels) => RerenderKeyFrames(keyFrameIndices, pixels);
         /// <summary>
         /// Rerenders the given keyframes.
         /// </summary>
@@ -440,11 +445,11 @@ namespace PAC.Layers
         /// <summary>
         /// Rerenders the section of the given keyframes within the given rect.
         /// </summary>
-        public void RerenderKeyFrames(int[] keyFrames, IntRect rect) => RerenderKeyFrames(keyFrames, rect.points);
+        public void RerenderKeyFrames(int[] keyFrames, IntRect rect) => RerenderKeyFrames(keyFrames, rect);
         /// <summary>
         /// Rerenders the given pixels of the given keyframes.
         /// </summary>
-        public void RerenderKeyFrames(int[] keyFrames, IntVector2[] pixels)
+        public void RerenderKeyFrames(int[] keyFrames, IEnumerable<IntVector2> pixels)
         {
             foreach (int keyframeIndex in keyFrames)
             {
@@ -458,11 +463,11 @@ namespace PAC.Layers
         /// <summary>
         /// Rerenders the section of the keyframe within the given rect.
         /// </summary>
-        public void RerenderKeyFrame(int frame, IntRect rect) => RerenderKeyFrame(frame, rect.points);
+        public void RerenderKeyFrame(int frame, IntRect rect) => RerenderKeyFrame(frame, rect);
         /// <summary>
         /// Rerenders the given pixels of the keyframe.
         /// </summary>
-        public void RerenderKeyFrame(int frame, IntVector2[] pixels)
+        public void RerenderKeyFrame(int frame, IEnumerable<IntVector2> pixels)
         {
             foreach (IntVector2 pixel in pixels)
             {
@@ -483,7 +488,7 @@ namespace PAC.Layers
         /// <summary>
         /// Called when some pixels are changed within a tile.
         /// </summary>
-        private void OnTilePixelsChanged(IntVector2[] pixels, Layer layer, int[] frames)
+        private void OnTilePixelsChanged(IEnumerable<IntVector2> pixels, Layer layer, int[] frames)
         {
             if (ignoreOnTilePixelsChanged)
             {
@@ -494,7 +499,7 @@ namespace PAC.Layers
             {
                 if (tile.TileLayerToLayerInTile(this) == layer)
                 {
-                    IntVector2[] linkedPixels = GetLinkedPixels(pixels + tile.bottomLeft);
+                    IEnumerable<IntVector2> linkedPixels = GetLinkedPixels(pixels.Select(p => p + tile.bottomLeft));
                     RerenderKeyFrames(frames, linkedPixels);
                     onPixelsChanged.Invoke(linkedPixels, frames);
 

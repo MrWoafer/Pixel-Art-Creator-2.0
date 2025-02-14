@@ -92,7 +92,7 @@ namespace PAC.Files
         /// Called when some pixels have been changed on a layer.
         /// Passes the pixels, layers and frames that were affected.
         /// </summary>
-        private UnityEvent<IntVector2[], Layer[], int[]> onPixelsChanged = new UnityEvent<IntVector2[], Layer[], int[]>();
+        private UnityEvent<IEnumerable<IntVector2>, Layer[], int[]> onPixelsChanged = new UnityEvent<IEnumerable<IntVector2>, Layer[], int[]>();
         /// <summary>Used to bypass the Layer.onPixelChanged event callback when doing operations on multiple layers.</summary>
         // This is to help performance - so that we can rerender the liveRender once after all layers have been changed instead of after each one.
         private bool ignoreOnLayerPixelsChanged = false;
@@ -870,7 +870,7 @@ namespace PAC.Files
         /// </summary>
         private void RerenderLiveRender()
         {
-            Color[] pixels = new Color[rect.area];
+            Color[] pixels = new Color[rect.Count];
             int[] layerIndices = Functions.Range(0, layers.Count() - 1);
 
             int index = 0;
@@ -900,7 +900,7 @@ namespace PAC.Files
         /// <summary>
         /// Rerenders the given pixels of the live render.
         /// </summary>
-        private void RerenderLiveRender(IntVector2[] pixels)
+        private void RerenderLiveRender(IEnumerable<IntVector2> pixels)
         {
             foreach (IntVector2 pixel in pixels)
             {
@@ -928,19 +928,19 @@ namespace PAC.Files
         /// <summary>
         /// Flips the file.
         /// </summary>
-        public void Flip(FlipDirection direction)
+        public void Flip(FlipAxis axis)
         {
             ignoreOnLayerPixelsChanged = true;
             foreach (Layer layer in layers)
             {
-                layer.Flip(direction);
+                layer.Flip(axis);
             }
             ignoreOnLayerPixelsChanged = false;
 
             RerenderLiveRender();
             savedSinceLastEdit = false;
 
-            onPixelsChanged.Invoke(rect.points, layers.ToArray(), keyFrameIndices);
+            onPixelsChanged.Invoke(rect, layers.ToArray(), keyFrameIndices);
         }
 
         /// <summary>
@@ -970,7 +970,7 @@ namespace PAC.Files
             RerenderLiveRender();
             savedSinceLastEdit = false;
 
-            onPixelsChanged.Invoke(rect.points, layers.ToArray(), keyFrameIndices);
+            onPixelsChanged.Invoke(rect, layers.ToArray(), keyFrameIndices);
         }
 
         /// <summary>
@@ -992,7 +992,7 @@ namespace PAC.Files
             RerenderLiveRender();
             savedSinceLastEdit = false;
 
-            onPixelsChanged.Invoke(rect.points, layers.ToArray(), keyFrameIndices);
+            onPixelsChanged.Invoke(rect, layers.ToArray(), keyFrameIndices);
         }
 
         /// <summary>
@@ -1021,7 +1021,7 @@ namespace PAC.Files
             RerenderLiveRender();
             savedSinceLastEdit = false;
 
-            onPixelsChanged.Invoke(rect.points, layers.ToArray(), keyFrameIndices);
+            onPixelsChanged.Invoke(rect, layers.ToArray(), keyFrameIndices);
         }
         /// <summary>
         /// Resizes the file to the new width and height.
@@ -1048,7 +1048,7 @@ namespace PAC.Files
             RerenderLiveRender();
             savedSinceLastEdit = false;
 
-            onPixelsChanged.Invoke(rect.points, layers.ToArray(), keyFrameIndices);
+            onPixelsChanged.Invoke(rect, layers.ToArray(), keyFrameIndices);
         }
 
         /// <summary>
@@ -1180,7 +1180,7 @@ namespace PAC.Files
 
         // Event callbacks
 
-        private void OnLayerPixelsChanged(IntVector2[] pixels, Layer[] layer, int[] frames)
+        private void OnLayerPixelsChanged(IEnumerable<IntVector2> pixels, Layer[] layer, int[] frames)
         {
             if (ignoreOnLayerPixelsChanged)
             {
@@ -1199,7 +1199,7 @@ namespace PAC.Files
         /// Event invoked when some pixels have been changed on a layer.
         /// Passes the pixels, layers and frames that were affected.
         /// </summary>
-        public void SubscribeToOnPixelsChanged(UnityAction<IntVector2[], Layer[], int[]> call)
+        public void SubscribeToOnPixelsChanged(UnityAction<IEnumerable<IntVector2>, Layer[], int[]> call)
         {
             onPixelsChanged.AddListener(call);
         }

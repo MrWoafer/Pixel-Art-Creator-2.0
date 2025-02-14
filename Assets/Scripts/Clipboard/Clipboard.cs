@@ -56,7 +56,7 @@ namespace PAC.Clipboard
         {
             if (copiedTexture)
             {
-                IntVector2 bottomLeft = new IntVector2(copiedTexturePos);
+                IntVector2 bottomLeft = copiedTexturePos;
                 bottomLeft -= IntVector2.Max(new IntVector2(copiedTexture.width + bottomLeft.x - fileManager.currentFile.width, copiedTexture.height + bottomLeft.y - fileManager.currentFile.height),
                     IntVector2.zero);
                 bottomLeft = IntVector2.Max(bottomLeft, IntVector2.zero);

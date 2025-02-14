@@ -1,0 +1,16 @@
+{
+    "name": "Project.Extensions.DataStructures",
+    "rootNamespace": "",
+    "references": [
+        "GUID:b5e1465cb1303124aa25df01ce14759e"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

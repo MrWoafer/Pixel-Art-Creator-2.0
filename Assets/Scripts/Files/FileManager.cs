@@ -1,9 +1,7 @@
 using System.Collections.Generic;
 using System.IO;
 using PAC.Animation;
-using PAC.Drawing;
 using PAC.Input;
-using PAC.KeyboardShortcuts;
 using PAC.Layers;
 using PAC.UI;
 using SFB;
@@ -30,7 +28,7 @@ namespace PAC.Files
         [HideInInspector]
         public File previousFile = null;
 
-        private DrawingArea drawingArea;
+        private Drawing.DrawingArea drawingArea;
         private AnimationManager animationManager;
 
         private InputSystem inputSystem;
