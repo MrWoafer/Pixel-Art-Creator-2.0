@@ -3,7 +3,7 @@ using System.Collections.Generic;
 namespace PAC.Interfaces
 {
     /// <summary>
-    /// Adds a <c>Contains()</c> method to <see cref="IReadOnlyCollection{T}"/>.
+    /// Adds <see cref="Contains(T)"/> to <see cref="IReadOnlyCollection{T}"/>.
     /// </summary>
     public interface IReadOnlyContains<T> : IReadOnlyCollection<T>
     {
