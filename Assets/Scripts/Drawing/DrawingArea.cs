@@ -310,7 +310,7 @@ namespace PAC.Drawing
             // Moving view
             if (inputTarget.mouseTarget.state == MouseTargetState.Pressed && middleClickedOn)
             {
-                transform.position = Functions.Vector2ToVector3(mouse.worldPos + moveOffsetFromMouse) + Vector3.forward * transform.position.z;
+                transform.position = (Vector3)(mouse.worldPos + moveOffsetFromMouse) + Vector3.forward * transform.position.z;
                 mouse.SetCursorSprite(CursorState.Grab);
             }
 
@@ -450,7 +450,7 @@ namespace PAC.Drawing
                 transform.localScale = Vector3.one;
             }
 
-            transform.position = transform.position + Functions.Vector2ToVector3(focusPoint - Functions.Vector3ToVector2(transform.TransformPoint(zoomPointLocalCoords)));
+            transform.position = transform.position + (Vector3)(focusPoint - (Vector2)transform.TransformPoint(zoomPointLocalCoords));
         }
 
         /// <summary>
@@ -496,7 +496,7 @@ namespace PAC.Drawing
 
                 if (middleClickedOn)
                 {
-                    moveOffsetFromMouse = Functions.Vector3ToVector2(transform.position) - mouse.worldPos;
+                    moveOffsetFromMouse = (Vector2)transform.position - mouse.worldPos;
                 }
                 else
                 {
@@ -1144,7 +1144,7 @@ namespace PAC.Drawing
         /// </summary>
         public IntVector2 WorldPosToPixel(Vector2 worldPos)
         {
-            Vector2 pixels = (worldPos - Functions.Vector3ToVector2(transform.position)) / transform.lossyScale * pixelsPerUnit + new Vector2(file.width, file.height) / 2f;
+            Vector2 pixels = (worldPos - (Vector2)transform.position) / transform.lossyScale * pixelsPerUnit + new Vector2(file.width, file.height) / 2f;
 
             return new IntVector2(Mathf.FloorToInt(pixels.x), Mathf.FloorToInt(pixels.y));
         }
