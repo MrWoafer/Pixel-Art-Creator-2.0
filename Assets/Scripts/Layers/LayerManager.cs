@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.Linq;
 using PAC.Animation;
 using PAC.Colour;
+using PAC.Extensions;
 using PAC.Files;
 using PAC.UI;
 using PAC.UndoRedo;
@@ -256,11 +257,7 @@ namespace PAC.Layers
 
             if (selectedLayers.Length > 1)
             {
-                int[] keyFrames = new int[0];
-                foreach (Layer layer in selectedLayers)
-                {
-                    keyFrames = keyFrames.Concat(layer.keyFrameIndices).ToArray();
-                }
+                IEnumerable<int> keyFrames = selectedLayers.Select(layer => layer.keyFrameIndices).Flatten();
 
                 foreach (int keyFrame in keyFrames)
                 {
