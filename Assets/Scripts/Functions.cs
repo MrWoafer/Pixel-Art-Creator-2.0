@@ -60,23 +60,5 @@ namespace PAC
 
             return true;
         }
-
-        public static string ToPrettyString<T>(this T[] array)
-        {
-            string str = "{";
-
-            for (int i = 0; i < array.Length; i++)
-            {
-                str += array[i].ToString();
-                if (i < array.Length - 1)
-                {
-                    str += ", ";
-                }
-            }
-
-            str += "}";
-
-            return str;
-        }
     }
 }

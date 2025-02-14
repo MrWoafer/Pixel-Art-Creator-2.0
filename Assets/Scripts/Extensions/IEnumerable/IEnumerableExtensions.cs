@@ -484,5 +484,10 @@ namespace PAC.Extensions
         /// Returns the product of all elements in the sequence, or 1 if the sequence is empty.
         /// </summary>
         public static decimal Product(this IEnumerable<decimal> elements) => elements.Aggregate(1m, (accumulator, x) => accumulator * x);
+
+        /// <summary>
+        /// Formats <paramref name="elements"/> into a string of the form <c>"{ <paramref name="elements"/>[0], ..., <paramref name="elements"/>[^1] }"</c> (with the '...' replaced by elements).
+        /// </summary>
+        public static string ToPrettyString<T>(this IEnumerable<T> elements) => elements.Any() ? $"{{ {string.Join(", ", elements)} }}" : "{ }";
     }
 }

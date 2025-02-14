@@ -5,6 +5,7 @@ using System.Linq;
 using NUnit.Framework;
 
 using PAC.DataStructures;
+using PAC.Extensions;
 
 namespace PAC.Tests.DataStructures
 {
