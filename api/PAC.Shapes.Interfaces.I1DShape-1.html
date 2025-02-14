@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Interface I1DShape&lt;T&gt; | Pixel Art Creator 2.0 Docs </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Interface I1DShape&lt;T&gt; | Pixel Art Creator 2.0 Docs ">
+      
+      <meta name="description" content="A pixel art representation of a 1D shape (such as a straight line, or a curve).">
+      <link rel="icon" href="../resources/icon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/new/main/apiSpec/new?filename=PAC_Shapes_Interfaces_I1DShape_1.md&amp;value=---%0Auid%3A%20PAC.Shapes.Interfaces.I1DShape%601%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../resources/logo.svg" alt="Pixel Art Creator 2.0">
+            Pixel Art Creator 2.0
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="PAC.Shapes.Interfaces.I1DShape`1">
+
+
+
+  <h1 id="PAC_Shapes_Interfaces_I1DShape_1" data-uid="PAC.Shapes.Interfaces.I1DShape`1" class="text-break">
+Interface I1DShape&lt;T&gt;  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Drawing/Shapes/Interfaces/I1DShape.cs/#L13"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="PAC.html">PAC</a>.<a class="xref" href="PAC.Shapes.html">Shapes</a>.<a class="xref" href="PAC.Shapes.Interfaces.html">Interfaces</a></dd></dl>
+  
+  </div>
+
+  <div class="markdown summary"><p>A pixel art representation of a 1D shape (such as a straight line, or a curve).</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public interface I1DShape&lt;out T&gt; : ITransformableShape&lt;T&gt;, ITranslatableShape&lt;T&gt;, IFlippableShape&lt;T&gt;, IRotatableShape&lt;T&gt;, IDeepCopyableShape&lt;T&gt;, IShape, IReadOnlyContains&lt;IntVector2&gt;, IReadOnlyCollection&lt;IntVector2&gt;, IEnumerable&lt;IntVector2&gt;, IEnumerable where T : IShape</code></pre>
+  </div>
+
+
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd><p>The type of shape obtained from transformations on the shape.
+When implementing this interface on a concrete type, this should be the same as the implementing type. See <a class="xref" href="PAC.Shapes.Interfaces.ITranslatableShape-1.html">ITranslatableShape&lt;T&gt;</a> for more detail on this design pattern.</p>
+</dd>
+  </dl>
+
+
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="PAC.Shapes.Interfaces.ITranslatableShape-1.html#PAC_Shapes_Interfaces_ITranslatableShape_1_Translate_PAC_DataStructures_IntVector2_">ITranslatableShape&lt;T&gt;.Translate(IntVector2)</a>
+    </div>
+    <div>
+      <a class="xref" href="PAC.Shapes.Interfaces.IFlippableShape-1.html#PAC_Shapes_Interfaces_IFlippableShape_1_Flip_PAC_FlipAxis_">IFlippableShape&lt;T&gt;.Flip(FlipAxis)</a>
+    </div>
+    <div>
+      <a class="xref" href="PAC.Shapes.Interfaces.IRotatableShape-1.html#PAC_Shapes_Interfaces_IRotatableShape_1_Rotate_PAC_RotationAngle_">IRotatableShape&lt;T&gt;.Rotate(RotationAngle)</a>
+    </div>
+    <div>
+      <a class="xref" href="PAC.Shapes.Interfaces.IDeepCopyableShape-1.html#PAC_Shapes_Interfaces_IDeepCopyableShape_1_DeepCopy">IDeepCopyableShape&lt;T&gt;.DeepCopy()</a>
+    </div>
+    <div>
+      <a class="xref" href="PAC.Shapes.Interfaces.IShape.html#PAC_Shapes_Interfaces_IShape_boundingRect">IShape.boundingRect</a>
+    </div>
+    <div>
+      <a class="xref" href="PAC.Interfaces.IReadOnlyContains-1.html#PAC_Interfaces_IReadOnlyContains_1_Contains__0_">IReadOnlyContains&lt;IntVector2&gt;.Contains(IntVector2)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlycollection-1.count">IReadOnlyCollection&lt;IntVector2&gt;.Count</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1.getenumerator">IEnumerable&lt;IntVector2&gt;.GetEnumerator()</a>
+    </div>
+  </dd></dl>
+
+  <dl class="typelist extensionMethods">
+    <dt>Extension Methods</dt>
+    <dd>
+  <div>
+      <a class="xref" href="PAC.Extensions.IReadOnlyContainsExtensions.html#PAC_Extensions_IReadOnlyContainsExtensions_ContainsAll__1_PAC_Interfaces_IReadOnlyContains___0____0___">IReadOnlyContainsExtensions.ContainsAll&lt;T&gt;(IReadOnlyContains&lt;T&gt;, params T[])</a>
+  </div>
+  <div>
+      <a class="xref" href="PAC.Extensions.IReadOnlyContainsExtensions.html#PAC_Extensions_IReadOnlyContainsExtensions_ContainsAll__1_PAC_Interfaces_IReadOnlyContains___0__System_Collections_Generic_IEnumerable___0__">IReadOnlyContainsExtensions.ContainsAll&lt;T&gt;(IReadOnlyContains&lt;T&gt;, IEnumerable&lt;T&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="PAC.Extensions.IReadOnlyContainsExtensions.html#PAC_Extensions_IReadOnlyContainsExtensions_ContainsAny__1_PAC_Interfaces_IReadOnlyContains___0____0___">IReadOnlyContainsExtensions.ContainsAny&lt;T&gt;(IReadOnlyContains&lt;T&gt;, params T[])</a>
+  </div>
+  <div>
+      <a class="xref" href="PAC.Extensions.IReadOnlyContainsExtensions.html#PAC_Extensions_IReadOnlyContainsExtensions_ContainsAny__1_PAC_Interfaces_IReadOnlyContains___0__System_Collections_Generic_IEnumerable___0__">IReadOnlyContainsExtensions.ContainsAny&lt;T&gt;(IReadOnlyContains&lt;T&gt;, IEnumerable&lt;T&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="PAC.Extensions.IReadOnlyContainsExtensions.html#PAC_Extensions_IReadOnlyContainsExtensions_ContainsNone__1_PAC_Interfaces_IReadOnlyContains___0____0___">IReadOnlyContainsExtensions.ContainsNone&lt;T&gt;(IReadOnlyContains&lt;T&gt;, params T[])</a>
+  </div>
+  <div>
+      <a class="xref" href="PAC.Extensions.IReadOnlyContainsExtensions.html#PAC_Extensions_IReadOnlyContainsExtensions_ContainsNone__1_PAC_Interfaces_IReadOnlyContains___0__System_Collections_Generic_IEnumerable___0__">IReadOnlyContainsExtensions.ContainsNone&lt;T&gt;(IReadOnlyContains&lt;T&gt;, IEnumerable&lt;T&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="PAC.Extensions.IReadOnlyContainsExtensions.html#PAC_Extensions_IReadOnlyContainsExtensions_ContainsNotAll__1_PAC_Interfaces_IReadOnlyContains___0____0___">IReadOnlyContainsExtensions.ContainsNotAll&lt;T&gt;(IReadOnlyContains&lt;T&gt;, params T[])</a>
+  </div>
+  <div>
+      <a class="xref" href="PAC.Extensions.IReadOnlyContainsExtensions.html#PAC_Extensions_IReadOnlyContainsExtensions_ContainsNotAll__1_PAC_Interfaces_IReadOnlyContains___0__System_Collections_Generic_IEnumerable___0__">IReadOnlyContainsExtensions.ContainsNotAll&lt;T&gt;(IReadOnlyContains&lt;T&gt;, IEnumerable&lt;T&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="PAC.Extensions.ISetComparableExtensions.html#PAC_Extensions_ISetComparableExtensions_IsProperSubsetOf__2___0___1_">ISetComparableExtensions.IsProperSubsetOf&lt;T1, T2&gt;(T1, T2)</a>
+  </div>
+  <div>
+      <a class="xref" href="PAC.Extensions.ISetComparableExtensions.html#PAC_Extensions_ISetComparableExtensions_IsProperSupersetOf__2___0___1_">ISetComparableExtensions.IsProperSupersetOf&lt;T1, T2&gt;(T1, T2)</a>
+  </div>
+  <div>
+      <a class="xref" href="PAC.Extensions.IShapeExtensions.html#PAC_Extensions_IShapeExtensions_ToTexture_PAC_Shapes_Interfaces_IShape_Color_">IShapeExtensions.ToTexture(IShape, Color)</a>
+  </div>
+  <div>
+      <a class="xref" href="PAC.Extensions.IShapeExtensions.html#PAC_Extensions_IShapeExtensions_ToTexture_PAC_Shapes_Interfaces_IShape_Color_PAC_DataStructures_IntRect_">IShapeExtensions.ToTexture(IShape, Color, IntRect)</a>
+  </div>
+  <div>
+      <a class="xref" href="PAC.Extensions.IEnumerableExtensions.html#PAC_Extensions_IEnumerableExtensions_AreAllDistinct__1_System_Collections_Generic_IEnumerable___0__">IEnumerableExtensions.AreAllDistinct&lt;T&gt;(IEnumerable&lt;T&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="PAC.Extensions.IEnumerableExtensions.html#PAC_Extensions_IEnumerableExtensions_ArgMax__2_System_Collections_Generic_IEnumerable___0__System_Func___0___1__">IEnumerableExtensions.ArgMax&lt;TElement, TCompare&gt;(IEnumerable&lt;TElement&gt;, Func&lt;TElement, TCompare&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="PAC.Extensions.IEnumerableExtensions.html#PAC_Extensions_IEnumerableExtensions_ArgMin__2_System_Collections_Generic_IEnumerable___0__System_Func___0___1__">IEnumerableExtensions.ArgMin&lt;TElement, TCompare&gt;(IEnumerable&lt;TElement&gt;, Func&lt;TElement, TCompare&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="PAC.Extensions.IEnumerableExtensions.html#PAC_Extensions_IEnumerableExtensions_Concat__1_System_Collections_Generic_IEnumerable___0__System_Collections_Generic_IEnumerable___0__System_Collections_Generic_IEnumerable___0__System_Collections_Generic_IEnumerable___0____">IEnumerableExtensions.Concat&lt;T&gt;(IEnumerable&lt;T&gt;, IEnumerable&lt;T&gt;, IEnumerable&lt;T&gt;, params IEnumerable&lt;T&gt;[])</a>
+  </div>
+  <div>
+      <a class="xref" href="PAC.Extensions.IEnumerableExtensions.html#PAC_Extensions_IEnumerableExtensions_ContainsAll__1_System_Collections_Generic_IEnumerable___0____0___">IEnumerableExtensions.ContainsAll&lt;T&gt;(IEnumerable&lt;T&gt;, params T[])</a>
+  </div>
+  <div>
+      <a class="xref" href="PAC.Extensions.IEnumerableExtensions.html#PAC_Extensions_IEnumerableExtensions_ContainsAll__1_System_Collections_Generic_IEnumerable___0__System_Collections_Generic_IEnumerable___0__">IEnumerableExtensions.ContainsAll&lt;T&gt;(IEnumerable&lt;T&gt;, IEnumerable&lt;T&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="PAC.Extensions.IEnumerableExtensions.html#PAC_Extensions_IEnumerableExtensions_ContainsAny__1_System_Collections_Generic_IEnumerable___0____0___">IEnumerableExtensions.ContainsAny&lt;T&gt;(IEnumerable&lt;T&gt;, params T[])</a>
+  </div>
+  <div>
+      <a class="xref" href="PAC.Extensions.IEnumerableExtensions.html#PAC_Extensions_IEnumerableExtensions_ContainsAny__1_System_Collections_Generic_IEnumerable___0__System_Collections_Generic_IEnumerable___0__">IEnumerableExtensions.ContainsAny&lt;T&gt;(IEnumerable&lt;T&gt;, IEnumerable&lt;T&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="PAC.Extensions.IEnumerableExtensions.html#PAC_Extensions_IEnumerableExtensions_ContainsNone__1_System_Collections_Generic_IEnumerable___0____0___">IEnumerableExtensions.ContainsNone&lt;T&gt;(IEnumerable&lt;T&gt;, params T[])</a>
+  </div>
+  <div>
+      <a class="xref" href="PAC.Extensions.IEnumerableExtensions.html#PAC_Extensions_IEnumerableExtensions_ContainsNone__1_System_Collections_Generic_IEnumerable___0__System_Collections_Generic_IEnumerable___0__">IEnumerableExtensions.ContainsNone&lt;T&gt;(IEnumerable&lt;T&gt;, IEnumerable&lt;T&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="PAC.Extensions.IEnumerableExtensions.html#PAC_Extensions_IEnumerableExtensions_ContainsNotAll__1_System_Collections_Generic_IEnumerable___0____0___">IEnumerableExtensions.ContainsNotAll&lt;T&gt;(IEnumerable&lt;T&gt;, params T[])</a>
+  </div>
+  <div>
+      <a class="xref" href="PAC.Extensions.IEnumerableExtensions.html#PAC_Extensions_IEnumerableExtensions_ContainsNotAll__1_System_Collections_Generic_IEnumerable___0__System_Collections_Generic_IEnumerable___0__">IEnumerableExtensions.ContainsNotAll&lt;T&gt;(IEnumerable&lt;T&gt;, IEnumerable&lt;T&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="PAC.Extensions.IEnumerableExtensions.html#PAC_Extensions_IEnumerableExtensions_CountIsAtLeast__1_System_Collections_Generic_IEnumerable___0__System_Int32_">IEnumerableExtensions.CountIsAtLeast&lt;T&gt;(IEnumerable&lt;T&gt;, int)</a>
+  </div>
+  <div>
+      <a class="xref" href="PAC.Extensions.IEnumerableExtensions.html#PAC_Extensions_IEnumerableExtensions_CountIsAtMost__1_System_Collections_Generic_IEnumerable___0__System_Int32_">IEnumerableExtensions.CountIsAtMost&lt;T&gt;(IEnumerable&lt;T&gt;, int)</a>
+  </div>
+  <div>
+      <a class="xref" href="PAC.Extensions.IEnumerableExtensions.html#PAC_Extensions_IEnumerableExtensions_CountIsExactly__1_System_Collections_Generic_IEnumerable___0__System_Int32_">IEnumerableExtensions.CountIsExactly&lt;T&gt;(IEnumerable&lt;T&gt;, int)</a>
+  </div>
+  <div>
+      <a class="xref" href="PAC.Extensions.IEnumerableExtensions.html#PAC_Extensions_IEnumerableExtensions_EnumerateOccurrences__1_System_Collections_Generic_IEnumerable___0__">IEnumerableExtensions.EnumerateOccurrences&lt;T&gt;(IEnumerable&lt;T&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="PAC.Extensions.IEnumerableExtensions.html#PAC_Extensions_IEnumerableExtensions_Enumerate__1_System_Collections_Generic_IEnumerable___0__">IEnumerableExtensions.Enumerate&lt;T&gt;(IEnumerable&lt;T&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="PAC.Extensions.IEnumerableExtensions.html#PAC_Extensions_IEnumerableExtensions_IsSubsequenceOf__1_System_Collections_Generic_IEnumerable___0__System_Collections_Generic_IEnumerable___0__">IEnumerableExtensions.IsSubsequenceOf&lt;T&gt;(IEnumerable&lt;T&gt;, IEnumerable&lt;T&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="PAC.Extensions.IEnumerableExtensions.html#PAC_Extensions_IEnumerableExtensions_IsSupersequenceOf__1_System_Collections_Generic_IEnumerable___0__System_Collections_Generic_IEnumerable___0__">IEnumerableExtensions.IsSupersequenceOf&lt;T&gt;(IEnumerable&lt;T&gt;, IEnumerable&lt;T&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="PAC.Extensions.IEnumerableExtensions.html#PAC_Extensions_IEnumerableExtensions_MinAndMax__1_System_Collections_Generic_IEnumerable___0__">IEnumerableExtensions.MinAndMax&lt;T&gt;(IEnumerable&lt;T&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="PAC.Extensions.IEnumerableExtensions.html#PAC_Extensions_IEnumerableExtensions_None__1_System_Collections_Generic_IEnumerable___0__">IEnumerableExtensions.None&lt;T&gt;(IEnumerable&lt;T&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="PAC.Extensions.IEnumerableExtensions.html#PAC_Extensions_IEnumerableExtensions_None__1_System_Collections_Generic_IEnumerable___0__System_Func___0_System_Boolean__">IEnumerableExtensions.None&lt;T&gt;(IEnumerable&lt;T&gt;, Func&lt;T, bool&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="PAC.Extensions.IEnumerableExtensions.html#PAC_Extensions_IEnumerableExtensions_NotAll__1_System_Collections_Generic_IEnumerable___0__System_Func___0_System_Boolean__">IEnumerableExtensions.NotAll&lt;T&gt;(IEnumerable&lt;T&gt;, Func&lt;T, bool&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="PAC.Extensions.IEnumerableExtensions.html#PAC_Extensions_IEnumerableExtensions_Replace__1_System_Collections_Generic_IEnumerable___0____0___0_">IEnumerableExtensions.Replace&lt;T&gt;(IEnumerable&lt;T&gt;, T, T)</a>
+  </div>
+  <div>
+      <a class="xref" href="PAC.Extensions.IEnumerableExtensions.html#PAC_Extensions_IEnumerableExtensions_SkipIndex__1_System_Collections_Generic_IEnumerable___0__System_Int32_">IEnumerableExtensions.SkipIndex&lt;T&gt;(IEnumerable&lt;T&gt;, int)</a>
+  </div>
+  <div>
+      <a class="xref" href="PAC.Extensions.IEnumerableExtensions.html#PAC_Extensions_IEnumerableExtensions_ZipCurrentAndNext__1_System_Collections_Generic_IEnumerable___0__">IEnumerableExtensions.ZipCurrentAndNext&lt;T&gt;(IEnumerable&lt;T&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="PAC.Extensions.IEnumerableExtensions.html#PAC_Extensions_IEnumerableExtensions_Zip__2_System_Collections_Generic_IEnumerable___0__System_Collections_Generic_IEnumerable___1__">IEnumerableExtensions.Zip&lt;T1, T2&gt;(IEnumerable&lt;T1&gt;, IEnumerable&lt;T2&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="PAC.Maths.Combinatorics.html#PAC_Maths_Combinatorics_Pairs__1_System_Collections_Generic_IEnumerable___0__">Combinatorics.Pairs&lt;T&gt;(IEnumerable&lt;T&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="PAC.Maths.Combinatorics.html#PAC_Maths_Combinatorics_Pairs__2_System_Collections_Generic_IEnumerable___0__System_Collections_Generic_IEnumerable___1__">Combinatorics.Pairs&lt;TFirst, TSecond&gt;(IEnumerable&lt;TFirst&gt;, IEnumerable&lt;TSecond&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="PAC.Maths.Combinatorics.html#PAC_Maths_Combinatorics_Permutations__1_System_Collections_Generic_IEnumerable___0__">Combinatorics.Permutations&lt;T&gt;(IEnumerable&lt;T&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="PAC.Maths.Combinatorics.html#PAC_Maths_Combinatorics_Permutations__1_System_Collections_Generic_IEnumerable___0__System_Int32_">Combinatorics.Permutations&lt;T&gt;(IEnumerable&lt;T&gt;, int)</a>
+  </div>
+  <div>
+      <a class="xref" href="PAC.Maths.Combinatorics.html#PAC_Maths_Combinatorics_Triples__1_System_Collections_Generic_IEnumerable___0__">Combinatorics.Triples&lt;T&gt;(IEnumerable&lt;T&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="PAC.Maths.Combinatorics.html#PAC_Maths_Combinatorics_Triples__3_System_Collections_Generic_IEnumerable___0__System_Collections_Generic_IEnumerable___1__System_Collections_Generic_IEnumerable___2__">Combinatorics.Triples&lt;TFirst, TSecond, TThird&gt;(IEnumerable&lt;TFirst&gt;, IEnumerable&lt;TSecond&gt;, IEnumerable&lt;TThird&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="PAC.Maths.Combinatorics.html#PAC_Maths_Combinatorics_Tuples__1_System_Collections_Generic_IEnumerable___0__System_Int32_">Combinatorics.Tuples&lt;T&gt;(IEnumerable&lt;T&gt;, int)</a>
+  </div>
+  </dd></dl>
+
+
+
+  <h2 id="PAC_Shapes_Interfaces_I1DShape_1_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>See <a class="xref" href="PAC.Shapes.Interfaces.ITranslatableShape-1.html">ITranslatableShape&lt;T&gt;</a> for details of the design pattern regarding the generic type parameter.</p>
+</div>
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Drawing/Shapes/Interfaces/I1DShape.cs/#L13" class="edit-link">Edit this page</a>
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          Pixel Art Creator 2.0 Docs
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

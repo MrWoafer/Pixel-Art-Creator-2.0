@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
   <head>
     <meta charset="utf-8">
@@ -54,7 +54,7 @@
             <div id="navbar">
               <form class="search" role="search" id="search">
                 <i class="bi bi-search"></i>
-                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
               </form>
             </div>
           </div>
@@ -151,6 +151,16 @@ Class Layer  <a class="header-action link-secondary" title="View source" href="h
     </div>
   </dd></dl>
 
+  <dl class="typelist extensionMethods">
+    <dt>Extension Methods</dt>
+    <dd>
+  <div>
+      <a class="xref" href="PAC.Extensions.ISetComparableExtensions.html#PAC_Extensions_ISetComparableExtensions_IsProperSubsetOf__2___0___1_">ISetComparableExtensions.IsProperSubsetOf&lt;T1, T2&gt;(T1, T2)</a>
+  </div>
+  <div>
+      <a class="xref" href="PAC.Extensions.ISetComparableExtensions.html#PAC_Extensions_ISetComparableExtensions_IsProperSupersetOf__2___0___1_">ISetComparableExtensions.IsProperSupersetOf&lt;T1, T2&gt;(T1, T2)</a>
+  </div>
+  </dd></dl>
 
 
 
@@ -300,7 +310,7 @@ Passes the array of pixels changed and the frames it was called on.</p>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected UnityEvent&lt;IntVector2[], int[]&gt; onPixelsChanged</code></pre>
+    <pre><code class="lang-csharp hljs">protected UnityEvent&lt;IEnumerable&lt;IntVector2&gt;, int[]&gt; onPixelsChanged</code></pre>
   </div>
 
 
@@ -308,7 +318,7 @@ Passes the array of pixels changed and the frames it was called on.</p>
 
   <h4 class="section">Field Value</h4>
   <dl class="parameters">
-    <dt><span class="xref">UnityEvent</span>&lt;<a class="xref" href="PAC.DataStructures.IntVector2.html">IntVector2</a>[], <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>[]&gt;</dt>
+    <dt><span class="xref">UnityEvent</span>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="PAC.DataStructures.IntVector2.html">IntVector2</a>&gt;, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>[]&gt;</dt>
     <dd></dd>
   </dl>
 
@@ -1137,8 +1147,8 @@ Passes the array of pixels changed and the frames it was called on.</p>
 
   <a id="PAC_Layers_Layer_Flip_" data-uid="PAC.Layers.Layer.Flip*"></a>
 
-  <h3 id="PAC_Layers_Layer_Flip_PAC_FlipDirection_" data-uid="PAC.Layers.Layer.Flip(PAC.FlipDirection)">
-  Flip(FlipDirection)
+  <h3 id="PAC_Layers_Layer_Flip_PAC_FlipAxis_" data-uid="PAC.Layers.Layer.Flip(PAC.FlipAxis)">
+  Flip(FlipAxis)
   <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Layers/Layer.cs/#L212"><i class="bi bi-code-slash"></i></a>
   </h3>
 
@@ -1147,12 +1157,12 @@ Passes the array of pixels changed and the frames it was called on.</p>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public void Flip(FlipDirection direction)</code></pre>
+    <pre><code class="lang-csharp hljs">public void Flip(FlipAxis axis)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
-    <dt><code>direction</code> <a class="xref" href="PAC.FlipDirection.html">FlipDirection</a></dt>
+    <dt><code>axis</code> <a class="xref" href="PAC.FlipAxis.html">FlipAxis</a></dt>
     <dd></dd>
   </dl>
 
@@ -1169,8 +1179,8 @@ Passes the array of pixels changed and the frames it was called on.</p>
 
   <a id="PAC_Layers_Layer_FlipNoEvent_" data-uid="PAC.Layers.Layer.FlipNoEvent*"></a>
 
-  <h3 id="PAC_Layers_Layer_FlipNoEvent_PAC_FlipDirection_" data-uid="PAC.Layers.Layer.FlipNoEvent(PAC.FlipDirection)">
-  FlipNoEvent(FlipDirection)
+  <h3 id="PAC_Layers_Layer_FlipNoEvent_PAC_FlipAxis_" data-uid="PAC.Layers.Layer.FlipNoEvent(PAC.FlipAxis)">
+  FlipNoEvent(FlipAxis)
   <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Layers/Layer.cs/#L208"><i class="bi bi-code-slash"></i></a>
   </h3>
 
@@ -1179,12 +1189,12 @@ Passes the array of pixels changed and the frames it was called on.</p>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected abstract void FlipNoEvent(FlipDirection direction)</code></pre>
+    <pre><code class="lang-csharp hljs">protected abstract void FlipNoEvent(FlipAxis axis)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
-    <dt><code>direction</code> <a class="xref" href="PAC.FlipDirection.html">FlipDirection</a></dt>
+    <dt><code>axis</code> <a class="xref" href="PAC.FlipAxis.html">FlipAxis</a></dt>
     <dd></dd>
   </dl>
 
@@ -1670,7 +1680,7 @@ Rotation is clockwise.</p>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public IntVector2[] SetPixel(IntVector2 pixel, int frame, Color colour, AnimFrameRefMode frameRefMode)</code></pre>
+    <pre><code class="lang-csharp hljs">public IEnumerable&lt;IntVector2&gt; SetPixel(IntVector2 pixel, int frame, Color colour, AnimFrameRefMode frameRefMode)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
@@ -1687,7 +1697,7 @@ Rotation is clockwise.</p>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
-    <dt><a class="xref" href="PAC.DataStructures.IntVector2.html">IntVector2</a>[]</dt>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="PAC.DataStructures.IntVector2.html">IntVector2</a>&gt;</dt>
     <dd></dd>
   </dl>
 
@@ -1713,7 +1723,7 @@ Rotation is clockwise.</p>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public IntVector2[] SetPixel(int x, int y, int frame, Color colour, AnimFrameRefMode frameRefMode)</code></pre>
+    <pre><code class="lang-csharp hljs">public IEnumerable&lt;IntVector2&gt; SetPixel(int x, int y, int frame, Color colour, AnimFrameRefMode frameRefMode)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
@@ -1732,7 +1742,7 @@ Rotation is clockwise.</p>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
-    <dt><a class="xref" href="PAC.DataStructures.IntVector2.html">IntVector2</a>[]</dt>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="PAC.DataStructures.IntVector2.html">IntVector2</a>&gt;</dt>
     <dd></dd>
   </dl>
 
@@ -1748,8 +1758,8 @@ Rotation is clockwise.</p>
 
   <a id="PAC_Layers_Layer_SetPixels_" data-uid="PAC.Layers.Layer.SetPixels*"></a>
 
-  <h3 id="PAC_Layers_Layer_SetPixels_PAC_DataStructures_IntVector2___System_Int32_Color_PAC_Layers_AnimFrameRefMode_" data-uid="PAC.Layers.Layer.SetPixels(PAC.DataStructures.IntVector2[],System.Int32,Color,PAC.Layers.AnimFrameRefMode)">
-  SetPixels(IntVector2[], int, Color, AnimFrameRefMode)
+  <h3 id="PAC_Layers_Layer_SetPixels_System_Collections_Generic_IEnumerable_PAC_DataStructures_IntVector2__System_Int32_Color_PAC_Layers_AnimFrameRefMode_" data-uid="PAC.Layers.Layer.SetPixels(System.Collections.Generic.IEnumerable{PAC.DataStructures.IntVector2},System.Int32,Color,PAC.Layers.AnimFrameRefMode)">
+  SetPixels(IEnumerable&lt;IntVector2&gt;, int, Color, AnimFrameRefMode)
   <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Layers/Layer.cs/#L161"><i class="bi bi-code-slash"></i></a>
   </h3>
 
@@ -1758,12 +1768,12 @@ Rotation is clockwise.</p>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public IntVector2[] SetPixels(IntVector2[] pixels, int frame, Color colour, AnimFrameRefMode frameRefMode)</code></pre>
+    <pre><code class="lang-csharp hljs">public IEnumerable&lt;IntVector2&gt; SetPixels(IEnumerable&lt;IntVector2&gt; pixels, int frame, Color colour, AnimFrameRefMode frameRefMode)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
-    <dt><code>pixels</code> <a class="xref" href="PAC.DataStructures.IntVector2.html">IntVector2</a>[]</dt>
+    <dt><code>pixels</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="PAC.DataStructures.IntVector2.html">IntVector2</a>&gt;</dt>
     <dd></dd>
     <dt><code>frame</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
     <dd></dd>
@@ -1775,7 +1785,7 @@ Rotation is clockwise.</p>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
-    <dt><a class="xref" href="PAC.DataStructures.IntVector2.html">IntVector2</a>[]</dt>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="PAC.DataStructures.IntVector2.html">IntVector2</a>&gt;</dt>
     <dd></dd>
   </dl>
 
@@ -1791,8 +1801,8 @@ Rotation is clockwise.</p>
 
   <a id="PAC_Layers_Layer_SetPixelsNoEvent_" data-uid="PAC.Layers.Layer.SetPixelsNoEvent*"></a>
 
-  <h3 id="PAC_Layers_Layer_SetPixelsNoEvent_PAC_DataStructures_IntVector2___System_Int32_Color_PAC_Layers_AnimFrameRefMode_" data-uid="PAC.Layers.Layer.SetPixelsNoEvent(PAC.DataStructures.IntVector2[],System.Int32,Color,PAC.Layers.AnimFrameRefMode)">
-  SetPixelsNoEvent(IntVector2[], int, Color, AnimFrameRefMode)
+  <h3 id="PAC_Layers_Layer_SetPixelsNoEvent_System_Collections_Generic_IEnumerable_PAC_DataStructures_IntVector2__System_Int32_Color_PAC_Layers_AnimFrameRefMode_" data-uid="PAC.Layers.Layer.SetPixelsNoEvent(System.Collections.Generic.IEnumerable{PAC.DataStructures.IntVector2},System.Int32,Color,PAC.Layers.AnimFrameRefMode)">
+  SetPixelsNoEvent(IEnumerable&lt;IntVector2&gt;, int, Color, AnimFrameRefMode)
   <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Layers/Layer.cs/#L157"><i class="bi bi-code-slash"></i></a>
   </h3>
 
@@ -1802,12 +1812,12 @@ You do not need to check the pixels are in the layer as this check is done in La
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected abstract IntVector2[] SetPixelsNoEvent(IntVector2[] pixels, int frame, Color colour, AnimFrameRefMode frameRefMode)</code></pre>
+    <pre><code class="lang-csharp hljs">protected abstract IEnumerable&lt;IntVector2&gt; SetPixelsNoEvent(IEnumerable&lt;IntVector2&gt; pixels, int frame, Color colour, AnimFrameRefMode frameRefMode)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
-    <dt><code>pixels</code> <a class="xref" href="PAC.DataStructures.IntVector2.html">IntVector2</a>[]</dt>
+    <dt><code>pixels</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="PAC.DataStructures.IntVector2.html">IntVector2</a>&gt;</dt>
     <dd></dd>
     <dt><code>frame</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
     <dd></dd>
@@ -1819,7 +1829,7 @@ You do not need to check the pixels are in the layer as this check is done in La
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
-    <dt><a class="xref" href="PAC.DataStructures.IntVector2.html">IntVector2</a>[]</dt>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="PAC.DataStructures.IntVector2.html">IntVector2</a>&gt;</dt>
     <dd></dd>
   </dl>
 
@@ -1928,8 +1938,8 @@ You do not need to check the pixels are in the layer as this check is done in La
 
   <a id="PAC_Layers_Layer_SubscribeToOnPixelsChanged_" data-uid="PAC.Layers.Layer.SubscribeToOnPixelsChanged*"></a>
 
-  <h3 id="PAC_Layers_Layer_SubscribeToOnPixelsChanged_UnityAction_PAC_DataStructures_IntVector2___System_Int32____" data-uid="PAC.Layers.Layer.SubscribeToOnPixelsChanged(UnityAction{PAC.DataStructures.IntVector2[],System.Int32[]})">
-  SubscribeToOnPixelsChanged(UnityAction&lt;IntVector2[], int[]&gt;)
+  <h3 id="PAC_Layers_Layer_SubscribeToOnPixelsChanged_UnityAction_System_Collections_Generic_IEnumerable_PAC_DataStructures_IntVector2__System_Int32____" data-uid="PAC.Layers.Layer.SubscribeToOnPixelsChanged(UnityAction{System.Collections.Generic.IEnumerable{PAC.DataStructures.IntVector2},System.Int32[]})">
+  SubscribeToOnPixelsChanged(UnityAction&lt;IEnumerable&lt;IntVector2&gt;, int[]&gt;)
   <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Layers/Layer.cs/#L418"><i class="bi bi-code-slash"></i></a>
   </h3>
 
@@ -1937,12 +1947,12 @@ You do not need to check the pixels are in the layer as this check is done in La
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public void SubscribeToOnPixelsChanged(UnityAction&lt;IntVector2[], int[]&gt; call)</code></pre>
+    <pre><code class="lang-csharp hljs">public void SubscribeToOnPixelsChanged(UnityAction&lt;IEnumerable&lt;IntVector2&gt;, int[]&gt; call)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
-    <dt><code>call</code> <span class="xref">UnityAction</span>&lt;<a class="xref" href="PAC.DataStructures.IntVector2.html">IntVector2</a>[], <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>[]&gt;</dt>
+    <dt><code>call</code> <span class="xref">UnityAction</span>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="PAC.DataStructures.IntVector2.html">IntVector2</a>&gt;, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>[]&gt;</dt>
     <dd></dd>
   </dl>
 

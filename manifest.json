@@ -22,6 +22,26 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/Global.Rational.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Global.Rational.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Global.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Global.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/PAC.Animation.AnimationKeyFrame.JsonConverter.yml",
       "output": {
         ".html": {
@@ -272,6 +292,16 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/PAC.DataStructures.IntRange.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.DataStructures.IntRange.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/PAC.DataStructures.IntRect.yml",
       "output": {
         ".html": {
@@ -332,6 +362,16 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/PAC.Drawing.CoordSnapping.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.Drawing.CoordSnapping.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/PAC.Drawing.DrawingArea.yml",
       "output": {
         ".html": {
@@ -376,16 +416,6 @@
       "output": {
         ".html": {
           "relative_path": "api/PAC.Drawing.Shape.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/PAC.Drawing.Shapes.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/PAC.Drawing.Shapes.html"
         }
       },
       "version": ""
@@ -472,10 +502,30 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/PAC.Exceptions.TestException.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.Exceptions.TestException.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/PAC.Exceptions.UnderflowException.yml",
       "output": {
         ".html": {
           "relative_path": "api/PAC.Exceptions.UnderflowException.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.Exceptions.UnreachableException.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.Exceptions.UnreachableException.html"
         }
       },
       "version": ""
@@ -492,10 +542,100 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/PAC.Extensions.ColorExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.Extensions.ColorExtensions.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.Extensions.ICollectionExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.Extensions.ICollectionExtensions.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.Extensions.IDictionaryExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.Extensions.IDictionaryExtensions.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/PAC.Extensions.IEnumerableExtensions.yml",
       "output": {
         ".html": {
           "relative_path": "api/PAC.Extensions.IEnumerableExtensions.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.Extensions.IPattern2DExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.Extensions.IPattern2DExtensions.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.Extensions.IReadOnlyContainsExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.Extensions.IReadOnlyContainsExtensions.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.Extensions.IReadOnlyListExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.Extensions.IReadOnlyListExtensions.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.Extensions.ISetComparableExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.Extensions.ISetComparableExtensions.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.Extensions.IShapeExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.Extensions.IShapeExtensions.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.Extensions.IntRangeExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.Extensions.IntRangeExtensions.html"
         }
       },
       "version": ""
@@ -546,6 +686,16 @@
       "output": {
         ".html": {
           "relative_path": "api/PAC.Extensions.JsonConverters.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.Extensions.RandomExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.Extensions.RandomExtensions.html"
         }
       },
       "version": ""
@@ -662,10 +812,10 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/PAC.FlipDirection.yml",
+      "source_relative_path": "api/PAC.FlipAxis.yml",
       "output": {
         ".html": {
-          "relative_path": "api/PAC.FlipDirection.html"
+          "relative_path": "api/PAC.FlipAxis.html"
         }
       },
       "version": ""
@@ -806,6 +956,36 @@
       "output": {
         ".html": {
           "relative_path": "api/PAC.Input.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.Interfaces.IReadOnlyContains-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.Interfaces.IReadOnlyContains-1.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.Interfaces.ISetComparable-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.Interfaces.ISetComparable-1.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.Interfaces.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.Interfaces.html"
         }
       },
       "version": ""
@@ -1122,10 +1302,100 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/PAC.Maths.Combinatorics.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.Maths.Combinatorics.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.Maths.MathExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.Maths.MathExtensions.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.Maths.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.Maths.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/PAC.OutlineSideFill.yml",
       "output": {
         ".html": {
           "relative_path": "api/PAC.OutlineSideFill.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.Patterns.Checkerboard-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.Patterns.Checkerboard-1.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.Patterns.Gradient.Linear.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.Patterns.Gradient.Linear.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.Patterns.Gradient.Radial.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.Patterns.Gradient.Radial.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.Patterns.Gradient.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.Patterns.Gradient.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.Patterns.IPattern2D-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.Patterns.IPattern2D-1.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.Patterns.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.Patterns.html"
         }
       },
       "version": ""
@@ -1266,6 +1536,216 @@
       "output": {
         ".html": {
           "relative_path": "api/PAC.Shaders.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.Shapes.Diamond.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.Shapes.Diamond.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.Shapes.Ellipse.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.Shapes.Ellipse.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.Shapes.Interfaces.I1DShape-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.Shapes.Interfaces.I1DShape-1.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.Shapes.Interfaces.I2DShape-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.Shapes.Interfaces.I2DShape-1.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.Shapes.Interfaces.IDeepCopyableShape-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.Shapes.Interfaces.IDeepCopyableShape-1.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.Shapes.Interfaces.IFillableShape.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.Shapes.Interfaces.IFillableShape.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.Shapes.Interfaces.IFlippableShape-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.Shapes.Interfaces.IFlippableShape-1.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.Shapes.Interfaces.IIsometricShape-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.Shapes.Interfaces.IIsometricShape-1.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.Shapes.Interfaces.IRotatableShape-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.Shapes.Interfaces.IRotatableShape-1.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.Shapes.Interfaces.IShape.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.Shapes.Interfaces.IShape.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.Shapes.Interfaces.ITransformableShape-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.Shapes.Interfaces.ITransformableShape-1.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.Shapes.Interfaces.ITranslatableShape-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.Shapes.Interfaces.ITranslatableShape-1.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.Shapes.Interfaces.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.Shapes.Interfaces.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.Shapes.IsometricCuboid.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.Shapes.IsometricCuboid.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.Shapes.IsometricRectangle.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.Shapes.IsometricRectangle.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.Shapes.Line.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.Shapes.Line.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.Shapes.Path.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.Shapes.Path.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.Shapes.Rectangle.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.Shapes.Rectangle.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.Shapes.RightTriangle.RightAngleLocation.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.Shapes.RightTriangle.RightAngleLocation.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.Shapes.RightTriangle.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.Shapes.RightTriangle.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.Shapes.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.Shapes.html"
         }
       },
       "version": ""
@@ -1772,10 +2252,40 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/PAC.ValueTupleExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.ValueTupleExtensions.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/PAC.yml",
       "output": {
         ".html": {
           "relative_path": "api/PAC.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/System.Runtime.CompilerServices.IsExternalInit.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/System.Runtime.CompilerServices.IsExternalInit.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/System.Runtime.CompilerServices.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/System.Runtime.CompilerServices.html"
         }
       },
       "version": ""

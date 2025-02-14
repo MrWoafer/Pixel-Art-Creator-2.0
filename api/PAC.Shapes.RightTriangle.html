@@ -1,0 +1,1479 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class RightTriangle | Pixel Art Creator 2.0 Docs </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class RightTriangle | Pixel Art Creator 2.0 Docs ">
+      
+      <meta name="description" content="A pixel art right-angled triangle shape.  For example,             # #         # #   #       #       #   # #         # #             # # # # # # # # #">
+      <link rel="icon" href="../resources/icon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/new/main/apiSpec/new?filename=PAC_Shapes_RightTriangle.md&amp;value=---%0Auid%3A%20PAC.Shapes.RightTriangle%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../resources/logo.svg" alt="Pixel Art Creator 2.0">
+            Pixel Art Creator 2.0
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="PAC.Shapes.RightTriangle">
+
+
+
+  <h1 id="PAC_Shapes_RightTriangle" data-uid="PAC.Shapes.RightTriangle" class="text-break">
+Class RightTriangle  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Drawing/Shapes/RightTriangle.cs/#L76"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="PAC.html">PAC</a>.<a class="xref" href="PAC.Shapes.html">Shapes</a></dd></dl>
+  
+  </div>
+
+  <div class="markdown summary"><p>A pixel art right-angled triangle shape.
+<example>
+For example,</example></p>
+<pre><code class="lang-csharp">            # #
+        # #   #
+      #       #
+  # #         #
+#             #
+# # # # # # # #</code></pre>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class RightTriangle : I2DShape&lt;RightTriangle&gt;, IFillableShape, ITransformableShape&lt;RightTriangle&gt;, ITranslatableShape&lt;RightTriangle&gt;, IFlippableShape&lt;RightTriangle&gt;, IRotatableShape&lt;RightTriangle&gt;, IDeepCopyableShape&lt;RightTriangle&gt;, IShape, IReadOnlyContains&lt;IntVector2&gt;, IReadOnlyCollection&lt;IntVector2&gt;, IEnumerable&lt;IntVector2&gt;, IEnumerable, IEquatable&lt;RightTriangle&gt;</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">RightTriangle</span></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="PAC.Shapes.Interfaces.I2DShape-1.html">I2DShape</a>&lt;<a class="xref" href="PAC.Shapes.RightTriangle.html">RightTriangle</a>&gt;</div>
+      <div><a class="xref" href="PAC.Shapes.Interfaces.IFillableShape.html">IFillableShape</a></div>
+      <div><a class="xref" href="PAC.Shapes.Interfaces.ITransformableShape-1.html">ITransformableShape</a>&lt;<a class="xref" href="PAC.Shapes.RightTriangle.html">RightTriangle</a>&gt;</div>
+      <div><a class="xref" href="PAC.Shapes.Interfaces.ITranslatableShape-1.html">ITranslatableShape</a>&lt;<a class="xref" href="PAC.Shapes.RightTriangle.html">RightTriangle</a>&gt;</div>
+      <div><a class="xref" href="PAC.Shapes.Interfaces.IFlippableShape-1.html">IFlippableShape</a>&lt;<a class="xref" href="PAC.Shapes.RightTriangle.html">RightTriangle</a>&gt;</div>
+      <div><a class="xref" href="PAC.Shapes.Interfaces.IRotatableShape-1.html">IRotatableShape</a>&lt;<a class="xref" href="PAC.Shapes.RightTriangle.html">RightTriangle</a>&gt;</div>
+      <div><a class="xref" href="PAC.Shapes.Interfaces.IDeepCopyableShape-1.html">IDeepCopyableShape</a>&lt;<a class="xref" href="PAC.Shapes.RightTriangle.html">RightTriangle</a>&gt;</div>
+      <div><a class="xref" href="PAC.Shapes.Interfaces.IShape.html">IShape</a></div>
+      <div><a class="xref" href="PAC.Interfaces.IReadOnlyContains-1.html">IReadOnlyContains</a>&lt;<a class="xref" href="PAC.DataStructures.IntVector2.html">IntVector2</a>&gt;</div>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlycollection-1">IReadOnlyCollection</a>&lt;<a class="xref" href="PAC.DataStructures.IntVector2.html">IntVector2</a>&gt;</div>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="PAC.DataStructures.IntVector2.html">IntVector2</a>&gt;</div>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.ienumerable">IEnumerable</a></div>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iequatable-1">IEquatable</a>&lt;<a class="xref" href="PAC.Shapes.RightTriangle.html">RightTriangle</a>&gt;</div>
+    </dd>
+  </dl>
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+  </dd></dl>
+
+  <dl class="typelist extensionMethods">
+    <dt>Extension Methods</dt>
+    <dd>
+  <div>
+      <a class="xref" href="PAC.Extensions.IReadOnlyContainsExtensions.html#PAC_Extensions_IReadOnlyContainsExtensions_ContainsAll__1_PAC_Interfaces_IReadOnlyContains___0____0___">IReadOnlyContainsExtensions.ContainsAll&lt;T&gt;(IReadOnlyContains&lt;T&gt;, params T[])</a>
+  </div>
+  <div>
+      <a class="xref" href="PAC.Extensions.IReadOnlyContainsExtensions.html#PAC_Extensions_IReadOnlyContainsExtensions_ContainsAll__1_PAC_Interfaces_IReadOnlyContains___0__System_Collections_Generic_IEnumerable___0__">IReadOnlyContainsExtensions.ContainsAll&lt;T&gt;(IReadOnlyContains&lt;T&gt;, IEnumerable&lt;T&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="PAC.Extensions.IReadOnlyContainsExtensions.html#PAC_Extensions_IReadOnlyContainsExtensions_ContainsAny__1_PAC_Interfaces_IReadOnlyContains___0____0___">IReadOnlyContainsExtensions.ContainsAny&lt;T&gt;(IReadOnlyContains&lt;T&gt;, params T[])</a>
+  </div>
+  <div>
+      <a class="xref" href="PAC.Extensions.IReadOnlyContainsExtensions.html#PAC_Extensions_IReadOnlyContainsExtensions_ContainsAny__1_PAC_Interfaces_IReadOnlyContains___0__System_Collections_Generic_IEnumerable___0__">IReadOnlyContainsExtensions.ContainsAny&lt;T&gt;(IReadOnlyContains&lt;T&gt;, IEnumerable&lt;T&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="PAC.Extensions.IReadOnlyContainsExtensions.html#PAC_Extensions_IReadOnlyContainsExtensions_ContainsNone__1_PAC_Interfaces_IReadOnlyContains___0____0___">IReadOnlyContainsExtensions.ContainsNone&lt;T&gt;(IReadOnlyContains&lt;T&gt;, params T[])</a>
+  </div>
+  <div>
+      <a class="xref" href="PAC.Extensions.IReadOnlyContainsExtensions.html#PAC_Extensions_IReadOnlyContainsExtensions_ContainsNone__1_PAC_Interfaces_IReadOnlyContains___0__System_Collections_Generic_IEnumerable___0__">IReadOnlyContainsExtensions.ContainsNone&lt;T&gt;(IReadOnlyContains&lt;T&gt;, IEnumerable&lt;T&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="PAC.Extensions.IReadOnlyContainsExtensions.html#PAC_Extensions_IReadOnlyContainsExtensions_ContainsNotAll__1_PAC_Interfaces_IReadOnlyContains___0____0___">IReadOnlyContainsExtensions.ContainsNotAll&lt;T&gt;(IReadOnlyContains&lt;T&gt;, params T[])</a>
+  </div>
+  <div>
+      <a class="xref" href="PAC.Extensions.IReadOnlyContainsExtensions.html#PAC_Extensions_IReadOnlyContainsExtensions_ContainsNotAll__1_PAC_Interfaces_IReadOnlyContains___0__System_Collections_Generic_IEnumerable___0__">IReadOnlyContainsExtensions.ContainsNotAll&lt;T&gt;(IReadOnlyContains&lt;T&gt;, IEnumerable&lt;T&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="PAC.Extensions.IShapeExtensions.html#PAC_Extensions_IShapeExtensions_ToTexture_PAC_Shapes_Interfaces_IShape_Color_">IShapeExtensions.ToTexture(IShape, Color)</a>
+  </div>
+  <div>
+      <a class="xref" href="PAC.Extensions.IShapeExtensions.html#PAC_Extensions_IShapeExtensions_ToTexture_PAC_Shapes_Interfaces_IShape_Color_PAC_DataStructures_IntRect_">IShapeExtensions.ToTexture(IShape, Color, IntRect)</a>
+  </div>
+  <div>
+      <a class="xref" href="PAC.Extensions.ISetComparableExtensions.html#PAC_Extensions_ISetComparableExtensions_IsProperSubsetOf__2___0___1_">ISetComparableExtensions.IsProperSubsetOf&lt;T1, T2&gt;(T1, T2)</a>
+  </div>
+  <div>
+      <a class="xref" href="PAC.Extensions.ISetComparableExtensions.html#PAC_Extensions_ISetComparableExtensions_IsProperSupersetOf__2___0___1_">ISetComparableExtensions.IsProperSupersetOf&lt;T1, T2&gt;(T1, T2)</a>
+  </div>
+  <div>
+      <a class="xref" href="PAC.Extensions.IEnumerableExtensions.html#PAC_Extensions_IEnumerableExtensions_AreAllDistinct__1_System_Collections_Generic_IEnumerable___0__">IEnumerableExtensions.AreAllDistinct&lt;T&gt;(IEnumerable&lt;T&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="PAC.Extensions.IEnumerableExtensions.html#PAC_Extensions_IEnumerableExtensions_ArgMax__2_System_Collections_Generic_IEnumerable___0__System_Func___0___1__">IEnumerableExtensions.ArgMax&lt;TElement, TCompare&gt;(IEnumerable&lt;TElement&gt;, Func&lt;TElement, TCompare&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="PAC.Extensions.IEnumerableExtensions.html#PAC_Extensions_IEnumerableExtensions_ArgMin__2_System_Collections_Generic_IEnumerable___0__System_Func___0___1__">IEnumerableExtensions.ArgMin&lt;TElement, TCompare&gt;(IEnumerable&lt;TElement&gt;, Func&lt;TElement, TCompare&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="PAC.Extensions.IEnumerableExtensions.html#PAC_Extensions_IEnumerableExtensions_Concat__1_System_Collections_Generic_IEnumerable___0__System_Collections_Generic_IEnumerable___0__System_Collections_Generic_IEnumerable___0__System_Collections_Generic_IEnumerable___0____">IEnumerableExtensions.Concat&lt;T&gt;(IEnumerable&lt;T&gt;, IEnumerable&lt;T&gt;, IEnumerable&lt;T&gt;, params IEnumerable&lt;T&gt;[])</a>
+  </div>
+  <div>
+      <a class="xref" href="PAC.Extensions.IEnumerableExtensions.html#PAC_Extensions_IEnumerableExtensions_ContainsAll__1_System_Collections_Generic_IEnumerable___0____0___">IEnumerableExtensions.ContainsAll&lt;T&gt;(IEnumerable&lt;T&gt;, params T[])</a>
+  </div>
+  <div>
+      <a class="xref" href="PAC.Extensions.IEnumerableExtensions.html#PAC_Extensions_IEnumerableExtensions_ContainsAll__1_System_Collections_Generic_IEnumerable___0__System_Collections_Generic_IEnumerable___0__">IEnumerableExtensions.ContainsAll&lt;T&gt;(IEnumerable&lt;T&gt;, IEnumerable&lt;T&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="PAC.Extensions.IEnumerableExtensions.html#PAC_Extensions_IEnumerableExtensions_ContainsAny__1_System_Collections_Generic_IEnumerable___0____0___">IEnumerableExtensions.ContainsAny&lt;T&gt;(IEnumerable&lt;T&gt;, params T[])</a>
+  </div>
+  <div>
+      <a class="xref" href="PAC.Extensions.IEnumerableExtensions.html#PAC_Extensions_IEnumerableExtensions_ContainsAny__1_System_Collections_Generic_IEnumerable___0__System_Collections_Generic_IEnumerable___0__">IEnumerableExtensions.ContainsAny&lt;T&gt;(IEnumerable&lt;T&gt;, IEnumerable&lt;T&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="PAC.Extensions.IEnumerableExtensions.html#PAC_Extensions_IEnumerableExtensions_ContainsNone__1_System_Collections_Generic_IEnumerable___0____0___">IEnumerableExtensions.ContainsNone&lt;T&gt;(IEnumerable&lt;T&gt;, params T[])</a>
+  </div>
+  <div>
+      <a class="xref" href="PAC.Extensions.IEnumerableExtensions.html#PAC_Extensions_IEnumerableExtensions_ContainsNone__1_System_Collections_Generic_IEnumerable___0__System_Collections_Generic_IEnumerable___0__">IEnumerableExtensions.ContainsNone&lt;T&gt;(IEnumerable&lt;T&gt;, IEnumerable&lt;T&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="PAC.Extensions.IEnumerableExtensions.html#PAC_Extensions_IEnumerableExtensions_ContainsNotAll__1_System_Collections_Generic_IEnumerable___0____0___">IEnumerableExtensions.ContainsNotAll&lt;T&gt;(IEnumerable&lt;T&gt;, params T[])</a>
+  </div>
+  <div>
+      <a class="xref" href="PAC.Extensions.IEnumerableExtensions.html#PAC_Extensions_IEnumerableExtensions_ContainsNotAll__1_System_Collections_Generic_IEnumerable___0__System_Collections_Generic_IEnumerable___0__">IEnumerableExtensions.ContainsNotAll&lt;T&gt;(IEnumerable&lt;T&gt;, IEnumerable&lt;T&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="PAC.Extensions.IEnumerableExtensions.html#PAC_Extensions_IEnumerableExtensions_CountIsAtLeast__1_System_Collections_Generic_IEnumerable___0__System_Int32_">IEnumerableExtensions.CountIsAtLeast&lt;T&gt;(IEnumerable&lt;T&gt;, int)</a>
+  </div>
+  <div>
+      <a class="xref" href="PAC.Extensions.IEnumerableExtensions.html#PAC_Extensions_IEnumerableExtensions_CountIsAtMost__1_System_Collections_Generic_IEnumerable___0__System_Int32_">IEnumerableExtensions.CountIsAtMost&lt;T&gt;(IEnumerable&lt;T&gt;, int)</a>
+  </div>
+  <div>
+      <a class="xref" href="PAC.Extensions.IEnumerableExtensions.html#PAC_Extensions_IEnumerableExtensions_CountIsExactly__1_System_Collections_Generic_IEnumerable___0__System_Int32_">IEnumerableExtensions.CountIsExactly&lt;T&gt;(IEnumerable&lt;T&gt;, int)</a>
+  </div>
+  <div>
+      <a class="xref" href="PAC.Extensions.IEnumerableExtensions.html#PAC_Extensions_IEnumerableExtensions_EnumerateOccurrences__1_System_Collections_Generic_IEnumerable___0__">IEnumerableExtensions.EnumerateOccurrences&lt;T&gt;(IEnumerable&lt;T&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="PAC.Extensions.IEnumerableExtensions.html#PAC_Extensions_IEnumerableExtensions_Enumerate__1_System_Collections_Generic_IEnumerable___0__">IEnumerableExtensions.Enumerate&lt;T&gt;(IEnumerable&lt;T&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="PAC.Extensions.IEnumerableExtensions.html#PAC_Extensions_IEnumerableExtensions_IsSubsequenceOf__1_System_Collections_Generic_IEnumerable___0__System_Collections_Generic_IEnumerable___0__">IEnumerableExtensions.IsSubsequenceOf&lt;T&gt;(IEnumerable&lt;T&gt;, IEnumerable&lt;T&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="PAC.Extensions.IEnumerableExtensions.html#PAC_Extensions_IEnumerableExtensions_IsSupersequenceOf__1_System_Collections_Generic_IEnumerable___0__System_Collections_Generic_IEnumerable___0__">IEnumerableExtensions.IsSupersequenceOf&lt;T&gt;(IEnumerable&lt;T&gt;, IEnumerable&lt;T&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="PAC.Extensions.IEnumerableExtensions.html#PAC_Extensions_IEnumerableExtensions_MinAndMax__1_System_Collections_Generic_IEnumerable___0__">IEnumerableExtensions.MinAndMax&lt;T&gt;(IEnumerable&lt;T&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="PAC.Extensions.IEnumerableExtensions.html#PAC_Extensions_IEnumerableExtensions_None__1_System_Collections_Generic_IEnumerable___0__">IEnumerableExtensions.None&lt;T&gt;(IEnumerable&lt;T&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="PAC.Extensions.IEnumerableExtensions.html#PAC_Extensions_IEnumerableExtensions_None__1_System_Collections_Generic_IEnumerable___0__System_Func___0_System_Boolean__">IEnumerableExtensions.None&lt;T&gt;(IEnumerable&lt;T&gt;, Func&lt;T, bool&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="PAC.Extensions.IEnumerableExtensions.html#PAC_Extensions_IEnumerableExtensions_NotAll__1_System_Collections_Generic_IEnumerable___0__System_Func___0_System_Boolean__">IEnumerableExtensions.NotAll&lt;T&gt;(IEnumerable&lt;T&gt;, Func&lt;T, bool&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="PAC.Extensions.IEnumerableExtensions.html#PAC_Extensions_IEnumerableExtensions_Replace__1_System_Collections_Generic_IEnumerable___0____0___0_">IEnumerableExtensions.Replace&lt;T&gt;(IEnumerable&lt;T&gt;, T, T)</a>
+  </div>
+  <div>
+      <a class="xref" href="PAC.Extensions.IEnumerableExtensions.html#PAC_Extensions_IEnumerableExtensions_SkipIndex__1_System_Collections_Generic_IEnumerable___0__System_Int32_">IEnumerableExtensions.SkipIndex&lt;T&gt;(IEnumerable&lt;T&gt;, int)</a>
+  </div>
+  <div>
+      <a class="xref" href="PAC.Extensions.IEnumerableExtensions.html#PAC_Extensions_IEnumerableExtensions_ZipCurrentAndNext__1_System_Collections_Generic_IEnumerable___0__">IEnumerableExtensions.ZipCurrentAndNext&lt;T&gt;(IEnumerable&lt;T&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="PAC.Extensions.IEnumerableExtensions.html#PAC_Extensions_IEnumerableExtensions_Zip__2_System_Collections_Generic_IEnumerable___0__System_Collections_Generic_IEnumerable___1__">IEnumerableExtensions.Zip&lt;T1, T2&gt;(IEnumerable&lt;T1&gt;, IEnumerable&lt;T2&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="PAC.Maths.Combinatorics.html#PAC_Maths_Combinatorics_Pairs__1_System_Collections_Generic_IEnumerable___0__">Combinatorics.Pairs&lt;T&gt;(IEnumerable&lt;T&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="PAC.Maths.Combinatorics.html#PAC_Maths_Combinatorics_Pairs__2_System_Collections_Generic_IEnumerable___0__System_Collections_Generic_IEnumerable___1__">Combinatorics.Pairs&lt;TFirst, TSecond&gt;(IEnumerable&lt;TFirst&gt;, IEnumerable&lt;TSecond&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="PAC.Maths.Combinatorics.html#PAC_Maths_Combinatorics_Permutations__1_System_Collections_Generic_IEnumerable___0__">Combinatorics.Permutations&lt;T&gt;(IEnumerable&lt;T&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="PAC.Maths.Combinatorics.html#PAC_Maths_Combinatorics_Permutations__1_System_Collections_Generic_IEnumerable___0__System_Int32_">Combinatorics.Permutations&lt;T&gt;(IEnumerable&lt;T&gt;, int)</a>
+  </div>
+  <div>
+      <a class="xref" href="PAC.Maths.Combinatorics.html#PAC_Maths_Combinatorics_Triples__1_System_Collections_Generic_IEnumerable___0__">Combinatorics.Triples&lt;T&gt;(IEnumerable&lt;T&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="PAC.Maths.Combinatorics.html#PAC_Maths_Combinatorics_Triples__3_System_Collections_Generic_IEnumerable___0__System_Collections_Generic_IEnumerable___1__System_Collections_Generic_IEnumerable___2__">Combinatorics.Triples&lt;TFirst, TSecond, TThird&gt;(IEnumerable&lt;TFirst&gt;, IEnumerable&lt;TSecond&gt;, IEnumerable&lt;TThird&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="PAC.Maths.Combinatorics.html#PAC_Maths_Combinatorics_Tuples__1_System_Collections_Generic_IEnumerable___0__System_Int32_">Combinatorics.Tuples&lt;T&gt;(IEnumerable&lt;T&gt;, int)</a>
+  </div>
+  </dd></dl>
+
+
+
+  <h2 id="PAC_Shapes_RightTriangle_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>
+  <b>Shape:</b>
+</p>
+<p>
+The hypotenuse is drawn as a <a class="xref" href="PAC.Shapes.Line.html">Line</a>. We draw this <a class="xref" href="PAC.Shapes.Line.html">Line</a> starting from the longer side of the <a class="xref" href="PAC.Shapes.RightTriangle.html">RightTriangle</a> (or the horizontal side if both sides have
+the same length). This is done to ensure that rotating/reflecting the corners doesn't change the geometry (up to rotating/reflecting).
+</p>
+<p>
+Except in some special cases, this <a class="xref" href="PAC.Shapes.Line.html">Line</a> is not drawn from the corners. Instead, the endpoints are inset by 1 from the corners.
+<example>
+For example,
+<pre><code class="lang-csharp">                     line end
+                         v
+                         # #
+                     # #   #
+                   #       #
+               # #         #
+line start &gt; #             #
+             # # # # # # # #</code></pre></example>
+This is done to make it look more aesthetic.
+</p>
+<p>
+The special cases where the endpoints are not inset are:
+<ul><li>
+Width or height 1 - the <a class="xref" href="PAC.Shapes.RightTriangle.html">RightTriangle</a> looks like a straight line
+</li><li>
+Width or height 2 - the <a class="xref" href="PAC.Shapes.RightTriangle.html">RightTriangle</a> looks like, for example,
+<pre><code class="lang-csharp">  #
+  #
+# #
+# #
+# #</code></pre>
+where, if the width is 2, the height of the shorter vertical block is <code>ceil(height of triangle / 2)</code>, and analogously for when the height is 2.
+</li></ul>
+<p>
+  <b>Enumerator:</b>
+</p>
+<p>
+The enumerator does not repeat any points.
+</p>
+</div>
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="PAC_Shapes_RightTriangle__ctor_" data-uid="PAC.Shapes.RightTriangle.#ctor*"></a>
+
+  <h3 id="PAC_Shapes_RightTriangle__ctor_PAC_DataStructures_IntRect_PAC_Shapes_RightTriangle_RightAngleLocation_System_Boolean_" data-uid="PAC.Shapes.RightTriangle.#ctor(PAC.DataStructures.IntRect,PAC.Shapes.RightTriangle.RightAngleLocation,System.Boolean)">
+  RightTriangle(IntRect, RightAngleLocation, bool)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Drawing/Shapes/RightTriangle.cs/#L316"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Creates the largest <a class="xref" href="PAC.Shapes.RightTriangle.html">RightTriangle</a> that can fit in the given rect, and that has the right angle in the specified corner of the rect.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public RightTriangle(IntRect boundingRect, RightTriangle.RightAngleLocation rightAngleLocation, bool filled)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>boundingRect</code> <a class="xref" href="PAC.DataStructures.IntRect.html">IntRect</a></dt>
+    <dd><p>See <a class="xref" href="PAC.Shapes.RightTriangle.html#PAC_Shapes_RightTriangle_boundingRect">boundingRect</a>.</p>
+</dd>
+    <dt><code>rightAngleLocation</code> <a class="xref" href="PAC.Shapes.RightTriangle.html">RightTriangle</a>.<a class="xref" href="PAC.Shapes.RightTriangle.RightAngleLocation.html">RightAngleLocation</a></dt>
+    <dd><p>See <a class="xref" href="PAC.Shapes.RightTriangle.html#PAC_Shapes_RightTriangle_rightAngleLocation">rightAngleLocation</a>.</p>
+</dd>
+    <dt><code>filled</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>See <a class="xref" href="PAC.Shapes.RightTriangle.html#PAC_Shapes_RightTriangle_filled">filled</a>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="PAC_Shapes_RightTriangle__ctor_" data-uid="PAC.Shapes.RightTriangle.#ctor*"></a>
+
+  <h3 id="PAC_Shapes_RightTriangle__ctor_PAC_DataStructures_IntVector2_PAC_DataStructures_IntVector2_System_Boolean_System_Boolean_" data-uid="PAC.Shapes.RightTriangle.#ctor(PAC.DataStructures.IntVector2,PAC.DataStructures.IntVector2,System.Boolean,System.Boolean)">
+  RightTriangle(IntVector2, IntVector2, bool, bool)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Drawing/Shapes/RightTriangle.cs/#L329"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Creates a <a class="xref" href="PAC.Shapes.RightTriangle.html">RightTriangle</a> with the two given non-right-angle corners.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public RightTriangle(IntVector2 corner, IntVector2 oppositeCorner, bool horizontalEdgeIsBottomEdge, bool filled)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>corner</code> <a class="xref" href="PAC.DataStructures.IntVector2.html">IntVector2</a></dt>
+    <dd><p>One of the two non-right-angle corners of the <a class="xref" href="PAC.Shapes.RightTriangle.html">RightTriangle</a>.</p>
+</dd>
+    <dt><code>oppositeCorner</code> <a class="xref" href="PAC.DataStructures.IntVector2.html">IntVector2</a></dt>
+    <dd><p>The non-right-angle corner opposite <code class="paramref">corner</code>.</p>
+</dd>
+    <dt><code>horizontalEdgeIsBottomEdge</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>Whether the horizontal edge of the <a class="xref" href="PAC.Shapes.RightTriangle.html">RightTriangle</a> is the bottom edge (as opposed to the top edge).</p>
+</dd>
+    <dt><code>filled</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>See <a class="xref" href="PAC.Shapes.RightTriangle.html#PAC_Shapes_RightTriangle_filled">filled</a>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="PAC_Shapes_RightTriangle_Count_" data-uid="PAC.Shapes.RightTriangle.Count*"></a>
+
+  <h3 id="PAC_Shapes_RightTriangle_Count" data-uid="PAC.Shapes.RightTriangle.Count">
+  Count
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Drawing/Shapes/RightTriangle.cs/#L221"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the number of elements in the collection.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int Count { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The number of elements in the collection.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="PAC_Shapes_RightTriangle_bottomCorner_" data-uid="PAC.Shapes.RightTriangle.bottomCorner*"></a>
+
+  <h3 id="PAC_Shapes_RightTriangle_bottomCorner" data-uid="PAC.Shapes.RightTriangle.bottomCorner">
+  bottomCorner
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Drawing/Shapes/RightTriangle.cs/#L88"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The lower of the two corners that don't contain the right angle.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IntVector2 bottomCorner { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="PAC.DataStructures.IntVector2.html">IntVector2</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+  <h4 class="section" id="PAC_Shapes_RightTriangle_bottomCorner_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>This will be different from <a class="xref" href="PAC.Shapes.RightTriangle.html#PAC_Shapes_RightTriangle_topCorner">topCorner</a>, unless the <a class="xref" href="PAC.Shapes.RightTriangle.html">RightTriangle</a> is a single point.</p>
+</div>
+
+
+  <dl class="typelist seealso">
+    <dt>See Also</dt>
+    <dd>
+    <div><a class="xref" href="PAC.Shapes.RightTriangle.html#PAC_Shapes_RightTriangle_topCorner">topCorner</a></div>
+    <div><a class="xref" href="PAC.Shapes.RightTriangle.html#PAC_Shapes_RightTriangle_leftCorner">leftCorner</a></div>
+    <div><a class="xref" href="PAC.Shapes.RightTriangle.html#PAC_Shapes_RightTriangle_rightCorner">rightCorner</a></div>
+    <div><a class="xref" href="PAC.Shapes.RightTriangle.html#PAC_Shapes_RightTriangle_rightAngleCorner">rightAngleCorner</a></div>
+    </dd>
+  </dl>
+
+
+  <a id="PAC_Shapes_RightTriangle_boundingRect_" data-uid="PAC.Shapes.RightTriangle.boundingRect*"></a>
+
+  <h3 id="PAC_Shapes_RightTriangle_boundingRect" data-uid="PAC.Shapes.RightTriangle.boundingRect">
+  boundingRect
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Drawing/Shapes/RightTriangle.cs/#L219"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The smallest rect containing the whole shape.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IntRect boundingRect { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="PAC.DataStructures.IntRect.html">IntRect</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="PAC_Shapes_RightTriangle_filled_" data-uid="PAC.Shapes.RightTriangle.filled*"></a>
+
+  <h3 id="PAC_Shapes_RightTriangle_filled" data-uid="PAC.Shapes.RightTriangle.filled">
+  filled
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Drawing/Shapes/RightTriangle.cs/#L166"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Whether the shape has its inside filled-in, or whether it's just the border.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool filled { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="PAC_Shapes_RightTriangle_isIsosceles_" data-uid="PAC.Shapes.RightTriangle.isIsosceles*"></a>
+
+  <h3 id="PAC_Shapes_RightTriangle_isIsosceles" data-uid="PAC.Shapes.RightTriangle.isIsosceles">
+  isIsosceles
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Drawing/Shapes/RightTriangle.cs/#L174"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Whether the <a class="xref" href="PAC.Shapes.RightTriangle.html">RightTriangle</a> is an isosceles triangle.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool isIsosceles { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+  <h4 class="section" id="PAC_Shapes_RightTriangle_isIsosceles_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>This is equivalent to its <a class="xref" href="PAC.Shapes.RightTriangle.html#PAC_Shapes_RightTriangle_boundingRect">boundingRect</a> being a square.</p>
+</div>
+
+
+
+
+  <a id="PAC_Shapes_RightTriangle_leftCorner_" data-uid="PAC.Shapes.RightTriangle.leftCorner*"></a>
+
+  <h3 id="PAC_Shapes_RightTriangle_leftCorner" data-uid="PAC.Shapes.RightTriangle.leftCorner">
+  leftCorner
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Drawing/Shapes/RightTriangle.cs/#L124"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The left-most of the two corners that don't contain the right angle.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IntVector2 leftCorner { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="PAC.DataStructures.IntVector2.html">IntVector2</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+  <h4 class="section" id="PAC_Shapes_RightTriangle_leftCorner_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>This will be different from <a class="xref" href="PAC.Shapes.RightTriangle.html#PAC_Shapes_RightTriangle_rightCorner">rightCorner</a>, unless the <a class="xref" href="PAC.Shapes.RightTriangle.html">RightTriangle</a> is a single point.</p>
+</div>
+
+
+  <dl class="typelist seealso">
+    <dt>See Also</dt>
+    <dd>
+    <div><a class="xref" href="PAC.Shapes.RightTriangle.html#PAC_Shapes_RightTriangle_bottomCorner">bottomCorner</a></div>
+    <div><a class="xref" href="PAC.Shapes.RightTriangle.html#PAC_Shapes_RightTriangle_topCorner">topCorner</a></div>
+    <div><a class="xref" href="PAC.Shapes.RightTriangle.html#PAC_Shapes_RightTriangle_rightCorner">rightCorner</a></div>
+    <div><a class="xref" href="PAC.Shapes.RightTriangle.html#PAC_Shapes_RightTriangle_rightAngleCorner">rightAngleCorner</a></div>
+    </dd>
+  </dl>
+
+
+  <a id="PAC_Shapes_RightTriangle_rightAngleCorner_" data-uid="PAC.Shapes.RightTriangle.rightAngleCorner*"></a>
+
+  <h3 id="PAC_Shapes_RightTriangle_rightAngleCorner" data-uid="PAC.Shapes.RightTriangle.rightAngleCorner">
+  rightAngleCorner
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Drawing/Shapes/RightTriangle.cs/#L157"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The corner that contains the right angle.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IntVector2 rightAngleCorner { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="PAC.DataStructures.IntVector2.html">IntVector2</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+  <dl class="typelist seealso">
+    <dt>See Also</dt>
+    <dd>
+    <div><a class="xref" href="PAC.Shapes.RightTriangle.html#PAC_Shapes_RightTriangle_bottomCorner">bottomCorner</a></div>
+    <div><a class="xref" href="PAC.Shapes.RightTriangle.html#PAC_Shapes_RightTriangle_topCorner">topCorner</a></div>
+    <div><a class="xref" href="PAC.Shapes.RightTriangle.html#PAC_Shapes_RightTriangle_leftCorner">leftCorner</a></div>
+    <div><a class="xref" href="PAC.Shapes.RightTriangle.html#PAC_Shapes_RightTriangle_rightCorner">rightCorner</a></div>
+    </dd>
+  </dl>
+
+
+  <a id="PAC_Shapes_RightTriangle_rightAngleLocation_" data-uid="PAC.Shapes.RightTriangle.rightAngleLocation*"></a>
+
+  <h3 id="PAC_Shapes_RightTriangle_rightAngleLocation" data-uid="PAC.Shapes.RightTriangle.rightAngleLocation">
+  rightAngleLocation
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Drawing/Shapes/RightTriangle.cs/#L179"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Which corner of the <a class="xref" href="PAC.Shapes.RightTriangle.html#PAC_Shapes_RightTriangle_boundingRect">boundingRect</a> the right angle is in.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public RightTriangle.RightAngleLocation rightAngleLocation { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="PAC.Shapes.RightTriangle.html">RightTriangle</a>.<a class="xref" href="PAC.Shapes.RightTriangle.RightAngleLocation.html">RightAngleLocation</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="PAC_Shapes_RightTriangle_rightCorner_" data-uid="PAC.Shapes.RightTriangle.rightCorner*"></a>
+
+  <h3 id="PAC_Shapes_RightTriangle_rightCorner" data-uid="PAC.Shapes.RightTriangle.rightCorner">
+  rightCorner
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Drawing/Shapes/RightTriangle.cs/#L142"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The right-most of the two corners that don't contain the right angle.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IntVector2 rightCorner { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="PAC.DataStructures.IntVector2.html">IntVector2</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+  <h4 class="section" id="PAC_Shapes_RightTriangle_rightCorner_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>This will be different from <a class="xref" href="PAC.Shapes.RightTriangle.html#PAC_Shapes_RightTriangle_leftCorner">leftCorner</a>, unless the <a class="xref" href="PAC.Shapes.RightTriangle.html">RightTriangle</a> is a single point.</p>
+</div>
+
+
+  <dl class="typelist seealso">
+    <dt>See Also</dt>
+    <dd>
+    <div><a class="xref" href="PAC.Shapes.RightTriangle.html#PAC_Shapes_RightTriangle_bottomCorner">bottomCorner</a></div>
+    <div><a class="xref" href="PAC.Shapes.RightTriangle.html#PAC_Shapes_RightTriangle_topCorner">topCorner</a></div>
+    <div><a class="xref" href="PAC.Shapes.RightTriangle.html#PAC_Shapes_RightTriangle_leftCorner">leftCorner</a></div>
+    <div><a class="xref" href="PAC.Shapes.RightTriangle.html#PAC_Shapes_RightTriangle_rightAngleCorner">rightAngleCorner</a></div>
+    </dd>
+  </dl>
+
+
+  <a id="PAC_Shapes_RightTriangle_topCorner_" data-uid="PAC.Shapes.RightTriangle.topCorner*"></a>
+
+  <h3 id="PAC_Shapes_RightTriangle_topCorner" data-uid="PAC.Shapes.RightTriangle.topCorner">
+  topCorner
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Drawing/Shapes/RightTriangle.cs/#L106"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The higher of the two corners that don't contain the right angle.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IntVector2 topCorner { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="PAC.DataStructures.IntVector2.html">IntVector2</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+  <h4 class="section" id="PAC_Shapes_RightTriangle_topCorner_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>This will be different from <a class="xref" href="PAC.Shapes.RightTriangle.html#PAC_Shapes_RightTriangle_bottomCorner">bottomCorner</a>, unless the <a class="xref" href="PAC.Shapes.RightTriangle.html">RightTriangle</a> is a single point.</p>
+</div>
+
+
+  <dl class="typelist seealso">
+    <dt>See Also</dt>
+    <dd>
+    <div><a class="xref" href="PAC.Shapes.RightTriangle.html#PAC_Shapes_RightTriangle_bottomCorner">bottomCorner</a></div>
+    <div><a class="xref" href="PAC.Shapes.RightTriangle.html#PAC_Shapes_RightTriangle_leftCorner">leftCorner</a></div>
+    <div><a class="xref" href="PAC.Shapes.RightTriangle.html#PAC_Shapes_RightTriangle_rightCorner">rightCorner</a></div>
+    <div><a class="xref" href="PAC.Shapes.RightTriangle.html#PAC_Shapes_RightTriangle_rightAngleCorner">rightAngleCorner</a></div>
+    </dd>
+  </dl>
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="PAC_Shapes_RightTriangle_Contains_" data-uid="PAC.Shapes.RightTriangle.Contains*"></a>
+
+  <h3 id="PAC_Shapes_RightTriangle_Contains_PAC_DataStructures_IntVector2_" data-uid="PAC.Shapes.RightTriangle.Contains(PAC.DataStructures.IntVector2)">
+  Contains(IntVector2)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Drawing/Shapes/RightTriangle.cs/#L343"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool Contains(IntVector2 point)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>point</code> <a class="xref" href="PAC.DataStructures.IntVector2.html">IntVector2</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="PAC_Shapes_RightTriangle_DeepCopy_" data-uid="PAC.Shapes.RightTriangle.DeepCopy*"></a>
+
+  <h3 id="PAC_Shapes_RightTriangle_DeepCopy" data-uid="PAC.Shapes.RightTriangle.DeepCopy">
+  DeepCopy()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Drawing/Shapes/RightTriangle.cs/#L432"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns a deep copy of the shape.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public RightTriangle DeepCopy()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="PAC.Shapes.RightTriangle.html">RightTriangle</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="PAC_Shapes_RightTriangle_Equals_" data-uid="PAC.Shapes.RightTriangle.Equals*"></a>
+
+  <h3 id="PAC_Shapes_RightTriangle_Equals_PAC_Shapes_RightTriangle_" data-uid="PAC.Shapes.RightTriangle.Equals(PAC.Shapes.RightTriangle)">
+  Equals(RightTriangle)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Drawing/Shapes/RightTriangle.cs/#L422"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>See <a class="xref" href="PAC.Shapes.RightTriangle.html#PAC_Shapes_RightTriangle_op_Equality_PAC_Shapes_RightTriangle_PAC_Shapes_RightTriangle_">operator ==(RightTriangle, RightTriangle)</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool Equals(RightTriangle other)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>other</code> <a class="xref" href="PAC.Shapes.RightTriangle.html">RightTriangle</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="PAC_Shapes_RightTriangle_Equals_" data-uid="PAC.Shapes.RightTriangle.Equals*"></a>
+
+  <h3 id="PAC_Shapes_RightTriangle_Equals_System_Object_" data-uid="PAC.Shapes.RightTriangle.Equals(System.Object)">
+  Equals(object)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Drawing/Shapes/RightTriangle.cs/#L426"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>See <a class="xref" href="PAC.Shapes.RightTriangle.html#PAC_Shapes_RightTriangle_Equals_PAC_Shapes_RightTriangle_">Equals(RightTriangle)</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override bool Equals(object obj)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>obj</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="PAC_Shapes_RightTriangle_Flip_" data-uid="PAC.Shapes.RightTriangle.Flip*"></a>
+
+  <h3 id="PAC_Shapes_RightTriangle_Flip_PAC_FlipAxis_" data-uid="PAC.Shapes.RightTriangle.Flip(PAC.FlipAxis)">
+  Flip(FlipAxis)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Drawing/Shapes/RightTriangle.cs/#L382"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns a deep copy of the shape reflected across the given axis.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public RightTriangle Flip(FlipAxis axis)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>axis</code> <a class="xref" href="PAC.FlipAxis.html">FlipAxis</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="PAC.Shapes.RightTriangle.html">RightTriangle</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="PAC_Shapes_RightTriangle_GetEnumerator_" data-uid="PAC.Shapes.RightTriangle.GetEnumerator*"></a>
+
+  <h3 id="PAC_Shapes_RightTriangle_GetEnumerator" data-uid="PAC.Shapes.RightTriangle.GetEnumerator">
+  GetEnumerator()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Drawing/Shapes/RightTriangle.cs/#L386"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns an enumerator that iterates through the collection.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IEnumerator&lt;IntVector2&gt; GetEnumerator()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerator-1">IEnumerator</a>&lt;<a class="xref" href="PAC.DataStructures.IntVector2.html">IntVector2</a>&gt;</dt>
+    <dd><p>An enumerator that can be used to iterate through the collection.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="PAC_Shapes_RightTriangle_GetHashCode_" data-uid="PAC.Shapes.RightTriangle.GetHashCode*"></a>
+
+  <h3 id="PAC_Shapes_RightTriangle_GetHashCode" data-uid="PAC.Shapes.RightTriangle.GetHashCode">
+  GetHashCode()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Drawing/Shapes/RightTriangle.cs/#L428"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Serves as the default hash function.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override int GetHashCode()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>A hash code for the current object.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="PAC_Shapes_RightTriangle_Rotate_" data-uid="PAC.Shapes.RightTriangle.Rotate*"></a>
+
+  <h3 id="PAC_Shapes_RightTriangle_Rotate_PAC_RotationAngle_" data-uid="PAC.Shapes.RightTriangle.Rotate(PAC.RotationAngle)">
+  Rotate(RotationAngle)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Drawing/Shapes/RightTriangle.cs/#L383"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns a deep copy of the shape rotated by the given angle.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public RightTriangle Rotate(RotationAngle angle)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>angle</code> <a class="xref" href="PAC.RotationAngle.html">RotationAngle</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="PAC.Shapes.RightTriangle.html">RightTriangle</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <dl class="typelist seealso">
+    <dt>See Also</dt>
+    <dd>
+    <div>operator <a class="xref" href="PAC.Shapes.Interfaces.IRotatableShape-1.html#PAC_Shapes_Interfaces_IRotatableShape_1_op_UnaryNegation_PAC_Shapes_Interfaces_IRotatableShape__0__">-</a>(<a class="xref" href="PAC.Shapes.Interfaces.IRotatableShape-1.html">IRotatableShape</a>&lt;T&gt;)</div>
+    </dd>
+  </dl>
+
+
+  <a id="PAC_Shapes_RightTriangle_ToString_" data-uid="PAC.Shapes.RightTriangle.ToString*"></a>
+
+  <h3 id="PAC_Shapes_RightTriangle_ToString" data-uid="PAC.Shapes.RightTriangle.ToString">
+  ToString()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Drawing/Shapes/RightTriangle.cs/#L430"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns a string that represents the current object.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override string ToString()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>A string that represents the current object.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="PAC_Shapes_RightTriangle_Translate_" data-uid="PAC.Shapes.RightTriangle.Translate*"></a>
+
+  <h3 id="PAC_Shapes_RightTriangle_Translate_PAC_DataStructures_IntVector2_" data-uid="PAC.Shapes.RightTriangle.Translate(PAC.DataStructures.IntVector2)">
+  Translate(IntVector2)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Drawing/Shapes/RightTriangle.cs/#L381"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns a deep copy of the shape translated by the given vector.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public RightTriangle Translate(IntVector2 translation)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>translation</code> <a class="xref" href="PAC.DataStructures.IntVector2.html">IntVector2</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="PAC.Shapes.RightTriangle.html">RightTriangle</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <dl class="typelist seealso">
+    <dt>See Also</dt>
+    <dd>
+    <div>operator <a class="xref" href="PAC.Shapes.Interfaces.ITranslatableShape-1.html#PAC_Shapes_Interfaces_ITranslatableShape_1_op_Addition_PAC_Shapes_Interfaces_ITranslatableShape__0__PAC_DataStructures_IntVector2_">+</a>(<a class="xref" href="PAC.Shapes.Interfaces.ITranslatableShape-1.html">ITranslatableShape</a>&lt;T&gt;, <a class="xref" href="PAC.DataStructures.IntVector2.html">IntVector2</a>)</div>
+    <div>operator <a class="xref" href="PAC.Shapes.Interfaces.ITranslatableShape-1.html#PAC_Shapes_Interfaces_ITranslatableShape_1_op_Addition_PAC_DataStructures_IntVector2_PAC_Shapes_Interfaces_ITranslatableShape__0__">+</a>(<a class="xref" href="PAC.DataStructures.IntVector2.html">IntVector2</a>, <a class="xref" href="PAC.Shapes.Interfaces.ITranslatableShape-1.html">ITranslatableShape</a>&lt;T&gt;)</div>
+    <div>operator <a class="xref" href="PAC.Shapes.Interfaces.ITranslatableShape-1.html#PAC_Shapes_Interfaces_ITranslatableShape_1_op_Subtraction_PAC_Shapes_Interfaces_ITranslatableShape__0__PAC_DataStructures_IntVector2_">-</a>(<a class="xref" href="PAC.Shapes.Interfaces.ITranslatableShape-1.html">ITranslatableShape</a>&lt;T&gt;, <a class="xref" href="PAC.DataStructures.IntVector2.html">IntVector2</a>)</div>
+    </dd>
+  </dl>
+
+
+  <h2 class="section" id="operators">Operators
+</h2>
+
+
+  <a id="PAC_Shapes_RightTriangle_op_Addition_" data-uid="PAC.Shapes.RightTriangle.op_Addition*"></a>
+
+  <h3 id="PAC_Shapes_RightTriangle_op_Addition_PAC_DataStructures_IntVector2_PAC_Shapes_RightTriangle_" data-uid="PAC.Shapes.RightTriangle.op_Addition(PAC.DataStructures.IntVector2,PAC.Shapes.RightTriangle)">
+  operator +(IntVector2, RightTriangle)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Drawing/Shapes/RightTriangle.cs/#L368"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns a deep copy of the <a class="xref" href="PAC.Shapes.RightTriangle.html">RightTriangle</a> translated by the given vector.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static RightTriangle operator +(IntVector2 translation, RightTriangle triangle)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>translation</code> <a class="xref" href="PAC.DataStructures.IntVector2.html">IntVector2</a></dt>
+    <dd></dd>
+    <dt><code>triangle</code> <a class="xref" href="PAC.Shapes.RightTriangle.html">RightTriangle</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="PAC.Shapes.RightTriangle.html">RightTriangle</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <dl class="typelist seealso">
+    <dt>See Also</dt>
+    <dd>
+    <div><a class="xref" href="PAC.Shapes.RightTriangle.html#PAC_Shapes_RightTriangle_Translate_PAC_DataStructures_IntVector2_">Translate(IntVector2)</a></div>
+    </dd>
+  </dl>
+
+
+  <a id="PAC_Shapes_RightTriangle_op_Addition_" data-uid="PAC.Shapes.RightTriangle.op_Addition*"></a>
+
+  <h3 id="PAC_Shapes_RightTriangle_op_Addition_PAC_Shapes_RightTriangle_PAC_DataStructures_IntVector2_" data-uid="PAC.Shapes.RightTriangle.op_Addition(PAC.Shapes.RightTriangle,PAC.DataStructures.IntVector2)">
+  operator +(RightTriangle, IntVector2)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Drawing/Shapes/RightTriangle.cs/#L363"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns a deep copy of the <a class="xref" href="PAC.Shapes.RightTriangle.html">RightTriangle</a> translated by the given vector.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static RightTriangle operator +(RightTriangle triangle, IntVector2 translation)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>triangle</code> <a class="xref" href="PAC.Shapes.RightTriangle.html">RightTriangle</a></dt>
+    <dd></dd>
+    <dt><code>translation</code> <a class="xref" href="PAC.DataStructures.IntVector2.html">IntVector2</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="PAC.Shapes.RightTriangle.html">RightTriangle</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <dl class="typelist seealso">
+    <dt>See Also</dt>
+    <dd>
+    <div><a class="xref" href="PAC.Shapes.RightTriangle.html#PAC_Shapes_RightTriangle_Translate_PAC_DataStructures_IntVector2_">Translate(IntVector2)</a></div>
+    </dd>
+  </dl>
+
+
+  <a id="PAC_Shapes_RightTriangle_op_Equality_" data-uid="PAC.Shapes.RightTriangle.op_Equality*"></a>
+
+  <h3 id="PAC_Shapes_RightTriangle_op_Equality_PAC_Shapes_RightTriangle_PAC_Shapes_RightTriangle_" data-uid="PAC.Shapes.RightTriangle.op_Equality(PAC.Shapes.RightTriangle,PAC.Shapes.RightTriangle)">
+  operator ==(RightTriangle, RightTriangle)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Drawing/Shapes/RightTriangle.cs/#L414"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Whether the two <a class="xref" href="PAC.Shapes.RightTriangle.html">RightTriangle</a>s have the same shape, and the same <a class="xref" href="PAC.Shapes.RightTriangle.html#PAC_Shapes_RightTriangle_rightAngleLocation">rightAngleLocation</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool operator ==(RightTriangle a, RightTriangle b)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <a class="xref" href="PAC.Shapes.RightTriangle.html">RightTriangle</a></dt>
+    <dd></dd>
+    <dt><code>b</code> <a class="xref" href="PAC.Shapes.RightTriangle.html">RightTriangle</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="PAC_Shapes_RightTriangle_op_Inequality_" data-uid="PAC.Shapes.RightTriangle.op_Inequality*"></a>
+
+  <h3 id="PAC_Shapes_RightTriangle_op_Inequality_PAC_Shapes_RightTriangle_PAC_Shapes_RightTriangle_" data-uid="PAC.Shapes.RightTriangle.op_Inequality(PAC.Shapes.RightTriangle,PAC.Shapes.RightTriangle)">
+  operator !=(RightTriangle, RightTriangle)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Drawing/Shapes/RightTriangle.cs/#L418"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>See <a class="xref" href="PAC.Shapes.RightTriangle.html#PAC_Shapes_RightTriangle_op_Equality_PAC_Shapes_RightTriangle_PAC_Shapes_RightTriangle_">operator ==(RightTriangle, RightTriangle)</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool operator !=(RightTriangle a, RightTriangle b)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <a class="xref" href="PAC.Shapes.RightTriangle.html">RightTriangle</a></dt>
+    <dd></dd>
+    <dt><code>b</code> <a class="xref" href="PAC.Shapes.RightTriangle.html">RightTriangle</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="PAC_Shapes_RightTriangle_op_Subtraction_" data-uid="PAC.Shapes.RightTriangle.op_Subtraction*"></a>
+
+  <h3 id="PAC_Shapes_RightTriangle_op_Subtraction_PAC_Shapes_RightTriangle_PAC_DataStructures_IntVector2_" data-uid="PAC.Shapes.RightTriangle.op_Subtraction(PAC.Shapes.RightTriangle,PAC.DataStructures.IntVector2)">
+  operator -(RightTriangle, IntVector2)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Drawing/Shapes/RightTriangle.cs/#L373"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns a deep copy of the <a class="xref" href="PAC.Shapes.RightTriangle.html">RightTriangle</a> translated by the given vector.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static RightTriangle operator -(RightTriangle triangle, IntVector2 translation)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>triangle</code> <a class="xref" href="PAC.Shapes.RightTriangle.html">RightTriangle</a></dt>
+    <dd></dd>
+    <dt><code>translation</code> <a class="xref" href="PAC.DataStructures.IntVector2.html">IntVector2</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="PAC.Shapes.RightTriangle.html">RightTriangle</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <dl class="typelist seealso">
+    <dt>See Also</dt>
+    <dd>
+    <div><a class="xref" href="PAC.Shapes.RightTriangle.html#PAC_Shapes_RightTriangle_Translate_PAC_DataStructures_IntVector2_">Translate(IntVector2)</a></div>
+    </dd>
+  </dl>
+
+
+  <a id="PAC_Shapes_RightTriangle_op_UnaryNegation_" data-uid="PAC.Shapes.RightTriangle.op_UnaryNegation*"></a>
+
+  <h3 id="PAC_Shapes_RightTriangle_op_UnaryNegation_PAC_Shapes_RightTriangle_" data-uid="PAC.Shapes.RightTriangle.op_UnaryNegation(PAC.Shapes.RightTriangle)">
+  operator -(RightTriangle)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Drawing/Shapes/RightTriangle.cs/#L379"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns a deep copy of the <a class="xref" href="PAC.Shapes.RightTriangle.html">RightTriangle</a> rotated 180 degrees about the origin (equivalently, reflected through the origin).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static RightTriangle operator -(RightTriangle triangle)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>triangle</code> <a class="xref" href="PAC.Shapes.RightTriangle.html">RightTriangle</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="PAC.Shapes.RightTriangle.html">RightTriangle</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <dl class="typelist seealso">
+    <dt>See Also</dt>
+    <dd>
+    <div><a class="xref" href="PAC.Shapes.RightTriangle.html#PAC_Shapes_RightTriangle_Rotate_PAC_RotationAngle_">Rotate(RotationAngle)</a></div>
+    <div><a class="xref" href="PAC.Shapes.RightTriangle.html#PAC_Shapes_RightTriangle_Flip_PAC_FlipAxis_">Flip(FlipAxis)</a></div>
+    </dd>
+  </dl>
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Drawing/Shapes/RightTriangle.cs/#L76" class="edit-link">Edit this page</a>
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          Pixel Art Creator 2.0 Docs
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

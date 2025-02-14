@@ -1,0 +1,1058 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class Combinatorics | Pixel Art Creator 2.0 Docs </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class Combinatorics | Pixel Art Creator 2.0 Docs ">
+      
+      <meta name="description" content="A collection of common combinatorial functions, such as computing factorials or generating all permutations of a set.">
+      <link rel="icon" href="../resources/icon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/new/main/apiSpec/new?filename=PAC_Maths_Combinatorics.md&amp;value=---%0Auid%3A%20PAC.Maths.Combinatorics%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../resources/logo.svg" alt="Pixel Art Creator 2.0">
+            Pixel Art Creator 2.0
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="PAC.Maths.Combinatorics">
+
+
+
+  <h1 id="PAC_Maths_Combinatorics" data-uid="PAC.Maths.Combinatorics" class="text-break">
+Class Combinatorics  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Maths/Combinatorics.cs/#L12"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="PAC.html">PAC</a>.<a class="xref" href="PAC.Maths.html">Maths</a></dd></dl>
+  
+  </div>
+
+  <div class="markdown summary"><p>A collection of common combinatorial functions, such as computing factorials or generating all permutations of a set.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static class Combinatorics</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">Combinatorics</span></div>
+    </dd>
+  </dl>
+
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="PAC_Maths_Combinatorics_BinomialCoefficient_" data-uid="PAC.Maths.Combinatorics.BinomialCoefficient*"></a>
+
+  <h3 id="PAC_Maths_Combinatorics_BinomialCoefficient_System_Int32_System_Int32_" data-uid="PAC.Maths.Combinatorics.BinomialCoefficient(System.Int32,System.Int32)">
+  BinomialCoefficient(int, int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Maths/Combinatorics.cs/#L138"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The coefficient of <code>x^k</code> in <code>(x + 1)^n</code>. An alias for <a class="xref" href="PAC.Maths.Combinatorics.html#PAC_Maths_Combinatorics_Choose_System_Int32_System_Int32_">Choose(int, int)</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static int BinomialCoefficient(int n, int k)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>n</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>k</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <dl class="typelist seealso">
+    <dt>See Also</dt>
+    <dd>
+    <div><a class="xref" href="PAC.Maths.Combinatorics.html#PAC_Maths_Combinatorics_Choose_System_Int32_System_Int32_">Choose(int, int)</a></div>
+    </dd>
+  </dl>
+
+
+  <a id="PAC_Maths_Combinatorics_Choose_" data-uid="PAC.Maths.Combinatorics.Choose*"></a>
+
+  <h3 id="PAC_Maths_Combinatorics_Choose_System_Int32_System_Int32_" data-uid="PAC.Maths.Combinatorics.Choose(System.Int32,System.Int32)">
+  Choose(int, int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Maths/Combinatorics.cs/#L117"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The choose function. An alias for <a class="xref" href="PAC.Maths.Combinatorics.html#PAC_Maths_Combinatorics_BinomialCoefficient_System_Int32_System_Int32_">BinomialCoefficient(int, int)</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static int Choose(int n, int k)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>n</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>k</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <dl class="typelist seealso">
+    <dt>See Also</dt>
+    <dd>
+    <div><a class="xref" href="PAC.Maths.Combinatorics.html#PAC_Maths_Combinatorics_BinomialCoefficient_System_Int32_System_Int32_">BinomialCoefficient(int, int)</a></div>
+    </dd>
+  </dl>
+
+
+  <a id="PAC_Maths_Combinatorics_Factorial_" data-uid="PAC.Maths.Combinatorics.Factorial*"></a>
+
+  <h3 id="PAC_Maths_Combinatorics_Factorial_System_Int32_" data-uid="PAC.Maths.Combinatorics.Factorial(System.Int32)">
+  Factorial(int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Maths/Combinatorics.cs/#L18"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Computes <code><code class="paramref">n</code> * (<code class="paramref">n</code> - 1) * ... * 2 * 1</code>.
+Returns 1 if <code class="paramref">n</code> is 0.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static int Factorial(int n)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>n</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="PAC_Maths_Combinatorics_FallingFactorial_" data-uid="PAC.Maths.Combinatorics.FallingFactorial*"></a>
+
+  <h3 id="PAC_Maths_Combinatorics_FallingFactorial_System_Int32_System_Int32_" data-uid="PAC.Maths.Combinatorics.FallingFactorial(System.Int32,System.Int32)">
+  FallingFactorial(int, int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Maths/Combinatorics.cs/#L37"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Computes <code><code class="paramref">n</code> * (<code class="paramref">n</code> - 1) * ... * (<code class="paramref">n</code> - (<code class="paramref">k</code> - 1))</code>.
+Returns 1 if <code class="paramref">k</code> is 0.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static int FallingFactorial(int n, int k)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>n</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>k</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="PAC_Maths_Combinatorics_MultiChoose_" data-uid="PAC.Maths.Combinatorics.MultiChoose*"></a>
+
+  <h3 id="PAC_Maths_Combinatorics_MultiChoose_System_Int32_System_Int32_" data-uid="PAC.Maths.Combinatorics.MultiChoose(System.Int32,System.Int32)">
+  MultiChoose(int, int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Maths/Combinatorics.cs/#L160"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static int MultiChoose(int n, int k)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>n</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>k</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="PAC_Maths_Combinatorics_NumberOfCombinations_" data-uid="PAC.Maths.Combinatorics.NumberOfCombinations*"></a>
+
+  <h3 id="PAC_Maths_Combinatorics_NumberOfCombinations_System_Int32_" data-uid="PAC.Maths.Combinatorics.NumberOfCombinations(System.Int32)">
+  NumberOfCombinations(int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Maths/Combinatorics.cs/#L140"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static int NumberOfCombinations(int sizeOfSet)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>sizeOfSet</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="PAC_Maths_Combinatorics_NumberOfCombinations_" data-uid="PAC.Maths.Combinatorics.NumberOfCombinations*"></a>
+
+  <h3 id="PAC_Maths_Combinatorics_NumberOfCombinations_System_Int32_System_Int32_" data-uid="PAC.Maths.Combinatorics.NumberOfCombinations(System.Int32,System.Int32)">
+  NumberOfCombinations(int, int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Maths/Combinatorics.cs/#L141"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static int NumberOfCombinations(int numElementsToChooseFrom, int lengthOfCombination)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>numElementsToChooseFrom</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>lengthOfCombination</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="PAC_Maths_Combinatorics_NumberOfMultisets_" data-uid="PAC.Maths.Combinatorics.NumberOfMultisets*"></a>
+
+  <h3 id="PAC_Maths_Combinatorics_NumberOfMultisets_System_Int32_" data-uid="PAC.Maths.Combinatorics.NumberOfMultisets(System.Int32)">
+  NumberOfMultisets(int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Maths/Combinatorics.cs/#L162"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static int NumberOfMultisets(int sizeOfSet)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>sizeOfSet</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="PAC_Maths_Combinatorics_NumberOfMultisets_" data-uid="PAC.Maths.Combinatorics.NumberOfMultisets*"></a>
+
+  <h3 id="PAC_Maths_Combinatorics_NumberOfMultisets_System_Int32_System_Int32_" data-uid="PAC.Maths.Combinatorics.NumberOfMultisets(System.Int32,System.Int32)">
+  NumberOfMultisets(int, int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Maths/Combinatorics.cs/#L163"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static int NumberOfMultisets(int numElementsToChooseFrom, int sizeOfMultiset)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>numElementsToChooseFrom</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>sizeOfMultiset</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="PAC_Maths_Combinatorics_NumberOfPermutations_" data-uid="PAC.Maths.Combinatorics.NumberOfPermutations*"></a>
+
+  <h3 id="PAC_Maths_Combinatorics_NumberOfPermutations_System_Int32_" data-uid="PAC.Maths.Combinatorics.NumberOfPermutations(System.Int32)">
+  NumberOfPermutations(int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Maths/Combinatorics.cs/#L91"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The number of possible permutations of a set of the given size. (Permutations do not allow repeated elements.)</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static int NumberOfPermutations(int sizeOfSet)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>sizeOfSet</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="PAC_Maths_Combinatorics_NumberOfPermutations_" data-uid="PAC.Maths.Combinatorics.NumberOfPermutations*"></a>
+
+  <h3 id="PAC_Maths_Combinatorics_NumberOfPermutations_System_Int32_System_Int32_" data-uid="PAC.Maths.Combinatorics.NumberOfPermutations(System.Int32,System.Int32)">
+  NumberOfPermutations(int, int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Maths/Combinatorics.cs/#L95"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The number of possible permutations of the given length with elements in a set of the given size. (Permutations do not allow repeated elements.)</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static int NumberOfPermutations(int numElementsToChooseFrom, int lengthOfPermutation)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>numElementsToChooseFrom</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>lengthOfPermutation</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="PAC_Maths_Combinatorics_NumberOfTuples_" data-uid="PAC.Maths.Combinatorics.NumberOfTuples*"></a>
+
+  <h3 id="PAC_Maths_Combinatorics_NumberOfTuples_System_Int32_System_Int32_" data-uid="PAC.Maths.Combinatorics.NumberOfTuples(System.Int32,System.Int32)">
+  NumberOfTuples(int, int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Maths/Combinatorics.cs/#L74"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The number of possible tuples of the given length with elements in a set of the given size. (Tuples allow repeated elements.)</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static int NumberOfTuples(int numElementsToChooseFrom, int lengthOfTuple)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>numElementsToChooseFrom</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>lengthOfTuple</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="PAC_Maths_Combinatorics_Pairs_" data-uid="PAC.Maths.Combinatorics.Pairs*"></a>
+
+  <h3 id="PAC_Maths_Combinatorics_Pairs__1_System_Collections_Generic_IEnumerable___0__" data-uid="PAC.Maths.Combinatorics.Pairs``1(System.Collections.Generic.IEnumerable{``0})">
+  Pairs&lt;T&gt;(IEnumerable&lt;T&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Maths/Combinatorics.cs/#L189"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Lazily generates all possible pairs <code>(x, y)</code> with <code>x</code> and <code>y</code> in the given <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable&lt;T&gt;</a>.
+<code>x</code> and <code>y</code> don't have to be distinct.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static IEnumerable&lt;(T first, T second)&gt; Pairs&lt;T&gt;(this IEnumerable&lt;T&gt; set)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>set</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;T&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;(T <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetuple---0,--0-.first">first</a>, T <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetuple---0,--0-.second">second</a>)&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+  <h4 class="section" id="PAC_Maths_Combinatorics_Pairs__1_System_Collections_Generic_IEnumerable___0___remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>
+If the given <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable&lt;T&gt;</a> has duplicate elements, those elements will be treated as though they were distinct.
+</p>
+<p>
+For a description of the order in which the pairs are yielded, see <a class="xref" href="PAC.Maths.Combinatorics.html#PAC_Maths_Combinatorics_Tuples__1_System_Collections_Generic_IEnumerable___0__System_Int32_">Tuples&lt;T&gt;(IEnumerable&lt;T&gt;, int)</a>.
+</p>
+</div>
+
+
+
+
+  <a id="PAC_Maths_Combinatorics_Pairs_" data-uid="PAC.Maths.Combinatorics.Pairs*"></a>
+
+  <h3 id="PAC_Maths_Combinatorics_Pairs__2_System_Collections_Generic_IEnumerable___0__System_Collections_Generic_IEnumerable___1__" data-uid="PAC.Maths.Combinatorics.Pairs``2(System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEnumerable{``1})">
+  Pairs&lt;TFirst, TSecond&gt;(IEnumerable&lt;TFirst&gt;, IEnumerable&lt;TSecond&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Maths/Combinatorics.cs/#L201"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Lazily generates all possible pairs <code>(x, y)</code> with <code>x</code> in <code class="paramref">first</code> and <code>y</code> in <code class="paramref">second</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static IEnumerable&lt;(TFirst first, TSecond second)&gt; Pairs&lt;TFirst, TSecond&gt;(this IEnumerable&lt;TFirst&gt; first, IEnumerable&lt;TSecond&gt; second)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>first</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;TFirst&gt;</dt>
+    <dd></dd>
+    <dt><code>second</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;TSecond&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;(TFirst <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetuple---0,--1-.first">first</a>, TSecond <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetuple---0,--1-.second">second</a>)&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>TFirst</code></dt>
+    <dd></dd>
+    <dt><code>TSecond</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+  <h4 class="section" id="PAC_Maths_Combinatorics_Pairs__2_System_Collections_Generic_IEnumerable___0__System_Collections_Generic_IEnumerable___1___remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>
+If a given <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable&lt;T&gt;</a> has duplicate elements, those elements will be treated as though they were distinct.
+</p>
+<p>
+For a description of the order in which the pairs are yielded, see <a class="xref" href="PAC.Maths.Combinatorics.html#PAC_Maths_Combinatorics_Tuples__1_System_Collections_Generic_IEnumerable___0__System_Int32_">Tuples&lt;T&gt;(IEnumerable&lt;T&gt;, int)</a>.
+</p>
+</div>
+
+
+
+
+  <a id="PAC_Maths_Combinatorics_Permutations_" data-uid="PAC.Maths.Combinatorics.Permutations*"></a>
+
+  <h3 id="PAC_Maths_Combinatorics_Permutations__1_System_Collections_Generic_IEnumerable___0__" data-uid="PAC.Maths.Combinatorics.Permutations``1(System.Collections.Generic.IEnumerable{``0})">
+  Permutations&lt;T&gt;(IEnumerable&lt;T&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Maths/Combinatorics.cs/#L350"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Lazily generates all possible permutations of the elements in the given <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable&lt;T&gt;</a>. (Permutations do not allow repeated elements.)</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static IEnumerable&lt;IEnumerable&lt;T&gt;&gt; Permutations&lt;T&gt;(this IEnumerable&lt;T&gt; elements)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>elements</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;T&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;T&gt;&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+  <h4 class="section" id="PAC_Maths_Combinatorics_Permutations__1_System_Collections_Generic_IEnumerable___0___remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>If the given <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable&lt;T&gt;</a> has duplicate elements, they will be treated as though they were distinct.</p>
+</div>
+
+
+
+
+  <a id="PAC_Maths_Combinatorics_Permutations_" data-uid="PAC.Maths.Combinatorics.Permutations*"></a>
+
+  <h3 id="PAC_Maths_Combinatorics_Permutations__1_System_Collections_Generic_IEnumerable___0__System_Int32_" data-uid="PAC.Maths.Combinatorics.Permutations``1(System.Collections.Generic.IEnumerable{``0},System.Int32)">
+  Permutations&lt;T&gt;(IEnumerable&lt;T&gt;, int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Maths/Combinatorics.cs/#L393"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Lazily generates all possible permutations of the given length with elements in the given <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable&lt;T&gt;</a>. (Permutations do not allow repeated elements.)</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static IEnumerable&lt;IEnumerable&lt;T&gt;&gt; Permutations&lt;T&gt;(this IEnumerable&lt;T&gt; elements, int length)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>elements</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;T&gt;</dt>
+    <dd></dd>
+    <dt><code>length</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;T&gt;&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+  <h4 class="section" id="PAC_Maths_Combinatorics_Permutations__1_System_Collections_Generic_IEnumerable___0__System_Int32__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>If the given <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable&lt;T&gt;</a> has duplicate elements, they will be treated as though they were distinct.</p>
+</div>
+
+
+
+
+  <a id="PAC_Maths_Combinatorics_RisingFactorial_" data-uid="PAC.Maths.Combinatorics.RisingFactorial*"></a>
+
+  <h3 id="PAC_Maths_Combinatorics_RisingFactorial_System_Int32_System_Int32_" data-uid="PAC.Maths.Combinatorics.RisingFactorial(System.Int32,System.Int32)">
+  RisingFactorial(int, int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Maths/Combinatorics.cs/#L56"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Computes <code><code class="paramref">n</code> * (<code class="paramref">n</code> + 1) * ... * (<code class="paramref">n</code> + (<code class="paramref">k</code> - 1))</code>.
+Returns 1 if <code class="paramref">k</code> is 0.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static int RisingFactorial(int n, int k)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>n</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>k</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="PAC_Maths_Combinatorics_Triples_" data-uid="PAC.Maths.Combinatorics.Triples*"></a>
+
+  <h3 id="PAC_Maths_Combinatorics_Triples__1_System_Collections_Generic_IEnumerable___0__" data-uid="PAC.Maths.Combinatorics.Triples``1(System.Collections.Generic.IEnumerable{``0})">
+  Triples&lt;T&gt;(IEnumerable&lt;T&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Maths/Combinatorics.cs/#L239"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Lazily generates all possible triples <code>(x, y, z)</code> with <code>x</code>, <code>y</code> and <code>z</code> in the given <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable&lt;T&gt;</a>.
+<code>x</code>, <code>y</code> and <code>z</code> don't have to all be distinct.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static IEnumerable&lt;(T first, T second, T third)&gt; Triples&lt;T&gt;(this IEnumerable&lt;T&gt; set)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>set</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;T&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;(T <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetuple---0,--0,--0-.first">first</a>, T <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetuple---0,--0,--0-.second">second</a>, T <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetuple---0,--0,--0-.third">third</a>)&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+  <h4 class="section" id="PAC_Maths_Combinatorics_Triples__1_System_Collections_Generic_IEnumerable___0___remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>
+If the given <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable&lt;T&gt;</a> has duplicate elements, those elements will be treated as though they were distinct.
+</p>
+<p>
+For a description of the order in which the triples are yielded, see <a class="xref" href="PAC.Maths.Combinatorics.html#PAC_Maths_Combinatorics_Tuples__1_System_Collections_Generic_IEnumerable___0__System_Int32_">Tuples&lt;T&gt;(IEnumerable&lt;T&gt;, int)</a>.
+</p>
+</div>
+
+
+
+
+  <a id="PAC_Maths_Combinatorics_Triples_" data-uid="PAC.Maths.Combinatorics.Triples*"></a>
+
+  <h3 id="PAC_Maths_Combinatorics_Triples__3_System_Collections_Generic_IEnumerable___0__System_Collections_Generic_IEnumerable___1__System_Collections_Generic_IEnumerable___2__" data-uid="PAC.Maths.Combinatorics.Triples``3(System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEnumerable{``1},System.Collections.Generic.IEnumerable{``2})">
+  Triples&lt;TFirst, TSecond, TThird&gt;(IEnumerable&lt;TFirst&gt;, IEnumerable&lt;TSecond&gt;, IEnumerable&lt;TThird&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Maths/Combinatorics.cs/#L251"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Lazily generates all possible triples <code>(x, y, z)</code> with <code>x</code> in <code class="paramref">first</code>, <code>y</code> in <code class="paramref">second</code> and <code>z</code> in <code class="paramref">third</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static IEnumerable&lt;(TFirst first, TSecond second, TThird third)&gt; Triples&lt;TFirst, TSecond, TThird&gt;(this IEnumerable&lt;TFirst&gt; first, IEnumerable&lt;TSecond&gt; second, IEnumerable&lt;TThird&gt; third)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>first</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;TFirst&gt;</dt>
+    <dd></dd>
+    <dt><code>second</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;TSecond&gt;</dt>
+    <dd></dd>
+    <dt><code>third</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;TThird&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;(TFirst <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetuple---0,--1,--2-.first">first</a>, TSecond <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetuple---0,--1,--2-.second">second</a>, TThird <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetuple---0,--1,--2-.third">third</a>)&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>TFirst</code></dt>
+    <dd></dd>
+    <dt><code>TSecond</code></dt>
+    <dd></dd>
+    <dt><code>TThird</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+  <h4 class="section" id="PAC_Maths_Combinatorics_Triples__3_System_Collections_Generic_IEnumerable___0__System_Collections_Generic_IEnumerable___1__System_Collections_Generic_IEnumerable___2___remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>
+If a given <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable&lt;T&gt;</a> has duplicate elements, those elements will be treated as though they were distinct.
+</p>
+<p>
+For a description of the order in which the triples are yielded, see <a class="xref" href="PAC.Maths.Combinatorics.html#PAC_Maths_Combinatorics_Tuples__1_System_Collections_Generic_IEnumerable___0__System_Int32_">Tuples&lt;T&gt;(IEnumerable&lt;T&gt;, int)</a>.
+</p>
+</div>
+
+
+
+
+  <a id="PAC_Maths_Combinatorics_Tuples_" data-uid="PAC.Maths.Combinatorics.Tuples*"></a>
+
+  <h3 id="PAC_Maths_Combinatorics_Tuples__1_System_Collections_Generic_IEnumerable___0__System_Int32_" data-uid="PAC.Maths.Combinatorics.Tuples``1(System.Collections.Generic.IEnumerable{``0},System.Int32)">
+  Tuples&lt;T&gt;(IEnumerable&lt;T&gt;, int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Maths/Combinatorics.cs/#L308"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Lazily generates all possible tuples of the given length with elements in the given <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable&lt;T&gt;</a>. (Tuples allow repeated elements.)</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static IEnumerable&lt;IEnumerable&lt;T&gt;&gt; Tuples&lt;T&gt;(this IEnumerable&lt;T&gt; elements, int length)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>elements</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;T&gt;</dt>
+    <dd></dd>
+    <dt><code>length</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;T&gt;&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+  <h4 class="section" id="PAC_Maths_Combinatorics_Tuples__1_System_Collections_Generic_IEnumerable___0__System_Int32__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>
+If the given <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable&lt;T&gt;</a> has duplicate elements, they will be treated as though they were distinct.
+</p>
+<p>
+The order of the tuples will be lexicographic based on the order in which the elements appear in the input, with the left-most coordinate being the most significant. This is equivalent
+to using nested <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/statements/iteration-statements#the-foreach-statement">foreach</a> loops, with a loop being less nested corresponding to a further-left coordinate.
+</p>
+<example>
+For example, the tuples of length 2 with elements in <code>{ 0, 1 }</code> will be in the order <code>{ { 0, 0 }, { 0, 1 }, { 1, 0 }, { 1, 1 } }.</code> This is equivalent to
+<pre><code class="lang-csharp">foreach (int element1 in set)
+{
+    foreach (int element2 in set)
+    {
+        yield return new int[] { element1, element2 };
+    }
+}</code></pre></example>
+</div>
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Maths/Combinatorics.cs/#L12" class="edit-link">Edit this page</a>
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          Pixel Art Creator 2.0 Docs
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

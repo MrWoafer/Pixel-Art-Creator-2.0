@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class Gradient.Radial | Pixel Art Creator 2.0 Docs </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class Gradient.Radial | Pixel Art Creator 2.0 Docs ">
+      
+      <meta name="description" content="A gradient that linearly interpolates from the colour of  to the colour of  based on the distance of a point from the .     https://en.wikipedia.org/wiki/Color_gradient#Radial_gradients">
+      <link rel="icon" href="../resources/icon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/new/main/apiSpec/new?filename=PAC_Patterns_Gradient_Radial.md&amp;value=---%0Auid%3A%20PAC.Patterns.Gradient.Radial%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../resources/logo.svg" alt="Pixel Art Creator 2.0">
+            Pixel Art Creator 2.0
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="PAC.Patterns.Gradient.Radial">
+
+
+
+  <h1 id="PAC_Patterns_Gradient_Radial" data-uid="PAC.Patterns.Gradient.Radial" class="text-break">
+Class Gradient.Radial  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Patterns/GradientRadial.cs/#L46"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="PAC.html">PAC</a>.<a class="xref" href="PAC.Patterns.html">Patterns</a></dd></dl>
+  
+  </div>
+
+  <div class="markdown summary"><p>
+A gradient that linearly interpolates from the colour of <a class="xref" href="PAC.Patterns.Gradient.Radial.html#PAC_Patterns_Gradient_Radial_centre">centre</a> to the colour of <a class="xref" href="PAC.Patterns.Gradient.Radial.html#PAC_Patterns_Gradient_Radial_onCircumference">onCircumference</a> based on the distance of a point from the
+<a class="xref" href="PAC.Patterns.Gradient.Radial.html#PAC_Patterns_Gradient_Radial_centre">centre</a>.
+</p>
+<p>
+  <a href="https://en.wikipedia.org/wiki/Color_gradient#Radial_gradients">https://en.wikipedia.org/wiki/Color_gradient#Radial_gradients</a>
+</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public record Gradient.Radial : IPattern2D&lt;Color&gt;, IEquatable&lt;Gradient.Radial&gt;</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">Gradient.Radial</span></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="PAC.Patterns.IPattern2D-1.html">IPattern2D</a>&lt;<span class="xref">Color</span>&gt;</div>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iequatable-1">IEquatable</a>&lt;<a class="xref" href="PAC.Patterns.Gradient.html">Gradient</a>.<a class="xref" href="PAC.Patterns.Gradient.Radial.html">Radial</a>&gt;</div>
+    </dd>
+  </dl>
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+  </dd></dl>
+
+  <dl class="typelist extensionMethods">
+    <dt>Extension Methods</dt>
+    <dd>
+  <div>
+      <a class="xref" href="PAC.Extensions.ISetComparableExtensions.html#PAC_Extensions_ISetComparableExtensions_IsProperSubsetOf__2___0___1_">ISetComparableExtensions.IsProperSubsetOf&lt;T1, T2&gt;(T1, T2)</a>
+  </div>
+  <div>
+      <a class="xref" href="PAC.Extensions.ISetComparableExtensions.html#PAC_Extensions_ISetComparableExtensions_IsProperSupersetOf__2___0___1_">ISetComparableExtensions.IsProperSupersetOf&lt;T1, T2&gt;(T1, T2)</a>
+  </div>
+  <div>
+      <a class="xref" href="PAC.Extensions.IPattern2DExtensions.html#PAC_Extensions_IPattern2DExtensions_ToTexture_PAC_Patterns_IPattern2D_Color__PAC_DataStructures_IntRect_">IPattern2DExtensions.ToTexture(IPattern2D&lt;Color&gt;, IntRect)</a>
+  </div>
+  </dd></dl>
+
+
+
+  <h2 id="PAC_Patterns_Gradient_Radial_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>
+  <b>In More Detail:</b>
+</p>
+<p>
+Let <code>r = distance(<a class="xref" href="PAC.Patterns.Gradient.Radial.html#PAC_Patterns_Gradient_Radial_centre">centre</a>, <a class="xref" href="PAC.Patterns.Gradient.Radial.html#PAC_Patterns_Gradient_Radial_onCircumference">onCircumference</a>)</code>, and for a given point let <code>d = distance(<a class="xref" href="PAC.Patterns.Gradient.Radial.html#PAC_Patterns_Gradient_Radial_centre">centre</a>, point)</code>.
+</p>
+<ul><li>
+If <code>d = 0</code>, the point's colour will be the colour of <a class="xref" href="PAC.Patterns.Gradient.Radial.html#PAC_Patterns_Gradient_Radial_centre">centre</a>.
+</li><li>
+If <code>d &gt;= r</code>, the point's colour will be the colour of <a class="xref" href="PAC.Patterns.Gradient.Radial.html#PAC_Patterns_Gradient_Radial_onCircumference">onCircumference</a>.
+</li><li>
+If <code>0 &lt; d &lt; r</code>, the point's colour will be linearly interpolated from the colour of <a class="xref" href="PAC.Patterns.Gradient.Radial.html#PAC_Patterns_Gradient_Radial_centre">centre</a> to the colour of <a class="xref" href="PAC.Patterns.Gradient.Radial.html#PAC_Patterns_Gradient_Radial_onCircumference">onCircumference</a>, using the proportion
+<code>d / r</code>.
+</li></ul>
+<p>
+  <b>Design Note:</b>
+</p>
+<p>
+If <a class="xref" href="PAC.Patterns.Gradient.Radial.html#PAC_Patterns_Gradient_Radial_centre">centre</a> and <a class="xref" href="PAC.Patterns.Gradient.Radial.html#PAC_Patterns_Gradient_Radial_onCircumference">onCircumference</a> have the same coord, the <a class="xref" href="PAC.Patterns.Gradient.Radial.html#PAC_Patterns_Gradient_Radial_centre">centre</a> will still have its assigned colour and all other points will have the colour of
+<a class="xref" href="PAC.Patterns.Gradient.Radial.html#PAC_Patterns_Gradient_Radial_onCircumference">onCircumference</a>. This definition was chosen because I think it feels natural for a user of the gradient tool to always see the <a class="xref" href="PAC.Patterns.Gradient.Radial.html#PAC_Patterns_Gradient_Radial_centre">centre</a> have its assigned
+colour.
+</p>
+</div>
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="PAC_Patterns_Gradient_Radial__ctor_" data-uid="PAC.Patterns.Gradient.Radial.#ctor*"></a>
+
+  <h3 id="PAC_Patterns_Gradient_Radial__ctor_System_ValueTuple_PAC_DataStructures_IntVector2_Color__System_ValueTuple_PAC_DataStructures_IntVector2_Color__" data-uid="PAC.Patterns.Gradient.Radial.#ctor(System.ValueTuple{PAC.DataStructures.IntVector2,Color},System.ValueTuple{PAC.DataStructures.IntVector2,Color})">
+  Radial((IntVector2 coord, Color colour), (IntVector2 coord, Color colour))
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Patterns/GradientRadial.cs/#L64"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>See <a class="xref" href="PAC.Patterns.Gradient.Radial.html">Gradient.Radial</a> for details.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Radial((IntVector2 coord, Color colour) centre, (IntVector2 coord, Color colour) onCircumference)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>centre</code> (<a class="xref" href="PAC.DataStructures.IntVector2.html">IntVector2</a> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetuple-pac.datastructures.intvector2,color-.coord">coord</a>, <span class="xref">Color</span> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetuple-pac.datastructures.intvector2,color-.colour">colour</a>)</dt>
+    <dd><p>The position and colour of the centre of the circle.</p>
+</dd>
+    <dt><code>onCircumference</code> (<a class="xref" href="PAC.DataStructures.IntVector2.html">IntVector2</a> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetuple-pac.datastructures.intvector2,color-.coord">coord</a>, <span class="xref">Color</span> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetuple-pac.datastructures.intvector2,color-.colour">colour</a>)</dt>
+    <dd><p>The position and colour of some point on the circumference of the circle.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="PAC_Patterns_Gradient_Radial_Item_" data-uid="PAC.Patterns.Gradient.Radial.Item*"></a>
+
+  <h3 id="PAC_Patterns_Gradient_Radial_Item_PAC_DataStructures_IntVector2_" data-uid="PAC.Patterns.Gradient.Radial.Item(PAC.DataStructures.IntVector2)">
+  this[IntVector2]
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Patterns/GradientRadial.cs/#L70"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the value of the pattern at the given point.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Color this[IntVector2 point] { get; }</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>point</code> <a class="xref" href="PAC.DataStructures.IntVector2.html">IntVector2</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Color</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+  <h4 class="section" id="PAC_Patterns_Gradient_Radial_Item_PAC_DataStructures_IntVector2__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>This value should be completely determined by the state of the object, and computing it should not change the state in a way that will affect any subsequent computations.
+See <a class="xref" href="PAC.Patterns.IPattern2D-1.html">IPattern2D&lt;T&gt;</a> for more details.</p>
+</div>
+
+
+
+
+  <a id="PAC_Patterns_Gradient_Radial_centre_" data-uid="PAC.Patterns.Gradient.Radial.centre*"></a>
+
+  <h3 id="PAC_Patterns_Gradient_Radial_centre" data-uid="PAC.Patterns.Gradient.Radial.centre">
+  centre
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Patterns/GradientRadial.cs/#L52"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The position and colour of the centre of the circle.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public (IntVector2 coord, Color colour) centre { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt>(<a class="xref" href="PAC.DataStructures.IntVector2.html">IntVector2</a> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetuple-pac.datastructures.intvector2,color-.coord">coord</a>, <span class="xref">Color</span> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetuple-pac.datastructures.intvector2,color-.colour">colour</a>)</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+  <dl class="typelist seealso">
+    <dt>See Also</dt>
+    <dd>
+    <div><a class="xref" href="PAC.Patterns.Gradient.Radial.html#PAC_Patterns_Gradient_Radial_onCircumference">onCircumference</a></div>
+    </dd>
+  </dl>
+
+
+  <a id="PAC_Patterns_Gradient_Radial_onCircumference_" data-uid="PAC.Patterns.Gradient.Radial.onCircumference*"></a>
+
+  <h3 id="PAC_Patterns_Gradient_Radial_onCircumference" data-uid="PAC.Patterns.Gradient.Radial.onCircumference">
+  onCircumference
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Patterns/GradientRadial.cs/#L57"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The position and colour of some point on the circumference of the circle.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public (IntVector2 coord, Color colour) onCircumference { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt>(<a class="xref" href="PAC.DataStructures.IntVector2.html">IntVector2</a> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetuple-pac.datastructures.intvector2,color-.coord">coord</a>, <span class="xref">Color</span> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetuple-pac.datastructures.intvector2,color-.colour">colour</a>)</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+  <dl class="typelist seealso">
+    <dt>See Also</dt>
+    <dd>
+    <div><a class="xref" href="PAC.Patterns.Gradient.Radial.html#PAC_Patterns_Gradient_Radial_centre">centre</a></div>
+    </dd>
+  </dl>
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Patterns/GradientRadial.cs/#L46" class="edit-link">Edit this page</a>
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          Pixel Art Creator 2.0 Docs
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

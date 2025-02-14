@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
   <head>
     <meta charset="utf-8">
@@ -54,7 +54,7 @@
             <div id="navbar">
               <form class="search" role="search" id="search">
                 <i class="bi bi-search"></i>
-                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
               </form>
             </div>
           </div>
@@ -171,7 +171,7 @@ Class NormalLayer  <a class="header-action link-secondary" title="View source" h
       <a class="xref" href="PAC.Layers.Layer.html#PAC_Layers_Layer_SetPixel_PAC_DataStructures_IntVector2_System_Int32_Color_PAC_Layers_AnimFrameRefMode_">Layer.SetPixel(IntVector2, int, Color, AnimFrameRefMode)</a>
     </div>
     <div>
-      <a class="xref" href="PAC.Layers.Layer.html#PAC_Layers_Layer_SetPixels_PAC_DataStructures_IntVector2___System_Int32_Color_PAC_Layers_AnimFrameRefMode_">Layer.SetPixels(IntVector2[], int, Color, AnimFrameRefMode)</a>
+      <a class="xref" href="PAC.Layers.Layer.html#PAC_Layers_Layer_SetPixels_System_Collections_Generic_IEnumerable_PAC_DataStructures_IntVector2__System_Int32_Color_PAC_Layers_AnimFrameRefMode_">Layer.SetPixels(IEnumerable&lt;IntVector2&gt;, int, Color, AnimFrameRefMode)</a>
     </div>
     <div>
       <a class="xref" href="PAC.Layers.Layer.html#PAC_Layers_Layer_GetPixel_System_Int32_System_Int32_System_Int32_System_Boolean_">Layer.GetPixel(int, int, int, bool)</a>
@@ -180,7 +180,7 @@ Class NormalLayer  <a class="header-action link-secondary" title="View source" h
       <a class="xref" href="PAC.Layers.Layer.html#PAC_Layers_Layer_IsBlank">Layer.IsBlank()</a>
     </div>
     <div>
-      <a class="xref" href="PAC.Layers.Layer.html#PAC_Layers_Layer_Flip_PAC_FlipDirection_">Layer.Flip(FlipDirection)</a>
+      <a class="xref" href="PAC.Layers.Layer.html#PAC_Layers_Layer_Flip_PAC_FlipAxis_">Layer.Flip(FlipAxis)</a>
     </div>
     <div>
       <a class="xref" href="PAC.Layers.Layer.html#PAC_Layers_Layer_Rotate_PAC_RotationAngle_">Layer.Rotate(RotationAngle)</a>
@@ -225,7 +225,7 @@ Class NormalLayer  <a class="header-action link-secondary" title="View source" h
       <a class="xref" href="PAC.Layers.Layer.html#PAC_Layers_Layer_DeleteKeyFrame_PAC_Animation_AnimationKeyFrame_">Layer.DeleteKeyFrame(AnimationKeyFrame)</a>
     </div>
     <div>
-      <a class="xref" href="PAC.Layers.Layer.html#PAC_Layers_Layer_SubscribeToOnPixelsChanged_UnityAction_PAC_DataStructures_IntVector2___System_Int32____">Layer.SubscribeToOnPixelsChanged(UnityAction&lt;IntVector2[], int[]&gt;)</a>
+      <a class="xref" href="PAC.Layers.Layer.html#PAC_Layers_Layer_SubscribeToOnPixelsChanged_UnityAction_System_Collections_Generic_IEnumerable_PAC_DataStructures_IntVector2__System_Int32____">Layer.SubscribeToOnPixelsChanged(UnityAction&lt;IEnumerable&lt;IntVector2&gt;, int[]&gt;)</a>
     </div>
     <div>
       <a class="xref" href="PAC.Layers.Layer.html#PAC_Layers_Layer_SubscribeToOnVisibilityChanged_UnityAction_">Layer.SubscribeToOnVisibilityChanged(UnityAction)</a>
@@ -265,6 +265,16 @@ Class NormalLayer  <a class="header-action link-secondary" title="View source" h
     </div>
   </dd></dl>
 
+  <dl class="typelist extensionMethods">
+    <dt>Extension Methods</dt>
+    <dd>
+  <div>
+      <a class="xref" href="PAC.Extensions.ISetComparableExtensions.html#PAC_Extensions_ISetComparableExtensions_IsProperSubsetOf__2___0___1_">ISetComparableExtensions.IsProperSubsetOf&lt;T1, T2&gt;(T1, T2)</a>
+  </div>
+  <div>
+      <a class="xref" href="PAC.Extensions.ISetComparableExtensions.html#PAC_Extensions_ISetComparableExtensions_IsProperSupersetOf__2___0___1_">ISetComparableExtensions.IsProperSupersetOf&lt;T1, T2&gt;(T1, T2)</a>
+  </div>
+  </dd></dl>
 
 
 
@@ -613,8 +623,8 @@ Class NormalLayer  <a class="header-action link-secondary" title="View source" h
 
   <a id="PAC_Layers_NormalLayer_Flip_" data-uid="PAC.Layers.NormalLayer.Flip*"></a>
 
-  <h3 id="PAC_Layers_NormalLayer_Flip_System_Int32_PAC_FlipDirection_PAC_Layers_AnimFrameRefMode_" data-uid="PAC.Layers.NormalLayer.Flip(System.Int32,PAC.FlipDirection,PAC.Layers.AnimFrameRefMode)">
-  Flip(int, FlipDirection, AnimFrameRefMode)
+  <h3 id="PAC_Layers_NormalLayer_Flip_System_Int32_PAC_FlipAxis_PAC_Layers_AnimFrameRefMode_" data-uid="PAC.Layers.NormalLayer.Flip(System.Int32,PAC.FlipAxis,PAC.Layers.AnimFrameRefMode)">
+  Flip(int, FlipAxis, AnimFrameRefMode)
   <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Layers/NormalLayer.cs/#L132"><i class="bi bi-code-slash"></i></a>
   </h3>
 
@@ -623,14 +633,14 @@ Class NormalLayer  <a class="header-action link-secondary" title="View source" h
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public void Flip(int frame, FlipDirection direction, AnimFrameRefMode frameRefMode)</code></pre>
+    <pre><code class="lang-csharp hljs">public void Flip(int frame, FlipAxis axis, AnimFrameRefMode frameRefMode)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>frame</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
     <dd></dd>
-    <dt><code>direction</code> <a class="xref" href="PAC.FlipDirection.html">FlipDirection</a></dt>
+    <dt><code>axis</code> <a class="xref" href="PAC.FlipAxis.html">FlipAxis</a></dt>
     <dd></dd>
     <dt><code>frameRefMode</code> <a class="xref" href="PAC.Layers.AnimFrameRefMode.html">AnimFrameRefMode</a></dt>
     <dd></dd>
@@ -649,8 +659,8 @@ Class NormalLayer  <a class="header-action link-secondary" title="View source" h
 
   <a id="PAC_Layers_NormalLayer_FlipNoEvent_" data-uid="PAC.Layers.NormalLayer.FlipNoEvent*"></a>
 
-  <h3 id="PAC_Layers_NormalLayer_FlipNoEvent_PAC_FlipDirection_" data-uid="PAC.Layers.NormalLayer.FlipNoEvent(PAC.FlipDirection)">
-  FlipNoEvent(FlipDirection)
+  <h3 id="PAC_Layers_NormalLayer_FlipNoEvent_PAC_FlipAxis_" data-uid="PAC.Layers.NormalLayer.FlipNoEvent(PAC.FlipAxis)">
+  FlipNoEvent(FlipAxis)
   <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Layers/NormalLayer.cs/#L143"><i class="bi bi-code-slash"></i></a>
   </h3>
 
@@ -659,12 +669,12 @@ Class NormalLayer  <a class="header-action link-secondary" title="View source" h
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected override void FlipNoEvent(FlipDirection direction)</code></pre>
+    <pre><code class="lang-csharp hljs">protected override void FlipNoEvent(FlipAxis axis)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
-    <dt><code>direction</code> <a class="xref" href="PAC.FlipDirection.html">FlipDirection</a></dt>
+    <dt><code>axis</code> <a class="xref" href="PAC.FlipAxis.html">FlipAxis</a></dt>
     <dd></dd>
   </dl>
 
@@ -1067,8 +1077,8 @@ Rotation is clockwise.</p>
 
   <a id="PAC_Layers_NormalLayer_SetPixelsNoEvent_" data-uid="PAC.Layers.NormalLayer.SetPixelsNoEvent*"></a>
 
-  <h3 id="PAC_Layers_NormalLayer_SetPixelsNoEvent_PAC_DataStructures_IntVector2___System_Int32_Color_PAC_Layers_AnimFrameRefMode_" data-uid="PAC.Layers.NormalLayer.SetPixelsNoEvent(PAC.DataStructures.IntVector2[],System.Int32,Color,PAC.Layers.AnimFrameRefMode)">
-  SetPixelsNoEvent(IntVector2[], int, Color, AnimFrameRefMode)
+  <h3 id="PAC_Layers_NormalLayer_SetPixelsNoEvent_System_Collections_Generic_IEnumerable_PAC_DataStructures_IntVector2__System_Int32_Color_PAC_Layers_AnimFrameRefMode_" data-uid="PAC.Layers.NormalLayer.SetPixelsNoEvent(System.Collections.Generic.IEnumerable{PAC.DataStructures.IntVector2},System.Int32,Color,PAC.Layers.AnimFrameRefMode)">
+  SetPixelsNoEvent(IEnumerable&lt;IntVector2&gt;, int, Color, AnimFrameRefMode)
   <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Layers/NormalLayer.cs/#L33"><i class="bi bi-code-slash"></i></a>
   </h3>
 
@@ -1078,12 +1088,12 @@ You do not need to check the pixels are in the layer as this check is done in La
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected override IntVector2[] SetPixelsNoEvent(IntVector2[] pixels, int frame, Color colour, AnimFrameRefMode frameRefMode)</code></pre>
+    <pre><code class="lang-csharp hljs">protected override IEnumerable&lt;IntVector2&gt; SetPixelsNoEvent(IEnumerable&lt;IntVector2&gt; pixels, int frame, Color colour, AnimFrameRefMode frameRefMode)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
-    <dt><code>pixels</code> <a class="xref" href="PAC.DataStructures.IntVector2.html">IntVector2</a>[]</dt>
+    <dt><code>pixels</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="PAC.DataStructures.IntVector2.html">IntVector2</a>&gt;</dt>
     <dd></dd>
     <dt><code>frame</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
     <dd></dd>
@@ -1095,7 +1105,7 @@ You do not need to check the pixels are in the layer as this check is done in La
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
-    <dt><a class="xref" href="PAC.DataStructures.IntVector2.html">IntVector2</a>[]</dt>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="PAC.DataStructures.IntVector2.html">IntVector2</a>&gt;</dt>
     <dd></dd>
   </dl>
 

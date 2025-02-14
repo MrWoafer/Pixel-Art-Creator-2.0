@@ -1,0 +1,3328 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Struct IntRange | Pixel Art Creator 2.0 Docs </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Struct IntRange | Pixel Art Creator 2.0 Docs ">
+      
+      <meta name="description" content="A set of consecutive integers.">
+      <link rel="icon" href="../resources/icon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/new/main/apiSpec/new?filename=PAC_DataStructures_IntRange.md&amp;value=---%0Auid%3A%20PAC.DataStructures.IntRange%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../resources/logo.svg" alt="Pixel Art Creator 2.0">
+            Pixel Art Creator 2.0
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="PAC.DataStructures.IntRange">
+
+
+
+  <h1 id="PAC_DataStructures_IntRange" data-uid="PAC.DataStructures.IntRange" class="text-break">
+Struct IntRange  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Data Structures/IntRange.cs/#L35"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="PAC.html">PAC</a>.<a class="xref" href="PAC.DataStructures.html">DataStructures</a></dd></dl>
+  
+  </div>
+
+  <div class="markdown summary"><p>A set of consecutive integers.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public readonly struct IntRange : IReadOnlyList&lt;int&gt;, IReadOnlyContains&lt;int&gt;, IReadOnlyCollection&lt;int&gt;, IEnumerable&lt;int&gt;, IEnumerable, IEquatable&lt;IntRange&gt;, ISetComparable&lt;IntRange&gt;</code></pre>
+  </div>
+
+
+
+
+
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>&gt;</div>
+      <div><a class="xref" href="PAC.Interfaces.IReadOnlyContains-1.html">IReadOnlyContains</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>&gt;</div>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlycollection-1">IReadOnlyCollection</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>&gt;</div>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>&gt;</div>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.ienumerable">IEnumerable</a></div>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iequatable-1">IEquatable</a>&lt;<a class="xref" href="PAC.DataStructures.IntRange.html">IntRange</a>&gt;</div>
+      <div><a class="xref" href="PAC.Interfaces.ISetComparable-1.html">ISetComparable</a>&lt;<a class="xref" href="PAC.DataStructures.IntRange.html">IntRange</a>&gt;</div>
+    </dd>
+  </dl>
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+  </dd></dl>
+
+  <dl class="typelist extensionMethods">
+    <dt>Extension Methods</dt>
+    <dd>
+  <div>
+      <a class="xref" href="PAC.Extensions.ISetComparableExtensions.html#PAC_Extensions_ISetComparableExtensions_IsProperSubsetOf__2___0___1_">ISetComparableExtensions.IsProperSubsetOf&lt;T1, T2&gt;(T1, T2)</a>
+  </div>
+  <div>
+      <a class="xref" href="PAC.Extensions.ISetComparableExtensions.html#PAC_Extensions_ISetComparableExtensions_IsProperSupersetOf__2___0___1_">ISetComparableExtensions.IsProperSupersetOf&lt;T1, T2&gt;(T1, T2)</a>
+  </div>
+  <div>
+      <a class="xref" href="PAC.Extensions.IReadOnlyContainsExtensions.html#PAC_Extensions_IReadOnlyContainsExtensions_ContainsAll__1_PAC_Interfaces_IReadOnlyContains___0__System_Collections_Generic_IEnumerable___0__">IReadOnlyContainsExtensions.ContainsAll&lt;T&gt;(IReadOnlyContains&lt;T&gt;, IEnumerable&lt;T&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="PAC.Extensions.IReadOnlyContainsExtensions.html#PAC_Extensions_IReadOnlyContainsExtensions_ContainsAll__1_PAC_Interfaces_IReadOnlyContains___0____0___">IReadOnlyContainsExtensions.ContainsAll&lt;T&gt;(IReadOnlyContains&lt;T&gt;, params T[])</a>
+  </div>
+  <div>
+      <a class="xref" href="PAC.Extensions.IReadOnlyContainsExtensions.html#PAC_Extensions_IReadOnlyContainsExtensions_ContainsAny__1_PAC_Interfaces_IReadOnlyContains___0__System_Collections_Generic_IEnumerable___0__">IReadOnlyContainsExtensions.ContainsAny&lt;T&gt;(IReadOnlyContains&lt;T&gt;, IEnumerable&lt;T&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="PAC.Extensions.IReadOnlyContainsExtensions.html#PAC_Extensions_IReadOnlyContainsExtensions_ContainsAny__1_PAC_Interfaces_IReadOnlyContains___0____0___">IReadOnlyContainsExtensions.ContainsAny&lt;T&gt;(IReadOnlyContains&lt;T&gt;, params T[])</a>
+  </div>
+  <div>
+      <a class="xref" href="PAC.Extensions.IReadOnlyContainsExtensions.html#PAC_Extensions_IReadOnlyContainsExtensions_ContainsNone__1_PAC_Interfaces_IReadOnlyContains___0__System_Collections_Generic_IEnumerable___0__">IReadOnlyContainsExtensions.ContainsNone&lt;T&gt;(IReadOnlyContains&lt;T&gt;, IEnumerable&lt;T&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="PAC.Extensions.IReadOnlyContainsExtensions.html#PAC_Extensions_IReadOnlyContainsExtensions_ContainsNone__1_PAC_Interfaces_IReadOnlyContains___0____0___">IReadOnlyContainsExtensions.ContainsNone&lt;T&gt;(IReadOnlyContains&lt;T&gt;, params T[])</a>
+  </div>
+  <div>
+      <a class="xref" href="PAC.Extensions.IReadOnlyContainsExtensions.html#PAC_Extensions_IReadOnlyContainsExtensions_ContainsNotAll__1_PAC_Interfaces_IReadOnlyContains___0__System_Collections_Generic_IEnumerable___0__">IReadOnlyContainsExtensions.ContainsNotAll&lt;T&gt;(IReadOnlyContains&lt;T&gt;, IEnumerable&lt;T&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="PAC.Extensions.IReadOnlyContainsExtensions.html#PAC_Extensions_IReadOnlyContainsExtensions_ContainsNotAll__1_PAC_Interfaces_IReadOnlyContains___0____0___">IReadOnlyContainsExtensions.ContainsNotAll&lt;T&gt;(IReadOnlyContains&lt;T&gt;, params T[])</a>
+  </div>
+  <div>
+      <a class="xref" href="PAC.Extensions.IEnumerableExtensions.html#PAC_Extensions_IEnumerableExtensions_AreAllDistinct__1_System_Collections_Generic_IEnumerable___0__">IEnumerableExtensions.AreAllDistinct&lt;T&gt;(IEnumerable&lt;T&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="PAC.Extensions.IEnumerableExtensions.html#PAC_Extensions_IEnumerableExtensions_ArgMax__2_System_Collections_Generic_IEnumerable___0__System_Func___0___1__">IEnumerableExtensions.ArgMax&lt;TElement, TCompare&gt;(IEnumerable&lt;TElement&gt;, Func&lt;TElement, TCompare&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="PAC.Extensions.IEnumerableExtensions.html#PAC_Extensions_IEnumerableExtensions_ArgMin__2_System_Collections_Generic_IEnumerable___0__System_Func___0___1__">IEnumerableExtensions.ArgMin&lt;TElement, TCompare&gt;(IEnumerable&lt;TElement&gt;, Func&lt;TElement, TCompare&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="PAC.Extensions.IEnumerableExtensions.html#PAC_Extensions_IEnumerableExtensions_Concat__1_System_Collections_Generic_IEnumerable___0__System_Collections_Generic_IEnumerable___0__System_Collections_Generic_IEnumerable___0__System_Collections_Generic_IEnumerable___0____">IEnumerableExtensions.Concat&lt;T&gt;(IEnumerable&lt;T&gt;, IEnumerable&lt;T&gt;, IEnumerable&lt;T&gt;, params IEnumerable&lt;T&gt;[])</a>
+  </div>
+  <div>
+      <a class="xref" href="PAC.Extensions.IEnumerableExtensions.html#PAC_Extensions_IEnumerableExtensions_ContainsAll__1_System_Collections_Generic_IEnumerable___0__System_Collections_Generic_IEnumerable___0__">IEnumerableExtensions.ContainsAll&lt;T&gt;(IEnumerable&lt;T&gt;, IEnumerable&lt;T&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="PAC.Extensions.IEnumerableExtensions.html#PAC_Extensions_IEnumerableExtensions_ContainsAll__1_System_Collections_Generic_IEnumerable___0____0___">IEnumerableExtensions.ContainsAll&lt;T&gt;(IEnumerable&lt;T&gt;, params T[])</a>
+  </div>
+  <div>
+      <a class="xref" href="PAC.Extensions.IEnumerableExtensions.html#PAC_Extensions_IEnumerableExtensions_ContainsAny__1_System_Collections_Generic_IEnumerable___0__System_Collections_Generic_IEnumerable___0__">IEnumerableExtensions.ContainsAny&lt;T&gt;(IEnumerable&lt;T&gt;, IEnumerable&lt;T&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="PAC.Extensions.IEnumerableExtensions.html#PAC_Extensions_IEnumerableExtensions_ContainsAny__1_System_Collections_Generic_IEnumerable___0____0___">IEnumerableExtensions.ContainsAny&lt;T&gt;(IEnumerable&lt;T&gt;, params T[])</a>
+  </div>
+  <div>
+      <a class="xref" href="PAC.Extensions.IEnumerableExtensions.html#PAC_Extensions_IEnumerableExtensions_ContainsNone__1_System_Collections_Generic_IEnumerable___0__System_Collections_Generic_IEnumerable___0__">IEnumerableExtensions.ContainsNone&lt;T&gt;(IEnumerable&lt;T&gt;, IEnumerable&lt;T&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="PAC.Extensions.IEnumerableExtensions.html#PAC_Extensions_IEnumerableExtensions_ContainsNone__1_System_Collections_Generic_IEnumerable___0____0___">IEnumerableExtensions.ContainsNone&lt;T&gt;(IEnumerable&lt;T&gt;, params T[])</a>
+  </div>
+  <div>
+      <a class="xref" href="PAC.Extensions.IEnumerableExtensions.html#PAC_Extensions_IEnumerableExtensions_ContainsNotAll__1_System_Collections_Generic_IEnumerable___0__System_Collections_Generic_IEnumerable___0__">IEnumerableExtensions.ContainsNotAll&lt;T&gt;(IEnumerable&lt;T&gt;, IEnumerable&lt;T&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="PAC.Extensions.IEnumerableExtensions.html#PAC_Extensions_IEnumerableExtensions_ContainsNotAll__1_System_Collections_Generic_IEnumerable___0____0___">IEnumerableExtensions.ContainsNotAll&lt;T&gt;(IEnumerable&lt;T&gt;, params T[])</a>
+  </div>
+  <div>
+      <a class="xref" href="PAC.Extensions.IEnumerableExtensions.html#PAC_Extensions_IEnumerableExtensions_CountIsAtLeast__1_System_Collections_Generic_IEnumerable___0__System_Int32_">IEnumerableExtensions.CountIsAtLeast&lt;T&gt;(IEnumerable&lt;T&gt;, int)</a>
+  </div>
+  <div>
+      <a class="xref" href="PAC.Extensions.IEnumerableExtensions.html#PAC_Extensions_IEnumerableExtensions_CountIsAtMost__1_System_Collections_Generic_IEnumerable___0__System_Int32_">IEnumerableExtensions.CountIsAtMost&lt;T&gt;(IEnumerable&lt;T&gt;, int)</a>
+  </div>
+  <div>
+      <a class="xref" href="PAC.Extensions.IEnumerableExtensions.html#PAC_Extensions_IEnumerableExtensions_CountIsExactly__1_System_Collections_Generic_IEnumerable___0__System_Int32_">IEnumerableExtensions.CountIsExactly&lt;T&gt;(IEnumerable&lt;T&gt;, int)</a>
+  </div>
+  <div>
+      <a class="xref" href="PAC.Extensions.IEnumerableExtensions.html#PAC_Extensions_IEnumerableExtensions_EnumerateOccurrences__1_System_Collections_Generic_IEnumerable___0__">IEnumerableExtensions.EnumerateOccurrences&lt;T&gt;(IEnumerable&lt;T&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="PAC.Extensions.IEnumerableExtensions.html#PAC_Extensions_IEnumerableExtensions_Enumerate__1_System_Collections_Generic_IEnumerable___0__">IEnumerableExtensions.Enumerate&lt;T&gt;(IEnumerable&lt;T&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="PAC.Extensions.IEnumerableExtensions.html#PAC_Extensions_IEnumerableExtensions_IsSubsequenceOf__1_System_Collections_Generic_IEnumerable___0__System_Collections_Generic_IEnumerable___0__">IEnumerableExtensions.IsSubsequenceOf&lt;T&gt;(IEnumerable&lt;T&gt;, IEnumerable&lt;T&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="PAC.Extensions.IEnumerableExtensions.html#PAC_Extensions_IEnumerableExtensions_IsSupersequenceOf__1_System_Collections_Generic_IEnumerable___0__System_Collections_Generic_IEnumerable___0__">IEnumerableExtensions.IsSupersequenceOf&lt;T&gt;(IEnumerable&lt;T&gt;, IEnumerable&lt;T&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="PAC.Extensions.IEnumerableExtensions.html#PAC_Extensions_IEnumerableExtensions_MinAndMax__1_System_Collections_Generic_IEnumerable___0__">IEnumerableExtensions.MinAndMax&lt;T&gt;(IEnumerable&lt;T&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="PAC.Extensions.IEnumerableExtensions.html#PAC_Extensions_IEnumerableExtensions_None__1_System_Collections_Generic_IEnumerable___0__">IEnumerableExtensions.None&lt;T&gt;(IEnumerable&lt;T&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="PAC.Extensions.IEnumerableExtensions.html#PAC_Extensions_IEnumerableExtensions_None__1_System_Collections_Generic_IEnumerable___0__System_Func___0_System_Boolean__">IEnumerableExtensions.None&lt;T&gt;(IEnumerable&lt;T&gt;, Func&lt;T, bool&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="PAC.Extensions.IEnumerableExtensions.html#PAC_Extensions_IEnumerableExtensions_NotAll__1_System_Collections_Generic_IEnumerable___0__System_Func___0_System_Boolean__">IEnumerableExtensions.NotAll&lt;T&gt;(IEnumerable&lt;T&gt;, Func&lt;T, bool&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="PAC.Extensions.IEnumerableExtensions.html#PAC_Extensions_IEnumerableExtensions_Product_System_Collections_Generic_IEnumerable_System_Int32__">IEnumerableExtensions.Product(IEnumerable&lt;int&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="PAC.Extensions.IEnumerableExtensions.html#PAC_Extensions_IEnumerableExtensions_Replace__1_System_Collections_Generic_IEnumerable___0____0___0_">IEnumerableExtensions.Replace&lt;T&gt;(IEnumerable&lt;T&gt;, T, T)</a>
+  </div>
+  <div>
+      <a class="xref" href="PAC.Extensions.IEnumerableExtensions.html#PAC_Extensions_IEnumerableExtensions_SkipIndex__1_System_Collections_Generic_IEnumerable___0__System_Int32_">IEnumerableExtensions.SkipIndex&lt;T&gt;(IEnumerable&lt;T&gt;, int)</a>
+  </div>
+  <div>
+      <a class="xref" href="PAC.Extensions.IEnumerableExtensions.html#PAC_Extensions_IEnumerableExtensions_ZipCurrentAndNext__1_System_Collections_Generic_IEnumerable___0__">IEnumerableExtensions.ZipCurrentAndNext&lt;T&gt;(IEnumerable&lt;T&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="PAC.Extensions.IEnumerableExtensions.html#PAC_Extensions_IEnumerableExtensions_Zip__2_System_Collections_Generic_IEnumerable___0__System_Collections_Generic_IEnumerable___1__">IEnumerableExtensions.Zip&lt;T1, T2&gt;(IEnumerable&lt;T1&gt;, IEnumerable&lt;T2&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="PAC.Maths.Combinatorics.html#PAC_Maths_Combinatorics_Pairs__1_System_Collections_Generic_IEnumerable___0__">Combinatorics.Pairs&lt;T&gt;(IEnumerable&lt;T&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="PAC.Maths.Combinatorics.html#PAC_Maths_Combinatorics_Pairs__2_System_Collections_Generic_IEnumerable___0__System_Collections_Generic_IEnumerable___1__">Combinatorics.Pairs&lt;TFirst, TSecond&gt;(IEnumerable&lt;TFirst&gt;, IEnumerable&lt;TSecond&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="PAC.Maths.Combinatorics.html#PAC_Maths_Combinatorics_Permutations__1_System_Collections_Generic_IEnumerable___0__">Combinatorics.Permutations&lt;T&gt;(IEnumerable&lt;T&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="PAC.Maths.Combinatorics.html#PAC_Maths_Combinatorics_Permutations__1_System_Collections_Generic_IEnumerable___0__System_Int32_">Combinatorics.Permutations&lt;T&gt;(IEnumerable&lt;T&gt;, int)</a>
+  </div>
+  <div>
+      <a class="xref" href="PAC.Maths.Combinatorics.html#PAC_Maths_Combinatorics_Triples__1_System_Collections_Generic_IEnumerable___0__">Combinatorics.Triples&lt;T&gt;(IEnumerable&lt;T&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="PAC.Maths.Combinatorics.html#PAC_Maths_Combinatorics_Triples__3_System_Collections_Generic_IEnumerable___0__System_Collections_Generic_IEnumerable___1__System_Collections_Generic_IEnumerable___2__">Combinatorics.Triples&lt;TFirst, TSecond, TThird&gt;(IEnumerable&lt;TFirst&gt;, IEnumerable&lt;TSecond&gt;, IEnumerable&lt;TThird&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="PAC.Maths.Combinatorics.html#PAC_Maths_Combinatorics_Tuples__1_System_Collections_Generic_IEnumerable___0__System_Int32_">Combinatorics.Tuples&lt;T&gt;(IEnumerable&lt;T&gt;, int)</a>
+  </div>
+  <div>
+      <a class="xref" href="PAC.Extensions.IReadOnlyListExtensions.html#PAC_Extensions_IReadOnlyListExtensions_GetRange__1_System_Collections_Generic_IReadOnlyList___0__System_Int32_System_Int32_">IReadOnlyListExtensions.GetRange&lt;T&gt;(IReadOnlyList&lt;T&gt;, int, int)</a>
+  </div>
+  <div>
+      <a class="xref" href="PAC.Extensions.IReadOnlyListExtensions.html#PAC_Extensions_IReadOnlyListExtensions_GetRange__1_System_Collections_Generic_IReadOnlyList___0__System_Range_">IReadOnlyListExtensions.GetRange&lt;T&gt;(IReadOnlyList&lt;T&gt;, Range)</a>
+  </div>
+  <div>
+      <a class="xref" href="PAC.Extensions.IntRangeExtensions.html#PAC_Extensions_IntRangeExtensions_GetRange__1_System_Collections_Generic_IReadOnlyList___0__PAC_DataStructures_IntRange_">IntRangeExtensions.GetRange&lt;T&gt;(IReadOnlyList&lt;T&gt;, IntRange)</a>
+  </div>
+  </dd></dl>
+
+
+
+  <h2 id="PAC_DataStructures_IntRange_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>
+The enumerator iterates throught the elements from <a class="xref" href="PAC.DataStructures.IntRange.html#PAC_DataStructures_IntRange_startElement">startElement</a> to <a class="xref" href="PAC.DataStructures.IntRange.html#PAC_DataStructures_IntRange_endElement">endElement</a>.
+</p>
+<p>
+If <a class="xref" href="PAC.DataStructures.IntRange.html#PAC_DataStructures_IntRange_startBoundary">startBoundary</a> and <a class="xref" href="PAC.DataStructures.IntRange.html#PAC_DataStructures_IntRange_endBoundary">endBoundary</a> are equal but their being inclusive / exclusive do not match, we define the range to be empty. This definition is useful in
+situations such as
+<pre><code class="lang-csharp">foreach (int index in IntRange.InclExcl(0, array.Length))
+{
+    Console.WriteLine($"Element {index}: {array[index]}");
+}</code></pre>
+so that it's equivalent to
+<pre><code class="lang-csharp">for (int index = 0; index &lt; array.Length; index++)
+{
+    Console.WriteLine($"Element {index}: {array[index]}");
+}</code></pre>
+</div>
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="PAC_DataStructures_IntRange__ctor_" data-uid="PAC.DataStructures.IntRange.#ctor*"></a>
+
+  <h3 id="PAC_DataStructures_IntRange__ctor_System_Int32_System_Int32_System_Boolean_System_Boolean_" data-uid="PAC.DataStructures.IntRange.#ctor(System.Int32,System.Int32,System.Boolean,System.Boolean)">
+  IntRange(int, int, bool, bool)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Data Structures/IntRange.cs/#L381"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Creates a new range.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IntRange(int startBoundary, int endBoundary, bool startBoundaryInclusive, bool endBoundaryInclusive)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>startBoundary</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The start of the range. Can be inclusive or exclusive.</p>
+</dd>
+    <dt><code>endBoundary</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The end of the range. Can be inclusive or exclusive.</p>
+</dd>
+    <dt><code>startBoundaryInclusive</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>Whether the start boundary is inclusive or exclusive.</p>
+</dd>
+    <dt><code>endBoundaryInclusive</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>Whether the end boundary is inclusive or exclusive.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section" id="PAC_DataStructures_IntRange__ctor_System_Int32_System_Int32_System_Boolean_System_Boolean__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>If <code class="paramref">startBoundary</code> and <code class="paramref">endBoundary</code> are equal but their being inclusive / exclusive do not match, we define the range to be empty. See
+<a class="xref" href="PAC.DataStructures.IntRange.html">IntRange</a> for more details.</p>
+</div>
+
+
+
+
+  <h2 class="section" id="fields">Fields
+</h2>
+
+
+
+  <h3 id="PAC_DataStructures_IntRange_All" data-uid="PAC.DataStructures.IntRange.All">
+  All
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Data Structures/IntRange.cs/#L362"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The range from <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32.minvalue">MinValue</a> (inclusive) to <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32.maxvalue">MaxValue</a> (inclusive).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly IntRange All</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="PAC.DataStructures.IntRange.html">IntRange</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="PAC_DataStructures_IntRange_Empty" data-uid="PAC.DataStructures.IntRange.Empty">
+  Empty
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Data Structures/IntRange.cs/#L366"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The range from 0 (exclusive) to 0 (exclusive), which contains no elements.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly IntRange Empty</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="PAC.DataStructures.IntRange.html">IntRange</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="PAC_DataStructures_IntRange_endBoundary" data-uid="PAC.DataStructures.IntRange.endBoundary">
+  endBoundary
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Data Structures/IntRange.cs/#L55"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The end of the range. Can be inclusive or exclusive.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public readonly int endBoundary</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+  <h4 class="section" id="PAC_DataStructures_IntRange_endBoundary_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>Will be different from <a class="xref" href="PAC.DataStructures.IntRange.html#PAC_DataStructures_IntRange_endElement">endElement</a> if this boundary is exclusive.</p>
+</div>
+
+
+  <dl class="typelist seealso">
+    <dt>See Also</dt>
+    <dd>
+    <div><a class="xref" href="PAC.DataStructures.IntRange.html#PAC_DataStructures_IntRange_endBoundaryInclusive">endBoundaryInclusive</a></div>
+    <div><a class="xref" href="PAC.DataStructures.IntRange.html#PAC_DataStructures_IntRange_startBoundary">startBoundary</a></div>
+    </dd>
+  </dl>
+
+
+
+  <h3 id="PAC_DataStructures_IntRange_endBoundaryInclusive" data-uid="PAC.DataStructures.IntRange.endBoundaryInclusive">
+  endBoundaryInclusive
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Data Structures/IntRange.cs/#L65"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Whether <a class="xref" href="PAC.DataStructures.IntRange.html#PAC_DataStructures_IntRange_endBoundary">endBoundary</a> is inclusive or exclusive.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public readonly bool endBoundaryInclusive</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+  <dl class="typelist seealso">
+    <dt>See Also</dt>
+    <dd>
+    <div><a class="xref" href="PAC.DataStructures.IntRange.html#PAC_DataStructures_IntRange_startBoundaryInclusive">startBoundaryInclusive</a></div>
+    </dd>
+  </dl>
+
+
+
+  <h3 id="PAC_DataStructures_IntRange_startBoundary" data-uid="PAC.DataStructures.IntRange.startBoundary">
+  startBoundary
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Data Structures/IntRange.cs/#L46"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The start of the range. Can be inclusive or exclusive.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public readonly int startBoundary</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+  <h4 class="section" id="PAC_DataStructures_IntRange_startBoundary_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>Will be different from <a class="xref" href="PAC.DataStructures.IntRange.html#PAC_DataStructures_IntRange_startElement">startElement</a> if this boundary is exclusive.</p>
+</div>
+
+
+  <dl class="typelist seealso">
+    <dt>See Also</dt>
+    <dd>
+    <div><a class="xref" href="PAC.DataStructures.IntRange.html#PAC_DataStructures_IntRange_startBoundaryInclusive">startBoundaryInclusive</a></div>
+    <div><a class="xref" href="PAC.DataStructures.IntRange.html#PAC_DataStructures_IntRange_endBoundary">endBoundary</a></div>
+    </dd>
+  </dl>
+
+
+
+  <h3 id="PAC_DataStructures_IntRange_startBoundaryInclusive" data-uid="PAC.DataStructures.IntRange.startBoundaryInclusive">
+  startBoundaryInclusive
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Data Structures/IntRange.cs/#L60"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Whether <a class="xref" href="PAC.DataStructures.IntRange.html#PAC_DataStructures_IntRange_startBoundary">startBoundary</a> is inclusive or exclusive.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public readonly bool startBoundaryInclusive</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+  <dl class="typelist seealso">
+    <dt>See Also</dt>
+    <dd>
+    <div><a class="xref" href="PAC.DataStructures.IntRange.html#PAC_DataStructures_IntRange_endBoundaryInclusive">endBoundaryInclusive</a></div>
+    </dd>
+  </dl>
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="PAC_DataStructures_IntRange_Count_" data-uid="PAC.DataStructures.IntRange.Count*"></a>
+
+  <h3 id="PAC_DataStructures_IntRange_Count" data-uid="PAC.DataStructures.IntRange.Count">
+  Count
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Data Structures/IntRange.cs/#L346"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The number of elements in the range.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int Count { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+  <h4 class="section" id="PAC_DataStructures_IntRange_Count_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>May throw an <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.overflowexception">OverflowException</a>. For example, the <a class="xref" href="PAC.DataStructures.IntRange.html#PAC_DataStructures_IntRange_Count">Count</a> of a range from <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32.minvalue">MinValue</a> to <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32.maxvalue">MaxValue</a> cannot be expressed as an
+<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>. Using <a class="xref" href="PAC.DataStructures.IntRange.html#PAC_DataStructures_IntRange_LongCount">LongCount</a> instead will never encounter this issue.</p>
+</div>
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.overflowexception">OverflowException</a></dt>
+    <dd><p>The number of elements is too large to represent as an <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="PAC_DataStructures_IntRange_Item_" data-uid="PAC.DataStructures.IntRange.Item*"></a>
+
+  <h3 id="PAC_DataStructures_IntRange_Item_System_Int32_" data-uid="PAC.DataStructures.IntRange.Item(System.Int32)">
+  this[int]
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Data Structures/IntRange.cs/#L691"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Indexes the elements of the range from <a class="xref" href="PAC.DataStructures.IntRange.html#PAC_DataStructures_IntRange_startElement">startElement</a> to <a class="xref" href="PAC.DataStructures.IntRange.html#PAC_DataStructures_IntRange_endElement">endElement</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int this[int index] { get; }</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>index</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+  <h4 class="section" id="PAC_DataStructures_IntRange_Item_System_Int32__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>Some ranges, such as a range from <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32.minvalue">MinValue</a> to <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32.maxvalue">MaxValue</a>, are too long for every element to be indexed by an <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>. Using
+<a class="xref" href="PAC.DataStructures.IntRange.html#PAC_DataStructures_IntRange_Item_System_Int64_">this[long]</a> instead will never have this issue.</p>
+</div>
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></dt>
+    <dd><p><code class="paramref">index</code> is not a valid index in the range.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="PAC_DataStructures_IntRange_Item_" data-uid="PAC.DataStructures.IntRange.Item*"></a>
+
+  <h3 id="PAC_DataStructures_IntRange_Item_System_Int64_" data-uid="PAC.DataStructures.IntRange.Item(System.Int64)">
+  this[long]
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Data Structures/IntRange.cs/#L700"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Indexes the elements of the range from <a class="xref" href="PAC.DataStructures.IntRange.html#PAC_DataStructures_IntRange_startElement">startElement</a> to <a class="xref" href="PAC.DataStructures.IntRange.html#PAC_DataStructures_IntRange_endElement">endElement</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int this[long index] { get; }</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>index</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int64">long</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+  <h4 class="section" id="PAC_DataStructures_IntRange_Item_System_Int64__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>Unlike <a class="xref" href="PAC.DataStructures.IntRange.html#PAC_DataStructures_IntRange_Item_System_Int32_">this[int]</a>, every element in a range can be indexed with a <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int64">long</a>. For example, the range from <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32.minvalue">MinValue</a> to <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32.maxvalue">MaxValue</a>
+is too long for every element to be indexed by an <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>, but every element can be indexed by a <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int64">long</a>.</p>
+</div>
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></dt>
+    <dd><p><code class="paramref">index</code> is not a valid index in the range.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="PAC_DataStructures_IntRange_LongCount_" data-uid="PAC.DataStructures.IntRange.LongCount*"></a>
+
+  <h3 id="PAC_DataStructures_IntRange_LongCount" data-uid="PAC.DataStructures.IntRange.LongCount">
+  LongCount
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Data Structures/IntRange.cs/#L355"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The same as <a class="xref" href="PAC.DataStructures.IntRange.html#PAC_DataStructures_IntRange_Count">Count</a> but computed as a <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int64">long</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public long LongCount { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int64">long</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+  <h4 class="section" id="PAC_DataStructures_IntRange_LongCount_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>Unlike <a class="xref" href="PAC.DataStructures.IntRange.html#PAC_DataStructures_IntRange_Count">Count</a>, this will never throw an <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.overflowexception">OverflowException</a>. For example, the largest range, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32.minvalue">MinValue</a> to <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32.maxvalue">MaxValue</a>, cannot be
+expressed as an <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a> but can be expressed as a <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int64">long</a>.</p>
+</div>
+
+
+
+
+  <a id="PAC_DataStructures_IntRange_asDecreasing_" data-uid="PAC.DataStructures.IntRange.asDecreasing*"></a>
+
+  <h3 id="PAC_DataStructures_IntRange_asDecreasing" data-uid="PAC.DataStructures.IntRange.asDecreasing">
+  asDecreasing
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Data Structures/IntRange.cs/#L191"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>A range with the same elements, in decreasing order.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IntRange asDecreasing { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="PAC.DataStructures.IntRange.html">IntRange</a></dt>
+    <dd><p>Either the range unchanged or <a class="xref" href="PAC.DataStructures.IntRange.html#PAC_DataStructures_IntRange_reverse">reverse</a>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+  <dl class="typelist seealso">
+    <dt>See Also</dt>
+    <dd>
+    <div><a class="xref" href="PAC.DataStructures.IntRange.html#PAC_DataStructures_IntRange_asIncreasing">asIncreasing</a></div>
+    </dd>
+  </dl>
+
+
+  <a id="PAC_DataStructures_IntRange_asExclExcl_" data-uid="PAC.DataStructures.IntRange.asExclExcl*"></a>
+
+  <h3 id="PAC_DataStructures_IntRange_asExclExcl" data-uid="PAC.DataStructures.IntRange.asExclExcl">
+  asExclExcl
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Data Structures/IntRange.cs/#L199"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>A range with the same elements, in the same order, but expressed with <a class="xref" href="PAC.DataStructures.IntRange.html#PAC_DataStructures_IntRange_startBoundary">startBoundary</a> exclusive and <a class="xref" href="PAC.DataStructures.IntRange.html#PAC_DataStructures_IntRange_endBoundary">endBoundary</a> exclusive.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IntRange asExclExcl { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="PAC.DataStructures.IntRange.html">IntRange</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+  <dl class="typelist seealso">
+    <dt>See Also</dt>
+    <dd>
+    <div><a class="xref" href="PAC.DataStructures.IntRange.html#PAC_DataStructures_IntRange_asExclIncl">asExclIncl</a></div>
+    <div><a class="xref" href="PAC.DataStructures.IntRange.html#PAC_DataStructures_IntRange_asInclExcl">asInclExcl</a></div>
+    <div><a class="xref" href="PAC.DataStructures.IntRange.html#PAC_DataStructures_IntRange_asInclIncl">asInclIncl</a></div>
+    </dd>
+  </dl>
+
+
+  <a id="PAC_DataStructures_IntRange_asExclIncl_" data-uid="PAC.DataStructures.IntRange.asExclIncl*"></a>
+
+  <h3 id="PAC_DataStructures_IntRange_asExclIncl" data-uid="PAC.DataStructures.IntRange.asExclIncl">
+  asExclIncl
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Data Structures/IntRange.cs/#L224"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>A range with the same elements, in the same order, but expressed with <a class="xref" href="PAC.DataStructures.IntRange.html#PAC_DataStructures_IntRange_startBoundary">startBoundary</a> exclusive and <a class="xref" href="PAC.DataStructures.IntRange.html#PAC_DataStructures_IntRange_endBoundary">endBoundary</a> inclusive.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IntRange asExclIncl { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="PAC.DataStructures.IntRange.html">IntRange</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+  <dl class="typelist seealso">
+    <dt>See Also</dt>
+    <dd>
+    <div><a class="xref" href="PAC.DataStructures.IntRange.html#PAC_DataStructures_IntRange_asExclExcl">asExclExcl</a></div>
+    <div><a class="xref" href="PAC.DataStructures.IntRange.html#PAC_DataStructures_IntRange_asInclExcl">asInclExcl</a></div>
+    <div><a class="xref" href="PAC.DataStructures.IntRange.html#PAC_DataStructures_IntRange_asInclIncl">asInclIncl</a></div>
+    </dd>
+  </dl>
+
+
+  <a id="PAC_DataStructures_IntRange_asInclExcl_" data-uid="PAC.DataStructures.IntRange.asInclExcl*"></a>
+
+  <h3 id="PAC_DataStructures_IntRange_asInclExcl" data-uid="PAC.DataStructures.IntRange.asInclExcl">
+  asInclExcl
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Data Structures/IntRange.cs/#L254"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>A range with the same elements, in the same order, but expressed with <a class="xref" href="PAC.DataStructures.IntRange.html#PAC_DataStructures_IntRange_startBoundary">startBoundary</a> inclusive and <a class="xref" href="PAC.DataStructures.IntRange.html#PAC_DataStructures_IntRange_endBoundary">endBoundary</a> exclusive.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IntRange asInclExcl { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="PAC.DataStructures.IntRange.html">IntRange</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+  <dl class="typelist seealso">
+    <dt>See Also</dt>
+    <dd>
+    <div><a class="xref" href="PAC.DataStructures.IntRange.html#PAC_DataStructures_IntRange_asExclExcl">asExclExcl</a></div>
+    <div><a class="xref" href="PAC.DataStructures.IntRange.html#PAC_DataStructures_IntRange_asExclIncl">asExclIncl</a></div>
+    <div><a class="xref" href="PAC.DataStructures.IntRange.html#PAC_DataStructures_IntRange_asInclIncl">asInclIncl</a></div>
+    </dd>
+  </dl>
+
+
+  <a id="PAC_DataStructures_IntRange_asInclIncl_" data-uid="PAC.DataStructures.IntRange.asInclIncl*"></a>
+
+  <h3 id="PAC_DataStructures_IntRange_asInclIncl" data-uid="PAC.DataStructures.IntRange.asInclIncl">
+  asInclIncl
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Data Structures/IntRange.cs/#L285"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>A range with the same elements, in the same order, but expressed with <a class="xref" href="PAC.DataStructures.IntRange.html#PAC_DataStructures_IntRange_startBoundary">startBoundary</a> inclusive and <a class="xref" href="PAC.DataStructures.IntRange.html#PAC_DataStructures_IntRange_endBoundary">endBoundary</a> inclusive.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IntRange asInclIncl { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="PAC.DataStructures.IntRange.html">IntRange</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.invalidoperationexception">InvalidOperationException</a></dt>
+    <dd><p>The range is empty.</p>
+</dd>
+  </dl>
+
+  <dl class="typelist seealso">
+    <dt>See Also</dt>
+    <dd>
+    <div><a class="xref" href="PAC.DataStructures.IntRange.html#PAC_DataStructures_IntRange_asExclExcl">asExclExcl</a></div>
+    <div><a class="xref" href="PAC.DataStructures.IntRange.html#PAC_DataStructures_IntRange_asExclIncl">asExclIncl</a></div>
+    <div><a class="xref" href="PAC.DataStructures.IntRange.html#PAC_DataStructures_IntRange_asInclExcl">asInclExcl</a></div>
+    </dd>
+  </dl>
+
+
+  <a id="PAC_DataStructures_IntRange_asIncreasing_" data-uid="PAC.DataStructures.IntRange.asIncreasing*"></a>
+
+  <h3 id="PAC_DataStructures_IntRange_asIncreasing" data-uid="PAC.DataStructures.IntRange.asIncreasing">
+  asIncreasing
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Data Structures/IntRange.cs/#L183"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>A range with the same elements, in increasing order.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IntRange asIncreasing { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="PAC.DataStructures.IntRange.html">IntRange</a></dt>
+    <dd><p>Either the range unchanged or <a class="xref" href="PAC.DataStructures.IntRange.html#PAC_DataStructures_IntRange_reverse">reverse</a>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+  <dl class="typelist seealso">
+    <dt>See Also</dt>
+    <dd>
+    <div><a class="xref" href="PAC.DataStructures.IntRange.html#PAC_DataStructures_IntRange_asDecreasing">asDecreasing</a></div>
+    </dd>
+  </dl>
+
+
+  <a id="PAC_DataStructures_IntRange_endElement_" data-uid="PAC.DataStructures.IntRange.endElement*"></a>
+
+  <h3 id="PAC_DataStructures_IntRange_endElement" data-uid="PAC.DataStructures.IntRange.endElement">
+  endElement
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Data Structures/IntRange.cs/#L91"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The last element when iterating through the range (from start to end).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int endElement { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+  <h4 class="section" id="PAC_DataStructures_IntRange_endElement_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>Will be different from <a class="xref" href="PAC.DataStructures.IntRange.html#PAC_DataStructures_IntRange_endBoundary">endBoundary</a> if that boundary is exclusive.</p>
+</div>
+
+
+  <dl class="typelist seealso">
+    <dt>See Also</dt>
+    <dd>
+    <div><a class="xref" href="PAC.DataStructures.IntRange.html#PAC_DataStructures_IntRange_startElement">startElement</a></div>
+    </dd>
+  </dl>
+
+
+  <a id="PAC_DataStructures_IntRange_isEmpty_" data-uid="PAC.DataStructures.IntRange.isEmpty*"></a>
+
+  <h3 id="PAC_DataStructures_IntRange_isEmpty" data-uid="PAC.DataStructures.IntRange.isEmpty">
+  isEmpty
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Data Structures/IntRange.cs/#L290"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Whether the range has no elements.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool isEmpty { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="PAC_DataStructures_IntRange_isExclExcl_" data-uid="PAC.DataStructures.IntRange.isExclExcl*"></a>
+
+  <h3 id="PAC_DataStructures_IntRange_isExclExcl" data-uid="PAC.DataStructures.IntRange.isExclExcl">
+  isExclExcl
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Data Structures/IntRange.cs/#L306"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Whether <a class="xref" href="PAC.DataStructures.IntRange.html#PAC_DataStructures_IntRange_startBoundary">startBoundary</a> is exclusive and <a class="xref" href="PAC.DataStructures.IntRange.html#PAC_DataStructures_IntRange_endBoundary">endBoundary</a> is exclusive.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool isExclExcl { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+  <h4 class="section" id="PAC_DataStructures_IntRange_isExclExcl_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>Equivalent to <code>!<a class="xref" href="PAC.DataStructures.IntRange.html#PAC_DataStructures_IntRange_startBoundaryInclusive">startBoundaryInclusive</a> &amp;&amp; !<a class="xref" href="PAC.DataStructures.IntRange.html#PAC_DataStructures_IntRange_endBoundaryInclusive">endBoundaryInclusive</a></code>.</p>
+</div>
+
+
+  <dl class="typelist seealso">
+    <dt>See Also</dt>
+    <dd>
+    <div><a class="xref" href="PAC.DataStructures.IntRange.html#PAC_DataStructures_IntRange_isExclIncl">isExclIncl</a></div>
+    <div><a class="xref" href="PAC.DataStructures.IntRange.html#PAC_DataStructures_IntRange_isInclExcl">isInclExcl</a></div>
+    <div><a class="xref" href="PAC.DataStructures.IntRange.html#PAC_DataStructures_IntRange_isInclIncl">isInclIncl</a></div>
+    </dd>
+  </dl>
+
+
+  <a id="PAC_DataStructures_IntRange_isExclIncl_" data-uid="PAC.DataStructures.IntRange.isExclIncl*"></a>
+
+  <h3 id="PAC_DataStructures_IntRange_isExclIncl" data-uid="PAC.DataStructures.IntRange.isExclIncl">
+  isExclIncl
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Data Structures/IntRange.cs/#L316"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Whether <a class="xref" href="PAC.DataStructures.IntRange.html#PAC_DataStructures_IntRange_startBoundary">startBoundary</a> is exclusive and <a class="xref" href="PAC.DataStructures.IntRange.html#PAC_DataStructures_IntRange_endBoundary">endBoundary</a> is inclusive.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool isExclIncl { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+  <h4 class="section" id="PAC_DataStructures_IntRange_isExclIncl_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>Equivalent to <code>!<a class="xref" href="PAC.DataStructures.IntRange.html#PAC_DataStructures_IntRange_startBoundaryInclusive">startBoundaryInclusive</a> &amp;&amp; <a class="xref" href="PAC.DataStructures.IntRange.html#PAC_DataStructures_IntRange_endBoundaryInclusive">endBoundaryInclusive</a></code>.</p>
+</div>
+
+
+  <dl class="typelist seealso">
+    <dt>See Also</dt>
+    <dd>
+    <div><a class="xref" href="PAC.DataStructures.IntRange.html#PAC_DataStructures_IntRange_isExclExcl">isExclExcl</a></div>
+    <div><a class="xref" href="PAC.DataStructures.IntRange.html#PAC_DataStructures_IntRange_isInclExcl">isInclExcl</a></div>
+    <div><a class="xref" href="PAC.DataStructures.IntRange.html#PAC_DataStructures_IntRange_isInclIncl">isInclIncl</a></div>
+    </dd>
+  </dl>
+
+
+  <a id="PAC_DataStructures_IntRange_isInclExcl_" data-uid="PAC.DataStructures.IntRange.isInclExcl*"></a>
+
+  <h3 id="PAC_DataStructures_IntRange_isInclExcl" data-uid="PAC.DataStructures.IntRange.isInclExcl">
+  isInclExcl
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Data Structures/IntRange.cs/#L326"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Whether <a class="xref" href="PAC.DataStructures.IntRange.html#PAC_DataStructures_IntRange_startBoundary">startBoundary</a> is inclusive and <a class="xref" href="PAC.DataStructures.IntRange.html#PAC_DataStructures_IntRange_endBoundary">endBoundary</a> is exclusive.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool isInclExcl { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+  <h4 class="section" id="PAC_DataStructures_IntRange_isInclExcl_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>Equivalent to <code><a class="xref" href="PAC.DataStructures.IntRange.html#PAC_DataStructures_IntRange_startBoundaryInclusive">startBoundaryInclusive</a> &amp;&amp; !<a class="xref" href="PAC.DataStructures.IntRange.html#PAC_DataStructures_IntRange_endBoundaryInclusive">endBoundaryInclusive</a></code>.</p>
+</div>
+
+
+  <dl class="typelist seealso">
+    <dt>See Also</dt>
+    <dd>
+    <div><a class="xref" href="PAC.DataStructures.IntRange.html#PAC_DataStructures_IntRange_isExclExcl">isExclExcl</a></div>
+    <div><a class="xref" href="PAC.DataStructures.IntRange.html#PAC_DataStructures_IntRange_isExclIncl">isExclIncl</a></div>
+    <div><a class="xref" href="PAC.DataStructures.IntRange.html#PAC_DataStructures_IntRange_isInclIncl">isInclIncl</a></div>
+    </dd>
+  </dl>
+
+
+  <a id="PAC_DataStructures_IntRange_isInclIncl_" data-uid="PAC.DataStructures.IntRange.isInclIncl*"></a>
+
+  <h3 id="PAC_DataStructures_IntRange_isInclIncl" data-uid="PAC.DataStructures.IntRange.isInclIncl">
+  isInclIncl
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Data Structures/IntRange.cs/#L336"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Whether <a class="xref" href="PAC.DataStructures.IntRange.html#PAC_DataStructures_IntRange_startBoundary">startBoundary</a> is inclusive and <a class="xref" href="PAC.DataStructures.IntRange.html#PAC_DataStructures_IntRange_endBoundary">endBoundary</a> is inclusive.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool isInclIncl { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+  <h4 class="section" id="PAC_DataStructures_IntRange_isInclIncl_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>Equivalent to <code><a class="xref" href="PAC.DataStructures.IntRange.html#PAC_DataStructures_IntRange_startBoundaryInclusive">startBoundaryInclusive</a> &amp;&amp; <a class="xref" href="PAC.DataStructures.IntRange.html#PAC_DataStructures_IntRange_endBoundaryInclusive">endBoundaryInclusive</a></code>.</p>
+</div>
+
+
+  <dl class="typelist seealso">
+    <dt>See Also</dt>
+    <dd>
+    <div><a class="xref" href="PAC.DataStructures.IntRange.html#PAC_DataStructures_IntRange_isExclExcl">isExclExcl</a></div>
+    <div><a class="xref" href="PAC.DataStructures.IntRange.html#PAC_DataStructures_IntRange_isExclIncl">isExclIncl</a></div>
+    <div><a class="xref" href="PAC.DataStructures.IntRange.html#PAC_DataStructures_IntRange_isInclExcl">isInclExcl</a></div>
+    </dd>
+  </dl>
+
+
+  <a id="PAC_DataStructures_IntRange_maxBoundary_" data-uid="PAC.DataStructures.IntRange.maxBoundary*"></a>
+
+  <h3 id="PAC_DataStructures_IntRange_maxBoundary" data-uid="PAC.DataStructures.IntRange.maxBoundary">
+  maxBoundary
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Data Structures/IntRange.cs/#L115"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The higher of <a class="xref" href="PAC.DataStructures.IntRange.html#PAC_DataStructures_IntRange_startBoundary">startBoundary</a> and <a class="xref" href="PAC.DataStructures.IntRange.html#PAC_DataStructures_IntRange_endBoundary">endBoundary</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int maxBoundary { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+  <h4 class="section" id="PAC_DataStructures_IntRange_maxBoundary_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>Will be different from <a class="xref" href="PAC.DataStructures.IntRange.html#PAC_DataStructures_IntRange_maxElement">maxElement</a> if this boundary is exclusive.</p>
+</div>
+
+
+  <dl class="typelist seealso">
+    <dt>See Also</dt>
+    <dd>
+    <div><a class="xref" href="PAC.DataStructures.IntRange.html#PAC_DataStructures_IntRange_maxBoundaryInclusive">maxBoundaryInclusive</a></div>
+    <div><a class="xref" href="PAC.DataStructures.IntRange.html#PAC_DataStructures_IntRange_minBoundary">minBoundary</a></div>
+    </dd>
+  </dl>
+
+
+  <a id="PAC_DataStructures_IntRange_maxBoundaryInclusive_" data-uid="PAC.DataStructures.IntRange.maxBoundaryInclusive*"></a>
+
+  <h3 id="PAC_DataStructures_IntRange_maxBoundaryInclusive" data-uid="PAC.DataStructures.IntRange.maxBoundaryInclusive">
+  maxBoundaryInclusive
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Data Structures/IntRange.cs/#L138"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Whether <a class="xref" href="PAC.DataStructures.IntRange.html#PAC_DataStructures_IntRange_maxBoundary">maxBoundary</a> is inclusive or exclusive.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool maxBoundaryInclusive { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+  <h4 class="section" id="PAC_DataStructures_IntRange_maxBoundaryInclusive_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>If <a class="xref" href="PAC.DataStructures.IntRange.html#PAC_DataStructures_IntRange_startBoundary">startBoundary</a> and <a class="xref" href="PAC.DataStructures.IntRange.html#PAC_DataStructures_IntRange_endBoundary">endBoundary</a> are equal but their being inclusive / exclusive do not match, we define this to be exclusive. See <a class="xref" href="PAC.DataStructures.IntRange.html">IntRange</a> for
+more details.</p>
+</div>
+
+
+  <dl class="typelist seealso">
+    <dt>See Also</dt>
+    <dd>
+    <div><a class="xref" href="PAC.DataStructures.IntRange.html#PAC_DataStructures_IntRange_minBoundaryInclusive">minBoundaryInclusive</a></div>
+    </dd>
+  </dl>
+
+
+  <a id="PAC_DataStructures_IntRange_maxElement_" data-uid="PAC.DataStructures.IntRange.maxElement*"></a>
+
+  <h3 id="PAC_DataStructures_IntRange_maxElement" data-uid="PAC.DataStructures.IntRange.maxElement">
+  maxElement
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Data Structures/IntRange.cs/#L166"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The highest element in the range.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int maxElement { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+  <h4 class="section" id="PAC_DataStructures_IntRange_maxElement_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>Will be different from <a class="xref" href="PAC.DataStructures.IntRange.html#PAC_DataStructures_IntRange_maxBoundary">maxBoundary</a> if that boundary is exclusive.</p>
+</div>
+
+
+  <dl class="typelist seealso">
+    <dt>See Also</dt>
+    <dd>
+    <div><a class="xref" href="PAC.DataStructures.IntRange.html#PAC_DataStructures_IntRange_minElement">minElement</a></div>
+    </dd>
+  </dl>
+
+
+  <a id="PAC_DataStructures_IntRange_minBoundary_" data-uid="PAC.DataStructures.IntRange.minBoundary*"></a>
+
+  <h3 id="PAC_DataStructures_IntRange_minBoundary" data-uid="PAC.DataStructures.IntRange.minBoundary">
+  minBoundary
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Data Structures/IntRange.cs/#L106"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The lower of <a class="xref" href="PAC.DataStructures.IntRange.html#PAC_DataStructures_IntRange_startBoundary">startBoundary</a> and <a class="xref" href="PAC.DataStructures.IntRange.html#PAC_DataStructures_IntRange_endBoundary">endBoundary</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int minBoundary { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+  <h4 class="section" id="PAC_DataStructures_IntRange_minBoundary_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>Will be different from <a class="xref" href="PAC.DataStructures.IntRange.html#PAC_DataStructures_IntRange_minElement">minElement</a> if this boundary is exclusive.</p>
+</div>
+
+
+  <dl class="typelist seealso">
+    <dt>See Also</dt>
+    <dd>
+    <div><a class="xref" href="PAC.DataStructures.IntRange.html#PAC_DataStructures_IntRange_minBoundaryInclusive">minBoundaryInclusive</a></div>
+    <div><a class="xref" href="PAC.DataStructures.IntRange.html#PAC_DataStructures_IntRange_maxBoundary">maxBoundary</a></div>
+    </dd>
+  </dl>
+
+
+  <a id="PAC_DataStructures_IntRange_minBoundaryInclusive_" data-uid="PAC.DataStructures.IntRange.minBoundaryInclusive*"></a>
+
+  <h3 id="PAC_DataStructures_IntRange_minBoundaryInclusive" data-uid="PAC.DataStructures.IntRange.minBoundaryInclusive">
+  minBoundaryInclusive
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Data Structures/IntRange.cs/#L124"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Whether <a class="xref" href="PAC.DataStructures.IntRange.html#PAC_DataStructures_IntRange_minBoundary">minBoundary</a> is inclusive or exclusive.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool minBoundaryInclusive { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+  <h4 class="section" id="PAC_DataStructures_IntRange_minBoundaryInclusive_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>If <a class="xref" href="PAC.DataStructures.IntRange.html#PAC_DataStructures_IntRange_startBoundary">startBoundary</a> and <a class="xref" href="PAC.DataStructures.IntRange.html#PAC_DataStructures_IntRange_endBoundary">endBoundary</a> are equal but their being inclusive / exclusive do not match, we define this to be exclusive. See <a class="xref" href="PAC.DataStructures.IntRange.html">IntRange</a> for
+more details.</p>
+</div>
+
+
+  <dl class="typelist seealso">
+    <dt>See Also</dt>
+    <dd>
+    <div><a class="xref" href="PAC.DataStructures.IntRange.html#PAC_DataStructures_IntRange_maxBoundaryInclusive">maxBoundaryInclusive</a></div>
+    </dd>
+  </dl>
+
+
+  <a id="PAC_DataStructures_IntRange_minElement_" data-uid="PAC.DataStructures.IntRange.minElement*"></a>
+
+  <h3 id="PAC_DataStructures_IntRange_minElement" data-uid="PAC.DataStructures.IntRange.minElement">
+  minElement
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Data Structures/IntRange.cs/#L153"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The lowest element in the range.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int minElement { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+  <h4 class="section" id="PAC_DataStructures_IntRange_minElement_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>Will be different from <a class="xref" href="PAC.DataStructures.IntRange.html#PAC_DataStructures_IntRange_minBoundary">minBoundary</a> if that boundary is exclusive.</p>
+</div>
+
+
+  <dl class="typelist seealso">
+    <dt>See Also</dt>
+    <dd>
+    <div><a class="xref" href="PAC.DataStructures.IntRange.html#PAC_DataStructures_IntRange_maxElement">maxElement</a></div>
+    </dd>
+  </dl>
+
+
+  <a id="PAC_DataStructures_IntRange_reverse_" data-uid="PAC.DataStructures.IntRange.reverse*"></a>
+
+  <h3 id="PAC_DataStructures_IntRange_reverse" data-uid="PAC.DataStructures.IntRange.reverse">
+  reverse
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Data Structures/IntRange.cs/#L175"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The range with <a class="xref" href="PAC.DataStructures.IntRange.html#PAC_DataStructures_IntRange_startBoundary">startBoundary</a> and <a class="xref" href="PAC.DataStructures.IntRange.html#PAC_DataStructures_IntRange_endBoundary">endBoundary</a> swapped, and <a class="xref" href="PAC.DataStructures.IntRange.html#PAC_DataStructures_IntRange_startBoundaryInclusive">startBoundaryInclusive</a> and <a class="xref" href="PAC.DataStructures.IntRange.html#PAC_DataStructures_IntRange_endBoundaryInclusive">endBoundaryInclusive</a> swapped.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IntRange reverse { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="PAC.DataStructures.IntRange.html">IntRange</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="PAC_DataStructures_IntRange_startElement_" data-uid="PAC.DataStructures.IntRange.startElement*"></a>
+
+  <h3 id="PAC_DataStructures_IntRange_startElement" data-uid="PAC.DataStructures.IntRange.startElement">
+  startElement
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Data Structures/IntRange.cs/#L77"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The first element when iterating through the range (from start to end).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int startElement { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+  <h4 class="section" id="PAC_DataStructures_IntRange_startElement_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>Will be different from <a class="xref" href="PAC.DataStructures.IntRange.html#PAC_DataStructures_IntRange_startBoundary">startBoundary</a> if that boundary is exclusive.</p>
+</div>
+
+
+  <dl class="typelist seealso">
+    <dt>See Also</dt>
+    <dd>
+    <div><a class="xref" href="PAC.DataStructures.IntRange.html#PAC_DataStructures_IntRange_endElement">endElement</a></div>
+    </dd>
+  </dl>
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="PAC_DataStructures_IntRange_AtLeast_" data-uid="PAC.DataStructures.IntRange.AtLeast*"></a>
+
+  <h3 id="PAC_DataStructures_IntRange_AtLeast_System_Int32_" data-uid="PAC.DataStructures.IntRange.AtLeast(System.Int32)">
+  AtLeast(int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Data Structures/IntRange.cs/#L414"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Creates a range from <code class="paramref">x</code> (inclusive) to <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32.maxvalue">MaxValue</a> (inclusive).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static IntRange AtLeast(int x)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>x</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="PAC.DataStructures.IntRange.html">IntRange</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <dl class="typelist seealso">
+    <dt>See Also</dt>
+    <dd>
+    <div><a class="xref" href="PAC.DataStructures.IntRange.html#PAC_DataStructures_IntRange_AtMost_System_Int32_">AtMost(int)</a></div>
+    <div><a class="xref" href="PAC.DataStructures.IntRange.html#PAC_DataStructures_IntRange_LessThan_System_Int32_">LessThan(int)</a></div>
+    <div><a class="xref" href="PAC.DataStructures.IntRange.html#PAC_DataStructures_IntRange_MoreThan_System_Int32_">MoreThan(int)</a></div>
+    </dd>
+  </dl>
+
+
+  <a id="PAC_DataStructures_IntRange_AtMost_" data-uid="PAC.DataStructures.IntRange.AtMost*"></a>
+
+  <h3 id="PAC_DataStructures_IntRange_AtMost_System_Int32_" data-uid="PAC.DataStructures.IntRange.AtMost(System.Int32)">
+  AtMost(int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Data Structures/IntRange.cs/#L400"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Creates a range from <code class="paramref">x</code> (inclusive) to <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32.minvalue">MinValue</a> (inclusive).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static IntRange AtMost(int x)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>x</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="PAC.DataStructures.IntRange.html">IntRange</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <dl class="typelist seealso">
+    <dt>See Also</dt>
+    <dd>
+    <div><a class="xref" href="PAC.DataStructures.IntRange.html#PAC_DataStructures_IntRange_LessThan_System_Int32_">LessThan(int)</a></div>
+    <div><a class="xref" href="PAC.DataStructures.IntRange.html#PAC_DataStructures_IntRange_AtLeast_System_Int32_">AtLeast(int)</a></div>
+    <div><a class="xref" href="PAC.DataStructures.IntRange.html#PAC_DataStructures_IntRange_MoreThan_System_Int32_">MoreThan(int)</a></div>
+    </dd>
+  </dl>
+
+
+  <a id="PAC_DataStructures_IntRange_BoundingRange_" data-uid="PAC.DataStructures.IntRange.BoundingRange*"></a>
+
+  <h3 id="PAC_DataStructures_IntRange_BoundingRange_System_Collections_Generic_IEnumerable_System_Int32__" data-uid="PAC.DataStructures.IntRange.BoundingRange(System.Collections.Generic.IEnumerable{System.Int32})">
+  BoundingRange(IEnumerable&lt;int&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Data Structures/IntRange.cs/#L665"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the smallest range containing all the given values.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static IntRange BoundingRange(IEnumerable&lt;int&gt; integers)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>integers</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="PAC.DataStructures.IntRange.html">IntRange</a></dt>
+    <dd><p>The smallest range containing all the given values. It will be expressed with both boundaries inclusive, unless the sequence of values is empty, in which case it will be expressed with
+both boundaries exclusive.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p><code class="paramref">integers</code> is null.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="PAC_DataStructures_IntRange_Clamp_" data-uid="PAC.DataStructures.IntRange.Clamp*"></a>
+
+  <h3 id="PAC_DataStructures_IntRange_Clamp_System_Int32_" data-uid="PAC.DataStructures.IntRange.Clamp(System.Int32)">
+  Clamp(int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Data Structures/IntRange.cs/#L655"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Clamps the given integer to be within the <a class="xref" href="PAC.DataStructures.IntRange.html">IntRange</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int Clamp(int n)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>n</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The value to clamp.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><ul><li>
+    <code class="paramref">n</code> if <a class="xref" href="PAC.DataStructures.IntRange.html#PAC_DataStructures_IntRange_minElement">minElement</a> &lt;= <code class="paramref">n</code> &lt;= <a class="xref" href="PAC.DataStructures.IntRange.html#PAC_DataStructures_IntRange_maxElement">maxElement</a></li><li>
+    <a class="xref" href="PAC.DataStructures.IntRange.html#PAC_DataStructures_IntRange_minElement">minElement</a> if <code class="paramref">n</code> &lt; <a class="xref" href="PAC.DataStructures.IntRange.html#PAC_DataStructures_IntRange_minElement">minElement</a></li><li>
+    <a class="xref" href="PAC.DataStructures.IntRange.html#PAC_DataStructures_IntRange_maxElement">maxElement</a> if <a class="xref" href="PAC.DataStructures.IntRange.html#PAC_DataStructures_IntRange_maxElement">maxElement</a> &lt; <code class="paramref">n</code></li></ul>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.invalidoperationexception">InvalidOperationException</a></dt>
+    <dd><p>The range is empty.</p>
+</dd>
+  </dl>
+
+  <dl class="typelist seealso">
+    <dt>See Also</dt>
+    <dd>
+    <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.math.clamp#system-math-clamp(system-int32-system-int32-system-int32)">Clamp</a>(<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>)</div>
+    </dd>
+  </dl>
+
+
+  <a id="PAC_DataStructures_IntRange_Contains_" data-uid="PAC.DataStructures.IntRange.Contains*"></a>
+
+  <h3 id="PAC_DataStructures_IntRange_Contains_System_Int32_" data-uid="PAC.DataStructures.IntRange.Contains(System.Int32)">
+  Contains(int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Data Structures/IntRange.cs/#L559"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Whether the given integer is in the range.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool Contains(int x)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>x</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="PAC_DataStructures_IntRange_Equals_" data-uid="PAC.DataStructures.IntRange.Equals*"></a>
+
+  <h3 id="PAC_DataStructures_IntRange_Equals_PAC_DataStructures_IntRange_" data-uid="PAC.DataStructures.IntRange.Equals(PAC.DataStructures.IntRange)">
+  Equals(IntRange)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Data Structures/IntRange.cs/#L489"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The same as <a class="xref" href="PAC.DataStructures.IntRange.html#PAC_DataStructures_IntRange_op_Equality_PAC_DataStructures_IntRange_PAC_DataStructures_IntRange_">operator ==(IntRange, IntRange)</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool Equals(IntRange other)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>other</code> <a class="xref" href="PAC.DataStructures.IntRange.html">IntRange</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <dl class="typelist seealso">
+    <dt>See Also</dt>
+    <dd>
+    <div><a class="xref" href="PAC.DataStructures.IntRange.html#PAC_DataStructures_IntRange_SequenceEquals_PAC_DataStructures_IntRange_">SequenceEquals(IntRange)</a></div>
+    <div><a class="xref" href="PAC.DataStructures.IntRange.html#PAC_DataStructures_IntRange_SetEquals_PAC_DataStructures_IntRange_">SetEquals(IntRange)</a></div>
+    </dd>
+  </dl>
+
+
+  <a id="PAC_DataStructures_IntRange_Equals_" data-uid="PAC.DataStructures.IntRange.Equals*"></a>
+
+  <h3 id="PAC_DataStructures_IntRange_Equals_System_Object_" data-uid="PAC.DataStructures.IntRange.Equals(System.Object)">
+  Equals(object)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Data Structures/IntRange.cs/#L495"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The same as <a class="xref" href="PAC.DataStructures.IntRange.html#PAC_DataStructures_IntRange_Equals_PAC_DataStructures_IntRange_">Equals(IntRange)</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override bool Equals(object obj)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>obj</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <dl class="typelist seealso">
+    <dt>See Also</dt>
+    <dd>
+    <div><a class="xref" href="PAC.DataStructures.IntRange.html#PAC_DataStructures_IntRange_SequenceEquals_PAC_DataStructures_IntRange_">SequenceEquals(IntRange)</a></div>
+    <div><a class="xref" href="PAC.DataStructures.IntRange.html#PAC_DataStructures_IntRange_SetEquals_PAC_DataStructures_IntRange_">SetEquals(IntRange)</a></div>
+    </dd>
+  </dl>
+
+
+  <a id="PAC_DataStructures_IntRange_ExclExcl_" data-uid="PAC.DataStructures.IntRange.ExclExcl*"></a>
+
+  <h3 id="PAC_DataStructures_IntRange_ExclExcl_System_Int32_System_Int32_" data-uid="PAC.DataStructures.IntRange.ExclExcl(System.Int32,System.Int32)">
+  ExclExcl(int, int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Data Structures/IntRange.cs/#L429"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Creates a range from <code class="paramref">startBoundary</code> (exclusive) to <code class="paramref">endBoundary</code> (exclusive).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static IntRange ExclExcl(int startBoundary, int endBoundary)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>startBoundary</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>endBoundary</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="PAC.DataStructures.IntRange.html">IntRange</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <dl class="typelist seealso">
+    <dt>See Also</dt>
+    <dd>
+    <div><a class="xref" href="PAC.DataStructures.IntRange.html#PAC_DataStructures_IntRange_ExclIncl_System_Int32_System_Int32_">ExclIncl(int, int)</a></div>
+    <div><a class="xref" href="PAC.DataStructures.IntRange.html#PAC_DataStructures_IntRange_InclExcl_System_Int32_System_Int32_">InclExcl(int, int)</a></div>
+    <div><a class="xref" href="PAC.DataStructures.IntRange.html#PAC_DataStructures_IntRange_InclIncl_System_Int32_System_Int32_">InclIncl(int, int)</a></div>
+    </dd>
+  </dl>
+
+
+  <a id="PAC_DataStructures_IntRange_ExclIncl_" data-uid="PAC.DataStructures.IntRange.ExclIncl*"></a>
+
+  <h3 id="PAC_DataStructures_IntRange_ExclIncl_System_Int32_System_Int32_" data-uid="PAC.DataStructures.IntRange.ExclIncl(System.Int32,System.Int32)">
+  ExclIncl(int, int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Data Structures/IntRange.cs/#L439"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Creates a range from <code class="paramref">startBoundary</code> (exclusive) to <code class="paramref">endBoundary</code> (inclusive).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static IntRange ExclIncl(int startBoundary, int endBoundary)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>startBoundary</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>endBoundary</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="PAC.DataStructures.IntRange.html">IntRange</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="PAC_DataStructures_IntRange_ExclIncl_System_Int32_System_Int32__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>If <code class="paramref">startBoundary</code> and <code class="paramref">endBoundary</code> are equal, we define the range to be empty. See <a class="xref" href="PAC.DataStructures.IntRange.html">IntRange</a> for more details.</p>
+</div>
+
+
+  <dl class="typelist seealso">
+    <dt>See Also</dt>
+    <dd>
+    <div><a class="xref" href="PAC.DataStructures.IntRange.html#PAC_DataStructures_IntRange_ExclExcl_System_Int32_System_Int32_">ExclExcl(int, int)</a></div>
+    <div><a class="xref" href="PAC.DataStructures.IntRange.html#PAC_DataStructures_IntRange_InclExcl_System_Int32_System_Int32_">InclExcl(int, int)</a></div>
+    <div><a class="xref" href="PAC.DataStructures.IntRange.html#PAC_DataStructures_IntRange_InclIncl_System_Int32_System_Int32_">InclIncl(int, int)</a></div>
+    </dd>
+  </dl>
+
+
+  <a id="PAC_DataStructures_IntRange_Extend_" data-uid="PAC.DataStructures.IntRange.Extend*"></a>
+
+  <h3 id="PAC_DataStructures_IntRange_Extend_System_Int32_System_Int32_" data-uid="PAC.DataStructures.IntRange.Extend(System.Int32,System.Int32)">
+  Extend(int, int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Data Structures/IntRange.cs/#L621"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Adds <code class="paramref">startBoundaryOffset</code> to <a class="xref" href="PAC.DataStructures.IntRange.html#PAC_DataStructures_IntRange_startBoundary">startBoundary</a> and adds <code class="paramref">endBoundaryOffset</code> to <a class="xref" href="PAC.DataStructures.IntRange.html#PAC_DataStructures_IntRange_endBoundary">endBoundary</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IntRange Extend(int startBoundaryOffset, int endBoundaryOffset)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>startBoundaryOffset</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>endBoundaryOffset</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="PAC.DataStructures.IntRange.html">IntRange</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="PAC_DataStructures_IntRange_Extend_System_Int32_System_Int32__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>Preserves <a class="xref" href="PAC.DataStructures.IntRange.html#PAC_DataStructures_IntRange_startBoundaryInclusive">startBoundaryInclusive</a> and <a class="xref" href="PAC.DataStructures.IntRange.html#PAC_DataStructures_IntRange_endBoundaryInclusive">endBoundaryInclusive</a>.</p>
+</div>
+
+
+
+
+  <a id="PAC_DataStructures_IntRange_GetEnumerator_" data-uid="PAC.DataStructures.IntRange.GetEnumerator*"></a>
+
+  <h3 id="PAC_DataStructures_IntRange_GetEnumerator" data-uid="PAC.DataStructures.IntRange.GetEnumerator">
+  GetEnumerator()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Data Structures/IntRange.cs/#L733"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Iterates throught the elements from <a class="xref" href="PAC.DataStructures.IntRange.html#PAC_DataStructures_IntRange_startElement">startElement</a> to <a class="xref" href="PAC.DataStructures.IntRange.html#PAC_DataStructures_IntRange_endElement">endElement</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IEnumerator&lt;int&gt; GetEnumerator()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerator-1">IEnumerator</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="PAC_DataStructures_IntRange_GetHashCode_" data-uid="PAC.DataStructures.IntRange.GetHashCode*"></a>
+
+  <h3 id="PAC_DataStructures_IntRange_GetHashCode" data-uid="PAC.DataStructures.IntRange.GetHashCode">
+  GetHashCode()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Data Structures/IntRange.cs/#L497"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the hash code for this instance.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override int GetHashCode()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>A 32-bit signed integer that is the hash code for this instance.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="PAC_DataStructures_IntRange_InclExcl_" data-uid="PAC.DataStructures.IntRange.InclExcl*"></a>
+
+  <h3 id="PAC_DataStructures_IntRange_InclExcl_System_Int32_System_Int32_" data-uid="PAC.DataStructures.IntRange.InclExcl(System.Int32,System.Int32)">
+  InclExcl(int, int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Data Structures/IntRange.cs/#L449"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Creates a range from <code class="paramref">startBoundary</code> (inclusive) to <code class="paramref">endBoundary</code> (exclusive).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static IntRange InclExcl(int startBoundary, int endBoundary)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>startBoundary</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>endBoundary</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="PAC.DataStructures.IntRange.html">IntRange</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="PAC_DataStructures_IntRange_InclExcl_System_Int32_System_Int32__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>If <code class="paramref">startBoundary</code> and <code class="paramref">endBoundary</code> are equal, we define the range to be empty. See <a class="xref" href="PAC.DataStructures.IntRange.html">IntRange</a> for more details.</p>
+</div>
+
+
+  <dl class="typelist seealso">
+    <dt>See Also</dt>
+    <dd>
+    <div><a class="xref" href="PAC.DataStructures.IntRange.html#PAC_DataStructures_IntRange_ExclExcl_System_Int32_System_Int32_">ExclExcl(int, int)</a></div>
+    <div><a class="xref" href="PAC.DataStructures.IntRange.html#PAC_DataStructures_IntRange_ExclIncl_System_Int32_System_Int32_">ExclIncl(int, int)</a></div>
+    <div><a class="xref" href="PAC.DataStructures.IntRange.html#PAC_DataStructures_IntRange_InclIncl_System_Int32_System_Int32_">InclIncl(int, int)</a></div>
+    </dd>
+  </dl>
+
+
+  <a id="PAC_DataStructures_IntRange_InclIncl_" data-uid="PAC.DataStructures.IntRange.InclIncl*"></a>
+
+  <h3 id="PAC_DataStructures_IntRange_InclIncl_System_Int32_System_Int32_" data-uid="PAC.DataStructures.IntRange.InclIncl(System.Int32,System.Int32)">
+  InclIncl(int, int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Data Structures/IntRange.cs/#L456"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Creates a range from <code class="paramref">startBoundary</code> (inclusive) to <code class="paramref">endBoundary</code> (inclusive).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static IntRange InclIncl(int startBoundary, int endBoundary)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>startBoundary</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>endBoundary</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="PAC.DataStructures.IntRange.html">IntRange</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <dl class="typelist seealso">
+    <dt>See Also</dt>
+    <dd>
+    <div><a class="xref" href="PAC.DataStructures.IntRange.html#PAC_DataStructures_IntRange_ExclExcl_System_Int32_System_Int32_">ExclExcl(int, int)</a></div>
+    <div><a class="xref" href="PAC.DataStructures.IntRange.html#PAC_DataStructures_IntRange_ExclIncl_System_Int32_System_Int32_">ExclIncl(int, int)</a></div>
+    <div><a class="xref" href="PAC.DataStructures.IntRange.html#PAC_DataStructures_IntRange_InclExcl_System_Int32_System_Int32_">InclExcl(int, int)</a></div>
+    </dd>
+  </dl>
+
+
+  <a id="PAC_DataStructures_IntRange_Intersect_" data-uid="PAC.DataStructures.IntRange.Intersect*"></a>
+
+  <h3 id="PAC_DataStructures_IntRange_Intersect_PAC_DataStructures_IntRange_PAC_DataStructures_IntRange_" data-uid="PAC.DataStructures.IntRange.Intersect(PAC.DataStructures.IntRange,PAC.DataStructures.IntRange)">
+  Intersect(IntRange, IntRange)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Data Structures/IntRange.cs/#L570"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Whether the two ranges have any elements in common.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool Intersect(IntRange a, IntRange b)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <a class="xref" href="PAC.DataStructures.IntRange.html">IntRange</a></dt>
+    <dd></dd>
+    <dt><code>b</code> <a class="xref" href="PAC.DataStructures.IntRange.html">IntRange</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <dl class="typelist seealso">
+    <dt>See Also</dt>
+    <dd>
+    <div><a class="xref" href="PAC.DataStructures.IntRange.html#PAC_DataStructures_IntRange_Intersects_PAC_DataStructures_IntRange_">Intersects(IntRange)</a></div>
+    </dd>
+  </dl>
+
+
+  <a id="PAC_DataStructures_IntRange_Intersection_" data-uid="PAC.DataStructures.IntRange.Intersection*"></a>
+
+  <h3 id="PAC_DataStructures_IntRange_Intersection_PAC_DataStructures_IntRange_" data-uid="PAC.DataStructures.IntRange.Intersection(PAC.DataStructures.IntRange)">
+  Intersection(IntRange)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Data Structures/IntRange.cs/#L631"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the elements the two ranges have in common.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IntRange Intersection(IntRange other)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>other</code> <a class="xref" href="PAC.DataStructures.IntRange.html">IntRange</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="PAC.DataStructures.IntRange.html">IntRange</a></dt>
+    <dd><p>The intersection of the two ranges, expressed with both boundaries inclusive, unless the intersection is empty, in which case it will be expressed with both boundaries exclusive.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <dl class="typelist seealso">
+    <dt>See Also</dt>
+    <dd>
+    <div><a class="xref" href="PAC.DataStructures.IntRange.html#PAC_DataStructures_IntRange_Intersection_PAC_DataStructures_IntRange_PAC_DataStructures_IntRange_">Intersection(IntRange, IntRange)</a></div>
+    </dd>
+  </dl>
+
+
+  <a id="PAC_DataStructures_IntRange_Intersection_" data-uid="PAC.DataStructures.IntRange.Intersection*"></a>
+
+  <h3 id="PAC_DataStructures_IntRange_Intersection_PAC_DataStructures_IntRange_PAC_DataStructures_IntRange_" data-uid="PAC.DataStructures.IntRange.Intersection(PAC.DataStructures.IntRange,PAC.DataStructures.IntRange)">
+  Intersection(IntRange, IntRange)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Data Structures/IntRange.cs/#L640"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the elements the two ranges have in common.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static IntRange Intersection(IntRange a, IntRange b)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <a class="xref" href="PAC.DataStructures.IntRange.html">IntRange</a></dt>
+    <dd></dd>
+    <dt><code>b</code> <a class="xref" href="PAC.DataStructures.IntRange.html">IntRange</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="PAC.DataStructures.IntRange.html">IntRange</a></dt>
+    <dd><p>The intersection of the two ranges. It will be expressed with both boundaries inclusive, unless the intersection is empty, in which case it will be expressed with both boundaries
+exclusive.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <dl class="typelist seealso">
+    <dt>See Also</dt>
+    <dd>
+    <div><a class="xref" href="PAC.DataStructures.IntRange.html#PAC_DataStructures_IntRange_Intersection_PAC_DataStructures_IntRange_">Intersection(IntRange)</a></div>
+    </dd>
+  </dl>
+
+
+  <a id="PAC_DataStructures_IntRange_Intersects_" data-uid="PAC.DataStructures.IntRange.Intersects*"></a>
+
+  <h3 id="PAC_DataStructures_IntRange_Intersects_PAC_DataStructures_IntRange_" data-uid="PAC.DataStructures.IntRange.Intersects(PAC.DataStructures.IntRange)">
+  Intersects(IntRange)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Data Structures/IntRange.cs/#L565"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Whether the two ranges have any elements in common.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool Intersects(IntRange other)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>other</code> <a class="xref" href="PAC.DataStructures.IntRange.html">IntRange</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <dl class="typelist seealso">
+    <dt>See Also</dt>
+    <dd>
+    <div><a class="xref" href="PAC.DataStructures.IntRange.html#PAC_DataStructures_IntRange_Intersect_PAC_DataStructures_IntRange_PAC_DataStructures_IntRange_">Intersect(IntRange, IntRange)</a></div>
+    </dd>
+  </dl>
+
+
+  <a id="PAC_DataStructures_IntRange_IsProperSubsequenceOf_" data-uid="PAC.DataStructures.IntRange.IsProperSubsequenceOf*"></a>
+
+  <h3 id="PAC_DataStructures_IntRange_IsProperSubsequenceOf_PAC_DataStructures_IntRange_" data-uid="PAC.DataStructures.IntRange.IsProperSubsequenceOf(PAC.DataStructures.IntRange)">
+  IsProperSubsequenceOf(IntRange)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Data Structures/IntRange.cs/#L524"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool IsProperSubsequenceOf(IntRange other)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>other</code> <a class="xref" href="PAC.DataStructures.IntRange.html">IntRange</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="PAC_DataStructures_IntRange_IsProperSupersequenceOf_" data-uid="PAC.DataStructures.IntRange.IsProperSupersequenceOf*"></a>
+
+  <h3 id="PAC_DataStructures_IntRange_IsProperSupersequenceOf_PAC_DataStructures_IntRange_" data-uid="PAC.DataStructures.IntRange.IsProperSupersequenceOf(PAC.DataStructures.IntRange)">
+  IsProperSupersequenceOf(IntRange)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Data Structures/IntRange.cs/#L527"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool IsProperSupersequenceOf(IntRange other)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>other</code> <a class="xref" href="PAC.DataStructures.IntRange.html">IntRange</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="PAC_DataStructures_IntRange_IsSubsequenceOf_" data-uid="PAC.DataStructures.IntRange.IsSubsequenceOf*"></a>
+
+  <h3 id="PAC_DataStructures_IntRange_IsSubsequenceOf_PAC_DataStructures_IntRange_" data-uid="PAC.DataStructures.IntRange.IsSubsequenceOf(PAC.DataStructures.IntRange)">
+  IsSubsequenceOf(IntRange)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Data Structures/IntRange.cs/#L523"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool IsSubsequenceOf(IntRange other)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>other</code> <a class="xref" href="PAC.DataStructures.IntRange.html">IntRange</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="PAC_DataStructures_IntRange_IsSubsetOf_" data-uid="PAC.DataStructures.IntRange.IsSubsetOf*"></a>
+
+  <h3 id="PAC_DataStructures_IntRange_IsSubsetOf_PAC_DataStructures_IntRange_" data-uid="PAC.DataStructures.IntRange.IsSubsetOf(PAC.DataStructures.IntRange)">
+  IsSubsetOf(IntRange)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Data Structures/IntRange.cs/#L553"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Whether <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/this">this</a> as a set is a subset of <code class="paramref">other</code> as a set.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool IsSubsetOf(IntRange other)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>other</code> <a class="xref" href="PAC.DataStructures.IntRange.html">IntRange</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="PAC_DataStructures_IntRange_IsSubsetOf_PAC_DataStructures_IntRange__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>
+Recall that '<a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/this">this</a> is subset of <code class="paramref">other</code>' means that every element of <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/this">this</a> is an element of <code class="paramref">other</code>, ignoring order
+and duplicate elements.
+</p>
+<p>
+If <code>T1</code> implements <code>ISetComparable&lt;T2&gt;</code> and <code>T2</code> implements <code>ISetComparable&lt;T1&gt;</code>, then <code>T1.IsSubsetOf(T2)</code> should be logically equivalent to
+<code>T2.IsSupersetOf(T1)</code>.
+</p>
+</div>
+
+
+  <dl class="typelist seealso">
+    <dt>See Also</dt>
+    <dd>
+    <div><a class="xref" href="PAC.Interfaces.ISetComparable-1.html#PAC_Interfaces_ISetComparable_1_IsSupersetOf__0_">IsSupersetOf</a>(T)</div>
+    </dd>
+  </dl>
+
+
+  <a id="PAC_DataStructures_IntRange_IsSupersequenceOf_" data-uid="PAC.DataStructures.IntRange.IsSupersequenceOf*"></a>
+
+  <h3 id="PAC_DataStructures_IntRange_IsSupersequenceOf_PAC_DataStructures_IntRange_" data-uid="PAC.DataStructures.IntRange.IsSupersequenceOf(PAC.DataStructures.IntRange)">
+  IsSupersequenceOf(IntRange)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Data Structures/IntRange.cs/#L526"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool IsSupersequenceOf(IntRange other)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>other</code> <a class="xref" href="PAC.DataStructures.IntRange.html">IntRange</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="PAC_DataStructures_IntRange_IsSupersetOf_" data-uid="PAC.DataStructures.IntRange.IsSupersetOf*"></a>
+
+  <h3 id="PAC_DataStructures_IntRange_IsSupersetOf_PAC_DataStructures_IntRange_" data-uid="PAC.DataStructures.IntRange.IsSupersetOf(PAC.DataStructures.IntRange)">
+  IsSupersetOf(IntRange)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Data Structures/IntRange.cs/#L554"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Whether <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/this">this</a> as a set is a superset of <code class="paramref">other</code> as a set.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool IsSupersetOf(IntRange other)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>other</code> <a class="xref" href="PAC.DataStructures.IntRange.html">IntRange</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="PAC_DataStructures_IntRange_IsSupersetOf_PAC_DataStructures_IntRange__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>
+Recall that '<a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/this">this</a> is superset of <code class="paramref">other</code>' means that every element of <code class="paramref">other</code> is an element of <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/this">this</a>, ignoring order
+and duplicate elements.
+</p>
+<p>
+If <code>T1</code> implements <code>ISetComparable&lt;T2&gt;</code> and <code>T2</code> implements <code>ISetComparable&lt;T1&gt;</code>, then <code>T1.IsSupersetOf(T2)</code> should be logically equivalent to
+<code>T2.IsSubsetOf(T1)</code>.
+</p>
+</div>
+
+
+  <dl class="typelist seealso">
+    <dt>See Also</dt>
+    <dd>
+    <div><a class="xref" href="PAC.Interfaces.ISetComparable-1.html#PAC_Interfaces_ISetComparable_1_IsSubsetOf__0_">IsSubsetOf</a>(T)</div>
+    </dd>
+  </dl>
+
+
+  <a id="PAC_DataStructures_IntRange_LessThan_" data-uid="PAC.DataStructures.IntRange.LessThan*"></a>
+
+  <h3 id="PAC_DataStructures_IntRange_LessThan_System_Int32_" data-uid="PAC.DataStructures.IntRange.LessThan(System.Int32)">
+  LessThan(int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Data Structures/IntRange.cs/#L407"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Creates a range from <code class="paramref">x</code> (exclusive) to <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32.minvalue">MinValue</a> (inclusive).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static IntRange LessThan(int x)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>x</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="PAC.DataStructures.IntRange.html">IntRange</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <dl class="typelist seealso">
+    <dt>See Also</dt>
+    <dd>
+    <div><a class="xref" href="PAC.DataStructures.IntRange.html#PAC_DataStructures_IntRange_AtMost_System_Int32_">AtMost(int)</a></div>
+    <div><a class="xref" href="PAC.DataStructures.IntRange.html#PAC_DataStructures_IntRange_AtLeast_System_Int32_">AtLeast(int)</a></div>
+    <div><a class="xref" href="PAC.DataStructures.IntRange.html#PAC_DataStructures_IntRange_MoreThan_System_Int32_">MoreThan(int)</a></div>
+    </dd>
+  </dl>
+
+
+  <a id="PAC_DataStructures_IntRange_MoreThan_" data-uid="PAC.DataStructures.IntRange.MoreThan*"></a>
+
+  <h3 id="PAC_DataStructures_IntRange_MoreThan_System_Int32_" data-uid="PAC.DataStructures.IntRange.MoreThan(System.Int32)">
+  MoreThan(int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Data Structures/IntRange.cs/#L421"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Creates a range from <code class="paramref">x</code> (exclusive) to <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32.maxvalue">MaxValue</a> (inclusive).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static IntRange MoreThan(int x)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>x</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="PAC.DataStructures.IntRange.html">IntRange</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <dl class="typelist seealso">
+    <dt>See Also</dt>
+    <dd>
+    <div><a class="xref" href="PAC.DataStructures.IntRange.html#PAC_DataStructures_IntRange_AtMost_System_Int32_">AtMost(int)</a></div>
+    <div><a class="xref" href="PAC.DataStructures.IntRange.html#PAC_DataStructures_IntRange_LessThan_System_Int32_">LessThan(int)</a></div>
+    <div><a class="xref" href="PAC.DataStructures.IntRange.html#PAC_DataStructures_IntRange_AtLeast_System_Int32_">AtLeast(int)</a></div>
+    </dd>
+  </dl>
+
+
+  <a id="PAC_DataStructures_IntRange_SequenceEqual_" data-uid="PAC.DataStructures.IntRange.SequenceEqual*"></a>
+
+  <h3 id="PAC_DataStructures_IntRange_SequenceEqual_PAC_DataStructures_IntRange_PAC_DataStructures_IntRange_" data-uid="PAC.DataStructures.IntRange.SequenceEqual(PAC.DataStructures.IntRange,PAC.DataStructures.IntRange)">
+  SequenceEqual(IntRange, IntRange)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Data Structures/IntRange.cs/#L516"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Whether the two ranges have exactly the same elements in the same order.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool SequenceEqual(IntRange a, IntRange b)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <a class="xref" href="PAC.DataStructures.IntRange.html">IntRange</a></dt>
+    <dd></dd>
+    <dt><code>b</code> <a class="xref" href="PAC.DataStructures.IntRange.html">IntRange</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="PAC_DataStructures_IntRange_SequenceEqual_PAC_DataStructures_IntRange_PAC_DataStructures_IntRange__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>Note that ranges with different boundaries can give the same sequence (and therefore be considered sequence-equal), due to the boundaries being inclusive or exclusive.</p>
+</div>
+
+
+  <dl class="typelist seealso">
+    <dt>See Also</dt>
+    <dd>
+    <div><a class="xref" href="PAC.DataStructures.IntRange.html#PAC_DataStructures_IntRange_Equals_PAC_DataStructures_IntRange_">Equals(IntRange)</a></div>
+    <div><a class="xref" href="PAC.DataStructures.IntRange.html#PAC_DataStructures_IntRange_SetEquals_PAC_DataStructures_IntRange_">SetEquals(IntRange)</a></div>
+    </dd>
+  </dl>
+
+
+  <a id="PAC_DataStructures_IntRange_SequenceEquals_" data-uid="PAC.DataStructures.IntRange.SequenceEquals*"></a>
+
+  <h3 id="PAC_DataStructures_IntRange_SequenceEquals_PAC_DataStructures_IntRange_" data-uid="PAC.DataStructures.IntRange.SequenceEquals(PAC.DataStructures.IntRange)">
+  SequenceEquals(IntRange)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Data Structures/IntRange.cs/#L507"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Whether the two ranges have exactly the same elements in the same order.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool SequenceEquals(IntRange other)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>other</code> <a class="xref" href="PAC.DataStructures.IntRange.html">IntRange</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="PAC_DataStructures_IntRange_SequenceEquals_PAC_DataStructures_IntRange__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>Note that ranges with different boundaries can give the same sequence (and therefore be considered sequence-equal), due to the boundaries being inclusive or exclusive.</p>
+</div>
+
+
+  <dl class="typelist seealso">
+    <dt>See Also</dt>
+    <dd>
+    <div><a class="xref" href="PAC.DataStructures.IntRange.html#PAC_DataStructures_IntRange_Equals_PAC_DataStructures_IntRange_">Equals(IntRange)</a></div>
+    <div><a class="xref" href="PAC.DataStructures.IntRange.html#PAC_DataStructures_IntRange_SetEquals_PAC_DataStructures_IntRange_">SetEquals(IntRange)</a></div>
+    </dd>
+  </dl>
+
+
+  <a id="PAC_DataStructures_IntRange_SetEqual_" data-uid="PAC.DataStructures.IntRange.SetEqual*"></a>
+
+  <h3 id="PAC_DataStructures_IntRange_SetEqual_PAC_DataStructures_IntRange_PAC_DataStructures_IntRange_" data-uid="PAC.DataStructures.IntRange.SetEqual(PAC.DataStructures.IntRange,PAC.DataStructures.IntRange)">
+  SetEqual(IntRange, IntRange)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Data Structures/IntRange.cs/#L546"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Whether the two ranges have exactly the same elements, ignoring order.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool SetEqual(IntRange a, IntRange b)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <a class="xref" href="PAC.DataStructures.IntRange.html">IntRange</a></dt>
+    <dd></dd>
+    <dt><code>b</code> <a class="xref" href="PAC.DataStructures.IntRange.html">IntRange</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="PAC_DataStructures_IntRange_SetEqual_PAC_DataStructures_IntRange_PAC_DataStructures_IntRange__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>Note that ranges with different boundaries can have the same elements (and therefore be considered set-equal), due to the boundaries being inclusive or exclusive.</p>
+</div>
+
+
+  <dl class="typelist seealso">
+    <dt>See Also</dt>
+    <dd>
+    <div><a class="xref" href="PAC.DataStructures.IntRange.html#PAC_DataStructures_IntRange_Equals_PAC_DataStructures_IntRange_">Equals(IntRange)</a></div>
+    <div><a class="xref" href="PAC.DataStructures.IntRange.html#PAC_DataStructures_IntRange_SequenceEquals_PAC_DataStructures_IntRange_">SequenceEquals(IntRange)</a></div>
+    </dd>
+  </dl>
+
+
+  <a id="PAC_DataStructures_IntRange_SetEquals_" data-uid="PAC.DataStructures.IntRange.SetEquals*"></a>
+
+  <h3 id="PAC_DataStructures_IntRange_SetEquals_PAC_DataStructures_IntRange_" data-uid="PAC.DataStructures.IntRange.SetEquals(PAC.DataStructures.IntRange)">
+  SetEquals(IntRange)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Data Structures/IntRange.cs/#L537"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Whether the two ranges have exactly the same elements, ignoring order.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool SetEquals(IntRange other)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>other</code> <a class="xref" href="PAC.DataStructures.IntRange.html">IntRange</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="PAC_DataStructures_IntRange_SetEquals_PAC_DataStructures_IntRange__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>Note that ranges with different boundaries can have the same elements (and therefore be considered set-equal), due to the boundaries being inclusive or exclusive.</p>
+</div>
+
+
+  <dl class="typelist seealso">
+    <dt>See Also</dt>
+    <dd>
+    <div><a class="xref" href="PAC.DataStructures.IntRange.html#PAC_DataStructures_IntRange_Equals_PAC_DataStructures_IntRange_">Equals(IntRange)</a></div>
+    <div><a class="xref" href="PAC.DataStructures.IntRange.html#PAC_DataStructures_IntRange_SequenceEquals_PAC_DataStructures_IntRange_">SequenceEquals(IntRange)</a></div>
+    </dd>
+  </dl>
+
+
+  <a id="PAC_DataStructures_IntRange_Singleton_" data-uid="PAC.DataStructures.IntRange.Singleton*"></a>
+
+  <h3 id="PAC_DataStructures_IntRange_Singleton_System_Int32_" data-uid="PAC.DataStructures.IntRange.Singleton(System.Int32)">
+  Singleton(int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Data Structures/IntRange.cs/#L392"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Creates a range from <code class="paramref">x</code> (inclusive) to <code class="paramref">x</code> (inclusive).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static IntRange Singleton(int x)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>x</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="PAC.DataStructures.IntRange.html">IntRange</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="PAC_DataStructures_IntRange_ToString_" data-uid="PAC.DataStructures.IntRange.ToString*"></a>
+
+  <h3 id="PAC_DataStructures_IntRange_ToString" data-uid="PAC.DataStructures.IntRange.ToString">
+  ToString()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Data Structures/IntRange.cs/#L769"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>
+Represents the range as a string using the mathematical notation for intervals - i.e. square brackets denote an inclusive boundary and round brackets denote an exclusive boundary.
+</p>
+<p>
+  <example>
+For example, the range from -1 (inclusive) to 5 (exclusive) will be respresented as <code>"[-1, 5)"</code>.
+</example>
+</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override string ToString()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="operators">Operators
+</h2>
+
+
+  <a id="PAC_DataStructures_IntRange_op_Addition_" data-uid="PAC.DataStructures.IntRange.op_Addition*"></a>
+
+  <h3 id="PAC_DataStructures_IntRange_op_Addition_PAC_DataStructures_IntRange_System_Int32_" data-uid="PAC.DataStructures.IntRange.op_Addition(PAC.DataStructures.IntRange,System.Int32)">
+  operator +(IntRange, int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Data Structures/IntRange.cs/#L592"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Translates the range by the given integer.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static IntRange operator +(IntRange range, int integer)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>range</code> <a class="xref" href="PAC.DataStructures.IntRange.html">IntRange</a></dt>
+    <dd></dd>
+    <dt><code>integer</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="PAC.DataStructures.IntRange.html">IntRange</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.overflowexception">OverflowException</a></dt>
+    <dd><p>If any translated elements cannot be expressed as an <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="PAC_DataStructures_IntRange_op_Addition_" data-uid="PAC.DataStructures.IntRange.op_Addition*"></a>
+
+  <h3 id="PAC_DataStructures_IntRange_op_Addition_System_Int32_PAC_DataStructures_IntRange_" data-uid="PAC.DataStructures.IntRange.op_Addition(System.Int32,PAC.DataStructures.IntRange)">
+  operator +(int, IntRange)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Data Structures/IntRange.cs/#L598"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Translates the range by the given integer.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static IntRange operator +(int integer, IntRange range)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>integer</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>range</code> <a class="xref" href="PAC.DataStructures.IntRange.html">IntRange</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="PAC.DataStructures.IntRange.html">IntRange</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.overflowexception">OverflowException</a></dt>
+    <dd><p>If any translated elements cannot be expressed as an <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="PAC_DataStructures_IntRange_op_Equality_" data-uid="PAC.DataStructures.IntRange.op_Equality*"></a>
+
+  <h3 id="PAC_DataStructures_IntRange_op_Equality_PAC_DataStructures_IntRange_PAC_DataStructures_IntRange_" data-uid="PAC.DataStructures.IntRange.op_Equality(PAC.DataStructures.IntRange,PAC.DataStructures.IntRange)">
+  operator ==(IntRange, IntRange)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Data Structures/IntRange.cs/#L469"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Whether the two ranges have the same start boundary and end boundary and the same inclusivity at each boundary - i.e. compares the <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/struct">struct</a>s' fields.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool operator ==(IntRange a, IntRange b)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <a class="xref" href="PAC.DataStructures.IntRange.html">IntRange</a></dt>
+    <dd></dd>
+    <dt><code>b</code> <a class="xref" href="PAC.DataStructures.IntRange.html">IntRange</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="PAC_DataStructures_IntRange_op_Equality_PAC_DataStructures_IntRange_PAC_DataStructures_IntRange__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>Note that having the same elements does not necessarily mean they are ==, due to the boundaries being inclusive or exclusive.</p>
+</div>
+
+
+  <dl class="typelist seealso">
+    <dt>See Also</dt>
+    <dd>
+    <div><a class="xref" href="PAC.DataStructures.IntRange.html#PAC_DataStructures_IntRange_Equals_PAC_DataStructures_IntRange_">Equals(IntRange)</a></div>
+    <div><a class="xref" href="PAC.DataStructures.IntRange.html#PAC_DataStructures_IntRange_SequenceEquals_PAC_DataStructures_IntRange_">SequenceEquals(IntRange)</a></div>
+    <div><a class="xref" href="PAC.DataStructures.IntRange.html#PAC_DataStructures_IntRange_SetEquals_PAC_DataStructures_IntRange_">SetEquals(IntRange)</a></div>
+    </dd>
+  </dl>
+
+
+  <a id="PAC_DataStructures_IntRange_op_Inequality_" data-uid="PAC.DataStructures.IntRange.op_Inequality*"></a>
+
+  <h3 id="PAC_DataStructures_IntRange_op_Inequality_PAC_DataStructures_IntRange_PAC_DataStructures_IntRange_" data-uid="PAC.DataStructures.IntRange.op_Inequality(PAC.DataStructures.IntRange,PAC.DataStructures.IntRange)">
+  operator !=(IntRange, IntRange)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Data Structures/IntRange.cs/#L483"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Whether the two ranges have the same start boundary and end boundary and the same inclusivity at each boundary - i.e. compares the <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/struct">struct</a>s' fields.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool operator !=(IntRange a, IntRange b)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <a class="xref" href="PAC.DataStructures.IntRange.html">IntRange</a></dt>
+    <dd></dd>
+    <dt><code>b</code> <a class="xref" href="PAC.DataStructures.IntRange.html">IntRange</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="PAC_DataStructures_IntRange_op_Inequality_PAC_DataStructures_IntRange_PAC_DataStructures_IntRange__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>Note that being != does not necessarily mean they have different elements, due to the boundaries being inclusive or exclusive.</p>
+</div>
+
+
+  <dl class="typelist seealso">
+    <dt>See Also</dt>
+    <dd>
+    <div><a class="xref" href="PAC.DataStructures.IntRange.html#PAC_DataStructures_IntRange_Equals_PAC_DataStructures_IntRange_">Equals(IntRange)</a></div>
+    <div><a class="xref" href="PAC.DataStructures.IntRange.html#PAC_DataStructures_IntRange_SequenceEquals_PAC_DataStructures_IntRange_">SequenceEquals(IntRange)</a></div>
+    <div><a class="xref" href="PAC.DataStructures.IntRange.html#PAC_DataStructures_IntRange_SetEquals_PAC_DataStructures_IntRange_">SetEquals(IntRange)</a></div>
+    </dd>
+  </dl>
+
+
+  <a id="PAC_DataStructures_IntRange_op_Subtraction_" data-uid="PAC.DataStructures.IntRange.op_Subtraction*"></a>
+
+  <h3 id="PAC_DataStructures_IntRange_op_Subtraction_PAC_DataStructures_IntRange_System_Int32_" data-uid="PAC.DataStructures.IntRange.op_Subtraction(PAC.DataStructures.IntRange,System.Int32)">
+  operator -(IntRange, int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Data Structures/IntRange.cs/#L603"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Translates the range by the given integer.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static IntRange operator -(IntRange range, int integer)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>range</code> <a class="xref" href="PAC.DataStructures.IntRange.html">IntRange</a></dt>
+    <dd></dd>
+    <dt><code>integer</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="PAC.DataStructures.IntRange.html">IntRange</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.overflowexception">OverflowException</a></dt>
+    <dd><p>If any translated elements cannot be expressed as an <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="PAC_DataStructures_IntRange_op_Subtraction_" data-uid="PAC.DataStructures.IntRange.op_Subtraction*"></a>
+
+  <h3 id="PAC_DataStructures_IntRange_op_Subtraction_System_Int32_PAC_DataStructures_IntRange_" data-uid="PAC.DataStructures.IntRange.op_Subtraction(System.Int32,PAC.DataStructures.IntRange)">
+  operator -(int, IntRange)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Data Structures/IntRange.cs/#L608"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Subtracts each element of the range from the given integer.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static IntRange operator -(int integer, IntRange range)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>integer</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>range</code> <a class="xref" href="PAC.DataStructures.IntRange.html">IntRange</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="PAC.DataStructures.IntRange.html">IntRange</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.overflowexception">OverflowException</a></dt>
+    <dd><p>If any translated elements cannot be expressed as an <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="PAC_DataStructures_IntRange_op_UnaryNegation_" data-uid="PAC.DataStructures.IntRange.op_UnaryNegation*"></a>
+
+  <h3 id="PAC_DataStructures_IntRange_op_UnaryNegation_PAC_DataStructures_IntRange_" data-uid="PAC.DataStructures.IntRange.op_UnaryNegation(PAC.DataStructures.IntRange)">
+  operator -(IntRange)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Data Structures/IntRange.cs/#L613"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Negates each element of the range.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static IntRange operator -(IntRange range)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>range</code> <a class="xref" href="PAC.DataStructures.IntRange.html">IntRange</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="PAC.DataStructures.IntRange.html">IntRange</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.overflowexception">OverflowException</a></dt>
+    <dd><p>If any negated elements cannot be expressed as an <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>. This only occurs if the range contains <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32.minvalue">MinValue</a>.</p>
+</dd>
+  </dl>
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Data Structures/IntRange.cs/#L35" class="edit-link">Edit this page</a>
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          Pixel Art Creator 2.0 Docs
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

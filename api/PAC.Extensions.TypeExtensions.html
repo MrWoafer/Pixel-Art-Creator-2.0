@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
   <head>
     <meta charset="utf-8">
@@ -54,7 +54,7 @@
             <div id="navbar">
               <form class="search" role="search" id="search">
                 <i class="bi bi-search"></i>
-                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
               </form>
             </div>
           </div>
@@ -156,18 +156,18 @@ Class TypeExtensions  <a class="header-action link-secondary" title="View source
 
   <h3 id="PAC_Extensions_TypeExtensions_GetTypeOfRawGenericSuperclass_System_Type_System_Type_" data-uid="PAC.Extensions.TypeExtensions.GetTypeOfRawGenericSuperclass(System.Type,System.Type)">
   GetTypeOfRawGenericSuperclass(Type, Type)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Extensions/Type/TypeExtensions.cs/#L73"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Extensions/Type/TypeExtensions.cs/#L65"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>
-Gets the concrete version of the given raw generic type that 'subType' inherits - e.g. List&lt;int&gt; inherits from the raw generic IEnumerable&lt;&gt;, with the concrete type returned
-by this method being IEnumerable&lt;int&gt;.
+Gets the concrete version of the given raw generic type that <code class="paramref">subType</code> inherits from - e.g. <code>List&lt;<a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/integral-numeric-types">int</a>&gt;</code> inherits from the raw generic
+<code>IEnumerable&lt;&gt;</code>, with the concrete type returned by this method being <code>IEnumerable&lt;<a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/integral-numeric-types">int</a>&gt;</code>.
 </p>
 <p>
-Throws an exception if 'rawGeneric' is not a raw generic. For example, List&lt;&gt; is a raw generic, but List&lt;int&gt; is not.
+Throws an exception if <code class="paramref">rawGeneric</code> is not a raw generic. For example, <code>List&lt;&gt;</code> is a raw generic, but <code>List&lt;<a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/integral-numeric-types">int</a>&gt;</code> is not.
 </p>
 <p>
-Throws an exception if 'subType' does not inherit from 'rawGeneric'.
+Throws an exception if <code class="paramref">subType</code> does not inherit from <code class="paramref">rawGeneric</code>.
 </p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -200,14 +200,52 @@ Throws an exception if 'subType' does not inherit from 'rawGeneric'.
 
 
 
+  <a id="PAC_Extensions_TypeExtensions_GetValues_" data-uid="PAC.Extensions.TypeExtensions.GetValues*"></a>
+
+  <h3 id="PAC_Extensions_TypeExtensions_GetValues__1" data-uid="PAC.Extensions.TypeExtensions.GetValues``1">
+  GetValues&lt;T&gt;()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Extensions/Type/TypeExtensions.cs/#L105"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets all possible values of the <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/enum">enum</a> type <code class="typeparamref">T</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static T[] GetValues&lt;T&gt;() where T : Enum</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt>T[]</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
   <a id="PAC_Extensions_TypeExtensions_IsAutoProperty_" data-uid="PAC.Extensions.TypeExtensions.IsAutoProperty*"></a>
 
   <h3 id="PAC_Extensions_TypeExtensions_IsAutoProperty_System_Reflection_PropertyInfo_" data-uid="PAC.Extensions.TypeExtensions.IsAutoProperty(System.Reflection.PropertyInfo)">
   IsAutoProperty(PropertyInfo)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Extensions/Type/TypeExtensions.cs/#L95"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Extensions/Type/TypeExtensions.cs/#L90"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Determines if the given property is an auto property - i.e. it has both a getter and setter with no body, for example <pre><code class="lang-csharp">public string name { get; set; }</code></pre>
+  <div class="markdown level1 summary"><p>Determines if the given property is an auto property - i.e. it has both a getter and setter with no body, for example</p>
+<pre><code class="lang-csharp">publicstring name { get; set; }</code></pre>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -241,10 +279,10 @@ Throws an exception if 'subType' does not inherit from 'rawGeneric'.
 
   <h3 id="PAC_Extensions_TypeExtensions_IsGenericList_System_Type_" data-uid="PAC.Extensions.TypeExtensions.IsGenericList(System.Type)">
   IsGenericList(Type)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Extensions/Type/TypeExtensions.cs/#L21"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Extensions/Type/TypeExtensions.cs/#L18"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Determines if the given type is List&lt;T&gt; for some type T.</p>
+  <div class="markdown level1 summary"><p>Determines if the given type is <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List&lt;T&gt;</a> for some type <code class="typeparamref">T</code>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -278,10 +316,10 @@ Throws an exception if 'subType' does not inherit from 'rawGeneric'.
 
   <h3 id="PAC_Extensions_TypeExtensions_IsRawGeneric_System_Type_" data-uid="PAC.Extensions.TypeExtensions.IsRawGeneric(System.Type)">
   IsRawGeneric(Type)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Extensions/Type/TypeExtensions.cs/#L29"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Extensions/Type/TypeExtensions.cs/#L23"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Determines if the given type is a raw generic - e.g. List&lt;&gt; is a raw generic, but List&lt;int&gt; is not. Also returns false for non-generic types.</p>
+  <div class="markdown level1 summary"><p>Determines if the given type is a raw generic - e.g. <code>List&lt;&gt;</code> is a raw generic, but <code>List&lt;<a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/integral-numeric-types">int</a>&gt;</code> is not. Also returns false for non-generic types.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -352,14 +390,15 @@ Throws an exception if 'subType' does not inherit from 'rawGeneric'.
 
   <h3 id="PAC_Extensions_TypeExtensions_IsSubclassOfRawGeneric_System_Type_System_Type_" data-uid="PAC.Extensions.TypeExtensions.IsSubclassOfRawGeneric(System.Type,System.Type)">
   IsSubclassOfRawGeneric(Type, Type)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Extensions/Type/TypeExtensions.cs/#L42"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Extensions/Type/TypeExtensions.cs/#L34"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>
-Determines if the given type inherits from the given some concrete version of the given raw generic type - e.g. List&lt;int&gt; inherits from the raw generic IEnumerable&lt;&gt;.
+Determines if the given type inherits from the given some concrete version of the given raw generic type - e.g. <code>List&lt;<a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/integral-numeric-types">int</a>&gt;</code> inherits from the raw generic
+<code>IEnumerable&lt;&gt;</code>.
 </p>
 <p>
-Throws an exception if 'rawGeneric' is not a raw generic. For example, List&lt;&gt; is a raw generic, but List&lt;int&gt; is not.
+Throws an exception if <code class="paramref">rawGeneric</code> is not a raw generic. For example, <code>List&lt;&gt;</code> is a raw generic, but <code>List&lt;<a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/integral-numeric-types">int</a>&gt;</code> is not.
 </p>
 </div>
   <div class="markdown level1 conceptual"></div>

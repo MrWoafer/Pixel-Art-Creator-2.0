@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
   <head>
     <meta charset="utf-8">
@@ -54,7 +54,7 @@
             <div id="navbar">
               <form class="search" role="search" id="search">
                 <i class="bi bi-search"></i>
-                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
               </form>
             </div>
           </div>
@@ -144,6 +144,16 @@ Class File  <a class="header-action link-secondary" title="View source" href="ht
     </div>
   </dd></dl>
 
+  <dl class="typelist extensionMethods">
+    <dt>Extension Methods</dt>
+    <dd>
+  <div>
+      <a class="xref" href="PAC.Extensions.ISetComparableExtensions.html#PAC_Extensions_ISetComparableExtensions_IsProperSubsetOf__2___0___1_">ISetComparableExtensions.IsProperSubsetOf&lt;T1, T2&gt;(T1, T2)</a>
+  </div>
+  <div>
+      <a class="xref" href="PAC.Extensions.ISetComparableExtensions.html#PAC_Extensions_ISetComparableExtensions_IsProperSupersetOf__2___0___1_">ISetComparableExtensions.IsProperSupersetOf&lt;T1, T2&gt;(T1, T2)</a>
+  </div>
+  </dd></dl>
 
 
 
@@ -1075,8 +1085,8 @@ Class File  <a class="header-action link-secondary" title="View source" href="ht
 
   <a id="PAC_Files_File_Flip_" data-uid="PAC.Files.File.Flip*"></a>
 
-  <h3 id="PAC_Files_File_Flip_PAC_FlipDirection_" data-uid="PAC.Files.File.Flip(PAC.FlipDirection)">
-  Flip(FlipDirection)
+  <h3 id="PAC_Files_File_Flip_PAC_FlipAxis_" data-uid="PAC.Files.File.Flip(PAC.FlipAxis)">
+  Flip(FlipAxis)
   <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Files/File.cs/#L931"><i class="bi bi-code-slash"></i></a>
   </h3>
 
@@ -1085,12 +1095,12 @@ Class File  <a class="header-action link-secondary" title="View source" href="ht
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public void Flip(FlipDirection direction)</code></pre>
+    <pre><code class="lang-csharp hljs">public void Flip(FlipAxis axis)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
-    <dt><code>direction</code> <a class="xref" href="PAC.FlipDirection.html">FlipDirection</a></dt>
+    <dt><code>axis</code> <a class="xref" href="PAC.FlipAxis.html">FlipAxis</a></dt>
     <dd></dd>
   </dl>
 
@@ -2436,8 +2446,8 @@ Does not apply the texture.</p>
 
   <a id="PAC_Files_File_SubscribeToOnPixelsChanged_" data-uid="PAC.Files.File.SubscribeToOnPixelsChanged*"></a>
 
-  <h3 id="PAC_Files_File_SubscribeToOnPixelsChanged_UnityAction_PAC_DataStructures_IntVector2___PAC_Layers_Layer___System_Int32____" data-uid="PAC.Files.File.SubscribeToOnPixelsChanged(UnityAction{PAC.DataStructures.IntVector2[],PAC.Layers.Layer[],System.Int32[]})">
-  SubscribeToOnPixelsChanged(UnityAction&lt;IntVector2[], Layer[], int[]&gt;)
+  <h3 id="PAC_Files_File_SubscribeToOnPixelsChanged_UnityAction_System_Collections_Generic_IEnumerable_PAC_DataStructures_IntVector2__PAC_Layers_Layer___System_Int32____" data-uid="PAC.Files.File.SubscribeToOnPixelsChanged(UnityAction{System.Collections.Generic.IEnumerable{PAC.DataStructures.IntVector2},PAC.Layers.Layer[],System.Int32[]})">
+  SubscribeToOnPixelsChanged(UnityAction&lt;IEnumerable&lt;IntVector2&gt;, Layer[], int[]&gt;)
   <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Files/File.cs/#L1202"><i class="bi bi-code-slash"></i></a>
   </h3>
 
@@ -2447,12 +2457,12 @@ Passes the pixels, layers and frames that were affected.</p>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public void SubscribeToOnPixelsChanged(UnityAction&lt;IntVector2[], Layer[], int[]&gt; call)</code></pre>
+    <pre><code class="lang-csharp hljs">public void SubscribeToOnPixelsChanged(UnityAction&lt;IEnumerable&lt;IntVector2&gt;, Layer[], int[]&gt; call)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
-    <dt><code>call</code> <span class="xref">UnityAction</span>&lt;<a class="xref" href="PAC.DataStructures.IntVector2.html">IntVector2</a>[], <a class="xref" href="PAC.Layers.Layer.html">Layer</a>[], <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>[]&gt;</dt>
+    <dt><code>call</code> <span class="xref">UnityAction</span>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="PAC.DataStructures.IntVector2.html">IntVector2</a>&gt;, <a class="xref" href="PAC.Layers.Layer.html">Layer</a>[], <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>[]&gt;</dt>
     <dd></dd>
   </dl>
 

@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
   <head>
     <meta charset="utf-8">
@@ -54,7 +54,7 @@
             <div id="navbar">
               <form class="search" role="search" id="search">
                 <i class="bi bi-search"></i>
-                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
               </form>
             </div>
           </div>
@@ -89,7 +89,7 @@
 
 
   <h1 id="PAC_Drawing_Tools" data-uid="PAC.Drawing.Tools" class="text-break">
-Class Tools  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Drawing/Tools.cs/#L13"><i class="bi bi-code-slash"></i></a>
+Class Tools  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Drawing/Tools.cs/#L19"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -156,9 +156,9 @@ I may rework this to be more like the BlendMode class where each Tool instance d
 
   <a id="PAC_Drawing_Tools_PencilLineSmoothing_" data-uid="PAC.Drawing.Tools.PencilLineSmoothing*"></a>
 
-  <h3 id="PAC_Drawing_Tools_PencilLineSmoothing_PAC_Files_File_System_Int32_System_Int32_PAC_DataStructures_IntVector2___PAC_DataStructures_IntVector2___Color_" data-uid="PAC.Drawing.Tools.PencilLineSmoothing(PAC.Files.File,System.Int32,System.Int32,PAC.DataStructures.IntVector2[],PAC.DataStructures.IntVector2[],Color)">
-  PencilLineSmoothing(File, int, int, IntVector2[], IntVector2[], Color)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Drawing/Tools.cs/#L24"><i class="bi bi-code-slash"></i></a>
+  <h3 id="PAC_Drawing_Tools_PencilLineSmoothing_PAC_Shapes_Line_PAC_Shapes_Line_System_Boolean_" data-uid="PAC.Drawing.Tools.PencilLineSmoothing(PAC.Shapes.Line,PAC.Shapes.Line,System.Boolean)">
+  PencilLineSmoothing(Line, Line, bool)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Drawing/Tools.cs/#L30"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Smooth the meeting point of the two lines (given as coords) so it is pixel-perfect - i.e. no hard 90-degree corner.</p>
@@ -166,22 +166,16 @@ I may rework this to be more like the BlendMode class where each Tool instance d
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static bool PencilLineSmoothing(File file, int layer, int frame, IntVector2[] line, IntVector2[] previousLine, Color colourLineMeetingPoint)</code></pre>
+    <pre><code class="lang-csharp hljs">public static bool PencilLineSmoothing(Line line, Line previousLine, bool previousLineWasSmoothed)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
-    <dt><code>file</code> <a class="xref" href="PAC.Files.File.html">File</a></dt>
+    <dt><code>line</code> <a class="xref" href="PAC.Shapes.Line.html">Line</a></dt>
     <dd></dd>
-    <dt><code>layer</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dt><code>previousLine</code> <a class="xref" href="PAC.Shapes.Line.html">Line</a></dt>
     <dd></dd>
-    <dt><code>frame</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
-    <dd></dd>
-    <dt><code>line</code> <a class="xref" href="PAC.DataStructures.IntVector2.html">IntVector2</a>[]</dt>
-    <dd></dd>
-    <dt><code>previousLine</code> <a class="xref" href="PAC.DataStructures.IntVector2.html">IntVector2</a>[]</dt>
-    <dd></dd>
-    <dt><code>colourLineMeetingPoint</code> <span class="xref">Color</span></dt>
+    <dt><code>previousLineWasSmoothed</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
     <dd></dd>
   </dl>
 
@@ -205,7 +199,7 @@ I may rework this to be more like the BlendMode class where each Tool instance d
 
   <h3 id="PAC_Drawing_Tools_UseBrush_PAC_Files_File_System_Int32_System_Int32_PAC_DataStructures_IntVector2_PAC_DataStructures_IntVector2___Color_" data-uid="PAC.Drawing.Tools.UseBrush(PAC.Files.File,System.Int32,System.Int32,PAC.DataStructures.IntVector2,PAC.DataStructures.IntVector2[],Color)">
   UseBrush(File, int, int, IntVector2, IntVector2[], Color)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Drawing/Tools.cs/#L50"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Drawing/Tools.cs/#L66"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -246,7 +240,7 @@ I may rework this to be more like the BlendMode class where each Tool instance d
 
   <h3 id="PAC_Drawing_Tools_UseBrush_PAC_Files_File_System_Int32_System_Int32_System_Int32_System_Int32_PAC_DataStructures_IntVector2___Color_" data-uid="PAC.Drawing.Tools.UseBrush(PAC.Files.File,System.Int32,System.Int32,System.Int32,System.Int32,PAC.DataStructures.IntVector2[],Color)">
   UseBrush(File, int, int, int, int, IntVector2[], Color)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Drawing/Tools.cs/#L46"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Drawing/Tools.cs/#L62"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -285,99 +279,11 @@ I may rework this to be more like the BlendMode class where each Tool instance d
 
 
 
-  <a id="PAC_Drawing_Tools_UseCircle_" data-uid="PAC.Drawing.Tools.UseCircle*"></a>
-
-  <h3 id="PAC_Drawing_Tools_UseCircle_PAC_Files_File_System_Int32_System_Int32_PAC_DataStructures_IntVector2_PAC_DataStructures_IntVector2_Color_System_Boolean_System_Boolean_" data-uid="PAC.Drawing.Tools.UseCircle(PAC.Files.File,System.Int32,System.Int32,PAC.DataStructures.IntVector2,PAC.DataStructures.IntVector2,Color,System.Boolean,System.Boolean)">
-  UseCircle(File, int, int, IntVector2, IntVector2, Color, bool, bool)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Drawing/Tools.cs/#L108"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static void UseCircle(File file, int layer, int frame, IntVector2 start, IntVector2 end, Color colour, bool filled, bool stayWithinImageBounds)</code></pre>
-  </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>file</code> <a class="xref" href="PAC.Files.File.html">File</a></dt>
-    <dd></dd>
-    <dt><code>layer</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
-    <dd></dd>
-    <dt><code>frame</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
-    <dd></dd>
-    <dt><code>start</code> <a class="xref" href="PAC.DataStructures.IntVector2.html">IntVector2</a></dt>
-    <dd></dd>
-    <dt><code>end</code> <a class="xref" href="PAC.DataStructures.IntVector2.html">IntVector2</a></dt>
-    <dd></dd>
-    <dt><code>colour</code> <span class="xref">Color</span></dt>
-    <dd></dd>
-    <dt><code>filled</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
-    <dd></dd>
-    <dt><code>stayWithinImageBounds</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
-
-
-  <a id="PAC_Drawing_Tools_UseEllipse_" data-uid="PAC.Drawing.Tools.UseEllipse*"></a>
-
-  <h3 id="PAC_Drawing_Tools_UseEllipse_PAC_Files_File_System_Int32_System_Int32_PAC_DataStructures_IntVector2_PAC_DataStructures_IntVector2_Color_System_Boolean_" data-uid="PAC.Drawing.Tools.UseEllipse(PAC.Files.File,System.Int32,System.Int32,PAC.DataStructures.IntVector2,PAC.DataStructures.IntVector2,Color,System.Boolean)">
-  UseEllipse(File, int, int, IntVector2, IntVector2, Color, bool)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Drawing/Tools.cs/#L118"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static void UseEllipse(File file, int layer, int frame, IntVector2 start, IntVector2 end, Color colour, bool filled)</code></pre>
-  </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>file</code> <a class="xref" href="PAC.Files.File.html">File</a></dt>
-    <dd></dd>
-    <dt><code>layer</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
-    <dd></dd>
-    <dt><code>frame</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
-    <dd></dd>
-    <dt><code>start</code> <a class="xref" href="PAC.DataStructures.IntVector2.html">IntVector2</a></dt>
-    <dd></dd>
-    <dt><code>end</code> <a class="xref" href="PAC.DataStructures.IntVector2.html">IntVector2</a></dt>
-    <dd></dd>
-    <dt><code>colour</code> <span class="xref">Color</span></dt>
-    <dd></dd>
-    <dt><code>filled</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
-
-
   <a id="PAC_Drawing_Tools_UseEyeDropper_" data-uid="PAC.Drawing.Tools.UseEyeDropper*"></a>
 
   <h3 id="PAC_Drawing_Tools_UseEyeDropper_PAC_Files_File_System_Int32_System_Int32_PAC_DataStructures_IntVector2_" data-uid="PAC.Drawing.Tools.UseEyeDropper(PAC.Files.File,System.Int32,System.Int32,PAC.DataStructures.IntVector2)">
   UseEyeDropper(File, int, int, IntVector2)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Drawing/Tools.cs/#L63"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Drawing/Tools.cs/#L79"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -419,7 +325,7 @@ I may rework this to be more like the BlendMode class where each Tool instance d
 
   <h3 id="PAC_Drawing_Tools_UseEyeDropper_PAC_Files_File_System_Int32_System_Int32_System_Int32_System_Int32_" data-uid="PAC.Drawing.Tools.UseEyeDropper(PAC.Files.File,System.Int32,System.Int32,System.Int32,System.Int32)">
   UseEyeDropper(File, int, int, int, int)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Drawing/Tools.cs/#L64"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Drawing/Tools.cs/#L80"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -463,7 +369,7 @@ I may rework this to be more like the BlendMode class where each Tool instance d
 
   <h3 id="PAC_Drawing_Tools_UseFill_PAC_Files_File_System_Int32_System_Int32_PAC_DataStructures_IntVector2_Color_System_Int32_" data-uid="PAC.Drawing.Tools.UseFill(PAC.Files.File,System.Int32,System.Int32,PAC.DataStructures.IntVector2,Color,System.Int32)">
   UseFill(File, int, int, IntVector2, Color, int)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Drawing/Tools.cs/#L73"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Drawing/Tools.cs/#L89"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -504,7 +410,7 @@ I may rework this to be more like the BlendMode class where each Tool instance d
 
   <h3 id="PAC_Drawing_Tools_UseFill_PAC_Files_File_System_Int32_System_Int32_System_Int32_System_Int32_Color_System_Int32_" data-uid="PAC.Drawing.Tools.UseFill(PAC.Files.File,System.Int32,System.Int32,System.Int32,System.Int32,Color,System.Int32)">
   UseFill(File, int, int, int, int, Color, int)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Drawing/Tools.cs/#L69"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Drawing/Tools.cs/#L85"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -543,18 +449,18 @@ I may rework this to be more like the BlendMode class where each Tool instance d
 
 
 
-  <a id="PAC_Drawing_Tools_UseGradient_" data-uid="PAC.Drawing.Tools.UseGradient*"></a>
+  <a id="PAC_Drawing_Tools_UsePattern_" data-uid="PAC.Drawing.Tools.UsePattern*"></a>
 
-  <h3 id="PAC_Drawing_Tools_UseGradient_PAC_Files_File_System_Int32_System_Int32_PAC_DataStructures_IntVector2_PAC_DataStructures_IntVector2_Color_Color_PAC_Drawing_GradientMode_" data-uid="PAC.Drawing.Tools.UseGradient(PAC.Files.File,System.Int32,System.Int32,PAC.DataStructures.IntVector2,PAC.DataStructures.IntVector2,Color,Color,PAC.Drawing.GradientMode)">
-  UseGradient(File, int, int, IntVector2, IntVector2, Color, Color, GradientMode)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Drawing/Tools.cs/#L158"><i class="bi bi-code-slash"></i></a>
+  <h3 id="PAC_Drawing_Tools_UsePattern_PAC_Files_File_System_Int32_System_Int32_PAC_Patterns_IPattern2D_Color32__" data-uid="PAC.Drawing.Tools.UsePattern(PAC.Files.File,System.Int32,System.Int32,PAC.Patterns.IPattern2D{Color32})">
+  UsePattern(File, int, int, IPattern2D&lt;Color32&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Drawing/Tools.cs/#L113"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static void UseGradient(File file, int layer, int frame, IntVector2 start, IntVector2 end, Color startColour, Color endColour, GradientMode gradientMode)</code></pre>
+    <pre><code class="lang-csharp hljs">public static void UsePattern(File file, int layer, int frame, IPattern2D&lt;Color32&gt; pattern)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
@@ -565,15 +471,7 @@ I may rework this to be more like the BlendMode class where each Tool instance d
     <dd></dd>
     <dt><code>frame</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
     <dd></dd>
-    <dt><code>start</code> <a class="xref" href="PAC.DataStructures.IntVector2.html">IntVector2</a></dt>
-    <dd></dd>
-    <dt><code>end</code> <a class="xref" href="PAC.DataStructures.IntVector2.html">IntVector2</a></dt>
-    <dd></dd>
-    <dt><code>startColour</code> <span class="xref">Color</span></dt>
-    <dd></dd>
-    <dt><code>endColour</code> <span class="xref">Color</span></dt>
-    <dd></dd>
-    <dt><code>gradientMode</code> <a class="xref" href="PAC.Drawing.GradientMode.html">GradientMode</a></dt>
+    <dt><code>pattern</code> <a class="xref" href="PAC.Patterns.IPattern2D-1.html">IPattern2D</a>&lt;<span class="xref">Color32</span>&gt;</dt>
     <dd></dd>
   </dl>
 
@@ -588,18 +486,18 @@ I may rework this to be more like the BlendMode class where each Tool instance d
 
 
 
-  <a id="PAC_Drawing_Tools_UseGradient_" data-uid="PAC.Drawing.Tools.UseGradient*"></a>
+  <a id="PAC_Drawing_Tools_UsePattern_" data-uid="PAC.Drawing.Tools.UsePattern*"></a>
 
-  <h3 id="PAC_Drawing_Tools_UseGradient_PAC_Files_File_System_Int32_System_Int32_PAC_DataStructures_IntVector2_PAC_DataStructures_IntVector2_Color_Color_PAC_Drawing_GradientMode_PAC_DataStructures_IntVector2___" data-uid="PAC.Drawing.Tools.UseGradient(PAC.Files.File,System.Int32,System.Int32,PAC.DataStructures.IntVector2,PAC.DataStructures.IntVector2,Color,Color,PAC.Drawing.GradientMode,PAC.DataStructures.IntVector2[])">
-  UseGradient(File, int, int, IntVector2, IntVector2, Color, Color, GradientMode, IntVector2[])
-  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Drawing/Tools.cs/#L181"><i class="bi bi-code-slash"></i></a>
+  <h3 id="PAC_Drawing_Tools_UsePattern_PAC_Files_File_System_Int32_System_Int32_PAC_Patterns_IPattern2D_Color__" data-uid="PAC.Drawing.Tools.UsePattern(PAC.Files.File,System.Int32,System.Int32,PAC.Patterns.IPattern2D{Color})">
+  UsePattern(File, int, int, IPattern2D&lt;Color&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Drawing/Tools.cs/#L104"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static void UseGradient(File file, int layer, int frame, IntVector2 start, IntVector2 end, Color startColour, Color endColour, GradientMode gradientMode, IntVector2[] mask)</code></pre>
+    <pre><code class="lang-csharp hljs">public static void UsePattern(File file, int layer, int frame, IPattern2D&lt;Color&gt; pattern)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
@@ -610,459 +508,7 @@ I may rework this to be more like the BlendMode class where each Tool instance d
     <dd></dd>
     <dt><code>frame</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
     <dd></dd>
-    <dt><code>start</code> <a class="xref" href="PAC.DataStructures.IntVector2.html">IntVector2</a></dt>
-    <dd></dd>
-    <dt><code>end</code> <a class="xref" href="PAC.DataStructures.IntVector2.html">IntVector2</a></dt>
-    <dd></dd>
-    <dt><code>startColour</code> <span class="xref">Color</span></dt>
-    <dd></dd>
-    <dt><code>endColour</code> <span class="xref">Color</span></dt>
-    <dd></dd>
-    <dt><code>gradientMode</code> <a class="xref" href="PAC.Drawing.GradientMode.html">GradientMode</a></dt>
-    <dd></dd>
-    <dt><code>mask</code> <a class="xref" href="PAC.DataStructures.IntVector2.html">IntVector2</a>[]</dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
-
-
-  <a id="PAC_Drawing_Tools_UseGradient_" data-uid="PAC.Drawing.Tools.UseGradient*"></a>
-
-  <h3 id="PAC_Drawing_Tools_UseGradient_PAC_Files_File_System_Int32_System_Int32_PAC_DataStructures_IntVector2_PAC_DataStructures_IntVector2_Color_Color_PAC_Drawing_GradientMode_Texture2D_" data-uid="PAC.Drawing.Tools.UseGradient(PAC.Files.File,System.Int32,System.Int32,PAC.DataStructures.IntVector2,PAC.DataStructures.IntVector2,Color,Color,PAC.Drawing.GradientMode,Texture2D)">
-  UseGradient(File, int, int, IntVector2, IntVector2, Color, Color, GradientMode, Texture2D)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Drawing/Tools.cs/#L162"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static void UseGradient(File file, int layer, int frame, IntVector2 start, IntVector2 end, Color startColour, Color endColour, GradientMode gradientMode, Texture2D mask)</code></pre>
-  </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>file</code> <a class="xref" href="PAC.Files.File.html">File</a></dt>
-    <dd></dd>
-    <dt><code>layer</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
-    <dd></dd>
-    <dt><code>frame</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
-    <dd></dd>
-    <dt><code>start</code> <a class="xref" href="PAC.DataStructures.IntVector2.html">IntVector2</a></dt>
-    <dd></dd>
-    <dt><code>end</code> <a class="xref" href="PAC.DataStructures.IntVector2.html">IntVector2</a></dt>
-    <dd></dd>
-    <dt><code>startColour</code> <span class="xref">Color</span></dt>
-    <dd></dd>
-    <dt><code>endColour</code> <span class="xref">Color</span></dt>
-    <dd></dd>
-    <dt><code>gradientMode</code> <a class="xref" href="PAC.Drawing.GradientMode.html">GradientMode</a></dt>
-    <dd></dd>
-    <dt><code>mask</code> <span class="xref">Texture2D</span></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
-
-
-  <a id="PAC_Drawing_Tools_UseGradientLinear_" data-uid="PAC.Drawing.Tools.UseGradientLinear*"></a>
-
-  <h3 id="PAC_Drawing_Tools_UseGradientLinear_PAC_Files_File_System_Int32_System_Int32_PAC_DataStructures_IntVector2_PAC_DataStructures_IntVector2_Color_Color_" data-uid="PAC.Drawing.Tools.UseGradientLinear(PAC.Files.File,System.Int32,System.Int32,PAC.DataStructures.IntVector2,PAC.DataStructures.IntVector2,Color,Color)">
-  UseGradientLinear(File, int, int, IntVector2, IntVector2, Color, Color)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Drawing/Tools.cs/#L197"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static void UseGradientLinear(File file, int layer, int frame, IntVector2 start, IntVector2 end, Color startColour, Color endColour)</code></pre>
-  </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>file</code> <a class="xref" href="PAC.Files.File.html">File</a></dt>
-    <dd></dd>
-    <dt><code>layer</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
-    <dd></dd>
-    <dt><code>frame</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
-    <dd></dd>
-    <dt><code>start</code> <a class="xref" href="PAC.DataStructures.IntVector2.html">IntVector2</a></dt>
-    <dd></dd>
-    <dt><code>end</code> <a class="xref" href="PAC.DataStructures.IntVector2.html">IntVector2</a></dt>
-    <dd></dd>
-    <dt><code>startColour</code> <span class="xref">Color</span></dt>
-    <dd></dd>
-    <dt><code>endColour</code> <span class="xref">Color</span></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
-
-
-  <a id="PAC_Drawing_Tools_UseGradientLinear_" data-uid="PAC.Drawing.Tools.UseGradientLinear*"></a>
-
-  <h3 id="PAC_Drawing_Tools_UseGradientLinear_PAC_Files_File_System_Int32_System_Int32_PAC_DataStructures_IntVector2_PAC_DataStructures_IntVector2_Color_Color_PAC_DataStructures_IntVector2___" data-uid="PAC.Drawing.Tools.UseGradientLinear(PAC.Files.File,System.Int32,System.Int32,PAC.DataStructures.IntVector2,PAC.DataStructures.IntVector2,Color,Color,PAC.DataStructures.IntVector2[])">
-  UseGradientLinear(File, int, int, IntVector2, IntVector2, Color, Color, IntVector2[])
-  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Drawing/Tools.cs/#L205"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static void UseGradientLinear(File file, int layer, int frame, IntVector2 start, IntVector2 end, Color startColour, Color endColour, IntVector2[] mask)</code></pre>
-  </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>file</code> <a class="xref" href="PAC.Files.File.html">File</a></dt>
-    <dd></dd>
-    <dt><code>layer</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
-    <dd></dd>
-    <dt><code>frame</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
-    <dd></dd>
-    <dt><code>start</code> <a class="xref" href="PAC.DataStructures.IntVector2.html">IntVector2</a></dt>
-    <dd></dd>
-    <dt><code>end</code> <a class="xref" href="PAC.DataStructures.IntVector2.html">IntVector2</a></dt>
-    <dd></dd>
-    <dt><code>startColour</code> <span class="xref">Color</span></dt>
-    <dd></dd>
-    <dt><code>endColour</code> <span class="xref">Color</span></dt>
-    <dd></dd>
-    <dt><code>mask</code> <a class="xref" href="PAC.DataStructures.IntVector2.html">IntVector2</a>[]</dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
-
-
-  <a id="PAC_Drawing_Tools_UseGradientLinear_" data-uid="PAC.Drawing.Tools.UseGradientLinear*"></a>
-
-  <h3 id="PAC_Drawing_Tools_UseGradientLinear_PAC_Files_File_System_Int32_System_Int32_PAC_DataStructures_IntVector2_PAC_DataStructures_IntVector2_Color_Color_Texture2D_" data-uid="PAC.Drawing.Tools.UseGradientLinear(PAC.Files.File,System.Int32,System.Int32,PAC.DataStructures.IntVector2,PAC.DataStructures.IntVector2,Color,Color,Texture2D)">
-  UseGradientLinear(File, int, int, IntVector2, IntVector2, Color, Color, Texture2D)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Drawing/Tools.cs/#L201"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static void UseGradientLinear(File file, int layer, int frame, IntVector2 start, IntVector2 end, Color startColour, Color endColour, Texture2D mask)</code></pre>
-  </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>file</code> <a class="xref" href="PAC.Files.File.html">File</a></dt>
-    <dd></dd>
-    <dt><code>layer</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
-    <dd></dd>
-    <dt><code>frame</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
-    <dd></dd>
-    <dt><code>start</code> <a class="xref" href="PAC.DataStructures.IntVector2.html">IntVector2</a></dt>
-    <dd></dd>
-    <dt><code>end</code> <a class="xref" href="PAC.DataStructures.IntVector2.html">IntVector2</a></dt>
-    <dd></dd>
-    <dt><code>startColour</code> <span class="xref">Color</span></dt>
-    <dd></dd>
-    <dt><code>endColour</code> <span class="xref">Color</span></dt>
-    <dd></dd>
-    <dt><code>mask</code> <span class="xref">Texture2D</span></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
-
-
-  <a id="PAC_Drawing_Tools_UseGradientRadial_" data-uid="PAC.Drawing.Tools.UseGradientRadial*"></a>
-
-  <h3 id="PAC_Drawing_Tools_UseGradientRadial_PAC_Files_File_System_Int32_System_Int32_PAC_DataStructures_IntVector2_PAC_DataStructures_IntVector2_Color_Color_" data-uid="PAC.Drawing.Tools.UseGradientRadial(PAC.Files.File,System.Int32,System.Int32,PAC.DataStructures.IntVector2,PAC.DataStructures.IntVector2,Color,Color)">
-  UseGradientRadial(File, int, int, IntVector2, IntVector2, Color, Color)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Drawing/Tools.cs/#L210"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static void UseGradientRadial(File file, int layer, int frame, IntVector2 start, IntVector2 end, Color startColour, Color endColour)</code></pre>
-  </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>file</code> <a class="xref" href="PAC.Files.File.html">File</a></dt>
-    <dd></dd>
-    <dt><code>layer</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
-    <dd></dd>
-    <dt><code>frame</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
-    <dd></dd>
-    <dt><code>start</code> <a class="xref" href="PAC.DataStructures.IntVector2.html">IntVector2</a></dt>
-    <dd></dd>
-    <dt><code>end</code> <a class="xref" href="PAC.DataStructures.IntVector2.html">IntVector2</a></dt>
-    <dd></dd>
-    <dt><code>startColour</code> <span class="xref">Color</span></dt>
-    <dd></dd>
-    <dt><code>endColour</code> <span class="xref">Color</span></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
-
-
-  <a id="PAC_Drawing_Tools_UseGradientRadial_" data-uid="PAC.Drawing.Tools.UseGradientRadial*"></a>
-
-  <h3 id="PAC_Drawing_Tools_UseGradientRadial_PAC_Files_File_System_Int32_System_Int32_PAC_DataStructures_IntVector2_PAC_DataStructures_IntVector2_Color_Color_PAC_DataStructures_IntVector2___" data-uid="PAC.Drawing.Tools.UseGradientRadial(PAC.Files.File,System.Int32,System.Int32,PAC.DataStructures.IntVector2,PAC.DataStructures.IntVector2,Color,Color,PAC.DataStructures.IntVector2[])">
-  UseGradientRadial(File, int, int, IntVector2, IntVector2, Color, Color, IntVector2[])
-  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Drawing/Tools.cs/#L218"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static void UseGradientRadial(File file, int layer, int frame, IntVector2 start, IntVector2 end, Color startColour, Color endColour, IntVector2[] mask)</code></pre>
-  </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>file</code> <a class="xref" href="PAC.Files.File.html">File</a></dt>
-    <dd></dd>
-    <dt><code>layer</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
-    <dd></dd>
-    <dt><code>frame</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
-    <dd></dd>
-    <dt><code>start</code> <a class="xref" href="PAC.DataStructures.IntVector2.html">IntVector2</a></dt>
-    <dd></dd>
-    <dt><code>end</code> <a class="xref" href="PAC.DataStructures.IntVector2.html">IntVector2</a></dt>
-    <dd></dd>
-    <dt><code>startColour</code> <span class="xref">Color</span></dt>
-    <dd></dd>
-    <dt><code>endColour</code> <span class="xref">Color</span></dt>
-    <dd></dd>
-    <dt><code>mask</code> <a class="xref" href="PAC.DataStructures.IntVector2.html">IntVector2</a>[]</dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
-
-
-  <a id="PAC_Drawing_Tools_UseGradientRadial_" data-uid="PAC.Drawing.Tools.UseGradientRadial*"></a>
-
-  <h3 id="PAC_Drawing_Tools_UseGradientRadial_PAC_Files_File_System_Int32_System_Int32_PAC_DataStructures_IntVector2_PAC_DataStructures_IntVector2_Color_Color_Texture2D_" data-uid="PAC.Drawing.Tools.UseGradientRadial(PAC.Files.File,System.Int32,System.Int32,PAC.DataStructures.IntVector2,PAC.DataStructures.IntVector2,Color,Color,Texture2D)">
-  UseGradientRadial(File, int, int, IntVector2, IntVector2, Color, Color, Texture2D)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Drawing/Tools.cs/#L214"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static void UseGradientRadial(File file, int layer, int frame, IntVector2 start, IntVector2 end, Color startColour, Color endColour, Texture2D mask)</code></pre>
-  </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>file</code> <a class="xref" href="PAC.Files.File.html">File</a></dt>
-    <dd></dd>
-    <dt><code>layer</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
-    <dd></dd>
-    <dt><code>frame</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
-    <dd></dd>
-    <dt><code>start</code> <a class="xref" href="PAC.DataStructures.IntVector2.html">IntVector2</a></dt>
-    <dd></dd>
-    <dt><code>end</code> <a class="xref" href="PAC.DataStructures.IntVector2.html">IntVector2</a></dt>
-    <dd></dd>
-    <dt><code>startColour</code> <span class="xref">Color</span></dt>
-    <dd></dd>
-    <dt><code>endColour</code> <span class="xref">Color</span></dt>
-    <dd></dd>
-    <dt><code>mask</code> <span class="xref">Texture2D</span></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
-
-
-  <a id="PAC_Drawing_Tools_UseIsoBox_" data-uid="PAC.Drawing.Tools.UseIsoBox*"></a>
-
-  <h3 id="PAC_Drawing_Tools_UseIsoBox_PAC_Files_File_System_Int32_System_Int32_PAC_DataStructures_IntVector2_PAC_DataStructures_IntVector2_PAC_DataStructures_IntVector2_Color_System_Boolean_" data-uid="PAC.Drawing.Tools.UseIsoBox(PAC.Files.File,System.Int32,System.Int32,PAC.DataStructures.IntVector2,PAC.DataStructures.IntVector2,PAC.DataStructures.IntVector2,Color,System.Boolean)">
-  UseIsoBox(File, int, int, IntVector2, IntVector2, IntVector2, Color, bool)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Drawing/Tools.cs/#L148"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static void UseIsoBox(File file, int layer, int frame, IntVector2 baseStart, IntVector2 baseEnd, IntVector2 heightEnd, Color colour, bool filled)</code></pre>
-  </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>file</code> <a class="xref" href="PAC.Files.File.html">File</a></dt>
-    <dd></dd>
-    <dt><code>layer</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
-    <dd></dd>
-    <dt><code>frame</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
-    <dd></dd>
-    <dt><code>baseStart</code> <a class="xref" href="PAC.DataStructures.IntVector2.html">IntVector2</a></dt>
-    <dd></dd>
-    <dt><code>baseEnd</code> <a class="xref" href="PAC.DataStructures.IntVector2.html">IntVector2</a></dt>
-    <dd></dd>
-    <dt><code>heightEnd</code> <a class="xref" href="PAC.DataStructures.IntVector2.html">IntVector2</a></dt>
-    <dd></dd>
-    <dt><code>colour</code> <span class="xref">Color</span></dt>
-    <dd></dd>
-    <dt><code>filled</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
-
-
-  <a id="PAC_Drawing_Tools_UseIsoRectangle_" data-uid="PAC.Drawing.Tools.UseIsoRectangle*"></a>
-
-  <h3 id="PAC_Drawing_Tools_UseIsoRectangle_PAC_Files_File_System_Int32_System_Int32_PAC_DataStructures_IntVector2_PAC_DataStructures_IntVector2_Color_System_Boolean_" data-uid="PAC.Drawing.Tools.UseIsoRectangle(PAC.Files.File,System.Int32,System.Int32,PAC.DataStructures.IntVector2,PAC.DataStructures.IntVector2,Color,System.Boolean)">
-  UseIsoRectangle(File, int, int, IntVector2, IntVector2, Color, bool)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Drawing/Tools.cs/#L138"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static void UseIsoRectangle(File file, int layer, int frame, IntVector2 start, IntVector2 end, Color colour, bool filled)</code></pre>
-  </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>file</code> <a class="xref" href="PAC.Files.File.html">File</a></dt>
-    <dd></dd>
-    <dt><code>layer</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
-    <dd></dd>
-    <dt><code>frame</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
-    <dd></dd>
-    <dt><code>start</code> <a class="xref" href="PAC.DataStructures.IntVector2.html">IntVector2</a></dt>
-    <dd></dd>
-    <dt><code>end</code> <a class="xref" href="PAC.DataStructures.IntVector2.html">IntVector2</a></dt>
-    <dd></dd>
-    <dt><code>colour</code> <span class="xref">Color</span></dt>
-    <dd></dd>
-    <dt><code>filled</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
-
-
-  <a id="PAC_Drawing_Tools_UseLine_" data-uid="PAC.Drawing.Tools.UseLine*"></a>
-
-  <h3 id="PAC_Drawing_Tools_UseLine_PAC_Files_File_System_Int32_System_Int32_PAC_DataStructures_IntVector2_PAC_DataStructures_IntVector2_Color_" data-uid="PAC.Drawing.Tools.UseLine(PAC.Files.File,System.Int32,System.Int32,PAC.DataStructures.IntVector2,PAC.DataStructures.IntVector2,Color)">
-  UseLine(File, int, int, IntVector2, IntVector2, Color)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Drawing/Tools.cs/#L78"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static void UseLine(File file, int layer, int frame, IntVector2 start, IntVector2 end, Color colour)</code></pre>
-  </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>file</code> <a class="xref" href="PAC.Files.File.html">File</a></dt>
-    <dd></dd>
-    <dt><code>layer</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
-    <dd></dd>
-    <dt><code>frame</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
-    <dd></dd>
-    <dt><code>start</code> <a class="xref" href="PAC.DataStructures.IntVector2.html">IntVector2</a></dt>
-    <dd></dd>
-    <dt><code>end</code> <a class="xref" href="PAC.DataStructures.IntVector2.html">IntVector2</a></dt>
-    <dd></dd>
-    <dt><code>colour</code> <span class="xref">Color</span></dt>
+    <dt><code>pattern</code> <a class="xref" href="PAC.Patterns.IPattern2D-1.html">IPattern2D</a>&lt;<span class="xref">Color</span>&gt;</dt>
     <dd></dd>
   </dl>
 
@@ -1081,7 +527,7 @@ I may rework this to be more like the BlendMode class where each Tool instance d
 
   <h3 id="PAC_Drawing_Tools_UsePencil_PAC_Files_File_System_Int32_System_Int32_PAC_DataStructures_IntVector2_Color_" data-uid="PAC.Drawing.Tools.UsePencil(PAC.Files.File,System.Int32,System.Int32,PAC.DataStructures.IntVector2,Color)">
   UsePencil(File, int, int, IntVector2, Color)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Drawing/Tools.cs/#L15"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Drawing/Tools.cs/#L21"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -1120,7 +566,7 @@ I may rework this to be more like the BlendMode class where each Tool instance d
 
   <h3 id="PAC_Drawing_Tools_UsePencil_PAC_Files_File_System_Int32_System_Int32_System_Int32_System_Int32_Color_" data-uid="PAC.Drawing.Tools.UsePencil(PAC.Files.File,System.Int32,System.Int32,System.Int32,System.Int32,Color)">
   UsePencil(File, int, int, int, int, Color)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Drawing/Tools.cs/#L16"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Drawing/Tools.cs/#L22"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -1157,99 +603,11 @@ I may rework this to be more like the BlendMode class where each Tool instance d
 
 
 
-  <a id="PAC_Drawing_Tools_UseRectangle_" data-uid="PAC.Drawing.Tools.UseRectangle*"></a>
-
-  <h3 id="PAC_Drawing_Tools_UseRectangle_PAC_Files_File_System_Int32_System_Int32_PAC_DataStructures_IntVector2_PAC_DataStructures_IntVector2_Color_System_Boolean_" data-uid="PAC.Drawing.Tools.UseRectangle(PAC.Files.File,System.Int32,System.Int32,PAC.DataStructures.IntVector2,PAC.DataStructures.IntVector2,Color,System.Boolean)">
-  UseRectangle(File, int, int, IntVector2, IntVector2, Color, bool)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Drawing/Tools.cs/#L98"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static void UseRectangle(File file, int layer, int frame, IntVector2 start, IntVector2 end, Color colour, bool filled)</code></pre>
-  </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>file</code> <a class="xref" href="PAC.Files.File.html">File</a></dt>
-    <dd></dd>
-    <dt><code>layer</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
-    <dd></dd>
-    <dt><code>frame</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
-    <dd></dd>
-    <dt><code>start</code> <a class="xref" href="PAC.DataStructures.IntVector2.html">IntVector2</a></dt>
-    <dd></dd>
-    <dt><code>end</code> <a class="xref" href="PAC.DataStructures.IntVector2.html">IntVector2</a></dt>
-    <dd></dd>
-    <dt><code>colour</code> <span class="xref">Color</span></dt>
-    <dd></dd>
-    <dt><code>filled</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
-
-
-  <a id="PAC_Drawing_Tools_UseRightTriangle_" data-uid="PAC.Drawing.Tools.UseRightTriangle*"></a>
-
-  <h3 id="PAC_Drawing_Tools_UseRightTriangle_PAC_Files_File_System_Int32_System_Int32_PAC_DataStructures_IntVector2_PAC_DataStructures_IntVector2_Color_System_Boolean_System_Boolean_" data-uid="PAC.Drawing.Tools.UseRightTriangle(PAC.Files.File,System.Int32,System.Int32,PAC.DataStructures.IntVector2,PAC.DataStructures.IntVector2,Color,System.Boolean,System.Boolean)">
-  UseRightTriangle(File, int, int, IntVector2, IntVector2, Color, bool, bool)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Drawing/Tools.cs/#L128"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static void UseRightTriangle(File file, int layer, int frame, IntVector2 start, IntVector2 end, Color colour, bool rightAngleOnBottom, bool filled)</code></pre>
-  </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>file</code> <a class="xref" href="PAC.Files.File.html">File</a></dt>
-    <dd></dd>
-    <dt><code>layer</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
-    <dd></dd>
-    <dt><code>frame</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
-    <dd></dd>
-    <dt><code>start</code> <a class="xref" href="PAC.DataStructures.IntVector2.html">IntVector2</a></dt>
-    <dd></dd>
-    <dt><code>end</code> <a class="xref" href="PAC.DataStructures.IntVector2.html">IntVector2</a></dt>
-    <dd></dd>
-    <dt><code>colour</code> <span class="xref">Color</span></dt>
-    <dd></dd>
-    <dt><code>rightAngleOnBottom</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
-    <dd></dd>
-    <dt><code>filled</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
-
-
   <a id="PAC_Drawing_Tools_UseRubber_" data-uid="PAC.Drawing.Tools.UseRubber*"></a>
 
   <h3 id="PAC_Drawing_Tools_UseRubber_PAC_Files_File_System_Int32_System_Int32_PAC_DataStructures_IntVector2_" data-uid="PAC.Drawing.Tools.UseRubber(PAC.Files.File,System.Int32,System.Int32,PAC.DataStructures.IntVector2)">
   UseRubber(File, int, int, IntVector2)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Drawing/Tools.cs/#L56"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Drawing/Tools.cs/#L72"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -1286,7 +644,7 @@ I may rework this to be more like the BlendMode class where each Tool instance d
 
   <h3 id="PAC_Drawing_Tools_UseRubber_PAC_Files_File_System_Int32_System_Int32_PAC_DataStructures_IntVector2_PAC_DataStructures_IntVector2___" data-uid="PAC.Drawing.Tools.UseRubber(PAC.Files.File,System.Int32,System.Int32,PAC.DataStructures.IntVector2,PAC.DataStructures.IntVector2[])">
   UseRubber(File, int, int, IntVector2, IntVector2[])
-  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Drawing/Tools.cs/#L58"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Drawing/Tools.cs/#L74"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -1325,7 +683,7 @@ I may rework this to be more like the BlendMode class where each Tool instance d
 
   <h3 id="PAC_Drawing_Tools_UseRubber_PAC_Files_File_System_Int32_System_Int32_System_Int32_System_Int32_" data-uid="PAC.Drawing.Tools.UseRubber(PAC.Files.File,System.Int32,System.Int32,System.Int32,System.Int32)">
   UseRubber(File, int, int, int, int)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Drawing/Tools.cs/#L55"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Drawing/Tools.cs/#L71"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -1364,7 +722,7 @@ I may rework this to be more like the BlendMode class where each Tool instance d
 
   <h3 id="PAC_Drawing_Tools_UseRubber_PAC_Files_File_System_Int32_System_Int32_System_Int32_System_Int32_PAC_DataStructures_IntVector2___" data-uid="PAC.Drawing.Tools.UseRubber(PAC.Files.File,System.Int32,System.Int32,System.Int32,System.Int32,PAC.DataStructures.IntVector2[])">
   UseRubber(File, int, int, int, int, IntVector2[])
-  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Drawing/Tools.cs/#L57"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Drawing/Tools.cs/#L73"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -1401,18 +759,18 @@ I may rework this to be more like the BlendMode class where each Tool instance d
 
 
 
-  <a id="PAC_Drawing_Tools_UseSquare_" data-uid="PAC.Drawing.Tools.UseSquare*"></a>
+  <a id="PAC_Drawing_Tools_UseShape_" data-uid="PAC.Drawing.Tools.UseShape*"></a>
 
-  <h3 id="PAC_Drawing_Tools_UseSquare_PAC_Files_File_System_Int32_System_Int32_PAC_DataStructures_IntVector2_PAC_DataStructures_IntVector2_Color_System_Boolean_System_Boolean_" data-uid="PAC.Drawing.Tools.UseSquare(PAC.Files.File,System.Int32,System.Int32,PAC.DataStructures.IntVector2,PAC.DataStructures.IntVector2,Color,System.Boolean,System.Boolean)">
-  UseSquare(File, int, int, IntVector2, IntVector2, Color, bool, bool)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Drawing/Tools.cs/#L88"><i class="bi bi-code-slash"></i></a>
+  <h3 id="PAC_Drawing_Tools_UseShape_PAC_Files_File_System_Int32_System_Int32_PAC_Shapes_Interfaces_IShape_Color_" data-uid="PAC.Drawing.Tools.UseShape(PAC.Files.File,System.Int32,System.Int32,PAC.Shapes.Interfaces.IShape,Color)">
+  UseShape(File, int, int, IShape, Color)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Drawing/Tools.cs/#L94"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static void UseSquare(File file, int layer, int frame, IntVector2 start, IntVector2 end, Color colour, bool filled, bool stayWithinImageBounds)</code></pre>
+    <pre><code class="lang-csharp hljs">public static void UseShape(File file, int layer, int frame, IShape shape, Color colour)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
@@ -1423,15 +781,9 @@ I may rework this to be more like the BlendMode class where each Tool instance d
     <dd></dd>
     <dt><code>frame</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
     <dd></dd>
-    <dt><code>start</code> <a class="xref" href="PAC.DataStructures.IntVector2.html">IntVector2</a></dt>
-    <dd></dd>
-    <dt><code>end</code> <a class="xref" href="PAC.DataStructures.IntVector2.html">IntVector2</a></dt>
+    <dt><code>shape</code> <a class="xref" href="PAC.Shapes.Interfaces.IShape.html">IShape</a></dt>
     <dd></dd>
     <dt><code>colour</code> <span class="xref">Color</span></dt>
-    <dd></dd>
-    <dt><code>filled</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
-    <dd></dd>
-    <dt><code>stayWithinImageBounds</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
     <dd></dd>
   </dl>
 
@@ -1450,7 +802,7 @@ I may rework this to be more like the BlendMode class where each Tool instance d
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Drawing/Tools.cs/#L13" class="edit-link">Edit this page</a>
+          <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Drawing/Tools.cs/#L19" class="edit-link">Edit this page</a>
         </div>
 
 
