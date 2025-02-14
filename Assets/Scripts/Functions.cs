@@ -30,17 +30,5 @@ namespace PAC
 
             return array;
         }
-
-        public static T[] CopyArray<T>(T[] array)
-        {
-            T[] copy = new T[array.Length];
-
-            for (int i = 0; i < array.Length; i++)
-            {
-                copy[i] = array[i];
-            }
-
-            return copy;
-        }
     }
 }

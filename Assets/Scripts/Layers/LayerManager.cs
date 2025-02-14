@@ -227,7 +227,7 @@ namespace PAC.Layers
 
         public void DuplicateSelectedLayers()
         {
-            Layer[] previouslySelectLayers = Functions.CopyArray(selectedLayers);
+            Layer[] previouslySelectLayers = selectedLayers;
 
             for (int i = layerTiles.Count - 1; i >= 0; i--)
             {
