@@ -259,7 +259,7 @@ namespace PAC.Layers
                 int[] keyFrames = new int[0];
                 foreach (Layer layer in selectedLayers)
                 {
-                    keyFrames = Functions.ConcatArrays(keyFrames, layer.keyFrameIndices);
+                    keyFrames = keyFrames.Concat(layer.keyFrameIndices).ToArray();
                 }
 
                 foreach (int keyFrame in keyFrames)

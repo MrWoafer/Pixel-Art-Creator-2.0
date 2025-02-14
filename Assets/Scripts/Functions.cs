@@ -14,21 +14,5 @@ namespace PAC
         {
             return new Vector3(vector2.x, vector2.y, 0f);
         }
-
-        public static T[] ConcatArrays<T>(T[] array1, T[] array2)
-        {
-            T[] array = new T[array1.Length + array2.Length];
-
-            for (int i = 0; i < array1.Length; i++)
-            {
-                array[i] = array1[i];
-            }
-            for (int i = 0; i < array2.Length; i++)
-            {
-                array[array1.Length + i] = array2[i];
-            }
-
-            return array;
-        }
     }
 }
