@@ -226,45 +226,11 @@ namespace PAC.Maths
             return Mathf.Ceil(toRound / multipleOf) * multipleOf;
         }
 
-        public static float SymmetricFloor(this float f)
-        {
-            if (f >= 0)
-            {
-                return Mathf.Floor(f);
-            }
+        public static float RoundTowards(this float toRound, int towards) => toRound >= towards ? Mathf.Floor(toRound) : Mathf.Ceil(toRound);
+        public static int RoundToIntTowards(this float toRound, int towards) => toRound >= towards ? Mathf.FloorToInt(toRound) : Mathf.CeilToInt(toRound);
 
-            return Mathf.Ceil(f);
-        }
-
-        public static float SymmetricCeil(this float f)
-        {
-            if (f >= 0)
-            {
-                return Mathf.Ceil(f);
-            }
-
-            return Mathf.Floor(f);
-        }
-
-        public static int SymmetricFloorToInt(this float f)
-        {
-            if (f >= 0)
-            {
-                return Mathf.FloorToInt(f);
-            }
-
-            return Mathf.CeilToInt(f);
-        }
-
-        public static int SymmetricCeilToInt(this float f)
-        {
-            if (f >= 0)
-            {
-                return Mathf.CeilToInt(f);
-            }
-
-            return Mathf.FloorToInt(f);
-        }
+        public static float RoundAwayFrom(this float toRound, int awayFrom) => toRound >= awayFrom ? Mathf.Ceil(toRound) : Mathf.Floor(toRound);
+        public static int RoundToIntAwayFrom(this float toRound, int awayFrom) => toRound >= awayFrom ? Mathf.CeilToInt(toRound) : Mathf.FloorToInt(toRound);
 
         private static string FirstNChars(this string str, int numOfChars)
         {
@@ -283,7 +249,7 @@ namespace PAC.Maths
 
         public static float TruncateDecimalPlaces(this float f, int decimalPlaces)
         {
-            int integerPart = SymmetricFloorToInt(f);
+            int integerPart = f.RoundToIntTowards(0);
             float decimalPart = Mathf.Abs(f - integerPart);
 
             if (decimalPart.ToString() == "0")
