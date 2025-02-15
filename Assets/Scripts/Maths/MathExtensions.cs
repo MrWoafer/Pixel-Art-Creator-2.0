@@ -336,7 +336,7 @@ namespace PAC.Maths
         {
             if (exponent < 0)
             {
-                throw new ArgumentOutOfRangeException($"{nameof(exponent)} cannot be negative: {exponent}.", nameof(exponent));
+                throw new ArgumentOutOfRangeException(nameof(exponent), $"{nameof(exponent)} cannot be negative: {exponent}.");
             }
 
             // Three special cases that won't terminate quickly due to overflow exceptions.
