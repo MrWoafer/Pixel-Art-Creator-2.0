@@ -350,19 +350,19 @@ namespace PAC.Animation
         {
             if (!showOnionSkin)
             {
-                onionSkin.sprite = Texture2DExtensions.ToSprite(Texture2DExtensions.BlankTexture(fileManager.currentFile.width, fileManager.currentFile.height));
+                onionSkin.sprite = Texture2DExtensions.BlankTexture(fileManager.currentFile.width, fileManager.currentFile.height).ToSprite();
             }
             else if (currentFrameIndex > 0)
             {
-                onionSkin.sprite = Texture2DExtensions.ToSprite(Texture2DExtensions.Multiply(fileManager.currentFile.Render(currentFrameIndex - 1), onionSkinColour));
+                onionSkin.sprite = Texture2DExtensions.Multiply(fileManager.currentFile.Render(currentFrameIndex - 1), onionSkinColour).ToSprite();
             }
             else if (currentFrameIndex == 0 && playbackMode.selectedOption == "loop")
             {
-                onionSkin.sprite = Texture2DExtensions.ToSprite(Texture2DExtensions.Multiply(fileManager.currentFile.Render(currentFrameIndex - 1), onionSkinColour));
+                onionSkin.sprite = Texture2DExtensions.Multiply(fileManager.currentFile.Render(currentFrameIndex - 1), onionSkinColour).ToSprite();
             }
             else
             {
-                onionSkin.sprite = Texture2DExtensions.ToSprite(Texture2DExtensions.BlankTexture(fileManager.currentFile.width, fileManager.currentFile.height));
+                onionSkin.sprite = Texture2DExtensions.BlankTexture(fileManager.currentFile.width, fileManager.currentFile.height).ToSprite();
             }
         }
 

@@ -357,8 +357,10 @@ namespace PAC.UI
             Texture2D render = fileManager.currentFile.Render(animationManager.currentFrameIndex);
             render.Apply();
 
-            extendCropPreview.sprite = Texture2DExtensions.ToSprite(Texture2DExtensions.Overlay(Texture2DExtensions.Scale(Texture2DExtensions.Extend(render, left, right, up, down), 2f),
-                Texture2DExtensions.CheckerboardBackground(fileManager.currentFile.width + left + right, fileManager.currentFile.height + up + down)));
+            extendCropPreview.sprite = Texture2DExtensions.Overlay(
+                Texture2DExtensions.Scale(Texture2DExtensions.Extend(render, left, right, up, down), 2f),
+                Texture2DExtensions.CheckerboardBackground(fileManager.currentFile.width + left + right, fileManager.currentFile.height + up + down)
+                ).ToSprite();
         }
 
         public void ConfirmExtendCropWindow()
@@ -432,7 +434,10 @@ namespace PAC.UI
             Texture2D render = fileManager.currentFile.Render(animationManager.currentFrameIndex);
             render.Apply();
 
-            scalePreview.sprite = Texture2DExtensions.ToSprite(Texture2DExtensions.Overlay(Texture2DExtensions.Scale(Texture2DExtensions.Scale(render, width, height), 2f), Texture2DExtensions.CheckerboardBackground(width, height)));
+            scalePreview.sprite = Texture2DExtensions.Overlay(
+                Texture2DExtensions.Scale(Texture2DExtensions.Scale(render, width, height), 2f),
+                Texture2DExtensions.CheckerboardBackground(width, height)
+                ).ToSprite();
         }
 
         public void ConfirmScaleWindow()
@@ -487,8 +492,10 @@ namespace PAC.UI
             Texture2D render = fileManager.currentFile.Render(animationManager.currentFrameIndex);
             render.Apply();
 
-            gridPreview.sprite = Texture2DExtensions.ToSprite(Texture2DExtensions.Overlay(Texture2DExtensions.Scale(render, 2f), Texture2DExtensions.CheckerboardBackground(fileManager.currentFile.width,
-                fileManager.currentFile.height)));
+            gridPreview.sprite = Texture2DExtensions.Overlay(
+                Texture2DExtensions.Scale(render, 2f),
+                Texture2DExtensions.CheckerboardBackground(fileManager.currentFile.width, fileManager.currentFile.height)
+                ).ToSprite();
 
             gridPreviewGridManager.SetOnOffNoDisplayUpdate(on);
             gridPreviewGridManager.SetGrid(width, height, xOffset, yOffset);
@@ -539,8 +546,10 @@ namespace PAC.UI
             Texture2D render = fileCopy.Render(animationManager.currentFrameIndex);
             render.Apply();
 
-            outlinePreview.sprite = Texture2DExtensions.ToSprite(Texture2DExtensions.Overlay(Texture2DExtensions.Scale(render, 2f), Texture2DExtensions.CheckerboardBackground(fileManager.currentFile.width,
-                fileManager.currentFile.height)));
+            outlinePreview.sprite = Texture2DExtensions.Overlay(
+                Texture2DExtensions.Scale(render, 2f),
+                Texture2DExtensions.CheckerboardBackground(fileManager.currentFile.width, fileManager.currentFile.height)
+                ).ToSprite();
         }
 
         public void OpenReplaceColourWindow()
@@ -587,8 +596,10 @@ namespace PAC.UI
             Texture2D render = fileCopy.Render(animationManager.currentFrameIndex);
             render.Apply();
 
-            replaceColourPreview.sprite = Texture2DExtensions.ToSprite(Texture2DExtensions.Overlay(Texture2DExtensions.Scale(render, 2f), Texture2DExtensions.CheckerboardBackground(fileManager.currentFile.width,
-                fileManager.currentFile.height)));
+            replaceColourPreview.sprite = Texture2DExtensions.Overlay(
+                Texture2DExtensions.Scale(render, 2f),
+                Texture2DExtensions.CheckerboardBackground(fileManager.currentFile.width, fileManager.currentFile.height)
+                ).ToSprite();
         }
 
         public void OpenImportPACWindow(File file)
@@ -645,8 +656,10 @@ namespace PAC.UI
 
         public void UpdateImportPACPreview()
         {
-            importPACPreview.sprite = Texture2DExtensions.ToSprite(Texture2DExtensions.Overlay(Texture2DExtensions.Scale(importPACFile.RenderLayers(importPACLayersToggleGroup.selectedIndices,
-                animationManager.currentFrameIndex), 2f), Texture2DExtensions.CheckerboardBackground(fileManager.currentFile.width, fileManager.currentFile.height)));
+            importPACPreview.sprite = Texture2DExtensions.Overlay(
+                Texture2DExtensions.Scale(importPACFile.RenderLayers(importPACLayersToggleGroup.selectedIndices, animationManager.currentFrameIndex), 2f),
+                Texture2DExtensions.CheckerboardBackground(fileManager.currentFile.width, fileManager.currentFile.height)
+                ).ToSprite();
         }
 
         public void OpenLayerPropertiesWindow(int layerIndex)

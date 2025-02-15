@@ -39,7 +39,7 @@ namespace PAC.Extensions
         /// <summary>
         /// Turns the <see cref="Texture2D"/> into a <see cref="Sprite"/> with the <see cref="FilterMode.Point"/> filter mode.
         /// </summary>
-        public static Sprite ToSprite(Texture2D texture)
+        public static Sprite ToSprite(this Texture2D texture)
         {
             Sprite sprite = Sprite.Create(texture, new Rect(0f, 0f, texture.width, texture.height), new Vector2(0.5f, 0.5f), Math.Max(texture.width, texture.height), 0, SpriteMeshType.FullRect);
             sprite.texture.filterMode = FilterMode.Point;
