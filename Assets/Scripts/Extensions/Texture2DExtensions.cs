@@ -37,6 +37,21 @@ namespace PAC.Extensions
     public static class Texture2DExtensions
     {
         /// <summary>
+        /// Checks that <paramref name="width"/> and <paramref name="height"/> are both &gt; 0, and throws an <see cref="ArgumentException"/> otherwise.
+        /// </summary>
+        private static void AssertValidTextureDimensions(int width, int height, string widthParamName, string heightParamName)
+        {
+            if (width <= 0)
+            {
+                throw new ArgumentException($"{widthParamName} is non-positive: {width}.", widthParamName);
+            }
+            if (height <= 0)
+            {
+                throw new ArgumentException($"{heightParamName} is non-positive: {height}.", heightParamName);
+            }
+        }
+
+        /// <summary>
         /// Turns the <see cref="Texture2D"/> into a <see cref="Sprite"/> with the <see cref="FilterMode.Point"/> filter mode.
         /// </summary>
         public static Sprite ToSprite(this Texture2D texture)
@@ -61,14 +76,7 @@ namespace PAC.Extensions
         /// <exception cref="ArgumentException"><paramref name="width"/> or <paramref name="height"/> is &lt;= 0.</exception>
         public static Texture2D Solid(int width, int height, Color colour)
         {
-            if (width <= 0)
-            {
-                throw new ArgumentException($"{nameof(width)} is non-positive: {width}.", nameof(width));
-            }
-            if (height <= 0)
-            {
-                throw new ArgumentException($"{nameof(height)} is non-positive: {height}.", nameof(height));
-            }
+            AssertValidTextureDimensions(width, height, nameof(width), nameof(height));
 
             Texture2D texture = new Texture2D(width, height);
 
@@ -91,14 +99,7 @@ namespace PAC.Extensions
         /// <exception cref="ArgumentException"><paramref name="width"/> or <paramref name="height"/> is &lt;= 0.</exception>
         public static Texture2D Solid(int width, int height, Color32 colour)
         {
-            if (width <= 0)
-            {
-                throw new ArgumentException($"{nameof(width)} is non-positive: {width}.", nameof(width));
-            }
-            if (height <= 0)
-            {
-                throw new ArgumentException($"{nameof(height)} is non-positive: {height}.", nameof(height));
-            }
+            AssertValidTextureDimensions(width, height, nameof(width), nameof(height));
 
             Texture2D texture = new Texture2D(width, height);
 
@@ -115,10 +116,7 @@ namespace PAC.Extensions
 
         public static Texture2D CheckerboardBackground(int width, int height)
         {
-            if (width <= 0 || height <= 0)
-            {
-                throw new System.Exception("Dimensions must be positive: (width, height) = (" + width + ", " + height + ")");
-            }
+            AssertValidTextureDimensions(width, height, nameof(width), nameof(height));
 
             IntRect texRect = new IntRect(IntVector2.zero, new IntVector2(width * 2 - 1, height * 2 - 1));
             return new Checkerboard<Color32>(Preferences.transparentCheckerboardColour1, Preferences.transparentCheckerboardColour2).ToTexture(texRect);
@@ -126,10 +124,7 @@ namespace PAC.Extensions
 
         public static Texture2D HSLHueSaturationGrid(int width, int height)
         {
-            if (width <= 0 || height <= 0)
-            {
-                throw new System.Exception("Invalid dimensions: " + width.ToString() + "x" + height.ToString());
-            }
+            AssertValidTextureDimensions(width, height, nameof(width), nameof(height));
 
             Texture2D tex = new Texture2D(width, height);
 
@@ -431,10 +426,7 @@ namespace PAC.Extensions
         }
         public static Texture2D Scale(Texture2D texture, int newWidth, int newHeight)
         {
-            if (newWidth <= 0 || newHeight <= 0)
-            {
-                throw new System.Exception("Invalid dimensions: " + newWidth.ToString() + "x" + newHeight.ToString());
-            }
+            AssertValidTextureDimensions(newWidth, newHeight, nameof(newWidth), nameof(newHeight));
 
             Texture2D scaledTex = new Texture2D(newWidth, newHeight);
             float xScalar = (float)newWidth / texture.width;
