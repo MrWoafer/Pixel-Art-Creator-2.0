@@ -18,9 +18,9 @@ namespace PAC.Layers
     {
         public override LayerType layerType => LayerType.Normal;
 
-        public NormalLayer(int width, int height) : this("", Texture2DExtensions.BlankTexture(width, height)) { }
+        public NormalLayer(int width, int height) : this("", Texture2DExtensions.Transparent(width, height)) { }
         public NormalLayer(Texture2D texture) : this("", texture) { }
-        public NormalLayer(string name, int width, int height) : this(name, Texture2DExtensions.BlankTexture(width, height)) { }
+        public NormalLayer(string name, int width, int height) : this(name, Texture2DExtensions.Transparent(width, height)) { }
         public NormalLayer(string name, Texture2D texture) : base(name, texture) { }
 
         /// <summary>
@@ -227,7 +227,7 @@ namespace PAC.Layers
 
                 if (keyframe == 0)
                 {
-                    AddKeyFrame(0, Texture2DExtensions.BlankTexture(width, height));
+                    AddKeyFrame(0, Texture2DExtensions.Transparent(width, height));
                 }
 
                 return keyFrame;
@@ -238,7 +238,7 @@ namespace PAC.Layers
         public override void ClearFrames()
         {
             keyFrames = new List<AnimationKeyFrame>();
-            AddKeyFrame(0, Texture2DExtensions.BlankTexture(width, height));
+            AddKeyFrame(0, Texture2DExtensions.Transparent(width, height));
         }
 
         public new class JsonConverter : JsonConversion.JsonConverter<NormalLayer, JsonData.Object>

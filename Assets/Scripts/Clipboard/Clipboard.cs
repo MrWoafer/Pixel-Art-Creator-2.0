@@ -63,7 +63,7 @@ namespace PAC.Clipboard
                     IntVector2.zero);
                 bottomLeft = IntVector2.Max(bottomLeft, IntVector2.zero);
 
-                layerManager.AddLayer(Texture2DExtensions.Overlay(copiedTexture, Texture2DExtensions.BlankTexture(fileManager.currentFile.width, fileManager.currentFile.height), bottomLeft));
+                layerManager.AddLayer(Texture2DExtensions.Overlay(copiedTexture, Texture2DExtensions.Transparent(fileManager.currentFile.width, fileManager.currentFile.height), bottomLeft));
 
                 Debug.Log("Pasted.");
             }

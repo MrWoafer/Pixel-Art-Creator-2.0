@@ -46,10 +46,7 @@ namespace PAC.Extensions
             return sprite;
         }
 
-        public static Texture2D BlankTexture(int width, int height)
-        {
-            return SolidTexture(width, height, (Color32)Config.Colours.transparent);
-        }
+        public static Texture2D Transparent(int width, int height) => SolidTexture(width, height, (Color32)Config.Colours.transparent);
         /// <summary>
         /// <para>
         /// Creates a texture of the given dimensions filled with the given colour.
@@ -308,7 +305,7 @@ namespace PAC.Extensions
                                            " (left, right, up, down) = (" + left + ", " + right + ", " + up + ", " + down + ")");
             }
 
-            return Overlay(texture, BlankTexture(texture.width + left + right, texture.height + up + down), new IntVector2(left, down));
+            return Overlay(texture, Transparent(texture.width + left + right, texture.height + up + down), new IntVector2(left, down));
         }
 
         /// <summary>
@@ -496,7 +493,7 @@ namespace PAC.Extensions
         }
         public static Texture2D ApplyMask(Texture2D texture, IntVector2[] mask)
         {
-            Texture2D maskedTexture = BlankTexture(texture.width, texture.height);
+            Texture2D maskedTexture = Transparent(texture.width, texture.height);
 
             for (int x = 0; x < texture.width; x++)
             {
@@ -532,7 +529,7 @@ namespace PAC.Extensions
 
         public static Texture2D GetFillMask(Texture2D texture, IntVector2 startPoint, int maxNumOfIterations = 1_000_000)
         {
-            Texture2D fillMask = BlankTexture(texture.width, texture.height);
+            Texture2D fillMask = Transparent(texture.width, texture.height);
 
             foreach (IntVector2 pixel in GetPixelsToFill(texture, startPoint, maxNumOfIterations))
             {

@@ -324,7 +324,7 @@ namespace PAC.Drawing
             brushTexture = new Texture2D(1, 1);
             if (selectedTool == Tool.None || selectedTool == Tool.Move)
             {
-                brushTexture = Texture2DExtensions.BlankTexture(1, 1);
+                brushTexture = Texture2DExtensions.Transparent(1, 1);
             }
             else if (selectedTool == Tool.Rubber || selectedTool == Tool.Brush)
             {
@@ -393,7 +393,7 @@ namespace PAC.Drawing
         /// </summary>
         public void LoadCustomBrush(Texture2D brushShape)
         {
-            customBrushTexture = Texture2DExtensions.BlankTexture(brushShape.width, brushShape.height);
+            customBrushTexture = Texture2DExtensions.Transparent(brushShape.width, brushShape.height);
 
             for (int x = 0; x < brushShape.width; x++)
             {

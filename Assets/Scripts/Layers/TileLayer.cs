@@ -33,7 +33,7 @@ namespace PAC.Layers
         // This is to help performance - so that we can rerender the key frames once after all tiles have been changed instead of after each one.
         private bool ignoreOnTilePixelsChanged = false;
 
-        public TileLayer(string name, int width, int height) : base(name, Texture2DExtensions.BlankTexture(width, height)) { }
+        public TileLayer(string name, int width, int height) : base(name, Texture2DExtensions.Transparent(width, height)) { }
 
         /// <summary>
         /// Creates a deep copy of the TileLayer.
@@ -410,7 +410,7 @@ namespace PAC.Layers
 
                 if (keyframe == 0)
                 {
-                    AddKeyFrame(0, Texture2DExtensions.BlankTexture(width, height));
+                    AddKeyFrame(0, Texture2DExtensions.Transparent(width, height));
                 }
 
                 return keyFrame;
@@ -426,7 +426,7 @@ namespace PAC.Layers
             }
 
             keyFrames = new List<AnimationKeyFrame>();
-            AddKeyFrame(0, Texture2DExtensions.BlankTexture(width, height));
+            AddKeyFrame(0, Texture2DExtensions.Transparent(width, height));
         }
 
         /// <summary>

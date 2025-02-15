@@ -350,7 +350,7 @@ namespace PAC.Animation
         {
             if (!showOnionSkin)
             {
-                onionSkin.sprite = Texture2DExtensions.BlankTexture(fileManager.currentFile.width, fileManager.currentFile.height).ToSprite();
+                onionSkin.sprite = Texture2DExtensions.Transparent(fileManager.currentFile.width, fileManager.currentFile.height).ToSprite();
             }
             else if (currentFrameIndex > 0)
             {
@@ -362,7 +362,7 @@ namespace PAC.Animation
             }
             else
             {
-                onionSkin.sprite = Texture2DExtensions.BlankTexture(fileManager.currentFile.width, fileManager.currentFile.height).ToSprite();
+                onionSkin.sprite = Texture2DExtensions.Transparent(fileManager.currentFile.width, fileManager.currentFile.height).ToSprite();
             }
         }
 

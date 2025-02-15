@@ -350,8 +350,8 @@ namespace PAC.Drawing
             backgroundSprRen.sprite = Texture2DExtensions.CheckerboardBackground(file.width, file.height).ToSprite();
             //backgroundSprRen.material.SetFloat("_Width", 2f * file.width);
             //backgroundSprRen.material.SetFloat("_Height", 2f * file.height);
-            previewSprRen.sprite = Texture2DExtensions.BlankTexture(1, 1).ToSprite();
-            selectionMask = Texture2DExtensions.BlankTexture(file.width, file.height);
+            previewSprRen.sprite = Texture2DExtensions.Transparent(1, 1).ToSprite();
+            selectionMask = Texture2DExtensions.Transparent(file.width, file.height);
 
             collider.size = new Vector2(file.width / pixelsPerUnit, file.height / pixelsPerUnit);
             drawingAreaMask.transform.localScale = new Vector3(file.width / pixelsPerUnit, file.height / pixelsPerUnit, 1f);
@@ -388,7 +388,7 @@ namespace PAC.Drawing
 
         private void ClearPreview()
         {
-            SetPreview(Texture2DExtensions.BlankTexture(1, 1), 0, 0);
+            SetPreview(Texture2DExtensions.Transparent(1, 1), 0, 0);
         }
 
         private void HideBrushBorder()
@@ -1111,7 +1111,7 @@ namespace PAC.Drawing
 
         private void DeselectSelection()
         {
-            selectionMask = Texture2DExtensions.BlankTexture(file.width, file.height);
+            selectionMask = Texture2DExtensions.Transparent(file.width, file.height);
             deselectedSelectionThisFrame = true;
         }
 
