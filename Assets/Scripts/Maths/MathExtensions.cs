@@ -316,39 +316,6 @@ namespace PAC.Maths
         /// </returns>
         public static int RoundToIntAwayFrom(this float toRound, int awayFrom) => toRound >= awayFrom ? Mathf.CeilToInt(toRound) : Mathf.FloorToInt(toRound);
 
-        private static string FirstNChars(this string str, int numOfChars)
-        {
-            if (numOfChars < 0)
-            {
-                return "";
-            }
-
-            if (numOfChars < str.Length)
-            {
-                return str.Remove(numOfChars);
-            }
-
-            return str;
-        }
-
-        /// <summary>
-        /// Truncates <paramref name="f"/> to <paramref name="decimalPlaces"/> decimal places.
-        /// </summary>
-        public static float TruncateDecimalPlaces(this float f, int decimalPlaces)
-        {
-            int integerPart = f.RoundToIntTowards(0);
-            float decimalPart = Mathf.Abs(f - integerPart);
-
-            if (decimalPart.ToString() == "0")
-            {
-                return integerPart;
-            }
-            else
-            {
-                return float.Parse(integerPart.ToString() + "." + FirstNChars(decimalPart.ToString().Remove(0, 2), decimalPlaces));
-            }
-        }
-
         /// <summary>
         /// Rounds <paramref name="f"/> to <paramref name="decimalPlaces"/> decimal places.
         /// </summary>
