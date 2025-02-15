@@ -1,11 +1,14 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+
 using PAC.Animation;
 using PAC.Colour;
 using PAC.DataStructures;
+using PAC.Extensions;
 using PAC.Json;
 using PAC.Tilesets;
+
 using UnityEngine;
 
 namespace PAC.Layers

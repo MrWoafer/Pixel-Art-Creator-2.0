@@ -1,12 +1,16 @@
 using System;
+
 using PAC.Animation;
 using PAC.Colour;
 using PAC.Drawing;
 using PAC.EffectPanels;
+using PAC.Extensions;
 using PAC.Files;
 using PAC.Input;
 using PAC.Layers;
+
 using SFB;
+
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;

@@ -1,7 +1,9 @@
 using PAC.DataStructures;
 using PAC.Extensions;
 using PAC.Json;
+
 using System.Runtime.Serialization;
+
 using UnityEngine;
 
 namespace PAC.Animation

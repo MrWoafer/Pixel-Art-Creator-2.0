@@ -4,12 +4,11 @@ using System.Linq;
 
 using PAC.Colour;
 using PAC.DataStructures;
-using PAC.Extensions;
 using PAC.Patterns;
 
 using UnityEngine;
 
-namespace PAC
+namespace PAC.Extensions
 {
     public struct OutlineSideFill
     {
