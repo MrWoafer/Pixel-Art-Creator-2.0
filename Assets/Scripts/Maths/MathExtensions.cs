@@ -317,9 +317,9 @@ namespace PAC.Maths
         public static int RoundToIntAwayFrom(this float toRound, int awayFrom) => toRound >= awayFrom ? Mathf.CeilToInt(toRound) : Mathf.FloorToInt(toRound);
 
         /// <summary>
-        /// Rounds <paramref name="f"/> to <paramref name="decimalPlaces"/> decimal places.
+        /// Rounds <paramref name="toRound"/> to <paramref name="decimalPlaces"/> decimal places.
         /// </summary>
-        public static float RoundDecimalPlaces(this float f, int decimalPlaces) => float.Parse(f.ToString("0." + new string('#', decimalPlaces)));
+        public static float RoundDecimalPlaces(this float toRound, int decimalPlaces) => float.Parse(toRound.ToString("0." + new string('#', decimalPlaces)));
 
         /// <summary>
         /// Computes <paramref name="n"/> ^ <paramref name="exponent"/> (<paramref name="n"/> raised to the <paramref name="exponent"/>).
