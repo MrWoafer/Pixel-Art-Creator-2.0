@@ -3,6 +3,7 @@ using System.Collections.Generic;
 
 using NUnit.Framework;
 
+using PAC.DataStructures;
 using PAC.Maths;
 
 namespace PAC.Tests.DataStructures
