@@ -46,7 +46,12 @@ namespace PAC.Extensions
             return sprite;
         }
 
+        /// <summary>
+        /// Creates a transparent (alpha 0) <see cref="Texture2D"/> of the given dimensions.
+        /// </summary>
+        /// <exception cref="ArgumentException"><paramref name="width"/> or <paramref name="height"/> is &lt;= 0.</exception>
         public static Texture2D Transparent(int width, int height) => Solid(width, height, (Color32)Config.Colours.transparent);
+
         /// <summary>
         /// Creates a <see cref="Texture2D"/> of the given dimensions, filled with the given colour.
         /// </summary>
