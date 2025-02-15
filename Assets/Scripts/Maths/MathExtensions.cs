@@ -31,9 +31,9 @@ namespace PAC.Maths
         /// </returns>
         public static float Sign(this float x) => x switch
         {
-            0 => 0f,
-            > 0 => 1f,
-            < 0 => -1f,
+            0f => 0f,
+            > 0f => 1f,
+            < 0f => -1f,
             float.NaN => float.NaN
         };
 
