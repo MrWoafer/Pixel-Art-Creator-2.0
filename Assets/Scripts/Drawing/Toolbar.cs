@@ -330,7 +330,7 @@ namespace PAC.Drawing
             {
                 if (brushShape == BrushShape.Square)
                 {
-                    brushTexture = Texture2DExtensions.SolidTexture(brushSize * 2 - 1, brushSize * 2 - 1, Config.Colours.mask);
+                    brushTexture = Texture2DExtensions.Solid(brushSize * 2 - 1, brushSize * 2 - 1, Config.Colours.mask);
                 }
                 else if (brushShape == BrushShape.Circle)
                 {
@@ -356,7 +356,7 @@ namespace PAC.Drawing
             }
             else
             {
-                brushTexture = Texture2DExtensions.SolidTexture(1, 1, Config.Colours.mask);
+                brushTexture = Texture2DExtensions.Solid(1, 1, Config.Colours.mask);
                 brushTexture.Apply();
             }
 

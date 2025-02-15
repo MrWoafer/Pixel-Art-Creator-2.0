@@ -46,7 +46,7 @@ namespace PAC.Extensions
             return sprite;
         }
 
-        public static Texture2D Transparent(int width, int height) => SolidTexture(width, height, (Color32)Config.Colours.transparent);
+        public static Texture2D Transparent(int width, int height) => Solid(width, height, (Color32)Config.Colours.transparent);
         /// <summary>
         /// <para>
         /// Creates a texture of the given dimensions filled with the given colour.
@@ -55,7 +55,7 @@ namespace PAC.Extensions
         /// NOTE: the overload that takes in a Color32 is faster.
         /// </para>
         /// </summary>
-        public static Texture2D SolidTexture(int width, int height, Color colour)
+        public static Texture2D Solid(int width, int height, Color colour)
         {
             if (width <= 0 || height <= 0)
             {
@@ -83,7 +83,7 @@ namespace PAC.Extensions
         /// NOTE: this is faster than the overload that takes in a Color.
         /// </para>
         /// </summary>
-        public static Texture2D SolidTexture(int width, int height, Color32 colour)
+        public static Texture2D Solid(int width, int height, Color32 colour)
         {
             if (width <= 0 || height <= 0)
             {
