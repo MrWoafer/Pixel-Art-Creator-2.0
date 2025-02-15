@@ -127,7 +127,7 @@ namespace PAC.UI
 
         private void UpdateDisplay()
         {
-            textbox.SetText(MathExtensions.RoundDecimalPlaces(value, textDecimalPlaces).ToString());
+            textbox.SetText(MathExtensions.Round(value, textDecimalPlaces).ToString());
         }
 
         public void AddNumOfIncrements(int numOfIncrements)

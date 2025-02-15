@@ -320,7 +320,7 @@ namespace PAC.Maths
         /// Rounds <paramref name="toRound"/> to <paramref name="decimalPlaces"/> decimal places.
         /// </summary>
         /// <exception cref="ArgumentOutOfRangeException"><paramref name="decimalPlaces"/> is negative.</exception>
-        public static float RoundDecimalPlaces(this float toRound, int decimalPlaces)
+        public static float Round(this float toRound, int decimalPlaces)
             => decimalPlaces >= 0 ?
             float.Parse(toRound.ToString("0." + new string('#', decimalPlaces))) :
             throw new ArgumentOutOfRangeException(nameof(decimalPlaces), "Cannot round to a negative number of decimal places.");
