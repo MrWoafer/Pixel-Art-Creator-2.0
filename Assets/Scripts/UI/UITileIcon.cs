@@ -84,7 +84,7 @@ namespace PAC.UI
             nameText.text = file.name;
 
             file.liveRender.Apply();
-            button.SetImages(Texture2DExtensions.Tex2DToSprite(file.liveRender), null, null);
+            button.SetImages(Texture2DExtensions.ToSprite(file.liveRender), null, null);
             file.SubscribeToOnPixelsChanged((x, y, z) => file.liveRender.Apply());
         }
 

@@ -36,7 +36,7 @@ namespace PAC.Extensions
 
     public static class Texture2DExtensions
     {
-        public static Sprite Tex2DToSprite(Texture2D tex)
+        public static Sprite ToSprite(Texture2D tex)
         {
             tex.filterMode = FilterMode.Point;
             Sprite sprite = Sprite.Create(tex, new Rect(0f, 0f, tex.width, tex.height), new Vector2(0.5f, 0.5f), Mathf.Max(tex.width, tex.height), 0, SpriteMeshType.FullRect);

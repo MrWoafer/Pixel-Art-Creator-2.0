@@ -101,7 +101,7 @@ namespace PAC.Drawing
         public Texture2D selectionMask
         {
             get => selectionSprRen.sprite.texture;
-            private set => selectionSprRen.sprite = Texture2DExtensions.Tex2DToSprite(value);
+            private set => selectionSprRen.sprite = Texture2DExtensions.ToSprite(value);
         }
         private SpriteRenderer selectionSprRen;
         public bool hasSelection
@@ -346,11 +346,11 @@ namespace PAC.Drawing
 
         private void InitialiseDisplay()
         {
-            drawingSprRen.sprite = Texture2DExtensions.Tex2DToSprite(file.liveRender);
-            backgroundSprRen.sprite = Texture2DExtensions.Tex2DToSprite(Texture2DExtensions.CheckerboardBackground(file.width, file.height));
+            drawingSprRen.sprite = Texture2DExtensions.ToSprite(file.liveRender);
+            backgroundSprRen.sprite = Texture2DExtensions.ToSprite(Texture2DExtensions.CheckerboardBackground(file.width, file.height));
             //backgroundSprRen.material.SetFloat("_Width", 2f * file.width);
             //backgroundSprRen.material.SetFloat("_Height", 2f * file.height);
-            previewSprRen.sprite = Texture2DExtensions.Tex2DToSprite(Texture2DExtensions.BlankTexture(1, 1));
+            previewSprRen.sprite = Texture2DExtensions.ToSprite(Texture2DExtensions.BlankTexture(1, 1));
             selectionMask = Texture2DExtensions.BlankTexture(file.width, file.height);
 
             collider.size = new Vector2(file.width / pixelsPerUnit, file.height / pixelsPerUnit);
@@ -374,7 +374,7 @@ namespace PAC.Drawing
         private void SetPreview(Texture2D texture, IntVector2 pixel) => SetPreview(texture, pixel.x, pixel.y);
         private void SetPreview(Texture2D texture, int x, int y)
         {
-            previewSprRen.sprite = Texture2DExtensions.Tex2DToSprite(texture);
+            previewSprRen.sprite = Texture2DExtensions.ToSprite(texture);
             previewSprRen.transform.localScale = Vector3.one * Mathf.Max(texture.width, texture.height) / pixelsPerUnit;
 
             SetPreviewPosition(x, y);
@@ -407,7 +407,7 @@ namespace PAC.Drawing
         }
         private void UpdateBrushBorder(IntVector2 pixel)
         {
-            brushBorderSprRen.sprite = Texture2DExtensions.Tex2DToSprite(toolbar.brushTexture);
+            brushBorderSprRen.sprite = Texture2DExtensions.ToSprite(toolbar.brushTexture);
 
             float scaleFactor = Mathf.Max(toolbar.brushTexture.width, toolbar.brushTexture.height) / pixelsPerUnit;
             brushBorderSprRen.transform.localScale = new Vector3(scaleFactor, scaleFactor, 1f);
@@ -1057,13 +1057,13 @@ namespace PAC.Drawing
             {
                 Texture2D bottomLayers = file.RenderLayersBelow(selectedLayerIndex, currentFrameIndex);
                 Texture2D topLayers = file.RenderLayersAbove(selectedLayerIndex, currentFrameIndex);
-                drawingSprRen.sprite = Texture2DExtensions.Tex2DToSprite(Texture2DExtensions.Overlay(topLayers, Texture2DExtensions.Overlay(selectionTexture, bottomLayers, mouseCoords - mouseDragPoints[0])));
+                drawingSprRen.sprite = Texture2DExtensions.ToSprite(Texture2DExtensions.Overlay(topLayers, Texture2DExtensions.Overlay(selectionTexture, bottomLayers, mouseCoords - mouseDragPoints[0])));
             }
             else
             {
                 Texture2D bottomLayers = file.RenderLayersBelow(selectedLayerIndex, currentFrameIndex);
                 Texture2D topLayers = file.RenderLayersAbove(selectedLayerIndex, currentFrameIndex);
-                drawingSprRen.sprite = Texture2DExtensions.Tex2DToSprite(Texture2DExtensions.Overlay(topLayers, Texture2DExtensions.Overlay(selectionTexture, bottomLayers, mouseCoords - mouseDragPoints[0])));
+                drawingSprRen.sprite = Texture2DExtensions.ToSprite(Texture2DExtensions.Overlay(topLayers, Texture2DExtensions.Overlay(selectionTexture, bottomLayers, mouseCoords - mouseDragPoints[0])));
             }
         }
 

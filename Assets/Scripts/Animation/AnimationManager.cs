@@ -350,19 +350,19 @@ namespace PAC.Animation
         {
             if (!showOnionSkin)
             {
-                onionSkin.sprite = Texture2DExtensions.Tex2DToSprite(Texture2DExtensions.BlankTexture(fileManager.currentFile.width, fileManager.currentFile.height));
+                onionSkin.sprite = Texture2DExtensions.ToSprite(Texture2DExtensions.BlankTexture(fileManager.currentFile.width, fileManager.currentFile.height));
             }
             else if (currentFrameIndex > 0)
             {
-                onionSkin.sprite = Texture2DExtensions.Tex2DToSprite(Texture2DExtensions.Multiply(fileManager.currentFile.Render(currentFrameIndex - 1), onionSkinColour));
+                onionSkin.sprite = Texture2DExtensions.ToSprite(Texture2DExtensions.Multiply(fileManager.currentFile.Render(currentFrameIndex - 1), onionSkinColour));
             }
             else if (currentFrameIndex == 0 && playbackMode.selectedOption == "loop")
             {
-                onionSkin.sprite = Texture2DExtensions.Tex2DToSprite(Texture2DExtensions.Multiply(fileManager.currentFile.Render(currentFrameIndex - 1), onionSkinColour));
+                onionSkin.sprite = Texture2DExtensions.ToSprite(Texture2DExtensions.Multiply(fileManager.currentFile.Render(currentFrameIndex - 1), onionSkinColour));
             }
             else
             {
-                onionSkin.sprite = Texture2DExtensions.Tex2DToSprite(Texture2DExtensions.BlankTexture(fileManager.currentFile.width, fileManager.currentFile.height));
+                onionSkin.sprite = Texture2DExtensions.ToSprite(Texture2DExtensions.BlankTexture(fileManager.currentFile.width, fileManager.currentFile.height));
             }
         }
 
