@@ -30,7 +30,7 @@ namespace PAC.Layers
         // This is to help performance - so that we can rerender the key frames once after all tiles have been changed instead of after each one.
         private bool ignoreOnTilePixelsChanged = false;
 
-        public TileLayer(string name, int width, int height) : base(name, Tex2DSprite.BlankTexture(width, height)) { }
+        public TileLayer(string name, int width, int height) : base(name, Texture2DExtensions.BlankTexture(width, height)) { }
 
         /// <summary>
         /// Creates a deep copy of the TileLayer.
@@ -307,7 +307,7 @@ namespace PAC.Layers
 
             foreach (AnimationKeyFrame keyFrame in keyFrames)
             {
-                keyFrame.texture = Tex2DSprite.Rotate(keyFrame.texture, angle);
+                keyFrame.texture = Texture2DExtensions.Rotate(keyFrame.texture, angle);
             }
 
             width = keyFrames[0].texture.width;
@@ -327,7 +327,7 @@ namespace PAC.Layers
 
             foreach (AnimationKeyFrame keyFrame in keyFrames)
             {
-                keyFrame.texture = Tex2DSprite.Extend(keyFrame.texture, left, right, up, down);
+                keyFrame.texture = Texture2DExtensions.Extend(keyFrame.texture, left, right, up, down);
             }
 
             width = keyFrames[0].texture.width;
@@ -354,7 +354,7 @@ namespace PAC.Layers
 
             foreach (AnimationKeyFrame keyFrame in keyFrames)
             {
-                keyFrame.texture = Tex2DSprite.Scale(keyFrame.texture, xScaleFactor, yScaleFactor);
+                keyFrame.texture = Texture2DExtensions.Scale(keyFrame.texture, xScaleFactor, yScaleFactor);
             }
 
             width = keyFrames[0].texture.width;
@@ -380,7 +380,7 @@ namespace PAC.Layers
 
             foreach (AnimationKeyFrame keyFrame in keyFrames)
             {
-                keyFrame.texture = Tex2DSprite.Scale(keyFrame.texture, newWidth, newHeight);
+                keyFrame.texture = Texture2DExtensions.Scale(keyFrame.texture, newWidth, newHeight);
             }
 
             width = keyFrames[0].texture.width;
@@ -407,7 +407,7 @@ namespace PAC.Layers
 
                 if (keyframe == 0)
                 {
-                    AddKeyFrame(0, Tex2DSprite.BlankTexture(width, height));
+                    AddKeyFrame(0, Texture2DExtensions.BlankTexture(width, height));
                 }
 
                 return keyFrame;
@@ -423,7 +423,7 @@ namespace PAC.Layers
             }
 
             keyFrames = new List<AnimationKeyFrame>();
-            AddKeyFrame(0, Tex2DSprite.BlankTexture(width, height));
+            AddKeyFrame(0, Texture2DExtensions.BlankTexture(width, height));
         }
 
         /// <summary>

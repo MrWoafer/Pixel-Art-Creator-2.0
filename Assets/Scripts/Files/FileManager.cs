@@ -229,7 +229,7 @@ namespace PAC.Files
             {
                 if (Path.GetExtension(fileNames[0]) == ".png" || Path.GetExtension(fileNames[0]) == ".jpg" || Path.GetExtension(fileNames[0]) == ".jpeg")
                 {
-                    Texture2D tex = Tex2DSprite.LoadFromFile(fileNames[0]);
+                    Texture2D tex = Texture2DExtensions.LoadFromFile(fileNames[0]);
                     if (tex.width != currentFile.width || tex.height != currentFile.height)
                     {
                         dialogBoxManager.OpenModalWindow("Import", "The size of the imported image must match the size of the file.").AddCloseButton("Okay");

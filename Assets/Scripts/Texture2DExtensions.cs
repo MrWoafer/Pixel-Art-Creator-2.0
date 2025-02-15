@@ -35,7 +35,7 @@ namespace PAC
         }
     }
 
-    public static class Tex2DSprite
+    public static class Texture2DExtensions
     {
         public static Sprite Tex2DToSprite(Texture2D tex)
         {
