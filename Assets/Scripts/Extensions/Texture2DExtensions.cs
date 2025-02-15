@@ -48,60 +48,64 @@ namespace PAC.Extensions
 
         public static Texture2D Transparent(int width, int height) => Solid(width, height, (Color32)Config.Colours.transparent);
         /// <summary>
-        /// <para>
-        /// Creates a texture of the given dimensions filled with the given colour.
-        /// </para>
-        /// <para>
-        /// NOTE: the overload that takes in a Color32 is faster.
-        /// </para>
+        /// Creates a <see cref="Texture2D"/> of the given dimensions, filled with the given colour.
         /// </summary>
+        /// <remarks>
+        /// <see cref="Solid(int, int, Color32)"/> is faster.
+        /// </remarks>
+        /// <exception cref="ArgumentException"><paramref name="width"/> or <paramref name="height"/> is &lt;= 0.</exception>
         public static Texture2D Solid(int width, int height, Color colour)
         {
-            if (width <= 0 || height <= 0)
+            if (width <= 0)
             {
-                throw new System.Exception("Dimensions must be positive: (width, height) = (" + width + ", " + height + ")");
+                throw new ArgumentException($"{nameof(width)} is non-positive: {width}.", nameof(width));
+            }
+            if (height <= 0)
+            {
+                throw new ArgumentException($"{nameof(height)} is non-positive: {height}.", nameof(height));
             }
 
-            Texture2D tex = new Texture2D(width, height);
-            Color[] pixels = new Color[width * height];
+            Texture2D texture = new Texture2D(width, height);
 
-            for (int index = 0; index < width * height; index++)
+            Color[] pixels = new Color[width * height];
+            for (int index = 0; index < pixels.Length; index++)
             {
                 pixels[index] = colour;
             }
 
-            tex.SetPixels(pixels);
-            tex.Apply();
-
-            return tex;
+            texture.SetPixels(pixels);
+            texture.Apply();
+            return texture;
         }
         /// <summary>
-        /// <para>
-        /// Creates a texture of the given dimensions filled with the given colour.
-        /// </para>
-        /// <para>
-        /// NOTE: this is faster than the overload that takes in a Color.
-        /// </para>
+        /// Creates a <see cref="Texture2D"/> of the given dimensions, filled with the given colour.
         /// </summary>
+        /// <remarks>
+        /// This is faster than <see cref="Solid(int, int, Color)"/>.
+        /// </remarks>
+        /// <exception cref="ArgumentException"><paramref name="width"/> or <paramref name="height"/> is &lt;= 0.</exception>
         public static Texture2D Solid(int width, int height, Color32 colour)
         {
-            if (width <= 0 || height <= 0)
+            if (width <= 0)
             {
-                throw new System.Exception("Dimensions must be positive: (width, height) = (" + width + ", " + height + ")");
+                throw new ArgumentException($"{nameof(width)} is non-positive: {width}.", nameof(width));
+            }
+            if (height <= 0)
+            {
+                throw new ArgumentException($"{nameof(height)} is non-positive: {height}.", nameof(height));
             }
 
-            Texture2D tex = new Texture2D(width, height);
-            Color32[] pixels = new Color32[width * height];
+            Texture2D texture = new Texture2D(width, height);
 
-            for (int index = 0; index < width * height; index++)
+            Color32[] pixels = new Color32[width * height];
+            for (int index = 0; index < pixels.Length; index++)
             {
                 pixels[index] = colour;
             }
 
-            tex.SetPixels32(pixels);
-            tex.Apply();
-
-            return tex;
+            texture.SetPixels32(pixels);
+            texture.Apply();
+            return texture;
         }
 
         public static Texture2D CheckerboardBackground(int width, int height)
