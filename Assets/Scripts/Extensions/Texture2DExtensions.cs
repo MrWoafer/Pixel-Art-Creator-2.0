@@ -179,37 +179,18 @@ namespace PAC.Extensions
             return flipped;
         }
 
-        /// <summary>
-        /// Rotation is clockwise.
-        /// </summary>
-        public static Texture2D Rotate(Texture2D texture, RotationAngle angle)
+        public static Texture2D Rotate(Texture2D texture, RotationAngle angle) => angle switch
         {
-            if (angle == RotationAngle._0)
-            {
-                return texture;
-            }
-            else if (angle == RotationAngle._90)
-            {
-                return Rotate90(texture);
-            }
-            else if (angle == RotationAngle.Minus90)
-            {
-                return RotateMinus90(texture);
-            }
-            else if (angle == RotationAngle._180)
-            {
-                return Rotate180(texture);
-            }
-            else
-            {
-                throw new System.Exception("Unknown / unimplemented RotationAngle: " + angle);
-            }
-        }
-
+            RotationAngle._0 => texture,
+            RotationAngle._90 => Rotate90(texture),
+            RotationAngle.Minus90 => RotateMinus90(texture),
+            RotationAngle._180 => Rotate180(texture),
+            _ => throw new ArgumentException($"Unknown / unimplemented RotationAngle: {angle}", nameof(angle))
+        };
         /// <summary>
         /// Rotation is clockwise.
         /// </summary>
-        public static Texture2D Rotate90(Texture2D texture)
+        private static Texture2D Rotate90(Texture2D texture)
         {
             Texture2D rotated = new Texture2D(texture.height, texture.width);
 
@@ -224,11 +205,10 @@ namespace PAC.Extensions
             rotated.Apply();
             return rotated;
         }
-
         /// <summary>
         /// Rotation is clockwise.
         /// </summary>
-        public static Texture2D RotateMinus90(Texture2D texture)
+        private static Texture2D RotateMinus90(Texture2D texture)
         {
             Texture2D rotated = new Texture2D(texture.height, texture.width);
 
@@ -243,8 +223,7 @@ namespace PAC.Extensions
             rotated.Apply();
             return rotated;
         }
-
-        public static Texture2D Rotate180(Texture2D texture)
+        private static Texture2D Rotate180(Texture2D texture)
         {
             Texture2D rotated = new Texture2D(texture.width, texture.height);
 
