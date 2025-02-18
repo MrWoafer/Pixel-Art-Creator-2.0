@@ -118,27 +118,27 @@ namespace PAC.Extensions
         {
             AssertValidTextureDimensions(width, height, nameof(width), nameof(height));
 
-            IntRect texRect = new IntRect(IntVector2.zero, new IntVector2(width * 2 - 1, height * 2 - 1));
-            return new Checkerboard<Color32>(Preferences.transparentCheckerboardColour1, Preferences.transparentCheckerboardColour2).ToTexture(texRect);
+            IntRect textureRect = new IntRect(IntVector2.zero, new IntVector2(width * 2 - 1, height * 2 - 1));
+            return new Checkerboard<Color32>(Preferences.transparentCheckerboardColour1, Preferences.transparentCheckerboardColour2).ToTexture(textureRect);
         }
 
         public static Texture2D HSLHueSaturationGrid(int width, int height)
         {
             AssertValidTextureDimensions(width, height, nameof(width), nameof(height));
 
-            Texture2D tex = new Texture2D(width, height);
+            Texture2D texture = new Texture2D(width, height);
 
             for (int x = 0; x < width; x++)
             {
                 for (int y = 0; y < height; y++)
                 {
                     Color colour = new HSL(x / (float)width, y / (float)(height - 1), 0.5f).ToColor();
-                    tex.SetPixel(x, y, colour);
+                    texture.SetPixel(x, y, colour);
                 }
             }
 
-            tex.Apply();
-            return tex;
+            texture.Apply();
+            return texture;
         }
 
         public static Texture2D Flip(Texture2D texture, FlipAxis axis)
@@ -163,34 +163,34 @@ namespace PAC.Extensions
 
         public static Texture2D FlipX(Texture2D texture)
         {
-            Texture2D tex = new Texture2D(texture.width, texture.height);
+            Texture2D flipped = new Texture2D(texture.width, texture.height);
 
             for (int x = 0; x < texture.width; x++)
             {
                 for (int y = 0; y < texture.height; y++)
                 {
-                    tex.SetPixel(x, y, texture.GetPixel(texture.width - 1 - x, y));
+                    flipped.SetPixel(x, y, texture.GetPixel(texture.width - 1 - x, y));
                 }
             }
 
-            tex.Apply();
-            return tex;
+            flipped.Apply();
+            return flipped;
         }
 
         public static Texture2D FlipY(Texture2D texture)
         {
-            Texture2D tex = new Texture2D(texture.width, texture.height);
+            Texture2D flipped = new Texture2D(texture.width, texture.height);
 
             for (int x = 0; x < texture.width; x++)
             {
                 for (int y = 0; y < texture.height; y++)
                 {
-                    tex.SetPixel(x, y, texture.GetPixel(x, texture.height - 1 - y));
+                    flipped.SetPixel(x, y, texture.GetPixel(x, texture.height - 1 - y));
                 }
             }
 
-            tex.Apply();
-            return tex;
+            flipped.Apply();
+            return flipped;
         }
 
         /// <summary>
@@ -225,18 +225,18 @@ namespace PAC.Extensions
         /// </summary>
         public static Texture2D Rotate90(Texture2D texture)
         {
-            Texture2D tex = new Texture2D(texture.height, texture.width);
+            Texture2D rotated = new Texture2D(texture.height, texture.width);
 
             for (int x = 0; x < texture.height; x++)
             {
                 for (int y = 0; y < texture.width; y++)
                 {
-                    tex.SetPixel(x, y, texture.GetPixel(texture.width - 1 - y, x));
+                    rotated.SetPixel(x, y, texture.GetPixel(texture.width - 1 - y, x));
                 }
             }
 
-            tex.Apply();
-            return tex;
+            rotated.Apply();
+            return rotated;
         }
 
         /// <summary>
@@ -244,58 +244,58 @@ namespace PAC.Extensions
         /// </summary>
         public static Texture2D RotateMinus90(Texture2D texture)
         {
-            Texture2D tex = new Texture2D(texture.height, texture.width);
+            Texture2D rotated = new Texture2D(texture.height, texture.width);
 
             for (int x = 0; x < texture.height; x++)
             {
                 for (int y = 0; y < texture.width; y++)
                 {
-                    tex.SetPixel(x, y, texture.GetPixel(y, texture.height - 1 - x));
+                    rotated.SetPixel(x, y, texture.GetPixel(y, texture.height - 1 - x));
                 }
             }
 
-            tex.Apply();
-            return tex;
+            rotated.Apply();
+            return rotated;
         }
 
         public static Texture2D Rotate180(Texture2D texture)
         {
-            Texture2D tex = new Texture2D(texture.width, texture.height);
+            Texture2D rotated = new Texture2D(texture.width, texture.height);
 
             for (int x = 0; x < texture.width; x++)
             {
                 for (int y = 0; y < texture.height; y++)
                 {
-                    tex.SetPixel(x, y, texture.GetPixel(texture.width - 1 - x, texture.height - 1 - y));
+                    rotated.SetPixel(x, y, texture.GetPixel(texture.width - 1 - x, texture.height - 1 - y));
                 }
             }
 
-            tex.Apply();
-            return tex;
+            rotated.Apply();
+            return rotated;
         }
 
         public static Texture2D Offset(Texture2D texture, IntVector2 offset)
         {
-            Texture2D offsetTex = new Texture2D(texture.width, texture.height);
-            IntRect texRect = new IntRect(new IntVector2(0, 0), new IntVector2(texture.width - 1, texture.height - 1));
+            Texture2D offsetTexture = new Texture2D(texture.width, texture.height);
+            IntRect textureRect = new IntRect(new IntVector2(0, 0), new IntVector2(texture.width - 1, texture.height - 1));
 
             for (int x = 0; x < texture.width; x++)
             {
                 for (int y = 0; y < texture.height; y++)
                 {
-                    if (texRect.Contains(new IntVector2(x - offset.x, y - offset.y)))
+                    if (textureRect.Contains(new IntVector2(x - offset.x, y - offset.y)))
                     {
-                        offsetTex.SetPixel(x, y, texture.GetPixel(x - offset.x, y - offset.y));
+                        offsetTexture.SetPixel(x, y, texture.GetPixel(x - offset.x, y - offset.y));
                     }
                     else
                     {
-                        offsetTex.SetPixel(x, y, Config.Colours.transparent);
+                        offsetTexture.SetPixel(x, y, Config.Colours.transparent);
                     }
                 }
             }
 
-            offsetTex.Apply();
-            return offsetTex;
+            offsetTexture.Apply();
+            return offsetTexture;
         }
 
         /// <summary>
@@ -324,68 +324,68 @@ namespace PAC.Extensions
         /// <summary>
         /// Overlays topTex onto bottomTex using the given blend mode, placing the bottom-left corner on the bottom-left corner.
         /// </summary>
-        public static Texture2D Blend(Texture2D topTex, Texture2D bottomTex, BlendMode blendMode)
+        public static Texture2D Blend(Texture2D topTexture, Texture2D bottomTexture, BlendMode blendMode)
         {
-            return Blend(topTex, bottomTex, IntVector2.zero, blendMode);
+            return Blend(topTexture, bottomTexture, IntVector2.zero, blendMode);
         }
         /// <summary>
         /// Overlays topTex onto bottomTex using the given blend mode, placing the bottom-left corner at the coordinates topTexOffset (which don't have to be within the image).
         /// </summary>
-        public static Texture2D Blend(Texture2D topTex, Texture2D bottomTex, IntVector2 topTexOffset, BlendMode blendMode)
+        public static Texture2D Blend(Texture2D topTexture, Texture2D bottomTexture, IntVector2 topTextureOffset, BlendMode blendMode)
         {
-            Texture2D tex = new Texture2D(bottomTex.width, bottomTex.height);
-            IntRect texRect = new IntRect(new IntVector2(0, 0), new IntVector2(topTex.width - 1, topTex.height - 1));
+            Texture2D blended = new Texture2D(bottomTexture.width, bottomTexture.height);
+            IntRect textureRect = new IntRect(new IntVector2(0, 0), new IntVector2(topTexture.width - 1, topTexture.height - 1));
 
-            for (int x = 0; x < bottomTex.width; x++)
+            for (int x = 0; x < bottomTexture.width; x++)
             {
-                for (int y = 0; y < bottomTex.height; y++)
+                for (int y = 0; y < bottomTexture.height; y++)
                 {
-                    if (texRect.Contains(new IntVector2(x - topTexOffset.x, y - topTexOffset.y)))
+                    if (textureRect.Contains(new IntVector2(x - topTextureOffset.x, y - topTextureOffset.y)))
                     {
-                        tex.SetPixel(x, y, blendMode.Blend(topTex.GetPixel(x - topTexOffset.x, y - topTexOffset.y), bottomTex.GetPixel(x, y)));
+                        blended.SetPixel(x, y, blendMode.Blend(topTexture.GetPixel(x - topTextureOffset.x, y - topTextureOffset.y), bottomTexture.GetPixel(x, y)));
                     }
                     else
                     {
-                        tex.SetPixel(x, y, bottomTex.GetPixel(x, y));
+                        blended.SetPixel(x, y, bottomTexture.GetPixel(x, y));
                     }
                 }
             }
 
-            tex.Apply();
-            return tex;
+            blended.Apply();
+            return blended;
         }
         /// <summary>
         /// Overlays topColour onto each pixel of bottomTex using the given blend mode.
         /// </summary>
-        public static Texture2D Blend(Color topColour, Texture2D bottomTex, BlendMode blendMode)
+        public static Texture2D Blend(Color topColour, Texture2D bottomTexture, BlendMode blendMode)
         {
-            Texture2D tex = new Texture2D(bottomTex.width, bottomTex.height);
+            Texture2D blended = new Texture2D(bottomTexture.width, bottomTexture.height);
 
-            for (int x = 0; x < bottomTex.width; x++)
+            for (int x = 0; x < bottomTexture.width; x++)
             {
-                for (int y = 0; y < bottomTex.height; y++)
+                for (int y = 0; y < bottomTexture.height; y++)
                 {
-                    tex.SetPixel(x, y, blendMode.Blend(topColour, bottomTex.GetPixel(x, y)));
+                    blended.SetPixel(x, y, blendMode.Blend(topColour, bottomTexture.GetPixel(x, y)));
                 }
             }
 
-            tex.Apply();
-            return tex;
+            blended.Apply();
+            return blended;
         }
 
         /// <summary>
         /// Overlays topTex onto bottomTex, placing the bottom-left corner on the bottom-left corner. Uses Normal blend mode.
         /// </summary>
-        public static Texture2D Overlay(Texture2D topTex, Texture2D bottomTex)
+        public static Texture2D Overlay(Texture2D topTexture, Texture2D bottomTexture)
         {
-            return Overlay(topTex, bottomTex, IntVector2.zero);
+            return Overlay(topTexture, bottomTexture, IntVector2.zero);
         }
         /// <summary>
         /// Overlays topTex onto bottomTex, placing the bottom-left corner at the coordinates topTexOffset (which don't have to be within the image). Uses Normal blend mode.
         /// </summary>
-        public static Texture2D Overlay(Texture2D topTex, Texture2D bottomTex, IntVector2 topTexOffset)
+        public static Texture2D Overlay(Texture2D topTexture, Texture2D bottomTexture, IntVector2 topTextureOffset)
         {
-            return Blend(topTex, bottomTex, topTexOffset, BlendMode.Normal);
+            return Blend(topTexture, bottomTexture, topTextureOffset, BlendMode.Normal);
         }
 
         public static Texture2D Multiply(Texture2D texture, Color colour)
@@ -428,7 +428,7 @@ namespace PAC.Extensions
         {
             AssertValidTextureDimensions(newWidth, newHeight, nameof(newWidth), nameof(newHeight));
 
-            Texture2D scaledTex = new Texture2D(newWidth, newHeight);
+            Texture2D scaled = new Texture2D(newWidth, newHeight);
             float xScalar = (float)newWidth / texture.width;
             float yScalar = (float)newHeight / texture.height;
 
@@ -436,28 +436,28 @@ namespace PAC.Extensions
             {
                 for (int y = 0; y < newHeight; y++)
                 {
-                    scaledTex.SetPixel(x, y, texture.GetPixel(Mathf.FloorToInt(x / xScalar), Mathf.FloorToInt(y / yScalar)));
+                    scaled.SetPixel(x, y, texture.GetPixel(Mathf.FloorToInt(x / xScalar), Mathf.FloorToInt(y / yScalar)));
                 }
             }
 
-            scaledTex.Apply();
-            return scaledTex;
+            scaled.Apply();
+            return scaled;
         }
 
-        public static Texture2D Subtract(Texture2D topTex, Texture2D bottomTex)
+        public static Texture2D Subtract(Texture2D topTexture, Texture2D bottomTexture)
         {
-            if (topTex.width != bottomTex.width || topTex.height != bottomTex.height)
+            if (topTexture.width != bottomTexture.width || topTexture.height != bottomTexture.height)
             {
-                throw new System.Exception("Dimensions don't match: " + topTex.width + "x" + topTex.height + " and " + bottomTex.width + "x" + bottomTex.height);
+                throw new System.Exception("Dimensions don't match: " + topTexture.width + "x" + topTexture.height + " and " + bottomTexture.width + "x" + bottomTexture.height);
             }
 
-            Texture2D tex = new Texture2D(bottomTex.width, bottomTex.height);
+            Texture2D tex = new Texture2D(bottomTexture.width, bottomTexture.height);
 
-            for (int x = 0; x < bottomTex.width; x++)
+            for (int x = 0; x < bottomTexture.width; x++)
             {
-                for (int y = 0; y < bottomTex.height; y++)
+                for (int y = 0; y < bottomTexture.height; y++)
                 {
-                    tex.SetPixel(x, y, topTex.GetPixel(x, y) - bottomTex.GetPixel(x, y));
+                    tex.SetPixel(x, y, topTexture.GetPixel(x, y) - bottomTexture.GetPixel(x, y));
                 }
             }
 
@@ -517,15 +517,15 @@ namespace PAC.Extensions
 
         public static Texture2D Fill(Texture2D texture, IntVector2 startPoint, Color colour, int maxNumOfIterations = 1_000_000)
         {
-            Texture2D filledTex = Copy(texture);
+            Texture2D filled = Copy(texture);
 
             foreach (IntVector2 pixel in GetPixelsToFill(texture, startPoint, maxNumOfIterations))
             {
-                filledTex.SetPixel(pixel.x, pixel.y, colour);
+                filled.SetPixel(pixel.x, pixel.y, colour);
             }
 
-            filledTex.Apply();
-            return filledTex;
+            filled.Apply();
+            return filled;
         }
 
         public static Texture2D GetFillMask(Texture2D texture, IntVector2 startPoint, int maxNumOfIterations = 1_000_000)
@@ -543,7 +543,7 @@ namespace PAC.Extensions
 
         public static IEnumerable<IntVector2> GetPixelsToFill(Texture2D texture, IntVector2 startPoint, int maxNumOfIterations = 1_000_000)
         {
-            IntRect texRect = new IntRect(IntVector2.zero, new IntVector2(texture.width - 1, texture.height - 1));
+            IntRect textureRect = new IntRect(IntVector2.zero, new IntVector2(texture.width - 1, texture.height - 1));
 
             Queue<IntVector2> toVisit = new Queue<IntVector2>();
             HashSet<IntVector2> visited = new HashSet<IntVector2>();
@@ -562,7 +562,7 @@ namespace PAC.Extensions
                 foreach (IntVector2 offset in new IntVector2[] { new IntVector2(1, 0), new IntVector2(0, 1), new IntVector2(-1, 0), new IntVector2(0, -1) })
                 {
                     IntVector2 offsetCoord = coord + offset;
-                    if (texRect.Contains(offsetCoord) && texture.GetPixel(offsetCoord.x, offsetCoord.y) == colourToReplace && !visited.Contains(offsetCoord))
+                    if (textureRect.Contains(offsetCoord) && texture.GetPixel(offsetCoord.x, offsetCoord.y) == colourToReplace && !visited.Contains(offsetCoord))
                     {
                         toVisit.Enqueue(offsetCoord);
                         visited.Add(offsetCoord);
@@ -597,16 +597,16 @@ namespace PAC.Extensions
 
         public static Texture2D LoadFromFile(string filePath)
         {
-            Texture2D tex = null;
+            Texture2D texture = null;
             byte[] fileData;
 
             if (System.IO.File.Exists(filePath))
             {
                 fileData = System.IO.File.ReadAllBytes(filePath);
-                tex = new Texture2D(1, 1);
-                tex.LoadImage(fileData);
+                texture = new Texture2D(1, 1);
+                texture.LoadImage(fileData);
             }
-            return tex;
+            return texture;
         }
 
         /// <summary>
@@ -619,9 +619,9 @@ namespace PAC.Extensions
         /// <returns></returns>
         public static Texture2D Outline(Texture2D texture, Color outlineColour, bool outlineOutside, OutlineSideFill outlineSideFill)
         {
-            Texture2D tex = Copy(texture);
+            Texture2D outlined = Copy(texture);
 
-            IntRect texRect = new IntRect(IntVector2.zero, new IntVector2(tex.width - 1, tex.height - 1));
+            IntRect textureRect = new IntRect(IntVector2.zero, new IntVector2(outlined.width - 1, outlined.height - 1));
             List<IntVector2> offsets = new List<IntVector2>();
 
             if (outlineSideFill.topLeft)
@@ -659,25 +659,25 @@ namespace PAC.Extensions
 
             List<IntVector2> pixelsInOutline = new List<IntVector2>();
 
-            for (int x = 0; x < tex.width; x++)
+            for (int x = 0; x < outlined.width; x++)
             {
-                for (int y = 0; y < tex.height; y++)
+                for (int y = 0; y < outlined.height; y++)
                 {
-                    if (outlineOutside && tex.GetPixel(x, y).a == 0)
+                    if (outlineOutside && outlined.GetPixel(x, y).a == 0)
                     {
                         foreach (IntVector2 offset in offsets)
                         {
-                            if (texRect.Contains(new IntVector2(x, y) + offset) && tex.GetPixel(x + offset.x, y + offset.y).a != 0)
+                            if (textureRect.Contains(new IntVector2(x, y) + offset) && outlined.GetPixel(x + offset.x, y + offset.y).a != 0)
                             {
                                 pixelsInOutline.Add(new IntVector2(x, y));
                             }
                         }
                     }
-                    else if (!outlineOutside && tex.GetPixel(x, y).a != 0)
+                    else if (!outlineOutside && outlined.GetPixel(x, y).a != 0)
                     {
                         foreach (IntVector2 offset in offsets)
                         {
-                            if (!texRect.Contains(new IntVector2(x, y) + offset) || tex.GetPixel(x + offset.x, y + offset.y).a == 0)
+                            if (!textureRect.Contains(new IntVector2(x, y) + offset) || outlined.GetPixel(x + offset.x, y + offset.y).a == 0)
                             {
                                 pixelsInOutline.Add(new IntVector2(x, y));
                             }
@@ -688,16 +688,16 @@ namespace PAC.Extensions
 
             foreach (IntVector2 point in pixelsInOutline)
             {
-                tex.SetPixel(point.x, point.y, outlineColour);
+                outlined.SetPixel(point.x, point.y, outlineColour);
             }
 
-            tex.Apply();
-            return tex;
+            outlined.Apply();
+            return outlined;
         }
 
         public static Texture2D ReplaceColour(Texture2D texture, Color toReplace, Color replaceWith)
         {
-            Texture2D tex = new Texture2D(texture.width, texture.height);
+            Texture2D replaced = new Texture2D(texture.width, texture.height);
 
             for (int x = 0; x < texture.width; x++)
             {
@@ -706,17 +706,17 @@ namespace PAC.Extensions
                     Color pixelColour = texture.GetPixel(x, y);
                     if (Vector4.Distance(pixelColour, toReplace) < 0.01f)
                     {
-                        tex.SetPixel(x, y, replaceWith);
+                        replaced.SetPixel(x, y, replaceWith);
                     }
                     else
                     {
-                        tex.SetPixel(x, y, texture.GetPixel(x, y));
+                        replaced.SetPixel(x, y, texture.GetPixel(x, y));
                     }
                 }
             }
 
-            tex.Apply();
-            return tex;
+            replaced.Apply();
+            return replaced;
         }
 
         public static bool ContainsPixel(this Texture2D texture, int x, int y)
