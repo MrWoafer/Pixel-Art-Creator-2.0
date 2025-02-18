@@ -141,27 +141,14 @@ namespace PAC.Extensions
             return texture;
         }
 
-        public static Texture2D Flip(Texture2D texture, FlipAxis axis)
+        public static Texture2D Flip(Texture2D texture, FlipAxis axis) => axis switch
         {
-            if (axis == FlipAxis.None)
-            {
-                return texture;
-            }
-            else if (axis == FlipAxis.Vertical)
-            {
-                return FlipX(texture);
-            }
-            else if (axis == FlipAxis.Horizontal)
-            {
-                return FlipY(texture);
-            }
-            else
-            {
-                throw new NotImplementedException("Unknown / unimplemented FlipAxis: " + axis);
-            }
-        }
-
-        public static Texture2D FlipX(Texture2D texture)
+            FlipAxis.None => texture,
+            FlipAxis.Vertical => FlipX(texture),
+            FlipAxis.Horizontal => FlipY(texture),
+            _ => throw new ArgumentException($"Unknown / unimplemented FlipAxis: {axis}.", nameof(axis))
+        };
+        private static Texture2D FlipX(Texture2D texture)
         {
             Texture2D flipped = new Texture2D(texture.width, texture.height);
 
@@ -176,8 +163,7 @@ namespace PAC.Extensions
             flipped.Apply();
             return flipped;
         }
-
-        public static Texture2D FlipY(Texture2D texture)
+        private static Texture2D FlipY(Texture2D texture)
         {
             Texture2D flipped = new Texture2D(texture.width, texture.height);
 
