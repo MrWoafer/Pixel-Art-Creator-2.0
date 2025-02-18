@@ -267,7 +267,7 @@ namespace PAC.Layers
 
                     for (int i = selectedLayers.Length - 2; i >= 0; i--)
                     {
-                        tex = Texture2DExtensions.Overlay(selectedLayers[i][keyFrame].texture, tex);
+                        tex = Texture2DExtensions.Blend(selectedLayers[i][keyFrame].texture, tex, BlendMode.Normal);
                     }
                     ((NormalLayer)selectedLayers[^1]).SetTexture(keyFrame, tex, AnimFrameRefMode.NewKeyFrame);
                 }

@@ -357,9 +357,10 @@ namespace PAC.UI
             Texture2D render = fileManager.currentFile.Render(animationManager.currentFrameIndex);
             render.Apply();
 
-            extendCropPreview.sprite = Texture2DExtensions.Overlay(
+            extendCropPreview.sprite = Texture2DExtensions.Blend(
                 Texture2DExtensions.Scale(Texture2DExtensions.Extend(render, left, right, up, down), 2f),
-                Texture2DExtensions.CheckerboardBackground(fileManager.currentFile.width + left + right, fileManager.currentFile.height + up + down)
+                Texture2DExtensions.CheckerboardBackground(fileManager.currentFile.width + left + right, fileManager.currentFile.height + up + down),
+                BlendMode.Normal
                 ).ToSprite();
         }
 
@@ -434,9 +435,10 @@ namespace PAC.UI
             Texture2D render = fileManager.currentFile.Render(animationManager.currentFrameIndex);
             render.Apply();
 
-            scalePreview.sprite = Texture2DExtensions.Overlay(
+            scalePreview.sprite = Texture2DExtensions.Blend(
                 Texture2DExtensions.Scale(Texture2DExtensions.Scale(render, width, height), 2f),
-                Texture2DExtensions.CheckerboardBackground(width, height)
+                Texture2DExtensions.CheckerboardBackground(width, height),
+                BlendMode.Normal
                 ).ToSprite();
         }
 
@@ -492,9 +494,10 @@ namespace PAC.UI
             Texture2D render = fileManager.currentFile.Render(animationManager.currentFrameIndex);
             render.Apply();
 
-            gridPreview.sprite = Texture2DExtensions.Overlay(
+            gridPreview.sprite = Texture2DExtensions.Blend(
                 Texture2DExtensions.Scale(render, 2f),
-                Texture2DExtensions.CheckerboardBackground(fileManager.currentFile.width, fileManager.currentFile.height)
+                Texture2DExtensions.CheckerboardBackground(fileManager.currentFile.width, fileManager.currentFile.height),
+                BlendMode.Normal
                 ).ToSprite();
 
             gridPreviewGridManager.SetOnOffNoDisplayUpdate(on);
@@ -546,9 +549,10 @@ namespace PAC.UI
             Texture2D render = fileCopy.Render(animationManager.currentFrameIndex);
             render.Apply();
 
-            outlinePreview.sprite = Texture2DExtensions.Overlay(
+            outlinePreview.sprite = Texture2DExtensions.Blend(
                 Texture2DExtensions.Scale(render, 2f),
-                Texture2DExtensions.CheckerboardBackground(fileManager.currentFile.width, fileManager.currentFile.height)
+                Texture2DExtensions.CheckerboardBackground(fileManager.currentFile.width, fileManager.currentFile.height),
+                BlendMode.Normal
                 ).ToSprite();
         }
 
@@ -596,9 +600,10 @@ namespace PAC.UI
             Texture2D render = fileCopy.Render(animationManager.currentFrameIndex);
             render.Apply();
 
-            replaceColourPreview.sprite = Texture2DExtensions.Overlay(
+            replaceColourPreview.sprite = Texture2DExtensions.Blend(
                 Texture2DExtensions.Scale(render, 2f),
-                Texture2DExtensions.CheckerboardBackground(fileManager.currentFile.width, fileManager.currentFile.height)
+                Texture2DExtensions.CheckerboardBackground(fileManager.currentFile.width, fileManager.currentFile.height),
+                BlendMode.Normal
                 ).ToSprite();
         }
 
@@ -656,9 +661,10 @@ namespace PAC.UI
 
         public void UpdateImportPACPreview()
         {
-            importPACPreview.sprite = Texture2DExtensions.Overlay(
+            importPACPreview.sprite = Texture2DExtensions.Blend(
                 Texture2DExtensions.Scale(importPACFile.RenderLayers(importPACLayersToggleGroup.selectedIndices, animationManager.currentFrameIndex), 2f),
-                Texture2DExtensions.CheckerboardBackground(fileManager.currentFile.width, fileManager.currentFile.height)
+                Texture2DExtensions.CheckerboardBackground(fileManager.currentFile.width, fileManager.currentFile.height),
+                BlendMode.Normal
                 ).ToSprite();
         }
 

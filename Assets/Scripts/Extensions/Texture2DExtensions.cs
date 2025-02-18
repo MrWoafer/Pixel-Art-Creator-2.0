@@ -309,7 +309,12 @@ namespace PAC.Extensions
                                            " (left, right, up, down) = (" + left + ", " + right + ", " + up + ", " + down + ")");
             }
 
-            return Overlay(texture, Transparent(texture.width + left + right, texture.height + up + down), new IntVector2(left, down));
+            return Blend(
+                texture,
+                Transparent(texture.width + left + right, texture.height + up + down),
+                new IntVector2(left, down),
+                BlendMode.Normal
+                );
         }
 
         /// <summary>
@@ -373,35 +378,6 @@ namespace PAC.Extensions
             return blended;
         }
 
-        /// <summary>
-        /// Overlays topTex onto bottomTex, placing the bottom-left corner on the bottom-left corner. Uses Normal blend mode.
-        /// </summary>
-        public static Texture2D Overlay(Texture2D topTexture, Texture2D bottomTexture)
-        {
-            return Overlay(topTexture, bottomTexture, IntVector2.zero);
-        }
-        /// <summary>
-        /// Overlays topTex onto bottomTex, placing the bottom-left corner at the coordinates topTexOffset (which don't have to be within the image). Uses Normal blend mode.
-        /// </summary>
-        public static Texture2D Overlay(Texture2D topTexture, Texture2D bottomTexture, IntVector2 topTextureOffset)
-        {
-            return Blend(topTexture, bottomTexture, topTextureOffset, BlendMode.Normal);
-        }
-
-        public static Texture2D Multiply(Texture2D texture, Color colour)
-        {
-            for (int x = 0; x < texture.width; x++)
-            {
-                for (int y = 0; y < texture.height; y++)
-                {
-                    texture.SetPixel(x, y, texture.GetPixel(x, y) * colour);
-                }
-            }
-
-            texture.Apply();
-            return texture;
-        }
-
         public static Texture2D Scale(Texture2D texture, float scaleFactor)
         {
             if (scaleFactor <= 0)
@@ -442,27 +418,6 @@ namespace PAC.Extensions
 
             scaled.Apply();
             return scaled;
-        }
-
-        public static Texture2D Subtract(Texture2D topTexture, Texture2D bottomTexture)
-        {
-            if (topTexture.width != bottomTexture.width || topTexture.height != bottomTexture.height)
-            {
-                throw new System.Exception("Dimensions don't match: " + topTexture.width + "x" + topTexture.height + " and " + bottomTexture.width + "x" + bottomTexture.height);
-            }
-
-            Texture2D tex = new Texture2D(bottomTexture.width, bottomTexture.height);
-
-            for (int x = 0; x < bottomTexture.width; x++)
-            {
-                for (int y = 0; y < bottomTexture.height; y++)
-                {
-                    tex.SetPixel(x, y, topTexture.GetPixel(x, y) - bottomTexture.GetPixel(x, y));
-                }
-            }
-
-            tex.Apply();
-            return tex;
         }
 
         public static Texture2D ApplyMask(Texture2D texture, Texture2D mask)

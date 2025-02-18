@@ -9,6 +9,7 @@ using PAC.UI;
 using UnityEngine;
 using UnityEngine.Events;
 using PAC.Extensions;
+using PAC.Colour;
 
 namespace PAC.Animation
 {
@@ -354,11 +355,11 @@ namespace PAC.Animation
             }
             else if (currentFrameIndex > 0)
             {
-                onionSkin.sprite = Texture2DExtensions.Multiply(fileManager.currentFile.Render(currentFrameIndex - 1), onionSkinColour).ToSprite();
+                onionSkin.sprite = Texture2DExtensions.Blend(onionSkinColour, fileManager.currentFile.Render(currentFrameIndex - 1), BlendMode.Multiply).ToSprite();
             }
             else if (currentFrameIndex == 0 && playbackMode.selectedOption == "loop")
             {
-                onionSkin.sprite = Texture2DExtensions.Multiply(fileManager.currentFile.Render(currentFrameIndex - 1), onionSkinColour).ToSprite();
+                onionSkin.sprite = Texture2DExtensions.Blend(onionSkinColour, fileManager.currentFile.Render(currentFrameIndex - 1), BlendMode.Multiply).ToSprite();
             }
             else
             {
