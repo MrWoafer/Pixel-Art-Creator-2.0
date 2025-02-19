@@ -287,10 +287,7 @@ namespace PAC.Extensions
         /// <summary>
         /// Overlays topTex onto bottomTex using the given blend mode, placing the bottom-left corner on the bottom-left corner.
         /// </summary>
-        public static Texture2D Blend(Texture2D topTexture, Texture2D bottomTexture, BlendMode blendMode)
-        {
-            return Blend(topTexture, bottomTexture, blendMode, (0, 0));
-        }
+        public static Texture2D Blend(Texture2D topTexture, Texture2D bottomTexture, BlendMode blendMode) => Blend(topTexture, bottomTexture, blendMode, (0, 0));
         /// <summary>
         /// Overlays topTex onto bottomTex using the given blend mode, placing the bottom-left corner at the coordinates topTexOffset (which don't have to be within the image).
         /// </summary>
@@ -304,7 +301,9 @@ namespace PAC.Extensions
                 {
                     if (blended.ContainsPixel(x - topTextureOffset.x, y - topTextureOffset.y))
                     {
-                        blended.SetPixel(x, y, blendMode.Blend(topTexture.GetPixel(x - topTextureOffset.x, y - topTextureOffset.y), bottomTexture.GetPixel(x, y)));
+                        Color topColour = topTexture.GetPixel(x - topTextureOffset.x, y - topTextureOffset.y);
+                        Color bottomColour = bottomTexture.GetPixel(x, y);
+                        blended.SetPixel(x, y, blendMode.Blend(topColour, bottomColour));
                     }
                     else
                     {
@@ -327,7 +326,8 @@ namespace PAC.Extensions
             {
                 for (int y = 0; y < bottomTexture.height; y++)
                 {
-                    blended.SetPixel(x, y, blendMode.Blend(topColour, bottomTexture.GetPixel(x, y)));
+                    Color bottomColour = bottomTexture.GetPixel(x, y);
+                    blended.SetPixel(x, y, blendMode.Blend(topColour, bottomColour));
                 }
             }
 
