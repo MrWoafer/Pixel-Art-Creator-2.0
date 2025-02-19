@@ -118,7 +118,7 @@ namespace PAC.Extensions
         {
             AssertValidTextureDimensions(width, height, nameof(width), nameof(height));
 
-            IntRect textureRect = new IntRect(IntVector2.zero, new IntVector2(width * 2 - 1, height * 2 - 1));
+            IntRect textureRect = new IntRect((0, 0), (width * 2 - 1, height * 2 - 1));
             return new Checkerboard<Color32>(Preferences.transparentCheckerboardColour1, Preferences.transparentCheckerboardColour2).ToTexture(textureRect);
         }
 
@@ -247,7 +247,7 @@ namespace PAC.Extensions
             {
                 for (int y = 0; y < texture.height; y++)
                 {
-                    if (texture.ContainsPixel(new IntVector2(x - offset.x, y - offset.y)))
+                    if (texture.ContainsPixel(x - offset.x, y - offset.y))
                     {
                         offsetTexture.SetPixel(x, y, texture.GetPixel(x - offset.x, y - offset.y));
                     }
@@ -276,7 +276,7 @@ namespace PAC.Extensions
             return Blend(
                 texture,
                 Transparent(texture.width + left + right, texture.height + up + down),
-                new IntVector2(left, down),
+                (left, down),
                 BlendMode.Normal
                 );
         }
@@ -295,7 +295,7 @@ namespace PAC.Extensions
         /// </summary>
         public static Texture2D Blend(Texture2D topTexture, Texture2D bottomTexture, BlendMode blendMode)
         {
-            return Blend(topTexture, bottomTexture, IntVector2.zero, blendMode);
+            return Blend(topTexture, bottomTexture, (0, 0), blendMode);
         }
         /// <summary>
         /// Overlays topTex onto bottomTex using the given blend mode, placing the bottom-left corner at the coordinates topTexOffset (which don't have to be within the image).
@@ -308,7 +308,7 @@ namespace PAC.Extensions
             {
                 for (int y = 0; y < bottomTexture.height; y++)
                 {
-                    if (blended.ContainsPixel(new IntVector2(x - topTextureOffset.x, y - topTextureOffset.y)))
+                    if (blended.ContainsPixel(x - topTextureOffset.x, y - topTextureOffset.y))
                     {
                         blended.SetPixel(x, y, blendMode.Blend(topTexture.GetPixel(x - topTextureOffset.x, y - topTextureOffset.y), bottomTexture.GetPixel(x, y)));
                     }
@@ -418,7 +418,7 @@ namespace PAC.Extensions
             {
                 for (int y = 0; y < texture.height; y++)
                 {
-                    if (mask.Contains(new IntVector2(x, y)))
+                    if (mask.Contains((x, y)))
                     {
                         maskedTexture.SetPixel(x, y, texture.GetPixel(x, y));
                     }
@@ -475,7 +475,7 @@ namespace PAC.Extensions
             {
                 IntVector2 coord = toVisit.Dequeue();
 
-                foreach (IntVector2 offset in new IntVector2[] { new IntVector2(1, 0), new IntVector2(0, 1), new IntVector2(-1, 0), new IntVector2(0, -1) })
+                foreach (IntVector2 offset in IntVector2.upDownLeftRight)
                 {
                     IntVector2 offsetCoord = coord + offset;
                     if (texture.ContainsPixel(offsetCoord) && texture.GetPixel(offsetCoord.x, offsetCoord.y) == colourToReplace && !visited.Contains(offsetCoord))
@@ -541,35 +541,35 @@ namespace PAC.Extensions
 
             if (outlineSideFill.topLeft)
             {
-                offsets.Add(new IntVector2(-1, 1) * (outlineOutside ? -1 : 1));
+                offsets.Add(IntVector2.upLeft * (outlineOutside ? -1 : 1));
             }
             if (outlineSideFill.topMiddle)
             {
-                offsets.Add(new IntVector2(0, 1) * (outlineOutside ? -1 : 1));
+                offsets.Add(IntVector2.up * (outlineOutside ? -1 : 1));
             }
             if (outlineSideFill.topRight)
             {
-                offsets.Add(new IntVector2(1, 1) * (outlineOutside ? -1 : 1));
+                offsets.Add(IntVector2.upRight * (outlineOutside ? -1 : 1));
             }
             if (outlineSideFill.middleLeft)
             {
-                offsets.Add(new IntVector2(-1, 0) * (outlineOutside ? -1 : 1));
+                offsets.Add(IntVector2.left * (outlineOutside ? -1 : 1));
             }
             if (outlineSideFill.middleRight)
             {
-                offsets.Add(new IntVector2(1, 0) * (outlineOutside ? -1 : 1));
+                offsets.Add(IntVector2.right * (outlineOutside ? -1 : 1));
             }
             if (outlineSideFill.bottomLeft)
             {
-                offsets.Add(new IntVector2(-1, -1) * (outlineOutside ? -1 : 1));
+                offsets.Add(IntVector2.downLeft * (outlineOutside ? -1 : 1));
             }
             if (outlineSideFill.bottomMiddle)
             {
-                offsets.Add(new IntVector2(0, -1) * (outlineOutside ? -1 : 1));
+                offsets.Add(IntVector2.down * (outlineOutside ? -1 : 1));
             }
             if (outlineSideFill.bottomRight)
             {
-                offsets.Add(new IntVector2(1, -1) * (outlineOutside ? -1 : 1));
+                offsets.Add(IntVector2.downRight * (outlineOutside ? -1 : 1));
             }
 
             List<IntVector2> pixelsInOutline = new List<IntVector2>();
@@ -582,9 +582,9 @@ namespace PAC.Extensions
                     {
                         foreach (IntVector2 offset in offsets)
                         {
-                            if (texture.ContainsPixel(new IntVector2(x, y) + offset) && outlined.GetPixel(x + offset.x, y + offset.y).a != 0)
+                            if (texture.ContainsPixel((x, y) + offset) && outlined.GetPixel(x + offset.x, y + offset.y).a != 0)
                             {
-                                pixelsInOutline.Add(new IntVector2(x, y));
+                                pixelsInOutline.Add((x, y));
                             }
                         }
                     }
@@ -592,9 +592,9 @@ namespace PAC.Extensions
                     {
                         foreach (IntVector2 offset in offsets)
                         {
-                            if (!texture.ContainsPixel(new IntVector2(x, y) + offset) || outlined.GetPixel(x + offset.x, y + offset.y).a == 0)
+                            if (!texture.ContainsPixel((x, y) + offset) || outlined.GetPixel(x + offset.x, y + offset.y).a == 0)
                             {
-                                pixelsInOutline.Add(new IntVector2(x, y));
+                                pixelsInOutline.Add((x, y));
                             }
                         }
                     }
