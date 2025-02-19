@@ -67,9 +67,9 @@ namespace PAC.Clipboard
                 layerManager.AddLayer(Texture2DExtensions.Blend(
                     copiedTexture,
                     Texture2DExtensions.Transparent(fileManager.currentFile.width, fileManager.currentFile.height),
-                    bottomLeft,
                     BlendMode.Normal
-                    ));
+,
+                    bottomLeft));
 
                 Debug.Log("Pasted.");
             }

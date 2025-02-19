@@ -289,12 +289,12 @@ namespace PAC.Extensions
         /// </summary>
         public static Texture2D Blend(Texture2D topTexture, Texture2D bottomTexture, BlendMode blendMode)
         {
-            return Blend(topTexture, bottomTexture, (0, 0), blendMode);
+            return Blend(topTexture, bottomTexture, blendMode, (0, 0));
         }
         /// <summary>
         /// Overlays topTex onto bottomTex using the given blend mode, placing the bottom-left corner at the coordinates topTexOffset (which don't have to be within the image).
         /// </summary>
-        public static Texture2D Blend(Texture2D topTexture, Texture2D bottomTexture, IntVector2 topTextureOffset, BlendMode blendMode)
+        public static Texture2D Blend(Texture2D topTexture, Texture2D bottomTexture, BlendMode blendMode, IntVector2 topTextureOffset)
         {
             Texture2D blended = new Texture2D(bottomTexture.width, bottomTexture.height);
 

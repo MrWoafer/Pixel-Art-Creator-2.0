@@ -1059,7 +1059,7 @@ namespace PAC.Drawing
                 Texture2D topLayers = file.RenderLayersAbove(selectedLayerIndex, currentFrameIndex);
                 drawingSprRen.sprite = Texture2DExtensions.Blend(
                     topLayers,
-                    Texture2DExtensions.Blend(selectionTexture, bottomLayers, mouseCoords - mouseDragPoints[0], BlendMode.Normal),
+                    Texture2DExtensions.Blend(selectionTexture, bottomLayers, BlendMode.Normal, mouseCoords - mouseDragPoints[0]),
                     BlendMode.Normal
                     ).ToSprite();
             }
@@ -1069,7 +1069,7 @@ namespace PAC.Drawing
                 Texture2D topLayers = file.RenderLayersAbove(selectedLayerIndex, currentFrameIndex);
                 drawingSprRen.sprite = Texture2DExtensions.Blend(
                     topLayers,
-                    Texture2DExtensions.Blend(selectionTexture, bottomLayers, mouseCoords - mouseDragPoints[0], BlendMode.Normal),
+                    Texture2DExtensions.Blend(selectionTexture, bottomLayers, BlendMode.Normal, mouseCoords - mouseDragPoints[0]),
                     BlendMode.Normal
                     ).ToSprite();
             }
