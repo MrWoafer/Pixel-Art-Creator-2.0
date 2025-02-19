@@ -337,39 +337,44 @@ namespace PAC.Extensions
 
         public static Texture2D Scale(Texture2D texture, float scaleFactor)
         {
-            if (scaleFactor <= 0)
+            if (scaleFactor <= 0f)
             {
-                throw new System.Exception("Cannot scale texture by a non-positive amount: " + scaleFactor);
+                throw new ArgumentOutOfRangeException($"{nameof(scaleFactor)} must be positive: {scaleFactor}.", nameof(scaleFactor));
             }
 
             return Scale(texture, scaleFactor, scaleFactor);
         }
         public static Texture2D Scale(Texture2D texture, float xScaleFactor, float yScaleFactor)
         {
-            if (xScaleFactor <= 0)
+            if (xScaleFactor <= 0f)
             {
-                throw new System.Exception("Cannot scale width by a non-positive amount: " + xScaleFactor);
+                throw new ArgumentOutOfRangeException($"{nameof(xScaleFactor)} must be positive: {xScaleFactor}.", nameof(xScaleFactor));
             }
-            if (yScaleFactor <= 0)
+            if (yScaleFactor <= 0f)
             {
-                throw new System.Exception("Cannot scale height by a non-positive amount: " + yScaleFactor);
+                throw new ArgumentOutOfRangeException($"{nameof(yScaleFactor)} must be positive: {yScaleFactor}.", nameof(yScaleFactor));
             }
 
-            return Scale(texture, Mathf.RoundToInt(texture.width * xScaleFactor), Mathf.RoundToInt(texture.height * yScaleFactor));
+            int newWidth = Mathf.RoundToInt(texture.width * xScaleFactor);
+            int newHeight = Mathf.RoundToInt(texture.height * yScaleFactor);
+            return Scale(texture, newWidth, newHeight);
         }
         public static Texture2D Scale(Texture2D texture, int newWidth, int newHeight)
         {
             AssertValidTextureDimensions(newWidth, newHeight, nameof(newWidth), nameof(newHeight));
 
             Texture2D scaled = new Texture2D(newWidth, newHeight);
-            float xScalar = (float)newWidth / texture.width;
-            float yScalar = (float)newHeight / texture.height;
+
+            float xScaleFactor = newWidth / (float)texture.width;
+            float yScaleFactor = newHeight / (float)texture.height;
 
             for (int x = 0; x < newWidth; x++)
             {
                 for (int y = 0; y < newHeight; y++)
                 {
-                    scaled.SetPixel(x, y, texture.GetPixel(Mathf.FloorToInt(x / xScalar), Mathf.FloorToInt(y / yScalar)));
+                    int descaledX = Mathf.FloorToInt(x / xScaleFactor);
+                    int descaledY = Mathf.FloorToInt(y / yScaleFactor);
+                    scaled.SetPixel(x, y, texture.GetPixel(descaledX, descaledY));
                 }
             }
 
