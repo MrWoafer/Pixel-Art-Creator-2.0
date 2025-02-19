@@ -426,15 +426,15 @@ namespace PAC.Extensions
 
         public static Texture2D LoadFromFile(string filePath)
         {
-            Texture2D texture = null;
-            byte[] fileData;
-
-            if (System.IO.File.Exists(filePath))
+            if (!System.IO.File.Exists(filePath))
             {
-                fileData = System.IO.File.ReadAllBytes(filePath);
-                texture = new Texture2D(1, 1);
-                texture.LoadImage(fileData);
+                throw new ArgumentException($"File path does not exist: {filePath}", nameof(filePath));
             }
+
+            byte[] fileData = System.IO.File.ReadAllBytes(filePath);
+            Texture2D texture = new Texture2D(1, 1);
+            texture.LoadImage(fileData);
+
             return texture;
         }
 
