@@ -423,16 +423,6 @@ namespace PAC.Extensions
             copy.Apply();
             return copy;
         }
-        /// <summary>
-        /// Creates a deepcopy of the texture using Color32 colours.
-        /// </summary>
-        public static Texture2D Copy32(Texture2D texture)
-        {
-            Texture2D copy = new Texture2D(texture.width, texture.height);
-            copy.SetPixels32(texture.GetPixels32());
-            copy.Apply();
-            return copy;
-        }
 
         public static Texture2D LoadFromFile(string filePath)
         {
