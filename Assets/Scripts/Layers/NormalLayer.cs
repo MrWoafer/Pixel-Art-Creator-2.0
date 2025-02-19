@@ -107,29 +107,6 @@ namespace PAC.Layers
         }
 
         /// <summary>
-        /// Offsets the texture at the given frame. (Moves the texture so the bottom-left corner is at the coordinates 'offset'.
-        /// </summary>
-        public void Offset(int frame, IntVector2 offset, AnimFrameRefMode frameRefMode)
-        {
-            if (frameRefMode == AnimFrameRefMode.NewKeyFrame)
-            {
-                AddKeyFrame(frame);
-            }
-
-            GetKeyFrame(frame).texture = Texture2DExtensions.Offset(GetKeyFrame(frame).texture, offset);
-        }
-        /// <summary>
-        /// Offsets the texture of every frame. (Moves the texture so the bottom-left corner is at the coordinates 'offset'.
-        /// </summary>
-        public void Offset(IntVector2 offset)
-        {
-            foreach (int keyFrameIndex in keyFrameIndices)
-            {
-                Offset(keyFrameIndex, offset, AnimFrameRefMode.MostRecentKeyFrame);
-            }
-        }
-
-        /// <summary>
         /// Flips the given frame of the layer.
         /// </summary>
         public void Flip(int frame, FlipAxis axis, AnimFrameRefMode frameRefMode)
