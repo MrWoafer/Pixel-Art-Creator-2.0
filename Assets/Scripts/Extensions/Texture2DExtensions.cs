@@ -394,20 +394,6 @@ namespace PAC.Extensions
             filled.Apply();
             return filled;
         }
-
-        public static Texture2D GetFillMask(Texture2D texture, IntVector2 startPoint, int maxNumOfIterations = 1_000_000)
-        {
-            Texture2D fillMask = Transparent(texture.width, texture.height);
-
-            foreach (IntVector2 pixel in GetPixelsToFill(texture, startPoint, maxNumOfIterations))
-            {
-                fillMask.SetPixel(pixel.x, pixel.y, Config.Colours.mask);
-            }
-
-            fillMask.Apply();
-            return fillMask;
-        }
-
         public static IEnumerable<IntVector2> GetPixelsToFill(Texture2D texture, IntVector2 startPoint, int maxNumOfIterations = 1_000_000)
         {
             Queue<IntVector2> toVisit = new Queue<IntVector2>();

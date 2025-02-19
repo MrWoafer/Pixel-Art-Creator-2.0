@@ -1086,26 +1086,38 @@ namespace PAC.Drawing
 
         private void SelectionMagicWand(IntVector2 pixel, bool erase, bool addToExistingSelection)
         {
+            static Texture2D GetMagicWandMask(Texture2D texture, IntVector2 clickPoint)
+            {
+                Texture2D fillMask = Texture2DExtensions.Transparent(texture.width, texture.height);
+
+                foreach (IntVector2 pixel in Texture2DExtensions.GetPixelsToFill(texture, clickPoint))
+                {
+                    fillMask.SetPixel(pixel.x, pixel.y, Config.Colours.mask);
+                }
+
+                return fillMask;
+            }
+
             if (erase)
             {
                 if (selectionMask.GetPixel(pixel.x, pixel.y).a != 0f)
                 {
-                    selectionMask = Texture2DExtensions.Blend(selectionMask, Texture2DExtensions.GetFillMask(selectedLayer[animationManager.currentFrameIndex].texture, pixel), BlendMode.Subtract);
+                    selectionMask = Texture2DExtensions.Blend(selectionMask, GetMagicWandMask(selectedLayer[animationManager.currentFrameIndex].texture, pixel), BlendMode.Subtract);
                 }
                 else
                 {
-                    selectionMask = Texture2DExtensions.Blend(selectionMask, Texture2DExtensions.GetFillMask(selectionMask, pixel), BlendMode.Subtract);
+                    selectionMask = Texture2DExtensions.Blend(selectionMask, GetMagicWandMask(selectionMask, pixel), BlendMode.Subtract);
                 }
             }
             else
             {
                 if (addToExistingSelection)
                 {
-                    selectionMask = Texture2DExtensions.Blend(selectionMask, Texture2DExtensions.GetFillMask(selectedLayer[animationManager.currentFrameIndex].texture, pixel), BlendMode.Normal);
+                    selectionMask = Texture2DExtensions.Blend(selectionMask, GetMagicWandMask(selectedLayer[animationManager.currentFrameIndex].texture, pixel), BlendMode.Normal);
                 }
                 else
                 {
-                    selectionMask = Texture2DExtensions.GetFillMask(selectedLayer[animationManager.currentFrameIndex].texture, pixel);
+                    selectionMask = GetMagicWandMask(selectedLayer[animationManager.currentFrameIndex].texture, pixel);
                 }
             }
         }
