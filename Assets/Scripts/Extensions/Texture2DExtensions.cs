@@ -239,29 +239,6 @@ namespace PAC.Extensions
             return rotated;
         }
 
-        public static Texture2D Offset(Texture2D texture, IntVector2 offset)
-        {
-            Texture2D offsetTexture = new Texture2D(texture.width, texture.height);
-
-            for (int x = 0; x < texture.width; x++)
-            {
-                for (int y = 0; y < texture.height; y++)
-                {
-                    if (texture.ContainsPixel(x - offset.x, y - offset.y))
-                    {
-                        offsetTexture.SetPixel(x, y, texture.GetPixel(x - offset.x, y - offset.y));
-                    }
-                    else
-                    {
-                        offsetTexture.SetPixel(x, y, Config.Colours.transparent);
-                    }
-                }
-            }
-
-            offsetTexture.Apply();
-            return offsetTexture;
-        }
-
         /// <summary>
         /// Adds the given number of transparent pixels to each side of the texture. Negative amounts will crop the image.
         /// </summary>
