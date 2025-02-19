@@ -382,56 +382,6 @@ namespace PAC.Extensions
             return scaled;
         }
 
-        public static Texture2D ApplyMask(Texture2D texture, Texture2D mask)
-        {
-            if (texture.width != mask.width || texture.height != mask.height)
-            {
-                throw new System.Exception("Texture dimensions don't match mask dimensions: " + texture.width + "x" + texture.height + " and " + mask.width + "x" + mask.height);
-            }
-
-            Texture2D maskedTexture = new Texture2D(texture.width, texture.height);
-
-            for (int x = 0; x < texture.width; x++)
-            {
-                for (int y = 0; y < texture.height; y++)
-                {
-                    if (mask.GetPixel(x, y).a != 0f)
-                    {
-                        maskedTexture.SetPixel(x, y, texture.GetPixel(x, y));
-                    }
-                    else
-                    {
-                        maskedTexture.SetPixel(x, y, Config.Colours.mask);
-                    }
-                }
-            }
-
-            maskedTexture.Apply();
-            return maskedTexture;
-        }
-        public static Texture2D ApplyMask(Texture2D texture, IntVector2[] mask)
-        {
-            Texture2D maskedTexture = Transparent(texture.width, texture.height);
-
-            for (int x = 0; x < texture.width; x++)
-            {
-                for (int y = 0; y < texture.height; y++)
-                {
-                    if (mask.Contains((x, y)))
-                    {
-                        maskedTexture.SetPixel(x, y, texture.GetPixel(x, y));
-                    }
-                    else
-                    {
-                        maskedTexture.SetPixel(x, y, Config.Colours.mask);
-                    }
-                }
-            }
-
-            maskedTexture.Apply();
-            return maskedTexture;
-        }
-
         public static Texture2D Fill(Texture2D texture, IntVector2 startPoint, Color colour, int maxNumOfIterations = 1_000_000)
         {
             Texture2D filled = Copy(texture);
