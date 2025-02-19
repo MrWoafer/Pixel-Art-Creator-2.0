@@ -358,7 +358,7 @@ namespace PAC.UI
             render.Apply();
 
             extendCropPreview.sprite = Texture2DExtensions.Blend(
-                Texture2DExtensions.Scale(Texture2DExtensions.ExtendCrop(render, left, right, up, down), 2f),
+                Texture2DExtensions.Scale(Texture2DExtensions.ExtendCrop(render, left, right, down, up), 2f),
                 Texture2DExtensions.CheckerboardBackground(fileManager.currentFile.width + left + right, fileManager.currentFile.height + up + down),
                 BlendMode.Normal
                 ).ToSprite();
