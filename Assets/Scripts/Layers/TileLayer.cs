@@ -330,7 +330,7 @@ namespace PAC.Layers
 
             foreach (AnimationKeyFrame keyFrame in keyFrames)
             {
-                keyFrame.texture = Texture2DExtensions.Extend(keyFrame.texture, left, right, up, down);
+                keyFrame.texture = Texture2DExtensions.ExtendCrop(keyFrame.texture, left, right, up, down);
             }
 
             width = keyFrames[0].texture.width;

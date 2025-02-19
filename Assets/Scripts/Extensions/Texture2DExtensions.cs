@@ -265,7 +265,7 @@ namespace PAC.Extensions
         /// <summary>
         /// Adds the given number of transparent pixels to each side of the texture. Negative amounts will crop the image.
         /// </summary>
-        public static Texture2D Extend(Texture2D texture, int left, int right, int up, int down)
+        public static Texture2D ExtendCrop(Texture2D texture, int left, int right, int up, int down)
         {
             if (left + right <= -texture.width || up + down <= -texture.height)
             {
