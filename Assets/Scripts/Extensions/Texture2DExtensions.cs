@@ -267,27 +267,44 @@ namespace PAC.Extensions
         /// </summary>
         public static Texture2D ExtendCrop(Texture2D texture, int left, int right, int up, int down)
         {
-            if (left + right <= -texture.width || up + down <= -texture.height)
+            if (left + right <= -texture.width)
             {
-                throw new System.Exception("Cannot crop by >= the image width/height: (width, height) = (" + texture.width + ", " + texture.height + ");" +
-                                           " (left, right, up, down) = (" + left + ", " + right + ", " + up + ", " + down + ")");
+                throw new ArgumentException($"Cannot crop by >= the texture's width. Width = {texture.width}, ({nameof(left)}, {nameof(right)}) = ({left}, {right}).");
+            }
+            if (up + down <= -texture.height)
+            {
+                throw new ArgumentException($"Cannot crop by >= the texture's height. Height = {texture.height}, ({nameof(down)}, {nameof(up)}) = ({down}, {up}).");
             }
 
-            return Blend(
-                texture,
-                Transparent(texture.width + left + right, texture.height + up + down),
-                (left, down),
-                BlendMode.Normal
-                );
+            return ExtendCrop(texture, new IntRect((-left, -down), (texture.width - 1 + right, texture.height - 1 + up)));
         }
-
         /// <summary>
         /// Changes the dimensions of the texture to the new rect.
         /// </summary>
         /// <param name="newRect">The coords of the new rect relative to the coords of the old rect.</param>
         public static Texture2D ExtendCrop(Texture2D texture, IntRect newRect)
         {
-            return ExtendCrop(texture, -newRect.bottomLeft.x, newRect.topRight.x - texture.width + 1, newRect.topRight.y - texture.height + 1, -newRect.bottomLeft.y);
+            Texture2D newTexture = new Texture2D(newRect.width, newRect.height);
+
+            for (int x = 0; x < newTexture.width; x++)
+            {
+                for (int y = 0; y < newTexture.height; y++)
+                {
+                    IntVector2 coordRelativeToOriginalTexture = (x, y) + newRect.bottomLeft;
+
+                    if (texture.ContainsPixel(coordRelativeToOriginalTexture))
+                    {
+                        newTexture.SetPixel(x, y, texture.GetPixel(coordRelativeToOriginalTexture));
+                    }
+                    else
+                    {
+                        newTexture.SetPixel(x, y, Config.Colours.transparent);
+                    }
+                }
+            }
+
+            newTexture.Apply();
+            return newTexture;
         }
 
         /// <summary>
