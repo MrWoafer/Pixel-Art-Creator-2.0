@@ -382,7 +382,7 @@ namespace PAC.Extensions
             return scaled;
         }
 
-        public static IEnumerable<IntVector2> GetPixelsToFill(Texture2D texture, IntVector2 startPoint, int maxNumOfIterations = 1_000_000)
+        public static IEnumerable<IntVector2> GetFloodFillPixels(Texture2D texture, IntVector2 startPoint, int maxNumOfIterations = 1_000_000)
         {
             Color colourToReplace = texture.GetPixel(startPoint);
 
