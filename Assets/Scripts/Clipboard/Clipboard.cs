@@ -48,7 +48,7 @@ namespace PAC.Clipboard
         {
             if (drawingArea.hasSelection)
             {
-                copiedTexture = Texture2DExtensions.ChangeRect(Texture2DExtensions.ApplyMask(layerManager.selectedLayer[animationManager.currentFrameIndex].texture, drawingArea.selectionMask), drawingArea.selectionRect);
+                copiedTexture = Texture2DExtensions.ExtendCrop(Texture2DExtensions.ApplyMask(layerManager.selectedLayer[animationManager.currentFrameIndex].texture, drawingArea.selectionMask), drawingArea.selectionRect);
                 copiedTexturePos = drawingArea.selectionRect.bottomLeft;
 
                 Debug.Log("Copied.");

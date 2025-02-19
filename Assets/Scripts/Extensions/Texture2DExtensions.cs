@@ -285,9 +285,9 @@ namespace PAC.Extensions
         /// Changes the dimensions of the texture to the new rect.
         /// </summary>
         /// <param name="newRect">The coords of the new rect relative to the coords of the old rect.</param>
-        public static Texture2D ChangeRect(Texture2D texture, IntRect newRect)
+        public static Texture2D ExtendCrop(Texture2D texture, IntRect newRect)
         {
-            return Extend(texture, -newRect.bottomLeft.x, newRect.topRight.x - texture.width + 1, newRect.topRight.y - texture.height + 1, -newRect.bottomLeft.y);
+            return ExtendCrop(texture, -newRect.bottomLeft.x, newRect.topRight.x - texture.width + 1, newRect.topRight.y - texture.height + 1, -newRect.bottomLeft.y);
         }
 
         /// <summary>
