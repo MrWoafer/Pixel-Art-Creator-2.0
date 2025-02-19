@@ -382,18 +382,6 @@ namespace PAC.Extensions
             return scaled;
         }
 
-        public static Texture2D Fill(Texture2D texture, IntVector2 startPoint, Color colour, int maxNumOfIterations = 1_000_000)
-        {
-            Texture2D filled = Copy(texture);
-
-            foreach (IntVector2 pixel in GetPixelsToFill(texture, startPoint, maxNumOfIterations))
-            {
-                filled.SetPixel(pixel, colour);
-            }
-
-            filled.Apply();
-            return filled;
-        }
         public static IEnumerable<IntVector2> GetPixelsToFill(Texture2D texture, IntVector2 startPoint, int maxNumOfIterations = 1_000_000)
         {
             Color colourToReplace = texture.GetPixel(startPoint);
