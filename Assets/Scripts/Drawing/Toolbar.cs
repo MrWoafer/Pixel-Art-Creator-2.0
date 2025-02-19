@@ -347,7 +347,7 @@ namespace PAC.Drawing
                         throw new System.Exception("Custom brush shape has not yet been assigned.");
                     }
 
-                    brushTexture = Texture2DExtensions.Copy(customBrushTexture);
+                    brushTexture = Texture2DExtensions.DeepCopy(customBrushTexture);
                 }
                 else
                 {
