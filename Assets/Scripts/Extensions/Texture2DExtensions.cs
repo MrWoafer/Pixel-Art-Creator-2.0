@@ -388,7 +388,7 @@ namespace PAC.Extensions
 
             foreach (IntVector2 pixel in GetPixelsToFill(texture, startPoint, maxNumOfIterations))
             {
-                filled.SetPixel(pixel.x, pixel.y, colour);
+                filled.SetPixel(pixel, colour);
             }
 
             filled.Apply();
@@ -396,10 +396,10 @@ namespace PAC.Extensions
         }
         public static IEnumerable<IntVector2> GetPixelsToFill(Texture2D texture, IntVector2 startPoint, int maxNumOfIterations = 1_000_000)
         {
+            Color colourToReplace = texture.GetPixel(startPoint);
+
             Queue<IntVector2> toVisit = new Queue<IntVector2>();
             HashSet<IntVector2> visited = new HashSet<IntVector2>();
-
-            Color colourToReplace = texture.GetPixel(startPoint.x, startPoint.y);
 
             toVisit.Enqueue(startPoint);
             visited.Add(startPoint);
@@ -412,12 +412,12 @@ namespace PAC.Extensions
 
                 foreach (IntVector2 offset in IntVector2.upDownLeftRight)
                 {
-                    IntVector2 offsetCoord = coord + offset;
-                    if (texture.ContainsPixel(offsetCoord) && texture.GetPixel(offsetCoord.x, offsetCoord.y) == colourToReplace && !visited.Contains(offsetCoord))
+                    IntVector2 adjacentCoord = coord + offset;
+                    if (!visited.Contains(adjacentCoord) && texture.ContainsPixel(adjacentCoord) && texture.GetPixel(adjacentCoord) == colourToReplace)
                     {
-                        toVisit.Enqueue(offsetCoord);
-                        visited.Add(offsetCoord);
-                        yield return offsetCoord;
+                        toVisit.Enqueue(adjacentCoord);
+                        visited.Add(adjacentCoord);
+                        yield return adjacentCoord;
                     }
                 }
 
