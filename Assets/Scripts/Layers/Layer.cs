@@ -340,7 +340,7 @@ namespace PAC.Layers
         /// <summary>
         /// Adds a key frame with the given texture at frame frame. Returns true if it replaces an existing key frame, and false otherwise.
         /// </summary>
-        protected bool AddKeyFrame(int frame, Texture2D texture) => AddKeyFrame(new AnimationKeyFrame(frame, Texture2DExtensions.Copy(texture)));
+        protected bool AddKeyFrame(int frame, Texture2D texture) => AddKeyFrame(new AnimationKeyFrame(frame, Texture2DExtensions.DeepCopy(texture)));
         /// <summary>
         /// Adds the given key frame. Returns true if it replaces an existing key frame, and false otherwise.
         /// </summary>

@@ -416,7 +416,7 @@ namespace PAC.Extensions
         /// <summary>
         /// Creates a deepcopy of the texture using Color colours.
         /// </summary>
-        public static Texture2D Copy(Texture2D texture)
+        public static Texture2D DeepCopy(Texture2D texture)
         {
             Texture2D copy = new Texture2D(texture.width, texture.height);
             copy.SetPixels(texture.GetPixels());
@@ -448,7 +448,7 @@ namespace PAC.Extensions
         /// <returns></returns>
         public static Texture2D Outline(Texture2D texture, Color outlineColour, bool outlineOutside, OutlineSideFill outlineSideFill)
         {
-            Texture2D outlined = Copy(texture);
+            Texture2D outlined = DeepCopy(texture);
 
             List<IntVector2> offsets = new List<IntVector2>();
 
