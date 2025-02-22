@@ -540,7 +540,7 @@ namespace PAC.Extensions
 
         public static IntRect GetRect(this Texture2D texture) => new IntRect((0, 0), (texture.width - 1, texture.height - 1));
 
-        public static bool ContainsPixel(this Texture2D texture, int x, int y) => x >= 0 && y >= 0 && x < texture.width && y < texture.height;
+        public static bool ContainsPixel(this Texture2D texture, int x, int y) => 0 <= x && x < texture.width && 0 <= y && y < texture.height;
         public static bool ContainsPixel(this Texture2D texture, IntVector2 pixel) => texture.ContainsPixel(pixel.x, pixel.y);
 
         public static void SetPixel(this Texture2D texture, IntVector2 coords, Color colour) => texture.SetPixel(coords.x, coords.y, colour);
