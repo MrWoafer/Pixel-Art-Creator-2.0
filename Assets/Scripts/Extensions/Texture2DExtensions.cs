@@ -10,30 +10,6 @@ using UnityEngine;
 
 namespace PAC.Extensions
 {
-    public struct OutlineSideFill
-    {
-        public bool topLeft;
-        public bool topMiddle;
-        public bool topRight;
-        public bool middleLeft;
-        public bool middleRight;
-        public bool bottomLeft;
-        public bool bottomMiddle;
-        public bool bottomRight;
-
-        public OutlineSideFill(bool topLeft, bool topMiddle, bool topRight, bool middleLeft, bool middleRight, bool bottomLeft, bool bottomMiddle, bool bottomRight)
-        {
-            this.topLeft = topLeft;
-            this.topMiddle = topMiddle;
-            this.topRight = topRight;
-            this.middleLeft = middleLeft;
-            this.middleRight = middleRight;
-            this.bottomLeft = bottomLeft;
-            this.bottomMiddle = bottomMiddle;
-            this.bottomRight = bottomRight;
-        }
-    }
-
     public static class Texture2DExtensions
     {
         /// <summary>
@@ -439,85 +415,116 @@ namespace PAC.Extensions
         }
 
         /// <summary>
+        /// Defines how the outline in <see cref="Outline(Texture2D, Color, in OutlineOptions)"/> will look.
+        /// </summary>
+        public struct OutlineOptions
+        {
+            public enum OutlineType
+            {
+                /// <summary>
+                /// The outline will be drawn on non-transparent pixels that are adjacent to transparent pixels.
+                /// </summary>
+                Inside,
+                /// <summary>
+                /// The outline will be drawn on transparent pixels that are adjacent to non-transparent pixels.
+                /// </summary>
+                Outside
+            }
+            public OutlineType outlineType;
+
+            public bool includeTopLeft;
+            public bool includeTopMiddle;
+            public bool includeTopRight;
+            public bool includeMiddleLeft;
+            public bool includeMiddleRight;
+            public bool includeBottomLeft;
+            public bool includeBottomMiddle;
+            public bool includeBottomRight;
+
+            public readonly IEnumerable<IntVector2> EnumerateDirectionsToInclude()
+            {
+                if (includeTopLeft)
+                {
+                    yield return IntVector2.upLeft;
+                }
+                if (includeTopMiddle)
+                {
+                    yield return IntVector2.up;
+                }
+                if (includeTopRight)
+                {
+                    yield return IntVector2.upRight;
+                }
+                if (includeMiddleLeft)
+                {
+                    yield return IntVector2.left;
+                }
+                if (includeMiddleRight)
+                {
+                    yield return IntVector2.right;
+                }
+                if (includeBottomLeft)
+                {
+                    yield return IntVector2.downLeft;
+                }
+                if (includeBottomMiddle)
+                {
+                    yield return IntVector2.down;
+                }
+                if (includeBottomRight)
+                {
+                    yield return IntVector2.downRight;
+                }
+            }
+        }
+        /// <summary>
         /// Makes an outline around the non-transparent pixels of the given texture.
         /// </summary>
-        /// <param name="texture"></param>
-        /// <param name="outlineColour"></param>
-        /// <param name="outlineOutside">When true: the outline is created next to existing pixels (widens the sprite). When false: replaces the outer pixels.</param>
-        /// <param name="outlineCorners">When true: the outline makes a full right-angle at corners. When false: corners are 'rounded'.</param>
-        /// <returns></returns>
-        public static Texture2D Outline(Texture2D texture, Color outlineColour, bool outlineOutside, OutlineSideFill outlineSideFill)
+        public static Texture2D Outline(Texture2D texture, Color outlineColour, in OutlineOptions outlineOptions)
         {
-            Texture2D outlined = DeepCopy(texture);
+            Color[] pixels = texture.GetPixels();
 
-            List<IntVector2> offsets = new List<IntVector2>();
-
-            if (outlineSideFill.topLeft)
+            if (outlineOptions.outlineType == OutlineOptions.OutlineType.Outside)
             {
-                offsets.Add(IntVector2.upLeft * (outlineOutside ? -1 : 1));
-            }
-            if (outlineSideFill.topMiddle)
-            {
-                offsets.Add(IntVector2.up * (outlineOutside ? -1 : 1));
-            }
-            if (outlineSideFill.topRight)
-            {
-                offsets.Add(IntVector2.upRight * (outlineOutside ? -1 : 1));
-            }
-            if (outlineSideFill.middleLeft)
-            {
-                offsets.Add(IntVector2.left * (outlineOutside ? -1 : 1));
-            }
-            if (outlineSideFill.middleRight)
-            {
-                offsets.Add(IntVector2.right * (outlineOutside ? -1 : 1));
-            }
-            if (outlineSideFill.bottomLeft)
-            {
-                offsets.Add(IntVector2.downLeft * (outlineOutside ? -1 : 1));
-            }
-            if (outlineSideFill.bottomMiddle)
-            {
-                offsets.Add(IntVector2.down * (outlineOutside ? -1 : 1));
-            }
-            if (outlineSideFill.bottomRight)
-            {
-                offsets.Add(IntVector2.downRight * (outlineOutside ? -1 : 1));
-            }
-
-            List<IntVector2> pixelsInOutline = new List<IntVector2>();
-
-            for (int x = 0; x < outlined.width; x++)
-            {
-                for (int y = 0; y < outlined.height; y++)
+                foreach ((IntVector2 pixel, int index) in texture.GetRect().Enumerate())
                 {
-                    if (outlineOutside && outlined.GetPixel(x, y).a == 0)
+                    if (texture.GetPixel(pixel).a == 0f)
                     {
-                        foreach (IntVector2 offset in offsets)
+                        foreach (IntVector2 offset in outlineOptions.EnumerateDirectionsToInclude())
                         {
-                            if (texture.ContainsPixel((x, y) + offset) && outlined.GetPixel(x + offset.x, y + offset.y).a != 0)
+                            if (texture.ContainsPixel(pixel - offset) && texture.GetPixel(pixel - offset).a != 0f)
                             {
-                                pixelsInOutline.Add((x, y));
-                            }
-                        }
-                    }
-                    else if (!outlineOutside && outlined.GetPixel(x, y).a != 0)
-                    {
-                        foreach (IntVector2 offset in offsets)
-                        {
-                            if (!texture.ContainsPixel((x, y) + offset) || outlined.GetPixel(x + offset.x, y + offset.y).a == 0)
-                            {
-                                pixelsInOutline.Add((x, y));
+                                pixels[index] = outlineColour;
+                                break;
                             }
                         }
                     }
                 }
             }
-
-            foreach (IntVector2 point in pixelsInOutline)
+            else if (outlineOptions.outlineType == OutlineOptions.OutlineType.Inside)
             {
-                outlined.SetPixel(point.x, point.y, outlineColour);
+                foreach ((IntVector2 pixel, int index) in texture.GetRect().Enumerate())
+                {
+                    if (texture.GetPixel(pixel).a != 0f)
+                    {
+                        foreach (IntVector2 offset in outlineOptions.EnumerateDirectionsToInclude())
+                        {
+                            if (!texture.ContainsPixel(pixel + offset) || texture.GetPixel(pixel + offset).a == 0f)
+                            {
+                                pixels[index] = outlineColour;
+                                break;
+                            }
+                        }
+                    }
+                }
             }
+            else
+            {
+                throw new NotImplementedException($"Unknown / unimplemented {nameof(OutlineOptions.OutlineType)}: {outlineOptions.outlineType}.");
+            }
+
+            Texture2D outlined = new Texture2D(texture.width, texture.height);
+            outlined.SetPixels(pixels);
 
             outlined.Apply();
             return outlined;

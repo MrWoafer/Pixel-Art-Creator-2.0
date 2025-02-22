@@ -519,14 +519,27 @@ namespace PAC.UI
 
         public void ConfirmOutlineWindow()
         {
-            bool outside = outlineOutsideToggle.on;
-            OutlineSideFill sideFill = new OutlineSideFill(outlineTopLeftToggle.on, outlineTopMiddleToggle.on, outlineTopRightToggle.on, outlineMiddleLeftToggle.on, outlineMiddleRightToggle.on,
-                outlineBottomLeftToggle.on, outlineBottomMiddleToggle.on, outlineBottomRightToggle.on);
+            Texture2DExtensions.OutlineOptions outlineOptions = new Texture2DExtensions.OutlineOptions
+            {
+                outlineType = outlineOutsideToggle.on ? Texture2DExtensions.OutlineOptions.OutlineType.Outside : Texture2DExtensions.OutlineOptions.OutlineType.Inside,
+
+                includeTopLeft = outlineTopLeftToggle.on,
+                includeTopMiddle = outlineTopMiddleToggle.on,
+                includeTopRight = outlineTopRightToggle.on,
+                includeMiddleLeft = outlineMiddleLeftToggle.on,
+                includeMiddleRight = outlineMiddleRightToggle.on,
+                includeBottomLeft = outlineBottomLeftToggle.on,
+                includeBottomMiddle = outlineBottomMiddleToggle.on,
+                includeBottomRight = outlineBottomRightToggle.on,
+            };
 
             foreach (Layer layer in layerManager.selectedLayers)
             {
-                ((NormalLayer)layer).SetTexture(animationManager.currentFrameIndex, Texture2DExtensions.Outline(layer[animationManager.currentFrameIndex].texture, outlineColourField.colour, outside, sideFill),
-                    AnimFrameRefMode.NewKeyFrame);
+                ((NormalLayer)layer).SetTexture(
+                    animationManager.currentFrameIndex,
+                    Texture2DExtensions.Outline(layer[animationManager.currentFrameIndex].texture, outlineColourField.colour, outlineOptions),
+                    AnimFrameRefMode.NewKeyFrame
+                    );
             }
             drawingArea.UpdateDrawing();
 
@@ -535,15 +548,28 @@ namespace PAC.UI
 
         private void UpdateOutlinePreview()
         {
-            bool outside = outlineOutsideToggle.on;
-            OutlineSideFill sideFill = new OutlineSideFill(outlineTopLeftToggle.on, outlineTopMiddleToggle.on, outlineTopRightToggle.on, outlineMiddleLeftToggle.on, outlineMiddleRightToggle.on,
-                outlineBottomLeftToggle.on, outlineBottomMiddleToggle.on, outlineBottomRightToggle.on);
+            Texture2DExtensions.OutlineOptions outlineOptions = new Texture2DExtensions.OutlineOptions
+            {
+                outlineType = outlineOutsideToggle.on ? Texture2DExtensions.OutlineOptions.OutlineType.Outside : Texture2DExtensions.OutlineOptions.OutlineType.Inside,
+
+                includeTopLeft = outlineTopLeftToggle.on,
+                includeTopMiddle = outlineTopMiddleToggle.on,
+                includeTopRight = outlineTopRightToggle.on,
+                includeMiddleLeft = outlineMiddleLeftToggle.on,
+                includeMiddleRight = outlineMiddleRightToggle.on,
+                includeBottomLeft = outlineBottomLeftToggle.on,
+                includeBottomMiddle = outlineBottomMiddleToggle.on,
+                includeBottomRight = outlineBottomRightToggle.on,
+            };
 
             File fileCopy = new File(fileManager.currentFile);
             foreach (int layer in layerManager.selectedLayerIndices)
             {
-                ((NormalLayer)fileCopy.layers[layer]).SetTexture(animationManager.currentFrameIndex, Texture2DExtensions.Outline(fileCopy.layers[layer][animationManager.currentFrameIndex].texture, outlineColourField.colour,
-                    outside, sideFill), AnimFrameRefMode.NewKeyFrame);
+                ((NormalLayer)fileCopy.layers[layer]).SetTexture(
+                    animationManager.currentFrameIndex,
+                    Texture2DExtensions.Outline(fileCopy.layers[layer][animationManager.currentFrameIndex].texture, outlineColourField.colour, outlineOptions),
+                    AnimFrameRefMode.NewKeyFrame
+                    );
             }
 
             Texture2D render = fileCopy.Render(animationManager.currentFrameIndex);
