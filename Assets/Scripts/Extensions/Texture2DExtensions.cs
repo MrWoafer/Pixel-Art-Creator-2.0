@@ -63,8 +63,7 @@ namespace PAC.Extensions
             }
 
             texture.SetPixels(pixels);
-            texture.Apply();
-            return texture;
+            return texture.Applied();
         }
         /// <summary>
         /// Creates a <see cref="Texture2D"/> of the given dimensions, filled with the given colour.
@@ -86,8 +85,7 @@ namespace PAC.Extensions
             }
 
             texture.SetPixels32(pixels);
-            texture.Apply();
-            return texture;
+            return texture.Applied();
         }
 
         public static Texture2D CheckerboardBackground(int width, int height)
@@ -113,8 +111,7 @@ namespace PAC.Extensions
                 }
             }
 
-            texture.Apply();
-            return texture;
+            return texture.Applied();
         }
 
         public static Texture2D Flip(this Texture2D texture, FlipAxis axis) => axis switch
@@ -136,8 +133,7 @@ namespace PAC.Extensions
                 }
             }
 
-            flipped.Apply();
-            return flipped;
+            return flipped.Applied();
         }
         private static Texture2D FlipY(this Texture2D texture)
         {
@@ -151,8 +147,7 @@ namespace PAC.Extensions
                 }
             }
 
-            flipped.Apply();
-            return flipped;
+            return flipped.Applied();
         }
 
         public static Texture2D Rotate(this Texture2D texture, RotationAngle angle) => angle switch
@@ -178,8 +173,7 @@ namespace PAC.Extensions
                 }
             }
 
-            rotated.Apply();
-            return rotated;
+            return rotated.Applied();
         }
         /// <summary>
         /// Rotation is clockwise.
@@ -196,8 +190,7 @@ namespace PAC.Extensions
                 }
             }
 
-            rotated.Apply();
-            return rotated;
+            return rotated.Applied();
         }
         private static Texture2D Rotate180(this Texture2D texture)
         {
@@ -211,8 +204,7 @@ namespace PAC.Extensions
                 }
             }
 
-            rotated.Apply();
-            return rotated;
+            return rotated.Applied();
         }
 
         /// <summary>
@@ -256,8 +248,7 @@ namespace PAC.Extensions
                 }
             }
 
-            newTexture.Apply();
-            return newTexture;
+            return newTexture.Applied();
         }
 
         /// <summary>
@@ -288,8 +279,7 @@ namespace PAC.Extensions
                 }
             }
 
-            blended.Apply();
-            return blended;
+            return blended.Applied();
         }
         /// <summary>
         /// Overlays topColour onto each pixel of bottomTex using the given blend mode.
@@ -307,8 +297,7 @@ namespace PAC.Extensions
                 }
             }
 
-            blended.Apply();
-            return blended;
+            return blended.Applied();
         }
 
         public static Texture2D Scale(this Texture2D texture, float scaleFactor)
@@ -354,8 +343,7 @@ namespace PAC.Extensions
                 }
             }
 
-            scaled.Apply();
-            return scaled;
+            return scaled.Applied();
         }
 
         public static IEnumerable<IntVector2> GetFloodFillPixels(Texture2D texture, IntVector2 startPoint, int maxNumOfIterations = 1_000_000)
@@ -396,8 +384,7 @@ namespace PAC.Extensions
         {
             Texture2D copy = new Texture2D(texture.width, texture.height);
             copy.SetPixels(texture.GetPixels());
-            copy.Apply();
-            return copy;
+            return copy.Applied();
         }
 
         public static Texture2D LoadFromFile(string filePath)
@@ -526,8 +513,7 @@ namespace PAC.Extensions
             Texture2D outlined = new Texture2D(texture.width, texture.height);
             outlined.SetPixels(pixels);
 
-            outlined.Apply();
-            return outlined;
+            return outlined.Applied();
         }
 
         public static Texture2D ReplaceColour(this Texture2D texture, Color toReplace, Color replaceWith, float tolerance = 0f)
@@ -549,8 +535,7 @@ namespace PAC.Extensions
             Texture2D replaced = new Texture2D(texture.width, texture.height);
             replaced.SetPixels(pixels);
 
-            replaced.Apply();
-            return replaced;
+            return replaced.Applied();
         }
 
         public static IntRect GetRect(this Texture2D texture) => new IntRect((0, 0), (texture.width - 1, texture.height - 1));

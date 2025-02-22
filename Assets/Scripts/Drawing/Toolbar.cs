@@ -356,8 +356,7 @@ namespace PAC.Drawing
             }
             else
             {
-                brushTexture = Texture2DExtensions.Solid(1, 1, Config.Colours.mask);
-                brushTexture.Apply();
+                brushTexture = Texture2DExtensions.Solid(1, 1, Config.Colours.mask).Applied();
             }
 
             // Get array of non-transparent pixels in the brush texture

@@ -34,8 +34,7 @@ namespace PAC.Extensions
             }
 
             texture.SetPixels(pixels);
-            texture.Apply();
-            return texture;
+            return texture.Applied();
         }
         /// <summary>
         /// Turns the section of the pattern in the given rect into a Unity <see cref="Texture2D"/>. 
@@ -59,8 +58,7 @@ namespace PAC.Extensions
             }
 
             texture.SetPixels32(pixels);
-            texture.Apply();
-            return texture;
+            return texture.Applied();
         }
     }
 }

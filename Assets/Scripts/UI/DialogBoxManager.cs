@@ -354,8 +354,7 @@ namespace PAC.UI
             extendCropTopField.min = 1f - (fileManager.currentFile.height + down);
             extendCropBottomField.min = 1f - (fileManager.currentFile.height + up);
 
-            Texture2D render = fileManager.currentFile.Render(animationManager.currentFrameIndex);
-            render.Apply();
+            Texture2D render = fileManager.currentFile.Render(animationManager.currentFrameIndex).Applied();
 
             extendCropPreview.sprite = render.ExtendCrop(left, right, down, up).Scale(2).Blend(
                 Texture2DExtensions.CheckerboardBackground(fileManager.currentFile.width + left + right, fileManager.currentFile.height + up + down),
@@ -431,8 +430,7 @@ namespace PAC.UI
             int width = (int)scaleWidthField.value;
             int height = (int)scaleHeightField.value;
 
-            Texture2D render = fileManager.currentFile.Render(animationManager.currentFrameIndex);
-            render.Apply();
+            Texture2D render = fileManager.currentFile.Render(animationManager.currentFrameIndex).Applied();
 
             scalePreview.sprite = render.Scale(2 * width, 2 * height).Blend(
                 Texture2DExtensions.CheckerboardBackground(width, height),
@@ -489,8 +487,7 @@ namespace PAC.UI
             int yOffset = (int)gridOffsetYField.value;
             bool on = gridEnableButton.on;
 
-            Texture2D render = fileManager.currentFile.Render(animationManager.currentFrameIndex);
-            render.Apply();
+            Texture2D render = fileManager.currentFile.Render(animationManager.currentFrameIndex).Applied();
 
             gridPreview.sprite = render.Scale(2).Blend(
                 Texture2DExtensions.CheckerboardBackground(fileManager.currentFile.width, fileManager.currentFile.height),
@@ -569,8 +566,7 @@ namespace PAC.UI
                     );
             }
 
-            Texture2D render = fileCopy.Render(animationManager.currentFrameIndex);
-            render.Apply();
+            Texture2D render = fileCopy.Render(animationManager.currentFrameIndex).Applied();
 
             outlinePreview.sprite = render.Scale(2).Blend(
                 Texture2DExtensions.CheckerboardBackground(fileManager.currentFile.width, fileManager.currentFile.height),
@@ -625,8 +621,7 @@ namespace PAC.UI
                     );
             }
 
-            Texture2D render = fileCopy.Render(animationManager.currentFrameIndex);
-            render.Apply();
+            Texture2D render = fileCopy.Render(animationManager.currentFrameIndex).Applied();
 
             replaceColourPreview.sprite = render.Scale(2).Blend(
                 Texture2DExtensions.CheckerboardBackground(fileManager.currentFile.width, fileManager.currentFile.height),

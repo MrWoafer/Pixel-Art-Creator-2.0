@@ -398,8 +398,7 @@ namespace PAC.Files
                 throw new System.Exception("The file is not a PNG file. File extension: " + Path.GetExtension(filePath));
             }
 
-            Texture2D texture = Render(frame);
-            texture.Apply();
+            Texture2D texture = Render(frame).Applied();
 
             byte[] bytes = texture.EncodeToPNG();
             System.IO.File.WriteAllBytes(filePath, bytes);
@@ -418,8 +417,7 @@ namespace PAC.Files
                 throw new System.Exception("The file is not a JPEG/JPG file. File extension: " + Path.GetExtension(filePath));
             }
 
-            Texture2D texture = Render(frame);
-            texture.Apply();
+            Texture2D texture = Render(frame).Applied();
 
             byte[] bytes = texture.EncodeToJPG();
             System.IO.File.WriteAllBytes(filePath, bytes);

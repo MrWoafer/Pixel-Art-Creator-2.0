@@ -83,8 +83,7 @@ namespace PAC.UI
             this.file = file;
             nameText.text = file.name;
 
-            file.liveRender.Apply();
-            button.SetImages(file.liveRender.ToSprite(), null, null);
+            button.SetImages(file.liveRender.Applied().ToSprite(), null, null);
             file.SubscribeToOnPixelsChanged((x, y, z) => file.liveRender.Apply());
         }
 

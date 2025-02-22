@@ -533,8 +533,7 @@ namespace PAC.Drawing
                                 tileBeingMovedOriginalBottomLeft = tileBeingMoved.bottomLeft;
                                 tileBeingMovedLastValidPosition = tileBeingMoved.bottomLeft;
 
-                                tileBeingMoved.file.liveRender.Apply();
-                                SetPreview(tileBeingMoved.file.liveRender, tileBeingMoved.bottomLeft);
+                                SetPreview(tileBeingMoved.file.liveRender.Applied(), tileBeingMoved.bottomLeft);
 
                                 file.RemoveTile(tileBeingMoved);
                             }
@@ -1123,8 +1122,7 @@ namespace PAC.Drawing
         private void SelectionDraw(IntVector2 pixel, bool erase)
         {
             selectionMask.SetPixel(pixel.x, pixel.y, erase ? Config.Colours.transparent : Config.Colours.mask);
-            selectionMask.Apply();
-            selectionMask = selectionMask;
+            selectionMask = selectionMask.Applied();
         }
 
         private void DeselectSelection()
@@ -1204,8 +1202,7 @@ namespace PAC.Drawing
             tileBeingMovedOriginalBottomLeft = tileBeingMoved.bottomLeft;
             tileBeingMovedLastValidPosition = tileBeingMoved.bottomLeft;
 
-            tileBeingMoved.file.liveRender.Apply();
-            SetPreview(tileBeingMoved.file.liveRender, tileBeingMoved.bottomLeft);
+            SetPreview(tileBeingMoved.file.liveRender.Applied(), tileBeingMoved.bottomLeft);
         }
     }
 }

@@ -29,8 +29,7 @@ namespace PAC.Extensions
                 }
             }
 
-            texture.Apply();
-            return texture;
+            return texture.Applied();
         }
     }
 }
