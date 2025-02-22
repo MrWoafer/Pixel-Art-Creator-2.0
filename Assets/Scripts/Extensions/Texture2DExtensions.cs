@@ -561,5 +561,14 @@ namespace PAC.Extensions
         public static void SetPixel(this Texture2D texture, IntVector2 coords, Color colour) => texture.SetPixel(coords.x, coords.y, colour);
 
         public static Color GetPixel(this Texture2D texture, IntVector2 coords) => texture.GetPixel(coords.x, coords.y);
+
+        /// <summary>
+        /// Calls <see cref="Texture2D.Apply()"/> on the <see cref="Texture2D"/> then returns it.
+        /// </summary>
+        public static Texture2D Applied(this Texture2D texture)
+        {
+            texture.Apply();
+            return texture;
+        }
     }
 }
