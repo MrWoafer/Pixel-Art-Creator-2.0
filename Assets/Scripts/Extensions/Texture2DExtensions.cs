@@ -530,25 +530,24 @@ namespace PAC.Extensions
             return outlined;
         }
 
-        public static Texture2D ReplaceColour(Texture2D texture, Color toReplace, Color replaceWith)
+        public static Texture2D ReplaceColour(Texture2D texture, Color toReplace, Color replaceWith, float tolerance = 0f)
         {
-            Texture2D replaced = new Texture2D(texture.width, texture.height);
-
-            for (int x = 0; x < texture.width; x++)
+            if (tolerance < 0f)
             {
-                for (int y = 0; y < texture.height; y++)
+                throw new ArgumentOutOfRangeException(nameof(tolerance), $"{nameof(tolerance)} should be non-negative: {tolerance}.");
+            }
+
+            Color[] pixels = texture.GetPixels();
+            foreach ((IntVector2 pixel, int index) in texture.GetRect().Enumerate())
+            {
+                if (texture.GetPixel(pixel).Equals(toReplace, tolerance))
                 {
-                    Color pixelColour = texture.GetPixel(x, y);
-                    if (Vector4.Distance(pixelColour, toReplace) < 0.01f)
-                    {
-                        replaced.SetPixel(x, y, replaceWith);
-                    }
-                    else
-                    {
-                        replaced.SetPixel(x, y, texture.GetPixel(x, y));
-                    }
+                    pixels[index] = replaceWith;
                 }
             }
+
+            Texture2D replaced = new Texture2D(texture.width, texture.height);
+            replaced.SetPixels(pixels);
 
             replaced.Apply();
             return replaced;

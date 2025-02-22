@@ -603,8 +603,11 @@ namespace PAC.UI
 
             foreach (Layer layer in layerManager.selectedLayers)
             {
-                ((NormalLayer)layer).SetTexture(animationManager.currentFrameIndex, Texture2DExtensions.ReplaceColour(layer[animationManager.currentFrameIndex].texture, toReplace, replaceWith),
-                    AnimFrameRefMode.NewKeyFrame);
+                ((NormalLayer)layer).SetTexture(
+                    animationManager.currentFrameIndex,
+                    Texture2DExtensions.ReplaceColour(layer[animationManager.currentFrameIndex].texture, toReplace, replaceWith, 0.01f),
+                    AnimFrameRefMode.NewKeyFrame
+                    );
             }
             drawingArea.UpdateDrawing();
 
@@ -619,8 +622,11 @@ namespace PAC.UI
             File fileCopy = new File(fileManager.currentFile);
             foreach (int layer in layerManager.selectedLayerIndices)
             {
-                ((NormalLayer)fileCopy.layers[layer]).SetTexture(animationManager.currentFrameIndex, Texture2DExtensions.ReplaceColour(fileCopy.layers[layer][animationManager.currentFrameIndex].texture, toReplace,
-                    replaceWith), AnimFrameRefMode.NewKeyFrame);
+                ((NormalLayer)fileCopy.layers[layer]).SetTexture(
+                    animationManager.currentFrameIndex,
+                    Texture2DExtensions.ReplaceColour(fileCopy.layers[layer][animationManager.currentFrameIndex].texture, toReplace, replaceWith, 0.01f),
+                    AnimFrameRefMode.NewKeyFrame
+                    );
             }
 
             Texture2D render = fileCopy.Render(animationManager.currentFrameIndex);
