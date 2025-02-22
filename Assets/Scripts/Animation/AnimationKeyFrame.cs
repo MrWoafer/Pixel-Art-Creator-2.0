@@ -32,7 +32,7 @@ namespace PAC.Animation
         /// <summary>
         /// Creates a deep copy of the AnimationKeyFrame.
         /// </summary>
-        public AnimationKeyFrame(AnimationKeyFrame animationKeyFrame) : this(animationKeyFrame.frame, Texture2DExtensions.DeepCopy(animationKeyFrame.texture)) { }
+        public AnimationKeyFrame(AnimationKeyFrame animationKeyFrame) : this(animationKeyFrame.frame, animationKeyFrame.texture.DeepCopy()) { }
 
         /// <summary>
         /// Creates a deep copy of the AnimationKeyFrame.

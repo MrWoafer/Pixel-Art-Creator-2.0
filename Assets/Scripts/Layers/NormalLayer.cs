@@ -88,7 +88,7 @@ namespace PAC.Layers
                 AddKeyFrame(frame);
             }
 
-            GetKeyFrame(frame).texture = Texture2DExtensions.Blend(overlayTex, GetKeyFrame(frame).texture, BlendMode.Normal, offset);
+            GetKeyFrame(frame).texture = overlayTex.Blend(GetKeyFrame(frame).texture, BlendMode.Normal, offset);
             onPixelsChanged.Invoke(rect, new int[] { GetKeyFrame(frame).frame });
         }
         /// <summary>
@@ -116,7 +116,7 @@ namespace PAC.Layers
                 AddKeyFrame(frame);
             }
 
-            GetKeyFrame(frame).texture = Texture2DExtensions.Flip(GetKeyFrame(frame).texture, axis);
+            GetKeyFrame(frame).texture = GetKeyFrame(frame).texture.Flip(axis);
 
             onPixelsChanged.Invoke(rect, new int[] { GetKeyFrame(frame).frame });
         }
@@ -124,7 +124,7 @@ namespace PAC.Layers
         {
             foreach (AnimationKeyFrame keyFrame in keyFrames)
             {
-                keyFrame.texture = Texture2DExtensions.Flip(keyFrame.texture, axis);
+                keyFrame.texture = keyFrame.texture.Flip(axis);
             }
         }
 
@@ -143,7 +143,7 @@ namespace PAC.Layers
                 AddKeyFrame(frame);
             }
 
-            GetKeyFrame(frame).texture = Texture2DExtensions.Rotate(GetKeyFrame(frame).texture, angle);
+            GetKeyFrame(frame).texture = GetKeyFrame(frame).texture.Rotate(angle);
 
             onPixelsChanged.Invoke(rect, new int[] { GetKeyFrame(frame).frame });
         }
@@ -156,7 +156,7 @@ namespace PAC.Layers
 
             foreach (AnimationKeyFrame keyFrame in keyFrames)
             {
-                keyFrame.texture = Texture2DExtensions.Rotate(keyFrame.texture, angle);
+                keyFrame.texture = keyFrame.texture.Rotate(angle);
             }
 
             width = keyFrames[0].texture.width;
@@ -167,7 +167,7 @@ namespace PAC.Layers
         {
             foreach (AnimationKeyFrame keyFrame in keyFrames)
             {
-                keyFrame.texture = Texture2DExtensions.ExtendCrop(keyFrame.texture, left, right, down, up);
+                keyFrame.texture = keyFrame.texture.ExtendCrop(left, right, down, up);
             }
 
             width = keyFrames[0].texture.width;
@@ -178,7 +178,7 @@ namespace PAC.Layers
         {
             foreach (AnimationKeyFrame keyFrame in keyFrames)
             {
-                keyFrame.texture = Texture2DExtensions.Scale(keyFrame.texture, xScaleFactor, yScaleFactor);
+                keyFrame.texture = keyFrame.texture.Scale(xScaleFactor, yScaleFactor);
             }
 
             width = keyFrames[0].texture.width;
@@ -188,7 +188,7 @@ namespace PAC.Layers
         {
             foreach (AnimationKeyFrame keyFrame in keyFrames)
             {
-                keyFrame.texture = Texture2DExtensions.Scale(keyFrame.texture, newWidth, newHeight);
+                keyFrame.texture = keyFrame.texture.Scale(newWidth, newHeight);
             }
 
             width = keyFrames[0].texture.width;

@@ -117,14 +117,14 @@ namespace PAC.Extensions
             return texture;
         }
 
-        public static Texture2D Flip(Texture2D texture, FlipAxis axis) => axis switch
+        public static Texture2D Flip(this Texture2D texture, FlipAxis axis) => axis switch
         {
             FlipAxis.None => texture,
-            FlipAxis.Vertical => FlipX(texture),
-            FlipAxis.Horizontal => FlipY(texture),
+            FlipAxis.Vertical => texture.FlipX(),
+            FlipAxis.Horizontal => texture.FlipY(),
             _ => throw new ArgumentException($"Unknown / unimplemented FlipAxis: {axis}.", nameof(axis))
         };
-        private static Texture2D FlipX(Texture2D texture)
+        private static Texture2D FlipX(this Texture2D texture)
         {
             Texture2D flipped = new Texture2D(texture.width, texture.height);
 
@@ -139,7 +139,7 @@ namespace PAC.Extensions
             flipped.Apply();
             return flipped;
         }
-        private static Texture2D FlipY(Texture2D texture)
+        private static Texture2D FlipY(this Texture2D texture)
         {
             Texture2D flipped = new Texture2D(texture.width, texture.height);
 
@@ -155,18 +155,18 @@ namespace PAC.Extensions
             return flipped;
         }
 
-        public static Texture2D Rotate(Texture2D texture, RotationAngle angle) => angle switch
+        public static Texture2D Rotate(this Texture2D texture, RotationAngle angle) => angle switch
         {
             RotationAngle._0 => texture,
-            RotationAngle._90 => Rotate90(texture),
-            RotationAngle.Minus90 => RotateMinus90(texture),
-            RotationAngle._180 => Rotate180(texture),
+            RotationAngle._90 => texture.Rotate90(),
+            RotationAngle.Minus90 => texture.RotateMinus90(),
+            RotationAngle._180 => texture.Rotate180(),
             _ => throw new ArgumentException($"Unknown / unimplemented RotationAngle: {angle}", nameof(angle))
         };
         /// <summary>
         /// Rotation is clockwise.
         /// </summary>
-        private static Texture2D Rotate90(Texture2D texture)
+        private static Texture2D Rotate90(this Texture2D texture)
         {
             Texture2D rotated = new Texture2D(texture.height, texture.width);
 
@@ -184,7 +184,7 @@ namespace PAC.Extensions
         /// <summary>
         /// Rotation is clockwise.
         /// </summary>
-        private static Texture2D RotateMinus90(Texture2D texture)
+        private static Texture2D RotateMinus90(this Texture2D texture)
         {
             Texture2D rotated = new Texture2D(texture.height, texture.width);
 
@@ -199,7 +199,7 @@ namespace PAC.Extensions
             rotated.Apply();
             return rotated;
         }
-        private static Texture2D Rotate180(Texture2D texture)
+        private static Texture2D Rotate180(this Texture2D texture)
         {
             Texture2D rotated = new Texture2D(texture.width, texture.height);
 
@@ -218,7 +218,7 @@ namespace PAC.Extensions
         /// <summary>
         /// Adds the given number of transparent pixels to each side of the texture. Negative amounts will crop the image.
         /// </summary>
-        public static Texture2D ExtendCrop(Texture2D texture, int left, int right, int down, int up)
+        public static Texture2D ExtendCrop(this Texture2D texture, int left, int right, int down, int up)
         {
             if (left + right <= -texture.width)
             {
@@ -235,7 +235,7 @@ namespace PAC.Extensions
         /// Changes the dimensions of the texture to the new rect.
         /// </summary>
         /// <param name="newRect">The coords of the new rect relative to the coords of the old rect.</param>
-        public static Texture2D ExtendCrop(Texture2D texture, IntRect newRect)
+        public static Texture2D ExtendCrop(this Texture2D texture, IntRect newRect)
         {
             Texture2D newTexture = new Texture2D(newRect.width, newRect.height);
 
@@ -263,11 +263,11 @@ namespace PAC.Extensions
         /// <summary>
         /// Overlays topTex onto bottomTex using the given blend mode, placing the bottom-left corner on the bottom-left corner.
         /// </summary>
-        public static Texture2D Blend(Texture2D topTexture, Texture2D bottomTexture, BlendMode blendMode) => Blend(topTexture, bottomTexture, blendMode, (0, 0));
+        public static Texture2D Blend(this Texture2D topTexture, Texture2D bottomTexture, BlendMode blendMode) => Blend(topTexture, bottomTexture, blendMode, (0, 0));
         /// <summary>
         /// Overlays topTex onto bottomTex using the given blend mode, placing the bottom-left corner at the coordinates topTexOffset (which don't have to be within the image).
         /// </summary>
-        public static Texture2D Blend(Texture2D topTexture, Texture2D bottomTexture, BlendMode blendMode, IntVector2 topTextureOffset)
+        public static Texture2D Blend(this Texture2D topTexture, Texture2D bottomTexture, BlendMode blendMode, IntVector2 topTextureOffset)
         {
             Texture2D blended = new Texture2D(bottomTexture.width, bottomTexture.height);
 
@@ -311,7 +311,7 @@ namespace PAC.Extensions
             return blended;
         }
 
-        public static Texture2D Scale(Texture2D texture, float scaleFactor)
+        public static Texture2D Scale(this Texture2D texture, float scaleFactor)
         {
             if (scaleFactor <= 0f)
             {
@@ -320,7 +320,7 @@ namespace PAC.Extensions
 
             return Scale(texture, scaleFactor, scaleFactor);
         }
-        public static Texture2D Scale(Texture2D texture, float xScaleFactor, float yScaleFactor)
+        public static Texture2D Scale(this Texture2D texture, float xScaleFactor, float yScaleFactor)
         {
             if (xScaleFactor <= 0f)
             {
@@ -335,7 +335,7 @@ namespace PAC.Extensions
             int newHeight = Mathf.RoundToInt(texture.height * yScaleFactor);
             return Scale(texture, newWidth, newHeight);
         }
-        public static Texture2D Scale(Texture2D texture, int newWidth, int newHeight)
+        public static Texture2D Scale(this Texture2D texture, int newWidth, int newHeight)
         {
             AssertValidTextureDimensions(newWidth, newHeight, nameof(newWidth), nameof(newHeight));
 
@@ -392,7 +392,7 @@ namespace PAC.Extensions
         /// <summary>
         /// Creates a deepcopy of the texture using Color colours.
         /// </summary>
-        public static Texture2D DeepCopy(Texture2D texture)
+        public static Texture2D DeepCopy(this Texture2D texture)
         {
             Texture2D copy = new Texture2D(texture.width, texture.height);
             copy.SetPixels(texture.GetPixels());
@@ -530,7 +530,7 @@ namespace PAC.Extensions
             return outlined;
         }
 
-        public static Texture2D ReplaceColour(Texture2D texture, Color toReplace, Color replaceWith, float tolerance = 0f)
+        public static Texture2D ReplaceColour(this Texture2D texture, Color toReplace, Color replaceWith, float tolerance = 0f)
         {
             if (tolerance < 0f)
             {

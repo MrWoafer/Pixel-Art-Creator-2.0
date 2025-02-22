@@ -357,8 +357,7 @@ namespace PAC.UI
             Texture2D render = fileManager.currentFile.Render(animationManager.currentFrameIndex);
             render.Apply();
 
-            extendCropPreview.sprite = Texture2DExtensions.Blend(
-                Texture2DExtensions.Scale(Texture2DExtensions.ExtendCrop(render, left, right, down, up), 2f),
+            extendCropPreview.sprite = render.ExtendCrop(left, right, down, up).Scale(2).Blend(
                 Texture2DExtensions.CheckerboardBackground(fileManager.currentFile.width + left + right, fileManager.currentFile.height + up + down),
                 BlendMode.Normal
                 ).ToSprite();
@@ -435,8 +434,7 @@ namespace PAC.UI
             Texture2D render = fileManager.currentFile.Render(animationManager.currentFrameIndex);
             render.Apply();
 
-            scalePreview.sprite = Texture2DExtensions.Blend(
-                Texture2DExtensions.Scale(Texture2DExtensions.Scale(render, width, height), 2f),
+            scalePreview.sprite = render.Scale(2 * width, 2 * height).Blend(
                 Texture2DExtensions.CheckerboardBackground(width, height),
                 BlendMode.Normal
                 ).ToSprite();
@@ -494,8 +492,7 @@ namespace PAC.UI
             Texture2D render = fileManager.currentFile.Render(animationManager.currentFrameIndex);
             render.Apply();
 
-            gridPreview.sprite = Texture2DExtensions.Blend(
-                Texture2DExtensions.Scale(render, 2f),
+            gridPreview.sprite = render.Scale(2).Blend(
                 Texture2DExtensions.CheckerboardBackground(fileManager.currentFile.width, fileManager.currentFile.height),
                 BlendMode.Normal
                 ).ToSprite();
@@ -575,8 +572,7 @@ namespace PAC.UI
             Texture2D render = fileCopy.Render(animationManager.currentFrameIndex);
             render.Apply();
 
-            outlinePreview.sprite = Texture2DExtensions.Blend(
-                Texture2DExtensions.Scale(render, 2f),
+            outlinePreview.sprite = render.Scale(2).Blend(
                 Texture2DExtensions.CheckerboardBackground(fileManager.currentFile.width, fileManager.currentFile.height),
                 BlendMode.Normal
                 ).ToSprite();
@@ -605,7 +601,7 @@ namespace PAC.UI
             {
                 ((NormalLayer)layer).SetTexture(
                     animationManager.currentFrameIndex,
-                    Texture2DExtensions.ReplaceColour(layer[animationManager.currentFrameIndex].texture, toReplace, replaceWith, 0.01f),
+                    layer[animationManager.currentFrameIndex].texture.ReplaceColour(toReplace, replaceWith, 0.01f),
                     AnimFrameRefMode.NewKeyFrame
                     );
             }
@@ -624,7 +620,7 @@ namespace PAC.UI
             {
                 ((NormalLayer)fileCopy.layers[layer]).SetTexture(
                     animationManager.currentFrameIndex,
-                    Texture2DExtensions.ReplaceColour(fileCopy.layers[layer][animationManager.currentFrameIndex].texture, toReplace, replaceWith, 0.01f),
+                    fileCopy.layers[layer][animationManager.currentFrameIndex].texture.ReplaceColour(toReplace, replaceWith, 0.01f),
                     AnimFrameRefMode.NewKeyFrame
                     );
             }
@@ -632,8 +628,7 @@ namespace PAC.UI
             Texture2D render = fileCopy.Render(animationManager.currentFrameIndex);
             render.Apply();
 
-            replaceColourPreview.sprite = Texture2DExtensions.Blend(
-                Texture2DExtensions.Scale(render, 2f),
+            replaceColourPreview.sprite = render.Scale(2).Blend(
                 Texture2DExtensions.CheckerboardBackground(fileManager.currentFile.width, fileManager.currentFile.height),
                 BlendMode.Normal
                 ).ToSprite();
@@ -693,8 +688,7 @@ namespace PAC.UI
 
         public void UpdateImportPACPreview()
         {
-            importPACPreview.sprite = Texture2DExtensions.Blend(
-                Texture2DExtensions.Scale(importPACFile.RenderLayers(importPACLayersToggleGroup.selectedIndices, animationManager.currentFrameIndex), 2f),
+            importPACPreview.sprite = importPACFile.RenderLayers(importPACLayersToggleGroup.selectedIndices, animationManager.currentFrameIndex).Scale(2).Blend(
                 Texture2DExtensions.CheckerboardBackground(fileManager.currentFile.width, fileManager.currentFile.height),
                 BlendMode.Normal
                 ).ToSprite();

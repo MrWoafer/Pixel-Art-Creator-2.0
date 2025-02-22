@@ -310,7 +310,7 @@ namespace PAC.Layers
 
             foreach (AnimationKeyFrame keyFrame in keyFrames)
             {
-                keyFrame.texture = Texture2DExtensions.Rotate(keyFrame.texture, angle);
+                keyFrame.texture = keyFrame.texture.Rotate(angle);
             }
 
             width = keyFrames[0].texture.width;
@@ -330,7 +330,7 @@ namespace PAC.Layers
 
             foreach (AnimationKeyFrame keyFrame in keyFrames)
             {
-                keyFrame.texture = Texture2DExtensions.ExtendCrop(keyFrame.texture, left, right, down, up);
+                keyFrame.texture = keyFrame.texture.ExtendCrop(left, right, down, up);
             }
 
             width = keyFrames[0].texture.width;
@@ -357,7 +357,7 @@ namespace PAC.Layers
 
             foreach (AnimationKeyFrame keyFrame in keyFrames)
             {
-                keyFrame.texture = Texture2DExtensions.Scale(keyFrame.texture, xScaleFactor, yScaleFactor);
+                keyFrame.texture = keyFrame.texture.Scale(xScaleFactor, yScaleFactor);
             }
 
             width = keyFrames[0].texture.width;
@@ -383,7 +383,7 @@ namespace PAC.Layers
 
             foreach (AnimationKeyFrame keyFrame in keyFrames)
             {
-                keyFrame.texture = Texture2DExtensions.Scale(keyFrame.texture, newWidth, newHeight);
+                keyFrame.texture = keyFrame.texture.Scale(newWidth, newHeight);
             }
 
             width = keyFrames[0].texture.width;
