@@ -547,6 +547,8 @@ namespace PAC.Extensions
             return replaced;
         }
 
+        public static IntRect GetRect(this Texture2D texture) => new IntRect((0, 0), (texture.width - 1, texture.height - 1));
+
         public static bool ContainsPixel(this Texture2D texture, int x, int y)
         {
             return x >= 0 && y >= 0 && x < texture.width && y < texture.height;
@@ -560,6 +562,7 @@ namespace PAC.Extensions
         {
             texture.SetPixel(coords.x, coords.y, colour);
         }
+
         public static Color GetPixel(this Texture2D texture, IntVector2 coords)
         {
             return texture.GetPixel(coords.x, coords.y);
