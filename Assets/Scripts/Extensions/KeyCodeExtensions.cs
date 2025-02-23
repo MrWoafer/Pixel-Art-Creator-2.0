@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace PAC
 {
-    public static class KeyCodeFunctions
+    public static class KeyCodeExtensions
     {
         public static KeyCode StrToKeyCode(string str)
         {

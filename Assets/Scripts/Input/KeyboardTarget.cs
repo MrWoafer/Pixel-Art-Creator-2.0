@@ -44,7 +44,7 @@ namespace PAC.Input
 
             foreach (char chr in "abcdefghijklmnopqrstuvwxyz0123456789,.;:<>_/\\?!*")
             {
-                CustomKeyCode keyCode = KeyCodeFunctions.StrToKeyCode(chr.ToString());
+                CustomKeyCode keyCode = KeyCodeExtensions.StrToKeyCode(chr.ToString());
                 if (keyCode != KeyCode.None)
                 {
                     keyHeldStates.Add(keyCode, false);
