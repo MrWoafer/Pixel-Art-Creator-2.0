@@ -16,7 +16,7 @@ namespace PAC.ImageEditing
         /// Returns the largest connected (in terms of being adjacent (left/right/up/down)) set containing <paramref name="startPoint"/> where all pixels have the same colour.
         /// </summary>
         /// <param name="maxNumOfIterations">After this many pixels have been enumerated, the method will stop. Useful to prevent huge frame drops when filling large areas.</param>
-        public static IEnumerable<IntVector2> GetFloodFillPixels(Texture2D texture, IntVector2 startPoint, int maxNumOfIterations = 1_000_000)
+        public static IEnumerable<IntVector2> GetPixelsToFill(Texture2D texture, IntVector2 startPoint, int maxNumOfIterations = 1_000_000)
         {
             Color colourToReplace = texture.GetPixel(startPoint);
 

@@ -90,7 +90,7 @@ namespace PAC.Drawing
         public static void UseFill(File file, int layer, int frame, IntVector2 pixel, Color colour, int maxNumOfIterations = 1_000_000)
         {
             file.layers[layer].SetPixels(
-                FloodFill.GetFloodFillPixels(file.layers[layer][frame].texture, pixel, maxNumOfIterations),
+                FloodFill.GetPixelsToFill(file.layers[layer][frame].texture, pixel, maxNumOfIterations),
                 frame,
                 colour,
                 AnimFrameRefMode.NewKeyFrame

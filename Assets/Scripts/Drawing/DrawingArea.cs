@@ -1088,7 +1088,7 @@ namespace PAC.Drawing
             {
                 Texture2D fillMask = Texture2DCreator.Transparent(texture.width, texture.height);
 
-                foreach (IntVector2 pixel in FloodFill.GetFloodFillPixels(texture, clickPoint))
+                foreach (IntVector2 pixel in FloodFill.GetPixelsToFill(texture, clickPoint))
                 {
                     fillMask.SetPixel(pixel.x, pixel.y, Config.Colours.mask);
                 }
