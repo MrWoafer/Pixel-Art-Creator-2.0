@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace PAC
+namespace PAC.Extensions
 {
     public static class KeyCodeExtensions
     {
