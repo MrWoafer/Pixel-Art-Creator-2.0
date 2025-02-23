@@ -249,6 +249,9 @@ Struct IntRange  <a class="header-action link-secondary" title="View source" hre
       <a class="xref" href="PAC.Extensions.IEnumerableExtensions.html#PAC_Extensions_IEnumerableExtensions_SkipIndex__1_System_Collections_Generic_IEnumerable___0__System_Int32_">IEnumerableExtensions.SkipIndex&lt;T&gt;(IEnumerable&lt;T&gt;, int)</a>
   </div>
   <div>
+      <a class="xref" href="PAC.Extensions.IEnumerableExtensions.html#PAC_Extensions_IEnumerableExtensions_ToPrettyString__1_System_Collections_Generic_IEnumerable___0__">IEnumerableExtensions.ToPrettyString&lt;T&gt;(IEnumerable&lt;T&gt;)</a>
+  </div>
+  <div>
       <a class="xref" href="PAC.Extensions.IEnumerableExtensions.html#PAC_Extensions_IEnumerableExtensions_ZipCurrentAndNext__1_System_Collections_Generic_IEnumerable___0__">IEnumerableExtensions.ZipCurrentAndNext&lt;T&gt;(IEnumerable&lt;T&gt;)</a>
   </div>
   <div>
@@ -304,6 +307,7 @@ so that it's equivalent to
 {
     Console.WriteLine($"Element {index}: {array[index]}");
 }</code></pre>
+
 </div>
 
 
@@ -1731,10 +1735,7 @@ both boundaries exclusive.</p>
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
-    <dd><ul><li>
-    <code class="paramref">n</code> if <a class="xref" href="PAC.DataStructures.IntRange.html#PAC_DataStructures_IntRange_minElement">minElement</a> &lt;= <code class="paramref">n</code> &lt;= <a class="xref" href="PAC.DataStructures.IntRange.html#PAC_DataStructures_IntRange_maxElement">maxElement</a></li><li>
-    <a class="xref" href="PAC.DataStructures.IntRange.html#PAC_DataStructures_IntRange_minElement">minElement</a> if <code class="paramref">n</code> &lt; <a class="xref" href="PAC.DataStructures.IntRange.html#PAC_DataStructures_IntRange_minElement">minElement</a></li><li>
-    <a class="xref" href="PAC.DataStructures.IntRange.html#PAC_DataStructures_IntRange_maxElement">maxElement</a> if <a class="xref" href="PAC.DataStructures.IntRange.html#PAC_DataStructures_IntRange_maxElement">maxElement</a> &lt; <code class="paramref">n</code></li></ul>
+    <dd><ul><li><code class="paramref">n</code> if <a class="xref" href="PAC.DataStructures.IntRange.html#PAC_DataStructures_IntRange_minElement">minElement</a> &lt;= <code class="paramref">n</code> &lt;= <a class="xref" href="PAC.DataStructures.IntRange.html#PAC_DataStructures_IntRange_maxElement">maxElement</a></li><li><a class="xref" href="PAC.DataStructures.IntRange.html#PAC_DataStructures_IntRange_minElement">minElement</a> if <code class="paramref">n</code> &lt; <a class="xref" href="PAC.DataStructures.IntRange.html#PAC_DataStructures_IntRange_minElement">minElement</a></li><li><a class="xref" href="PAC.DataStructures.IntRange.html#PAC_DataStructures_IntRange_maxElement">maxElement</a> if <a class="xref" href="PAC.DataStructures.IntRange.html#PAC_DataStructures_IntRange_maxElement">maxElement</a> &lt; <code class="paramref">n</code></li></ul>
 </dd>
   </dl>
 
@@ -2945,7 +2946,7 @@ If <code>T1</code> implements <code>ISetComparable&lt;T2&gt;</code> and <code>T2
 Represents the range as a string using the mathematical notation for intervals - i.e. square brackets denote an inclusive boundary and round brackets denote an exclusive boundary.
 </p>
 <p>
-  <example>
+<example>
 For example, the range from -1 (inclusive) to 5 (exclusive) will be respresented as <code>"[-1, 5)"</code>.
 </example>
 </p>

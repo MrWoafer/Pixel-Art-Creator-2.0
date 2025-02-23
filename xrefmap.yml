@@ -1,460 +1,6 @@
 ### YamlMime:XRefMap
 sorted: true
 references:
-- uid: Global
-  name: ''
-  href: api/Global.html
-- uid: Global.Rational
-  name: Rational
-  href: api/Global.Rational.html
-  commentId: T:Global.Rational
-  fullName: Rational
-  nameWithType: Rational
-- uid: Global.Rational.#ctor(System.Int32,System.Int32)
-  name: Rational(int, int)
-  href: api/Global.Rational.html#Global_Rational__ctor_System_Int32_System_Int32_
-  commentId: M:Global.Rational.#ctor(System.Int32,System.Int32)
-  name.vb: New(Integer, Integer)
-  fullName: Rational.Rational(int, int)
-  fullName.vb: Rational.New(Integer, Integer)
-  nameWithType: Rational.Rational(int, int)
-  nameWithType.vb: Rational.New(Integer, Integer)
-- uid: Global.Rational.#ctor*
-  name: Rational
-  href: api/Global.Rational.html#Global_Rational__ctor_
-  commentId: Overload:Global.Rational.#ctor
-  isSpec: "True"
-  name.vb: New
-  fullName: Rational.Rational
-  fullName.vb: Rational.New
-  nameWithType: Rational.Rational
-  nameWithType.vb: Rational.New
-- uid: Global.Rational.Abs(Rational)
-  name: Abs(Rational)
-  href: api/Global.Rational.html#Global_Rational_Abs_Rational_
-  commentId: M:Global.Rational.Abs(Rational)
-  fullName: Rational.Abs(Rational)
-  nameWithType: Rational.Abs(Rational)
-- uid: Global.Rational.Abs*
-  name: Abs
-  href: api/Global.Rational.html#Global_Rational_Abs_
-  commentId: Overload:Global.Rational.Abs
-  isSpec: "True"
-  fullName: Rational.Abs
-  nameWithType: Rational.Abs
-- uid: Global.Rational.Epsilon
-  name: Epsilon
-  href: api/Global.Rational.html#Global_Rational_Epsilon
-  commentId: F:Global.Rational.Epsilon
-  fullName: Rational.Epsilon
-  nameWithType: Rational.Epsilon
-- uid: Global.Rational.Equals(Rational)
-  name: Equals(Rational)
-  href: api/Global.Rational.html#Global_Rational_Equals_Rational_
-  commentId: M:Global.Rational.Equals(Rational)
-  fullName: Rational.Equals(Rational)
-  nameWithType: Rational.Equals(Rational)
-- uid: Global.Rational.Equals(System.Int32)
-  name: Equals(int)
-  href: api/Global.Rational.html#Global_Rational_Equals_System_Int32_
-  commentId: M:Global.Rational.Equals(System.Int32)
-  name.vb: Equals(Integer)
-  fullName: Rational.Equals(int)
-  fullName.vb: Rational.Equals(Integer)
-  nameWithType: Rational.Equals(int)
-  nameWithType.vb: Rational.Equals(Integer)
-- uid: Global.Rational.Equals(System.Object)
-  name: Equals(object)
-  href: api/Global.Rational.html#Global_Rational_Equals_System_Object_
-  commentId: M:Global.Rational.Equals(System.Object)
-  name.vb: Equals(Object)
-  fullName: Rational.Equals(object)
-  fullName.vb: Rational.Equals(Object)
-  nameWithType: Rational.Equals(object)
-  nameWithType.vb: Rational.Equals(Object)
-- uid: Global.Rational.Equals*
-  name: Equals
-  href: api/Global.Rational.html#Global_Rational_Equals_
-  commentId: Overload:Global.Rational.Equals
-  isSpec: "True"
-  fullName: Rational.Equals
-  nameWithType: Rational.Equals
-- uid: Global.Rational.GetHashCode
-  name: GetHashCode()
-  href: api/Global.Rational.html#Global_Rational_GetHashCode
-  commentId: M:Global.Rational.GetHashCode
-  fullName: Rational.GetHashCode()
-  nameWithType: Rational.GetHashCode()
-- uid: Global.Rational.GetHashCode*
-  name: GetHashCode
-  href: api/Global.Rational.html#Global_Rational_GetHashCode_
-  commentId: Overload:Global.Rational.GetHashCode
-  isSpec: "True"
-  fullName: Rational.GetHashCode
-  nameWithType: Rational.GetHashCode
-- uid: Global.Rational.Half
-  name: Half
-  href: api/Global.Rational.html#Global_Rational_Half
-  commentId: F:Global.Rational.Half
-  fullName: Rational.Half
-  nameWithType: Rational.Half
-- uid: Global.Rational.MaxValue
-  name: MaxValue
-  href: api/Global.Rational.html#Global_Rational_MaxValue
-  commentId: F:Global.Rational.MaxValue
-  fullName: Rational.MaxValue
-  nameWithType: Rational.MaxValue
-- uid: Global.Rational.MinValue
-  name: MinValue
-  href: api/Global.Rational.html#Global_Rational_MinValue
-  commentId: F:Global.Rational.MinValue
-  fullName: Rational.MinValue
-  nameWithType: Rational.MinValue
-- uid: Global.Rational.ToString
-  name: ToString()
-  href: api/Global.Rational.html#Global_Rational_ToString
-  commentId: M:Global.Rational.ToString
-  fullName: Rational.ToString()
-  nameWithType: Rational.ToString()
-- uid: Global.Rational.ToString*
-  name: ToString
-  href: api/Global.Rational.html#Global_Rational_ToString_
-  commentId: Overload:Global.Rational.ToString
-  isSpec: "True"
-  fullName: Rational.ToString
-  nameWithType: Rational.ToString
-- uid: Global.Rational.Undefined
-  name: Undefined
-  href: api/Global.Rational.html#Global_Rational_Undefined
-  commentId: F:Global.Rational.Undefined
-  fullName: Rational.Undefined
-  nameWithType: Rational.Undefined
-- uid: Global.Rational.denominator
-  name: denominator
-  href: api/Global.Rational.html#Global_Rational_denominator
-  commentId: F:Global.Rational.denominator
-  fullName: Rational.denominator
-  nameWithType: Rational.denominator
-- uid: Global.Rational.isInteger
-  name: isInteger
-  href: api/Global.Rational.html#Global_Rational_isInteger
-  commentId: P:Global.Rational.isInteger
-  fullName: Rational.isInteger
-  nameWithType: Rational.isInteger
-- uid: Global.Rational.isInteger*
-  name: isInteger
-  href: api/Global.Rational.html#Global_Rational_isInteger_
-  commentId: Overload:Global.Rational.isInteger
-  isSpec: "True"
-  fullName: Rational.isInteger
-  nameWithType: Rational.isInteger
-- uid: Global.Rational.isUndefined
-  name: isUndefined
-  href: api/Global.Rational.html#Global_Rational_isUndefined
-  commentId: P:Global.Rational.isUndefined
-  fullName: Rational.isUndefined
-  nameWithType: Rational.isUndefined
-- uid: Global.Rational.isUndefined*
-  name: isUndefined
-  href: api/Global.Rational.html#Global_Rational_isUndefined_
-  commentId: Overload:Global.Rational.isUndefined
-  isSpec: "True"
-  fullName: Rational.isUndefined
-  nameWithType: Rational.isUndefined
-- uid: Global.Rational.numerator
-  name: numerator
-  href: api/Global.Rational.html#Global_Rational_numerator
-  commentId: F:Global.Rational.numerator
-  fullName: Rational.numerator
-  nameWithType: Rational.numerator
-- uid: Global.Rational.op_Addition(Rational,Rational)
-  name: operator +(Rational, Rational)
-  href: api/Global.Rational.html#Global_Rational_op_Addition_Rational_Rational_
-  commentId: M:Global.Rational.op_Addition(Rational,Rational)
-  name.vb: +(Rational, Rational)
-  fullName: Rational.operator +(Rational, Rational)
-  fullName.vb: Rational.+(Rational, Rational)
-  nameWithType: Rational.operator +(Rational, Rational)
-  nameWithType.vb: Rational.+(Rational, Rational)
-- uid: Global.Rational.op_Addition*
-  name: operator +
-  href: api/Global.Rational.html#Global_Rational_op_Addition_
-  commentId: Overload:Global.Rational.op_Addition
-  isSpec: "True"
-  name.vb: +
-  fullName: Rational.operator +
-  fullName.vb: Rational.+
-  nameWithType: Rational.operator +
-  nameWithType.vb: Rational.+
-- uid: Global.Rational.op_Division(Rational,Rational)
-  name: operator /(Rational, Rational)
-  href: api/Global.Rational.html#Global_Rational_op_Division_Rational_Rational_
-  commentId: M:Global.Rational.op_Division(Rational,Rational)
-  name.vb: /(Rational, Rational)
-  fullName: Rational.operator /(Rational, Rational)
-  fullName.vb: Rational./(Rational, Rational)
-  nameWithType: Rational.operator /(Rational, Rational)
-  nameWithType.vb: Rational./(Rational, Rational)
-- uid: Global.Rational.op_Division*
-  name: operator /
-  href: api/Global.Rational.html#Global_Rational_op_Division_
-  commentId: Overload:Global.Rational.op_Division
-  isSpec: "True"
-  name.vb: /
-  fullName: Rational.operator /
-  fullName.vb: Rational./
-  nameWithType: Rational.operator /
-  nameWithType.vb: Rational./
-- uid: Global.Rational.op_Equality(Rational,Rational)
-  name: operator ==(Rational, Rational)
-  href: api/Global.Rational.html#Global_Rational_op_Equality_Rational_Rational_
-  commentId: M:Global.Rational.op_Equality(Rational,Rational)
-  name.vb: =(Rational, Rational)
-  fullName: Rational.operator ==(Rational, Rational)
-  fullName.vb: Rational.=(Rational, Rational)
-  nameWithType: Rational.operator ==(Rational, Rational)
-  nameWithType.vb: Rational.=(Rational, Rational)
-- uid: Global.Rational.op_Equality*
-  name: operator ==
-  href: api/Global.Rational.html#Global_Rational_op_Equality_
-  commentId: Overload:Global.Rational.op_Equality
-  isSpec: "True"
-  name.vb: =
-  fullName: Rational.operator ==
-  fullName.vb: Rational.=
-  nameWithType: Rational.operator ==
-  nameWithType.vb: Rational.=
-- uid: Global.Rational.op_Explicit(Rational)~System.Int32
-  name: explicit operator int(Rational)
-  href: api/Global.Rational.html#Global_Rational_op_Explicit_Rational__System_Int32
-  commentId: M:Global.Rational.op_Explicit(Rational)~System.Int32
-  name.vb: CType(Rational)
-  fullName: Rational.explicit operator int(Rational)
-  fullName.vb: Rational.CType(Rational)
-  nameWithType: Rational.explicit operator int(Rational)
-  nameWithType.vb: Rational.CType(Rational)
-- uid: Global.Rational.op_Explicit*
-  name: explicit operator
-  href: api/Global.Rational.html#Global_Rational_op_Explicit_
-  commentId: Overload:Global.Rational.op_Explicit
-  isSpec: "True"
-  name.vb: CType
-  fullName: Rational.explicit operator
-  fullName.vb: Rational.CType
-  nameWithType: Rational.explicit operator
-  nameWithType.vb: Rational.CType
-- uid: Global.Rational.op_GreaterThan(Rational,Rational)
-  name: operator >(Rational, Rational)
-  href: api/Global.Rational.html#Global_Rational_op_GreaterThan_Rational_Rational_
-  commentId: M:Global.Rational.op_GreaterThan(Rational,Rational)
-  name.vb: '>(Rational, Rational)'
-  fullName: Rational.operator >(Rational, Rational)
-  fullName.vb: Rational.>(Rational, Rational)
-  nameWithType: Rational.operator >(Rational, Rational)
-  nameWithType.vb: Rational.>(Rational, Rational)
-- uid: Global.Rational.op_GreaterThan*
-  name: operator >
-  href: api/Global.Rational.html#Global_Rational_op_GreaterThan_
-  commentId: Overload:Global.Rational.op_GreaterThan
-  isSpec: "True"
-  name.vb: '>'
-  fullName: Rational.operator >
-  fullName.vb: Rational.>
-  nameWithType: Rational.operator >
-  nameWithType.vb: Rational.>
-- uid: Global.Rational.op_GreaterThanOrEqual(Rational,Rational)
-  name: operator >=(Rational, Rational)
-  href: api/Global.Rational.html#Global_Rational_op_GreaterThanOrEqual_Rational_Rational_
-  commentId: M:Global.Rational.op_GreaterThanOrEqual(Rational,Rational)
-  name.vb: '>=(Rational, Rational)'
-  fullName: Rational.operator >=(Rational, Rational)
-  fullName.vb: Rational.>=(Rational, Rational)
-  nameWithType: Rational.operator >=(Rational, Rational)
-  nameWithType.vb: Rational.>=(Rational, Rational)
-- uid: Global.Rational.op_GreaterThanOrEqual*
-  name: operator >=
-  href: api/Global.Rational.html#Global_Rational_op_GreaterThanOrEqual_
-  commentId: Overload:Global.Rational.op_GreaterThanOrEqual
-  isSpec: "True"
-  name.vb: '>='
-  fullName: Rational.operator >=
-  fullName.vb: Rational.>=
-  nameWithType: Rational.operator >=
-  nameWithType.vb: Rational.>=
-- uid: Global.Rational.op_Implicit(Rational)~System.Single
-  name: implicit operator float(Rational)
-  href: api/Global.Rational.html#Global_Rational_op_Implicit_Rational__System_Single
-  commentId: M:Global.Rational.op_Implicit(Rational)~System.Single
-  name.vb: CType(Rational)
-  fullName: Rational.implicit operator float(Rational)
-  fullName.vb: Rational.CType(Rational)
-  nameWithType: Rational.implicit operator float(Rational)
-  nameWithType.vb: Rational.CType(Rational)
-- uid: Global.Rational.op_Implicit(System.Int32)~Rational
-  name: implicit operator Rational(int)
-  href: api/Global.Rational.html#Global_Rational_op_Implicit_System_Int32__Rational
-  commentId: M:Global.Rational.op_Implicit(System.Int32)~Rational
-  name.vb: CType(Integer)
-  fullName: Rational.implicit operator Rational(int)
-  fullName.vb: Rational.CType(Integer)
-  nameWithType: Rational.implicit operator Rational(int)
-  nameWithType.vb: Rational.CType(Integer)
-- uid: Global.Rational.op_Implicit*
-  name: implicit operator
-  href: api/Global.Rational.html#Global_Rational_op_Implicit_
-  commentId: Overload:Global.Rational.op_Implicit
-  isSpec: "True"
-  name.vb: CType
-  fullName: Rational.implicit operator
-  fullName.vb: Rational.CType
-  nameWithType: Rational.implicit operator
-  nameWithType.vb: Rational.CType
-- uid: Global.Rational.op_Inequality(Rational,Rational)
-  name: operator !=(Rational, Rational)
-  href: api/Global.Rational.html#Global_Rational_op_Inequality_Rational_Rational_
-  commentId: M:Global.Rational.op_Inequality(Rational,Rational)
-  name.vb: <>(Rational, Rational)
-  fullName: Rational.operator !=(Rational, Rational)
-  fullName.vb: Rational.<>(Rational, Rational)
-  nameWithType: Rational.operator !=(Rational, Rational)
-  nameWithType.vb: Rational.<>(Rational, Rational)
-- uid: Global.Rational.op_Inequality*
-  name: operator !=
-  href: api/Global.Rational.html#Global_Rational_op_Inequality_
-  commentId: Overload:Global.Rational.op_Inequality
-  isSpec: "True"
-  name.vb: <>
-  fullName: Rational.operator !=
-  fullName.vb: Rational.<>
-  nameWithType: Rational.operator !=
-  nameWithType.vb: Rational.<>
-- uid: Global.Rational.op_LessThan(Rational,Rational)
-  name: operator <(Rational, Rational)
-  href: api/Global.Rational.html#Global_Rational_op_LessThan_Rational_Rational_
-  commentId: M:Global.Rational.op_LessThan(Rational,Rational)
-  name.vb: <(Rational, Rational)
-  fullName: Rational.operator <(Rational, Rational)
-  fullName.vb: Rational.<(Rational, Rational)
-  nameWithType: Rational.operator <(Rational, Rational)
-  nameWithType.vb: Rational.<(Rational, Rational)
-- uid: Global.Rational.op_LessThan*
-  name: operator <
-  href: api/Global.Rational.html#Global_Rational_op_LessThan_
-  commentId: Overload:Global.Rational.op_LessThan
-  isSpec: "True"
-  name.vb: <
-  fullName: Rational.operator <
-  fullName.vb: Rational.<
-  nameWithType: Rational.operator <
-  nameWithType.vb: Rational.<
-- uid: Global.Rational.op_LessThanOrEqual(Rational,Rational)
-  name: operator <=(Rational, Rational)
-  href: api/Global.Rational.html#Global_Rational_op_LessThanOrEqual_Rational_Rational_
-  commentId: M:Global.Rational.op_LessThanOrEqual(Rational,Rational)
-  name.vb: <=(Rational, Rational)
-  fullName: Rational.operator <=(Rational, Rational)
-  fullName.vb: Rational.<=(Rational, Rational)
-  nameWithType: Rational.operator <=(Rational, Rational)
-  nameWithType.vb: Rational.<=(Rational, Rational)
-- uid: Global.Rational.op_LessThanOrEqual*
-  name: operator <=
-  href: api/Global.Rational.html#Global_Rational_op_LessThanOrEqual_
-  commentId: Overload:Global.Rational.op_LessThanOrEqual
-  isSpec: "True"
-  name.vb: <=
-  fullName: Rational.operator <=
-  fullName.vb: Rational.<=
-  nameWithType: Rational.operator <=
-  nameWithType.vb: Rational.<=
-- uid: Global.Rational.op_Modulus(Rational,Rational)
-  name: operator %(Rational, Rational)
-  href: api/Global.Rational.html#Global_Rational_op_Modulus_Rational_Rational_
-  commentId: M:Global.Rational.op_Modulus(Rational,Rational)
-  name.vb: Mod(Rational, Rational)
-  fullName: Rational.operator %(Rational, Rational)
-  fullName.vb: Rational.Mod(Rational, Rational)
-  nameWithType: Rational.operator %(Rational, Rational)
-  nameWithType.vb: Rational.Mod(Rational, Rational)
-- uid: Global.Rational.op_Modulus*
-  name: operator %
-  href: api/Global.Rational.html#Global_Rational_op_Modulus_
-  commentId: Overload:Global.Rational.op_Modulus
-  isSpec: "True"
-  name.vb: Mod
-  fullName: Rational.operator %
-  fullName.vb: Rational.Mod
-  nameWithType: Rational.operator %
-  nameWithType.vb: Rational.Mod
-- uid: Global.Rational.op_Multiply(Rational,Rational)
-  name: operator *(Rational, Rational)
-  href: api/Global.Rational.html#Global_Rational_op_Multiply_Rational_Rational_
-  commentId: M:Global.Rational.op_Multiply(Rational,Rational)
-  name.vb: '*(Rational, Rational)'
-  fullName: Rational.operator *(Rational, Rational)
-  fullName.vb: Rational.*(Rational, Rational)
-  nameWithType: Rational.operator *(Rational, Rational)
-  nameWithType.vb: Rational.*(Rational, Rational)
-- uid: Global.Rational.op_Multiply*
-  name: operator *
-  href: api/Global.Rational.html#Global_Rational_op_Multiply_
-  commentId: Overload:Global.Rational.op_Multiply
-  isSpec: "True"
-  name.vb: '*'
-  fullName: Rational.operator *
-  fullName.vb: Rational.*
-  nameWithType: Rational.operator *
-  nameWithType.vb: Rational.*
-- uid: Global.Rational.op_Subtraction(Rational,Rational)
-  name: operator -(Rational, Rational)
-  href: api/Global.Rational.html#Global_Rational_op_Subtraction_Rational_Rational_
-  commentId: M:Global.Rational.op_Subtraction(Rational,Rational)
-  name.vb: -(Rational, Rational)
-  fullName: Rational.operator -(Rational, Rational)
-  fullName.vb: Rational.-(Rational, Rational)
-  nameWithType: Rational.operator -(Rational, Rational)
-  nameWithType.vb: Rational.-(Rational, Rational)
-- uid: Global.Rational.op_Subtraction*
-  name: operator -
-  href: api/Global.Rational.html#Global_Rational_op_Subtraction_
-  commentId: Overload:Global.Rational.op_Subtraction
-  isSpec: "True"
-  name.vb: '-'
-  fullName: Rational.operator -
-  fullName.vb: Rational.-
-  nameWithType: Rational.operator -
-  nameWithType.vb: Rational.-
-- uid: Global.Rational.op_UnaryNegation(Rational)
-  name: operator -(Rational)
-  href: api/Global.Rational.html#Global_Rational_op_UnaryNegation_Rational_
-  commentId: M:Global.Rational.op_UnaryNegation(Rational)
-  name.vb: -(Rational)
-  fullName: Rational.operator -(Rational)
-  fullName.vb: Rational.-(Rational)
-  nameWithType: Rational.operator -(Rational)
-  nameWithType.vb: Rational.-(Rational)
-- uid: Global.Rational.op_UnaryNegation*
-  name: operator -
-  href: api/Global.Rational.html#Global_Rational_op_UnaryNegation_
-  commentId: Overload:Global.Rational.op_UnaryNegation
-  isSpec: "True"
-  name.vb: '-'
-  fullName: Rational.operator -
-  fullName.vb: Rational.-
-  nameWithType: Rational.operator -
-  nameWithType.vb: Rational.-
-- uid: Global.Rational.sign
-  name: sign
-  href: api/Global.Rational.html#Global_Rational_sign
-  commentId: P:Global.Rational.sign
-  fullName: Rational.sign
-  nameWithType: Rational.sign
-- uid: Global.Rational.sign*
-  name: sign
-  href: api/Global.Rational.html#Global_Rational_sign_
-  commentId: Overload:Global.Rational.sign
-  isSpec: "True"
-  fullName: Rational.sign
-  nameWithType: Rational.sign
 - uid: PAC
   name: PAC
   href: api/PAC.html
@@ -4761,6 +4307,457 @@ references:
   commentId: F:PAC.DataStructures.IntVector2.zero
   fullName: PAC.DataStructures.IntVector2.zero
   nameWithType: IntVector2.zero
+- uid: PAC.DataStructures.Rational
+  name: Rational
+  href: api/PAC.DataStructures.Rational.html
+  commentId: T:PAC.DataStructures.Rational
+  fullName: PAC.DataStructures.Rational
+  nameWithType: Rational
+- uid: PAC.DataStructures.Rational.#ctor(System.Int32,System.Int32)
+  name: Rational(int, int)
+  href: api/PAC.DataStructures.Rational.html#PAC_DataStructures_Rational__ctor_System_Int32_System_Int32_
+  commentId: M:PAC.DataStructures.Rational.#ctor(System.Int32,System.Int32)
+  name.vb: New(Integer, Integer)
+  fullName: PAC.DataStructures.Rational.Rational(int, int)
+  fullName.vb: PAC.DataStructures.Rational.New(Integer, Integer)
+  nameWithType: Rational.Rational(int, int)
+  nameWithType.vb: Rational.New(Integer, Integer)
+- uid: PAC.DataStructures.Rational.#ctor*
+  name: Rational
+  href: api/PAC.DataStructures.Rational.html#PAC_DataStructures_Rational__ctor_
+  commentId: Overload:PAC.DataStructures.Rational.#ctor
+  isSpec: "True"
+  name.vb: New
+  fullName: PAC.DataStructures.Rational.Rational
+  fullName.vb: PAC.DataStructures.Rational.New
+  nameWithType: Rational.Rational
+  nameWithType.vb: Rational.New
+- uid: PAC.DataStructures.Rational.Abs(PAC.DataStructures.Rational)
+  name: Abs(Rational)
+  href: api/PAC.DataStructures.Rational.html#PAC_DataStructures_Rational_Abs_PAC_DataStructures_Rational_
+  commentId: M:PAC.DataStructures.Rational.Abs(PAC.DataStructures.Rational)
+  fullName: PAC.DataStructures.Rational.Abs(PAC.DataStructures.Rational)
+  nameWithType: Rational.Abs(Rational)
+- uid: PAC.DataStructures.Rational.Abs*
+  name: Abs
+  href: api/PAC.DataStructures.Rational.html#PAC_DataStructures_Rational_Abs_
+  commentId: Overload:PAC.DataStructures.Rational.Abs
+  isSpec: "True"
+  fullName: PAC.DataStructures.Rational.Abs
+  nameWithType: Rational.Abs
+- uid: PAC.DataStructures.Rational.Epsilon
+  name: Epsilon
+  href: api/PAC.DataStructures.Rational.html#PAC_DataStructures_Rational_Epsilon
+  commentId: F:PAC.DataStructures.Rational.Epsilon
+  fullName: PAC.DataStructures.Rational.Epsilon
+  nameWithType: Rational.Epsilon
+- uid: PAC.DataStructures.Rational.Equals(PAC.DataStructures.Rational)
+  name: Equals(Rational)
+  href: api/PAC.DataStructures.Rational.html#PAC_DataStructures_Rational_Equals_PAC_DataStructures_Rational_
+  commentId: M:PAC.DataStructures.Rational.Equals(PAC.DataStructures.Rational)
+  fullName: PAC.DataStructures.Rational.Equals(PAC.DataStructures.Rational)
+  nameWithType: Rational.Equals(Rational)
+- uid: PAC.DataStructures.Rational.Equals(System.Int32)
+  name: Equals(int)
+  href: api/PAC.DataStructures.Rational.html#PAC_DataStructures_Rational_Equals_System_Int32_
+  commentId: M:PAC.DataStructures.Rational.Equals(System.Int32)
+  name.vb: Equals(Integer)
+  fullName: PAC.DataStructures.Rational.Equals(int)
+  fullName.vb: PAC.DataStructures.Rational.Equals(Integer)
+  nameWithType: Rational.Equals(int)
+  nameWithType.vb: Rational.Equals(Integer)
+- uid: PAC.DataStructures.Rational.Equals(System.Object)
+  name: Equals(object)
+  href: api/PAC.DataStructures.Rational.html#PAC_DataStructures_Rational_Equals_System_Object_
+  commentId: M:PAC.DataStructures.Rational.Equals(System.Object)
+  name.vb: Equals(Object)
+  fullName: PAC.DataStructures.Rational.Equals(object)
+  fullName.vb: PAC.DataStructures.Rational.Equals(Object)
+  nameWithType: Rational.Equals(object)
+  nameWithType.vb: Rational.Equals(Object)
+- uid: PAC.DataStructures.Rational.Equals*
+  name: Equals
+  href: api/PAC.DataStructures.Rational.html#PAC_DataStructures_Rational_Equals_
+  commentId: Overload:PAC.DataStructures.Rational.Equals
+  isSpec: "True"
+  fullName: PAC.DataStructures.Rational.Equals
+  nameWithType: Rational.Equals
+- uid: PAC.DataStructures.Rational.GetHashCode
+  name: GetHashCode()
+  href: api/PAC.DataStructures.Rational.html#PAC_DataStructures_Rational_GetHashCode
+  commentId: M:PAC.DataStructures.Rational.GetHashCode
+  fullName: PAC.DataStructures.Rational.GetHashCode()
+  nameWithType: Rational.GetHashCode()
+- uid: PAC.DataStructures.Rational.GetHashCode*
+  name: GetHashCode
+  href: api/PAC.DataStructures.Rational.html#PAC_DataStructures_Rational_GetHashCode_
+  commentId: Overload:PAC.DataStructures.Rational.GetHashCode
+  isSpec: "True"
+  fullName: PAC.DataStructures.Rational.GetHashCode
+  nameWithType: Rational.GetHashCode
+- uid: PAC.DataStructures.Rational.Half
+  name: Half
+  href: api/PAC.DataStructures.Rational.html#PAC_DataStructures_Rational_Half
+  commentId: F:PAC.DataStructures.Rational.Half
+  fullName: PAC.DataStructures.Rational.Half
+  nameWithType: Rational.Half
+- uid: PAC.DataStructures.Rational.MaxValue
+  name: MaxValue
+  href: api/PAC.DataStructures.Rational.html#PAC_DataStructures_Rational_MaxValue
+  commentId: F:PAC.DataStructures.Rational.MaxValue
+  fullName: PAC.DataStructures.Rational.MaxValue
+  nameWithType: Rational.MaxValue
+- uid: PAC.DataStructures.Rational.MinValue
+  name: MinValue
+  href: api/PAC.DataStructures.Rational.html#PAC_DataStructures_Rational_MinValue
+  commentId: F:PAC.DataStructures.Rational.MinValue
+  fullName: PAC.DataStructures.Rational.MinValue
+  nameWithType: Rational.MinValue
+- uid: PAC.DataStructures.Rational.ToString
+  name: ToString()
+  href: api/PAC.DataStructures.Rational.html#PAC_DataStructures_Rational_ToString
+  commentId: M:PAC.DataStructures.Rational.ToString
+  fullName: PAC.DataStructures.Rational.ToString()
+  nameWithType: Rational.ToString()
+- uid: PAC.DataStructures.Rational.ToString*
+  name: ToString
+  href: api/PAC.DataStructures.Rational.html#PAC_DataStructures_Rational_ToString_
+  commentId: Overload:PAC.DataStructures.Rational.ToString
+  isSpec: "True"
+  fullName: PAC.DataStructures.Rational.ToString
+  nameWithType: Rational.ToString
+- uid: PAC.DataStructures.Rational.Undefined
+  name: Undefined
+  href: api/PAC.DataStructures.Rational.html#PAC_DataStructures_Rational_Undefined
+  commentId: F:PAC.DataStructures.Rational.Undefined
+  fullName: PAC.DataStructures.Rational.Undefined
+  nameWithType: Rational.Undefined
+- uid: PAC.DataStructures.Rational.denominator
+  name: denominator
+  href: api/PAC.DataStructures.Rational.html#PAC_DataStructures_Rational_denominator
+  commentId: F:PAC.DataStructures.Rational.denominator
+  fullName: PAC.DataStructures.Rational.denominator
+  nameWithType: Rational.denominator
+- uid: PAC.DataStructures.Rational.isInteger
+  name: isInteger
+  href: api/PAC.DataStructures.Rational.html#PAC_DataStructures_Rational_isInteger
+  commentId: P:PAC.DataStructures.Rational.isInteger
+  fullName: PAC.DataStructures.Rational.isInteger
+  nameWithType: Rational.isInteger
+- uid: PAC.DataStructures.Rational.isInteger*
+  name: isInteger
+  href: api/PAC.DataStructures.Rational.html#PAC_DataStructures_Rational_isInteger_
+  commentId: Overload:PAC.DataStructures.Rational.isInteger
+  isSpec: "True"
+  fullName: PAC.DataStructures.Rational.isInteger
+  nameWithType: Rational.isInteger
+- uid: PAC.DataStructures.Rational.isUndefined
+  name: isUndefined
+  href: api/PAC.DataStructures.Rational.html#PAC_DataStructures_Rational_isUndefined
+  commentId: P:PAC.DataStructures.Rational.isUndefined
+  fullName: PAC.DataStructures.Rational.isUndefined
+  nameWithType: Rational.isUndefined
+- uid: PAC.DataStructures.Rational.isUndefined*
+  name: isUndefined
+  href: api/PAC.DataStructures.Rational.html#PAC_DataStructures_Rational_isUndefined_
+  commentId: Overload:PAC.DataStructures.Rational.isUndefined
+  isSpec: "True"
+  fullName: PAC.DataStructures.Rational.isUndefined
+  nameWithType: Rational.isUndefined
+- uid: PAC.DataStructures.Rational.numerator
+  name: numerator
+  href: api/PAC.DataStructures.Rational.html#PAC_DataStructures_Rational_numerator
+  commentId: F:PAC.DataStructures.Rational.numerator
+  fullName: PAC.DataStructures.Rational.numerator
+  nameWithType: Rational.numerator
+- uid: PAC.DataStructures.Rational.op_Addition(PAC.DataStructures.Rational,PAC.DataStructures.Rational)
+  name: operator +(Rational, Rational)
+  href: api/PAC.DataStructures.Rational.html#PAC_DataStructures_Rational_op_Addition_PAC_DataStructures_Rational_PAC_DataStructures_Rational_
+  commentId: M:PAC.DataStructures.Rational.op_Addition(PAC.DataStructures.Rational,PAC.DataStructures.Rational)
+  name.vb: +(Rational, Rational)
+  fullName: PAC.DataStructures.Rational.operator +(PAC.DataStructures.Rational, PAC.DataStructures.Rational)
+  fullName.vb: PAC.DataStructures.Rational.+(PAC.DataStructures.Rational, PAC.DataStructures.Rational)
+  nameWithType: Rational.operator +(Rational, Rational)
+  nameWithType.vb: Rational.+(Rational, Rational)
+- uid: PAC.DataStructures.Rational.op_Addition*
+  name: operator +
+  href: api/PAC.DataStructures.Rational.html#PAC_DataStructures_Rational_op_Addition_
+  commentId: Overload:PAC.DataStructures.Rational.op_Addition
+  isSpec: "True"
+  name.vb: +
+  fullName: PAC.DataStructures.Rational.operator +
+  fullName.vb: PAC.DataStructures.Rational.+
+  nameWithType: Rational.operator +
+  nameWithType.vb: Rational.+
+- uid: PAC.DataStructures.Rational.op_Division(PAC.DataStructures.Rational,PAC.DataStructures.Rational)
+  name: operator /(Rational, Rational)
+  href: api/PAC.DataStructures.Rational.html#PAC_DataStructures_Rational_op_Division_PAC_DataStructures_Rational_PAC_DataStructures_Rational_
+  commentId: M:PAC.DataStructures.Rational.op_Division(PAC.DataStructures.Rational,PAC.DataStructures.Rational)
+  name.vb: /(Rational, Rational)
+  fullName: PAC.DataStructures.Rational.operator /(PAC.DataStructures.Rational, PAC.DataStructures.Rational)
+  fullName.vb: PAC.DataStructures.Rational./(PAC.DataStructures.Rational, PAC.DataStructures.Rational)
+  nameWithType: Rational.operator /(Rational, Rational)
+  nameWithType.vb: Rational./(Rational, Rational)
+- uid: PAC.DataStructures.Rational.op_Division*
+  name: operator /
+  href: api/PAC.DataStructures.Rational.html#PAC_DataStructures_Rational_op_Division_
+  commentId: Overload:PAC.DataStructures.Rational.op_Division
+  isSpec: "True"
+  name.vb: /
+  fullName: PAC.DataStructures.Rational.operator /
+  fullName.vb: PAC.DataStructures.Rational./
+  nameWithType: Rational.operator /
+  nameWithType.vb: Rational./
+- uid: PAC.DataStructures.Rational.op_Equality(PAC.DataStructures.Rational,PAC.DataStructures.Rational)
+  name: operator ==(Rational, Rational)
+  href: api/PAC.DataStructures.Rational.html#PAC_DataStructures_Rational_op_Equality_PAC_DataStructures_Rational_PAC_DataStructures_Rational_
+  commentId: M:PAC.DataStructures.Rational.op_Equality(PAC.DataStructures.Rational,PAC.DataStructures.Rational)
+  name.vb: =(Rational, Rational)
+  fullName: PAC.DataStructures.Rational.operator ==(PAC.DataStructures.Rational, PAC.DataStructures.Rational)
+  fullName.vb: PAC.DataStructures.Rational.=(PAC.DataStructures.Rational, PAC.DataStructures.Rational)
+  nameWithType: Rational.operator ==(Rational, Rational)
+  nameWithType.vb: Rational.=(Rational, Rational)
+- uid: PAC.DataStructures.Rational.op_Equality*
+  name: operator ==
+  href: api/PAC.DataStructures.Rational.html#PAC_DataStructures_Rational_op_Equality_
+  commentId: Overload:PAC.DataStructures.Rational.op_Equality
+  isSpec: "True"
+  name.vb: =
+  fullName: PAC.DataStructures.Rational.operator ==
+  fullName.vb: PAC.DataStructures.Rational.=
+  nameWithType: Rational.operator ==
+  nameWithType.vb: Rational.=
+- uid: PAC.DataStructures.Rational.op_Explicit(PAC.DataStructures.Rational)~System.Int32
+  name: explicit operator int(Rational)
+  href: api/PAC.DataStructures.Rational.html#PAC_DataStructures_Rational_op_Explicit_PAC_DataStructures_Rational__System_Int32
+  commentId: M:PAC.DataStructures.Rational.op_Explicit(PAC.DataStructures.Rational)~System.Int32
+  name.vb: CType(Rational)
+  fullName: PAC.DataStructures.Rational.explicit operator int(PAC.DataStructures.Rational)
+  fullName.vb: PAC.DataStructures.Rational.CType(PAC.DataStructures.Rational)
+  nameWithType: Rational.explicit operator int(Rational)
+  nameWithType.vb: Rational.CType(Rational)
+- uid: PAC.DataStructures.Rational.op_Explicit*
+  name: explicit operator
+  href: api/PAC.DataStructures.Rational.html#PAC_DataStructures_Rational_op_Explicit_
+  commentId: Overload:PAC.DataStructures.Rational.op_Explicit
+  isSpec: "True"
+  name.vb: CType
+  fullName: PAC.DataStructures.Rational.explicit operator
+  fullName.vb: PAC.DataStructures.Rational.CType
+  nameWithType: Rational.explicit operator
+  nameWithType.vb: Rational.CType
+- uid: PAC.DataStructures.Rational.op_GreaterThan(PAC.DataStructures.Rational,PAC.DataStructures.Rational)
+  name: operator >(Rational, Rational)
+  href: api/PAC.DataStructures.Rational.html#PAC_DataStructures_Rational_op_GreaterThan_PAC_DataStructures_Rational_PAC_DataStructures_Rational_
+  commentId: M:PAC.DataStructures.Rational.op_GreaterThan(PAC.DataStructures.Rational,PAC.DataStructures.Rational)
+  name.vb: '>(Rational, Rational)'
+  fullName: PAC.DataStructures.Rational.operator >(PAC.DataStructures.Rational, PAC.DataStructures.Rational)
+  fullName.vb: PAC.DataStructures.Rational.>(PAC.DataStructures.Rational, PAC.DataStructures.Rational)
+  nameWithType: Rational.operator >(Rational, Rational)
+  nameWithType.vb: Rational.>(Rational, Rational)
+- uid: PAC.DataStructures.Rational.op_GreaterThan*
+  name: operator >
+  href: api/PAC.DataStructures.Rational.html#PAC_DataStructures_Rational_op_GreaterThan_
+  commentId: Overload:PAC.DataStructures.Rational.op_GreaterThan
+  isSpec: "True"
+  name.vb: '>'
+  fullName: PAC.DataStructures.Rational.operator >
+  fullName.vb: PAC.DataStructures.Rational.>
+  nameWithType: Rational.operator >
+  nameWithType.vb: Rational.>
+- uid: PAC.DataStructures.Rational.op_GreaterThanOrEqual(PAC.DataStructures.Rational,PAC.DataStructures.Rational)
+  name: operator >=(Rational, Rational)
+  href: api/PAC.DataStructures.Rational.html#PAC_DataStructures_Rational_op_GreaterThanOrEqual_PAC_DataStructures_Rational_PAC_DataStructures_Rational_
+  commentId: M:PAC.DataStructures.Rational.op_GreaterThanOrEqual(PAC.DataStructures.Rational,PAC.DataStructures.Rational)
+  name.vb: '>=(Rational, Rational)'
+  fullName: PAC.DataStructures.Rational.operator >=(PAC.DataStructures.Rational, PAC.DataStructures.Rational)
+  fullName.vb: PAC.DataStructures.Rational.>=(PAC.DataStructures.Rational, PAC.DataStructures.Rational)
+  nameWithType: Rational.operator >=(Rational, Rational)
+  nameWithType.vb: Rational.>=(Rational, Rational)
+- uid: PAC.DataStructures.Rational.op_GreaterThanOrEqual*
+  name: operator >=
+  href: api/PAC.DataStructures.Rational.html#PAC_DataStructures_Rational_op_GreaterThanOrEqual_
+  commentId: Overload:PAC.DataStructures.Rational.op_GreaterThanOrEqual
+  isSpec: "True"
+  name.vb: '>='
+  fullName: PAC.DataStructures.Rational.operator >=
+  fullName.vb: PAC.DataStructures.Rational.>=
+  nameWithType: Rational.operator >=
+  nameWithType.vb: Rational.>=
+- uid: PAC.DataStructures.Rational.op_Implicit(PAC.DataStructures.Rational)~System.Single
+  name: implicit operator float(Rational)
+  href: api/PAC.DataStructures.Rational.html#PAC_DataStructures_Rational_op_Implicit_PAC_DataStructures_Rational__System_Single
+  commentId: M:PAC.DataStructures.Rational.op_Implicit(PAC.DataStructures.Rational)~System.Single
+  name.vb: CType(Rational)
+  fullName: PAC.DataStructures.Rational.implicit operator float(PAC.DataStructures.Rational)
+  fullName.vb: PAC.DataStructures.Rational.CType(PAC.DataStructures.Rational)
+  nameWithType: Rational.implicit operator float(Rational)
+  nameWithType.vb: Rational.CType(Rational)
+- uid: PAC.DataStructures.Rational.op_Implicit(System.Int32)~PAC.DataStructures.Rational
+  name: implicit operator Rational(int)
+  href: api/PAC.DataStructures.Rational.html#PAC_DataStructures_Rational_op_Implicit_System_Int32__PAC_DataStructures_Rational
+  commentId: M:PAC.DataStructures.Rational.op_Implicit(System.Int32)~PAC.DataStructures.Rational
+  name.vb: CType(Integer)
+  fullName: PAC.DataStructures.Rational.implicit operator PAC.DataStructures.Rational(int)
+  fullName.vb: PAC.DataStructures.Rational.CType(Integer)
+  nameWithType: Rational.implicit operator Rational(int)
+  nameWithType.vb: Rational.CType(Integer)
+- uid: PAC.DataStructures.Rational.op_Implicit*
+  name: implicit operator
+  href: api/PAC.DataStructures.Rational.html#PAC_DataStructures_Rational_op_Implicit_
+  commentId: Overload:PAC.DataStructures.Rational.op_Implicit
+  isSpec: "True"
+  name.vb: CType
+  fullName: PAC.DataStructures.Rational.implicit operator
+  fullName.vb: PAC.DataStructures.Rational.CType
+  nameWithType: Rational.implicit operator
+  nameWithType.vb: Rational.CType
+- uid: PAC.DataStructures.Rational.op_Inequality(PAC.DataStructures.Rational,PAC.DataStructures.Rational)
+  name: operator !=(Rational, Rational)
+  href: api/PAC.DataStructures.Rational.html#PAC_DataStructures_Rational_op_Inequality_PAC_DataStructures_Rational_PAC_DataStructures_Rational_
+  commentId: M:PAC.DataStructures.Rational.op_Inequality(PAC.DataStructures.Rational,PAC.DataStructures.Rational)
+  name.vb: <>(Rational, Rational)
+  fullName: PAC.DataStructures.Rational.operator !=(PAC.DataStructures.Rational, PAC.DataStructures.Rational)
+  fullName.vb: PAC.DataStructures.Rational.<>(PAC.DataStructures.Rational, PAC.DataStructures.Rational)
+  nameWithType: Rational.operator !=(Rational, Rational)
+  nameWithType.vb: Rational.<>(Rational, Rational)
+- uid: PAC.DataStructures.Rational.op_Inequality*
+  name: operator !=
+  href: api/PAC.DataStructures.Rational.html#PAC_DataStructures_Rational_op_Inequality_
+  commentId: Overload:PAC.DataStructures.Rational.op_Inequality
+  isSpec: "True"
+  name.vb: <>
+  fullName: PAC.DataStructures.Rational.operator !=
+  fullName.vb: PAC.DataStructures.Rational.<>
+  nameWithType: Rational.operator !=
+  nameWithType.vb: Rational.<>
+- uid: PAC.DataStructures.Rational.op_LessThan(PAC.DataStructures.Rational,PAC.DataStructures.Rational)
+  name: operator <(Rational, Rational)
+  href: api/PAC.DataStructures.Rational.html#PAC_DataStructures_Rational_op_LessThan_PAC_DataStructures_Rational_PAC_DataStructures_Rational_
+  commentId: M:PAC.DataStructures.Rational.op_LessThan(PAC.DataStructures.Rational,PAC.DataStructures.Rational)
+  name.vb: <(Rational, Rational)
+  fullName: PAC.DataStructures.Rational.operator <(PAC.DataStructures.Rational, PAC.DataStructures.Rational)
+  fullName.vb: PAC.DataStructures.Rational.<(PAC.DataStructures.Rational, PAC.DataStructures.Rational)
+  nameWithType: Rational.operator <(Rational, Rational)
+  nameWithType.vb: Rational.<(Rational, Rational)
+- uid: PAC.DataStructures.Rational.op_LessThan*
+  name: operator <
+  href: api/PAC.DataStructures.Rational.html#PAC_DataStructures_Rational_op_LessThan_
+  commentId: Overload:PAC.DataStructures.Rational.op_LessThan
+  isSpec: "True"
+  name.vb: <
+  fullName: PAC.DataStructures.Rational.operator <
+  fullName.vb: PAC.DataStructures.Rational.<
+  nameWithType: Rational.operator <
+  nameWithType.vb: Rational.<
+- uid: PAC.DataStructures.Rational.op_LessThanOrEqual(PAC.DataStructures.Rational,PAC.DataStructures.Rational)
+  name: operator <=(Rational, Rational)
+  href: api/PAC.DataStructures.Rational.html#PAC_DataStructures_Rational_op_LessThanOrEqual_PAC_DataStructures_Rational_PAC_DataStructures_Rational_
+  commentId: M:PAC.DataStructures.Rational.op_LessThanOrEqual(PAC.DataStructures.Rational,PAC.DataStructures.Rational)
+  name.vb: <=(Rational, Rational)
+  fullName: PAC.DataStructures.Rational.operator <=(PAC.DataStructures.Rational, PAC.DataStructures.Rational)
+  fullName.vb: PAC.DataStructures.Rational.<=(PAC.DataStructures.Rational, PAC.DataStructures.Rational)
+  nameWithType: Rational.operator <=(Rational, Rational)
+  nameWithType.vb: Rational.<=(Rational, Rational)
+- uid: PAC.DataStructures.Rational.op_LessThanOrEqual*
+  name: operator <=
+  href: api/PAC.DataStructures.Rational.html#PAC_DataStructures_Rational_op_LessThanOrEqual_
+  commentId: Overload:PAC.DataStructures.Rational.op_LessThanOrEqual
+  isSpec: "True"
+  name.vb: <=
+  fullName: PAC.DataStructures.Rational.operator <=
+  fullName.vb: PAC.DataStructures.Rational.<=
+  nameWithType: Rational.operator <=
+  nameWithType.vb: Rational.<=
+- uid: PAC.DataStructures.Rational.op_Modulus(PAC.DataStructures.Rational,PAC.DataStructures.Rational)
+  name: operator %(Rational, Rational)
+  href: api/PAC.DataStructures.Rational.html#PAC_DataStructures_Rational_op_Modulus_PAC_DataStructures_Rational_PAC_DataStructures_Rational_
+  commentId: M:PAC.DataStructures.Rational.op_Modulus(PAC.DataStructures.Rational,PAC.DataStructures.Rational)
+  name.vb: Mod(Rational, Rational)
+  fullName: PAC.DataStructures.Rational.operator %(PAC.DataStructures.Rational, PAC.DataStructures.Rational)
+  fullName.vb: PAC.DataStructures.Rational.Mod(PAC.DataStructures.Rational, PAC.DataStructures.Rational)
+  nameWithType: Rational.operator %(Rational, Rational)
+  nameWithType.vb: Rational.Mod(Rational, Rational)
+- uid: PAC.DataStructures.Rational.op_Modulus*
+  name: operator %
+  href: api/PAC.DataStructures.Rational.html#PAC_DataStructures_Rational_op_Modulus_
+  commentId: Overload:PAC.DataStructures.Rational.op_Modulus
+  isSpec: "True"
+  name.vb: Mod
+  fullName: PAC.DataStructures.Rational.operator %
+  fullName.vb: PAC.DataStructures.Rational.Mod
+  nameWithType: Rational.operator %
+  nameWithType.vb: Rational.Mod
+- uid: PAC.DataStructures.Rational.op_Multiply(PAC.DataStructures.Rational,PAC.DataStructures.Rational)
+  name: operator *(Rational, Rational)
+  href: api/PAC.DataStructures.Rational.html#PAC_DataStructures_Rational_op_Multiply_PAC_DataStructures_Rational_PAC_DataStructures_Rational_
+  commentId: M:PAC.DataStructures.Rational.op_Multiply(PAC.DataStructures.Rational,PAC.DataStructures.Rational)
+  name.vb: '*(Rational, Rational)'
+  fullName: PAC.DataStructures.Rational.operator *(PAC.DataStructures.Rational, PAC.DataStructures.Rational)
+  fullName.vb: PAC.DataStructures.Rational.*(PAC.DataStructures.Rational, PAC.DataStructures.Rational)
+  nameWithType: Rational.operator *(Rational, Rational)
+  nameWithType.vb: Rational.*(Rational, Rational)
+- uid: PAC.DataStructures.Rational.op_Multiply*
+  name: operator *
+  href: api/PAC.DataStructures.Rational.html#PAC_DataStructures_Rational_op_Multiply_
+  commentId: Overload:PAC.DataStructures.Rational.op_Multiply
+  isSpec: "True"
+  name.vb: '*'
+  fullName: PAC.DataStructures.Rational.operator *
+  fullName.vb: PAC.DataStructures.Rational.*
+  nameWithType: Rational.operator *
+  nameWithType.vb: Rational.*
+- uid: PAC.DataStructures.Rational.op_Subtraction(PAC.DataStructures.Rational,PAC.DataStructures.Rational)
+  name: operator -(Rational, Rational)
+  href: api/PAC.DataStructures.Rational.html#PAC_DataStructures_Rational_op_Subtraction_PAC_DataStructures_Rational_PAC_DataStructures_Rational_
+  commentId: M:PAC.DataStructures.Rational.op_Subtraction(PAC.DataStructures.Rational,PAC.DataStructures.Rational)
+  name.vb: -(Rational, Rational)
+  fullName: PAC.DataStructures.Rational.operator -(PAC.DataStructures.Rational, PAC.DataStructures.Rational)
+  fullName.vb: PAC.DataStructures.Rational.-(PAC.DataStructures.Rational, PAC.DataStructures.Rational)
+  nameWithType: Rational.operator -(Rational, Rational)
+  nameWithType.vb: Rational.-(Rational, Rational)
+- uid: PAC.DataStructures.Rational.op_Subtraction*
+  name: operator -
+  href: api/PAC.DataStructures.Rational.html#PAC_DataStructures_Rational_op_Subtraction_
+  commentId: Overload:PAC.DataStructures.Rational.op_Subtraction
+  isSpec: "True"
+  name.vb: '-'
+  fullName: PAC.DataStructures.Rational.operator -
+  fullName.vb: PAC.DataStructures.Rational.-
+  nameWithType: Rational.operator -
+  nameWithType.vb: Rational.-
+- uid: PAC.DataStructures.Rational.op_UnaryNegation(PAC.DataStructures.Rational)
+  name: operator -(Rational)
+  href: api/PAC.DataStructures.Rational.html#PAC_DataStructures_Rational_op_UnaryNegation_PAC_DataStructures_Rational_
+  commentId: M:PAC.DataStructures.Rational.op_UnaryNegation(PAC.DataStructures.Rational)
+  name.vb: -(Rational)
+  fullName: PAC.DataStructures.Rational.operator -(PAC.DataStructures.Rational)
+  fullName.vb: PAC.DataStructures.Rational.-(PAC.DataStructures.Rational)
+  nameWithType: Rational.operator -(Rational)
+  nameWithType.vb: Rational.-(Rational)
+- uid: PAC.DataStructures.Rational.op_UnaryNegation*
+  name: operator -
+  href: api/PAC.DataStructures.Rational.html#PAC_DataStructures_Rational_op_UnaryNegation_
+  commentId: Overload:PAC.DataStructures.Rational.op_UnaryNegation
+  isSpec: "True"
+  name.vb: '-'
+  fullName: PAC.DataStructures.Rational.operator -
+  fullName.vb: PAC.DataStructures.Rational.-
+  nameWithType: Rational.operator -
+  nameWithType.vb: Rational.-
+- uid: PAC.DataStructures.Rational.sign
+  name: sign
+  href: api/PAC.DataStructures.Rational.html#PAC_DataStructures_Rational_sign
+  commentId: P:PAC.DataStructures.Rational.sign
+  fullName: PAC.DataStructures.Rational.sign
+  nameWithType: Rational.sign
+- uid: PAC.DataStructures.Rational.sign*
+  name: sign
+  href: api/PAC.DataStructures.Rational.html#PAC_DataStructures_Rational_sign_
+  commentId: Overload:PAC.DataStructures.Rational.sign
+  isSpec: "True"
+  fullName: PAC.DataStructures.Rational.sign
+  nameWithType: Rational.sign
 - uid: PAC.DataStructures.SemanticVersion
   name: SemanticVersion
   href: api/PAC.DataStructures.SemanticVersion.html
@@ -6985,6 +6982,22 @@ references:
   fullName.vb: PAC.Extensions.IEnumerableExtensions.SkipIndex(Of T)(System.Collections.Generic.IEnumerable(Of T), Integer)
   nameWithType: IEnumerableExtensions.SkipIndex<T>(IEnumerable<T>, int)
   nameWithType.vb: IEnumerableExtensions.SkipIndex(Of T)(IEnumerable(Of T), Integer)
+- uid: PAC.Extensions.IEnumerableExtensions.ToPrettyString*
+  name: ToPrettyString
+  href: api/PAC.Extensions.IEnumerableExtensions.html#PAC_Extensions_IEnumerableExtensions_ToPrettyString_
+  commentId: Overload:PAC.Extensions.IEnumerableExtensions.ToPrettyString
+  isSpec: "True"
+  fullName: PAC.Extensions.IEnumerableExtensions.ToPrettyString
+  nameWithType: IEnumerableExtensions.ToPrettyString
+- uid: PAC.Extensions.IEnumerableExtensions.ToPrettyString``1(System.Collections.Generic.IEnumerable{``0})
+  name: ToPrettyString<T>(IEnumerable<T>)
+  href: api/PAC.Extensions.IEnumerableExtensions.html#PAC_Extensions_IEnumerableExtensions_ToPrettyString__1_System_Collections_Generic_IEnumerable___0__
+  commentId: M:PAC.Extensions.IEnumerableExtensions.ToPrettyString``1(System.Collections.Generic.IEnumerable{``0})
+  name.vb: ToPrettyString(Of T)(IEnumerable(Of T))
+  fullName: PAC.Extensions.IEnumerableExtensions.ToPrettyString<T>(System.Collections.Generic.IEnumerable<T>)
+  fullName.vb: PAC.Extensions.IEnumerableExtensions.ToPrettyString(Of T)(System.Collections.Generic.IEnumerable(Of T))
+  nameWithType: IEnumerableExtensions.ToPrettyString<T>(IEnumerable<T>)
+  nameWithType.vb: IEnumerableExtensions.ToPrettyString(Of T)(IEnumerable(Of T))
 - uid: PAC.Extensions.IEnumerableExtensions.Zip*
   name: Zip
   href: api/PAC.Extensions.IEnumerableExtensions.html#PAC_Extensions_IEnumerableExtensions_Zip_
@@ -7436,6 +7449,44 @@ references:
   commentId: F:PAC.Extensions.JsonConverters.allConverters
   fullName: PAC.Extensions.JsonConverters.allConverters
   nameWithType: JsonConverters.allConverters
+- uid: PAC.Extensions.KeyCodeExtensions
+  name: KeyCodeExtensions
+  href: api/PAC.Extensions.KeyCodeExtensions.html
+  commentId: T:PAC.Extensions.KeyCodeExtensions
+  fullName: PAC.Extensions.KeyCodeExtensions
+  nameWithType: KeyCodeExtensions
+- uid: PAC.Extensions.KeyCodeExtensions.Parse(System.String)
+  name: Parse(string)
+  href: api/PAC.Extensions.KeyCodeExtensions.html#PAC_Extensions_KeyCodeExtensions_Parse_System_String_
+  commentId: M:PAC.Extensions.KeyCodeExtensions.Parse(System.String)
+  name.vb: Parse(String)
+  fullName: PAC.Extensions.KeyCodeExtensions.Parse(string)
+  fullName.vb: PAC.Extensions.KeyCodeExtensions.Parse(String)
+  nameWithType: KeyCodeExtensions.Parse(string)
+  nameWithType.vb: KeyCodeExtensions.Parse(String)
+- uid: PAC.Extensions.KeyCodeExtensions.Parse*
+  name: Parse
+  href: api/PAC.Extensions.KeyCodeExtensions.html#PAC_Extensions_KeyCodeExtensions_Parse_
+  commentId: Overload:PAC.Extensions.KeyCodeExtensions.Parse
+  isSpec: "True"
+  fullName: PAC.Extensions.KeyCodeExtensions.Parse
+  nameWithType: KeyCodeExtensions.Parse
+- uid: PAC.Extensions.KeyCodeExtensions.TryParse(System.String,KeyCode@)
+  name: TryParse(string, out KeyCode)
+  href: api/PAC.Extensions.KeyCodeExtensions.html#PAC_Extensions_KeyCodeExtensions_TryParse_System_String_KeyCode__
+  commentId: M:PAC.Extensions.KeyCodeExtensions.TryParse(System.String,KeyCode@)
+  name.vb: TryParse(String, KeyCode)
+  fullName: PAC.Extensions.KeyCodeExtensions.TryParse(string, out KeyCode)
+  fullName.vb: PAC.Extensions.KeyCodeExtensions.TryParse(String, KeyCode)
+  nameWithType: KeyCodeExtensions.TryParse(string, out KeyCode)
+  nameWithType.vb: KeyCodeExtensions.TryParse(String, KeyCode)
+- uid: PAC.Extensions.KeyCodeExtensions.TryParse*
+  name: TryParse
+  href: api/PAC.Extensions.KeyCodeExtensions.html#PAC_Extensions_KeyCodeExtensions_TryParse_
+  commentId: Overload:PAC.Extensions.KeyCodeExtensions.TryParse
+  isSpec: "True"
+  fullName: PAC.Extensions.KeyCodeExtensions.TryParse
+  nameWithType: KeyCodeExtensions.TryParse
 - uid: PAC.Extensions.RandomExtensions
   name: RandomExtensions
   href: api/PAC.Extensions.RandomExtensions.html
@@ -7592,6 +7643,281 @@ references:
   isSpec: "True"
   fullName: PAC.Extensions.TextReaderExtensions.TryReadIntoChar
   nameWithType: TextReaderExtensions.TryReadIntoChar
+- uid: PAC.Extensions.Texture2DExtensions
+  name: Texture2DExtensions
+  href: api/PAC.Extensions.Texture2DExtensions.html
+  commentId: T:PAC.Extensions.Texture2DExtensions
+  fullName: PAC.Extensions.Texture2DExtensions
+  nameWithType: Texture2DExtensions
+- uid: PAC.Extensions.Texture2DExtensions.Applied(Texture2D)
+  name: Applied(Texture2D)
+  href: api/PAC.Extensions.Texture2DExtensions.html#PAC_Extensions_Texture2DExtensions_Applied_Texture2D_
+  commentId: M:PAC.Extensions.Texture2DExtensions.Applied(Texture2D)
+  fullName: PAC.Extensions.Texture2DExtensions.Applied(Texture2D)
+  nameWithType: Texture2DExtensions.Applied(Texture2D)
+- uid: PAC.Extensions.Texture2DExtensions.Applied*
+  name: Applied
+  href: api/PAC.Extensions.Texture2DExtensions.html#PAC_Extensions_Texture2DExtensions_Applied_
+  commentId: Overload:PAC.Extensions.Texture2DExtensions.Applied
+  isSpec: "True"
+  fullName: PAC.Extensions.Texture2DExtensions.Applied
+  nameWithType: Texture2DExtensions.Applied
+- uid: PAC.Extensions.Texture2DExtensions.Blend(Color,Texture2D,PAC.Colour.BlendMode)
+  name: Blend(Color, Texture2D, BlendMode)
+  href: api/PAC.Extensions.Texture2DExtensions.html#PAC_Extensions_Texture2DExtensions_Blend_Color_Texture2D_PAC_Colour_BlendMode_
+  commentId: M:PAC.Extensions.Texture2DExtensions.Blend(Color,Texture2D,PAC.Colour.BlendMode)
+  fullName: PAC.Extensions.Texture2DExtensions.Blend(Color, Texture2D, PAC.Colour.BlendMode)
+  nameWithType: Texture2DExtensions.Blend(Color, Texture2D, BlendMode)
+- uid: PAC.Extensions.Texture2DExtensions.Blend(Texture2D,Texture2D,PAC.Colour.BlendMode)
+  name: Blend(Texture2D, Texture2D, BlendMode)
+  href: api/PAC.Extensions.Texture2DExtensions.html#PAC_Extensions_Texture2DExtensions_Blend_Texture2D_Texture2D_PAC_Colour_BlendMode_
+  commentId: M:PAC.Extensions.Texture2DExtensions.Blend(Texture2D,Texture2D,PAC.Colour.BlendMode)
+  fullName: PAC.Extensions.Texture2DExtensions.Blend(Texture2D, Texture2D, PAC.Colour.BlendMode)
+  nameWithType: Texture2DExtensions.Blend(Texture2D, Texture2D, BlendMode)
+- uid: PAC.Extensions.Texture2DExtensions.Blend(Texture2D,Texture2D,PAC.Colour.BlendMode,PAC.DataStructures.IntVector2)
+  name: Blend(Texture2D, Texture2D, BlendMode, IntVector2)
+  href: api/PAC.Extensions.Texture2DExtensions.html#PAC_Extensions_Texture2DExtensions_Blend_Texture2D_Texture2D_PAC_Colour_BlendMode_PAC_DataStructures_IntVector2_
+  commentId: M:PAC.Extensions.Texture2DExtensions.Blend(Texture2D,Texture2D,PAC.Colour.BlendMode,PAC.DataStructures.IntVector2)
+  fullName: PAC.Extensions.Texture2DExtensions.Blend(Texture2D, Texture2D, PAC.Colour.BlendMode, PAC.DataStructures.IntVector2)
+  nameWithType: Texture2DExtensions.Blend(Texture2D, Texture2D, BlendMode, IntVector2)
+- uid: PAC.Extensions.Texture2DExtensions.Blend*
+  name: Blend
+  href: api/PAC.Extensions.Texture2DExtensions.html#PAC_Extensions_Texture2DExtensions_Blend_
+  commentId: Overload:PAC.Extensions.Texture2DExtensions.Blend
+  isSpec: "True"
+  fullName: PAC.Extensions.Texture2DExtensions.Blend
+  nameWithType: Texture2DExtensions.Blend
+- uid: PAC.Extensions.Texture2DExtensions.ContainsPixel(Texture2D,PAC.DataStructures.IntVector2)
+  name: ContainsPixel(Texture2D, IntVector2)
+  href: api/PAC.Extensions.Texture2DExtensions.html#PAC_Extensions_Texture2DExtensions_ContainsPixel_Texture2D_PAC_DataStructures_IntVector2_
+  commentId: M:PAC.Extensions.Texture2DExtensions.ContainsPixel(Texture2D,PAC.DataStructures.IntVector2)
+  fullName: PAC.Extensions.Texture2DExtensions.ContainsPixel(Texture2D, PAC.DataStructures.IntVector2)
+  nameWithType: Texture2DExtensions.ContainsPixel(Texture2D, IntVector2)
+- uid: PAC.Extensions.Texture2DExtensions.ContainsPixel(Texture2D,System.Int32,System.Int32)
+  name: ContainsPixel(Texture2D, int, int)
+  href: api/PAC.Extensions.Texture2DExtensions.html#PAC_Extensions_Texture2DExtensions_ContainsPixel_Texture2D_System_Int32_System_Int32_
+  commentId: M:PAC.Extensions.Texture2DExtensions.ContainsPixel(Texture2D,System.Int32,System.Int32)
+  name.vb: ContainsPixel(Texture2D, Integer, Integer)
+  fullName: PAC.Extensions.Texture2DExtensions.ContainsPixel(Texture2D, int, int)
+  fullName.vb: PAC.Extensions.Texture2DExtensions.ContainsPixel(Texture2D, Integer, Integer)
+  nameWithType: Texture2DExtensions.ContainsPixel(Texture2D, int, int)
+  nameWithType.vb: Texture2DExtensions.ContainsPixel(Texture2D, Integer, Integer)
+- uid: PAC.Extensions.Texture2DExtensions.ContainsPixel*
+  name: ContainsPixel
+  href: api/PAC.Extensions.Texture2DExtensions.html#PAC_Extensions_Texture2DExtensions_ContainsPixel_
+  commentId: Overload:PAC.Extensions.Texture2DExtensions.ContainsPixel
+  isSpec: "True"
+  fullName: PAC.Extensions.Texture2DExtensions.ContainsPixel
+  nameWithType: Texture2DExtensions.ContainsPixel
+- uid: PAC.Extensions.Texture2DExtensions.DeepCopy(Texture2D)
+  name: DeepCopy(Texture2D)
+  href: api/PAC.Extensions.Texture2DExtensions.html#PAC_Extensions_Texture2DExtensions_DeepCopy_Texture2D_
+  commentId: M:PAC.Extensions.Texture2DExtensions.DeepCopy(Texture2D)
+  fullName: PAC.Extensions.Texture2DExtensions.DeepCopy(Texture2D)
+  nameWithType: Texture2DExtensions.DeepCopy(Texture2D)
+- uid: PAC.Extensions.Texture2DExtensions.DeepCopy*
+  name: DeepCopy
+  href: api/PAC.Extensions.Texture2DExtensions.html#PAC_Extensions_Texture2DExtensions_DeepCopy_
+  commentId: Overload:PAC.Extensions.Texture2DExtensions.DeepCopy
+  isSpec: "True"
+  fullName: PAC.Extensions.Texture2DExtensions.DeepCopy
+  nameWithType: Texture2DExtensions.DeepCopy
+- uid: PAC.Extensions.Texture2DExtensions.ExtendCrop(Texture2D,PAC.DataStructures.IntRect)
+  name: ExtendCrop(Texture2D, IntRect)
+  href: api/PAC.Extensions.Texture2DExtensions.html#PAC_Extensions_Texture2DExtensions_ExtendCrop_Texture2D_PAC_DataStructures_IntRect_
+  commentId: M:PAC.Extensions.Texture2DExtensions.ExtendCrop(Texture2D,PAC.DataStructures.IntRect)
+  fullName: PAC.Extensions.Texture2DExtensions.ExtendCrop(Texture2D, PAC.DataStructures.IntRect)
+  nameWithType: Texture2DExtensions.ExtendCrop(Texture2D, IntRect)
+- uid: PAC.Extensions.Texture2DExtensions.ExtendCrop(Texture2D,PAC.Extensions.Texture2DExtensions.ExtendCropOptions@)
+  name: ExtendCrop(Texture2D, in ExtendCropOptions)
+  href: api/PAC.Extensions.Texture2DExtensions.html#PAC_Extensions_Texture2DExtensions_ExtendCrop_Texture2D_PAC_Extensions_Texture2DExtensions_ExtendCropOptions__
+  commentId: M:PAC.Extensions.Texture2DExtensions.ExtendCrop(Texture2D,PAC.Extensions.Texture2DExtensions.ExtendCropOptions@)
+  name.vb: ExtendCrop(Texture2D, ExtendCropOptions)
+  fullName: PAC.Extensions.Texture2DExtensions.ExtendCrop(Texture2D, in PAC.Extensions.Texture2DExtensions.ExtendCropOptions)
+  fullName.vb: PAC.Extensions.Texture2DExtensions.ExtendCrop(Texture2D, PAC.Extensions.Texture2DExtensions.ExtendCropOptions)
+  nameWithType: Texture2DExtensions.ExtendCrop(Texture2D, in Texture2DExtensions.ExtendCropOptions)
+  nameWithType.vb: Texture2DExtensions.ExtendCrop(Texture2D, Texture2DExtensions.ExtendCropOptions)
+- uid: PAC.Extensions.Texture2DExtensions.ExtendCrop*
+  name: ExtendCrop
+  href: api/PAC.Extensions.Texture2DExtensions.html#PAC_Extensions_Texture2DExtensions_ExtendCrop_
+  commentId: Overload:PAC.Extensions.Texture2DExtensions.ExtendCrop
+  isSpec: "True"
+  fullName: PAC.Extensions.Texture2DExtensions.ExtendCrop
+  nameWithType: Texture2DExtensions.ExtendCrop
+- uid: PAC.Extensions.Texture2DExtensions.ExtendCropOptions
+  name: Texture2DExtensions.ExtendCropOptions
+  href: api/PAC.Extensions.Texture2DExtensions.ExtendCropOptions.html
+  commentId: T:PAC.Extensions.Texture2DExtensions.ExtendCropOptions
+  fullName: PAC.Extensions.Texture2DExtensions.ExtendCropOptions
+  nameWithType: Texture2DExtensions.ExtendCropOptions
+- uid: PAC.Extensions.Texture2DExtensions.ExtendCropOptions.bottom
+  name: bottom
+  href: api/PAC.Extensions.Texture2DExtensions.ExtendCropOptions.html#PAC_Extensions_Texture2DExtensions_ExtendCropOptions_bottom
+  commentId: F:PAC.Extensions.Texture2DExtensions.ExtendCropOptions.bottom
+  fullName: PAC.Extensions.Texture2DExtensions.ExtendCropOptions.bottom
+  nameWithType: Texture2DExtensions.ExtendCropOptions.bottom
+- uid: PAC.Extensions.Texture2DExtensions.ExtendCropOptions.left
+  name: left
+  href: api/PAC.Extensions.Texture2DExtensions.ExtendCropOptions.html#PAC_Extensions_Texture2DExtensions_ExtendCropOptions_left
+  commentId: F:PAC.Extensions.Texture2DExtensions.ExtendCropOptions.left
+  fullName: PAC.Extensions.Texture2DExtensions.ExtendCropOptions.left
+  nameWithType: Texture2DExtensions.ExtendCropOptions.left
+- uid: PAC.Extensions.Texture2DExtensions.ExtendCropOptions.right
+  name: right
+  href: api/PAC.Extensions.Texture2DExtensions.ExtendCropOptions.html#PAC_Extensions_Texture2DExtensions_ExtendCropOptions_right
+  commentId: F:PAC.Extensions.Texture2DExtensions.ExtendCropOptions.right
+  fullName: PAC.Extensions.Texture2DExtensions.ExtendCropOptions.right
+  nameWithType: Texture2DExtensions.ExtendCropOptions.right
+- uid: PAC.Extensions.Texture2DExtensions.ExtendCropOptions.top
+  name: top
+  href: api/PAC.Extensions.Texture2DExtensions.ExtendCropOptions.html#PAC_Extensions_Texture2DExtensions_ExtendCropOptions_top
+  commentId: F:PAC.Extensions.Texture2DExtensions.ExtendCropOptions.top
+  fullName: PAC.Extensions.Texture2DExtensions.ExtendCropOptions.top
+  nameWithType: Texture2DExtensions.ExtendCropOptions.top
+- uid: PAC.Extensions.Texture2DExtensions.Flip(Texture2D,PAC.FlipAxis)
+  name: Flip(Texture2D, FlipAxis)
+  href: api/PAC.Extensions.Texture2DExtensions.html#PAC_Extensions_Texture2DExtensions_Flip_Texture2D_PAC_FlipAxis_
+  commentId: M:PAC.Extensions.Texture2DExtensions.Flip(Texture2D,PAC.FlipAxis)
+  fullName: PAC.Extensions.Texture2DExtensions.Flip(Texture2D, PAC.FlipAxis)
+  nameWithType: Texture2DExtensions.Flip(Texture2D, FlipAxis)
+- uid: PAC.Extensions.Texture2DExtensions.Flip*
+  name: Flip
+  href: api/PAC.Extensions.Texture2DExtensions.html#PAC_Extensions_Texture2DExtensions_Flip_
+  commentId: Overload:PAC.Extensions.Texture2DExtensions.Flip
+  isSpec: "True"
+  fullName: PAC.Extensions.Texture2DExtensions.Flip
+  nameWithType: Texture2DExtensions.Flip
+- uid: PAC.Extensions.Texture2DExtensions.GetPixel(Texture2D,PAC.DataStructures.IntVector2)
+  name: GetPixel(Texture2D, IntVector2)
+  href: api/PAC.Extensions.Texture2DExtensions.html#PAC_Extensions_Texture2DExtensions_GetPixel_Texture2D_PAC_DataStructures_IntVector2_
+  commentId: M:PAC.Extensions.Texture2DExtensions.GetPixel(Texture2D,PAC.DataStructures.IntVector2)
+  fullName: PAC.Extensions.Texture2DExtensions.GetPixel(Texture2D, PAC.DataStructures.IntVector2)
+  nameWithType: Texture2DExtensions.GetPixel(Texture2D, IntVector2)
+- uid: PAC.Extensions.Texture2DExtensions.GetPixel*
+  name: GetPixel
+  href: api/PAC.Extensions.Texture2DExtensions.html#PAC_Extensions_Texture2DExtensions_GetPixel_
+  commentId: Overload:PAC.Extensions.Texture2DExtensions.GetPixel
+  isSpec: "True"
+  fullName: PAC.Extensions.Texture2DExtensions.GetPixel
+  nameWithType: Texture2DExtensions.GetPixel
+- uid: PAC.Extensions.Texture2DExtensions.GetRect(Texture2D)
+  name: GetRect(Texture2D)
+  href: api/PAC.Extensions.Texture2DExtensions.html#PAC_Extensions_Texture2DExtensions_GetRect_Texture2D_
+  commentId: M:PAC.Extensions.Texture2DExtensions.GetRect(Texture2D)
+  fullName: PAC.Extensions.Texture2DExtensions.GetRect(Texture2D)
+  nameWithType: Texture2DExtensions.GetRect(Texture2D)
+- uid: PAC.Extensions.Texture2DExtensions.GetRect*
+  name: GetRect
+  href: api/PAC.Extensions.Texture2DExtensions.html#PAC_Extensions_Texture2DExtensions_GetRect_
+  commentId: Overload:PAC.Extensions.Texture2DExtensions.GetRect
+  isSpec: "True"
+  fullName: PAC.Extensions.Texture2DExtensions.GetRect
+  nameWithType: Texture2DExtensions.GetRect
+- uid: PAC.Extensions.Texture2DExtensions.LoadFromFile(System.String)
+  name: LoadFromFile(string)
+  href: api/PAC.Extensions.Texture2DExtensions.html#PAC_Extensions_Texture2DExtensions_LoadFromFile_System_String_
+  commentId: M:PAC.Extensions.Texture2DExtensions.LoadFromFile(System.String)
+  name.vb: LoadFromFile(String)
+  fullName: PAC.Extensions.Texture2DExtensions.LoadFromFile(string)
+  fullName.vb: PAC.Extensions.Texture2DExtensions.LoadFromFile(String)
+  nameWithType: Texture2DExtensions.LoadFromFile(string)
+  nameWithType.vb: Texture2DExtensions.LoadFromFile(String)
+- uid: PAC.Extensions.Texture2DExtensions.LoadFromFile*
+  name: LoadFromFile
+  href: api/PAC.Extensions.Texture2DExtensions.html#PAC_Extensions_Texture2DExtensions_LoadFromFile_
+  commentId: Overload:PAC.Extensions.Texture2DExtensions.LoadFromFile
+  isSpec: "True"
+  fullName: PAC.Extensions.Texture2DExtensions.LoadFromFile
+  nameWithType: Texture2DExtensions.LoadFromFile
+- uid: PAC.Extensions.Texture2DExtensions.ReplaceColour(Texture2D,Color,Color,System.Single)
+  name: ReplaceColour(Texture2D, Color, Color, float)
+  href: api/PAC.Extensions.Texture2DExtensions.html#PAC_Extensions_Texture2DExtensions_ReplaceColour_Texture2D_Color_Color_System_Single_
+  commentId: M:PAC.Extensions.Texture2DExtensions.ReplaceColour(Texture2D,Color,Color,System.Single)
+  name.vb: ReplaceColour(Texture2D, Color, Color, Single)
+  fullName: PAC.Extensions.Texture2DExtensions.ReplaceColour(Texture2D, Color, Color, float)
+  fullName.vb: PAC.Extensions.Texture2DExtensions.ReplaceColour(Texture2D, Color, Color, Single)
+  nameWithType: Texture2DExtensions.ReplaceColour(Texture2D, Color, Color, float)
+  nameWithType.vb: Texture2DExtensions.ReplaceColour(Texture2D, Color, Color, Single)
+- uid: PAC.Extensions.Texture2DExtensions.ReplaceColour*
+  name: ReplaceColour
+  href: api/PAC.Extensions.Texture2DExtensions.html#PAC_Extensions_Texture2DExtensions_ReplaceColour_
+  commentId: Overload:PAC.Extensions.Texture2DExtensions.ReplaceColour
+  isSpec: "True"
+  fullName: PAC.Extensions.Texture2DExtensions.ReplaceColour
+  nameWithType: Texture2DExtensions.ReplaceColour
+- uid: PAC.Extensions.Texture2DExtensions.Rotate(Texture2D,PAC.RotationAngle)
+  name: Rotate(Texture2D, RotationAngle)
+  href: api/PAC.Extensions.Texture2DExtensions.html#PAC_Extensions_Texture2DExtensions_Rotate_Texture2D_PAC_RotationAngle_
+  commentId: M:PAC.Extensions.Texture2DExtensions.Rotate(Texture2D,PAC.RotationAngle)
+  fullName: PAC.Extensions.Texture2DExtensions.Rotate(Texture2D, PAC.RotationAngle)
+  nameWithType: Texture2DExtensions.Rotate(Texture2D, RotationAngle)
+- uid: PAC.Extensions.Texture2DExtensions.Rotate*
+  name: Rotate
+  href: api/PAC.Extensions.Texture2DExtensions.html#PAC_Extensions_Texture2DExtensions_Rotate_
+  commentId: Overload:PAC.Extensions.Texture2DExtensions.Rotate
+  isSpec: "True"
+  fullName: PAC.Extensions.Texture2DExtensions.Rotate
+  nameWithType: Texture2DExtensions.Rotate
+- uid: PAC.Extensions.Texture2DExtensions.Scale(Texture2D,System.Int32,System.Int32)
+  name: Scale(Texture2D, int, int)
+  href: api/PAC.Extensions.Texture2DExtensions.html#PAC_Extensions_Texture2DExtensions_Scale_Texture2D_System_Int32_System_Int32_
+  commentId: M:PAC.Extensions.Texture2DExtensions.Scale(Texture2D,System.Int32,System.Int32)
+  name.vb: Scale(Texture2D, Integer, Integer)
+  fullName: PAC.Extensions.Texture2DExtensions.Scale(Texture2D, int, int)
+  fullName.vb: PAC.Extensions.Texture2DExtensions.Scale(Texture2D, Integer, Integer)
+  nameWithType: Texture2DExtensions.Scale(Texture2D, int, int)
+  nameWithType.vb: Texture2DExtensions.Scale(Texture2D, Integer, Integer)
+- uid: PAC.Extensions.Texture2DExtensions.Scale(Texture2D,System.Single)
+  name: Scale(Texture2D, float)
+  href: api/PAC.Extensions.Texture2DExtensions.html#PAC_Extensions_Texture2DExtensions_Scale_Texture2D_System_Single_
+  commentId: M:PAC.Extensions.Texture2DExtensions.Scale(Texture2D,System.Single)
+  name.vb: Scale(Texture2D, Single)
+  fullName: PAC.Extensions.Texture2DExtensions.Scale(Texture2D, float)
+  fullName.vb: PAC.Extensions.Texture2DExtensions.Scale(Texture2D, Single)
+  nameWithType: Texture2DExtensions.Scale(Texture2D, float)
+  nameWithType.vb: Texture2DExtensions.Scale(Texture2D, Single)
+- uid: PAC.Extensions.Texture2DExtensions.Scale(Texture2D,System.Single,System.Single)
+  name: Scale(Texture2D, float, float)
+  href: api/PAC.Extensions.Texture2DExtensions.html#PAC_Extensions_Texture2DExtensions_Scale_Texture2D_System_Single_System_Single_
+  commentId: M:PAC.Extensions.Texture2DExtensions.Scale(Texture2D,System.Single,System.Single)
+  name.vb: Scale(Texture2D, Single, Single)
+  fullName: PAC.Extensions.Texture2DExtensions.Scale(Texture2D, float, float)
+  fullName.vb: PAC.Extensions.Texture2DExtensions.Scale(Texture2D, Single, Single)
+  nameWithType: Texture2DExtensions.Scale(Texture2D, float, float)
+  nameWithType.vb: Texture2DExtensions.Scale(Texture2D, Single, Single)
+- uid: PAC.Extensions.Texture2DExtensions.Scale*
+  name: Scale
+  href: api/PAC.Extensions.Texture2DExtensions.html#PAC_Extensions_Texture2DExtensions_Scale_
+  commentId: Overload:PAC.Extensions.Texture2DExtensions.Scale
+  isSpec: "True"
+  fullName: PAC.Extensions.Texture2DExtensions.Scale
+  nameWithType: Texture2DExtensions.Scale
+- uid: PAC.Extensions.Texture2DExtensions.SetPixel(Texture2D,PAC.DataStructures.IntVector2,Color)
+  name: SetPixel(Texture2D, IntVector2, Color)
+  href: api/PAC.Extensions.Texture2DExtensions.html#PAC_Extensions_Texture2DExtensions_SetPixel_Texture2D_PAC_DataStructures_IntVector2_Color_
+  commentId: M:PAC.Extensions.Texture2DExtensions.SetPixel(Texture2D,PAC.DataStructures.IntVector2,Color)
+  fullName: PAC.Extensions.Texture2DExtensions.SetPixel(Texture2D, PAC.DataStructures.IntVector2, Color)
+  nameWithType: Texture2DExtensions.SetPixel(Texture2D, IntVector2, Color)
+- uid: PAC.Extensions.Texture2DExtensions.SetPixel*
+  name: SetPixel
+  href: api/PAC.Extensions.Texture2DExtensions.html#PAC_Extensions_Texture2DExtensions_SetPixel_
+  commentId: Overload:PAC.Extensions.Texture2DExtensions.SetPixel
+  isSpec: "True"
+  fullName: PAC.Extensions.Texture2DExtensions.SetPixel
+  nameWithType: Texture2DExtensions.SetPixel
+- uid: PAC.Extensions.Texture2DExtensions.ToSprite(Texture2D)
+  name: ToSprite(Texture2D)
+  href: api/PAC.Extensions.Texture2DExtensions.html#PAC_Extensions_Texture2DExtensions_ToSprite_Texture2D_
+  commentId: M:PAC.Extensions.Texture2DExtensions.ToSprite(Texture2D)
+  fullName: PAC.Extensions.Texture2DExtensions.ToSprite(Texture2D)
+  nameWithType: Texture2DExtensions.ToSprite(Texture2D)
+- uid: PAC.Extensions.Texture2DExtensions.ToSprite*
+  name: ToSprite
+  href: api/PAC.Extensions.Texture2DExtensions.html#PAC_Extensions_Texture2DExtensions_ToSprite_
+  commentId: Overload:PAC.Extensions.Texture2DExtensions.ToSprite
+  isSpec: "True"
+  fullName: PAC.Extensions.Texture2DExtensions.ToSprite
+  nameWithType: Texture2DExtensions.ToSprite
 - uid: PAC.Extensions.TypeExtensions
   name: TypeExtensions
   href: api/PAC.Extensions.TypeExtensions.html
@@ -8235,6 +8561,15 @@ references:
   isSpec: "True"
   fullName: PAC.Files.File.Render
   nameWithType: File.Render
+- uid: PAC.Files.File.RenderLayers(System.Collections.Generic.IEnumerable{System.Int32},System.Int32)
+  name: RenderLayers(IEnumerable<int>, int)
+  href: api/PAC.Files.File.html#PAC_Files_File_RenderLayers_System_Collections_Generic_IEnumerable_System_Int32__System_Int32_
+  commentId: M:PAC.Files.File.RenderLayers(System.Collections.Generic.IEnumerable{System.Int32},System.Int32)
+  name.vb: RenderLayers(IEnumerable(Of Integer), Integer)
+  fullName: PAC.Files.File.RenderLayers(System.Collections.Generic.IEnumerable<int>, int)
+  fullName.vb: PAC.Files.File.RenderLayers(System.Collections.Generic.IEnumerable(Of Integer), Integer)
+  nameWithType: File.RenderLayers(IEnumerable<int>, int)
+  nameWithType.vb: File.RenderLayers(IEnumerable(Of Integer), Integer)
 - uid: PAC.Files.File.RenderLayers(System.Int32,System.Int32,System.Int32,System.Boolean)
   name: RenderLayers(int, int, int, bool)
   href: api/PAC.Files.File.html#PAC_Files_File_RenderLayers_System_Int32_System_Int32_System_Int32_System_Boolean_
@@ -8244,15 +8579,6 @@ references:
   fullName.vb: PAC.Files.File.RenderLayers(Integer, Integer, Integer, Boolean)
   nameWithType: File.RenderLayers(int, int, int, bool)
   nameWithType.vb: File.RenderLayers(Integer, Integer, Integer, Boolean)
-- uid: PAC.Files.File.RenderLayers(System.Int32[],System.Int32)
-  name: RenderLayers(int[], int)
-  href: api/PAC.Files.File.html#PAC_Files_File_RenderLayers_System_Int32___System_Int32_
-  commentId: M:PAC.Files.File.RenderLayers(System.Int32[],System.Int32)
-  name.vb: RenderLayers(Integer(), Integer)
-  fullName: PAC.Files.File.RenderLayers(int[], int)
-  fullName.vb: PAC.Files.File.RenderLayers(Integer(), Integer)
-  nameWithType: File.RenderLayers(int[], int)
-  nameWithType.vb: File.RenderLayers(Integer(), Integer)
 - uid: PAC.Files.File.RenderLayers*
   name: RenderLayers
   href: api/PAC.Files.File.html#PAC_Files_File_RenderLayers_
@@ -8292,6 +8618,15 @@ references:
   isSpec: "True"
   fullName: PAC.Files.File.RenderLayersBelow
   nameWithType: File.RenderLayersBelow
+- uid: PAC.Files.File.RenderPixel(PAC.DataStructures.IntVector2,System.Collections.Generic.IEnumerable{System.Int32},System.Int32)
+  name: RenderPixel(IntVector2, IEnumerable<int>, int)
+  href: api/PAC.Files.File.html#PAC_Files_File_RenderPixel_PAC_DataStructures_IntVector2_System_Collections_Generic_IEnumerable_System_Int32__System_Int32_
+  commentId: M:PAC.Files.File.RenderPixel(PAC.DataStructures.IntVector2,System.Collections.Generic.IEnumerable{System.Int32},System.Int32)
+  name.vb: RenderPixel(IntVector2, IEnumerable(Of Integer), Integer)
+  fullName: PAC.Files.File.RenderPixel(PAC.DataStructures.IntVector2, System.Collections.Generic.IEnumerable<int>, int)
+  fullName.vb: PAC.Files.File.RenderPixel(PAC.DataStructures.IntVector2, System.Collections.Generic.IEnumerable(Of Integer), Integer)
+  nameWithType: File.RenderPixel(IntVector2, IEnumerable<int>, int)
+  nameWithType.vb: File.RenderPixel(IntVector2, IEnumerable(Of Integer), Integer)
 - uid: PAC.Files.File.RenderPixel(PAC.DataStructures.IntVector2,System.Int32)
   name: RenderPixel(IntVector2, int)
   href: api/PAC.Files.File.html#PAC_Files_File_RenderPixel_PAC_DataStructures_IntVector2_System_Int32_
@@ -8310,15 +8645,15 @@ references:
   fullName.vb: PAC.Files.File.RenderPixel(PAC.DataStructures.IntVector2, Integer, Integer, Integer, Boolean)
   nameWithType: File.RenderPixel(IntVector2, int, int, int, bool)
   nameWithType.vb: File.RenderPixel(IntVector2, Integer, Integer, Integer, Boolean)
-- uid: PAC.Files.File.RenderPixel(PAC.DataStructures.IntVector2,System.Int32[],System.Int32)
-  name: RenderPixel(IntVector2, int[], int)
-  href: api/PAC.Files.File.html#PAC_Files_File_RenderPixel_PAC_DataStructures_IntVector2_System_Int32___System_Int32_
-  commentId: M:PAC.Files.File.RenderPixel(PAC.DataStructures.IntVector2,System.Int32[],System.Int32)
-  name.vb: RenderPixel(IntVector2, Integer(), Integer)
-  fullName: PAC.Files.File.RenderPixel(PAC.DataStructures.IntVector2, int[], int)
-  fullName.vb: PAC.Files.File.RenderPixel(PAC.DataStructures.IntVector2, Integer(), Integer)
-  nameWithType: File.RenderPixel(IntVector2, int[], int)
-  nameWithType.vb: File.RenderPixel(IntVector2, Integer(), Integer)
+- uid: PAC.Files.File.RenderPixel(System.Int32,System.Int32,System.Collections.Generic.IEnumerable{System.Int32},System.Int32)
+  name: RenderPixel(int, int, IEnumerable<int>, int)
+  href: api/PAC.Files.File.html#PAC_Files_File_RenderPixel_System_Int32_System_Int32_System_Collections_Generic_IEnumerable_System_Int32__System_Int32_
+  commentId: M:PAC.Files.File.RenderPixel(System.Int32,System.Int32,System.Collections.Generic.IEnumerable{System.Int32},System.Int32)
+  name.vb: RenderPixel(Integer, Integer, IEnumerable(Of Integer), Integer)
+  fullName: PAC.Files.File.RenderPixel(int, int, System.Collections.Generic.IEnumerable<int>, int)
+  fullName.vb: PAC.Files.File.RenderPixel(Integer, Integer, System.Collections.Generic.IEnumerable(Of Integer), Integer)
+  nameWithType: File.RenderPixel(int, int, IEnumerable<int>, int)
+  nameWithType.vb: File.RenderPixel(Integer, Integer, IEnumerable(Of Integer), Integer)
 - uid: PAC.Files.File.RenderPixel(System.Int32,System.Int32,System.Int32)
   name: RenderPixel(int, int, int)
   href: api/PAC.Files.File.html#PAC_Files_File_RenderPixel_System_Int32_System_Int32_System_Int32_
@@ -8337,15 +8672,6 @@ references:
   fullName.vb: PAC.Files.File.RenderPixel(Integer, Integer, Integer, Integer, Integer, Boolean)
   nameWithType: File.RenderPixel(int, int, int, int, int, bool)
   nameWithType.vb: File.RenderPixel(Integer, Integer, Integer, Integer, Integer, Boolean)
-- uid: PAC.Files.File.RenderPixel(System.Int32,System.Int32,System.Int32[],System.Int32)
-  name: RenderPixel(int, int, int[], int)
-  href: api/PAC.Files.File.html#PAC_Files_File_RenderPixel_System_Int32_System_Int32_System_Int32___System_Int32_
-  commentId: M:PAC.Files.File.RenderPixel(System.Int32,System.Int32,System.Int32[],System.Int32)
-  name.vb: RenderPixel(Integer, Integer, Integer(), Integer)
-  fullName: PAC.Files.File.RenderPixel(int, int, int[], int)
-  fullName.vb: PAC.Files.File.RenderPixel(Integer, Integer, Integer(), Integer)
-  nameWithType: File.RenderPixel(int, int, int[], int)
-  nameWithType.vb: File.RenderPixel(Integer, Integer, Integer(), Integer)
 - uid: PAC.Files.File.RenderPixel*
   name: RenderPixel
   href: api/PAC.Files.File.html#PAC_Files_File_RenderPixel_
@@ -9853,140 +10179,226 @@ references:
   commentId: F:PAC.FlipAxis._45Degrees
   fullName: PAC.FlipAxis._45Degrees
   nameWithType: FlipAxis._45Degrees
-- uid: PAC.Functions
-  name: Functions
-  href: api/PAC.Functions.html
-  commentId: T:PAC.Functions
-  fullName: PAC.Functions
-  nameWithType: Functions
-- uid: PAC.Functions.ArrayToString*
-  name: ArrayToString
-  href: api/PAC.Functions.html#PAC_Functions_ArrayToString_
-  commentId: Overload:PAC.Functions.ArrayToString
+- uid: PAC.ImageEditing
+  name: PAC.ImageEditing
+  href: api/PAC.ImageEditing.html
+  commentId: N:PAC.ImageEditing
+  fullName: PAC.ImageEditing
+  nameWithType: PAC.ImageEditing
+- uid: PAC.ImageEditing.FloodFill
+  name: FloodFill
+  href: api/PAC.ImageEditing.FloodFill.html
+  commentId: T:PAC.ImageEditing.FloodFill
+  fullName: PAC.ImageEditing.FloodFill
+  nameWithType: FloodFill
+- uid: PAC.ImageEditing.FloodFill.GetPixelsToFill(Texture2D,PAC.DataStructures.IntVector2,System.Int32)
+  name: GetPixelsToFill(Texture2D, IntVector2, int)
+  href: api/PAC.ImageEditing.FloodFill.html#PAC_ImageEditing_FloodFill_GetPixelsToFill_Texture2D_PAC_DataStructures_IntVector2_System_Int32_
+  commentId: M:PAC.ImageEditing.FloodFill.GetPixelsToFill(Texture2D,PAC.DataStructures.IntVector2,System.Int32)
+  name.vb: GetPixelsToFill(Texture2D, IntVector2, Integer)
+  fullName: PAC.ImageEditing.FloodFill.GetPixelsToFill(Texture2D, PAC.DataStructures.IntVector2, int)
+  fullName.vb: PAC.ImageEditing.FloodFill.GetPixelsToFill(Texture2D, PAC.DataStructures.IntVector2, Integer)
+  nameWithType: FloodFill.GetPixelsToFill(Texture2D, IntVector2, int)
+  nameWithType.vb: FloodFill.GetPixelsToFill(Texture2D, IntVector2, Integer)
+- uid: PAC.ImageEditing.FloodFill.GetPixelsToFill*
+  name: GetPixelsToFill
+  href: api/PAC.ImageEditing.FloodFill.html#PAC_ImageEditing_FloodFill_GetPixelsToFill_
+  commentId: Overload:PAC.ImageEditing.FloodFill.GetPixelsToFill
   isSpec: "True"
-  fullName: PAC.Functions.ArrayToString
-  nameWithType: Functions.ArrayToString
-- uid: PAC.Functions.ArrayToString``1(``0[])
-  name: ArrayToString<T>(T[])
-  href: api/PAC.Functions.html#PAC_Functions_ArrayToString__1___0___
-  commentId: M:PAC.Functions.ArrayToString``1(``0[])
-  name.vb: ArrayToString(Of T)(T())
-  fullName: PAC.Functions.ArrayToString<T>(T[])
-  fullName.vb: PAC.Functions.ArrayToString(Of T)(T())
-  nameWithType: Functions.ArrayToString<T>(T[])
-  nameWithType.vb: Functions.ArrayToString(Of T)(T())
-- uid: PAC.Functions.CompareArrays*
-  name: CompareArrays
-  href: api/PAC.Functions.html#PAC_Functions_CompareArrays_
-  commentId: Overload:PAC.Functions.CompareArrays
+  fullName: PAC.ImageEditing.FloodFill.GetPixelsToFill
+  nameWithType: FloodFill.GetPixelsToFill
+- uid: PAC.ImageEditing.Outline
+  name: Outline
+  href: api/PAC.ImageEditing.Outline.html
+  commentId: T:PAC.ImageEditing.Outline
+  fullName: PAC.ImageEditing.Outline
+  nameWithType: Outline
+- uid: PAC.ImageEditing.Outline.DrawOutline(Texture2D,Color,PAC.ImageEditing.Outline.Options@)
+  name: DrawOutline(Texture2D, Color, in Options)
+  href: api/PAC.ImageEditing.Outline.html#PAC_ImageEditing_Outline_DrawOutline_Texture2D_Color_PAC_ImageEditing_Outline_Options__
+  commentId: M:PAC.ImageEditing.Outline.DrawOutline(Texture2D,Color,PAC.ImageEditing.Outline.Options@)
+  name.vb: DrawOutline(Texture2D, Color, Options)
+  fullName: PAC.ImageEditing.Outline.DrawOutline(Texture2D, Color, in PAC.ImageEditing.Outline.Options)
+  fullName.vb: PAC.ImageEditing.Outline.DrawOutline(Texture2D, Color, PAC.ImageEditing.Outline.Options)
+  nameWithType: Outline.DrawOutline(Texture2D, Color, in Outline.Options)
+  nameWithType.vb: Outline.DrawOutline(Texture2D, Color, Outline.Options)
+- uid: PAC.ImageEditing.Outline.DrawOutline*
+  name: DrawOutline
+  href: api/PAC.ImageEditing.Outline.html#PAC_ImageEditing_Outline_DrawOutline_
+  commentId: Overload:PAC.ImageEditing.Outline.DrawOutline
   isSpec: "True"
-  fullName: PAC.Functions.CompareArrays
-  nameWithType: Functions.CompareArrays
-- uid: PAC.Functions.CompareArrays``1(``0[],``0[])
-  name: CompareArrays<T>(T[], T[])
-  href: api/PAC.Functions.html#PAC_Functions_CompareArrays__1___0_____0___
-  commentId: M:PAC.Functions.CompareArrays``1(``0[],``0[])
-  name.vb: CompareArrays(Of T)(T(), T())
-  fullName: PAC.Functions.CompareArrays<T>(T[], T[])
-  fullName.vb: PAC.Functions.CompareArrays(Of T)(T(), T())
-  nameWithType: Functions.CompareArrays<T>(T[], T[])
-  nameWithType.vb: Functions.CompareArrays(Of T)(T(), T())
-- uid: PAC.Functions.ConcatArrays*
-  name: ConcatArrays
-  href: api/PAC.Functions.html#PAC_Functions_ConcatArrays_
-  commentId: Overload:PAC.Functions.ConcatArrays
+  fullName: PAC.ImageEditing.Outline.DrawOutline
+  nameWithType: Outline.DrawOutline
+- uid: PAC.ImageEditing.Outline.Options
+  name: Outline.Options
+  href: api/PAC.ImageEditing.Outline.Options.html
+  commentId: T:PAC.ImageEditing.Outline.Options
+  fullName: PAC.ImageEditing.Outline.Options
+  nameWithType: Outline.Options
+- uid: PAC.ImageEditing.Outline.Options.EnumerateDirectionsToInclude
+  name: EnumerateDirectionsToInclude()
+  href: api/PAC.ImageEditing.Outline.Options.html#PAC_ImageEditing_Outline_Options_EnumerateDirectionsToInclude
+  commentId: M:PAC.ImageEditing.Outline.Options.EnumerateDirectionsToInclude
+  fullName: PAC.ImageEditing.Outline.Options.EnumerateDirectionsToInclude()
+  nameWithType: Outline.Options.EnumerateDirectionsToInclude()
+- uid: PAC.ImageEditing.Outline.Options.EnumerateDirectionsToInclude*
+  name: EnumerateDirectionsToInclude
+  href: api/PAC.ImageEditing.Outline.Options.html#PAC_ImageEditing_Outline_Options_EnumerateDirectionsToInclude_
+  commentId: Overload:PAC.ImageEditing.Outline.Options.EnumerateDirectionsToInclude
   isSpec: "True"
-  fullName: PAC.Functions.ConcatArrays
-  nameWithType: Functions.ConcatArrays
-- uid: PAC.Functions.ConcatArrays``1(``0[],``0[])
-  name: ConcatArrays<T>(T[], T[])
-  href: api/PAC.Functions.html#PAC_Functions_ConcatArrays__1___0_____0___
-  commentId: M:PAC.Functions.ConcatArrays``1(``0[],``0[])
-  name.vb: ConcatArrays(Of T)(T(), T())
-  fullName: PAC.Functions.ConcatArrays<T>(T[], T[])
-  fullName.vb: PAC.Functions.ConcatArrays(Of T)(T(), T())
-  nameWithType: Functions.ConcatArrays<T>(T[], T[])
-  nameWithType.vb: Functions.ConcatArrays(Of T)(T(), T())
-- uid: PAC.Functions.CopyArray*
-  name: CopyArray
-  href: api/PAC.Functions.html#PAC_Functions_CopyArray_
-  commentId: Overload:PAC.Functions.CopyArray
+  fullName: PAC.ImageEditing.Outline.Options.EnumerateDirectionsToInclude
+  nameWithType: Outline.Options.EnumerateDirectionsToInclude
+- uid: PAC.ImageEditing.Outline.Options.OutlineType
+  name: Outline.Options.OutlineType
+  href: api/PAC.ImageEditing.Outline.Options.OutlineType.html
+  commentId: T:PAC.ImageEditing.Outline.Options.OutlineType
+  fullName: PAC.ImageEditing.Outline.Options.OutlineType
+  nameWithType: Outline.Options.OutlineType
+- uid: PAC.ImageEditing.Outline.Options.OutlineType.Inside
+  name: Inside
+  href: api/PAC.ImageEditing.Outline.Options.OutlineType.html#PAC_ImageEditing_Outline_Options_OutlineType_Inside
+  commentId: F:PAC.ImageEditing.Outline.Options.OutlineType.Inside
+  fullName: PAC.ImageEditing.Outline.Options.OutlineType.Inside
+  nameWithType: Outline.Options.OutlineType.Inside
+- uid: PAC.ImageEditing.Outline.Options.OutlineType.Outside
+  name: Outside
+  href: api/PAC.ImageEditing.Outline.Options.OutlineType.html#PAC_ImageEditing_Outline_Options_OutlineType_Outside
+  commentId: F:PAC.ImageEditing.Outline.Options.OutlineType.Outside
+  fullName: PAC.ImageEditing.Outline.Options.OutlineType.Outside
+  nameWithType: Outline.Options.OutlineType.Outside
+- uid: PAC.ImageEditing.Outline.Options.includeBottomLeft
+  name: includeBottomLeft
+  href: api/PAC.ImageEditing.Outline.Options.html#PAC_ImageEditing_Outline_Options_includeBottomLeft
+  commentId: F:PAC.ImageEditing.Outline.Options.includeBottomLeft
+  fullName: PAC.ImageEditing.Outline.Options.includeBottomLeft
+  nameWithType: Outline.Options.includeBottomLeft
+- uid: PAC.ImageEditing.Outline.Options.includeBottomMiddle
+  name: includeBottomMiddle
+  href: api/PAC.ImageEditing.Outline.Options.html#PAC_ImageEditing_Outline_Options_includeBottomMiddle
+  commentId: F:PAC.ImageEditing.Outline.Options.includeBottomMiddle
+  fullName: PAC.ImageEditing.Outline.Options.includeBottomMiddle
+  nameWithType: Outline.Options.includeBottomMiddle
+- uid: PAC.ImageEditing.Outline.Options.includeBottomRight
+  name: includeBottomRight
+  href: api/PAC.ImageEditing.Outline.Options.html#PAC_ImageEditing_Outline_Options_includeBottomRight
+  commentId: F:PAC.ImageEditing.Outline.Options.includeBottomRight
+  fullName: PAC.ImageEditing.Outline.Options.includeBottomRight
+  nameWithType: Outline.Options.includeBottomRight
+- uid: PAC.ImageEditing.Outline.Options.includeMiddleLeft
+  name: includeMiddleLeft
+  href: api/PAC.ImageEditing.Outline.Options.html#PAC_ImageEditing_Outline_Options_includeMiddleLeft
+  commentId: F:PAC.ImageEditing.Outline.Options.includeMiddleLeft
+  fullName: PAC.ImageEditing.Outline.Options.includeMiddleLeft
+  nameWithType: Outline.Options.includeMiddleLeft
+- uid: PAC.ImageEditing.Outline.Options.includeMiddleRight
+  name: includeMiddleRight
+  href: api/PAC.ImageEditing.Outline.Options.html#PAC_ImageEditing_Outline_Options_includeMiddleRight
+  commentId: F:PAC.ImageEditing.Outline.Options.includeMiddleRight
+  fullName: PAC.ImageEditing.Outline.Options.includeMiddleRight
+  nameWithType: Outline.Options.includeMiddleRight
+- uid: PAC.ImageEditing.Outline.Options.includeTopLeft
+  name: includeTopLeft
+  href: api/PAC.ImageEditing.Outline.Options.html#PAC_ImageEditing_Outline_Options_includeTopLeft
+  commentId: F:PAC.ImageEditing.Outline.Options.includeTopLeft
+  fullName: PAC.ImageEditing.Outline.Options.includeTopLeft
+  nameWithType: Outline.Options.includeTopLeft
+- uid: PAC.ImageEditing.Outline.Options.includeTopMiddle
+  name: includeTopMiddle
+  href: api/PAC.ImageEditing.Outline.Options.html#PAC_ImageEditing_Outline_Options_includeTopMiddle
+  commentId: F:PAC.ImageEditing.Outline.Options.includeTopMiddle
+  fullName: PAC.ImageEditing.Outline.Options.includeTopMiddle
+  nameWithType: Outline.Options.includeTopMiddle
+- uid: PAC.ImageEditing.Outline.Options.includeTopRight
+  name: includeTopRight
+  href: api/PAC.ImageEditing.Outline.Options.html#PAC_ImageEditing_Outline_Options_includeTopRight
+  commentId: F:PAC.ImageEditing.Outline.Options.includeTopRight
+  fullName: PAC.ImageEditing.Outline.Options.includeTopRight
+  nameWithType: Outline.Options.includeTopRight
+- uid: PAC.ImageEditing.Outline.Options.outlineType
+  name: outlineType
+  href: api/PAC.ImageEditing.Outline.Options.html#PAC_ImageEditing_Outline_Options_outlineType
+  commentId: F:PAC.ImageEditing.Outline.Options.outlineType
+  fullName: PAC.ImageEditing.Outline.Options.outlineType
+  nameWithType: Outline.Options.outlineType
+- uid: PAC.ImageEditing.Texture2DCreator
+  name: Texture2DCreator
+  href: api/PAC.ImageEditing.Texture2DCreator.html
+  commentId: T:PAC.ImageEditing.Texture2DCreator
+  fullName: PAC.ImageEditing.Texture2DCreator
+  nameWithType: Texture2DCreator
+- uid: PAC.ImageEditing.Texture2DCreator.HSLHueSaturationGrid(System.Int32,System.Int32)
+  name: HSLHueSaturationGrid(int, int)
+  href: api/PAC.ImageEditing.Texture2DCreator.html#PAC_ImageEditing_Texture2DCreator_HSLHueSaturationGrid_System_Int32_System_Int32_
+  commentId: M:PAC.ImageEditing.Texture2DCreator.HSLHueSaturationGrid(System.Int32,System.Int32)
+  name.vb: HSLHueSaturationGrid(Integer, Integer)
+  fullName: PAC.ImageEditing.Texture2DCreator.HSLHueSaturationGrid(int, int)
+  fullName.vb: PAC.ImageEditing.Texture2DCreator.HSLHueSaturationGrid(Integer, Integer)
+  nameWithType: Texture2DCreator.HSLHueSaturationGrid(int, int)
+  nameWithType.vb: Texture2DCreator.HSLHueSaturationGrid(Integer, Integer)
+- uid: PAC.ImageEditing.Texture2DCreator.HSLHueSaturationGrid*
+  name: HSLHueSaturationGrid
+  href: api/PAC.ImageEditing.Texture2DCreator.html#PAC_ImageEditing_Texture2DCreator_HSLHueSaturationGrid_
+  commentId: Overload:PAC.ImageEditing.Texture2DCreator.HSLHueSaturationGrid
   isSpec: "True"
-  fullName: PAC.Functions.CopyArray
-  nameWithType: Functions.CopyArray
-- uid: PAC.Functions.CopyArray``1(``0[])
-  name: CopyArray<T>(T[])
-  href: api/PAC.Functions.html#PAC_Functions_CopyArray__1___0___
-  commentId: M:PAC.Functions.CopyArray``1(``0[])
-  name.vb: CopyArray(Of T)(T())
-  fullName: PAC.Functions.CopyArray<T>(T[])
-  fullName.vb: PAC.Functions.CopyArray(Of T)(T())
-  nameWithType: Functions.CopyArray<T>(T[])
-  nameWithType.vb: Functions.CopyArray(Of T)(T())
-- uid: PAC.Functions.Range(System.Int32,System.Int32)
-  name: Range(int, int)
-  href: api/PAC.Functions.html#PAC_Functions_Range_System_Int32_System_Int32_
-  commentId: M:PAC.Functions.Range(System.Int32,System.Int32)
-  name.vb: Range(Integer, Integer)
-  fullName: PAC.Functions.Range(int, int)
-  fullName.vb: PAC.Functions.Range(Integer, Integer)
-  nameWithType: Functions.Range(int, int)
-  nameWithType.vb: Functions.Range(Integer, Integer)
-- uid: PAC.Functions.Range*
-  name: Range
-  href: api/PAC.Functions.html#PAC_Functions_Range_
-  commentId: Overload:PAC.Functions.Range
+  fullName: PAC.ImageEditing.Texture2DCreator.HSLHueSaturationGrid
+  nameWithType: Texture2DCreator.HSLHueSaturationGrid
+- uid: PAC.ImageEditing.Texture2DCreator.Solid(System.Int32,System.Int32,Color)
+  name: Solid(int, int, Color)
+  href: api/PAC.ImageEditing.Texture2DCreator.html#PAC_ImageEditing_Texture2DCreator_Solid_System_Int32_System_Int32_Color_
+  commentId: M:PAC.ImageEditing.Texture2DCreator.Solid(System.Int32,System.Int32,Color)
+  name.vb: Solid(Integer, Integer, Color)
+  fullName: PAC.ImageEditing.Texture2DCreator.Solid(int, int, Color)
+  fullName.vb: PAC.ImageEditing.Texture2DCreator.Solid(Integer, Integer, Color)
+  nameWithType: Texture2DCreator.Solid(int, int, Color)
+  nameWithType.vb: Texture2DCreator.Solid(Integer, Integer, Color)
+- uid: PAC.ImageEditing.Texture2DCreator.Solid(System.Int32,System.Int32,Color32)
+  name: Solid(int, int, Color32)
+  href: api/PAC.ImageEditing.Texture2DCreator.html#PAC_ImageEditing_Texture2DCreator_Solid_System_Int32_System_Int32_Color32_
+  commentId: M:PAC.ImageEditing.Texture2DCreator.Solid(System.Int32,System.Int32,Color32)
+  name.vb: Solid(Integer, Integer, Color32)
+  fullName: PAC.ImageEditing.Texture2DCreator.Solid(int, int, Color32)
+  fullName.vb: PAC.ImageEditing.Texture2DCreator.Solid(Integer, Integer, Color32)
+  nameWithType: Texture2DCreator.Solid(int, int, Color32)
+  nameWithType.vb: Texture2DCreator.Solid(Integer, Integer, Color32)
+- uid: PAC.ImageEditing.Texture2DCreator.Solid*
+  name: Solid
+  href: api/PAC.ImageEditing.Texture2DCreator.html#PAC_ImageEditing_Texture2DCreator_Solid_
+  commentId: Overload:PAC.ImageEditing.Texture2DCreator.Solid
   isSpec: "True"
-  fullName: PAC.Functions.Range
-  nameWithType: Functions.Range
-- uid: PAC.Functions.ToArray*
-  name: ToArray
-  href: api/PAC.Functions.html#PAC_Functions_ToArray_
-  commentId: Overload:PAC.Functions.ToArray
+  fullName: PAC.ImageEditing.Texture2DCreator.Solid
+  nameWithType: Texture2DCreator.Solid
+- uid: PAC.ImageEditing.Texture2DCreator.Transparent(System.Int32,System.Int32)
+  name: Transparent(int, int)
+  href: api/PAC.ImageEditing.Texture2DCreator.html#PAC_ImageEditing_Texture2DCreator_Transparent_System_Int32_System_Int32_
+  commentId: M:PAC.ImageEditing.Texture2DCreator.Transparent(System.Int32,System.Int32)
+  name.vb: Transparent(Integer, Integer)
+  fullName: PAC.ImageEditing.Texture2DCreator.Transparent(int, int)
+  fullName.vb: PAC.ImageEditing.Texture2DCreator.Transparent(Integer, Integer)
+  nameWithType: Texture2DCreator.Transparent(int, int)
+  nameWithType.vb: Texture2DCreator.Transparent(Integer, Integer)
+- uid: PAC.ImageEditing.Texture2DCreator.Transparent*
+  name: Transparent
+  href: api/PAC.ImageEditing.Texture2DCreator.html#PAC_ImageEditing_Texture2DCreator_Transparent_
+  commentId: Overload:PAC.ImageEditing.Texture2DCreator.Transparent
   isSpec: "True"
-  fullName: PAC.Functions.ToArray
-  nameWithType: Functions.ToArray
-- uid: PAC.Functions.ToArray``1(System.Collections.Generic.HashSet{``0})
-  name: ToArray<T>(HashSet<T>)
-  href: api/PAC.Functions.html#PAC_Functions_ToArray__1_System_Collections_Generic_HashSet___0__
-  commentId: M:PAC.Functions.ToArray``1(System.Collections.Generic.HashSet{``0})
-  name.vb: ToArray(Of T)(HashSet(Of T))
-  fullName: PAC.Functions.ToArray<T>(System.Collections.Generic.HashSet<T>)
-  fullName.vb: PAC.Functions.ToArray(Of T)(System.Collections.Generic.HashSet(Of T))
-  nameWithType: Functions.ToArray<T>(HashSet<T>)
-  nameWithType.vb: Functions.ToArray(Of T)(HashSet(Of T))
-- uid: PAC.Functions.Vector2ToVector3(Vector3)
-  name: Vector2ToVector3(Vector3)
-  href: api/PAC.Functions.html#PAC_Functions_Vector2ToVector3_Vector3_
-  commentId: M:PAC.Functions.Vector2ToVector3(Vector3)
-  fullName: PAC.Functions.Vector2ToVector3(Vector3)
-  nameWithType: Functions.Vector2ToVector3(Vector3)
-- uid: PAC.Functions.Vector2ToVector3*
-  name: Vector2ToVector3
-  href: api/PAC.Functions.html#PAC_Functions_Vector2ToVector3_
-  commentId: Overload:PAC.Functions.Vector2ToVector3
+  fullName: PAC.ImageEditing.Texture2DCreator.Transparent
+  nameWithType: Texture2DCreator.Transparent
+- uid: PAC.ImageEditing.Texture2DCreator.TransparentCheckerboardBackground(System.Int32,System.Int32)
+  name: TransparentCheckerboardBackground(int, int)
+  href: api/PAC.ImageEditing.Texture2DCreator.html#PAC_ImageEditing_Texture2DCreator_TransparentCheckerboardBackground_System_Int32_System_Int32_
+  commentId: M:PAC.ImageEditing.Texture2DCreator.TransparentCheckerboardBackground(System.Int32,System.Int32)
+  name.vb: TransparentCheckerboardBackground(Integer, Integer)
+  fullName: PAC.ImageEditing.Texture2DCreator.TransparentCheckerboardBackground(int, int)
+  fullName.vb: PAC.ImageEditing.Texture2DCreator.TransparentCheckerboardBackground(Integer, Integer)
+  nameWithType: Texture2DCreator.TransparentCheckerboardBackground(int, int)
+  nameWithType.vb: Texture2DCreator.TransparentCheckerboardBackground(Integer, Integer)
+- uid: PAC.ImageEditing.Texture2DCreator.TransparentCheckerboardBackground*
+  name: TransparentCheckerboardBackground
+  href: api/PAC.ImageEditing.Texture2DCreator.html#PAC_ImageEditing_Texture2DCreator_TransparentCheckerboardBackground_
+  commentId: Overload:PAC.ImageEditing.Texture2DCreator.TransparentCheckerboardBackground
   isSpec: "True"
-  fullName: PAC.Functions.Vector2ToVector3
-  nameWithType: Functions.Vector2ToVector3
-- uid: PAC.Functions.Vector3ToVector2(Vector3)
-  name: Vector3ToVector2(Vector3)
-  href: api/PAC.Functions.html#PAC_Functions_Vector3ToVector2_Vector3_
-  commentId: M:PAC.Functions.Vector3ToVector2(Vector3)
-  fullName: PAC.Functions.Vector3ToVector2(Vector3)
-  nameWithType: Functions.Vector3ToVector2(Vector3)
-- uid: PAC.Functions.Vector3ToVector2*
-  name: Vector3ToVector2
-  href: api/PAC.Functions.html#PAC_Functions_Vector3ToVector2_
-  commentId: Overload:PAC.Functions.Vector3ToVector2
-  isSpec: "True"
-  fullName: PAC.Functions.Vector3ToVector2
-  nameWithType: Functions.Vector3ToVector2
-- uid: PAC.ImageConverter
-  name: ImageConverter
-  href: api/PAC.ImageConverter.html
-  commentId: T:PAC.ImageConverter
-  fullName: PAC.ImageConverter
-  nameWithType: ImageConverter
+  fullName: PAC.ImageEditing.Texture2DCreator.TransparentCheckerboardBackground
+  nameWithType: Texture2DCreator.TransparentCheckerboardBackground
 - uid: PAC.Input
   name: PAC.Input
   href: api/PAC.Input.html
@@ -13784,67 +14196,6 @@ references:
   isSpec: "True"
   fullName: PAC.Json.JsonData.ToJsonString
   nameWithType: JsonData.ToJsonString
-- uid: PAC.KeyCodeFunctions
-  name: KeyCodeFunctions
-  href: api/PAC.KeyCodeFunctions.html
-  commentId: T:PAC.KeyCodeFunctions
-  fullName: PAC.KeyCodeFunctions
-  nameWithType: KeyCodeFunctions
-- uid: PAC.KeyCodeFunctions.IsAlpha(KeyCode)
-  name: IsAlpha(KeyCode)
-  href: api/PAC.KeyCodeFunctions.html#PAC_KeyCodeFunctions_IsAlpha_KeyCode_
-  commentId: M:PAC.KeyCodeFunctions.IsAlpha(KeyCode)
-  fullName: PAC.KeyCodeFunctions.IsAlpha(KeyCode)
-  nameWithType: KeyCodeFunctions.IsAlpha(KeyCode)
-- uid: PAC.KeyCodeFunctions.IsAlpha*
-  name: IsAlpha
-  href: api/PAC.KeyCodeFunctions.html#PAC_KeyCodeFunctions_IsAlpha_
-  commentId: Overload:PAC.KeyCodeFunctions.IsAlpha
-  isSpec: "True"
-  fullName: PAC.KeyCodeFunctions.IsAlpha
-  nameWithType: KeyCodeFunctions.IsAlpha
-- uid: PAC.KeyCodeFunctions.IsAlphanumeric(KeyCode)
-  name: IsAlphanumeric(KeyCode)
-  href: api/PAC.KeyCodeFunctions.html#PAC_KeyCodeFunctions_IsAlphanumeric_KeyCode_
-  commentId: M:PAC.KeyCodeFunctions.IsAlphanumeric(KeyCode)
-  fullName: PAC.KeyCodeFunctions.IsAlphanumeric(KeyCode)
-  nameWithType: KeyCodeFunctions.IsAlphanumeric(KeyCode)
-- uid: PAC.KeyCodeFunctions.IsAlphanumeric*
-  name: IsAlphanumeric
-  href: api/PAC.KeyCodeFunctions.html#PAC_KeyCodeFunctions_IsAlphanumeric_
-  commentId: Overload:PAC.KeyCodeFunctions.IsAlphanumeric
-  isSpec: "True"
-  fullName: PAC.KeyCodeFunctions.IsAlphanumeric
-  nameWithType: KeyCodeFunctions.IsAlphanumeric
-- uid: PAC.KeyCodeFunctions.IsDigit(KeyCode)
-  name: IsDigit(KeyCode)
-  href: api/PAC.KeyCodeFunctions.html#PAC_KeyCodeFunctions_IsDigit_KeyCode_
-  commentId: M:PAC.KeyCodeFunctions.IsDigit(KeyCode)
-  fullName: PAC.KeyCodeFunctions.IsDigit(KeyCode)
-  nameWithType: KeyCodeFunctions.IsDigit(KeyCode)
-- uid: PAC.KeyCodeFunctions.IsDigit*
-  name: IsDigit
-  href: api/PAC.KeyCodeFunctions.html#PAC_KeyCodeFunctions_IsDigit_
-  commentId: Overload:PAC.KeyCodeFunctions.IsDigit
-  isSpec: "True"
-  fullName: PAC.KeyCodeFunctions.IsDigit
-  nameWithType: KeyCodeFunctions.IsDigit
-- uid: PAC.KeyCodeFunctions.StrToKeyCode(System.String)
-  name: StrToKeyCode(string)
-  href: api/PAC.KeyCodeFunctions.html#PAC_KeyCodeFunctions_StrToKeyCode_System_String_
-  commentId: M:PAC.KeyCodeFunctions.StrToKeyCode(System.String)
-  name.vb: StrToKeyCode(String)
-  fullName: PAC.KeyCodeFunctions.StrToKeyCode(string)
-  fullName.vb: PAC.KeyCodeFunctions.StrToKeyCode(String)
-  nameWithType: KeyCodeFunctions.StrToKeyCode(string)
-  nameWithType.vb: KeyCodeFunctions.StrToKeyCode(String)
-- uid: PAC.KeyCodeFunctions.StrToKeyCode*
-  name: StrToKeyCode
-  href: api/PAC.KeyCodeFunctions.html#PAC_KeyCodeFunctions_StrToKeyCode_
-  commentId: Overload:PAC.KeyCodeFunctions.StrToKeyCode
-  isSpec: "True"
-  fullName: PAC.KeyCodeFunctions.StrToKeyCode
-  nameWithType: KeyCodeFunctions.StrToKeyCode
 - uid: PAC.KeyboardShortcuts
   name: PAC.KeyboardShortcuts
   href: api/PAC.KeyboardShortcuts.html
@@ -16040,28 +16391,6 @@ references:
   isSpec: "True"
   fullName: PAC.Layers.NormalLayer.JsonConverter.ToJson
   nameWithType: NormalLayer.JsonConverter.ToJson
-- uid: PAC.Layers.NormalLayer.Offset(PAC.DataStructures.IntVector2)
-  name: Offset(IntVector2)
-  href: api/PAC.Layers.NormalLayer.html#PAC_Layers_NormalLayer_Offset_PAC_DataStructures_IntVector2_
-  commentId: M:PAC.Layers.NormalLayer.Offset(PAC.DataStructures.IntVector2)
-  fullName: PAC.Layers.NormalLayer.Offset(PAC.DataStructures.IntVector2)
-  nameWithType: NormalLayer.Offset(IntVector2)
-- uid: PAC.Layers.NormalLayer.Offset(System.Int32,PAC.DataStructures.IntVector2,PAC.Layers.AnimFrameRefMode)
-  name: Offset(int, IntVector2, AnimFrameRefMode)
-  href: api/PAC.Layers.NormalLayer.html#PAC_Layers_NormalLayer_Offset_System_Int32_PAC_DataStructures_IntVector2_PAC_Layers_AnimFrameRefMode_
-  commentId: M:PAC.Layers.NormalLayer.Offset(System.Int32,PAC.DataStructures.IntVector2,PAC.Layers.AnimFrameRefMode)
-  name.vb: Offset(Integer, IntVector2, AnimFrameRefMode)
-  fullName: PAC.Layers.NormalLayer.Offset(int, PAC.DataStructures.IntVector2, PAC.Layers.AnimFrameRefMode)
-  fullName.vb: PAC.Layers.NormalLayer.Offset(Integer, PAC.DataStructures.IntVector2, PAC.Layers.AnimFrameRefMode)
-  nameWithType: NormalLayer.Offset(int, IntVector2, AnimFrameRefMode)
-  nameWithType.vb: NormalLayer.Offset(Integer, IntVector2, AnimFrameRefMode)
-- uid: PAC.Layers.NormalLayer.Offset*
-  name: Offset
-  href: api/PAC.Layers.NormalLayer.html#PAC_Layers_NormalLayer_Offset_
-  commentId: Overload:PAC.Layers.NormalLayer.Offset
-  isSpec: "True"
-  fullName: PAC.Layers.NormalLayer.Offset
-  nameWithType: NormalLayer.Offset
 - uid: PAC.Layers.NormalLayer.OverlayTexture(System.Int32,Texture2D,PAC.DataStructures.IntVector2,PAC.Layers.AnimFrameRefMode)
   name: OverlayTexture(int, Texture2D, IntVector2, AnimFrameRefMode)
   href: api/PAC.Layers.NormalLayer.html#PAC_Layers_NormalLayer_OverlayTexture_System_Int32_Texture2D_PAC_DataStructures_IntVector2_PAC_Layers_AnimFrameRefMode_
@@ -16931,31 +17260,31 @@ references:
   commentId: T:PAC.Maths.MathExtensions
   fullName: PAC.Maths.MathExtensions
   nameWithType: MathExtensions
-- uid: PAC.Maths.MathExtensions.CeilToMultiple(System.Single,System.Int32)
-  name: CeilToMultiple(float, int)
-  href: api/PAC.Maths.MathExtensions.html#PAC_Maths_MathExtensions_CeilToMultiple_System_Single_System_Int32_
-  commentId: M:PAC.Maths.MathExtensions.CeilToMultiple(System.Single,System.Int32)
-  name.vb: CeilToMultiple(Single, Integer)
-  fullName: PAC.Maths.MathExtensions.CeilToMultiple(float, int)
-  fullName.vb: PAC.Maths.MathExtensions.CeilToMultiple(Single, Integer)
-  nameWithType: MathExtensions.CeilToMultiple(float, int)
-  nameWithType.vb: MathExtensions.CeilToMultiple(Single, Integer)
-- uid: PAC.Maths.MathExtensions.CeilToMultiple(System.Single,System.Single)
-  name: CeilToMultiple(float, float)
-  href: api/PAC.Maths.MathExtensions.html#PAC_Maths_MathExtensions_CeilToMultiple_System_Single_System_Single_
-  commentId: M:PAC.Maths.MathExtensions.CeilToMultiple(System.Single,System.Single)
-  name.vb: CeilToMultiple(Single, Single)
-  fullName: PAC.Maths.MathExtensions.CeilToMultiple(float, float)
-  fullName.vb: PAC.Maths.MathExtensions.CeilToMultiple(Single, Single)
-  nameWithType: MathExtensions.CeilToMultiple(float, float)
-  nameWithType.vb: MathExtensions.CeilToMultiple(Single, Single)
-- uid: PAC.Maths.MathExtensions.CeilToMultiple*
-  name: CeilToMultiple
-  href: api/PAC.Maths.MathExtensions.html#PAC_Maths_MathExtensions_CeilToMultiple_
-  commentId: Overload:PAC.Maths.MathExtensions.CeilToMultiple
+- uid: PAC.Maths.MathExtensions.CeilToMultipleOf(System.Single,System.Int32)
+  name: CeilToMultipleOf(float, int)
+  href: api/PAC.Maths.MathExtensions.html#PAC_Maths_MathExtensions_CeilToMultipleOf_System_Single_System_Int32_
+  commentId: M:PAC.Maths.MathExtensions.CeilToMultipleOf(System.Single,System.Int32)
+  name.vb: CeilToMultipleOf(Single, Integer)
+  fullName: PAC.Maths.MathExtensions.CeilToMultipleOf(float, int)
+  fullName.vb: PAC.Maths.MathExtensions.CeilToMultipleOf(Single, Integer)
+  nameWithType: MathExtensions.CeilToMultipleOf(float, int)
+  nameWithType.vb: MathExtensions.CeilToMultipleOf(Single, Integer)
+- uid: PAC.Maths.MathExtensions.CeilToMultipleOf(System.Single,System.Single)
+  name: CeilToMultipleOf(float, float)
+  href: api/PAC.Maths.MathExtensions.html#PAC_Maths_MathExtensions_CeilToMultipleOf_System_Single_System_Single_
+  commentId: M:PAC.Maths.MathExtensions.CeilToMultipleOf(System.Single,System.Single)
+  name.vb: CeilToMultipleOf(Single, Single)
+  fullName: PAC.Maths.MathExtensions.CeilToMultipleOf(float, float)
+  fullName.vb: PAC.Maths.MathExtensions.CeilToMultipleOf(Single, Single)
+  nameWithType: MathExtensions.CeilToMultipleOf(float, float)
+  nameWithType.vb: MathExtensions.CeilToMultipleOf(Single, Single)
+- uid: PAC.Maths.MathExtensions.CeilToMultipleOf*
+  name: CeilToMultipleOf
+  href: api/PAC.Maths.MathExtensions.html#PAC_Maths_MathExtensions_CeilToMultipleOf_
+  commentId: Overload:PAC.Maths.MathExtensions.CeilToMultipleOf
   isSpec: "True"
-  fullName: PAC.Maths.MathExtensions.CeilToMultiple
-  nameWithType: MathExtensions.CeilToMultiple
+  fullName: PAC.Maths.MathExtensions.CeilToMultipleOf
+  nameWithType: MathExtensions.CeilToMultipleOf
 - uid: PAC.Maths.MathExtensions.ClampNonNegative(System.Int32)
   name: ClampNonNegative(int)
   href: api/PAC.Maths.MathExtensions.html#PAC_Maths_MathExtensions_ClampNonNegative_System_Int32_
@@ -17015,31 +17344,31 @@ references:
   isSpec: "True"
   fullName: PAC.Maths.MathExtensions.ClampNonPositive
   nameWithType: MathExtensions.ClampNonPositive
-- uid: PAC.Maths.MathExtensions.FloorToMultiple(System.Single,System.Int32)
-  name: FloorToMultiple(float, int)
-  href: api/PAC.Maths.MathExtensions.html#PAC_Maths_MathExtensions_FloorToMultiple_System_Single_System_Int32_
-  commentId: M:PAC.Maths.MathExtensions.FloorToMultiple(System.Single,System.Int32)
-  name.vb: FloorToMultiple(Single, Integer)
-  fullName: PAC.Maths.MathExtensions.FloorToMultiple(float, int)
-  fullName.vb: PAC.Maths.MathExtensions.FloorToMultiple(Single, Integer)
-  nameWithType: MathExtensions.FloorToMultiple(float, int)
-  nameWithType.vb: MathExtensions.FloorToMultiple(Single, Integer)
-- uid: PAC.Maths.MathExtensions.FloorToMultiple(System.Single,System.Single)
-  name: FloorToMultiple(float, float)
-  href: api/PAC.Maths.MathExtensions.html#PAC_Maths_MathExtensions_FloorToMultiple_System_Single_System_Single_
-  commentId: M:PAC.Maths.MathExtensions.FloorToMultiple(System.Single,System.Single)
-  name.vb: FloorToMultiple(Single, Single)
-  fullName: PAC.Maths.MathExtensions.FloorToMultiple(float, float)
-  fullName.vb: PAC.Maths.MathExtensions.FloorToMultiple(Single, Single)
-  nameWithType: MathExtensions.FloorToMultiple(float, float)
-  nameWithType.vb: MathExtensions.FloorToMultiple(Single, Single)
-- uid: PAC.Maths.MathExtensions.FloorToMultiple*
-  name: FloorToMultiple
-  href: api/PAC.Maths.MathExtensions.html#PAC_Maths_MathExtensions_FloorToMultiple_
-  commentId: Overload:PAC.Maths.MathExtensions.FloorToMultiple
+- uid: PAC.Maths.MathExtensions.FloorToMultipleOf(System.Single,System.Int32)
+  name: FloorToMultipleOf(float, int)
+  href: api/PAC.Maths.MathExtensions.html#PAC_Maths_MathExtensions_FloorToMultipleOf_System_Single_System_Int32_
+  commentId: M:PAC.Maths.MathExtensions.FloorToMultipleOf(System.Single,System.Int32)
+  name.vb: FloorToMultipleOf(Single, Integer)
+  fullName: PAC.Maths.MathExtensions.FloorToMultipleOf(float, int)
+  fullName.vb: PAC.Maths.MathExtensions.FloorToMultipleOf(Single, Integer)
+  nameWithType: MathExtensions.FloorToMultipleOf(float, int)
+  nameWithType.vb: MathExtensions.FloorToMultipleOf(Single, Integer)
+- uid: PAC.Maths.MathExtensions.FloorToMultipleOf(System.Single,System.Single)
+  name: FloorToMultipleOf(float, float)
+  href: api/PAC.Maths.MathExtensions.html#PAC_Maths_MathExtensions_FloorToMultipleOf_System_Single_System_Single_
+  commentId: M:PAC.Maths.MathExtensions.FloorToMultipleOf(System.Single,System.Single)
+  name.vb: FloorToMultipleOf(Single, Single)
+  fullName: PAC.Maths.MathExtensions.FloorToMultipleOf(float, float)
+  fullName.vb: PAC.Maths.MathExtensions.FloorToMultipleOf(Single, Single)
+  nameWithType: MathExtensions.FloorToMultipleOf(float, float)
+  nameWithType.vb: MathExtensions.FloorToMultipleOf(Single, Single)
+- uid: PAC.Maths.MathExtensions.FloorToMultipleOf*
+  name: FloorToMultipleOf
+  href: api/PAC.Maths.MathExtensions.html#PAC_Maths_MathExtensions_FloorToMultipleOf_
+  commentId: Overload:PAC.Maths.MathExtensions.FloorToMultipleOf
   isSpec: "True"
-  fullName: PAC.Maths.MathExtensions.FloorToMultiple
-  nameWithType: MathExtensions.FloorToMultiple
+  fullName: PAC.Maths.MathExtensions.FloorToMultipleOf
+  nameWithType: MathExtensions.FloorToMultipleOf
 - uid: PAC.Maths.MathExtensions.Gcd(System.Int32,System.Int32)
   name: Gcd(int, int)
   href: api/PAC.Maths.MathExtensions.html#PAC_Maths_MathExtensions_Gcd_System_Int32_System_Int32_
@@ -17065,31 +17394,6 @@ references:
   isSpec: "True"
   fullName: PAC.Maths.MathExtensions.Gcd
   nameWithType: MathExtensions.Gcd
-- uid: PAC.Maths.MathExtensions.Lcm(System.Int32,System.Int32)
-  name: Lcm(int, int)
-  href: api/PAC.Maths.MathExtensions.html#PAC_Maths_MathExtensions_Lcm_System_Int32_System_Int32_
-  commentId: M:PAC.Maths.MathExtensions.Lcm(System.Int32,System.Int32)
-  name.vb: Lcm(Integer, Integer)
-  fullName: PAC.Maths.MathExtensions.Lcm(int, int)
-  fullName.vb: PAC.Maths.MathExtensions.Lcm(Integer, Integer)
-  nameWithType: MathExtensions.Lcm(int, int)
-  nameWithType.vb: MathExtensions.Lcm(Integer, Integer)
-- uid: PAC.Maths.MathExtensions.Lcm(System.Int64,System.Int64)
-  name: Lcm(long, long)
-  href: api/PAC.Maths.MathExtensions.html#PAC_Maths_MathExtensions_Lcm_System_Int64_System_Int64_
-  commentId: M:PAC.Maths.MathExtensions.Lcm(System.Int64,System.Int64)
-  name.vb: Lcm(Long, Long)
-  fullName: PAC.Maths.MathExtensions.Lcm(long, long)
-  fullName.vb: PAC.Maths.MathExtensions.Lcm(Long, Long)
-  nameWithType: MathExtensions.Lcm(long, long)
-  nameWithType.vb: MathExtensions.Lcm(Long, Long)
-- uid: PAC.Maths.MathExtensions.Lcm*
-  name: Lcm
-  href: api/PAC.Maths.MathExtensions.html#PAC_Maths_MathExtensions_Lcm_
-  commentId: Overload:PAC.Maths.MathExtensions.Lcm
-  isSpec: "True"
-  fullName: PAC.Maths.MathExtensions.Lcm
-  nameWithType: MathExtensions.Lcm
 - uid: PAC.Maths.MathExtensions.Mod(System.Int32,System.Int32)
   name: Mod(int, int)
   href: api/PAC.Maths.MathExtensions.html#PAC_Maths_MathExtensions_Mod_System_Int32_System_Int32_
@@ -17140,81 +17444,111 @@ references:
   isSpec: "True"
   fullName: PAC.Maths.MathExtensions.Pow
   nameWithType: MathExtensions.Pow
-- uid: PAC.Maths.MathExtensions.ReLU(System.Int32)
-  name: ReLU(int)
-  href: api/PAC.Maths.MathExtensions.html#PAC_Maths_MathExtensions_ReLU_System_Int32_
-  commentId: M:PAC.Maths.MathExtensions.ReLU(System.Int32)
-  name.vb: ReLU(Integer)
-  fullName: PAC.Maths.MathExtensions.ReLU(int)
-  fullName.vb: PAC.Maths.MathExtensions.ReLU(Integer)
-  nameWithType: MathExtensions.ReLU(int)
-  nameWithType.vb: MathExtensions.ReLU(Integer)
-- uid: PAC.Maths.MathExtensions.ReLU(System.Int64)
-  name: ReLU(long)
-  href: api/PAC.Maths.MathExtensions.html#PAC_Maths_MathExtensions_ReLU_System_Int64_
-  commentId: M:PAC.Maths.MathExtensions.ReLU(System.Int64)
-  name.vb: ReLU(Long)
-  fullName: PAC.Maths.MathExtensions.ReLU(long)
-  fullName.vb: PAC.Maths.MathExtensions.ReLU(Long)
-  nameWithType: MathExtensions.ReLU(long)
-  nameWithType.vb: MathExtensions.ReLU(Long)
-- uid: PAC.Maths.MathExtensions.ReLU(System.Single)
-  name: ReLU(float)
-  href: api/PAC.Maths.MathExtensions.html#PAC_Maths_MathExtensions_ReLU_System_Single_
-  commentId: M:PAC.Maths.MathExtensions.ReLU(System.Single)
-  name.vb: ReLU(Single)
-  fullName: PAC.Maths.MathExtensions.ReLU(float)
-  fullName.vb: PAC.Maths.MathExtensions.ReLU(Single)
-  nameWithType: MathExtensions.ReLU(float)
-  nameWithType.vb: MathExtensions.ReLU(Single)
-- uid: PAC.Maths.MathExtensions.ReLU*
-  name: ReLU
-  href: api/PAC.Maths.MathExtensions.html#PAC_Maths_MathExtensions_ReLU_
-  commentId: Overload:PAC.Maths.MathExtensions.ReLU
+- uid: PAC.Maths.MathExtensions.Round(System.Single,System.Int32)
+  name: Round(float, int)
+  href: api/PAC.Maths.MathExtensions.html#PAC_Maths_MathExtensions_Round_System_Single_System_Int32_
+  commentId: M:PAC.Maths.MathExtensions.Round(System.Single,System.Int32)
+  name.vb: Round(Single, Integer)
+  fullName: PAC.Maths.MathExtensions.Round(float, int)
+  fullName.vb: PAC.Maths.MathExtensions.Round(Single, Integer)
+  nameWithType: MathExtensions.Round(float, int)
+  nameWithType.vb: MathExtensions.Round(Single, Integer)
+- uid: PAC.Maths.MathExtensions.Round*
+  name: Round
+  href: api/PAC.Maths.MathExtensions.html#PAC_Maths_MathExtensions_Round_
+  commentId: Overload:PAC.Maths.MathExtensions.Round
   isSpec: "True"
-  fullName: PAC.Maths.MathExtensions.ReLU
-  nameWithType: MathExtensions.ReLU
-- uid: PAC.Maths.MathExtensions.RoundDecimalPlaces(System.Single,System.Int32)
-  name: RoundDecimalPlaces(float, int)
-  href: api/PAC.Maths.MathExtensions.html#PAC_Maths_MathExtensions_RoundDecimalPlaces_System_Single_System_Int32_
-  commentId: M:PAC.Maths.MathExtensions.RoundDecimalPlaces(System.Single,System.Int32)
-  name.vb: RoundDecimalPlaces(Single, Integer)
-  fullName: PAC.Maths.MathExtensions.RoundDecimalPlaces(float, int)
-  fullName.vb: PAC.Maths.MathExtensions.RoundDecimalPlaces(Single, Integer)
-  nameWithType: MathExtensions.RoundDecimalPlaces(float, int)
-  nameWithType.vb: MathExtensions.RoundDecimalPlaces(Single, Integer)
-- uid: PAC.Maths.MathExtensions.RoundDecimalPlaces*
-  name: RoundDecimalPlaces
-  href: api/PAC.Maths.MathExtensions.html#PAC_Maths_MathExtensions_RoundDecimalPlaces_
-  commentId: Overload:PAC.Maths.MathExtensions.RoundDecimalPlaces
+  fullName: PAC.Maths.MathExtensions.Round
+  nameWithType: MathExtensions.Round
+- uid: PAC.Maths.MathExtensions.RoundAwayFrom(System.Single,System.Int32)
+  name: RoundAwayFrom(float, int)
+  href: api/PAC.Maths.MathExtensions.html#PAC_Maths_MathExtensions_RoundAwayFrom_System_Single_System_Int32_
+  commentId: M:PAC.Maths.MathExtensions.RoundAwayFrom(System.Single,System.Int32)
+  name.vb: RoundAwayFrom(Single, Integer)
+  fullName: PAC.Maths.MathExtensions.RoundAwayFrom(float, int)
+  fullName.vb: PAC.Maths.MathExtensions.RoundAwayFrom(Single, Integer)
+  nameWithType: MathExtensions.RoundAwayFrom(float, int)
+  nameWithType.vb: MathExtensions.RoundAwayFrom(Single, Integer)
+- uid: PAC.Maths.MathExtensions.RoundAwayFrom*
+  name: RoundAwayFrom
+  href: api/PAC.Maths.MathExtensions.html#PAC_Maths_MathExtensions_RoundAwayFrom_
+  commentId: Overload:PAC.Maths.MathExtensions.RoundAwayFrom
   isSpec: "True"
-  fullName: PAC.Maths.MathExtensions.RoundDecimalPlaces
-  nameWithType: MathExtensions.RoundDecimalPlaces
-- uid: PAC.Maths.MathExtensions.RoundToMultiple(System.Single,System.Int32)
-  name: RoundToMultiple(float, int)
-  href: api/PAC.Maths.MathExtensions.html#PAC_Maths_MathExtensions_RoundToMultiple_System_Single_System_Int32_
-  commentId: M:PAC.Maths.MathExtensions.RoundToMultiple(System.Single,System.Int32)
-  name.vb: RoundToMultiple(Single, Integer)
-  fullName: PAC.Maths.MathExtensions.RoundToMultiple(float, int)
-  fullName.vb: PAC.Maths.MathExtensions.RoundToMultiple(Single, Integer)
-  nameWithType: MathExtensions.RoundToMultiple(float, int)
-  nameWithType.vb: MathExtensions.RoundToMultiple(Single, Integer)
-- uid: PAC.Maths.MathExtensions.RoundToMultiple(System.Single,System.Single)
-  name: RoundToMultiple(float, float)
-  href: api/PAC.Maths.MathExtensions.html#PAC_Maths_MathExtensions_RoundToMultiple_System_Single_System_Single_
-  commentId: M:PAC.Maths.MathExtensions.RoundToMultiple(System.Single,System.Single)
-  name.vb: RoundToMultiple(Single, Single)
-  fullName: PAC.Maths.MathExtensions.RoundToMultiple(float, float)
-  fullName.vb: PAC.Maths.MathExtensions.RoundToMultiple(Single, Single)
-  nameWithType: MathExtensions.RoundToMultiple(float, float)
-  nameWithType.vb: MathExtensions.RoundToMultiple(Single, Single)
-- uid: PAC.Maths.MathExtensions.RoundToMultiple*
-  name: RoundToMultiple
-  href: api/PAC.Maths.MathExtensions.html#PAC_Maths_MathExtensions_RoundToMultiple_
-  commentId: Overload:PAC.Maths.MathExtensions.RoundToMultiple
+  fullName: PAC.Maths.MathExtensions.RoundAwayFrom
+  nameWithType: MathExtensions.RoundAwayFrom
+- uid: PAC.Maths.MathExtensions.RoundToIntAwayFrom(System.Single,System.Int32)
+  name: RoundToIntAwayFrom(float, int)
+  href: api/PAC.Maths.MathExtensions.html#PAC_Maths_MathExtensions_RoundToIntAwayFrom_System_Single_System_Int32_
+  commentId: M:PAC.Maths.MathExtensions.RoundToIntAwayFrom(System.Single,System.Int32)
+  name.vb: RoundToIntAwayFrom(Single, Integer)
+  fullName: PAC.Maths.MathExtensions.RoundToIntAwayFrom(float, int)
+  fullName.vb: PAC.Maths.MathExtensions.RoundToIntAwayFrom(Single, Integer)
+  nameWithType: MathExtensions.RoundToIntAwayFrom(float, int)
+  nameWithType.vb: MathExtensions.RoundToIntAwayFrom(Single, Integer)
+- uid: PAC.Maths.MathExtensions.RoundToIntAwayFrom*
+  name: RoundToIntAwayFrom
+  href: api/PAC.Maths.MathExtensions.html#PAC_Maths_MathExtensions_RoundToIntAwayFrom_
+  commentId: Overload:PAC.Maths.MathExtensions.RoundToIntAwayFrom
   isSpec: "True"
-  fullName: PAC.Maths.MathExtensions.RoundToMultiple
-  nameWithType: MathExtensions.RoundToMultiple
+  fullName: PAC.Maths.MathExtensions.RoundToIntAwayFrom
+  nameWithType: MathExtensions.RoundToIntAwayFrom
+- uid: PAC.Maths.MathExtensions.RoundToIntTowards(System.Single,System.Int32)
+  name: RoundToIntTowards(float, int)
+  href: api/PAC.Maths.MathExtensions.html#PAC_Maths_MathExtensions_RoundToIntTowards_System_Single_System_Int32_
+  commentId: M:PAC.Maths.MathExtensions.RoundToIntTowards(System.Single,System.Int32)
+  name.vb: RoundToIntTowards(Single, Integer)
+  fullName: PAC.Maths.MathExtensions.RoundToIntTowards(float, int)
+  fullName.vb: PAC.Maths.MathExtensions.RoundToIntTowards(Single, Integer)
+  nameWithType: MathExtensions.RoundToIntTowards(float, int)
+  nameWithType.vb: MathExtensions.RoundToIntTowards(Single, Integer)
+- uid: PAC.Maths.MathExtensions.RoundToIntTowards*
+  name: RoundToIntTowards
+  href: api/PAC.Maths.MathExtensions.html#PAC_Maths_MathExtensions_RoundToIntTowards_
+  commentId: Overload:PAC.Maths.MathExtensions.RoundToIntTowards
+  isSpec: "True"
+  fullName: PAC.Maths.MathExtensions.RoundToIntTowards
+  nameWithType: MathExtensions.RoundToIntTowards
+- uid: PAC.Maths.MathExtensions.RoundToMultipleOf(System.Single,System.Int32)
+  name: RoundToMultipleOf(float, int)
+  href: api/PAC.Maths.MathExtensions.html#PAC_Maths_MathExtensions_RoundToMultipleOf_System_Single_System_Int32_
+  commentId: M:PAC.Maths.MathExtensions.RoundToMultipleOf(System.Single,System.Int32)
+  name.vb: RoundToMultipleOf(Single, Integer)
+  fullName: PAC.Maths.MathExtensions.RoundToMultipleOf(float, int)
+  fullName.vb: PAC.Maths.MathExtensions.RoundToMultipleOf(Single, Integer)
+  nameWithType: MathExtensions.RoundToMultipleOf(float, int)
+  nameWithType.vb: MathExtensions.RoundToMultipleOf(Single, Integer)
+- uid: PAC.Maths.MathExtensions.RoundToMultipleOf(System.Single,System.Single)
+  name: RoundToMultipleOf(float, float)
+  href: api/PAC.Maths.MathExtensions.html#PAC_Maths_MathExtensions_RoundToMultipleOf_System_Single_System_Single_
+  commentId: M:PAC.Maths.MathExtensions.RoundToMultipleOf(System.Single,System.Single)
+  name.vb: RoundToMultipleOf(Single, Single)
+  fullName: PAC.Maths.MathExtensions.RoundToMultipleOf(float, float)
+  fullName.vb: PAC.Maths.MathExtensions.RoundToMultipleOf(Single, Single)
+  nameWithType: MathExtensions.RoundToMultipleOf(float, float)
+  nameWithType.vb: MathExtensions.RoundToMultipleOf(Single, Single)
+- uid: PAC.Maths.MathExtensions.RoundToMultipleOf*
+  name: RoundToMultipleOf
+  href: api/PAC.Maths.MathExtensions.html#PAC_Maths_MathExtensions_RoundToMultipleOf_
+  commentId: Overload:PAC.Maths.MathExtensions.RoundToMultipleOf
+  isSpec: "True"
+  fullName: PAC.Maths.MathExtensions.RoundToMultipleOf
+  nameWithType: MathExtensions.RoundToMultipleOf
+- uid: PAC.Maths.MathExtensions.RoundTowards(System.Single,System.Int32)
+  name: RoundTowards(float, int)
+  href: api/PAC.Maths.MathExtensions.html#PAC_Maths_MathExtensions_RoundTowards_System_Single_System_Int32_
+  commentId: M:PAC.Maths.MathExtensions.RoundTowards(System.Single,System.Int32)
+  name.vb: RoundTowards(Single, Integer)
+  fullName: PAC.Maths.MathExtensions.RoundTowards(float, int)
+  fullName.vb: PAC.Maths.MathExtensions.RoundTowards(Single, Integer)
+  nameWithType: MathExtensions.RoundTowards(float, int)
+  nameWithType.vb: MathExtensions.RoundTowards(Single, Integer)
+- uid: PAC.Maths.MathExtensions.RoundTowards*
+  name: RoundTowards
+  href: api/PAC.Maths.MathExtensions.html#PAC_Maths_MathExtensions_RoundTowards_
+  commentId: Overload:PAC.Maths.MathExtensions.RoundTowards
+  isSpec: "True"
+  fullName: PAC.Maths.MathExtensions.RoundTowards
+  nameWithType: MathExtensions.RoundTowards
 - uid: PAC.Maths.MathExtensions.Sign(System.Single)
   name: Sign(float)
   href: api/PAC.Maths.MathExtensions.html#PAC_Maths_MathExtensions_Sign_System_Single_
@@ -17256,159 +17590,6 @@ references:
   isSpec: "True"
   fullName: PAC.Maths.MathExtensions.Square
   nameWithType: MathExtensions.Square
-- uid: PAC.Maths.MathExtensions.SymmetricCeil(System.Single)
-  name: SymmetricCeil(float)
-  href: api/PAC.Maths.MathExtensions.html#PAC_Maths_MathExtensions_SymmetricCeil_System_Single_
-  commentId: M:PAC.Maths.MathExtensions.SymmetricCeil(System.Single)
-  name.vb: SymmetricCeil(Single)
-  fullName: PAC.Maths.MathExtensions.SymmetricCeil(float)
-  fullName.vb: PAC.Maths.MathExtensions.SymmetricCeil(Single)
-  nameWithType: MathExtensions.SymmetricCeil(float)
-  nameWithType.vb: MathExtensions.SymmetricCeil(Single)
-- uid: PAC.Maths.MathExtensions.SymmetricCeil*
-  name: SymmetricCeil
-  href: api/PAC.Maths.MathExtensions.html#PAC_Maths_MathExtensions_SymmetricCeil_
-  commentId: Overload:PAC.Maths.MathExtensions.SymmetricCeil
-  isSpec: "True"
-  fullName: PAC.Maths.MathExtensions.SymmetricCeil
-  nameWithType: MathExtensions.SymmetricCeil
-- uid: PAC.Maths.MathExtensions.SymmetricCeilToInt(System.Single)
-  name: SymmetricCeilToInt(float)
-  href: api/PAC.Maths.MathExtensions.html#PAC_Maths_MathExtensions_SymmetricCeilToInt_System_Single_
-  commentId: M:PAC.Maths.MathExtensions.SymmetricCeilToInt(System.Single)
-  name.vb: SymmetricCeilToInt(Single)
-  fullName: PAC.Maths.MathExtensions.SymmetricCeilToInt(float)
-  fullName.vb: PAC.Maths.MathExtensions.SymmetricCeilToInt(Single)
-  nameWithType: MathExtensions.SymmetricCeilToInt(float)
-  nameWithType.vb: MathExtensions.SymmetricCeilToInt(Single)
-- uid: PAC.Maths.MathExtensions.SymmetricCeilToInt*
-  name: SymmetricCeilToInt
-  href: api/PAC.Maths.MathExtensions.html#PAC_Maths_MathExtensions_SymmetricCeilToInt_
-  commentId: Overload:PAC.Maths.MathExtensions.SymmetricCeilToInt
-  isSpec: "True"
-  fullName: PAC.Maths.MathExtensions.SymmetricCeilToInt
-  nameWithType: MathExtensions.SymmetricCeilToInt
-- uid: PAC.Maths.MathExtensions.SymmetricFloor(System.Single)
-  name: SymmetricFloor(float)
-  href: api/PAC.Maths.MathExtensions.html#PAC_Maths_MathExtensions_SymmetricFloor_System_Single_
-  commentId: M:PAC.Maths.MathExtensions.SymmetricFloor(System.Single)
-  name.vb: SymmetricFloor(Single)
-  fullName: PAC.Maths.MathExtensions.SymmetricFloor(float)
-  fullName.vb: PAC.Maths.MathExtensions.SymmetricFloor(Single)
-  nameWithType: MathExtensions.SymmetricFloor(float)
-  nameWithType.vb: MathExtensions.SymmetricFloor(Single)
-- uid: PAC.Maths.MathExtensions.SymmetricFloor*
-  name: SymmetricFloor
-  href: api/PAC.Maths.MathExtensions.html#PAC_Maths_MathExtensions_SymmetricFloor_
-  commentId: Overload:PAC.Maths.MathExtensions.SymmetricFloor
-  isSpec: "True"
-  fullName: PAC.Maths.MathExtensions.SymmetricFloor
-  nameWithType: MathExtensions.SymmetricFloor
-- uid: PAC.Maths.MathExtensions.SymmetricFloorToInt(System.Single)
-  name: SymmetricFloorToInt(float)
-  href: api/PAC.Maths.MathExtensions.html#PAC_Maths_MathExtensions_SymmetricFloorToInt_System_Single_
-  commentId: M:PAC.Maths.MathExtensions.SymmetricFloorToInt(System.Single)
-  name.vb: SymmetricFloorToInt(Single)
-  fullName: PAC.Maths.MathExtensions.SymmetricFloorToInt(float)
-  fullName.vb: PAC.Maths.MathExtensions.SymmetricFloorToInt(Single)
-  nameWithType: MathExtensions.SymmetricFloorToInt(float)
-  nameWithType.vb: MathExtensions.SymmetricFloorToInt(Single)
-- uid: PAC.Maths.MathExtensions.SymmetricFloorToInt*
-  name: SymmetricFloorToInt
-  href: api/PAC.Maths.MathExtensions.html#PAC_Maths_MathExtensions_SymmetricFloorToInt_
-  commentId: Overload:PAC.Maths.MathExtensions.SymmetricFloorToInt
-  isSpec: "True"
-  fullName: PAC.Maths.MathExtensions.SymmetricFloorToInt
-  nameWithType: MathExtensions.SymmetricFloorToInt
-- uid: PAC.Maths.MathExtensions.TruncateDecimalPlaces(System.Single,System.Int32)
-  name: TruncateDecimalPlaces(float, int)
-  href: api/PAC.Maths.MathExtensions.html#PAC_Maths_MathExtensions_TruncateDecimalPlaces_System_Single_System_Int32_
-  commentId: M:PAC.Maths.MathExtensions.TruncateDecimalPlaces(System.Single,System.Int32)
-  name.vb: TruncateDecimalPlaces(Single, Integer)
-  fullName: PAC.Maths.MathExtensions.TruncateDecimalPlaces(float, int)
-  fullName.vb: PAC.Maths.MathExtensions.TruncateDecimalPlaces(Single, Integer)
-  nameWithType: MathExtensions.TruncateDecimalPlaces(float, int)
-  nameWithType.vb: MathExtensions.TruncateDecimalPlaces(Single, Integer)
-- uid: PAC.Maths.MathExtensions.TruncateDecimalPlaces*
-  name: TruncateDecimalPlaces
-  href: api/PAC.Maths.MathExtensions.html#PAC_Maths_MathExtensions_TruncateDecimalPlaces_
-  commentId: Overload:PAC.Maths.MathExtensions.TruncateDecimalPlaces
-  isSpec: "True"
-  fullName: PAC.Maths.MathExtensions.TruncateDecimalPlaces
-  nameWithType: MathExtensions.TruncateDecimalPlaces
-- uid: PAC.OutlineSideFill
-  name: OutlineSideFill
-  href: api/PAC.OutlineSideFill.html
-  commentId: T:PAC.OutlineSideFill
-  fullName: PAC.OutlineSideFill
-  nameWithType: OutlineSideFill
-- uid: PAC.OutlineSideFill.#ctor(System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean)
-  name: OutlineSideFill(bool, bool, bool, bool, bool, bool, bool, bool)
-  href: api/PAC.OutlineSideFill.html#PAC_OutlineSideFill__ctor_System_Boolean_System_Boolean_System_Boolean_System_Boolean_System_Boolean_System_Boolean_System_Boolean_System_Boolean_
-  commentId: M:PAC.OutlineSideFill.#ctor(System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean)
-  name.vb: New(Boolean, Boolean, Boolean, Boolean, Boolean, Boolean, Boolean, Boolean)
-  fullName: PAC.OutlineSideFill.OutlineSideFill(bool, bool, bool, bool, bool, bool, bool, bool)
-  fullName.vb: PAC.OutlineSideFill.New(Boolean, Boolean, Boolean, Boolean, Boolean, Boolean, Boolean, Boolean)
-  nameWithType: OutlineSideFill.OutlineSideFill(bool, bool, bool, bool, bool, bool, bool, bool)
-  nameWithType.vb: OutlineSideFill.New(Boolean, Boolean, Boolean, Boolean, Boolean, Boolean, Boolean, Boolean)
-- uid: PAC.OutlineSideFill.#ctor*
-  name: OutlineSideFill
-  href: api/PAC.OutlineSideFill.html#PAC_OutlineSideFill__ctor_
-  commentId: Overload:PAC.OutlineSideFill.#ctor
-  isSpec: "True"
-  name.vb: New
-  fullName: PAC.OutlineSideFill.OutlineSideFill
-  fullName.vb: PAC.OutlineSideFill.New
-  nameWithType: OutlineSideFill.OutlineSideFill
-  nameWithType.vb: OutlineSideFill.New
-- uid: PAC.OutlineSideFill.bottomLeft
-  name: bottomLeft
-  href: api/PAC.OutlineSideFill.html#PAC_OutlineSideFill_bottomLeft
-  commentId: F:PAC.OutlineSideFill.bottomLeft
-  fullName: PAC.OutlineSideFill.bottomLeft
-  nameWithType: OutlineSideFill.bottomLeft
-- uid: PAC.OutlineSideFill.bottomMiddle
-  name: bottomMiddle
-  href: api/PAC.OutlineSideFill.html#PAC_OutlineSideFill_bottomMiddle
-  commentId: F:PAC.OutlineSideFill.bottomMiddle
-  fullName: PAC.OutlineSideFill.bottomMiddle
-  nameWithType: OutlineSideFill.bottomMiddle
-- uid: PAC.OutlineSideFill.bottomRight
-  name: bottomRight
-  href: api/PAC.OutlineSideFill.html#PAC_OutlineSideFill_bottomRight
-  commentId: F:PAC.OutlineSideFill.bottomRight
-  fullName: PAC.OutlineSideFill.bottomRight
-  nameWithType: OutlineSideFill.bottomRight
-- uid: PAC.OutlineSideFill.middleLeft
-  name: middleLeft
-  href: api/PAC.OutlineSideFill.html#PAC_OutlineSideFill_middleLeft
-  commentId: F:PAC.OutlineSideFill.middleLeft
-  fullName: PAC.OutlineSideFill.middleLeft
-  nameWithType: OutlineSideFill.middleLeft
-- uid: PAC.OutlineSideFill.middleRight
-  name: middleRight
-  href: api/PAC.OutlineSideFill.html#PAC_OutlineSideFill_middleRight
-  commentId: F:PAC.OutlineSideFill.middleRight
-  fullName: PAC.OutlineSideFill.middleRight
-  nameWithType: OutlineSideFill.middleRight
-- uid: PAC.OutlineSideFill.topLeft
-  name: topLeft
-  href: api/PAC.OutlineSideFill.html#PAC_OutlineSideFill_topLeft
-  commentId: F:PAC.OutlineSideFill.topLeft
-  fullName: PAC.OutlineSideFill.topLeft
-  nameWithType: OutlineSideFill.topLeft
-- uid: PAC.OutlineSideFill.topMiddle
-  name: topMiddle
-  href: api/PAC.OutlineSideFill.html#PAC_OutlineSideFill_topMiddle
-  commentId: F:PAC.OutlineSideFill.topMiddle
-  fullName: PAC.OutlineSideFill.topMiddle
-  nameWithType: OutlineSideFill.topMiddle
-- uid: PAC.OutlineSideFill.topRight
-  name: topRight
-  href: api/PAC.OutlineSideFill.html#PAC_OutlineSideFill_topRight
-  commentId: F:PAC.OutlineSideFill.topRight
-  fullName: PAC.OutlineSideFill.topRight
-  nameWithType: OutlineSideFill.topRight
 - uid: PAC.Patterns
   name: PAC.Patterns
   href: api/PAC.Patterns.html
@@ -21607,524 +21788,6 @@ references:
   isSpec: "True"
   fullName: PAC.Shapes.RightTriangle.topCorner
   nameWithType: RightTriangle.topCorner
-- uid: PAC.Tex2DSprite
-  name: Tex2DSprite
-  href: api/PAC.Tex2DSprite.html
-  commentId: T:PAC.Tex2DSprite
-  fullName: PAC.Tex2DSprite
-  nameWithType: Tex2DSprite
-- uid: PAC.Tex2DSprite.ApplyMask(Texture2D,PAC.DataStructures.IntVector2[])
-  name: ApplyMask(Texture2D, IntVector2[])
-  href: api/PAC.Tex2DSprite.html#PAC_Tex2DSprite_ApplyMask_Texture2D_PAC_DataStructures_IntVector2___
-  commentId: M:PAC.Tex2DSprite.ApplyMask(Texture2D,PAC.DataStructures.IntVector2[])
-  name.vb: ApplyMask(Texture2D, IntVector2())
-  fullName: PAC.Tex2DSprite.ApplyMask(Texture2D, PAC.DataStructures.IntVector2[])
-  fullName.vb: PAC.Tex2DSprite.ApplyMask(Texture2D, PAC.DataStructures.IntVector2())
-  nameWithType: Tex2DSprite.ApplyMask(Texture2D, IntVector2[])
-  nameWithType.vb: Tex2DSprite.ApplyMask(Texture2D, IntVector2())
-- uid: PAC.Tex2DSprite.ApplyMask(Texture2D,Texture2D)
-  name: ApplyMask(Texture2D, Texture2D)
-  href: api/PAC.Tex2DSprite.html#PAC_Tex2DSprite_ApplyMask_Texture2D_Texture2D_
-  commentId: M:PAC.Tex2DSprite.ApplyMask(Texture2D,Texture2D)
-  fullName: PAC.Tex2DSprite.ApplyMask(Texture2D, Texture2D)
-  nameWithType: Tex2DSprite.ApplyMask(Texture2D, Texture2D)
-- uid: PAC.Tex2DSprite.ApplyMask*
-  name: ApplyMask
-  href: api/PAC.Tex2DSprite.html#PAC_Tex2DSprite_ApplyMask_
-  commentId: Overload:PAC.Tex2DSprite.ApplyMask
-  isSpec: "True"
-  fullName: PAC.Tex2DSprite.ApplyMask
-  nameWithType: Tex2DSprite.ApplyMask
-- uid: PAC.Tex2DSprite.BlankTexture(System.Int32,System.Int32)
-  name: BlankTexture(int, int)
-  href: api/PAC.Tex2DSprite.html#PAC_Tex2DSprite_BlankTexture_System_Int32_System_Int32_
-  commentId: M:PAC.Tex2DSprite.BlankTexture(System.Int32,System.Int32)
-  name.vb: BlankTexture(Integer, Integer)
-  fullName: PAC.Tex2DSprite.BlankTexture(int, int)
-  fullName.vb: PAC.Tex2DSprite.BlankTexture(Integer, Integer)
-  nameWithType: Tex2DSprite.BlankTexture(int, int)
-  nameWithType.vb: Tex2DSprite.BlankTexture(Integer, Integer)
-- uid: PAC.Tex2DSprite.BlankTexture*
-  name: BlankTexture
-  href: api/PAC.Tex2DSprite.html#PAC_Tex2DSprite_BlankTexture_
-  commentId: Overload:PAC.Tex2DSprite.BlankTexture
-  isSpec: "True"
-  fullName: PAC.Tex2DSprite.BlankTexture
-  nameWithType: Tex2DSprite.BlankTexture
-- uid: PAC.Tex2DSprite.Blend(Color,Texture2D,PAC.Colour.BlendMode)
-  name: Blend(Color, Texture2D, BlendMode)
-  href: api/PAC.Tex2DSprite.html#PAC_Tex2DSprite_Blend_Color_Texture2D_PAC_Colour_BlendMode_
-  commentId: M:PAC.Tex2DSprite.Blend(Color,Texture2D,PAC.Colour.BlendMode)
-  fullName: PAC.Tex2DSprite.Blend(Color, Texture2D, PAC.Colour.BlendMode)
-  nameWithType: Tex2DSprite.Blend(Color, Texture2D, BlendMode)
-- uid: PAC.Tex2DSprite.Blend(Texture2D,Texture2D,PAC.Colour.BlendMode)
-  name: Blend(Texture2D, Texture2D, BlendMode)
-  href: api/PAC.Tex2DSprite.html#PAC_Tex2DSprite_Blend_Texture2D_Texture2D_PAC_Colour_BlendMode_
-  commentId: M:PAC.Tex2DSprite.Blend(Texture2D,Texture2D,PAC.Colour.BlendMode)
-  fullName: PAC.Tex2DSprite.Blend(Texture2D, Texture2D, PAC.Colour.BlendMode)
-  nameWithType: Tex2DSprite.Blend(Texture2D, Texture2D, BlendMode)
-- uid: PAC.Tex2DSprite.Blend(Texture2D,Texture2D,PAC.DataStructures.IntVector2,PAC.Colour.BlendMode)
-  name: Blend(Texture2D, Texture2D, IntVector2, BlendMode)
-  href: api/PAC.Tex2DSprite.html#PAC_Tex2DSprite_Blend_Texture2D_Texture2D_PAC_DataStructures_IntVector2_PAC_Colour_BlendMode_
-  commentId: M:PAC.Tex2DSprite.Blend(Texture2D,Texture2D,PAC.DataStructures.IntVector2,PAC.Colour.BlendMode)
-  fullName: PAC.Tex2DSprite.Blend(Texture2D, Texture2D, PAC.DataStructures.IntVector2, PAC.Colour.BlendMode)
-  nameWithType: Tex2DSprite.Blend(Texture2D, Texture2D, IntVector2, BlendMode)
-- uid: PAC.Tex2DSprite.Blend*
-  name: Blend
-  href: api/PAC.Tex2DSprite.html#PAC_Tex2DSprite_Blend_
-  commentId: Overload:PAC.Tex2DSprite.Blend
-  isSpec: "True"
-  fullName: PAC.Tex2DSprite.Blend
-  nameWithType: Tex2DSprite.Blend
-- uid: PAC.Tex2DSprite.ChangeRect(Texture2D,PAC.DataStructures.IntRect)
-  name: ChangeRect(Texture2D, IntRect)
-  href: api/PAC.Tex2DSprite.html#PAC_Tex2DSprite_ChangeRect_Texture2D_PAC_DataStructures_IntRect_
-  commentId: M:PAC.Tex2DSprite.ChangeRect(Texture2D,PAC.DataStructures.IntRect)
-  fullName: PAC.Tex2DSprite.ChangeRect(Texture2D, PAC.DataStructures.IntRect)
-  nameWithType: Tex2DSprite.ChangeRect(Texture2D, IntRect)
-- uid: PAC.Tex2DSprite.ChangeRect*
-  name: ChangeRect
-  href: api/PAC.Tex2DSprite.html#PAC_Tex2DSprite_ChangeRect_
-  commentId: Overload:PAC.Tex2DSprite.ChangeRect
-  isSpec: "True"
-  fullName: PAC.Tex2DSprite.ChangeRect
-  nameWithType: Tex2DSprite.ChangeRect
-- uid: PAC.Tex2DSprite.CheckerboardBackground(System.Int32,System.Int32)
-  name: CheckerboardBackground(int, int)
-  href: api/PAC.Tex2DSprite.html#PAC_Tex2DSprite_CheckerboardBackground_System_Int32_System_Int32_
-  commentId: M:PAC.Tex2DSprite.CheckerboardBackground(System.Int32,System.Int32)
-  name.vb: CheckerboardBackground(Integer, Integer)
-  fullName: PAC.Tex2DSprite.CheckerboardBackground(int, int)
-  fullName.vb: PAC.Tex2DSprite.CheckerboardBackground(Integer, Integer)
-  nameWithType: Tex2DSprite.CheckerboardBackground(int, int)
-  nameWithType.vb: Tex2DSprite.CheckerboardBackground(Integer, Integer)
-- uid: PAC.Tex2DSprite.CheckerboardBackground*
-  name: CheckerboardBackground
-  href: api/PAC.Tex2DSprite.html#PAC_Tex2DSprite_CheckerboardBackground_
-  commentId: Overload:PAC.Tex2DSprite.CheckerboardBackground
-  isSpec: "True"
-  fullName: PAC.Tex2DSprite.CheckerboardBackground
-  nameWithType: Tex2DSprite.CheckerboardBackground
-- uid: PAC.Tex2DSprite.ContainsPixel(Texture2D,PAC.DataStructures.IntVector2)
-  name: ContainsPixel(Texture2D, IntVector2)
-  href: api/PAC.Tex2DSprite.html#PAC_Tex2DSprite_ContainsPixel_Texture2D_PAC_DataStructures_IntVector2_
-  commentId: M:PAC.Tex2DSprite.ContainsPixel(Texture2D,PAC.DataStructures.IntVector2)
-  fullName: PAC.Tex2DSprite.ContainsPixel(Texture2D, PAC.DataStructures.IntVector2)
-  nameWithType: Tex2DSprite.ContainsPixel(Texture2D, IntVector2)
-- uid: PAC.Tex2DSprite.ContainsPixel(Texture2D,System.Int32,System.Int32)
-  name: ContainsPixel(Texture2D, int, int)
-  href: api/PAC.Tex2DSprite.html#PAC_Tex2DSprite_ContainsPixel_Texture2D_System_Int32_System_Int32_
-  commentId: M:PAC.Tex2DSprite.ContainsPixel(Texture2D,System.Int32,System.Int32)
-  name.vb: ContainsPixel(Texture2D, Integer, Integer)
-  fullName: PAC.Tex2DSprite.ContainsPixel(Texture2D, int, int)
-  fullName.vb: PAC.Tex2DSprite.ContainsPixel(Texture2D, Integer, Integer)
-  nameWithType: Tex2DSprite.ContainsPixel(Texture2D, int, int)
-  nameWithType.vb: Tex2DSprite.ContainsPixel(Texture2D, Integer, Integer)
-- uid: PAC.Tex2DSprite.ContainsPixel*
-  name: ContainsPixel
-  href: api/PAC.Tex2DSprite.html#PAC_Tex2DSprite_ContainsPixel_
-  commentId: Overload:PAC.Tex2DSprite.ContainsPixel
-  isSpec: "True"
-  fullName: PAC.Tex2DSprite.ContainsPixel
-  nameWithType: Tex2DSprite.ContainsPixel
-- uid: PAC.Tex2DSprite.Copy(Texture2D)
-  name: Copy(Texture2D)
-  href: api/PAC.Tex2DSprite.html#PAC_Tex2DSprite_Copy_Texture2D_
-  commentId: M:PAC.Tex2DSprite.Copy(Texture2D)
-  fullName: PAC.Tex2DSprite.Copy(Texture2D)
-  nameWithType: Tex2DSprite.Copy(Texture2D)
-- uid: PAC.Tex2DSprite.Copy*
-  name: Copy
-  href: api/PAC.Tex2DSprite.html#PAC_Tex2DSprite_Copy_
-  commentId: Overload:PAC.Tex2DSprite.Copy
-  isSpec: "True"
-  fullName: PAC.Tex2DSprite.Copy
-  nameWithType: Tex2DSprite.Copy
-- uid: PAC.Tex2DSprite.Copy32(Texture2D)
-  name: Copy32(Texture2D)
-  href: api/PAC.Tex2DSprite.html#PAC_Tex2DSprite_Copy32_Texture2D_
-  commentId: M:PAC.Tex2DSprite.Copy32(Texture2D)
-  fullName: PAC.Tex2DSprite.Copy32(Texture2D)
-  nameWithType: Tex2DSprite.Copy32(Texture2D)
-- uid: PAC.Tex2DSprite.Copy32*
-  name: Copy32
-  href: api/PAC.Tex2DSprite.html#PAC_Tex2DSprite_Copy32_
-  commentId: Overload:PAC.Tex2DSprite.Copy32
-  isSpec: "True"
-  fullName: PAC.Tex2DSprite.Copy32
-  nameWithType: Tex2DSprite.Copy32
-- uid: PAC.Tex2DSprite.Extend(Texture2D,System.Int32,System.Int32,System.Int32,System.Int32)
-  name: Extend(Texture2D, int, int, int, int)
-  href: api/PAC.Tex2DSprite.html#PAC_Tex2DSprite_Extend_Texture2D_System_Int32_System_Int32_System_Int32_System_Int32_
-  commentId: M:PAC.Tex2DSprite.Extend(Texture2D,System.Int32,System.Int32,System.Int32,System.Int32)
-  name.vb: Extend(Texture2D, Integer, Integer, Integer, Integer)
-  fullName: PAC.Tex2DSprite.Extend(Texture2D, int, int, int, int)
-  fullName.vb: PAC.Tex2DSprite.Extend(Texture2D, Integer, Integer, Integer, Integer)
-  nameWithType: Tex2DSprite.Extend(Texture2D, int, int, int, int)
-  nameWithType.vb: Tex2DSprite.Extend(Texture2D, Integer, Integer, Integer, Integer)
-- uid: PAC.Tex2DSprite.Extend*
-  name: Extend
-  href: api/PAC.Tex2DSprite.html#PAC_Tex2DSprite_Extend_
-  commentId: Overload:PAC.Tex2DSprite.Extend
-  isSpec: "True"
-  fullName: PAC.Tex2DSprite.Extend
-  nameWithType: Tex2DSprite.Extend
-- uid: PAC.Tex2DSprite.Fill(Texture2D,PAC.DataStructures.IntVector2,Color,System.Int32)
-  name: Fill(Texture2D, IntVector2, Color, int)
-  href: api/PAC.Tex2DSprite.html#PAC_Tex2DSprite_Fill_Texture2D_PAC_DataStructures_IntVector2_Color_System_Int32_
-  commentId: M:PAC.Tex2DSprite.Fill(Texture2D,PAC.DataStructures.IntVector2,Color,System.Int32)
-  name.vb: Fill(Texture2D, IntVector2, Color, Integer)
-  fullName: PAC.Tex2DSprite.Fill(Texture2D, PAC.DataStructures.IntVector2, Color, int)
-  fullName.vb: PAC.Tex2DSprite.Fill(Texture2D, PAC.DataStructures.IntVector2, Color, Integer)
-  nameWithType: Tex2DSprite.Fill(Texture2D, IntVector2, Color, int)
-  nameWithType.vb: Tex2DSprite.Fill(Texture2D, IntVector2, Color, Integer)
-- uid: PAC.Tex2DSprite.Fill*
-  name: Fill
-  href: api/PAC.Tex2DSprite.html#PAC_Tex2DSprite_Fill_
-  commentId: Overload:PAC.Tex2DSprite.Fill
-  isSpec: "True"
-  fullName: PAC.Tex2DSprite.Fill
-  nameWithType: Tex2DSprite.Fill
-- uid: PAC.Tex2DSprite.Flip(Texture2D,PAC.FlipAxis)
-  name: Flip(Texture2D, FlipAxis)
-  href: api/PAC.Tex2DSprite.html#PAC_Tex2DSprite_Flip_Texture2D_PAC_FlipAxis_
-  commentId: M:PAC.Tex2DSprite.Flip(Texture2D,PAC.FlipAxis)
-  fullName: PAC.Tex2DSprite.Flip(Texture2D, PAC.FlipAxis)
-  nameWithType: Tex2DSprite.Flip(Texture2D, FlipAxis)
-- uid: PAC.Tex2DSprite.Flip*
-  name: Flip
-  href: api/PAC.Tex2DSprite.html#PAC_Tex2DSprite_Flip_
-  commentId: Overload:PAC.Tex2DSprite.Flip
-  isSpec: "True"
-  fullName: PAC.Tex2DSprite.Flip
-  nameWithType: Tex2DSprite.Flip
-- uid: PAC.Tex2DSprite.FlipX(Texture2D)
-  name: FlipX(Texture2D)
-  href: api/PAC.Tex2DSprite.html#PAC_Tex2DSprite_FlipX_Texture2D_
-  commentId: M:PAC.Tex2DSprite.FlipX(Texture2D)
-  fullName: PAC.Tex2DSprite.FlipX(Texture2D)
-  nameWithType: Tex2DSprite.FlipX(Texture2D)
-- uid: PAC.Tex2DSprite.FlipX*
-  name: FlipX
-  href: api/PAC.Tex2DSprite.html#PAC_Tex2DSprite_FlipX_
-  commentId: Overload:PAC.Tex2DSprite.FlipX
-  isSpec: "True"
-  fullName: PAC.Tex2DSprite.FlipX
-  nameWithType: Tex2DSprite.FlipX
-- uid: PAC.Tex2DSprite.FlipY(Texture2D)
-  name: FlipY(Texture2D)
-  href: api/PAC.Tex2DSprite.html#PAC_Tex2DSprite_FlipY_Texture2D_
-  commentId: M:PAC.Tex2DSprite.FlipY(Texture2D)
-  fullName: PAC.Tex2DSprite.FlipY(Texture2D)
-  nameWithType: Tex2DSprite.FlipY(Texture2D)
-- uid: PAC.Tex2DSprite.FlipY*
-  name: FlipY
-  href: api/PAC.Tex2DSprite.html#PAC_Tex2DSprite_FlipY_
-  commentId: Overload:PAC.Tex2DSprite.FlipY
-  isSpec: "True"
-  fullName: PAC.Tex2DSprite.FlipY
-  nameWithType: Tex2DSprite.FlipY
-- uid: PAC.Tex2DSprite.GetFillMask(Texture2D,PAC.DataStructures.IntVector2,System.Int32)
-  name: GetFillMask(Texture2D, IntVector2, int)
-  href: api/PAC.Tex2DSprite.html#PAC_Tex2DSprite_GetFillMask_Texture2D_PAC_DataStructures_IntVector2_System_Int32_
-  commentId: M:PAC.Tex2DSprite.GetFillMask(Texture2D,PAC.DataStructures.IntVector2,System.Int32)
-  name.vb: GetFillMask(Texture2D, IntVector2, Integer)
-  fullName: PAC.Tex2DSprite.GetFillMask(Texture2D, PAC.DataStructures.IntVector2, int)
-  fullName.vb: PAC.Tex2DSprite.GetFillMask(Texture2D, PAC.DataStructures.IntVector2, Integer)
-  nameWithType: Tex2DSprite.GetFillMask(Texture2D, IntVector2, int)
-  nameWithType.vb: Tex2DSprite.GetFillMask(Texture2D, IntVector2, Integer)
-- uid: PAC.Tex2DSprite.GetFillMask*
-  name: GetFillMask
-  href: api/PAC.Tex2DSprite.html#PAC_Tex2DSprite_GetFillMask_
-  commentId: Overload:PAC.Tex2DSprite.GetFillMask
-  isSpec: "True"
-  fullName: PAC.Tex2DSprite.GetFillMask
-  nameWithType: Tex2DSprite.GetFillMask
-- uid: PAC.Tex2DSprite.GetPixel(Texture2D,PAC.DataStructures.IntVector2)
-  name: GetPixel(Texture2D, IntVector2)
-  href: api/PAC.Tex2DSprite.html#PAC_Tex2DSprite_GetPixel_Texture2D_PAC_DataStructures_IntVector2_
-  commentId: M:PAC.Tex2DSprite.GetPixel(Texture2D,PAC.DataStructures.IntVector2)
-  fullName: PAC.Tex2DSprite.GetPixel(Texture2D, PAC.DataStructures.IntVector2)
-  nameWithType: Tex2DSprite.GetPixel(Texture2D, IntVector2)
-- uid: PAC.Tex2DSprite.GetPixel*
-  name: GetPixel
-  href: api/PAC.Tex2DSprite.html#PAC_Tex2DSprite_GetPixel_
-  commentId: Overload:PAC.Tex2DSprite.GetPixel
-  isSpec: "True"
-  fullName: PAC.Tex2DSprite.GetPixel
-  nameWithType: Tex2DSprite.GetPixel
-- uid: PAC.Tex2DSprite.GetPixelsToFill(Texture2D,PAC.DataStructures.IntVector2,System.Int32)
-  name: GetPixelsToFill(Texture2D, IntVector2, int)
-  href: api/PAC.Tex2DSprite.html#PAC_Tex2DSprite_GetPixelsToFill_Texture2D_PAC_DataStructures_IntVector2_System_Int32_
-  commentId: M:PAC.Tex2DSprite.GetPixelsToFill(Texture2D,PAC.DataStructures.IntVector2,System.Int32)
-  name.vb: GetPixelsToFill(Texture2D, IntVector2, Integer)
-  fullName: PAC.Tex2DSprite.GetPixelsToFill(Texture2D, PAC.DataStructures.IntVector2, int)
-  fullName.vb: PAC.Tex2DSprite.GetPixelsToFill(Texture2D, PAC.DataStructures.IntVector2, Integer)
-  nameWithType: Tex2DSprite.GetPixelsToFill(Texture2D, IntVector2, int)
-  nameWithType.vb: Tex2DSprite.GetPixelsToFill(Texture2D, IntVector2, Integer)
-- uid: PAC.Tex2DSprite.GetPixelsToFill*
-  name: GetPixelsToFill
-  href: api/PAC.Tex2DSprite.html#PAC_Tex2DSprite_GetPixelsToFill_
-  commentId: Overload:PAC.Tex2DSprite.GetPixelsToFill
-  isSpec: "True"
-  fullName: PAC.Tex2DSprite.GetPixelsToFill
-  nameWithType: Tex2DSprite.GetPixelsToFill
-- uid: PAC.Tex2DSprite.HSLHueSaturationGrid(System.Int32,System.Int32)
-  name: HSLHueSaturationGrid(int, int)
-  href: api/PAC.Tex2DSprite.html#PAC_Tex2DSprite_HSLHueSaturationGrid_System_Int32_System_Int32_
-  commentId: M:PAC.Tex2DSprite.HSLHueSaturationGrid(System.Int32,System.Int32)
-  name.vb: HSLHueSaturationGrid(Integer, Integer)
-  fullName: PAC.Tex2DSprite.HSLHueSaturationGrid(int, int)
-  fullName.vb: PAC.Tex2DSprite.HSLHueSaturationGrid(Integer, Integer)
-  nameWithType: Tex2DSprite.HSLHueSaturationGrid(int, int)
-  nameWithType.vb: Tex2DSprite.HSLHueSaturationGrid(Integer, Integer)
-- uid: PAC.Tex2DSprite.HSLHueSaturationGrid*
-  name: HSLHueSaturationGrid
-  href: api/PAC.Tex2DSprite.html#PAC_Tex2DSprite_HSLHueSaturationGrid_
-  commentId: Overload:PAC.Tex2DSprite.HSLHueSaturationGrid
-  isSpec: "True"
-  fullName: PAC.Tex2DSprite.HSLHueSaturationGrid
-  nameWithType: Tex2DSprite.HSLHueSaturationGrid
-- uid: PAC.Tex2DSprite.LoadFromFile(System.String)
-  name: LoadFromFile(string)
-  href: api/PAC.Tex2DSprite.html#PAC_Tex2DSprite_LoadFromFile_System_String_
-  commentId: M:PAC.Tex2DSprite.LoadFromFile(System.String)
-  name.vb: LoadFromFile(String)
-  fullName: PAC.Tex2DSprite.LoadFromFile(string)
-  fullName.vb: PAC.Tex2DSprite.LoadFromFile(String)
-  nameWithType: Tex2DSprite.LoadFromFile(string)
-  nameWithType.vb: Tex2DSprite.LoadFromFile(String)
-- uid: PAC.Tex2DSprite.LoadFromFile*
-  name: LoadFromFile
-  href: api/PAC.Tex2DSprite.html#PAC_Tex2DSprite_LoadFromFile_
-  commentId: Overload:PAC.Tex2DSprite.LoadFromFile
-  isSpec: "True"
-  fullName: PAC.Tex2DSprite.LoadFromFile
-  nameWithType: Tex2DSprite.LoadFromFile
-- uid: PAC.Tex2DSprite.Multiply(Texture2D,Color)
-  name: Multiply(Texture2D, Color)
-  href: api/PAC.Tex2DSprite.html#PAC_Tex2DSprite_Multiply_Texture2D_Color_
-  commentId: M:PAC.Tex2DSprite.Multiply(Texture2D,Color)
-  fullName: PAC.Tex2DSprite.Multiply(Texture2D, Color)
-  nameWithType: Tex2DSprite.Multiply(Texture2D, Color)
-- uid: PAC.Tex2DSprite.Multiply*
-  name: Multiply
-  href: api/PAC.Tex2DSprite.html#PAC_Tex2DSprite_Multiply_
-  commentId: Overload:PAC.Tex2DSprite.Multiply
-  isSpec: "True"
-  fullName: PAC.Tex2DSprite.Multiply
-  nameWithType: Tex2DSprite.Multiply
-- uid: PAC.Tex2DSprite.Offset(Texture2D,PAC.DataStructures.IntVector2)
-  name: Offset(Texture2D, IntVector2)
-  href: api/PAC.Tex2DSprite.html#PAC_Tex2DSprite_Offset_Texture2D_PAC_DataStructures_IntVector2_
-  commentId: M:PAC.Tex2DSprite.Offset(Texture2D,PAC.DataStructures.IntVector2)
-  fullName: PAC.Tex2DSprite.Offset(Texture2D, PAC.DataStructures.IntVector2)
-  nameWithType: Tex2DSprite.Offset(Texture2D, IntVector2)
-- uid: PAC.Tex2DSprite.Offset*
-  name: Offset
-  href: api/PAC.Tex2DSprite.html#PAC_Tex2DSprite_Offset_
-  commentId: Overload:PAC.Tex2DSprite.Offset
-  isSpec: "True"
-  fullName: PAC.Tex2DSprite.Offset
-  nameWithType: Tex2DSprite.Offset
-- uid: PAC.Tex2DSprite.Outline(Texture2D,Color,System.Boolean,PAC.OutlineSideFill)
-  name: Outline(Texture2D, Color, bool, OutlineSideFill)
-  href: api/PAC.Tex2DSprite.html#PAC_Tex2DSprite_Outline_Texture2D_Color_System_Boolean_PAC_OutlineSideFill_
-  commentId: M:PAC.Tex2DSprite.Outline(Texture2D,Color,System.Boolean,PAC.OutlineSideFill)
-  name.vb: Outline(Texture2D, Color, Boolean, OutlineSideFill)
-  fullName: PAC.Tex2DSprite.Outline(Texture2D, Color, bool, PAC.OutlineSideFill)
-  fullName.vb: PAC.Tex2DSprite.Outline(Texture2D, Color, Boolean, PAC.OutlineSideFill)
-  nameWithType: Tex2DSprite.Outline(Texture2D, Color, bool, OutlineSideFill)
-  nameWithType.vb: Tex2DSprite.Outline(Texture2D, Color, Boolean, OutlineSideFill)
-- uid: PAC.Tex2DSprite.Outline*
-  name: Outline
-  href: api/PAC.Tex2DSprite.html#PAC_Tex2DSprite_Outline_
-  commentId: Overload:PAC.Tex2DSprite.Outline
-  isSpec: "True"
-  fullName: PAC.Tex2DSprite.Outline
-  nameWithType: Tex2DSprite.Outline
-- uid: PAC.Tex2DSprite.Overlay(Texture2D,Texture2D)
-  name: Overlay(Texture2D, Texture2D)
-  href: api/PAC.Tex2DSprite.html#PAC_Tex2DSprite_Overlay_Texture2D_Texture2D_
-  commentId: M:PAC.Tex2DSprite.Overlay(Texture2D,Texture2D)
-  fullName: PAC.Tex2DSprite.Overlay(Texture2D, Texture2D)
-  nameWithType: Tex2DSprite.Overlay(Texture2D, Texture2D)
-- uid: PAC.Tex2DSprite.Overlay(Texture2D,Texture2D,PAC.DataStructures.IntVector2)
-  name: Overlay(Texture2D, Texture2D, IntVector2)
-  href: api/PAC.Tex2DSprite.html#PAC_Tex2DSprite_Overlay_Texture2D_Texture2D_PAC_DataStructures_IntVector2_
-  commentId: M:PAC.Tex2DSprite.Overlay(Texture2D,Texture2D,PAC.DataStructures.IntVector2)
-  fullName: PAC.Tex2DSprite.Overlay(Texture2D, Texture2D, PAC.DataStructures.IntVector2)
-  nameWithType: Tex2DSprite.Overlay(Texture2D, Texture2D, IntVector2)
-- uid: PAC.Tex2DSprite.Overlay*
-  name: Overlay
-  href: api/PAC.Tex2DSprite.html#PAC_Tex2DSprite_Overlay_
-  commentId: Overload:PAC.Tex2DSprite.Overlay
-  isSpec: "True"
-  fullName: PAC.Tex2DSprite.Overlay
-  nameWithType: Tex2DSprite.Overlay
-- uid: PAC.Tex2DSprite.ReplaceColour(Texture2D,Color,Color)
-  name: ReplaceColour(Texture2D, Color, Color)
-  href: api/PAC.Tex2DSprite.html#PAC_Tex2DSprite_ReplaceColour_Texture2D_Color_Color_
-  commentId: M:PAC.Tex2DSprite.ReplaceColour(Texture2D,Color,Color)
-  fullName: PAC.Tex2DSprite.ReplaceColour(Texture2D, Color, Color)
-  nameWithType: Tex2DSprite.ReplaceColour(Texture2D, Color, Color)
-- uid: PAC.Tex2DSprite.ReplaceColour*
-  name: ReplaceColour
-  href: api/PAC.Tex2DSprite.html#PAC_Tex2DSprite_ReplaceColour_
-  commentId: Overload:PAC.Tex2DSprite.ReplaceColour
-  isSpec: "True"
-  fullName: PAC.Tex2DSprite.ReplaceColour
-  nameWithType: Tex2DSprite.ReplaceColour
-- uid: PAC.Tex2DSprite.Rotate(Texture2D,PAC.RotationAngle)
-  name: Rotate(Texture2D, RotationAngle)
-  href: api/PAC.Tex2DSprite.html#PAC_Tex2DSprite_Rotate_Texture2D_PAC_RotationAngle_
-  commentId: M:PAC.Tex2DSprite.Rotate(Texture2D,PAC.RotationAngle)
-  fullName: PAC.Tex2DSprite.Rotate(Texture2D, PAC.RotationAngle)
-  nameWithType: Tex2DSprite.Rotate(Texture2D, RotationAngle)
-- uid: PAC.Tex2DSprite.Rotate*
-  name: Rotate
-  href: api/PAC.Tex2DSprite.html#PAC_Tex2DSprite_Rotate_
-  commentId: Overload:PAC.Tex2DSprite.Rotate
-  isSpec: "True"
-  fullName: PAC.Tex2DSprite.Rotate
-  nameWithType: Tex2DSprite.Rotate
-- uid: PAC.Tex2DSprite.Rotate180(Texture2D)
-  name: Rotate180(Texture2D)
-  href: api/PAC.Tex2DSprite.html#PAC_Tex2DSprite_Rotate180_Texture2D_
-  commentId: M:PAC.Tex2DSprite.Rotate180(Texture2D)
-  fullName: PAC.Tex2DSprite.Rotate180(Texture2D)
-  nameWithType: Tex2DSprite.Rotate180(Texture2D)
-- uid: PAC.Tex2DSprite.Rotate180*
-  name: Rotate180
-  href: api/PAC.Tex2DSprite.html#PAC_Tex2DSprite_Rotate180_
-  commentId: Overload:PAC.Tex2DSprite.Rotate180
-  isSpec: "True"
-  fullName: PAC.Tex2DSprite.Rotate180
-  nameWithType: Tex2DSprite.Rotate180
-- uid: PAC.Tex2DSprite.Rotate90(Texture2D)
-  name: Rotate90(Texture2D)
-  href: api/PAC.Tex2DSprite.html#PAC_Tex2DSprite_Rotate90_Texture2D_
-  commentId: M:PAC.Tex2DSprite.Rotate90(Texture2D)
-  fullName: PAC.Tex2DSprite.Rotate90(Texture2D)
-  nameWithType: Tex2DSprite.Rotate90(Texture2D)
-- uid: PAC.Tex2DSprite.Rotate90*
-  name: Rotate90
-  href: api/PAC.Tex2DSprite.html#PAC_Tex2DSprite_Rotate90_
-  commentId: Overload:PAC.Tex2DSprite.Rotate90
-  isSpec: "True"
-  fullName: PAC.Tex2DSprite.Rotate90
-  nameWithType: Tex2DSprite.Rotate90
-- uid: PAC.Tex2DSprite.RotateMinus90(Texture2D)
-  name: RotateMinus90(Texture2D)
-  href: api/PAC.Tex2DSprite.html#PAC_Tex2DSprite_RotateMinus90_Texture2D_
-  commentId: M:PAC.Tex2DSprite.RotateMinus90(Texture2D)
-  fullName: PAC.Tex2DSprite.RotateMinus90(Texture2D)
-  nameWithType: Tex2DSprite.RotateMinus90(Texture2D)
-- uid: PAC.Tex2DSprite.RotateMinus90*
-  name: RotateMinus90
-  href: api/PAC.Tex2DSprite.html#PAC_Tex2DSprite_RotateMinus90_
-  commentId: Overload:PAC.Tex2DSprite.RotateMinus90
-  isSpec: "True"
-  fullName: PAC.Tex2DSprite.RotateMinus90
-  nameWithType: Tex2DSprite.RotateMinus90
-- uid: PAC.Tex2DSprite.Scale(Texture2D,System.Int32,System.Int32)
-  name: Scale(Texture2D, int, int)
-  href: api/PAC.Tex2DSprite.html#PAC_Tex2DSprite_Scale_Texture2D_System_Int32_System_Int32_
-  commentId: M:PAC.Tex2DSprite.Scale(Texture2D,System.Int32,System.Int32)
-  name.vb: Scale(Texture2D, Integer, Integer)
-  fullName: PAC.Tex2DSprite.Scale(Texture2D, int, int)
-  fullName.vb: PAC.Tex2DSprite.Scale(Texture2D, Integer, Integer)
-  nameWithType: Tex2DSprite.Scale(Texture2D, int, int)
-  nameWithType.vb: Tex2DSprite.Scale(Texture2D, Integer, Integer)
-- uid: PAC.Tex2DSprite.Scale(Texture2D,System.Single)
-  name: Scale(Texture2D, float)
-  href: api/PAC.Tex2DSprite.html#PAC_Tex2DSprite_Scale_Texture2D_System_Single_
-  commentId: M:PAC.Tex2DSprite.Scale(Texture2D,System.Single)
-  name.vb: Scale(Texture2D, Single)
-  fullName: PAC.Tex2DSprite.Scale(Texture2D, float)
-  fullName.vb: PAC.Tex2DSprite.Scale(Texture2D, Single)
-  nameWithType: Tex2DSprite.Scale(Texture2D, float)
-  nameWithType.vb: Tex2DSprite.Scale(Texture2D, Single)
-- uid: PAC.Tex2DSprite.Scale(Texture2D,System.Single,System.Single)
-  name: Scale(Texture2D, float, float)
-  href: api/PAC.Tex2DSprite.html#PAC_Tex2DSprite_Scale_Texture2D_System_Single_System_Single_
-  commentId: M:PAC.Tex2DSprite.Scale(Texture2D,System.Single,System.Single)
-  name.vb: Scale(Texture2D, Single, Single)
-  fullName: PAC.Tex2DSprite.Scale(Texture2D, float, float)
-  fullName.vb: PAC.Tex2DSprite.Scale(Texture2D, Single, Single)
-  nameWithType: Tex2DSprite.Scale(Texture2D, float, float)
-  nameWithType.vb: Tex2DSprite.Scale(Texture2D, Single, Single)
-- uid: PAC.Tex2DSprite.Scale*
-  name: Scale
-  href: api/PAC.Tex2DSprite.html#PAC_Tex2DSprite_Scale_
-  commentId: Overload:PAC.Tex2DSprite.Scale
-  isSpec: "True"
-  fullName: PAC.Tex2DSprite.Scale
-  nameWithType: Tex2DSprite.Scale
-- uid: PAC.Tex2DSprite.SetPixel(Texture2D,PAC.DataStructures.IntVector2,Color)
-  name: SetPixel(Texture2D, IntVector2, Color)
-  href: api/PAC.Tex2DSprite.html#PAC_Tex2DSprite_SetPixel_Texture2D_PAC_DataStructures_IntVector2_Color_
-  commentId: M:PAC.Tex2DSprite.SetPixel(Texture2D,PAC.DataStructures.IntVector2,Color)
-  fullName: PAC.Tex2DSprite.SetPixel(Texture2D, PAC.DataStructures.IntVector2, Color)
-  nameWithType: Tex2DSprite.SetPixel(Texture2D, IntVector2, Color)
-- uid: PAC.Tex2DSprite.SetPixel*
-  name: SetPixel
-  href: api/PAC.Tex2DSprite.html#PAC_Tex2DSprite_SetPixel_
-  commentId: Overload:PAC.Tex2DSprite.SetPixel
-  isSpec: "True"
-  fullName: PAC.Tex2DSprite.SetPixel
-  nameWithType: Tex2DSprite.SetPixel
-- uid: PAC.Tex2DSprite.SolidTexture(System.Int32,System.Int32,Color)
-  name: SolidTexture(int, int, Color)
-  href: api/PAC.Tex2DSprite.html#PAC_Tex2DSprite_SolidTexture_System_Int32_System_Int32_Color_
-  commentId: M:PAC.Tex2DSprite.SolidTexture(System.Int32,System.Int32,Color)
-  name.vb: SolidTexture(Integer, Integer, Color)
-  fullName: PAC.Tex2DSprite.SolidTexture(int, int, Color)
-  fullName.vb: PAC.Tex2DSprite.SolidTexture(Integer, Integer, Color)
-  nameWithType: Tex2DSprite.SolidTexture(int, int, Color)
-  nameWithType.vb: Tex2DSprite.SolidTexture(Integer, Integer, Color)
-- uid: PAC.Tex2DSprite.SolidTexture(System.Int32,System.Int32,Color32)
-  name: SolidTexture(int, int, Color32)
-  href: api/PAC.Tex2DSprite.html#PAC_Tex2DSprite_SolidTexture_System_Int32_System_Int32_Color32_
-  commentId: M:PAC.Tex2DSprite.SolidTexture(System.Int32,System.Int32,Color32)
-  name.vb: SolidTexture(Integer, Integer, Color32)
-  fullName: PAC.Tex2DSprite.SolidTexture(int, int, Color32)
-  fullName.vb: PAC.Tex2DSprite.SolidTexture(Integer, Integer, Color32)
-  nameWithType: Tex2DSprite.SolidTexture(int, int, Color32)
-  nameWithType.vb: Tex2DSprite.SolidTexture(Integer, Integer, Color32)
-- uid: PAC.Tex2DSprite.SolidTexture*
-  name: SolidTexture
-  href: api/PAC.Tex2DSprite.html#PAC_Tex2DSprite_SolidTexture_
-  commentId: Overload:PAC.Tex2DSprite.SolidTexture
-  isSpec: "True"
-  fullName: PAC.Tex2DSprite.SolidTexture
-  nameWithType: Tex2DSprite.SolidTexture
-- uid: PAC.Tex2DSprite.Subtract(Texture2D,Texture2D)
-  name: Subtract(Texture2D, Texture2D)
-  href: api/PAC.Tex2DSprite.html#PAC_Tex2DSprite_Subtract_Texture2D_Texture2D_
-  commentId: M:PAC.Tex2DSprite.Subtract(Texture2D,Texture2D)
-  fullName: PAC.Tex2DSprite.Subtract(Texture2D, Texture2D)
-  nameWithType: Tex2DSprite.Subtract(Texture2D, Texture2D)
-- uid: PAC.Tex2DSprite.Subtract*
-  name: Subtract
-  href: api/PAC.Tex2DSprite.html#PAC_Tex2DSprite_Subtract_
-  commentId: Overload:PAC.Tex2DSprite.Subtract
-  isSpec: "True"
-  fullName: PAC.Tex2DSprite.Subtract
-  nameWithType: Tex2DSprite.Subtract
-- uid: PAC.Tex2DSprite.Tex2DToSprite(Texture2D)
-  name: Tex2DToSprite(Texture2D)
-  href: api/PAC.Tex2DSprite.html#PAC_Tex2DSprite_Tex2DToSprite_Texture2D_
-  commentId: M:PAC.Tex2DSprite.Tex2DToSprite(Texture2D)
-  fullName: PAC.Tex2DSprite.Tex2DToSprite(Texture2D)
-  nameWithType: Tex2DSprite.Tex2DToSprite(Texture2D)
-- uid: PAC.Tex2DSprite.Tex2DToSprite*
-  name: Tex2DToSprite
-  href: api/PAC.Tex2DSprite.html#PAC_Tex2DSprite_Tex2DToSprite_
-  commentId: Overload:PAC.Tex2DSprite.Tex2DToSprite
-  isSpec: "True"
-  fullName: PAC.Tex2DSprite.Tex2DToSprite
-  nameWithType: Tex2DSprite.Tex2DToSprite
 - uid: PAC.Themes
   name: PAC.Themes
   href: api/PAC.Themes.html

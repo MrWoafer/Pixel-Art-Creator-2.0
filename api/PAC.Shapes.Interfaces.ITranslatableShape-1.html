@@ -253,6 +253,9 @@ When implementing this interface on a concrete type, this should be the same as 
       <a class="xref" href="PAC.Extensions.IEnumerableExtensions.html#PAC_Extensions_IEnumerableExtensions_SkipIndex__1_System_Collections_Generic_IEnumerable___0__System_Int32_">IEnumerableExtensions.SkipIndex&lt;T&gt;(IEnumerable&lt;T&gt;, int)</a>
   </div>
   <div>
+      <a class="xref" href="PAC.Extensions.IEnumerableExtensions.html#PAC_Extensions_IEnumerableExtensions_ToPrettyString__1_System_Collections_Generic_IEnumerable___0__">IEnumerableExtensions.ToPrettyString&lt;T&gt;(IEnumerable&lt;T&gt;)</a>
+  </div>
+  <div>
       <a class="xref" href="PAC.Extensions.IEnumerableExtensions.html#PAC_Extensions_IEnumerableExtensions_ZipCurrentAndNext__1_System_Collections_Generic_IEnumerable___0__">IEnumerableExtensions.ZipCurrentAndNext&lt;T&gt;(IEnumerable&lt;T&gt;)</a>
   </div>
   <div>
@@ -300,16 +303,19 @@ For example,</example></p>
 
     // Implementation of the rest of the interface...
 }</code></pre>
-<p>This is done to ensure the specific return type of the <a class="xref" href="PAC.Shapes.Interfaces.ITranslatableShape-1.html#PAC_Shapes_Interfaces_ITranslatableShape_1_Translate_PAC_DataStructures_IntVector2_">Translate(IntVector2)</a> method.
+
+This is done to ensure the specific return type of the <a class="xref" href="PAC.Shapes.Interfaces.ITranslatableShape-1.html#PAC_Shapes_Interfaces_ITranslatableShape_1_Translate_PAC_DataStructures_IntVector2_">Translate(IntVector2)</a> method.
 Note though that <code class="typeparamref">T</code> is covariant (see <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/out">out</a>), so you can abstract over any shape that is translatable.
 <example>
-For example,</example></p>
+For example,
 <pre><code class="lang-csharp">List&lt;ITranslatableShape&lt;IShape&gt;&gt;</code></pre>
-<p>This can store any shape that implements <a class="xref" href="PAC.Shapes.Interfaces.ITranslatableShape-1.html">ITranslatableShape&lt;T&gt;</a>. Note though that calling <a class="xref" href="PAC.Shapes.Interfaces.ITranslatableShape-1.html#PAC_Shapes_Interfaces_ITranslatableShape_1_Translate_PAC_DataStructures_IntVector2_">Translate(IntVector2)</a> on an element of this list will return an
+</example>
+This can store any shape that implements <a class="xref" href="PAC.Shapes.Interfaces.ITranslatableShape-1.html">ITranslatableShape&lt;T&gt;</a>. Note though that calling <a class="xref" href="PAC.Shapes.Interfaces.ITranslatableShape-1.html#PAC_Shapes_Interfaces_ITranslatableShape_1_Translate_PAC_DataStructures_IntVector2_">Translate(IntVector2)</a> on an element of this list will return an
 <a class="xref" href="PAC.Shapes.Interfaces.IShape.html">IShape</a> so cannot be translated again without downcasting. However you can do, say,
 <example>
-<pre><code class="lang-csharp">List&lt;ITranslatableShape&lt;ITranslatableShape&lt;IShape&gt;&gt;&gt;</code></pre></example>
-This allows you to translate twice before you get an <a class="xref" href="PAC.Shapes.Interfaces.IShape.html">IShape</a> returned.</p>
+<pre><code class="lang-csharp">List&lt;ITranslatableShape&lt;ITranslatableShape&lt;IShape&gt;&gt;&gt;</code></pre>
+</example>
+This allows you to translate twice before you get an <a class="xref" href="PAC.Shapes.Interfaces.IShape.html">IShape</a> returned.
 </div>
 
 

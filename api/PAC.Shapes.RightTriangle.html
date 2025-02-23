@@ -106,6 +106,7 @@ For example,</example></p>
   # #         #
 #             #
 # # # # # # # #</code></pre>
+
 </div>
   <div class="markdown conceptual"></div>
 
@@ -276,6 +277,9 @@ For example,</example></p>
       <a class="xref" href="PAC.Extensions.IEnumerableExtensions.html#PAC_Extensions_IEnumerableExtensions_SkipIndex__1_System_Collections_Generic_IEnumerable___0__System_Int32_">IEnumerableExtensions.SkipIndex&lt;T&gt;(IEnumerable&lt;T&gt;, int)</a>
   </div>
   <div>
+      <a class="xref" href="PAC.Extensions.IEnumerableExtensions.html#PAC_Extensions_IEnumerableExtensions_ToPrettyString__1_System_Collections_Generic_IEnumerable___0__">IEnumerableExtensions.ToPrettyString&lt;T&gt;(IEnumerable&lt;T&gt;)</a>
+  </div>
+  <div>
       <a class="xref" href="PAC.Extensions.IEnumerableExtensions.html#PAC_Extensions_IEnumerableExtensions_ZipCurrentAndNext__1_System_Collections_Generic_IEnumerable___0__">IEnumerableExtensions.ZipCurrentAndNext&lt;T&gt;(IEnumerable&lt;T&gt;)</a>
   </div>
   <div>
@@ -308,7 +312,7 @@ For example,</example></p>
 
   <h2 id="PAC_Shapes_RightTriangle_remarks">Remarks</h2>
   <div class="markdown level0 remarks"><p>
-  <b>Shape:</b>
+<b>Shape:</b>
 </p>
 <p>
 The hypotenuse is drawn as a <a class="xref" href="PAC.Shapes.Line.html">Line</a>. We draw this <a class="xref" href="PAC.Shapes.Line.html">Line</a> starting from the longer side of the <a class="xref" href="PAC.Shapes.RightTriangle.html">RightTriangle</a> (or the horizontal side if both sides have
@@ -325,7 +329,8 @@ For example,
                    #       #
                # #         #
 line start &gt; #             #
-             # # # # # # # #</code></pre></example>
+             # # # # # # # #</code></pre>
+</example>
 This is done to make it look more aesthetic.
 </p>
 <p>
@@ -341,8 +346,9 @@ Width or height 2 - the <a class="xref" href="PAC.Shapes.RightTriangle.html">Rig
 # #</code></pre>
 where, if the width is 2, the height of the shorter vertical block is <code>ceil(height of triangle / 2)</code>, and analogously for when the height is 2.
 </li></ul>
+
 <p>
-  <b>Enumerator:</b>
+<b>Enumerator:</b>
 </p>
 <p>
 The enumerator does not repeat any points.

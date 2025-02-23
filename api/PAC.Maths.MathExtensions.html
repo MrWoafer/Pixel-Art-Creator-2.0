@@ -153,18 +153,19 @@ Class MathExtensions  <a class="header-action link-secondary" title="View source
 </h2>
 
 
-  <a id="PAC_Maths_MathExtensions_CeilToMultiple_" data-uid="PAC.Maths.MathExtensions.CeilToMultiple*"></a>
+  <a id="PAC_Maths_MathExtensions_CeilToMultipleOf_" data-uid="PAC.Maths.MathExtensions.CeilToMultipleOf*"></a>
 
-  <h3 id="PAC_Maths_MathExtensions_CeilToMultiple_System_Single_System_Int32_" data-uid="PAC.Maths.MathExtensions.CeilToMultiple(System.Single,System.Int32)">
-  CeilToMultiple(float, int)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Maths/MathExtensions.cs/#L247"><i class="bi bi-code-slash"></i></a>
+  <h3 id="PAC_Maths_MathExtensions_CeilToMultipleOf_System_Single_System_Int32_" data-uid="PAC.Maths.MathExtensions.CeilToMultipleOf(System.Single,System.Int32)">
+  CeilToMultipleOf(float, int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Maths/MathExtensions.cs/#L253"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Returns the least multiple of <code class="paramref">multipleOf</code> that is &gt;= <code class="paramref">toRound</code>.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static int CeilToMultiple(this float toRound, int multipleOf)</code></pre>
+    <pre><code class="lang-csharp hljs">public static int CeilToMultipleOf(this float toRound, int multipleOf)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
@@ -188,21 +189,28 @@ Class MathExtensions  <a class="header-action link-secondary" title="View source
 
 
 
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p><code class="paramref">multipleOf</code> is 0.</p>
+</dd>
+  </dl>
 
 
 
-  <a id="PAC_Maths_MathExtensions_CeilToMultiple_" data-uid="PAC.Maths.MathExtensions.CeilToMultiple*"></a>
+  <a id="PAC_Maths_MathExtensions_CeilToMultipleOf_" data-uid="PAC.Maths.MathExtensions.CeilToMultipleOf*"></a>
 
-  <h3 id="PAC_Maths_MathExtensions_CeilToMultiple_System_Single_System_Single_" data-uid="PAC.Maths.MathExtensions.CeilToMultiple(System.Single,System.Single)">
-  CeilToMultiple(float, float)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Maths/MathExtensions.cs/#L251"><i class="bi bi-code-slash"></i></a>
+  <h3 id="PAC_Maths_MathExtensions_CeilToMultipleOf_System_Single_System_Single_" data-uid="PAC.Maths.MathExtensions.CeilToMultipleOf(System.Single,System.Single)">
+  CeilToMultipleOf(float, float)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Maths/MathExtensions.cs/#L258"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Returns the least multiple of <code class="paramref">multipleOf</code> that is &gt;= <code class="paramref">toRound</code>.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static float CeilToMultiple(this float toRound, float multipleOf)</code></pre>
+    <pre><code class="lang-csharp hljs">public static float CeilToMultipleOf(this float toRound, float multipleOf)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
@@ -226,6 +234,12 @@ Class MathExtensions  <a class="header-action link-secondary" title="View source
 
 
 
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p><code class="paramref">multipleOf</code> is 0.</p>
+</dd>
+  </dl>
 
 
 
@@ -233,15 +247,10 @@ Class MathExtensions  <a class="header-action link-secondary" title="View source
 
   <h3 id="PAC_Maths_MathExtensions_ClampNonNegative_System_Int32_" data-uid="PAC.Maths.MathExtensions.ClampNonNegative(System.Int32)">
   ClampNonNegative(int)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Maths/MathExtensions.cs/#L77"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Maths/MathExtensions.cs/#L53"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>
-Returns x if x &gt; 0, and returns 0 if x &lt;= 0.
-</p>
-<p>
-The same as ReLU().
-</p>
+  <div class="markdown level1 summary"><p>Clamps the value so it's non-negative.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -258,7 +267,12 @@ The same as ReLU().
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
-    <dd></dd>
+    <dd><ul><li>
+<code class="paramref">x</code> if <code class="paramref">x</code> &gt;= 0
+</li><li>
+0 if <code class="paramref">x</code> &lt; 0
+</li></ul>
+</dd>
   </dl>
 
 
@@ -275,15 +289,10 @@ The same as ReLU().
 
   <h3 id="PAC_Maths_MathExtensions_ClampNonNegative_System_Int64_" data-uid="PAC.Maths.MathExtensions.ClampNonNegative(System.Int64)">
   ClampNonNegative(long)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Maths/MathExtensions.cs/#L86"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Maths/MathExtensions.cs/#L71"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>
-Returns x if x &gt; 0, and returns 0 if x &lt;= 0.
-</p>
-<p>
-The same as ReLU().
-</p>
+  <div class="markdown level1 summary"><p>Clamps the value so it's non-negative.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -300,7 +309,12 @@ The same as ReLU().
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int64">long</a></dt>
-    <dd></dd>
+    <dd><ul><li>
+<code class="paramref">x</code> if <code class="paramref">x</code> &gt;= 0
+</li><li>
+0 if <code class="paramref">x</code> &lt; 0
+</li></ul>
+</dd>
   </dl>
 
 
@@ -317,15 +331,10 @@ The same as ReLU().
 
   <h3 id="PAC_Maths_MathExtensions_ClampNonNegative_System_Single_" data-uid="PAC.Maths.MathExtensions.ClampNonNegative(System.Single)">
   ClampNonNegative(float)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Maths/MathExtensions.cs/#L95"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Maths/MathExtensions.cs/#L89"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>
-Returns x if x &gt; 0, and returns 0 if x &lt;= 0.
-</p>
-<p>
-The same as ReLU().
-</p>
+  <div class="markdown level1 summary"><p>Clamps the value so it's non-negative.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -342,7 +351,12 @@ The same as ReLU().
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
-    <dd></dd>
+    <dd><ul><li>
+<code class="paramref">x</code> if <code class="paramref">x</code> &gt;= 0
+</li><li>
+0 if <code class="paramref">x</code> &lt; 0
+</li></ul>
+</dd>
   </dl>
 
 
@@ -359,10 +373,10 @@ The same as ReLU().
 
   <h3 id="PAC_Maths_MathExtensions_ClampNonPositive_System_Int32_" data-uid="PAC.Maths.MathExtensions.ClampNonPositive(System.Int32)">
   ClampNonPositive(int)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Maths/MathExtensions.cs/#L99"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Maths/MathExtensions.cs/#L109"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Returns x if x &lt; 0, and returns 0 if x &gt;= 0.</p>
+  <div class="markdown level1 summary"><p>Clamps the value so it's non-positive.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -379,7 +393,12 @@ The same as ReLU().
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
-    <dd></dd>
+    <dd><ul><li>
+<code class="paramref">x</code> if <code class="paramref">x</code> &lt;= 0
+</li><li>
+0 if <code class="paramref">x</code> &gt; 0
+</li></ul>
+</dd>
   </dl>
 
 
@@ -396,10 +415,10 @@ The same as ReLU().
 
   <h3 id="PAC_Maths_MathExtensions_ClampNonPositive_System_Single_" data-uid="PAC.Maths.MathExtensions.ClampNonPositive(System.Single)">
   ClampNonPositive(float)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Maths/MathExtensions.cs/#L103"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Maths/MathExtensions.cs/#L127"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Returns x if x &lt; 0, and returns 0 if x &gt;= 0.</p>
+  <div class="markdown level1 summary"><p>Clamps the value so it's non-positive.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -416,7 +435,12 @@ The same as ReLU().
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
-    <dd></dd>
+    <dd><ul><li>
+<code class="paramref">x</code> if <code class="paramref">x</code> &lt;= 0
+</li><li>
+0 if <code class="paramref">x</code> &gt; 0
+</li></ul>
+</dd>
   </dl>
 
 
@@ -429,18 +453,19 @@ The same as ReLU().
 
 
 
-  <a id="PAC_Maths_MathExtensions_FloorToMultiple_" data-uid="PAC.Maths.MathExtensions.FloorToMultiple*"></a>
+  <a id="PAC_Maths_MathExtensions_FloorToMultipleOf_" data-uid="PAC.Maths.MathExtensions.FloorToMultipleOf*"></a>
 
-  <h3 id="PAC_Maths_MathExtensions_FloorToMultiple_System_Single_System_Int32_" data-uid="PAC.Maths.MathExtensions.FloorToMultiple(System.Single,System.Int32)">
-  FloorToMultiple(float, int)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Maths/MathExtensions.cs/#L233"><i class="bi bi-code-slash"></i></a>
+  <h3 id="PAC_Maths_MathExtensions_FloorToMultipleOf_System_Single_System_Int32_" data-uid="PAC.Maths.MathExtensions.FloorToMultipleOf(System.Single,System.Int32)">
+  FloorToMultipleOf(float, int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Maths/MathExtensions.cs/#L241"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Returns the greatest multiple of <code class="paramref">multipleOf</code> that is &lt;= <code class="paramref">toRound</code>.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static int FloorToMultiple(this float toRound, int multipleOf)</code></pre>
+    <pre><code class="lang-csharp hljs">public static int FloorToMultipleOf(this float toRound, int multipleOf)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
@@ -464,21 +489,28 @@ The same as ReLU().
 
 
 
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p><code class="paramref">multipleOf</code> is 0.</p>
+</dd>
+  </dl>
 
 
 
-  <a id="PAC_Maths_MathExtensions_FloorToMultiple_" data-uid="PAC.Maths.MathExtensions.FloorToMultiple*"></a>
+  <a id="PAC_Maths_MathExtensions_FloorToMultipleOf_" data-uid="PAC.Maths.MathExtensions.FloorToMultipleOf*"></a>
 
-  <h3 id="PAC_Maths_MathExtensions_FloorToMultiple_System_Single_System_Single_" data-uid="PAC.Maths.MathExtensions.FloorToMultiple(System.Single,System.Single)">
-  FloorToMultiple(float, float)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Maths/MathExtensions.cs/#L237"><i class="bi bi-code-slash"></i></a>
+  <h3 id="PAC_Maths_MathExtensions_FloorToMultipleOf_System_Single_System_Single_" data-uid="PAC.Maths.MathExtensions.FloorToMultipleOf(System.Single,System.Single)">
+  FloorToMultipleOf(float, float)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Maths/MathExtensions.cs/#L246"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Returns the greatest multiple of <code class="paramref">multipleOf</code> that is &lt;= <code class="paramref">toRound</code>.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static float FloorToMultiple(this float toRound, float multipleOf)</code></pre>
+    <pre><code class="lang-csharp hljs">public static float FloorToMultipleOf(this float toRound, float multipleOf)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
@@ -502,6 +534,12 @@ The same as ReLU().
 
 
 
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p><code class="paramref">multipleOf</code> is 0.</p>
+</dd>
+  </dl>
 
 
 
@@ -509,10 +547,10 @@ The same as ReLU().
 
   <h3 id="PAC_Maths_MathExtensions_Gcd_System_Int32_System_Int32_" data-uid="PAC.Maths.MathExtensions.Gcd(System.Int32,System.Int32)">
   Gcd(int, int)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Maths/MathExtensions.cs/#L143"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Maths/MathExtensions.cs/#L172"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Computes the greatest non-negative common divisor of a and b.</p>
+  <div class="markdown level1 summary"><p>Computes the greatest non-negative common divisor of <code class="paramref">a</code> and <code class="paramref">b</code>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -554,10 +592,10 @@ The same as ReLU().
 
   <h3 id="PAC_Maths_MathExtensions_Gcd_System_Int64_System_Int64_" data-uid="PAC.Maths.MathExtensions.Gcd(System.Int64,System.Int64)">
   Gcd(long, long)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Maths/MathExtensions.cs/#L171"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Maths/MathExtensions.cs/#L200"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Computes the greatest non-negative common divisor of a and b.</p>
+  <div class="markdown level1 summary"><p>Computes the greatest non-negative common divisor of <code class="paramref">a</code> and <code class="paramref">b</code>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -595,92 +633,14 @@ The same as ReLU().
 
 
 
-  <a id="PAC_Maths_MathExtensions_Lcm_" data-uid="PAC.Maths.MathExtensions.Lcm*"></a>
-
-  <h3 id="PAC_Maths_MathExtensions_Lcm_System_Int32_System_Int32_" data-uid="PAC.Maths.MathExtensions.Lcm(System.Int32,System.Int32)">
-  Lcm(int, int)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Maths/MathExtensions.cs/#L199"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"><p>Computes the lowest non-negative common multiple of a and b.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static int Lcm(this int a, int b)</code></pre>
-  </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>a</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
-    <dd></dd>
-    <dt><code>b</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
-    <dd></dd>
-  </dl>
-
-  <h4 class="section">Returns</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
-
-  <a id="PAC_Maths_MathExtensions_Lcm_" data-uid="PAC.Maths.MathExtensions.Lcm*"></a>
-
-  <h3 id="PAC_Maths_MathExtensions_Lcm_System_Int64_System_Int64_" data-uid="PAC.Maths.MathExtensions.Lcm(System.Int64,System.Int64)">
-  Lcm(long, long)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Maths/MathExtensions.cs/#L210"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"><p>Computes the lowest non-negative common multiple of a and b.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static long Lcm(this long a, long b)</code></pre>
-  </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>a</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int64">long</a></dt>
-    <dd></dd>
-    <dt><code>b</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int64">long</a></dt>
-    <dd></dd>
-  </dl>
-
-  <h4 class="section">Returns</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int64">long</a></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
-
   <a id="PAC_Maths_MathExtensions_Mod_" data-uid="PAC.Maths.MathExtensions.Mod*"></a>
 
   <h3 id="PAC_Maths_MathExtensions_Mod_System_Int32_System_Int32_" data-uid="PAC.Maths.MathExtensions.Mod(System.Int32,System.Int32)">
   Mod(int, int)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Maths/MathExtensions.cs/#L111"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Maths/MathExtensions.cs/#L138"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Returns a mod b, giving a non-negative result.</p>
+  <div class="markdown level1 summary"><p>Returns <code><code class="paramref">a</code> mod <code class="paramref">b</code></code>, giving a result in the range <code>[0, abs(b))</code>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -709,6 +669,12 @@ The same as ReLU().
 
 
 
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.dividebyzeroexception">DivideByZeroException</a></dt>
+    <dd><p><code class="paramref">b</code> is 0.</p>
+</dd>
+  </dl>
 
 
 
@@ -716,10 +682,10 @@ The same as ReLU().
 
   <h3 id="PAC_Maths_MathExtensions_Mod_System_Int64_System_Int64_" data-uid="PAC.Maths.MathExtensions.Mod(System.Int64,System.Int64)">
   Mod(long, long)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Maths/MathExtensions.cs/#L121"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Maths/MathExtensions.cs/#L149"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Returns a mod b, giving a non-negative result.</p>
+  <div class="markdown level1 summary"><p>Returns <code><code class="paramref">a</code> mod <code class="paramref">b</code></code>, giving a result in the range <code>[0, abs(b))</code>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -748,6 +714,12 @@ The same as ReLU().
 
 
 
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.dividebyzeroexception">DivideByZeroException</a></dt>
+    <dd><p><code class="paramref">b</code> is 0.</p>
+</dd>
+  </dl>
 
 
 
@@ -755,10 +727,10 @@ The same as ReLU().
 
   <h3 id="PAC_Maths_MathExtensions_Mod_System_Single_System_Single_" data-uid="PAC.Maths.MathExtensions.Mod(System.Single,System.Single)">
   Mod(float, float)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Maths/MathExtensions.cs/#L131"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Maths/MathExtensions.cs/#L160"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Returns a mod b, giving a non-negative result.</p>
+  <div class="markdown level1 summary"><p>Returns <code><code class="paramref">a</code> mod <code class="paramref">b</code></code>, giving a result in the range <code>[0, abs(b))</code>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -787,6 +759,12 @@ The same as ReLU().
 
 
 
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.dividebyzeroexception">DivideByZeroException</a></dt>
+    <dd><p><code class="paramref">b</code> is 0.</p>
+</dd>
+  </dl>
 
 
 
@@ -794,15 +772,10 @@ The same as ReLU().
 
   <h3 id="PAC_Maths_MathExtensions_Pow_System_Int32_System_Int32_" data-uid="PAC.Maths.MathExtensions.Pow(System.Int32,System.Int32)">
   Pow(int, int)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Maths/MathExtensions.cs/#L344"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Maths/MathExtensions.cs/#L335"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>
-Computes n ^ exponent (n raised to the exponent). 0^0 is defined to be 1.
-</p>
-<p>
-Exponent must be non-negative.
-</p>
+  <div class="markdown level1 summary"><p>Computes <code class="paramref">n</code> ^ <code class="paramref">exponent</code> (<code class="paramref">n</code> raised to the <code class="paramref">exponent</code>).</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -830,153 +803,37 @@ Exponent must be non-negative.
 
 
 
+  <h4 class="section" id="PAC_Maths_MathExtensions_Pow_System_Int32_System_Int32__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>0^0 is defined to be 1.</p>
+</div>
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></dt>
+    <dd><p><code class="paramref">exponent</code> is negative.</p>
+</dd>
+  </dl>
 
 
 
+  <a id="PAC_Maths_MathExtensions_Round_" data-uid="PAC.Maths.MathExtensions.Round*"></a>
 
-  <a id="PAC_Maths_MathExtensions_ReLU_" data-uid="PAC.Maths.MathExtensions.ReLU*"></a>
-
-  <h3 id="PAC_Maths_MathExtensions_ReLU_System_Int32_" data-uid="PAC.Maths.MathExtensions.ReLU(System.Int32)">
-  ReLU(int)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Maths/MathExtensions.cs/#L37"><i class="bi bi-code-slash"></i></a>
+  <h3 id="PAC_Maths_MathExtensions_Round_System_Single_System_Int32_" data-uid="PAC.Maths.MathExtensions.Round(System.Single,System.Int32)">
+  Round(float, int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Maths/MathExtensions.cs/#L323"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>
-Returns x if x &gt; 0, and returns 0 if x &lt;= 0.
-</p>
-<p>
-The same as ClampPositive().
-</p>
+  <div class="markdown level1 summary"><p>Rounds <code class="paramref">toRound</code> to <code class="paramref">decimalPlaces</code> decimal places.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static int ReLU(this int x)</code></pre>
+    <pre><code class="lang-csharp hljs">public static float Round(this float toRound, int decimalPlaces)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
-    <dt><code>x</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
-    <dd></dd>
-  </dl>
-
-  <h4 class="section">Returns</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
-
-  <a id="PAC_Maths_MathExtensions_ReLU_" data-uid="PAC.Maths.MathExtensions.ReLU*"></a>
-
-  <h3 id="PAC_Maths_MathExtensions_ReLU_System_Int64_" data-uid="PAC.Maths.MathExtensions.ReLU(System.Int64)">
-  ReLU(long)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Maths/MathExtensions.cs/#L50"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"><p>
-Returns x if x &gt; 0, and returns 0 if x &lt;= 0.
-</p>
-<p>
-The same as ClampPositive().
-</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static long ReLU(this long x)</code></pre>
-  </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>x</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int64">long</a></dt>
-    <dd></dd>
-  </dl>
-
-  <h4 class="section">Returns</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int64">long</a></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
-
-  <a id="PAC_Maths_MathExtensions_ReLU_" data-uid="PAC.Maths.MathExtensions.ReLU*"></a>
-
-  <h3 id="PAC_Maths_MathExtensions_ReLU_System_Single_" data-uid="PAC.Maths.MathExtensions.ReLU(System.Single)">
-  ReLU(float)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Maths/MathExtensions.cs/#L63"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"><p>
-Returns x if x &gt; 0, and returns 0 if x &lt;= 0.
-</p>
-<p>
-The same as ClampPositive().
-</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static float ReLU(this float x)</code></pre>
-  </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>x</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
-    <dd></dd>
-  </dl>
-
-  <h4 class="section">Returns</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
-
-  <a id="PAC_Maths_MathExtensions_RoundDecimalPlaces_" data-uid="PAC.Maths.MathExtensions.RoundDecimalPlaces*"></a>
-
-  <h3 id="PAC_Maths_MathExtensions_RoundDecimalPlaces_System_Single_System_Int32_" data-uid="PAC.Maths.MathExtensions.RoundDecimalPlaces(System.Single,System.Int32)">
-  RoundDecimalPlaces(float, int)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Maths/MathExtensions.cs/#L331"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static float RoundDecimalPlaces(this float f, int decimalPlaces)</code></pre>
-  </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>f</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dt><code>toRound</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
     <dd></dd>
     <dt><code>decimalPlaces</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
     <dd></dd>
@@ -995,21 +852,160 @@ The same as ClampPositive().
 
 
 
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></dt>
+    <dd><p><code class="paramref">decimalPlaces</code> is negative.</p>
+</dd>
+  </dl>
 
 
 
-  <a id="PAC_Maths_MathExtensions_RoundToMultiple_" data-uid="PAC.Maths.MathExtensions.RoundToMultiple*"></a>
+  <a id="PAC_Maths_MathExtensions_RoundAwayFrom_" data-uid="PAC.Maths.MathExtensions.RoundAwayFrom*"></a>
 
-  <h3 id="PAC_Maths_MathExtensions_RoundToMultiple_System_Single_System_Int32_" data-uid="PAC.Maths.MathExtensions.RoundToMultiple(System.Single,System.Int32)">
-  RoundToMultiple(float, int)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Maths/MathExtensions.cs/#L219"><i class="bi bi-code-slash"></i></a>
+  <h3 id="PAC_Maths_MathExtensions_RoundAwayFrom_System_Single_System_Int32_" data-uid="PAC.Maths.MathExtensions.RoundAwayFrom(System.Single,System.Int32)">
+  RoundAwayFrom(float, int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Maths/MathExtensions.cs/#L303"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Rounds <code class="paramref">toRound</code> to an integer, choosing to round up or down so that it becomes further (or unchanged) away from <code class="paramref">awayFrom</code>.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static int RoundToMultiple(this float toRound, int multipleOf)</code></pre>
+    <pre><code class="lang-csharp hljs">public static float RoundAwayFrom(this float toRound, int awayFrom)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>toRound</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+    <dt><code>awayFrom</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><ul><li>
+<code>ceil(<code class="paramref">toRound</code>)</code> if <code class="paramref">toRound</code> &gt;= <code class="paramref">awayFrom</code>
+</li><li>
+<code>floor(<code class="paramref">toRound</code>)</code> if <code class="paramref">toRound</code> &lt; <code class="paramref">awayFrom</code>
+</li></ul>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="PAC_Maths_MathExtensions_RoundToIntAwayFrom_" data-uid="PAC.Maths.MathExtensions.RoundToIntAwayFrom*"></a>
+
+  <h3 id="PAC_Maths_MathExtensions_RoundToIntAwayFrom_System_Single_System_Int32_" data-uid="PAC.Maths.MathExtensions.RoundToIntAwayFrom(System.Single,System.Int32)">
+  RoundToIntAwayFrom(float, int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Maths/MathExtensions.cs/#L317"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Rounds <code class="paramref">toRound</code> to an integer, choosing to round up or down so that it becomes further (or unchanged) away from <code class="paramref">awayFrom</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static int RoundToIntAwayFrom(this float toRound, int awayFrom)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>toRound</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+    <dt><code>awayFrom</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><ul><li>
+<code>ceil(<code class="paramref">toRound</code>)</code> if <code class="paramref">toRound</code> &gt;= <code class="paramref">awayFrom</code>
+</li><li>
+<code>floor(<code class="paramref">toRound</code>)</code> if <code class="paramref">toRound</code> &lt; <code class="paramref">awayFrom</code>
+</li></ul>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="PAC_Maths_MathExtensions_RoundToIntTowards_" data-uid="PAC.Maths.MathExtensions.RoundToIntTowards*"></a>
+
+  <h3 id="PAC_Maths_MathExtensions_RoundToIntTowards_System_Single_System_Int32_" data-uid="PAC.Maths.MathExtensions.RoundToIntTowards(System.Single,System.Int32)">
+  RoundToIntTowards(float, int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Maths/MathExtensions.cs/#L288"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Rounds <code class="paramref">toRound</code> to an integer, choosing to round up or down so that it becomes closer (or unchanged) to <code class="paramref">towards</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static int RoundToIntTowards(this float toRound, int towards)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>toRound</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+    <dt><code>towards</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><ul><li>
+<code>floor(<code class="paramref">toRound</code>)</code> if <code class="paramref">toRound</code> &gt;= <code class="paramref">towards</code>
+</li><li>
+<code>ceil(<code class="paramref">toRound</code>)</code> if <code class="paramref">toRound</code> &lt; <code class="paramref">towards</code>
+</li></ul>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="PAC_Maths_MathExtensions_RoundToMultipleOf_" data-uid="PAC.Maths.MathExtensions.RoundToMultipleOf*"></a>
+
+  <h3 id="PAC_Maths_MathExtensions_RoundToMultipleOf_System_Single_System_Int32_" data-uid="PAC.Maths.MathExtensions.RoundToMultipleOf(System.Single,System.Int32)">
+  RoundToMultipleOf(float, int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Maths/MathExtensions.cs/#L229"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the multiple of <code class="paramref">multipleOf</code> that is closest to <code class="paramref">toRound</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static int RoundToMultipleOf(this float toRound, int multipleOf)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
@@ -1033,21 +1029,28 @@ The same as ClampPositive().
 
 
 
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p><code class="paramref">multipleOf</code> is 0.</p>
+</dd>
+  </dl>
 
 
 
-  <a id="PAC_Maths_MathExtensions_RoundToMultiple_" data-uid="PAC.Maths.MathExtensions.RoundToMultiple*"></a>
+  <a id="PAC_Maths_MathExtensions_RoundToMultipleOf_" data-uid="PAC.Maths.MathExtensions.RoundToMultipleOf*"></a>
 
-  <h3 id="PAC_Maths_MathExtensions_RoundToMultiple_System_Single_System_Single_" data-uid="PAC.Maths.MathExtensions.RoundToMultiple(System.Single,System.Single)">
-  RoundToMultiple(float, float)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Maths/MathExtensions.cs/#L223"><i class="bi bi-code-slash"></i></a>
+  <h3 id="PAC_Maths_MathExtensions_RoundToMultipleOf_System_Single_System_Single_" data-uid="PAC.Maths.MathExtensions.RoundToMultipleOf(System.Single,System.Single)">
+  RoundToMultipleOf(float, float)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Maths/MathExtensions.cs/#L234"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Returns the multiple of <code class="paramref">multipleOf</code> that is closest to <code class="paramref">toRound</code>.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static float RoundToMultiple(this float toRound, float multipleOf)</code></pre>
+    <pre><code class="lang-csharp hljs">public static float RoundToMultipleOf(this float toRound, float multipleOf)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
@@ -1071,6 +1074,56 @@ The same as ClampPositive().
 
 
 
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p><code class="paramref">multipleOf</code> is 0.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="PAC_Maths_MathExtensions_RoundTowards_" data-uid="PAC.Maths.MathExtensions.RoundTowards*"></a>
+
+  <h3 id="PAC_Maths_MathExtensions_RoundTowards_System_Single_System_Int32_" data-uid="PAC.Maths.MathExtensions.RoundTowards(System.Single,System.Int32)">
+  RoundTowards(float, int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Maths/MathExtensions.cs/#L274"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Rounds <code class="paramref">toRound</code> to an integer, choosing to round up or down so that it becomes closer (or unchanged) to <code class="paramref">towards</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static float RoundTowards(this float toRound, int towards)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>toRound</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+    <dt><code>towards</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><ul><li>
+<code>floor(<code class="paramref">toRound</code>)</code> if <code class="paramref">toRound</code> &gt;= <code class="paramref">towards</code>
+</li><li>
+<code>ceil(<code class="paramref">toRound</code>)</code> if <code class="paramref">toRound</code> &lt; <code class="paramref">towards</code>
+</li></ul>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
 
 
 
@@ -1078,15 +1131,10 @@ The same as ClampPositive().
 
   <h3 id="PAC_Maths_MathExtensions_Sign_System_Single_" data-uid="PAC.Maths.MathExtensions.Sign(System.Single)">
   Sign(float)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Maths/MathExtensions.cs/#L21"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Maths/MathExtensions.cs/#L32"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>
-Returns the sign of the given float.
-</p>
-<p>
-Note: this is different from Unity's Mathf.Sign() since this method defines the sign of 0 to be 0, whereas Mathf.Sign() defines it as 1.
-</p>
+  <div class="markdown level1 summary"><p>Returns the sign of the given value.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -1103,7 +1151,14 @@ Note: this is different from Unity's Mathf.Sign() since this method defines the 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
-    <dd></dd>
+    <dd><ul><li>
+1 if <code class="paramref">x</code> &gt; 0
+</li><li>
+0 if <code class="paramref">x</code> = 0
+</li><li>
+-1 if <code class="paramref">x</code> &lt; 0
+</li></ul>
+</dd>
   </dl>
 
 
@@ -1112,6 +1167,9 @@ Note: this is different from Unity's Mathf.Sign() since this method defines the 
 
 
 
+  <h4 class="section" id="PAC_Maths_MathExtensions_Sign_System_Single__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>This is different from Unity's Mathf.Sign(float) since this method defines the sign of 0 to be 0, whereas Mathf.Sign(float) defines it to be 1.</p>
+</div>
 
 
 
@@ -1120,7 +1178,7 @@ Note: this is different from Unity's Mathf.Sign() since this method defines the 
 
   <h3 id="PAC_Maths_MathExtensions_Square_System_Int32_" data-uid="PAC.Maths.MathExtensions.Square(System.Int32)">
   Square(int)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Maths/MathExtensions.cs/#L379"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Maths/MathExtensions.cs/#L370"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Computes <code><code class="paramref">n</code> * <code class="paramref">n</code></code>.</p>
@@ -1157,7 +1215,7 @@ Note: this is different from Unity's Mathf.Sign() since this method defines the 
 
   <h3 id="PAC_Maths_MathExtensions_Square_System_Single_" data-uid="PAC.Maths.MathExtensions.Square(System.Single)">
   Square(float)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Maths/MathExtensions.cs/#L384"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Maths/MathExtensions.cs/#L375"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Computes <code><code class="paramref">n</code> * <code class="paramref">n</code></code>.</p>
@@ -1171,188 +1229,6 @@ Note: this is different from Unity's Mathf.Sign() since this method defines the 
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>n</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
-    <dd></dd>
-  </dl>
-
-  <h4 class="section">Returns</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
-
-  <a id="PAC_Maths_MathExtensions_SymmetricCeil_" data-uid="PAC.Maths.MathExtensions.SymmetricCeil*"></a>
-
-  <h3 id="PAC_Maths_MathExtensions_SymmetricCeil_System_Single_" data-uid="PAC.Maths.MathExtensions.SymmetricCeil(System.Single)">
-  SymmetricCeil(float)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Maths/MathExtensions.cs/#L271"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static float SymmetricCeil(this float f)</code></pre>
-  </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>f</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
-    <dd></dd>
-  </dl>
-
-  <h4 class="section">Returns</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
-
-  <a id="PAC_Maths_MathExtensions_SymmetricCeilToInt_" data-uid="PAC.Maths.MathExtensions.SymmetricCeilToInt*"></a>
-
-  <h3 id="PAC_Maths_MathExtensions_SymmetricCeilToInt_System_Single_" data-uid="PAC.Maths.MathExtensions.SymmetricCeilToInt(System.Single)">
-  SymmetricCeilToInt(float)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Maths/MathExtensions.cs/#L291"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static int SymmetricCeilToInt(this float f)</code></pre>
-  </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>f</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
-    <dd></dd>
-  </dl>
-
-  <h4 class="section">Returns</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
-
-  <a id="PAC_Maths_MathExtensions_SymmetricFloor_" data-uid="PAC.Maths.MathExtensions.SymmetricFloor*"></a>
-
-  <h3 id="PAC_Maths_MathExtensions_SymmetricFloor_System_Single_" data-uid="PAC.Maths.MathExtensions.SymmetricFloor(System.Single)">
-  SymmetricFloor(float)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Maths/MathExtensions.cs/#L261"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static float SymmetricFloor(this float f)</code></pre>
-  </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>f</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
-    <dd></dd>
-  </dl>
-
-  <h4 class="section">Returns</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
-
-  <a id="PAC_Maths_MathExtensions_SymmetricFloorToInt_" data-uid="PAC.Maths.MathExtensions.SymmetricFloorToInt*"></a>
-
-  <h3 id="PAC_Maths_MathExtensions_SymmetricFloorToInt_System_Single_" data-uid="PAC.Maths.MathExtensions.SymmetricFloorToInt(System.Single)">
-  SymmetricFloorToInt(float)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Maths/MathExtensions.cs/#L281"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static int SymmetricFloorToInt(this float f)</code></pre>
-  </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>f</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
-    <dd></dd>
-  </dl>
-
-  <h4 class="section">Returns</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
-
-  <a id="PAC_Maths_MathExtensions_TruncateDecimalPlaces_" data-uid="PAC.Maths.MathExtensions.TruncateDecimalPlaces*"></a>
-
-  <h3 id="PAC_Maths_MathExtensions_TruncateDecimalPlaces_System_Single_System_Int32_" data-uid="PAC.Maths.MathExtensions.TruncateDecimalPlaces(System.Single,System.Int32)">
-  TruncateDecimalPlaces(float, int)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Maths/MathExtensions.cs/#L316"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static float TruncateDecimalPlaces(this float f, int decimalPlaces)</code></pre>
-  </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>f</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
-    <dd></dd>
-    <dt><code>decimalPlaces</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
     <dd></dd>
   </dl>
 

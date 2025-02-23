@@ -105,6 +105,7 @@ For example,</example></p>
       #
   # #
 #</code></pre>
+
 </div>
   <div class="markdown conceptual"></div>
 
@@ -275,6 +276,9 @@ For example,</example></p>
       <a class="xref" href="PAC.Extensions.IEnumerableExtensions.html#PAC_Extensions_IEnumerableExtensions_SkipIndex__1_System_Collections_Generic_IEnumerable___0__System_Int32_">IEnumerableExtensions.SkipIndex&lt;T&gt;(IEnumerable&lt;T&gt;, int)</a>
   </div>
   <div>
+      <a class="xref" href="PAC.Extensions.IEnumerableExtensions.html#PAC_Extensions_IEnumerableExtensions_ToPrettyString__1_System_Collections_Generic_IEnumerable___0__">IEnumerableExtensions.ToPrettyString&lt;T&gt;(IEnumerable&lt;T&gt;)</a>
+  </div>
+  <div>
       <a class="xref" href="PAC.Extensions.IEnumerableExtensions.html#PAC_Extensions_IEnumerableExtensions_ZipCurrentAndNext__1_System_Collections_Generic_IEnumerable___0__">IEnumerableExtensions.ZipCurrentAndNext&lt;T&gt;(IEnumerable&lt;T&gt;)</a>
   </div>
   <div>
@@ -316,20 +320,25 @@ For example,</example></p>
 
   <h2 id="PAC_Shapes_Line_remarks">Remarks</h2>
   <div class="markdown level0 remarks"><p>
-  <b>Shape:</b>
+<b>Shape:</b>
 </p>
 The <a class="xref" href="PAC.Shapes.Line.html">Line</a> will never contain 'right-angles':
 <pre><code class="lang-csharp">  #
-# #</code></pre><p>
+# #</code></pre>
+<p>
 The <a class="xref" href="PAC.Shapes.Line.html">Line</a> will always be 'perfect' if possible. By 'perfect', we mean it is drawn using blocks of a constant size.
 <example>
 For example,
 <pre><code class="lang-csharp">            # #
         # #
     # #
-# #</code></pre></example></p><p>
+# #</code></pre>
+</example>
+</p>
+<p>
 The <a class="xref" href="PAC.Shapes.Line.html">Line</a> will always have 180-degree rotational symmetry, except potentially the midpoint in some odd-length <a class="xref" href="PAC.Shapes.Line.html">Line</a>s.
-</p><p>
+</p>
+<p>
 Rotating the end point by a quadrantal angle about the start point, or reflecting it across a vertical/horizontal axis through the start point, will apply the same transformation to the
 shape of the <a class="xref" href="PAC.Shapes.Line.html">Line</a>.
 <example>
@@ -339,15 +348,22 @@ For example, with
   # #
 #
 ^start</code></pre>
-rotating the end point 180 degrees about the start point gives the <a class="xref" href="PAC.Shapes.Line.html">Line</a><pre><code class="lang-csharp">        # &lt; start
-                                                                                                           # #
-                                                                                                         #
-                                                                                                       #
-                                                                                                       ^end</code></pre>
-Even though the x-distance and y-distance between the start and end haven't changed between the two <a class="xref" href="PAC.Shapes.Line.html">Line</a>s, it matters which endpoint is the start and which is the end.
-</example></p><p><b>Enumerator:</b></p><p>
+rotating the end point 180 degrees about the start point gives the <a class="xref" href="PAC.Shapes.Line.html">Line</a>
+<pre><code class="lang-csharp">        # &lt; start
+    # #
+  #
+#
+^end</code></pre>
+<p>Even though the x-distance and y-distance between the start and end haven't changed between the two <a class="xref" href="PAC.Shapes.Line.html">Line</a>s, it matters which endpoint is the start and which is the end.
+</p></example></p>
+
+<p>
+<b>Enumerator:</b>
+</p>
+<p>
 The enumerator starts at <a class="xref" href="PAC.Shapes.Line.html#PAC_Shapes_Line_start">start</a> and ends at <a class="xref" href="PAC.Shapes.Line.html#PAC_Shapes_Line_end">end</a>.
-</p><p>
+</p>
+<p>
 The enumerator does not repeat any points.
 </p>
 </div>
@@ -845,8 +861,7 @@ This will look like the original <a class="xref" href="PAC.Shapes.Line.html">Lin
   <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Drawing/Shapes/Line.cs/#L252"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><code>
-  <a class="xref" href="PAC.Shapes.Line.html#PAC_Shapes_Line_end">end</a> - <a class="xref" href="PAC.Shapes.Line.html#PAC_Shapes_Line_start">start</a></code>
+  <div class="markdown level1 summary"><p><code><a class="xref" href="PAC.Shapes.Line.html#PAC_Shapes_Line_end">end</a> - <a class="xref" href="PAC.Shapes.Line.html#PAC_Shapes_Line_start">start</a></code></p>
 </div>
   <div class="markdown level1 conceptual"></div>
 

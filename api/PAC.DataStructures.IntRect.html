@@ -245,6 +245,9 @@ Struct IntRect  <a class="header-action link-secondary" title="View source" href
       <a class="xref" href="PAC.Extensions.IEnumerableExtensions.html#PAC_Extensions_IEnumerableExtensions_SkipIndex__1_System_Collections_Generic_IEnumerable___0__System_Int32_">IEnumerableExtensions.SkipIndex&lt;T&gt;(IEnumerable&lt;T&gt;, int)</a>
   </div>
   <div>
+      <a class="xref" href="PAC.Extensions.IEnumerableExtensions.html#PAC_Extensions_IEnumerableExtensions_ToPrettyString__1_System_Collections_Generic_IEnumerable___0__">IEnumerableExtensions.ToPrettyString&lt;T&gt;(IEnumerable&lt;T&gt;)</a>
+  </div>
+  <div>
       <a class="xref" href="PAC.Extensions.IEnumerableExtensions.html#PAC_Extensions_IEnumerableExtensions_ZipCurrentAndNext__1_System_Collections_Generic_IEnumerable___0__">IEnumerableExtensions.ZipCurrentAndNext&lt;T&gt;(IEnumerable&lt;T&gt;)</a>
   </div>
   <div>
@@ -284,8 +287,9 @@ For example, the rect with corners <code>(0, 0), (0, 4), (3, 0), (3, 4)</code> i
           # # # #
           # # # #
 (0, 0) -&gt; # # # # &lt;- (3, 0)</code></pre>
-<p>The enumerator iterates over the points in the rect, starting with the bottom row, read left to right, then the next row, etc.
-This ordering is useful since it matches the expected order of pixels in Unity's Texture2D.SetPixels(Color[]).</p>
+
+The enumerator iterates over the points in the rect, starting with the bottom row, read left to right, then the next row, etc.
+This ordering is useful since it matches the expected order of pixels in Unity's Texture2D.SetPixels(Color[]).
 </div>
 
 
@@ -377,7 +381,8 @@ For example, with <code><code class="paramref">corner</code> = (3, 0)</code> and
           # # # #
           # # # #
           # # # #
-(0, 0) -&gt; # # # # &lt;- (3, 0)</code></pre></example>
+(0, 0) -&gt; # # # # &lt;- (3, 0)</code></pre>
+</example>
 </div>
 
 

@@ -137,45 +137,45 @@ This value should be completely determined by the state of the object, and compu
 value is invariant across multiple calls, but allows 'settings' of the pattern to be changed.
 </p>
 <example>
-  <p>
-    <b>Intended Usage:</b>
-  </p>
-  <pre><code class="lang-csharp">class Pattern : IPattern2D&lt;int&gt;
-  {
-      public int valueOfZero;
-<pre><code>  public Pattern(int valueOfZero)
-  {
-      this.valueOfZero = valueOfZero;
-  }
+<p>
+<b>Intended Usage:</b>
+</p>
+<pre><code class="lang-csharp">class Pattern : IPattern2D&lt;int&gt;
+{
+    public int valueOfZero;
 
-  // Assigns valueOfZero to (0, 0) and assigns 0 to every other point
-  public int this[IntVector2 point] =&gt; point == IntVector2.zero ? valueOfZero : 0;
-</code></pre>
-<p>}</p></code></pre>
-  <p>
+    public Pattern(int valueOfZero)
+    {
+        this.valueOfZero = valueOfZero;
+    }
+
+    // Assigns valueOfZero to (0, 0) and assigns 0 to every other point
+    public int this[IntVector2 point] =&gt; point == IntVector2.zero ? valueOfZero : 0;
+}</code></pre>
+<p>
 Here the value of a point is completely determined by <code>valueOfZero</code> and computing a value does not change anything about the object.
 The user is allowed to change <code>valueOfZero</code>, which acts as a 'setting' for the pattern.
 </p>
-  <p>
-    <b>Not Intended Usage:</b>
-  </p>
-  <pre><code class="lang-csharp">class Pattern : IPattern2D&lt;int&gt;
-  {
-      private int value = 0;
-<pre><code>  public int this[IntVector2 point]
-  {
-      value += 1; // Changes the object's state
-      return value;
-  }
-</code></pre>
-<p>}</p></code></pre>
-  <p>
+<p>
+<b>Not Intended Usage:</b>
+</p>
+<pre><code class="lang-csharp">class Pattern : IPattern2D&lt;int&gt;
+{
+    private int value = 0;
+
+    public int this[IntVector2 point]
+    {
+        value += 1; // Changes the object's state
+        return value;
+    }
+}</code></pre>
+<p>
 This is not intended usage because computing a value modifies the state of the object so that computing the value of, say, <code>(0, 0)</code> twice will give two different values without having
 changed any 'settings' of the pattern.
 </p>
 </example>
 <p>
-  <b>Note:</b>
+<b>Note:</b>
 </p>
 <p>
 Changes to state that don't affect the values are allowed. So, for example, caching values to avoid recomputing them is allowed.
