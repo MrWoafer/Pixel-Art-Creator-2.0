@@ -10,6 +10,7 @@ using UnityEngine.Events;
 using PAC.Json;
 using System.Runtime.Serialization;
 using PAC.Extensions;
+using PAC.ImageEditing;
 
 namespace PAC.Files
 {
@@ -504,7 +505,7 @@ namespace PAC.Files
         /// <summary>
         /// Adds a blank normal layer at the given index.
         /// </summary>
-        public void AddNormalLayer(int index) => AddNormalLayer(Texture2DExtensions.Transparent(width, height), index);
+        public void AddNormalLayer(int index) => AddNormalLayer(Texture2DCreator.Transparent(width, height), index);
         /// <summary>
         /// Adds a normal layer at the given index with the given texture.
         /// </summary>
@@ -713,7 +714,7 @@ namespace PAC.Files
 
             if (!inclusive && (highestLayer == lowestLayer || highestLayer == lowestLayer - 1))
             {
-                return Texture2DExtensions.Transparent(width, height);
+                return Texture2DCreator.Transparent(width, height);
             }
 
             // Get the indices of the highest / lowest visible layers so that we don't waste time rendering some invisible layers.
@@ -740,7 +741,7 @@ namespace PAC.Files
 
             if (highestVisibleLayer == -1)
             {
-                return Texture2DExtensions.Transparent(width, height);
+                return Texture2DCreator.Transparent(width, height);
             }
 
             return RenderLayers(IntRange.InclIncl(highestVisibleLayer, lowestVisibleLayer), frame);
@@ -755,7 +756,7 @@ namespace PAC.Files
         {
             if (layerIndices.None())
             {
-                return Texture2DExtensions.Transparent(width, height);
+                return Texture2DCreator.Transparent(width, height);
             }
 
             Texture2D tex = new Texture2D(width, height);
@@ -779,7 +780,7 @@ namespace PAC.Files
         {
             if (layer == 0 && !inclusive)
             {
-                return Texture2DExtensions.Transparent(width, height);
+                return Texture2DCreator.Transparent(width, height);
             }
             return RenderLayers(0, layer - (inclusive ? 0 : 1), frame);
         }
@@ -792,7 +793,7 @@ namespace PAC.Files
         {
             if (layer == layers.Count - 1 && !inclusive)
             {
-                return Texture2DExtensions.Transparent(width, height);
+                return Texture2DCreator.Transparent(width, height);
             }
             return RenderLayers(layer + (inclusive ? 0 : 1), layers.Count - 1, frame);
         }

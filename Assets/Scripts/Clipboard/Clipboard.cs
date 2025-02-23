@@ -4,6 +4,7 @@ using PAC.DataStructures;
 using PAC.Drawing;
 using PAC.Extensions;
 using PAC.Files;
+using PAC.ImageEditing;
 using PAC.Layers;
 
 using UnityEngine;
@@ -66,7 +67,7 @@ namespace PAC.Clipboard
 
                 layerManager.AddLayer(
                     copiedTexture.Blend(
-                        Texture2DExtensions.Transparent(fileManager.currentFile.width, fileManager.currentFile.height),
+                        Texture2DCreator.Transparent(fileManager.currentFile.width, fileManager.currentFile.height),
                         BlendMode.Normal,
                         bottomLeft
                         )
