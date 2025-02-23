@@ -347,7 +347,7 @@ namespace PAC.Drawing
         private void InitialiseDisplay()
         {
             drawingSprRen.sprite = file.liveRender.ToSprite();
-            backgroundSprRen.sprite = Texture2DExtensions.CheckerboardBackground(file.width, file.height).ToSprite();
+            backgroundSprRen.sprite = Texture2DExtensions.TransparentCheckerboardBackground(file.width, file.height).ToSprite();
             //backgroundSprRen.material.SetFloat("_Width", 2f * file.width);
             //backgroundSprRen.material.SetFloat("_Height", 2f * file.height);
             previewSprRen.sprite = Texture2DExtensions.Transparent(1, 1).ToSprite();

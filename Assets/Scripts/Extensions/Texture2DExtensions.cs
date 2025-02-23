@@ -88,7 +88,7 @@ namespace PAC.Extensions
             return texture.Applied();
         }
 
-        public static Texture2D CheckerboardBackground(int width, int height)
+        public static Texture2D TransparentCheckerboardBackground(int width, int height)
         {
             AssertValidTextureDimensions(width, height, nameof(width), nameof(height));
 
