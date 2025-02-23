@@ -59,11 +59,17 @@ namespace PAC.Extensions
             _ => KeyCode.None,
         };
 
-        public static bool IsDigit(KeyCode keyCode)
-        {
-            return keyCode == KeyCode.Alpha0 || keyCode == KeyCode.Alpha1 || keyCode == KeyCode.Alpha2 || keyCode == KeyCode.Alpha3 || keyCode == KeyCode.Alpha4 || keyCode == KeyCode.Alpha5 ||
-                   keyCode == KeyCode.Alpha6 || keyCode == KeyCode.Alpha7 || keyCode == KeyCode.Alpha8 || keyCode == KeyCode.Alpha9;
-        }
+        public static bool IsDigit(KeyCode keyCode) =>
+            keyCode == KeyCode.Alpha0 ||
+            keyCode == KeyCode.Alpha1 ||
+            keyCode == KeyCode.Alpha2 ||
+            keyCode == KeyCode.Alpha3 ||
+            keyCode == KeyCode.Alpha4 ||
+            keyCode == KeyCode.Alpha5 ||
+            keyCode == KeyCode.Alpha6 ||
+            keyCode == KeyCode.Alpha7 ||
+            keyCode == KeyCode.Alpha8 ||
+            keyCode == KeyCode.Alpha9;
 
         public static bool IsAlpha(KeyCode keyCode)
         {
