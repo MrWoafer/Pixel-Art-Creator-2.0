@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 
 using PAC.Colour;
@@ -10,26 +11,38 @@ using UnityEngine;
 
 namespace PAC.Extensions
 {
+    /// <summary>
+    /// Extension methods for Unity's <see cref="Texture2D"/>.
+    /// </summary>
     public static class Texture2DExtensions
     {
         /// <summary>
-        /// Checks that <paramref name="width"/> and <paramref name="height"/> are both &gt; 0, and throws an <see cref="ArgumentException"/> otherwise.
+        /// Checks that <paramref name="width"/> and <paramref name="height"/> are both &gt; 0, and throws an <see cref="ArgumentOutOfRangeException"/> otherwise.
         /// </summary>
         private static void AssertValidTextureDimensions(int width, int height, string widthParamName, string heightParamName)
         {
             if (width <= 0)
             {
-                throw new ArgumentException($"{widthParamName} is non-positive: {width}.", widthParamName);
+                throw new ArgumentOutOfRangeException($"{widthParamName} is non-positive: {width}.", widthParamName);
             }
             if (height <= 0)
             {
-                throw new ArgumentException($"{heightParamName} is non-positive: {height}.", heightParamName);
+                throw new ArgumentOutOfRangeException($"{heightParamName} is non-positive: {height}.", heightParamName);
             }
         }
 
         /// <summary>
-        /// Turns the <see cref="Texture2D"/> into a <see cref="Sprite"/> with the <see cref="FilterMode.Point"/> filter mode.
+        /// Creates a <see cref="Sprite"/> from the <see cref="Texture2D"/>, using the <see cref="FilterMode.Point"/> filter mode.
         /// </summary>
+        /// <remarks>
+        /// <para>
+        /// This does not deep copy the <see cref="Texture2D"/>. This means that subsequent changes to the <see cref="Texture2D"/> will affect the <see cref="Sprite"/> once
+        /// <see cref="Texture2D.Apply()"/> is called.
+        /// </para>
+        /// <para>
+        /// Does not call <see cref="Texture2D.Apply()"/> on the <see cref="Texture2D"/>.
+        /// </para>
+        /// </remarks>
         public static Sprite ToSprite(this Texture2D texture)
         {
             Sprite sprite = Sprite.Create(texture, new Rect(0f, 0f, texture.width, texture.height), new Vector2(0.5f, 0.5f), Math.Max(texture.width, texture.height), 0, SpriteMeshType.FullRect);
@@ -38,18 +51,26 @@ namespace PAC.Extensions
         }
 
         /// <summary>
-        /// Creates a transparent (alpha 0) <see cref="Texture2D"/> of the given dimensions.
+        /// Creates a transparent (alpha 0) <see cref="Texture2D"/> of size <paramref name="width"/> x <paramref name="height"/>.
         /// </summary>
-        /// <exception cref="ArgumentException"><paramref name="width"/> or <paramref name="height"/> is &lt;= 0.</exception>
+        /// <remarks>
+        /// Calls <see cref="Texture2D.Apply()"/> on the returned <see cref="Texture2D"/>.
+        /// </remarks>
+        /// <exception cref="ArgumentOutOfRangeException"><paramref name="width"/> or <paramref name="height"/> is &lt;= 0.</exception>
         public static Texture2D Transparent(int width, int height) => Solid(width, height, Config.Colours.transparent);
 
         /// <summary>
-        /// Creates a <see cref="Texture2D"/> of the given dimensions, filled with the given colour.
+        /// Creates a <see cref="Texture2D"/> of size <paramref name="width"/> x <paramref name="height"/>, filled with the given colour.
         /// </summary>
         /// <remarks>
+        /// <para>
         /// <see cref="Solid(int, int, Color32)"/> is faster.
+        /// </para>
+        /// <para>
+        /// Calls <see cref="Texture2D.Apply()"/> on the returned <see cref="Texture2D"/>.
+        /// </para>
         /// </remarks>
-        /// <exception cref="ArgumentException"><paramref name="width"/> or <paramref name="height"/> is &lt;= 0.</exception>
+        /// <exception cref="ArgumentOutOfRangeException"><paramref name="width"/> or <paramref name="height"/> is &lt;= 0.</exception>
         public static Texture2D Solid(int width, int height, Color colour)
         {
             AssertValidTextureDimensions(width, height, nameof(width), nameof(height));
@@ -66,12 +87,17 @@ namespace PAC.Extensions
             return texture.Applied();
         }
         /// <summary>
-        /// Creates a <see cref="Texture2D"/> of the given dimensions, filled with the given colour.
+        /// Creates a <see cref="Texture2D"/> of size <paramref name="width"/> x <paramref name="height"/>, filled with the given colour.
         /// </summary>
         /// <remarks>
+        /// <para>
         /// This is faster than <see cref="Solid(int, int, Color)"/>.
+        /// </para>
+        /// <para>
+        /// Calls <see cref="Texture2D.Apply()"/> on the returned <see cref="Texture2D"/>.
+        /// </para>
         /// </remarks>
-        /// <exception cref="ArgumentException"><paramref name="width"/> or <paramref name="height"/> is &lt;= 0.</exception>
+        /// <exception cref="ArgumentOutOfRangeException"><paramref name="width"/> or <paramref name="height"/> is &lt;= 0.</exception>
         public static Texture2D Solid(int width, int height, Color32 colour)
         {
             AssertValidTextureDimensions(width, height, nameof(width), nameof(height));
@@ -88,6 +114,17 @@ namespace PAC.Extensions
             return texture.Applied();
         }
 
+        /// <summary>
+        /// Creates a checkerboard <see cref="Texture2D"/> to act as the background for transparent pixels for a <paramref name="width"/> x <paramref name="height"/> image.
+        /// </summary>
+        /// <remarks>
+        /// <para>
+        /// The checkerboard texture will have dimensions 2 * <paramref name="width"/> x 2 * <paramref name="height"/>.
+        /// </para>
+        /// <para>
+        /// Calls <see cref="Texture2D.Apply()"/> on the returned <see cref="Texture2D"/>.
+        /// </para>
+        /// </remarks>
         public static Texture2D TransparentCheckerboardBackground(int width, int height)
         {
             AssertValidTextureDimensions(width, height, nameof(width), nameof(height));
@@ -96,6 +133,23 @@ namespace PAC.Extensions
             return new Checkerboard<Color32>(Preferences.transparentCheckerboardColour1, Preferences.transparentCheckerboardColour2).ToTexture(textureRect);
         }
 
+        /// <summary>
+        /// Creates a <see cref="Texture2D"/> of size <paramref name="width"/> x <paramref name="height"/>, where the colour of a pixel is determined in HSL as follows:
+        /// <list type="bullet">
+        /// <item>
+        /// <b>Hue</b>: linearly interpolated based on the x coord, such that the left-most pixels have hue 0 and the texture goes through all hues exactly once.
+        /// </item>
+        /// <item>
+        /// <b>Saturation</b>: linearly interpolated based on the y coord, such that the top-most pixels have saturation 1 and the bottom-most pixels have saturation 0.
+        /// </item>
+        /// <item>
+        /// <b>Lightness</b>: 0.5.
+        /// </item>
+        /// </list>
+        /// </summary>
+        /// <remarks>
+        /// Calls <see cref="Texture2D.Apply()"/> on the returned <see cref="Texture2D"/>.
+        /// </remarks>
         public static Texture2D HSLHueSaturationGrid(int width, int height)
         {
             AssertValidTextureDimensions(width, height, nameof(width), nameof(height));
@@ -114,6 +168,12 @@ namespace PAC.Extensions
             return texture.Applied();
         }
 
+        /// <summary>
+        /// Returns a deep copy of the <see cref="Texture2D"/> reflected across the given axis.
+        /// </summary>
+        /// <remarks>
+        /// Calls <see cref="Texture2D.Apply()"/> on the returned <see cref="Texture2D"/>.
+        /// </remarks>
         public static Texture2D Flip(this Texture2D texture, FlipAxis axis) => axis switch
         {
             FlipAxis.None => texture,
@@ -121,6 +181,12 @@ namespace PAC.Extensions
             FlipAxis.Horizontal => texture.FlipY(),
             _ => throw new ArgumentException($"Unknown / unimplemented FlipAxis: {axis}.", nameof(axis))
         };
+        /// <summary>
+        /// Returns a deep copy of the <see cref="Texture2D"/> reflected across the central vertical axis.
+        /// </summary>
+        /// <remarks>
+        /// Calls <see cref="Texture2D.Apply()"/> on the returned <see cref="Texture2D"/>.
+        /// </remarks>
         private static Texture2D FlipX(this Texture2D texture)
         {
             Texture2D flipped = new Texture2D(texture.width, texture.height);
@@ -135,6 +201,12 @@ namespace PAC.Extensions
 
             return flipped.Applied();
         }
+        /// <summary>
+        /// Returns a deep copy of the <see cref="Texture2D"/> reflected across the central horizontal axis.
+        /// </summary>
+        /// <remarks>
+        /// Calls <see cref="Texture2D.Apply()"/> on the returned <see cref="Texture2D"/>.
+        /// </remarks>
         private static Texture2D FlipY(this Texture2D texture)
         {
             Texture2D flipped = new Texture2D(texture.width, texture.height);
@@ -150,6 +222,12 @@ namespace PAC.Extensions
             return flipped.Applied();
         }
 
+        /// <summary>
+        /// Returns a deep copy of the <see cref="Texture2D"/> rotated by the given angle.
+        /// </summary>
+        /// <remarks>
+        /// Calls <see cref="Texture2D.Apply()"/> on the returned <see cref="Texture2D"/>.
+        /// </remarks>
         public static Texture2D Rotate(this Texture2D texture, RotationAngle angle) => angle switch
         {
             RotationAngle._0 => texture,
@@ -159,8 +237,11 @@ namespace PAC.Extensions
             _ => throw new ArgumentException($"Unknown / unimplemented RotationAngle: {angle}", nameof(angle))
         };
         /// <summary>
-        /// Rotation is clockwise.
+        /// Returns a deep copy of the <see cref="Texture2D"/> rotated 90 degrees clockwise.
         /// </summary>
+        /// <remarks>
+        /// Calls <see cref="Texture2D.Apply()"/> on the returned <see cref="Texture2D"/>.
+        /// </remarks>
         private static Texture2D Rotate90(this Texture2D texture)
         {
             Texture2D rotated = new Texture2D(texture.height, texture.width);
@@ -176,8 +257,11 @@ namespace PAC.Extensions
             return rotated.Applied();
         }
         /// <summary>
-        /// Rotation is clockwise.
+        /// Returns a deep copy of the <see cref="Texture2D"/> rotated 90 degrees anticlockwise.
         /// </summary>
+        /// <remarks>
+        /// Calls <see cref="Texture2D.Apply()"/> on the returned <see cref="Texture2D"/>.
+        /// </remarks>
         private static Texture2D RotateMinus90(this Texture2D texture)
         {
             Texture2D rotated = new Texture2D(texture.height, texture.width);
@@ -192,6 +276,12 @@ namespace PAC.Extensions
 
             return rotated.Applied();
         }
+        /// <summary>
+        /// Returns a deep copy of the <see cref="Texture2D"/> rotated 180 degrees.
+        /// </summary>
+        /// <remarks>
+        /// Calls <see cref="Texture2D.Apply()"/> on the returned <see cref="Texture2D"/>.
+        /// </remarks>
         private static Texture2D Rotate180(this Texture2D texture)
         {
             Texture2D rotated = new Texture2D(texture.width, texture.height);
@@ -207,31 +297,34 @@ namespace PAC.Extensions
             return rotated.Applied();
         }
 
+        /// <summary>
+        /// Options for <see cref="ExtendCrop(Texture2D, in ExtendCropOptions)"/>.
+        /// </summary>
         public struct ExtendCropOptions
         {
             /// <summary>
-            /// How many pixels to add to the left side of the texture.
+            /// How many columns of pixels to add to the left side of the texture.
             /// </summary>
             /// <remarks>
             /// Negative values will crop the texture.
             /// </remarks>
             public int left;
             /// <summary>
-            /// How many pixels to add to the right side of the texture.
+            /// How many columns of pixels to add to the right side of the texture.
             /// </summary>
             /// <remarks>
             /// Negative values will crop the texture.
             /// </remarks>
             public int right;
             /// <summary>
-            /// How many pixels to add to the bottom side of the texture.
+            /// How many rows of pixels to add to the bottom side of the texture.
             /// </summary>
             /// <remarks>
             /// Negative values will crop the texture.
             /// </remarks>
             public int bottom;
             /// <summary>
-            /// How many pixels to add to the top side of the texture.
+            /// How many rows of pixels to add to the top side of the texture.
             /// </summary>
             /// <remarks>
             /// Negative values will crop the texture.
@@ -239,8 +332,12 @@ namespace PAC.Extensions
             public int top;
         }
         /// <summary>
-        /// Adds the given number of transparent pixels to each side of the texture. Negative amounts will crop the image.
+        /// Creates a deep copy of the <see cref="Texture2D"/> with rows/columns of pixels added to / removed from the sides.
         /// </summary>
+        /// <remarks>
+        /// Calls <see cref="Texture2D.Apply()"/> on the returned <see cref="Texture2D"/>.
+        /// </remarks>
+        /// <exception cref="ArgumentException">The resulting width is &lt;= 0 or the resulting height is &lt;= 0.</exception>
         public static Texture2D ExtendCrop(this Texture2D texture, in ExtendCropOptions options)
         {
             if (options.left + options.right <= -texture.width)
@@ -255,9 +352,13 @@ namespace PAC.Extensions
             return ExtendCrop(texture, new IntRect((-options.left, -options.bottom), (texture.width - 1 + options.right, texture.height - 1 + options.top)));
         }
         /// <summary>
-        /// Changes the dimensions of the texture to the new rect.
+        /// Creates a deep copy of the <see cref="Texture2D"/> with the dimensions changed to fit the given <see cref="IntRect"/> by adding/removing rows/columns of pixels from the sides of the
+        /// <see cref="Texture2D"/>.
         /// </summary>
-        /// <param name="newRect">The coords of the new rect relative to the coords of the old rect.</param>
+        /// <remarks>
+        /// Calls <see cref="Texture2D.Apply()"/> on the returned <see cref="Texture2D"/>.
+        /// </remarks>
+        /// <param name="newRect">The coords of the new rect, relative to the coords of the old rect.</param>
         public static Texture2D ExtendCrop(this Texture2D texture, IntRect newRect)
         {
             Texture2D newTexture = new Texture2D(newRect.width, newRect.height);
@@ -283,12 +384,20 @@ namespace PAC.Extensions
         }
 
         /// <summary>
-        /// Overlays topTex onto bottomTex using the given blend mode, placing the bottom-left corner on the bottom-left corner.
+        /// Blends a deep copy of <paramref name="topTexture"/> onto a deep copy of <paramref name="bottomTexture"/> using the given <see cref="BlendMode"/>, placing the bottom-left corner
+        /// of <paramref name="topTexture"/> on the bottom-left corner of <paramref name="bottomTexture"/>.
         /// </summary>
+        /// <remarks>
+        /// Calls <see cref="Texture2D.Apply()"/> on the returned <see cref="Texture2D"/>.
+        /// </remarks>
         public static Texture2D Blend(this Texture2D topTexture, Texture2D bottomTexture, BlendMode blendMode) => Blend(topTexture, bottomTexture, blendMode, (0, 0));
         /// <summary>
-        /// Overlays topTex onto bottomTex using the given blend mode, placing the bottom-left corner at the coordinates topTexOffset (which don't have to be within the image).
+        /// Blends a deep copy of <paramref name="topTexture"/> onto a deep copy of <paramref name="bottomTexture"/> using the given <see cref="BlendMode"/>, placing the bottom-left corner
+        /// of <paramref name="topTexture"/> at the coordinates <paramref name="topTextureOffset"/> on <paramref name="bottomTexture"/>.
         /// </summary>
+        /// <remarks>
+        /// Calls <see cref="Texture2D.Apply()"/> on the returned <see cref="Texture2D"/>.
+        /// </remarks>
         public static Texture2D Blend(this Texture2D topTexture, Texture2D bottomTexture, BlendMode blendMode, IntVector2 topTextureOffset)
         {
             Texture2D blended = new Texture2D(bottomTexture.width, bottomTexture.height);
@@ -313,8 +422,11 @@ namespace PAC.Extensions
             return blended.Applied();
         }
         /// <summary>
-        /// Overlays topColour onto each pixel of bottomTex using the given blend mode.
+        /// Blends <paramref name="topColour"/> onto each pixel of a deep copy of <paramref name="bottomTexture"/> using the given <see cref="BlendMode"/>.
         /// </summary>
+        /// <remarks>
+        /// Calls <see cref="Texture2D.Apply()"/> on the returned <see cref="Texture2D"/>.
+        /// </remarks>
         public static Texture2D Blend(Color topColour, Texture2D bottomTexture, BlendMode blendMode)
         {
             Texture2D blended = new Texture2D(bottomTexture.width, bottomTexture.height);
@@ -331,6 +443,10 @@ namespace PAC.Extensions
             return blended.Applied();
         }
 
+        /// <summary>
+        /// Calls <see cref="Scale(Texture2D, float, float)"/> with both scale factors equal to <paramref name="scaleFactor"/>.
+        /// </summary>
+        /// <exception cref="ArgumentOutOfRangeException"><paramref name="scaleFactor"/> is &lt;= 0.</exception>
         public static Texture2D Scale(this Texture2D texture, float scaleFactor)
         {
             if (scaleFactor <= 0f)
@@ -340,6 +456,20 @@ namespace PAC.Extensions
 
             return Scale(texture, scaleFactor, scaleFactor);
         }
+        /// <summary>
+        /// Returns a deep copy of the <see cref="Texture2D"/> with the width scaled by <paramref name="xScaleFactor"/> and the height scaled by <paramref name="yScaleFactor"/>, using the
+        /// nearest-neighbour algorithm.
+        /// </summary>
+        /// <remarks>
+        /// <para>
+        /// The width is multiplied by <paramref name="xScaleFactor"/> then rounded. Similarly for the height.
+        /// </para>
+        /// <para>
+        /// Calls <see cref="Texture2D.Apply()"/> on the returned <see cref="Texture2D"/>.
+        /// </para>
+        /// </remarks>
+        /// <exception cref="ArgumentOutOfRangeException"><paramref name="xScaleFactor"/> is &lt;= 0 or <paramref name="yScaleFactor"/> is &lt;= 0.</exception>
+        /// <exception cref="ArgumentException">Rounding the scaled width results in a new width of 0 or rounding the scaled height results in a new height of 0.</exception>
         public static Texture2D Scale(this Texture2D texture, float xScaleFactor, float yScaleFactor)
         {
             if (xScaleFactor <= 0f)
@@ -353,8 +483,25 @@ namespace PAC.Extensions
 
             int newWidth = Mathf.RoundToInt(texture.width * xScaleFactor);
             int newHeight = Mathf.RoundToInt(texture.height * yScaleFactor);
+
+            if (newWidth == 0)
+            {
+                throw new ArgumentException($"Rounding the scaled width resulted in a new width of 0.", nameof(xScaleFactor));
+            }
+            if (newHeight == 0)
+            {
+                throw new ArgumentException($"Rounding the scaled height resulted in a new height of 0.", nameof(yScaleFactor));
+            }
+
             return Scale(texture, newWidth, newHeight);
         }
+        /// <summary>
+        /// Returns a deep copy of the <see cref="Texture2D"/> scaled to size <paramref name="newWidth"/> x <paramref name="newHeight"/> using the nearest-neighbour algorithm.
+        /// </summary>
+        /// <remarks>
+        /// Calls <see cref="Texture2D.Apply()"/> on the returned <see cref="Texture2D"/>.
+        /// </remarks>
+        /// <exception cref="ArgumentOutOfRangeException"><paramref name="newWidth"/> is &lt;= 0 or <paramref name="newHeight"/> is &lt;= 0.</exception>
         public static Texture2D Scale(this Texture2D texture, int newWidth, int newHeight)
         {
             AssertValidTextureDimensions(newWidth, newHeight, nameof(newWidth), nameof(newHeight));
@@ -377,6 +524,10 @@ namespace PAC.Extensions
             return scaled.Applied();
         }
 
+        /// <summary>
+        /// Returns the largest connected (in terms of being adjacent (left/right/up/down)) set containing <paramref name="startPoint"/> where all pixels have the same colour.
+        /// </summary>
+        /// <param name="maxNumOfIterations">After this many pixels have been enumerated, the method will stop. Useful to prevent huge frame drops when filling large areas.</param>
         public static IEnumerable<IntVector2> GetFloodFillPixels(Texture2D texture, IntVector2 startPoint, int maxNumOfIterations = 1_000_000)
         {
             Color colourToReplace = texture.GetPixel(startPoint);
@@ -409,7 +560,7 @@ namespace PAC.Extensions
         }
 
         /// <summary>
-        /// Creates a deepcopy of the texture using Color colours.
+        /// Creates a deep copy of the <see cref="Texture2D"/>.
         /// </summary>
         public static Texture2D DeepCopy(this Texture2D texture)
         {
@@ -418,11 +569,18 @@ namespace PAC.Extensions
             return copy.Applied();
         }
 
+        /// <summary>
+        /// Loads a <see cref="Texture2D"/> from the file at the given file path.
+        /// </summary>
+        /// <remarks>
+        /// Does not call <see cref="Texture2D.Apply()"/> on the returned <see cref="Texture2D"/>.
+        /// </remarks>
+        /// <exception cref="FileNotFoundException">The file path <paramref name="filePath"/> does not exist.</exception>
         public static Texture2D LoadFromFile(string filePath)
         {
             if (!System.IO.File.Exists(filePath))
             {
-                throw new ArgumentException($"File path does not exist: {filePath}", nameof(filePath));
+                throw new FileNotFoundException($"File path does not exist: {filePath}", nameof(filePath));
             }
 
             byte[] fileData = System.IO.File.ReadAllBytes(filePath);
@@ -450,15 +608,42 @@ namespace PAC.Extensions
             }
             public OutlineType outlineType;
 
+            /// <summary>
+            /// Whether to draw the outline on the top-left edges.
+            /// </summary>
             public bool includeTopLeft;
+            /// <summary>
+            /// Whether to draw the outline on the top-middle edges.
+            /// </summary>
             public bool includeTopMiddle;
+            /// <summary>
+            /// Whether to draw the outline on the top-right edges.
+            /// </summary>
             public bool includeTopRight;
+            /// <summary>
+            /// Whether to draw the outline on the middle-left edges.
+            /// </summary>
             public bool includeMiddleLeft;
+            /// <summary>
+            /// Whether to draw the outline on the middle-right edges.
+            /// </summary>
             public bool includeMiddleRight;
+            /// <summary>
+            /// Whether to draw the outline on the bottom-left edges.
+            /// </summary>
             public bool includeBottomLeft;
+            /// <summary>
+            /// Whether to draw the outline on the bottom-middle edges.
+            /// </summary>
             public bool includeBottomMiddle;
+            /// <summary>
+            /// Whether to draw the outline on the bottom-right edges.
+            /// </summary>
             public bool includeBottomRight;
 
+            /// <summary>
+            /// Iterates over the directions associated with <see cref="includeTopLeft"/> etc for those that are <see langword="true"/>.
+            /// </summary>
             public readonly IEnumerable<IntVector2> EnumerateDirectionsToInclude()
             {
                 if (includeTopLeft)
@@ -496,8 +681,11 @@ namespace PAC.Extensions
             }
         }
         /// <summary>
-        /// Makes an outline around the non-transparent pixels of the given texture.
+        /// Returns a deep copy of the <see cref="Texture2D"/> with an outline around the non-transparent pixels.
         /// </summary>
+        /// <remarks>
+        /// Calls <see cref="Texture2D.Apply()"/> on the returned <see cref="Texture2D"/>.
+        /// </remarks>
         public static Texture2D Outline(Texture2D texture, Color outlineColour, in OutlineOptions outlineOptions)
         {
             Color[] pixels = texture.GetPixels();
@@ -547,6 +735,15 @@ namespace PAC.Extensions
             return outlined.Applied();
         }
 
+        /// <summary>
+        /// Returns a deep copy of the <see cref="Texture2D"/> with all occurrences of the colour <paramref name="toReplace"/> replaced with <paramref name="replaceWith"/>.
+        /// </summary>
+        /// <remarks>
+        /// Calls <see cref="Texture2D.Apply()"/> on the returned <see cref="Texture2D"/>.
+        /// </remarks>
+        /// <param name="tolerance">How close a colour has to be to <paramref name="toReplace"/> to be replaced.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentOutOfRangeException"><paramref name="tolerance"/> is negative.</exception>
         public static Texture2D ReplaceColour(this Texture2D texture, Color toReplace, Color replaceWith, float tolerance = 0f)
         {
             if (tolerance < 0f)
@@ -569,14 +766,29 @@ namespace PAC.Extensions
             return replaced.Applied();
         }
 
+        /// <summary>
+        /// Returns an <see cref="IntRect"/> containing precisely the coordinates within the bounds of the <see cref="Texture2D"/>.
+        /// </summary>
         public static IntRect GetRect(this Texture2D texture) => new IntRect((0, 0), (texture.width - 1, texture.height - 1));
 
+        /// <summary>
+        /// Returns whether the coordinates <c>(<paramref name="x"/>, <paramref name="y"/>)</c> are within the bounds of the <see cref="Texture2D"/>.
+        /// </summary>
         public static bool ContainsPixel(this Texture2D texture, int x, int y) => 0 <= x && x < texture.width && 0 <= y && y < texture.height;
+        /// <summary>
+        /// Returns whether the given coordinates are within the bounds of the <see cref="Texture2D"/>.
+        /// </summary>
         public static bool ContainsPixel(this Texture2D texture, IntVector2 pixel) => texture.ContainsPixel(pixel.x, pixel.y);
 
-        public static void SetPixel(this Texture2D texture, IntVector2 coords, Color colour) => texture.SetPixel(coords.x, coords.y, colour);
+        /// <summary>
+        /// Sets the pixel colour at the given coordinates.
+        /// </summary>
+        public static void SetPixel(this Texture2D texture, IntVector2 pixel, Color colour) => texture.SetPixel(pixel.x, pixel.y, colour);
 
-        public static Color GetPixel(this Texture2D texture, IntVector2 coords) => texture.GetPixel(coords.x, coords.y);
+        /// <summary>
+        /// Gets the pixel colour at the given coordinates.
+        /// </summary>
+        public static Color GetPixel(this Texture2D texture, IntVector2 pixel) => texture.GetPixel(pixel.x, pixel.y);
 
         /// <summary>
         /// Calls <see cref="Texture2D.Apply()"/> on the <see cref="Texture2D"/> then returns it.
