@@ -518,9 +518,9 @@ namespace PAC.UI
 
         public void ConfirmOutlineWindow()
         {
-            Texture2DExtensions.OutlineOptions outlineOptions = new Texture2DExtensions.OutlineOptions
+            ImageEditing.Outline.Options outlineOptions = new ImageEditing.Outline.Options
             {
-                outlineType = outlineOutsideToggle.on ? Texture2DExtensions.OutlineOptions.OutlineType.Outside : Texture2DExtensions.OutlineOptions.OutlineType.Inside,
+                outlineType = outlineOutsideToggle.on ? ImageEditing.Outline.Options.OutlineType.Outside : ImageEditing.Outline.Options.OutlineType.Inside,
 
                 includeTopLeft = outlineTopLeftToggle.on,
                 includeTopMiddle = outlineTopMiddleToggle.on,
@@ -536,7 +536,7 @@ namespace PAC.UI
             {
                 ((NormalLayer)layer).SetTexture(
                     animationManager.currentFrameIndex,
-                    Texture2DExtensions.Outline(layer[animationManager.currentFrameIndex].texture, outlineColourField.colour, outlineOptions),
+                    ImageEditing.Outline.DrawOutline(layer[animationManager.currentFrameIndex].texture, outlineColourField.colour, outlineOptions),
                     AnimFrameRefMode.NewKeyFrame
                     );
             }
@@ -547,9 +547,9 @@ namespace PAC.UI
 
         private void UpdateOutlinePreview()
         {
-            Texture2DExtensions.OutlineOptions outlineOptions = new Texture2DExtensions.OutlineOptions
+            ImageEditing.Outline.Options outlineOptions = new ImageEditing.Outline.Options
             {
-                outlineType = outlineOutsideToggle.on ? Texture2DExtensions.OutlineOptions.OutlineType.Outside : Texture2DExtensions.OutlineOptions.OutlineType.Inside,
+                outlineType = outlineOutsideToggle.on ? ImageEditing.Outline.Options.OutlineType.Outside : ImageEditing.Outline.Options.OutlineType.Inside,
 
                 includeTopLeft = outlineTopLeftToggle.on,
                 includeTopMiddle = outlineTopMiddleToggle.on,
@@ -566,7 +566,7 @@ namespace PAC.UI
             {
                 ((NormalLayer)fileCopy.layers[layer]).SetTexture(
                     animationManager.currentFrameIndex,
-                    Texture2DExtensions.Outline(fileCopy.layers[layer][animationManager.currentFrameIndex].texture, outlineColourField.colour, outlineOptions),
+                    ImageEditing.Outline.DrawOutline(fileCopy.layers[layer][animationManager.currentFrameIndex].texture, outlineColourField.colour, outlineOptions),
                     AnimFrameRefMode.NewKeyFrame
                     );
             }

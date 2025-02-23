@@ -429,7 +429,7 @@ namespace PAC.Drawing
             {
                 outlineColour = Config.Colours.brushOutlineLight;
             }
-            brushBorderSprRen.GetComponent<Outline>().colour = outlineColour;
+            brushBorderSprRen.GetComponent<Shaders.Outline>().colour = outlineColour;
         }
 
         /// <summary>
