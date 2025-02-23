@@ -28,7 +28,14 @@ namespace PAC.Extensions
         /// </remarks>
         public static Sprite ToSprite(this Texture2D texture)
         {
-            Sprite sprite = Sprite.Create(texture, new Rect(0f, 0f, texture.width, texture.height), new Vector2(0.5f, 0.5f), Math.Max(texture.width, texture.height), 0, SpriteMeshType.FullRect);
+            Sprite sprite = Sprite.Create(
+                texture,
+                new Rect(0f, 0f, texture.width, texture.height),
+                new Vector2(0.5f, 0.5f),
+                Math.Max(texture.width, texture.height),
+                0,
+                SpriteMeshType.FullRect
+                );
             sprite.texture.filterMode = FilterMode.Point;
             return sprite;
         }
