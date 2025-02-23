@@ -253,7 +253,7 @@ namespace PAC.UI
             {
                 foreach(char chr in allowedCharacters)
                 {
-                    if (inputTarget.keyboardTarget.IsPressed(KeyCodeExtensions.StrToKeyCode(chr.ToString())))
+                    if (inputTarget.keyboardTarget.IsPressed(KeyCodeExtensions.Parse(chr.ToString())))
                     {
                         _text += chr;
                         inputMade = true;

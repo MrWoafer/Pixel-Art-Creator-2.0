@@ -4,7 +4,7 @@ namespace PAC.Extensions
 {
     public static class KeyCodeExtensions
     {
-        public static KeyCode StrToKeyCode(string str)
+        public static KeyCode Parse(string str)
         {
             switch (str.ToLower())
             {
@@ -78,7 +78,7 @@ namespace PAC.Extensions
         {
             foreach(char chr in "abcdefghijklmnopqrstuvwxyz")
             {
-                if (keyCode == StrToKeyCode(chr.ToString()))
+                if (keyCode == Parse(chr.ToString()))
                 {
                     return true;
                 }
