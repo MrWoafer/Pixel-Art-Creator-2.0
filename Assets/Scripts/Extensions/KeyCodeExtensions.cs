@@ -4,69 +4,60 @@ namespace PAC.Extensions
 {
     public static class KeyCodeExtensions
     {
-        public static KeyCode Parse(string str)
+        public static KeyCode Parse(string str) => str.ToLower() switch
         {
-            switch (str.ToLower())
-            {
-                case "a": return KeyCode.A;
-                case "b": return KeyCode.B;
-                case "c": return KeyCode.C;
-                case "d": return KeyCode.D;
-                case "e": return KeyCode.E;
-                case "f": return KeyCode.F;
-                case "g": return KeyCode.G;
-                case "h": return KeyCode.H;
-                case "i": return KeyCode.I;
-                case "j": return KeyCode.J;
-                case "k": return KeyCode.K;
-                case "l": return KeyCode.L;
-                case "m": return KeyCode.M;
-                case "n": return KeyCode.N;
-                case "o": return KeyCode.O;
-                case "p": return KeyCode.P;
-                case "q": return KeyCode.Q;
-                case "r": return KeyCode.R;
-                case "s": return KeyCode.S;
-                case "t": return KeyCode.T;
-                case "u": return KeyCode.U;
-                case "v": return KeyCode.V;
-                case "w": return KeyCode.W;
-                case "x": return KeyCode.X;
-                case "y": return KeyCode.Y;
-                case "z": return KeyCode.Z;
-                case "0": return KeyCode.Alpha0;
-                case "1": return KeyCode.Alpha1;
-                case "2": return KeyCode.Alpha2;
-                case "3": return KeyCode.Alpha3;
-                case "4": return KeyCode.Alpha4;
-                case "5": return KeyCode.Alpha5;
-                case "6": return KeyCode.Alpha6;
-                case "7": return KeyCode.Alpha7;
-                case "8": return KeyCode.Alpha8;
-                case "9": return KeyCode.Alpha9;
-                case "space": return KeyCode.Space;
-                case " ": return KeyCode.Space;
-                case "backspace": return KeyCode.Backspace;
-                case "esc": return KeyCode.Escape;
-                case "escape": return KeyCode.Escape;
-                case "enter": return KeyCode.Return;
-                case "return": return KeyCode.Return;
-                case "shift": return KeyCode.LeftShift;
-                case "lshift": return KeyCode.LeftShift;
-                case "rshift": return KeyCode.RightShift;
-                case "ctrl": return KeyCode.LeftControl;
-                case "lctrl": return KeyCode.LeftControl;
-                case "rctrl": return KeyCode.RightControl;
-                case "alt": return KeyCode.LeftAlt;
-                case "lalt": return KeyCode.LeftAlt;
-                case "ralt": return KeyCode.RightAlt;
-                case "+": return KeyCode.Plus;
-                case "-": return KeyCode.Minus;
-                case "=": return KeyCode.Equals;
-                case "_": return KeyCode.Underscore;
-                default: return KeyCode.None;
-            }
-        }
+            "a" => KeyCode.A,
+            "b" => KeyCode.B,
+            "c" => KeyCode.C,
+            "d" => KeyCode.D,
+            "e" => KeyCode.E,
+            "f" => KeyCode.F,
+            "g" => KeyCode.G,
+            "h" => KeyCode.H,
+            "i" => KeyCode.I,
+            "j" => KeyCode.J,
+            "k" => KeyCode.K,
+            "l" => KeyCode.L,
+            "m" => KeyCode.M,
+            "n" => KeyCode.N,
+            "o" => KeyCode.O,
+            "p" => KeyCode.P,
+            "q" => KeyCode.Q,
+            "r" => KeyCode.R,
+            "s" => KeyCode.S,
+            "t" => KeyCode.T,
+            "u" => KeyCode.U,
+            "v" => KeyCode.V,
+            "w" => KeyCode.W,
+            "x" => KeyCode.X,
+            "y" => KeyCode.Y,
+            "z" => KeyCode.Z,
+            "0" => KeyCode.Alpha0,
+            "1" => KeyCode.Alpha1,
+            "2" => KeyCode.Alpha2,
+            "3" => KeyCode.Alpha3,
+            "4" => KeyCode.Alpha4,
+            "5" => KeyCode.Alpha5,
+            "6" => KeyCode.Alpha6,
+            "7" => KeyCode.Alpha7,
+            "8" => KeyCode.Alpha8,
+            "9" => KeyCode.Alpha9,
+            "space" or " " => KeyCode.Space,
+            "backspace" => KeyCode.Backspace,
+            "esc" or "escape" => KeyCode.Escape,
+            "enter" or "return" => KeyCode.Return,
+            "shift" or "lshift" => KeyCode.LeftShift,
+            "rshift" => KeyCode.RightShift,
+            "ctrl" or "lctrl" => KeyCode.LeftControl,
+            "rctrl" => KeyCode.RightControl,
+            "alt" or "lalt" => KeyCode.LeftAlt,
+            "ralt" => KeyCode.RightAlt,
+            "+" => KeyCode.Plus,
+            "-" => KeyCode.Minus,
+            "=" => KeyCode.Equals,
+            "_" => KeyCode.Underscore,
+            _ => KeyCode.None,
+        };
 
         public static bool IsDigit(KeyCode keyCode)
         {
