@@ -356,10 +356,14 @@ namespace PAC.UI
 
             Texture2D render = fileManager.currentFile.Render(animationManager.currentFrameIndex).Applied();
 
-            extendCropPreview.sprite = render.ExtendCrop(left, right, down, up).Scale(2).Blend(
-                Texture2DExtensions.CheckerboardBackground(fileManager.currentFile.width + left + right, fileManager.currentFile.height + up + down),
-                BlendMode.Normal
-                ).ToSprite();
+            extendCropPreview.sprite = render
+                .ExtendCrop(new Texture2DExtensions.ExtendCropOptions { left = left, right = right, top = up, bottom = down })
+                .Scale(2)
+                .Blend(
+                    Texture2DExtensions.CheckerboardBackground(fileManager.currentFile.width + left + right, fileManager.currentFile.height + up + down),
+                    BlendMode.Normal
+                )
+                .ToSprite();
         }
 
         public void ConfirmExtendCropWindow()

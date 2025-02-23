@@ -207,21 +207,52 @@ namespace PAC.Extensions
             return rotated.Applied();
         }
 
+        public struct ExtendCropOptions
+        {
+            /// <summary>
+            /// How many pixels to add to the left side of the texture.
+            /// </summary>
+            /// <remarks>
+            /// Negative values will crop the texture.
+            /// </remarks>
+            public int left;
+            /// <summary>
+            /// How many pixels to add to the right side of the texture.
+            /// </summary>
+            /// <remarks>
+            /// Negative values will crop the texture.
+            /// </remarks>
+            public int right;
+            /// <summary>
+            /// How many pixels to add to the bottom side of the texture.
+            /// </summary>
+            /// <remarks>
+            /// Negative values will crop the texture.
+            /// </remarks>
+            public int bottom;
+            /// <summary>
+            /// How many pixels to add to the top side of the texture.
+            /// </summary>
+            /// <remarks>
+            /// Negative values will crop the texture.
+            /// </remarks>
+            public int top;
+        }
         /// <summary>
         /// Adds the given number of transparent pixels to each side of the texture. Negative amounts will crop the image.
         /// </summary>
-        public static Texture2D ExtendCrop(this Texture2D texture, int left, int right, int down, int up)
+        public static Texture2D ExtendCrop(this Texture2D texture, in ExtendCropOptions options)
         {
-            if (left + right <= -texture.width)
+            if (options.left + options.right <= -texture.width)
             {
-                throw new ArgumentException($"Cannot crop by >= the texture's width. Width = {texture.width}, ({nameof(left)}, {nameof(right)}) = ({left}, {right}).");
+                throw new ArgumentException($"Cannot crop by >= the texture's width. Width = {texture.width}, ({nameof(options.left)}, {nameof(options.right)}) = ({options.left}, {options.right}).");
             }
-            if (up + down <= -texture.height)
+            if (options.top + options.bottom <= -texture.height)
             {
-                throw new ArgumentException($"Cannot crop by >= the texture's height. Height = {texture.height}, ({nameof(down)}, {nameof(up)}) = ({down}, {up}).");
+                throw new ArgumentException($"Cannot crop by >= the texture's height. Height = {texture.height}, ({nameof(options.bottom)}, {nameof(options.top)}) = ({options.bottom}, {options.top}).");
             }
 
-            return ExtendCrop(texture, new IntRect((-left, -down), (texture.width - 1 + right, texture.height - 1 + up)));
+            return ExtendCrop(texture, new IntRect((-options.left, -options.bottom), (texture.width - 1 + options.right, texture.height - 1 + options.top)));
         }
         /// <summary>
         /// Changes the dimensions of the texture to the new rect.
