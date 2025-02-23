@@ -8018,6 +8018,152 @@ references:
   isSpec: "True"
   fullName: PAC.Extensions.TypeExtensions.IsSubclassOfRawGeneric
   nameWithType: TypeExtensions.IsSubclassOfRawGeneric
+- uid: PAC.Extensions.ValueTupleExtensions
+  name: ValueTupleExtensions
+  href: api/PAC.Extensions.ValueTupleExtensions.html
+  commentId: T:PAC.Extensions.ValueTupleExtensions
+  fullName: PAC.Extensions.ValueTupleExtensions
+  nameWithType: ValueTupleExtensions
+- uid: PAC.Extensions.ValueTupleExtensions.AsEnumerable*
+  name: AsEnumerable
+  href: api/PAC.Extensions.ValueTupleExtensions.html#PAC_Extensions_ValueTupleExtensions_AsEnumerable_
+  commentId: Overload:PAC.Extensions.ValueTupleExtensions.AsEnumerable
+  isSpec: "True"
+  fullName: PAC.Extensions.ValueTupleExtensions.AsEnumerable
+  nameWithType: ValueTupleExtensions.AsEnumerable
+- uid: PAC.Extensions.ValueTupleExtensions.AsEnumerable``1(System.ValueTuple{``0,``0,``0,``0,``0,``0,``0})
+  name: AsEnumerable<T>((T, T, T, T, T, T, T))
+  href: api/PAC.Extensions.ValueTupleExtensions.html#PAC_Extensions_ValueTupleExtensions_AsEnumerable__1_System_ValueTuple___0___0___0___0___0___0___0__
+  commentId: M:PAC.Extensions.ValueTupleExtensions.AsEnumerable``1(System.ValueTuple{``0,``0,``0,``0,``0,``0,``0})
+  name.vb: AsEnumerable(Of T)((T, T, T, T, T, T, T))
+  fullName: PAC.Extensions.ValueTupleExtensions.AsEnumerable<T>((T, T, T, T, T, T, T))
+  fullName.vb: PAC.Extensions.ValueTupleExtensions.AsEnumerable(Of T)((T, T, T, T, T, T, T))
+  nameWithType: ValueTupleExtensions.AsEnumerable<T>((T, T, T, T, T, T, T))
+  nameWithType.vb: ValueTupleExtensions.AsEnumerable(Of T)((T, T, T, T, T, T, T))
+- uid: PAC.Extensions.ValueTupleExtensions.AsEnumerable``1(System.ValueTuple{``0,``0,``0,``0,``0,``0})
+  name: AsEnumerable<T>((T, T, T, T, T, T))
+  href: api/PAC.Extensions.ValueTupleExtensions.html#PAC_Extensions_ValueTupleExtensions_AsEnumerable__1_System_ValueTuple___0___0___0___0___0___0__
+  commentId: M:PAC.Extensions.ValueTupleExtensions.AsEnumerable``1(System.ValueTuple{``0,``0,``0,``0,``0,``0})
+  name.vb: AsEnumerable(Of T)((T, T, T, T, T, T))
+  fullName: PAC.Extensions.ValueTupleExtensions.AsEnumerable<T>((T, T, T, T, T, T))
+  fullName.vb: PAC.Extensions.ValueTupleExtensions.AsEnumerable(Of T)((T, T, T, T, T, T))
+  nameWithType: ValueTupleExtensions.AsEnumerable<T>((T, T, T, T, T, T))
+  nameWithType.vb: ValueTupleExtensions.AsEnumerable(Of T)((T, T, T, T, T, T))
+- uid: PAC.Extensions.ValueTupleExtensions.AsEnumerable``1(System.ValueTuple{``0,``0,``0,``0,``0})
+  name: AsEnumerable<T>((T, T, T, T, T))
+  href: api/PAC.Extensions.ValueTupleExtensions.html#PAC_Extensions_ValueTupleExtensions_AsEnumerable__1_System_ValueTuple___0___0___0___0___0__
+  commentId: M:PAC.Extensions.ValueTupleExtensions.AsEnumerable``1(System.ValueTuple{``0,``0,``0,``0,``0})
+  name.vb: AsEnumerable(Of T)((T, T, T, T, T))
+  fullName: PAC.Extensions.ValueTupleExtensions.AsEnumerable<T>((T, T, T, T, T))
+  fullName.vb: PAC.Extensions.ValueTupleExtensions.AsEnumerable(Of T)((T, T, T, T, T))
+  nameWithType: ValueTupleExtensions.AsEnumerable<T>((T, T, T, T, T))
+  nameWithType.vb: ValueTupleExtensions.AsEnumerable(Of T)((T, T, T, T, T))
+- uid: PAC.Extensions.ValueTupleExtensions.AsEnumerable``1(System.ValueTuple{``0,``0,``0,``0})
+  name: AsEnumerable<T>((T, T, T, T))
+  href: api/PAC.Extensions.ValueTupleExtensions.html#PAC_Extensions_ValueTupleExtensions_AsEnumerable__1_System_ValueTuple___0___0___0___0__
+  commentId: M:PAC.Extensions.ValueTupleExtensions.AsEnumerable``1(System.ValueTuple{``0,``0,``0,``0})
+  name.vb: AsEnumerable(Of T)((T, T, T, T))
+  fullName: PAC.Extensions.ValueTupleExtensions.AsEnumerable<T>((T, T, T, T))
+  fullName.vb: PAC.Extensions.ValueTupleExtensions.AsEnumerable(Of T)((T, T, T, T))
+  nameWithType: ValueTupleExtensions.AsEnumerable<T>((T, T, T, T))
+  nameWithType.vb: ValueTupleExtensions.AsEnumerable(Of T)((T, T, T, T))
+- uid: PAC.Extensions.ValueTupleExtensions.AsEnumerable``1(System.ValueTuple{``0,``0,``0})
+  name: AsEnumerable<T>((T, T, T))
+  href: api/PAC.Extensions.ValueTupleExtensions.html#PAC_Extensions_ValueTupleExtensions_AsEnumerable__1_System_ValueTuple___0___0___0__
+  commentId: M:PAC.Extensions.ValueTupleExtensions.AsEnumerable``1(System.ValueTuple{``0,``0,``0})
+  name.vb: AsEnumerable(Of T)((T, T, T))
+  fullName: PAC.Extensions.ValueTupleExtensions.AsEnumerable<T>((T, T, T))
+  fullName.vb: PAC.Extensions.ValueTupleExtensions.AsEnumerable(Of T)((T, T, T))
+  nameWithType: ValueTupleExtensions.AsEnumerable<T>((T, T, T))
+  nameWithType.vb: ValueTupleExtensions.AsEnumerable(Of T)((T, T, T))
+- uid: PAC.Extensions.ValueTupleExtensions.AsEnumerable``1(System.ValueTuple{``0,``0})
+  name: AsEnumerable<T>((T, T))
+  href: api/PAC.Extensions.ValueTupleExtensions.html#PAC_Extensions_ValueTupleExtensions_AsEnumerable__1_System_ValueTuple___0___0__
+  commentId: M:PAC.Extensions.ValueTupleExtensions.AsEnumerable``1(System.ValueTuple{``0,``0})
+  name.vb: AsEnumerable(Of T)((T, T))
+  fullName: PAC.Extensions.ValueTupleExtensions.AsEnumerable<T>((T, T))
+  fullName.vb: PAC.Extensions.ValueTupleExtensions.AsEnumerable(Of T)((T, T))
+  nameWithType: ValueTupleExtensions.AsEnumerable<T>((T, T))
+  nameWithType.vb: ValueTupleExtensions.AsEnumerable(Of T)((T, T))
+- uid: PAC.Extensions.ValueTupleExtensions.AsEnumerable``1(System.ValueTuple{``0})
+  name: AsEnumerable<T>(ValueTuple<T>)
+  href: api/PAC.Extensions.ValueTupleExtensions.html#PAC_Extensions_ValueTupleExtensions_AsEnumerable__1_System_ValueTuple___0__
+  commentId: M:PAC.Extensions.ValueTupleExtensions.AsEnumerable``1(System.ValueTuple{``0})
+  name.vb: ''
+  fullName: PAC.Extensions.ValueTupleExtensions.AsEnumerable<T>(System.ValueTuple<T>)
+  fullName.vb: ''
+  nameWithType: ValueTupleExtensions.AsEnumerable<T>(ValueTuple<T>)
+  nameWithType.vb: ''
+- uid: PAC.Extensions.ValueTupleExtensions.Index*
+  name: Index
+  href: api/PAC.Extensions.ValueTupleExtensions.html#PAC_Extensions_ValueTupleExtensions_Index_
+  commentId: Overload:PAC.Extensions.ValueTupleExtensions.Index
+  isSpec: "True"
+  fullName: PAC.Extensions.ValueTupleExtensions.Index
+  nameWithType: ValueTupleExtensions.Index
+- uid: PAC.Extensions.ValueTupleExtensions.Index``1(System.ValueTuple{``0,``0,``0,``0,``0,``0,``0},System.Int32)
+  name: Index<T>((T, T, T, T, T, T, T), int)
+  href: api/PAC.Extensions.ValueTupleExtensions.html#PAC_Extensions_ValueTupleExtensions_Index__1_System_ValueTuple___0___0___0___0___0___0___0__System_Int32_
+  commentId: M:PAC.Extensions.ValueTupleExtensions.Index``1(System.ValueTuple{``0,``0,``0,``0,``0,``0,``0},System.Int32)
+  name.vb: Index(Of T)((T, T, T, T, T, T, T), Integer)
+  fullName: PAC.Extensions.ValueTupleExtensions.Index<T>((T, T, T, T, T, T, T), int)
+  fullName.vb: PAC.Extensions.ValueTupleExtensions.Index(Of T)((T, T, T, T, T, T, T), Integer)
+  nameWithType: ValueTupleExtensions.Index<T>((T, T, T, T, T, T, T), int)
+  nameWithType.vb: ValueTupleExtensions.Index(Of T)((T, T, T, T, T, T, T), Integer)
+- uid: PAC.Extensions.ValueTupleExtensions.Index``1(System.ValueTuple{``0,``0,``0,``0,``0,``0},System.Int32)
+  name: Index<T>((T, T, T, T, T, T), int)
+  href: api/PAC.Extensions.ValueTupleExtensions.html#PAC_Extensions_ValueTupleExtensions_Index__1_System_ValueTuple___0___0___0___0___0___0__System_Int32_
+  commentId: M:PAC.Extensions.ValueTupleExtensions.Index``1(System.ValueTuple{``0,``0,``0,``0,``0,``0},System.Int32)
+  name.vb: Index(Of T)((T, T, T, T, T, T), Integer)
+  fullName: PAC.Extensions.ValueTupleExtensions.Index<T>((T, T, T, T, T, T), int)
+  fullName.vb: PAC.Extensions.ValueTupleExtensions.Index(Of T)((T, T, T, T, T, T), Integer)
+  nameWithType: ValueTupleExtensions.Index<T>((T, T, T, T, T, T), int)
+  nameWithType.vb: ValueTupleExtensions.Index(Of T)((T, T, T, T, T, T), Integer)
+- uid: PAC.Extensions.ValueTupleExtensions.Index``1(System.ValueTuple{``0,``0,``0,``0,``0},System.Int32)
+  name: Index<T>((T, T, T, T, T), int)
+  href: api/PAC.Extensions.ValueTupleExtensions.html#PAC_Extensions_ValueTupleExtensions_Index__1_System_ValueTuple___0___0___0___0___0__System_Int32_
+  commentId: M:PAC.Extensions.ValueTupleExtensions.Index``1(System.ValueTuple{``0,``0,``0,``0,``0},System.Int32)
+  name.vb: Index(Of T)((T, T, T, T, T), Integer)
+  fullName: PAC.Extensions.ValueTupleExtensions.Index<T>((T, T, T, T, T), int)
+  fullName.vb: PAC.Extensions.ValueTupleExtensions.Index(Of T)((T, T, T, T, T), Integer)
+  nameWithType: ValueTupleExtensions.Index<T>((T, T, T, T, T), int)
+  nameWithType.vb: ValueTupleExtensions.Index(Of T)((T, T, T, T, T), Integer)
+- uid: PAC.Extensions.ValueTupleExtensions.Index``1(System.ValueTuple{``0,``0,``0,``0},System.Int32)
+  name: Index<T>((T, T, T, T), int)
+  href: api/PAC.Extensions.ValueTupleExtensions.html#PAC_Extensions_ValueTupleExtensions_Index__1_System_ValueTuple___0___0___0___0__System_Int32_
+  commentId: M:PAC.Extensions.ValueTupleExtensions.Index``1(System.ValueTuple{``0,``0,``0,``0},System.Int32)
+  name.vb: Index(Of T)((T, T, T, T), Integer)
+  fullName: PAC.Extensions.ValueTupleExtensions.Index<T>((T, T, T, T), int)
+  fullName.vb: PAC.Extensions.ValueTupleExtensions.Index(Of T)((T, T, T, T), Integer)
+  nameWithType: ValueTupleExtensions.Index<T>((T, T, T, T), int)
+  nameWithType.vb: ValueTupleExtensions.Index(Of T)((T, T, T, T), Integer)
+- uid: PAC.Extensions.ValueTupleExtensions.Index``1(System.ValueTuple{``0,``0,``0},System.Int32)
+  name: Index<T>((T, T, T), int)
+  href: api/PAC.Extensions.ValueTupleExtensions.html#PAC_Extensions_ValueTupleExtensions_Index__1_System_ValueTuple___0___0___0__System_Int32_
+  commentId: M:PAC.Extensions.ValueTupleExtensions.Index``1(System.ValueTuple{``0,``0,``0},System.Int32)
+  name.vb: Index(Of T)((T, T, T), Integer)
+  fullName: PAC.Extensions.ValueTupleExtensions.Index<T>((T, T, T), int)
+  fullName.vb: PAC.Extensions.ValueTupleExtensions.Index(Of T)((T, T, T), Integer)
+  nameWithType: ValueTupleExtensions.Index<T>((T, T, T), int)
+  nameWithType.vb: ValueTupleExtensions.Index(Of T)((T, T, T), Integer)
+- uid: PAC.Extensions.ValueTupleExtensions.Index``1(System.ValueTuple{``0,``0},System.Int32)
+  name: Index<T>((T, T), int)
+  href: api/PAC.Extensions.ValueTupleExtensions.html#PAC_Extensions_ValueTupleExtensions_Index__1_System_ValueTuple___0___0__System_Int32_
+  commentId: M:PAC.Extensions.ValueTupleExtensions.Index``1(System.ValueTuple{``0,``0},System.Int32)
+  name.vb: Index(Of T)((T, T), Integer)
+  fullName: PAC.Extensions.ValueTupleExtensions.Index<T>((T, T), int)
+  fullName.vb: PAC.Extensions.ValueTupleExtensions.Index(Of T)((T, T), Integer)
+  nameWithType: ValueTupleExtensions.Index<T>((T, T), int)
+  nameWithType.vb: ValueTupleExtensions.Index(Of T)((T, T), Integer)
+- uid: PAC.Extensions.ValueTupleExtensions.Index``1(System.ValueTuple{``0},System.Int32)
+  name: Index<T>(ValueTuple<T>, int)
+  href: api/PAC.Extensions.ValueTupleExtensions.html#PAC_Extensions_ValueTupleExtensions_Index__1_System_ValueTuple___0__System_Int32_
+  commentId: M:PAC.Extensions.ValueTupleExtensions.Index``1(System.ValueTuple{``0},System.Int32)
+  name.vb: ''
+  fullName: PAC.Extensions.ValueTupleExtensions.Index<T>(System.ValueTuple<T>, int)
+  fullName.vb: ''
+  nameWithType: ValueTupleExtensions.Index<T>(ValueTuple<T>, int)
+  nameWithType.vb: ''
 - uid: PAC.Files
   name: PAC.Files
   href: api/PAC.Files.html
@@ -26327,152 +26473,6 @@ references:
   isSpec: "True"
   fullName: PAC.UndoRedo.UndoRedoState.affectedLayersIndices
   nameWithType: UndoRedoState.affectedLayersIndices
-- uid: PAC.ValueTupleExtensions
-  name: ValueTupleExtensions
-  href: api/PAC.ValueTupleExtensions.html
-  commentId: T:PAC.ValueTupleExtensions
-  fullName: PAC.ValueTupleExtensions
-  nameWithType: ValueTupleExtensions
-- uid: PAC.ValueTupleExtensions.AsEnumerable*
-  name: AsEnumerable
-  href: api/PAC.ValueTupleExtensions.html#PAC_ValueTupleExtensions_AsEnumerable_
-  commentId: Overload:PAC.ValueTupleExtensions.AsEnumerable
-  isSpec: "True"
-  fullName: PAC.ValueTupleExtensions.AsEnumerable
-  nameWithType: ValueTupleExtensions.AsEnumerable
-- uid: PAC.ValueTupleExtensions.AsEnumerable``1(System.ValueTuple{``0,``0,``0,``0,``0,``0,``0})
-  name: AsEnumerable<T>((T, T, T, T, T, T, T))
-  href: api/PAC.ValueTupleExtensions.html#PAC_ValueTupleExtensions_AsEnumerable__1_System_ValueTuple___0___0___0___0___0___0___0__
-  commentId: M:PAC.ValueTupleExtensions.AsEnumerable``1(System.ValueTuple{``0,``0,``0,``0,``0,``0,``0})
-  name.vb: AsEnumerable(Of T)((T, T, T, T, T, T, T))
-  fullName: PAC.ValueTupleExtensions.AsEnumerable<T>((T, T, T, T, T, T, T))
-  fullName.vb: PAC.ValueTupleExtensions.AsEnumerable(Of T)((T, T, T, T, T, T, T))
-  nameWithType: ValueTupleExtensions.AsEnumerable<T>((T, T, T, T, T, T, T))
-  nameWithType.vb: ValueTupleExtensions.AsEnumerable(Of T)((T, T, T, T, T, T, T))
-- uid: PAC.ValueTupleExtensions.AsEnumerable``1(System.ValueTuple{``0,``0,``0,``0,``0,``0})
-  name: AsEnumerable<T>((T, T, T, T, T, T))
-  href: api/PAC.ValueTupleExtensions.html#PAC_ValueTupleExtensions_AsEnumerable__1_System_ValueTuple___0___0___0___0___0___0__
-  commentId: M:PAC.ValueTupleExtensions.AsEnumerable``1(System.ValueTuple{``0,``0,``0,``0,``0,``0})
-  name.vb: AsEnumerable(Of T)((T, T, T, T, T, T))
-  fullName: PAC.ValueTupleExtensions.AsEnumerable<T>((T, T, T, T, T, T))
-  fullName.vb: PAC.ValueTupleExtensions.AsEnumerable(Of T)((T, T, T, T, T, T))
-  nameWithType: ValueTupleExtensions.AsEnumerable<T>((T, T, T, T, T, T))
-  nameWithType.vb: ValueTupleExtensions.AsEnumerable(Of T)((T, T, T, T, T, T))
-- uid: PAC.ValueTupleExtensions.AsEnumerable``1(System.ValueTuple{``0,``0,``0,``0,``0})
-  name: AsEnumerable<T>((T, T, T, T, T))
-  href: api/PAC.ValueTupleExtensions.html#PAC_ValueTupleExtensions_AsEnumerable__1_System_ValueTuple___0___0___0___0___0__
-  commentId: M:PAC.ValueTupleExtensions.AsEnumerable``1(System.ValueTuple{``0,``0,``0,``0,``0})
-  name.vb: AsEnumerable(Of T)((T, T, T, T, T))
-  fullName: PAC.ValueTupleExtensions.AsEnumerable<T>((T, T, T, T, T))
-  fullName.vb: PAC.ValueTupleExtensions.AsEnumerable(Of T)((T, T, T, T, T))
-  nameWithType: ValueTupleExtensions.AsEnumerable<T>((T, T, T, T, T))
-  nameWithType.vb: ValueTupleExtensions.AsEnumerable(Of T)((T, T, T, T, T))
-- uid: PAC.ValueTupleExtensions.AsEnumerable``1(System.ValueTuple{``0,``0,``0,``0})
-  name: AsEnumerable<T>((T, T, T, T))
-  href: api/PAC.ValueTupleExtensions.html#PAC_ValueTupleExtensions_AsEnumerable__1_System_ValueTuple___0___0___0___0__
-  commentId: M:PAC.ValueTupleExtensions.AsEnumerable``1(System.ValueTuple{``0,``0,``0,``0})
-  name.vb: AsEnumerable(Of T)((T, T, T, T))
-  fullName: PAC.ValueTupleExtensions.AsEnumerable<T>((T, T, T, T))
-  fullName.vb: PAC.ValueTupleExtensions.AsEnumerable(Of T)((T, T, T, T))
-  nameWithType: ValueTupleExtensions.AsEnumerable<T>((T, T, T, T))
-  nameWithType.vb: ValueTupleExtensions.AsEnumerable(Of T)((T, T, T, T))
-- uid: PAC.ValueTupleExtensions.AsEnumerable``1(System.ValueTuple{``0,``0,``0})
-  name: AsEnumerable<T>((T, T, T))
-  href: api/PAC.ValueTupleExtensions.html#PAC_ValueTupleExtensions_AsEnumerable__1_System_ValueTuple___0___0___0__
-  commentId: M:PAC.ValueTupleExtensions.AsEnumerable``1(System.ValueTuple{``0,``0,``0})
-  name.vb: AsEnumerable(Of T)((T, T, T))
-  fullName: PAC.ValueTupleExtensions.AsEnumerable<T>((T, T, T))
-  fullName.vb: PAC.ValueTupleExtensions.AsEnumerable(Of T)((T, T, T))
-  nameWithType: ValueTupleExtensions.AsEnumerable<T>((T, T, T))
-  nameWithType.vb: ValueTupleExtensions.AsEnumerable(Of T)((T, T, T))
-- uid: PAC.ValueTupleExtensions.AsEnumerable``1(System.ValueTuple{``0,``0})
-  name: AsEnumerable<T>((T, T))
-  href: api/PAC.ValueTupleExtensions.html#PAC_ValueTupleExtensions_AsEnumerable__1_System_ValueTuple___0___0__
-  commentId: M:PAC.ValueTupleExtensions.AsEnumerable``1(System.ValueTuple{``0,``0})
-  name.vb: AsEnumerable(Of T)((T, T))
-  fullName: PAC.ValueTupleExtensions.AsEnumerable<T>((T, T))
-  fullName.vb: PAC.ValueTupleExtensions.AsEnumerable(Of T)((T, T))
-  nameWithType: ValueTupleExtensions.AsEnumerable<T>((T, T))
-  nameWithType.vb: ValueTupleExtensions.AsEnumerable(Of T)((T, T))
-- uid: PAC.ValueTupleExtensions.AsEnumerable``1(System.ValueTuple{``0})
-  name: AsEnumerable<T>(ValueTuple<T>)
-  href: api/PAC.ValueTupleExtensions.html#PAC_ValueTupleExtensions_AsEnumerable__1_System_ValueTuple___0__
-  commentId: M:PAC.ValueTupleExtensions.AsEnumerable``1(System.ValueTuple{``0})
-  name.vb: ''
-  fullName: PAC.ValueTupleExtensions.AsEnumerable<T>(System.ValueTuple<T>)
-  fullName.vb: ''
-  nameWithType: ValueTupleExtensions.AsEnumerable<T>(ValueTuple<T>)
-  nameWithType.vb: ''
-- uid: PAC.ValueTupleExtensions.Index*
-  name: Index
-  href: api/PAC.ValueTupleExtensions.html#PAC_ValueTupleExtensions_Index_
-  commentId: Overload:PAC.ValueTupleExtensions.Index
-  isSpec: "True"
-  fullName: PAC.ValueTupleExtensions.Index
-  nameWithType: ValueTupleExtensions.Index
-- uid: PAC.ValueTupleExtensions.Index``1(System.ValueTuple{``0,``0,``0,``0,``0,``0,``0},System.Int32)
-  name: Index<T>((T, T, T, T, T, T, T), int)
-  href: api/PAC.ValueTupleExtensions.html#PAC_ValueTupleExtensions_Index__1_System_ValueTuple___0___0___0___0___0___0___0__System_Int32_
-  commentId: M:PAC.ValueTupleExtensions.Index``1(System.ValueTuple{``0,``0,``0,``0,``0,``0,``0},System.Int32)
-  name.vb: Index(Of T)((T, T, T, T, T, T, T), Integer)
-  fullName: PAC.ValueTupleExtensions.Index<T>((T, T, T, T, T, T, T), int)
-  fullName.vb: PAC.ValueTupleExtensions.Index(Of T)((T, T, T, T, T, T, T), Integer)
-  nameWithType: ValueTupleExtensions.Index<T>((T, T, T, T, T, T, T), int)
-  nameWithType.vb: ValueTupleExtensions.Index(Of T)((T, T, T, T, T, T, T), Integer)
-- uid: PAC.ValueTupleExtensions.Index``1(System.ValueTuple{``0,``0,``0,``0,``0,``0},System.Int32)
-  name: Index<T>((T, T, T, T, T, T), int)
-  href: api/PAC.ValueTupleExtensions.html#PAC_ValueTupleExtensions_Index__1_System_ValueTuple___0___0___0___0___0___0__System_Int32_
-  commentId: M:PAC.ValueTupleExtensions.Index``1(System.ValueTuple{``0,``0,``0,``0,``0,``0},System.Int32)
-  name.vb: Index(Of T)((T, T, T, T, T, T), Integer)
-  fullName: PAC.ValueTupleExtensions.Index<T>((T, T, T, T, T, T), int)
-  fullName.vb: PAC.ValueTupleExtensions.Index(Of T)((T, T, T, T, T, T), Integer)
-  nameWithType: ValueTupleExtensions.Index<T>((T, T, T, T, T, T), int)
-  nameWithType.vb: ValueTupleExtensions.Index(Of T)((T, T, T, T, T, T), Integer)
-- uid: PAC.ValueTupleExtensions.Index``1(System.ValueTuple{``0,``0,``0,``0,``0},System.Int32)
-  name: Index<T>((T, T, T, T, T), int)
-  href: api/PAC.ValueTupleExtensions.html#PAC_ValueTupleExtensions_Index__1_System_ValueTuple___0___0___0___0___0__System_Int32_
-  commentId: M:PAC.ValueTupleExtensions.Index``1(System.ValueTuple{``0,``0,``0,``0,``0},System.Int32)
-  name.vb: Index(Of T)((T, T, T, T, T), Integer)
-  fullName: PAC.ValueTupleExtensions.Index<T>((T, T, T, T, T), int)
-  fullName.vb: PAC.ValueTupleExtensions.Index(Of T)((T, T, T, T, T), Integer)
-  nameWithType: ValueTupleExtensions.Index<T>((T, T, T, T, T), int)
-  nameWithType.vb: ValueTupleExtensions.Index(Of T)((T, T, T, T, T), Integer)
-- uid: PAC.ValueTupleExtensions.Index``1(System.ValueTuple{``0,``0,``0,``0},System.Int32)
-  name: Index<T>((T, T, T, T), int)
-  href: api/PAC.ValueTupleExtensions.html#PAC_ValueTupleExtensions_Index__1_System_ValueTuple___0___0___0___0__System_Int32_
-  commentId: M:PAC.ValueTupleExtensions.Index``1(System.ValueTuple{``0,``0,``0,``0},System.Int32)
-  name.vb: Index(Of T)((T, T, T, T), Integer)
-  fullName: PAC.ValueTupleExtensions.Index<T>((T, T, T, T), int)
-  fullName.vb: PAC.ValueTupleExtensions.Index(Of T)((T, T, T, T), Integer)
-  nameWithType: ValueTupleExtensions.Index<T>((T, T, T, T), int)
-  nameWithType.vb: ValueTupleExtensions.Index(Of T)((T, T, T, T), Integer)
-- uid: PAC.ValueTupleExtensions.Index``1(System.ValueTuple{``0,``0,``0},System.Int32)
-  name: Index<T>((T, T, T), int)
-  href: api/PAC.ValueTupleExtensions.html#PAC_ValueTupleExtensions_Index__1_System_ValueTuple___0___0___0__System_Int32_
-  commentId: M:PAC.ValueTupleExtensions.Index``1(System.ValueTuple{``0,``0,``0},System.Int32)
-  name.vb: Index(Of T)((T, T, T), Integer)
-  fullName: PAC.ValueTupleExtensions.Index<T>((T, T, T), int)
-  fullName.vb: PAC.ValueTupleExtensions.Index(Of T)((T, T, T), Integer)
-  nameWithType: ValueTupleExtensions.Index<T>((T, T, T), int)
-  nameWithType.vb: ValueTupleExtensions.Index(Of T)((T, T, T), Integer)
-- uid: PAC.ValueTupleExtensions.Index``1(System.ValueTuple{``0,``0},System.Int32)
-  name: Index<T>((T, T), int)
-  href: api/PAC.ValueTupleExtensions.html#PAC_ValueTupleExtensions_Index__1_System_ValueTuple___0___0__System_Int32_
-  commentId: M:PAC.ValueTupleExtensions.Index``1(System.ValueTuple{``0,``0},System.Int32)
-  name.vb: Index(Of T)((T, T), Integer)
-  fullName: PAC.ValueTupleExtensions.Index<T>((T, T), int)
-  fullName.vb: PAC.ValueTupleExtensions.Index(Of T)((T, T), Integer)
-  nameWithType: ValueTupleExtensions.Index<T>((T, T), int)
-  nameWithType.vb: ValueTupleExtensions.Index(Of T)((T, T), Integer)
-- uid: PAC.ValueTupleExtensions.Index``1(System.ValueTuple{``0},System.Int32)
-  name: Index<T>(ValueTuple<T>, int)
-  href: api/PAC.ValueTupleExtensions.html#PAC_ValueTupleExtensions_Index__1_System_ValueTuple___0__System_Int32_
-  commentId: M:PAC.ValueTupleExtensions.Index``1(System.ValueTuple{``0},System.Int32)
-  name.vb: ''
-  fullName: PAC.ValueTupleExtensions.Index<T>(System.ValueTuple<T>, int)
-  fullName.vb: ''
-  nameWithType: ValueTupleExtensions.Index<T>(ValueTuple<T>, int)
-  nameWithType.vb: ''
 - uid: System.Runtime.CompilerServices
   name: System.Runtime.CompilerServices
   href: api/System.Runtime.CompilerServices.html

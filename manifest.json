@@ -1030,6 +1030,20 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/PAC.Extensions.ValueTupleExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.Extensions.ValueTupleExtensions.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "PAC.Extensions.ValueTupleExtensions",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/PAC.Extensions.yml",
       "output": {
         ".html": {
@@ -3182,20 +3196,6 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "PAC.UndoRedo",
-      "Summary": null
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/PAC.ValueTupleExtensions.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/PAC.ValueTupleExtensions.html"
-        }
-      },
-      "version": "",
-      "Uid": null,
-      "IsMRef": true,
-      "Title": "PAC.ValueTupleExtensions",
       "Summary": null
     },
     {
