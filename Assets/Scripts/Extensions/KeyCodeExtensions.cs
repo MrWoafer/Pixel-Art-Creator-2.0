@@ -83,9 +83,6 @@ namespace PAC.Extensions
             return false;
         }
 
-        public static bool IsAlphanumeric(KeyCode keyCode)
-        {
-            return IsDigit(keyCode) || IsAlpha(keyCode);
-        }
+        public static bool IsAlphanumeric(KeyCode keyCode) => IsDigit(keyCode) || IsAlpha(keyCode);
     }
 }
