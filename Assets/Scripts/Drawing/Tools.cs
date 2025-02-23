@@ -3,6 +3,7 @@ using System.Linq;
 using PAC.DataStructures;
 using PAC.Extensions;
 using PAC.Files;
+using PAC.ImageEditing;
 using PAC.Layers;
 using PAC.Patterns;
 using PAC.Shapes;
@@ -88,7 +89,12 @@ namespace PAC.Drawing
         }
         public static void UseFill(File file, int layer, int frame, IntVector2 pixel, Color colour, int maxNumOfIterations = 1_000_000)
         {
-            file.layers[layer].SetPixels(Texture2DExtensions.GetFloodFillPixels(file.layers[layer][frame].texture, pixel, maxNumOfIterations), frame, colour, AnimFrameRefMode.NewKeyFrame);
+            file.layers[layer].SetPixels(
+                FloodFill.GetFloodFillPixels(file.layers[layer][frame].texture, pixel, maxNumOfIterations),
+                frame,
+                colour,
+                AnimFrameRefMode.NewKeyFrame
+                );
         }
 
         public static void UseShape(File file, int layer, int frame, IShape shape, Color colour)
