@@ -2,8 +2,14 @@ using UnityEngine;
 
 namespace PAC.Extensions
 {
+    /// <summary>
+    /// Extension methods for Unity's <see cref="KeyCode"/>.
+    /// </summary>
     public static class KeyCodeExtensions
     {
+        /// <summary>
+        /// Parses the given <see cref="string"/> as a Unity <see cref="KeyCode"/>.
+        /// </summary>
         public static KeyCode Parse(string str) => str.ToLower() switch
         {
             "a" => KeyCode.A,
