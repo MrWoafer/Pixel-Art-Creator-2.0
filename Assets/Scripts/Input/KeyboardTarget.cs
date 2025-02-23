@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using PAC.DataStructures;
+using PAC.Extensions;
 using PAC.KeyboardShortcuts;
 using UnityEngine;
 using UnityEngine.Events;
@@ -9,7 +10,7 @@ namespace PAC.Input
 {
     public class KeyboardTarget
     {
-        private Dictionary<CustomKeyCode, bool> keyHeldStates = new Dictionary<CustomKeyCode, bool>();
+        private Dictionary<CustomKeyCode, bool> keyHeldStates;
 
         /// <summary>The keys that are currently held down, in order of when they were pressed (most recent on top).</summary>
         private CustomStack<CustomKeyCode> _keysHeld = new CustomStack<CustomKeyCode>();
@@ -42,35 +43,71 @@ namespace PAC.Input
         {
             inputSystem = Finder.inputSystem;
 
-            foreach (char chr in "abcdefghijklmnopqrstuvwxyz0123456789,.;:<>_/\\?!*")
+            keyHeldStates = new Dictionary<CustomKeyCode, bool>
             {
-                CustomKeyCode keyCode = KeyCodeFunctions.StrToKeyCode(chr.ToString());
-                if (keyCode != KeyCode.None)
-                {
-                    keyHeldStates.Add(keyCode, false);
-                }
-            }
-            keyHeldStates.Add(KeyCode.Space, false);
-            keyHeldStates.Add(KeyCode.Backspace, false);
-            keyHeldStates.Add(KeyCode.Escape, false);
-            keyHeldStates.Add(KeyCode.Return, false);
-            keyHeldStates.Add(CustomKeyCode.Shift, false);
-            keyHeldStates.Add(CustomKeyCode.Ctrl, false);
-            keyHeldStates.Add(CustomKeyCode.Alt, false);
-            keyHeldStates.Add(CustomKeyCode.Plus, false);
-            keyHeldStates.Add(CustomKeyCode.Minus, false);
-            keyHeldStates.Add(KeyCode.Delete, false);
-            keyHeldStates.Add(KeyCode.UpArrow, false);
-            keyHeldStates.Add(KeyCode.DownArrow, false);
-            keyHeldStates.Add(KeyCode.LeftArrow, false);
-            keyHeldStates.Add(KeyCode.RightArrow, false);
-            keyHeldStates.Add(CustomKeyCode.GreaterThan, false);
-            keyHeldStates.Add(CustomKeyCode.LessThan, false);
+                [KeyCode.A] = false,
+                [KeyCode.B] = false,
+                [KeyCode.C] = false,
+                [KeyCode.D] = false,
+                [KeyCode.E] = false,
+                [KeyCode.F] = false,
+                [KeyCode.G] = false,
+                [KeyCode.H] = false,
+                [KeyCode.I] = false,
+                [KeyCode.J] = false,
+                [KeyCode.K] = false,
+                [KeyCode.L] = false,
+                [KeyCode.M] = false,
+                [KeyCode.N] = false,
+                [KeyCode.O] = false,
+                [KeyCode.P] = false,
+                [KeyCode.Q] = false,
+                [KeyCode.R] = false,
+                [KeyCode.S] = false,
+                [KeyCode.T] = false,
+                [KeyCode.U] = false,
+                [KeyCode.V] = false,
+                [KeyCode.W] = false,
+                [KeyCode.X] = false,
+                [KeyCode.Y] = false,
+                [KeyCode.Z] = false,
 
-            if (keyHeldStates.ContainsKey(KeyCode.None))
-            {
-                keyHeldStates.Remove(KeyCode.None);
-            }
+                [KeyCode.Alpha0] = false,
+                [KeyCode.Alpha1] = false,
+                [KeyCode.Alpha2] = false,
+                [KeyCode.Alpha3] = false,
+                [KeyCode.Alpha4] = false,
+                [KeyCode.Alpha5] = false,
+                [KeyCode.Alpha6] = false,
+                [KeyCode.Alpha7] = false,
+                [KeyCode.Alpha8] = false,
+                [KeyCode.Alpha9] = false,
+
+                [KeyCode.Space] = false,
+                [KeyCode.Return] = false,
+                [KeyCode.Backspace] = false,
+                [KeyCode.Delete] = false,
+                [KeyCode.Escape] = false,
+
+                [CustomKeyCode.Shift] = false,
+                [CustomKeyCode.Ctrl] = false,
+                [CustomKeyCode.Alt] = false,
+                [CustomKeyCode.Plus] = false,
+                [CustomKeyCode.Minus] = false,
+
+                [KeyCode.UpArrow] = false,
+                [KeyCode.DownArrow] = false,
+                [KeyCode.LeftArrow] = false,
+                [KeyCode.RightArrow] = false,
+
+                [CustomKeyCode.GreaterThan] = false,
+                [CustomKeyCode.LessThan] = false,
+                [KeyCode.Semicolon] = false,
+
+                [KeyCode.Underscore] = false,
+                [KeyCode.Slash] = false,
+                [KeyCode.Backslash] = false,
+            };
         }
 
         /// <summary>

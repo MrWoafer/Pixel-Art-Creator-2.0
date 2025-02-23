@@ -9,6 +9,8 @@ using UnityEngine;
 using UnityEngine.Events;
 using PAC.Json;
 using System.Runtime.Serialization;
+using PAC.Extensions;
+using PAC.ImageEditing;
 
 namespace PAC.Files
 {
@@ -215,7 +217,7 @@ namespace PAC.Files
                 throw new System.Exception("filePath doesn't exist: " + filePath);
             }
 
-            Texture2D texture = Tex2DSprite.LoadFromFile(filePath);
+            Texture2D texture = Texture2DExtensions.LoadFromFile(filePath);
             if (texture == null)
             {
                 throw new System.Exception("Loaded texture is null.");
@@ -278,7 +280,7 @@ namespace PAC.Files
                 throw new System.Exception("filePath doesn't exist: " + filePath);
             }
 
-            Texture2D texture = Tex2DSprite.LoadFromFile(filePath);
+            Texture2D texture = Texture2DExtensions.LoadFromFile(filePath);
             if (texture == null)
             {
                 throw new System.Exception("Loaded texture is null.");
@@ -397,8 +399,7 @@ namespace PAC.Files
                 throw new System.Exception("The file is not a PNG file. File extension: " + Path.GetExtension(filePath));
             }
 
-            Texture2D texture = Render(frame);
-            texture.Apply();
+            Texture2D texture = Render(frame).Applied();
 
             byte[] bytes = texture.EncodeToPNG();
             System.IO.File.WriteAllBytes(filePath, bytes);
@@ -417,8 +418,7 @@ namespace PAC.Files
                 throw new System.Exception("The file is not a JPEG/JPG file. File extension: " + Path.GetExtension(filePath));
             }
 
-            Texture2D texture = Render(frame);
-            texture.Apply();
+            Texture2D texture = Render(frame).Applied();
 
             byte[] bytes = texture.EncodeToJPG();
             System.IO.File.WriteAllBytes(filePath, bytes);
@@ -505,7 +505,7 @@ namespace PAC.Files
         /// <summary>
         /// Adds a blank normal layer at the given index.
         /// </summary>
-        public void AddNormalLayer(int index) => AddNormalLayer(Tex2DSprite.BlankTexture(width, height), index);
+        public void AddNormalLayer(int index) => AddNormalLayer(Texture2DCreator.Transparent(width, height), index);
         /// <summary>
         /// Adds a normal layer at the given index with the given texture.
         /// </summary>
@@ -714,7 +714,7 @@ namespace PAC.Files
 
             if (!inclusive && (highestLayer == lowestLayer || highestLayer == lowestLayer - 1))
             {
-                return Tex2DSprite.BlankTexture(width, height);
+                return Texture2DCreator.Transparent(width, height);
             }
 
             // Get the indices of the highest / lowest visible layers so that we don't waste time rendering some invisible layers.
@@ -741,10 +741,10 @@ namespace PAC.Files
 
             if (highestVisibleLayer == -1)
             {
-                return Tex2DSprite.BlankTexture(width, height);
+                return Texture2DCreator.Transparent(width, height);
             }
 
-            return RenderLayers(Functions.Range(highestVisibleLayer, lowestVisibleLayer), frame);
+            return RenderLayers(IntRange.InclIncl(highestVisibleLayer, lowestVisibleLayer), frame);
         }
 
         /// <summary>
@@ -752,11 +752,11 @@ namespace PAC.Files
         /// Does not apply the texture.
         /// </summary>
         /// <param name="layerIndices">The layer indices in the order you want them to be rendered, from highest layer (so lowest index) to lowest.</param>
-        public Texture2D RenderLayers(int[] layerIndices, int frame)
+        public Texture2D RenderLayers(IEnumerable<int> layerIndices, int frame)
         {
-            if (layerIndices.Length == 0)
+            if (layerIndices.None())
             {
-                return Tex2DSprite.BlankTexture(width, height);
+                return Texture2DCreator.Transparent(width, height);
             }
 
             Texture2D tex = new Texture2D(width, height);
@@ -780,7 +780,7 @@ namespace PAC.Files
         {
             if (layer == 0 && !inclusive)
             {
-                return Tex2DSprite.BlankTexture(width, height);
+                return Texture2DCreator.Transparent(width, height);
             }
             return RenderLayers(0, layer - (inclusive ? 0 : 1), frame);
         }
@@ -793,7 +793,7 @@ namespace PAC.Files
         {
             if (layer == layers.Count - 1 && !inclusive)
             {
-                return Tex2DSprite.BlankTexture(width, height);
+                return Texture2DCreator.Transparent(width, height);
             }
             return RenderLayers(layer + (inclusive ? 0 : 1), layers.Count - 1, frame);
         }
@@ -836,29 +836,29 @@ namespace PAC.Files
                 throw new System.Exception("inclusive == false and there are no layers strictly between the highest layer and the lowest layer. highestLayer: " + highestLayer + "; lowestLayer: " + lowestLayer);
             }
 
-            return RenderPixel(x, y, Functions.Range(highestLayer + (inclusive ? 0 : 1), lowestLayer - (inclusive ? 0 : 1)), frame);
+            return RenderPixel(x, y, new IntRange(highestLayer, lowestLayer, inclusive, inclusive), frame);
         }
         /// <summary>
         /// Renders the colour of the pixel on the layers at the given layer indices. Throws an error if there are no layer indices.
         /// </summary>
-        public Color RenderPixel(IntVector2 pixel, int[] layerIndices, int frame) => RenderPixel(pixel.x, pixel.y, layerIndices, frame);
+        public Color RenderPixel(IntVector2 pixel, IEnumerable<int> layerIndices, int frame) => RenderPixel(pixel.x, pixel.y, layerIndices, frame);
         /// <summary>
         /// Renders the colour of pixel (x, y) on the layers at the given layer indices. Throws an error if there are no layer indices.
         /// </summary>
-        public Color RenderPixel(int x, int y, int[] layerIndices, int frame)
+        public Color RenderPixel(int x, int y, IEnumerable<int> layerIndices, int frame)
         {
-            if (layerIndices.Length == 0)
+            if (layerIndices.None())
             {
                 throw new System.Exception("layerIndices cannot be empty.");
             }
 
             Color pixelColour = new Color(0f, 0f, 0f, 0f);
-            for (int i = layerIndices.Length - 1; i >= 0; i--)
+            foreach (int i in layerIndices.Reverse())
             {
-                if (layers[layerIndices[i]].visible)
+                if (layers[i].visible)
                 {
-                    Color layerPixelColour = layers[layerIndices[i]].GetPixel(x, y, frame);
-                    pixelColour = layers[layerIndices[i]].blendMode.Blend(layerPixelColour, pixelColour);
+                    Color layerPixelColour = layers[i].GetPixel(x, y, frame);
+                    pixelColour = layers[i].blendMode.Blend(layerPixelColour, pixelColour);
                 }
             }
 
@@ -871,7 +871,7 @@ namespace PAC.Files
         private void RerenderLiveRender()
         {
             Color[] pixels = new Color[rect.Count];
-            int[] layerIndices = Functions.Range(0, layers.Count() - 1);
+            IEnumerable<int> layerIndices = IntRange.InclExcl(0, layers.Count);
 
             int index = 0;
             for (int y = 0; y < height; y++)

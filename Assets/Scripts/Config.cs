@@ -17,7 +17,7 @@ namespace PAC.Config
 
     public static class Colours
     {
-        public static readonly Color transparent = new Color(0f, 0f, 0f, 0f);
+        public static readonly Color32 transparent = new Color32(0, 0, 0, 0);
 
         public static readonly Color mask = new Color(1f, 1f, 1f, 1f);
 

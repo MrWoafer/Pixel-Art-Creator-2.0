@@ -1,3 +1,4 @@
+using PAC.Extensions;
 using PAC.Input;
 using UnityEngine;
 using UnityEngine.Events;
@@ -252,7 +253,7 @@ namespace PAC.UI
             {
                 foreach(char chr in allowedCharacters)
                 {
-                    if (inputTarget.keyboardTarget.IsPressed(KeyCodeFunctions.StrToKeyCode(chr.ToString())))
+                    if (KeyCodeExtensions.TryParse(chr.ToString(), out KeyCode keyCode) && inputTarget.keyboardTarget.IsPressed(keyCode))
                     {
                         _text += chr;
                         inputMade = true;

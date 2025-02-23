@@ -18,6 +18,7 @@ using PAC.Extensions;
 using System;
 using PAC.Shapes;
 using PAC.Shapes.Interfaces;
+using PAC.ImageEditing;
 
 namespace PAC.Drawing
 {
@@ -101,7 +102,7 @@ namespace PAC.Drawing
         public Texture2D selectionMask
         {
             get => selectionSprRen.sprite.texture;
-            private set => selectionSprRen.sprite = Tex2DSprite.Tex2DToSprite(value);
+            private set => selectionSprRen.sprite = value.ToSprite();
         }
         private SpriteRenderer selectionSprRen;
         public bool hasSelection
@@ -310,7 +311,7 @@ namespace PAC.Drawing
             // Moving view
             if (inputTarget.mouseTarget.state == MouseTargetState.Pressed && middleClickedOn)
             {
-                transform.position = Functions.Vector2ToVector3(mouse.worldPos + moveOffsetFromMouse) + Vector3.forward * transform.position.z;
+                transform.position = (Vector3)(mouse.worldPos + moveOffsetFromMouse) + Vector3.forward * transform.position.z;
                 mouse.SetCursorSprite(CursorState.Grab);
             }
 
@@ -346,12 +347,12 @@ namespace PAC.Drawing
 
         private void InitialiseDisplay()
         {
-            drawingSprRen.sprite = Tex2DSprite.Tex2DToSprite(file.liveRender);
-            backgroundSprRen.sprite = Tex2DSprite.Tex2DToSprite(Tex2DSprite.CheckerboardBackground(file.width, file.height));
+            drawingSprRen.sprite = file.liveRender.ToSprite();
+            backgroundSprRen.sprite = Texture2DCreator.TransparentCheckerboardBackground(file.width, file.height).ToSprite();
             //backgroundSprRen.material.SetFloat("_Width", 2f * file.width);
             //backgroundSprRen.material.SetFloat("_Height", 2f * file.height);
-            previewSprRen.sprite = Tex2DSprite.Tex2DToSprite(Tex2DSprite.BlankTexture(1, 1));
-            selectionMask = Tex2DSprite.BlankTexture(file.width, file.height);
+            previewSprRen.sprite = Texture2DCreator.Transparent(1, 1).ToSprite();
+            selectionMask = Texture2DCreator.Transparent(file.width, file.height);
 
             collider.size = new Vector2(file.width / pixelsPerUnit, file.height / pixelsPerUnit);
             drawingAreaMask.transform.localScale = new Vector3(file.width / pixelsPerUnit, file.height / pixelsPerUnit, 1f);
@@ -374,7 +375,7 @@ namespace PAC.Drawing
         private void SetPreview(Texture2D texture, IntVector2 pixel) => SetPreview(texture, pixel.x, pixel.y);
         private void SetPreview(Texture2D texture, int x, int y)
         {
-            previewSprRen.sprite = Tex2DSprite.Tex2DToSprite(texture);
+            previewSprRen.sprite = texture.ToSprite();
             previewSprRen.transform.localScale = Vector3.one * Mathf.Max(texture.width, texture.height) / pixelsPerUnit;
 
             SetPreviewPosition(x, y);
@@ -388,7 +389,7 @@ namespace PAC.Drawing
 
         private void ClearPreview()
         {
-            SetPreview(Tex2DSprite.BlankTexture(1, 1), 0, 0);
+            SetPreview(Texture2DCreator.Transparent(1, 1), 0, 0);
         }
 
         private void HideBrushBorder()
@@ -407,7 +408,7 @@ namespace PAC.Drawing
         }
         private void UpdateBrushBorder(IntVector2 pixel)
         {
-            brushBorderSprRen.sprite = Tex2DSprite.Tex2DToSprite(toolbar.brushTexture);
+            brushBorderSprRen.sprite = toolbar.brushTexture.ToSprite();
 
             float scaleFactor = Mathf.Max(toolbar.brushTexture.width, toolbar.brushTexture.height) / pixelsPerUnit;
             brushBorderSprRen.transform.localScale = new Vector3(scaleFactor, scaleFactor, 1f);
@@ -428,7 +429,7 @@ namespace PAC.Drawing
             {
                 outlineColour = Config.Colours.brushOutlineLight;
             }
-            brushBorderSprRen.GetComponent<Outline>().colour = outlineColour;
+            brushBorderSprRen.GetComponent<Shaders.Outline>().colour = outlineColour;
         }
 
         /// <summary>
@@ -450,7 +451,7 @@ namespace PAC.Drawing
                 transform.localScale = Vector3.one;
             }
 
-            transform.position = transform.position + Functions.Vector2ToVector3(focusPoint - Functions.Vector3ToVector2(transform.TransformPoint(zoomPointLocalCoords)));
+            transform.position = transform.position + (Vector3)(focusPoint - (Vector2)transform.TransformPoint(zoomPointLocalCoords));
         }
 
         /// <summary>
@@ -496,7 +497,7 @@ namespace PAC.Drawing
 
                 if (middleClickedOn)
                 {
-                    moveOffsetFromMouse = Functions.Vector3ToVector2(transform.position) - mouse.worldPos;
+                    moveOffsetFromMouse = (Vector2)transform.position - mouse.worldPos;
                 }
                 else
                 {
@@ -533,8 +534,7 @@ namespace PAC.Drawing
                                 tileBeingMovedOriginalBottomLeft = tileBeingMoved.bottomLeft;
                                 tileBeingMovedLastValidPosition = tileBeingMoved.bottomLeft;
 
-                                tileBeingMoved.file.liveRender.Apply();
-                                SetPreview(tileBeingMoved.file.liveRender, tileBeingMoved.bottomLeft);
+                                SetPreview(tileBeingMoved.file.liveRender.Applied(), tileBeingMoved.bottomLeft);
 
                                 file.RemoveTile(tileBeingMoved);
                             }
@@ -1057,13 +1057,19 @@ namespace PAC.Drawing
             {
                 Texture2D bottomLayers = file.RenderLayersBelow(selectedLayerIndex, currentFrameIndex);
                 Texture2D topLayers = file.RenderLayersAbove(selectedLayerIndex, currentFrameIndex);
-                drawingSprRen.sprite = Tex2DSprite.Tex2DToSprite(Tex2DSprite.Overlay(topLayers, Tex2DSprite.Overlay(selectionTexture, bottomLayers, mouseCoords - mouseDragPoints[0])));
+                drawingSprRen.sprite = topLayers.Blend(
+                    selectionTexture.Blend(bottomLayers, BlendMode.Normal, mouseCoords - mouseDragPoints[0]),
+                    BlendMode.Normal
+                    ).ToSprite();
             }
             else
             {
                 Texture2D bottomLayers = file.RenderLayersBelow(selectedLayerIndex, currentFrameIndex);
                 Texture2D topLayers = file.RenderLayersAbove(selectedLayerIndex, currentFrameIndex);
-                drawingSprRen.sprite = Tex2DSprite.Tex2DToSprite(Tex2DSprite.Overlay(topLayers, Tex2DSprite.Overlay(selectionTexture, bottomLayers, mouseCoords - mouseDragPoints[0])));
+                drawingSprRen.sprite = topLayers.Blend(
+                    selectionTexture.Blend(bottomLayers, BlendMode.Normal, mouseCoords - mouseDragPoints[0]),
+                    BlendMode.Normal
+                    ).ToSprite();
             }
         }
 
@@ -1072,32 +1078,44 @@ namespace PAC.Drawing
             Texture2D tex = shape.ToTexture(Config.Colours.mask, file.rect);
             if (erase)
             {
-                selectionMask = Tex2DSprite.Subtract(selectionMask, tex);
+                selectionMask = selectionMask.Blend(tex, BlendMode.Subtract);
             }
         }
 
         private void SelectionMagicWand(IntVector2 pixel, bool erase, bool addToExistingSelection)
         {
+            static Texture2D GetMagicWandMask(Texture2D texture, IntVector2 clickPoint)
+            {
+                Texture2D fillMask = Texture2DCreator.Transparent(texture.width, texture.height);
+
+                foreach (IntVector2 pixel in FloodFill.GetPixelsToFill(texture, clickPoint))
+                {
+                    fillMask.SetPixel(pixel.x, pixel.y, Config.Colours.mask);
+                }
+
+                return fillMask;
+            }
+
             if (erase)
             {
                 if (selectionMask.GetPixel(pixel.x, pixel.y).a != 0f)
                 {
-                    selectionMask = Tex2DSprite.Subtract(selectionMask, Tex2DSprite.GetFillMask(selectedLayer[animationManager.currentFrameIndex].texture, pixel));
+                    selectionMask = selectionMask.Blend(GetMagicWandMask(selectedLayer[animationManager.currentFrameIndex].texture, pixel), BlendMode.Subtract);
                 }
                 else
                 {
-                    selectionMask = Tex2DSprite.Subtract(selectionMask, Tex2DSprite.GetFillMask(selectionMask, pixel));
+                    selectionMask = selectionMask.Blend(GetMagicWandMask(selectionMask, pixel), BlendMode.Subtract);
                 }
             }
             else
             {
                 if (addToExistingSelection)
                 {
-                    selectionMask = Tex2DSprite.Overlay(selectionMask, Tex2DSprite.GetFillMask(selectedLayer[animationManager.currentFrameIndex].texture, pixel));
+                    selectionMask = selectionMask.Blend(GetMagicWandMask(selectedLayer[animationManager.currentFrameIndex].texture, pixel), BlendMode.Normal);
                 }
                 else
                 {
-                    selectionMask = Tex2DSprite.GetFillMask(selectedLayer[animationManager.currentFrameIndex].texture, pixel);
+                    selectionMask = GetMagicWandMask(selectedLayer[animationManager.currentFrameIndex].texture, pixel);
                 }
             }
         }
@@ -1105,13 +1123,12 @@ namespace PAC.Drawing
         private void SelectionDraw(IntVector2 pixel, bool erase)
         {
             selectionMask.SetPixel(pixel.x, pixel.y, erase ? Config.Colours.transparent : Config.Colours.mask);
-            selectionMask.Apply();
-            selectionMask = selectionMask;
+            selectionMask = selectionMask.Applied();
         }
 
         private void DeselectSelection()
         {
-            selectionMask = Tex2DSprite.BlankTexture(file.width, file.height);
+            selectionMask = Texture2DCreator.Transparent(file.width, file.height);
             deselectedSelectionThisFrame = true;
         }
 
@@ -1144,7 +1161,7 @@ namespace PAC.Drawing
         /// </summary>
         public IntVector2 WorldPosToPixel(Vector2 worldPos)
         {
-            Vector2 pixels = (worldPos - Functions.Vector3ToVector2(transform.position)) / transform.lossyScale * pixelsPerUnit + new Vector2(file.width, file.height) / 2f;
+            Vector2 pixels = (worldPos - (Vector2)transform.position) / transform.lossyScale * pixelsPerUnit + new Vector2(file.width, file.height) / 2f;
 
             return new IntVector2(Mathf.FloorToInt(pixels.x), Mathf.FloorToInt(pixels.y));
         }
@@ -1186,8 +1203,7 @@ namespace PAC.Drawing
             tileBeingMovedOriginalBottomLeft = tileBeingMoved.bottomLeft;
             tileBeingMovedLastValidPosition = tileBeingMoved.bottomLeft;
 
-            tileBeingMoved.file.liveRender.Apply();
-            SetPreview(tileBeingMoved.file.liveRender, tileBeingMoved.bottomLeft);
+            SetPreview(tileBeingMoved.file.liveRender.Applied(), tileBeingMoved.bottomLeft);
         }
     }
 }

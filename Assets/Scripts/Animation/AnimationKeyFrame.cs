@@ -1,7 +1,9 @@
 using PAC.DataStructures;
 using PAC.Extensions;
 using PAC.Json;
+
 using System.Runtime.Serialization;
+
 using UnityEngine;
 
 namespace PAC.Animation
@@ -30,7 +32,7 @@ namespace PAC.Animation
         /// <summary>
         /// Creates a deep copy of the AnimationKeyFrame.
         /// </summary>
-        public AnimationKeyFrame(AnimationKeyFrame animationKeyFrame) : this(animationKeyFrame.frame, Tex2DSprite.Copy(animationKeyFrame.texture)) { }
+        public AnimationKeyFrame(AnimationKeyFrame animationKeyFrame) : this(animationKeyFrame.frame, animationKeyFrame.texture.DeepCopy()) { }
 
         /// <summary>
         /// Creates a deep copy of the AnimationKeyFrame.

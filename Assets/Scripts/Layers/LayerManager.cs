@@ -1,10 +1,13 @@
 using System.Collections.Generic;
 using System.Linq;
+
 using PAC.Animation;
 using PAC.Colour;
+using PAC.Extensions;
 using PAC.Files;
 using PAC.UI;
 using PAC.UndoRedo;
+
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -227,7 +230,7 @@ namespace PAC.Layers
 
         public void DuplicateSelectedLayers()
         {
-            Layer[] previouslySelectLayers = Functions.CopyArray(selectedLayers);
+            Layer[] previouslySelectLayers = selectedLayers;
 
             for (int i = layerTiles.Count - 1; i >= 0; i--)
             {
@@ -256,11 +259,7 @@ namespace PAC.Layers
 
             if (selectedLayers.Length > 1)
             {
-                int[] keyFrames = new int[0];
-                foreach (Layer layer in selectedLayers)
-                {
-                    keyFrames = Functions.ConcatArrays(keyFrames, layer.keyFrameIndices);
-                }
+                IEnumerable<int> keyFrames = selectedLayers.Select(layer => layer.keyFrameIndices).Flatten().Distinct();
 
                 foreach (int keyFrame in keyFrames)
                 {
@@ -268,7 +267,7 @@ namespace PAC.Layers
 
                     for (int i = selectedLayers.Length - 2; i >= 0; i--)
                     {
-                        tex = Tex2DSprite.Overlay(selectedLayers[i][keyFrame].texture, tex);
+                        tex = selectedLayers[i][keyFrame].texture.Blend(tex, BlendMode.Normal);
                     }
                     ((NormalLayer)selectedLayers[^1]).SetTexture(keyFrame, tex, AnimFrameRefMode.NewKeyFrame);
                 }

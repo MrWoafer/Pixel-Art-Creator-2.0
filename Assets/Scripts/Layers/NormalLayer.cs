@@ -1,9 +1,13 @@
 using System.Collections.Generic;
 using System.Runtime.Serialization;
+
 using PAC.Animation;
 using PAC.Colour;
 using PAC.DataStructures;
+using PAC.Extensions;
+using PAC.ImageEditing;
 using PAC.Json;
+
 using UnityEngine;
 
 namespace PAC.Layers
@@ -15,9 +19,9 @@ namespace PAC.Layers
     {
         public override LayerType layerType => LayerType.Normal;
 
-        public NormalLayer(int width, int height) : this("", Tex2DSprite.BlankTexture(width, height)) { }
+        public NormalLayer(int width, int height) : this("", Texture2DCreator.Transparent(width, height)) { }
         public NormalLayer(Texture2D texture) : this("", texture) { }
-        public NormalLayer(string name, int width, int height) : this(name, Tex2DSprite.BlankTexture(width, height)) { }
+        public NormalLayer(string name, int width, int height) : this(name, Texture2DCreator.Transparent(width, height)) { }
         public NormalLayer(string name, Texture2D texture) : base(name, texture) { }
 
         /// <summary>
@@ -85,7 +89,7 @@ namespace PAC.Layers
                 AddKeyFrame(frame);
             }
 
-            GetKeyFrame(frame).texture = Tex2DSprite.Overlay(overlayTex, GetKeyFrame(frame).texture, offset);
+            GetKeyFrame(frame).texture = overlayTex.Blend(GetKeyFrame(frame).texture, BlendMode.Normal, offset);
             onPixelsChanged.Invoke(rect, new int[] { GetKeyFrame(frame).frame });
         }
         /// <summary>
@@ -104,29 +108,6 @@ namespace PAC.Layers
         }
 
         /// <summary>
-        /// Offsets the texture at the given frame. (Moves the texture so the bottom-left corner is at the coordinates 'offset'.
-        /// </summary>
-        public void Offset(int frame, IntVector2 offset, AnimFrameRefMode frameRefMode)
-        {
-            if (frameRefMode == AnimFrameRefMode.NewKeyFrame)
-            {
-                AddKeyFrame(frame);
-            }
-
-            GetKeyFrame(frame).texture = Tex2DSprite.Offset(GetKeyFrame(frame).texture, offset);
-        }
-        /// <summary>
-        /// Offsets the texture of every frame. (Moves the texture so the bottom-left corner is at the coordinates 'offset'.
-        /// </summary>
-        public void Offset(IntVector2 offset)
-        {
-            foreach (int keyFrameIndex in keyFrameIndices)
-            {
-                Offset(keyFrameIndex, offset, AnimFrameRefMode.MostRecentKeyFrame);
-            }
-        }
-
-        /// <summary>
         /// Flips the given frame of the layer.
         /// </summary>
         public void Flip(int frame, FlipAxis axis, AnimFrameRefMode frameRefMode)
@@ -136,7 +117,7 @@ namespace PAC.Layers
                 AddKeyFrame(frame);
             }
 
-            GetKeyFrame(frame).texture = Tex2DSprite.Flip(GetKeyFrame(frame).texture, axis);
+            GetKeyFrame(frame).texture = GetKeyFrame(frame).texture.Flip(axis);
 
             onPixelsChanged.Invoke(rect, new int[] { GetKeyFrame(frame).frame });
         }
@@ -144,7 +125,7 @@ namespace PAC.Layers
         {
             foreach (AnimationKeyFrame keyFrame in keyFrames)
             {
-                keyFrame.texture = Tex2DSprite.Flip(keyFrame.texture, axis);
+                keyFrame.texture = keyFrame.texture.Flip(axis);
             }
         }
 
@@ -163,7 +144,7 @@ namespace PAC.Layers
                 AddKeyFrame(frame);
             }
 
-            GetKeyFrame(frame).texture = Tex2DSprite.Rotate(GetKeyFrame(frame).texture, angle);
+            GetKeyFrame(frame).texture = GetKeyFrame(frame).texture.Rotate(angle);
 
             onPixelsChanged.Invoke(rect, new int[] { GetKeyFrame(frame).frame });
         }
@@ -176,7 +157,7 @@ namespace PAC.Layers
 
             foreach (AnimationKeyFrame keyFrame in keyFrames)
             {
-                keyFrame.texture = Tex2DSprite.Rotate(keyFrame.texture, angle);
+                keyFrame.texture = keyFrame.texture.Rotate(angle);
             }
 
             width = keyFrames[0].texture.width;
@@ -185,9 +166,10 @@ namespace PAC.Layers
 
         protected override void ExtendNoEvent(int left, int right, int up, int down)
         {
+            Texture2DExtensions.ExtendCropOptions extendCropOptions = new Texture2DExtensions.ExtendCropOptions { left = left, right = right, top = up, bottom = down };
             foreach (AnimationKeyFrame keyFrame in keyFrames)
             {
-                keyFrame.texture = Tex2DSprite.Extend(keyFrame.texture, left, right, up, down);
+                keyFrame.texture = keyFrame.texture.ExtendCrop(extendCropOptions);
             }
 
             width = keyFrames[0].texture.width;
@@ -198,7 +180,7 @@ namespace PAC.Layers
         {
             foreach (AnimationKeyFrame keyFrame in keyFrames)
             {
-                keyFrame.texture = Tex2DSprite.Scale(keyFrame.texture, xScaleFactor, yScaleFactor);
+                keyFrame.texture = keyFrame.texture.Scale(xScaleFactor, yScaleFactor);
             }
 
             width = keyFrames[0].texture.width;
@@ -208,7 +190,7 @@ namespace PAC.Layers
         {
             foreach (AnimationKeyFrame keyFrame in keyFrames)
             {
-                keyFrame.texture = Tex2DSprite.Scale(keyFrame.texture, newWidth, newHeight);
+                keyFrame.texture = keyFrame.texture.Scale(newWidth, newHeight);
             }
 
             width = keyFrames[0].texture.width;
@@ -224,7 +206,7 @@ namespace PAC.Layers
 
                 if (keyframe == 0)
                 {
-                    AddKeyFrame(0, Tex2DSprite.BlankTexture(width, height));
+                    AddKeyFrame(0, Texture2DCreator.Transparent(width, height));
                 }
 
                 return keyFrame;
@@ -235,7 +217,7 @@ namespace PAC.Layers
         public override void ClearFrames()
         {
             keyFrames = new List<AnimationKeyFrame>();
-            AddKeyFrame(0, Tex2DSprite.BlankTexture(width, height));
+            AddKeyFrame(0, Texture2DCreator.Transparent(width, height));
         }
 
         public new class JsonConverter : JsonConversion.JsonConverter<NormalLayer, JsonData.Object>

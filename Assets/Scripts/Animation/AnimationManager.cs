@@ -8,6 +8,9 @@ using PAC.Layers;
 using PAC.UI;
 using UnityEngine;
 using UnityEngine.Events;
+using PAC.Extensions;
+using PAC.Colour;
+using PAC.ImageEditing;
 
 namespace PAC.Animation
 {
@@ -349,19 +352,19 @@ namespace PAC.Animation
         {
             if (!showOnionSkin)
             {
-                onionSkin.sprite = Tex2DSprite.Tex2DToSprite(Tex2DSprite.BlankTexture(fileManager.currentFile.width, fileManager.currentFile.height));
+                onionSkin.sprite = Texture2DCreator.Transparent(fileManager.currentFile.width, fileManager.currentFile.height).ToSprite();
             }
             else if (currentFrameIndex > 0)
             {
-                onionSkin.sprite = Tex2DSprite.Tex2DToSprite(Tex2DSprite.Multiply(fileManager.currentFile.Render(currentFrameIndex - 1), onionSkinColour));
+                onionSkin.sprite = Texture2DExtensions.Blend(onionSkinColour, fileManager.currentFile.Render(currentFrameIndex - 1), BlendMode.Multiply).ToSprite();
             }
             else if (currentFrameIndex == 0 && playbackMode.selectedOption == "loop")
             {
-                onionSkin.sprite = Tex2DSprite.Tex2DToSprite(Tex2DSprite.Multiply(fileManager.currentFile.Render(currentFrameIndex - 1), onionSkinColour));
+                onionSkin.sprite = Texture2DExtensions.Blend(onionSkinColour, fileManager.currentFile.Render(currentFrameIndex - 1), BlendMode.Multiply).ToSprite();
             }
             else
             {
-                onionSkin.sprite = Tex2DSprite.Tex2DToSprite(Tex2DSprite.BlankTexture(fileManager.currentFile.width, fileManager.currentFile.height));
+                onionSkin.sprite = Texture2DCreator.Transparent(fileManager.currentFile.width, fileManager.currentFile.height).ToSprite();
             }
         }
 
@@ -440,7 +443,7 @@ namespace PAC.Animation
         /// </summary>
         public void DebugLogKeyFrames()
         {
-            Debug.Log("Current frame: " + currentFrameIndex + ". Key frames at: " + Functions.ArrayToString(layerManager.selectedLayer.keyFrameIndices));
+            Debug.Log("Current frame: " + currentFrameIndex + ". Key frames at: " + (layerManager.selectedLayer.keyFrameIndices).ToPrettyString());
         }
 
         /// <summary>

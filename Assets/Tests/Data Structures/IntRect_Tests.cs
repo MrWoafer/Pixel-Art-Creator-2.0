@@ -5,6 +5,7 @@ using System.Linq;
 using NUnit.Framework;
 
 using PAC.DataStructures;
+using PAC.Extensions;
 
 namespace PAC.Tests.DataStructures
 {
@@ -98,11 +99,11 @@ namespace PAC.Tests.DataStructures
             {
                 IntRect boundingRect = IntRect.BoundingRect(inputs);
 
-                Assert.AreEqual(expected, boundingRect, "Failed with " + Functions.ArrayToString(inputs));
+                Assert.AreEqual(expected, boundingRect, "Failed with " + inputs.ToPrettyString());
 
                 foreach (IntVector2 point in inputs)
                 {
-                    Assert.True(boundingRect.Contains(point), "Failed with " + point + " in " + Functions.ArrayToString(inputs));
+                    Assert.True(boundingRect.Contains(point), "Failed with " + point + " in " + inputs.ToPrettyString());
                 }
             }
 
@@ -128,11 +129,11 @@ namespace PAC.Tests.DataStructures
             {
                 IntRect boundingRect = IntRect.BoundingRect(inputs);
 
-                Assert.AreEqual(expected, boundingRect, "Failed with " + Functions.ArrayToString(inputs));
+                Assert.AreEqual(expected, boundingRect, "Failed with " + inputs.ToPrettyString());
 
                 foreach (IntRect rect in inputs)
                 {
-                    Assert.True(rect.ToHashSet().IsSubsetOf(boundingRect), "Failed with " + rect + " in " + Functions.ArrayToString(inputs));
+                    Assert.True(rect.ToHashSet().IsSubsetOf(boundingRect), "Failed with " + rect + " in " + inputs.ToPrettyString());
                 }
             }
 

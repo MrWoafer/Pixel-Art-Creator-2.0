@@ -1,8 +1,12 @@
 using PAC.Animation;
+using PAC.Colour;
 using PAC.DataStructures;
 using PAC.Drawing;
+using PAC.Extensions;
 using PAC.Files;
+using PAC.ImageEditing;
 using PAC.Layers;
+
 using UnityEngine;
 
 namespace PAC.Clipboard
@@ -45,7 +49,7 @@ namespace PAC.Clipboard
         {
             if (drawingArea.hasSelection)
             {
-                copiedTexture = Tex2DSprite.ChangeRect(Tex2DSprite.ApplyMask(layerManager.selectedLayer[animationManager.currentFrameIndex].texture, drawingArea.selectionMask), drawingArea.selectionRect);
+                copiedTexture = layerManager.selectedLayer[animationManager.currentFrameIndex].texture.Blend(drawingArea.selectionMask, BlendMode.Multiply).ExtendCrop(drawingArea.selectionRect);
                 copiedTexturePos = drawingArea.selectionRect.bottomLeft;
 
                 Debug.Log("Copied.");
@@ -61,7 +65,13 @@ namespace PAC.Clipboard
                     IntVector2.zero);
                 bottomLeft = IntVector2.Max(bottomLeft, IntVector2.zero);
 
-                layerManager.AddLayer(Tex2DSprite.Overlay(copiedTexture, Tex2DSprite.BlankTexture(fileManager.currentFile.width, fileManager.currentFile.height), bottomLeft));
+                layerManager.AddLayer(
+                    copiedTexture.Blend(
+                        Texture2DCreator.Transparent(fileManager.currentFile.width, fileManager.currentFile.height),
+                        BlendMode.Normal,
+                        bottomLeft
+                        )
+                    );
 
                 Debug.Log("Pasted.");
             }

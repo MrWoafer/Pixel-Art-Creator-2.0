@@ -1,4 +1,6 @@
+using PAC.Extensions;
 using PAC.Files;
+
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
@@ -81,8 +83,7 @@ namespace PAC.UI
             this.file = file;
             nameText.text = file.name;
 
-            file.liveRender.Apply();
-            button.SetImages(Tex2DSprite.Tex2DToSprite(file.liveRender), null, null);
+            button.SetImages(file.liveRender.Applied().ToSprite(), null, null);
             file.SubscribeToOnPixelsChanged((x, y, z) => file.liveRender.Apply());
         }
 

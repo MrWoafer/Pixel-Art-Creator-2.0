@@ -70,7 +70,7 @@ namespace PAC.Input
 
         public void ShowTooltip(Vector2 worldCoords)
         {
-            tooltip.transform.position = Functions.Vector2ToVector3(worldCoords) + new Vector3(tooltip.globalWidth / 2f, tooltip.globalHeight / 2f, -0.01f);
+            tooltip.transform.position = (Vector3)worldCoords + new Vector3(tooltip.globalWidth / 2f, tooltip.globalHeight / 2f, -0.01f);
 
             int iterations = 0;
             while (tooltip.GoesOffLeftOfScreen() && iterations < 100000)

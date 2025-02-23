@@ -11,103 +11,130 @@ namespace PAC.Maths
     public static class MathExtensions
     {
         /// <summary>
-        /// <para>
-        /// Returns the sign of the given float.
-        /// </para>
-        /// <para>
-        /// Note: this is different from Unity's Mathf.Sign() since this method defines the sign of 0 to be 0, whereas Mathf.Sign() defines it as 1.
-        /// </para>
+        /// Returns the sign of the given value.
         /// </summary>
+        /// <remarks>
+        /// This is different from Unity's <see cref="Mathf.Sign(float)"/> since this method defines the sign of 0 to be 0, whereas <see cref="Mathf.Sign(float)"/> defines it to be 1.
+        /// </remarks>
+        /// <returns>
+        /// <list type="bullet">
+        /// <item>
+        /// 1 if <paramref name="x"/> &gt; 0
+        /// </item>
+        /// <item>
+        /// 0 if <paramref name="x"/> = 0
+        /// </item>
+        /// <item>
+        /// -1 if <paramref name="x"/> &lt; 0
+        /// </item>
+        /// </list>
+        /// </returns>
         public static float Sign(this float x) => x switch
         {
-            0 => 0f,
-            > 0 => 1f,
-            < 0 => -1f,
+            0f => 0f,
+            > 0f => 1f,
+            < 0f => -1f,
             float.NaN => float.NaN
         };
 
         /// <summary>
-        /// <para>
-        /// Returns x if x &gt; 0, and returns 0 if x &lt;= 0.
-        /// </para>
-        /// <para>
-        /// The same as ClampPositive().
-        /// </para>
+        /// Clamps the value so it's non-negative.
         /// </summary>
-        public static int ReLU(this int x) => x switch
+        /// <returns>
+        /// <list type="bullet">
+        /// <item>
+        /// <paramref name="x"/> if <paramref name="x"/> &gt;= 0
+        /// </item>
+        /// <item>
+        /// 0 if <paramref name="x"/> &lt; 0
+        /// </item>
+        /// </list>
+        /// </returns>
+        public static int ClampNonNegative(this int x) => x switch
         {
             > 0 => x,
             <= 0 => 0
         };
         /// <summary>
-        /// <para>
-        /// Returns x if x &gt; 0, and returns 0 if x &lt;= 0.
-        /// </para>
-        /// <para>
-        /// The same as ClampPositive().
-        /// </para>
+        /// Clamps the value so it's non-negative.
         /// </summary>
-        public static long ReLU(this long x) => x switch
+        /// <returns>
+        /// <list type="bullet">
+        /// <item>
+        /// <paramref name="x"/> if <paramref name="x"/> &gt;= 0
+        /// </item>
+        /// <item>
+        /// 0 if <paramref name="x"/> &lt; 0
+        /// </item>
+        /// </list>
+        /// </returns>
+        public static long ClampNonNegative(this long x) => x switch
         {
-            > 0 => x,
-            <= 0 => 0
+            > 0L => x,
+            <= 0L => 0L
         };
         /// <summary>
-        /// <para>
-        /// Returns x if x &gt; 0, and returns 0 if x &lt;= 0.
-        /// </para>
-        /// <para>
-        /// The same as ClampPositive().
-        /// </para>
+        /// Clamps the value so it's non-negative.
         /// </summary>
-        public static float ReLU(this float x) => x switch
+        /// <returns>
+        /// <list type="bullet">
+        /// <item>
+        /// <paramref name="x"/> if <paramref name="x"/> &gt;= 0
+        /// </item>
+        /// <item>
+        /// 0 if <paramref name="x"/> &lt; 0
+        /// </item>
+        /// </list>
+        /// </returns>
+        public static float ClampNonNegative(this float x) => x switch
         {
-            > 0 => x,
-            <= 0 => 0f,
+            > 0f => x,
+            <= 0f => 0f,
             float.NaN => float.NaN
         };
-        /// <summary>
-        /// <para>
-        /// Returns x if x &gt; 0, and returns 0 if x &lt;= 0.
-        /// </para>
-        /// <para>
-        /// The same as ReLU().
-        /// </para>
-        /// </summary>
-        public static int ClampNonNegative(this int x) => ReLU(x);
-        /// <summary>
-        /// <para>
-        /// Returns x if x &gt; 0, and returns 0 if x &lt;= 0.
-        /// </para>
-        /// <para>
-        /// The same as ReLU().
-        /// </para>
-        /// </summary>
-        public static long ClampNonNegative(this long x) => ReLU(x);
-        /// <summary>
-        /// <para>
-        /// Returns x if x &gt; 0, and returns 0 if x &lt;= 0.
-        /// </para>
-        /// <para>
-        /// The same as ReLU().
-        /// </para>
-        /// </summary>
-        public static float ClampNonNegative(this float x) => ReLU(x);
-        /// <summary>
-        /// Returns x if x &lt; 0, and returns 0 if x &gt;= 0.
-        /// </summary>
-        public static int ClampNonPositive(this int x) => -ReLU(-x);
-        /// <summary>
-        /// Returns x if x &lt; 0, and returns 0 if x &gt;= 0.
-        /// </summary>
-        public static float ClampNonPositive(this float x) => -ReLU(-x);
 
         /// <summary>
-        /// Returns a mod b, giving a non-negative result.
+        /// Clamps the value so it's non-positive.
         /// </summary>
-        /// <param name="a"></param>
-        /// <param name="b"></param>
-        /// <returns></returns>
+        /// <returns>
+        /// <list type="bullet">
+        /// <item>
+        /// <paramref name="x"/> if <paramref name="x"/> &lt;= 0
+        /// </item>
+        /// <item>
+        /// 0 if <paramref name="x"/> &gt; 0
+        /// </item>
+        /// </list>
+        /// </returns>
+        public static int ClampNonPositive(this int x) => x switch
+        {
+            < 0 => x,
+            >= 0 => 0
+        };
+        /// <summary>
+        /// Clamps the value so it's non-positive.
+        /// </summary>
+        /// <returns>
+        /// <list type="bullet">
+        /// <item>
+        /// <paramref name="x"/> if <paramref name="x"/> &lt;= 0
+        /// </item>
+        /// <item>
+        /// 0 if <paramref name="x"/> &gt; 0
+        /// </item>
+        /// </list>
+        /// </returns>
+        public static float ClampNonPositive(this float x) => x switch
+        {
+            < 0f => x,
+            >= 0f => 0f,
+            float.NaN => float.NaN
+        };
+
+        /// <summary>
+        /// Returns <c><paramref name="a"/> mod <paramref name="b"/></c>, giving a result in the range <c>[0, abs(b))</c>.
+        /// </summary>
+        /// <exception cref="DivideByZeroException"><paramref name="b"/> is 0.</exception>
         public static int Mod(this int a, int b) => b == 0 ? throw new DivideByZeroException($"{nameof(b)} cannot be 0.") : ((a >= 0, b >= 0) switch
         {
             (true, true) => a % b,
@@ -116,8 +143,9 @@ namespace PAC.Maths
             (false, false) => ((a % b) - b) % b,
         });
         /// <summary>
-        /// Returns a mod b, giving a non-negative result.
+        /// Returns <c><paramref name="a"/> mod <paramref name="b"/></c>, giving a result in the range <c>[0, abs(b))</c>.
         /// </summary>
+        /// <exception cref="DivideByZeroException"><paramref name="b"/> is 0.</exception>
         public static long Mod(this long a, long b) => b == 0 ? throw new DivideByZeroException($"{nameof(b)} cannot be 0.") : ((a >= 0, b >= 0) switch
         {
             (true, true) => a % b,
@@ -126,8 +154,9 @@ namespace PAC.Maths
             (false, false) => ((a % b) - b) % b,
         });
         /// <summary>
-        /// Returns a mod b, giving a non-negative result.
+        /// Returns <c><paramref name="a"/> mod <paramref name="b"/></c>, giving a result in the range <c>[0, abs(b))</c>.
         /// </summary>
+        /// <exception cref="DivideByZeroException"><paramref name="b"/> is 0.</exception>
         public static float Mod(this float a, float b) => b == 0 ? throw new DivideByZeroException($"{nameof(b)} cannot be 0.") : ((a >= 0, b >= 0) switch
         {
             (true, true) => a % b,
@@ -137,7 +166,7 @@ namespace PAC.Maths
         });
 
         /// <summary>
-        /// Computes the greatest non-negative common divisor of a and b.
+        /// Computes the greatest non-negative common divisor of <paramref name="a"/> and <paramref name="b"/>.
         /// </summary>
         /// <exception cref="ArgumentOutOfRangeException"><paramref name="a"/> or <paramref name="b"/> are <see cref="int.MinValue"/>.</exception>
         public static int Gcd(this int a, int b)
@@ -165,7 +194,7 @@ namespace PAC.Maths
             return a;
         }
         /// <summary>
-        /// Computes the greatest non-negative common divisor of a and b.
+        /// Computes the greatest non-negative common divisor of <paramref name="a"/> and <paramref name="b"/>.
         /// </summary>
         /// <exception cref="ArgumentOutOfRangeException"><paramref name="a"/> or <paramref name="b"/> are <see cref="long.MinValue"/>.</exception>
         public static long Gcd(this long a, long b)
@@ -194,158 +223,120 @@ namespace PAC.Maths
         }
 
         /// <summary>
-        /// Computes the lowest non-negative common multiple of a and b.
+        /// Returns the multiple of <paramref name="multipleOf"/> that is closest to <paramref name="toRound"/>.
         /// </summary>
-        public static int Lcm(this int a, int b)
-        {
-            if (a == 0 && b == 0)
-            {
-                return 0;
-            }
-            return Math.Abs(a * b) / Gcd(a, b);
-        }
+        /// <exception cref="ArgumentException"><paramref name="multipleOf"/> is 0.</exception>
+        public static int RoundToMultipleOf(this float toRound, int multipleOf) => (int)RoundToMultipleOf(toRound, (float)multipleOf);
         /// <summary>
-        /// Computes the lowest non-negative common multiple of a and b.
+        /// Returns the multiple of <paramref name="multipleOf"/> that is closest to <paramref name="toRound"/>.
         /// </summary>
-        public static long Lcm(this long a, long b)
-        {
-            if (a == 0 && b == 0)
-            {
-                return 0;
-            }
-            return Math.Abs(a * b) / Gcd(a, b);
-        }
-
-        public static int RoundToMultiple(this float toRound, int multipleOf)
-        {
-            return (int)RoundToMultiple(toRound, (float)multipleOf);
-        }
-        public static float RoundToMultiple(this float toRound, float multipleOf)
-        {
-            if (multipleOf == 0)
-            {
-                throw new System.Exception("Cannot round to a multiple of 0.");
-            }
-
-            return Mathf.Round(toRound / multipleOf) * multipleOf;
-        }
-
-        public static int FloorToMultiple(this float toRound, int multipleOf)
-        {
-            return (int)FloorToMultiple(toRound, (float)multipleOf);
-        }
-        public static float FloorToMultiple(this float toRound, float multipleOf)
-        {
-            if (multipleOf == 0)
-            {
-                throw new System.Exception("Cannot round to a multiple of 0.");
-            }
-
-            return Mathf.Floor(toRound / multipleOf) * multipleOf;
-        }
-
-        public static int CeilToMultiple(this float toRound, int multipleOf)
-        {
-            return (int)CeilToMultiple(toRound, (float)multipleOf);
-        }
-        public static float CeilToMultiple(this float toRound, float multipleOf)
-        {
-            if (multipleOf == 0)
-            {
-                throw new System.Exception("Cannot round to a multiple of 0.");
-            }
-
-            return Mathf.Ceil(toRound / multipleOf) * multipleOf;
-        }
-
-        public static float SymmetricFloor(this float f)
-        {
-            if (f >= 0)
-            {
-                return Mathf.Floor(f);
-            }
-
-            return Mathf.Ceil(f);
-        }
-
-        public static float SymmetricCeil(this float f)
-        {
-            if (f >= 0)
-            {
-                return Mathf.Ceil(f);
-            }
-
-            return Mathf.Floor(f);
-        }
-
-        public static int SymmetricFloorToInt(this float f)
-        {
-            if (f >= 0)
-            {
-                return Mathf.FloorToInt(f);
-            }
-
-            return Mathf.CeilToInt(f);
-        }
-
-        public static int SymmetricCeilToInt(this float f)
-        {
-            if (f >= 0)
-            {
-                return Mathf.CeilToInt(f);
-            }
-
-            return Mathf.FloorToInt(f);
-        }
-
-        private static string FirstNChars(this string str, int numOfChars)
-        {
-            if (numOfChars < 0)
-            {
-                return "";
-            }
-
-            if (numOfChars < str.Length)
-            {
-                return str.Remove(numOfChars);
-            }
-
-            return str;
-        }
-
-        public static float TruncateDecimalPlaces(this float f, int decimalPlaces)
-        {
-            int integerPart = SymmetricFloorToInt(f);
-            float decimalPart = Mathf.Abs(f - integerPart);
-
-            if (decimalPart.ToString() == "0")
-            {
-                return integerPart;
-            }
-            else
-            {
-                return float.Parse(integerPart.ToString() + "." + FirstNChars(decimalPart.ToString().Remove(0, 2), decimalPlaces));
-            }
-        }
-
-        public static float RoundDecimalPlaces(this float f, int decimalPlaces)
-        {
-            return float.Parse(f.ToString("0." + new string('#', decimalPlaces)));
-        }
+        /// <exception cref="ArgumentException"><paramref name="multipleOf"/> is 0.</exception>
+        public static float RoundToMultipleOf(this float toRound, float multipleOf)
+            => multipleOf == 0 ? throw new ArgumentException("Cannot round to a multiple of 0.", nameof(multipleOf)) : Mathf.Round(toRound / multipleOf) * multipleOf;
 
         /// <summary>
-        /// <para>
-        /// Computes n ^ exponent (n raised to the exponent). 0^0 is defined to be 1.
-        /// </para>
-        /// <para>
-        /// Exponent must be non-negative.
-        /// </para>
+        /// Returns the greatest multiple of <paramref name="multipleOf"/> that is &lt;= <paramref name="toRound"/>.
         /// </summary>
+        /// <exception cref="ArgumentException"><paramref name="multipleOf"/> is 0.</exception>
+        public static int FloorToMultipleOf(this float toRound, int multipleOf) => (int)FloorToMultipleOf(toRound, (float)multipleOf);
+        /// <summary>
+        /// Returns the greatest multiple of <paramref name="multipleOf"/> that is &lt;= <paramref name="toRound"/>.
+        /// </summary>
+        /// <exception cref="ArgumentException"><paramref name="multipleOf"/> is 0.</exception>
+        public static float FloorToMultipleOf(this float toRound, float multipleOf)
+            => multipleOf == 0 ? throw new ArgumentException("Cannot round to a multiple of 0.", nameof(multipleOf)) : Mathf.Floor(toRound / multipleOf) * multipleOf;
+
+        /// <summary>
+        /// Returns the least multiple of <paramref name="multipleOf"/> that is &gt;= <paramref name="toRound"/>.
+        /// </summary>
+        /// <exception cref="ArgumentException"><paramref name="multipleOf"/> is 0.</exception>
+        public static int CeilToMultipleOf(this float toRound, int multipleOf) => (int)CeilToMultipleOf(toRound, (float)multipleOf);
+        /// <summary>
+        /// Returns the least multiple of <paramref name="multipleOf"/> that is &gt;= <paramref name="toRound"/>.
+        /// </summary>
+        /// <exception cref="ArgumentException"><paramref name="multipleOf"/> is 0.</exception>
+        public static float CeilToMultipleOf(this float toRound, float multipleOf)
+            => multipleOf == 0 ? throw new ArgumentException("Cannot round to a multiple of 0.", nameof(multipleOf)) : Mathf.Ceil(toRound / multipleOf) * multipleOf;
+
+        /// <summary>
+        /// Rounds <paramref name="toRound"/> to an integer, choosing to round up or down so that it becomes closer (or unchanged) to <paramref name="towards"/>.
+        /// </summary>
+        /// <returns>
+        /// <list type="bullet">
+        /// <item>
+        /// <c>floor(<paramref name="toRound"/>)</c> if <paramref name="toRound"/> &gt;= <paramref name="towards"/>
+        /// </item>
+        /// <item>
+        /// <c>ceil(<paramref name="toRound"/>)</c> if <paramref name="toRound"/> &lt; <paramref name="towards"/>
+        /// </item>
+        /// </list>
+        /// </returns>
+        public static float RoundTowards(this float toRound, int towards) => toRound >= towards ? Mathf.Floor(toRound) : Mathf.Ceil(toRound);
+        /// <summary>
+        /// Rounds <paramref name="toRound"/> to an integer, choosing to round up or down so that it becomes closer (or unchanged) to <paramref name="towards"/>.
+        /// </summary>
+        /// <returns>
+        /// <list type="bullet">
+        /// <item>
+        /// <c>floor(<paramref name="toRound"/>)</c> if <paramref name="toRound"/> &gt;= <paramref name="towards"/>
+        /// </item>
+        /// <item>
+        /// <c>ceil(<paramref name="toRound"/>)</c> if <paramref name="toRound"/> &lt; <paramref name="towards"/>
+        /// </item>
+        /// </list>
+        /// </returns>
+        public static int RoundToIntTowards(this float toRound, int towards) => toRound >= towards ? Mathf.FloorToInt(toRound) : Mathf.CeilToInt(toRound);
+
+        /// <summary>
+        /// Rounds <paramref name="toRound"/> to an integer, choosing to round up or down so that it becomes further (or unchanged) away from <paramref name="awayFrom"/>.
+        /// </summary>
+        /// <returns>
+        /// <list type="bullet">
+        /// <item>
+        /// <c>ceil(<paramref name="toRound"/>)</c> if <paramref name="toRound"/> &gt;= <paramref name="awayFrom"/>
+        /// </item>
+        /// <item>
+        /// <c>floor(<paramref name="toRound"/>)</c> if <paramref name="toRound"/> &lt; <paramref name="awayFrom"/>
+        /// </item>
+        /// </list>
+        /// </returns>
+        public static float RoundAwayFrom(this float toRound, int awayFrom) => toRound >= awayFrom ? Mathf.Ceil(toRound) : Mathf.Floor(toRound);
+        /// <summary>
+        /// Rounds <paramref name="toRound"/> to an integer, choosing to round up or down so that it becomes further (or unchanged) away from <paramref name="awayFrom"/>.
+        /// </summary>
+        /// <returns>
+        /// <list type="bullet">
+        /// <item>
+        /// <c>ceil(<paramref name="toRound"/>)</c> if <paramref name="toRound"/> &gt;= <paramref name="awayFrom"/>
+        /// </item>
+        /// <item>
+        /// <c>floor(<paramref name="toRound"/>)</c> if <paramref name="toRound"/> &lt; <paramref name="awayFrom"/>
+        /// </item>
+        /// </list>
+        /// </returns>
+        public static int RoundToIntAwayFrom(this float toRound, int awayFrom) => toRound >= awayFrom ? Mathf.CeilToInt(toRound) : Mathf.FloorToInt(toRound);
+
+        /// <summary>
+        /// Rounds <paramref name="toRound"/> to <paramref name="decimalPlaces"/> decimal places.
+        /// </summary>
+        /// <exception cref="ArgumentOutOfRangeException"><paramref name="decimalPlaces"/> is negative.</exception>
+        public static float Round(this float toRound, int decimalPlaces)
+            => decimalPlaces >= 0 ?
+            float.Parse(toRound.ToString("0." + new string('#', decimalPlaces))) :
+            throw new ArgumentOutOfRangeException(nameof(decimalPlaces), "Cannot round to a negative number of decimal places.");
+
+        /// <summary>
+        /// Computes <paramref name="n"/> ^ <paramref name="exponent"/> (<paramref name="n"/> raised to the <paramref name="exponent"/>).
+        /// </summary>
+        /// <remarks>
+        /// 0^0 is defined to be 1.
+        /// </remarks>
+        /// <exception cref="ArgumentOutOfRangeException"><paramref name="exponent"/> is negative.</exception>
         public static int Pow(this int n, int exponent)
         {
             if (exponent < 0)
             {
-                throw new ArgumentOutOfRangeException($"Exponent cannot be negative: {exponent}.", nameof(exponent));
+                throw new ArgumentOutOfRangeException(nameof(exponent), $"{nameof(exponent)} cannot be negative: {exponent}.");
             }
 
             // Three special cases that won't terminate quickly due to overflow exceptions.
