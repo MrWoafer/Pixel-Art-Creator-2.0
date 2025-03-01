@@ -57,7 +57,7 @@ namespace PAC.DataStructures
         /// <seealso cref="SqrMagnitude(IntVector2)"/>
         /// <seealso cref="SqrDistance(IntVector2, IntVector2)"/>
         /// <seealso href="https://en.wikipedia.org/wiki/Norm_(mathematics)#Euclidean_norm"/>
-        public float sqrMagnitude => SqrMagnitude(this);
+        public int sqrMagnitude => SqrMagnitude(this);
 
         /// <summary>
         /// The l1 norm of the vector, which is <c>abs(<see cref="x"/>) + abs(<see cref="y"/>)</c>.
@@ -467,7 +467,7 @@ namespace PAC.DataStructures
         /// <seealso cref="sqrMagnitude"/>
         /// <seealso cref="SqrDistance(IntVector2, IntVector2)"/>
         /// <seealso href="https://en.wikipedia.org/wiki/Norm_(mathematics)#Euclidean_norm"/>
-        public static float SqrMagnitude(IntVector2 a) => a.x * a.x + a.y * a.y;
+        public static int SqrMagnitude(IntVector2 a) => a.x * a.x + a.y * a.y;
         /// <summary>
         /// Computes the standard Euclidean distance between the two vectors - i.e. the <see cref="Magnitude(IntVector2)"/> of <c><paramref name="a"/> - <paramref name="b"/></c>.
         /// </summary>
@@ -479,7 +479,7 @@ namespace PAC.DataStructures
         /// <remarks>
         /// This is faster than squaring <see cref="Distance(IntVector2, IntVector2)"/>.
         /// </remarks>
-        public static float SqrDistance(IntVector2 a, IntVector2 b) => SqrMagnitude(a - b);
+        public static int SqrDistance(IntVector2 a, IntVector2 b) => SqrMagnitude(a - b);
 
         /// <summary>
         /// The l1 norm of the vector, which is <c>abs(<see cref="x"/>) + abs(<see cref="y"/>)</c>.
