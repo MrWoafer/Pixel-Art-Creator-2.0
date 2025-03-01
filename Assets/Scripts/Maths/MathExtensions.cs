@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 using System.Runtime.CompilerServices;
 
 using UnityEngine;
@@ -374,5 +375,32 @@ namespace PAC.Maths
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float Square(this float n) => n * n;
+
+        /// <summary>
+        /// Returns the minimum element.
+        /// </summary>
+        /// <exception cref="ArgumentException"><paramref name="elements"/> is empty.</exception>
+        public static int Min(params int[] elements)
+        {
+            if (elements.Length == 0)
+            {
+                throw new ArgumentException($"{nameof(elements)} must not be empty.");
+            }
+
+            return elements.Min();
+        }
+        /// <summary>
+        /// Returns the maximum element.
+        /// </summary>
+        /// <exception cref="ArgumentException"><paramref name="elements"/> is empty.</exception>
+        public static int Max(params int[] elements)
+        {
+            if (elements.Length == 0)
+            {
+                throw new ArgumentException($"{nameof(elements)} must not be empty.");
+            }
+
+            return elements.Max();
+        }
     }
 }
