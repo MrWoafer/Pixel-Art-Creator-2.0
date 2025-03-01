@@ -1,6 +1,6 @@
 ﻿using PAC.DataStructures;
 using PAC.ImageEditing;
-using PAC.Shapes.Interfaces;
+using PAC.Geometry.Shapes.Interfaces;
 
 using UnityEngine;
 

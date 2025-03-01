@@ -16,8 +16,8 @@ using PAC.Patterns;
 using PAC.Extensions;
 
 using System;
-using PAC.Shapes;
-using PAC.Shapes.Interfaces;
+using PAC.Geometry.Shapes;
+using PAC.Geometry.Shapes.Interfaces;
 using PAC.ImageEditing;
 
 namespace PAC.Drawing

@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using PAC.DataStructures;
 using PAC.Exceptions;
 using PAC.Maths;
-using PAC.Shapes;
+using PAC.Geometry.Shapes;
 
 namespace PAC.Drawing
 {
