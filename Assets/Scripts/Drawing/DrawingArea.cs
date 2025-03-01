@@ -758,7 +758,15 @@ namespace PAC.Drawing
             }
             else if (tool == Tool.Line)
             {
-                if (leftClickedOn) { PreviewShape(new Line(mouseDragPoints[0], pixel), colour); }
+                if (leftClickedOn)
+                {
+                    IntVector2 end = pixel;
+                    if (holdingCtrl)
+                    {
+                        end = CoordSnapping.SnapToPerfectLine(mouseDragPoints[0], end);
+                    }
+                    PreviewShape(new Line(mouseDragPoints[0], end), colour);
+                }
             }
             else if (tool == Tool.Shape && (leftClickedOn || rightClickedOn))
             {
@@ -855,7 +863,12 @@ namespace PAC.Drawing
         {
             if (tool == Tool.Line && leftClickedOn)
             {
-                Tools.UseShape(file, layer, frame, new Line(mouseDragPoints[0], pixel), colour);
+                IntVector2 end = pixel;
+                if (holdingCtrl)
+                {
+                    end = CoordSnapping.SnapToPerfectLine(mouseDragPoints[0], end);
+                }
+                Tools.UseShape(file, layer, frame, new Line(mouseDragPoints[0], end), colour);
                 UpdateDrawing();
             }
             else if (tool == Tool.Shape && (leftClickedOn || rightClickedOn))
