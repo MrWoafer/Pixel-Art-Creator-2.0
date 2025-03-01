@@ -1,8 +1,9 @@
 using NUnit.Framework;
 
 using PAC.DataStructures;
+using PAC.Geometry;
 
-namespace PAC.Tests.DataStructures
+namespace PAC.Tests.Geometry
 {
     public static class Plane2D_Tests
     {

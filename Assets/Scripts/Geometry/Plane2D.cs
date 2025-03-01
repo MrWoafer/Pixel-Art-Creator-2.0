@@ -1,8 +1,9 @@
 using System;
 
+using PAC.DataStructures;
 using PAC.Exceptions;
 
-namespace PAC.DataStructures
+namespace PAC.Geometry
 {
     /// <summary>
     /// Provides ways to deal with the 2D plane.

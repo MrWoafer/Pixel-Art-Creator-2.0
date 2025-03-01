@@ -5,6 +5,7 @@ using PAC.DataStructures;
 using PAC.Exceptions;
 using PAC.Maths;
 using PAC.Geometry.Shapes;
+using PAC.Geometry;
 
 namespace PAC.Drawing
 {
