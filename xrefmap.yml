@@ -4307,6 +4307,79 @@ references:
   commentId: F:PAC.DataStructures.IntVector2.zero
   fullName: PAC.DataStructures.IntVector2.zero
   nameWithType: IntVector2.zero
+- uid: PAC.DataStructures.Plane2D
+  name: Plane2D
+  href: api/PAC.DataStructures.Plane2D.html
+  commentId: T:PAC.DataStructures.Plane2D
+  fullName: PAC.DataStructures.Plane2D
+  nameWithType: Plane2D
+- uid: PAC.DataStructures.Plane2D.GetOctant(PAC.DataStructures.IntVector2)
+  name: GetOctant(IntVector2)
+  href: api/PAC.DataStructures.Plane2D.html#PAC_DataStructures_Plane2D_GetOctant_PAC_DataStructures_IntVector2_
+  commentId: M:PAC.DataStructures.Plane2D.GetOctant(PAC.DataStructures.IntVector2)
+  fullName: PAC.DataStructures.Plane2D.GetOctant(PAC.DataStructures.IntVector2)
+  nameWithType: Plane2D.GetOctant(IntVector2)
+- uid: PAC.DataStructures.Plane2D.GetOctant*
+  name: GetOctant
+  href: api/PAC.DataStructures.Plane2D.html#PAC_DataStructures_Plane2D_GetOctant_
+  commentId: Overload:PAC.DataStructures.Plane2D.GetOctant
+  isSpec: "True"
+  fullName: PAC.DataStructures.Plane2D.GetOctant
+  nameWithType: Plane2D.GetOctant
+- uid: PAC.DataStructures.Plane2D.Octant
+  name: Plane2D.Octant
+  href: api/PAC.DataStructures.Plane2D.Octant.html
+  commentId: T:PAC.DataStructures.Plane2D.Octant
+  fullName: PAC.DataStructures.Plane2D.Octant
+  nameWithType: Plane2D.Octant
+- uid: PAC.DataStructures.Plane2D.Octant.EastNortheast
+  name: EastNortheast
+  href: api/PAC.DataStructures.Plane2D.Octant.html#PAC_DataStructures_Plane2D_Octant_EastNortheast
+  commentId: F:PAC.DataStructures.Plane2D.Octant.EastNortheast
+  fullName: PAC.DataStructures.Plane2D.Octant.EastNortheast
+  nameWithType: Plane2D.Octant.EastNortheast
+- uid: PAC.DataStructures.Plane2D.Octant.EastSoutheast
+  name: EastSoutheast
+  href: api/PAC.DataStructures.Plane2D.Octant.html#PAC_DataStructures_Plane2D_Octant_EastSoutheast
+  commentId: F:PAC.DataStructures.Plane2D.Octant.EastSoutheast
+  fullName: PAC.DataStructures.Plane2D.Octant.EastSoutheast
+  nameWithType: Plane2D.Octant.EastSoutheast
+- uid: PAC.DataStructures.Plane2D.Octant.NorthNortheast
+  name: NorthNortheast
+  href: api/PAC.DataStructures.Plane2D.Octant.html#PAC_DataStructures_Plane2D_Octant_NorthNortheast
+  commentId: F:PAC.DataStructures.Plane2D.Octant.NorthNortheast
+  fullName: PAC.DataStructures.Plane2D.Octant.NorthNortheast
+  nameWithType: Plane2D.Octant.NorthNortheast
+- uid: PAC.DataStructures.Plane2D.Octant.NorthNorthwest
+  name: NorthNorthwest
+  href: api/PAC.DataStructures.Plane2D.Octant.html#PAC_DataStructures_Plane2D_Octant_NorthNorthwest
+  commentId: F:PAC.DataStructures.Plane2D.Octant.NorthNorthwest
+  fullName: PAC.DataStructures.Plane2D.Octant.NorthNorthwest
+  nameWithType: Plane2D.Octant.NorthNorthwest
+- uid: PAC.DataStructures.Plane2D.Octant.SouthSoutheast
+  name: SouthSoutheast
+  href: api/PAC.DataStructures.Plane2D.Octant.html#PAC_DataStructures_Plane2D_Octant_SouthSoutheast
+  commentId: F:PAC.DataStructures.Plane2D.Octant.SouthSoutheast
+  fullName: PAC.DataStructures.Plane2D.Octant.SouthSoutheast
+  nameWithType: Plane2D.Octant.SouthSoutheast
+- uid: PAC.DataStructures.Plane2D.Octant.SouthSouthwest
+  name: SouthSouthwest
+  href: api/PAC.DataStructures.Plane2D.Octant.html#PAC_DataStructures_Plane2D_Octant_SouthSouthwest
+  commentId: F:PAC.DataStructures.Plane2D.Octant.SouthSouthwest
+  fullName: PAC.DataStructures.Plane2D.Octant.SouthSouthwest
+  nameWithType: Plane2D.Octant.SouthSouthwest
+- uid: PAC.DataStructures.Plane2D.Octant.WestNorthwest
+  name: WestNorthwest
+  href: api/PAC.DataStructures.Plane2D.Octant.html#PAC_DataStructures_Plane2D_Octant_WestNorthwest
+  commentId: F:PAC.DataStructures.Plane2D.Octant.WestNorthwest
+  fullName: PAC.DataStructures.Plane2D.Octant.WestNorthwest
+  nameWithType: Plane2D.Octant.WestNorthwest
+- uid: PAC.DataStructures.Plane2D.Octant.WestSouthwest
+  name: WestSouthwest
+  href: api/PAC.DataStructures.Plane2D.Octant.html#PAC_DataStructures_Plane2D_Octant_WestSouthwest
+  commentId: F:PAC.DataStructures.Plane2D.Octant.WestSouthwest
+  fullName: PAC.DataStructures.Plane2D.Octant.WestSouthwest
+  nameWithType: Plane2D.Octant.WestSouthwest
 - uid: PAC.DataStructures.Rational
   name: Rational
   href: api/PAC.DataStructures.Rational.html
@@ -5110,6 +5183,22 @@ references:
   commentId: T:PAC.Drawing.CoordSnapping
   fullName: PAC.Drawing.CoordSnapping
   nameWithType: CoordSnapping
+- uid: PAC.Drawing.CoordSnapping.SnapToPerfectLine(PAC.DataStructures.IntVector2,PAC.DataStructures.IntVector2,System.Int32)
+  name: SnapToPerfectLine(IntVector2, IntVector2, int)
+  href: api/PAC.Drawing.CoordSnapping.html#PAC_Drawing_CoordSnapping_SnapToPerfectLine_PAC_DataStructures_IntVector2_PAC_DataStructures_IntVector2_System_Int32_
+  commentId: M:PAC.Drawing.CoordSnapping.SnapToPerfectLine(PAC.DataStructures.IntVector2,PAC.DataStructures.IntVector2,System.Int32)
+  name.vb: SnapToPerfectLine(IntVector2, IntVector2, Integer)
+  fullName: PAC.Drawing.CoordSnapping.SnapToPerfectLine(PAC.DataStructures.IntVector2, PAC.DataStructures.IntVector2, int)
+  fullName.vb: PAC.Drawing.CoordSnapping.SnapToPerfectLine(PAC.DataStructures.IntVector2, PAC.DataStructures.IntVector2, Integer)
+  nameWithType: CoordSnapping.SnapToPerfectLine(IntVector2, IntVector2, int)
+  nameWithType.vb: CoordSnapping.SnapToPerfectLine(IntVector2, IntVector2, Integer)
+- uid: PAC.Drawing.CoordSnapping.SnapToPerfectLine*
+  name: SnapToPerfectLine
+  href: api/PAC.Drawing.CoordSnapping.html#PAC_Drawing_CoordSnapping_SnapToPerfectLine_
+  commentId: Overload:PAC.Drawing.CoordSnapping.SnapToPerfectLine
+  isSpec: "True"
+  fullName: PAC.Drawing.CoordSnapping.SnapToPerfectLine
+  nameWithType: CoordSnapping.SnapToPerfectLine
 - uid: PAC.Drawing.CoordSnapping.SnapToSquare(PAC.DataStructures.IntVector2,PAC.DataStructures.IntVector2)
   name: SnapToSquare(IntVector2, IntVector2)
   href: api/PAC.Drawing.CoordSnapping.html#PAC_Drawing_CoordSnapping_SnapToSquare_PAC_DataStructures_IntVector2_PAC_DataStructures_IntVector2_
@@ -17540,6 +17629,38 @@ references:
   isSpec: "True"
   fullName: PAC.Maths.MathExtensions.Gcd
   nameWithType: MathExtensions.Gcd
+- uid: PAC.Maths.MathExtensions.Max(System.Int32[])
+  name: Max(params int[])
+  href: api/PAC.Maths.MathExtensions.html#PAC_Maths_MathExtensions_Max_System_Int32___
+  commentId: M:PAC.Maths.MathExtensions.Max(System.Int32[])
+  name.vb: Max(ParamArray Integer())
+  fullName: PAC.Maths.MathExtensions.Max(params int[])
+  fullName.vb: PAC.Maths.MathExtensions.Max(ParamArray Integer())
+  nameWithType: MathExtensions.Max(params int[])
+  nameWithType.vb: MathExtensions.Max(ParamArray Integer())
+- uid: PAC.Maths.MathExtensions.Max*
+  name: Max
+  href: api/PAC.Maths.MathExtensions.html#PAC_Maths_MathExtensions_Max_
+  commentId: Overload:PAC.Maths.MathExtensions.Max
+  isSpec: "True"
+  fullName: PAC.Maths.MathExtensions.Max
+  nameWithType: MathExtensions.Max
+- uid: PAC.Maths.MathExtensions.Min(System.Int32[])
+  name: Min(params int[])
+  href: api/PAC.Maths.MathExtensions.html#PAC_Maths_MathExtensions_Min_System_Int32___
+  commentId: M:PAC.Maths.MathExtensions.Min(System.Int32[])
+  name.vb: Min(ParamArray Integer())
+  fullName: PAC.Maths.MathExtensions.Min(params int[])
+  fullName.vb: PAC.Maths.MathExtensions.Min(ParamArray Integer())
+  nameWithType: MathExtensions.Min(params int[])
+  nameWithType.vb: MathExtensions.Min(ParamArray Integer())
+- uid: PAC.Maths.MathExtensions.Min*
+  name: Min
+  href: api/PAC.Maths.MathExtensions.html#PAC_Maths_MathExtensions_Min_
+  commentId: Overload:PAC.Maths.MathExtensions.Min
+  isSpec: "True"
+  fullName: PAC.Maths.MathExtensions.Min
+  nameWithType: MathExtensions.Min
 - uid: PAC.Maths.MathExtensions.Mod(System.Int32,System.Int32)
   name: Mod(int, int)
   href: api/PAC.Maths.MathExtensions.html#PAC_Maths_MathExtensions_Mod_System_Int32_System_Int32_

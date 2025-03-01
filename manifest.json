@@ -414,6 +414,34 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/PAC.DataStructures.Plane2D.Octant.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.DataStructures.Plane2D.Octant.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "PAC.DataStructures.Plane2D.Octant",
+      "Summary": "<p sourcefile=\"api/PAC.DataStructures.Plane2D.Octant.yml\" sourcestartlinenumber=\"1\">One of 8 regions of the 2D plane.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.DataStructures.Plane2D.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.DataStructures.Plane2D.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "PAC.DataStructures.Plane2D",
+      "Summary": "<p sourcefile=\"api/PAC.DataStructures.Plane2D.yml\" sourcestartlinenumber=\"1\">Provides ways to deal with the 2D plane.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/PAC.DataStructures.Rational.yml",
       "output": {
         ".html": {
