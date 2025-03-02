@@ -4,6 +4,7 @@ using System.Collections.Generic;
 
 using PAC.DataStructures;
 using PAC.Exceptions;
+using PAC.Geometry.Axes;
 using PAC.Geometry.Shapes.Interfaces;
 
 namespace PAC.Geometry.Shapes
@@ -375,11 +376,11 @@ namespace PAC.Geometry.Shapes
         /// Returns a deep copy of the <see cref="RightTriangle"/> rotated 180 degrees about the origin (equivalently, reflected through the origin).
         /// </summary>
         /// <seealso cref="Rotate(QuadrantalAngle)"/>
-        /// <seealso cref="Flip(FlipAxis)"/>
+        /// <seealso cref="Flip(CardinalOrdinalAxis)"/>
         public static RightTriangle operator -(RightTriangle triangle) => triangle.Rotate(QuadrantalAngle._180);
 
         public RightTriangle Translate(IntVector2 translation) => new RightTriangle(boundingRect + translation, rightAngleLocation, filled);
-        public RightTriangle Flip(FlipAxis axis) => new RightTriangle(boundingRect.Flip(axis), FromDirection(AsDirection(rightAngleLocation).Flip(axis)), filled);
+        public RightTriangle Flip(CardinalOrdinalAxis axis) => new RightTriangle(boundingRect.Flip(axis), FromDirection(AsDirection(rightAngleLocation).Flip(axis)), filled);
         public RightTriangle Rotate(QuadrantalAngle angle) => new RightTriangle(boundingRect.Rotate(angle), FromDirection(AsDirection(rightAngleLocation).Rotate(angle)), filled);
 
         IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();

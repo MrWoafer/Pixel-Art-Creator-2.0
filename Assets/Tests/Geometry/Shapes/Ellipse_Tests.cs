@@ -3,6 +3,7 @@ using NUnit.Framework;
 using PAC.DataStructures;
 using PAC.Extensions;
 using PAC.Geometry;
+using PAC.Geometry.Axes;
 using PAC.Geometry.Shapes;
 using PAC.Tests.Geometry.Shapes.DefaultTests;
 using PAC.Tests.Geometry.Shapes.RequiredTests;
@@ -218,7 +219,7 @@ namespace PAC.Tests.Geometry.Shapes
                 foreach (IntVector2 topRight in new IntRect((0, 0), (10, 10)))
                 {
                     Ellipse ellipse = new Ellipse(new IntRect((0, 0), topRight), filled);
-                    ShapeAssert.ReflectiveSymmetry(ellipse, FlipAxis.Vertical);
+                    ShapeAssert.ReflectiveSymmetry(ellipse, CardinalAxis.Vertical);
                 }
             }
         }
@@ -235,7 +236,7 @@ namespace PAC.Tests.Geometry.Shapes
                 foreach (IntVector2 topRight in new IntRect((0, 0), (10, 10)))
                 {
                     Ellipse ellipse = new Ellipse(new IntRect((0, 0), topRight), filled);
-                    ShapeAssert.ReflectiveSymmetry(ellipse, FlipAxis.Horizontal);
+                    ShapeAssert.ReflectiveSymmetry(ellipse, CardinalAxis.Horizontal);
                 }
             }
         }
@@ -270,8 +271,8 @@ namespace PAC.Tests.Geometry.Shapes
                 {
                     Ellipse circle = new Ellipse(new IntRect((0, 0), (diameter - 1, diameter - 1)), filled);
 
-                    ShapeAssert.ReflectiveSymmetry(circle, FlipAxis._45Degrees);
-                    ShapeAssert.ReflectiveSymmetry(circle, FlipAxis.Minus45Degrees);
+                    ShapeAssert.ReflectiveSymmetry(circle, OrdinalAxis.Diagonal45);
+                    ShapeAssert.ReflectiveSymmetry(circle, OrdinalAxis.Minus45);
                 }
             }
         }

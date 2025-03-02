@@ -6,6 +6,7 @@ using PAC.DataStructures;
 using PAC.Drawing;
 using PAC.Extensions;
 using PAC.Geometry;
+using PAC.Geometry.Axes;
 using PAC.Geometry.Shapes;
 
 namespace PAC.Tests.Drawing
@@ -180,7 +181,7 @@ namespace PAC.Tests.Drawing
 
                 IntVector2 snappedPoint = CoordSnapping.SnapToPerfectLine(fixedPoint, movablePoint);
 
-                foreach (FlipAxis axis in TypeExtensions.GetValues<FlipAxis>())
+                foreach (CardinalOrdinalAxis axis in CardinalOrdinalAxis.Axes)
                 {
                     IntVector2 snappedPointReflectedInputs = CoordSnapping.SnapToPerfectLine(fixedPoint.Flip(axis), movablePoint.Flip(axis));
 

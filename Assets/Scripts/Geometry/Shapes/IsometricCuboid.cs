@@ -7,6 +7,7 @@ using PAC.DataStructures;
 using PAC.Extensions;
 using PAC.Maths;
 using PAC.Geometry.Shapes.Interfaces;
+using PAC.Geometry.Axes;
 
 namespace PAC.Geometry.Shapes
 {
@@ -191,13 +192,10 @@ namespace PAC.Geometry.Shapes
         /// Can only be flipped across the vertical axis (or none axis).
         /// </remarks>
         /// <exception cref="ArgumentException"><paramref name="axis"/> is an invalid axis.</exception>
-        public IsometricCuboid Flip(FlipAxis axis) => axis switch
+        public IsometricCuboid Flip(CardinalOrdinalAxis axis) => axis switch
         {
-            FlipAxis.None => DeepCopy(),
-            FlipAxis.Vertical => new IsometricCuboid((height >= 0 ? bottomFace.DeepCopy() : topFace.DeepCopy()).Flip(axis), height, filled, includeBackEdges),
-            FlipAxis.Horizontal | FlipAxis._45Degrees | FlipAxis.Minus45Degrees
-                => throw new ArgumentException($"{nameof(Flip)}() is undefined for {nameof(IsometricCuboid)} across the {axis} axis.", nameof(axis)),
-            _ => throw new NotImplementedException($"Unknown / unimplemented FlipAxis: {axis}")
+            VerticalAxis => new IsometricCuboid((height >= 0 ? bottomFace.DeepCopy() : topFace.DeepCopy()).Flip(axis), height, filled, includeBackEdges),
+            _ => throw new ArgumentException($"{nameof(Flip)}() is undefined for {nameof(IsometricCuboid)} across the {axis} axis.", nameof(axis)),
         };
 
         IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();

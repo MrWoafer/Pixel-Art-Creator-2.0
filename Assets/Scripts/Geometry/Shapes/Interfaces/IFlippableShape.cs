@@ -1,3 +1,5 @@
+using PAC.Geometry.Axes;
+
 namespace PAC.Geometry.Shapes.Interfaces
 {
     /// <summary>
@@ -15,10 +17,6 @@ namespace PAC.Geometry.Shapes.Interfaces
         /// <summary>
         /// Returns a deep copy of the shape reflected across the given axis.
         /// </summary>
-        public T Flip(FlipAxis axis);
-
-        #region Default Implementations
-        T IDeepCopyableShape<T>.DeepCopy() => Flip(FlipAxis.None);
-        #endregion
+        public T Flip(CardinalOrdinalAxis axis);
     }
 }

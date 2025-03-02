@@ -5,6 +5,7 @@ using System.Linq;
 
 using PAC.DataStructures;
 using PAC.Extensions;
+using PAC.Geometry.Axes;
 using PAC.Geometry.Shapes.Interfaces;
 
 namespace PAC.Geometry.Shapes
@@ -253,11 +254,11 @@ namespace PAC.Geometry.Shapes
         /// Returns a deep copy of the <see cref="Diamond"/> rotated 180 degrees about the origin (equivalently, reflected through the origin).
         /// </summary>
         /// <seealso cref="Rotate(QuadrantalAngle)"/>
-        /// <seealso cref="Flip(FlipAxis)"/>
+        /// <seealso cref="Flip(CardinalOrdinalAxis)"/>
         public static Diamond operator -(Diamond diamond) => new Diamond(-diamond.boundingRect, diamond.filled);
 
         public Diamond Translate(IntVector2 translation) => new Diamond(boundingRect + translation, filled);
-        public Diamond Flip(FlipAxis axis) => new Diamond(boundingRect.Flip(axis), filled);
+        public Diamond Flip(CardinalOrdinalAxis axis) => new Diamond(boundingRect.Flip(axis), filled);
         public Diamond Rotate(QuadrantalAngle angle) => new Diamond(boundingRect.Rotate(angle), filled);
 
         IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();

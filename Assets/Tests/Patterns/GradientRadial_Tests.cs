@@ -4,6 +4,7 @@ using NUnit.Framework;
 
 using PAC.DataStructures;
 using PAC.Geometry;
+using PAC.Geometry.Axes;
 
 using UnityEngine;
 
@@ -112,8 +113,8 @@ namespace PAC.Tests.Patterns
                 testRegion = new IntRect(testRegion.bottomLeft + IntVector2.downLeft, testRegion.topRight + IntVector2.upRight);
                 foreach (IntVector2 point in testRegion)
                 {
-                    Assert.True(gradient[point] == gradient[gradient.centre.coord + (point - gradient.centre.coord).Flip(FlipAxis.Vertical)], $"Failed with {gradient} and {point}.");
-                    Assert.True(gradient[point] == gradient[gradient.centre.coord + (point - gradient.centre.coord).Flip(FlipAxis.Horizontal)], $"Failed with {gradient} and {point}.");
+                    Assert.True(gradient[point] == gradient[gradient.centre.coord + (point - gradient.centre.coord).Flip(CardinalAxis.Vertical)], $"Failed with {gradient} and {point}.");
+                    Assert.True(gradient[point] == gradient[gradient.centre.coord + (point - gradient.centre.coord).Flip(CardinalAxis.Horizontal)], $"Failed with {gradient} and {point}.");
                 }
             }
         }

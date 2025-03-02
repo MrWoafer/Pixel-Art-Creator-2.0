@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 
 using PAC.DataStructures;
+using PAC.Geometry.Axes;
 using PAC.Geometry.Shapes.Interfaces;
 
 namespace PAC.Geometry.Shapes
@@ -103,11 +104,11 @@ namespace PAC.Geometry.Shapes
         /// Returns a deep copy of the <see cref="Rectangle"/> rotated 180 degrees about the origin (equivalently, reflected through the origin).
         /// </summary>
         /// <seealso cref="Rotate(QuadrantalAngle)"/>
-        /// <seealso cref="Flip(FlipAxis)"/>
+        /// <seealso cref="Flip(CardinalOrdinalAxis)"/>
         public static Rectangle operator -(Rectangle rectangle) => new Rectangle(-rectangle.boundingRect, rectangle.filled);
 
         public Rectangle Translate(IntVector2 translation) => new Rectangle(boundingRect + translation, filled);
-        public Rectangle Flip(FlipAxis axis) => new Rectangle(boundingRect.Flip(axis), filled);
+        public Rectangle Flip(CardinalOrdinalAxis axis) => new Rectangle(boundingRect.Flip(axis), filled);
         public Rectangle Rotate(QuadrantalAngle angle) => new Rectangle(boundingRect.Rotate(angle), filled);
 
         IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();

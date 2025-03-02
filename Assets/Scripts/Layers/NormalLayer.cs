@@ -6,6 +6,7 @@ using PAC.Colour;
 using PAC.DataStructures;
 using PAC.Extensions;
 using PAC.Geometry;
+using PAC.Geometry.Axes;
 using PAC.ImageEditing;
 using PAC.Json;
 
@@ -111,7 +112,7 @@ namespace PAC.Layers
         /// <summary>
         /// Flips the given frame of the layer.
         /// </summary>
-        public void Flip(int frame, FlipAxis axis, AnimFrameRefMode frameRefMode)
+        public void Flip(int frame, CardinalOrdinalAxis axis, AnimFrameRefMode frameRefMode)
         {
             if (frameRefMode == AnimFrameRefMode.NewKeyFrame)
             {
@@ -122,7 +123,7 @@ namespace PAC.Layers
 
             onPixelsChanged.Invoke(rect, new int[] { GetKeyFrame(frame).frame });
         }
-        protected override void FlipNoEvent(FlipAxis axis)
+        protected override void FlipNoEvent(CardinalOrdinalAxis axis)
         {
             foreach (AnimationKeyFrame keyFrame in keyFrames)
             {

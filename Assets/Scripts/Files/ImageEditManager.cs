@@ -1,4 +1,5 @@
 using PAC.Geometry;
+using PAC.Geometry.Axes;
 using PAC.Layers;
 using PAC.UI;
 
@@ -26,7 +27,7 @@ namespace PAC.Files
             dialogBoxManager = Finder.dialogBoxManager;
         }
 
-        public void FlipSelectedLayers(FlipAxis axis)
+        public void FlipSelectedLayers(CardinalOrdinalAxis axis)
         {
             foreach (Layer selectedLayer in layerManager.selectedLayers)
             {
@@ -34,16 +35,16 @@ namespace PAC.Files
             }
             onEdit.Invoke();
         }
-        public void FlipSelectedLayersX() => FlipSelectedLayers(FlipAxis.Vertical);
-        public void FlipSelectedLayersY() => FlipSelectedLayers(FlipAxis.Horizontal);
+        public void FlipSelectedLayersX() => FlipSelectedLayers(CardinalAxis.Vertical);
+        public void FlipSelectedLayersY() => FlipSelectedLayers(CardinalAxis.Horizontal);
 
-        public void FlipFile(FlipAxis axis)
+        public void FlipFile(CardinalOrdinalAxis axis)
         {
             fileManager.currentFile.Flip(axis);
             onEdit.Invoke();
         }
-        public void FlipFileX() => FlipFile(FlipAxis.Vertical);
-        public void FlipFileY() => FlipFile(FlipAxis.Horizontal);
+        public void FlipFileX() => FlipFile(CardinalAxis.Vertical);
+        public void FlipFileY() => FlipFile(CardinalAxis.Horizontal);
 
         public void RotateFile(QuadrantalAngle angle)
         {

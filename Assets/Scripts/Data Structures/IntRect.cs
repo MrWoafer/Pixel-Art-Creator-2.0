@@ -6,6 +6,7 @@ using System;
 using PAC.Extensions;
 using PAC.Interfaces;
 using PAC.Geometry;
+using PAC.Geometry.Axes;
 
 namespace PAC.DataStructures
 {
@@ -458,8 +459,8 @@ namespace PAC.DataStructures
         /// <summary>
         /// Returns the rect flipped across the given axis.
         /// </summary>
-        /// <seealso cref="IntVector2.Flip(FlipAxis)"/>
-        public IntRect Flip(FlipAxis axis) => new IntRect(bottomLeft.Flip(axis), topRight.Flip(axis));
+        /// <seealso cref="IntVector2.Flip(CardinalOrdinalAxis)"/>
+        public IntRect Flip(CardinalOrdinalAxis axis) => new IntRect(bottomLeft.Flip(axis), topRight.Flip(axis));
         #endregion
 
         #region Random

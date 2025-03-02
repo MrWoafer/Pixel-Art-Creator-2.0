@@ -7,6 +7,7 @@ using PAC.Colour;
 using PAC.DataStructures;
 using PAC.Extensions;
 using PAC.Geometry;
+using PAC.Geometry.Axes;
 using PAC.Json;
 
 using UnityEngine;
@@ -209,11 +210,11 @@ namespace PAC.Layers
         /// <summary>
         /// Flips the layer, but does not invoke the onPixelsChanged event.
         /// </summary>
-        protected abstract void FlipNoEvent(FlipAxis axis);
+        protected abstract void FlipNoEvent(CardinalOrdinalAxis axis);
         /// <summary>
         /// Flips the layer.
         /// </summary>
-        public void Flip(FlipAxis axis)
+        public void Flip(CardinalOrdinalAxis axis)
         {
             FlipNoEvent(axis);
             onPixelsChanged.Invoke(rect, keyFrameIndices);

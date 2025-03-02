@@ -3,6 +3,7 @@ using NUnit.Framework;
 using PAC.DataStructures;
 using PAC.Extensions;
 using PAC.Geometry;
+using PAC.Geometry.Axes;
 using PAC.Geometry.Shapes;
 using PAC.Tests.Geometry.Shapes.DefaultTests;
 using PAC.Tests.Geometry.Shapes.RequiredTests;
@@ -200,12 +201,9 @@ namespace PAC.Tests.Geometry.Shapes
         {
             foreach (IsometricCuboid cuboid in testCases)
             {
-                foreach (FlipAxis axis in new FlipAxis[] { FlipAxis.None, FlipAxis.Vertical })
-                {
-                    IEnumerable<IntVector2> expected = cuboid.Select(p => p.Flip(axis));
-                    IsometricCuboid flipped = cuboid.Flip(axis);
-                    ShapeAssert.SameGeometry(expected, flipped, $"Failed with {cuboid} and {axis}.");
-                }
+                IEnumerable<IntVector2> expected = cuboid.Select(p => p.Flip(CardinalAxis.Vertical));
+                IsometricCuboid flipped = cuboid.Flip(CardinalAxis.Vertical);
+                ShapeAssert.SameGeometry(expected, flipped, $"Failed with {cuboid}.");
             }
         }
     }

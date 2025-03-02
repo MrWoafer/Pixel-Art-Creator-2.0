@@ -5,6 +5,7 @@ using NUnit.Framework;
 
 using PAC.DataStructures;
 using PAC.Geometry;
+using PAC.Geometry.Axes;
 using PAC.Geometry.Shapes.Interfaces;
 using PAC.Tests.Geometry.Shapes.RequiredTests;
 using PAC.Tests.Geometry.Shapes.TestUtils;
@@ -23,7 +24,7 @@ namespace PAC.Tests.Geometry.Shapes.DefaultTests
         {
             foreach (T shape in testCases)
             {
-                foreach (FlipAxis axis in new FlipAxis[] { FlipAxis.None, FlipAxis.Vertical, FlipAxis.Horizontal })
+                foreach (CardinalAxis axis in CardinalAxis.Axes)
                 {
                     IEnumerable<IntVector2> expected = shape.Select(p => p.Flip(axis));
                     IEnumerable<IntVector2> flipped = shape.Flip(axis);

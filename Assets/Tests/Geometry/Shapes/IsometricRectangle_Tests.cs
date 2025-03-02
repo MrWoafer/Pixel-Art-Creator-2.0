@@ -2,6 +2,7 @@ using NUnit.Framework;
 
 using PAC.DataStructures;
 using PAC.Geometry;
+using PAC.Geometry.Axes;
 using PAC.Geometry.Shapes;
 using PAC.Tests.Geometry.Shapes.DefaultTests;
 using PAC.Tests.Geometry.Shapes.RequiredTests;
@@ -182,12 +183,12 @@ namespace PAC.Tests.Geometry.Shapes
             {
                 if (rectangle.isIsometricSquare)
                 {
-                    ShapeAssert.ReflectiveSymmetry(rectangle, FlipAxis.Horizontal);
-                    ShapeAssert.ReflectiveSymmetry(rectangle, FlipAxis.Vertical);
+                    ShapeAssert.ReflectiveSymmetry(rectangle, CardinalAxis.Horizontal);
+                    ShapeAssert.ReflectiveSymmetry(rectangle, CardinalAxis.Vertical);
                 }
                 else
                 {
-                    ShapeAssert.ReflectiveAsymmetry(rectangle, FlipAxis.Vertical);
+                    ShapeAssert.ReflectiveAsymmetry(rectangle, CardinalAxis.Vertical);
                     // An isometric rectangle can have symmetry across the horizontal axis without being an isometric square
                 }
             }

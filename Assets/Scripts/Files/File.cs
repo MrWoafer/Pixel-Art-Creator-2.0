@@ -12,6 +12,7 @@ using System.Runtime.Serialization;
 using PAC.Extensions;
 using PAC.ImageEditing;
 using PAC.Geometry;
+using PAC.Geometry.Axes;
 
 namespace PAC.Files
 {
@@ -929,7 +930,7 @@ namespace PAC.Files
         /// <summary>
         /// Flips the file.
         /// </summary>
-        public void Flip(FlipAxis axis)
+        public void Flip(CardinalOrdinalAxis axis)
         {
             ignoreOnLayerPixelsChanged = true;
             foreach (Layer layer in layers)

@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -5,6 +6,8 @@ using NUnit.Framework;
 
 using PAC.DataStructures;
 using PAC.Geometry;
+using PAC.Geometry.Axes;
+using PAC.Geometry.Shapes;
 using PAC.Geometry.Shapes.Interfaces;
 
 namespace PAC.Tests.Geometry.Shapes.TestUtils
@@ -108,7 +111,7 @@ namespace PAC.Tests.Geometry.Shapes.TestUtils
         /// <summary>
         /// Asserts that the shape has reflective symmetry across the given axis.
         /// </summary>
-        public static void ReflectiveSymmetry(IEnumerable<IntVector2> shape, FlipAxis axis)
+        public static void ReflectiveSymmetry(IEnumerable<IntVector2> shape, CardinalOrdinalAxis axis)
         {
             if (!shape.Any())
             {
@@ -126,7 +129,7 @@ namespace PAC.Tests.Geometry.Shapes.TestUtils
         /// <summary>
         /// Asserts that the shape doesn't have reflective symmetry across the given axis.
         /// </summary>
-        public static void ReflectiveAsymmetry(IEnumerable<IntVector2> shape, FlipAxis axis)
+        public static void ReflectiveAsymmetry(IEnumerable<IntVector2> shape, CardinalOrdinalAxis axis)
         {
             if (!shape.Any())
             {

@@ -6,6 +6,7 @@ using System.Linq;
 using PAC.DataStructures;
 using PAC.Exceptions;
 using PAC.Extensions;
+using PAC.Geometry.Axes;
 using PAC.Geometry.Shapes.Interfaces;
 
 using UnityEngine;
@@ -701,12 +702,12 @@ namespace PAC.Geometry.Shapes
         /// <summary>
         /// Returns a deep copy of the <see cref="IsometricRectangle"/> rotated 180 degrees about the origin (equivalently, reflected through the origin).
         /// </summary>
-        /// <seealso cref="Flip(FlipAxis)"/>
+        /// <seealso cref="Flip(CardinalOrdinalAxis)"/>
         public static IsometricRectangle operator -(IsometricRectangle isometricRectangle)
             => new IsometricRectangle(-isometricRectangle.startCorner, -isometricRectangle.endCorner, isometricRectangle.filled);
 
         public IsometricRectangle Translate(IntVector2 translation) => new IsometricRectangle(startCorner + translation, endCorner + translation, filled);
-        public IsometricRectangle Flip(FlipAxis axis) => new IsometricRectangle(startCorner.Flip(axis), endCorner.Flip(axis), filled);
+        public IsometricRectangle Flip(CardinalOrdinalAxis axis) => new IsometricRectangle(startCorner.Flip(axis), endCorner.Flip(axis), filled);
 
         IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();
         public IEnumerator<IntVector2> GetEnumerator()

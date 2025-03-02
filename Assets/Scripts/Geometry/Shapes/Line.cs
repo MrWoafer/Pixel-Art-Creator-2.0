@@ -4,6 +4,7 @@ using System.Collections.Generic;
 
 using PAC.DataStructures;
 using PAC.Extensions;
+using PAC.Geometry.Axes;
 using PAC.Geometry.Shapes.Interfaces;
 
 using UnityEngine;
@@ -491,11 +492,11 @@ namespace PAC.Geometry.Shapes
         /// Returns a deep copy of the <see cref="Line"/> rotated 180 degrees about the origin (equivalently, reflected through the origin).
         /// </summary>
         /// <seealso cref="Rotate(QuadrantalAngle)"/>
-        /// <seealso cref="Flip(FlipAxis)"/>
+        /// <seealso cref="Flip(CardinalOrdinalAxis)"/>
         public static Line operator -(Line line) => new Line(-line.start, -line.end);
 
         public Line Translate(IntVector2 translation) => new Line(start + translation, end + translation);
-        public Line Flip(FlipAxis axis) => new Line(start.Flip(axis), end.Flip(axis));
+        public Line Flip(CardinalOrdinalAxis axis) => new Line(start.Flip(axis), end.Flip(axis));
         public Line Rotate(QuadrantalAngle angle) => new Line(start.Rotate(angle), end.Rotate(angle));
 
         /// <summary>

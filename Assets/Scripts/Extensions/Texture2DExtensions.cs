@@ -4,6 +4,7 @@ using System.IO;
 using PAC.Colour;
 using PAC.DataStructures;
 using PAC.Geometry;
+using PAC.Geometry.Axes;
 
 using UnityEngine;
 
@@ -46,11 +47,10 @@ namespace PAC.Extensions
         /// <remarks>
         /// Calls <see cref="Texture2D.Apply()"/> on the returned <see cref="Texture2D"/>.
         /// </remarks>
-        public static Texture2D Flip(this Texture2D texture, FlipAxis axis) => axis switch
+        public static Texture2D Flip(this Texture2D texture, CardinalOrdinalAxis axis) => axis switch
         {
-            FlipAxis.None => texture,
-            FlipAxis.Vertical => texture.FlipX(),
-            FlipAxis.Horizontal => texture.FlipY(),
+            VerticalAxis => texture.FlipX(),
+            HorizontalAxis => texture.FlipY(),
             _ => throw new ArgumentException($"Unknown / unimplemented FlipAxis: {axis}.", nameof(axis))
         };
         /// <summary>

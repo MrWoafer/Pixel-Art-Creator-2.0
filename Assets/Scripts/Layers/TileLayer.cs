@@ -7,6 +7,7 @@ using PAC.Colour;
 using PAC.DataStructures;
 using PAC.Extensions;
 using PAC.Geometry;
+using PAC.Geometry.Axes;
 using PAC.ImageEditing;
 using PAC.Json;
 using PAC.Tilesets;
@@ -249,7 +250,7 @@ namespace PAC.Layers
             return pixelsFilled.ToArray();
         }
 
-        protected override void FlipNoEvent(FlipAxis axis)
+        protected override void FlipNoEvent(CardinalOrdinalAxis axis)
         {
             ignoreOnTilePixelsChanged = true;
             HashSet<Layer> flippedLayers = new HashSet<Layer>();
@@ -261,11 +262,11 @@ namespace PAC.Layers
                     flippedLayers.Add(tile.TileLayerToLayerInTile(this));
                 }
 
-                if (axis == FlipAxis.Vertical)
+                if (axis == CardinalAxis.Vertical)
                 {
                     tile.bottomRight = new IntVector2(-tile.bottomLeft.x + width - 1, tile.bottomLeft.y);
                 }
-                else if (axis == FlipAxis.Horizontal)
+                else if (axis == CardinalAxis.Horizontal)
                 {
                     tile.topLeft = new IntVector2(tile.bottomLeft.x, -tile.bottomLeft.y + height - 1);
                 }
