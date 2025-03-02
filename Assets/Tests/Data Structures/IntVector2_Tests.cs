@@ -1,5 +1,7 @@
 using NUnit.Framework;
+
 using PAC.DataStructures;
+using PAC.Geometry;
 using PAC.Maths;
 
 namespace PAC.Tests.DataStructures

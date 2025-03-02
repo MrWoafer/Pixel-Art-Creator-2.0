@@ -1,4 +1,4 @@
-namespace PAC
+namespace PAC.Geometry
 {
     public enum FlipAxis
     {
