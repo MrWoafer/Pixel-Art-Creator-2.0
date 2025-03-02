@@ -155,7 +155,7 @@ namespace PAC.Tests.Geometry.Shapes.TestUtils
             ShapeAssert.SameGeometry(
                 shape,
                 shape.Select(p => p.Rotate(angle) + boundingRect.bottomLeft - boundingRect.Rotate(angle).bottomLeft),
-                $"Failed with {shape} and RotationAngle.{angle}."
+                $"Failed with {shape} and {nameof(QuadrantalAngle)}.{angle}."
                 );
             
         }

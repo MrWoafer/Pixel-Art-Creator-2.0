@@ -106,7 +106,7 @@ namespace PAC.Extensions
             QuadrantalAngle.Clockwise90 => texture.Rotate90(),
             QuadrantalAngle.Anticlockwise90 => texture.RotateMinus90(),
             QuadrantalAngle._180 => texture.Rotate180(),
-            _ => throw new ArgumentException($"Unknown / unimplemented RotationAngle: {angle}", nameof(angle))
+            _ => throw new ArgumentException($"Unknown / unimplemented {nameof(QuadrantalAngle)}: {angle}", nameof(angle))
         };
         /// <summary>
         /// Returns a deep copy of the <see cref="Texture2D"/> rotated 90 degrees clockwise.
