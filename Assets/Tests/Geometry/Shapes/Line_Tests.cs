@@ -75,7 +75,7 @@ namespace PAC.Tests.Geometry.Shapes
                 {
                     for (int blockSize = 1; blockSize <= 10; blockSize++)
                     {
-                        foreach (QuadrantalAngle angle in new QuadrantalAngle[] { QuadrantalAngle._0, QuadrantalAngle._90, QuadrantalAngle._180, QuadrantalAngle.Minus90 })
+                        foreach (QuadrantalAngle angle in new QuadrantalAngle[] { QuadrantalAngle._0, QuadrantalAngle.Clockwise90, QuadrantalAngle._180, QuadrantalAngle.Anticlockwise90 })
                         {
                             foreach (FlipAxis axis in new FlipAxis[] { FlipAxis.None, FlipAxis._45Degrees })
                             {
@@ -244,7 +244,7 @@ namespace PAC.Tests.Geometry.Shapes
                     foreach (IntVector2 direction in IntVector2.upDownLeftRight)
                     {
                         Assert.False(
-                            points.Contains(point + direction) && points.Contains(point + direction.Rotate(QuadrantalAngle._90)),
+                            points.Contains(point + direction) && points.Contains(point + direction.Rotate(QuadrantalAngle.Clockwise90)),
                             $"Failed with {line} and {point}."
                             );
                     }

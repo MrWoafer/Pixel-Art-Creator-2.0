@@ -964,7 +964,7 @@ namespace PAC.Files
             width = layers[0].width;
             height = layers[0].height;
 
-            if (width != height && (angle == QuadrantalAngle._90 || angle == QuadrantalAngle.Minus90))
+            if (width != height && (angle == QuadrantalAngle.Clockwise90 || angle == QuadrantalAngle.Anticlockwise90))
             {
                 liveRender.Reinitialize(width, height);
             }

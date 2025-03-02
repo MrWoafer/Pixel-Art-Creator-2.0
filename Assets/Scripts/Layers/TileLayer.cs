@@ -296,11 +296,11 @@ namespace PAC.Layers
                     flippedLayers.Add(tile.TileLayerToLayerInTile(this));
                 }
 
-                if (angle == QuadrantalAngle._90)
+                if (angle == QuadrantalAngle.Clockwise90)
                 {
                     tile.topLeft = new IntVector2(tile.bottomLeft.y, -tile.bottomLeft.x + height - 1);
                 }
-                else if (angle == QuadrantalAngle.Minus90)
+                else if (angle == QuadrantalAngle.Anticlockwise90)
                 {
                     tile.bottomRight = new IntVector2(-tile.bottomLeft.y + width - 1, tile.bottomLeft.x);
                 }

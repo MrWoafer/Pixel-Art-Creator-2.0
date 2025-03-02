@@ -601,9 +601,9 @@ namespace PAC.DataStructures
         public IntVector2 Rotate(QuadrantalAngle angle) => angle switch
         {
             QuadrantalAngle._0 => this,
-            QuadrantalAngle._90 => (y, -x),
+            QuadrantalAngle.Clockwise90 => (y, -x),
             QuadrantalAngle._180 => (-x, -y),
-            QuadrantalAngle.Minus90 => (-y, x),
+            QuadrantalAngle.Anticlockwise90 => (-y, x),
             _ => throw new NotImplementedException("Unknown / unimplemented angle: " + angle)
         };
 

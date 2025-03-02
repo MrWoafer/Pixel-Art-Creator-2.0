@@ -352,7 +352,7 @@ namespace PAC.Geometry.Shapes
         /// <seealso cref="PointIsToLeft(IntVector2)(IntVector2)"/>
         /// <seealso cref="PointIsToRight(IntVector2)"/>
         /// <seealso cref="PointIsAbove(IntVector2)(IntVector2)"/>
-        public bool PointIsBelow(IntVector2 point) => Rotate(QuadrantalAngle._90).PointIsToLeft(point.Rotate(QuadrantalAngle._90));
+        public bool PointIsBelow(IntVector2 point) => Rotate(QuadrantalAngle.Clockwise90).PointIsToLeft(point.Rotate(QuadrantalAngle.Clockwise90));
         /// <summary>
         /// Whether the point above / on the <see cref="Line"/> (and lies within the x range of the <see cref="Line"/>).
         /// </summary>
@@ -362,7 +362,7 @@ namespace PAC.Geometry.Shapes
         /// <seealso cref="PointIsToLeft(IntVector2)(IntVector2)"/>
         /// <seealso cref="PointIsToRight(IntVector2)"/>
         /// <seealso cref="PointIsBelow(IntVector2)(IntVector2)"/>
-        public bool PointIsAbove(IntVector2 point) => Rotate(QuadrantalAngle.Minus90).PointIsToLeft(point.Rotate(QuadrantalAngle.Minus90));
+        public bool PointIsAbove(IntVector2 point) => Rotate(QuadrantalAngle.Anticlockwise90).PointIsToLeft(point.Rotate(QuadrantalAngle.Anticlockwise90));
 
         /// <summary>
         /// Returns the minimum x coord of the pixels on the <see cref="Line"/> that have the given y coord.
@@ -396,7 +396,7 @@ namespace PAC.Geometry.Shapes
         /// <seealso cref="MaxY(int)"/>
         /// <seealso cref="MinX(int)"/>
         /// <seealso cref="MaxX(int)"/>
-        public int MinY(int x) => Rotate(QuadrantalAngle._90).MinX_Impl(-x, 'x', boundingRect.xRange);
+        public int MinY(int x) => Rotate(QuadrantalAngle.Clockwise90).MinX_Impl(-x, 'x', boundingRect.xRange);
         /// <summary>
         /// Returns the maximum y coord of the pixels on the <see cref="Line"/> that have the given x coord.
         /// </summary>
@@ -407,7 +407,7 @@ namespace PAC.Geometry.Shapes
         /// <seealso cref="MinY(int)"/>
         /// <seealso cref="MaxX(int)"/>
         /// <seealso cref="MinX(int)"/>
-        public int MaxY(int x) => -Rotate(QuadrantalAngle.Minus90).MinX_Impl(x, 'x', boundingRect.xRange);
+        public int MaxY(int x) => -Rotate(QuadrantalAngle.Anticlockwise90).MinX_Impl(x, 'x', boundingRect.xRange);
         /// <summary>
         /// Computes the value of <see cref="MinX(int)"/>, but takes in extra information to allow accurate exceptions when e.g. <see cref="MinY(int)"/> delegates its logic to
         /// <see cref="MinX(int)"/>.
@@ -513,7 +513,7 @@ namespace PAC.Geometry.Shapes
                 if (!isMoreHorizontal)
                 {
                     // This may put a lot of pressure on the garbage collector due to how often this is called when the user draws a line
-                    return Rotate(QuadrantalAngle._90)[index].Rotate(QuadrantalAngle.Minus90);
+                    return Rotate(QuadrantalAngle.Clockwise90)[index].Rotate(QuadrantalAngle.Anticlockwise90);
                 }
 
                 if (index < 0)

@@ -88,8 +88,8 @@ namespace PAC.Drawing
             };
             QuadrantalAngle rotation = rotationDirection switch
             {
-                RotationDirection.Clockwise => QuadrantalAngle._90,
-                RotationDirection.Anticlockwise => QuadrantalAngle.Minus90,
+                RotationDirection.Clockwise => QuadrantalAngle.Clockwise90,
+                RotationDirection.Anticlockwise => QuadrantalAngle.Anticlockwise90,
                 _ => throw new NotImplementedException()
             };
 

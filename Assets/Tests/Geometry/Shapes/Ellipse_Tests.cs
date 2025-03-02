@@ -252,7 +252,7 @@ namespace PAC.Tests.Geometry.Shapes
                 for (int diameter = 1; diameter <= 15; diameter++)
                 {
                     Ellipse circle = new Ellipse(new IntRect((0, 0), (diameter - 1, diameter - 1)), filled);
-                    ShapeAssert.RotationalSymmetry(circle, QuadrantalAngle._90);
+                    ShapeAssert.RotationalSymmetry(circle, QuadrantalAngle.Clockwise90);
                 }
             }
         }

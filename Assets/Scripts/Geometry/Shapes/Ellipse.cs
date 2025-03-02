@@ -377,9 +377,9 @@ namespace PAC.Geometry.Shapes
                 }
                 else
                 {
-                    primaryDirection = primaryDirection.Rotate(QuadrantalAngle._90);
-                    secondaryDirection = secondaryDirection.Rotate(QuadrantalAngle._90);
-                    tertiaryDirection = tertiaryDirection.Rotate(QuadrantalAngle._90);
+                    primaryDirection = primaryDirection.Rotate(QuadrantalAngle.Clockwise90);
+                    secondaryDirection = secondaryDirection.Rotate(QuadrantalAngle.Clockwise90);
+                    tertiaryDirection = tertiaryDirection.Rotate(QuadrantalAngle.Clockwise90);
                     numRotationsDone++;
                 }
             }

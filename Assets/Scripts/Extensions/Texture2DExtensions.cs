@@ -103,8 +103,8 @@ namespace PAC.Extensions
         public static Texture2D Rotate(this Texture2D texture, QuadrantalAngle angle) => angle switch
         {
             QuadrantalAngle._0 => texture,
-            QuadrantalAngle._90 => texture.Rotate90(),
-            QuadrantalAngle.Minus90 => texture.RotateMinus90(),
+            QuadrantalAngle.Clockwise90 => texture.Rotate90(),
+            QuadrantalAngle.Anticlockwise90 => texture.RotateMinus90(),
             QuadrantalAngle._180 => texture.Rotate180(),
             _ => throw new ArgumentException($"Unknown / unimplemented RotationAngle: {angle}", nameof(angle))
         };

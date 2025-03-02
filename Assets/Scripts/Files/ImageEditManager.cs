@@ -50,7 +50,7 @@ namespace PAC.Files
             fileManager.currentFile.Rotate(angle);
             onEdit.Invoke();
 
-            if (fileManager.currentFile.width != fileManager.currentFile.height && (angle == QuadrantalAngle._90 || angle == QuadrantalAngle.Minus90))
+            if (fileManager.currentFile.width != fileManager.currentFile.height && (angle == QuadrantalAngle.Clockwise90 || angle == QuadrantalAngle.Anticlockwise90))
             {
                 onImageSizeChanged.Invoke();
             }
@@ -84,8 +84,8 @@ namespace PAC.Files
                 }
             }
         }
-        public void RotateSelectedLayers90() => RotateSelectedLayers(QuadrantalAngle._90);
-        public void RotateSelectedLayersMinus90() => RotateSelectedLayers(QuadrantalAngle.Minus90);
+        public void RotateSelectedLayers90() => RotateSelectedLayers(QuadrantalAngle.Clockwise90);
+        public void RotateSelectedLayersMinus90() => RotateSelectedLayers(QuadrantalAngle.Anticlockwise90);
         public void RotateSelectedLayers180() => RotateSelectedLayers(QuadrantalAngle._180);
 
         public void ExtendFile(int left, int right, int up, int down)
