@@ -223,11 +223,11 @@ namespace PAC.Layers
         /// Rotates the layer, but does not invoke the onPixelsChanged event.
         /// Rotation is clockwise.
         /// </summary>
-        protected abstract void RotateNoEvent(RotationAngle angle);
+        protected abstract void RotateNoEvent(QuadrantalAngle angle);
         /// <summary>
         /// Rotates the layer. Rotation is clockwise.
         /// </summary>
-        public void Rotate(RotationAngle angle)
+        public void Rotate(QuadrantalAngle angle)
         {
             RotateNoEvent(angle);
             onPixelsChanged.Invoke(rect, keyFrameIndices);

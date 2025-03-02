@@ -23,7 +23,7 @@ namespace PAC.Tests.Geometry.Shapes.DefaultTests
         {
             foreach (T shape in testCases)
             {
-                foreach (RotationAngle angle in new RotationAngle[] { RotationAngle._0, RotationAngle._90, RotationAngle._180, RotationAngle.Minus90 })
+                foreach (QuadrantalAngle angle in new QuadrantalAngle[] { QuadrantalAngle._0, QuadrantalAngle._90, QuadrantalAngle._180, QuadrantalAngle.Minus90 })
                 {
                     IEnumerable<IntVector2> expected = shape.Select(p => p.Rotate(angle));
                     IEnumerable<IntVector2> rotated = shape.Rotate(angle);

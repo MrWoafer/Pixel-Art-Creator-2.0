@@ -374,13 +374,13 @@ namespace PAC.Geometry.Shapes
         /// <summary>
         /// Returns a deep copy of the <see cref="RightTriangle"/> rotated 180 degrees about the origin (equivalently, reflected through the origin).
         /// </summary>
-        /// <seealso cref="Rotate(RotationAngle)"/>
+        /// <seealso cref="Rotate(QuadrantalAngle)"/>
         /// <seealso cref="Flip(FlipAxis)"/>
-        public static RightTriangle operator -(RightTriangle triangle) => triangle.Rotate(RotationAngle._180);
+        public static RightTriangle operator -(RightTriangle triangle) => triangle.Rotate(QuadrantalAngle._180);
 
         public RightTriangle Translate(IntVector2 translation) => new RightTriangle(boundingRect + translation, rightAngleLocation, filled);
         public RightTriangle Flip(FlipAxis axis) => new RightTriangle(boundingRect.Flip(axis), FromDirection(AsDirection(rightAngleLocation).Flip(axis)), filled);
-        public RightTriangle Rotate(RotationAngle angle) => new RightTriangle(boundingRect.Rotate(angle), FromDirection(AsDirection(rightAngleLocation).Rotate(angle)), filled);
+        public RightTriangle Rotate(QuadrantalAngle angle) => new RightTriangle(boundingRect.Rotate(angle), FromDirection(AsDirection(rightAngleLocation).Rotate(angle)), filled);
 
         IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();
         public IEnumerator<IntVector2> GetEnumerator()

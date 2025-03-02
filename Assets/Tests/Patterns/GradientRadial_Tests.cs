@@ -131,7 +131,7 @@ namespace PAC.Tests.Patterns
                 testRegion = new IntRect(testRegion.bottomLeft + IntVector2.downLeft, testRegion.topRight + IntVector2.upRight);
                 foreach (IntVector2 point in testRegion)
                 {
-                    Assert.True(gradient[point] == gradient[gradient.centre.coord + (point - gradient.centre.coord).Rotate(RotationAngle._90)], $"Failed with {gradient} and {point}.");
+                    Assert.True(gradient[point] == gradient[gradient.centre.coord + (point - gradient.centre.coord).Rotate(QuadrantalAngle._90)], $"Failed with {gradient} and {point}.");
                 }
             }
         }

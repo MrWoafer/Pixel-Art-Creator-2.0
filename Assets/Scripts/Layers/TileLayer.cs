@@ -279,9 +279,9 @@ namespace PAC.Layers
             RerenderKeyFrames();
         }
 
-        protected override void RotateNoEvent(RotationAngle angle)
+        protected override void RotateNoEvent(QuadrantalAngle angle)
         {
-            if (angle == RotationAngle._0)
+            if (angle == QuadrantalAngle._0)
             {
                 return;
             }
@@ -296,15 +296,15 @@ namespace PAC.Layers
                     flippedLayers.Add(tile.TileLayerToLayerInTile(this));
                 }
 
-                if (angle == RotationAngle._90)
+                if (angle == QuadrantalAngle._90)
                 {
                     tile.topLeft = new IntVector2(tile.bottomLeft.y, -tile.bottomLeft.x + height - 1);
                 }
-                else if (angle == RotationAngle.Minus90)
+                else if (angle == QuadrantalAngle.Minus90)
                 {
                     tile.bottomRight = new IntVector2(-tile.bottomLeft.y + width - 1, tile.bottomLeft.x);
                 }
-                else if (angle == RotationAngle._180)
+                else if (angle == QuadrantalAngle._180)
                 {
                     tile.topRight = new IntVector2(-tile.bottomLeft.x + width - 1, -tile.bottomLeft.y + height - 1);
                 }

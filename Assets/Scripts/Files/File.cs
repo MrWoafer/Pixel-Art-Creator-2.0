@@ -947,9 +947,9 @@ namespace PAC.Files
         /// <summary>
         /// Rotates the file. Rotation is clockwise.
         /// </summary>
-        public void Rotate(RotationAngle angle)
+        public void Rotate(QuadrantalAngle angle)
         {
-            if (angle == RotationAngle._0)
+            if (angle == QuadrantalAngle._0)
             {
                 return;
             }
@@ -964,7 +964,7 @@ namespace PAC.Files
             width = layers[0].width;
             height = layers[0].height;
 
-            if (width != height && (angle == RotationAngle._90 || angle == RotationAngle.Minus90))
+            if (width != height && (angle == QuadrantalAngle._90 || angle == QuadrantalAngle.Minus90))
             {
                 liveRender.Reinitialize(width, height);
             }

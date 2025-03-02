@@ -86,10 +86,10 @@ namespace PAC.Drawing
                 (DiamondCorner.Right, RotationDirection.Anticlockwise) => (-1, 1),
                 _ => throw new NotImplementedException()
             };
-            RotationAngle rotation = rotationDirection switch
+            QuadrantalAngle rotation = rotationDirection switch
             {
-                RotationDirection.Clockwise => RotationAngle._90,
-                RotationDirection.Anticlockwise => RotationAngle.Minus90,
+                RotationDirection.Clockwise => QuadrantalAngle._90,
+                RotationDirection.Anticlockwise => QuadrantalAngle.Minus90,
                 _ => throw new NotImplementedException()
             };
 

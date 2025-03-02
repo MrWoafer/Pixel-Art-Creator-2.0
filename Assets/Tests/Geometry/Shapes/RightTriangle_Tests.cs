@@ -262,9 +262,9 @@ namespace PAC.Tests.Geometry.Shapes
                     Assert.True(IntVector2.upDownLeftRight.Any(
                         direction => 
                             triangle.Contains(triangle.rightAngleCorner + direction) &&
-                            triangle.Contains(triangle.rightAngleCorner + direction.Rotate(RotationAngle._90)) &&
-                            !triangle.Contains(triangle.rightAngleCorner + direction.Rotate(RotationAngle._180)) &&
-                            !triangle.Contains(triangle.rightAngleCorner + direction.Rotate(RotationAngle.Minus90))
+                            triangle.Contains(triangle.rightAngleCorner + direction.Rotate(QuadrantalAngle._90)) &&
+                            !triangle.Contains(triangle.rightAngleCorner + direction.Rotate(QuadrantalAngle._180)) &&
+                            !triangle.Contains(triangle.rightAngleCorner + direction.Rotate(QuadrantalAngle.Minus90))
                         ),
                         $"Failed with {triangle}."); // Test it is actually a right angle at that corner
 

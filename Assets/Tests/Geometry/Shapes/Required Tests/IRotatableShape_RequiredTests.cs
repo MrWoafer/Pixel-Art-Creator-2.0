@@ -9,7 +9,7 @@ namespace PAC.Tests.Geometry.Shapes.RequiredTests
     public interface IRotatableShape_RequiredTests : IDeepCopyableShape_RequiredTests
     {
         /// <summary>
-        /// Tests <see cref="IRotatableShape{T}.Rotate(RotationAngle)"/>.
+        /// Tests <see cref="IRotatableShape{T}.Rotate(QuadrantalAngle)"/>.
         /// </summary>
         public void Rotate();
     }

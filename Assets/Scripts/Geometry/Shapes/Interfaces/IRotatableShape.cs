@@ -16,16 +16,16 @@
         /// Returns a deep copy of the shape rotated by the given angle.
         /// </summary>
         /// <seealso cref="operator -(IRotatableShape{T})"/>
-        public T Rotate(RotationAngle angle);
+        public T Rotate(QuadrantalAngle angle);
 
         #region Default Implementations
         /// <summary>
         /// Returns a deep copy of the shape rotated 180 degrees about the origin (equivalently, reflected through the origin).
         /// </summary>
-        /// <seealso cref="Rotate(RotationAngle)"/>
-        public static T operator -(IRotatableShape<T> shape) => shape.Rotate(RotationAngle._180);
+        /// <seealso cref="Rotate(QuadrantalAngle)"/>
+        public static T operator -(IRotatableShape<T> shape) => shape.Rotate(QuadrantalAngle._180);
 
-        T IDeepCopyableShape<T>.DeepCopy() => Rotate(RotationAngle._0);
+        T IDeepCopyableShape<T>.DeepCopy() => Rotate(QuadrantalAngle._0);
         #endregion
     }
 }

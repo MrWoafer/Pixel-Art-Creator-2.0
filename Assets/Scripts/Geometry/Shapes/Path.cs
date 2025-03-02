@@ -392,13 +392,13 @@ namespace PAC.Geometry.Shapes
         /// <summary>
         /// Returns a deep copy of the <see cref="Path"/> rotated 180 degrees about the origin (equivalently, reflected through the origin).
         /// </summary>
-        /// <seealso cref="Rotate(RotationAngle)"/>
+        /// <seealso cref="Rotate(QuadrantalAngle)"/>
         /// <seealso cref="Flip(FlipAxis)"/>
-        public static Path operator -(Path path) => path.Rotate(RotationAngle._180);
+        public static Path operator -(Path path) => path.Rotate(QuadrantalAngle._180);
 
         public Path Translate(IntVector2 translation) => new Path(_lines.Select(l => l.Translate(translation)));
         public Path Flip(FlipAxis axis) => new Path(_lines.Select(l => l.Flip(axis)));
-        public Path Rotate(RotationAngle angle) => new Path(_lines.Select(l => l.Rotate(angle)));
+        public Path Rotate(QuadrantalAngle angle) => new Path(_lines.Select(l => l.Rotate(angle)));
 
         /// <summary>
         /// Iterates through the points in the <see cref="Path"/>, but also returns the index (in <see cref="_lines"/>) of the <see cref="Line"/> that point came from.

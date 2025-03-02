@@ -144,7 +144,7 @@ namespace PAC.Tests.Geometry.Shapes.TestUtils
         /// <summary>
         /// Asserts that the shape has rotational symmetry by the given angle.
         /// </summary>
-        public static void RotationalSymmetry(IEnumerable<IntVector2> shape, RotationAngle angle)
+        public static void RotationalSymmetry(IEnumerable<IntVector2> shape, QuadrantalAngle angle)
         {
             if (!shape.Any())
             {

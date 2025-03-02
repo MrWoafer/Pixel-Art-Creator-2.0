@@ -75,7 +75,7 @@ namespace PAC.Tests.Geometry.Shapes
                 {
                     for (int blockSize = 1; blockSize <= 10; blockSize++)
                     {
-                        foreach (RotationAngle angle in new RotationAngle[] { RotationAngle._0, RotationAngle._90, RotationAngle._180, RotationAngle.Minus90 })
+                        foreach (QuadrantalAngle angle in new QuadrantalAngle[] { QuadrantalAngle._0, QuadrantalAngle._90, QuadrantalAngle._180, QuadrantalAngle.Minus90 })
                         {
                             foreach (FlipAxis axis in new FlipAxis[] { FlipAxis.None, FlipAxis._45Degrees })
                             {
@@ -244,7 +244,7 @@ namespace PAC.Tests.Geometry.Shapes
                     foreach (IntVector2 direction in IntVector2.upDownLeftRight)
                     {
                         Assert.False(
-                            points.Contains(point + direction) && points.Contains(point + direction.Rotate(RotationAngle._90)),
+                            points.Contains(point + direction) && points.Contains(point + direction.Rotate(QuadrantalAngle._90)),
                             $"Failed with {line} and {point}."
                             );
                     }
@@ -544,13 +544,13 @@ namespace PAC.Tests.Geometry.Shapes
                 int Count = Enumerable.Count(line);
                 if (Count % 2 == 0)
                 {
-                    ShapeAssert.RotationalSymmetry(line, RotationAngle._180);
+                    ShapeAssert.RotationalSymmetry(line, QuadrantalAngle._180);
                 }
                 else
                 {
                     List<IntVector2> points = Enumerable.ToList(line);
                     points.Remove(line[Count / 2]); // Ignore midpoint
-                    ShapeAssert.RotationalSymmetry(points, RotationAngle._180);
+                    ShapeAssert.RotationalSymmetry(points, QuadrantalAngle._180);
                 }
             }
         }

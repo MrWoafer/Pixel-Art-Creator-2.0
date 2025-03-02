@@ -45,17 +45,17 @@ namespace PAC.Files
         public void FlipFileX() => FlipFile(FlipAxis.Vertical);
         public void FlipFileY() => FlipFile(FlipAxis.Horizontal);
 
-        public void RotateFile(RotationAngle angle)
+        public void RotateFile(QuadrantalAngle angle)
         {
             fileManager.currentFile.Rotate(angle);
             onEdit.Invoke();
 
-            if (fileManager.currentFile.width != fileManager.currentFile.height && (angle == RotationAngle._90 || angle == RotationAngle.Minus90))
+            if (fileManager.currentFile.width != fileManager.currentFile.height && (angle == QuadrantalAngle._90 || angle == QuadrantalAngle.Minus90))
             {
                 onImageSizeChanged.Invoke();
             }
         }
-        public void RotateSelectedLayers(RotationAngle angle)
+        public void RotateSelectedLayers(QuadrantalAngle angle)
         {
             if (layerManager.selectedLayers.Length == fileManager.currentFile.layers.Count)
             {
@@ -84,9 +84,9 @@ namespace PAC.Files
                 }
             }
         }
-        public void RotateSelectedLayers90() => RotateSelectedLayers(RotationAngle._90);
-        public void RotateSelectedLayersMinus90() => RotateSelectedLayers(RotationAngle.Minus90);
-        public void RotateSelectedLayers180() => RotateSelectedLayers(RotationAngle._180);
+        public void RotateSelectedLayers90() => RotateSelectedLayers(QuadrantalAngle._90);
+        public void RotateSelectedLayersMinus90() => RotateSelectedLayers(QuadrantalAngle.Minus90);
+        public void RotateSelectedLayers180() => RotateSelectedLayers(QuadrantalAngle._180);
 
         public void ExtendFile(int left, int right, int up, int down)
         {

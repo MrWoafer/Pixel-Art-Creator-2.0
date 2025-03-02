@@ -252,13 +252,13 @@ namespace PAC.Geometry.Shapes
         /// <summary>
         /// Returns a deep copy of the <see cref="Diamond"/> rotated 180 degrees about the origin (equivalently, reflected through the origin).
         /// </summary>
-        /// <seealso cref="Rotate(RotationAngle)"/>
+        /// <seealso cref="Rotate(QuadrantalAngle)"/>
         /// <seealso cref="Flip(FlipAxis)"/>
         public static Diamond operator -(Diamond diamond) => new Diamond(-diamond.boundingRect, diamond.filled);
 
         public Diamond Translate(IntVector2 translation) => new Diamond(boundingRect + translation, filled);
         public Diamond Flip(FlipAxis axis) => new Diamond(boundingRect.Flip(axis), filled);
-        public Diamond Rotate(RotationAngle angle) => new Diamond(boundingRect.Rotate(angle), filled);
+        public Diamond Rotate(QuadrantalAngle angle) => new Diamond(boundingRect.Rotate(angle), filled);
 
         IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();
         public IEnumerator<IntVector2> GetEnumerator()

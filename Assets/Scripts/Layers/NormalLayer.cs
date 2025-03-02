@@ -133,7 +133,7 @@ namespace PAC.Layers
         /// <summary>
         /// Rotates the given frame of the layer. Rotation is clockwise.
         /// </summary>
-        public void Rotate(int frame, RotationAngle angle, AnimFrameRefMode frameRefMode)
+        public void Rotate(int frame, QuadrantalAngle angle, AnimFrameRefMode frameRefMode)
         {
             if (width != height && keyFrames.Count > 1)
             {
@@ -149,9 +149,9 @@ namespace PAC.Layers
 
             onPixelsChanged.Invoke(rect, new int[] { GetKeyFrame(frame).frame });
         }
-        protected override void RotateNoEvent(RotationAngle angle)
+        protected override void RotateNoEvent(QuadrantalAngle angle)
         {
-            if (angle == RotationAngle._0)
+            if (angle == QuadrantalAngle._0)
             {
                 return;
             }
