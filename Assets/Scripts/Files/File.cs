@@ -11,6 +11,7 @@ using PAC.Json;
 using System.Runtime.Serialization;
 using PAC.Extensions;
 using PAC.ImageEditing;
+using PAC.Geometry;
 
 namespace PAC.Files
 {

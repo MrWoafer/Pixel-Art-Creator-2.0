@@ -5,6 +5,7 @@ using NUnit.Framework;
 using PAC.DataStructures;
 using PAC.Drawing;
 using PAC.Extensions;
+using PAC.Geometry;
 using PAC.Geometry.Shapes;
 
 namespace PAC.Tests.Drawing

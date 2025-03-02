@@ -6,6 +6,7 @@ using PAC.Animation;
 using PAC.Colour;
 using PAC.DataStructures;
 using PAC.Extensions;
+using PAC.Geometry;
 using PAC.Json;
 
 using UnityEngine;

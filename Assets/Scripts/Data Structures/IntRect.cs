@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System;
 using PAC.Extensions;
 using PAC.Interfaces;
+using PAC.Geometry;
 
 namespace PAC.DataStructures
 {

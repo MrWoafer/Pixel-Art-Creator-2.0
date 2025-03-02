@@ -1,3 +1,4 @@
+using PAC.Geometry;
 using PAC.Geometry.Shapes.Interfaces;
 
 namespace PAC.Tests.Geometry.Shapes.RequiredTests

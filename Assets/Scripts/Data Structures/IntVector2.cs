@@ -5,6 +5,7 @@ using UnityEngine;
 using PAC.Extensions;
 using System.Runtime.CompilerServices;
 using PAC.Maths;
+using PAC.Geometry;
 
 namespace PAC.DataStructures
 {
