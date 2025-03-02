@@ -3,6 +3,7 @@ using System.IO;
 
 using PAC.Colour;
 using PAC.DataStructures;
+using PAC.Exceptions;
 using PAC.Geometry;
 using PAC.Geometry.Axes;
 
@@ -47,11 +48,11 @@ namespace PAC.Extensions
         /// <remarks>
         /// Calls <see cref="Texture2D.Apply()"/> on the returned <see cref="Texture2D"/>.
         /// </remarks>
-        public static Texture2D Flip(this Texture2D texture, CardinalOrdinalAxis axis) => axis switch
+        public static Texture2D Flip(this Texture2D texture, CardinalAxis axis) => axis switch
         {
             VerticalAxis => texture.FlipX(),
             HorizontalAxis => texture.FlipY(),
-            _ => throw new ArgumentException($"Unknown / unimplemented FlipAxis: {axis}.", nameof(axis))
+            _ => throw new UnreachableException()
         };
         /// <summary>
         /// Returns a deep copy of the <see cref="Texture2D"/> reflected across the central vertical axis.

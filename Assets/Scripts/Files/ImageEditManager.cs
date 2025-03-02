@@ -27,7 +27,7 @@ namespace PAC.Files
             dialogBoxManager = Finder.dialogBoxManager;
         }
 
-        public void FlipSelectedLayers(CardinalOrdinalAxis axis)
+        public void FlipSelectedLayers(CardinalAxis axis)
         {
             foreach (Layer selectedLayer in layerManager.selectedLayers)
             {
@@ -38,7 +38,7 @@ namespace PAC.Files
         public void FlipSelectedLayersX() => FlipSelectedLayers(CardinalAxis.Vertical);
         public void FlipSelectedLayersY() => FlipSelectedLayers(CardinalAxis.Horizontal);
 
-        public void FlipFile(CardinalOrdinalAxis axis)
+        public void FlipFile(CardinalAxis axis)
         {
             fileManager.currentFile.Flip(axis);
             onEdit.Invoke();

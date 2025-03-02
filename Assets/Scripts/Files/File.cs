@@ -930,7 +930,7 @@ namespace PAC.Files
         /// <summary>
         /// Flips the file.
         /// </summary>
-        public void Flip(CardinalOrdinalAxis axis)
+        public void Flip(CardinalAxis axis)
         {
             ignoreOnLayerPixelsChanged = true;
             foreach (Layer layer in layers)
