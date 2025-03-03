@@ -612,8 +612,10 @@ namespace PAC.DataStructures
         /// <summary>
         /// Returns the vector flipped across the given axis.
         /// </summary>
+        /// <exception cref="ArgumentNullException"><paramref name="axis"/> is null.</exception>
         public IntVector2 Flip(CardinalOrdinalAxis axis) => axis switch
         {
+            null => throw new ArgumentNullException(nameof(axis), $"{nameof(axis)} is null."),
             VerticalAxis => (-x, y),
             HorizontalAxis => (x, -y),
             Diagonal45Axis => (y, x),
