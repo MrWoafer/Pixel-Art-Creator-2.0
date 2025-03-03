@@ -1,3 +1,5 @@
+using PAC.Geometry.Axes;
+
 namespace PAC.Geometry.Shapes.Interfaces
 {
     /// <summary>
@@ -10,5 +12,8 @@ namespace PAC.Geometry.Shapes.Interfaces
     /// The type of shape obtained from the transformations.
     /// When implementing this interface on a concrete type, this should be the same as the implementing type. See <see cref="ITranslatableShape{T}"/> for more detail on this design pattern.
     /// </typeparam>
-    public interface ITransformableShape<out T> : ITranslatableShape<T>, IFlippableShape<T>, IRotatableShape<T> where T : IShape { }
+    /// <typeparam name="A">
+    /// The axis/axes that the shape can be flipped over.
+    /// </typeparam>
+    public interface ITransformableShape<out T, in A> : ITranslatableShape<T>, IFlippableShape<T, A>, IRotatableShape<T> where T : IShape where A : CardinalOrdinalAxis { }
 }

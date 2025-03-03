@@ -12,11 +12,14 @@ namespace PAC.Geometry.Shapes.Interfaces
     /// The type of shape obtained from flipping.
     /// When implementing this interface on a concrete type, this should be the same as the implementing type. See <see cref="ITranslatableShape{T}"/> for more detail on this design pattern.
     /// </typeparam>
-    public interface IFlippableShape<out T> : IDeepCopyableShape<T> where T : IShape
+    /// <typeparam name="A">
+    /// The axis/axes that the shape can be flipped over.
+    /// </typeparam>
+    public interface IFlippableShape<out T, in A> : IDeepCopyableShape<T> where T : IShape where A : CardinalOrdinalAxis
     {
         /// <summary>
         /// Returns a deep copy of the shape reflected across the given axis.
         /// </summary>
-        public T Flip(CardinalOrdinalAxis axis);
+        public T Flip(A axis);
     }
 }

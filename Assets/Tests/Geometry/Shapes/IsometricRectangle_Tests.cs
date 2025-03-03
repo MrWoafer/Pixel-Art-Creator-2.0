@@ -206,5 +206,9 @@ namespace PAC.Tests.Geometry.Shapes
                 ShapeAssert.NoRepeats(rectangle);
             }
         }
+
+        [Test]
+        [Category("Shapes")]
+        public override void Flip() => IFlippableShape_DefaultTests<IsometricRectangle, CardinalAxis>.Flip_Impl(testCases);
     }
 }

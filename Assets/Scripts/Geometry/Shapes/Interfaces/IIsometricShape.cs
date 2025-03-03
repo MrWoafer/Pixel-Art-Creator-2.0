@@ -1,4 +1,6 @@
-﻿namespace PAC.Geometry.Shapes.Interfaces
+﻿using PAC.Geometry.Axes;
+
+namespace PAC.Geometry.Shapes.Interfaces
 {
     /// <summary>
     /// A pixel art representation of the isometric projection of a shape.
@@ -10,5 +12,5 @@
     /// The type of shape obtained from transformations on the shape.
     /// When implementing this interface on a concrete type, this should be the same as the implementing type. See <see cref="ITranslatableShape{T}"/> for more detail on this design pattern.
     /// </typeparam>
-    public interface IIsometricShape<out T> : IFillableShape, ITranslatableShape<T>, IFlippableShape<T> where T : IShape { }
+    public interface IIsometricShape<out T> : IFillableShape, ITranslatableShape<T>, IFlippableShape<T, VerticalAxis> where T : IShape { }
 }

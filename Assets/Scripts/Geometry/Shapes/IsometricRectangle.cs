@@ -58,7 +58,7 @@ namespace PAC.Geometry.Shapes
     /// The enumerator does not repeat any points.
     /// </para>
     /// </remarks>
-    public class IsometricRectangle : IIsometricShape<IsometricRectangle>, IDeepCopyableShape<IsometricRectangle>, IEquatable<IsometricRectangle>
+    public class IsometricRectangle : IIsometricShape<IsometricRectangle>, IFlippableShape<IsometricRectangle, CardinalAxis>, IDeepCopyableShape<IsometricRectangle>, IEquatable<IsometricRectangle>
     {
         /// <summary>
         /// The point the mouse started dragging from.
@@ -707,7 +707,9 @@ namespace PAC.Geometry.Shapes
             => new IsometricRectangle(-isometricRectangle.startCorner, -isometricRectangle.endCorner, isometricRectangle.filled);
 
         public IsometricRectangle Translate(IntVector2 translation) => new IsometricRectangle(startCorner + translation, endCorner + translation, filled);
-        public IsometricRectangle Flip(CardinalOrdinalAxis axis) => new IsometricRectangle(startCorner.Flip(axis), endCorner.Flip(axis), filled);
+
+        public IsometricRectangle Flip(VerticalAxis axis) => Flip((CardinalAxis)axis);
+        public IsometricRectangle Flip(CardinalAxis axis) => new IsometricRectangle(startCorner.Flip(axis), endCorner.Flip(axis), filled);
 
         IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();
         public IEnumerator<IntVector2> GetEnumerator()
