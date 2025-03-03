@@ -122,7 +122,7 @@ namespace PAC.Tests.Geometry.Shapes.TestUtils
             ShapeAssert.SameGeometry(
                 shape,
                 shape.Select(p => p.Flip(axis) + boundingRect.bottomLeft - boundingRect.Flip(axis).bottomLeft),
-                $"Failed with {shape} and FlipAxis.{axis}."
+                $"Failed with {shape} and {axis}."
                 );
         }
 
@@ -140,7 +140,7 @@ namespace PAC.Tests.Geometry.Shapes.TestUtils
             ShapeAssert.NotSameGeometry(
                 shape,
                 shape.Select(p => p.Flip(axis) + boundingRect.bottomLeft - boundingRect.Flip(axis).bottomLeft),
-                $"Failed with {shape} and FlipAxis.{axis}."
+                $"Failed with {shape} and {axis}."
                 );
         }
 
