@@ -35,16 +35,16 @@ namespace PAC.Files
             }
             onEdit.Invoke();
         }
-        public void FlipSelectedLayersX() => FlipSelectedLayers(CardinalAxis.Vertical);
-        public void FlipSelectedLayersY() => FlipSelectedLayers(CardinalAxis.Horizontal);
+        public void FlipSelectedLayersX() => FlipSelectedLayers(Axes.Vertical);
+        public void FlipSelectedLayersY() => FlipSelectedLayers(Axes.Horizontal);
 
         public void FlipFile(CardinalAxis axis)
         {
             fileManager.currentFile.Flip(axis);
             onEdit.Invoke();
         }
-        public void FlipFileX() => FlipFile(CardinalAxis.Vertical);
-        public void FlipFileY() => FlipFile(CardinalAxis.Horizontal);
+        public void FlipFileX() => FlipFile(Axes.Vertical);
+        public void FlipFileY() => FlipFile(Axes.Horizontal);
 
         public void RotateFile(QuadrantalAngle angle)
         {

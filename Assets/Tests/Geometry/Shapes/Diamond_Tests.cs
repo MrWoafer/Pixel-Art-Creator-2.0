@@ -168,7 +168,7 @@ namespace PAC.Tests.Geometry.Shapes
                 foreach (IntVector2 topRight in new IntRect((0, 0), (10, 10)))
                 {
                     Diamond diamond = new Diamond(new IntRect((0, 0), topRight), filled);
-                    ShapeAssert.ReflectiveSymmetry(diamond, CardinalAxis.Vertical);
+                    ShapeAssert.ReflectiveSymmetry(diamond, Axes.Vertical);
                 }
             }
         }
@@ -184,7 +184,7 @@ namespace PAC.Tests.Geometry.Shapes
                 foreach (IntVector2 topRight in new IntRect((0, 0), (10, 10)))
                 {
                     Diamond diamond = new Diamond(new IntRect((0, 0), topRight), filled);
-                    ShapeAssert.ReflectiveSymmetry(diamond, CardinalAxis.Horizontal);
+                    ShapeAssert.ReflectiveSymmetry(diamond, Axes.Horizontal);
                 }
             }
         }

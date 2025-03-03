@@ -1,5 +1,3 @@
-using System.Collections.Generic;
-
 namespace PAC.Geometry.Axes
 {
     /// <summary>
@@ -8,29 +6,6 @@ namespace PAC.Geometry.Axes
     public abstract record OrdinalAxis : CardinalOrdinalAxis
     {
         private protected OrdinalAxis() { } // don't allow any instances other than the pre-defined ones
-
-        /// <summary>
-        /// A 45-degree axis (going from southwest to northeast).
-        /// </summary>
-        /// <seealso cref="Minus45"/>
-        public static readonly Diagonal45Axis Diagonal45;
-        /// <summary>
-        /// A -45-degree axis (going from northwest to southeast).
-        /// </summary>
-        /// <seealso cref="Diagonal45"/>
-        public static readonly Minus45Axis Minus45;
-
-        /// <summary>
-        /// <see cref="Diagonal45"/> and <see cref="Minus45"/>.
-        /// </summary>
-        public static readonly new IEnumerable<OrdinalAxis> Axes;
-
-        static OrdinalAxis()
-        {
-            Diagonal45 = new Diagonal45Axis();
-            Minus45 = new Minus45Axis();
-            Axes = new OrdinalAxis[] { Diagonal45, Minus45 };
-        }
     }
 
     /// <summary>
