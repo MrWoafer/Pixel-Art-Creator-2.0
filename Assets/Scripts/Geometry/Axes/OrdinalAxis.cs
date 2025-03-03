@@ -13,17 +13,24 @@ namespace PAC.Geometry.Axes
         /// A 45-degree axis (going from southwest to northeast).
         /// </summary>
         /// <seealso cref="Minus45"/>
-        public static readonly Diagonal45Axis Diagonal45 = new Diagonal45Axis();
+        public static readonly Diagonal45Axis Diagonal45;
         /// <summary>
         /// A -45-degree axis (going from northwest to southeast).
         /// </summary>
         /// <seealso cref="Diagonal45"/>
-        public static readonly Minus45Axis Minus45 = new Minus45Axis();
+        public static readonly Minus45Axis Minus45;
 
         /// <summary>
         /// <see cref="Diagonal45"/> and <see cref="Minus45"/>.
         /// </summary>
-        public static readonly new IEnumerable<OrdinalAxis> Axes = new OrdinalAxis[] { Diagonal45, Minus45 };
+        public static readonly new IEnumerable<OrdinalAxis> Axes;
+
+        static OrdinalAxis()
+        {
+            Diagonal45 = new Diagonal45Axis();
+            Minus45 = new Minus45Axis();
+            Axes = new OrdinalAxis[] { Diagonal45, Minus45 };
+        }
     }
 
     /// <summary>

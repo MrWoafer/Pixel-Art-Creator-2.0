@@ -13,17 +13,24 @@ namespace PAC.Geometry.Axes
         /// A horizontal axis.
         /// </summary>
         /// <seealso cref="Vertical"/>
-        public static readonly HorizontalAxis Horizontal = new HorizontalAxis();
+        public static readonly HorizontalAxis Horizontal;
         /// <summary>
         /// A vertical axis.
         /// </summary>
         /// <seealso cref="Horizontal"/>
-        public static readonly VerticalAxis Vertical = new VerticalAxis();
+        public static readonly VerticalAxis Vertical;
 
         /// <summary>
         /// <see cref="Horizontal"/> and <see cref="Vertical"/>.
         /// </summary>
-        public static readonly new IEnumerable<CardinalAxis> Axes = new CardinalAxis[] { Horizontal, Vertical };
+        public static readonly new IEnumerable<CardinalAxis> Axes;
+
+        static CardinalAxis()
+        {
+            Horizontal = new HorizontalAxis();
+            Vertical = new VerticalAxis();
+            Axes = new CardinalAxis[] { Horizontal, Vertical };
+        }
     }
 
     /// <summary>
