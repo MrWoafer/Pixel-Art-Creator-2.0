@@ -183,12 +183,12 @@ namespace PAC.Tests.Geometry.Shapes
             {
                 if (rectangle.isIsometricSquare)
                 {
-                    ShapeAssert.ReflectiveSymmetry(rectangle, CardinalAxis.Horizontal);
-                    ShapeAssert.ReflectiveSymmetry(rectangle, CardinalAxis.Vertical);
+                    ShapeAssert.ReflectiveSymmetry(rectangle, Axes.Horizontal);
+                    ShapeAssert.ReflectiveSymmetry(rectangle, Axes.Vertical);
                 }
                 else
                 {
-                    ShapeAssert.ReflectiveAsymmetry(rectangle, CardinalAxis.Vertical);
+                    ShapeAssert.ReflectiveAsymmetry(rectangle, Axes.Vertical);
                     // An isometric rectangle can have symmetry across the horizontal axis without being an isometric square
                 }
             }

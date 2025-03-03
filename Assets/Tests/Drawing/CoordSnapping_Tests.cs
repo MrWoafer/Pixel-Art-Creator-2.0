@@ -181,7 +181,7 @@ namespace PAC.Tests.Drawing
 
                 IntVector2 snappedPoint = CoordSnapping.SnapToPerfectLine(fixedPoint, movablePoint);
 
-                foreach (CardinalOrdinalAxis axis in CardinalOrdinalAxis.Axes)
+                foreach (CardinalOrdinalAxis axis in Axes.CardinalAxes)
                 {
                     IntVector2 snappedPointReflectedInputs = CoordSnapping.SnapToPerfectLine(fixedPoint.Flip(axis), movablePoint.Flip(axis));
 

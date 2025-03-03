@@ -78,8 +78,8 @@ namespace PAC.Tests.Geometry.Shapes
                     {
                         foreach (QuadrantalAngle angle in new QuadrantalAngle[] { QuadrantalAngle._0, QuadrantalAngle.Clockwise90, QuadrantalAngle._180, QuadrantalAngle.Anticlockwise90 })
                         {
-                            Line line = new Line(start, start + new IntVector2(blockSize * numBlocks - 1, numBlocks - 1).Flip(OrdinalAxis.Diagonal45).Rotate(angle));
-                            IEnumerable<IntVector2> expected = Expected(blockSize, numBlocks).Select(p => start + p.Flip(OrdinalAxis.Diagonal45).Rotate(angle));
+                            Line line = new Line(start, start + new IntVector2(blockSize * numBlocks - 1, numBlocks - 1).Flip(Axes.Diagonal45).Rotate(angle));
+                            IEnumerable<IntVector2> expected = Expected(blockSize, numBlocks).Select(p => start + p.Flip(Axes.Diagonal45).Rotate(angle));
                             ShapeAssert.SameGeometry(expected, line, $"Failed with {line}.");
                         }
                     }

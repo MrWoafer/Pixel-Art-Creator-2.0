@@ -201,8 +201,8 @@ namespace PAC.Tests.Geometry.Shapes
         {
             foreach (IsometricCuboid cuboid in testCases)
             {
-                IEnumerable<IntVector2> expected = cuboid.Select(p => p.Flip(CardinalAxis.Vertical));
-                IsometricCuboid flipped = cuboid.Flip(CardinalAxis.Vertical);
+                IEnumerable<IntVector2> expected = cuboid.Select(p => p.Flip(Axes.Vertical));
+                IsometricCuboid flipped = cuboid.Flip(Axes.Vertical);
                 ShapeAssert.SameGeometry(expected, flipped, $"Failed with {cuboid}.");
             }
         }

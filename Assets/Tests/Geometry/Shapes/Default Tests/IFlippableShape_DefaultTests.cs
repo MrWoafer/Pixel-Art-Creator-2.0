@@ -27,31 +27,31 @@ namespace PAC.Tests.Geometry.Shapes.DefaultTests
             IEnumerable<A> axes;
             if (typeof(A) == typeof(VerticalAxis))
             {
-                axes = (IEnumerable<A>)new CardinalOrdinalAxis[] { CardinalAxis.Vertical };
+                axes = (IEnumerable<A>)new CardinalOrdinalAxis[] { Axes.Vertical };
             }
             else if (typeof(A) == typeof(HorizontalAxis))
             {
-                axes = (IEnumerable<A>)new CardinalOrdinalAxis[] { CardinalAxis.Horizontal };
+                axes = (IEnumerable<A>)new CardinalOrdinalAxis[] { Axes.Horizontal };
             }
             else if (typeof(A) == typeof(Diagonal45Axis))
             {
-                axes = (IEnumerable<A>)new CardinalOrdinalAxis[] { OrdinalAxis.Diagonal45 };
+                axes = (IEnumerable<A>)new CardinalOrdinalAxis[] { Axes.Diagonal45 };
             }
             else if (typeof(A) == typeof(Minus45Axis))
             {
-                axes = (IEnumerable<A>)new CardinalOrdinalAxis[] { OrdinalAxis.Minus45 };
+                axes = (IEnumerable<A>)new CardinalOrdinalAxis[] { Axes.Minus45 };
             }
             else if (typeof(A) == typeof(CardinalAxis))
             {
-                axes = (IEnumerable<A>)CardinalAxis.Axes;
+                axes = (IEnumerable<A>)Axes.CardinalAxes;
             }
             else if (typeof(A) == typeof(OrdinalAxis))
             {
-                axes = (IEnumerable<A>)OrdinalAxis.Axes;
+                axes = (IEnumerable<A>)Axes.OrdinalAxes;
             }
             else if (typeof(A) == typeof(CardinalOrdinalAxis))
             {
-                axes = (IEnumerable<A>)CardinalOrdinalAxis.Axes;
+                axes = (IEnumerable<A>)Axes.CardinalOrdinalAxes;
             }
             else
             {

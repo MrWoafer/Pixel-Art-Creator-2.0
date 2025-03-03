@@ -263,11 +263,11 @@ namespace PAC.Layers
                     flippedLayers.Add(tile.TileLayerToLayerInTile(this));
                 }
 
-                if (axis == CardinalAxis.Vertical)
+                if (axis == Axes.Vertical)
                 {
                     tile.bottomRight = new IntVector2(-tile.bottomLeft.x + width - 1, tile.bottomLeft.y);
                 }
-                else if (axis == CardinalAxis.Horizontal)
+                else if (axis == Axes.Horizontal)
                 {
                     tile.topLeft = new IntVector2(tile.bottomLeft.x, -tile.bottomLeft.y + height - 1);
                 }
