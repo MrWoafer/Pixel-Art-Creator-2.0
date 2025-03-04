@@ -258,7 +258,7 @@ namespace PAC.Geometry.Shapes
         public static Diamond operator -(Diamond diamond) => new Diamond(-diamond.boundingRect, diamond.filled);
 
         public Diamond Translate(IntVector2 translation) => new Diamond(boundingRect + translation, filled);
-        public Diamond Flip(CardinalOrdinalAxis axis) => new Diamond(boundingRect.Flip(axis), filled);
+        public Diamond Flip(CardinalOrdinalAxis axis) => new Diamond(boundingRect.Reflect(axis), filled);
         public Diamond Rotate(QuadrantalAngle angle) => new Diamond(boundingRect.Rotate(angle), filled);
 
         IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();

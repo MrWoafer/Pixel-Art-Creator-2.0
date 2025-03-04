@@ -121,7 +121,7 @@ namespace PAC.Tests.Geometry.Shapes.TestUtils
             IntRect boundingRect = IntRect.BoundingRect(shape);
             ShapeAssert.SameGeometry(
                 shape,
-                shape.Select(p => p.Reflect(axis) + boundingRect.bottomLeft - boundingRect.Flip(axis).bottomLeft),
+                shape.Select(p => p.Reflect(axis) + boundingRect.bottomLeft - boundingRect.Reflect(axis).bottomLeft),
                 $"Failed with {shape} and {axis}."
                 );
         }
@@ -139,7 +139,7 @@ namespace PAC.Tests.Geometry.Shapes.TestUtils
             IntRect boundingRect = IntRect.BoundingRect(shape);
             ShapeAssert.NotSameGeometry(
                 shape,
-                shape.Select(p => p.Reflect(axis) + boundingRect.bottomLeft - boundingRect.Flip(axis).bottomLeft),
+                shape.Select(p => p.Reflect(axis) + boundingRect.bottomLeft - boundingRect.Reflect(axis).bottomLeft),
                 $"Failed with {shape} and {axis}."
                 );
         }

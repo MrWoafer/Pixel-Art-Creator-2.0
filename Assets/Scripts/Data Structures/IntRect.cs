@@ -457,11 +457,11 @@ namespace PAC.DataStructures
         public IntRect Rotate(QuadrantalAngle angle) => new IntRect(bottomLeft.Rotate(angle), topRight.Rotate(angle));
 
         /// <summary>
-        /// Returns the rect flipped across the given axis.
+        /// Returns the rect reflected across the given axis.
         /// </summary>
         /// <exception cref="ArgumentNullException"><paramref name="axis"/> is null.</exception>
         /// <seealso cref="IntVector2.Reflect(CardinalOrdinalAxis)"/>
-        public IntRect Flip(CardinalOrdinalAxis axis) => new IntRect(bottomLeft.Reflect(axis), topRight.Reflect(axis));
+        public IntRect Reflect(CardinalOrdinalAxis axis) => new IntRect(bottomLeft.Reflect(axis), topRight.Reflect(axis));
         #endregion
 
         #region Random
