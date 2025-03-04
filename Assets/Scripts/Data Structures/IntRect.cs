@@ -460,8 +460,8 @@ namespace PAC.DataStructures
         /// Returns the rect flipped across the given axis.
         /// </summary>
         /// <exception cref="ArgumentNullException"><paramref name="axis"/> is null.</exception>
-        /// <seealso cref="IntVector2.Flip(CardinalOrdinalAxis)"/>
-        public IntRect Flip(CardinalOrdinalAxis axis) => new IntRect(bottomLeft.Flip(axis), topRight.Flip(axis));
+        /// <seealso cref="IntVector2.Reflect(CardinalOrdinalAxis)"/>
+        public IntRect Flip(CardinalOrdinalAxis axis) => new IntRect(bottomLeft.Reflect(axis), topRight.Reflect(axis));
         #endregion
 
         #region Random

@@ -27,8 +27,8 @@ namespace PAC.Tests.DataStructures
             {
                 Assert.AreEqual(expected, IntVector2.Simplify(input), "Failed with " + input);
                 Assert.AreEqual(-expected, IntVector2.Simplify(-input), "Failed with " + input);
-                Assert.AreEqual(expected.Flip(Axes.Vertical), IntVector2.Simplify(input.Flip(Axes.Vertical)), "Failed with " + input);
-                Assert.AreEqual(expected.Flip(Axes.Horizontal), IntVector2.Simplify(input.Flip(Axes.Horizontal)), "Failed with " + input);
+                Assert.AreEqual(expected.Reflect(Axes.Vertical), IntVector2.Simplify(input.Reflect(Axes.Vertical)), "Failed with " + input);
+                Assert.AreEqual(expected.Reflect(Axes.Horizontal), IntVector2.Simplify(input.Reflect(Axes.Horizontal)), "Failed with " + input);
 
                 Assert.AreEqual(1, MathExtensions.Gcd(expected.x, expected.y), "Failed with " + input);
             }
