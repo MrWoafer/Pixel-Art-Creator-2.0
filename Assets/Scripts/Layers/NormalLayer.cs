@@ -110,9 +110,9 @@ namespace PAC.Layers
         }
 
         /// <summary>
-        /// Flips the given frame of the layer.
+        /// Reflects the given frame of the layer.
         /// </summary>
-        public void Flip(int frame, CardinalAxis axis, AnimFrameRefMode frameRefMode)
+        public void Reflect(int frame, CardinalAxis axis, AnimFrameRefMode frameRefMode)
         {
             if (frameRefMode == AnimFrameRefMode.NewKeyFrame)
             {
@@ -123,7 +123,7 @@ namespace PAC.Layers
 
             onPixelsChanged.Invoke(rect, new int[] { GetKeyFrame(frame).frame });
         }
-        protected override void FlipNoEvent(CardinalAxis axis)
+        protected override void ReflectNoEvent(CardinalAxis axis)
         {
             foreach (AnimationKeyFrame keyFrame in keyFrames)
             {

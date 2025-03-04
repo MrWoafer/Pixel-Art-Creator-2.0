@@ -31,7 +31,7 @@ namespace PAC.Files
         {
             foreach (Layer selectedLayer in layerManager.selectedLayers)
             {
-                selectedLayer.Flip(axis);
+                selectedLayer.Reflect(axis);
             }
             onEdit.Invoke();
         }
