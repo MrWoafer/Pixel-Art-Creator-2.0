@@ -62,7 +62,7 @@ namespace PAC.Tests.Geometry.Shapes.DefaultTests
             {
                 foreach (A axis in axes)
                 {
-                    IEnumerable<IntVector2> expected = shape.Select(p => p.Flip(axis));
+                    IEnumerable<IntVector2> expected = shape.Select(p => p.Reflect(axis));
                     IEnumerable<IntVector2> flipped = shape.Flip(axis);
                     ShapeAssert.SameGeometry(expected, flipped, $"Failed with {shape} and {axis}.");
                 }

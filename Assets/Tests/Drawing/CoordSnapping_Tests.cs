@@ -183,10 +183,10 @@ namespace PAC.Tests.Drawing
 
                 foreach (CardinalOrdinalAxis axis in Axes.CardinalAxes)
                 {
-                    IntVector2 snappedPointReflectedInputs = CoordSnapping.SnapToPerfectLine(fixedPoint.Flip(axis), movablePoint.Flip(axis));
+                    IntVector2 snappedPointReflectedInputs = CoordSnapping.SnapToPerfectLine(fixedPoint.Reflect(axis), movablePoint.Reflect(axis));
 
                     Assert.AreEqual(
-                        snappedPoint.Flip(axis), snappedPointReflectedInputs,
+                        snappedPoint.Reflect(axis), snappedPointReflectedInputs,
                         $"Failed with {nameof(fixedPoint)} = {fixedPoint}, {nameof(movablePoint)} = {movablePoint} and {nameof(axis)} = {axis}."
                         );
                 }

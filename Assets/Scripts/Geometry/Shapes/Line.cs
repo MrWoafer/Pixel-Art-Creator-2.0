@@ -496,7 +496,7 @@ namespace PAC.Geometry.Shapes
         public static Line operator -(Line line) => new Line(-line.start, -line.end);
 
         public Line Translate(IntVector2 translation) => new Line(start + translation, end + translation);
-        public Line Flip(CardinalOrdinalAxis axis) => new Line(start.Flip(axis), end.Flip(axis));
+        public Line Flip(CardinalOrdinalAxis axis) => new Line(start.Reflect(axis), end.Reflect(axis));
         public Line Rotate(QuadrantalAngle angle) => new Line(start.Rotate(angle), end.Rotate(angle));
 
         /// <summary>
