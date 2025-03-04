@@ -1,5 +1,8 @@
+using PAC.Geometry;
+using PAC.Geometry.Axes;
 using PAC.Layers;
 using PAC.UI;
+
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -24,7 +27,7 @@ namespace PAC.Files
             dialogBoxManager = Finder.dialogBoxManager;
         }
 
-        public void FlipSelectedLayers(FlipAxis axis)
+        public void FlipSelectedLayers(CardinalAxis axis)
         {
             foreach (Layer selectedLayer in layerManager.selectedLayers)
             {
@@ -32,28 +35,28 @@ namespace PAC.Files
             }
             onEdit.Invoke();
         }
-        public void FlipSelectedLayersX() => FlipSelectedLayers(FlipAxis.Vertical);
-        public void FlipSelectedLayersY() => FlipSelectedLayers(FlipAxis.Horizontal);
+        public void FlipSelectedLayersX() => FlipSelectedLayers(Axes.Vertical);
+        public void FlipSelectedLayersY() => FlipSelectedLayers(Axes.Horizontal);
 
-        public void FlipFile(FlipAxis axis)
+        public void FlipFile(CardinalAxis axis)
         {
             fileManager.currentFile.Flip(axis);
             onEdit.Invoke();
         }
-        public void FlipFileX() => FlipFile(FlipAxis.Vertical);
-        public void FlipFileY() => FlipFile(FlipAxis.Horizontal);
+        public void FlipFileX() => FlipFile(Axes.Vertical);
+        public void FlipFileY() => FlipFile(Axes.Horizontal);
 
-        public void RotateFile(RotationAngle angle)
+        public void RotateFile(QuadrantalAngle angle)
         {
             fileManager.currentFile.Rotate(angle);
             onEdit.Invoke();
 
-            if (fileManager.currentFile.width != fileManager.currentFile.height && (angle == RotationAngle._90 || angle == RotationAngle.Minus90))
+            if (fileManager.currentFile.width != fileManager.currentFile.height && (angle == QuadrantalAngle.Clockwise90 || angle == QuadrantalAngle.Anticlockwise90))
             {
                 onImageSizeChanged.Invoke();
             }
         }
-        public void RotateSelectedLayers(RotationAngle angle)
+        public void RotateSelectedLayers(QuadrantalAngle angle)
         {
             if (layerManager.selectedLayers.Length == fileManager.currentFile.layers.Count)
             {
@@ -82,9 +85,9 @@ namespace PAC.Files
                 }
             }
         }
-        public void RotateSelectedLayers90() => RotateSelectedLayers(RotationAngle._90);
-        public void RotateSelectedLayersMinus90() => RotateSelectedLayers(RotationAngle.Minus90);
-        public void RotateSelectedLayers180() => RotateSelectedLayers(RotationAngle._180);
+        public void RotateSelectedLayers90() => RotateSelectedLayers(QuadrantalAngle.Clockwise90);
+        public void RotateSelectedLayersMinus90() => RotateSelectedLayers(QuadrantalAngle.Anticlockwise90);
+        public void RotateSelectedLayers180() => RotateSelectedLayers(QuadrantalAngle._180);
 
         public void ExtendFile(int left, int right, int up, int down)
         {

@@ -5,7 +5,10 @@ using System.Linq;
 using PAC.Animation;
 using PAC.Colour;
 using PAC.DataStructures;
+using PAC.Exceptions;
 using PAC.Extensions;
+using PAC.Geometry;
+using PAC.Geometry.Axes;
 using PAC.ImageEditing;
 using PAC.Json;
 using PAC.Tilesets;
@@ -248,7 +251,7 @@ namespace PAC.Layers
             return pixelsFilled.ToArray();
         }
 
-        protected override void FlipNoEvent(FlipAxis axis)
+        protected override void FlipNoEvent(CardinalAxis axis)
         {
             ignoreOnTilePixelsChanged = true;
             HashSet<Layer> flippedLayers = new HashSet<Layer>();
@@ -260,17 +263,17 @@ namespace PAC.Layers
                     flippedLayers.Add(tile.TileLayerToLayerInTile(this));
                 }
 
-                if (axis == FlipAxis.Vertical)
+                if (axis == Axes.Vertical)
                 {
                     tile.bottomRight = new IntVector2(-tile.bottomLeft.x + width - 1, tile.bottomLeft.y);
                 }
-                else if (axis == FlipAxis.Horizontal)
+                else if (axis == Axes.Horizontal)
                 {
                     tile.topLeft = new IntVector2(tile.bottomLeft.x, -tile.bottomLeft.y + height - 1);
                 }
                 else
                 {
-                    throw new NotImplementedException("Unknown / unimplemented FlipAxis: " + axis);
+                    throw new UnreachableException();
                 }
             }
 
@@ -278,9 +281,9 @@ namespace PAC.Layers
             RerenderKeyFrames();
         }
 
-        protected override void RotateNoEvent(RotationAngle angle)
+        protected override void RotateNoEvent(QuadrantalAngle angle)
         {
-            if (angle == RotationAngle._0)
+            if (angle == QuadrantalAngle._0)
             {
                 return;
             }
@@ -295,15 +298,15 @@ namespace PAC.Layers
                     flippedLayers.Add(tile.TileLayerToLayerInTile(this));
                 }
 
-                if (angle == RotationAngle._90)
+                if (angle == QuadrantalAngle.Clockwise90)
                 {
                     tile.topLeft = new IntVector2(tile.bottomLeft.y, -tile.bottomLeft.x + height - 1);
                 }
-                else if (angle == RotationAngle.Minus90)
+                else if (angle == QuadrantalAngle.Anticlockwise90)
                 {
                     tile.bottomRight = new IntVector2(-tile.bottomLeft.y + width - 1, tile.bottomLeft.x);
                 }
-                else if (angle == RotationAngle._180)
+                else if (angle == QuadrantalAngle._180)
                 {
                     tile.topRight = new IntVector2(-tile.bottomLeft.x + width - 1, -tile.bottomLeft.y + height - 1);
                 }

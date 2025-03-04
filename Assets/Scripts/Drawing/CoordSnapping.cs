@@ -4,7 +4,8 @@ using System.Collections.Generic;
 using PAC.DataStructures;
 using PAC.Exceptions;
 using PAC.Maths;
-using PAC.Shapes;
+using PAC.Geometry.Shapes;
+using PAC.Geometry;
 
 namespace PAC.Drawing
 {
@@ -85,10 +86,10 @@ namespace PAC.Drawing
                 (DiamondCorner.Right, RotationDirection.Anticlockwise) => (-1, 1),
                 _ => throw new NotImplementedException()
             };
-            RotationAngle rotation = rotationDirection switch
+            QuadrantalAngle rotation = rotationDirection switch
             {
-                RotationDirection.Clockwise => RotationAngle._90,
-                RotationDirection.Anticlockwise => RotationAngle.Minus90,
+                RotationDirection.Clockwise => QuadrantalAngle.Clockwise90,
+                RotationDirection.Anticlockwise => QuadrantalAngle.Anticlockwise90,
                 _ => throw new NotImplementedException()
             };
 

@@ -11,6 +11,8 @@ using PAC.Json;
 using System.Runtime.Serialization;
 using PAC.Extensions;
 using PAC.ImageEditing;
+using PAC.Geometry;
+using PAC.Geometry.Axes;
 
 namespace PAC.Files
 {
@@ -928,7 +930,7 @@ namespace PAC.Files
         /// <summary>
         /// Flips the file.
         /// </summary>
-        public void Flip(FlipAxis axis)
+        public void Flip(CardinalAxis axis)
         {
             ignoreOnLayerPixelsChanged = true;
             foreach (Layer layer in layers)
@@ -946,9 +948,9 @@ namespace PAC.Files
         /// <summary>
         /// Rotates the file. Rotation is clockwise.
         /// </summary>
-        public void Rotate(RotationAngle angle)
+        public void Rotate(QuadrantalAngle angle)
         {
-            if (angle == RotationAngle._0)
+            if (angle == QuadrantalAngle._0)
             {
                 return;
             }
@@ -963,7 +965,7 @@ namespace PAC.Files
             width = layers[0].width;
             height = layers[0].height;
 
-            if (width != height && (angle == RotationAngle._90 || angle == RotationAngle.Minus90))
+            if (width != height && (angle == QuadrantalAngle.Clockwise90 || angle == QuadrantalAngle.Anticlockwise90))
             {
                 liveRender.Reinitialize(width, height);
             }

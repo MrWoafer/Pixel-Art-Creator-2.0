@@ -5,6 +5,8 @@ using System.Collections.Generic;
 using System;
 using PAC.Extensions;
 using PAC.Interfaces;
+using PAC.Geometry;
+using PAC.Geometry.Axes;
 
 namespace PAC.DataStructures
 {
@@ -451,14 +453,15 @@ namespace PAC.DataStructures
         /// <summary>
         /// Returns the rect rotated clockwise by the given angle.
         /// </summary>
-        /// <seealso cref="IntVector2.Rotate(RotationAngle)"/>
-        public IntRect Rotate(RotationAngle angle) => new IntRect(bottomLeft.Rotate(angle), topRight.Rotate(angle));
+        /// <seealso cref="IntVector2.Rotate(QuadrantalAngle)"/>
+        public IntRect Rotate(QuadrantalAngle angle) => new IntRect(bottomLeft.Rotate(angle), topRight.Rotate(angle));
 
         /// <summary>
         /// Returns the rect flipped across the given axis.
         /// </summary>
-        /// <seealso cref="IntVector2.Flip(FlipAxis)"/>
-        public IntRect Flip(FlipAxis axis) => new IntRect(bottomLeft.Flip(axis), topRight.Flip(axis));
+        /// <exception cref="ArgumentNullException"><paramref name="axis"/> is null.</exception>
+        /// <seealso cref="IntVector2.Flip(CardinalOrdinalAxis)"/>
+        public IntRect Flip(CardinalOrdinalAxis axis) => new IntRect(bottomLeft.Flip(axis), topRight.Flip(axis));
         #endregion
 
         #region Random

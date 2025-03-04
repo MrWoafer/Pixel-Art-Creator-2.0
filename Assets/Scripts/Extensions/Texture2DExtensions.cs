@@ -3,6 +3,9 @@ using System.IO;
 
 using PAC.Colour;
 using PAC.DataStructures;
+using PAC.Exceptions;
+using PAC.Geometry;
+using PAC.Geometry.Axes;
 
 using UnityEngine;
 
@@ -45,12 +48,13 @@ namespace PAC.Extensions
         /// <remarks>
         /// Calls <see cref="Texture2D.Apply()"/> on the returned <see cref="Texture2D"/>.
         /// </remarks>
-        public static Texture2D Flip(this Texture2D texture, FlipAxis axis) => axis switch
+        /// <exception cref="ArgumentNullException"><paramref name="axis"/> is null.</exception>
+        public static Texture2D Flip(this Texture2D texture, CardinalAxis axis) => axis switch
         {
-            FlipAxis.None => texture,
-            FlipAxis.Vertical => texture.FlipX(),
-            FlipAxis.Horizontal => texture.FlipY(),
-            _ => throw new ArgumentException($"Unknown / unimplemented FlipAxis: {axis}.", nameof(axis))
+            null => throw new ArgumentNullException(nameof(axis), $"{nameof(axis)} is null."),
+            VerticalAxis => texture.FlipX(),
+            HorizontalAxis => texture.FlipY(),
+            _ => throw new UnreachableException()
         };
         /// <summary>
         /// Returns a deep copy of the <see cref="Texture2D"/> reflected across the central vertical axis.
@@ -99,13 +103,13 @@ namespace PAC.Extensions
         /// <remarks>
         /// Calls <see cref="Texture2D.Apply()"/> on the returned <see cref="Texture2D"/>.
         /// </remarks>
-        public static Texture2D Rotate(this Texture2D texture, RotationAngle angle) => angle switch
+        public static Texture2D Rotate(this Texture2D texture, QuadrantalAngle angle) => angle switch
         {
-            RotationAngle._0 => texture,
-            RotationAngle._90 => texture.Rotate90(),
-            RotationAngle.Minus90 => texture.RotateMinus90(),
-            RotationAngle._180 => texture.Rotate180(),
-            _ => throw new ArgumentException($"Unknown / unimplemented RotationAngle: {angle}", nameof(angle))
+            QuadrantalAngle._0 => texture,
+            QuadrantalAngle.Clockwise90 => texture.Rotate90(),
+            QuadrantalAngle.Anticlockwise90 => texture.RotateMinus90(),
+            QuadrantalAngle._180 => texture.Rotate180(),
+            _ => throw new ArgumentException($"Unknown / unimplemented {nameof(QuadrantalAngle)}: {angle}", nameof(angle))
         };
         /// <summary>
         /// Returns a deep copy of the <see cref="Texture2D"/> rotated 90 degrees clockwise.

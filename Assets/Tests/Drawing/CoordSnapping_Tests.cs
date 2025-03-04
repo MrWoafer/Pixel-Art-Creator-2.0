@@ -5,7 +5,9 @@ using NUnit.Framework;
 using PAC.DataStructures;
 using PAC.Drawing;
 using PAC.Extensions;
-using PAC.Shapes;
+using PAC.Geometry;
+using PAC.Geometry.Axes;
+using PAC.Geometry.Shapes;
 
 namespace PAC.Tests.Drawing
 {
@@ -151,7 +153,7 @@ namespace PAC.Tests.Drawing
 
                 IntVector2 snappedPoint = CoordSnapping.SnapToPerfectLine(fixedPoint, movablePoint);
 
-                foreach (RotationAngle angle in TypeExtensions.GetValues<RotationAngle>())
+                foreach (QuadrantalAngle angle in TypeExtensions.GetValues<QuadrantalAngle>())
                 {
                     IntVector2 snappedPointRotatedInputs = CoordSnapping.SnapToPerfectLine(fixedPoint.Rotate(angle), movablePoint.Rotate(angle));
 
@@ -179,7 +181,7 @@ namespace PAC.Tests.Drawing
 
                 IntVector2 snappedPoint = CoordSnapping.SnapToPerfectLine(fixedPoint, movablePoint);
 
-                foreach (FlipAxis axis in TypeExtensions.GetValues<FlipAxis>())
+                foreach (CardinalOrdinalAxis axis in Axes.CardinalAxes)
                 {
                     IntVector2 snappedPointReflectedInputs = CoordSnapping.SnapToPerfectLine(fixedPoint.Flip(axis), movablePoint.Flip(axis));
 

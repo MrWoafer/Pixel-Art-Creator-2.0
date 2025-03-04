@@ -6,8 +6,8 @@ using PAC.Files;
 using PAC.ImageEditing;
 using PAC.Layers;
 using PAC.Patterns;
-using PAC.Shapes;
-using PAC.Shapes.Interfaces;
+using PAC.Geometry.Shapes;
+using PAC.Geometry.Shapes.Interfaces;
 
 using UnityEngine;
 

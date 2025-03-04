@@ -5,6 +5,8 @@ using PAC.Animation;
 using PAC.Colour;
 using PAC.DataStructures;
 using PAC.Extensions;
+using PAC.Geometry;
+using PAC.Geometry.Axes;
 using PAC.ImageEditing;
 using PAC.Json;
 
@@ -110,7 +112,7 @@ namespace PAC.Layers
         /// <summary>
         /// Flips the given frame of the layer.
         /// </summary>
-        public void Flip(int frame, FlipAxis axis, AnimFrameRefMode frameRefMode)
+        public void Flip(int frame, CardinalAxis axis, AnimFrameRefMode frameRefMode)
         {
             if (frameRefMode == AnimFrameRefMode.NewKeyFrame)
             {
@@ -121,7 +123,7 @@ namespace PAC.Layers
 
             onPixelsChanged.Invoke(rect, new int[] { GetKeyFrame(frame).frame });
         }
-        protected override void FlipNoEvent(FlipAxis axis)
+        protected override void FlipNoEvent(CardinalAxis axis)
         {
             foreach (AnimationKeyFrame keyFrame in keyFrames)
             {
@@ -132,7 +134,7 @@ namespace PAC.Layers
         /// <summary>
         /// Rotates the given frame of the layer. Rotation is clockwise.
         /// </summary>
-        public void Rotate(int frame, RotationAngle angle, AnimFrameRefMode frameRefMode)
+        public void Rotate(int frame, QuadrantalAngle angle, AnimFrameRefMode frameRefMode)
         {
             if (width != height && keyFrames.Count > 1)
             {
@@ -148,9 +150,9 @@ namespace PAC.Layers
 
             onPixelsChanged.Invoke(rect, new int[] { GetKeyFrame(frame).frame });
         }
-        protected override void RotateNoEvent(RotationAngle angle)
+        protected override void RotateNoEvent(QuadrantalAngle angle)
         {
-            if (angle == RotationAngle._0)
+            if (angle == QuadrantalAngle._0)
             {
                 return;
             }

@@ -6,6 +6,8 @@ using PAC.Animation;
 using PAC.Colour;
 using PAC.DataStructures;
 using PAC.Extensions;
+using PAC.Geometry;
+using PAC.Geometry.Axes;
 using PAC.Json;
 
 using UnityEngine;
@@ -208,11 +210,11 @@ namespace PAC.Layers
         /// <summary>
         /// Flips the layer, but does not invoke the onPixelsChanged event.
         /// </summary>
-        protected abstract void FlipNoEvent(FlipAxis axis);
+        protected abstract void FlipNoEvent(CardinalAxis axis);
         /// <summary>
         /// Flips the layer.
         /// </summary>
-        public void Flip(FlipAxis axis)
+        public void Flip(CardinalAxis axis)
         {
             FlipNoEvent(axis);
             onPixelsChanged.Invoke(rect, keyFrameIndices);
@@ -222,11 +224,11 @@ namespace PAC.Layers
         /// Rotates the layer, but does not invoke the onPixelsChanged event.
         /// Rotation is clockwise.
         /// </summary>
-        protected abstract void RotateNoEvent(RotationAngle angle);
+        protected abstract void RotateNoEvent(QuadrantalAngle angle);
         /// <summary>
         /// Rotates the layer. Rotation is clockwise.
         /// </summary>
-        public void Rotate(RotationAngle angle)
+        public void Rotate(QuadrantalAngle angle)
         {
             RotateNoEvent(angle);
             onPixelsChanged.Invoke(rect, keyFrameIndices);

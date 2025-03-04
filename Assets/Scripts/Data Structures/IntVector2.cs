@@ -5,6 +5,9 @@ using UnityEngine;
 using PAC.Extensions;
 using System.Runtime.CompilerServices;
 using PAC.Maths;
+using PAC.Geometry;
+using PAC.Geometry.Axes;
+using PAC.Exceptions;
 
 namespace PAC.DataStructures
 {
@@ -597,26 +600,27 @@ namespace PAC.DataStructures
         /// <summary>
         /// Returns the vector rotated clockwise by the given angle.
         /// </summary>
-        public IntVector2 Rotate(RotationAngle angle) => angle switch
+        public IntVector2 Rotate(QuadrantalAngle angle) => angle switch
         {
-            RotationAngle._0 => this,
-            RotationAngle._90 => (y, -x),
-            RotationAngle._180 => (-x, -y),
-            RotationAngle.Minus90 => (-y, x),
+            QuadrantalAngle._0 => this,
+            QuadrantalAngle.Clockwise90 => (y, -x),
+            QuadrantalAngle._180 => (-x, -y),
+            QuadrantalAngle.Anticlockwise90 => (-y, x),
             _ => throw new NotImplementedException("Unknown / unimplemented angle: " + angle)
         };
 
         /// <summary>
         /// Returns the vector flipped across the given axis.
         /// </summary>
-        public IntVector2 Flip(FlipAxis axis) => axis switch
+        /// <exception cref="ArgumentNullException"><paramref name="axis"/> is null.</exception>
+        public IntVector2 Flip(CardinalOrdinalAxis axis) => axis switch
         {
-            FlipAxis.None => this,
-            FlipAxis.Vertical => (-x, y),
-            FlipAxis.Horizontal => (x, -y),
-            FlipAxis._45Degrees => (y, x),
-            FlipAxis.Minus45Degrees => (-y, -x),
-            _ => throw new NotImplementedException("Unknown / unimplemented FlipAxis: " + axis)
+            null => throw new ArgumentNullException(nameof(axis), $"{nameof(axis)} is null."),
+            VerticalAxis => (-x, y),
+            HorizontalAxis => (x, -y),
+            Diagonal45Axis => (y, x),
+            Minus45Axis => (-y, -x),
+            _ => throw new UnreachableException()
         };
         #endregion
 

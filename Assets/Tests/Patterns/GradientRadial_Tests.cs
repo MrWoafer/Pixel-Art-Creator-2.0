@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using NUnit.Framework;
 
 using PAC.DataStructures;
+using PAC.Geometry;
+using PAC.Geometry.Axes;
 
 using UnityEngine;
 
@@ -111,8 +113,8 @@ namespace PAC.Tests.Patterns
                 testRegion = new IntRect(testRegion.bottomLeft + IntVector2.downLeft, testRegion.topRight + IntVector2.upRight);
                 foreach (IntVector2 point in testRegion)
                 {
-                    Assert.True(gradient[point] == gradient[gradient.centre.coord + (point - gradient.centre.coord).Flip(FlipAxis.Vertical)], $"Failed with {gradient} and {point}.");
-                    Assert.True(gradient[point] == gradient[gradient.centre.coord + (point - gradient.centre.coord).Flip(FlipAxis.Horizontal)], $"Failed with {gradient} and {point}.");
+                    Assert.True(gradient[point] == gradient[gradient.centre.coord + (point - gradient.centre.coord).Flip(Axes.Vertical)], $"Failed with {gradient} and {point}.");
+                    Assert.True(gradient[point] == gradient[gradient.centre.coord + (point - gradient.centre.coord).Flip(Axes.Horizontal)], $"Failed with {gradient} and {point}.");
                 }
             }
         }
@@ -130,7 +132,7 @@ namespace PAC.Tests.Patterns
                 testRegion = new IntRect(testRegion.bottomLeft + IntVector2.downLeft, testRegion.topRight + IntVector2.upRight);
                 foreach (IntVector2 point in testRegion)
                 {
-                    Assert.True(gradient[point] == gradient[gradient.centre.coord + (point - gradient.centre.coord).Rotate(RotationAngle._90)], $"Failed with {gradient} and {point}.");
+                    Assert.True(gradient[point] == gradient[gradient.centre.coord + (point - gradient.centre.coord).Rotate(QuadrantalAngle.Clockwise90)], $"Failed with {gradient} and {point}.");
                 }
             }
         }
