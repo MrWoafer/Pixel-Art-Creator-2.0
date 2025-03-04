@@ -414,34 +414,6 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/PAC.DataStructures.Plane2D.Octant.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/PAC.DataStructures.Plane2D.Octant.html"
-        }
-      },
-      "version": "",
-      "Uid": null,
-      "IsMRef": true,
-      "Title": "PAC.DataStructures.Plane2D.Octant",
-      "Summary": "<p sourcefile=\"api/PAC.DataStructures.Plane2D.Octant.yml\" sourcestartlinenumber=\"1\">One of 8 regions of the 2D plane.</p>\n"
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/PAC.DataStructures.Plane2D.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/PAC.DataStructures.Plane2D.html"
-        }
-      },
-      "version": "",
-      "Uid": null,
-      "IsMRef": true,
-      "Title": "PAC.DataStructures.Plane2D",
-      "Summary": "<p sourcefile=\"api/PAC.DataStructures.Plane2D.yml\" sourcestartlinenumber=\"1\">Provides ways to deal with the 2D plane.</p>\n"
-    },
-    {
-      "type": "ManagedReference",
       "source_relative_path": "api/PAC.DataStructures.Rational.yml",
       "output": {
         ".html": {
@@ -886,7 +858,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "PAC.Extensions.IShapeExtensions",
-      "Summary": "<p sourcefile=\"api/PAC.Extensions.IShapeExtensions.yml\" sourcestartlinenumber=\"1\">Extension methods for <xref href=\"PAC.Shapes.Interfaces.IShape\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n"
+      "Summary": "<p sourcefile=\"api/PAC.Extensions.IShapeExtensions.yml\" sourcestartlinenumber=\"1\">Extension methods for <xref href=\"PAC.Geometry.Shapes.Interfaces.IShape\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -1198,16 +1170,478 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/PAC.FlipAxis.yml",
+      "source_relative_path": "api/PAC.Geometry.Axes.Axes.yml",
       "output": {
         ".html": {
-          "relative_path": "api/PAC.FlipAxis.html"
+          "relative_path": "api/PAC.Geometry.Axes.Axes.html"
         }
       },
       "version": "",
       "Uid": null,
       "IsMRef": true,
-      "Title": "PAC.FlipAxis",
+      "Title": "PAC.Geometry.Axes.Axes",
+      "Summary": "<p sourcefile=\"api/PAC.Geometry.Axes.Axes.yml\" sourcestartlinenumber=\"1\">Provides axes and groups of axes.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.Geometry.Axes.CardinalAxis.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.Geometry.Axes.CardinalAxis.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "PAC.Geometry.Axes.CardinalAxis",
+      "Summary": "<p sourcefile=\"api/PAC.Geometry.Axes.CardinalAxis.yml\" sourcestartlinenumber=\"1\"><xref href=\"PAC.Geometry.Axes.HorizontalAxis\" data-throw-if-not-resolved=\"false\"></xref> or <xref href=\"PAC.Geometry.Axes.VerticalAxis\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.Geometry.Axes.CardinalOrdinalAxis.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.Geometry.Axes.CardinalOrdinalAxis.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "PAC.Geometry.Axes.CardinalOrdinalAxis",
+      "Summary": "<p sourcefile=\"api/PAC.Geometry.Axes.CardinalOrdinalAxis.yml\" sourcestartlinenumber=\"1\">Either a <xref href=\"PAC.Geometry.Axes.CardinalAxis\" data-throw-if-not-resolved=\"false\"></xref> or <xref href=\"PAC.Geometry.Axes.OrdinalAxis\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.Geometry.Axes.Diagonal45Axis.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.Geometry.Axes.Diagonal45Axis.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "PAC.Geometry.Axes.Diagonal45Axis",
+      "Summary": "<p sourcefile=\"api/PAC.Geometry.Axes.Diagonal45Axis.yml\" sourcestartlinenumber=\"1\">The type of OrdinalAxis.Diagonal45.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.Geometry.Axes.HorizontalAxis.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.Geometry.Axes.HorizontalAxis.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "PAC.Geometry.Axes.HorizontalAxis",
+      "Summary": "<p sourcefile=\"api/PAC.Geometry.Axes.HorizontalAxis.yml\" sourcestartlinenumber=\"1\">The type of CardinalAxis.Horizontal.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.Geometry.Axes.Minus45Axis.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.Geometry.Axes.Minus45Axis.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "PAC.Geometry.Axes.Minus45Axis",
+      "Summary": "<p sourcefile=\"api/PAC.Geometry.Axes.Minus45Axis.yml\" sourcestartlinenumber=\"1\">The type of OrdinalAxis.Minus45.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.Geometry.Axes.OrdinalAxis.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.Geometry.Axes.OrdinalAxis.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "PAC.Geometry.Axes.OrdinalAxis",
+      "Summary": "<p sourcefile=\"api/PAC.Geometry.Axes.OrdinalAxis.yml\" sourcestartlinenumber=\"1\"><xref href=\"PAC.Geometry.Axes.Diagonal45Axis\" data-throw-if-not-resolved=\"false\"></xref> or <xref href=\"PAC.Geometry.Axes.Minus45Axis\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.Geometry.Axes.VerticalAxis.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.Geometry.Axes.VerticalAxis.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "PAC.Geometry.Axes.VerticalAxis",
+      "Summary": "<p sourcefile=\"api/PAC.Geometry.Axes.VerticalAxis.yml\" sourcestartlinenumber=\"1\">The type of CardinalAxis.Vertical.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.Geometry.Axes.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.Geometry.Axes.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "PAC.Geometry.Axes",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.Geometry.Plane2D.Octant.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.Geometry.Plane2D.Octant.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "PAC.Geometry.Plane2D.Octant",
+      "Summary": "<p sourcefile=\"api/PAC.Geometry.Plane2D.Octant.yml\" sourcestartlinenumber=\"1\">One of 8 regions of the 2D plane.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.Geometry.Plane2D.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.Geometry.Plane2D.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "PAC.Geometry.Plane2D",
+      "Summary": "<p sourcefile=\"api/PAC.Geometry.Plane2D.yml\" sourcestartlinenumber=\"1\">Provides ways to deal with the 2D plane.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.Geometry.QuadrantalAngle.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.Geometry.QuadrantalAngle.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "PAC.Geometry.QuadrantalAngle",
+      "Summary": "<p sourcefile=\"api/PAC.Geometry.QuadrantalAngle.yml\" sourcestartlinenumber=\"1\">An angle that's a multiple of 90 degrees.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.Geometry.Shapes.Diamond.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.Geometry.Shapes.Diamond.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "PAC.Geometry.Shapes.Diamond",
+      "Summary": "<p sourcefile=\"api/PAC.Geometry.Shapes.Diamond.yml\" sourcestartlinenumber=\"1\">A pixel art diamond shape.\n<example>\nFor example,</example></p>\n<pre><code class=\"lang-csharp\">    #\n    #\n  #   #\n  #   #\n#       #\n#       #\n  #   #\n  #   #\n    #\n    #</code></pre>\n\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.Geometry.Shapes.Ellipse.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.Geometry.Shapes.Ellipse.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "PAC.Geometry.Shapes.Ellipse",
+      "Summary": "<p sourcefile=\"api/PAC.Geometry.Shapes.Ellipse.yml\" sourcestartlinenumber=\"1\">A pixel art ellipse shape.\n<example>\nFor example,</example></p>\n<pre><code class=\"lang-csharp\">    # # # #\n  #         #\n#             #\n#             #\n  #         #\n    # # # #</code></pre>\n\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.Geometry.Shapes.Interfaces.I1DShape-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.Geometry.Shapes.Interfaces.I1DShape-1.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "PAC.Geometry.Shapes.Interfaces.I1DShape<T>",
+      "Summary": "<p sourcefile=\"api/PAC.Geometry.Shapes.Interfaces.I1DShape-1.yml\" sourcestartlinenumber=\"1\">A pixel art representation of a 1D shape (such as a straight line, or a curve).</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.Geometry.Shapes.Interfaces.I2DShape-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.Geometry.Shapes.Interfaces.I2DShape-1.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "PAC.Geometry.Shapes.Interfaces.I2DShape<T>",
+      "Summary": "<p sourcefile=\"api/PAC.Geometry.Shapes.Interfaces.I2DShape-1.yml\" sourcestartlinenumber=\"1\">A pixel art representation of a 2D shape (such as a rectangle or a circle).</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.Geometry.Shapes.Interfaces.IDeepCopyableShape-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.Geometry.Shapes.Interfaces.IDeepCopyableShape-1.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "PAC.Geometry.Shapes.Interfaces.IDeepCopyableShape<T>",
+      "Summary": "<p sourcefile=\"api/PAC.Geometry.Shapes.Interfaces.IDeepCopyableShape-1.yml\" sourcestartlinenumber=\"1\">An <xref href=\"PAC.Geometry.Shapes.Interfaces.IShape\" data-throw-if-not-resolved=\"false\"></xref> that can be deep-copied.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.Geometry.Shapes.Interfaces.IFillableShape.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.Geometry.Shapes.Interfaces.IFillableShape.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "PAC.Geometry.Shapes.Interfaces.IFillableShape",
+      "Summary": "<p sourcefile=\"api/PAC.Geometry.Shapes.Interfaces.IFillableShape.yml\" sourcestartlinenumber=\"1\">An <xref href=\"PAC.Geometry.Shapes.Interfaces.IShape\" data-throw-if-not-resolved=\"false\"></xref> that encloses a region that can be filled in.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.Geometry.Shapes.Interfaces.IFlippableShape-2.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.Geometry.Shapes.Interfaces.IFlippableShape-2.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "PAC.Geometry.Shapes.Interfaces.IFlippableShape<T, A>",
+      "Summary": "<p sourcefile=\"api/PAC.Geometry.Shapes.Interfaces.IFlippableShape-2.yml\" sourcestartlinenumber=\"1\">An <xref href=\"PAC.Geometry.Shapes.Interfaces.IShape\" data-throw-if-not-resolved=\"false\"></xref> that can be flipped.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.Geometry.Shapes.Interfaces.IIsometricShape-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.Geometry.Shapes.Interfaces.IIsometricShape-1.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "PAC.Geometry.Shapes.Interfaces.IIsometricShape<T>",
+      "Summary": "<p sourcefile=\"api/PAC.Geometry.Shapes.Interfaces.IIsometricShape-1.yml\" sourcestartlinenumber=\"1\">A pixel art representation of the isometric projection of a shape.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.Geometry.Shapes.Interfaces.IRotatableShape-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.Geometry.Shapes.Interfaces.IRotatableShape-1.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "PAC.Geometry.Shapes.Interfaces.IRotatableShape<T>",
+      "Summary": "<p sourcefile=\"api/PAC.Geometry.Shapes.Interfaces.IRotatableShape-1.yml\" sourcestartlinenumber=\"1\">An <xref href=\"PAC.Geometry.Shapes.Interfaces.IShape\" data-throw-if-not-resolved=\"false\"></xref> that can be rotated.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.Geometry.Shapes.Interfaces.IShape.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.Geometry.Shapes.Interfaces.IShape.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "PAC.Geometry.Shapes.Interfaces.IShape",
+      "Summary": "<p sourcefile=\"api/PAC.Geometry.Shapes.Interfaces.IShape.yml\" sourcestartlinenumber=\"1\">Defines a non-empty collection of integer points that make up a pixel art shape. The shape must be connected (including diagonally).</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.Geometry.Shapes.Interfaces.ITransformableShape-2.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.Geometry.Shapes.Interfaces.ITransformableShape-2.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "PAC.Geometry.Shapes.Interfaces.ITransformableShape<T, A>",
+      "Summary": "<p sourcefile=\"api/PAC.Geometry.Shapes.Interfaces.ITransformableShape-2.yml\" sourcestartlinenumber=\"1\">An <xref href=\"PAC.Geometry.Shapes.Interfaces.IShape\" data-throw-if-not-resolved=\"false\"></xref> that can be translated, flipped and rotated.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.Geometry.Shapes.Interfaces.ITranslatableShape-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.Geometry.Shapes.Interfaces.ITranslatableShape-1.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "PAC.Geometry.Shapes.Interfaces.ITranslatableShape<T>",
+      "Summary": "<p sourcefile=\"api/PAC.Geometry.Shapes.Interfaces.ITranslatableShape-1.yml\" sourcestartlinenumber=\"1\">An <xref href=\"PAC.Geometry.Shapes.Interfaces.IShape\" data-throw-if-not-resolved=\"false\"></xref> that can be translated.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.Geometry.Shapes.Interfaces.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.Geometry.Shapes.Interfaces.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "PAC.Geometry.Shapes.Interfaces",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.Geometry.Shapes.IsometricCuboid.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.Geometry.Shapes.IsometricCuboid.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "PAC.Geometry.Shapes.IsometricCuboid",
+      "Summary": "<p sourcefile=\"api/PAC.Geometry.Shapes.IsometricCuboid.yml\" sourcestartlinenumber=\"1\">An isometric pixel art cuboid shape.\n<example>\nFor example,</example></p>\n<pre><code class=\"lang-csharp\">        # #\n    # #     # #\n# #             # #\n#   # #             # #\n#       # #     # #   #\n#           # #       #\n# #           #       #\n    # #       #     # #\n        # #   # # #\n            # #</code></pre>\n\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.Geometry.Shapes.IsometricRectangle.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.Geometry.Shapes.IsometricRectangle.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "PAC.Geometry.Shapes.IsometricRectangle",
+      "Summary": "<p sourcefile=\"api/PAC.Geometry.Shapes.IsometricRectangle.yml\" sourcestartlinenumber=\"1\">An isometric pixel art rectangle shape.\n<example>\nFor example,</example></p>\n<pre><code class=\"lang-csharp\">        # #\n    # #     # #\n# #             # #\n    # #             # #\n        # #     # #\n            # #</code></pre>\n\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.Geometry.Shapes.Line.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.Geometry.Shapes.Line.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "PAC.Geometry.Shapes.Line",
+      "Summary": "<p sourcefile=\"api/PAC.Geometry.Shapes.Line.yml\" sourcestartlinenumber=\"1\">A pixel art straight line.\n<example>\nFor example,</example></p>\n<pre><code class=\"lang-csharp\">            #\n        # #\n      #\n  # #\n#</code></pre>\n\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.Geometry.Shapes.Path.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.Geometry.Shapes.Path.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "PAC.Geometry.Shapes.Path",
+      "Summary": "<p sourcefile=\"api/PAC.Geometry.Shapes.Path.yml\" sourcestartlinenumber=\"1\">A sequence of connected <xref href=\"PAC.Geometry.Shapes.Line\" data-throw-if-not-resolved=\"false\"></xref>s.\n<example>\nFor example,</example></p>\n<pre><code class=\"lang-csharp\">       end of line 1\n      start of line 2    # &lt; end of line 3\n             v           #\n             # #         #\n           #     # #     # &lt; start of line 3\n         #           # #\n       #               ^\n       ^         end of line 2\nstart of line 1</code></pre>\n\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.Geometry.Shapes.Rectangle.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.Geometry.Shapes.Rectangle.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "PAC.Geometry.Shapes.Rectangle",
+      "Summary": "<p sourcefile=\"api/PAC.Geometry.Shapes.Rectangle.yml\" sourcestartlinenumber=\"1\">A pixel art rectangle shape.\n<example>\nFor example,</example></p>\n<pre><code class=\"lang-csharp\"># # # #\n#     #\n# # # #</code></pre>\n\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.Geometry.Shapes.RightTriangle.RightAngleLocation.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.Geometry.Shapes.RightTriangle.RightAngleLocation.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "PAC.Geometry.Shapes.RightTriangle.RightAngleLocation",
+      "Summary": "<p sourcefile=\"api/PAC.Geometry.Shapes.RightTriangle.RightAngleLocation.yml\" sourcestartlinenumber=\"1\">Which corner of the <xref href=\"PAC.Geometry.Shapes.RightTriangle.boundingRect\" data-throw-if-not-resolved=\"false\"></xref> the right angle is in.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.Geometry.Shapes.RightTriangle.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.Geometry.Shapes.RightTriangle.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "PAC.Geometry.Shapes.RightTriangle",
+      "Summary": "<p sourcefile=\"api/PAC.Geometry.Shapes.RightTriangle.yml\" sourcestartlinenumber=\"1\">A pixel art right-angled triangle shape.\n<example>\nFor example,</example></p>\n<pre><code class=\"lang-csharp\">            # #\n        # #   #\n      #       #\n  # #         #\n#             #\n# # # # # # # #</code></pre>\n\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.Geometry.Shapes.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.Geometry.Shapes.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "PAC.Geometry.Shapes",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.Geometry.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.Geometry.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "PAC.Geometry",
       "Summary": null
     },
     {
@@ -2080,20 +2514,6 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/PAC.RotationAngle.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/PAC.RotationAngle.html"
-        }
-      },
-      "version": "",
-      "Uid": null,
-      "IsMRef": true,
-      "Title": "PAC.RotationAngle",
-      "Summary": "<p sourcefile=\"api/PAC.RotationAngle.yml\" sourcestartlinenumber=\"1\">This should be interpreted as being clockwise.</p>\n"
-    },
-    {
-      "type": "ManagedReference",
       "source_relative_path": "api/PAC.Screen.MaximiseWindow.yml",
       "output": {
         ".html": {
@@ -2244,300 +2664,6 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "PAC.Shaders",
-      "Summary": null
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/PAC.Shapes.Diamond.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/PAC.Shapes.Diamond.html"
-        }
-      },
-      "version": "",
-      "Uid": null,
-      "IsMRef": true,
-      "Title": "PAC.Shapes.Diamond",
-      "Summary": "<p sourcefile=\"api/PAC.Shapes.Diamond.yml\" sourcestartlinenumber=\"1\">A pixel art diamond shape.\n<example>\nFor example,</example></p>\n<pre><code class=\"lang-csharp\">    #\n    #\n  #   #\n  #   #\n#       #\n#       #\n  #   #\n  #   #\n    #\n    #</code></pre>\n\n"
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/PAC.Shapes.Ellipse.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/PAC.Shapes.Ellipse.html"
-        }
-      },
-      "version": "",
-      "Uid": null,
-      "IsMRef": true,
-      "Title": "PAC.Shapes.Ellipse",
-      "Summary": "<p sourcefile=\"api/PAC.Shapes.Ellipse.yml\" sourcestartlinenumber=\"1\">A pixel art ellipse shape.\n<example>\nFor example,</example></p>\n<pre><code class=\"lang-csharp\">    # # # #\n  #         #\n#             #\n#             #\n  #         #\n    # # # #</code></pre>\n\n"
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/PAC.Shapes.Interfaces.I1DShape-1.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/PAC.Shapes.Interfaces.I1DShape-1.html"
-        }
-      },
-      "version": "",
-      "Uid": null,
-      "IsMRef": true,
-      "Title": "PAC.Shapes.Interfaces.I1DShape<T>",
-      "Summary": "<p sourcefile=\"api/PAC.Shapes.Interfaces.I1DShape-1.yml\" sourcestartlinenumber=\"1\">A pixel art representation of a 1D shape (such as a straight line, or a curve).</p>\n"
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/PAC.Shapes.Interfaces.I2DShape-1.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/PAC.Shapes.Interfaces.I2DShape-1.html"
-        }
-      },
-      "version": "",
-      "Uid": null,
-      "IsMRef": true,
-      "Title": "PAC.Shapes.Interfaces.I2DShape<T>",
-      "Summary": "<p sourcefile=\"api/PAC.Shapes.Interfaces.I2DShape-1.yml\" sourcestartlinenumber=\"1\">A pixel art representation of a 2D shape (such as a rectangle or a circle).</p>\n"
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/PAC.Shapes.Interfaces.IDeepCopyableShape-1.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/PAC.Shapes.Interfaces.IDeepCopyableShape-1.html"
-        }
-      },
-      "version": "",
-      "Uid": null,
-      "IsMRef": true,
-      "Title": "PAC.Shapes.Interfaces.IDeepCopyableShape<T>",
-      "Summary": "<p sourcefile=\"api/PAC.Shapes.Interfaces.IDeepCopyableShape-1.yml\" sourcestartlinenumber=\"1\">An <xref href=\"PAC.Shapes.Interfaces.IShape\" data-throw-if-not-resolved=\"false\"></xref> that can be deep-copied.</p>\n"
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/PAC.Shapes.Interfaces.IFillableShape.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/PAC.Shapes.Interfaces.IFillableShape.html"
-        }
-      },
-      "version": "",
-      "Uid": null,
-      "IsMRef": true,
-      "Title": "PAC.Shapes.Interfaces.IFillableShape",
-      "Summary": "<p sourcefile=\"api/PAC.Shapes.Interfaces.IFillableShape.yml\" sourcestartlinenumber=\"1\">An <xref href=\"PAC.Shapes.Interfaces.IShape\" data-throw-if-not-resolved=\"false\"></xref> that encloses a region that can be filled in.</p>\n"
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/PAC.Shapes.Interfaces.IFlippableShape-1.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/PAC.Shapes.Interfaces.IFlippableShape-1.html"
-        }
-      },
-      "version": "",
-      "Uid": null,
-      "IsMRef": true,
-      "Title": "PAC.Shapes.Interfaces.IFlippableShape<T>",
-      "Summary": "<p sourcefile=\"api/PAC.Shapes.Interfaces.IFlippableShape-1.yml\" sourcestartlinenumber=\"1\">An <xref href=\"PAC.Shapes.Interfaces.IShape\" data-throw-if-not-resolved=\"false\"></xref> that can be flipped.</p>\n"
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/PAC.Shapes.Interfaces.IIsometricShape-1.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/PAC.Shapes.Interfaces.IIsometricShape-1.html"
-        }
-      },
-      "version": "",
-      "Uid": null,
-      "IsMRef": true,
-      "Title": "PAC.Shapes.Interfaces.IIsometricShape<T>",
-      "Summary": "<p sourcefile=\"api/PAC.Shapes.Interfaces.IIsometricShape-1.yml\" sourcestartlinenumber=\"1\">A pixel art representation of the isometric projection of a shape.</p>\n"
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/PAC.Shapes.Interfaces.IRotatableShape-1.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/PAC.Shapes.Interfaces.IRotatableShape-1.html"
-        }
-      },
-      "version": "",
-      "Uid": null,
-      "IsMRef": true,
-      "Title": "PAC.Shapes.Interfaces.IRotatableShape<T>",
-      "Summary": "<p sourcefile=\"api/PAC.Shapes.Interfaces.IRotatableShape-1.yml\" sourcestartlinenumber=\"1\">An <xref href=\"PAC.Shapes.Interfaces.IShape\" data-throw-if-not-resolved=\"false\"></xref> that can be rotated.</p>\n"
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/PAC.Shapes.Interfaces.IShape.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/PAC.Shapes.Interfaces.IShape.html"
-        }
-      },
-      "version": "",
-      "Uid": null,
-      "IsMRef": true,
-      "Title": "PAC.Shapes.Interfaces.IShape",
-      "Summary": "<p sourcefile=\"api/PAC.Shapes.Interfaces.IShape.yml\" sourcestartlinenumber=\"1\">Defines a non-empty collection of integer points that make up a pixel art shape. The shape must be connected (including diagonally).</p>\n"
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/PAC.Shapes.Interfaces.ITransformableShape-1.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/PAC.Shapes.Interfaces.ITransformableShape-1.html"
-        }
-      },
-      "version": "",
-      "Uid": null,
-      "IsMRef": true,
-      "Title": "PAC.Shapes.Interfaces.ITransformableShape<T>",
-      "Summary": "<p sourcefile=\"api/PAC.Shapes.Interfaces.ITransformableShape-1.yml\" sourcestartlinenumber=\"1\">An <xref href=\"PAC.Shapes.Interfaces.IShape\" data-throw-if-not-resolved=\"false\"></xref> that can be translated, flipped and rotated.</p>\n"
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/PAC.Shapes.Interfaces.ITranslatableShape-1.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/PAC.Shapes.Interfaces.ITranslatableShape-1.html"
-        }
-      },
-      "version": "",
-      "Uid": null,
-      "IsMRef": true,
-      "Title": "PAC.Shapes.Interfaces.ITranslatableShape<T>",
-      "Summary": "<p sourcefile=\"api/PAC.Shapes.Interfaces.ITranslatableShape-1.yml\" sourcestartlinenumber=\"1\">An <xref href=\"PAC.Shapes.Interfaces.IShape\" data-throw-if-not-resolved=\"false\"></xref> that can be translated.</p>\n"
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/PAC.Shapes.Interfaces.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/PAC.Shapes.Interfaces.html"
-        }
-      },
-      "version": "",
-      "Uid": null,
-      "IsMRef": true,
-      "Title": "PAC.Shapes.Interfaces",
-      "Summary": null
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/PAC.Shapes.IsometricCuboid.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/PAC.Shapes.IsometricCuboid.html"
-        }
-      },
-      "version": "",
-      "Uid": null,
-      "IsMRef": true,
-      "Title": "PAC.Shapes.IsometricCuboid",
-      "Summary": "<p sourcefile=\"api/PAC.Shapes.IsometricCuboid.yml\" sourcestartlinenumber=\"1\">An isometric pixel art cuboid shape.\n<example>\nFor example,</example></p>\n<pre><code class=\"lang-csharp\">        # #\n    # #     # #\n# #             # #\n#   # #             # #\n#       # #     # #   #\n#           # #       #\n# #           #       #\n    # #       #     # #\n        # #   # # #\n            # #</code></pre>\n\n"
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/PAC.Shapes.IsometricRectangle.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/PAC.Shapes.IsometricRectangle.html"
-        }
-      },
-      "version": "",
-      "Uid": null,
-      "IsMRef": true,
-      "Title": "PAC.Shapes.IsometricRectangle",
-      "Summary": "<p sourcefile=\"api/PAC.Shapes.IsometricRectangle.yml\" sourcestartlinenumber=\"1\">An isometric pixel art rectangle shape.\n<example>\nFor example,</example></p>\n<pre><code class=\"lang-csharp\">        # #\n    # #     # #\n# #             # #\n    # #             # #\n        # #     # #\n            # #</code></pre>\n\n"
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/PAC.Shapes.Line.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/PAC.Shapes.Line.html"
-        }
-      },
-      "version": "",
-      "Uid": null,
-      "IsMRef": true,
-      "Title": "PAC.Shapes.Line",
-      "Summary": "<p sourcefile=\"api/PAC.Shapes.Line.yml\" sourcestartlinenumber=\"1\">A pixel art straight line.\n<example>\nFor example,</example></p>\n<pre><code class=\"lang-csharp\">            #\n        # #\n      #\n  # #\n#</code></pre>\n\n"
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/PAC.Shapes.Path.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/PAC.Shapes.Path.html"
-        }
-      },
-      "version": "",
-      "Uid": null,
-      "IsMRef": true,
-      "Title": "PAC.Shapes.Path",
-      "Summary": "<p sourcefile=\"api/PAC.Shapes.Path.yml\" sourcestartlinenumber=\"1\">A sequence of connected <xref href=\"PAC.Shapes.Line\" data-throw-if-not-resolved=\"false\"></xref>s.\n<example>\nFor example,</example></p>\n<pre><code class=\"lang-csharp\">       end of line 1\n      start of line 2    # &lt; end of line 3\n             v           #\n             # #         #\n           #     # #     # &lt; start of line 3\n         #           # #\n       #               ^\n       ^         end of line 2\nstart of line 1</code></pre>\n\n"
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/PAC.Shapes.Rectangle.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/PAC.Shapes.Rectangle.html"
-        }
-      },
-      "version": "",
-      "Uid": null,
-      "IsMRef": true,
-      "Title": "PAC.Shapes.Rectangle",
-      "Summary": "<p sourcefile=\"api/PAC.Shapes.Rectangle.yml\" sourcestartlinenumber=\"1\">A pixel art rectangle shape.\n<example>\nFor example,</example></p>\n<pre><code class=\"lang-csharp\"># # # #\n#     #\n# # # #</code></pre>\n\n"
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/PAC.Shapes.RightTriangle.RightAngleLocation.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/PAC.Shapes.RightTriangle.RightAngleLocation.html"
-        }
-      },
-      "version": "",
-      "Uid": null,
-      "IsMRef": true,
-      "Title": "PAC.Shapes.RightTriangle.RightAngleLocation",
-      "Summary": "<p sourcefile=\"api/PAC.Shapes.RightTriangle.RightAngleLocation.yml\" sourcestartlinenumber=\"1\">Which corner of the <xref href=\"PAC.Shapes.RightTriangle.boundingRect\" data-throw-if-not-resolved=\"false\"></xref> the right angle is in.</p>\n"
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/PAC.Shapes.RightTriangle.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/PAC.Shapes.RightTriangle.html"
-        }
-      },
-      "version": "",
-      "Uid": null,
-      "IsMRef": true,
-      "Title": "PAC.Shapes.RightTriangle",
-      "Summary": "<p sourcefile=\"api/PAC.Shapes.RightTriangle.yml\" sourcestartlinenumber=\"1\">A pixel art right-angled triangle shape.\n<example>\nFor example,</example></p>\n<pre><code class=\"lang-csharp\">            # #\n        # #   #\n      #       #\n  # #         #\n#             #\n# # # # # # # #</code></pre>\n\n"
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/PAC.Shapes.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/PAC.Shapes.html"
-        }
-      },
-      "version": "",
-      "Uid": null,
-      "IsMRef": true,
-      "Title": "PAC.Shapes",
       "Summary": null
     },
     {
