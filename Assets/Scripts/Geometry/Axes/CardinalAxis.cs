@@ -3,10 +3,7 @@ namespace PAC.Geometry.Axes
     /// <summary>
     /// <see cref="HorizontalAxis"/> or <see cref="VerticalAxis"/>.
     /// </summary>
-    public abstract record CardinalAxis : CardinalOrdinalAxis
-    {
-        private protected CardinalAxis() { } // don't allow any instances other than the pre-defined ones
-    }
+    public abstract record CardinalAxis : CardinalOrdinalAxis { }
 
     /// <summary>
     /// The type of <see cref="CardinalAxis.Horizontal"/>.
