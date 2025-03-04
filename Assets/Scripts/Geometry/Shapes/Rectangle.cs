@@ -108,7 +108,7 @@ namespace PAC.Geometry.Shapes
         public static Rectangle operator -(Rectangle rectangle) => new Rectangle(-rectangle.boundingRect, rectangle.filled);
 
         public Rectangle Translate(IntVector2 translation) => new Rectangle(boundingRect + translation, filled);
-        public Rectangle Flip(CardinalOrdinalAxis axis) => new Rectangle(boundingRect.Flip(axis), filled);
+        public Rectangle Flip(CardinalOrdinalAxis axis) => new Rectangle(boundingRect.Reflect(axis), filled);
         public Rectangle Rotate(QuadrantalAngle angle) => new Rectangle(boundingRect.Rotate(angle), filled);
 
         IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();
