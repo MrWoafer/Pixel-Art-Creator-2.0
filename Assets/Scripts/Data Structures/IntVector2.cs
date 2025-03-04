@@ -610,7 +610,7 @@ namespace PAC.DataStructures
         };
 
         /// <summary>
-        /// Returns the vector flipped across the given axis.
+        /// Returns the vector reflected across the given axis.
         /// </summary>
         /// <exception cref="ArgumentNullException"><paramref name="axis"/> is null.</exception>
         public IntVector2 Reflect(CardinalOrdinalAxis axis) => axis switch
