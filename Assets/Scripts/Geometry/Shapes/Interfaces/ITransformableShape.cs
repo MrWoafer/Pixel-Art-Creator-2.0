@@ -15,5 +15,5 @@ namespace PAC.Geometry.Shapes.Interfaces
     /// <typeparam name="A">
     /// The axis/axes that the shape can be flipped over.
     /// </typeparam>
-    public interface ITransformableShape<out T, in A> : ITranslatableShape<T>, IFlippableShape<T, A>, IRotatableShape<T> where T : IShape where A : CardinalOrdinalAxis { }
+    public interface ITransformableShape<out T, in A> : ITranslatableShape<T>, IReflectableShape<T, A>, IRotatableShape<T> where T : IShape where A : CardinalOrdinalAxis { }
 }
