@@ -5,6 +5,10 @@ namespace PAC.Geometry.Axes
     /// <summary>
     /// Provides axes and groups of axes.
     /// </summary>
+    /// <remarks>
+    /// Each axis has its own type, so that axes can be abstracted in a type-safe way. For example, shapes can specify exactly which axes they can reflected across, and this is enforced at
+    /// compile time via types.
+    /// </remarks>
     public static class Axes
     {
         /// <summary>
