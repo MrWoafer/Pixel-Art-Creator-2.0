@@ -119,7 +119,7 @@ namespace PAC.Layers
                 AddKeyFrame(frame);
             }
 
-            GetKeyFrame(frame).texture = GetKeyFrame(frame).texture.Flip(axis);
+            GetKeyFrame(frame).texture = GetKeyFrame(frame).texture.Reflect(axis);
 
             onPixelsChanged.Invoke(rect, new int[] { GetKeyFrame(frame).frame });
         }
@@ -127,7 +127,7 @@ namespace PAC.Layers
         {
             foreach (AnimationKeyFrame keyFrame in keyFrames)
             {
-                keyFrame.texture = keyFrame.texture.Flip(axis);
+                keyFrame.texture = keyFrame.texture.Reflect(axis);
             }
         }
 

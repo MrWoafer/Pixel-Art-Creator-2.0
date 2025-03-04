@@ -49,11 +49,11 @@ namespace PAC.Extensions
         /// Calls <see cref="Texture2D.Apply()"/> on the returned <see cref="Texture2D"/>.
         /// </remarks>
         /// <exception cref="ArgumentNullException"><paramref name="axis"/> is null.</exception>
-        public static Texture2D Flip(this Texture2D texture, CardinalAxis axis) => axis switch
+        public static Texture2D Reflect(this Texture2D texture, CardinalAxis axis) => axis switch
         {
             null => throw new ArgumentNullException(nameof(axis), $"{nameof(axis)} is null."),
-            VerticalAxis => texture.FlipX(),
-            HorizontalAxis => texture.FlipY(),
+            VerticalAxis => texture.ReflectVerticalAxis(),
+            HorizontalAxis => texture.ReflectHorizontalAxis(),
             _ => throw new UnreachableException()
         };
         /// <summary>
@@ -62,7 +62,7 @@ namespace PAC.Extensions
         /// <remarks>
         /// Calls <see cref="Texture2D.Apply()"/> on the returned <see cref="Texture2D"/>.
         /// </remarks>
-        private static Texture2D FlipX(this Texture2D texture)
+        private static Texture2D ReflectVerticalAxis(this Texture2D texture)
         {
             Texture2D flipped = new Texture2D(texture.width, texture.height);
 
@@ -82,7 +82,7 @@ namespace PAC.Extensions
         /// <remarks>
         /// Calls <see cref="Texture2D.Apply()"/> on the returned <see cref="Texture2D"/>.
         /// </remarks>
-        private static Texture2D FlipY(this Texture2D texture)
+        private static Texture2D ReflectHorizontalAxis(this Texture2D texture)
         {
             Texture2D flipped = new Texture2D(texture.width, texture.height);
 
