@@ -40,7 +40,7 @@ namespace PAC.Files
 
         public void FlipFile(CardinalAxis axis)
         {
-            fileManager.currentFile.Flip(axis);
+            fileManager.currentFile.Reflect(axis);
             onEdit.Invoke();
         }
         public void FlipFileX() => FlipFile(Axes.Vertical);
