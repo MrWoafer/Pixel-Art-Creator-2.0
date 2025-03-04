@@ -251,7 +251,7 @@ namespace PAC.Layers
             return pixelsFilled.ToArray();
         }
 
-        protected override void FlipNoEvent(CardinalAxis axis)
+        protected override void ReflectNoEvent(CardinalAxis axis)
         {
             ignoreOnTilePixelsChanged = true;
             HashSet<Layer> flippedLayers = new HashSet<Layer>();
@@ -259,7 +259,7 @@ namespace PAC.Layers
             {
                 if (!flippedLayers.Contains(tile.TileLayerToLayerInTile(this)))
                 {
-                    tile.TileLayerToLayerInTile(this).Flip(axis);
+                    tile.TileLayerToLayerInTile(this).Reflect(axis);
                     flippedLayers.Add(tile.TileLayerToLayerInTile(this));
                 }
 

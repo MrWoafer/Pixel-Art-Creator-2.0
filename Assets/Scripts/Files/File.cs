@@ -935,7 +935,7 @@ namespace PAC.Files
             ignoreOnLayerPixelsChanged = true;
             foreach (Layer layer in layers)
             {
-                layer.Flip(axis);
+                layer.Reflect(axis);
             }
             ignoreOnLayerPixelsChanged = false;
 
