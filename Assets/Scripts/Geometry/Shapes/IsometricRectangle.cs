@@ -58,7 +58,7 @@ namespace PAC.Geometry.Shapes
     /// The enumerator does not repeat any points.
     /// </para>
     /// </remarks>
-    public class IsometricRectangle : IIsometricShape<IsometricRectangle>, IFlippableShape<IsometricRectangle, CardinalAxis>, IDeepCopyableShape<IsometricRectangle>, IEquatable<IsometricRectangle>
+    public class IsometricRectangle : IIsometricShape<IsometricRectangle>, IReflectableShape<IsometricRectangle, CardinalAxis>, IDeepCopyableShape<IsometricRectangle>, IEquatable<IsometricRectangle>
     {
         /// <summary>
         /// The point the mouse started dragging from.

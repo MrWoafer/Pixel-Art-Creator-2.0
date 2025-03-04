@@ -209,6 +209,6 @@ namespace PAC.Tests.Geometry.Shapes
 
         [Test]
         [Category("Shapes")]
-        public override void Flip() => IFlippableShape_DefaultTests<IsometricRectangle, CardinalAxis>.Flip_Impl(testCases);
+        public override void Flip() => IReflectableShape_DefaultTests<IsometricRectangle, CardinalAxis>.Flip_Impl(testCases);
     }
 }

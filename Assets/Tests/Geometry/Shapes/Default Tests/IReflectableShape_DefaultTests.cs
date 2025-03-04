@@ -13,10 +13,10 @@ using PAC.Tests.Geometry.Shapes.TestUtils;
 namespace PAC.Tests.Geometry.Shapes.DefaultTests
 {
     /// <summary>
-    /// Provides default implementations for the required tests in <see cref="IFlippableShape_RequiredTests"/>.
+    /// Provides default implementations for the required tests in <see cref="IReflectableShape_RequiredTests"/>.
     /// </summary>
-    public abstract class IFlippableShape_DefaultTests<T, A> : IDeepCopyableShape_DefaultTests<T>, IFlippableShape_RequiredTests
-        where T : IFlippableShape<T, A>
+    public abstract class IReflectableShape_DefaultTests<T, A> : IDeepCopyableShape_DefaultTests<T>, IReflectableShape_RequiredTests
+        where T : IReflectableShape<T, A>
         where A : CardinalOrdinalAxis
     {
         [Test]
