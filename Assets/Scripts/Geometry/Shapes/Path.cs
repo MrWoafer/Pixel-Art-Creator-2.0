@@ -394,11 +394,11 @@ namespace PAC.Geometry.Shapes
         /// Returns a deep copy of the <see cref="Path"/> rotated 180 degrees about the origin (equivalently, reflected through the origin).
         /// </summary>
         /// <seealso cref="Rotate(QuadrantalAngle)"/>
-        /// <seealso cref="Flip(CardinalOrdinalAxis)"/>
+        /// <seealso cref="Reflect(CardinalOrdinalAxis)"/>
         public static Path operator -(Path path) => path.Rotate(QuadrantalAngle._180);
 
         public Path Translate(IntVector2 translation) => new Path(_lines.Select(l => l.Translate(translation)));
-        public Path Flip(CardinalOrdinalAxis axis) => new Path(_lines.Select(l => l.Flip(axis)));
+        public Path Reflect(CardinalOrdinalAxis axis) => new Path(_lines.Select(l => l.Reflect(axis)));
         public Path Rotate(QuadrantalAngle angle) => new Path(_lines.Select(l => l.Rotate(angle)));
 
         /// <summary>

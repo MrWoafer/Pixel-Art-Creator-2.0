@@ -104,11 +104,11 @@ namespace PAC.Geometry.Shapes
         /// Returns a deep copy of the <see cref="Rectangle"/> rotated 180 degrees about the origin (equivalently, reflected through the origin).
         /// </summary>
         /// <seealso cref="Rotate(QuadrantalAngle)"/>
-        /// <seealso cref="Flip(CardinalOrdinalAxis)"/>
+        /// <seealso cref="Reflect(CardinalOrdinalAxis)"/>
         public static Rectangle operator -(Rectangle rectangle) => new Rectangle(-rectangle.boundingRect, rectangle.filled);
 
         public Rectangle Translate(IntVector2 translation) => new Rectangle(boundingRect + translation, filled);
-        public Rectangle Flip(CardinalOrdinalAxis axis) => new Rectangle(boundingRect.Reflect(axis), filled);
+        public Rectangle Reflect(CardinalOrdinalAxis axis) => new Rectangle(boundingRect.Reflect(axis), filled);
         public Rectangle Rotate(QuadrantalAngle angle) => new Rectangle(boundingRect.Rotate(angle), filled);
 
         IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();
