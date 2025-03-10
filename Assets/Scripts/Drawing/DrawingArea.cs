@@ -754,8 +754,8 @@ namespace PAC.Drawing
             }
             else if (tool == Tool.Fill)
             {
-                if (leftClickedOn) { Tools.UseFill(file, layer, frame, pixel, colour); }
-                else if (rightClickedOn) { Tools.UseFill(file, layer, frame, pixel, Config.Colours.transparent); }
+                if (leftClickedOn) { Tools.UseFill(file, layer, frame, pixel, colour, toolbar.floodFillDiagonallyAdjacent); }
+                else if (rightClickedOn) { Tools.UseFill(file, layer, frame, pixel, Config.Colours.transparent, toolbar.floodFillDiagonallyAdjacent); }
             }
             else if (tool == Tool.Line)
             {
