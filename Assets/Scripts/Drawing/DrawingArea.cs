@@ -653,7 +653,7 @@ namespace PAC.Drawing
                 ClearPreview();
                 finishedUsingTool = true;
 
-                if (toolbar.selectedTool == Tool.IsoBox)
+                if (toolbar.selectedTool == Tool.IsoBox || toolbar.selectedTool == Tool.Bezier)
                 {
                     isoBoxPlacedBase = false;
                     inputSystem.Untarget();
@@ -725,6 +725,13 @@ namespace PAC.Drawing
                 if (isoBoxPlacedBase)
                 {
                     PreviewShape(new IsometricCuboid(new IsometricRectangle(mouseDragPoints[0], mouseDragPoints[1], false), pixel.y - mouseDragPoints[1].y, rightClickedOn, holdingCtrl), colour);
+                }
+            }
+            else if (tool == Tool.Bezier)
+            {
+                if (isoBoxPlacedBase)
+                {
+                    PreviewShape(new QuadraticBezier(mouseDragPoints[0], pixel, mouseDragPoints[1]), colour);
                 }
             }
         }
@@ -801,6 +808,11 @@ namespace PAC.Drawing
                     }
                     PreviewShape(new Diamond(new IntRect(mouseDragPoints[0], end), rightClickedOn), colour);
                 }
+            }
+            else if (tool == Tool.Bezier && (leftClickedOn || rightClickedOn))
+            {
+                if (!isoBoxPlacedBase) { PreviewShape(new QuadraticBezier(mouseDragPoints[0], pixel, pixel), colour); }
+                else { PreviewShape(new QuadraticBezier(mouseDragPoints[0], pixel, mouseDragPoints[1]), colour); }
             }
             else if (tool == Tool.IsoBox && (leftClickedOn || rightClickedOn))
             {
@@ -913,6 +925,28 @@ namespace PAC.Drawing
                     UpdateDrawing();
                 }
             }
+            else if (tool == Tool.Bezier && (leftClickedOn || rightClickedOn))
+            {
+                if (!isoBoxPlacedBase)
+                {
+                    isoBoxPlacedBase = true;
+                }
+                else
+                {
+                    Tools.UseShape(
+                        file,
+                        layer,
+                        frame,
+                        new QuadraticBezier(mouseDragPoints[0], pixel, mouseDragPoints[1]),
+                        colour
+                        );
+                    UpdateDrawing();
+
+                    isoBoxPlacedBase = false;
+                    finishedUsingTool = true;
+                    inputSystem.Untarget();
+                }
+            }
             else if (tool == Tool.IsoBox && (leftClickedOn || rightClickedOn))
             {
                 if (!isoBoxPlacedBase)
@@ -921,8 +955,12 @@ namespace PAC.Drawing
                 }
                 else
                 {
-                    Tools.UseShape(file, layer, frame,
-                        new IsometricCuboid(new IsometricRectangle(mouseDragPoints[0], mouseDragPoints[1], false), pixel.y - mouseDragPoints[1].y, rightClickedOn, holdingCtrl), colour
+                    Tools.UseShape(
+                        file,
+                        layer,
+                        frame,
+                        new IsometricCuboid(new IsometricRectangle(mouseDragPoints[0], mouseDragPoints[1], false), pixel.y - mouseDragPoints[1].y, rightClickedOn, holdingCtrl),
+                        colour
                         );
                     UpdateDrawing();
 

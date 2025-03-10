@@ -84,6 +84,15 @@ namespace PAC.Drawing
             canBeCancelled = true
         };
 
+        public static Tool Bezier = new Tool
+        {
+            name = "bezier",
+            useMovementInterpolation = false,
+            showBrushBorder = true,
+            finishMode = MouseTargetDeselectMode.Manual,
+            canBeCancelled = true
+        };
+
         public static Tool IsoBox = new Tool
         {
             name = "iso box",
@@ -116,7 +125,7 @@ namespace PAC.Drawing
         };
 
         /// <summary>All implemented tools.</summary>
-        public static readonly Tool[] tools = new Tool[] { None, Pencil, Brush, Rubber, EyeDropper, GlobalEyeDropper, Fill, Shape, Line, IsoBox, Gradient, Move, Selection };
+        public static readonly Tool[] tools = new Tool[] { None, Pencil, Brush, Rubber, EyeDropper, GlobalEyeDropper, Fill, Shape, Line, Bezier, IsoBox, Gradient, Move, Selection };
 
         /// <summary>
         /// Gets the tool with that name.
