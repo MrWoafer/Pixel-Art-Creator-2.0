@@ -151,6 +151,12 @@ namespace PAC.UI
         [SerializeField]
         private UINumberField brushSettingsSizeField;
 
+        [Header("Flood Fill Settings")]
+        [SerializeField]
+        private GameObject floodFillSettingsWindow;
+        [SerializeField]
+        private UIToggleButton floodFillSettingsFillDiagonallyToggleButton;
+
         [Header("Keyboard Shortcuts")]
         [SerializeField]
         private GameObject keyboardShortcutsWindow;
@@ -207,6 +213,7 @@ namespace PAC.UI
             importPACWindow.SetActive(true);
             layerPropertiesWindow.SetActive(true);
             brushSettingsWindow.SetActive(true);
+            floodFillSettingsWindow.SetActive(true);
             keyboardShortcutsWindow.SetActive(true);
         }
 
@@ -251,6 +258,9 @@ namespace PAC.UI
 
             brushSettingsShapeToggleGroup.SubscribeToSelectedToggleChange(UpdateBrushSettingsShape);
             brushSettingsSizeField.SubscribeToValueChanged(() => toolbar.SetBrushSize((int)brushSettingsSizeField.value));
+
+            floodFillSettingsFillDiagonallyToggleButton.SubscribeToTurnOn(() => toolbar.floodFillDiagonallyAdjacent = true);
+            floodFillSettingsFillDiagonallyToggleButton.SubscribeToTurnOff(() => toolbar.floodFillDiagonallyAdjacent = false);
         }
 
         private void Update()
@@ -271,6 +281,7 @@ namespace PAC.UI
                 importPACWindow.SetActive(false);
                 layerPropertiesWindow.SetActive(false);
                 brushSettingsWindow.SetActive(false);
+                floodFillSettingsWindow.SetActive(false);
                 keyboardShortcutsWindow.SetActive(false);
 
                 beenRunningAFrame = true;
@@ -743,6 +754,49 @@ namespace PAC.UI
         }
 
         public void UpdateBrushSettingsShape()
+        {
+            string brushShape = brushSettingsShapeToggleGroup.selectedToggles[0].toggleName;
+            if (brushShape == "circle")
+            {
+                toolbar.brushShape = BrushShape.Circle;
+            }
+            else if (brushShape == "square")
+            {
+                toolbar.brushShape = BrushShape.Square;
+            }
+            else if (brushShape == "diamond")
+            {
+                toolbar.brushShape = BrushShape.Diamond;
+            }
+            else if (brushShape == "open")
+            {
+                ExtensionFilter[] extensions = new ExtensionFilter[] { new ExtensionFilter("Image File ", "png", "jpeg", "jpg") };
+                string[] fileNames = StandaloneFileBrowser.OpenFilePanel("Open File", "", extensions, false);
+                if (fileNames.Length > 0)
+                {
+                    toolbar.LoadCustomBrush(Texture2DExtensions.LoadFromFile(fileNames[0]));
+                }
+
+                toolbar.brushShape = BrushShape.Custom;
+            }
+            else
+            {
+                throw new System.Exception("Unknown / unimplemented brush shape: " + brushShape);
+            }
+        }
+
+        public void OpenFloodFillSettingsWindow()
+        {
+            OpenDialogBox(floodFillSettingsWindow);
+
+            floodFillSettingsFillDiagonallyToggleButton.SetOnOff(toolbar.floodFillDiagonallyAdjacent);
+        }
+        public void CloseFloodFillSettingsWindow()
+        {
+            CloseDialogBox(floodFillSettingsWindow);
+        }
+
+        public void UpdateFloodFillSettingsShape()
         {
             string brushShape = brushSettingsShapeToggleGroup.selectedToggles[0].toggleName;
             if (brushShape == "circle")
