@@ -19,6 +19,7 @@ using System;
 using PAC.Geometry.Shapes;
 using PAC.Geometry.Shapes.Interfaces;
 using PAC.ImageEditing;
+using PAC.Geometry;
 
 namespace PAC.Drawing
 {
@@ -1101,7 +1102,7 @@ namespace PAC.Drawing
             {
                 Texture2D fillMask = Texture2DCreator.Transparent(texture.width, texture.height);
 
-                foreach (IntVector2 pixel in FloodFill.GetPixelsToFill(texture, clickPoint))
+                foreach (IntVector2 pixel in FloodFill.GetPixelsToFill(texture, clickPoint, false))
                 {
                     fillMask.SetPixel(pixel.x, pixel.y, Config.Colours.mask);
                 }

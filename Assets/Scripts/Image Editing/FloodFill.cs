@@ -2,6 +2,7 @@ using System.Collections.Generic;
 
 using PAC.DataStructures;
 using PAC.Extensions;
+using PAC.Geometry;
 
 using UnityEngine;
 
@@ -13,10 +14,18 @@ namespace PAC.ImageEditing
     public static class FloodFill
     {
         /// <summary>
-        /// Returns the largest connected (in terms of being adjacent (left/right/up/down)) set containing <paramref name="startPoint"/> where all pixels have the same colour.
+        /// Returns the largest connected (in terms of being adjacent) set containing <paramref name="startPoint"/> where all pixels have the same colour.
         /// </summary>
+        /// <param name="includeDiagonallyAdjacent">Whether to flood-fill diagonally-adjacent pixels (as well as up/down/left/right-adjacent).</param>
         /// <param name="maxNumOfIterations">After this many pixels have been enumerated, the method will stop. Useful to prevent huge frame drops when filling large areas.</param>
-        public static IEnumerable<IntVector2> GetPixelsToFill(Texture2D texture, IntVector2 startPoint, int maxNumOfIterations = 1_000_000)
+        public static IEnumerable<IntVector2> GetPixelsToFill(Texture2D texture, IntVector2 startPoint, bool includeDiagonallyAdjacent, int maxNumOfIterations = 1_000_000)
+            => GetPixelsToFill(
+                texture,
+                startPoint,
+                includeDiagonallyAdjacent ? Direction8.All : Direction8.UpDownLeftRight,
+                maxNumOfIterations
+                );
+        private static IEnumerable<IntVector2> GetPixelsToFill(Texture2D texture, IntVector2 startPoint, IEnumerable<Direction8> adjacentDirections, int maxNumOfIterations)
         {
             Color colourToReplace = texture.GetPixel(startPoint);
 
@@ -32,7 +41,7 @@ namespace PAC.ImageEditing
             {
                 IntVector2 coord = toVisit.Dequeue();
 
-                foreach (IntVector2 offset in IntVector2.upDownLeftRight)
+                foreach (Direction8 offset in adjacentDirections)
                 {
                     IntVector2 adjacentCoord = coord + offset;
                     if (!visited.Contains(adjacentCoord) && texture.ContainsPixel(adjacentCoord) && texture.GetPixel(adjacentCoord) == colourToReplace)
