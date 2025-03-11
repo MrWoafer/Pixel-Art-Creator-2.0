@@ -598,7 +598,7 @@ namespace PAC.DataStructures
         }
 
         /// <summary>
-        /// Returns the vector rotated clockwise by the given angle.
+        /// Returns the vector rotated by the given angle.
         /// </summary>
         public IntVector2 Rotate(QuadrantalAngle angle) => angle switch
         {
