@@ -123,6 +123,8 @@ namespace PAC.Drawing
             }
         }
 
+        public bool floodFillDiagonallyAdjacent = false;
+
         [Header("Events")]
         [SerializeField]
         /// <summary>Event invoked when selected tool changes.</summary>

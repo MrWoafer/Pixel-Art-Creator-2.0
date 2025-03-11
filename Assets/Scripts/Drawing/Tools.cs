@@ -10,6 +10,7 @@ using PAC.Geometry.Shapes;
 using PAC.Geometry.Shapes.Interfaces;
 
 using UnityEngine;
+using PAC.Geometry;
 
 namespace PAC.Drawing
 {
@@ -83,14 +84,14 @@ namespace PAC.Drawing
             return file.layers[layer].GetPixel(x, y, frame);
         }
 
-        public static void UseFill(File file, int layer, int frame, int x, int y, Color colour, int maxNumOfIterations = 1_000_000)
+        public static void UseFill(File file, int layer, int frame, int x, int y, Color colour, bool includeDiagonallyAdjacent, int maxNumOfIterations = 1_000_000)
         {
-            UseFill(file, layer, frame, new IntVector2(x, y), colour, maxNumOfIterations);
+            UseFill(file, layer, frame, new IntVector2(x, y), colour, includeDiagonallyAdjacent, maxNumOfIterations);
         }
-        public static void UseFill(File file, int layer, int frame, IntVector2 pixel, Color colour, int maxNumOfIterations = 1_000_000)
+        public static void UseFill(File file, int layer, int frame, IntVector2 pixel, Color colour, bool includeDiagonallyAdjacent, int maxNumOfIterations = 1_000_000)
         {
             file.layers[layer].SetPixels(
-                FloodFill.GetPixelsToFill(file.layers[layer][frame].texture, pixel, maxNumOfIterations),
+                FloodFill.GetPixelsToFill(file.layers[layer][frame].texture, pixel, includeDiagonallyAdjacent, maxNumOfIterations),
                 frame,
                 colour,
                 AnimFrameRefMode.NewKeyFrame
