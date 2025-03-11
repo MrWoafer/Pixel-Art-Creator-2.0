@@ -3,6 +3,7 @@ using System.Collections.Generic;
 
 using PAC.DataStructures;
 using PAC.Exceptions;
+using PAC.Geometry.Axes;
 
 namespace PAC.Geometry
 {
@@ -174,6 +175,64 @@ namespace PAC.Geometry
                 Direction.DownLeft => DownRight,
                 Direction.Left => Down,
                 Direction.UpLeft => DownLeft,
+                _ => throw new UnreachableException()
+            },
+            _ => throw new UnreachableException(),
+        };
+
+        /// <summary>
+        /// Returns the direction flipped across the given axis.
+        /// </summary>
+        /// <exception cref="ArgumentNullException"><paramref name="axis"/> is null.</exception>
+        public Direction8 Flip(CardinalOrdinalAxis axis) => axis switch
+        {
+            null => throw new ArgumentNullException(nameof(axis), $"{nameof(axis)} is null."),
+            VerticalAxis => direction switch
+            {
+                Direction.Up => Up,
+                Direction.UpRight => UpLeft,
+                Direction.Right => Left,
+                Direction.DownRight => DownLeft,
+                Direction.Down => Down,
+                Direction.DownLeft => DownRight,
+                Direction.Left => Right,
+                Direction.UpLeft => UpRight,
+                _ => throw new UnreachableException()
+            },
+            HorizontalAxis => direction switch
+            {
+                Direction.Up => Down,
+                Direction.UpRight => DownRight,
+                Direction.Right => Right,
+                Direction.DownRight => UpRight,
+                Direction.Down => Up,
+                Direction.DownLeft => UpLeft,
+                Direction.Left => Left,
+                Direction.UpLeft => DownLeft,
+                _ => throw new UnreachableException()
+            },
+            Diagonal45Axis => direction switch
+            {
+                Direction.Up => Right,
+                Direction.UpRight => UpRight,
+                Direction.Right => Up,
+                Direction.DownRight => UpLeft,
+                Direction.Down => Left,
+                Direction.DownLeft => DownLeft,
+                Direction.Left => Down,
+                Direction.UpLeft => DownRight,
+                _ => throw new UnreachableException()
+            },
+            Minus45Axis => direction switch
+            {
+                Direction.Up => Left,
+                Direction.UpRight => DownLeft,
+                Direction.Right => Down,
+                Direction.DownRight => DownRight,
+                Direction.Down => Right,
+                Direction.DownLeft => UpRight,
+                Direction.Left => Up,
+                Direction.UpLeft => UpLeft,
                 _ => throw new UnreachableException()
             },
             _ => throw new UnreachableException(),
