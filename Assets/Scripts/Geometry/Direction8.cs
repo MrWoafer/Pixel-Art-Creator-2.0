@@ -145,6 +145,40 @@ namespace PAC.Geometry
             _ => throw new UnreachableException()
         };
 
+        /// <summary>
+        /// Returns the direction rotated by the given angle.
+        /// </summary>
+        public Direction8 Rotate(QuadrantalAngle angle) => angle switch
+        {
+            QuadrantalAngle._0 => this,
+            QuadrantalAngle.Clockwise90 => direction switch
+            {
+                Direction.Up => Right,
+                Direction.UpRight => DownRight,
+                Direction.Right => Down,
+                Direction.DownRight => DownLeft,
+                Direction.Down => Left,
+                Direction.DownLeft => UpLeft,
+                Direction.Left => Up,
+                Direction.UpLeft => UpRight,
+                _ => throw new UnreachableException()
+            },
+            QuadrantalAngle._180 => -this,
+            QuadrantalAngle.Anticlockwise90 => direction switch
+            {
+                Direction.Up => Left,
+                Direction.UpRight => UpLeft,
+                Direction.Right => Up,
+                Direction.DownRight => UpRight,
+                Direction.Down => Right,
+                Direction.DownLeft => DownRight,
+                Direction.Left => Down,
+                Direction.UpLeft => DownLeft,
+                _ => throw new UnreachableException()
+            },
+            _ => throw new UnreachableException(),
+        };
+
         public override string ToString() => direction switch
         {
             Direction.Up => "Up",
