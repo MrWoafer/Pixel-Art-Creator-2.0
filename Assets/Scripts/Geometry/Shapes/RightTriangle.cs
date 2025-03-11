@@ -189,18 +189,18 @@ namespace PAC.Geometry.Shapes
             TopRight,
         }
         /// <summary>
-        /// Converts the <see cref="RightAngleLocation"/> into a 2-vector with +/- 1 in each component, representing the direction of that corner.
+        /// Converts the <see cref="RightAngleLocation"/> into a <see cref="Direction8"/> representing the direction of that corner.
         /// </summary>
         /// <remarks>
-        /// This is used with <see cref="FromDirection(IntVector2)"/> to simplify rotating/reflecting <see cref="RightAngleLocation"/>s.
+        /// This is used with <see cref="FromDirection"/> to simplify rotating/reflecting <see cref="RightAngleLocation"/>s.
         /// </remarks>
-        private IntVector2 AsDirection(RightAngleLocation rightAngleLocation) => rightAngleLocation switch
+        private Direction8 AsDirection(RightAngleLocation rightAngleLocation) => rightAngleLocation switch
         {
-            RightAngleLocation.BottomLeft => (-1, -1),
-            RightAngleLocation.BottomRight => (1, -1),
-            RightAngleLocation.TopLeft => (-1, 1),
-            RightAngleLocation.TopRight => (1, 1),
-            _ => throw new UnreachableException($"Unknown / unimplemented {nameof(RightAngleLocation)}: {rightAngleLocation}.")
+            RightAngleLocation.BottomLeft => Direction8.DownLeft,
+            RightAngleLocation.BottomRight => Direction8.DownRight,
+            RightAngleLocation.TopLeft => Direction8.UpLeft,
+            RightAngleLocation.TopRight => Direction8.UpRight,
+            _ => throw new UnreachableException()
         };
         /// <summary>
         /// The inverse of <see cref="AsDirection"/>.
@@ -208,7 +208,7 @@ namespace PAC.Geometry.Shapes
         /// <remarks>
         /// This is used with <see cref="AsDirection(RightAngleLocation)"/> to simplify rotating/reflecting <see cref="RightAngleLocation"/>s.
         /// </remarks>
-        private RightAngleLocation FromDirection(IntVector2 direction) => direction switch
+        private RightAngleLocation FromDirection(Direction8 direction) => direction switch
         {
             (-1, -1) => RightAngleLocation.BottomLeft,
             (1, -1) => RightAngleLocation.BottomRight,
