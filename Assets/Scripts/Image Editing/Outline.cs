@@ -3,6 +3,7 @@ using System.Collections.Generic;
 
 using PAC.DataStructures;
 using PAC.Extensions;
+using PAC.Geometry;
 
 using UnityEngine;
 
@@ -67,39 +68,39 @@ namespace PAC.ImageEditing
             /// <summary>
             /// Iterates over the directions associated with <see cref="includeTopLeft"/> etc for those that are <see langword="true"/>.
             /// </summary>
-            public readonly IEnumerable<IntVector2> EnumerateDirectionsToInclude()
+            public readonly IEnumerable<Direction8> EnumerateDirectionsToInclude()
             {
                 if (includeTopLeft)
                 {
-                    yield return IntVector2.upLeft;
+                    yield return Direction8.UpLeft;
                 }
                 if (includeTopMiddle)
                 {
-                    yield return IntVector2.up;
+                    yield return Direction8.Up;
                 }
                 if (includeTopRight)
                 {
-                    yield return IntVector2.upRight;
+                    yield return Direction8.UpRight;
                 }
                 if (includeMiddleLeft)
                 {
-                    yield return IntVector2.left;
+                    yield return Direction8.Left;
                 }
                 if (includeMiddleRight)
                 {
-                    yield return IntVector2.right;
+                    yield return Direction8.Right;
                 }
                 if (includeBottomLeft)
                 {
-                    yield return IntVector2.downLeft;
+                    yield return Direction8.DownLeft;
                 }
                 if (includeBottomMiddle)
                 {
-                    yield return IntVector2.down;
+                    yield return Direction8.Down;
                 }
                 if (includeBottomRight)
                 {
-                    yield return IntVector2.downRight;
+                    yield return Direction8.DownRight;
                 }
             }
         }
@@ -120,7 +121,7 @@ namespace PAC.ImageEditing
                 {
                     if (texture.GetPixel(pixel).a == 0f)
                     {
-                        foreach (IntVector2 offset in outlineOptions.EnumerateDirectionsToInclude())
+                        foreach (Direction8 offset in outlineOptions.EnumerateDirectionsToInclude())
                         {
                             if (texture.ContainsPixel(pixel - offset) && texture.GetPixel(pixel - offset).a != 0f)
                             {
@@ -137,7 +138,7 @@ namespace PAC.ImageEditing
                 {
                     if (texture.GetPixel(pixel).a != 0f)
                     {
-                        foreach (IntVector2 offset in outlineOptions.EnumerateDirectionsToInclude())
+                        foreach (Direction8 offset in outlineOptions.EnumerateDirectionsToInclude())
                         {
                             if (!texture.ContainsPixel(pixel + offset) || texture.GetPixel(pixel + offset).a == 0f)
                             {
