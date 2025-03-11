@@ -89,7 +89,7 @@
 
 
   <h1 id="PAC_ImageEditing_FloodFill" data-uid="PAC.ImageEditing.FloodFill" class="text-break">
-Class FloodFill  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Image Editing/FloodFill.cs/#L13"><i class="bi bi-code-slash"></i></a>
+Class FloodFill  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Image Editing/FloodFill.cs/#L14"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -155,17 +155,17 @@ Class FloodFill  <a class="header-action link-secondary" title="View source" hre
 
   <a id="PAC_ImageEditing_FloodFill_GetPixelsToFill_" data-uid="PAC.ImageEditing.FloodFill.GetPixelsToFill*"></a>
 
-  <h3 id="PAC_ImageEditing_FloodFill_GetPixelsToFill_Texture2D_PAC_DataStructures_IntVector2_System_Int32_" data-uid="PAC.ImageEditing.FloodFill.GetPixelsToFill(Texture2D,PAC.DataStructures.IntVector2,System.Int32)">
-  GetPixelsToFill(Texture2D, IntVector2, int)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Image Editing/FloodFill.cs/#L19"><i class="bi bi-code-slash"></i></a>
+  <h3 id="PAC_ImageEditing_FloodFill_GetPixelsToFill_Texture2D_PAC_DataStructures_IntVector2_System_Boolean_System_Int32_" data-uid="PAC.ImageEditing.FloodFill.GetPixelsToFill(Texture2D,PAC.DataStructures.IntVector2,System.Boolean,System.Int32)">
+  GetPixelsToFill(Texture2D, IntVector2, bool, int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Image Editing/FloodFill.cs/#L21"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Returns the largest connected (in terms of being adjacent (left/right/up/down)) set containing <code class="paramref">startPoint</code> where all pixels have the same colour.</p>
+  <div class="markdown level1 summary"><p>Returns the largest connected (in terms of being adjacent) set containing <code class="paramref">startPoint</code> where all pixels have the same colour.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static IEnumerable&lt;IntVector2&gt; GetPixelsToFill(Texture2D texture, IntVector2 startPoint, int maxNumOfIterations = 1000000)</code></pre>
+    <pre><code class="lang-csharp hljs">public static IEnumerable&lt;IntVector2&gt; GetPixelsToFill(Texture2D texture, IntVector2 startPoint, bool includeDiagonallyAdjacent, int maxNumOfIterations = 1000000)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
@@ -174,6 +174,9 @@ Class FloodFill  <a class="header-action link-secondary" title="View source" hre
     <dd></dd>
     <dt><code>startPoint</code> <a class="xref" href="PAC.DataStructures.IntVector2.html">IntVector2</a></dt>
     <dd></dd>
+    <dt><code>includeDiagonallyAdjacent</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>Whether to flood-fill diagonally-adjacent pixels (as well as up/down/left/right-adjacent).</p>
+</dd>
     <dt><code>maxNumOfIterations</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
     <dd><p>After this many pixels have been enumerated, the method will stop. Useful to prevent huge frame drops when filling large areas.</p>
 </dd>
@@ -199,7 +202,7 @@ Class FloodFill  <a class="header-action link-secondary" title="View source" hre
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Image Editing/FloodFill.cs/#L13" class="edit-link">Edit this page</a>
+          <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Image Editing/FloodFill.cs/#L14" class="edit-link">Edit this page</a>
         </div>
 
 

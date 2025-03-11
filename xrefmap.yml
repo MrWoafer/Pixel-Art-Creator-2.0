@@ -5899,6 +5899,12 @@ references:
   isSpec: "True"
   fullName: PAC.Drawing.Toolbar.brushTexture
   nameWithType: Toolbar.brushTexture
+- uid: PAC.Drawing.Toolbar.floodFillDiagonallyAdjacent
+  name: floodFillDiagonallyAdjacent
+  href: api/PAC.Drawing.Toolbar.html#PAC_Drawing_Toolbar_floodFillDiagonallyAdjacent
+  commentId: F:PAC.Drawing.Toolbar.floodFillDiagonallyAdjacent
+  fullName: PAC.Drawing.Toolbar.floodFillDiagonallyAdjacent
+  nameWithType: Toolbar.floodFillDiagonallyAdjacent
 - uid: PAC.Drawing.Toolbar.gradientMode
   name: gradientMode
   href: api/PAC.Drawing.Toolbar.html#PAC_Drawing_Toolbar_gradientMode
@@ -6049,24 +6055,24 @@ references:
   isSpec: "True"
   fullName: PAC.Drawing.Tools.UseEyeDropper
   nameWithType: Tools.UseEyeDropper
-- uid: PAC.Drawing.Tools.UseFill(PAC.Files.File,System.Int32,System.Int32,PAC.DataStructures.IntVector2,Color,System.Int32)
-  name: UseFill(File, int, int, IntVector2, Color, int)
-  href: api/PAC.Drawing.Tools.html#PAC_Drawing_Tools_UseFill_PAC_Files_File_System_Int32_System_Int32_PAC_DataStructures_IntVector2_Color_System_Int32_
-  commentId: M:PAC.Drawing.Tools.UseFill(PAC.Files.File,System.Int32,System.Int32,PAC.DataStructures.IntVector2,Color,System.Int32)
-  name.vb: UseFill(File, Integer, Integer, IntVector2, Color, Integer)
-  fullName: PAC.Drawing.Tools.UseFill(PAC.Files.File, int, int, PAC.DataStructures.IntVector2, Color, int)
-  fullName.vb: PAC.Drawing.Tools.UseFill(PAC.Files.File, Integer, Integer, PAC.DataStructures.IntVector2, Color, Integer)
-  nameWithType: Tools.UseFill(File, int, int, IntVector2, Color, int)
-  nameWithType.vb: Tools.UseFill(File, Integer, Integer, IntVector2, Color, Integer)
-- uid: PAC.Drawing.Tools.UseFill(PAC.Files.File,System.Int32,System.Int32,System.Int32,System.Int32,Color,System.Int32)
-  name: UseFill(File, int, int, int, int, Color, int)
-  href: api/PAC.Drawing.Tools.html#PAC_Drawing_Tools_UseFill_PAC_Files_File_System_Int32_System_Int32_System_Int32_System_Int32_Color_System_Int32_
-  commentId: M:PAC.Drawing.Tools.UseFill(PAC.Files.File,System.Int32,System.Int32,System.Int32,System.Int32,Color,System.Int32)
-  name.vb: UseFill(File, Integer, Integer, Integer, Integer, Color, Integer)
-  fullName: PAC.Drawing.Tools.UseFill(PAC.Files.File, int, int, int, int, Color, int)
-  fullName.vb: PAC.Drawing.Tools.UseFill(PAC.Files.File, Integer, Integer, Integer, Integer, Color, Integer)
-  nameWithType: Tools.UseFill(File, int, int, int, int, Color, int)
-  nameWithType.vb: Tools.UseFill(File, Integer, Integer, Integer, Integer, Color, Integer)
+- uid: PAC.Drawing.Tools.UseFill(PAC.Files.File,System.Int32,System.Int32,PAC.DataStructures.IntVector2,Color,System.Boolean,System.Int32)
+  name: UseFill(File, int, int, IntVector2, Color, bool, int)
+  href: api/PAC.Drawing.Tools.html#PAC_Drawing_Tools_UseFill_PAC_Files_File_System_Int32_System_Int32_PAC_DataStructures_IntVector2_Color_System_Boolean_System_Int32_
+  commentId: M:PAC.Drawing.Tools.UseFill(PAC.Files.File,System.Int32,System.Int32,PAC.DataStructures.IntVector2,Color,System.Boolean,System.Int32)
+  name.vb: UseFill(File, Integer, Integer, IntVector2, Color, Boolean, Integer)
+  fullName: PAC.Drawing.Tools.UseFill(PAC.Files.File, int, int, PAC.DataStructures.IntVector2, Color, bool, int)
+  fullName.vb: PAC.Drawing.Tools.UseFill(PAC.Files.File, Integer, Integer, PAC.DataStructures.IntVector2, Color, Boolean, Integer)
+  nameWithType: Tools.UseFill(File, int, int, IntVector2, Color, bool, int)
+  nameWithType.vb: Tools.UseFill(File, Integer, Integer, IntVector2, Color, Boolean, Integer)
+- uid: PAC.Drawing.Tools.UseFill(PAC.Files.File,System.Int32,System.Int32,System.Int32,System.Int32,Color,System.Boolean,System.Int32)
+  name: UseFill(File, int, int, int, int, Color, bool, int)
+  href: api/PAC.Drawing.Tools.html#PAC_Drawing_Tools_UseFill_PAC_Files_File_System_Int32_System_Int32_System_Int32_System_Int32_Color_System_Boolean_System_Int32_
+  commentId: M:PAC.Drawing.Tools.UseFill(PAC.Files.File,System.Int32,System.Int32,System.Int32,System.Int32,Color,System.Boolean,System.Int32)
+  name.vb: UseFill(File, Integer, Integer, Integer, Integer, Color, Boolean, Integer)
+  fullName: PAC.Drawing.Tools.UseFill(PAC.Files.File, int, int, int, int, Color, bool, int)
+  fullName.vb: PAC.Drawing.Tools.UseFill(PAC.Files.File, Integer, Integer, Integer, Integer, Color, Boolean, Integer)
+  nameWithType: Tools.UseFill(File, int, int, int, int, Color, bool, int)
+  nameWithType.vb: Tools.UseFill(File, Integer, Integer, Integer, Integer, Color, Boolean, Integer)
 - uid: PAC.Drawing.Tools.UseFill*
   name: UseFill
   href: api/PAC.Drawing.Tools.html#PAC_Drawing_Tools_UseFill_
@@ -10459,6 +10465,237 @@ references:
   isSpec: "True"
   fullName: PAC.Geometry.Axes.VerticalAxis.ToString
   nameWithType: VerticalAxis.ToString
+- uid: PAC.Geometry.Direction8
+  name: Direction8
+  href: api/PAC.Geometry.Direction8.html
+  commentId: T:PAC.Geometry.Direction8
+  fullName: PAC.Geometry.Direction8
+  nameWithType: Direction8
+- uid: PAC.Geometry.Direction8.All
+  name: All
+  href: api/PAC.Geometry.Direction8.html#PAC_Geometry_Direction8_All
+  commentId: F:PAC.Geometry.Direction8.All
+  fullName: PAC.Geometry.Direction8.All
+  nameWithType: Direction8.All
+- uid: PAC.Geometry.Direction8.Deconstruct(System.Int32@,System.Int32@)
+  name: Deconstruct(out int, out int)
+  href: api/PAC.Geometry.Direction8.html#PAC_Geometry_Direction8_Deconstruct_System_Int32__System_Int32__
+  commentId: M:PAC.Geometry.Direction8.Deconstruct(System.Int32@,System.Int32@)
+  name.vb: Deconstruct(Integer, Integer)
+  fullName: PAC.Geometry.Direction8.Deconstruct(out int, out int)
+  fullName.vb: PAC.Geometry.Direction8.Deconstruct(Integer, Integer)
+  nameWithType: Direction8.Deconstruct(out int, out int)
+  nameWithType.vb: Direction8.Deconstruct(Integer, Integer)
+- uid: PAC.Geometry.Direction8.Deconstruct*
+  name: Deconstruct
+  href: api/PAC.Geometry.Direction8.html#PAC_Geometry_Direction8_Deconstruct_
+  commentId: Overload:PAC.Geometry.Direction8.Deconstruct
+  isSpec: "True"
+  fullName: PAC.Geometry.Direction8.Deconstruct
+  nameWithType: Direction8.Deconstruct
+- uid: PAC.Geometry.Direction8.Diagonals
+  name: Diagonals
+  href: api/PAC.Geometry.Direction8.html#PAC_Geometry_Direction8_Diagonals
+  commentId: F:PAC.Geometry.Direction8.Diagonals
+  fullName: PAC.Geometry.Direction8.Diagonals
+  nameWithType: Direction8.Diagonals
+- uid: PAC.Geometry.Direction8.Down
+  name: Down
+  href: api/PAC.Geometry.Direction8.html#PAC_Geometry_Direction8_Down
+  commentId: F:PAC.Geometry.Direction8.Down
+  fullName: PAC.Geometry.Direction8.Down
+  nameWithType: Direction8.Down
+- uid: PAC.Geometry.Direction8.DownLeft
+  name: DownLeft
+  href: api/PAC.Geometry.Direction8.html#PAC_Geometry_Direction8_DownLeft
+  commentId: F:PAC.Geometry.Direction8.DownLeft
+  fullName: PAC.Geometry.Direction8.DownLeft
+  nameWithType: Direction8.DownLeft
+- uid: PAC.Geometry.Direction8.DownRight
+  name: DownRight
+  href: api/PAC.Geometry.Direction8.html#PAC_Geometry_Direction8_DownRight
+  commentId: F:PAC.Geometry.Direction8.DownRight
+  fullName: PAC.Geometry.Direction8.DownRight
+  nameWithType: Direction8.DownRight
+- uid: PAC.Geometry.Direction8.Equals(PAC.Geometry.Direction8)
+  name: Equals(Direction8)
+  href: api/PAC.Geometry.Direction8.html#PAC_Geometry_Direction8_Equals_PAC_Geometry_Direction8_
+  commentId: M:PAC.Geometry.Direction8.Equals(PAC.Geometry.Direction8)
+  fullName: PAC.Geometry.Direction8.Equals(PAC.Geometry.Direction8)
+  nameWithType: Direction8.Equals(Direction8)
+- uid: PAC.Geometry.Direction8.Equals(System.Object)
+  name: Equals(object)
+  href: api/PAC.Geometry.Direction8.html#PAC_Geometry_Direction8_Equals_System_Object_
+  commentId: M:PAC.Geometry.Direction8.Equals(System.Object)
+  name.vb: Equals(Object)
+  fullName: PAC.Geometry.Direction8.Equals(object)
+  fullName.vb: PAC.Geometry.Direction8.Equals(Object)
+  nameWithType: Direction8.Equals(object)
+  nameWithType.vb: Direction8.Equals(Object)
+- uid: PAC.Geometry.Direction8.Equals*
+  name: Equals
+  href: api/PAC.Geometry.Direction8.html#PAC_Geometry_Direction8_Equals_
+  commentId: Overload:PAC.Geometry.Direction8.Equals
+  isSpec: "True"
+  fullName: PAC.Geometry.Direction8.Equals
+  nameWithType: Direction8.Equals
+- uid: PAC.Geometry.Direction8.GetHashCode
+  name: GetHashCode()
+  href: api/PAC.Geometry.Direction8.html#PAC_Geometry_Direction8_GetHashCode
+  commentId: M:PAC.Geometry.Direction8.GetHashCode
+  fullName: PAC.Geometry.Direction8.GetHashCode()
+  nameWithType: Direction8.GetHashCode()
+- uid: PAC.Geometry.Direction8.GetHashCode*
+  name: GetHashCode
+  href: api/PAC.Geometry.Direction8.html#PAC_Geometry_Direction8_GetHashCode_
+  commentId: Overload:PAC.Geometry.Direction8.GetHashCode
+  isSpec: "True"
+  fullName: PAC.Geometry.Direction8.GetHashCode
+  nameWithType: Direction8.GetHashCode
+- uid: PAC.Geometry.Direction8.Left
+  name: Left
+  href: api/PAC.Geometry.Direction8.html#PAC_Geometry_Direction8_Left
+  commentId: F:PAC.Geometry.Direction8.Left
+  fullName: PAC.Geometry.Direction8.Left
+  nameWithType: Direction8.Left
+- uid: PAC.Geometry.Direction8.Right
+  name: Right
+  href: api/PAC.Geometry.Direction8.html#PAC_Geometry_Direction8_Right
+  commentId: F:PAC.Geometry.Direction8.Right
+  fullName: PAC.Geometry.Direction8.Right
+  nameWithType: Direction8.Right
+- uid: PAC.Geometry.Direction8.ToString
+  name: ToString()
+  href: api/PAC.Geometry.Direction8.html#PAC_Geometry_Direction8_ToString
+  commentId: M:PAC.Geometry.Direction8.ToString
+  fullName: PAC.Geometry.Direction8.ToString()
+  nameWithType: Direction8.ToString()
+- uid: PAC.Geometry.Direction8.ToString*
+  name: ToString
+  href: api/PAC.Geometry.Direction8.html#PAC_Geometry_Direction8_ToString_
+  commentId: Overload:PAC.Geometry.Direction8.ToString
+  isSpec: "True"
+  fullName: PAC.Geometry.Direction8.ToString
+  nameWithType: Direction8.ToString
+- uid: PAC.Geometry.Direction8.Up
+  name: Up
+  href: api/PAC.Geometry.Direction8.html#PAC_Geometry_Direction8_Up
+  commentId: F:PAC.Geometry.Direction8.Up
+  fullName: PAC.Geometry.Direction8.Up
+  nameWithType: Direction8.Up
+- uid: PAC.Geometry.Direction8.UpDownLeftRight
+  name: UpDownLeftRight
+  href: api/PAC.Geometry.Direction8.html#PAC_Geometry_Direction8_UpDownLeftRight
+  commentId: F:PAC.Geometry.Direction8.UpDownLeftRight
+  fullName: PAC.Geometry.Direction8.UpDownLeftRight
+  nameWithType: Direction8.UpDownLeftRight
+- uid: PAC.Geometry.Direction8.UpLeft
+  name: UpLeft
+  href: api/PAC.Geometry.Direction8.html#PAC_Geometry_Direction8_UpLeft
+  commentId: F:PAC.Geometry.Direction8.UpLeft
+  fullName: PAC.Geometry.Direction8.UpLeft
+  nameWithType: Direction8.UpLeft
+- uid: PAC.Geometry.Direction8.UpRight
+  name: UpRight
+  href: api/PAC.Geometry.Direction8.html#PAC_Geometry_Direction8_UpRight
+  commentId: F:PAC.Geometry.Direction8.UpRight
+  fullName: PAC.Geometry.Direction8.UpRight
+  nameWithType: Direction8.UpRight
+- uid: PAC.Geometry.Direction8.op_Equality(PAC.Geometry.Direction8,PAC.Geometry.Direction8)
+  name: operator ==(Direction8, Direction8)
+  href: api/PAC.Geometry.Direction8.html#PAC_Geometry_Direction8_op_Equality_PAC_Geometry_Direction8_PAC_Geometry_Direction8_
+  commentId: M:PAC.Geometry.Direction8.op_Equality(PAC.Geometry.Direction8,PAC.Geometry.Direction8)
+  name.vb: =(Direction8, Direction8)
+  fullName: PAC.Geometry.Direction8.operator ==(PAC.Geometry.Direction8, PAC.Geometry.Direction8)
+  fullName.vb: PAC.Geometry.Direction8.=(PAC.Geometry.Direction8, PAC.Geometry.Direction8)
+  nameWithType: Direction8.operator ==(Direction8, Direction8)
+  nameWithType.vb: Direction8.=(Direction8, Direction8)
+- uid: PAC.Geometry.Direction8.op_Equality*
+  name: operator ==
+  href: api/PAC.Geometry.Direction8.html#PAC_Geometry_Direction8_op_Equality_
+  commentId: Overload:PAC.Geometry.Direction8.op_Equality
+  isSpec: "True"
+  name.vb: =
+  fullName: PAC.Geometry.Direction8.operator ==
+  fullName.vb: PAC.Geometry.Direction8.=
+  nameWithType: Direction8.operator ==
+  nameWithType.vb: Direction8.=
+- uid: PAC.Geometry.Direction8.op_Explicit(PAC.DataStructures.IntVector2)~PAC.Geometry.Direction8
+  name: explicit operator Direction8(IntVector2)
+  href: api/PAC.Geometry.Direction8.html#PAC_Geometry_Direction8_op_Explicit_PAC_DataStructures_IntVector2__PAC_Geometry_Direction8
+  commentId: M:PAC.Geometry.Direction8.op_Explicit(PAC.DataStructures.IntVector2)~PAC.Geometry.Direction8
+  name.vb: CType(IntVector2)
+  fullName: PAC.Geometry.Direction8.explicit operator PAC.Geometry.Direction8(PAC.DataStructures.IntVector2)
+  fullName.vb: PAC.Geometry.Direction8.CType(PAC.DataStructures.IntVector2)
+  nameWithType: Direction8.explicit operator Direction8(IntVector2)
+  nameWithType.vb: Direction8.CType(IntVector2)
+- uid: PAC.Geometry.Direction8.op_Explicit*
+  name: explicit operator
+  href: api/PAC.Geometry.Direction8.html#PAC_Geometry_Direction8_op_Explicit_
+  commentId: Overload:PAC.Geometry.Direction8.op_Explicit
+  isSpec: "True"
+  name.vb: CType
+  fullName: PAC.Geometry.Direction8.explicit operator
+  fullName.vb: PAC.Geometry.Direction8.CType
+  nameWithType: Direction8.explicit operator
+  nameWithType.vb: Direction8.CType
+- uid: PAC.Geometry.Direction8.op_Implicit(PAC.Geometry.Direction8)~PAC.DataStructures.IntVector2
+  name: implicit operator IntVector2(Direction8)
+  href: api/PAC.Geometry.Direction8.html#PAC_Geometry_Direction8_op_Implicit_PAC_Geometry_Direction8__PAC_DataStructures_IntVector2
+  commentId: M:PAC.Geometry.Direction8.op_Implicit(PAC.Geometry.Direction8)~PAC.DataStructures.IntVector2
+  name.vb: CType(Direction8)
+  fullName: PAC.Geometry.Direction8.implicit operator PAC.DataStructures.IntVector2(PAC.Geometry.Direction8)
+  fullName.vb: PAC.Geometry.Direction8.CType(PAC.Geometry.Direction8)
+  nameWithType: Direction8.implicit operator IntVector2(Direction8)
+  nameWithType.vb: Direction8.CType(Direction8)
+- uid: PAC.Geometry.Direction8.op_Implicit*
+  name: implicit operator
+  href: api/PAC.Geometry.Direction8.html#PAC_Geometry_Direction8_op_Implicit_
+  commentId: Overload:PAC.Geometry.Direction8.op_Implicit
+  isSpec: "True"
+  name.vb: CType
+  fullName: PAC.Geometry.Direction8.implicit operator
+  fullName.vb: PAC.Geometry.Direction8.CType
+  nameWithType: Direction8.implicit operator
+  nameWithType.vb: Direction8.CType
+- uid: PAC.Geometry.Direction8.op_Inequality(PAC.Geometry.Direction8,PAC.Geometry.Direction8)
+  name: operator !=(Direction8, Direction8)
+  href: api/PAC.Geometry.Direction8.html#PAC_Geometry_Direction8_op_Inequality_PAC_Geometry_Direction8_PAC_Geometry_Direction8_
+  commentId: M:PAC.Geometry.Direction8.op_Inequality(PAC.Geometry.Direction8,PAC.Geometry.Direction8)
+  name.vb: <>(Direction8, Direction8)
+  fullName: PAC.Geometry.Direction8.operator !=(PAC.Geometry.Direction8, PAC.Geometry.Direction8)
+  fullName.vb: PAC.Geometry.Direction8.<>(PAC.Geometry.Direction8, PAC.Geometry.Direction8)
+  nameWithType: Direction8.operator !=(Direction8, Direction8)
+  nameWithType.vb: Direction8.<>(Direction8, Direction8)
+- uid: PAC.Geometry.Direction8.op_Inequality*
+  name: operator !=
+  href: api/PAC.Geometry.Direction8.html#PAC_Geometry_Direction8_op_Inequality_
+  commentId: Overload:PAC.Geometry.Direction8.op_Inequality
+  isSpec: "True"
+  name.vb: <>
+  fullName: PAC.Geometry.Direction8.operator !=
+  fullName.vb: PAC.Geometry.Direction8.<>
+  nameWithType: Direction8.operator !=
+  nameWithType.vb: Direction8.<>
+- uid: PAC.Geometry.Direction8.op_UnaryNegation(PAC.Geometry.Direction8)
+  name: operator -(Direction8)
+  href: api/PAC.Geometry.Direction8.html#PAC_Geometry_Direction8_op_UnaryNegation_PAC_Geometry_Direction8_
+  commentId: M:PAC.Geometry.Direction8.op_UnaryNegation(PAC.Geometry.Direction8)
+  name.vb: -(Direction8)
+  fullName: PAC.Geometry.Direction8.operator -(PAC.Geometry.Direction8)
+  fullName.vb: PAC.Geometry.Direction8.-(PAC.Geometry.Direction8)
+  nameWithType: Direction8.operator -(Direction8)
+  nameWithType.vb: Direction8.-(Direction8)
+- uid: PAC.Geometry.Direction8.op_UnaryNegation*
+  name: operator -
+  href: api/PAC.Geometry.Direction8.html#PAC_Geometry_Direction8_op_UnaryNegation_
+  commentId: Overload:PAC.Geometry.Direction8.op_UnaryNegation
+  isSpec: "True"
+  name.vb: '-'
+  fullName: PAC.Geometry.Direction8.operator -
+  fullName.vb: PAC.Geometry.Direction8.-
+  nameWithType: Direction8.operator -
+  nameWithType.vb: Direction8.-
 - uid: PAC.Geometry.Plane2D
   name: Plane2D
   href: api/PAC.Geometry.Plane2D.html
@@ -14027,15 +14264,15 @@ references:
   commentId: T:PAC.ImageEditing.FloodFill
   fullName: PAC.ImageEditing.FloodFill
   nameWithType: FloodFill
-- uid: PAC.ImageEditing.FloodFill.GetPixelsToFill(Texture2D,PAC.DataStructures.IntVector2,System.Int32)
-  name: GetPixelsToFill(Texture2D, IntVector2, int)
-  href: api/PAC.ImageEditing.FloodFill.html#PAC_ImageEditing_FloodFill_GetPixelsToFill_Texture2D_PAC_DataStructures_IntVector2_System_Int32_
-  commentId: M:PAC.ImageEditing.FloodFill.GetPixelsToFill(Texture2D,PAC.DataStructures.IntVector2,System.Int32)
-  name.vb: GetPixelsToFill(Texture2D, IntVector2, Integer)
-  fullName: PAC.ImageEditing.FloodFill.GetPixelsToFill(Texture2D, PAC.DataStructures.IntVector2, int)
-  fullName.vb: PAC.ImageEditing.FloodFill.GetPixelsToFill(Texture2D, PAC.DataStructures.IntVector2, Integer)
-  nameWithType: FloodFill.GetPixelsToFill(Texture2D, IntVector2, int)
-  nameWithType.vb: FloodFill.GetPixelsToFill(Texture2D, IntVector2, Integer)
+- uid: PAC.ImageEditing.FloodFill.GetPixelsToFill(Texture2D,PAC.DataStructures.IntVector2,System.Boolean,System.Int32)
+  name: GetPixelsToFill(Texture2D, IntVector2, bool, int)
+  href: api/PAC.ImageEditing.FloodFill.html#PAC_ImageEditing_FloodFill_GetPixelsToFill_Texture2D_PAC_DataStructures_IntVector2_System_Boolean_System_Int32_
+  commentId: M:PAC.ImageEditing.FloodFill.GetPixelsToFill(Texture2D,PAC.DataStructures.IntVector2,System.Boolean,System.Int32)
+  name.vb: GetPixelsToFill(Texture2D, IntVector2, Boolean, Integer)
+  fullName: PAC.ImageEditing.FloodFill.GetPixelsToFill(Texture2D, PAC.DataStructures.IntVector2, bool, int)
+  fullName.vb: PAC.ImageEditing.FloodFill.GetPixelsToFill(Texture2D, PAC.DataStructures.IntVector2, Boolean, Integer)
+  nameWithType: FloodFill.GetPixelsToFill(Texture2D, IntVector2, bool, int)
+  nameWithType.vb: FloodFill.GetPixelsToFill(Texture2D, IntVector2, Boolean, Integer)
 - uid: PAC.ImageEditing.FloodFill.GetPixelsToFill*
   name: GetPixelsToFill
   href: api/PAC.ImageEditing.FloodFill.html#PAC_ImageEditing_FloodFill_GetPixelsToFill_
@@ -22940,6 +23177,19 @@ references:
   isSpec: "True"
   fullName: PAC.UI.DialogBoxManager.CloseExtendCropWindow
   nameWithType: DialogBoxManager.CloseExtendCropWindow
+- uid: PAC.UI.DialogBoxManager.CloseFloodFillSettingsWindow
+  name: CloseFloodFillSettingsWindow()
+  href: api/PAC.UI.DialogBoxManager.html#PAC_UI_DialogBoxManager_CloseFloodFillSettingsWindow
+  commentId: M:PAC.UI.DialogBoxManager.CloseFloodFillSettingsWindow
+  fullName: PAC.UI.DialogBoxManager.CloseFloodFillSettingsWindow()
+  nameWithType: DialogBoxManager.CloseFloodFillSettingsWindow()
+- uid: PAC.UI.DialogBoxManager.CloseFloodFillSettingsWindow*
+  name: CloseFloodFillSettingsWindow
+  href: api/PAC.UI.DialogBoxManager.html#PAC_UI_DialogBoxManager_CloseFloodFillSettingsWindow_
+  commentId: Overload:PAC.UI.DialogBoxManager.CloseFloodFillSettingsWindow
+  isSpec: "True"
+  fullName: PAC.UI.DialogBoxManager.CloseFloodFillSettingsWindow
+  nameWithType: DialogBoxManager.CloseFloodFillSettingsWindow
 - uid: PAC.UI.DialogBoxManager.CloseGridWindow
   name: CloseGridWindow()
   href: api/PAC.UI.DialogBoxManager.html#PAC_UI_DialogBoxManager_CloseGridWindow
@@ -23187,6 +23437,19 @@ references:
   isSpec: "True"
   fullName: PAC.UI.DialogBoxManager.OpenExtendCropWindow
   nameWithType: DialogBoxManager.OpenExtendCropWindow
+- uid: PAC.UI.DialogBoxManager.OpenFloodFillSettingsWindow
+  name: OpenFloodFillSettingsWindow()
+  href: api/PAC.UI.DialogBoxManager.html#PAC_UI_DialogBoxManager_OpenFloodFillSettingsWindow
+  commentId: M:PAC.UI.DialogBoxManager.OpenFloodFillSettingsWindow
+  fullName: PAC.UI.DialogBoxManager.OpenFloodFillSettingsWindow()
+  nameWithType: DialogBoxManager.OpenFloodFillSettingsWindow()
+- uid: PAC.UI.DialogBoxManager.OpenFloodFillSettingsWindow*
+  name: OpenFloodFillSettingsWindow
+  href: api/PAC.UI.DialogBoxManager.html#PAC_UI_DialogBoxManager_OpenFloodFillSettingsWindow_
+  commentId: Overload:PAC.UI.DialogBoxManager.OpenFloodFillSettingsWindow
+  isSpec: "True"
+  fullName: PAC.UI.DialogBoxManager.OpenFloodFillSettingsWindow
+  nameWithType: DialogBoxManager.OpenFloodFillSettingsWindow
 - uid: PAC.UI.DialogBoxManager.OpenGridWindow
   name: OpenGridWindow()
   href: api/PAC.UI.DialogBoxManager.html#PAC_UI_DialogBoxManager_OpenGridWindow
@@ -23412,6 +23675,19 @@ references:
   isSpec: "True"
   fullName: PAC.UI.DialogBoxManager.UpdateBrushSettingsShape
   nameWithType: DialogBoxManager.UpdateBrushSettingsShape
+- uid: PAC.UI.DialogBoxManager.UpdateFloodFillSettingsShape
+  name: UpdateFloodFillSettingsShape()
+  href: api/PAC.UI.DialogBoxManager.html#PAC_UI_DialogBoxManager_UpdateFloodFillSettingsShape
+  commentId: M:PAC.UI.DialogBoxManager.UpdateFloodFillSettingsShape
+  fullName: PAC.UI.DialogBoxManager.UpdateFloodFillSettingsShape()
+  nameWithType: DialogBoxManager.UpdateFloodFillSettingsShape()
+- uid: PAC.UI.DialogBoxManager.UpdateFloodFillSettingsShape*
+  name: UpdateFloodFillSettingsShape
+  href: api/PAC.UI.DialogBoxManager.html#PAC_UI_DialogBoxManager_UpdateFloodFillSettingsShape_
+  commentId: Overload:PAC.UI.DialogBoxManager.UpdateFloodFillSettingsShape
+  isSpec: "True"
+  fullName: PAC.UI.DialogBoxManager.UpdateFloodFillSettingsShape
+  nameWithType: DialogBoxManager.UpdateFloodFillSettingsShape
 - uid: PAC.UI.DialogBoxManager.UpdateImportPACPreview
   name: UpdateImportPACPreview()
   href: api/PAC.UI.DialogBoxManager.html#PAC_UI_DialogBoxManager_UpdateImportPACPreview
