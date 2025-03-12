@@ -180,7 +180,7 @@ namespace PAC.Layers
                 throw new System.Exception("Pixel (" + pixel.x + ", " + pixel.y + ") outside of layer dimensions " + width + "x" + height);
             }
 
-            return BlendMode.MultiplyColours(GetKeyFrame(frame).texture.GetPixel(pixel.x, pixel.y), new Color(1f, 1f, 1f, useLayerOpacity ? opacity : 1f));
+            return GetKeyFrame(frame).texture.GetPixel(pixel.x, pixel.y) * new Color(1f, 1f, 1f, useLayerOpacity ? opacity : 1f);
         }
 
         /// <summary>

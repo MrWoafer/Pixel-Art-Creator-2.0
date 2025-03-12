@@ -164,13 +164,6 @@ namespace PAC.Colour
         }
 
         /// <summary>
-        /// Multiplies the colours component-wise.
-        /// </summary>
-        public static Color MultiplyColours(Color colour1, Color colour2)
-        {
-            return colour1 * colour2;
-        }
-        /// <summary>
         /// The blend function for the Multiply blend mode.
         /// </summary>
         private static Color MultiplyBlend(Color colour1, Color colour2)
