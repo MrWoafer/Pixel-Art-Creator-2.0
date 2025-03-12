@@ -20,6 +20,9 @@ namespace PAC.Geometry
     /// <item>Down-Left</item>
     /// </list>
     /// </summary>
+    /// <remarks>
+    /// Can be implicitly cast to <see cref="IntVector2"/>.
+    /// </remarks>
     public readonly struct Direction8 : IEquatable<Direction8>
     {
         /// <summary>
