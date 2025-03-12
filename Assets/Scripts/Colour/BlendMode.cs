@@ -7,208 +7,203 @@ namespace PAC.Colour
     /// <summary>
     /// A class for blend modes.
     /// </summary>
-    public class BlendMode
+    public abstract record BlendMode
     {
         /// <summary>The display name of this blend mode.</summary>
-        private string name;
-        /// <summary>The function defining how the blend mode works. (topColour, bottomColour) -> outputColour</summary>
-        private Func<Color, Color, Color> blendFunction;
+        public abstract string name { get; }
+        /// <summary>The function defining how the blend mode works.</summary>
+        public abstract Color Blend(Color topColour, Color bottomColour);
 
-        /// <param name="name">The display name of this blend mode.</param>
-        /// <param name="blendFunction">The function defining how the blend mode works. (topColour, bottomColour) -> outputColour</param>
-        private BlendMode(string name, Func<Color, Color, Color> blendFunction)
-        {
-            this.name = name;
-            this.blendFunction = blendFunction;
-        }
+        public override string ToString() => name;
 
         /// <summary>Replace blend mode.</summary>
-        public static readonly BlendMode Replace = new BlendMode("Replace", ReplaceBlend);
+        public static readonly BlendMode Replace = new ReplaceBlendMode();
         /// <summary>Normal blend mode.</summary>
-        public static readonly BlendMode Normal = new BlendMode("Normal", NormalBlend);
+        public static readonly BlendMode Normal = new NormalBlendMode();
         /// <summary>Overlay blend mode.</summary>
-        public static readonly BlendMode Overlay = new BlendMode("Overlay", OverlayBlend);
+        public static readonly BlendMode Overlay = new OverlayBlendMode();
         /// <summary>Multiply blend mode.</summary>
-        public static readonly BlendMode Multiply = new BlendMode("Multiply", MultiplyBlend);
+        public static readonly BlendMode Multiply = new MultiplyBlendMode();
         /// <summary>Screen blend mode.</summary>
-        public static readonly BlendMode Screen = new BlendMode("Screen", ScreenBlend);
+        public static readonly BlendMode Screen = new ScreenBlendMode();
         /// <summary>Add blend mode.</summary>
-        public static readonly BlendMode Add = new BlendMode("Add", AddBlend);
+        public static readonly BlendMode Add = new AddBlendMode();
         /// <summary>Subtract blend mode.</summary>
-        public static readonly BlendMode Subtract = new BlendMode("Subtract", SubtractBlend);
+        public static readonly BlendMode Subtract = new SubtractBlendMode();
 
         /// <summary>All implemented blend modes.</summary>
         public static readonly BlendMode[] blendModes = new BlendMode[] { Replace, Normal, Overlay, Multiply, Screen, Add, Subtract };
 
-        public static bool operator ==(BlendMode a, BlendMode b)
+        /// <summary>
+        /// The type of <see cref="BlendMode.Replace"/>.
+        /// </summary>
+        private sealed record ReplaceBlendMode : BlendMode
         {
-            return a.name == b.name;
-        }
-        public static bool operator !=(BlendMode a, BlendMode b)
-        {
-            return !(a == b);
-        }
-        public override bool Equals(object obj)
-        {
-            if (obj == null || !GetType().Equals(obj.GetType()))
-            {
-                return false;
-            }
-            else
-            {
-                BlendMode blendNode = (BlendMode)obj;
-                return this == blendNode;
-            }
-        }
+            public override string name => "Replace";
 
-        public override int GetHashCode()
-        {
-            return name.GetHashCode();
-        }
+            internal ReplaceBlendMode() { }
 
-        public override string ToString()
-        {
-            return name;
+            public override Color Blend(Color topColour, Color bottomColour) => topColour;
         }
 
         /// <summary>
-        /// Blend the two colours using the blend mode's blend function.
+        /// The type of <see cref="BlendMode.Normal"/>.
         /// </summary>
-        public Color Blend(Color topColour, Color bottomColour)
+        private sealed record NormalBlendMode : BlendMode
         {
-            return blendFunction.Invoke(topColour, bottomColour);
-        }
+            public override string name => "Normal";
 
-        /// <summary>
-        /// The blend function for the Replace blend mode.
-        /// </summary>
-        private static Color ReplaceBlend(Color topColour, Color bottomColour)
-        {
-            return topColour;
-        }
+            internal NormalBlendMode() { }
 
-        /// <summary>
-        /// The blend function for the Normal blend mode.
-        /// </summary>
-        private static Color NormalBlend(Color topColour, Color bottomColour)
-        {
-            float a = (1f - topColour.a) * bottomColour.a + topColour.a;
-
-            if (a == 0)
+            public override Color Blend(Color topColour, Color bottomColour)
             {
-                return bottomColour;
+                float a = (1f - topColour.a) * bottomColour.a + topColour.a;
+
+                if (a == 0)
+                {
+                    return bottomColour;
+                }
+                else
+                {
+                    float r = ((1f - topColour.a) * bottomColour.a * bottomColour.r + topColour.a * topColour.r) / a;
+                    float g = ((1f - topColour.a) * bottomColour.a * bottomColour.g + topColour.a * topColour.g) / a;
+                    float b = ((1f - topColour.a) * bottomColour.a * bottomColour.b + topColour.a * topColour.b) / a;
+
+                    return new Color(r, g, b, a);
+                }
             }
-            else
+        }
+
+        /// <summary>
+        /// The type of <see cref="BlendMode.Overlay"/>.
+        /// </summary>
+        private sealed record OverlayBlendMode : BlendMode
+        {
+            public override string name => "Overlay";
+
+            internal OverlayBlendMode() { }
+
+            public override Color Blend(Color topColour, Color bottomColour)
             {
-                float r = ((1f - topColour.a) * bottomColour.a * bottomColour.r + topColour.a * topColour.r) / a;
-                float g = ((1f - topColour.a) * bottomColour.a * bottomColour.g + topColour.a * topColour.g) / a;
-                float b = ((1f - topColour.a) * bottomColour.a * bottomColour.b + topColour.a * topColour.b) / a;
+                if (topColour.a == 0f)
+                {
+                    return bottomColour;
+                }
+                if (bottomColour.a == 0f)
+                {
+                    return topColour;
+                }
+
+                float r, g, b, a;
+
+                if (bottomColour.r < 0.5f)
+                {
+                    r = 2f * bottomColour.r * topColour.r;
+                }
+                else
+                {
+                    r = 1f - 2f * (1f - bottomColour.r) * (1f - topColour.r);
+                }
+
+                if (bottomColour.g < 0.5f)
+                {
+                    g = 2f * bottomColour.g * topColour.g;
+                }
+                else
+                {
+                    g = 1f - 2f * (1f - bottomColour.g) * (1f - topColour.g);
+                }
+
+                if (bottomColour.b < 0.5f)
+                {
+                    b = 2f * bottomColour.b * topColour.b;
+                }
+                else
+                {
+                    b = 1f - 2f * (1f - bottomColour.b) * (1f - topColour.b);
+                }
+
+                if (bottomColour.a < 0.5f)
+                {
+                    a = 2f * bottomColour.a * topColour.a;
+                }
+                else
+                {
+                    a = 1f - 2f * (1f - bottomColour.a) * (1f - topColour.a);
+                }
 
                 return new Color(r, g, b, a);
             }
         }
 
         /// <summary>
-        /// The blend function for the Overlay blend mode.
+        /// The type of <see cref="BlendMode.Multiply"/>.
         /// </summary>
-        private static Color OverlayBlend(Color topColour, Color bottomColour)
+        private sealed record MultiplyBlendMode : BlendMode
         {
-            if (topColour.a == 0f)
-            {
-                return bottomColour;
-            }
-            if (bottomColour.a == 0f)
-            {
-                return topColour;
-            }
+            public override string name => "Multiply";
 
-            float r, g, b, a;
+            internal MultiplyBlendMode() { }
 
-            if (bottomColour.r < 0.5f)
+            public override Color Blend(Color topColour, Color bottomColour)
             {
-                r = 2f * bottomColour.r * topColour.r;
+                if (topColour.a == 0f)
+                {
+                    return bottomColour;
+                }
+                if (bottomColour.a == 0f)
+                {
+                    return topColour;
+                }
+                return topColour * bottomColour;
             }
-            else
-            {
-                r = 1f - 2f * (1f - bottomColour.r) * (1f - topColour.r);
-            }
-
-            if (bottomColour.g < 0.5f)
-            {
-                g = 2f * bottomColour.g * topColour.g;
-            }
-            else
-            {
-                g = 1f - 2f * (1f - bottomColour.g) * (1f - topColour.g);
-            }
-
-            if (bottomColour.b < 0.5f)
-            {
-                b = 2f * bottomColour.b * topColour.b;
-            }
-            else
-            {
-                b = 1f - 2f * (1f - bottomColour.b) * (1f - topColour.b);
-            }
-
-            if (bottomColour.a < 0.5f)
-            {
-                a = 2f * bottomColour.a * topColour.a;
-            }
-            else
-            {
-                a = 1f - 2f * (1f - bottomColour.a) * (1f - topColour.a);
-            }
-
-            return new Color(r, g, b, a);
         }
 
         /// <summary>
-        /// The blend function for the Multiply blend mode.
+        /// The type of <see cref="BlendMode.Screen"/>.
         /// </summary>
-        private static Color MultiplyBlend(Color colour1, Color colour2)
+        private sealed record ScreenBlendMode : BlendMode
         {
-            if (colour1.a == 0f)
+            public override string name => "Screen";
+
+            internal ScreenBlendMode() { }
+
+            public override Color Blend(Color topColour, Color bottomColour)
             {
-                return colour2;
+                if (topColour.a == 0f)
+                {
+                    return bottomColour;
+                }
+                if (bottomColour.a == 0f)
+                {
+                    return topColour;
+                }
+                return new Color(1f, 1f, 1f, 1f) - (new Color(1f, 1f, 1f, 1f) - topColour) * (new Color(1f, 1f, 1f, 1f) - bottomColour);
             }
-            if (colour2.a == 0f)
-            {
-                return colour1;
-            }
-            return colour1 * colour2;
         }
 
         /// <summary>
-        /// The blend function for the Screen blend mode.
+        /// The type of <see cref="BlendMode.Add"/>.
         /// </summary>
-        private static Color ScreenBlend(Color colour1, Color colour2)
+        private sealed record AddBlendMode : BlendMode
         {
-            if (colour1.a == 0f)
-            {
-                return colour2;
-            }
-            if (colour2.a == 0f)
-            {
-                return colour1;
-            }
-            return new Color(1f, 1f, 1f, 1f) - (new Color(1f, 1f, 1f, 1f) - colour1) * (new Color(1f, 1f, 1f, 1f) - colour2);
+            public override string name => "Add";
+
+            internal AddBlendMode() { }
+
+            public override Color Blend(Color topColour, Color bottomColour) => topColour + bottomColour;
         }
 
         /// <summary>
-        /// The blend function for the Add blend mode.
+        /// The type of <see cref="BlendMode.Subtract"/>.
         /// </summary>
-        private static Color AddBlend(Color colour1, Color colour2)
+        private sealed record SubtractBlendMode : BlendMode
         {
-            return colour1 + colour2;
-        }
+            public override string name => "Subtract";
 
-        /// <summary>
-        /// The blend function for the Subtract blend mode.
-        /// </summary>
-        private static Color SubtractBlend(Color subtractFrom, Color toSubtract)
-        {
-            return subtractFrom - toSubtract;
+            internal SubtractBlendMode() { }
+
+            public override Color Blend(Color topColour, Color bottomColour) => topColour - bottomColour;
         }
 
         /// <summary>
