@@ -9,13 +9,18 @@ namespace PAC.Colour
     /// </summary>
     public abstract record BlendMode
     {
+        #region Contract
         /// <summary>The display name of this blend mode.</summary>
         public abstract string name { get; }
         /// <summary>The function defining how the blend mode works.</summary>
         public abstract Color Blend(Color topColour, Color bottomColour);
+        #endregion
 
+        #region Default Method Implementations
         public override string ToString() => name;
+        #endregion
 
+        #region Predefined Instances
         /// <summary>Replace blend mode.</summary>
         public static readonly BlendMode Replace = new ReplaceBlendMode();
         /// <summary>Normal blend mode.</summary>
@@ -33,7 +38,9 @@ namespace PAC.Colour
 
         /// <summary>All implemented blend modes.</summary>
         public static readonly BlendMode[] blendModes = new BlendMode[] { Replace, Normal, Overlay, Multiply, Screen, Add, Subtract };
+        #endregion
 
+        #region Implementations
         /// <summary>
         /// The type of <see cref="BlendMode.Replace"/>.
         /// </summary>
@@ -205,7 +212,9 @@ namespace PAC.Colour
 
             public override Color Blend(Color topColour, Color bottomColour) => topColour - bottomColour;
         }
+        #endregion
 
+        #region JSON Conversion
         /// <summary>
         /// Returns the blend mode with that name (case-insensitive).
         /// </summary>
@@ -233,5 +242,6 @@ namespace PAC.Colour
                 return StringToBlendMode(jsonData);
             }
         }
+        #endregion
     }
 }
