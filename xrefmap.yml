@@ -10539,6 +10539,19 @@ references:
   isSpec: "True"
   fullName: PAC.Geometry.Direction8.Equals
   nameWithType: Direction8.Equals
+- uid: PAC.Geometry.Direction8.Flip(PAC.Geometry.Axes.CardinalOrdinalAxis)
+  name: Flip(CardinalOrdinalAxis)
+  href: api/PAC.Geometry.Direction8.html#PAC_Geometry_Direction8_Flip_PAC_Geometry_Axes_CardinalOrdinalAxis_
+  commentId: M:PAC.Geometry.Direction8.Flip(PAC.Geometry.Axes.CardinalOrdinalAxis)
+  fullName: PAC.Geometry.Direction8.Flip(PAC.Geometry.Axes.CardinalOrdinalAxis)
+  nameWithType: Direction8.Flip(CardinalOrdinalAxis)
+- uid: PAC.Geometry.Direction8.Flip*
+  name: Flip
+  href: api/PAC.Geometry.Direction8.html#PAC_Geometry_Direction8_Flip_
+  commentId: Overload:PAC.Geometry.Direction8.Flip
+  isSpec: "True"
+  fullName: PAC.Geometry.Direction8.Flip
+  nameWithType: Direction8.Flip
 - uid: PAC.Geometry.Direction8.GetHashCode
   name: GetHashCode()
   href: api/PAC.Geometry.Direction8.html#PAC_Geometry_Direction8_GetHashCode
@@ -10564,6 +10577,19 @@ references:
   commentId: F:PAC.Geometry.Direction8.Right
   fullName: PAC.Geometry.Direction8.Right
   nameWithType: Direction8.Right
+- uid: PAC.Geometry.Direction8.Rotate(PAC.Geometry.QuadrantalAngle)
+  name: Rotate(QuadrantalAngle)
+  href: api/PAC.Geometry.Direction8.html#PAC_Geometry_Direction8_Rotate_PAC_Geometry_QuadrantalAngle_
+  commentId: M:PAC.Geometry.Direction8.Rotate(PAC.Geometry.QuadrantalAngle)
+  fullName: PAC.Geometry.Direction8.Rotate(PAC.Geometry.QuadrantalAngle)
+  nameWithType: Direction8.Rotate(QuadrantalAngle)
+- uid: PAC.Geometry.Direction8.Rotate*
+  name: Rotate
+  href: api/PAC.Geometry.Direction8.html#PAC_Geometry_Direction8_Rotate_
+  commentId: Overload:PAC.Geometry.Direction8.Rotate
+  isSpec: "True"
+  fullName: PAC.Geometry.Direction8.Rotate
+  nameWithType: Direction8.Rotate
 - uid: PAC.Geometry.Direction8.ToString
   name: ToString()
   href: api/PAC.Geometry.Direction8.html#PAC_Geometry_Direction8_ToString
