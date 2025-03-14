@@ -218,7 +218,7 @@ namespace PAC.Colour
         /// <summary>
         /// Returns the blend mode with that name (case-insensitive).
         /// </summary>
-        public static BlendMode StringToBlendMode(string blendModeName)
+        public static BlendMode Parse(string blendModeName)
         {
             foreach (BlendMode blendMode in blendModes)
             {
@@ -239,7 +239,7 @@ namespace PAC.Colour
 
             public override BlendMode FromJson(JsonData.String jsonData)
             {
-                return StringToBlendMode(jsonData);
+                return Parse(jsonData);
             }
         }
         #endregion
