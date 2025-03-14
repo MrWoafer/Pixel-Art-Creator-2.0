@@ -227,7 +227,7 @@ namespace PAC.Colour
                     return blendMode;
                 }
             }
-            throw new ArgumentException("Unknown / unimplemented blend mode: " + blendModeName);
+            throw new FormatException($"Unknown / unimplemented blend mode: {blendModeName}");
         }
 
         public class JsonConverter : JsonConversion.JsonConverter<BlendMode, JsonData.String>
