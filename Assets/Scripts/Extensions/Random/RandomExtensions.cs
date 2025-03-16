@@ -67,6 +67,11 @@ namespace PAC.Extensions
         }
 
         /// <summary>
+        /// Returns a random <see cref="float"/> in the range <c>[0, 1)</c>.
+        /// </summary>
+        public static float NextFloat(this Random random) => (float)random.NextDouble();
+
+        /// <summary>
         /// Selects a uniformly random element from <paramref name="elements"/>.
         /// </summary>
         /// <exception cref="ArgumentException"><paramref name="elements"/> is empty.</exception>
