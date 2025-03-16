@@ -1,3 +1,5 @@
+using PAC.Extensions;
+
 using UnityEngine;
 
 namespace PAC.Colour
@@ -22,5 +24,10 @@ namespace PAC.Colour
         {
             return new HSL(color);
         }
+
+        /// <summary>
+        /// Generates a random <see cref="Color"/> by independently generating a uniformly random value in <c>[0, 1)</c> for each component.
+        /// </summary>
+        public static Color NextColor(this System.Random random) =>new Color(random.NextFloat(), random.NextFloat(), random.NextFloat(), random.NextFloat());
     }
 }
