@@ -2,10 +2,10 @@ using NUnit.Framework;
 using PAC.Colour;
 using PAC.Json;
 
-namespace PAC.Tests
+namespace PAC.Tests.Colour
 {
     /// <summary>
-    /// Tests the BlendMode class.
+    /// Tests for <see cref="BlendMode"/>.
     /// </summary>
     public class BlendMode_Tests
     {
