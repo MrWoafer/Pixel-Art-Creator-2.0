@@ -1,3 +1,5 @@
+using System.Linq;
+
 using NUnit.Framework;
 
 using PAC.Colour;
@@ -134,6 +136,28 @@ namespace PAC.Tests.Colour
             Assert.True(
                 expected.Equals(composited, 0.01f),
                 $"Failed.\nExpected: {expected}\nObserved: {composited}");
+        }
+
+        [Test]
+        [Category("Colour"), Category("Compositing")]
+        public void BlendModes_NonEmpty()
+        {
+            Assert.True(BlendMode.BlendModes.Any());
+        }
+        [Test]
+        [Category("Colour"), Category("Compositing")]
+        public void BlendModes_ContainsNoDuplicates()
+        {
+            Assert.True(BlendMode.BlendModes.AreAllDistinct());
+        }
+        [Test]
+        [Category("Colour"), Category("Compositing")]
+        public void BlendModes_ExampleElements()
+        {
+            CollectionAssert.IsSubsetOf(
+                new BlendMode[] { BlendMode.Normal, BlendMode.Overlay, BlendMode.Multiply, BlendMode.Screen, BlendMode.Add, BlendMode.Subtract },
+                BlendMode.BlendModes
+                );
         }
 
         /// <summary>

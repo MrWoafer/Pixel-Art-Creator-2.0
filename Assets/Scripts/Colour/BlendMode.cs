@@ -1,4 +1,6 @@
 using System;
+using System.Linq;
+using System.Reflection;
 
 using PAC.Json;
 
@@ -118,6 +120,9 @@ namespace PAC.Colour
         /// <summary>
         /// All <see cref="BlendMode"/>s implemented in <see cref="BlendMode"/>.
         /// </summary>
+        /// <remarks>
+        /// There is no guarantee as to what order this is in.
+        /// </remarks>
         public static readonly BlendMode[] BlendModes;
 
         static BlendMode()
@@ -129,7 +134,12 @@ namespace PAC.Colour
             Add = new AddBlendMode();
             Subtract = new SubtractBlendMode();
             
-            BlendModes = new BlendMode[] { Normal, Overlay, Multiply, Screen, Add, Subtract };
+            BlendModes =
+                typeof(BlendMode)
+                .GetFields(BindingFlags.Public | BindingFlags.Static)
+                .Where(f => typeof(BlendMode).IsAssignableFrom(f.FieldType))
+                .Select(f => (BlendMode)f.GetValue(null))
+                .ToArray();
         }
         #endregion
 
