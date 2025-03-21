@@ -118,7 +118,7 @@ namespace PAC.Colour
         /// <summary>
         /// All <see cref="BlendMode"/>s implemented in <see cref="BlendMode"/>.
         /// </summary>
-        public static readonly BlendMode[] blendModes;
+        public static readonly BlendMode[] BlendModes;
 
         static BlendMode()
         {
@@ -129,7 +129,7 @@ namespace PAC.Colour
             Add = new AddBlendMode();
             Subtract = new SubtractBlendMode();
             
-            blendModes = new BlendMode[] { Normal, Overlay, Multiply, Screen, Add, Subtract };
+            BlendModes = new BlendMode[] { Normal, Overlay, Multiply, Screen, Add, Subtract };
         }
         #endregion
 
@@ -225,7 +225,7 @@ namespace PAC.Colour
         /// </summary>
         public static BlendMode Parse(string blendModeName)
         {
-            foreach (BlendMode blendMode in blendModes)
+            foreach (BlendMode blendMode in BlendModes)
             {
                 if (blendMode.name.ToLower() == blendModeName.ToLower())
                 {
