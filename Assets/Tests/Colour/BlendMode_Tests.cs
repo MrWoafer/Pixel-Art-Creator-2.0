@@ -23,11 +23,11 @@ namespace PAC.Tests.Colour.Compositing
             System.Random random = new System.Random(0);
             for (int iteration = 0; iteration < 1_000; iteration++)
             {
-                Color source = random.NextRGB().WithAlpha(1f);
-                Color destination = random.NextColor();
+                Color top = random.NextRGB().WithAlpha(1f);
+                Color bottom = random.NextColor();
 
-                Color composited = BlendMode.Normal.Blend(source, destination);
-                Assert.True(source.Equals(composited, 0.001f), $"Failed with {nameof(source)} = {source}, {nameof(destination)} = {destination}.");
+                Color composited = BlendMode.Normal.Blend(top, bottom);
+                Assert.True(top.Equals(composited, 0.001f), $"Failed with {nameof(top)} = {top}, {nameof(bottom)} = {bottom}.");
             }
         }
 
@@ -38,10 +38,10 @@ namespace PAC.Tests.Colour.Compositing
         [Category("Colour"), Category("Compositing")]
         public void Normal_WithSimpleAlphaCompositing_Example()
         {
-            Color source = new Color(0.39f, 0.31f, 0.32f, 0.55f);
-            Color destination = new Color(0.26f, 0.18f, 0.81f, 0.62f);
+            Color top = new Color(0.39f, 0.31f, 0.32f, 0.55f);
+            Color bottom = new Color(0.26f, 0.18f, 0.81f, 0.62f);
 
-            Color composited = BlendMode.Normal.Blend(source, destination);
+            Color composited = BlendMode.Normal.Blend(top, bottom);
             Color expected = new Color(0.35f, 0.27f, 0.48f, 0.83f);
 
             Assert.True(
@@ -56,10 +56,10 @@ namespace PAC.Tests.Colour.Compositing
         [Category("Colour"), Category("Compositing")]
         public void Overlay_WithSimpleAlphaCompositing_Example()
         {
-            Color source = new Color(0.21f, 0.31f, 0.41f, 0.51f);
-            Color destination = new Color(0.64f, 0.81f, 0.49f, 0.36f);
+            Color top = new Color(0.21f, 0.31f, 0.41f, 0.51f);
+            Color bottom = new Color(0.64f, 0.81f, 0.49f, 0.36f);
 
-            Color composited = BlendMode.Overlay.Blend(source, destination);
+            Color composited = BlendMode.Overlay.Blend(top, bottom);
             Color expected = new Color(0.38f, 0.55f, 0.43f, 0.69f);
 
             Assert.True(
@@ -74,10 +74,10 @@ namespace PAC.Tests.Colour.Compositing
         [Category("Colour"), Category("Compositing")]
         public void Multiply_WithSimpleAlphaCompositing_Example()
         {
-            Color source = new Color(0.78f, 0.64f, 0.04f, 0.70f);
-            Color destination = new Color(0.58f, 0.47f, 0.65f, 0.46f);
+            Color top = new Color(0.78f, 0.64f, 0.04f, 0.70f);
+            Color bottom = new Color(0.58f, 0.47f, 0.65f, 0.46f);
 
-            Color composited = BlendMode.Multiply.Blend(source, destination);
+            Color composited = BlendMode.Multiply.Blend(top, bottom);
             Color expected = new Color(0.63f, 0.48f, 0.13f, 0.84f);
 
             Assert.True(
@@ -92,10 +92,10 @@ namespace PAC.Tests.Colour.Compositing
         [Category("Colour"), Category("Compositing")]
         public void Screen_WithSimpleAlphaCompositing_Example()
         {
-            Color source = new Color(0.08f, 0.13f, 0.60f, 0.97f);
-            Color destination = new Color(0.73f, 0.42f, 0.56f, 0.55f);
+            Color top = new Color(0.08f, 0.13f, 0.60f, 0.97f);
+            Color bottom = new Color(0.73f, 0.42f, 0.56f, 0.55f);
 
-            Color composited = BlendMode.Screen.Blend(source, destination);
+            Color composited = BlendMode.Screen.Blend(top, bottom);
             Color expected = new Color(0.45f, 0.33f, 0.72f, 0.98f);
 
             Assert.True(
@@ -110,10 +110,10 @@ namespace PAC.Tests.Colour.Compositing
         [Category("Colour"), Category("Compositing")]
         public void Add_WithSimpleAlphaCompositing_Example()
         {
-            Color source = new Color(0.31f, 0.41f, 0.59f, 0.26f);
-            Color destination = new Color(0.73f, 0.09f, 0.27f, 0.89f);
+            Color top = new Color(0.31f, 0.41f, 0.59f, 0.26f);
+            Color bottom = new Color(0.73f, 0.09f, 0.27f, 0.89f);
 
-            Color composited = BlendMode.Add.Blend(source, destination);
+            Color composited = BlendMode.Add.Blend(top, bottom);
             Color expected = new Color(0.79f, 0.20f, 0.42f, 0.92f);
 
             Assert.True(
@@ -128,10 +128,10 @@ namespace PAC.Tests.Colour.Compositing
         [Category("Colour"), Category("Compositing")]
         public void Subtract_WithSimpleAlphaCompositing_Example()
         {
-            Color source = new Color(0.27f, 0.18f, 0.28f, 0.18f);
-            Color destination = new Color(0.16f, 0.26f, 0.03f, 0.43f);
+            Color top = new Color(0.27f, 0.18f, 0.28f, 0.18f);
+            Color bottom = new Color(0.16f, 0.26f, 0.03f, 0.43f);
 
-            Color composited = BlendMode.Subtract.Blend(source, destination);
+            Color composited = BlendMode.Subtract.Blend(top, bottom);
             Color expected = new Color(0.15f, 0.21f, 0.07f, 0.53f);
 
             Assert.True(

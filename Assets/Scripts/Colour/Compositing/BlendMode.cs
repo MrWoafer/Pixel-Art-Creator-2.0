@@ -9,7 +9,7 @@ using UnityEngine;
 namespace PAC.Colour.Compositing
 {
     /// <summary>
-    /// Defines how two colours (the <i>top colour</i> and the <i>bottom colour</i>) are blended together to form a new colour, ignoring their alpha.
+    /// Defines how a foreground colour (the <i>top</i> colour) is blended onto a background colour (the <i>bottom</i> colour) to form a new colour, ignoring their alpha.
     /// </summary>
     /// <seealso href="https://en.wikipedia.org/wiki/Blend_modes"/>
     public abstract record BlendMode
@@ -28,13 +28,13 @@ namespace PAC.Colour.Compositing
         /// </returns>
         /// <remarks>
         /// <para>
-        /// <paramref name="topColour"/> and <paramref name="bottomColour"/> should be in straight alpha form.
+        /// <paramref name="top"/> and <paramref name="bottom"/> should be in straight alpha form.
         /// </para>
         /// <para>
-        /// No clamping is performed on <paramref name="topColour"/> or <paramref name="bottomColour"/>, but the output may be clamped depending on the <see cref="BlendMode"/>.
+        /// No clamping is performed on <paramref name="top"/> or <paramref name="bottom"/>, but the output may be clamped depending on the <see cref="BlendMode"/>.
         /// </para>
         /// </remarks>
-        public abstract RGB Blend(RGB topColour, RGB bottomColour);
+        public abstract RGB Blend(RGB top, RGB bottom);
         #endregion
 
         #region Default Method Implementations
@@ -46,23 +46,23 @@ namespace PAC.Colour.Compositing
         /// </returns>
         /// <remarks>
         /// <para>
-        /// <paramref name="topColour"/> and <paramref name="bottomColour"/> should be in straight alpha form.
+        /// <paramref name="top"/> and <paramref name="bottom"/> should be in straight alpha form.
         /// </para>
         /// <para>
         /// This follows the specification from <see href="https://www.w3.org/TR/compositing-1/#generalformula"/>.
         /// </para>
         /// <para>
-        /// No clamping is performed on <paramref name="topColour"/> or <paramref name="bottomColour"/>, but the output may be clamped depending on the <see cref="BlendMode"/>.
+        /// No clamping is performed on <paramref name="top"/> or <paramref name="bottom"/>, but the output may be clamped depending on the <see cref="BlendMode"/>.
         /// </para>
         /// </remarks>
-        public Color Blend(Color topColour, Color bottomColour)
+        public Color Blend(Color top, Color bottom)
             => AlphaCompositing.Straight.SourceOver(
                 RGB.LerpUnclamped(
-                    (RGB)topColour,
-                    Blend((RGB)topColour, (RGB)bottomColour),
-                    bottomColour.a
-                ).WithAlpha(topColour.a),
-                bottomColour
+                    (RGB)top,
+                    Blend((RGB)top, (RGB)bottom),
+                    bottom.a
+                ).WithAlpha(top.a),
+                bottom
                 );
 
         public override string ToString() => name;
@@ -153,7 +153,7 @@ namespace PAC.Colour.Compositing
 
             internal NormalBlendMode() { }
 
-            public override RGB Blend(RGB topColour, RGB bottomColour) => topColour;
+            public override RGB Blend(RGB top, RGB bottom) => top;
         }
 
         /// <summary>
@@ -165,7 +165,7 @@ namespace PAC.Colour.Compositing
 
             internal OverlayBlendMode() { }
 
-            public override RGB Blend(RGB topColour, RGB bottomColour)
+            public override RGB Blend(RGB top, RGB bottom)
             {
                 static float BlendComponent(float top, float bottom)
                     => bottom <= 0.5f
@@ -173,9 +173,9 @@ namespace PAC.Colour.Compositing
                     : 1f - 2f * (1f - bottom) * (1f - top);
 
                 return new RGB(
-                    BlendComponent(topColour.r, bottomColour.r),
-                    BlendComponent(topColour.g, bottomColour.g),
-                    BlendComponent(topColour.b, bottomColour.b)
+                    BlendComponent(top.r, bottom.r),
+                    BlendComponent(top.g, bottom.g),
+                    BlendComponent(top.b, bottom.b)
                     );
             }
         }
@@ -189,7 +189,7 @@ namespace PAC.Colour.Compositing
 
             internal MultiplyBlendMode() { }
 
-            public override RGB Blend(RGB topColour, RGB bottomColour) => topColour * bottomColour;
+            public override RGB Blend(RGB top, RGB bottom) => top * bottom;
         }
 
         /// <summary>
@@ -201,7 +201,7 @@ namespace PAC.Colour.Compositing
 
             internal ScreenBlendMode() { }
 
-            public override RGB Blend(RGB topColour, RGB bottomColour) => topColour + bottomColour - topColour * bottomColour;
+            public override RGB Blend(RGB top, RGB bottom) => top + bottom - top * bottom;
         }
 
         /// <summary>
@@ -213,7 +213,7 @@ namespace PAC.Colour.Compositing
 
             internal AddBlendMode() { }
 
-            public override RGB Blend(RGB topColour, RGB bottomColour) => (topColour + bottomColour).Clamp01();
+            public override RGB Blend(RGB top, RGB bottom) => (top + bottom).Clamp01();
         }
 
         /// <summary>
@@ -225,7 +225,7 @@ namespace PAC.Colour.Compositing
 
             internal SubtractBlendMode() { }
 
-            public override RGB Blend(RGB topColour, RGB bottomColour) => (bottomColour - topColour).Clamp01();
+            public override RGB Blend(RGB top, RGB bottom) => (bottom - top).Clamp01();
         }
         #endregion
 
