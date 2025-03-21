@@ -77,13 +77,6 @@ namespace PAC.Colour.Compositing
         /// </remarks>
         public static readonly BlendMode Normal;
         /// <summary>
-        /// The <i>Overlay</i> blend mode.
-        /// </summary>
-        /// <remarks>
-        /// This follows the specification from <see href="https://www.w3.org/TR/compositing-1/#blendingoverlay"/>.
-        /// </remarks>
-        public static readonly BlendMode Overlay;
-        /// <summary>
         /// The <i>Multiply</i> blend mode.
         /// </summary>
         /// <remarks>
@@ -97,6 +90,13 @@ namespace PAC.Colour.Compositing
         /// This follows the specification from <see href="https://www.w3.org/TR/compositing-1/#blendingscreen"/>.
         /// </remarks>
         public static readonly BlendMode Screen;
+        /// <summary>
+        /// The <i>Overlay</i> blend mode.
+        /// </summary>
+        /// <remarks>
+        /// This follows the specification from <see href="https://www.w3.org/TR/compositing-1/#blendingoverlay"/>.
+        /// </remarks>
+        public static readonly BlendMode Overlay;
         /// <summary>
         /// The <i>Add</i> blend mode.
         /// </summary>
@@ -157,30 +157,6 @@ namespace PAC.Colour.Compositing
         }
 
         /// <summary>
-        /// The type of <see cref="Overlay"/>.
-        /// </summary>
-        private sealed record OverlayBlendMode : BlendMode
-        {
-            public override string name => "Overlay";
-
-            internal OverlayBlendMode() { }
-
-            public override RGB Blend(RGB top, RGB bottom)
-            {
-                static float BlendComponent(float top, float bottom)
-                    => bottom <= 0.5f
-                    ? 2f * bottom * top
-                    : 1f - 2f * (1f - bottom) * (1f - top);
-
-                return new RGB(
-                    BlendComponent(top.r, bottom.r),
-                    BlendComponent(top.g, bottom.g),
-                    BlendComponent(top.b, bottom.b)
-                    );
-            }
-        }
-
-        /// <summary>
         /// The type of <see cref="Multiply"/>.
         /// </summary>
         private sealed record MultiplyBlendMode : BlendMode
@@ -202,6 +178,30 @@ namespace PAC.Colour.Compositing
             internal ScreenBlendMode() { }
 
             public override RGB Blend(RGB top, RGB bottom) => top + bottom - top * bottom;
+        }
+
+        /// <summary>
+        /// The type of <see cref="Overlay"/>.
+        /// </summary>
+        private sealed record OverlayBlendMode : BlendMode
+        {
+            public override string name => "Overlay";
+
+            internal OverlayBlendMode() { }
+
+            public override RGB Blend(RGB top, RGB bottom)
+            {
+                static float BlendComponent(float top, float bottom)
+                    => bottom <= 0.5f
+                    ? 2f * bottom * top
+                    : 1f - 2f * (1f - bottom) * (1f - top);
+
+                return new RGB(
+                    BlendComponent(top.r, bottom.r),
+                    BlendComponent(top.g, bottom.g),
+                    BlendComponent(top.b, bottom.b)
+                    );
+            }
         }
 
         /// <summary>

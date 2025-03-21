@@ -50,24 +50,6 @@ namespace PAC.Tests.Colour.Compositing
         }
 
         /// <summary>
-        /// Tests <see cref="BlendMode.Overlay"/> with simple alpha compositing, using example values from Krita.
-        /// </summary>
-        [Test]
-        [Category("Colour"), Category("Compositing")]
-        public void Overlay_WithSimpleAlphaCompositing_Example()
-        {
-            Color top = new Color(0.21f, 0.31f, 0.41f, 0.51f);
-            Color bottom = new Color(0.64f, 0.81f, 0.49f, 0.36f);
-
-            Color composited = BlendMode.Overlay.Blend(top, bottom);
-            Color expected = new Color(0.38f, 0.55f, 0.43f, 0.69f);
-
-            Assert.True(
-                expected.Equals(composited, 0.01f),
-                $"Failed.\nExpected: {expected}\nObserved: {composited}");
-        }
-
-        /// <summary>
         /// Tests <see cref="BlendMode.Multiply"/> with simple alpha compositing, using example values from Krita.
         /// </summary>
         [Test]
@@ -97,6 +79,24 @@ namespace PAC.Tests.Colour.Compositing
 
             Color composited = BlendMode.Screen.Blend(top, bottom);
             Color expected = new Color(0.45f, 0.33f, 0.72f, 0.98f);
+
+            Assert.True(
+                expected.Equals(composited, 0.01f),
+                $"Failed.\nExpected: {expected}\nObserved: {composited}");
+        }
+
+        /// <summary>
+        /// Tests <see cref="BlendMode.Overlay"/> with simple alpha compositing, using example values from Krita.
+        /// </summary>
+        [Test]
+        [Category("Colour"), Category("Compositing")]
+        public void Overlay_WithSimpleAlphaCompositing_Example()
+        {
+            Color top = new Color(0.21f, 0.31f, 0.41f, 0.51f);
+            Color bottom = new Color(0.64f, 0.81f, 0.49f, 0.36f);
+
+            Color composited = BlendMode.Overlay.Blend(top, bottom);
+            Color expected = new Color(0.38f, 0.55f, 0.43f, 0.69f);
 
             Assert.True(
                 expected.Equals(composited, 0.01f),
@@ -156,7 +156,7 @@ namespace PAC.Tests.Colour.Compositing
         public void BlendModes_ExampleElements()
         {
             CollectionAssert.IsSubsetOf(
-                new BlendMode[] { BlendMode.Normal, BlendMode.Overlay, BlendMode.Multiply, BlendMode.Screen, BlendMode.Add, BlendMode.Subtract },
+                new BlendMode[] { BlendMode.Normal, BlendMode.Multiply, BlendMode.Screen, BlendMode.Overlay, BlendMode.Add, BlendMode.Subtract },
                 BlendMode.BlendModes
                 );
         }
