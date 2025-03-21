@@ -3,12 +3,13 @@ using System.Linq;
 using NUnit.Framework;
 
 using PAC.Colour;
+using PAC.Colour.Compositing;
 using PAC.Extensions;
 using PAC.Json;
 
 using UnityEngine;
 
-namespace PAC.Tests.Colour
+namespace PAC.Tests.Colour.Compositing
 {
     /// <summary>
     /// Tests for <see cref="BlendMode"/>.

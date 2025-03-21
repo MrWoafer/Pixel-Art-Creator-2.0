@@ -1,7 +1,7 @@
 using System;
 
 using PAC.Animation;
-using PAC.Colour;
+using PAC.Colour.Compositing;
 using PAC.Drawing;
 using PAC.EffectPanels;
 using PAC.Extensions;

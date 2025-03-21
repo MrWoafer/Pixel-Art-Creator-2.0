@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace PAC.Colour
+namespace PAC.Colour.Compositing
 {
     /// <summary>
     /// Methods for combining two colours based on their alpha values.

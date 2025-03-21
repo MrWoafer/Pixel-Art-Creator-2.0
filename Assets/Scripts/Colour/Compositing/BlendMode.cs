@@ -6,7 +6,7 @@ using PAC.Json;
 
 using UnityEngine;
 
-namespace PAC.Colour
+namespace PAC.Colour.Compositing
 {
     /// <summary>
     /// Defines how two colours (the <i>top colour</i> and the <i>bottom colour</i>) are blended together to form a new colour, ignoring their alpha.
@@ -133,7 +133,7 @@ namespace PAC.Colour
             Screen = new ScreenBlendMode();
             Add = new AddBlendMode();
             Subtract = new SubtractBlendMode();
-            
+
             BlendModes =
                 typeof(BlendMode)
                 .GetFields(BindingFlags.Public | BindingFlags.Static)
@@ -145,7 +145,7 @@ namespace PAC.Colour
 
         #region Implementations
         /// <summary>
-        /// The type of <see cref="BlendMode.Normal"/>.
+        /// The type of <see cref="Normal"/>.
         /// </summary>
         private sealed record NormalBlendMode : BlendMode
         {
@@ -157,7 +157,7 @@ namespace PAC.Colour
         }
 
         /// <summary>
-        /// The type of <see cref="BlendMode.Overlay"/>.
+        /// The type of <see cref="Overlay"/>.
         /// </summary>
         private sealed record OverlayBlendMode : BlendMode
         {
@@ -181,7 +181,7 @@ namespace PAC.Colour
         }
 
         /// <summary>
-        /// The type of <see cref="BlendMode.Multiply"/>.
+        /// The type of <see cref="Multiply"/>.
         /// </summary>
         private sealed record MultiplyBlendMode : BlendMode
         {
@@ -193,7 +193,7 @@ namespace PAC.Colour
         }
 
         /// <summary>
-        /// The type of <see cref="BlendMode.Screen"/>.
+        /// The type of <see cref="Screen"/>.
         /// </summary>
         private sealed record ScreenBlendMode : BlendMode
         {
@@ -205,7 +205,7 @@ namespace PAC.Colour
         }
 
         /// <summary>
-        /// The type of <see cref="BlendMode.Add"/>.
+        /// The type of <see cref="Add"/>.
         /// </summary>
         private sealed record AddBlendMode : BlendMode
         {
@@ -217,7 +217,7 @@ namespace PAC.Colour
         }
 
         /// <summary>
-        /// The type of <see cref="BlendMode.Subtract"/>.
+        /// The type of <see cref="Subtract"/>.
         /// </summary>
         private sealed record SubtractBlendMode : BlendMode
         {

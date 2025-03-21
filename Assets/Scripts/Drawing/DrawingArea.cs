@@ -20,6 +20,7 @@ using PAC.Geometry.Shapes;
 using PAC.Geometry.Shapes.Interfaces;
 using PAC.ImageEditing;
 using PAC.Geometry;
+using PAC.Colour.Compositing;
 
 namespace PAC.Drawing
 {

@@ -9,8 +9,8 @@ using PAC.UI;
 using UnityEngine;
 using UnityEngine.Events;
 using PAC.Extensions;
-using PAC.Colour;
 using PAC.ImageEditing;
+using PAC.Colour.Compositing;
 
 namespace PAC.Animation
 {
