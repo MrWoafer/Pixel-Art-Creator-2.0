@@ -1,5 +1,7 @@
 using System;
 
+using PAC.Extensions;
+
 using UnityEngine;
 
 namespace PAC.Colour
@@ -101,5 +103,16 @@ namespace PAC.Colour
         /// Applies <paramref name="format"/> to each component.
         /// </summary>
         public string ToString(string format) => $"{nameof(HSV)}({h.ToString(format)}, {s.ToString(format)}, {v.ToString(format)})";
+    }
+
+    /// <summary>
+    /// Extension methods for <see cref="HSV"/>.
+    /// </summary>
+    public static class HSVExtensions
+    {
+        /// <summary>
+        /// Generates a random <see cref="HSV"/> by independently generating a uniformly random value in <c>[0, 1)</c> for each component.
+        /// </summary>
+        public static HSV NextHSV(this System.Random random) => new HSV(random.NextFloat(), random.NextFloat(), random.NextFloat());
     }
 }
