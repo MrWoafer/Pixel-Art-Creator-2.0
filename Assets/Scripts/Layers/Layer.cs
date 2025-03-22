@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Runtime.Serialization;
 
 using PAC.Animation;
-using PAC.Colour;
+using PAC.Colour.Compositing;
 using PAC.DataStructures;
 using PAC.Extensions;
 using PAC.Geometry;

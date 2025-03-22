@@ -569,9 +569,6 @@ namespace PAC.Json
         /// Represents a set of JsonConverter objects, making sure there's at most one custom converter for each type. For example, a class MyClass cannot have two JSON converters defined for it in
         /// the list.
         /// </para>
-        /// <para>
-        /// NOTE: Accessing converters is O(1).
-        /// </para>
         /// </summary>
         public class JsonConverterSet : IEnumerable
         {
@@ -638,22 +635,44 @@ namespace PAC.Json
             /// <summary>
             /// Returns whether the set contains a converter that converts the given type.
             /// </summary>
+            /// <remarks>
+            /// If there is no converter for <paramref name="converterType"/>, this method will work its way up the inheritance tree to try and find a converter for a supertype.
+            /// </remarks>
             /// <returns>true if the set has a converter for the given type.</returns>
             public bool ContainsConverterFor(Type converterType)
             {
-                return converters.ContainsKey(converterType);
+                while (converterType != null)
+                {
+                    if (converters.ContainsKey(converterType))
+                    {
+                        return true;
+                    }
+
+                    converterType = converterType.BaseType;
+                }
+
+                return false;
             }
 
             /// <summary>
             /// If the set contains a converter that converts the given type, this will return it.
             /// </summary>
+            /// <remarks>
+            /// If there is no converter for <paramref name="converterType"/>, this method will work its way up the inheritance tree to try and find a converter for a supertype.
+            /// </remarks>
             /// <returns>The converter for the given type, if there is one, otherwise null.</returns>
             public object GetConverterFor(Type converterType)
             {
-                if (ContainsConverterFor(converterType))
+                while (converterType != null)
                 {
-                    return converters[converterType];
+                    if (converters.ContainsKey(converterType))
+                    {
+                        return converters[converterType];
+                    }
+
+                    converterType = converterType.BaseType;
                 }
+
                 return null;
             }
 

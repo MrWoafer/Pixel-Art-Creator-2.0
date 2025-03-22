@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using System.Runtime.Serialization;
 
 using PAC.Animation;
-using PAC.Colour;
+using PAC.Colour.Compositing;
 using PAC.DataStructures;
 using PAC.Extensions;
 using PAC.Geometry;
@@ -57,7 +57,7 @@ namespace PAC.Layers
                 throw new System.Exception("Coords (" + pixel.x + ", " + pixel.y + ") outside of dimensions " + width + "x" + height);
             }
 
-            return useLayerOpacity ? BlendMode.MultiplyColours(GetKeyFrame(frame).texture.GetPixel(pixel.x, pixel.y), new Color(1f, 1f, 1f, opacity)) : GetKeyFrame(frame).texture.GetPixel(pixel.x, pixel.y);
+            return useLayerOpacity ? GetKeyFrame(frame).texture.GetPixel(pixel.x, pixel.y) * new Color(1f, 1f, 1f, opacity) : GetKeyFrame(frame).texture.GetPixel(pixel.x, pixel.y);
         }
 
         /// <summary>

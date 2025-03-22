@@ -1,7 +1,7 @@
 using System;
 using System.IO;
 
-using PAC.Colour;
+using PAC.Colour.Compositing;
 using PAC.DataStructures;
 using PAC.Exceptions;
 using PAC.Geometry;

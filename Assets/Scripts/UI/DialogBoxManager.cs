@@ -1,7 +1,7 @@
 using System;
 
 using PAC.Animation;
-using PAC.Colour;
+using PAC.Colour.Compositing;
 using PAC.Drawing;
 using PAC.EffectPanels;
 using PAC.Extensions;
@@ -733,7 +733,7 @@ namespace PAC.UI
 
             string layerName = layerNameTextbox.text;
             float opacity = layerOpacityField.value / 255f;
-            BlendMode blendMode = BlendMode.StringToBlendMode(layerBlendModeDropdown.selectedOption);
+            BlendMode blendMode = BlendMode.Parse(layerBlendModeDropdown.selectedOption);
 
             layerManager.SetLayerOpacity(layerPropertiesLayerIndex, opacity);
             layerManager.SetLayerBlendMode(layerPropertiesLayerIndex, blendMode);

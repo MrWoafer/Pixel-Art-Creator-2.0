@@ -1,5 +1,5 @@
 using PAC.Animation;
-using PAC.Colour;
+using PAC.Colour.Compositing;
 using PAC.DataStructures;
 using PAC.Drawing;
 using PAC.Extensions;
