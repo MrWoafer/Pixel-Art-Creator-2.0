@@ -7,6 +7,15 @@ namespace PAC.ColourPicker
     /// <summary>
     /// A class for the HSL colour picker.
     /// </summary>
+    /// <remarks>
+    /// <para>
+    /// The picker gets the <see cref="hue"/> as the x coord on the <see cref="HSLHueSaturationBox"/> (in the range <c>[0, 1]</c>), the <see cref="saturation"/> as the y coord on the
+    /// <see cref="HSLHueSaturationBox"/> (in the range <c>[0, 1]</c>), and the <see cref="lightness"/> as the y coord on the <see cref="HSLLightnessSlider"/> (in the range <c>[0, 1]</c>).
+    /// </para>
+    /// <para>
+    /// For the display, the shader treats the HSL as being in gamma space. Hence, for the picked colour to match the colour on the display, the picked colour should be treated as in gamma space.
+    /// </para>
+    /// </remarks>
     public class HSLColourPicker : MonoBehaviour
     {
         [Header("Settings")]

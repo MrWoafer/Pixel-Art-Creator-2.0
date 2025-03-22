@@ -25,6 +25,9 @@ namespace PAC.Colour.Compositing
             /// <para>
             /// <paramref name="source"/> and <paramref name="destination"/> should be in premultiplied alpha form. This method does not check they are valid premultiplied colours.
             /// </para>
+            /// <para>
+            /// Does not do any colour space conversion.
+            /// </para>
             /// </remarks>
             /// <param name="source">The foreground colour.</param>
             /// <param name="destination">The background colour.</param>
@@ -47,6 +50,9 @@ namespace PAC.Colour.Compositing
             /// <remarks>
             /// <para>
             /// <paramref name="source"/> and <paramref name="destination"/> should be in straight alpha form.
+            /// </para>
+            /// <para>
+            /// Does not do any colour space conversion.
             /// </para>
             /// </remarks>
             /// <param name="source">The foreground colour.</param>

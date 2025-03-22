@@ -33,6 +33,9 @@ namespace PAC.Colour.Compositing
         /// <para>
         /// No clamping is performed on <paramref name="top"/> or <paramref name="bottom"/>, but the output may be clamped depending on the <see cref="BlendMode"/>.
         /// </para>
+        /// <para>
+        /// Does not do any colour space conversion.
+        /// </para>
         /// </remarks>
         public abstract RGB Blend(RGB top, RGB bottom);
         #endregion
@@ -53,6 +56,9 @@ namespace PAC.Colour.Compositing
         /// </para>
         /// <para>
         /// No clamping is performed on <paramref name="top"/> or <paramref name="bottom"/>, but the output may be clamped depending on the <see cref="BlendMode"/>.
+        /// </para>
+        /// <para>
+        /// Does not do any colour space conversion.
         /// </para>
         /// </remarks>
         public Color Blend(Color top, Color bottom)
