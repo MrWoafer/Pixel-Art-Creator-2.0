@@ -3,9 +3,9 @@ using UnityEngine;
 namespace PAC.Colour
 {
     /// <summary>
-    /// A colour in HSV (Hue, Saturation, Value) form with no alpha component.
+    /// A colour in HSV (Hue, Saturation, Value) form with an alpha component.
     /// </summary>
-    public readonly struct HSV
+    public readonly struct HSVA
     {
         #region Fields
         /// <summary>
@@ -20,6 +20,10 @@ namespace PAC.Colour
         /// Value.
         /// </summary>
         public readonly float v { get; init; }
+        /// <summary>
+        /// Alpha.
+        /// </summary>
+        public readonly float a { get; init; }
         #endregion
 
         #region Constructors
@@ -29,43 +33,32 @@ namespace PAC.Colour
         /// <param name="hue">See <see cref="h"/>.</param>
         /// <param name="saturation">See <see cref="s"/>.</param>
         /// <param name="value">See <see cref="v"/>.</param>
-        public HSV(float hue, float saturation, float value)
+        /// <param name="alpha">See <see cref="a"/>.</param>
+        public HSVA(float hue, float saturation, float value, float alpha)
         {
             h = hue;
             s = saturation;
             v = value;
+            a = alpha;
         }
         #endregion
 
         #region Conversion
-        public static explicit operator HSV(HSL hsl)
-        {
-            float v = hsl.l + hsl.s * Mathf.Min(hsl.l, 1f - hsl.l);
-            float s = v switch
-            {
-                0f => 0f,
-                _ => 2f * (1f - hsl.l / v),
-            };
-            return new HSV(hsl.h, s, v);
-        }
-
-        public static explicit operator HSV(RGB rgb)
-        {
-            Color.RGBToHSV(rgb.WithAlpha(1f), out float h, out float s, out float v);
-            return new HSV(h, s, v);
-        }
-        public static explicit operator RGB(HSV hsv) => (RGB)Color.HSVToRGB(hsv.h, hsv.s, hsv.v);
-
         /// <summary>
-        /// Returns an <see cref="HSVA"/> with the same HSV values and with the given alpha.
+        /// Returns an <see cref="HSV"/> with the same HSV values as the <see cref="HSVA"/>, but discarding the alpha.
         /// </summary>
-        public HSVA WithAlpha(float alpha) => new HSVA(h, s, v, alpha);
+        public static explicit operator HSV(HSVA hsva) => new HSV(hsva.h, hsva.s, hsva.v);
+
+        public static explicit operator HSVA(HSLA hsla) => ((HSV)(HSL)hsla).WithAlpha(hsla.a);
+
+        public static explicit operator HSVA(Color rgba) => ((HSV)(RGB)rgba).WithAlpha(rgba.a);
+        public static explicit operator Color(HSVA hsva) => ((RGB)(HSV)hsva).WithAlpha(hsva.a);
         #endregion
 
         public override string ToString() => ToString("n3");
         /// <summary>
         /// Applies <paramref name="format"/> to each component.
         /// </summary>
-        public string ToString(string format) => $"{nameof(HSV)}({h.ToString(format)}, {s.ToString(format)}, {v.ToString(format)})";
+        public string ToString(string format) => $"{nameof(HSVA)}({h.ToString(format)}, {s.ToString(format)}, {v.ToString(format)}, {a.ToString(format)})";
     }
 }
