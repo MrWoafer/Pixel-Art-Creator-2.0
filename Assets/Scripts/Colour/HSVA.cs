@@ -1,3 +1,5 @@
+using System;
+
 using UnityEngine;
 
 namespace PAC.Colour
@@ -5,7 +7,7 @@ namespace PAC.Colour
     /// <summary>
     /// A colour in HSV (Hue, Saturation, Value) form with an alpha component.
     /// </summary>
-    public readonly struct HSVA
+    public readonly struct HSVA : IEquatable<HSVA>
     {
         #region Fields
         /// <summary>
@@ -65,6 +67,35 @@ namespace PAC.Colour
 
         public static explicit operator HSVA(Color rgba) => ((HSV)(RGB)rgba).WithAlpha(rgba.a);
         public static explicit operator Color(HSVA hsva) => ((RGB)(HSV)hsva).WithAlpha(hsva.a);
+        #endregion
+
+        #region Comparison
+        /// <summary>
+        /// Component-wise equality.
+        /// </summary>
+        public static bool operator ==(HSVA x, HSVA y) => x.h == y.h && x.s == y.s && x.v == y.v && x.a == y.a;
+        /// <summary>
+        /// See <see cref="operator ==(HSVA, HSVA)"/>.
+        /// </summary>
+        public static bool operator !=(HSVA x, HSVA y) => !(x == y);
+        /// <summary>
+        /// See <see cref="operator ==(HSVA, HSVA)"/>.
+        /// </summary>
+        public bool Equals(HSVA other) => this == other;
+        /// <summary>
+        /// See <see cref="Equals(HSVA)"/>.
+        /// </summary>
+        public override bool Equals(object obj) => obj is HSVA other && Equals(other);
+        /// <summary>
+        /// Returns whether each component of <paramref name="other"/> differs from the corresponding component of <see langword="this"/> by &lt;= <paramref name="tolerance"/>.
+        /// </summary>
+        public bool Equals(HSVA other, float tolerance)
+            => Mathf.Abs(h - other.h) <= tolerance
+            && Mathf.Abs(s - other.s) <= tolerance
+            && Mathf.Abs(v - other.v) <= tolerance
+            && Mathf.Abs(a - other.a) <= tolerance;
+
+        public override int GetHashCode() => HashCode.Combine(h, s, v, a);
         #endregion
 
         public override string ToString() => ToString("n3");
