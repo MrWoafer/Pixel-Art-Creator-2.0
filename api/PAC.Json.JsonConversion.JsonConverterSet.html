@@ -6,7 +6,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta name="title" content="Class JsonConversion.JsonConverterSet | Pixel Art Creator 2.0 Docs ">
       
-      <meta name="description" content="Represents a set of JsonConverter objects, making sure there&#39;s at most one custom converter for each type. For example, a class MyClass cannot have two JSON converters defined for it in the list.   NOTE: Accessing converters is O(1).">
+      <meta name="description" content="Represents a set of JsonConverter objects, making sure there&#39;s at most one custom converter for each type. For example, a class MyClass cannot have two JSON converters defined for it in the list.">
       <link rel="icon" href="../resources/icon.ico">
       <link rel="stylesheet" href="../public/docfx.min.css">
       <link rel="stylesheet" href="../public/main.css">
@@ -89,7 +89,7 @@
 
 
   <h1 id="PAC_Json_JsonConversion_JsonConverterSet" data-uid="PAC.Json.JsonConversion.JsonConverterSet" class="text-break">
-Class JsonConversion.JsonConverterSet  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/JSON/JsonConversion.cs/#L576"><i class="bi bi-code-slash"></i></a>
+Class JsonConversion.JsonConverterSet  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/JSON/JsonConversion.cs/#L573"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -100,9 +100,6 @@ Class JsonConversion.JsonConverterSet  <a class="header-action link-secondary" t
   <div class="markdown summary"><p>
 Represents a set of JsonConverter objects, making sure there's at most one custom converter for each type. For example, a class MyClass cannot have two JSON converters defined for it in
 the list.
-</p>
-<p>
-NOTE: Accessing converters is O(1).
 </p>
 </div>
   <div class="markdown conceptual"></div>
@@ -179,7 +176,7 @@ NOTE: Accessing converters is O(1).
 
   <h3 id="PAC_Json_JsonConversion_JsonConverterSet__ctor" data-uid="PAC.Json.JsonConversion.JsonConverterSet.#ctor">
   JsonConverterSet()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/JSON/JsonConversion.cs/#L583"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/JSON/JsonConversion.cs/#L580"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Creates an empty JsonConverterSet.</p>
@@ -206,7 +203,7 @@ NOTE: Accessing converters is O(1).
 
   <h3 id="PAC_Json_JsonConversion_JsonConverterSet__ctor_System_Collections_IEnumerable_" data-uid="PAC.Json.JsonConversion.JsonConverterSet.#ctor(System.Collections.IEnumerable)">
   JsonConverterSet(IEnumerable)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/JSON/JsonConversion.cs/#L595"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/JSON/JsonConversion.cs/#L592"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -237,7 +234,7 @@ NOTE: Accessing converters is O(1).
 
   <h3 id="PAC_Json_JsonConversion_JsonConverterSet__ctor_System_Object___" data-uid="PAC.Json.JsonConversion.JsonConverterSet.#ctor(System.Object[])">
   JsonConverterSet(params object[])
-  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/JSON/JsonConversion.cs/#L588"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/JSON/JsonConversion.cs/#L585"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Creates a JsonConverterSet with the given converters. Throws an error if an object is not a type that implements JsonConverter, or if the set already contains a converter for the
@@ -274,7 +271,7 @@ type a converter converts.</p>
 
   <h3 id="PAC_Json_JsonConversion_JsonConverterSet_Add_System_Object_" data-uid="PAC.Json.JsonConversion.JsonConverterSet.Add(System.Object)">
   Add(object)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/JSON/JsonConversion.cs/#L606"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/JSON/JsonConversion.cs/#L603"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Adds the converter to the set. Throws an error if it is not a type that implements JsonConverter, or if the set already contains a converter for the type the converter converts.</p>
@@ -336,6 +333,9 @@ type a converter converts.</p>
 
 
 
+  <h4 class="section" id="PAC_Json_JsonConversion_JsonConverterSet_ContainsConverterFor_System_Type__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>If there is no converter for <code class="paramref">converterType</code>, this method will work its way up the inheritance tree to try and find a converter for a supertype.</p>
+</div>
 
 
 
@@ -344,7 +344,7 @@ type a converter converts.</p>
 
   <h3 id="PAC_Json_JsonConversion_JsonConverterSet_GetConverterFor_System_Type_" data-uid="PAC.Json.JsonConversion.JsonConverterSet.GetConverterFor(System.Type)">
   GetConverterFor(Type)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/JSON/JsonConversion.cs/#L651"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/JSON/JsonConversion.cs/#L664"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>If the set contains a converter that converts the given type, this will return it.</p>
@@ -374,6 +374,9 @@ type a converter converts.</p>
 
 
 
+  <h4 class="section" id="PAC_Json_JsonConversion_JsonConverterSet_GetConverterFor_System_Type__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>If there is no converter for <code class="paramref">converterType</code>, this method will work its way up the inheritance tree to try and find a converter for a supertype.</p>
+</div>
 
 
 
@@ -382,7 +385,7 @@ type a converter converts.</p>
 
   <h3 id="PAC_Json_JsonConversion_JsonConverterSet_GetEnumerator" data-uid="PAC.Json.JsonConversion.JsonConverterSet.GetEnumerator">
   GetEnumerator()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/JSON/JsonConversion.cs/#L660"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/JSON/JsonConversion.cs/#L679"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Returns an enumerator that iterates through a collection.</p>
@@ -415,7 +418,7 @@ type a converter converts.</p>
 
   <h3 id="PAC_Json_JsonConversion_JsonConverterSet_RemoveConverterFor_System_Type_" data-uid="PAC.Json.JsonConversion.JsonConverterSet.RemoveConverterFor(System.Type)">
   RemoveConverterFor(Type)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/JSON/JsonConversion.cs/#L628"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/JSON/JsonConversion.cs/#L625"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>If the set contains a converter that converts the given type, this will remove it.</p>
@@ -453,7 +456,7 @@ type a converter converts.</p>
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/JSON/JsonConversion.cs/#L576" class="edit-link">Edit this page</a>
+          <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/JSON/JsonConversion.cs/#L573" class="edit-link">Edit this page</a>
         </div>
 
 

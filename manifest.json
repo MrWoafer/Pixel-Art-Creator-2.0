@@ -134,34 +134,6 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/PAC.Colour.BlendMode.JsonConverter.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/PAC.Colour.BlendMode.JsonConverter.html"
-        }
-      },
-      "version": "",
-      "Uid": null,
-      "IsMRef": true,
-      "Title": "PAC.Colour.BlendMode.JsonConverter",
-      "Summary": null
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/PAC.Colour.BlendMode.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/PAC.Colour.BlendMode.html"
-        }
-      },
-      "version": "",
-      "Uid": null,
-      "IsMRef": true,
-      "Title": "PAC.Colour.BlendMode",
-      "Summary": "<p sourcefile=\"api/PAC.Colour.BlendMode.yml\" sourcestartlinenumber=\"1\">A class for blend modes.</p>\n"
-    },
-    {
-      "type": "ManagedReference",
       "source_relative_path": "api/PAC.Colour.ColorExtensions.yml",
       "output": {
         ".html": {
@@ -172,6 +144,90 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "PAC.Colour.ColorExtensions",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.Colour.Compositing.AlphaCompositing.Premultiplied.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.Colour.Compositing.AlphaCompositing.Premultiplied.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "PAC.Colour.Compositing.AlphaCompositing.Premultiplied",
+      "Summary": "<p sourcefile=\"api/PAC.Colour.Compositing.AlphaCompositing.Premultiplied.yml\" sourcestartlinenumber=\"1\">Alpha compositing methods where the colours are in <a href=\"https://learn.microsoft.com/en-us/windows/apps/develop/win2d/premultiplied-alpha#premultiplied-alpha-1\">premultiplied\nalpha</a> form.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.Colour.Compositing.AlphaCompositing.Straight.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.Colour.Compositing.AlphaCompositing.Straight.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "PAC.Colour.Compositing.AlphaCompositing.Straight",
+      "Summary": "<p sourcefile=\"api/PAC.Colour.Compositing.AlphaCompositing.Straight.yml\" sourcestartlinenumber=\"1\">Alpha compositing methods where the colours are in <a href=\"https://learn.microsoft.com/en-us/windows/apps/develop/win2d/premultiplied-alpha#straight-alpha\">straight alpha</a>\nform.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.Colour.Compositing.AlphaCompositing.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.Colour.Compositing.AlphaCompositing.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "PAC.Colour.Compositing.AlphaCompositing",
+      "Summary": "<p sourcefile=\"api/PAC.Colour.Compositing.AlphaCompositing.yml\" sourcestartlinenumber=\"1\">Methods for combining two colours based on their alpha values.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.Colour.Compositing.BlendMode.JsonConverter.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.Colour.Compositing.BlendMode.JsonConverter.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "PAC.Colour.Compositing.BlendMode.JsonConverter",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.Colour.Compositing.BlendMode.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.Colour.Compositing.BlendMode.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "PAC.Colour.Compositing.BlendMode",
+      "Summary": "<p sourcefile=\"api/PAC.Colour.Compositing.BlendMode.yml\" sourcestartlinenumber=\"1\">Defines how a foreground colour (the <i>top</i> colour) is blended onto a background colour (the <i>bottom</i> colour) to form a new colour, ignoring their alpha.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.Colour.Compositing.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.Colour.Compositing.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "PAC.Colour.Compositing",
       "Summary": null
     },
     {
@@ -201,6 +257,34 @@
       "IsMRef": true,
       "Title": "PAC.Colour.HSV",
       "Summary": "<p sourcefile=\"api/PAC.Colour.HSV.yml\" sourcestartlinenumber=\"1\">Represents a colour in HSV form.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.Colour.RGB.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.Colour.RGB.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "PAC.Colour.RGB",
+      "Summary": "<p sourcefile=\"api/PAC.Colour.RGB.yml\" sourcestartlinenumber=\"1\">A colour in RGB (red, green, blue) format with no alpha channel.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.Colour.RGBExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.Colour.RGBExtensions.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "PAC.Colour.RGBExtensions",
+      "Summary": "<p sourcefile=\"api/PAC.Colour.RGBExtensions.yml\" sourcestartlinenumber=\"1\">Extension methods for <xref href=\"PAC.Colour.RGB\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -1978,7 +2062,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "PAC.Json.JsonConversion.JsonConverterSet",
-      "Summary": "<p>\nRepresents a set of JsonConverter objects, making sure there's at most one custom converter for each type. For example, a class MyClass cannot have two JSON converters defined for it in\nthe list.\n</p>\n<p>\nNOTE: Accessing converters is O(1).\n</p>\n"
+      "Summary": "<p>\nRepresents a set of JsonConverter objects, making sure there's at most one custom converter for each type. For example, a class MyClass cannot have two JSON converters defined for it in\nthe list.\n</p>\n"
     },
     {
       "type": "ManagedReference",

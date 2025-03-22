@@ -89,7 +89,7 @@
 
 
   <h1 id="PAC_ColourPicker_HSLColourPicker" data-uid="PAC.ColourPicker.HSLColourPicker" class="text-break">
-Class HSLColourPicker  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Colour Picker/HSLColourPicker.cs/#L10"><i class="bi bi-code-slash"></i></a>
+Class HSLColourPicker  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Colour Picker/HSLColourPicker.cs/#L19"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -132,6 +132,15 @@ Class HSLColourPicker  <a class="header-action link-secondary" title="View sourc
 
 
 
+  <h2 id="PAC_ColourPicker_HSLColourPicker_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>
+The picker gets the <a class="xref" href="PAC.ColourPicker.HSLColourPicker.html#PAC_ColourPicker_HSLColourPicker_hue">hue</a> as the x coord on the <a class="xref" href="PAC.ColourPicker.HSLHueSaturationBox.html">HSLHueSaturationBox</a> (in the range <code>[0, 1]</code>), the <a class="xref" href="PAC.ColourPicker.HSLColourPicker.html#PAC_ColourPicker_HSLColourPicker_saturation">saturation</a> as the y coord on the
+<a class="xref" href="PAC.ColourPicker.HSLHueSaturationBox.html">HSLHueSaturationBox</a> (in the range <code>[0, 1]</code>), and the <a class="xref" href="PAC.ColourPicker.HSLColourPicker.html#PAC_ColourPicker_HSLColourPicker_lightness">lightness</a> as the y coord on the <a class="xref" href="PAC.ColourPicker.HSLLightnessSlider.html">HSLLightnessSlider</a> (in the range <code>[0, 1]</code>).
+</p>
+<p>
+For the display, the shader treats the HSL as being in gamma space. Hence, for the picked colour to match the colour on the display, the picked colour should be treated as in gamma space.
+</p>
+</div>
 
 
   <h2 class="section" id="properties">Properties
@@ -142,7 +151,7 @@ Class HSLColourPicker  <a class="header-action link-secondary" title="View sourc
 
   <h3 id="PAC_ColourPicker_HSLColourPicker_alpha" data-uid="PAC.ColourPicker.HSLColourPicker.alpha">
   alpha
-  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Colour Picker/HSLColourPicker.cs/#L33"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Colour Picker/HSLColourPicker.cs/#L42"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -173,7 +182,7 @@ Class HSLColourPicker  <a class="header-action link-secondary" title="View sourc
 
   <h3 id="PAC_ColourPicker_HSLColourPicker_color" data-uid="PAC.ColourPicker.HSLColourPicker.color">
   color
-  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Colour Picker/HSLColourPicker.cs/#L35"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Colour Picker/HSLColourPicker.cs/#L44"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -204,7 +213,7 @@ Class HSLColourPicker  <a class="header-action link-secondary" title="View sourc
 
   <h3 id="PAC_ColourPicker_HSLColourPicker_hsl" data-uid="PAC.ColourPicker.HSLColourPicker.hsl">
   hsl
-  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Colour Picker/HSLColourPicker.cs/#L36"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Colour Picker/HSLColourPicker.cs/#L45"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -235,7 +244,7 @@ Class HSLColourPicker  <a class="header-action link-secondary" title="View sourc
 
   <h3 id="PAC_ColourPicker_HSLColourPicker_hue" data-uid="PAC.ColourPicker.HSLColourPicker.hue">
   hue
-  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Colour Picker/HSLColourPicker.cs/#L30"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Colour Picker/HSLColourPicker.cs/#L39"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -266,7 +275,7 @@ Class HSLColourPicker  <a class="header-action link-secondary" title="View sourc
 
   <h3 id="PAC_ColourPicker_HSLColourPicker_lightness" data-uid="PAC.ColourPicker.HSLColourPicker.lightness">
   lightness
-  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Colour Picker/HSLColourPicker.cs/#L32"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Colour Picker/HSLColourPicker.cs/#L41"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -297,7 +306,7 @@ Class HSLColourPicker  <a class="header-action link-secondary" title="View sourc
 
   <h3 id="PAC_ColourPicker_HSLColourPicker_mouseSensitivity" data-uid="PAC.ColourPicker.HSLColourPicker.mouseSensitivity">
   mouseSensitivity
-  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Colour Picker/HSLColourPicker.cs/#L15"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Colour Picker/HSLColourPicker.cs/#L24"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -328,7 +337,7 @@ Class HSLColourPicker  <a class="header-action link-secondary" title="View sourc
 
   <h3 id="PAC_ColourPicker_HSLColourPicker_saturation" data-uid="PAC.ColourPicker.HSLColourPicker.saturation">
   saturation
-  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Colour Picker/HSLColourPicker.cs/#L31"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Colour Picker/HSLColourPicker.cs/#L40"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -359,7 +368,7 @@ Class HSLColourPicker  <a class="header-action link-secondary" title="View sourc
 
   <h3 id="PAC_ColourPicker_HSLColourPicker_slowSensitivityScalar" data-uid="PAC.ColourPicker.HSLColourPicker.slowSensitivityScalar">
   slowSensitivityScalar
-  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Colour Picker/HSLColourPicker.cs/#L19"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Colour Picker/HSLColourPicker.cs/#L28"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>The sensitivity of the mouse when holding the modifier keyboard shortcut to reduce the sensitivity.</p>
@@ -395,7 +404,7 @@ Class HSLColourPicker  <a class="header-action link-secondary" title="View sourc
 
   <h3 id="PAC_ColourPicker_HSLColourPicker_SetColour_Color_" data-uid="PAC.ColourPicker.HSLColourPicker.SetColour(Color)">
   SetColour(Color)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Colour Picker/HSLColourPicker.cs/#L50"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Colour Picker/HSLColourPicker.cs/#L59"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -426,7 +435,7 @@ Class HSLColourPicker  <a class="header-action link-secondary" title="View sourc
 
   <h3 id="PAC_ColourPicker_HSLColourPicker_SubscribeToOnColourChange_UnityAction_" data-uid="PAC.ColourPicker.HSLColourPicker.SubscribeToOnColourChange(UnityAction)">
   SubscribeToOnColourChange(UnityAction)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Colour Picker/HSLColourPicker.cs/#L64"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Colour Picker/HSLColourPicker.cs/#L73"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Event invoked when the selected colour changes.</p>
@@ -458,7 +467,7 @@ Class HSLColourPicker  <a class="header-action link-secondary" title="View sourc
 
   <h3 id="PAC_ColourPicker_HSLColourPicker_UpdateColour" data-uid="PAC.ColourPicker.HSLColourPicker.UpdateColour">
   UpdateColour()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Colour Picker/HSLColourPicker.cs/#L44"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Colour Picker/HSLColourPicker.cs/#L53"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -484,7 +493,7 @@ Class HSLColourPicker  <a class="header-action link-secondary" title="View sourc
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Colour Picker/HSLColourPicker.cs/#L10" class="edit-link">Edit this page</a>
+          <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Colour Picker/HSLColourPicker.cs/#L19" class="edit-link">Edit this page</a>
         </div>
 
 

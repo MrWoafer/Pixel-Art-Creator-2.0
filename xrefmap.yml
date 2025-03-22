@@ -400,214 +400,6 @@ references:
   commentId: N:PAC.Colour
   fullName: PAC.Colour
   nameWithType: PAC.Colour
-- uid: PAC.Colour.BlendMode
-  name: BlendMode
-  href: api/PAC.Colour.BlendMode.html
-  commentId: T:PAC.Colour.BlendMode
-  fullName: PAC.Colour.BlendMode
-  nameWithType: BlendMode
-- uid: PAC.Colour.BlendMode.Add
-  name: Add
-  href: api/PAC.Colour.BlendMode.html#PAC_Colour_BlendMode_Add
-  commentId: F:PAC.Colour.BlendMode.Add
-  fullName: PAC.Colour.BlendMode.Add
-  nameWithType: BlendMode.Add
-- uid: PAC.Colour.BlendMode.Blend(Color,Color)
-  name: Blend(Color, Color)
-  href: api/PAC.Colour.BlendMode.html#PAC_Colour_BlendMode_Blend_Color_Color_
-  commentId: M:PAC.Colour.BlendMode.Blend(Color,Color)
-  fullName: PAC.Colour.BlendMode.Blend(Color, Color)
-  nameWithType: BlendMode.Blend(Color, Color)
-- uid: PAC.Colour.BlendMode.Blend*
-  name: Blend
-  href: api/PAC.Colour.BlendMode.html#PAC_Colour_BlendMode_Blend_
-  commentId: Overload:PAC.Colour.BlendMode.Blend
-  isSpec: "True"
-  fullName: PAC.Colour.BlendMode.Blend
-  nameWithType: BlendMode.Blend
-- uid: PAC.Colour.BlendMode.Equals(System.Object)
-  name: Equals(object)
-  href: api/PAC.Colour.BlendMode.html#PAC_Colour_BlendMode_Equals_System_Object_
-  commentId: M:PAC.Colour.BlendMode.Equals(System.Object)
-  name.vb: Equals(Object)
-  fullName: PAC.Colour.BlendMode.Equals(object)
-  fullName.vb: PAC.Colour.BlendMode.Equals(Object)
-  nameWithType: BlendMode.Equals(object)
-  nameWithType.vb: BlendMode.Equals(Object)
-- uid: PAC.Colour.BlendMode.Equals*
-  name: Equals
-  href: api/PAC.Colour.BlendMode.html#PAC_Colour_BlendMode_Equals_
-  commentId: Overload:PAC.Colour.BlendMode.Equals
-  isSpec: "True"
-  fullName: PAC.Colour.BlendMode.Equals
-  nameWithType: BlendMode.Equals
-- uid: PAC.Colour.BlendMode.GetHashCode
-  name: GetHashCode()
-  href: api/PAC.Colour.BlendMode.html#PAC_Colour_BlendMode_GetHashCode
-  commentId: M:PAC.Colour.BlendMode.GetHashCode
-  fullName: PAC.Colour.BlendMode.GetHashCode()
-  nameWithType: BlendMode.GetHashCode()
-- uid: PAC.Colour.BlendMode.GetHashCode*
-  name: GetHashCode
-  href: api/PAC.Colour.BlendMode.html#PAC_Colour_BlendMode_GetHashCode_
-  commentId: Overload:PAC.Colour.BlendMode.GetHashCode
-  isSpec: "True"
-  fullName: PAC.Colour.BlendMode.GetHashCode
-  nameWithType: BlendMode.GetHashCode
-- uid: PAC.Colour.BlendMode.JsonConverter
-  name: BlendMode.JsonConverter
-  href: api/PAC.Colour.BlendMode.JsonConverter.html
-  commentId: T:PAC.Colour.BlendMode.JsonConverter
-  fullName: PAC.Colour.BlendMode.JsonConverter
-  nameWithType: BlendMode.JsonConverter
-- uid: PAC.Colour.BlendMode.JsonConverter.FromJson(PAC.Json.JsonData.String)
-  name: FromJson(String)
-  href: api/PAC.Colour.BlendMode.JsonConverter.html#PAC_Colour_BlendMode_JsonConverter_FromJson_PAC_Json_JsonData_String_
-  commentId: M:PAC.Colour.BlendMode.JsonConverter.FromJson(PAC.Json.JsonData.String)
-  fullName: PAC.Colour.BlendMode.JsonConverter.FromJson(PAC.Json.JsonData.String)
-  nameWithType: BlendMode.JsonConverter.FromJson(JsonData.String)
-- uid: PAC.Colour.BlendMode.JsonConverter.FromJson*
-  name: FromJson
-  href: api/PAC.Colour.BlendMode.JsonConverter.html#PAC_Colour_BlendMode_JsonConverter_FromJson_
-  commentId: Overload:PAC.Colour.BlendMode.JsonConverter.FromJson
-  isSpec: "True"
-  fullName: PAC.Colour.BlendMode.JsonConverter.FromJson
-  nameWithType: BlendMode.JsonConverter.FromJson
-- uid: PAC.Colour.BlendMode.JsonConverter.ToJson(PAC.Colour.BlendMode)
-  name: ToJson(BlendMode)
-  href: api/PAC.Colour.BlendMode.JsonConverter.html#PAC_Colour_BlendMode_JsonConverter_ToJson_PAC_Colour_BlendMode_
-  commentId: M:PAC.Colour.BlendMode.JsonConverter.ToJson(PAC.Colour.BlendMode)
-  fullName: PAC.Colour.BlendMode.JsonConverter.ToJson(PAC.Colour.BlendMode)
-  nameWithType: BlendMode.JsonConverter.ToJson(BlendMode)
-- uid: PAC.Colour.BlendMode.JsonConverter.ToJson*
-  name: ToJson
-  href: api/PAC.Colour.BlendMode.JsonConverter.html#PAC_Colour_BlendMode_JsonConverter_ToJson_
-  commentId: Overload:PAC.Colour.BlendMode.JsonConverter.ToJson
-  isSpec: "True"
-  fullName: PAC.Colour.BlendMode.JsonConverter.ToJson
-  nameWithType: BlendMode.JsonConverter.ToJson
-- uid: PAC.Colour.BlendMode.Multiply
-  name: Multiply
-  href: api/PAC.Colour.BlendMode.html#PAC_Colour_BlendMode_Multiply
-  commentId: F:PAC.Colour.BlendMode.Multiply
-  fullName: PAC.Colour.BlendMode.Multiply
-  nameWithType: BlendMode.Multiply
-- uid: PAC.Colour.BlendMode.MultiplyColours(Color,Color)
-  name: MultiplyColours(Color, Color)
-  href: api/PAC.Colour.BlendMode.html#PAC_Colour_BlendMode_MultiplyColours_Color_Color_
-  commentId: M:PAC.Colour.BlendMode.MultiplyColours(Color,Color)
-  fullName: PAC.Colour.BlendMode.MultiplyColours(Color, Color)
-  nameWithType: BlendMode.MultiplyColours(Color, Color)
-- uid: PAC.Colour.BlendMode.MultiplyColours*
-  name: MultiplyColours
-  href: api/PAC.Colour.BlendMode.html#PAC_Colour_BlendMode_MultiplyColours_
-  commentId: Overload:PAC.Colour.BlendMode.MultiplyColours
-  isSpec: "True"
-  fullName: PAC.Colour.BlendMode.MultiplyColours
-  nameWithType: BlendMode.MultiplyColours
-- uid: PAC.Colour.BlendMode.Normal
-  name: Normal
-  href: api/PAC.Colour.BlendMode.html#PAC_Colour_BlendMode_Normal
-  commentId: F:PAC.Colour.BlendMode.Normal
-  fullName: PAC.Colour.BlendMode.Normal
-  nameWithType: BlendMode.Normal
-- uid: PAC.Colour.BlendMode.Overlay
-  name: Overlay
-  href: api/PAC.Colour.BlendMode.html#PAC_Colour_BlendMode_Overlay
-  commentId: F:PAC.Colour.BlendMode.Overlay
-  fullName: PAC.Colour.BlendMode.Overlay
-  nameWithType: BlendMode.Overlay
-- uid: PAC.Colour.BlendMode.Replace
-  name: Replace
-  href: api/PAC.Colour.BlendMode.html#PAC_Colour_BlendMode_Replace
-  commentId: F:PAC.Colour.BlendMode.Replace
-  fullName: PAC.Colour.BlendMode.Replace
-  nameWithType: BlendMode.Replace
-- uid: PAC.Colour.BlendMode.Screen
-  name: Screen
-  href: api/PAC.Colour.BlendMode.html#PAC_Colour_BlendMode_Screen
-  commentId: F:PAC.Colour.BlendMode.Screen
-  fullName: PAC.Colour.BlendMode.Screen
-  nameWithType: BlendMode.Screen
-- uid: PAC.Colour.BlendMode.StringToBlendMode(System.String)
-  name: StringToBlendMode(string)
-  href: api/PAC.Colour.BlendMode.html#PAC_Colour_BlendMode_StringToBlendMode_System_String_
-  commentId: M:PAC.Colour.BlendMode.StringToBlendMode(System.String)
-  name.vb: StringToBlendMode(String)
-  fullName: PAC.Colour.BlendMode.StringToBlendMode(string)
-  fullName.vb: PAC.Colour.BlendMode.StringToBlendMode(String)
-  nameWithType: BlendMode.StringToBlendMode(string)
-  nameWithType.vb: BlendMode.StringToBlendMode(String)
-- uid: PAC.Colour.BlendMode.StringToBlendMode*
-  name: StringToBlendMode
-  href: api/PAC.Colour.BlendMode.html#PAC_Colour_BlendMode_StringToBlendMode_
-  commentId: Overload:PAC.Colour.BlendMode.StringToBlendMode
-  isSpec: "True"
-  fullName: PAC.Colour.BlendMode.StringToBlendMode
-  nameWithType: BlendMode.StringToBlendMode
-- uid: PAC.Colour.BlendMode.Subtract
-  name: Subtract
-  href: api/PAC.Colour.BlendMode.html#PAC_Colour_BlendMode_Subtract
-  commentId: F:PAC.Colour.BlendMode.Subtract
-  fullName: PAC.Colour.BlendMode.Subtract
-  nameWithType: BlendMode.Subtract
-- uid: PAC.Colour.BlendMode.ToString
-  name: ToString()
-  href: api/PAC.Colour.BlendMode.html#PAC_Colour_BlendMode_ToString
-  commentId: M:PAC.Colour.BlendMode.ToString
-  fullName: PAC.Colour.BlendMode.ToString()
-  nameWithType: BlendMode.ToString()
-- uid: PAC.Colour.BlendMode.ToString*
-  name: ToString
-  href: api/PAC.Colour.BlendMode.html#PAC_Colour_BlendMode_ToString_
-  commentId: Overload:PAC.Colour.BlendMode.ToString
-  isSpec: "True"
-  fullName: PAC.Colour.BlendMode.ToString
-  nameWithType: BlendMode.ToString
-- uid: PAC.Colour.BlendMode.blendModes
-  name: blendModes
-  href: api/PAC.Colour.BlendMode.html#PAC_Colour_BlendMode_blendModes
-  commentId: F:PAC.Colour.BlendMode.blendModes
-  fullName: PAC.Colour.BlendMode.blendModes
-  nameWithType: BlendMode.blendModes
-- uid: PAC.Colour.BlendMode.op_Equality(PAC.Colour.BlendMode,PAC.Colour.BlendMode)
-  name: operator ==(BlendMode, BlendMode)
-  href: api/PAC.Colour.BlendMode.html#PAC_Colour_BlendMode_op_Equality_PAC_Colour_BlendMode_PAC_Colour_BlendMode_
-  commentId: M:PAC.Colour.BlendMode.op_Equality(PAC.Colour.BlendMode,PAC.Colour.BlendMode)
-  name.vb: =(BlendMode, BlendMode)
-  fullName: PAC.Colour.BlendMode.operator ==(PAC.Colour.BlendMode, PAC.Colour.BlendMode)
-  fullName.vb: PAC.Colour.BlendMode.=(PAC.Colour.BlendMode, PAC.Colour.BlendMode)
-  nameWithType: BlendMode.operator ==(BlendMode, BlendMode)
-  nameWithType.vb: BlendMode.=(BlendMode, BlendMode)
-- uid: PAC.Colour.BlendMode.op_Equality*
-  name: operator ==
-  href: api/PAC.Colour.BlendMode.html#PAC_Colour_BlendMode_op_Equality_
-  commentId: Overload:PAC.Colour.BlendMode.op_Equality
-  isSpec: "True"
-  name.vb: =
-  fullName: PAC.Colour.BlendMode.operator ==
-  fullName.vb: PAC.Colour.BlendMode.=
-  nameWithType: BlendMode.operator ==
-  nameWithType.vb: BlendMode.=
-- uid: PAC.Colour.BlendMode.op_Inequality(PAC.Colour.BlendMode,PAC.Colour.BlendMode)
-  name: operator !=(BlendMode, BlendMode)
-  href: api/PAC.Colour.BlendMode.html#PAC_Colour_BlendMode_op_Inequality_PAC_Colour_BlendMode_PAC_Colour_BlendMode_
-  commentId: M:PAC.Colour.BlendMode.op_Inequality(PAC.Colour.BlendMode,PAC.Colour.BlendMode)
-  name.vb: <>(BlendMode, BlendMode)
-  fullName: PAC.Colour.BlendMode.operator !=(PAC.Colour.BlendMode, PAC.Colour.BlendMode)
-  fullName.vb: PAC.Colour.BlendMode.<>(PAC.Colour.BlendMode, PAC.Colour.BlendMode)
-  nameWithType: BlendMode.operator !=(BlendMode, BlendMode)
-  nameWithType.vb: BlendMode.<>(BlendMode, BlendMode)
-- uid: PAC.Colour.BlendMode.op_Inequality*
-  name: operator !=
-  href: api/PAC.Colour.BlendMode.html#PAC_Colour_BlendMode_op_Inequality_
-  commentId: Overload:PAC.Colour.BlendMode.op_Inequality
-  isSpec: "True"
-  name.vb: <>
-  fullName: PAC.Colour.BlendMode.operator !=
-  fullName.vb: PAC.Colour.BlendMode.<>
-  nameWithType: BlendMode.operator !=
-  nameWithType.vb: BlendMode.<>
 - uid: PAC.Colour.ColorExtensions
   name: ColorExtensions
   href: api/PAC.Colour.ColorExtensions.html
@@ -630,6 +422,45 @@ references:
   isSpec: "True"
   fullName: PAC.Colour.ColorExtensions.Invert
   nameWithType: ColorExtensions.Invert
+- uid: PAC.Colour.ColorExtensions.NextColor(System.Random)
+  name: NextColor(Random)
+  href: api/PAC.Colour.ColorExtensions.html#PAC_Colour_ColorExtensions_NextColor_System_Random_
+  commentId: M:PAC.Colour.ColorExtensions.NextColor(System.Random)
+  fullName: PAC.Colour.ColorExtensions.NextColor(System.Random)
+  nameWithType: ColorExtensions.NextColor(Random)
+- uid: PAC.Colour.ColorExtensions.NextColor*
+  name: NextColor
+  href: api/PAC.Colour.ColorExtensions.html#PAC_Colour_ColorExtensions_NextColor_
+  commentId: Overload:PAC.Colour.ColorExtensions.NextColor
+  isSpec: "True"
+  fullName: PAC.Colour.ColorExtensions.NextColor
+  nameWithType: ColorExtensions.NextColor
+- uid: PAC.Colour.ColorExtensions.Premultiplied(Color)
+  name: Premultiplied(Color)
+  href: api/PAC.Colour.ColorExtensions.html#PAC_Colour_ColorExtensions_Premultiplied_Color_
+  commentId: M:PAC.Colour.ColorExtensions.Premultiplied(Color)
+  fullName: PAC.Colour.ColorExtensions.Premultiplied(Color)
+  nameWithType: ColorExtensions.Premultiplied(Color)
+- uid: PAC.Colour.ColorExtensions.Premultiplied*
+  name: Premultiplied
+  href: api/PAC.Colour.ColorExtensions.html#PAC_Colour_ColorExtensions_Premultiplied_
+  commentId: Overload:PAC.Colour.ColorExtensions.Premultiplied
+  isSpec: "True"
+  fullName: PAC.Colour.ColorExtensions.Premultiplied
+  nameWithType: ColorExtensions.Premultiplied
+- uid: PAC.Colour.ColorExtensions.Straight(Color)
+  name: Straight(Color)
+  href: api/PAC.Colour.ColorExtensions.html#PAC_Colour_ColorExtensions_Straight_Color_
+  commentId: M:PAC.Colour.ColorExtensions.Straight(Color)
+  fullName: PAC.Colour.ColorExtensions.Straight(Color)
+  nameWithType: ColorExtensions.Straight(Color)
+- uid: PAC.Colour.ColorExtensions.Straight*
+  name: Straight
+  href: api/PAC.Colour.ColorExtensions.html#PAC_Colour_ColorExtensions_Straight_
+  commentId: Overload:PAC.Colour.ColorExtensions.Straight
+  isSpec: "True"
+  fullName: PAC.Colour.ColorExtensions.Straight
+  nameWithType: ColorExtensions.Straight
 - uid: PAC.Colour.ColorExtensions.ToHSL(Color)
   name: ToHSL(Color)
   href: api/PAC.Colour.ColorExtensions.html#PAC_Colour_ColorExtensions_ToHSL_Color_
@@ -656,6 +487,197 @@ references:
   isSpec: "True"
   fullName: PAC.Colour.ColorExtensions.ToHSV
   nameWithType: ColorExtensions.ToHSV
+- uid: PAC.Colour.Compositing
+  name: PAC.Colour.Compositing
+  href: api/PAC.Colour.Compositing.html
+  commentId: N:PAC.Colour.Compositing
+  fullName: PAC.Colour.Compositing
+  nameWithType: PAC.Colour.Compositing
+- uid: PAC.Colour.Compositing.AlphaCompositing
+  name: AlphaCompositing
+  href: api/PAC.Colour.Compositing.AlphaCompositing.html
+  commentId: T:PAC.Colour.Compositing.AlphaCompositing
+  fullName: PAC.Colour.Compositing.AlphaCompositing
+  nameWithType: AlphaCompositing
+- uid: PAC.Colour.Compositing.AlphaCompositing.Premultiplied
+  name: AlphaCompositing.Premultiplied
+  href: api/PAC.Colour.Compositing.AlphaCompositing.Premultiplied.html
+  commentId: T:PAC.Colour.Compositing.AlphaCompositing.Premultiplied
+  fullName: PAC.Colour.Compositing.AlphaCompositing.Premultiplied
+  nameWithType: AlphaCompositing.Premultiplied
+- uid: PAC.Colour.Compositing.AlphaCompositing.Premultiplied.SourceOver(Color,Color)
+  name: SourceOver(Color, Color)
+  href: api/PAC.Colour.Compositing.AlphaCompositing.Premultiplied.html#PAC_Colour_Compositing_AlphaCompositing_Premultiplied_SourceOver_Color_Color_
+  commentId: M:PAC.Colour.Compositing.AlphaCompositing.Premultiplied.SourceOver(Color,Color)
+  fullName: PAC.Colour.Compositing.AlphaCompositing.Premultiplied.SourceOver(Color, Color)
+  nameWithType: AlphaCompositing.Premultiplied.SourceOver(Color, Color)
+- uid: PAC.Colour.Compositing.AlphaCompositing.Premultiplied.SourceOver*
+  name: SourceOver
+  href: api/PAC.Colour.Compositing.AlphaCompositing.Premultiplied.html#PAC_Colour_Compositing_AlphaCompositing_Premultiplied_SourceOver_
+  commentId: Overload:PAC.Colour.Compositing.AlphaCompositing.Premultiplied.SourceOver
+  isSpec: "True"
+  fullName: PAC.Colour.Compositing.AlphaCompositing.Premultiplied.SourceOver
+  nameWithType: AlphaCompositing.Premultiplied.SourceOver
+- uid: PAC.Colour.Compositing.AlphaCompositing.Straight
+  name: AlphaCompositing.Straight
+  href: api/PAC.Colour.Compositing.AlphaCompositing.Straight.html
+  commentId: T:PAC.Colour.Compositing.AlphaCompositing.Straight
+  fullName: PAC.Colour.Compositing.AlphaCompositing.Straight
+  nameWithType: AlphaCompositing.Straight
+- uid: PAC.Colour.Compositing.AlphaCompositing.Straight.SourceOver(Color,Color)
+  name: SourceOver(Color, Color)
+  href: api/PAC.Colour.Compositing.AlphaCompositing.Straight.html#PAC_Colour_Compositing_AlphaCompositing_Straight_SourceOver_Color_Color_
+  commentId: M:PAC.Colour.Compositing.AlphaCompositing.Straight.SourceOver(Color,Color)
+  fullName: PAC.Colour.Compositing.AlphaCompositing.Straight.SourceOver(Color, Color)
+  nameWithType: AlphaCompositing.Straight.SourceOver(Color, Color)
+- uid: PAC.Colour.Compositing.AlphaCompositing.Straight.SourceOver*
+  name: SourceOver
+  href: api/PAC.Colour.Compositing.AlphaCompositing.Straight.html#PAC_Colour_Compositing_AlphaCompositing_Straight_SourceOver_
+  commentId: Overload:PAC.Colour.Compositing.AlphaCompositing.Straight.SourceOver
+  isSpec: "True"
+  fullName: PAC.Colour.Compositing.AlphaCompositing.Straight.SourceOver
+  nameWithType: AlphaCompositing.Straight.SourceOver
+- uid: PAC.Colour.Compositing.BlendMode
+  name: BlendMode
+  href: api/PAC.Colour.Compositing.BlendMode.html
+  commentId: T:PAC.Colour.Compositing.BlendMode
+  fullName: PAC.Colour.Compositing.BlendMode
+  nameWithType: BlendMode
+- uid: PAC.Colour.Compositing.BlendMode.Add
+  name: Add
+  href: api/PAC.Colour.Compositing.BlendMode.html#PAC_Colour_Compositing_BlendMode_Add
+  commentId: F:PAC.Colour.Compositing.BlendMode.Add
+  fullName: PAC.Colour.Compositing.BlendMode.Add
+  nameWithType: BlendMode.Add
+- uid: PAC.Colour.Compositing.BlendMode.Blend(Color,Color)
+  name: Blend(Color, Color)
+  href: api/PAC.Colour.Compositing.BlendMode.html#PAC_Colour_Compositing_BlendMode_Blend_Color_Color_
+  commentId: M:PAC.Colour.Compositing.BlendMode.Blend(Color,Color)
+  fullName: PAC.Colour.Compositing.BlendMode.Blend(Color, Color)
+  nameWithType: BlendMode.Blend(Color, Color)
+- uid: PAC.Colour.Compositing.BlendMode.Blend(PAC.Colour.RGB,PAC.Colour.RGB)
+  name: Blend(RGB, RGB)
+  href: api/PAC.Colour.Compositing.BlendMode.html#PAC_Colour_Compositing_BlendMode_Blend_PAC_Colour_RGB_PAC_Colour_RGB_
+  commentId: M:PAC.Colour.Compositing.BlendMode.Blend(PAC.Colour.RGB,PAC.Colour.RGB)
+  fullName: PAC.Colour.Compositing.BlendMode.Blend(PAC.Colour.RGB, PAC.Colour.RGB)
+  nameWithType: BlendMode.Blend(RGB, RGB)
+- uid: PAC.Colour.Compositing.BlendMode.Blend*
+  name: Blend
+  href: api/PAC.Colour.Compositing.BlendMode.html#PAC_Colour_Compositing_BlendMode_Blend_
+  commentId: Overload:PAC.Colour.Compositing.BlendMode.Blend
+  isSpec: "True"
+  fullName: PAC.Colour.Compositing.BlendMode.Blend
+  nameWithType: BlendMode.Blend
+- uid: PAC.Colour.Compositing.BlendMode.BlendModes
+  name: BlendModes
+  href: api/PAC.Colour.Compositing.BlendMode.html#PAC_Colour_Compositing_BlendMode_BlendModes
+  commentId: F:PAC.Colour.Compositing.BlendMode.BlendModes
+  fullName: PAC.Colour.Compositing.BlendMode.BlendModes
+  nameWithType: BlendMode.BlendModes
+- uid: PAC.Colour.Compositing.BlendMode.JsonConverter
+  name: BlendMode.JsonConverter
+  href: api/PAC.Colour.Compositing.BlendMode.JsonConverter.html
+  commentId: T:PAC.Colour.Compositing.BlendMode.JsonConverter
+  fullName: PAC.Colour.Compositing.BlendMode.JsonConverter
+  nameWithType: BlendMode.JsonConverter
+- uid: PAC.Colour.Compositing.BlendMode.JsonConverter.FromJson(PAC.Json.JsonData.String)
+  name: FromJson(String)
+  href: api/PAC.Colour.Compositing.BlendMode.JsonConverter.html#PAC_Colour_Compositing_BlendMode_JsonConverter_FromJson_PAC_Json_JsonData_String_
+  commentId: M:PAC.Colour.Compositing.BlendMode.JsonConverter.FromJson(PAC.Json.JsonData.String)
+  fullName: PAC.Colour.Compositing.BlendMode.JsonConverter.FromJson(PAC.Json.JsonData.String)
+  nameWithType: BlendMode.JsonConverter.FromJson(JsonData.String)
+- uid: PAC.Colour.Compositing.BlendMode.JsonConverter.FromJson*
+  name: FromJson
+  href: api/PAC.Colour.Compositing.BlendMode.JsonConverter.html#PAC_Colour_Compositing_BlendMode_JsonConverter_FromJson_
+  commentId: Overload:PAC.Colour.Compositing.BlendMode.JsonConverter.FromJson
+  isSpec: "True"
+  fullName: PAC.Colour.Compositing.BlendMode.JsonConverter.FromJson
+  nameWithType: BlendMode.JsonConverter.FromJson
+- uid: PAC.Colour.Compositing.BlendMode.JsonConverter.ToJson(PAC.Colour.Compositing.BlendMode)
+  name: ToJson(BlendMode)
+  href: api/PAC.Colour.Compositing.BlendMode.JsonConverter.html#PAC_Colour_Compositing_BlendMode_JsonConverter_ToJson_PAC_Colour_Compositing_BlendMode_
+  commentId: M:PAC.Colour.Compositing.BlendMode.JsonConverter.ToJson(PAC.Colour.Compositing.BlendMode)
+  fullName: PAC.Colour.Compositing.BlendMode.JsonConverter.ToJson(PAC.Colour.Compositing.BlendMode)
+  nameWithType: BlendMode.JsonConverter.ToJson(BlendMode)
+- uid: PAC.Colour.Compositing.BlendMode.JsonConverter.ToJson*
+  name: ToJson
+  href: api/PAC.Colour.Compositing.BlendMode.JsonConverter.html#PAC_Colour_Compositing_BlendMode_JsonConverter_ToJson_
+  commentId: Overload:PAC.Colour.Compositing.BlendMode.JsonConverter.ToJson
+  isSpec: "True"
+  fullName: PAC.Colour.Compositing.BlendMode.JsonConverter.ToJson
+  nameWithType: BlendMode.JsonConverter.ToJson
+- uid: PAC.Colour.Compositing.BlendMode.Multiply
+  name: Multiply
+  href: api/PAC.Colour.Compositing.BlendMode.html#PAC_Colour_Compositing_BlendMode_Multiply
+  commentId: F:PAC.Colour.Compositing.BlendMode.Multiply
+  fullName: PAC.Colour.Compositing.BlendMode.Multiply
+  nameWithType: BlendMode.Multiply
+- uid: PAC.Colour.Compositing.BlendMode.Normal
+  name: Normal
+  href: api/PAC.Colour.Compositing.BlendMode.html#PAC_Colour_Compositing_BlendMode_Normal
+  commentId: F:PAC.Colour.Compositing.BlendMode.Normal
+  fullName: PAC.Colour.Compositing.BlendMode.Normal
+  nameWithType: BlendMode.Normal
+- uid: PAC.Colour.Compositing.BlendMode.Overlay
+  name: Overlay
+  href: api/PAC.Colour.Compositing.BlendMode.html#PAC_Colour_Compositing_BlendMode_Overlay
+  commentId: F:PAC.Colour.Compositing.BlendMode.Overlay
+  fullName: PAC.Colour.Compositing.BlendMode.Overlay
+  nameWithType: BlendMode.Overlay
+- uid: PAC.Colour.Compositing.BlendMode.Parse(System.String)
+  name: Parse(string)
+  href: api/PAC.Colour.Compositing.BlendMode.html#PAC_Colour_Compositing_BlendMode_Parse_System_String_
+  commentId: M:PAC.Colour.Compositing.BlendMode.Parse(System.String)
+  name.vb: Parse(String)
+  fullName: PAC.Colour.Compositing.BlendMode.Parse(string)
+  fullName.vb: PAC.Colour.Compositing.BlendMode.Parse(String)
+  nameWithType: BlendMode.Parse(string)
+  nameWithType.vb: BlendMode.Parse(String)
+- uid: PAC.Colour.Compositing.BlendMode.Parse*
+  name: Parse
+  href: api/PAC.Colour.Compositing.BlendMode.html#PAC_Colour_Compositing_BlendMode_Parse_
+  commentId: Overload:PAC.Colour.Compositing.BlendMode.Parse
+  isSpec: "True"
+  fullName: PAC.Colour.Compositing.BlendMode.Parse
+  nameWithType: BlendMode.Parse
+- uid: PAC.Colour.Compositing.BlendMode.Screen
+  name: Screen
+  href: api/PAC.Colour.Compositing.BlendMode.html#PAC_Colour_Compositing_BlendMode_Screen
+  commentId: F:PAC.Colour.Compositing.BlendMode.Screen
+  fullName: PAC.Colour.Compositing.BlendMode.Screen
+  nameWithType: BlendMode.Screen
+- uid: PAC.Colour.Compositing.BlendMode.Subtract
+  name: Subtract
+  href: api/PAC.Colour.Compositing.BlendMode.html#PAC_Colour_Compositing_BlendMode_Subtract
+  commentId: F:PAC.Colour.Compositing.BlendMode.Subtract
+  fullName: PAC.Colour.Compositing.BlendMode.Subtract
+  nameWithType: BlendMode.Subtract
+- uid: PAC.Colour.Compositing.BlendMode.ToString
+  name: ToString()
+  href: api/PAC.Colour.Compositing.BlendMode.html#PAC_Colour_Compositing_BlendMode_ToString
+  commentId: M:PAC.Colour.Compositing.BlendMode.ToString
+  fullName: PAC.Colour.Compositing.BlendMode.ToString()
+  nameWithType: BlendMode.ToString()
+- uid: PAC.Colour.Compositing.BlendMode.ToString*
+  name: ToString
+  href: api/PAC.Colour.Compositing.BlendMode.html#PAC_Colour_Compositing_BlendMode_ToString_
+  commentId: Overload:PAC.Colour.Compositing.BlendMode.ToString
+  isSpec: "True"
+  fullName: PAC.Colour.Compositing.BlendMode.ToString
+  nameWithType: BlendMode.ToString
+- uid: PAC.Colour.Compositing.BlendMode.name
+  name: name
+  href: api/PAC.Colour.Compositing.BlendMode.html#PAC_Colour_Compositing_BlendMode_name
+  commentId: P:PAC.Colour.Compositing.BlendMode.name
+  fullName: PAC.Colour.Compositing.BlendMode.name
+  nameWithType: BlendMode.name
+- uid: PAC.Colour.Compositing.BlendMode.name*
+  name: name
+  href: api/PAC.Colour.Compositing.BlendMode.html#PAC_Colour_Compositing_BlendMode_name_
+  commentId: Overload:PAC.Colour.Compositing.BlendMode.name
+  isSpec: "True"
+  fullName: PAC.Colour.Compositing.BlendMode.name
+  nameWithType: BlendMode.name
 - uid: PAC.Colour.HSL
   name: HSL
   href: api/PAC.Colour.HSL.html
@@ -1050,6 +1072,376 @@ references:
   isSpec: "True"
   fullName: PAC.Colour.HSV.v
   nameWithType: HSV.v
+- uid: PAC.Colour.RGB
+  name: RGB
+  href: api/PAC.Colour.RGB.html
+  commentId: T:PAC.Colour.RGB
+  fullName: PAC.Colour.RGB
+  nameWithType: RGB
+- uid: PAC.Colour.RGB.#ctor(System.Single,System.Single,System.Single)
+  name: RGB(float, float, float)
+  href: api/PAC.Colour.RGB.html#PAC_Colour_RGB__ctor_System_Single_System_Single_System_Single_
+  commentId: M:PAC.Colour.RGB.#ctor(System.Single,System.Single,System.Single)
+  name.vb: New(Single, Single, Single)
+  fullName: PAC.Colour.RGB.RGB(float, float, float)
+  fullName.vb: PAC.Colour.RGB.New(Single, Single, Single)
+  nameWithType: RGB.RGB(float, float, float)
+  nameWithType.vb: RGB.New(Single, Single, Single)
+- uid: PAC.Colour.RGB.#ctor*
+  name: RGB
+  href: api/PAC.Colour.RGB.html#PAC_Colour_RGB__ctor_
+  commentId: Overload:PAC.Colour.RGB.#ctor
+  isSpec: "True"
+  name.vb: New
+  fullName: PAC.Colour.RGB.RGB
+  fullName.vb: PAC.Colour.RGB.New
+  nameWithType: RGB.RGB
+  nameWithType.vb: RGB.New
+- uid: PAC.Colour.RGB.Black
+  name: Black
+  href: api/PAC.Colour.RGB.html#PAC_Colour_RGB_Black
+  commentId: F:PAC.Colour.RGB.Black
+  fullName: PAC.Colour.RGB.Black
+  nameWithType: RGB.Black
+- uid: PAC.Colour.RGB.Blue
+  name: Blue
+  href: api/PAC.Colour.RGB.html#PAC_Colour_RGB_Blue
+  commentId: F:PAC.Colour.RGB.Blue
+  fullName: PAC.Colour.RGB.Blue
+  nameWithType: RGB.Blue
+- uid: PAC.Colour.RGB.Clamp01
+  name: Clamp01()
+  href: api/PAC.Colour.RGB.html#PAC_Colour_RGB_Clamp01
+  commentId: M:PAC.Colour.RGB.Clamp01
+  fullName: PAC.Colour.RGB.Clamp01()
+  nameWithType: RGB.Clamp01()
+- uid: PAC.Colour.RGB.Clamp01*
+  name: Clamp01
+  href: api/PAC.Colour.RGB.html#PAC_Colour_RGB_Clamp01_
+  commentId: Overload:PAC.Colour.RGB.Clamp01
+  isSpec: "True"
+  fullName: PAC.Colour.RGB.Clamp01
+  nameWithType: RGB.Clamp01
+- uid: PAC.Colour.RGB.Equals(PAC.Colour.RGB)
+  name: Equals(RGB)
+  href: api/PAC.Colour.RGB.html#PAC_Colour_RGB_Equals_PAC_Colour_RGB_
+  commentId: M:PAC.Colour.RGB.Equals(PAC.Colour.RGB)
+  fullName: PAC.Colour.RGB.Equals(PAC.Colour.RGB)
+  nameWithType: RGB.Equals(RGB)
+- uid: PAC.Colour.RGB.Equals(PAC.Colour.RGB,System.Single)
+  name: Equals(RGB, float)
+  href: api/PAC.Colour.RGB.html#PAC_Colour_RGB_Equals_PAC_Colour_RGB_System_Single_
+  commentId: M:PAC.Colour.RGB.Equals(PAC.Colour.RGB,System.Single)
+  name.vb: Equals(RGB, Single)
+  fullName: PAC.Colour.RGB.Equals(PAC.Colour.RGB, float)
+  fullName.vb: PAC.Colour.RGB.Equals(PAC.Colour.RGB, Single)
+  nameWithType: RGB.Equals(RGB, float)
+  nameWithType.vb: RGB.Equals(RGB, Single)
+- uid: PAC.Colour.RGB.Equals(System.Object)
+  name: Equals(object)
+  href: api/PAC.Colour.RGB.html#PAC_Colour_RGB_Equals_System_Object_
+  commentId: M:PAC.Colour.RGB.Equals(System.Object)
+  name.vb: Equals(Object)
+  fullName: PAC.Colour.RGB.Equals(object)
+  fullName.vb: PAC.Colour.RGB.Equals(Object)
+  nameWithType: RGB.Equals(object)
+  nameWithType.vb: RGB.Equals(Object)
+- uid: PAC.Colour.RGB.Equals*
+  name: Equals
+  href: api/PAC.Colour.RGB.html#PAC_Colour_RGB_Equals_
+  commentId: Overload:PAC.Colour.RGB.Equals
+  isSpec: "True"
+  fullName: PAC.Colour.RGB.Equals
+  nameWithType: RGB.Equals
+- uid: PAC.Colour.RGB.GetHashCode
+  name: GetHashCode()
+  href: api/PAC.Colour.RGB.html#PAC_Colour_RGB_GetHashCode
+  commentId: M:PAC.Colour.RGB.GetHashCode
+  fullName: PAC.Colour.RGB.GetHashCode()
+  nameWithType: RGB.GetHashCode()
+- uid: PAC.Colour.RGB.GetHashCode*
+  name: GetHashCode
+  href: api/PAC.Colour.RGB.html#PAC_Colour_RGB_GetHashCode_
+  commentId: Overload:PAC.Colour.RGB.GetHashCode
+  isSpec: "True"
+  fullName: PAC.Colour.RGB.GetHashCode
+  nameWithType: RGB.GetHashCode
+- uid: PAC.Colour.RGB.Green
+  name: Green
+  href: api/PAC.Colour.RGB.html#PAC_Colour_RGB_Green
+  commentId: F:PAC.Colour.RGB.Green
+  fullName: PAC.Colour.RGB.Green
+  nameWithType: RGB.Green
+- uid: PAC.Colour.RGB.LerpClamped(PAC.Colour.RGB,PAC.Colour.RGB,System.Single)
+  name: LerpClamped(RGB, RGB, float)
+  href: api/PAC.Colour.RGB.html#PAC_Colour_RGB_LerpClamped_PAC_Colour_RGB_PAC_Colour_RGB_System_Single_
+  commentId: M:PAC.Colour.RGB.LerpClamped(PAC.Colour.RGB,PAC.Colour.RGB,System.Single)
+  name.vb: LerpClamped(RGB, RGB, Single)
+  fullName: PAC.Colour.RGB.LerpClamped(PAC.Colour.RGB, PAC.Colour.RGB, float)
+  fullName.vb: PAC.Colour.RGB.LerpClamped(PAC.Colour.RGB, PAC.Colour.RGB, Single)
+  nameWithType: RGB.LerpClamped(RGB, RGB, float)
+  nameWithType.vb: RGB.LerpClamped(RGB, RGB, Single)
+- uid: PAC.Colour.RGB.LerpClamped*
+  name: LerpClamped
+  href: api/PAC.Colour.RGB.html#PAC_Colour_RGB_LerpClamped_
+  commentId: Overload:PAC.Colour.RGB.LerpClamped
+  isSpec: "True"
+  fullName: PAC.Colour.RGB.LerpClamped
+  nameWithType: RGB.LerpClamped
+- uid: PAC.Colour.RGB.LerpUnclamped(PAC.Colour.RGB,PAC.Colour.RGB,System.Single)
+  name: LerpUnclamped(RGB, RGB, float)
+  href: api/PAC.Colour.RGB.html#PAC_Colour_RGB_LerpUnclamped_PAC_Colour_RGB_PAC_Colour_RGB_System_Single_
+  commentId: M:PAC.Colour.RGB.LerpUnclamped(PAC.Colour.RGB,PAC.Colour.RGB,System.Single)
+  name.vb: LerpUnclamped(RGB, RGB, Single)
+  fullName: PAC.Colour.RGB.LerpUnclamped(PAC.Colour.RGB, PAC.Colour.RGB, float)
+  fullName.vb: PAC.Colour.RGB.LerpUnclamped(PAC.Colour.RGB, PAC.Colour.RGB, Single)
+  nameWithType: RGB.LerpUnclamped(RGB, RGB, float)
+  nameWithType.vb: RGB.LerpUnclamped(RGB, RGB, Single)
+- uid: PAC.Colour.RGB.LerpUnclamped*
+  name: LerpUnclamped
+  href: api/PAC.Colour.RGB.html#PAC_Colour_RGB_LerpUnclamped_
+  commentId: Overload:PAC.Colour.RGB.LerpUnclamped
+  isSpec: "True"
+  fullName: PAC.Colour.RGB.LerpUnclamped
+  nameWithType: RGB.LerpUnclamped
+- uid: PAC.Colour.RGB.Red
+  name: Red
+  href: api/PAC.Colour.RGB.html#PAC_Colour_RGB_Red
+  commentId: F:PAC.Colour.RGB.Red
+  fullName: PAC.Colour.RGB.Red
+  nameWithType: RGB.Red
+- uid: PAC.Colour.RGB.ToString
+  name: ToString()
+  href: api/PAC.Colour.RGB.html#PAC_Colour_RGB_ToString
+  commentId: M:PAC.Colour.RGB.ToString
+  fullName: PAC.Colour.RGB.ToString()
+  nameWithType: RGB.ToString()
+- uid: PAC.Colour.RGB.ToString*
+  name: ToString
+  href: api/PAC.Colour.RGB.html#PAC_Colour_RGB_ToString_
+  commentId: Overload:PAC.Colour.RGB.ToString
+  isSpec: "True"
+  fullName: PAC.Colour.RGB.ToString
+  nameWithType: RGB.ToString
+- uid: PAC.Colour.RGB.White
+  name: White
+  href: api/PAC.Colour.RGB.html#PAC_Colour_RGB_White
+  commentId: F:PAC.Colour.RGB.White
+  fullName: PAC.Colour.RGB.White
+  nameWithType: RGB.White
+- uid: PAC.Colour.RGB.WithAlpha(System.Single)
+  name: WithAlpha(float)
+  href: api/PAC.Colour.RGB.html#PAC_Colour_RGB_WithAlpha_System_Single_
+  commentId: M:PAC.Colour.RGB.WithAlpha(System.Single)
+  name.vb: WithAlpha(Single)
+  fullName: PAC.Colour.RGB.WithAlpha(float)
+  fullName.vb: PAC.Colour.RGB.WithAlpha(Single)
+  nameWithType: RGB.WithAlpha(float)
+  nameWithType.vb: RGB.WithAlpha(Single)
+- uid: PAC.Colour.RGB.WithAlpha*
+  name: WithAlpha
+  href: api/PAC.Colour.RGB.html#PAC_Colour_RGB_WithAlpha_
+  commentId: Overload:PAC.Colour.RGB.WithAlpha
+  isSpec: "True"
+  fullName: PAC.Colour.RGB.WithAlpha
+  nameWithType: RGB.WithAlpha
+- uid: PAC.Colour.RGB.b
+  name: b
+  href: api/PAC.Colour.RGB.html#PAC_Colour_RGB_b
+  commentId: F:PAC.Colour.RGB.b
+  fullName: PAC.Colour.RGB.b
+  nameWithType: RGB.b
+- uid: PAC.Colour.RGB.g
+  name: g
+  href: api/PAC.Colour.RGB.html#PAC_Colour_RGB_g
+  commentId: F:PAC.Colour.RGB.g
+  fullName: PAC.Colour.RGB.g
+  nameWithType: RGB.g
+- uid: PAC.Colour.RGB.op_Addition(PAC.Colour.RGB,PAC.Colour.RGB)
+  name: operator +(RGB, RGB)
+  href: api/PAC.Colour.RGB.html#PAC_Colour_RGB_op_Addition_PAC_Colour_RGB_PAC_Colour_RGB_
+  commentId: M:PAC.Colour.RGB.op_Addition(PAC.Colour.RGB,PAC.Colour.RGB)
+  name.vb: +(RGB, RGB)
+  fullName: PAC.Colour.RGB.operator +(PAC.Colour.RGB, PAC.Colour.RGB)
+  fullName.vb: PAC.Colour.RGB.+(PAC.Colour.RGB, PAC.Colour.RGB)
+  nameWithType: RGB.operator +(RGB, RGB)
+  nameWithType.vb: RGB.+(RGB, RGB)
+- uid: PAC.Colour.RGB.op_Addition*
+  name: operator +
+  href: api/PAC.Colour.RGB.html#PAC_Colour_RGB_op_Addition_
+  commentId: Overload:PAC.Colour.RGB.op_Addition
+  isSpec: "True"
+  name.vb: +
+  fullName: PAC.Colour.RGB.operator +
+  fullName.vb: PAC.Colour.RGB.+
+  nameWithType: RGB.operator +
+  nameWithType.vb: RGB.+
+- uid: PAC.Colour.RGB.op_Division(PAC.Colour.RGB,PAC.Colour.RGB)
+  name: operator /(RGB, RGB)
+  href: api/PAC.Colour.RGB.html#PAC_Colour_RGB_op_Division_PAC_Colour_RGB_PAC_Colour_RGB_
+  commentId: M:PAC.Colour.RGB.op_Division(PAC.Colour.RGB,PAC.Colour.RGB)
+  name.vb: /(RGB, RGB)
+  fullName: PAC.Colour.RGB.operator /(PAC.Colour.RGB, PAC.Colour.RGB)
+  fullName.vb: PAC.Colour.RGB./(PAC.Colour.RGB, PAC.Colour.RGB)
+  nameWithType: RGB.operator /(RGB, RGB)
+  nameWithType.vb: RGB./(RGB, RGB)
+- uid: PAC.Colour.RGB.op_Division(PAC.Colour.RGB,System.Single)
+  name: operator /(RGB, float)
+  href: api/PAC.Colour.RGB.html#PAC_Colour_RGB_op_Division_PAC_Colour_RGB_System_Single_
+  commentId: M:PAC.Colour.RGB.op_Division(PAC.Colour.RGB,System.Single)
+  name.vb: /(RGB, Single)
+  fullName: PAC.Colour.RGB.operator /(PAC.Colour.RGB, float)
+  fullName.vb: PAC.Colour.RGB./(PAC.Colour.RGB, Single)
+  nameWithType: RGB.operator /(RGB, float)
+  nameWithType.vb: RGB./(RGB, Single)
+- uid: PAC.Colour.RGB.op_Division*
+  name: operator /
+  href: api/PAC.Colour.RGB.html#PAC_Colour_RGB_op_Division_
+  commentId: Overload:PAC.Colour.RGB.op_Division
+  isSpec: "True"
+  name.vb: /
+  fullName: PAC.Colour.RGB.operator /
+  fullName.vb: PAC.Colour.RGB./
+  nameWithType: RGB.operator /
+  nameWithType.vb: RGB./
+- uid: PAC.Colour.RGB.op_Equality(PAC.Colour.RGB,PAC.Colour.RGB)
+  name: operator ==(RGB, RGB)
+  href: api/PAC.Colour.RGB.html#PAC_Colour_RGB_op_Equality_PAC_Colour_RGB_PAC_Colour_RGB_
+  commentId: M:PAC.Colour.RGB.op_Equality(PAC.Colour.RGB,PAC.Colour.RGB)
+  name.vb: =(RGB, RGB)
+  fullName: PAC.Colour.RGB.operator ==(PAC.Colour.RGB, PAC.Colour.RGB)
+  fullName.vb: PAC.Colour.RGB.=(PAC.Colour.RGB, PAC.Colour.RGB)
+  nameWithType: RGB.operator ==(RGB, RGB)
+  nameWithType.vb: RGB.=(RGB, RGB)
+- uid: PAC.Colour.RGB.op_Equality*
+  name: operator ==
+  href: api/PAC.Colour.RGB.html#PAC_Colour_RGB_op_Equality_
+  commentId: Overload:PAC.Colour.RGB.op_Equality
+  isSpec: "True"
+  name.vb: =
+  fullName: PAC.Colour.RGB.operator ==
+  fullName.vb: PAC.Colour.RGB.=
+  nameWithType: RGB.operator ==
+  nameWithType.vb: RGB.=
+- uid: PAC.Colour.RGB.op_Explicit(Color)~PAC.Colour.RGB
+  name: explicit operator RGB(Color)
+  href: api/PAC.Colour.RGB.html#PAC_Colour_RGB_op_Explicit_Color__PAC_Colour_RGB
+  commentId: M:PAC.Colour.RGB.op_Explicit(Color)~PAC.Colour.RGB
+  name.vb: CType(Color)
+  fullName: PAC.Colour.RGB.explicit operator PAC.Colour.RGB(Color)
+  fullName.vb: PAC.Colour.RGB.CType(Color)
+  nameWithType: RGB.explicit operator RGB(Color)
+  nameWithType.vb: RGB.CType(Color)
+- uid: PAC.Colour.RGB.op_Explicit*
+  name: explicit operator
+  href: api/PAC.Colour.RGB.html#PAC_Colour_RGB_op_Explicit_
+  commentId: Overload:PAC.Colour.RGB.op_Explicit
+  isSpec: "True"
+  name.vb: CType
+  fullName: PAC.Colour.RGB.explicit operator
+  fullName.vb: PAC.Colour.RGB.CType
+  nameWithType: RGB.explicit operator
+  nameWithType.vb: RGB.CType
+- uid: PAC.Colour.RGB.op_Inequality(PAC.Colour.RGB,PAC.Colour.RGB)
+  name: operator !=(RGB, RGB)
+  href: api/PAC.Colour.RGB.html#PAC_Colour_RGB_op_Inequality_PAC_Colour_RGB_PAC_Colour_RGB_
+  commentId: M:PAC.Colour.RGB.op_Inequality(PAC.Colour.RGB,PAC.Colour.RGB)
+  name.vb: <>(RGB, RGB)
+  fullName: PAC.Colour.RGB.operator !=(PAC.Colour.RGB, PAC.Colour.RGB)
+  fullName.vb: PAC.Colour.RGB.<>(PAC.Colour.RGB, PAC.Colour.RGB)
+  nameWithType: RGB.operator !=(RGB, RGB)
+  nameWithType.vb: RGB.<>(RGB, RGB)
+- uid: PAC.Colour.RGB.op_Inequality*
+  name: operator !=
+  href: api/PAC.Colour.RGB.html#PAC_Colour_RGB_op_Inequality_
+  commentId: Overload:PAC.Colour.RGB.op_Inequality
+  isSpec: "True"
+  name.vb: <>
+  fullName: PAC.Colour.RGB.operator !=
+  fullName.vb: PAC.Colour.RGB.<>
+  nameWithType: RGB.operator !=
+  nameWithType.vb: RGB.<>
+- uid: PAC.Colour.RGB.op_Multiply(PAC.Colour.RGB,PAC.Colour.RGB)
+  name: operator *(RGB, RGB)
+  href: api/PAC.Colour.RGB.html#PAC_Colour_RGB_op_Multiply_PAC_Colour_RGB_PAC_Colour_RGB_
+  commentId: M:PAC.Colour.RGB.op_Multiply(PAC.Colour.RGB,PAC.Colour.RGB)
+  name.vb: '*(RGB, RGB)'
+  fullName: PAC.Colour.RGB.operator *(PAC.Colour.RGB, PAC.Colour.RGB)
+  fullName.vb: PAC.Colour.RGB.*(PAC.Colour.RGB, PAC.Colour.RGB)
+  nameWithType: RGB.operator *(RGB, RGB)
+  nameWithType.vb: RGB.*(RGB, RGB)
+- uid: PAC.Colour.RGB.op_Multiply(PAC.Colour.RGB,System.Single)
+  name: operator *(RGB, float)
+  href: api/PAC.Colour.RGB.html#PAC_Colour_RGB_op_Multiply_PAC_Colour_RGB_System_Single_
+  commentId: M:PAC.Colour.RGB.op_Multiply(PAC.Colour.RGB,System.Single)
+  name.vb: '*(RGB, Single)'
+  fullName: PAC.Colour.RGB.operator *(PAC.Colour.RGB, float)
+  fullName.vb: PAC.Colour.RGB.*(PAC.Colour.RGB, Single)
+  nameWithType: RGB.operator *(RGB, float)
+  nameWithType.vb: RGB.*(RGB, Single)
+- uid: PAC.Colour.RGB.op_Multiply(System.Single,PAC.Colour.RGB)
+  name: operator *(float, RGB)
+  href: api/PAC.Colour.RGB.html#PAC_Colour_RGB_op_Multiply_System_Single_PAC_Colour_RGB_
+  commentId: M:PAC.Colour.RGB.op_Multiply(System.Single,PAC.Colour.RGB)
+  name.vb: '*(Single, RGB)'
+  fullName: PAC.Colour.RGB.operator *(float, PAC.Colour.RGB)
+  fullName.vb: PAC.Colour.RGB.*(Single, PAC.Colour.RGB)
+  nameWithType: RGB.operator *(float, RGB)
+  nameWithType.vb: RGB.*(Single, RGB)
+- uid: PAC.Colour.RGB.op_Multiply*
+  name: operator *
+  href: api/PAC.Colour.RGB.html#PAC_Colour_RGB_op_Multiply_
+  commentId: Overload:PAC.Colour.RGB.op_Multiply
+  isSpec: "True"
+  name.vb: '*'
+  fullName: PAC.Colour.RGB.operator *
+  fullName.vb: PAC.Colour.RGB.*
+  nameWithType: RGB.operator *
+  nameWithType.vb: RGB.*
+- uid: PAC.Colour.RGB.op_Subtraction(PAC.Colour.RGB,PAC.Colour.RGB)
+  name: operator -(RGB, RGB)
+  href: api/PAC.Colour.RGB.html#PAC_Colour_RGB_op_Subtraction_PAC_Colour_RGB_PAC_Colour_RGB_
+  commentId: M:PAC.Colour.RGB.op_Subtraction(PAC.Colour.RGB,PAC.Colour.RGB)
+  name.vb: -(RGB, RGB)
+  fullName: PAC.Colour.RGB.operator -(PAC.Colour.RGB, PAC.Colour.RGB)
+  fullName.vb: PAC.Colour.RGB.-(PAC.Colour.RGB, PAC.Colour.RGB)
+  nameWithType: RGB.operator -(RGB, RGB)
+  nameWithType.vb: RGB.-(RGB, RGB)
+- uid: PAC.Colour.RGB.op_Subtraction*
+  name: operator -
+  href: api/PAC.Colour.RGB.html#PAC_Colour_RGB_op_Subtraction_
+  commentId: Overload:PAC.Colour.RGB.op_Subtraction
+  isSpec: "True"
+  name.vb: '-'
+  fullName: PAC.Colour.RGB.operator -
+  fullName.vb: PAC.Colour.RGB.-
+  nameWithType: RGB.operator -
+  nameWithType.vb: RGB.-
+- uid: PAC.Colour.RGB.r
+  name: r
+  href: api/PAC.Colour.RGB.html#PAC_Colour_RGB_r
+  commentId: F:PAC.Colour.RGB.r
+  fullName: PAC.Colour.RGB.r
+  nameWithType: RGB.r
+- uid: PAC.Colour.RGBExtensions
+  name: RGBExtensions
+  href: api/PAC.Colour.RGBExtensions.html
+  commentId: T:PAC.Colour.RGBExtensions
+  fullName: PAC.Colour.RGBExtensions
+  nameWithType: RGBExtensions
+- uid: PAC.Colour.RGBExtensions.NextRGB(System.Random)
+  name: NextRGB(Random)
+  href: api/PAC.Colour.RGBExtensions.html#PAC_Colour_RGBExtensions_NextRGB_System_Random_
+  commentId: M:PAC.Colour.RGBExtensions.NextRGB(System.Random)
+  fullName: PAC.Colour.RGBExtensions.NextRGB(System.Random)
+  nameWithType: RGBExtensions.NextRGB(Random)
+- uid: PAC.Colour.RGBExtensions.NextRGB*
+  name: NextRGB
+  href: api/PAC.Colour.RGBExtensions.html#PAC_Colour_RGBExtensions_NextRGB_
+  commentId: Overload:PAC.Colour.RGBExtensions.NextRGB
+  isSpec: "True"
+  fullName: PAC.Colour.RGBExtensions.NextRGB
+  nameWithType: RGBExtensions.NextRGB
 - uid: PAC.ColourPicker
   name: PAC.ColourPicker
   href: api/PAC.ColourPicker.html
@@ -7544,6 +7936,19 @@ references:
   fullName.vb: PAC.Extensions.RandomExtensions.NextElement(Of T)(System.Random, System.Collections.Generic.IReadOnlyList(Of T))
   nameWithType: RandomExtensions.NextElement<T>(Random, IReadOnlyList<T>)
   nameWithType.vb: RandomExtensions.NextElement(Of T)(Random, IReadOnlyList(Of T))
+- uid: PAC.Extensions.RandomExtensions.NextFloat(System.Random)
+  name: NextFloat(Random)
+  href: api/PAC.Extensions.RandomExtensions.html#PAC_Extensions_RandomExtensions_NextFloat_System_Random_
+  commentId: M:PAC.Extensions.RandomExtensions.NextFloat(System.Random)
+  fullName: PAC.Extensions.RandomExtensions.NextFloat(System.Random)
+  nameWithType: RandomExtensions.NextFloat(Random)
+- uid: PAC.Extensions.RandomExtensions.NextFloat*
+  name: NextFloat
+  href: api/PAC.Extensions.RandomExtensions.html#PAC_Extensions_RandomExtensions_NextFloat_
+  commentId: Overload:PAC.Extensions.RandomExtensions.NextFloat
+  isSpec: "True"
+  fullName: PAC.Extensions.RandomExtensions.NextFloat
+  nameWithType: RandomExtensions.NextFloat
 - uid: PAC.Extensions.RandomExtensions.ToSequence(System.Random)
   name: ToSequence(Random)
   href: api/PAC.Extensions.RandomExtensions.html#PAC_Extensions_RandomExtensions_ToSequence_System_Random_
@@ -7684,23 +8089,23 @@ references:
   isSpec: "True"
   fullName: PAC.Extensions.Texture2DExtensions.Applied
   nameWithType: Texture2DExtensions.Applied
-- uid: PAC.Extensions.Texture2DExtensions.Blend(Color,Texture2D,PAC.Colour.BlendMode)
+- uid: PAC.Extensions.Texture2DExtensions.Blend(Color,Texture2D,PAC.Colour.Compositing.BlendMode)
   name: Blend(Color, Texture2D, BlendMode)
-  href: api/PAC.Extensions.Texture2DExtensions.html#PAC_Extensions_Texture2DExtensions_Blend_Color_Texture2D_PAC_Colour_BlendMode_
-  commentId: M:PAC.Extensions.Texture2DExtensions.Blend(Color,Texture2D,PAC.Colour.BlendMode)
-  fullName: PAC.Extensions.Texture2DExtensions.Blend(Color, Texture2D, PAC.Colour.BlendMode)
+  href: api/PAC.Extensions.Texture2DExtensions.html#PAC_Extensions_Texture2DExtensions_Blend_Color_Texture2D_PAC_Colour_Compositing_BlendMode_
+  commentId: M:PAC.Extensions.Texture2DExtensions.Blend(Color,Texture2D,PAC.Colour.Compositing.BlendMode)
+  fullName: PAC.Extensions.Texture2DExtensions.Blend(Color, Texture2D, PAC.Colour.Compositing.BlendMode)
   nameWithType: Texture2DExtensions.Blend(Color, Texture2D, BlendMode)
-- uid: PAC.Extensions.Texture2DExtensions.Blend(Texture2D,Texture2D,PAC.Colour.BlendMode)
+- uid: PAC.Extensions.Texture2DExtensions.Blend(Texture2D,Texture2D,PAC.Colour.Compositing.BlendMode)
   name: Blend(Texture2D, Texture2D, BlendMode)
-  href: api/PAC.Extensions.Texture2DExtensions.html#PAC_Extensions_Texture2DExtensions_Blend_Texture2D_Texture2D_PAC_Colour_BlendMode_
-  commentId: M:PAC.Extensions.Texture2DExtensions.Blend(Texture2D,Texture2D,PAC.Colour.BlendMode)
-  fullName: PAC.Extensions.Texture2DExtensions.Blend(Texture2D, Texture2D, PAC.Colour.BlendMode)
+  href: api/PAC.Extensions.Texture2DExtensions.html#PAC_Extensions_Texture2DExtensions_Blend_Texture2D_Texture2D_PAC_Colour_Compositing_BlendMode_
+  commentId: M:PAC.Extensions.Texture2DExtensions.Blend(Texture2D,Texture2D,PAC.Colour.Compositing.BlendMode)
+  fullName: PAC.Extensions.Texture2DExtensions.Blend(Texture2D, Texture2D, PAC.Colour.Compositing.BlendMode)
   nameWithType: Texture2DExtensions.Blend(Texture2D, Texture2D, BlendMode)
-- uid: PAC.Extensions.Texture2DExtensions.Blend(Texture2D,Texture2D,PAC.Colour.BlendMode,PAC.DataStructures.IntVector2)
+- uid: PAC.Extensions.Texture2DExtensions.Blend(Texture2D,Texture2D,PAC.Colour.Compositing.BlendMode,PAC.DataStructures.IntVector2)
   name: Blend(Texture2D, Texture2D, BlendMode, IntVector2)
-  href: api/PAC.Extensions.Texture2DExtensions.html#PAC_Extensions_Texture2DExtensions_Blend_Texture2D_Texture2D_PAC_Colour_BlendMode_PAC_DataStructures_IntVector2_
-  commentId: M:PAC.Extensions.Texture2DExtensions.Blend(Texture2D,Texture2D,PAC.Colour.BlendMode,PAC.DataStructures.IntVector2)
-  fullName: PAC.Extensions.Texture2DExtensions.Blend(Texture2D, Texture2D, PAC.Colour.BlendMode, PAC.DataStructures.IntVector2)
+  href: api/PAC.Extensions.Texture2DExtensions.html#PAC_Extensions_Texture2DExtensions_Blend_Texture2D_Texture2D_PAC_Colour_Compositing_BlendMode_PAC_DataStructures_IntVector2_
+  commentId: M:PAC.Extensions.Texture2DExtensions.Blend(Texture2D,Texture2D,PAC.Colour.Compositing.BlendMode,PAC.DataStructures.IntVector2)
+  fullName: PAC.Extensions.Texture2DExtensions.Blend(Texture2D, Texture2D, PAC.Colour.Compositing.BlendMode, PAC.DataStructures.IntVector2)
   nameWithType: Texture2DExtensions.Blend(Texture2D, Texture2D, BlendMode, IntVector2)
 - uid: PAC.Extensions.Texture2DExtensions.Blend*
   name: Blend
@@ -19993,13 +20398,13 @@ references:
   isSpec: "True"
   fullName: PAC.Layers.LayerManager.RemoveSelectedLayers
   nameWithType: LayerManager.RemoveSelectedLayers
-- uid: PAC.Layers.LayerManager.SetLayerBlendMode(System.Int32,PAC.Colour.BlendMode)
+- uid: PAC.Layers.LayerManager.SetLayerBlendMode(System.Int32,PAC.Colour.Compositing.BlendMode)
   name: SetLayerBlendMode(int, BlendMode)
-  href: api/PAC.Layers.LayerManager.html#PAC_Layers_LayerManager_SetLayerBlendMode_System_Int32_PAC_Colour_BlendMode_
-  commentId: M:PAC.Layers.LayerManager.SetLayerBlendMode(System.Int32,PAC.Colour.BlendMode)
+  href: api/PAC.Layers.LayerManager.html#PAC_Layers_LayerManager_SetLayerBlendMode_System_Int32_PAC_Colour_Compositing_BlendMode_
+  commentId: M:PAC.Layers.LayerManager.SetLayerBlendMode(System.Int32,PAC.Colour.Compositing.BlendMode)
   name.vb: SetLayerBlendMode(Integer, BlendMode)
-  fullName: PAC.Layers.LayerManager.SetLayerBlendMode(int, PAC.Colour.BlendMode)
-  fullName.vb: PAC.Layers.LayerManager.SetLayerBlendMode(Integer, PAC.Colour.BlendMode)
+  fullName: PAC.Layers.LayerManager.SetLayerBlendMode(int, PAC.Colour.Compositing.BlendMode)
+  fullName.vb: PAC.Layers.LayerManager.SetLayerBlendMode(Integer, PAC.Colour.Compositing.BlendMode)
   nameWithType: LayerManager.SetLayerBlendMode(int, BlendMode)
   nameWithType.vb: LayerManager.SetLayerBlendMode(Integer, BlendMode)
 - uid: PAC.Layers.LayerManager.SetLayerBlendMode*

@@ -89,7 +89,7 @@
 
 
   <h1 id="PAC_Colour_ColorExtensions" data-uid="PAC.Colour.ColorExtensions" class="text-break">
-Class ColorExtensions  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Colour/ColorExtensions.cs/#L5"><i class="bi bi-code-slash"></i></a>
+Class ColorExtensions  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Colour/ColorExtensions.cs/#L7"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -156,7 +156,7 @@ Class ColorExtensions  <a class="header-action link-secondary" title="View sourc
 
   <h3 id="PAC_Colour_ColorExtensions_Invert_Color_System_Boolean_" data-uid="PAC.Colour.ColorExtensions.Invert(Color,System.Boolean)">
   Invert(Color, bool)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Colour/ColorExtensions.cs/#L11"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Colour/ColorExtensions.cs/#L13"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Inverts the colour, i.e. does 1 - value for each component.</p>
@@ -192,11 +192,142 @@ Class ColorExtensions  <a class="header-action link-secondary" title="View sourc
 
 
 
+  <a id="PAC_Colour_ColorExtensions_NextColor_" data-uid="PAC.Colour.ColorExtensions.NextColor*"></a>
+
+  <h3 id="PAC_Colour_ColorExtensions_NextColor_System_Random_" data-uid="PAC.Colour.ColorExtensions.NextColor(System.Random)">
+  NextColor(Random)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Colour/ColorExtensions.cs/#L58"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Generates a random Color by independently generating a uniformly random value in <code>[0, 1)</code> for each component.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Color NextColor(this Random random)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>random</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.random">Random</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Color</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="PAC_Colour_ColorExtensions_NextColor_System_Random__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>Note that this will always be a valid colour in straight alpha form, but not necessarily in premultiplied alpha form.</p>
+</div>
+
+
+
+
+  <a id="PAC_Colour_ColorExtensions_Premultiplied_" data-uid="PAC.Colour.ColorExtensions.Premultiplied*"></a>
+
+  <h3 id="PAC_Colour_ColorExtensions_Premultiplied_Color_" data-uid="PAC.Colour.ColorExtensions.Premultiplied(Color)">
+  Premultiplied(Color)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Colour/ColorExtensions.cs/#L32"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the Color with its RGB values multiplied by its alpha.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Color Premultiplied(this Color colour)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>colour</code> <span class="xref">Color</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Color</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <dl class="typelist seealso">
+    <dt>See Also</dt>
+    <dd>
+    <div><a class="xref" href="PAC.Colour.ColorExtensions.html#PAC_Colour_ColorExtensions_Straight_Color_">Straight(Color)</a></div>
+    </dd>
+  </dl>
+
+
+  <a id="PAC_Colour_ColorExtensions_Straight_" data-uid="PAC.Colour.ColorExtensions.Straight*"></a>
+
+  <h3 id="PAC_Colour_ColorExtensions_Straight_Color_" data-uid="PAC.Colour.ColorExtensions.Straight(Color)">
+  Straight(Color)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Colour/ColorExtensions.cs/#L47"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the Color with its RGB values divided by its alpha, and its alpha unchanged.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Color Straight(this Color colour)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>colour</code> <span class="xref">Color</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Color</span></dt>
+    <dd><ul><li>
+If <code class="paramref">colour</code> has non-zero alpha: <code class="paramref">colour</code> with its RGB values divided by its alpha, and its alpha unchanged
+</li><li>
+If <code class="paramref">colour</code> has zero alpha: <code>(0, 0, 0, 0)</code>
+</li></ul>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <dl class="typelist seealso">
+    <dt>See Also</dt>
+    <dd>
+    <div><a class="xref" href="PAC.Colour.ColorExtensions.html#PAC_Colour_ColorExtensions_Premultiplied_Color_">Premultiplied(Color)</a></div>
+    </dd>
+  </dl>
+
+
   <a id="PAC_Colour_ColorExtensions_ToHSL_" data-uid="PAC.Colour.ColorExtensions.ToHSL*"></a>
 
   <h3 id="PAC_Colour_ColorExtensions_ToHSL_Color_" data-uid="PAC.Colour.ColorExtensions.ToHSL(Color)">
   ToHSL(Color)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Colour/ColorExtensions.cs/#L21"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Colour/ColorExtensions.cs/#L23"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -232,7 +363,7 @@ Class ColorExtensions  <a class="header-action link-secondary" title="View sourc
 
   <h3 id="PAC_Colour_ColorExtensions_ToHSV_Color_" data-uid="PAC.Colour.ColorExtensions.ToHSV(Color)">
   ToHSV(Color)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Colour/ColorExtensions.cs/#L16"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Colour/ColorExtensions.cs/#L18"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -268,7 +399,7 @@ Class ColorExtensions  <a class="header-action link-secondary" title="View sourc
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Colour/ColorExtensions.cs/#L5" class="edit-link">Edit this page</a>
+          <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Colour/ColorExtensions.cs/#L7" class="edit-link">Edit this page</a>
         </div>
 
 
