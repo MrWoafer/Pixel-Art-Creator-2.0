@@ -16,7 +16,6 @@ namespace PAC.Colour
         /// <summary>Alpha.</summary>
         public readonly float a { get; init; }
 
-        public HSV(float hue, float saturation, float value) : this(hue, saturation, value, 1f) { }
         public HSV(float hue, float saturation, float value, float alpha)
         {
             h = hue;

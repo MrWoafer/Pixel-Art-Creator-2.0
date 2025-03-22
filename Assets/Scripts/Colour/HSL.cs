@@ -16,7 +16,6 @@ namespace PAC.Colour
         /// <summary>Alpha.</summary>
         public readonly float a { get; init; }
 
-        public HSL(float hue, float saturation, float lightness) : this(hue, saturation, lightness, 1f) { }
         public HSL(float hue, float saturation, float lightness, float alpha)
         {
             h = hue;
