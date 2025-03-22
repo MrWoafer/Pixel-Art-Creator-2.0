@@ -81,11 +81,18 @@ namespace PAC.Colour
         /// Returns an <see cref="RGB"/> with the same RGB values as the <see cref="Color"/>, but discarding the alpha.
         /// </summary>
         public static explicit operator RGB(Color rgba) => new RGB(rgba.r, rgba.g, rgba.b);
-
         /// <summary>
         /// Returns a <see cref="Color"/> with the same RGB values and with the given alpha.
         /// </summary>
         public Color WithAlpha(float alpha) => new Color(r, g, b, alpha);
+
+        public static explicit operator HSL(RGB rgb) => (HSL)(HSV)rgb;
+
+        public static explicit operator HSV(RGB rgb)
+        {
+            Color.RGBToHSV(rgb.WithAlpha(1f), out float h, out float s, out float v);
+            return new HSV(h, s, v);
+        }
         #endregion
 
         #region Comparison

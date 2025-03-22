@@ -49,28 +49,23 @@ namespace PAC.Colour
         #endregion
 
         #region Conversion
-        public static explicit operator HSV(HSL hsl)
-        {
-            float v = hsl.l + hsl.s * Mathf.Min(hsl.l, 1f - hsl.l);
-            float s = v switch
-            {
-                0f => 0f,
-                _ => 2f * (1f - hsl.l / v),
-            };
-            return new HSV(hsl.h, s, v);
-        }
-
-        public static explicit operator HSV(RGB rgb)
-        {
-            Color.RGBToHSV(rgb.WithAlpha(1f), out float h, out float s, out float v);
-            return new HSV(h, s, v);
-        }
-        public static explicit operator RGB(HSV hsv) => (RGB)Color.HSVToRGB(hsv.h, hsv.s, hsv.v);
-
         /// <summary>
         /// Returns an <see cref="HSVA"/> with the same HSV values and with the given alpha.
         /// </summary>
         public HSVA WithAlpha(float alpha) => new HSVA(h, s, v, alpha);
+
+        public static explicit operator RGB(HSV hsv) => (RGB)Color.HSVToRGB(hsv.h, hsv.s, hsv.v);
+
+        public static explicit operator HSL(HSV hsv)
+        {
+            float l = hsv.v * (1f - hsv.s / 2f);
+            float s = l switch
+            {
+                0f or 1f => 0f,
+                _ => (hsv.v - l) / Mathf.Min(l, 1f - l)
+            };
+            return new HSL(hsv.h, s, l);
+        }
         #endregion
 
         #region Comparison

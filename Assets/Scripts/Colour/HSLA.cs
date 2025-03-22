@@ -63,10 +63,10 @@ namespace PAC.Colour
         /// </summary>
         public static explicit operator HSL(HSLA hsla) => new HSL(hsla.h, hsla.s, hsla.l);
 
-        public static explicit operator HSLA(HSVA hsva) => ((HSL)(HSV)hsva).WithAlpha(hsva.a);
-
         public static explicit operator HSLA(Color rgba) => ((HSL)(RGB)rgba).WithAlpha(rgba.a);
         public static explicit operator Color(HSLA hsla) => ((RGB)(HSL)hsla).WithAlpha(hsla.a);
+
+        public static explicit operator HSVA(HSLA hsla) => ((HSV)(HSL)hsla).WithAlpha(hsla.a);
         #endregion
 
         #region Comparison
