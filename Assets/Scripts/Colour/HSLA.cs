@@ -11,24 +11,36 @@ namespace PAC.Colour
         /// <summary>
         /// Hue.
         /// </summary>
+        /// <remarks>
+        /// This is intended to be in the inclusive-exclusive range <c>[0, 1)</c>, but can be outside.
+        /// </remarks>
         public readonly float h { get; init; }
         /// <summary>
         /// Saturation.
         /// </summary>
+        /// <remarks>
+        /// This is intended to be in the inclusive range <c>[0, 1]</c>, but can be outside.
+        /// </remarks>
         public readonly float s { get; init; }
         /// <summary>
         /// Lightness.
         /// </summary>
+        /// <remarks>
+        /// This is intended to be in the inclusive range <c>[0, 1]</c>, but can be outside.
+        /// </remarks>
         public readonly float l { get; init; }
         /// <summary>
         /// Alpha.
         /// </summary>
+        /// <remarks>
+        /// This is intended to be in the inclusive range <c>[0, 1]</c>, but can be outside.
+        /// </remarks>
         public readonly float a { get; init; }
         #endregion
 
         #region Constructors
         /// <summary>
-        /// Creates an <see cref="HSLA"/> with the given components without clamping.
+        /// Creates an <see cref="HSLA"/> with the given components without clamping or wrapping.
         /// </summary>
         /// <param name="hue">See <see cref="h"/>.</param>
         /// <param name="saturation">See <see cref="s"/>.</param>
