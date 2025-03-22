@@ -21,21 +21,21 @@ namespace PAC.Colour
         /// <remarks>
         /// This is intended to be in the inclusive range <c>[0, 1]</c>, but can be outside.
         /// </remarks>
-        public readonly float r;
+        public readonly float r { get; init; }
         /// <summary>
         /// The green channel of the colour.
         /// </summary>
         /// <remarks>
         /// This is intended to be in the inclusive range <c>[0, 1]</c>, but can be outside.
         /// </remarks>
-        public readonly float g;
+        public readonly float g { get; init; }
         /// <summary>
         /// The blue channel of the colour.
         /// </summary>
         /// <remarks>
         /// This is intended to be in the inclusive range <c>[0, 1]</c>, but can be outside.
         /// </remarks>
-        public readonly float b;
+        public readonly float b { get; init; }
         #endregion
 
         #region Predefined Instances
