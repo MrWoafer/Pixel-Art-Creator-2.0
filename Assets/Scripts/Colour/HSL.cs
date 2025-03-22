@@ -28,17 +28,12 @@ namespace PAC.Colour
         public static explicit operator HSL(HSV hsv)
         {
             float l = hsv.v * (1f - hsv.s / 2f);
-            float s_l;
-            if (l == 0f || l == 1f)
+            float s = l switch
             {
-                s_l = 0f;
-            }
-            else
-            {
-                s_l = (hsv.v - l) / Mathf.Min(l, 1f - l);
-            }
-
-            return new HSL(hsv.h, s_l, l, hsv.a);
+                0f or 1f => 0f,
+                _ => (hsv.v - l) / Mathf.Min(l, 1f - l)
+            };
+            return new HSL(hsv.h, s, l, hsv.a);
         }
 
         public static explicit operator HSL(Color rgba) => (HSL)(HSV)rgba;
