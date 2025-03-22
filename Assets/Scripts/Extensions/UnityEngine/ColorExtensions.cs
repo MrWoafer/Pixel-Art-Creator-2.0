@@ -17,15 +17,6 @@ namespace PAC.Extensions
             && Mathf.Abs(colour.a - otherColour.a) <= tolerance;
 
         /// <summary>
-        /// Inverts the colour, i.e. does 1 - value for each component.
-        /// </summary>
-        /// <param name="invertAlpha">Whether to invert the alpha value as well.</param>
-        public static Color Invert(this Color colour, bool invertAlpha = false)
-        {
-            return new Color(1f - colour.r, 1f - colour.g, 1f - colour.b, invertAlpha ? 1f - colour.a : colour.a);
-        }
-
-        /// <summary>
         /// Returns the <see cref="Color"/> with its RGB values multiplied by its alpha.
         /// </summary>
         /// <seealso cref="Straight(Color)"/>
