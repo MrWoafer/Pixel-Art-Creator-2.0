@@ -44,17 +44,10 @@ namespace PAC.Colour
         public static explicit operator HSL(Color rgba) => (HSL)(HSV)rgba;
         public static explicit operator Color(HSL hsl) => (Color)(HSV)hsl;
 
-        public override string ToString()
-        {
-            return ToString(3);
-        }
-        public string ToString(int decimalPlaces)
-        {
-            if (decimalPlaces < 0)
-            {
-                throw new System.Exception("Cannot have a negative number of decimal places. Decimal places: " + decimalPlaces);
-            }
-            return "(" + h.ToString("n" + decimalPlaces) + ", " + s.ToString("n" + decimalPlaces) + ", " + l.ToString("n" + decimalPlaces) + ", " + a.ToString("n" + decimalPlaces) + ")";
-        }
+        public override string ToString() => ToString("n3");
+        /// <summary>
+        /// Applies <paramref name="format"/> to each component.
+        /// </summary>
+        public string ToString(string format) => $"HSL({h.ToString(format)}, {s.ToString(format)}, {l.ToString(format)}, {a.ToString(format)})";
     }
 }

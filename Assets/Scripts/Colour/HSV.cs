@@ -53,17 +53,10 @@ namespace PAC.Colour
             return colour;
         }
 
-        public override string ToString()
-        {
-            return ToString(3);
-        }
-        public string ToString(int decimalPlaces)
-        {
-            if (decimalPlaces < 0)
-            {
-                throw new System.Exception("Cannot have a negative number of decimal places. Decimal places: " + decimalPlaces);
-            }
-            return "(" + h.ToString("n" + decimalPlaces) + ", " + s.ToString("n" + decimalPlaces) + ", " + v.ToString("n" + decimalPlaces) + ", " + a.ToString("n" + decimalPlaces) + ")";
-        }
+        public override string ToString() => ToString("n3");
+        /// <summary>
+        /// Applies <paramref name="format"/> to each component.
+        /// </summary>
+        public string ToString(string format) => $"HSV({h.ToString(format)}, {s.ToString(format)}, {v.ToString(format)}, {a.ToString(format)})";
     }
 }
