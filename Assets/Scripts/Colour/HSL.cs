@@ -16,9 +16,6 @@ namespace PAC.Colour
         /// <summary>Alpha.</summary>
         public float a { get; set; }
 
-        public HSV hsv => ToHSV();
-        public Color color => ToColor();
-
         public HSL(float hue, float saturation, float lightness) : this(hue, saturation, lightness, 1f) { }
         public HSL(float hue, float saturation, float lightness, float alpha)
         {
@@ -28,44 +25,24 @@ namespace PAC.Colour
             a = alpha;
         }
 
-        public HSL(Color rgb)
+        public static explicit operator HSL(HSV hsv)
         {
-            HSL hsl = new HSV(rgb).ToHSL();
-            h = hsl.h;
-            s = hsl.s;
-            l = hsl.l;
-            a = hsl.a;
-        }
-
-        public HSV ToHSV()
-        {
-            float v = l + s * Mathf.Min(l, 1f - l);
-            float s_v;
-            if (v == 0f)
+            float l = hsv.v * (1f - hsv.s / 2f);
+            float s_l;
+            if (l == 0f || l == 1f)
             {
-                s_v = 0f;
+                s_l = 0f;
             }
             else
             {
-                s_v = 2f * (1f - l / v);
+                s_l = (hsv.v - l) / Mathf.Min(l, 1f - l);
             }
 
-            return new HSV(h, s_v, v, a);
+            return new HSL(hsv.h, s_l, l, hsv.a);
         }
 
-        public Color ToColor()
-        {
-            return ToHSV().ToColor();
-        }
-
-        public static explicit operator HSV(HSL hsl)
-        {
-            return hsl.ToHSV();
-        }
-        public static explicit operator Color(HSL hsl)
-        {
-            return hsl.ToColor();
-        }
+        public static explicit operator HSL(Color rgba) => (HSL)(HSV)rgba;
+        public static explicit operator Color(HSL hsl) => (Color)(HSV)hsl;
 
         public override string ToString()
         {

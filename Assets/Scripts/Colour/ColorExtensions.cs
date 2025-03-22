@@ -15,16 +15,6 @@ namespace PAC.Colour
             return new Color(1f - colour.r, 1f - colour.g, 1f - colour.b, invertAlpha ? 1f - colour.a : colour.a);
         }
 
-        public static HSV ToHSV(this Color color)
-        {
-            return new HSV(color);
-        }
-
-        public static HSL ToHSL(this Color color)
-        {
-            return new HSL(color);
-        }
-
         /// <summary>
         /// Returns the <see cref="Color"/> with its RGB values multiplied by its alpha.
         /// </summary>

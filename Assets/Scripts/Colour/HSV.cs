@@ -16,9 +16,6 @@ namespace PAC.Colour
         /// <summary>Alpha.</summary>
         public float a { get; set; }
 
-        public HSL hsl => ToHSL();
-        public Color color => ToColor();
-
         public HSV(float hue, float saturation, float value) : this(hue, saturation, value, 1f) { }
         public HSV(float hue, float saturation, float value, float alpha)
         {
@@ -28,47 +25,32 @@ namespace PAC.Colour
             a = alpha;
         }
 
-        public HSV(Color rgb)
+        public static explicit operator HSV(HSL hsl)
         {
-            float _h, _s, _v;
-            Color.RGBToHSV(rgb, out _h, out _s, out _v);
-
-            h = _h;
-            s = _s;
-            v = _v;
-            a = rgb.a;
-        }
-
-        public HSL ToHSL()
-        {
-            float l = v * (1f - s / 2f);
-            float s_l;
-            if (l == 0f || l == 1f)
+            float v = hsl.l + hsl.s * Mathf.Min(hsl.l, 1f - hsl.l);
+            float s_v;
+            if (v == 0f)
             {
-                s_l = 0f;
+                s_v = 0f;
             }
             else
             {
-                s_l = (v - l) / Mathf.Min(l, 1f - l);
+                s_v = 2f * (1f - hsl.l / v);
             }
 
-            return new HSL(h, s_l, l, a);
+            return new HSV(hsl.h, s_v, v, hsl.a);
         }
 
-        public Color ToColor()
+        public static explicit operator HSV(Color rgba)
         {
-            Color colour = Color.HSVToRGB(h, s, v);
-            colour.a = a;
-            return colour;
-        }
-
-        public static explicit operator HSL(HSV hsv)
-        {
-            return hsv.ToHSL();
+            Color.RGBToHSV(rgba, out float h, out float s, out float v);
+            return new HSV(h, s, v, rgba.a);
         }
         public static explicit operator Color(HSV hsv)
         {
-            return hsv.ToColor();
+            Color colour = Color.HSVToRGB(hsv.h, hsv.s, hsv.v);
+            colour.a = hsv.a;
+            return colour;
         }
 
         public override string ToString()
