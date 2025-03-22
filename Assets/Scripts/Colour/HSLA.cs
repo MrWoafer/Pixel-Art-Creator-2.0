@@ -1,5 +1,7 @@
 using System;
 
+using PAC.Extensions;
+
 using UnityEngine;
 
 namespace PAC.Colour
@@ -103,5 +105,16 @@ namespace PAC.Colour
         /// Applies <paramref name="format"/> to each component.
         /// </summary>
         public string ToString(string format) => $"{nameof(HSLA)}({h.ToString(format)}, {s.ToString(format)}, {l.ToString(format)}, {a.ToString(format)})";
+    }
+
+    /// <summary>
+    /// Extension methods for <see cref="HSLA"/>.
+    /// </summary>
+    public static class HSLAExtensions
+    {
+        /// <summary>
+        /// Generates a random <see cref="HSLA"/> by independently generating a uniformly random value in <c>[0, 1)</c> for each component.
+        /// </summary>
+        public static HSLA NextHSLA(this System.Random random) => new HSLA(random.NextFloat(), random.NextFloat(), random.NextFloat(), random.NextFloat());
     }
 }
