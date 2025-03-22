@@ -5,16 +5,16 @@ namespace PAC.Colour
     /// <summary>
     /// Represents a colour in HSV form.
     /// </summary>
-    public struct HSV
+    public readonly struct HSV
     {
         /// <summary>Hue.</summary>
-        public float h { get; set; }
+        public readonly float h { get; init; }
         /// <summary>Saturation.</summary>
-        public float s { get; set; }
+        public readonly float s { get; init; }
         /// <summary>Value.</summary>
-        public float v { get; set; }
+        public readonly float v { get; init; }
         /// <summary>Alpha.</summary>
-        public float a { get; set; }
+        public readonly float a { get; init; }
 
         public HSV(float hue, float saturation, float value) : this(hue, saturation, value, 1f) { }
         public HSV(float hue, float saturation, float value, float alpha)
