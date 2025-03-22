@@ -80,7 +80,6 @@ namespace PAC.Colour
         /// <summary>
         /// Returns an <see cref="RGB"/> with the same RGB values as the <see cref="Color"/>, but discarding the alpha.
         /// </summary>
-        /// <param name="rgba"></param>
         public static explicit operator RGB(Color rgba) => new RGB(rgba.r, rgba.g, rgba.b);
 
         /// <summary>
@@ -161,13 +160,12 @@ namespace PAC.Colour
         /// <remarks>
         /// Values of <paramref name="t"/> outside the range <c>[0, 1]</c> will give outputs beyond <paramref name="start"/> or <paramref name="end"/>.
         /// </remarks>
-        /// /// <seealso cref="LerpClamped(RGB, RGB, float)"/>
+        /// <seealso cref="LerpClamped(RGB, RGB, float)"/>
         public static RGB LerpUnclamped(RGB start, RGB end, float t) => (1f - t) * start + t * end;
 
         /// <summary>
         /// Returns the <see cref="RGB"/> with each component clamped to the inclusive range <c>[0, 1]</c>.
         /// </summary>
-        /// <returns></returns>
         public RGB Clamp01() => new RGB(Mathf.Clamp01(r), Mathf.Clamp01(g), Mathf.Clamp01(b));
         #endregion
 
