@@ -176,7 +176,11 @@ namespace PAC.Colour
         public RGB Clamp01() => new RGB(Mathf.Clamp01(r), Mathf.Clamp01(g), Mathf.Clamp01(b));
         #endregion
 
-        public override string ToString() => $"{nameof(RGB)}({r}, {g}, {b})";
+        public override string ToString() => ToString("n3");
+        /// <summary>
+        /// Applies <paramref name="format"/> to each component.
+        /// </summary>
+        public string ToString(string format) => $"{nameof(RGB)}({r.ToString(format)}, {g.ToString(format)}, {b.ToString(format)})";
     }
 
     /// <summary>
