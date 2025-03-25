@@ -90,7 +90,12 @@ namespace PAC.Colour
         /// Converts from <see cref="RGB"/> to <see cref="HSL"/>.
         /// </summary>
         /// <remarks>
+        /// <para>
+        /// Does not do any clamping.
+        /// </para>
+        /// <para>
         /// This is independent of colour space.
+        /// </para>
         /// </remarks>
         public static explicit operator HSL(RGB rgb) => (HSL)(HSV)rgb;
 
@@ -98,7 +103,12 @@ namespace PAC.Colour
         /// Converts from <see cref="RGB"/> to <see cref="HSV"/>.
         /// </summary>
         /// <remarks>
+        /// <para>
+        /// Does not do any clamping.
+        /// </para>
+        /// <para>
         /// This is independent of colour space.
+        /// </para>
         /// </remarks>
         public static explicit operator HSV(RGB rgb)
         {

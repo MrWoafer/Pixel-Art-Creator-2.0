@@ -69,14 +69,24 @@ namespace PAC.Colour
         /// Converts from <see cref="Color"/> to <see cref="HSVA"/>.
         /// </summary>
         /// <remarks>
+        /// <para>
+        /// Does not do any clamping.
+        /// </para>
+        /// <para>
         /// This is independent of colour space.
+        /// </para>
         /// </remarks>
         public static explicit operator HSVA(Color rgba) => ((HSV)(RGB)rgba).WithAlpha(rgba.a);
         /// <summary>
         /// Converts from <see cref="HSVA"/> to <see cref="Color"/>.
         /// </summary>
         /// <remarks>
+        /// <para>
+        /// Does not do any clamping.
+        /// </para>
+        /// <para>
         /// This is independent of colour space.
+        /// </para>
         /// </remarks>
         public static explicit operator Color(HSVA hsva) => ((RGB)(HSV)hsva).WithAlpha(hsva.a);
 
@@ -84,7 +94,12 @@ namespace PAC.Colour
         /// Converts from <see cref="HSVA"/> to <see cref="HSLA"/>.
         /// </summary>
         /// <remarks>
+        /// <para>
+        /// Does not do any clamping.
+        /// </para>
+        /// <para>
         /// This is independent of colour space.
+        /// </para>
         /// </remarks>
         public static explicit operator HSLA(HSVA hsva) => ((HSL)(HSV)hsva).WithAlpha(hsva.a);
         #endregion
