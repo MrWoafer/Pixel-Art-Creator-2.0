@@ -67,7 +67,7 @@ namespace PAC.Colour
         /// This is independent of colour space.
         /// </para>
         /// </remarks>
-        public static explicit operator RGB(HSV hsv) => (RGB)Color.HSVToRGB(hsv.h, hsv.s, hsv.v);
+        public static explicit operator RGB(HSV hsv) => (RGB)Color.HSVToRGB(hsv.h, hsv.s, hsv.v, true);
 
         /// <summary>
         /// Converts from <see cref="HSV"/> to <see cref="HSL"/>.
