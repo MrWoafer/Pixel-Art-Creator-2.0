@@ -65,9 +65,27 @@ namespace PAC.Colour
         /// </summary>
         public static explicit operator HSL(HSLA hsla) => new HSL(hsla.h, hsla.s, hsla.l);
 
+        /// <summary>
+        /// Converts from <see cref="Color"/> to <see cref="HSLA"/>.
+        /// </summary>
+        /// <remarks>
+        /// This is independent of colour space.
+        /// </remarks>
         public static explicit operator HSLA(Color rgba) => ((HSL)(RGB)rgba).WithAlpha(rgba.a);
+        /// <summary>
+        /// Converts from <see cref="HSLA"/> to <see cref="Color"/>.
+        /// </summary>
+        /// <remarks>
+        /// This is independent of colour space.
+        /// </remarks>
         public static explicit operator Color(HSLA hsla) => ((RGB)(HSL)hsla).WithAlpha(hsla.a);
 
+        /// <summary>
+        /// Converts from <see cref="HSLA"/> to <see cref="HSVA"/>.
+        /// </summary>
+        /// <remarks>
+        /// This is independent of colour space.
+        /// </remarks>
         public static explicit operator HSVA(HSLA hsla) => ((HSV)(HSL)hsla).WithAlpha(hsla.a);
         #endregion
 

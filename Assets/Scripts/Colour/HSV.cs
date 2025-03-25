@@ -56,8 +56,20 @@ namespace PAC.Colour
         /// </summary>
         public HSVA WithAlpha(float alpha) => new HSVA(h, s, v, alpha);
 
+        /// <summary>
+        /// Converts from <see cref="HSV"/> to <see cref="RGB"/>.
+        /// </summary>
+        /// <remarks>
+        /// This is independent of colour space.
+        /// </remarks>
         public static explicit operator RGB(HSV hsv) => (RGB)Color.HSVToRGB(hsv.h, hsv.s, hsv.v);
 
+        /// <summary>
+        /// Converts from <see cref="HSV"/> to <see cref="HSL"/>.
+        /// </summary>
+        /// <remarks>
+        /// This is independent of colour space.
+        /// </remarks>
         public static explicit operator HSL(HSV hsv)
         {
             float l = hsv.v * (1f - hsv.s / 2f);
