@@ -1,3 +1,16 @@
 {
-	"name": "Project.Extensions.UnityEngine"
+    "name": "Project.Extensions.UnityEngine",
+    "rootNamespace": "",
+    "references": [
+        "GUID:421fd5d15d4752741be0dac48d0bd55e"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
 }

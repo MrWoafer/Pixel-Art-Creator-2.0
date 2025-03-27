@@ -21,21 +21,21 @@ namespace PAC.Colour
         /// <remarks>
         /// This is intended to be in the inclusive range <c>[0, 1]</c>, but can be outside.
         /// </remarks>
-        public readonly float r;
+        public readonly float r { get; init; }
         /// <summary>
         /// The green channel of the colour.
         /// </summary>
         /// <remarks>
         /// This is intended to be in the inclusive range <c>[0, 1]</c>, but can be outside.
         /// </remarks>
-        public readonly float g;
+        public readonly float g { get; init; }
         /// <summary>
         /// The blue channel of the colour.
         /// </summary>
         /// <remarks>
         /// This is intended to be in the inclusive range <c>[0, 1]</c>, but can be outside.
         /// </remarks>
-        public readonly float b;
+        public readonly float b { get; init; }
         #endregion
 
         #region Predefined Instances
@@ -80,13 +80,41 @@ namespace PAC.Colour
         /// <summary>
         /// Returns an <see cref="RGB"/> with the same RGB values as the <see cref="Color"/>, but discarding the alpha.
         /// </summary>
-        /// <param name="rgba"></param>
         public static explicit operator RGB(Color rgba) => new RGB(rgba.r, rgba.g, rgba.b);
-
         /// <summary>
         /// Returns a <see cref="Color"/> with the same RGB values and with the given alpha.
         /// </summary>
         public Color WithAlpha(float alpha) => new Color(r, g, b, alpha);
+
+        /// <summary>
+        /// Converts from <see cref="RGB"/> to <see cref="HSL"/>.
+        /// </summary>
+        /// <remarks>
+        /// <para>
+        /// Does not do any clamping.
+        /// </para>
+        /// <para>
+        /// This is independent of colour space.
+        /// </para>
+        /// </remarks>
+        public static explicit operator HSL(RGB rgb) => (HSL)(HSV)rgb;
+
+        /// <summary>
+        /// Converts from <see cref="RGB"/> to <see cref="HSV"/>.
+        /// </summary>
+        /// <remarks>
+        /// <para>
+        /// Does not do any clamping.
+        /// </para>
+        /// <para>
+        /// This is independent of colour space.
+        /// </para>
+        /// </remarks>
+        public static explicit operator HSV(RGB rgb)
+        {
+            Color.RGBToHSV(rgb.WithAlpha(1f), out float h, out float s, out float v);
+            return new HSV(h, s, v);
+        }
         #endregion
 
         #region Comparison
@@ -161,17 +189,20 @@ namespace PAC.Colour
         /// <remarks>
         /// Values of <paramref name="t"/> outside the range <c>[0, 1]</c> will give outputs beyond <paramref name="start"/> or <paramref name="end"/>.
         /// </remarks>
-        /// /// <seealso cref="LerpClamped(RGB, RGB, float)"/>
+        /// <seealso cref="LerpClamped(RGB, RGB, float)"/>
         public static RGB LerpUnclamped(RGB start, RGB end, float t) => (1f - t) * start + t * end;
 
         /// <summary>
         /// Returns the <see cref="RGB"/> with each component clamped to the inclusive range <c>[0, 1]</c>.
         /// </summary>
-        /// <returns></returns>
         public RGB Clamp01() => new RGB(Mathf.Clamp01(r), Mathf.Clamp01(g), Mathf.Clamp01(b));
         #endregion
 
-        public override string ToString() => $"{nameof(RGB)}({r}, {g}, {b})";
+        public override string ToString() => ToString("n3");
+        /// <summary>
+        /// Applies <paramref name="format"/> to each component.
+        /// </summary>
+        public string ToString(string format) => $"{nameof(RGB)}({r.ToString(format)}, {g.ToString(format)}, {b.ToString(format)})";
     }
 
     /// <summary>

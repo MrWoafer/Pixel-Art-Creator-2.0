@@ -41,8 +41,8 @@ namespace PAC.ColourPicker
         public float lightness => lightnessSlider.lightness;
         public float alpha { get; private set; } = 1f;
 
-        public Color color => hsl.color;
-        public HSL hsl => new HSL(hue, saturation, lightness, alpha);
+        public Color color => (Color)hsl;
+        public HSLA hsl => new HSLA(hue, saturation, lightness, alpha);
 
         void Awake()
         {
@@ -58,7 +58,7 @@ namespace PAC.ColourPicker
 
         public void SetColour(Color colour)
         {
-            HSL newHSL = new HSL(colour);
+            HSLA newHSL = (HSLA)colour;
             hueSaturationBox.SetHue(newHSL.h);
             hueSaturationBox.SetSaturation(newHSL.s);
             lightnessSlider.SetLightness(newHSL.l);

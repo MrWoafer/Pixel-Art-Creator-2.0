@@ -139,7 +139,7 @@ namespace PAC.ImageEditing
             {
                 for (int y = 0; y < height; y++)
                 {
-                    Color colour = new HSL(x / (float)width, y / (float)(height - 1), 0.5f).ToColor();
+                    Color colour = (Color)new HSLA(x / (float)width, y / (float)(height - 1), 0.5f, 1f);
                     texture.SetPixel(x, y, colour);
                 }
             }

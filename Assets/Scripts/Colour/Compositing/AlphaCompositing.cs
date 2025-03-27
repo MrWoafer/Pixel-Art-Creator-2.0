@@ -1,3 +1,5 @@
+using PAC.Extensions;
+
 using UnityEngine;
 
 namespace PAC.Colour.Compositing

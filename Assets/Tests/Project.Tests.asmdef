@@ -14,7 +14,8 @@
         "Project.Maths",
         "Project.Extensions.IReadOnlyList",
         "Project.Extensions.DataStructures",
-        "Project.Extensions.UnityEngine"
+        "Project.Extensions.UnityEngine",
+        "Project.Extensions.Random"
     ],
     "includePlatforms": [
         "Editor"

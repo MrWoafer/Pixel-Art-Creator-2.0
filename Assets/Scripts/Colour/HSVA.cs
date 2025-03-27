@@ -7,9 +7,9 @@ using UnityEngine;
 namespace PAC.Colour
 {
     /// <summary>
-    /// A colour in HSV (Hue, Saturation, Value) form with no alpha component.
+    /// A colour in HSV (Hue, Saturation, Value) form with an alpha component.
     /// </summary>
-    public readonly struct HSV : IEquatable<HSV>
+    public readonly struct HSVA : IEquatable<HSVA>
     {
         #region Fields
         /// <summary>
@@ -33,6 +33,13 @@ namespace PAC.Colour
         /// This is intended to be in the inclusive range <c>[0, 1]</c>, but can be outside.
         /// </remarks>
         public readonly float v { get; init; }
+        /// <summary>
+        /// Alpha.
+        /// </summary>
+        /// <remarks>
+        /// This is intended to be in the inclusive range <c>[0, 1]</c>, but can be outside.
+        /// </remarks>
+        public readonly float a { get; init; }
         #endregion
 
         #region Constructors
@@ -42,22 +49,24 @@ namespace PAC.Colour
         /// <param name="hue">See <see cref="h"/>.</param>
         /// <param name="saturation">See <see cref="s"/>.</param>
         /// <param name="value">See <see cref="v"/>.</param>
-        public HSV(float hue, float saturation, float value)
+        /// <param name="alpha">See <see cref="a"/>.</param>
+        public HSVA(float hue, float saturation, float value, float alpha)
         {
             h = hue;
             s = saturation;
             v = value;
+            a = alpha;
         }
         #endregion
 
         #region Conversion
         /// <summary>
-        /// Returns an <see cref="HSVA"/> with the same HSV values and with the given alpha.
+        /// Returns an <see cref="HSV"/> with the same HSV values as the <see cref="HSVA"/>, but discarding the alpha.
         /// </summary>
-        public HSVA WithAlpha(float alpha) => new HSVA(h, s, v, alpha);
+        public static explicit operator HSV(HSVA hsva) => new HSV(hsva.h, hsva.s, hsva.v);
 
         /// <summary>
-        /// Converts from <see cref="HSV"/> to <see cref="RGB"/>.
+        /// Converts from <see cref="Color"/> to <see cref="HSVA"/>.
         /// </summary>
         /// <remarks>
         /// <para>
@@ -67,10 +76,9 @@ namespace PAC.Colour
         /// This is independent of colour space.
         /// </para>
         /// </remarks>
-        public static explicit operator RGB(HSV hsv) => (RGB)Color.HSVToRGB(hsv.h, hsv.s, hsv.v, true);
-
+        public static explicit operator HSVA(Color rgba) => ((HSV)(RGB)rgba).WithAlpha(rgba.a);
         /// <summary>
-        /// Converts from <see cref="HSV"/> to <see cref="HSL"/>.
+        /// Converts from <see cref="HSVA"/> to <see cref="Color"/>.
         /// </summary>
         /// <remarks>
         /// <para>
@@ -80,61 +88,66 @@ namespace PAC.Colour
         /// This is independent of colour space.
         /// </para>
         /// </remarks>
-        public static explicit operator HSL(HSV hsv)
-        {
-            float l = hsv.v * (1f - hsv.s / 2f);
-            float s = l switch
-            {
-                0f or 1f => 0f,
-                _ => (hsv.v - l) / Mathf.Min(l, 1f - l)
-            };
-            return new HSL(hsv.h, s, l);
-        }
+        public static explicit operator Color(HSVA hsva) => ((RGB)(HSV)hsva).WithAlpha(hsva.a);
+
+        /// <summary>
+        /// Converts from <see cref="HSVA"/> to <see cref="HSLA"/>.
+        /// </summary>
+        /// <remarks>
+        /// <para>
+        /// Does not do any clamping.
+        /// </para>
+        /// <para>
+        /// This is independent of colour space.
+        /// </para>
+        /// </remarks>
+        public static explicit operator HSLA(HSVA hsva) => ((HSL)(HSV)hsva).WithAlpha(hsva.a);
         #endregion
 
         #region Comparison
         /// <summary>
         /// Component-wise equality.
         /// </summary>
-        public static bool operator ==(HSV x, HSV y) => x.h == y.h && x.s == y.s && x.v == y.v;
+        public static bool operator ==(HSVA x, HSVA y) => x.h == y.h && x.s == y.s && x.v == y.v && x.a == y.a;
         /// <summary>
-        /// See <see cref="operator ==(HSV, HSV)"/>.
+        /// See <see cref="operator ==(HSVA, HSVA)"/>.
         /// </summary>
-        public static bool operator !=(HSV x, HSV y) => !(x == y);
+        public static bool operator !=(HSVA x, HSVA y) => !(x == y);
         /// <summary>
-        /// See <see cref="operator ==(HSV, HSV)"/>.
+        /// See <see cref="operator ==(HSVA, HSVA)"/>.
         /// </summary>
-        public bool Equals(HSV other) => this == other;
+        public bool Equals(HSVA other) => this == other;
         /// <summary>
-        /// See <see cref="Equals(HSV)"/>.
+        /// See <see cref="Equals(HSVA)"/>.
         /// </summary>
-        public override bool Equals(object obj) => obj is HSV other && Equals(other);
+        public override bool Equals(object obj) => obj is HSVA other && Equals(other);
         /// <summary>
         /// Returns whether each component of <paramref name="other"/> differs from the corresponding component of <see langword="this"/> by &lt;= <paramref name="tolerance"/>.
         /// </summary>
-        public bool Equals(HSV other, float tolerance)
+        public bool Equals(HSVA other, float tolerance)
             => Mathf.Abs(h - other.h) <= tolerance
             && Mathf.Abs(s - other.s) <= tolerance
-            && Mathf.Abs(v - other.v) <= tolerance;
+            && Mathf.Abs(v - other.v) <= tolerance
+            && Mathf.Abs(a - other.a) <= tolerance;
 
-        public override int GetHashCode() => HashCode.Combine(h, s, v);
+        public override int GetHashCode() => HashCode.Combine(h, s, v, a);
         #endregion
 
         public override string ToString() => ToString("n3");
         /// <summary>
         /// Applies <paramref name="format"/> to each component.
         /// </summary>
-        public string ToString(string format) => $"{nameof(HSV)}({h.ToString(format)}, {s.ToString(format)}, {v.ToString(format)})";
+        public string ToString(string format) => $"{nameof(HSVA)}({h.ToString(format)}, {s.ToString(format)}, {v.ToString(format)}, {a.ToString(format)})";
     }
 
     /// <summary>
-    /// Extension methods for <see cref="HSV"/>.
+    /// Extension methods for <see cref="HSVA"/>.
     /// </summary>
-    public static class HSVExtensions
+    public static class HSVAExtensions
     {
         /// <summary>
-        /// Generates a random <see cref="HSV"/> by independently generating a uniformly random value in <c>[0, 1)</c> for each component.
+        /// Generates a random <see cref="HSVA"/> by independently generating a uniformly random value in <c>[0, 1)</c> for each component.
         /// </summary>
-        public static HSV NextHSV(this System.Random random) => new HSV(random.NextFloat(), random.NextFloat(), random.NextFloat());
+        public static HSVA NextHSVA(this System.Random random) => new HSVA(random.NextFloat(), random.NextFloat(), random.NextFloat(), random.NextFloat());
     }
 }

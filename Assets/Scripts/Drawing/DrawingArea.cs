@@ -427,7 +427,7 @@ namespace PAC.Drawing
 
             // When the brush is a single pixel, make the border black/white depending on the lightness of the pixel below
             Color outlineColour = Config.Colours.brushOutlineDark;
-            if (toolbar.brushPixelsIsSingleCentralPixel && file.liveRender.GetPixel(pixel).a != 0f && new HSL(file.liveRender.GetPixel(pixel)).l < 0.5f)
+            if (toolbar.brushPixelsIsSingleCentralPixel && file.liveRender.GetPixel(pixel).a != 0f && ((HSLA)file.liveRender.GetPixel(pixel)).l < 0.5f)
             {
                 outlineColour = Config.Colours.brushOutlineLight;
             }

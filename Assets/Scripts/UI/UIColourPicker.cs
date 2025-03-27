@@ -69,7 +69,7 @@ namespace PAC.UI
 
             inputSystem = Finder.inputSystem;
 
-            hslColourPicker.SubscribeToOnColourChange(() => UpdateColour(hslColourPicker.hsl.color));
+            hslColourPicker.SubscribeToOnColourChange(() => UpdateColour((Color)hslColourPicker.hsl));
         }
 
         // Start is called before the first frame update

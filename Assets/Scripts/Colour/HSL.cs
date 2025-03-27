@@ -1,83 +1,140 @@
+using System;
+
+using PAC.Extensions;
+
 using UnityEngine;
 
 namespace PAC.Colour
 {
     /// <summary>
-    /// Represents a colour in HSL form.
+    /// A colour in HSL (Hue, Saturation, Lightness) form with no alpha component.
     /// </summary>
-    public struct HSL
+    public readonly struct HSL : IEquatable<HSL>
     {
-        /// <summary>Hue.</summary>
-        public float h { get; set; }
-        /// <summary>Saturation.</summary>
-        public float s { get; set; }
-        /// <summary>Lightness.</summary>
-        public float l { get; set; }
-        /// <summary>Alpha.</summary>
-        public float a { get; set; }
+        #region Fields
+        /// <summary>
+        /// Hue.
+        /// </summary>
+        /// <remarks>
+        /// This is intended to be in the inclusive-exclusive range <c>[0, 1)</c>, but can be outside.
+        /// </remarks>
+        public readonly float h { get; init; }
+        /// <summary>
+        /// Saturation.
+        /// </summary>
+        /// <remarks>
+        /// This is intended to be in the inclusive range <c>[0, 1]</c>, but can be outside.
+        /// </remarks>
+        public readonly float s { get; init; }
+        /// <summary>
+        /// Lightness.
+        /// </summary>
+        /// <remarks>
+        /// This is intended to be in the inclusive range <c>[0, 1]</c>, but can be outside.
+        /// </remarks>
+        public readonly float l { get; init; }
+        #endregion
 
-        public HSV hsv => ToHSV();
-        public Color color => ToColor();
-
-        public HSL(float hue, float saturation, float lightness) : this(hue, saturation, lightness, 1f) { }
-        public HSL(float hue, float saturation, float lightness, float alpha)
+        #region Constructors
+        /// <summary>
+        /// Creates an <see cref="HSL"/> with the given components without clamping or wrapping.
+        /// </summary>
+        /// <param name="hue">See <see cref="h"/>.</param>
+        /// <param name="saturation">See <see cref="s"/>.</param>
+        /// <param name="lightness">See <see cref="l"/>.</param>
+        public HSL(float hue, float saturation, float lightness)
         {
             h = hue;
             s = saturation;
             l = lightness;
-            a = alpha;
         }
+        #endregion
 
-        public HSL(Color rgb)
-        {
-            HSL hsl = new HSV(rgb).ToHSL();
-            h = hsl.h;
-            s = hsl.s;
-            l = hsl.l;
-            a = hsl.a;
-        }
+        #region Conversion
+        /// <summary>
+        /// Returns an <see cref="HSL"/> with the same HSL values and with the given alpha.
+        /// </summary>
+        public HSLA WithAlpha(float alpha) => new HSLA(h, s, l, alpha);
 
-        public HSV ToHSV()
-        {
-            float v = l + s * Mathf.Min(l, 1f - l);
-            float s_v;
-            if (v == 0f)
-            {
-                s_v = 0f;
-            }
-            else
-            {
-                s_v = 2f * (1f - l / v);
-            }
+        /// <summary>
+        /// Converts from <see cref="HSL"/> to <see cref="RGB"/>.
+        /// </summary>
+        /// <remarks>
+        /// <para>
+        /// Does not do any clamping.
+        /// </para>
+        /// <para>
+        /// This is independent of colour space.
+        /// </para>
+        /// </remarks>
+        public static explicit operator RGB(HSL hsl) => (RGB)(HSV)hsl;
 
-            return new HSV(h, s_v, v, a);
-        }
-
-        public Color ToColor()
-        {
-            return ToHSV().ToColor();
-        }
-
+        /// <summary>
+        /// Converts from <see cref="HSL"/> to <see cref="HSV"/>.
+        /// </summary>
+        /// <remarks>
+        /// <para>
+        /// Does not do any clamping.
+        /// </para>
+        /// <para>
+        /// This is independent of colour space.
+        /// </para>
+        /// </remarks>
         public static explicit operator HSV(HSL hsl)
         {
-            return hsl.ToHSV();
-        }
-        public static explicit operator Color(HSL hsl)
-        {
-            return hsl.ToColor();
-        }
-
-        public override string ToString()
-        {
-            return ToString(3);
-        }
-        public string ToString(int decimalPlaces)
-        {
-            if (decimalPlaces < 0)
+            float v = hsl.l + hsl.s * Mathf.Min(hsl.l, 1f - hsl.l);
+            float s = v switch
             {
-                throw new System.Exception("Cannot have a negative number of decimal places. Decimal places: " + decimalPlaces);
-            }
-            return "(" + h.ToString("n" + decimalPlaces) + ", " + s.ToString("n" + decimalPlaces) + ", " + l.ToString("n" + decimalPlaces) + ", " + a.ToString("n" + decimalPlaces) + ")";
+                0f => 0f,
+                _ => 2f * (1f - hsl.l / v),
+            };
+            return new HSV(hsl.h, s, v);
         }
+        #endregion
+
+        #region Comparison
+        /// <summary>
+        /// Component-wise equality.
+        /// </summary>
+        public static bool operator ==(HSL x, HSL y) => x.h == y.h && x.s == y.s && x.l == y.l;
+        /// <summary>
+        /// See <see cref="operator ==(HSL, HSL)"/>.
+        /// </summary>
+        public static bool operator !=(HSL x, HSL y) => !(x == y);
+        /// <summary>
+        /// See <see cref="operator ==(HSL, HSL)"/>.
+        /// </summary>
+        public bool Equals(HSL other) => this == other;
+        /// <summary>
+        /// See <see cref="Equals(HSL)"/>.
+        /// </summary>
+        public override bool Equals(object obj) => obj is HSL other && Equals(other);
+        /// <summary>
+        /// Returns whether each component of <paramref name="other"/> differs from the corresponding component of <see langword="this"/> by &lt;= <paramref name="tolerance"/>.
+        /// </summary>
+        public bool Equals(HSL other, float tolerance)
+            => Mathf.Abs(h - other.h) <= tolerance
+            && Mathf.Abs(s - other.s) <= tolerance
+            && Mathf.Abs(l - other.l) <= tolerance;
+
+        public override int GetHashCode() => HashCode.Combine(h, s, l);
+        #endregion
+
+        public override string ToString() => ToString("n3");
+        /// <summary>
+        /// Applies <paramref name="format"/> to each component.
+        /// </summary>
+        public string ToString(string format) => $"{nameof(HSL)}({h.ToString(format)}, {s.ToString(format)}, {l.ToString(format)})";
+    }
+
+    /// <summary>
+    /// Extension methods for <see cref="HSL"/>.
+    /// </summary>
+    public static class HSLExtensions
+    {
+        /// <summary>
+        /// Generates a random <see cref="HSL"/> by independently generating a uniformly random value in <c>[0, 1)</c> for each component.
+        /// </summary>
+        public static HSL NextHSL(this System.Random random) => new HSL(random.NextFloat(), random.NextFloat(), random.NextFloat());
     }
 }
