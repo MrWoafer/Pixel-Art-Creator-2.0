@@ -134,20 +134,6 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/PAC.Colour.ColorExtensions.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/PAC.Colour.ColorExtensions.html"
-        }
-      },
-      "version": "",
-      "Uid": null,
-      "IsMRef": true,
-      "Title": "PAC.Colour.ColorExtensions",
-      "Summary": null
-    },
-    {
-      "type": "ManagedReference",
       "source_relative_path": "api/PAC.Colour.Compositing.AlphaCompositing.Premultiplied.yml",
       "output": {
         ".html": {
@@ -242,7 +228,49 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "PAC.Colour.HSL",
-      "Summary": "<p sourcefile=\"api/PAC.Colour.HSL.yml\" sourcestartlinenumber=\"1\">Represents a colour in HSL form.</p>\n"
+      "Summary": "<p sourcefile=\"api/PAC.Colour.HSL.yml\" sourcestartlinenumber=\"1\">A colour in HSL (Hue, Saturation, Lightness) form with no alpha component.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.Colour.HSLA.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.Colour.HSLA.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "PAC.Colour.HSLA",
+      "Summary": "<p sourcefile=\"api/PAC.Colour.HSLA.yml\" sourcestartlinenumber=\"1\">A colour in HSL (Hue, Saturation, Lightness) form with an alpha component.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.Colour.HSLAExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.Colour.HSLAExtensions.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "PAC.Colour.HSLAExtensions",
+      "Summary": "<p sourcefile=\"api/PAC.Colour.HSLAExtensions.yml\" sourcestartlinenumber=\"1\">Extension methods for <xref href=\"PAC.Colour.HSLA\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.Colour.HSLExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.Colour.HSLExtensions.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "PAC.Colour.HSLExtensions",
+      "Summary": "<p sourcefile=\"api/PAC.Colour.HSLExtensions.yml\" sourcestartlinenumber=\"1\">Extension methods for <xref href=\"PAC.Colour.HSL\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -256,7 +284,49 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "PAC.Colour.HSV",
-      "Summary": "<p sourcefile=\"api/PAC.Colour.HSV.yml\" sourcestartlinenumber=\"1\">Represents a colour in HSV form.</p>\n"
+      "Summary": "<p sourcefile=\"api/PAC.Colour.HSV.yml\" sourcestartlinenumber=\"1\">A colour in HSV (Hue, Saturation, Value) form with no alpha component.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.Colour.HSVA.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.Colour.HSVA.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "PAC.Colour.HSVA",
+      "Summary": "<p sourcefile=\"api/PAC.Colour.HSVA.yml\" sourcestartlinenumber=\"1\">A colour in HSV (Hue, Saturation, Value) form with an alpha component.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.Colour.HSVAExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.Colour.HSVAExtensions.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "PAC.Colour.HSVAExtensions",
+      "Summary": "<p sourcefile=\"api/PAC.Colour.HSVAExtensions.yml\" sourcestartlinenumber=\"1\">Extension methods for <xref href=\"PAC.Colour.HSVA\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.Colour.HSVExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.Colour.HSVExtensions.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "PAC.Colour.HSVExtensions",
+      "Summary": "<p sourcefile=\"api/PAC.Colour.HSVExtensions.yml\" sourcestartlinenumber=\"1\">Extension methods for <xref href=\"PAC.Colour.HSV\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n"
     },
     {
       "type": "ManagedReference",

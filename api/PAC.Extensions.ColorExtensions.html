@@ -194,6 +194,137 @@ Class ColorExtensions  <a class="header-action link-secondary" title="View sourc
 
 
 
+  <a id="PAC_Extensions_ColorExtensions_NextColor_" data-uid="PAC.Extensions.ColorExtensions.NextColor*"></a>
+
+  <h3 id="PAC_Extensions_ColorExtensions_NextColor_System_Random_" data-uid="PAC.Extensions.ColorExtensions.NextColor(System.Random)">
+  NextColor(Random)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Extensions/UnityEngine/ColorExtensions.cs/#L49"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Generates a random Color by independently generating a uniformly random value in <code>[0, 1)</code> for each component.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Color NextColor(this Random random)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>random</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.random">Random</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Color</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="PAC_Extensions_ColorExtensions_NextColor_System_Random__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>Note that this will always be a valid colour in straight alpha form, but not necessarily in premultiplied alpha form.</p>
+</div>
+
+
+
+
+  <a id="PAC_Extensions_ColorExtensions_Premultiplied_" data-uid="PAC.Extensions.ColorExtensions.Premultiplied*"></a>
+
+  <h3 id="PAC_Extensions_ColorExtensions_Premultiplied_Color_" data-uid="PAC.Extensions.ColorExtensions.Premultiplied(Color)">
+  Premultiplied(Color)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Extensions/UnityEngine/ColorExtensions.cs/#L23"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the Color with its RGB values multiplied by its alpha.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Color Premultiplied(this Color colour)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>colour</code> <span class="xref">Color</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Color</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <dl class="typelist seealso">
+    <dt>See Also</dt>
+    <dd>
+    <div><a class="xref" href="PAC.Extensions.ColorExtensions.html#PAC_Extensions_ColorExtensions_Straight_Color_">Straight(Color)</a></div>
+    </dd>
+  </dl>
+
+
+  <a id="PAC_Extensions_ColorExtensions_Straight_" data-uid="PAC.Extensions.ColorExtensions.Straight*"></a>
+
+  <h3 id="PAC_Extensions_ColorExtensions_Straight_Color_" data-uid="PAC.Extensions.ColorExtensions.Straight(Color)">
+  Straight(Color)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Extensions/UnityEngine/ColorExtensions.cs/#L38"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the Color with its RGB values divided by its alpha, and its alpha unchanged.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Color Straight(this Color colour)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>colour</code> <span class="xref">Color</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Color</span></dt>
+    <dd><ul><li>
+If <code class="paramref">colour</code> has non-zero alpha: <code class="paramref">colour</code> with its RGB values divided by its alpha, and its alpha unchanged
+</li><li>
+If <code class="paramref">colour</code> has zero alpha: <code>(0, 0, 0, 0)</code>
+</li></ul>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <dl class="typelist seealso">
+    <dt>See Also</dt>
+    <dd>
+    <div><a class="xref" href="PAC.Extensions.ColorExtensions.html#PAC_Extensions_ColorExtensions_Premultiplied_Color_">Premultiplied(Color)</a></div>
+    </dd>
+  </dl>
+
+
 
 </article>
 

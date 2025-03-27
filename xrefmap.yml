@@ -400,93 +400,6 @@ references:
   commentId: N:PAC.Colour
   fullName: PAC.Colour
   nameWithType: PAC.Colour
-- uid: PAC.Colour.ColorExtensions
-  name: ColorExtensions
-  href: api/PAC.Colour.ColorExtensions.html
-  commentId: T:PAC.Colour.ColorExtensions
-  fullName: PAC.Colour.ColorExtensions
-  nameWithType: ColorExtensions
-- uid: PAC.Colour.ColorExtensions.Invert(Color,System.Boolean)
-  name: Invert(Color, bool)
-  href: api/PAC.Colour.ColorExtensions.html#PAC_Colour_ColorExtensions_Invert_Color_System_Boolean_
-  commentId: M:PAC.Colour.ColorExtensions.Invert(Color,System.Boolean)
-  name.vb: Invert(Color, Boolean)
-  fullName: PAC.Colour.ColorExtensions.Invert(Color, bool)
-  fullName.vb: PAC.Colour.ColorExtensions.Invert(Color, Boolean)
-  nameWithType: ColorExtensions.Invert(Color, bool)
-  nameWithType.vb: ColorExtensions.Invert(Color, Boolean)
-- uid: PAC.Colour.ColorExtensions.Invert*
-  name: Invert
-  href: api/PAC.Colour.ColorExtensions.html#PAC_Colour_ColorExtensions_Invert_
-  commentId: Overload:PAC.Colour.ColorExtensions.Invert
-  isSpec: "True"
-  fullName: PAC.Colour.ColorExtensions.Invert
-  nameWithType: ColorExtensions.Invert
-- uid: PAC.Colour.ColorExtensions.NextColor(System.Random)
-  name: NextColor(Random)
-  href: api/PAC.Colour.ColorExtensions.html#PAC_Colour_ColorExtensions_NextColor_System_Random_
-  commentId: M:PAC.Colour.ColorExtensions.NextColor(System.Random)
-  fullName: PAC.Colour.ColorExtensions.NextColor(System.Random)
-  nameWithType: ColorExtensions.NextColor(Random)
-- uid: PAC.Colour.ColorExtensions.NextColor*
-  name: NextColor
-  href: api/PAC.Colour.ColorExtensions.html#PAC_Colour_ColorExtensions_NextColor_
-  commentId: Overload:PAC.Colour.ColorExtensions.NextColor
-  isSpec: "True"
-  fullName: PAC.Colour.ColorExtensions.NextColor
-  nameWithType: ColorExtensions.NextColor
-- uid: PAC.Colour.ColorExtensions.Premultiplied(Color)
-  name: Premultiplied(Color)
-  href: api/PAC.Colour.ColorExtensions.html#PAC_Colour_ColorExtensions_Premultiplied_Color_
-  commentId: M:PAC.Colour.ColorExtensions.Premultiplied(Color)
-  fullName: PAC.Colour.ColorExtensions.Premultiplied(Color)
-  nameWithType: ColorExtensions.Premultiplied(Color)
-- uid: PAC.Colour.ColorExtensions.Premultiplied*
-  name: Premultiplied
-  href: api/PAC.Colour.ColorExtensions.html#PAC_Colour_ColorExtensions_Premultiplied_
-  commentId: Overload:PAC.Colour.ColorExtensions.Premultiplied
-  isSpec: "True"
-  fullName: PAC.Colour.ColorExtensions.Premultiplied
-  nameWithType: ColorExtensions.Premultiplied
-- uid: PAC.Colour.ColorExtensions.Straight(Color)
-  name: Straight(Color)
-  href: api/PAC.Colour.ColorExtensions.html#PAC_Colour_ColorExtensions_Straight_Color_
-  commentId: M:PAC.Colour.ColorExtensions.Straight(Color)
-  fullName: PAC.Colour.ColorExtensions.Straight(Color)
-  nameWithType: ColorExtensions.Straight(Color)
-- uid: PAC.Colour.ColorExtensions.Straight*
-  name: Straight
-  href: api/PAC.Colour.ColorExtensions.html#PAC_Colour_ColorExtensions_Straight_
-  commentId: Overload:PAC.Colour.ColorExtensions.Straight
-  isSpec: "True"
-  fullName: PAC.Colour.ColorExtensions.Straight
-  nameWithType: ColorExtensions.Straight
-- uid: PAC.Colour.ColorExtensions.ToHSL(Color)
-  name: ToHSL(Color)
-  href: api/PAC.Colour.ColorExtensions.html#PAC_Colour_ColorExtensions_ToHSL_Color_
-  commentId: M:PAC.Colour.ColorExtensions.ToHSL(Color)
-  fullName: PAC.Colour.ColorExtensions.ToHSL(Color)
-  nameWithType: ColorExtensions.ToHSL(Color)
-- uid: PAC.Colour.ColorExtensions.ToHSL*
-  name: ToHSL
-  href: api/PAC.Colour.ColorExtensions.html#PAC_Colour_ColorExtensions_ToHSL_
-  commentId: Overload:PAC.Colour.ColorExtensions.ToHSL
-  isSpec: "True"
-  fullName: PAC.Colour.ColorExtensions.ToHSL
-  nameWithType: ColorExtensions.ToHSL
-- uid: PAC.Colour.ColorExtensions.ToHSV(Color)
-  name: ToHSV(Color)
-  href: api/PAC.Colour.ColorExtensions.html#PAC_Colour_ColorExtensions_ToHSV_Color_
-  commentId: M:PAC.Colour.ColorExtensions.ToHSV(Color)
-  fullName: PAC.Colour.ColorExtensions.ToHSV(Color)
-  nameWithType: ColorExtensions.ToHSV(Color)
-- uid: PAC.Colour.ColorExtensions.ToHSV*
-  name: ToHSV
-  href: api/PAC.Colour.ColorExtensions.html#PAC_Colour_ColorExtensions_ToHSV_
-  commentId: Overload:PAC.Colour.ColorExtensions.ToHSV
-  isSpec: "True"
-  fullName: PAC.Colour.ColorExtensions.ToHSV
-  nameWithType: ColorExtensions.ToHSV
 - uid: PAC.Colour.Compositing
   name: PAC.Colour.Compositing
   href: api/PAC.Colour.Compositing.html
@@ -684,15 +597,6 @@ references:
   commentId: T:PAC.Colour.HSL
   fullName: PAC.Colour.HSL
   nameWithType: HSL
-- uid: PAC.Colour.HSL.#ctor(Color)
-  name: HSL(Color)
-  href: api/PAC.Colour.HSL.html#PAC_Colour_HSL__ctor_Color_
-  commentId: M:PAC.Colour.HSL.#ctor(Color)
-  name.vb: New(Color)
-  fullName: PAC.Colour.HSL.HSL(Color)
-  fullName.vb: PAC.Colour.HSL.New(Color)
-  nameWithType: HSL.HSL(Color)
-  nameWithType.vb: HSL.New(Color)
 - uid: PAC.Colour.HSL.#ctor(System.Single,System.Single,System.Single)
   name: HSL(float, float, float)
   href: api/PAC.Colour.HSL.html#PAC_Colour_HSL__ctor_System_Single_System_Single_System_Single_
@@ -702,15 +606,6 @@ references:
   fullName.vb: PAC.Colour.HSL.New(Single, Single, Single)
   nameWithType: HSL.HSL(float, float, float)
   nameWithType.vb: HSL.New(Single, Single, Single)
-- uid: PAC.Colour.HSL.#ctor(System.Single,System.Single,System.Single,System.Single)
-  name: HSL(float, float, float, float)
-  href: api/PAC.Colour.HSL.html#PAC_Colour_HSL__ctor_System_Single_System_Single_System_Single_System_Single_
-  commentId: M:PAC.Colour.HSL.#ctor(System.Single,System.Single,System.Single,System.Single)
-  name.vb: New(Single, Single, Single, Single)
-  fullName: PAC.Colour.HSL.HSL(float, float, float, float)
-  fullName.vb: PAC.Colour.HSL.New(Single, Single, Single, Single)
-  nameWithType: HSL.HSL(float, float, float, float)
-  nameWithType.vb: HSL.New(Single, Single, Single, Single)
 - uid: PAC.Colour.HSL.#ctor*
   name: HSL
   href: api/PAC.Colour.HSL.html#PAC_Colour_HSL__ctor_
@@ -721,47 +616,65 @@ references:
   fullName.vb: PAC.Colour.HSL.New
   nameWithType: HSL.HSL
   nameWithType.vb: HSL.New
-- uid: PAC.Colour.HSL.ToColor
-  name: ToColor()
-  href: api/PAC.Colour.HSL.html#PAC_Colour_HSL_ToColor
-  commentId: M:PAC.Colour.HSL.ToColor
-  fullName: PAC.Colour.HSL.ToColor()
-  nameWithType: HSL.ToColor()
-- uid: PAC.Colour.HSL.ToColor*
-  name: ToColor
-  href: api/PAC.Colour.HSL.html#PAC_Colour_HSL_ToColor_
-  commentId: Overload:PAC.Colour.HSL.ToColor
+- uid: PAC.Colour.HSL.Equals(PAC.Colour.HSL)
+  name: Equals(HSL)
+  href: api/PAC.Colour.HSL.html#PAC_Colour_HSL_Equals_PAC_Colour_HSL_
+  commentId: M:PAC.Colour.HSL.Equals(PAC.Colour.HSL)
+  fullName: PAC.Colour.HSL.Equals(PAC.Colour.HSL)
+  nameWithType: HSL.Equals(HSL)
+- uid: PAC.Colour.HSL.Equals(PAC.Colour.HSL,System.Single)
+  name: Equals(HSL, float)
+  href: api/PAC.Colour.HSL.html#PAC_Colour_HSL_Equals_PAC_Colour_HSL_System_Single_
+  commentId: M:PAC.Colour.HSL.Equals(PAC.Colour.HSL,System.Single)
+  name.vb: Equals(HSL, Single)
+  fullName: PAC.Colour.HSL.Equals(PAC.Colour.HSL, float)
+  fullName.vb: PAC.Colour.HSL.Equals(PAC.Colour.HSL, Single)
+  nameWithType: HSL.Equals(HSL, float)
+  nameWithType.vb: HSL.Equals(HSL, Single)
+- uid: PAC.Colour.HSL.Equals(System.Object)
+  name: Equals(object)
+  href: api/PAC.Colour.HSL.html#PAC_Colour_HSL_Equals_System_Object_
+  commentId: M:PAC.Colour.HSL.Equals(System.Object)
+  name.vb: Equals(Object)
+  fullName: PAC.Colour.HSL.Equals(object)
+  fullName.vb: PAC.Colour.HSL.Equals(Object)
+  nameWithType: HSL.Equals(object)
+  nameWithType.vb: HSL.Equals(Object)
+- uid: PAC.Colour.HSL.Equals*
+  name: Equals
+  href: api/PAC.Colour.HSL.html#PAC_Colour_HSL_Equals_
+  commentId: Overload:PAC.Colour.HSL.Equals
   isSpec: "True"
-  fullName: PAC.Colour.HSL.ToColor
-  nameWithType: HSL.ToColor
-- uid: PAC.Colour.HSL.ToHSV
-  name: ToHSV()
-  href: api/PAC.Colour.HSL.html#PAC_Colour_HSL_ToHSV
-  commentId: M:PAC.Colour.HSL.ToHSV
-  fullName: PAC.Colour.HSL.ToHSV()
-  nameWithType: HSL.ToHSV()
-- uid: PAC.Colour.HSL.ToHSV*
-  name: ToHSV
-  href: api/PAC.Colour.HSL.html#PAC_Colour_HSL_ToHSV_
-  commentId: Overload:PAC.Colour.HSL.ToHSV
+  fullName: PAC.Colour.HSL.Equals
+  nameWithType: HSL.Equals
+- uid: PAC.Colour.HSL.GetHashCode
+  name: GetHashCode()
+  href: api/PAC.Colour.HSL.html#PAC_Colour_HSL_GetHashCode
+  commentId: M:PAC.Colour.HSL.GetHashCode
+  fullName: PAC.Colour.HSL.GetHashCode()
+  nameWithType: HSL.GetHashCode()
+- uid: PAC.Colour.HSL.GetHashCode*
+  name: GetHashCode
+  href: api/PAC.Colour.HSL.html#PAC_Colour_HSL_GetHashCode_
+  commentId: Overload:PAC.Colour.HSL.GetHashCode
   isSpec: "True"
-  fullName: PAC.Colour.HSL.ToHSV
-  nameWithType: HSL.ToHSV
+  fullName: PAC.Colour.HSL.GetHashCode
+  nameWithType: HSL.GetHashCode
 - uid: PAC.Colour.HSL.ToString
   name: ToString()
   href: api/PAC.Colour.HSL.html#PAC_Colour_HSL_ToString
   commentId: M:PAC.Colour.HSL.ToString
   fullName: PAC.Colour.HSL.ToString()
   nameWithType: HSL.ToString()
-- uid: PAC.Colour.HSL.ToString(System.Int32)
-  name: ToString(int)
-  href: api/PAC.Colour.HSL.html#PAC_Colour_HSL_ToString_System_Int32_
-  commentId: M:PAC.Colour.HSL.ToString(System.Int32)
-  name.vb: ToString(Integer)
-  fullName: PAC.Colour.HSL.ToString(int)
-  fullName.vb: PAC.Colour.HSL.ToString(Integer)
-  nameWithType: HSL.ToString(int)
-  nameWithType.vb: HSL.ToString(Integer)
+- uid: PAC.Colour.HSL.ToString(System.String)
+  name: ToString(string)
+  href: api/PAC.Colour.HSL.html#PAC_Colour_HSL_ToString_System_String_
+  commentId: M:PAC.Colour.HSL.ToString(System.String)
+  name.vb: ToString(String)
+  fullName: PAC.Colour.HSL.ToString(string)
+  fullName.vb: PAC.Colour.HSL.ToString(String)
+  nameWithType: HSL.ToString(string)
+  nameWithType.vb: HSL.ToString(String)
 - uid: PAC.Colour.HSL.ToString*
   name: ToString
   href: api/PAC.Colour.HSL.html#PAC_Colour_HSL_ToString_
@@ -769,32 +682,22 @@ references:
   isSpec: "True"
   fullName: PAC.Colour.HSL.ToString
   nameWithType: HSL.ToString
-- uid: PAC.Colour.HSL.a
-  name: a
-  href: api/PAC.Colour.HSL.html#PAC_Colour_HSL_a
-  commentId: P:PAC.Colour.HSL.a
-  fullName: PAC.Colour.HSL.a
-  nameWithType: HSL.a
-- uid: PAC.Colour.HSL.a*
-  name: a
-  href: api/PAC.Colour.HSL.html#PAC_Colour_HSL_a_
-  commentId: Overload:PAC.Colour.HSL.a
+- uid: PAC.Colour.HSL.WithAlpha(System.Single)
+  name: WithAlpha(float)
+  href: api/PAC.Colour.HSL.html#PAC_Colour_HSL_WithAlpha_System_Single_
+  commentId: M:PAC.Colour.HSL.WithAlpha(System.Single)
+  name.vb: WithAlpha(Single)
+  fullName: PAC.Colour.HSL.WithAlpha(float)
+  fullName.vb: PAC.Colour.HSL.WithAlpha(Single)
+  nameWithType: HSL.WithAlpha(float)
+  nameWithType.vb: HSL.WithAlpha(Single)
+- uid: PAC.Colour.HSL.WithAlpha*
+  name: WithAlpha
+  href: api/PAC.Colour.HSL.html#PAC_Colour_HSL_WithAlpha_
+  commentId: Overload:PAC.Colour.HSL.WithAlpha
   isSpec: "True"
-  fullName: PAC.Colour.HSL.a
-  nameWithType: HSL.a
-- uid: PAC.Colour.HSL.color
-  name: color
-  href: api/PAC.Colour.HSL.html#PAC_Colour_HSL_color
-  commentId: P:PAC.Colour.HSL.color
-  fullName: PAC.Colour.HSL.color
-  nameWithType: HSL.color
-- uid: PAC.Colour.HSL.color*
-  name: color
-  href: api/PAC.Colour.HSL.html#PAC_Colour_HSL_color_
-  commentId: Overload:PAC.Colour.HSL.color
-  isSpec: "True"
-  fullName: PAC.Colour.HSL.color
-  nameWithType: HSL.color
+  fullName: PAC.Colour.HSL.WithAlpha
+  nameWithType: HSL.WithAlpha
 - uid: PAC.Colour.HSL.h
   name: h
   href: api/PAC.Colour.HSL.html#PAC_Colour_HSL_h
@@ -808,19 +711,6 @@ references:
   isSpec: "True"
   fullName: PAC.Colour.HSL.h
   nameWithType: HSL.h
-- uid: PAC.Colour.HSL.hsv
-  name: hsv
-  href: api/PAC.Colour.HSL.html#PAC_Colour_HSL_hsv
-  commentId: P:PAC.Colour.HSL.hsv
-  fullName: PAC.Colour.HSL.hsv
-  nameWithType: HSL.hsv
-- uid: PAC.Colour.HSL.hsv*
-  name: hsv
-  href: api/PAC.Colour.HSL.html#PAC_Colour_HSL_hsv_
-  commentId: Overload:PAC.Colour.HSL.hsv
-  isSpec: "True"
-  fullName: PAC.Colour.HSL.hsv
-  nameWithType: HSL.hsv
 - uid: PAC.Colour.HSL.l
   name: l
   href: api/PAC.Colour.HSL.html#PAC_Colour_HSL_l
@@ -834,15 +724,25 @@ references:
   isSpec: "True"
   fullName: PAC.Colour.HSL.l
   nameWithType: HSL.l
-- uid: PAC.Colour.HSL.op_Explicit(PAC.Colour.HSL)~Color
-  name: explicit operator Color(HSL)
-  href: api/PAC.Colour.HSL.html#PAC_Colour_HSL_op_Explicit_PAC_Colour_HSL__Color
-  commentId: M:PAC.Colour.HSL.op_Explicit(PAC.Colour.HSL)~Color
-  name.vb: CType(HSL)
-  fullName: PAC.Colour.HSL.explicit operator Color(PAC.Colour.HSL)
-  fullName.vb: PAC.Colour.HSL.CType(PAC.Colour.HSL)
-  nameWithType: HSL.explicit operator Color(HSL)
-  nameWithType.vb: HSL.CType(HSL)
+- uid: PAC.Colour.HSL.op_Equality(PAC.Colour.HSL,PAC.Colour.HSL)
+  name: operator ==(HSL, HSL)
+  href: api/PAC.Colour.HSL.html#PAC_Colour_HSL_op_Equality_PAC_Colour_HSL_PAC_Colour_HSL_
+  commentId: M:PAC.Colour.HSL.op_Equality(PAC.Colour.HSL,PAC.Colour.HSL)
+  name.vb: =(HSL, HSL)
+  fullName: PAC.Colour.HSL.operator ==(PAC.Colour.HSL, PAC.Colour.HSL)
+  fullName.vb: PAC.Colour.HSL.=(PAC.Colour.HSL, PAC.Colour.HSL)
+  nameWithType: HSL.operator ==(HSL, HSL)
+  nameWithType.vb: HSL.=(HSL, HSL)
+- uid: PAC.Colour.HSL.op_Equality*
+  name: operator ==
+  href: api/PAC.Colour.HSL.html#PAC_Colour_HSL_op_Equality_
+  commentId: Overload:PAC.Colour.HSL.op_Equality
+  isSpec: "True"
+  name.vb: =
+  fullName: PAC.Colour.HSL.operator ==
+  fullName.vb: PAC.Colour.HSL.=
+  nameWithType: HSL.operator ==
+  nameWithType.vb: HSL.=
 - uid: PAC.Colour.HSL.op_Explicit(PAC.Colour.HSL)~PAC.Colour.HSV
   name: explicit operator HSV(HSL)
   href: api/PAC.Colour.HSL.html#PAC_Colour_HSL_op_Explicit_PAC_Colour_HSL__PAC_Colour_HSV
@@ -851,6 +751,15 @@ references:
   fullName: PAC.Colour.HSL.explicit operator PAC.Colour.HSV(PAC.Colour.HSL)
   fullName.vb: PAC.Colour.HSL.CType(PAC.Colour.HSL)
   nameWithType: HSL.explicit operator HSV(HSL)
+  nameWithType.vb: HSL.CType(HSL)
+- uid: PAC.Colour.HSL.op_Explicit(PAC.Colour.HSL)~PAC.Colour.RGB
+  name: explicit operator RGB(HSL)
+  href: api/PAC.Colour.HSL.html#PAC_Colour_HSL_op_Explicit_PAC_Colour_HSL__PAC_Colour_RGB
+  commentId: M:PAC.Colour.HSL.op_Explicit(PAC.Colour.HSL)~PAC.Colour.RGB
+  name.vb: CType(HSL)
+  fullName: PAC.Colour.HSL.explicit operator PAC.Colour.RGB(PAC.Colour.HSL)
+  fullName.vb: PAC.Colour.HSL.CType(PAC.Colour.HSL)
+  nameWithType: HSL.explicit operator RGB(HSL)
   nameWithType.vb: HSL.CType(HSL)
 - uid: PAC.Colour.HSL.op_Explicit*
   name: explicit operator
@@ -862,6 +771,25 @@ references:
   fullName.vb: PAC.Colour.HSL.CType
   nameWithType: HSL.explicit operator
   nameWithType.vb: HSL.CType
+- uid: PAC.Colour.HSL.op_Inequality(PAC.Colour.HSL,PAC.Colour.HSL)
+  name: operator !=(HSL, HSL)
+  href: api/PAC.Colour.HSL.html#PAC_Colour_HSL_op_Inequality_PAC_Colour_HSL_PAC_Colour_HSL_
+  commentId: M:PAC.Colour.HSL.op_Inequality(PAC.Colour.HSL,PAC.Colour.HSL)
+  name.vb: <>(HSL, HSL)
+  fullName: PAC.Colour.HSL.operator !=(PAC.Colour.HSL, PAC.Colour.HSL)
+  fullName.vb: PAC.Colour.HSL.<>(PAC.Colour.HSL, PAC.Colour.HSL)
+  nameWithType: HSL.operator !=(HSL, HSL)
+  nameWithType.vb: HSL.<>(HSL, HSL)
+- uid: PAC.Colour.HSL.op_Inequality*
+  name: operator !=
+  href: api/PAC.Colour.HSL.html#PAC_Colour_HSL_op_Inequality_
+  commentId: Overload:PAC.Colour.HSL.op_Inequality
+  isSpec: "True"
+  name.vb: <>
+  fullName: PAC.Colour.HSL.operator !=
+  fullName.vb: PAC.Colour.HSL.<>
+  nameWithType: HSL.operator !=
+  nameWithType.vb: HSL.<>
 - uid: PAC.Colour.HSL.s
   name: s
   href: api/PAC.Colour.HSL.html#PAC_Colour_HSL_s
@@ -875,21 +803,277 @@ references:
   isSpec: "True"
   fullName: PAC.Colour.HSL.s
   nameWithType: HSL.s
+- uid: PAC.Colour.HSLA
+  name: HSLA
+  href: api/PAC.Colour.HSLA.html
+  commentId: T:PAC.Colour.HSLA
+  fullName: PAC.Colour.HSLA
+  nameWithType: HSLA
+- uid: PAC.Colour.HSLA.#ctor(System.Single,System.Single,System.Single,System.Single)
+  name: HSLA(float, float, float, float)
+  href: api/PAC.Colour.HSLA.html#PAC_Colour_HSLA__ctor_System_Single_System_Single_System_Single_System_Single_
+  commentId: M:PAC.Colour.HSLA.#ctor(System.Single,System.Single,System.Single,System.Single)
+  name.vb: New(Single, Single, Single, Single)
+  fullName: PAC.Colour.HSLA.HSLA(float, float, float, float)
+  fullName.vb: PAC.Colour.HSLA.New(Single, Single, Single, Single)
+  nameWithType: HSLA.HSLA(float, float, float, float)
+  nameWithType.vb: HSLA.New(Single, Single, Single, Single)
+- uid: PAC.Colour.HSLA.#ctor*
+  name: HSLA
+  href: api/PAC.Colour.HSLA.html#PAC_Colour_HSLA__ctor_
+  commentId: Overload:PAC.Colour.HSLA.#ctor
+  isSpec: "True"
+  name.vb: New
+  fullName: PAC.Colour.HSLA.HSLA
+  fullName.vb: PAC.Colour.HSLA.New
+  nameWithType: HSLA.HSLA
+  nameWithType.vb: HSLA.New
+- uid: PAC.Colour.HSLA.Equals(PAC.Colour.HSLA)
+  name: Equals(HSLA)
+  href: api/PAC.Colour.HSLA.html#PAC_Colour_HSLA_Equals_PAC_Colour_HSLA_
+  commentId: M:PAC.Colour.HSLA.Equals(PAC.Colour.HSLA)
+  fullName: PAC.Colour.HSLA.Equals(PAC.Colour.HSLA)
+  nameWithType: HSLA.Equals(HSLA)
+- uid: PAC.Colour.HSLA.Equals(PAC.Colour.HSLA,System.Single)
+  name: Equals(HSLA, float)
+  href: api/PAC.Colour.HSLA.html#PAC_Colour_HSLA_Equals_PAC_Colour_HSLA_System_Single_
+  commentId: M:PAC.Colour.HSLA.Equals(PAC.Colour.HSLA,System.Single)
+  name.vb: Equals(HSLA, Single)
+  fullName: PAC.Colour.HSLA.Equals(PAC.Colour.HSLA, float)
+  fullName.vb: PAC.Colour.HSLA.Equals(PAC.Colour.HSLA, Single)
+  nameWithType: HSLA.Equals(HSLA, float)
+  nameWithType.vb: HSLA.Equals(HSLA, Single)
+- uid: PAC.Colour.HSLA.Equals(System.Object)
+  name: Equals(object)
+  href: api/PAC.Colour.HSLA.html#PAC_Colour_HSLA_Equals_System_Object_
+  commentId: M:PAC.Colour.HSLA.Equals(System.Object)
+  name.vb: Equals(Object)
+  fullName: PAC.Colour.HSLA.Equals(object)
+  fullName.vb: PAC.Colour.HSLA.Equals(Object)
+  nameWithType: HSLA.Equals(object)
+  nameWithType.vb: HSLA.Equals(Object)
+- uid: PAC.Colour.HSLA.Equals*
+  name: Equals
+  href: api/PAC.Colour.HSLA.html#PAC_Colour_HSLA_Equals_
+  commentId: Overload:PAC.Colour.HSLA.Equals
+  isSpec: "True"
+  fullName: PAC.Colour.HSLA.Equals
+  nameWithType: HSLA.Equals
+- uid: PAC.Colour.HSLA.GetHashCode
+  name: GetHashCode()
+  href: api/PAC.Colour.HSLA.html#PAC_Colour_HSLA_GetHashCode
+  commentId: M:PAC.Colour.HSLA.GetHashCode
+  fullName: PAC.Colour.HSLA.GetHashCode()
+  nameWithType: HSLA.GetHashCode()
+- uid: PAC.Colour.HSLA.GetHashCode*
+  name: GetHashCode
+  href: api/PAC.Colour.HSLA.html#PAC_Colour_HSLA_GetHashCode_
+  commentId: Overload:PAC.Colour.HSLA.GetHashCode
+  isSpec: "True"
+  fullName: PAC.Colour.HSLA.GetHashCode
+  nameWithType: HSLA.GetHashCode
+- uid: PAC.Colour.HSLA.ToString
+  name: ToString()
+  href: api/PAC.Colour.HSLA.html#PAC_Colour_HSLA_ToString
+  commentId: M:PAC.Colour.HSLA.ToString
+  fullName: PAC.Colour.HSLA.ToString()
+  nameWithType: HSLA.ToString()
+- uid: PAC.Colour.HSLA.ToString(System.String)
+  name: ToString(string)
+  href: api/PAC.Colour.HSLA.html#PAC_Colour_HSLA_ToString_System_String_
+  commentId: M:PAC.Colour.HSLA.ToString(System.String)
+  name.vb: ToString(String)
+  fullName: PAC.Colour.HSLA.ToString(string)
+  fullName.vb: PAC.Colour.HSLA.ToString(String)
+  nameWithType: HSLA.ToString(string)
+  nameWithType.vb: HSLA.ToString(String)
+- uid: PAC.Colour.HSLA.ToString*
+  name: ToString
+  href: api/PAC.Colour.HSLA.html#PAC_Colour_HSLA_ToString_
+  commentId: Overload:PAC.Colour.HSLA.ToString
+  isSpec: "True"
+  fullName: PAC.Colour.HSLA.ToString
+  nameWithType: HSLA.ToString
+- uid: PAC.Colour.HSLA.a
+  name: a
+  href: api/PAC.Colour.HSLA.html#PAC_Colour_HSLA_a
+  commentId: P:PAC.Colour.HSLA.a
+  fullName: PAC.Colour.HSLA.a
+  nameWithType: HSLA.a
+- uid: PAC.Colour.HSLA.a*
+  name: a
+  href: api/PAC.Colour.HSLA.html#PAC_Colour_HSLA_a_
+  commentId: Overload:PAC.Colour.HSLA.a
+  isSpec: "True"
+  fullName: PAC.Colour.HSLA.a
+  nameWithType: HSLA.a
+- uid: PAC.Colour.HSLA.h
+  name: h
+  href: api/PAC.Colour.HSLA.html#PAC_Colour_HSLA_h
+  commentId: P:PAC.Colour.HSLA.h
+  fullName: PAC.Colour.HSLA.h
+  nameWithType: HSLA.h
+- uid: PAC.Colour.HSLA.h*
+  name: h
+  href: api/PAC.Colour.HSLA.html#PAC_Colour_HSLA_h_
+  commentId: Overload:PAC.Colour.HSLA.h
+  isSpec: "True"
+  fullName: PAC.Colour.HSLA.h
+  nameWithType: HSLA.h
+- uid: PAC.Colour.HSLA.l
+  name: l
+  href: api/PAC.Colour.HSLA.html#PAC_Colour_HSLA_l
+  commentId: P:PAC.Colour.HSLA.l
+  fullName: PAC.Colour.HSLA.l
+  nameWithType: HSLA.l
+- uid: PAC.Colour.HSLA.l*
+  name: l
+  href: api/PAC.Colour.HSLA.html#PAC_Colour_HSLA_l_
+  commentId: Overload:PAC.Colour.HSLA.l
+  isSpec: "True"
+  fullName: PAC.Colour.HSLA.l
+  nameWithType: HSLA.l
+- uid: PAC.Colour.HSLA.op_Equality(PAC.Colour.HSLA,PAC.Colour.HSLA)
+  name: operator ==(HSLA, HSLA)
+  href: api/PAC.Colour.HSLA.html#PAC_Colour_HSLA_op_Equality_PAC_Colour_HSLA_PAC_Colour_HSLA_
+  commentId: M:PAC.Colour.HSLA.op_Equality(PAC.Colour.HSLA,PAC.Colour.HSLA)
+  name.vb: =(HSLA, HSLA)
+  fullName: PAC.Colour.HSLA.operator ==(PAC.Colour.HSLA, PAC.Colour.HSLA)
+  fullName.vb: PAC.Colour.HSLA.=(PAC.Colour.HSLA, PAC.Colour.HSLA)
+  nameWithType: HSLA.operator ==(HSLA, HSLA)
+  nameWithType.vb: HSLA.=(HSLA, HSLA)
+- uid: PAC.Colour.HSLA.op_Equality*
+  name: operator ==
+  href: api/PAC.Colour.HSLA.html#PAC_Colour_HSLA_op_Equality_
+  commentId: Overload:PAC.Colour.HSLA.op_Equality
+  isSpec: "True"
+  name.vb: =
+  fullName: PAC.Colour.HSLA.operator ==
+  fullName.vb: PAC.Colour.HSLA.=
+  nameWithType: HSLA.operator ==
+  nameWithType.vb: HSLA.=
+- uid: PAC.Colour.HSLA.op_Explicit(Color)~PAC.Colour.HSLA
+  name: explicit operator HSLA(Color)
+  href: api/PAC.Colour.HSLA.html#PAC_Colour_HSLA_op_Explicit_Color__PAC_Colour_HSLA
+  commentId: M:PAC.Colour.HSLA.op_Explicit(Color)~PAC.Colour.HSLA
+  name.vb: CType(Color)
+  fullName: PAC.Colour.HSLA.explicit operator PAC.Colour.HSLA(Color)
+  fullName.vb: PAC.Colour.HSLA.CType(Color)
+  nameWithType: HSLA.explicit operator HSLA(Color)
+  nameWithType.vb: HSLA.CType(Color)
+- uid: PAC.Colour.HSLA.op_Explicit(PAC.Colour.HSLA)~Color
+  name: explicit operator Color(HSLA)
+  href: api/PAC.Colour.HSLA.html#PAC_Colour_HSLA_op_Explicit_PAC_Colour_HSLA__Color
+  commentId: M:PAC.Colour.HSLA.op_Explicit(PAC.Colour.HSLA)~Color
+  name.vb: CType(HSLA)
+  fullName: PAC.Colour.HSLA.explicit operator Color(PAC.Colour.HSLA)
+  fullName.vb: PAC.Colour.HSLA.CType(PAC.Colour.HSLA)
+  nameWithType: HSLA.explicit operator Color(HSLA)
+  nameWithType.vb: HSLA.CType(HSLA)
+- uid: PAC.Colour.HSLA.op_Explicit(PAC.Colour.HSLA)~PAC.Colour.HSL
+  name: explicit operator HSL(HSLA)
+  href: api/PAC.Colour.HSLA.html#PAC_Colour_HSLA_op_Explicit_PAC_Colour_HSLA__PAC_Colour_HSL
+  commentId: M:PAC.Colour.HSLA.op_Explicit(PAC.Colour.HSLA)~PAC.Colour.HSL
+  name.vb: CType(HSLA)
+  fullName: PAC.Colour.HSLA.explicit operator PAC.Colour.HSL(PAC.Colour.HSLA)
+  fullName.vb: PAC.Colour.HSLA.CType(PAC.Colour.HSLA)
+  nameWithType: HSLA.explicit operator HSL(HSLA)
+  nameWithType.vb: HSLA.CType(HSLA)
+- uid: PAC.Colour.HSLA.op_Explicit(PAC.Colour.HSLA)~PAC.Colour.HSVA
+  name: explicit operator HSVA(HSLA)
+  href: api/PAC.Colour.HSLA.html#PAC_Colour_HSLA_op_Explicit_PAC_Colour_HSLA__PAC_Colour_HSVA
+  commentId: M:PAC.Colour.HSLA.op_Explicit(PAC.Colour.HSLA)~PAC.Colour.HSVA
+  name.vb: CType(HSLA)
+  fullName: PAC.Colour.HSLA.explicit operator PAC.Colour.HSVA(PAC.Colour.HSLA)
+  fullName.vb: PAC.Colour.HSLA.CType(PAC.Colour.HSLA)
+  nameWithType: HSLA.explicit operator HSVA(HSLA)
+  nameWithType.vb: HSLA.CType(HSLA)
+- uid: PAC.Colour.HSLA.op_Explicit*
+  name: explicit operator
+  href: api/PAC.Colour.HSLA.html#PAC_Colour_HSLA_op_Explicit_
+  commentId: Overload:PAC.Colour.HSLA.op_Explicit
+  isSpec: "True"
+  name.vb: CType
+  fullName: PAC.Colour.HSLA.explicit operator
+  fullName.vb: PAC.Colour.HSLA.CType
+  nameWithType: HSLA.explicit operator
+  nameWithType.vb: HSLA.CType
+- uid: PAC.Colour.HSLA.op_Inequality(PAC.Colour.HSLA,PAC.Colour.HSLA)
+  name: operator !=(HSLA, HSLA)
+  href: api/PAC.Colour.HSLA.html#PAC_Colour_HSLA_op_Inequality_PAC_Colour_HSLA_PAC_Colour_HSLA_
+  commentId: M:PAC.Colour.HSLA.op_Inequality(PAC.Colour.HSLA,PAC.Colour.HSLA)
+  name.vb: <>(HSLA, HSLA)
+  fullName: PAC.Colour.HSLA.operator !=(PAC.Colour.HSLA, PAC.Colour.HSLA)
+  fullName.vb: PAC.Colour.HSLA.<>(PAC.Colour.HSLA, PAC.Colour.HSLA)
+  nameWithType: HSLA.operator !=(HSLA, HSLA)
+  nameWithType.vb: HSLA.<>(HSLA, HSLA)
+- uid: PAC.Colour.HSLA.op_Inequality*
+  name: operator !=
+  href: api/PAC.Colour.HSLA.html#PAC_Colour_HSLA_op_Inequality_
+  commentId: Overload:PAC.Colour.HSLA.op_Inequality
+  isSpec: "True"
+  name.vb: <>
+  fullName: PAC.Colour.HSLA.operator !=
+  fullName.vb: PAC.Colour.HSLA.<>
+  nameWithType: HSLA.operator !=
+  nameWithType.vb: HSLA.<>
+- uid: PAC.Colour.HSLA.s
+  name: s
+  href: api/PAC.Colour.HSLA.html#PAC_Colour_HSLA_s
+  commentId: P:PAC.Colour.HSLA.s
+  fullName: PAC.Colour.HSLA.s
+  nameWithType: HSLA.s
+- uid: PAC.Colour.HSLA.s*
+  name: s
+  href: api/PAC.Colour.HSLA.html#PAC_Colour_HSLA_s_
+  commentId: Overload:PAC.Colour.HSLA.s
+  isSpec: "True"
+  fullName: PAC.Colour.HSLA.s
+  nameWithType: HSLA.s
+- uid: PAC.Colour.HSLAExtensions
+  name: HSLAExtensions
+  href: api/PAC.Colour.HSLAExtensions.html
+  commentId: T:PAC.Colour.HSLAExtensions
+  fullName: PAC.Colour.HSLAExtensions
+  nameWithType: HSLAExtensions
+- uid: PAC.Colour.HSLAExtensions.NextHSLA(System.Random)
+  name: NextHSLA(Random)
+  href: api/PAC.Colour.HSLAExtensions.html#PAC_Colour_HSLAExtensions_NextHSLA_System_Random_
+  commentId: M:PAC.Colour.HSLAExtensions.NextHSLA(System.Random)
+  fullName: PAC.Colour.HSLAExtensions.NextHSLA(System.Random)
+  nameWithType: HSLAExtensions.NextHSLA(Random)
+- uid: PAC.Colour.HSLAExtensions.NextHSLA*
+  name: NextHSLA
+  href: api/PAC.Colour.HSLAExtensions.html#PAC_Colour_HSLAExtensions_NextHSLA_
+  commentId: Overload:PAC.Colour.HSLAExtensions.NextHSLA
+  isSpec: "True"
+  fullName: PAC.Colour.HSLAExtensions.NextHSLA
+  nameWithType: HSLAExtensions.NextHSLA
+- uid: PAC.Colour.HSLExtensions
+  name: HSLExtensions
+  href: api/PAC.Colour.HSLExtensions.html
+  commentId: T:PAC.Colour.HSLExtensions
+  fullName: PAC.Colour.HSLExtensions
+  nameWithType: HSLExtensions
+- uid: PAC.Colour.HSLExtensions.NextHSL(System.Random)
+  name: NextHSL(Random)
+  href: api/PAC.Colour.HSLExtensions.html#PAC_Colour_HSLExtensions_NextHSL_System_Random_
+  commentId: M:PAC.Colour.HSLExtensions.NextHSL(System.Random)
+  fullName: PAC.Colour.HSLExtensions.NextHSL(System.Random)
+  nameWithType: HSLExtensions.NextHSL(Random)
+- uid: PAC.Colour.HSLExtensions.NextHSL*
+  name: NextHSL
+  href: api/PAC.Colour.HSLExtensions.html#PAC_Colour_HSLExtensions_NextHSL_
+  commentId: Overload:PAC.Colour.HSLExtensions.NextHSL
+  isSpec: "True"
+  fullName: PAC.Colour.HSLExtensions.NextHSL
+  nameWithType: HSLExtensions.NextHSL
 - uid: PAC.Colour.HSV
   name: HSV
   href: api/PAC.Colour.HSV.html
   commentId: T:PAC.Colour.HSV
   fullName: PAC.Colour.HSV
   nameWithType: HSV
-- uid: PAC.Colour.HSV.#ctor(Color)
-  name: HSV(Color)
-  href: api/PAC.Colour.HSV.html#PAC_Colour_HSV__ctor_Color_
-  commentId: M:PAC.Colour.HSV.#ctor(Color)
-  name.vb: New(Color)
-  fullName: PAC.Colour.HSV.HSV(Color)
-  fullName.vb: PAC.Colour.HSV.New(Color)
-  nameWithType: HSV.HSV(Color)
-  nameWithType.vb: HSV.New(Color)
 - uid: PAC.Colour.HSV.#ctor(System.Single,System.Single,System.Single)
   name: HSV(float, float, float)
   href: api/PAC.Colour.HSV.html#PAC_Colour_HSV__ctor_System_Single_System_Single_System_Single_
@@ -899,15 +1083,6 @@ references:
   fullName.vb: PAC.Colour.HSV.New(Single, Single, Single)
   nameWithType: HSV.HSV(float, float, float)
   nameWithType.vb: HSV.New(Single, Single, Single)
-- uid: PAC.Colour.HSV.#ctor(System.Single,System.Single,System.Single,System.Single)
-  name: HSV(float, float, float, float)
-  href: api/PAC.Colour.HSV.html#PAC_Colour_HSV__ctor_System_Single_System_Single_System_Single_System_Single_
-  commentId: M:PAC.Colour.HSV.#ctor(System.Single,System.Single,System.Single,System.Single)
-  name.vb: New(Single, Single, Single, Single)
-  fullName: PAC.Colour.HSV.HSV(float, float, float, float)
-  fullName.vb: PAC.Colour.HSV.New(Single, Single, Single, Single)
-  nameWithType: HSV.HSV(float, float, float, float)
-  nameWithType.vb: HSV.New(Single, Single, Single, Single)
 - uid: PAC.Colour.HSV.#ctor*
   name: HSV
   href: api/PAC.Colour.HSV.html#PAC_Colour_HSV__ctor_
@@ -918,47 +1093,65 @@ references:
   fullName.vb: PAC.Colour.HSV.New
   nameWithType: HSV.HSV
   nameWithType.vb: HSV.New
-- uid: PAC.Colour.HSV.ToColor
-  name: ToColor()
-  href: api/PAC.Colour.HSV.html#PAC_Colour_HSV_ToColor
-  commentId: M:PAC.Colour.HSV.ToColor
-  fullName: PAC.Colour.HSV.ToColor()
-  nameWithType: HSV.ToColor()
-- uid: PAC.Colour.HSV.ToColor*
-  name: ToColor
-  href: api/PAC.Colour.HSV.html#PAC_Colour_HSV_ToColor_
-  commentId: Overload:PAC.Colour.HSV.ToColor
+- uid: PAC.Colour.HSV.Equals(PAC.Colour.HSV)
+  name: Equals(HSV)
+  href: api/PAC.Colour.HSV.html#PAC_Colour_HSV_Equals_PAC_Colour_HSV_
+  commentId: M:PAC.Colour.HSV.Equals(PAC.Colour.HSV)
+  fullName: PAC.Colour.HSV.Equals(PAC.Colour.HSV)
+  nameWithType: HSV.Equals(HSV)
+- uid: PAC.Colour.HSV.Equals(PAC.Colour.HSV,System.Single)
+  name: Equals(HSV, float)
+  href: api/PAC.Colour.HSV.html#PAC_Colour_HSV_Equals_PAC_Colour_HSV_System_Single_
+  commentId: M:PAC.Colour.HSV.Equals(PAC.Colour.HSV,System.Single)
+  name.vb: Equals(HSV, Single)
+  fullName: PAC.Colour.HSV.Equals(PAC.Colour.HSV, float)
+  fullName.vb: PAC.Colour.HSV.Equals(PAC.Colour.HSV, Single)
+  nameWithType: HSV.Equals(HSV, float)
+  nameWithType.vb: HSV.Equals(HSV, Single)
+- uid: PAC.Colour.HSV.Equals(System.Object)
+  name: Equals(object)
+  href: api/PAC.Colour.HSV.html#PAC_Colour_HSV_Equals_System_Object_
+  commentId: M:PAC.Colour.HSV.Equals(System.Object)
+  name.vb: Equals(Object)
+  fullName: PAC.Colour.HSV.Equals(object)
+  fullName.vb: PAC.Colour.HSV.Equals(Object)
+  nameWithType: HSV.Equals(object)
+  nameWithType.vb: HSV.Equals(Object)
+- uid: PAC.Colour.HSV.Equals*
+  name: Equals
+  href: api/PAC.Colour.HSV.html#PAC_Colour_HSV_Equals_
+  commentId: Overload:PAC.Colour.HSV.Equals
   isSpec: "True"
-  fullName: PAC.Colour.HSV.ToColor
-  nameWithType: HSV.ToColor
-- uid: PAC.Colour.HSV.ToHSL
-  name: ToHSL()
-  href: api/PAC.Colour.HSV.html#PAC_Colour_HSV_ToHSL
-  commentId: M:PAC.Colour.HSV.ToHSL
-  fullName: PAC.Colour.HSV.ToHSL()
-  nameWithType: HSV.ToHSL()
-- uid: PAC.Colour.HSV.ToHSL*
-  name: ToHSL
-  href: api/PAC.Colour.HSV.html#PAC_Colour_HSV_ToHSL_
-  commentId: Overload:PAC.Colour.HSV.ToHSL
+  fullName: PAC.Colour.HSV.Equals
+  nameWithType: HSV.Equals
+- uid: PAC.Colour.HSV.GetHashCode
+  name: GetHashCode()
+  href: api/PAC.Colour.HSV.html#PAC_Colour_HSV_GetHashCode
+  commentId: M:PAC.Colour.HSV.GetHashCode
+  fullName: PAC.Colour.HSV.GetHashCode()
+  nameWithType: HSV.GetHashCode()
+- uid: PAC.Colour.HSV.GetHashCode*
+  name: GetHashCode
+  href: api/PAC.Colour.HSV.html#PAC_Colour_HSV_GetHashCode_
+  commentId: Overload:PAC.Colour.HSV.GetHashCode
   isSpec: "True"
-  fullName: PAC.Colour.HSV.ToHSL
-  nameWithType: HSV.ToHSL
+  fullName: PAC.Colour.HSV.GetHashCode
+  nameWithType: HSV.GetHashCode
 - uid: PAC.Colour.HSV.ToString
   name: ToString()
   href: api/PAC.Colour.HSV.html#PAC_Colour_HSV_ToString
   commentId: M:PAC.Colour.HSV.ToString
   fullName: PAC.Colour.HSV.ToString()
   nameWithType: HSV.ToString()
-- uid: PAC.Colour.HSV.ToString(System.Int32)
-  name: ToString(int)
-  href: api/PAC.Colour.HSV.html#PAC_Colour_HSV_ToString_System_Int32_
-  commentId: M:PAC.Colour.HSV.ToString(System.Int32)
-  name.vb: ToString(Integer)
-  fullName: PAC.Colour.HSV.ToString(int)
-  fullName.vb: PAC.Colour.HSV.ToString(Integer)
-  nameWithType: HSV.ToString(int)
-  nameWithType.vb: HSV.ToString(Integer)
+- uid: PAC.Colour.HSV.ToString(System.String)
+  name: ToString(string)
+  href: api/PAC.Colour.HSV.html#PAC_Colour_HSV_ToString_System_String_
+  commentId: M:PAC.Colour.HSV.ToString(System.String)
+  name.vb: ToString(String)
+  fullName: PAC.Colour.HSV.ToString(string)
+  fullName.vb: PAC.Colour.HSV.ToString(String)
+  nameWithType: HSV.ToString(string)
+  nameWithType.vb: HSV.ToString(String)
 - uid: PAC.Colour.HSV.ToString*
   name: ToString
   href: api/PAC.Colour.HSV.html#PAC_Colour_HSV_ToString_
@@ -966,32 +1159,22 @@ references:
   isSpec: "True"
   fullName: PAC.Colour.HSV.ToString
   nameWithType: HSV.ToString
-- uid: PAC.Colour.HSV.a
-  name: a
-  href: api/PAC.Colour.HSV.html#PAC_Colour_HSV_a
-  commentId: P:PAC.Colour.HSV.a
-  fullName: PAC.Colour.HSV.a
-  nameWithType: HSV.a
-- uid: PAC.Colour.HSV.a*
-  name: a
-  href: api/PAC.Colour.HSV.html#PAC_Colour_HSV_a_
-  commentId: Overload:PAC.Colour.HSV.a
+- uid: PAC.Colour.HSV.WithAlpha(System.Single)
+  name: WithAlpha(float)
+  href: api/PAC.Colour.HSV.html#PAC_Colour_HSV_WithAlpha_System_Single_
+  commentId: M:PAC.Colour.HSV.WithAlpha(System.Single)
+  name.vb: WithAlpha(Single)
+  fullName: PAC.Colour.HSV.WithAlpha(float)
+  fullName.vb: PAC.Colour.HSV.WithAlpha(Single)
+  nameWithType: HSV.WithAlpha(float)
+  nameWithType.vb: HSV.WithAlpha(Single)
+- uid: PAC.Colour.HSV.WithAlpha*
+  name: WithAlpha
+  href: api/PAC.Colour.HSV.html#PAC_Colour_HSV_WithAlpha_
+  commentId: Overload:PAC.Colour.HSV.WithAlpha
   isSpec: "True"
-  fullName: PAC.Colour.HSV.a
-  nameWithType: HSV.a
-- uid: PAC.Colour.HSV.color
-  name: color
-  href: api/PAC.Colour.HSV.html#PAC_Colour_HSV_color
-  commentId: P:PAC.Colour.HSV.color
-  fullName: PAC.Colour.HSV.color
-  nameWithType: HSV.color
-- uid: PAC.Colour.HSV.color*
-  name: color
-  href: api/PAC.Colour.HSV.html#PAC_Colour_HSV_color_
-  commentId: Overload:PAC.Colour.HSV.color
-  isSpec: "True"
-  fullName: PAC.Colour.HSV.color
-  nameWithType: HSV.color
+  fullName: PAC.Colour.HSV.WithAlpha
+  nameWithType: HSV.WithAlpha
 - uid: PAC.Colour.HSV.h
   name: h
   href: api/PAC.Colour.HSV.html#PAC_Colour_HSV_h
@@ -1005,28 +1188,25 @@ references:
   isSpec: "True"
   fullName: PAC.Colour.HSV.h
   nameWithType: HSV.h
-- uid: PAC.Colour.HSV.hsl
-  name: hsl
-  href: api/PAC.Colour.HSV.html#PAC_Colour_HSV_hsl
-  commentId: P:PAC.Colour.HSV.hsl
-  fullName: PAC.Colour.HSV.hsl
-  nameWithType: HSV.hsl
-- uid: PAC.Colour.HSV.hsl*
-  name: hsl
-  href: api/PAC.Colour.HSV.html#PAC_Colour_HSV_hsl_
-  commentId: Overload:PAC.Colour.HSV.hsl
+- uid: PAC.Colour.HSV.op_Equality(PAC.Colour.HSV,PAC.Colour.HSV)
+  name: operator ==(HSV, HSV)
+  href: api/PAC.Colour.HSV.html#PAC_Colour_HSV_op_Equality_PAC_Colour_HSV_PAC_Colour_HSV_
+  commentId: M:PAC.Colour.HSV.op_Equality(PAC.Colour.HSV,PAC.Colour.HSV)
+  name.vb: =(HSV, HSV)
+  fullName: PAC.Colour.HSV.operator ==(PAC.Colour.HSV, PAC.Colour.HSV)
+  fullName.vb: PAC.Colour.HSV.=(PAC.Colour.HSV, PAC.Colour.HSV)
+  nameWithType: HSV.operator ==(HSV, HSV)
+  nameWithType.vb: HSV.=(HSV, HSV)
+- uid: PAC.Colour.HSV.op_Equality*
+  name: operator ==
+  href: api/PAC.Colour.HSV.html#PAC_Colour_HSV_op_Equality_
+  commentId: Overload:PAC.Colour.HSV.op_Equality
   isSpec: "True"
-  fullName: PAC.Colour.HSV.hsl
-  nameWithType: HSV.hsl
-- uid: PAC.Colour.HSV.op_Explicit(PAC.Colour.HSV)~Color
-  name: explicit operator Color(HSV)
-  href: api/PAC.Colour.HSV.html#PAC_Colour_HSV_op_Explicit_PAC_Colour_HSV__Color
-  commentId: M:PAC.Colour.HSV.op_Explicit(PAC.Colour.HSV)~Color
-  name.vb: CType(HSV)
-  fullName: PAC.Colour.HSV.explicit operator Color(PAC.Colour.HSV)
-  fullName.vb: PAC.Colour.HSV.CType(PAC.Colour.HSV)
-  nameWithType: HSV.explicit operator Color(HSV)
-  nameWithType.vb: HSV.CType(HSV)
+  name.vb: =
+  fullName: PAC.Colour.HSV.operator ==
+  fullName.vb: PAC.Colour.HSV.=
+  nameWithType: HSV.operator ==
+  nameWithType.vb: HSV.=
 - uid: PAC.Colour.HSV.op_Explicit(PAC.Colour.HSV)~PAC.Colour.HSL
   name: explicit operator HSL(HSV)
   href: api/PAC.Colour.HSV.html#PAC_Colour_HSV_op_Explicit_PAC_Colour_HSV__PAC_Colour_HSL
@@ -1035,6 +1215,15 @@ references:
   fullName: PAC.Colour.HSV.explicit operator PAC.Colour.HSL(PAC.Colour.HSV)
   fullName.vb: PAC.Colour.HSV.CType(PAC.Colour.HSV)
   nameWithType: HSV.explicit operator HSL(HSV)
+  nameWithType.vb: HSV.CType(HSV)
+- uid: PAC.Colour.HSV.op_Explicit(PAC.Colour.HSV)~PAC.Colour.RGB
+  name: explicit operator RGB(HSV)
+  href: api/PAC.Colour.HSV.html#PAC_Colour_HSV_op_Explicit_PAC_Colour_HSV__PAC_Colour_RGB
+  commentId: M:PAC.Colour.HSV.op_Explicit(PAC.Colour.HSV)~PAC.Colour.RGB
+  name.vb: CType(HSV)
+  fullName: PAC.Colour.HSV.explicit operator PAC.Colour.RGB(PAC.Colour.HSV)
+  fullName.vb: PAC.Colour.HSV.CType(PAC.Colour.HSV)
+  nameWithType: HSV.explicit operator RGB(HSV)
   nameWithType.vb: HSV.CType(HSV)
 - uid: PAC.Colour.HSV.op_Explicit*
   name: explicit operator
@@ -1046,6 +1235,25 @@ references:
   fullName.vb: PAC.Colour.HSV.CType
   nameWithType: HSV.explicit operator
   nameWithType.vb: HSV.CType
+- uid: PAC.Colour.HSV.op_Inequality(PAC.Colour.HSV,PAC.Colour.HSV)
+  name: operator !=(HSV, HSV)
+  href: api/PAC.Colour.HSV.html#PAC_Colour_HSV_op_Inequality_PAC_Colour_HSV_PAC_Colour_HSV_
+  commentId: M:PAC.Colour.HSV.op_Inequality(PAC.Colour.HSV,PAC.Colour.HSV)
+  name.vb: <>(HSV, HSV)
+  fullName: PAC.Colour.HSV.operator !=(PAC.Colour.HSV, PAC.Colour.HSV)
+  fullName.vb: PAC.Colour.HSV.<>(PAC.Colour.HSV, PAC.Colour.HSV)
+  nameWithType: HSV.operator !=(HSV, HSV)
+  nameWithType.vb: HSV.<>(HSV, HSV)
+- uid: PAC.Colour.HSV.op_Inequality*
+  name: operator !=
+  href: api/PAC.Colour.HSV.html#PAC_Colour_HSV_op_Inequality_
+  commentId: Overload:PAC.Colour.HSV.op_Inequality
+  isSpec: "True"
+  name.vb: <>
+  fullName: PAC.Colour.HSV.operator !=
+  fullName.vb: PAC.Colour.HSV.<>
+  nameWithType: HSV.operator !=
+  nameWithType.vb: HSV.<>
 - uid: PAC.Colour.HSV.s
   name: s
   href: api/PAC.Colour.HSV.html#PAC_Colour_HSV_s
@@ -1072,6 +1280,271 @@ references:
   isSpec: "True"
   fullName: PAC.Colour.HSV.v
   nameWithType: HSV.v
+- uid: PAC.Colour.HSVA
+  name: HSVA
+  href: api/PAC.Colour.HSVA.html
+  commentId: T:PAC.Colour.HSVA
+  fullName: PAC.Colour.HSVA
+  nameWithType: HSVA
+- uid: PAC.Colour.HSVA.#ctor(System.Single,System.Single,System.Single,System.Single)
+  name: HSVA(float, float, float, float)
+  href: api/PAC.Colour.HSVA.html#PAC_Colour_HSVA__ctor_System_Single_System_Single_System_Single_System_Single_
+  commentId: M:PAC.Colour.HSVA.#ctor(System.Single,System.Single,System.Single,System.Single)
+  name.vb: New(Single, Single, Single, Single)
+  fullName: PAC.Colour.HSVA.HSVA(float, float, float, float)
+  fullName.vb: PAC.Colour.HSVA.New(Single, Single, Single, Single)
+  nameWithType: HSVA.HSVA(float, float, float, float)
+  nameWithType.vb: HSVA.New(Single, Single, Single, Single)
+- uid: PAC.Colour.HSVA.#ctor*
+  name: HSVA
+  href: api/PAC.Colour.HSVA.html#PAC_Colour_HSVA__ctor_
+  commentId: Overload:PAC.Colour.HSVA.#ctor
+  isSpec: "True"
+  name.vb: New
+  fullName: PAC.Colour.HSVA.HSVA
+  fullName.vb: PAC.Colour.HSVA.New
+  nameWithType: HSVA.HSVA
+  nameWithType.vb: HSVA.New
+- uid: PAC.Colour.HSVA.Equals(PAC.Colour.HSVA)
+  name: Equals(HSVA)
+  href: api/PAC.Colour.HSVA.html#PAC_Colour_HSVA_Equals_PAC_Colour_HSVA_
+  commentId: M:PAC.Colour.HSVA.Equals(PAC.Colour.HSVA)
+  fullName: PAC.Colour.HSVA.Equals(PAC.Colour.HSVA)
+  nameWithType: HSVA.Equals(HSVA)
+- uid: PAC.Colour.HSVA.Equals(PAC.Colour.HSVA,System.Single)
+  name: Equals(HSVA, float)
+  href: api/PAC.Colour.HSVA.html#PAC_Colour_HSVA_Equals_PAC_Colour_HSVA_System_Single_
+  commentId: M:PAC.Colour.HSVA.Equals(PAC.Colour.HSVA,System.Single)
+  name.vb: Equals(HSVA, Single)
+  fullName: PAC.Colour.HSVA.Equals(PAC.Colour.HSVA, float)
+  fullName.vb: PAC.Colour.HSVA.Equals(PAC.Colour.HSVA, Single)
+  nameWithType: HSVA.Equals(HSVA, float)
+  nameWithType.vb: HSVA.Equals(HSVA, Single)
+- uid: PAC.Colour.HSVA.Equals(System.Object)
+  name: Equals(object)
+  href: api/PAC.Colour.HSVA.html#PAC_Colour_HSVA_Equals_System_Object_
+  commentId: M:PAC.Colour.HSVA.Equals(System.Object)
+  name.vb: Equals(Object)
+  fullName: PAC.Colour.HSVA.Equals(object)
+  fullName.vb: PAC.Colour.HSVA.Equals(Object)
+  nameWithType: HSVA.Equals(object)
+  nameWithType.vb: HSVA.Equals(Object)
+- uid: PAC.Colour.HSVA.Equals*
+  name: Equals
+  href: api/PAC.Colour.HSVA.html#PAC_Colour_HSVA_Equals_
+  commentId: Overload:PAC.Colour.HSVA.Equals
+  isSpec: "True"
+  fullName: PAC.Colour.HSVA.Equals
+  nameWithType: HSVA.Equals
+- uid: PAC.Colour.HSVA.GetHashCode
+  name: GetHashCode()
+  href: api/PAC.Colour.HSVA.html#PAC_Colour_HSVA_GetHashCode
+  commentId: M:PAC.Colour.HSVA.GetHashCode
+  fullName: PAC.Colour.HSVA.GetHashCode()
+  nameWithType: HSVA.GetHashCode()
+- uid: PAC.Colour.HSVA.GetHashCode*
+  name: GetHashCode
+  href: api/PAC.Colour.HSVA.html#PAC_Colour_HSVA_GetHashCode_
+  commentId: Overload:PAC.Colour.HSVA.GetHashCode
+  isSpec: "True"
+  fullName: PAC.Colour.HSVA.GetHashCode
+  nameWithType: HSVA.GetHashCode
+- uid: PAC.Colour.HSVA.ToString
+  name: ToString()
+  href: api/PAC.Colour.HSVA.html#PAC_Colour_HSVA_ToString
+  commentId: M:PAC.Colour.HSVA.ToString
+  fullName: PAC.Colour.HSVA.ToString()
+  nameWithType: HSVA.ToString()
+- uid: PAC.Colour.HSVA.ToString(System.String)
+  name: ToString(string)
+  href: api/PAC.Colour.HSVA.html#PAC_Colour_HSVA_ToString_System_String_
+  commentId: M:PAC.Colour.HSVA.ToString(System.String)
+  name.vb: ToString(String)
+  fullName: PAC.Colour.HSVA.ToString(string)
+  fullName.vb: PAC.Colour.HSVA.ToString(String)
+  nameWithType: HSVA.ToString(string)
+  nameWithType.vb: HSVA.ToString(String)
+- uid: PAC.Colour.HSVA.ToString*
+  name: ToString
+  href: api/PAC.Colour.HSVA.html#PAC_Colour_HSVA_ToString_
+  commentId: Overload:PAC.Colour.HSVA.ToString
+  isSpec: "True"
+  fullName: PAC.Colour.HSVA.ToString
+  nameWithType: HSVA.ToString
+- uid: PAC.Colour.HSVA.a
+  name: a
+  href: api/PAC.Colour.HSVA.html#PAC_Colour_HSVA_a
+  commentId: P:PAC.Colour.HSVA.a
+  fullName: PAC.Colour.HSVA.a
+  nameWithType: HSVA.a
+- uid: PAC.Colour.HSVA.a*
+  name: a
+  href: api/PAC.Colour.HSVA.html#PAC_Colour_HSVA_a_
+  commentId: Overload:PAC.Colour.HSVA.a
+  isSpec: "True"
+  fullName: PAC.Colour.HSVA.a
+  nameWithType: HSVA.a
+- uid: PAC.Colour.HSVA.h
+  name: h
+  href: api/PAC.Colour.HSVA.html#PAC_Colour_HSVA_h
+  commentId: P:PAC.Colour.HSVA.h
+  fullName: PAC.Colour.HSVA.h
+  nameWithType: HSVA.h
+- uid: PAC.Colour.HSVA.h*
+  name: h
+  href: api/PAC.Colour.HSVA.html#PAC_Colour_HSVA_h_
+  commentId: Overload:PAC.Colour.HSVA.h
+  isSpec: "True"
+  fullName: PAC.Colour.HSVA.h
+  nameWithType: HSVA.h
+- uid: PAC.Colour.HSVA.op_Equality(PAC.Colour.HSVA,PAC.Colour.HSVA)
+  name: operator ==(HSVA, HSVA)
+  href: api/PAC.Colour.HSVA.html#PAC_Colour_HSVA_op_Equality_PAC_Colour_HSVA_PAC_Colour_HSVA_
+  commentId: M:PAC.Colour.HSVA.op_Equality(PAC.Colour.HSVA,PAC.Colour.HSVA)
+  name.vb: =(HSVA, HSVA)
+  fullName: PAC.Colour.HSVA.operator ==(PAC.Colour.HSVA, PAC.Colour.HSVA)
+  fullName.vb: PAC.Colour.HSVA.=(PAC.Colour.HSVA, PAC.Colour.HSVA)
+  nameWithType: HSVA.operator ==(HSVA, HSVA)
+  nameWithType.vb: HSVA.=(HSVA, HSVA)
+- uid: PAC.Colour.HSVA.op_Equality*
+  name: operator ==
+  href: api/PAC.Colour.HSVA.html#PAC_Colour_HSVA_op_Equality_
+  commentId: Overload:PAC.Colour.HSVA.op_Equality
+  isSpec: "True"
+  name.vb: =
+  fullName: PAC.Colour.HSVA.operator ==
+  fullName.vb: PAC.Colour.HSVA.=
+  nameWithType: HSVA.operator ==
+  nameWithType.vb: HSVA.=
+- uid: PAC.Colour.HSVA.op_Explicit(Color)~PAC.Colour.HSVA
+  name: explicit operator HSVA(Color)
+  href: api/PAC.Colour.HSVA.html#PAC_Colour_HSVA_op_Explicit_Color__PAC_Colour_HSVA
+  commentId: M:PAC.Colour.HSVA.op_Explicit(Color)~PAC.Colour.HSVA
+  name.vb: CType(Color)
+  fullName: PAC.Colour.HSVA.explicit operator PAC.Colour.HSVA(Color)
+  fullName.vb: PAC.Colour.HSVA.CType(Color)
+  nameWithType: HSVA.explicit operator HSVA(Color)
+  nameWithType.vb: HSVA.CType(Color)
+- uid: PAC.Colour.HSVA.op_Explicit(PAC.Colour.HSVA)~Color
+  name: explicit operator Color(HSVA)
+  href: api/PAC.Colour.HSVA.html#PAC_Colour_HSVA_op_Explicit_PAC_Colour_HSVA__Color
+  commentId: M:PAC.Colour.HSVA.op_Explicit(PAC.Colour.HSVA)~Color
+  name.vb: CType(HSVA)
+  fullName: PAC.Colour.HSVA.explicit operator Color(PAC.Colour.HSVA)
+  fullName.vb: PAC.Colour.HSVA.CType(PAC.Colour.HSVA)
+  nameWithType: HSVA.explicit operator Color(HSVA)
+  nameWithType.vb: HSVA.CType(HSVA)
+- uid: PAC.Colour.HSVA.op_Explicit(PAC.Colour.HSVA)~PAC.Colour.HSLA
+  name: explicit operator HSLA(HSVA)
+  href: api/PAC.Colour.HSVA.html#PAC_Colour_HSVA_op_Explicit_PAC_Colour_HSVA__PAC_Colour_HSLA
+  commentId: M:PAC.Colour.HSVA.op_Explicit(PAC.Colour.HSVA)~PAC.Colour.HSLA
+  name.vb: CType(HSVA)
+  fullName: PAC.Colour.HSVA.explicit operator PAC.Colour.HSLA(PAC.Colour.HSVA)
+  fullName.vb: PAC.Colour.HSVA.CType(PAC.Colour.HSVA)
+  nameWithType: HSVA.explicit operator HSLA(HSVA)
+  nameWithType.vb: HSVA.CType(HSVA)
+- uid: PAC.Colour.HSVA.op_Explicit(PAC.Colour.HSVA)~PAC.Colour.HSV
+  name: explicit operator HSV(HSVA)
+  href: api/PAC.Colour.HSVA.html#PAC_Colour_HSVA_op_Explicit_PAC_Colour_HSVA__PAC_Colour_HSV
+  commentId: M:PAC.Colour.HSVA.op_Explicit(PAC.Colour.HSVA)~PAC.Colour.HSV
+  name.vb: CType(HSVA)
+  fullName: PAC.Colour.HSVA.explicit operator PAC.Colour.HSV(PAC.Colour.HSVA)
+  fullName.vb: PAC.Colour.HSVA.CType(PAC.Colour.HSVA)
+  nameWithType: HSVA.explicit operator HSV(HSVA)
+  nameWithType.vb: HSVA.CType(HSVA)
+- uid: PAC.Colour.HSVA.op_Explicit*
+  name: explicit operator
+  href: api/PAC.Colour.HSVA.html#PAC_Colour_HSVA_op_Explicit_
+  commentId: Overload:PAC.Colour.HSVA.op_Explicit
+  isSpec: "True"
+  name.vb: CType
+  fullName: PAC.Colour.HSVA.explicit operator
+  fullName.vb: PAC.Colour.HSVA.CType
+  nameWithType: HSVA.explicit operator
+  nameWithType.vb: HSVA.CType
+- uid: PAC.Colour.HSVA.op_Inequality(PAC.Colour.HSVA,PAC.Colour.HSVA)
+  name: operator !=(HSVA, HSVA)
+  href: api/PAC.Colour.HSVA.html#PAC_Colour_HSVA_op_Inequality_PAC_Colour_HSVA_PAC_Colour_HSVA_
+  commentId: M:PAC.Colour.HSVA.op_Inequality(PAC.Colour.HSVA,PAC.Colour.HSVA)
+  name.vb: <>(HSVA, HSVA)
+  fullName: PAC.Colour.HSVA.operator !=(PAC.Colour.HSVA, PAC.Colour.HSVA)
+  fullName.vb: PAC.Colour.HSVA.<>(PAC.Colour.HSVA, PAC.Colour.HSVA)
+  nameWithType: HSVA.operator !=(HSVA, HSVA)
+  nameWithType.vb: HSVA.<>(HSVA, HSVA)
+- uid: PAC.Colour.HSVA.op_Inequality*
+  name: operator !=
+  href: api/PAC.Colour.HSVA.html#PAC_Colour_HSVA_op_Inequality_
+  commentId: Overload:PAC.Colour.HSVA.op_Inequality
+  isSpec: "True"
+  name.vb: <>
+  fullName: PAC.Colour.HSVA.operator !=
+  fullName.vb: PAC.Colour.HSVA.<>
+  nameWithType: HSVA.operator !=
+  nameWithType.vb: HSVA.<>
+- uid: PAC.Colour.HSVA.s
+  name: s
+  href: api/PAC.Colour.HSVA.html#PAC_Colour_HSVA_s
+  commentId: P:PAC.Colour.HSVA.s
+  fullName: PAC.Colour.HSVA.s
+  nameWithType: HSVA.s
+- uid: PAC.Colour.HSVA.s*
+  name: s
+  href: api/PAC.Colour.HSVA.html#PAC_Colour_HSVA_s_
+  commentId: Overload:PAC.Colour.HSVA.s
+  isSpec: "True"
+  fullName: PAC.Colour.HSVA.s
+  nameWithType: HSVA.s
+- uid: PAC.Colour.HSVA.v
+  name: v
+  href: api/PAC.Colour.HSVA.html#PAC_Colour_HSVA_v
+  commentId: P:PAC.Colour.HSVA.v
+  fullName: PAC.Colour.HSVA.v
+  nameWithType: HSVA.v
+- uid: PAC.Colour.HSVA.v*
+  name: v
+  href: api/PAC.Colour.HSVA.html#PAC_Colour_HSVA_v_
+  commentId: Overload:PAC.Colour.HSVA.v
+  isSpec: "True"
+  fullName: PAC.Colour.HSVA.v
+  nameWithType: HSVA.v
+- uid: PAC.Colour.HSVAExtensions
+  name: HSVAExtensions
+  href: api/PAC.Colour.HSVAExtensions.html
+  commentId: T:PAC.Colour.HSVAExtensions
+  fullName: PAC.Colour.HSVAExtensions
+  nameWithType: HSVAExtensions
+- uid: PAC.Colour.HSVAExtensions.NextHSVA(System.Random)
+  name: NextHSVA(Random)
+  href: api/PAC.Colour.HSVAExtensions.html#PAC_Colour_HSVAExtensions_NextHSVA_System_Random_
+  commentId: M:PAC.Colour.HSVAExtensions.NextHSVA(System.Random)
+  fullName: PAC.Colour.HSVAExtensions.NextHSVA(System.Random)
+  nameWithType: HSVAExtensions.NextHSVA(Random)
+- uid: PAC.Colour.HSVAExtensions.NextHSVA*
+  name: NextHSVA
+  href: api/PAC.Colour.HSVAExtensions.html#PAC_Colour_HSVAExtensions_NextHSVA_
+  commentId: Overload:PAC.Colour.HSVAExtensions.NextHSVA
+  isSpec: "True"
+  fullName: PAC.Colour.HSVAExtensions.NextHSVA
+  nameWithType: HSVAExtensions.NextHSVA
+- uid: PAC.Colour.HSVExtensions
+  name: HSVExtensions
+  href: api/PAC.Colour.HSVExtensions.html
+  commentId: T:PAC.Colour.HSVExtensions
+  fullName: PAC.Colour.HSVExtensions
+  nameWithType: HSVExtensions
+- uid: PAC.Colour.HSVExtensions.NextHSV(System.Random)
+  name: NextHSV(Random)
+  href: api/PAC.Colour.HSVExtensions.html#PAC_Colour_HSVExtensions_NextHSV_System_Random_
+  commentId: M:PAC.Colour.HSVExtensions.NextHSV(System.Random)
+  fullName: PAC.Colour.HSVExtensions.NextHSV(System.Random)
+  nameWithType: HSVExtensions.NextHSV(Random)
+- uid: PAC.Colour.HSVExtensions.NextHSV*
+  name: NextHSV
+  href: api/PAC.Colour.HSVExtensions.html#PAC_Colour_HSVExtensions_NextHSV_
+  commentId: Overload:PAC.Colour.HSVExtensions.NextHSV
+  isSpec: "True"
+  fullName: PAC.Colour.HSVExtensions.NextHSV
+  nameWithType: HSVExtensions.NextHSV
 - uid: PAC.Colour.RGB
   name: RGB
   href: api/PAC.Colour.RGB.html
@@ -1216,6 +1689,15 @@ references:
   commentId: M:PAC.Colour.RGB.ToString
   fullName: PAC.Colour.RGB.ToString()
   nameWithType: RGB.ToString()
+- uid: PAC.Colour.RGB.ToString(System.String)
+  name: ToString(string)
+  href: api/PAC.Colour.RGB.html#PAC_Colour_RGB_ToString_System_String_
+  commentId: M:PAC.Colour.RGB.ToString(System.String)
+  name.vb: ToString(String)
+  fullName: PAC.Colour.RGB.ToString(string)
+  fullName.vb: PAC.Colour.RGB.ToString(String)
+  nameWithType: RGB.ToString(string)
+  nameWithType.vb: RGB.ToString(String)
 - uid: PAC.Colour.RGB.ToString*
   name: ToString
   href: api/PAC.Colour.RGB.html#PAC_Colour_RGB_ToString_
@@ -1248,13 +1730,27 @@ references:
 - uid: PAC.Colour.RGB.b
   name: b
   href: api/PAC.Colour.RGB.html#PAC_Colour_RGB_b
-  commentId: F:PAC.Colour.RGB.b
+  commentId: P:PAC.Colour.RGB.b
+  fullName: PAC.Colour.RGB.b
+  nameWithType: RGB.b
+- uid: PAC.Colour.RGB.b*
+  name: b
+  href: api/PAC.Colour.RGB.html#PAC_Colour_RGB_b_
+  commentId: Overload:PAC.Colour.RGB.b
+  isSpec: "True"
   fullName: PAC.Colour.RGB.b
   nameWithType: RGB.b
 - uid: PAC.Colour.RGB.g
   name: g
   href: api/PAC.Colour.RGB.html#PAC_Colour_RGB_g
-  commentId: F:PAC.Colour.RGB.g
+  commentId: P:PAC.Colour.RGB.g
+  fullName: PAC.Colour.RGB.g
+  nameWithType: RGB.g
+- uid: PAC.Colour.RGB.g*
+  name: g
+  href: api/PAC.Colour.RGB.html#PAC_Colour_RGB_g_
+  commentId: Overload:PAC.Colour.RGB.g
+  isSpec: "True"
   fullName: PAC.Colour.RGB.g
   nameWithType: RGB.g
 - uid: PAC.Colour.RGB.op_Addition(PAC.Colour.RGB,PAC.Colour.RGB)
@@ -1332,6 +1828,24 @@ references:
   fullName.vb: PAC.Colour.RGB.CType(Color)
   nameWithType: RGB.explicit operator RGB(Color)
   nameWithType.vb: RGB.CType(Color)
+- uid: PAC.Colour.RGB.op_Explicit(PAC.Colour.RGB)~PAC.Colour.HSL
+  name: explicit operator HSL(RGB)
+  href: api/PAC.Colour.RGB.html#PAC_Colour_RGB_op_Explicit_PAC_Colour_RGB__PAC_Colour_HSL
+  commentId: M:PAC.Colour.RGB.op_Explicit(PAC.Colour.RGB)~PAC.Colour.HSL
+  name.vb: CType(RGB)
+  fullName: PAC.Colour.RGB.explicit operator PAC.Colour.HSL(PAC.Colour.RGB)
+  fullName.vb: PAC.Colour.RGB.CType(PAC.Colour.RGB)
+  nameWithType: RGB.explicit operator HSL(RGB)
+  nameWithType.vb: RGB.CType(RGB)
+- uid: PAC.Colour.RGB.op_Explicit(PAC.Colour.RGB)~PAC.Colour.HSV
+  name: explicit operator HSV(RGB)
+  href: api/PAC.Colour.RGB.html#PAC_Colour_RGB_op_Explicit_PAC_Colour_RGB__PAC_Colour_HSV
+  commentId: M:PAC.Colour.RGB.op_Explicit(PAC.Colour.RGB)~PAC.Colour.HSV
+  name.vb: CType(RGB)
+  fullName: PAC.Colour.RGB.explicit operator PAC.Colour.HSV(PAC.Colour.RGB)
+  fullName.vb: PAC.Colour.RGB.CType(PAC.Colour.RGB)
+  nameWithType: RGB.explicit operator HSV(RGB)
+  nameWithType.vb: RGB.CType(RGB)
 - uid: PAC.Colour.RGB.op_Explicit*
   name: explicit operator
   href: api/PAC.Colour.RGB.html#PAC_Colour_RGB_op_Explicit_
@@ -1420,7 +1934,14 @@ references:
 - uid: PAC.Colour.RGB.r
   name: r
   href: api/PAC.Colour.RGB.html#PAC_Colour_RGB_r
-  commentId: F:PAC.Colour.RGB.r
+  commentId: P:PAC.Colour.RGB.r
+  fullName: PAC.Colour.RGB.r
+  nameWithType: RGB.r
+- uid: PAC.Colour.RGB.r*
+  name: r
+  href: api/PAC.Colour.RGB.html#PAC_Colour_RGB_r_
+  commentId: Overload:PAC.Colour.RGB.r
+  isSpec: "True"
   fullName: PAC.Colour.RGB.r
   nameWithType: RGB.r
 - uid: PAC.Colour.RGBExtensions
@@ -6781,6 +7302,45 @@ references:
   isSpec: "True"
   fullName: PAC.Extensions.ColorExtensions.Equals
   nameWithType: ColorExtensions.Equals
+- uid: PAC.Extensions.ColorExtensions.NextColor(System.Random)
+  name: NextColor(Random)
+  href: api/PAC.Extensions.ColorExtensions.html#PAC_Extensions_ColorExtensions_NextColor_System_Random_
+  commentId: M:PAC.Extensions.ColorExtensions.NextColor(System.Random)
+  fullName: PAC.Extensions.ColorExtensions.NextColor(System.Random)
+  nameWithType: ColorExtensions.NextColor(Random)
+- uid: PAC.Extensions.ColorExtensions.NextColor*
+  name: NextColor
+  href: api/PAC.Extensions.ColorExtensions.html#PAC_Extensions_ColorExtensions_NextColor_
+  commentId: Overload:PAC.Extensions.ColorExtensions.NextColor
+  isSpec: "True"
+  fullName: PAC.Extensions.ColorExtensions.NextColor
+  nameWithType: ColorExtensions.NextColor
+- uid: PAC.Extensions.ColorExtensions.Premultiplied(Color)
+  name: Premultiplied(Color)
+  href: api/PAC.Extensions.ColorExtensions.html#PAC_Extensions_ColorExtensions_Premultiplied_Color_
+  commentId: M:PAC.Extensions.ColorExtensions.Premultiplied(Color)
+  fullName: PAC.Extensions.ColorExtensions.Premultiplied(Color)
+  nameWithType: ColorExtensions.Premultiplied(Color)
+- uid: PAC.Extensions.ColorExtensions.Premultiplied*
+  name: Premultiplied
+  href: api/PAC.Extensions.ColorExtensions.html#PAC_Extensions_ColorExtensions_Premultiplied_
+  commentId: Overload:PAC.Extensions.ColorExtensions.Premultiplied
+  isSpec: "True"
+  fullName: PAC.Extensions.ColorExtensions.Premultiplied
+  nameWithType: ColorExtensions.Premultiplied
+- uid: PAC.Extensions.ColorExtensions.Straight(Color)
+  name: Straight(Color)
+  href: api/PAC.Extensions.ColorExtensions.html#PAC_Extensions_ColorExtensions_Straight_Color_
+  commentId: M:PAC.Extensions.ColorExtensions.Straight(Color)
+  fullName: PAC.Extensions.ColorExtensions.Straight(Color)
+  nameWithType: ColorExtensions.Straight(Color)
+- uid: PAC.Extensions.ColorExtensions.Straight*
+  name: Straight
+  href: api/PAC.Extensions.ColorExtensions.html#PAC_Extensions_ColorExtensions_Straight_
+  commentId: Overload:PAC.Extensions.ColorExtensions.Straight
+  isSpec: "True"
+  fullName: PAC.Extensions.ColorExtensions.Straight
+  nameWithType: ColorExtensions.Straight
 - uid: PAC.Extensions.ICollectionExtensions
   name: ICollectionExtensions
   href: api/PAC.Extensions.ICollectionExtensions.html

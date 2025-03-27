@@ -351,6 +351,11 @@ Struct RGB  <a class="header-action link-secondary" title="View source" href="ht
 
 
 
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="PAC_Colour_RGB_b_" data-uid="PAC.Colour.RGB.b*"></a>
 
   <h3 id="PAC_Colour_RGB_b" data-uid="PAC.Colour.RGB.b">
   b
@@ -362,18 +367,18 @@ Struct RGB  <a class="header-action link-secondary" title="View source" href="ht
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public readonly float b</code></pre>
+    <pre><code class="lang-csharp hljs">public float b { get; init; }</code></pre>
   </div>
 
 
 
 
-  <h4 class="section">Field Value</h4>
+
+  <h4 class="section">Property Value</h4>
   <dl class="parameters">
     <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
     <dd></dd>
   </dl>
-
 
 
 
@@ -385,6 +390,7 @@ Struct RGB  <a class="header-action link-secondary" title="View source" href="ht
 
 
 
+  <a id="PAC_Colour_RGB_g_" data-uid="PAC.Colour.RGB.g*"></a>
 
   <h3 id="PAC_Colour_RGB_g" data-uid="PAC.Colour.RGB.g">
   g
@@ -396,18 +402,18 @@ Struct RGB  <a class="header-action link-secondary" title="View source" href="ht
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public readonly float g</code></pre>
+    <pre><code class="lang-csharp hljs">public float g { get; init; }</code></pre>
   </div>
 
 
 
 
-  <h4 class="section">Field Value</h4>
+
+  <h4 class="section">Property Value</h4>
   <dl class="parameters">
     <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
     <dd></dd>
   </dl>
-
 
 
 
@@ -419,6 +425,7 @@ Struct RGB  <a class="header-action link-secondary" title="View source" href="ht
 
 
 
+  <a id="PAC_Colour_RGB_r_" data-uid="PAC.Colour.RGB.r*"></a>
 
   <h3 id="PAC_Colour_RGB_r" data-uid="PAC.Colour.RGB.r">
   r
@@ -430,18 +437,18 @@ Struct RGB  <a class="header-action link-secondary" title="View source" href="ht
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public readonly float r</code></pre>
+    <pre><code class="lang-csharp hljs">public float r { get; init; }</code></pre>
   </div>
 
 
 
 
-  <h4 class="section">Field Value</h4>
+
+  <h4 class="section">Property Value</h4>
   <dl class="parameters">
     <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
     <dd></dd>
   </dl>
-
 
 
 
@@ -461,7 +468,7 @@ Struct RGB  <a class="header-action link-secondary" title="View source" href="ht
 
   <h3 id="PAC_Colour_RGB_Clamp01" data-uid="PAC.Colour.RGB.Clamp01">
   Clamp01()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Colour/RGB.cs/#L171"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Colour/RGB.cs/#L198"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Returns the <a class="xref" href="PAC.Colour.RGB.html">RGB</a> with each component clamped to the inclusive range <code>[0, 1]</code>.</p>
@@ -493,7 +500,7 @@ Struct RGB  <a class="header-action link-secondary" title="View source" href="ht
 
   <h3 id="PAC_Colour_RGB_Equals_PAC_Colour_RGB_" data-uid="PAC.Colour.RGB.Equals(PAC.Colour.RGB)">
   Equals(RGB)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Colour/RGB.cs/#L104"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Colour/RGB.cs/#L132"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>See <a class="xref" href="PAC.Colour.RGB.html#PAC_Colour_RGB_op_Equality_PAC_Colour_RGB_PAC_Colour_RGB_">operator ==(RGB, RGB)</a>.</p>
@@ -530,7 +537,7 @@ Struct RGB  <a class="header-action link-secondary" title="View source" href="ht
 
   <h3 id="PAC_Colour_RGB_Equals_PAC_Colour_RGB_System_Single_" data-uid="PAC.Colour.RGB.Equals(PAC.Colour.RGB,System.Single)">
   Equals(RGB, float)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Colour/RGB.cs/#L112"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Colour/RGB.cs/#L140"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Returns whether each component of <code class="paramref">other</code> differs from the corresponding component of <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/this">this</a> by &lt;= <code class="paramref">tolerance</code>.</p>
@@ -569,7 +576,7 @@ Struct RGB  <a class="header-action link-secondary" title="View source" href="ht
 
   <h3 id="PAC_Colour_RGB_Equals_System_Object_" data-uid="PAC.Colour.RGB.Equals(System.Object)">
   Equals(object)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Colour/RGB.cs/#L108"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Colour/RGB.cs/#L136"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>See <a class="xref" href="PAC.Colour.RGB.html#PAC_Colour_RGB_Equals_PAC_Colour_RGB_">Equals(RGB)</a>.</p>
@@ -606,7 +613,7 @@ Struct RGB  <a class="header-action link-secondary" title="View source" href="ht
 
   <h3 id="PAC_Colour_RGB_GetHashCode" data-uid="PAC.Colour.RGB.GetHashCode">
   GetHashCode()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Colour/RGB.cs/#L117"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Colour/RGB.cs/#L145"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Returns the hash code for this instance.</p>
@@ -639,7 +646,7 @@ Struct RGB  <a class="header-action link-secondary" title="View source" href="ht
 
   <h3 id="PAC_Colour_RGB_LerpClamped_PAC_Colour_RGB_PAC_Colour_RGB_System_Single_" data-uid="PAC.Colour.RGB.LerpClamped(PAC.Colour.RGB,PAC.Colour.RGB,System.Single)">
   LerpClamped(RGB, RGB, float)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Colour/RGB.cs/#L156"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Colour/RGB.cs/#L184"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Linearly interpolates component-wise from <code class="paramref">start</code> (<code class="paramref">t</code> = 0) to <code class="paramref">end</code> (<code class="paramref">t</code> = 1), clamping <code class="paramref">t</code> to
@@ -687,7 +694,7 @@ the inclusive range <code>[0, 1]</code>.</p>
 
   <h3 id="PAC_Colour_RGB_LerpUnclamped_PAC_Colour_RGB_PAC_Colour_RGB_System_Single_" data-uid="PAC.Colour.RGB.LerpUnclamped(PAC.Colour.RGB,PAC.Colour.RGB,System.Single)">
   LerpUnclamped(RGB, RGB, float)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Colour/RGB.cs/#L165"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Colour/RGB.cs/#L193"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Linearly interpolates component-wise from <code class="paramref">start</code> (<code class="paramref">t</code> = 0) to <code class="paramref">end</code> (<code class="paramref">t</code> = 1), without clamping
@@ -738,7 +745,7 @@ the inclusive range <code>[0, 1]</code>.</p>
 
   <h3 id="PAC_Colour_RGB_ToString" data-uid="PAC.Colour.RGB.ToString">
   ToString()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Colour/RGB.cs/#L174"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Colour/RGB.cs/#L201"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Returns the fully qualified type name of this instance.</p>
@@ -767,11 +774,48 @@ the inclusive range <code>[0, 1]</code>.</p>
 
 
 
+  <a id="PAC_Colour_RGB_ToString_" data-uid="PAC.Colour.RGB.ToString*"></a>
+
+  <h3 id="PAC_Colour_RGB_ToString_System_String_" data-uid="PAC.Colour.RGB.ToString(System.String)">
+  ToString(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Colour/RGB.cs/#L205"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Applies <code class="paramref">format</code> to each component.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string ToString(string format)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>format</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
   <a id="PAC_Colour_RGB_WithAlpha_" data-uid="PAC.Colour.RGB.WithAlpha*"></a>
 
   <h3 id="PAC_Colour_RGB_WithAlpha_System_Single_" data-uid="PAC.Colour.RGB.WithAlpha(System.Single)">
   WithAlpha(float)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Colour/RGB.cs/#L89"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Colour/RGB.cs/#L87"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Returns a Color with the same RGB values and with the given alpha.</p>
@@ -812,7 +856,7 @@ the inclusive range <code>[0, 1]</code>.</p>
 
   <h3 id="PAC_Colour_RGB_op_Addition_PAC_Colour_RGB_PAC_Colour_RGB_" data-uid="PAC.Colour.RGB.op_Addition(PAC.Colour.RGB,PAC.Colour.RGB)">
   operator +(RGB, RGB)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Colour/RGB.cs/#L124"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Colour/RGB.cs/#L152"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Adds component-wise, with no clamping.</p>
@@ -851,7 +895,7 @@ the inclusive range <code>[0, 1]</code>.</p>
 
   <h3 id="PAC_Colour_RGB_op_Division_PAC_Colour_RGB_PAC_Colour_RGB_" data-uid="PAC.Colour.RGB.op_Division(PAC.Colour.RGB,PAC.Colour.RGB)">
   operator /(RGB, RGB)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Colour/RGB.cs/#L136"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Colour/RGB.cs/#L164"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Divides component-wise, with no clamping.</p>
@@ -890,7 +934,7 @@ the inclusive range <code>[0, 1]</code>.</p>
 
   <h3 id="PAC_Colour_RGB_op_Division_PAC_Colour_RGB_System_Single_" data-uid="PAC.Colour.RGB.op_Division(PAC.Colour.RGB,System.Single)">
   operator /(RGB, float)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Colour/RGB.cs/#L149"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Colour/RGB.cs/#L177"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Divides each component of <code class="paramref">rgb</code> by <code class="paramref">scalar</code> with no clamping.</p>
@@ -929,7 +973,7 @@ the inclusive range <code>[0, 1]</code>.</p>
 
   <h3 id="PAC_Colour_RGB_op_Equality_PAC_Colour_RGB_PAC_Colour_RGB_" data-uid="PAC.Colour.RGB.op_Equality(PAC.Colour.RGB,PAC.Colour.RGB)">
   operator ==(RGB, RGB)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Colour/RGB.cs/#L96"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Colour/RGB.cs/#L124"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Component-wise equality.</p>
@@ -968,7 +1012,7 @@ the inclusive range <code>[0, 1]</code>.</p>
 
   <h3 id="PAC_Colour_RGB_op_Explicit_Color__PAC_Colour_RGB" data-uid="PAC.Colour.RGB.op_Explicit(Color)~PAC.Colour.RGB">
   explicit operator RGB(Color)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Colour/RGB.cs/#L84"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Colour/RGB.cs/#L83"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Returns an <a class="xref" href="PAC.Colour.RGB.html">RGB</a> with the same RGB values as the Color, but discarding the alpha.</p>
@@ -1001,11 +1045,101 @@ the inclusive range <code>[0, 1]</code>.</p>
 
 
 
+  <a id="PAC_Colour_RGB_op_Explicit_" data-uid="PAC.Colour.RGB.op_Explicit*"></a>
+
+  <h3 id="PAC_Colour_RGB_op_Explicit_PAC_Colour_RGB__PAC_Colour_HSL" data-uid="PAC.Colour.RGB.op_Explicit(PAC.Colour.RGB)~PAC.Colour.HSL">
+  explicit operator HSL(RGB)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Colour/RGB.cs/#L100"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Converts from <a class="xref" href="PAC.Colour.RGB.html">RGB</a> to <a class="xref" href="PAC.Colour.HSL.html">HSL</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static explicit operator HSL(RGB rgb)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>rgb</code> <a class="xref" href="PAC.Colour.RGB.html">RGB</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="PAC.Colour.HSL.html">HSL</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="PAC_Colour_RGB_op_Explicit_PAC_Colour_RGB__PAC_Colour_HSL_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>
+Does not do any clamping.
+</p>
+<p>
+This is independent of colour space.
+</p>
+</div>
+
+
+
+
+  <a id="PAC_Colour_RGB_op_Explicit_" data-uid="PAC.Colour.RGB.op_Explicit*"></a>
+
+  <h3 id="PAC_Colour_RGB_op_Explicit_PAC_Colour_RGB__PAC_Colour_HSV" data-uid="PAC.Colour.RGB.op_Explicit(PAC.Colour.RGB)~PAC.Colour.HSV">
+  explicit operator HSV(RGB)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Colour/RGB.cs/#L113"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Converts from <a class="xref" href="PAC.Colour.RGB.html">RGB</a> to <a class="xref" href="PAC.Colour.HSV.html">HSV</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static explicit operator HSV(RGB rgb)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>rgb</code> <a class="xref" href="PAC.Colour.RGB.html">RGB</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="PAC.Colour.HSV.html">HSV</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="PAC_Colour_RGB_op_Explicit_PAC_Colour_RGB__PAC_Colour_HSV_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>
+Does not do any clamping.
+</p>
+<p>
+This is independent of colour space.
+</p>
+</div>
+
+
+
+
   <a id="PAC_Colour_RGB_op_Inequality_" data-uid="PAC.Colour.RGB.op_Inequality*"></a>
 
   <h3 id="PAC_Colour_RGB_op_Inequality_PAC_Colour_RGB_PAC_Colour_RGB_" data-uid="PAC.Colour.RGB.op_Inequality(PAC.Colour.RGB,PAC.Colour.RGB)">
   operator !=(RGB, RGB)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Colour/RGB.cs/#L100"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Colour/RGB.cs/#L128"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>See <a class="xref" href="PAC.Colour.RGB.html#PAC_Colour_RGB_op_Equality_PAC_Colour_RGB_PAC_Colour_RGB_">operator ==(RGB, RGB)</a>.</p>
@@ -1044,7 +1178,7 @@ the inclusive range <code>[0, 1]</code>.</p>
 
   <h3 id="PAC_Colour_RGB_op_Multiply_PAC_Colour_RGB_PAC_Colour_RGB_" data-uid="PAC.Colour.RGB.op_Multiply(PAC.Colour.RGB,PAC.Colour.RGB)">
   operator *(RGB, RGB)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Colour/RGB.cs/#L132"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Colour/RGB.cs/#L160"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Multiplies component-wise, with no clamping.</p>
@@ -1083,7 +1217,7 @@ the inclusive range <code>[0, 1]</code>.</p>
 
   <h3 id="PAC_Colour_RGB_op_Multiply_PAC_Colour_RGB_System_Single_" data-uid="PAC.Colour.RGB.op_Multiply(PAC.Colour.RGB,System.Single)">
   operator *(RGB, float)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Colour/RGB.cs/#L141"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Colour/RGB.cs/#L169"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Multiplies each component of <code class="paramref">rgb</code> by <code class="paramref">scalar</code> with no clamping.</p>
@@ -1122,7 +1256,7 @@ the inclusive range <code>[0, 1]</code>.</p>
 
   <h3 id="PAC_Colour_RGB_op_Multiply_System_Single_PAC_Colour_RGB_" data-uid="PAC.Colour.RGB.op_Multiply(System.Single,PAC.Colour.RGB)">
   operator *(float, RGB)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Colour/RGB.cs/#L145"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Colour/RGB.cs/#L173"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Multiplies each component of <code class="paramref">rgb</code> by <code class="paramref">scalar</code> with no clamping.</p>
@@ -1161,7 +1295,7 @@ the inclusive range <code>[0, 1]</code>.</p>
 
   <h3 id="PAC_Colour_RGB_op_Subtraction_PAC_Colour_RGB_PAC_Colour_RGB_" data-uid="PAC.Colour.RGB.op_Subtraction(PAC.Colour.RGB,PAC.Colour.RGB)">
   operator -(RGB, RGB)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Colour/RGB.cs/#L128"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Colour/RGB.cs/#L156"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Subtracts component-wise, with no clamping.</p>

@@ -6,7 +6,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta name="title" content="Struct HSV | Pixel Art Creator 2.0 Docs ">
       
-      <meta name="description" content="Represents a colour in HSV form.">
+      <meta name="description" content="A colour in HSV (Hue, Saturation, Value) form with no alpha component.">
       <link rel="icon" href="../resources/icon.ico">
       <link rel="stylesheet" href="../public/docfx.min.css">
       <link rel="stylesheet" href="../public/main.css">
@@ -89,7 +89,7 @@
 
 
   <h1 id="PAC_Colour_HSV" data-uid="PAC.Colour.HSV" class="text-break">
-Struct HSV  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Colour/HSV.cs/#L8"><i class="bi bi-code-slash"></i></a>
+Struct HSV  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Colour/HSV.cs/#L12"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -97,29 +97,29 @@ Struct HSV  <a class="header-action link-secondary" title="View source" href="ht
   
   </div>
 
-  <div class="markdown summary"><p>Represents a colour in HSV form.</p>
+  <div class="markdown summary"><p>A colour in HSV (Hue, Saturation, Value) form with no alpha component.</p>
 </div>
   <div class="markdown conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public struct HSV</code></pre>
+    <pre><code class="lang-csharp hljs">public readonly struct HSV : IEquatable&lt;HSV&gt;</code></pre>
   </div>
 
 
 
 
 
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iequatable-1">IEquatable</a>&lt;<a class="xref" href="PAC.Colour.HSV.html">HSV</a>&gt;</div>
+    </dd>
+  </dl>
 
 
   <dl class="typelist inheritedMembers">
     <dt>Inherited Members</dt>
     <dd>
-    <div>
-      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetype.equals">ValueType.Equals(object)</a>
-    </div>
-    <div>
-      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode">ValueType.GetHashCode()</a>
-    </div>
     <div>
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
     </div>
@@ -152,43 +152,13 @@ Struct HSV  <a class="header-action link-secondary" title="View source" href="ht
 
   <a id="PAC_Colour_HSV__ctor_" data-uid="PAC.Colour.HSV.#ctor*"></a>
 
-  <h3 id="PAC_Colour_HSV__ctor_Color_" data-uid="PAC.Colour.HSV.#ctor(Color)">
-  HSV(Color)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Colour/HSV.cs/#L31"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public HSV(Color rgb)</code></pre>
-  </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>rgb</code> <span class="xref">Color</span></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
-
-
-  <a id="PAC_Colour_HSV__ctor_" data-uid="PAC.Colour.HSV.#ctor*"></a>
-
   <h3 id="PAC_Colour_HSV__ctor_System_Single_System_Single_System_Single_" data-uid="PAC.Colour.HSV.#ctor(System.Single,System.Single,System.Single)">
   HSV(float, float, float)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Colour/HSV.cs/#L22"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Colour/HSV.cs/#L45"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Creates an <a class="xref" href="PAC.Colour.HSV.html">HSV</a> with the given components without clamping or wrapping.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -198,48 +168,14 @@ Struct HSV  <a class="header-action link-secondary" title="View source" href="ht
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>hue</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
-    <dd></dd>
+    <dd><p>See <a class="xref" href="PAC.Colour.HSV.html#PAC_Colour_HSV_h">h</a>.</p>
+</dd>
     <dt><code>saturation</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
-    <dd></dd>
+    <dd><p>See <a class="xref" href="PAC.Colour.HSV.html#PAC_Colour_HSV_s">s</a>.</p>
+</dd>
     <dt><code>value</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
-
-
-  <a id="PAC_Colour_HSV__ctor_" data-uid="PAC.Colour.HSV.#ctor*"></a>
-
-  <h3 id="PAC_Colour_HSV__ctor_System_Single_System_Single_System_Single_System_Single_" data-uid="PAC.Colour.HSV.#ctor(System.Single,System.Single,System.Single,System.Single)">
-  HSV(float, float, float, float)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Colour/HSV.cs/#L23"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public HSV(float hue, float saturation, float value, float alpha)</code></pre>
-  </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>hue</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
-    <dd></dd>
-    <dt><code>saturation</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
-    <dd></dd>
-    <dt><code>value</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
-    <dd></dd>
-    <dt><code>alpha</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
-    <dd></dd>
+    <dd><p>See <a class="xref" href="PAC.Colour.HSV.html#PAC_Colour_HSV_v">v</a>.</p>
+</dd>
   </dl>
 
 
@@ -257,74 +193,11 @@ Struct HSV  <a class="header-action link-secondary" title="View source" href="ht
 </h2>
 
 
-  <a id="PAC_Colour_HSV_a_" data-uid="PAC.Colour.HSV.a*"></a>
-
-  <h3 id="PAC_Colour_HSV_a" data-uid="PAC.Colour.HSV.a">
-  a
-  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Colour/HSV.cs/#L17"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"><p>Alpha.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public float a { readonly get; set; }</code></pre>
-  </div>
-
-
-
-
-
-  <h4 class="section">Property Value</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-  <a id="PAC_Colour_HSV_color_" data-uid="PAC.Colour.HSV.color*"></a>
-
-  <h3 id="PAC_Colour_HSV_color" data-uid="PAC.Colour.HSV.color">
-  color
-  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Colour/HSV.cs/#L20"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Color color { get; }</code></pre>
-  </div>
-
-
-
-
-
-  <h4 class="section">Property Value</h4>
-  <dl class="parameters">
-    <dt><span class="xref">Color</span></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
   <a id="PAC_Colour_HSV_h_" data-uid="PAC.Colour.HSV.h*"></a>
 
   <h3 id="PAC_Colour_HSV_h" data-uid="PAC.Colour.HSV.h">
   h
-  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Colour/HSV.cs/#L11"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Colour/HSV.cs/#L21"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Hue.</p>
@@ -332,7 +205,7 @@ Struct HSV  <a class="header-action link-secondary" title="View source" href="ht
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public float h { readonly get; set; }</code></pre>
+    <pre><code class="lang-csharp hljs">public float h { get; init; }</code></pre>
   </div>
 
 
@@ -348,37 +221,9 @@ Struct HSV  <a class="header-action link-secondary" title="View source" href="ht
 
 
 
-
-
-
-
-  <a id="PAC_Colour_HSV_hsl_" data-uid="PAC.Colour.HSV.hsl*"></a>
-
-  <h3 id="PAC_Colour_HSV_hsl" data-uid="PAC.Colour.HSV.hsl">
-  hsl
-  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Colour/HSV.cs/#L19"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public HSL hsl { get; }</code></pre>
-  </div>
-
-
-
-
-
-  <h4 class="section">Property Value</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="PAC.Colour.HSL.html">HSL</a></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
+  <h4 class="section" id="PAC_Colour_HSV_h_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>This is intended to be in the inclusive-exclusive range <code>[0, 1)</code>, but can be outside.</p>
+</div>
 
 
 
@@ -387,7 +232,7 @@ Struct HSV  <a class="header-action link-secondary" title="View source" href="ht
 
   <h3 id="PAC_Colour_HSV_s" data-uid="PAC.Colour.HSV.s">
   s
-  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Colour/HSV.cs/#L13"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Colour/HSV.cs/#L28"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Saturation.</p>
@@ -395,7 +240,7 @@ Struct HSV  <a class="header-action link-secondary" title="View source" href="ht
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public float s { readonly get; set; }</code></pre>
+    <pre><code class="lang-csharp hljs">public float s { get; init; }</code></pre>
   </div>
 
 
@@ -411,6 +256,9 @@ Struct HSV  <a class="header-action link-secondary" title="View source" href="ht
 
 
 
+  <h4 class="section" id="PAC_Colour_HSV_s_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>This is intended to be in the inclusive range <code>[0, 1]</code>, but can be outside.</p>
+</div>
 
 
 
@@ -419,7 +267,7 @@ Struct HSV  <a class="header-action link-secondary" title="View source" href="ht
 
   <h3 id="PAC_Colour_HSV_v" data-uid="PAC.Colour.HSV.v">
   v
-  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Colour/HSV.cs/#L15"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Colour/HSV.cs/#L35"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Value.</p>
@@ -427,7 +275,7 @@ Struct HSV  <a class="header-action link-secondary" title="View source" href="ht
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public float v { readonly get; set; }</code></pre>
+    <pre><code class="lang-csharp hljs">public float v { get; init; }</code></pre>
   </div>
 
 
@@ -443,6 +291,9 @@ Struct HSV  <a class="header-action link-secondary" title="View source" href="ht
 
 
 
+  <h4 class="section" id="PAC_Colour_HSV_v_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>This is intended to be in the inclusive range <code>[0, 1]</code>, but can be outside.</p>
+</div>
 
 
 
@@ -451,24 +302,30 @@ Struct HSV  <a class="header-action link-secondary" title="View source" href="ht
 </h2>
 
 
-  <a id="PAC_Colour_HSV_ToColor_" data-uid="PAC.Colour.HSV.ToColor*"></a>
+  <a id="PAC_Colour_HSV_Equals_" data-uid="PAC.Colour.HSV.Equals*"></a>
 
-  <h3 id="PAC_Colour_HSV_ToColor" data-uid="PAC.Colour.HSV.ToColor">
-  ToColor()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Colour/HSV.cs/#L58"><i class="bi bi-code-slash"></i></a>
+  <h3 id="PAC_Colour_HSV_Equals_PAC_Colour_HSV_" data-uid="PAC.Colour.HSV.Equals(PAC.Colour.HSV)">
+  Equals(HSV)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Colour/HSV.cs/#L107"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>See <a class="xref" href="PAC.Colour.HSV.html#PAC_Colour_HSV_op_Equality_PAC_Colour_HSV_PAC_Colour_HSV_">operator ==(HSV, HSV)</a>.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Color ToColor()</code></pre>
+    <pre><code class="lang-csharp hljs">public bool Equals(HSV other)</code></pre>
   </div>
 
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>other</code> <a class="xref" href="PAC.Colour.HSV.html">HSV</a></dt>
+    <dd></dd>
+  </dl>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
-    <dt><span class="xref">Color</span></dt>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
     <dd></dd>
   </dl>
 
@@ -482,25 +339,103 @@ Struct HSV  <a class="header-action link-secondary" title="View source" href="ht
 
 
 
-  <a id="PAC_Colour_HSV_ToHSL_" data-uid="PAC.Colour.HSV.ToHSL*"></a>
+  <a id="PAC_Colour_HSV_Equals_" data-uid="PAC.Colour.HSV.Equals*"></a>
 
-  <h3 id="PAC_Colour_HSV_ToHSL" data-uid="PAC.Colour.HSV.ToHSL">
-  ToHSL()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Colour/HSV.cs/#L42"><i class="bi bi-code-slash"></i></a>
+  <h3 id="PAC_Colour_HSV_Equals_PAC_Colour_HSV_System_Single_" data-uid="PAC.Colour.HSV.Equals(PAC.Colour.HSV,System.Single)">
+  Equals(HSV, float)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Colour/HSV.cs/#L115"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Returns whether each component of <code class="paramref">other</code> differs from the corresponding component of <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/this">this</a> by &lt;= <code class="paramref">tolerance</code>.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public HSL ToHSL()</code></pre>
+    <pre><code class="lang-csharp hljs">public bool Equals(HSV other, float tolerance)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>other</code> <a class="xref" href="PAC.Colour.HSV.html">HSV</a></dt>
+    <dd></dd>
+    <dt><code>tolerance</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="PAC_Colour_HSV_Equals_" data-uid="PAC.Colour.HSV.Equals*"></a>
+
+  <h3 id="PAC_Colour_HSV_Equals_System_Object_" data-uid="PAC.Colour.HSV.Equals(System.Object)">
+  Equals(object)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Colour/HSV.cs/#L111"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>See <a class="xref" href="PAC.Colour.HSV.html#PAC_Colour_HSV_Equals_PAC_Colour_HSV_">Equals(HSV)</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override bool Equals(object obj)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>obj</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="PAC_Colour_HSV_GetHashCode_" data-uid="PAC.Colour.HSV.GetHashCode*"></a>
+
+  <h3 id="PAC_Colour_HSV_GetHashCode" data-uid="PAC.Colour.HSV.GetHashCode">
+  GetHashCode()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Colour/HSV.cs/#L120"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the hash code for this instance.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override int GetHashCode()</code></pre>
   </div>
 
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
-    <dt><a class="xref" href="PAC.Colour.HSL.html">HSL</a></dt>
-    <dd></dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>A 32-bit signed integer that is the hash code for this instance.</p>
+</dd>
   </dl>
 
 
@@ -517,7 +452,7 @@ Struct HSV  <a class="header-action link-secondary" title="View source" href="ht
 
   <h3 id="PAC_Colour_HSV_ToString" data-uid="PAC.Colour.HSV.ToString">
   ToString()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Colour/HSV.cs/#L74"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Colour/HSV.cs/#L123"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Returns the fully qualified type name of this instance.</p>
@@ -548,21 +483,22 @@ Struct HSV  <a class="header-action link-secondary" title="View source" href="ht
 
   <a id="PAC_Colour_HSV_ToString_" data-uid="PAC.Colour.HSV.ToString*"></a>
 
-  <h3 id="PAC_Colour_HSV_ToString_System_Int32_" data-uid="PAC.Colour.HSV.ToString(System.Int32)">
-  ToString(int)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Colour/HSV.cs/#L78"><i class="bi bi-code-slash"></i></a>
+  <h3 id="PAC_Colour_HSV_ToString_System_String_" data-uid="PAC.Colour.HSV.ToString(System.String)">
+  ToString(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Colour/HSV.cs/#L127"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Applies <code class="paramref">format</code> to each component.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public string ToString(int decimalPlaces)</code></pre>
+    <pre><code class="lang-csharp hljs">public string ToString(string format)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
-    <dt><code>decimalPlaces</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dt><code>format</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
     <dd></dd>
   </dl>
 
@@ -582,33 +518,73 @@ Struct HSV  <a class="header-action link-secondary" title="View source" href="ht
 
 
 
-  <h2 class="section" id="operators">Operators
-</h2>
+  <a id="PAC_Colour_HSV_WithAlpha_" data-uid="PAC.Colour.HSV.WithAlpha*"></a>
 
-
-  <a id="PAC_Colour_HSV_op_Explicit_" data-uid="PAC.Colour.HSV.op_Explicit*"></a>
-
-  <h3 id="PAC_Colour_HSV_op_Explicit_PAC_Colour_HSV__Color" data-uid="PAC.Colour.HSV.op_Explicit(PAC.Colour.HSV)~Color">
-  explicit operator Color(HSV)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Colour/HSV.cs/#L69"><i class="bi bi-code-slash"></i></a>
+  <h3 id="PAC_Colour_HSV_WithAlpha_System_Single_" data-uid="PAC.Colour.HSV.WithAlpha(System.Single)">
+  WithAlpha(float)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Colour/HSV.cs/#L57"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Returns an <a class="xref" href="PAC.Colour.HSVA.html">HSVA</a> with the same HSV values and with the given alpha.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static explicit operator Color(HSV hsv)</code></pre>
+    <pre><code class="lang-csharp hljs">public HSVA WithAlpha(float alpha)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
-    <dt><code>hsv</code> <a class="xref" href="PAC.Colour.HSV.html">HSV</a></dt>
+    <dt><code>alpha</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
     <dd></dd>
   </dl>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
-    <dt><span class="xref">Color</span></dt>
+    <dt><a class="xref" href="PAC.Colour.HSVA.html">HSVA</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="operators">Operators
+</h2>
+
+
+  <a id="PAC_Colour_HSV_op_Equality_" data-uid="PAC.Colour.HSV.op_Equality*"></a>
+
+  <h3 id="PAC_Colour_HSV_op_Equality_PAC_Colour_HSV_PAC_Colour_HSV_" data-uid="PAC.Colour.HSV.op_Equality(PAC.Colour.HSV,PAC.Colour.HSV)">
+  operator ==(HSV, HSV)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Colour/HSV.cs/#L99"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Component-wise equality.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool operator ==(HSV x, HSV y)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>x</code> <a class="xref" href="PAC.Colour.HSV.html">HSV</a></dt>
+    <dd></dd>
+    <dt><code>y</code> <a class="xref" href="PAC.Colour.HSV.html">HSV</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
     <dd></dd>
   </dl>
 
@@ -626,10 +602,11 @@ Struct HSV  <a class="header-action link-secondary" title="View source" href="ht
 
   <h3 id="PAC_Colour_HSV_op_Explicit_PAC_Colour_HSV__PAC_Colour_HSL" data-uid="PAC.Colour.HSV.op_Explicit(PAC.Colour.HSV)~PAC.Colour.HSL">
   explicit operator HSL(HSV)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Colour/HSV.cs/#L65"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Colour/HSV.cs/#L83"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Converts from <a class="xref" href="PAC.Colour.HSV.html">HSV</a> to <a class="xref" href="PAC.Colour.HSL.html">HSL</a>.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -654,6 +631,98 @@ Struct HSV  <a class="header-action link-secondary" title="View source" href="ht
 
 
 
+  <h4 class="section" id="PAC_Colour_HSV_op_Explicit_PAC_Colour_HSV__PAC_Colour_HSL_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>
+Does not do any clamping.
+</p>
+<p>
+This is independent of colour space.
+</p>
+</div>
+
+
+
+
+  <a id="PAC_Colour_HSV_op_Explicit_" data-uid="PAC.Colour.HSV.op_Explicit*"></a>
+
+  <h3 id="PAC_Colour_HSV_op_Explicit_PAC_Colour_HSV__PAC_Colour_RGB" data-uid="PAC.Colour.HSV.op_Explicit(PAC.Colour.HSV)~PAC.Colour.RGB">
+  explicit operator RGB(HSV)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Colour/HSV.cs/#L70"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Converts from <a class="xref" href="PAC.Colour.HSV.html">HSV</a> to <a class="xref" href="PAC.Colour.RGB.html">RGB</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static explicit operator RGB(HSV hsv)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>hsv</code> <a class="xref" href="PAC.Colour.HSV.html">HSV</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="PAC.Colour.RGB.html">RGB</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="PAC_Colour_HSV_op_Explicit_PAC_Colour_HSV__PAC_Colour_RGB_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>
+Does not do any clamping.
+</p>
+<p>
+This is independent of colour space.
+</p>
+</div>
+
+
+
+
+  <a id="PAC_Colour_HSV_op_Inequality_" data-uid="PAC.Colour.HSV.op_Inequality*"></a>
+
+  <h3 id="PAC_Colour_HSV_op_Inequality_PAC_Colour_HSV_PAC_Colour_HSV_" data-uid="PAC.Colour.HSV.op_Inequality(PAC.Colour.HSV,PAC.Colour.HSV)">
+  operator !=(HSV, HSV)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Colour/HSV.cs/#L103"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>See <a class="xref" href="PAC.Colour.HSV.html#PAC_Colour_HSV_op_Equality_PAC_Colour_HSV_PAC_Colour_HSV_">operator ==(HSV, HSV)</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool operator !=(HSV x, HSV y)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>x</code> <a class="xref" href="PAC.Colour.HSV.html">HSV</a></dt>
+    <dd></dd>
+    <dt><code>y</code> <a class="xref" href="PAC.Colour.HSV.html">HSV</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
 
 
 
@@ -662,7 +731,7 @@ Struct HSV  <a class="header-action link-secondary" title="View source" href="ht
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Colour/HSV.cs/#L8" class="edit-link">Edit this page</a>
+          <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Colour/HSV.cs/#L12" class="edit-link">Edit this page</a>
         </div>
 
 
