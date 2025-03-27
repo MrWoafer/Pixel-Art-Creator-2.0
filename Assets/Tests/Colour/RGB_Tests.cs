@@ -36,6 +36,32 @@ namespace PAC.Tests.Colour
         }
 
         /// <summary>
+        /// Tests that <c>RGB(0, 0, 0)</c> converts to <c>HSL(*, 0, 0)</c>.
+        /// </summary>
+        [Test]
+        [Category("Colour")]
+        public void CastTo_HSL_Black()
+        {
+            RGB black = new RGB(0f, 0f, 0f);
+            HSL observed = (HSL)black;
+            HSL expected = new HSL(observed.h, 0f, 0f);
+            Assert.True(expected.Equals(observed, 0.001f), $"Failed.\nExpected: {expected}\nObserved: {observed}");
+        }
+
+        /// <summary>
+        /// Tests that <c>RGB(1, 1, 1)</c> converts to <c>HSL(*, *, 1)</c>.
+        /// </summary>
+        [Test]
+        [Category("Colour")]
+        public void CastTo_HSL_White()
+        {
+            RGB white = new RGB(1f, 1f, 1f);
+            HSL observed = (HSL)white;
+            HSL expected = new HSL(observed.h, observed.s, 1f);
+            Assert.True(expected.Equals(observed, 0.001f), $"Failed.\nExpected: {expected}\nObserved: {observed}");
+        }
+
+        /// <summary>
         /// Tests that <c>RGB(x, x, x)</c> converts to <c>HSL(*, 0, x)</c>.
         /// </summary>
         [Test]
@@ -90,6 +116,32 @@ namespace PAC.Tests.Colour
                 HSV observed = (HSV)input;
                 Assert.True(expected.Equals(observed, 0.001f), $"Failed with {input}.\nExpected: {expected}\nObserved: {observed}");
             }
+        }
+
+        /// <summary>
+        /// Tests that <c>RGB(0, 0, 0)</c> converts to <c>HSV(*, *, 0)</c>.
+        /// </summary>
+        [Test]
+        [Category("Colour")]
+        public void CastTo_HSV_Black()
+        {
+            RGB black = new RGB(0f, 0f, 0f);
+            HSV observed = (HSV)black;
+            HSV expected = new HSV(observed.h, observed.s, 0f);
+            Assert.True(expected.Equals(observed, 0.001f), $"Failed.\nExpected: {expected}\nObserved: {observed}");
+        }
+
+        /// <summary>
+        /// Tests that <c>RGB(1, 1, 1)</c> converts to <c>HSV(*, 0, 1)</c>.
+        /// </summary>
+        [Test]
+        [Category("Colour")]
+        public void CastTo_HSV_White()
+        {
+            RGB white = new RGB(1f, 1f, 1f);
+            HSV observed = (HSV)white;
+            HSV expected = new HSV(observed.h, 0f, 1f);
+            Assert.True(expected.Equals(observed, 0.001f), $"Failed.\nExpected: {expected}\nObserved: {observed}");
         }
 
         /// <summary>

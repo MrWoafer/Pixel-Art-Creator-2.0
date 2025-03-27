@@ -36,6 +36,40 @@ namespace PAC.Tests.Colour
         }
 
         /// <summary>
+        /// Tests that <c>HSL(*, *, 0)</c> converts to <c>RGB(0, 0, 0)</c>.
+        /// </summary>
+        [Test]
+        [Category("Colour")]
+        public void CastTo_RGB_Black()
+        {
+            Random random = new Random(TestContext.CurrentContext.Test.Name.GetHashCode());
+            for (int iteration = 0; iteration < 1_000; iteration++)
+            {
+                HSL black = new HSL(random.NextFloat(), random.NextFloat(), 0f);
+                RGB observed = (RGB)black;
+                RGB expected = new RGB(0f, 0f, 0f);
+                Assert.True(expected.Equals(observed, 0.001f), $"Failed.\nExpected: {expected}\nObserved: {observed}");
+            }
+        }
+
+        /// <summary>
+        /// Tests that <c>HSL(*, *, 1)</c> converts to <c>RGB(1, 1, 1)</c>.
+        /// </summary>
+        [Test]
+        [Category("Colour")]
+        public void CastTo_RGB_White()
+        {
+            Random random = new Random(TestContext.CurrentContext.Test.Name.GetHashCode());
+            for (int iteration = 0; iteration < 1_000; iteration++)
+            {
+                HSL white = new HSL(random.NextFloat(), random.NextFloat(), 1f);
+                RGB observed = (RGB)white;
+                RGB expected = new RGB(1f, 1f, 1f);
+                Assert.True(expected.Equals(observed, 0.001f), $"Failed.\nExpected: {expected}\nObserved: {observed}");
+            }
+        }
+
+        /// <summary>
         /// Tests that <c>HSL(h, 0, l)</c> converts to <c>RGB(l, l, l)</c>.
         /// </summary>
         [Test]
@@ -123,6 +157,40 @@ namespace PAC.Tests.Colour
             {
                 HSV observed = (HSV)input;
                 Assert.True(expected.Equals(observed, 0.002f), $"Failed with {input}.\nExpected: {expected}\nObserved: {observed}");
+            }
+        }
+
+        /// <summary>
+        /// Tests that <c>HSL(*, *, 0)</c> converts to <c>HSV(*, *, 0)</c>.
+        /// </summary>
+        [Test]
+        [Category("Colour")]
+        public void CastTo_HSV_Black()
+        {
+            Random random = new Random(TestContext.CurrentContext.Test.Name.GetHashCode());
+            for (int iteration = 0; iteration < 1_000; iteration++)
+            {
+                HSL black = new HSL(random.NextFloat(), random.NextFloat(), 0f);
+                HSV observed = (HSV)black;
+                HSV expected = new HSV(observed.h, observed.s, 0f);
+                Assert.True(expected.Equals(observed, 0.001f), $"Failed.\nExpected: {expected}\nObserved: {observed}");
+            }
+        }
+
+        /// <summary>
+        /// Tests that <c>HSL(*, *, 1)</c> converts to <c>HSV(*, 0, 1)</c>.
+        /// </summary>
+        [Test]
+        [Category("Colour")]
+        public void CastTo_HSV_White()
+        {
+            Random random = new Random(TestContext.CurrentContext.Test.Name.GetHashCode());
+            for (int iteration = 0; iteration < 1_000; iteration++)
+            {
+                HSL white = new HSL(random.NextFloat(), random.NextFloat(), 1f);
+                HSV observed = (HSV)white;
+                HSV expected = new HSV(observed.h, 0f, 1f);
+                Assert.True(expected.Equals(observed, 0.001f), $"Failed.\nExpected: {expected}\nObserved: {observed}");
             }
         }
 
