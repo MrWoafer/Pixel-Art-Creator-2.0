@@ -1,0 +1,16 @@
+{
+    "name": "Project.Tests.Extensions.System",
+    "rootNamespace": "",
+    "references": [
+        "GUID:423d72f997499734e85de3dd59f0b8d1"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
