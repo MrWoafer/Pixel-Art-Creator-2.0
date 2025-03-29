@@ -368,12 +368,11 @@ namespace PAC.UI
 
             Texture2D render = fileManager.currentFile.Render(animationManager.currentFrameIndex).Applied();
 
-            extendCropPreview.sprite = render
-                .ExtendCrop(new Texture2DExtensions.ExtendCropOptions { left = left, right = right, top = up, bottom = down })
-                .Scale(2)
-                .Blend(
-                    Texture2DCreator.TransparentCheckerboardBackground(fileManager.currentFile.width + left + right, fileManager.currentFile.height + up + down),
-                    BlendMode.Normal
+            extendCropPreview.sprite = BlendMode.Normal.Blend(
+                render
+                    .ExtendCrop(new Texture2DExtensions.ExtendCropOptions { left = left, right = right, top = up, bottom = down })
+                    .Scale(2),
+                Texture2DCreator.TransparentCheckerboardBackground(fileManager.currentFile.width + left + right, fileManager.currentFile.height + up + down)
                 )
                 .ToSprite();
         }
@@ -448,9 +447,9 @@ namespace PAC.UI
 
             Texture2D render = fileManager.currentFile.Render(animationManager.currentFrameIndex).Applied();
 
-            scalePreview.sprite = render.Scale(2 * width, 2 * height).Blend(
-                Texture2DCreator.TransparentCheckerboardBackground(width, height),
-                BlendMode.Normal
+            scalePreview.sprite = BlendMode.Normal.Blend(
+                render.Scale(2 * width, 2 * height),
+                Texture2DCreator.TransparentCheckerboardBackground(width, height)
                 ).ToSprite();
         }
 
@@ -505,9 +504,9 @@ namespace PAC.UI
 
             Texture2D render = fileManager.currentFile.Render(animationManager.currentFrameIndex).Applied();
 
-            gridPreview.sprite = render.Scale(2).Blend(
-                Texture2DCreator.TransparentCheckerboardBackground(fileManager.currentFile.width, fileManager.currentFile.height),
-                BlendMode.Normal
+            gridPreview.sprite = BlendMode.Normal.Blend(
+                render.Scale(2),
+                Texture2DCreator.TransparentCheckerboardBackground(fileManager.currentFile.width, fileManager.currentFile.height)
                 ).ToSprite();
 
             gridPreviewGridManager.SetOnOffNoDisplayUpdate(on);
@@ -584,9 +583,9 @@ namespace PAC.UI
 
             Texture2D render = fileCopy.Render(animationManager.currentFrameIndex).Applied();
 
-            outlinePreview.sprite = render.Scale(2).Blend(
-                Texture2DCreator.TransparentCheckerboardBackground(fileManager.currentFile.width, fileManager.currentFile.height),
-                BlendMode.Normal
+            outlinePreview.sprite = BlendMode.Normal.Blend(
+                render.Scale(2),
+                Texture2DCreator.TransparentCheckerboardBackground(fileManager.currentFile.width, fileManager.currentFile.height)
                 ).ToSprite();
         }
 
@@ -639,9 +638,9 @@ namespace PAC.UI
 
             Texture2D render = fileCopy.Render(animationManager.currentFrameIndex).Applied();
 
-            replaceColourPreview.sprite = render.Scale(2).Blend(
-                Texture2DCreator.TransparentCheckerboardBackground(fileManager.currentFile.width, fileManager.currentFile.height),
-                BlendMode.Normal
+            replaceColourPreview.sprite = BlendMode.Normal.Blend(
+                render.Scale(2),
+                Texture2DCreator.TransparentCheckerboardBackground(fileManager.currentFile.width, fileManager.currentFile.height)
                 ).ToSprite();
         }
 
@@ -699,9 +698,9 @@ namespace PAC.UI
 
         public void UpdateImportPACPreview()
         {
-            importPACPreview.sprite = importPACFile.RenderLayers(importPACLayersToggleGroup.selectedIndices, animationManager.currentFrameIndex).Scale(2).Blend(
-                Texture2DCreator.TransparentCheckerboardBackground(fileManager.currentFile.width, fileManager.currentFile.height),
-                BlendMode.Normal
+            importPACPreview.sprite = BlendMode.Normal.Blend(
+                importPACFile.RenderLayers(importPACLayersToggleGroup.selectedIndices, animationManager.currentFrameIndex).Scale(2),
+                Texture2DCreator.TransparentCheckerboardBackground(fileManager.currentFile.width, fileManager.currentFile.height)
                 ).ToSprite();
         }
 
