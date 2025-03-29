@@ -17,17 +17,6 @@ namespace PAC.Extensions
             range.isEmpty ? throw new ArgumentException("The given range is empty.", nameof(range)) : random.Next(range.minElement, range.maxElement + 1);
 
         /// <summary>
-        /// Creates an infinite random sequence.
-        /// </summary>
-        public static IEnumerable<int> Random(Random random, IntRange range)
-        {
-            while (true)
-            {
-                yield return random.Next(range);
-            }
-        }
-
-        /// <summary>
         /// Lazily iterates over the indices in the <see cref="IntRange"/> and yields the <see cref="IReadOnlyList{T}"/>'s element at that position.
         /// </summary>
         /// <param name="indices">The range of indices to iterate over.</param>
