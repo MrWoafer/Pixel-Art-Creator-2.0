@@ -3,7 +3,6 @@ using System.Linq;
 
 using NUnit.Framework;
 
-using PAC.DataStructures;
 using PAC.Geometry;
 using PAC.Geometry.Shapes.Interfaces;
 using PAC.Tests.Geometry.Shapes.RequiredTests;

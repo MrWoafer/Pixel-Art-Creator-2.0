@@ -5,11 +5,10 @@ using UnityEngine;
 using PAC.Extensions;
 using System.Runtime.CompilerServices;
 using PAC.Maths;
-using PAC.Geometry;
 using PAC.Geometry.Axes;
 using PAC.Exceptions;
 
-namespace PAC.DataStructures
+namespace PAC.Geometry
 {
     /// <summary>
     /// A 2-dimensional vector with integer coordinates.
@@ -446,7 +445,7 @@ namespace PAC.DataStructures
         /// <remarks>
         /// Preserves signs.
         /// </remarks>
-        public static IntVector2 Simplify(IntVector2 a) => (a == zero) ? zero : (a / MathExtensions.Gcd(a.x, a.y));
+        public static IntVector2 Simplify(IntVector2 a) => a == zero ? zero : a / a.x.Gcd(a.y);
 
         /// <summary>
         /// Computes the dot product of the two vectors.

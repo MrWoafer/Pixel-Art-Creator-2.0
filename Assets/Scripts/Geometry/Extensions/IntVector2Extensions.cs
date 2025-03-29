@@ -1,8 +1,9 @@
 using PAC.Extensions;
+using PAC.Geometry.Extensions;
 
 using UnityEngine;
 
-namespace PAC.DataStructures.Extensions
+namespace PAC.Geometry.Extensions
 {
     /// <summary>
     /// Extension methods for <see cref="IntVector2"/>.

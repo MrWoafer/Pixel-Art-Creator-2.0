@@ -4,10 +4,10 @@ using System.Linq;
 
 using PAC.Animation;
 using PAC.DataStructures;
-using PAC.DataStructures.Extensions;
 using PAC.Exceptions;
 using PAC.Geometry;
 using PAC.Geometry.Axes;
+using PAC.Geometry.Extensions;
 using PAC.ImageEditing;
 using PAC.Json;
 using PAC.Tilesets;

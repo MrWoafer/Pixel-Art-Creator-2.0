@@ -6,6 +6,7 @@ using NUnit.Framework;
 
 using PAC.DataStructures;
 using PAC.Extensions;
+using PAC.Geometry;
 
 namespace PAC.Tests.DataStructures
 {

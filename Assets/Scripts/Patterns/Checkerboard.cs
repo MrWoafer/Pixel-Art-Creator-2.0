@@ -1,4 +1,4 @@
-using PAC.DataStructures;
+using PAC.Geometry;
 
 namespace PAC.Patterns
 {

@@ -1,9 +1,8 @@
 using System.Collections.Generic;
 
-using PAC.DataStructures;
-using PAC.DataStructures.Extensions;
 using PAC.Extensions;
 using PAC.Geometry;
+using PAC.Geometry.Extensions;
 
 using UnityEngine;
 

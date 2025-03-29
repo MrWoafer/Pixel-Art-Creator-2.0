@@ -1,6 +1,4 @@
 using System.Linq;
-
-using PAC.DataStructures;
 using PAC.Files;
 using PAC.ImageEditing;
 using PAC.Layers;
@@ -10,6 +8,7 @@ using PAC.Geometry.Shapes.Interfaces;
 
 using UnityEngine;
 using PAC.Patterns.Extensions;
+using PAC.Geometry;
 
 namespace PAC.Drawing
 {

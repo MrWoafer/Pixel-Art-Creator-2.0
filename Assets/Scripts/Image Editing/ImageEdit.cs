@@ -6,6 +6,7 @@ using PAC.Exceptions;
 using PAC.Extensions;
 using PAC.Geometry;
 using PAC.Geometry.Axes;
+using PAC.Geometry.Extensions;
 
 using UnityEngine;
 
