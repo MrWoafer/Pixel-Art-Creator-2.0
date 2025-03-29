@@ -1,6 +1,5 @@
 using NUnit.Framework;
 
-using PAC.DataStructures;
 using PAC.Extensions;
 using PAC.Geometry;
 using PAC.Geometry.Axes;

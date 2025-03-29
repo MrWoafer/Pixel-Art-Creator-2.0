@@ -2,7 +2,6 @@ using System.Collections.Generic;
 using PAC.Animation;
 using PAC.ColourPicker;
 using PAC.Colour;
-using PAC.DataStructures;
 using PAC.Files;
 using PAC.Input;
 using PAC.KeyboardShortcuts;

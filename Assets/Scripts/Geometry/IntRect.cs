@@ -5,10 +5,10 @@ using System.Collections.Generic;
 using System;
 using PAC.Extensions;
 using PAC.Interfaces;
-using PAC.Geometry;
 using PAC.Geometry.Axes;
+using PAC.DataStructures;
 
-namespace PAC.DataStructures
+namespace PAC.Geometry
 {
     /// <summary>
     /// A non-empty rectangular region of integer coordinates.
@@ -297,7 +297,7 @@ namespace PAC.DataStructures
         /// <summary>
         /// Translates the rect by the given vector.
         /// </summary>
-        public static IntRect operator -(IntRect rect, IntVector2 vector) => rect + (-vector);
+        public static IntRect operator -(IntRect rect, IntVector2 vector) => rect + -vector;
         /// <summary>
         /// Negates each point in the rect.
         /// </summary>

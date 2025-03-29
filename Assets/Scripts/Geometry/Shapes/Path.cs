@@ -3,8 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
-
-using PAC.DataStructures;
 using PAC.Extensions;
 using PAC.Maths;
 using PAC.Geometry.Shapes.Interfaces;

@@ -1,6 +1,5 @@
 using System;
 
-using PAC.DataStructures;
 using PAC.Extensions;
 using PAC.Geometry;
 

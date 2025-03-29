@@ -1,7 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
 
-using PAC.DataStructures;
 using PAC.Files;
 using PAC.Geometry;
 using PAC.Layers;

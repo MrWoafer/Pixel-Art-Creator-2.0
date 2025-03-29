@@ -2,7 +2,6 @@ using System;
 
 using NUnit.Framework;
 
-using PAC.DataStructures;
 using PAC.Drawing;
 using PAC.Extensions;
 using PAC.Geometry;

@@ -1,5 +1,4 @@
-﻿using PAC.DataStructures;
-using PAC.Interfaces;
+﻿using PAC.Interfaces;
 
 namespace PAC.Geometry.Shapes.Interfaces
 {
