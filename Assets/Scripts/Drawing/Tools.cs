@@ -9,7 +9,6 @@ using PAC.Geometry.Shapes;
 using PAC.Geometry.Shapes.Interfaces;
 
 using UnityEngine;
-using PAC.Geometry;
 using PAC.Patterns.Extensions;
 
 namespace PAC.Drawing

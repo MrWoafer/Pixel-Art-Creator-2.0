@@ -4,7 +4,6 @@ using System.Runtime.Serialization;
 using PAC.Animation;
 using PAC.Colour.Compositing;
 using PAC.DataStructures;
-using PAC.Extensions;
 using PAC.Geometry;
 using PAC.Geometry.Axes;
 using PAC.ImageEditing;

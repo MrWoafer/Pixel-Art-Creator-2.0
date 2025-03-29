@@ -2,7 +2,6 @@ using System.Collections.Generic;
 using System.Linq;
 
 using PAC.DataStructures;
-using PAC.Geometry.Shapes.Interfaces;
 
 namespace PAC.Tests.Geometry.Shapes.TestUtils
 {

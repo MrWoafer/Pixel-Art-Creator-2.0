@@ -1,7 +1,8 @@
 using NUnit.Framework;
+
 using PAC.DataStructures;
-using PAC.Exceptions;
 using PAC.Extensions;
+
 using System;
 using System.Collections.Generic;
 using System.Linq;

@@ -5,7 +5,6 @@ using System.Linq;
 
 using PAC.DataStructures;
 using PAC.Extensions;
-using PAC.Maths;
 using PAC.Geometry.Shapes.Interfaces;
 using PAC.Geometry.Axes;
 using PAC.Exceptions;

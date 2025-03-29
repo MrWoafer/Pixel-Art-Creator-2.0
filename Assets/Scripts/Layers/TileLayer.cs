@@ -3,11 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 
 using PAC.Animation;
-using PAC.Colour;
 using PAC.DataStructures;
 using PAC.DataStructures.Extensions;
 using PAC.Exceptions;
-using PAC.Extensions;
 using PAC.Geometry;
 using PAC.Geometry.Axes;
 using PAC.ImageEditing;

@@ -5,7 +5,6 @@ using PAC.DataStructures;
 using PAC.Extensions;
 using PAC.ImageEditing;
 using PAC.Input;
-using PAC.KeyboardShortcuts;
 using PAC.Geometry.Shapes;
 using PAC.UI;
 

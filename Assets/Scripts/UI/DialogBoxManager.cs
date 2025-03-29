@@ -7,7 +7,6 @@ using PAC.EffectPanels;
 using PAC.Extensions;
 using PAC.Files;
 using PAC.ImageEditing;
-using PAC.Input;
 using PAC.Layers;
 
 using SFB;

@@ -2,7 +2,6 @@ using PAC.Animation;
 using PAC.Colour.Compositing;
 using PAC.DataStructures;
 using PAC.Drawing;
-using PAC.Extensions;
 using PAC.Files;
 using PAC.ImageEditing;
 using PAC.Layers;
