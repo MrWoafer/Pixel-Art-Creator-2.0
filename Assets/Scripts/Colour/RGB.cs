@@ -12,6 +12,7 @@ namespace PAC.Colour
     /// <remarks>
     /// The RGB values are in the inclusive range <c>[0, 1]</c>.
     /// </remarks>
+    /// <seealso cref="Color"/>
     public readonly struct RGB : IEquatable<RGB>
     {
         #region Fields
