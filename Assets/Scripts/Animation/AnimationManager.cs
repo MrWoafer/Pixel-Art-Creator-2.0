@@ -356,11 +356,17 @@ namespace PAC.Animation
             }
             else if (currentFrameIndex > 0)
             {
-                onionSkin.sprite = Texture2DExtensions.Blend(onionSkinColour, fileManager.currentFile.Render(currentFrameIndex - 1), BlendMode.Multiply).ToSprite();
+                onionSkin.sprite = BlendMode.Multiply.Blend(
+                    onionSkinColour,
+                    fileManager.currentFile.Render(currentFrameIndex - 1)
+                    ).ToSprite();
             }
             else if (currentFrameIndex == 0 && playbackMode.selectedOption == "loop")
             {
-                onionSkin.sprite = Texture2DExtensions.Blend(onionSkinColour, fileManager.currentFile.Render(currentFrameIndex - 1), BlendMode.Multiply).ToSprite();
+                onionSkin.sprite = BlendMode.Multiply.Blend(
+                    onionSkinColour,
+                    fileManager.currentFile.Render(currentFrameIndex - 1)
+                    ).ToSprite();
             }
             else
             {

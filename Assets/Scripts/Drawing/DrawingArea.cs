@@ -1072,18 +1072,18 @@ namespace PAC.Drawing
             {
                 Texture2D bottomLayers = file.RenderLayersBelow(selectedLayerIndex, currentFrameIndex);
                 Texture2D topLayers = file.RenderLayersAbove(selectedLayerIndex, currentFrameIndex);
-                drawingSprRen.sprite = topLayers.Blend(
-                    selectionTexture.Blend(bottomLayers, BlendMode.Normal, mouseCoords - mouseDragPoints[0]),
-                    BlendMode.Normal
+                drawingSprRen.sprite = BlendMode.Normal.Blend(
+                    topLayers,
+                    BlendMode.Normal.Blend(selectionTexture, bottomLayers, mouseCoords - mouseDragPoints[0])
                     ).ToSprite();
             }
             else
             {
                 Texture2D bottomLayers = file.RenderLayersBelow(selectedLayerIndex, currentFrameIndex);
                 Texture2D topLayers = file.RenderLayersAbove(selectedLayerIndex, currentFrameIndex);
-                drawingSprRen.sprite = topLayers.Blend(
-                    selectionTexture.Blend(bottomLayers, BlendMode.Normal, mouseCoords - mouseDragPoints[0]),
-                    BlendMode.Normal
+                drawingSprRen.sprite = BlendMode.Normal.Blend(
+                    topLayers,
+                    BlendMode.Normal.Blend(selectionTexture, bottomLayers, mouseCoords - mouseDragPoints[0])
                     ).ToSprite();
             }
         }
@@ -1093,7 +1093,7 @@ namespace PAC.Drawing
             Texture2D tex = shape.ToTexture(Config.Colours.mask, file.rect);
             if (erase)
             {
-                selectionMask = selectionMask.Blend(tex, BlendMode.Subtract);
+                selectionMask = BlendMode.Subtract.Blend(selectionMask, tex);
             }
         }
 
@@ -1115,18 +1115,27 @@ namespace PAC.Drawing
             {
                 if (selectionMask.GetPixel(pixel.x, pixel.y).a != 0f)
                 {
-                    selectionMask = selectionMask.Blend(GetMagicWandMask(selectedLayer[animationManager.currentFrameIndex].texture, pixel), BlendMode.Subtract);
+                    selectionMask = BlendMode.Subtract.Blend(
+                        selectionMask,
+                        GetMagicWandMask(selectedLayer[animationManager.currentFrameIndex].texture, pixel)
+                        );
                 }
                 else
                 {
-                    selectionMask = selectionMask.Blend(GetMagicWandMask(selectionMask, pixel), BlendMode.Subtract);
+                    selectionMask = BlendMode.Subtract.Blend(
+                        selectionMask,
+                        GetMagicWandMask(selectionMask, pixel)
+                        );
                 }
             }
             else
             {
                 if (addToExistingSelection)
                 {
-                    selectionMask = selectionMask.Blend(GetMagicWandMask(selectedLayer[animationManager.currentFrameIndex].texture, pixel), BlendMode.Normal);
+                    selectionMask = BlendMode.Normal.Blend(
+                        selectionMask,
+                        GetMagicWandMask(selectedLayer[animationManager.currentFrameIndex].texture, pixel)
+                        );
                 }
                 else
                 {

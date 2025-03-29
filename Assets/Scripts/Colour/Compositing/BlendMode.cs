@@ -2,6 +2,8 @@ using System;
 using System.Linq;
 using System.Reflection;
 
+using PAC.DataStructures;
+using PAC.Extensions;
 using PAC.Json;
 
 using UnityEngine;
@@ -70,6 +72,66 @@ namespace PAC.Colour.Compositing
                 ).WithAlpha(top.a),
                 bottom
                 );
+
+        /// <summary>
+        /// Blends a deep copy of <paramref name="topTexture"/> onto a deep copy of <paramref name="bottomTexture"/> using the given <see cref="BlendMode"/>, placing the bottom-left corner
+        /// of <paramref name="topTexture"/> on the bottom-left corner of <paramref name="bottomTexture"/>.
+        /// </summary>
+        /// <remarks>
+        /// Calls <see cref="Texture2D.Apply()"/> on the returned <see cref="Texture2D"/>.
+        /// </remarks>
+        public Texture2D Blend(Texture2D topTexture, Texture2D bottomTexture) => Blend(topTexture, bottomTexture, (0, 0));
+        /// <summary>
+        /// Blends a deep copy of <paramref name="topTexture"/> onto a deep copy of <paramref name="bottomTexture"/> using the given <see cref="BlendMode"/>, placing the bottom-left corner
+        /// of <paramref name="topTexture"/> at the coordinates <paramref name="topTextureOffset"/> on <paramref name="bottomTexture"/>.
+        /// </summary>
+        /// <remarks>
+        /// Calls <see cref="Texture2D.Apply()"/> on the returned <see cref="Texture2D"/>.
+        /// </remarks>
+        public Texture2D Blend(Texture2D topTexture, Texture2D bottomTexture, IntVector2 topTextureOffset)
+        {
+            Texture2D blended = new Texture2D(bottomTexture.width, bottomTexture.height);
+
+            for (int x = 0; x < bottomTexture.width; x++)
+            {
+                for (int y = 0; y < bottomTexture.height; y++)
+                {
+                    if (blended.ContainsPixel(x - topTextureOffset.x, y - topTextureOffset.y))
+                    {
+                        Color topColour = topTexture.GetPixel(x - topTextureOffset.x, y - topTextureOffset.y);
+                        Color bottomColour = bottomTexture.GetPixel(x, y);
+                        blended.SetPixel(x, y, Blend(topColour, bottomColour));
+                    }
+                    else
+                    {
+                        blended.SetPixel(x, y, bottomTexture.GetPixel(x, y));
+                    }
+                }
+            }
+
+            return blended.Applied();
+        }
+        /// <summary>
+        /// Blends <paramref name="topColour"/> onto each pixel of a deep copy of <paramref name="bottomTexture"/> using the given <see cref="BlendMode"/>.
+        /// </summary>
+        /// <remarks>
+        /// Calls <see cref="Texture2D.Apply()"/> on the returned <see cref="Texture2D"/>.
+        /// </remarks>
+        public Texture2D Blend(Color topColour, Texture2D bottomTexture)
+        {
+            Texture2D blended = new Texture2D(bottomTexture.width, bottomTexture.height);
+
+            for (int x = 0; x < bottomTexture.width; x++)
+            {
+                for (int y = 0; y < bottomTexture.height; y++)
+                {
+                    Color bottomColour = bottomTexture.GetPixel(x, y);
+                    blended.SetPixel(x, y, Blend(topColour, bottomColour));
+                }
+            }
+
+            return blended.Applied();
+        }
 
         public override string ToString() => name;
         #endregion

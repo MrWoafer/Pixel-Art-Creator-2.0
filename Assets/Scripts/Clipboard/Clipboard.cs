@@ -49,7 +49,10 @@ namespace PAC.Clipboard
         {
             if (drawingArea.hasSelection)
             {
-                copiedTexture = layerManager.selectedLayer[animationManager.currentFrameIndex].texture.Blend(drawingArea.selectionMask, BlendMode.Multiply).ExtendCrop(drawingArea.selectionRect);
+                copiedTexture = BlendMode.Multiply.Blend(
+                    layerManager.selectedLayer[animationManager.currentFrameIndex].texture,
+                    drawingArea.selectionMask
+                    ).ExtendCrop(drawingArea.selectionRect);
                 copiedTexturePos = drawingArea.selectionRect.bottomLeft;
 
                 Debug.Log("Copied.");
@@ -66,9 +69,9 @@ namespace PAC.Clipboard
                 bottomLeft = IntVector2.Max(bottomLeft, IntVector2.zero);
 
                 layerManager.AddLayer(
-                    copiedTexture.Blend(
+                    BlendMode.Normal.Blend(
+                        copiedTexture,
                         Texture2DCreator.Transparent(fileManager.currentFile.width, fileManager.currentFile.height),
-                        BlendMode.Normal,
                         bottomLeft
                         )
                     );

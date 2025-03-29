@@ -91,7 +91,11 @@ namespace PAC.Layers
                 AddKeyFrame(frame);
             }
 
-            GetKeyFrame(frame).texture = overlayTex.Blend(GetKeyFrame(frame).texture, BlendMode.Normal, offset);
+            GetKeyFrame(frame).texture = BlendMode.Normal.Blend(
+                overlayTex,
+                GetKeyFrame(frame).texture,
+                offset
+                );
             onPixelsChanged.Invoke(rect, new int[] { GetKeyFrame(frame).frame });
         }
         /// <summary>
