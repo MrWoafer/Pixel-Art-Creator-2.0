@@ -204,6 +204,20 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/PAC.Colour.Compositing.BlendModeExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.Colour.Compositing.BlendModeExtensions.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "PAC.Colour.Compositing.BlendModeExtensions",
+      "Summary": "<p sourcefile=\"api/PAC.Colour.Compositing.BlendModeExtensions.yml\" sourcestartlinenumber=\"1\">Extension methods for <xref href=\"PAC.Colour.Compositing.BlendMode\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/PAC.Colour.Compositing.yml",
       "output": {
         ".html": {

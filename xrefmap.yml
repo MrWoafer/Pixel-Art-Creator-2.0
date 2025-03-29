@@ -591,6 +591,37 @@ references:
   isSpec: "True"
   fullName: PAC.Colour.Compositing.BlendMode.name
   nameWithType: BlendMode.name
+- uid: PAC.Colour.Compositing.BlendModeExtensions
+  name: BlendModeExtensions
+  href: api/PAC.Colour.Compositing.BlendModeExtensions.html
+  commentId: T:PAC.Colour.Compositing.BlendModeExtensions
+  fullName: PAC.Colour.Compositing.BlendModeExtensions
+  nameWithType: BlendModeExtensions
+- uid: PAC.Colour.Compositing.BlendModeExtensions.Blend(PAC.Colour.Compositing.BlendMode,Color,Texture2D)
+  name: Blend(BlendMode, Color, Texture2D)
+  href: api/PAC.Colour.Compositing.BlendModeExtensions.html#PAC_Colour_Compositing_BlendModeExtensions_Blend_PAC_Colour_Compositing_BlendMode_Color_Texture2D_
+  commentId: M:PAC.Colour.Compositing.BlendModeExtensions.Blend(PAC.Colour.Compositing.BlendMode,Color,Texture2D)
+  fullName: PAC.Colour.Compositing.BlendModeExtensions.Blend(PAC.Colour.Compositing.BlendMode, Color, Texture2D)
+  nameWithType: BlendModeExtensions.Blend(BlendMode, Color, Texture2D)
+- uid: PAC.Colour.Compositing.BlendModeExtensions.Blend(PAC.Colour.Compositing.BlendMode,Texture2D,Texture2D)
+  name: Blend(BlendMode, Texture2D, Texture2D)
+  href: api/PAC.Colour.Compositing.BlendModeExtensions.html#PAC_Colour_Compositing_BlendModeExtensions_Blend_PAC_Colour_Compositing_BlendMode_Texture2D_Texture2D_
+  commentId: M:PAC.Colour.Compositing.BlendModeExtensions.Blend(PAC.Colour.Compositing.BlendMode,Texture2D,Texture2D)
+  fullName: PAC.Colour.Compositing.BlendModeExtensions.Blend(PAC.Colour.Compositing.BlendMode, Texture2D, Texture2D)
+  nameWithType: BlendModeExtensions.Blend(BlendMode, Texture2D, Texture2D)
+- uid: PAC.Colour.Compositing.BlendModeExtensions.Blend(PAC.Colour.Compositing.BlendMode,Texture2D,Texture2D,PAC.DataStructures.IntVector2)
+  name: Blend(BlendMode, Texture2D, Texture2D, IntVector2)
+  href: api/PAC.Colour.Compositing.BlendModeExtensions.html#PAC_Colour_Compositing_BlendModeExtensions_Blend_PAC_Colour_Compositing_BlendMode_Texture2D_Texture2D_PAC_DataStructures_IntVector2_
+  commentId: M:PAC.Colour.Compositing.BlendModeExtensions.Blend(PAC.Colour.Compositing.BlendMode,Texture2D,Texture2D,PAC.DataStructures.IntVector2)
+  fullName: PAC.Colour.Compositing.BlendModeExtensions.Blend(PAC.Colour.Compositing.BlendMode, Texture2D, Texture2D, PAC.DataStructures.IntVector2)
+  nameWithType: BlendModeExtensions.Blend(BlendMode, Texture2D, Texture2D, IntVector2)
+- uid: PAC.Colour.Compositing.BlendModeExtensions.Blend*
+  name: Blend
+  href: api/PAC.Colour.Compositing.BlendModeExtensions.html#PAC_Colour_Compositing_BlendModeExtensions_Blend_
+  commentId: Overload:PAC.Colour.Compositing.BlendModeExtensions.Blend
+  isSpec: "True"
+  fullName: PAC.Colour.Compositing.BlendModeExtensions.Blend
+  nameWithType: BlendModeExtensions.Blend
 - uid: PAC.Colour.HSL
   name: HSL
   href: api/PAC.Colour.HSL.html
@@ -8649,31 +8680,6 @@ references:
   isSpec: "True"
   fullName: PAC.Extensions.Texture2DExtensions.Applied
   nameWithType: Texture2DExtensions.Applied
-- uid: PAC.Extensions.Texture2DExtensions.Blend(Color,Texture2D,PAC.Colour.Compositing.BlendMode)
-  name: Blend(Color, Texture2D, BlendMode)
-  href: api/PAC.Extensions.Texture2DExtensions.html#PAC_Extensions_Texture2DExtensions_Blend_Color_Texture2D_PAC_Colour_Compositing_BlendMode_
-  commentId: M:PAC.Extensions.Texture2DExtensions.Blend(Color,Texture2D,PAC.Colour.Compositing.BlendMode)
-  fullName: PAC.Extensions.Texture2DExtensions.Blend(Color, Texture2D, PAC.Colour.Compositing.BlendMode)
-  nameWithType: Texture2DExtensions.Blend(Color, Texture2D, BlendMode)
-- uid: PAC.Extensions.Texture2DExtensions.Blend(Texture2D,Texture2D,PAC.Colour.Compositing.BlendMode)
-  name: Blend(Texture2D, Texture2D, BlendMode)
-  href: api/PAC.Extensions.Texture2DExtensions.html#PAC_Extensions_Texture2DExtensions_Blend_Texture2D_Texture2D_PAC_Colour_Compositing_BlendMode_
-  commentId: M:PAC.Extensions.Texture2DExtensions.Blend(Texture2D,Texture2D,PAC.Colour.Compositing.BlendMode)
-  fullName: PAC.Extensions.Texture2DExtensions.Blend(Texture2D, Texture2D, PAC.Colour.Compositing.BlendMode)
-  nameWithType: Texture2DExtensions.Blend(Texture2D, Texture2D, BlendMode)
-- uid: PAC.Extensions.Texture2DExtensions.Blend(Texture2D,Texture2D,PAC.Colour.Compositing.BlendMode,PAC.DataStructures.IntVector2)
-  name: Blend(Texture2D, Texture2D, BlendMode, IntVector2)
-  href: api/PAC.Extensions.Texture2DExtensions.html#PAC_Extensions_Texture2DExtensions_Blend_Texture2D_Texture2D_PAC_Colour_Compositing_BlendMode_PAC_DataStructures_IntVector2_
-  commentId: M:PAC.Extensions.Texture2DExtensions.Blend(Texture2D,Texture2D,PAC.Colour.Compositing.BlendMode,PAC.DataStructures.IntVector2)
-  fullName: PAC.Extensions.Texture2DExtensions.Blend(Texture2D, Texture2D, PAC.Colour.Compositing.BlendMode, PAC.DataStructures.IntVector2)
-  nameWithType: Texture2DExtensions.Blend(Texture2D, Texture2D, BlendMode, IntVector2)
-- uid: PAC.Extensions.Texture2DExtensions.Blend*
-  name: Blend
-  href: api/PAC.Extensions.Texture2DExtensions.html#PAC_Extensions_Texture2DExtensions_Blend_
-  commentId: Overload:PAC.Extensions.Texture2DExtensions.Blend
-  isSpec: "True"
-  fullName: PAC.Extensions.Texture2DExtensions.Blend
-  nameWithType: Texture2DExtensions.Blend
 - uid: PAC.Extensions.Texture2DExtensions.ContainsPixel(Texture2D,PAC.DataStructures.IntVector2)
   name: ContainsPixel(Texture2D, IntVector2)
   href: api/PAC.Extensions.Texture2DExtensions.html#PAC_Extensions_Texture2DExtensions_ContainsPixel_Texture2D_PAC_DataStructures_IntVector2_

@@ -157,7 +157,7 @@ Class Texture2DExtensions  <a class="header-action link-secondary" title="View s
 
   <h3 id="PAC_Extensions_Texture2DExtensions_Applied_Texture2D_" data-uid="PAC.Extensions.Texture2DExtensions.Applied(Texture2D)">
   Applied(Texture2D)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Extensions/Texture2DExtensions.cs/#L498"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Extensions/Texture2DExtensions.cs/#L438"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Calls Texture2D.Apply() on the Texture2D then returns it.</p>
@@ -190,147 +190,11 @@ Class Texture2DExtensions  <a class="header-action link-secondary" title="View s
 
 
 
-  <a id="PAC_Extensions_Texture2DExtensions_Blend_" data-uid="PAC.Extensions.Texture2DExtensions.Blend*"></a>
-
-  <h3 id="PAC_Extensions_Texture2DExtensions_Blend_Color_Texture2D_PAC_Colour_Compositing_BlendMode_" data-uid="PAC.Extensions.Texture2DExtensions.Blend(Color,Texture2D,PAC.Colour.Compositing.BlendMode)">
-  Blend(Color, Texture2D, BlendMode)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Extensions/Texture2DExtensions.cs/#L305"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"><p>Blends <code class="paramref">topColour</code> onto each pixel of a deep copy of <code class="paramref">bottomTexture</code> using the given <a class="xref" href="PAC.Colour.Compositing.BlendMode.html">BlendMode</a>.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static Texture2D Blend(Color topColour, Texture2D bottomTexture, BlendMode blendMode)</code></pre>
-  </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>topColour</code> <span class="xref">Color</span></dt>
-    <dd></dd>
-    <dt><code>bottomTexture</code> <span class="xref">Texture2D</span></dt>
-    <dd></dd>
-    <dt><code>blendMode</code> <a class="xref" href="PAC.Colour.Compositing.BlendMode.html">BlendMode</a></dt>
-    <dd></dd>
-  </dl>
-
-  <h4 class="section">Returns</h4>
-  <dl class="parameters">
-    <dt><span class="xref">Texture2D</span></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-  <h4 class="section" id="PAC_Extensions_Texture2DExtensions_Blend_Color_Texture2D_PAC_Colour_Compositing_BlendMode__remarks">Remarks</h4>
-  <div class="markdown level1 remarks"><p>Calls Texture2D.Apply() on the returned Texture2D.</p>
-</div>
-
-
-
-
-  <a id="PAC_Extensions_Texture2DExtensions_Blend_" data-uid="PAC.Extensions.Texture2DExtensions.Blend*"></a>
-
-  <h3 id="PAC_Extensions_Texture2DExtensions_Blend_Texture2D_Texture2D_PAC_Colour_Compositing_BlendMode_" data-uid="PAC.Extensions.Texture2DExtensions.Blend(Texture2D,Texture2D,PAC.Colour.Compositing.BlendMode)">
-  Blend(Texture2D, Texture2D, BlendMode)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Extensions/Texture2DExtensions.cs/#L268"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"><p>Blends a deep copy of <code class="paramref">topTexture</code> onto a deep copy of <code class="paramref">bottomTexture</code> using the given <a class="xref" href="PAC.Colour.Compositing.BlendMode.html">BlendMode</a>, placing the bottom-left corner
-of <code class="paramref">topTexture</code> on the bottom-left corner of <code class="paramref">bottomTexture</code>.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static Texture2D Blend(this Texture2D topTexture, Texture2D bottomTexture, BlendMode blendMode)</code></pre>
-  </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>topTexture</code> <span class="xref">Texture2D</span></dt>
-    <dd></dd>
-    <dt><code>bottomTexture</code> <span class="xref">Texture2D</span></dt>
-    <dd></dd>
-    <dt><code>blendMode</code> <a class="xref" href="PAC.Colour.Compositing.BlendMode.html">BlendMode</a></dt>
-    <dd></dd>
-  </dl>
-
-  <h4 class="section">Returns</h4>
-  <dl class="parameters">
-    <dt><span class="xref">Texture2D</span></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-  <h4 class="section" id="PAC_Extensions_Texture2DExtensions_Blend_Texture2D_Texture2D_PAC_Colour_Compositing_BlendMode__remarks">Remarks</h4>
-  <div class="markdown level1 remarks"><p>Calls Texture2D.Apply() on the returned Texture2D.</p>
-</div>
-
-
-
-
-  <a id="PAC_Extensions_Texture2DExtensions_Blend_" data-uid="PAC.Extensions.Texture2DExtensions.Blend*"></a>
-
-  <h3 id="PAC_Extensions_Texture2DExtensions_Blend_Texture2D_Texture2D_PAC_Colour_Compositing_BlendMode_PAC_DataStructures_IntVector2_" data-uid="PAC.Extensions.Texture2DExtensions.Blend(Texture2D,Texture2D,PAC.Colour.Compositing.BlendMode,PAC.DataStructures.IntVector2)">
-  Blend(Texture2D, Texture2D, BlendMode, IntVector2)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Extensions/Texture2DExtensions.cs/#L276"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"><p>Blends a deep copy of <code class="paramref">topTexture</code> onto a deep copy of <code class="paramref">bottomTexture</code> using the given <a class="xref" href="PAC.Colour.Compositing.BlendMode.html">BlendMode</a>, placing the bottom-left corner
-of <code class="paramref">topTexture</code> at the coordinates <code class="paramref">topTextureOffset</code> on <code class="paramref">bottomTexture</code>.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static Texture2D Blend(this Texture2D topTexture, Texture2D bottomTexture, BlendMode blendMode, IntVector2 topTextureOffset)</code></pre>
-  </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>topTexture</code> <span class="xref">Texture2D</span></dt>
-    <dd></dd>
-    <dt><code>bottomTexture</code> <span class="xref">Texture2D</span></dt>
-    <dd></dd>
-    <dt><code>blendMode</code> <a class="xref" href="PAC.Colour.Compositing.BlendMode.html">BlendMode</a></dt>
-    <dd></dd>
-    <dt><code>topTextureOffset</code> <a class="xref" href="PAC.DataStructures.IntVector2.html">IntVector2</a></dt>
-    <dd></dd>
-  </dl>
-
-  <h4 class="section">Returns</h4>
-  <dl class="parameters">
-    <dt><span class="xref">Texture2D</span></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-  <h4 class="section" id="PAC_Extensions_Texture2DExtensions_Blend_Texture2D_Texture2D_PAC_Colour_Compositing_BlendMode_PAC_DataStructures_IntVector2__remarks">Remarks</h4>
-  <div class="markdown level1 remarks"><p>Calls Texture2D.Apply() on the returned Texture2D.</p>
-</div>
-
-
-
-
   <a id="PAC_Extensions_Texture2DExtensions_ContainsPixel_" data-uid="PAC.Extensions.Texture2DExtensions.ContainsPixel*"></a>
 
   <h3 id="PAC_Extensions_Texture2DExtensions_ContainsPixel_Texture2D_PAC_DataStructures_IntVector2_" data-uid="PAC.Extensions.Texture2DExtensions.ContainsPixel(Texture2D,PAC.DataStructures.IntVector2)">
   ContainsPixel(Texture2D, IntVector2)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Extensions/Texture2DExtensions.cs/#L483"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Extensions/Texture2DExtensions.cs/#L423"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Returns whether the given coordinates are within the bounds of the Texture2D.</p>
@@ -369,7 +233,7 @@ of <code class="paramref">topTexture</code> at the coordinates <code class="para
 
   <h3 id="PAC_Extensions_Texture2DExtensions_ContainsPixel_Texture2D_System_Int32_System_Int32_" data-uid="PAC.Extensions.Texture2DExtensions.ContainsPixel(Texture2D,System.Int32,System.Int32)">
   ContainsPixel(Texture2D, int, int)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Extensions/Texture2DExtensions.cs/#L479"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Extensions/Texture2DExtensions.cs/#L419"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Returns whether the coordinates <code>(<code class="paramref">x</code>, <code class="paramref">y</code>)</code> are within the bounds of the Texture2D.</p>
@@ -410,7 +274,7 @@ of <code class="paramref">topTexture</code> at the coordinates <code class="para
 
   <h3 id="PAC_Extensions_Texture2DExtensions_DeepCopy_Texture2D_" data-uid="PAC.Extensions.Texture2DExtensions.DeepCopy(Texture2D)">
   DeepCopy(Texture2D)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Extensions/Texture2DExtensions.cs/#L412"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Extensions/Texture2DExtensions.cs/#L352"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Creates a deep copy of the Texture2D.</p>
@@ -587,7 +451,7 @@ Texture2D.</p>
 
   <h3 id="PAC_Extensions_Texture2DExtensions_GetPixel_Texture2D_PAC_DataStructures_IntVector2_" data-uid="PAC.Extensions.Texture2DExtensions.GetPixel(Texture2D,PAC.DataStructures.IntVector2)">
   GetPixel(Texture2D, IntVector2)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Extensions/Texture2DExtensions.cs/#L493"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Extensions/Texture2DExtensions.cs/#L433"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets the pixel colour at the given coordinates.</p>
@@ -626,7 +490,7 @@ Texture2D.</p>
 
   <h3 id="PAC_Extensions_Texture2DExtensions_GetRect_Texture2D_" data-uid="PAC.Extensions.Texture2DExtensions.GetRect(Texture2D)">
   GetRect(Texture2D)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Extensions/Texture2DExtensions.cs/#L474"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Extensions/Texture2DExtensions.cs/#L414"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Returns an <a class="xref" href="PAC.DataStructures.IntRect.html">IntRect</a> containing precisely the coordinates within the bounds of the Texture2D.</p>
@@ -663,7 +527,7 @@ Texture2D.</p>
 
   <h3 id="PAC_Extensions_Texture2DExtensions_LoadFromFile_System_String_" data-uid="PAC.Extensions.Texture2DExtensions.LoadFromFile(System.String)">
   LoadFromFile(string)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Extensions/Texture2DExtensions.cs/#L426"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Extensions/Texture2DExtensions.cs/#L366"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Loads a Texture2D from the file at the given file path.</p>
@@ -709,7 +573,7 @@ Texture2D.</p>
 
   <h3 id="PAC_Extensions_Texture2DExtensions_ReplaceColour_Texture2D_Color_Color_System_Single_" data-uid="PAC.Extensions.Texture2DExtensions.ReplaceColour(Texture2D,Color,Color,System.Single)">
   ReplaceColour(Texture2D, Color, Color, float)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Extensions/Texture2DExtensions.cs/#L449"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Extensions/Texture2DExtensions.cs/#L389"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Returns a deep copy of the Texture2D with all occurrences of the colour <code class="paramref">toReplace</code> replaced with <code class="paramref">replaceWith</code>.</p>
@@ -804,7 +668,7 @@ Texture2D.</p>
 
   <h3 id="PAC_Extensions_Texture2DExtensions_Scale_Texture2D_System_Int32_System_Int32_" data-uid="PAC.Extensions.Texture2DExtensions.Scale(Texture2D,System.Int32,System.Int32)">
   Scale(Texture2D, int, int)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Extensions/Texture2DExtensions.cs/#L380"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Extensions/Texture2DExtensions.cs/#L320"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Returns a deep copy of the Texture2D scaled to size <code class="paramref">newWidth</code> x <code class="paramref">newHeight</code> using the nearest-neighbour algorithm.</p>
@@ -854,7 +718,7 @@ Texture2D.</p>
 
   <h3 id="PAC_Extensions_Texture2DExtensions_Scale_Texture2D_System_Single_" data-uid="PAC.Extensions.Texture2DExtensions.Scale(Texture2D,System.Single)">
   Scale(Texture2D, float)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Extensions/Texture2DExtensions.cs/#L325"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Extensions/Texture2DExtensions.cs/#L265"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Calls <a class="xref" href="PAC.Extensions.Texture2DExtensions.html#PAC_Extensions_Texture2DExtensions_Scale_Texture2D_System_Single_System_Single_">Scale(Texture2D, float, float)</a> with both scale factors equal to <code class="paramref">scaleFactor</code>.</p>
@@ -899,7 +763,7 @@ Texture2D.</p>
 
   <h3 id="PAC_Extensions_Texture2DExtensions_Scale_Texture2D_System_Single_System_Single_" data-uid="PAC.Extensions.Texture2DExtensions.Scale(Texture2D,System.Single,System.Single)">
   Scale(Texture2D, float, float)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Extensions/Texture2DExtensions.cs/#L348"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Extensions/Texture2DExtensions.cs/#L288"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Returns a deep copy of the Texture2D with the width scaled by <code class="paramref">xScaleFactor</code> and the height scaled by <code class="paramref">yScaleFactor</code>, using the
@@ -958,7 +822,7 @@ Calls Texture2D.Apply() on the returned Texture2D.
 
   <h3 id="PAC_Extensions_Texture2DExtensions_SetPixel_Texture2D_PAC_DataStructures_IntVector2_Color_" data-uid="PAC.Extensions.Texture2DExtensions.SetPixel(Texture2D,PAC.DataStructures.IntVector2,Color)">
   SetPixel(Texture2D, IntVector2, Color)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Extensions/Texture2DExtensions.cs/#L488"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Extensions/Texture2DExtensions.cs/#L428"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Sets the pixel colour at the given coordinates.</p>
