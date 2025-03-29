@@ -1,9 +1,9 @@
 using System;
 using System.Runtime.Serialization;
-using PAC.Json;
+
 using UnityEngine;
 
-namespace PAC.Extensions
+namespace PAC.Json.JsonConverters
 {
     public static class JsonConverters
     {

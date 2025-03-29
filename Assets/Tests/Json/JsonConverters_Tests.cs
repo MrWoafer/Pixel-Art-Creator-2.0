@@ -1,7 +1,7 @@
 using NUnit.Framework;
 using PAC.Json;
-using PAC.Extensions;
 using UnityEngine;
+using PAC.Json.JsonConverters;
 
 namespace PAC.Tests.Json
 {
