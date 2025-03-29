@@ -370,7 +370,7 @@ namespace PAC.UI
 
             extendCropPreview.sprite = BlendMode.Normal.Blend(
                 render
-                    .ExtendCrop(new Texture2DExtensions.ExtendCropOptions { left = left, right = right, top = up, bottom = down })
+                    .ExtendCrop(new ImageEdit.ExtendCropOptions { left = left, right = right, top = up, bottom = down })
                     .Scale(2),
                 Texture2DCreator.TransparentCheckerboardBackground(fileManager.currentFile.width + left + right, fileManager.currentFile.height + up + down)
                 )

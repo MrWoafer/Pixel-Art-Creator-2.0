@@ -172,7 +172,7 @@ namespace PAC.Layers
 
         protected override void ExtendNoEvent(int left, int right, int up, int down)
         {
-            Texture2DExtensions.ExtendCropOptions extendCropOptions = new Texture2DExtensions.ExtendCropOptions { left = left, right = right, top = up, bottom = down };
+            ImageEdit.ExtendCropOptions extendCropOptions = new ImageEdit.ExtendCropOptions { left = left, right = right, top = up, bottom = down };
             foreach (AnimationKeyFrame keyFrame in keyFrames)
             {
                 keyFrame.texture = keyFrame.texture.ExtendCrop(extendCropOptions);
