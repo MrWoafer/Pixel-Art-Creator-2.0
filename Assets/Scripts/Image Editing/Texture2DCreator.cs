@@ -4,6 +4,7 @@ using PAC.Colour;
 using PAC.DataStructures;
 using PAC.Extensions;
 using PAC.Patterns;
+using PAC.Patterns.Extensions;
 
 using UnityEngine;
 

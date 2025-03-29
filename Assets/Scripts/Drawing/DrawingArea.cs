@@ -22,6 +22,7 @@ using PAC.ImageEditing;
 using PAC.Geometry;
 using PAC.Colour.Compositing;
 using PAC.Geometry.Shapes.Extensions;
+using PAC.Patterns.Extensions;
 
 namespace PAC.Drawing
 {

@@ -1,11 +1,11 @@
 using System;
 
 using PAC.DataStructures;
-using PAC.Patterns;
+using PAC.Extensions;
 
 using UnityEngine;
 
-namespace PAC.Extensions
+namespace PAC.Patterns.Extensions
 {
     /// <summary>
     /// Extension methods for <see cref="IPattern2D{T}"/>.
