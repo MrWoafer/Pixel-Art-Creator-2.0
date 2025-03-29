@@ -52,7 +52,7 @@ namespace PAC.Colour
 
         #region Conversion
         /// <summary>
-        /// Returns an <see cref="HSL"/> with the same HSL values and with the given alpha.
+        /// Returns an <see cref="HSLA"/> with the same HSL values and with the given alpha.
         /// </summary>
         public HSLA WithAlpha(float alpha) => new HSLA(h, s, l, alpha);
 
