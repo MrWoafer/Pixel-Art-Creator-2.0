@@ -7,7 +7,7 @@
         "Project.Core",
         "Project.Exceptions",
         "Project.Json",
-        "Project.Extensions.JsonConverters",
+        "Project.Json.JsonConverters",
         "Project.Extensions.Type",
         "Project.Extensions.TextReader",
         "Project.Extensions.IEnumerable",
