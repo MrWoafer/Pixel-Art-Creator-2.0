@@ -9,6 +9,7 @@ namespace PAC.Colour
     /// <summary>
     /// A colour in HSL (Hue, Saturation, Lightness) form with no alpha component.
     /// </summary>
+    /// <seealso cref="HSLA"/>
     public readonly struct HSL : IEquatable<HSL>
     {
         #region Fields

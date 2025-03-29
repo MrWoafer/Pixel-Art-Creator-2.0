@@ -9,6 +9,7 @@ namespace PAC.Colour
     /// <summary>
     /// A colour in HSV (Hue, Saturation, Value) form with an alpha component.
     /// </summary>
+    /// <seealso cref="HSV"/>
     public readonly struct HSVA : IEquatable<HSVA>
     {
         #region Fields
