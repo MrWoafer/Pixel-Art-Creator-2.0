@@ -1,9 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-using PAC.DataStructures;
-
-namespace PAC.Extensions
+namespace PAC.DataStructures.Extensions
 {
     /// <summary>
     /// Extension methods involving <see cref="IntRange"/>.
