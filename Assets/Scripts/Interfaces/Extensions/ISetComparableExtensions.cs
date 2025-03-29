@@ -1,6 +1,4 @@
-using PAC.Interfaces;
-
-namespace PAC.Extensions
+namespace PAC.Interfaces.Extensions
 {
     /// <summary>
     /// Extension methods for <see cref="ISetComparable{T}"/>.
