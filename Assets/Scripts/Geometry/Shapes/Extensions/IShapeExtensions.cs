@@ -1,10 +1,11 @@
 ﻿using PAC.DataStructures;
-using PAC.ImageEditing;
+using PAC.Extensions;
 using PAC.Geometry.Shapes.Interfaces;
+using PAC.ImageEditing;
 
 using UnityEngine;
 
-namespace PAC.Extensions
+namespace PAC.Geometry.Shapes.Extensions
 {
     /// <summary>
     /// Extension methods for <see cref="IShape"/>.

@@ -11,6 +11,7 @@ using PAC.UI;
 
 using UnityEngine;
 using UnityEngine.Events;
+using PAC.Geometry.Shapes.Extensions;
 
 namespace PAC.Drawing
 {
