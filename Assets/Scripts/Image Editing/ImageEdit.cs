@@ -1,6 +1,7 @@
 using System;
 
 using PAC.DataStructures;
+using PAC.DataStructures.Extensions;
 using PAC.Exceptions;
 using PAC.Extensions;
 using PAC.Geometry;

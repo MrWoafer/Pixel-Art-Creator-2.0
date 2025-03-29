@@ -1,8 +1,6 @@
 using System;
 using System.IO;
 
-using PAC.DataStructures;
-
 using UnityEngine;
 
 namespace PAC.Extensions
@@ -70,28 +68,9 @@ namespace PAC.Extensions
         }
 
         /// <summary>
-        /// Returns an <see cref="IntRect"/> containing precisely the coordinates within the bounds of the <see cref="Texture2D"/>.
-        /// </summary>
-        public static IntRect GetRect(this Texture2D texture) => new IntRect((0, 0), (texture.width - 1, texture.height - 1));
-
-        /// <summary>
         /// Returns whether the coordinates <c>(<paramref name="x"/>, <paramref name="y"/>)</c> are within the bounds of the <see cref="Texture2D"/>.
         /// </summary>
         public static bool ContainsPixel(this Texture2D texture, int x, int y) => 0 <= x && x < texture.width && 0 <= y && y < texture.height;
-        /// <summary>
-        /// Returns whether the given coordinates are within the bounds of the <see cref="Texture2D"/>.
-        /// </summary>
-        public static bool ContainsPixel(this Texture2D texture, IntVector2 pixel) => texture.ContainsPixel(pixel.x, pixel.y);
-
-        /// <summary>
-        /// Sets the pixel colour at the given coordinates.
-        /// </summary>
-        public static void SetPixel(this Texture2D texture, IntVector2 pixel, Color colour) => texture.SetPixel(pixel.x, pixel.y, colour);
-
-        /// <summary>
-        /// Gets the pixel colour at the given coordinates.
-        /// </summary>
-        public static Color GetPixel(this Texture2D texture, IntVector2 pixel) => texture.GetPixel(pixel.x, pixel.y);
 
         /// <summary>
         /// Calls <see cref="Texture2D.Apply()"/> on the <see cref="Texture2D"/> then returns it.

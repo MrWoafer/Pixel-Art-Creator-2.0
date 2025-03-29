@@ -13,6 +13,7 @@ using PAC.Extensions;
 using PAC.ImageEditing;
 using PAC.Geometry;
 using PAC.Geometry.Axes;
+using PAC.DataStructures.Extensions;
 
 namespace PAC.Files
 {

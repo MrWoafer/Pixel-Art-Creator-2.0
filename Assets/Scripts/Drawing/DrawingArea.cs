@@ -23,6 +23,7 @@ using PAC.Geometry;
 using PAC.Colour.Compositing;
 using PAC.Geometry.Shapes.Extensions;
 using PAC.Patterns.Extensions;
+using PAC.DataStructures.Extensions;
 
 namespace PAC.Drawing
 {

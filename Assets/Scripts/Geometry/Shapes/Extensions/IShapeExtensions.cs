@@ -1,4 +1,5 @@
 ﻿using PAC.DataStructures;
+using PAC.DataStructures.Extensions;
 using PAC.Extensions;
 using PAC.Geometry.Shapes.Interfaces;
 using PAC.ImageEditing;
