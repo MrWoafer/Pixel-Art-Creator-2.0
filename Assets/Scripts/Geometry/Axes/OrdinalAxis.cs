@@ -3,7 +3,10 @@ namespace PAC.Geometry.Axes
     /// <summary>
     /// <see cref="Diagonal45Axis"/> or <see cref="Minus45Axis"/>.
     /// </summary>
-    public abstract record OrdinalAxis : CardinalOrdinalAxis { }
+    public abstract record OrdinalAxis : CardinalOrdinalAxis
+    {
+        internal OrdinalAxis() { } // don't allow external types to inherit from this
+    }
 
     /// <summary>
     /// The type of <see cref="OrdinalAxis.Diagonal45"/>.
