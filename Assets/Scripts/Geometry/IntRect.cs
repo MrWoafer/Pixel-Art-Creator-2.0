@@ -3,10 +3,10 @@ using System.Linq;
 using UnityEngine;
 using System.Collections.Generic;
 using System;
-using PAC.Extensions;
 using PAC.Interfaces;
 using PAC.Geometry.Axes;
 using PAC.DataStructures;
+using PAC.Extensions.System.Collections;
 
 namespace PAC.Geometry
 {

@@ -1,7 +1,7 @@
 using NUnit.Framework;
 
 using PAC.DataStructures;
-using PAC.Extensions;
+using PAC.Extensions.System.Collections;
 
 using System;
 using System.Collections.Generic;

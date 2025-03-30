@@ -4,7 +4,7 @@ using System.Linq;
 
 using NUnit.Framework;
 
-using PAC.Extensions;
+using PAC.Extensions.System.Collections;
 
 namespace PAC.Tests.Extensions
 {

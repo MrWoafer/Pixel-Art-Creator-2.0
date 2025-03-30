@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 
-using PAC.Extensions;
+using PAC.Extensions.System;
 using PAC.Geometry.Axes;
 using PAC.Geometry.Shapes.Interfaces;
 

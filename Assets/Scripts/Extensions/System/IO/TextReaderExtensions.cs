@@ -4,7 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 
-namespace PAC.Extensions
+namespace PAC.Extensions.System.IO
 {
     public static class TextReaderExtensions
     {
@@ -13,7 +13,7 @@ namespace PAC.Extensions
         /// character / the next character after all have characters been matched.
         /// </summary>
         /// <exception cref="EndOfStreamException">If there is nothing left for the reader to read at the start of the method.</exception>
-        public static string ReadMatch(this TextReader reader, string text) => ReadMatch(reader, (IEnumerable<char>)text);
+        public static string ReadMatch(this TextReader reader, string text) => reader.ReadMatch((IEnumerable<char>)text);
         /// <summary>
         /// Reads, checking if it reads the given sequence of characters (starting at the current point). Returns the characters it matched before it found a non-match. Doesn't reach the
         /// non-match character / the next character after all have characters been matched.
@@ -115,14 +115,14 @@ namespace PAC.Extensions
         /// Doesn't reach the non-match character / the next character after all have characters been matched.
         /// </summary>
         /// <exception cref="EndOfStreamException">If there is nothing left for the reader to read at the start of the method.</exception>
-        public static bool ReadMatchAll(this TextReader reader, string text) => ReadMatchAll(reader, (IEnumerable<char>)text);
+        public static bool ReadMatchAll(this TextReader reader, string text) => reader.ReadMatchAll((IEnumerable<char>)text);
         /// <summary>
         /// Reads, checking if it reads the given sequence of characters (starting at the current point).
         /// </summary>
         /// <exception cref="EndOfStreamException">If there is nothing left for the reader to read at the start of the method.</exception>
         public static bool ReadMatchAll(this TextReader reader, IEnumerable<char> text)
         {
-            string matched = ReadMatch(reader, text);
+            string matched = reader.ReadMatch(text);
 
             if (matched.Length == text.Count())
             {
@@ -137,7 +137,7 @@ namespace PAC.Extensions
         /// <exception cref="EndOfStreamException">If there is nothing left for the reader to read at the start of the method.</exception>
         public static bool ReadMatchAll(this TextReader reader, IEnumerable<ICollection<char>> charSets)
         {
-            string matched = ReadMatch(reader, charSets);
+            string matched = reader.ReadMatch(charSets);
 
             if (matched.Length == charSets.Count())
             {

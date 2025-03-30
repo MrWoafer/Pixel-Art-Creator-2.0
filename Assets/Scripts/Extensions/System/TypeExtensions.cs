@@ -3,7 +3,7 @@ using System.Reflection;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace PAC.Extensions
+namespace PAC.Extensions.System
 {
     public static class TypeExtensions
     {

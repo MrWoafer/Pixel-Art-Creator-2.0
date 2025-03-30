@@ -1,6 +1,6 @@
 using System;
 
-using PAC.Extensions;
+using PAC.Extensions.System;
 
 using UnityEngine;
 

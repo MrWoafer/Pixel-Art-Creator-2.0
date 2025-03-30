@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-using PAC.Extensions;
+using PAC.Extensions.System.Collections;
 
 namespace PAC.Maths
 {

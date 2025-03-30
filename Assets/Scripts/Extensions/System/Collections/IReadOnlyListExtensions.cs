@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace PAC.Extensions
+namespace PAC.Extensions.System.Collections
 {
     /// <summary>
     /// Extension methods for <see cref="IReadOnlyList{T}"/>.
@@ -47,7 +47,7 @@ namespace PAC.Extensions
         {
             int start = indices.Start.IsFromEnd ? list.Count - indices.Start.Value : indices.Start.Value;
             int end = indices.End.IsFromEnd ? list.Count - indices.End.Value : indices.End.Value;
-            return GetRange(list, start, end - start);
+            return list.GetRange(start, end - start);
         }
     }
 }

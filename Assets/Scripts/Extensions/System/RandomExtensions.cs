@@ -1,18 +1,18 @@
 using System;
 using System.Collections.Generic;
 
-namespace PAC.Extensions
+namespace PAC.Extensions.System
 {
     /// <summary>
-    /// Extension methods for <see cref="System.Random"/>.
+    /// Extension methods for <see cref="Random"/>.
     /// </summary>
     public static class RandomExtensions
     {
         /// <summary>
-        /// Creates an infinite random sequence, lazily generated using <see cref="System.Random.Next()"/>.
+        /// Creates an infinite random sequence, lazily generated using <see cref="Random.Next()"/>.
         /// </summary>
         /// <remarks>
-        /// This does not deep-copy the <see cref="System.Random"/>, so calling <see cref="System.Random.Next()"/> on this <see cref="System.Random"/> between the generation of two elements will
+        /// This does not deep-copy the <see cref="Random"/>, so calling <see cref="Random.Next()"/> on this <see cref="Random"/> between the generation of two elements will
         /// affect the sequence.
         /// This also means that iterating over the sequence more than once will most likely give a different sequence each time; you may want to 'save' a portion of the sequence using
         /// <c>new Random().ToSequence().Take(10).ToArray()</c> or similar.
@@ -30,10 +30,10 @@ namespace PAC.Extensions
             }
         }
         /// <summary>
-        /// Creates an infinite random sequence, lazily generated using <see cref="System.Random.Next(int, int)"/>.
+        /// Creates an infinite random sequence, lazily generated using <see cref="Random.Next(int, int)"/>.
         /// </summary>
         /// <remarks>
-        /// This does not deep-copy the <see cref="System.Random"/>, so calling <see cref="System.Random.Next(int, int)"/> on this <see cref="System.Random"/> between the generation of two elements
+        /// This does not deep-copy the <see cref="Random"/>, so calling <see cref="Random.Next(int, int)"/> on this <see cref="Random"/> between the generation of two elements
         /// will affect the sequence.
         /// This also means that iterating over the sequence more than once will most likely give a different sequence each time; you may want to 'save' a portion of the sequence using
         /// <c>new Random().ToSequence(minValue, maxValue).Take(10).ToArray()</c> or similar.

@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace PAC.Extensions
+namespace PAC.Extensions.System
 {
     public static class ValueTupleExtensions
     {

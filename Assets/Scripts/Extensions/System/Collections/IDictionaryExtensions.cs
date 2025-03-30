@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-namespace PAC.Extensions
+namespace PAC.Extensions.System.Collections
 {
     /// <summary>
     /// Extension methods for IDictionary&lt;TKey, TValue&gt;.

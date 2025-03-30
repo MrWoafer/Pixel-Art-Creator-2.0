@@ -4,10 +4,10 @@ using System.Collections.Generic;
 using System.Linq;
 
 using PAC.DataStructures;
-using PAC.Extensions;
 using PAC.Geometry.Shapes.Interfaces;
 using PAC.Geometry.Axes;
 using PAC.Exceptions;
+using PAC.Extensions.System.Collections;
 
 namespace PAC.Geometry.Shapes
 {

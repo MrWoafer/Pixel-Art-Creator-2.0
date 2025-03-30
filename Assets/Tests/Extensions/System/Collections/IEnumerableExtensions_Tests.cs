@@ -1,5 +1,8 @@
 using NUnit.Framework;
-using PAC.Extensions;
+
+using PAC.Extensions.System;
+using PAC.Extensions.System.Collections;
+
 using System;
 using System.Collections.Generic;
 using System.Linq;

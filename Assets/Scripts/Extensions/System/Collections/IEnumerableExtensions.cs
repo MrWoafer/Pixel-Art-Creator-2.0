@@ -2,7 +2,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace PAC.Extensions
+using PAC.Extensions.System.Collections;
+
+namespace PAC.Extensions.System.Collections
 {
     /// <summary>
     /// Extension methods for <see cref="IEnumerable{T}"/>.
@@ -203,7 +205,7 @@ namespace PAC.Extensions
         /// <summary>
         /// Whether all the given elements are in the <see cref="IEnumerable{T}"/>.
         /// </summary>
-        public static bool ContainsAll<T>(this IEnumerable<T> iEnumerable, params T[] elements) => ContainsAll(iEnumerable, (IEnumerable<T>)elements);
+        public static bool ContainsAll<T>(this IEnumerable<T> iEnumerable, params T[] elements) => iEnumerable.ContainsAll((IEnumerable<T>)elements);
         /// <summary>
         /// Whether all the given elements are in the <see cref="ICollection{T}"/>.
         /// </summary>
@@ -212,7 +214,7 @@ namespace PAC.Extensions
         /// <summary>
         /// Whether at least one of the given elements is not in the <see cref="IEnumerable{T}"/>.
         /// </summary>
-        public static bool ContainsNotAll<T>(this IEnumerable<T> iEnumerable, params T[] elements) => ContainsNotAll(iEnumerable, (IEnumerable<T>)elements);
+        public static bool ContainsNotAll<T>(this IEnumerable<T> iEnumerable, params T[] elements) => iEnumerable.ContainsNotAll((IEnumerable<T>)elements);
         /// <summary>
         /// Whether at least one of the given elements is not in the <see cref="ICollection{T}"/>.
         /// </summary>
@@ -221,7 +223,7 @@ namespace PAC.Extensions
         /// <summary>
         /// Whether any of the given elements are in the <see cref="IEnumerable{T}"/>.
         /// </summary>
-        public static bool ContainsAny<T>(this IEnumerable<T> iEnumerable, params T[] elements) => ContainsAny(iEnumerable, (IEnumerable<T>)elements);
+        public static bool ContainsAny<T>(this IEnumerable<T> iEnumerable, params T[] elements) => iEnumerable.ContainsAny((IEnumerable<T>)elements);
         /// <summary>
         /// Whether any of the given elements are in the <see cref="IEnumerable{T}"/>.
         /// </summary>
@@ -230,7 +232,7 @@ namespace PAC.Extensions
         /// <summary>
         /// Whether none of the given elements are in the <see cref="IEnumerable{T}"/>.
         /// </summary>
-        public static bool ContainsNone<T>(this IEnumerable<T> iEnumerable, params T[] elements) => ContainsNone(iEnumerable, (IEnumerable<T>)elements);
+        public static bool ContainsNone<T>(this IEnumerable<T> iEnumerable, params T[] elements) => iEnumerable.ContainsNone((IEnumerable<T>)elements);
         /// <summary>
         /// Whether none of the given elements are in the <see cref="IEnumerable{T}"/>.
         /// </summary>
@@ -456,7 +458,7 @@ namespace PAC.Extensions
                 {
                     throw new ArgumentException("One of the inner sequences is null.", nameof(sequences));
                 }
-                
+
                 foreach (T element in sequence)
                 {
                     yield return element;

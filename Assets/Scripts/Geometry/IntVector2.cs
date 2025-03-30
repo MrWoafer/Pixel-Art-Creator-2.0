@@ -2,11 +2,11 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
-using PAC.Extensions;
 using System.Runtime.CompilerServices;
 using PAC.Maths;
 using PAC.Geometry.Axes;
 using PAC.Exceptions;
+using PAC.Extensions.System.Collections;
 
 namespace PAC.Geometry
 {

@@ -1,8 +1,8 @@
 using NUnit.Framework;
 using System.Collections.Generic;
-using PAC.Extensions;
 using System;
 using System.Reflection;
+using PAC.Extensions.System;
 
 namespace PAC.Tests.Extensions
 {

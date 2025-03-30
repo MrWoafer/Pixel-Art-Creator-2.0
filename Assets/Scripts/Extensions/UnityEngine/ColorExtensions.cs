@@ -1,3 +1,5 @@
+using PAC.Extensions.System;
+
 using UnityEngine;
 
 namespace PAC.Extensions.UnityEngine
@@ -46,6 +48,6 @@ namespace PAC.Extensions.UnityEngine
         /// <remarks>
         /// Note that this will always be a valid colour in straight alpha form, but not necessarily in premultiplied alpha form.
         /// </remarks>
-        public static Color NextColor(this System.Random random) => new Color(random.NextFloat(), random.NextFloat(), random.NextFloat(), random.NextFloat());
+        public static Color NextColor(this global::System.Random random) => new Color(random.NextFloat(), random.NextFloat(), random.NextFloat(), random.NextFloat());
     }
 }

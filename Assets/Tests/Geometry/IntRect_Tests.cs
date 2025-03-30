@@ -4,7 +4,7 @@ using System.Linq;
 
 using NUnit.Framework;
 
-using PAC.Extensions;
+using PAC.Extensions.System.Collections;
 using PAC.Geometry;
 
 namespace PAC.Tests.DataStructures

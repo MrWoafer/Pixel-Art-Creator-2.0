@@ -3,7 +3,7 @@ using System;
 using NUnit.Framework;
 
 using PAC.Colour;
-using PAC.Extensions;
+using PAC.Extensions.System;
 
 namespace PAC.Tests.Colour
 {

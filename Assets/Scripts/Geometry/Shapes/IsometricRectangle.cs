@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 
 using PAC.Exceptions;
-using PAC.Extensions;
+using PAC.Extensions.System.Collections;
 using PAC.Geometry.Axes;
 using PAC.Geometry.Shapes.Interfaces;
 
