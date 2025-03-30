@@ -9,9 +9,9 @@
         "Project.Json",
         "Project.Json.JsonConverters",
         "Project.Maths",
-        "Project.Extensions.DataStructures",
         "Project.Extensions.UnityEngine",
-        "Project.Extensions.System"
+        "Project.Extensions.System",
+        "Project.Interfaces"
     ],
     "includePlatforms": [
         "Editor"
