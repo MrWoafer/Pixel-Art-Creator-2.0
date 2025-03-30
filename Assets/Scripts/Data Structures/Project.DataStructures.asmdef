@@ -1,0 +1,19 @@
+{
+    "name": "Project.DataStructures",
+    "rootNamespace": "",
+    "references": [
+        "GUID:6726e4f1ec7a1de42acc0ab6b9eb8358",
+        "GUID:ecf0bfe526f2b65449a2da93dacb22d3",
+        "GUID:acc5a95f1479a6e4b8af23aa64689b7c",
+        "GUID:423d72f997499734e85de3dd59f0b8d1"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

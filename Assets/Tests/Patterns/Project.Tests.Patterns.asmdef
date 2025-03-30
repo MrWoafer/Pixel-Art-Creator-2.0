@@ -3,7 +3,8 @@
     "rootNamespace": "PAC.Tests.Patterns",
     "references": [
         "GUID:b5e1465cb1303124aa25df01ce14759e",
-        "GUID:2b46856cc7b42414b823cc2a19e6d617"
+        "GUID:2b46856cc7b42414b823cc2a19e6d617",
+        "GUID:d665ebad282838e4a96048eb671d0806"
     ],
     "includePlatforms": [
         "Editor"

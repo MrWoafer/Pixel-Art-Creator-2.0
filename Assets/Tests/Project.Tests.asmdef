@@ -11,7 +11,8 @@
         "Project.Maths",
         "Project.Extensions.UnityEngine",
         "Project.Extensions.System",
-        "Project.Interfaces"
+        "Project.Interfaces",
+        "Project.DataStructures"
     ],
     "includePlatforms": [
         "Editor"
