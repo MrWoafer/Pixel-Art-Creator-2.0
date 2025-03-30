@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace PAC.EffectPanels
+namespace PAC.UI.EffectPanels
 {
     /// <summary>
     /// A panel that blurs the view behind it.
