@@ -1,0 +1,19 @@
+{
+    "name": "Project.Tests.Colour",
+    "rootNamespace": "",
+    "references": [
+        "GUID:ce6aceb232f62874a81ea9ab11d5958a",
+        "GUID:423d72f997499734e85de3dd59f0b8d1",
+        "GUID:ecf0bfe526f2b65449a2da93dacb22d3",
+        "GUID:2b46856cc7b42414b823cc2a19e6d617"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
