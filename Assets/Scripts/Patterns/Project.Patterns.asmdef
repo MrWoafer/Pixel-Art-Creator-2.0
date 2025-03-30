@@ -1,0 +1,20 @@
+{
+    "name": "Project.Patterns",
+    "rootNamespace": "",
+    "references": [
+        "GUID:ffad9677f50a4fa4db0e9519b1324b48",
+        "GUID:ca5c03f8573554f479772dd1119a97e7",
+        "GUID:2b46856cc7b42414b823cc2a19e6d617",
+        "GUID:423d72f997499734e85de3dd59f0b8d1",
+        "GUID:6726e4f1ec7a1de42acc0ab6b9eb8358"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
