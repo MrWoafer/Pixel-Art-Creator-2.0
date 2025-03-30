@@ -9,6 +9,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using PAC.Extensions;
 using PAC.Colour.Compositing;
+using PAC.Extensions.UnityEngine;
 
 namespace PAC.Animation
 {

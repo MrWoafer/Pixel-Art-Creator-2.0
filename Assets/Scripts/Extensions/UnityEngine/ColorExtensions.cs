@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace PAC.Extensions
+namespace PAC.Extensions.UnityEngine
 {
     /// <summary>
     /// Extension methods for <see cref="Color"/>.

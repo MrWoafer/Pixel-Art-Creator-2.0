@@ -3,7 +3,7 @@ using System.IO;
 
 using UnityEngine;
 
-namespace PAC.Extensions
+namespace PAC.Extensions.UnityEngine
 {
     /// <summary>
     /// Extension methods for Unity's <see cref="Texture2D"/>.
@@ -55,12 +55,12 @@ namespace PAC.Extensions
         /// <exception cref="FileNotFoundException">The file path <paramref name="filePath"/> does not exist.</exception>
         public static Texture2D LoadFromFile(string filePath)
         {
-            if (!System.IO.File.Exists(filePath))
+            if (!File.Exists(filePath))
             {
                 throw new FileNotFoundException($"File path does not exist: {filePath}", nameof(filePath));
             }
 
-            byte[] fileData = System.IO.File.ReadAllBytes(filePath);
+            byte[] fileData = File.ReadAllBytes(filePath);
             Texture2D texture = new Texture2D(1, 1);
             texture.LoadImage(fileData);
 

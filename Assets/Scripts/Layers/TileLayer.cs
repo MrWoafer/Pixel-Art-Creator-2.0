@@ -5,7 +5,7 @@ using System.Linq;
 using PAC.Animation;
 using PAC.DataStructures;
 using PAC.Exceptions;
-using PAC.Extensions;
+using PAC.Extensions.UnityEngine;
 using PAC.Geometry;
 using PAC.Geometry.Axes;
 using PAC.Geometry.Extensions;

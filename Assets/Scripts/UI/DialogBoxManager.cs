@@ -4,7 +4,7 @@ using PAC.Animation;
 using PAC.Colour.Compositing;
 using PAC.Drawing;
 using PAC.EffectPanels;
-using PAC.Extensions;
+using PAC.Extensions.UnityEngine;
 using PAC.Files;
 using PAC.ImageEditing;
 using PAC.Layers;

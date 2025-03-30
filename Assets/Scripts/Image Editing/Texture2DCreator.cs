@@ -1,5 +1,5 @@
 using PAC.Colour;
-using PAC.Extensions;
+using PAC.Extensions.UnityEngine;
 using PAC.Geometry;
 using PAC.Patterns;
 using PAC.Patterns.Extensions;

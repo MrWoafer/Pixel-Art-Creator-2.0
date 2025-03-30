@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 using NUnit.Framework;
 
-using PAC.Extensions;
+using PAC.Extensions.UnityEngine;
 using PAC.Geometry;
 
 using UnityEngine;

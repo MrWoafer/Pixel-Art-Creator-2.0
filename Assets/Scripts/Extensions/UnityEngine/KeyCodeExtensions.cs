@@ -2,7 +2,7 @@ using System;
 
 using UnityEngine;
 
-namespace PAC.Extensions
+namespace PAC.Extensions.UnityEngine
 {
     /// <summary>
     /// Extension methods for Unity's <see cref="KeyCode"/>.

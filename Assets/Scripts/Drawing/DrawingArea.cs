@@ -10,7 +10,6 @@ using PAC.Tilesets;
 using PAC.UndoRedo;
 using UnityEngine;
 using PAC.Patterns;
-using PAC.Extensions;
 
 using System;
 using PAC.Geometry.Shapes;
@@ -21,6 +20,7 @@ using PAC.Geometry.Shapes.Extensions;
 using PAC.Patterns.Extensions;
 using PAC.Geometry;
 using PAC.Geometry.Extensions;
+using PAC.Extensions.UnityEngine;
 
 namespace PAC.Drawing
 {

@@ -2,7 +2,6 @@ using System.Collections.Generic;
 using System.Linq;
 
 using PAC.DataStructures;
-using PAC.Extensions;
 using PAC.Input;
 using PAC.Geometry.Shapes;
 using PAC.UI;
@@ -11,6 +10,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using PAC.Geometry.Shapes.Extensions;
 using PAC.Geometry;
+using PAC.Extensions.UnityEngine;
 
 namespace PAC.Drawing
 {
