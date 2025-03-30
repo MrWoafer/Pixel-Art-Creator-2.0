@@ -6,7 +6,7 @@ using NUnit.Framework;
 
 using PAC.Extensions.System;
 
-namespace PAC.Tests.Extensions
+namespace PAC.Tests.Extensions.System
 {
     /// <summary>
     /// Tests for <see cref="RandomExtensions"/>.

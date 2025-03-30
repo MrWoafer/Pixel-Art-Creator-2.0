@@ -4,7 +4,7 @@ using System;
 using System.Reflection;
 using PAC.Extensions.System;
 
-namespace PAC.Tests.Extensions
+namespace PAC.Tests.Extensions.System
 {
     /// <summary>
     /// Tests my extension methods for type Type.

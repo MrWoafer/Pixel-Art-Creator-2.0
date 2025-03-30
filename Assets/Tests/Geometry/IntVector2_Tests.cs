@@ -4,7 +4,7 @@ using PAC.Geometry;
 using PAC.Geometry.Axes;
 using PAC.Maths;
 
-namespace PAC.Tests.DataStructures
+namespace PAC.Tests.Geometry
 {
     /// <summary>
     /// Tests for <see cref="IntVector2"/>.

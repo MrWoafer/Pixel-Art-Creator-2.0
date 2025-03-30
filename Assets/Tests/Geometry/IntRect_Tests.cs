@@ -7,7 +7,7 @@ using NUnit.Framework;
 using PAC.Extensions.System.Collections;
 using PAC.Geometry;
 
-namespace PAC.Tests.DataStructures
+namespace PAC.Tests.Geometry
 {
     /// <summary>
     /// Tests for <see cref="IntRect"/>.
