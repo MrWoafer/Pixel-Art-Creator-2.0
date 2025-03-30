@@ -10,6 +10,7 @@ using UnityEngine.Events;
 using PAC.Colour.Compositing;
 using PAC.Extensions.UnityEngine;
 using PAC.Extensions.System.Collections;
+using PAC.ImageEditing;
 
 namespace PAC.Animation
 {

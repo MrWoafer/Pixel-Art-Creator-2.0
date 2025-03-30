@@ -5,6 +5,7 @@ using PAC.Animation;
 using PAC.Colour.Compositing;
 using PAC.Extensions.System.Collections;
 using PAC.Files;
+using PAC.ImageEditing;
 using PAC.UI;
 using PAC.UndoRedo;
 
