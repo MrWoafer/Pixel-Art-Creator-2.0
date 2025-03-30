@@ -13,7 +13,8 @@
         "Project.Extensions.System",
         "Project.Interfaces",
         "Project.DataStructures",
-        "Project.Geometry"
+        "Project.Geometry",
+        "Project.Geometry.Shapes"
     ],
     "includePlatforms": [
         "Editor"
