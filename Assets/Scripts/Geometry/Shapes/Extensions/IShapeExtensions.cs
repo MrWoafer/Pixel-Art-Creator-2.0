@@ -1,7 +1,6 @@
 ﻿using PAC.Extensions;
 using PAC.Geometry.Extensions;
 using PAC.Geometry.Shapes.Interfaces;
-using PAC.ImageEditing;
 
 using UnityEngine;
 
@@ -21,7 +20,7 @@ namespace PAC.Geometry.Shapes.Extensions
         /// </summary>
         public static Texture2D ToTexture(this IShape shape, Color colour, IntRect textureRect)
         {
-            Texture2D texture = Texture2DCreator.Transparent(textureRect.width, textureRect.height);
+            Texture2D texture = Texture2DExtensions.Transparent(textureRect.width, textureRect.height);
 
             foreach (IntVector2 pixel in shape)
             {

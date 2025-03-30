@@ -353,8 +353,8 @@ namespace PAC.Drawing
             backgroundSprRen.sprite = Texture2DCreator.TransparentCheckerboardBackground(file.width, file.height).ToSprite();
             //backgroundSprRen.material.SetFloat("_Width", 2f * file.width);
             //backgroundSprRen.material.SetFloat("_Height", 2f * file.height);
-            previewSprRen.sprite = Texture2DCreator.Transparent(1, 1).ToSprite();
-            selectionMask = Texture2DCreator.Transparent(file.width, file.height);
+            previewSprRen.sprite = Texture2DExtensions.Transparent(1, 1).ToSprite();
+            selectionMask = Texture2DExtensions.Transparent(file.width, file.height);
 
             collider.size = new Vector2(file.width / pixelsPerUnit, file.height / pixelsPerUnit);
             drawingAreaMask.transform.localScale = new Vector3(file.width / pixelsPerUnit, file.height / pixelsPerUnit, 1f);
@@ -391,7 +391,7 @@ namespace PAC.Drawing
 
         private void ClearPreview()
         {
-            SetPreview(Texture2DCreator.Transparent(1, 1), 0, 0);
+            SetPreview(Texture2DExtensions.Transparent(1, 1), 0, 0);
         }
 
         private void HideBrushBorder()
@@ -1101,7 +1101,7 @@ namespace PAC.Drawing
         {
             static Texture2D GetMagicWandMask(Texture2D texture, IntVector2 clickPoint)
             {
-                Texture2D fillMask = Texture2DCreator.Transparent(texture.width, texture.height);
+                Texture2D fillMask = Texture2DExtensions.Transparent(texture.width, texture.height);
 
                 foreach (IntVector2 pixel in FloodFill.GetPixelsToFill(texture, clickPoint, false))
                 {
@@ -1152,7 +1152,7 @@ namespace PAC.Drawing
 
         private void DeselectSelection()
         {
-            selectionMask = Texture2DCreator.Transparent(file.width, file.height);
+            selectionMask = Texture2DExtensions.Transparent(file.width, file.height);
             deselectedSelectionThisFrame = true;
         }
 

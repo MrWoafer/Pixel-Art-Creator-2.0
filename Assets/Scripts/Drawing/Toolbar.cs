@@ -3,7 +3,6 @@ using System.Linq;
 
 using PAC.DataStructures;
 using PAC.Extensions;
-using PAC.ImageEditing;
 using PAC.Input;
 using PAC.Geometry.Shapes;
 using PAC.UI;
@@ -328,13 +327,13 @@ namespace PAC.Drawing
             brushTexture = new Texture2D(1, 1);
             if (selectedTool == Tool.None || selectedTool == Tool.Move)
             {
-                brushTexture = Texture2DCreator.Transparent(1, 1);
+                brushTexture = Texture2DExtensions.Transparent(1, 1);
             }
             else if (selectedTool == Tool.Rubber || selectedTool == Tool.Brush)
             {
                 if (brushShape == BrushShape.Square)
                 {
-                    brushTexture = Texture2DCreator.Solid(brushSize * 2 - 1, brushSize * 2 - 1, Config.Colours.mask);
+                    brushTexture = Texture2DExtensions.Solid(brushSize * 2 - 1, brushSize * 2 - 1, Config.Colours.mask);
                 }
                 else if (brushShape == BrushShape.Circle)
                 {
@@ -360,7 +359,7 @@ namespace PAC.Drawing
             }
             else
             {
-                brushTexture = Texture2DCreator.Solid(1, 1, Config.Colours.mask).Applied();
+                brushTexture = Texture2DExtensions.Solid(1, 1, Config.Colours.mask).Applied();
             }
 
             // Get array of non-transparent pixels in the brush texture
@@ -396,7 +395,7 @@ namespace PAC.Drawing
         /// </summary>
         public void LoadCustomBrush(Texture2D brushShape)
         {
-            customBrushTexture = Texture2DCreator.Transparent(brushShape.width, brushShape.height);
+            customBrushTexture = Texture2DExtensions.Transparent(brushShape.width, brushShape.height);
 
             for (int x = 0; x < brushShape.width; x++)
             {

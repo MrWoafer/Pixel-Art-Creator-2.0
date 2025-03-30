@@ -1,6 +1,7 @@
 using PAC.Animation;
 using PAC.Colour.Compositing;
 using PAC.Drawing;
+using PAC.Extensions;
 using PAC.Files;
 using PAC.Geometry;
 using PAC.ImageEditing;
@@ -70,7 +71,7 @@ namespace PAC.Clipboard
                 layerManager.AddLayer(
                     BlendMode.Normal.Blend(
                         copiedTexture,
-                        Texture2DCreator.Transparent(fileManager.currentFile.width, fileManager.currentFile.height),
+                        Texture2DExtensions.Transparent(fileManager.currentFile.width, fileManager.currentFile.height),
                         bottomLeft
                         )
                     );

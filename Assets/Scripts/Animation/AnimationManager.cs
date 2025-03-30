@@ -8,7 +8,6 @@ using PAC.UI;
 using UnityEngine;
 using UnityEngine.Events;
 using PAC.Extensions;
-using PAC.ImageEditing;
 using PAC.Colour.Compositing;
 
 namespace PAC.Animation
@@ -351,7 +350,7 @@ namespace PAC.Animation
         {
             if (!showOnionSkin)
             {
-                onionSkin.sprite = Texture2DCreator.Transparent(fileManager.currentFile.width, fileManager.currentFile.height).ToSprite();
+                onionSkin.sprite = Texture2DExtensions.Transparent(fileManager.currentFile.width, fileManager.currentFile.height).ToSprite();
             }
             else if (currentFrameIndex > 0)
             {
@@ -369,7 +368,7 @@ namespace PAC.Animation
             }
             else
             {
-                onionSkin.sprite = Texture2DCreator.Transparent(fileManager.currentFile.width, fileManager.currentFile.height).ToSprite();
+                onionSkin.sprite = Texture2DExtensions.Transparent(fileManager.currentFile.width, fileManager.currentFile.height).ToSprite();
             }
         }
 
