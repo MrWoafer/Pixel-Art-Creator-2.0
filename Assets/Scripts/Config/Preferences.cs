@@ -2,7 +2,7 @@ using System;
 
 using UnityEngine;
 
-namespace PAC
+namespace PAC.Config
 {
     public static class Preferences
     {
@@ -87,7 +87,7 @@ namespace PAC
         public static readonly Preference<int> startupFileWidth = CreatePreference("Startup File Width", "startup file width", 32, 1, 1024);
         public static readonly Preference<int> startupFileHeight = CreatePreference("Startup File Height", "startup file height", 32, 1, 1024);
 
-        public static readonly Preference<int> startupBrushSize = CreatePreference("Startup Brush Size", "startup brush size", 1, Config.Tools.minBrushSize, Config.Tools.maxBrushSize);
+        public static readonly Preference<int> startupBrushSize = CreatePreference("Startup Brush Size", "startup brush size", 1, Tools.minBrushSize, Tools.maxBrushSize);
 
         public static readonly Preference<int> startupAnimationFramerate = CreatePreference("Startup Animation Framerate", "startup animation framerate", 2, 1, 60);
 

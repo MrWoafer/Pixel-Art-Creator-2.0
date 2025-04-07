@@ -12,6 +12,7 @@ using PAC.Extensions.System.Collections;
 using PAC.ImageEditing;
 using PAC.UI.Components.General;
 using PAC.UI.Components.Specialised.Animation;
+using PAC.Config;
 
 namespace PAC.Animation
 {

@@ -2,6 +2,7 @@ using PAC.UI.Components.General;
 using PAC.Drawing;
 using PAC.Input;
 using PAC.Maths;
+using PAC.Config;
 
 using UnityEngine;
 using UnityEngine.Events;

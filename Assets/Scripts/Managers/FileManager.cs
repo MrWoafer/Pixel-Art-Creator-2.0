@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.IO;
 
 using PAC.Animation;
+using PAC.Config;
 using PAC.Extensions.UnityEngine;
 using PAC.Input;
 using PAC.Layers;
