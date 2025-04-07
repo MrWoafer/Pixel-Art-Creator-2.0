@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.Events;
 
-namespace PAC.Themes
+namespace PAC.UI.Themes
 {
     [CreateAssetMenu(fileName = "New Theme", menuName = "Custom/Theme")]
     public class Theme : ScriptableObject

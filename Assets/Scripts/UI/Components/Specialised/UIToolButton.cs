@@ -1,8 +1,12 @@
 using System.Linq;
+
+using PAC.UI.Components.General;
 using PAC.Input;
+using PAC.UI.Components.General.Tooltip;
+
 using UnityEngine;
 
-namespace PAC.UI
+namespace PAC.UI.Components.Specialised
 {
     public class UIToolButton : MonoBehaviour
     {
@@ -25,7 +29,8 @@ namespace PAC.UI
             foreach (UIButton button in buttons)
             {
                 UIButton temp = button;
-                button.SubscribeToClick(() => {
+                button.SubscribeToClick(() =>
+                {
                     Select(temp);
                     toggleButton.toggleGroup.PressForceEvent(toggleButton);
                 });

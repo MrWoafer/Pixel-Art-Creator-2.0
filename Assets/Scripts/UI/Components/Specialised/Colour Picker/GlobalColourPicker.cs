@@ -1,12 +1,12 @@
+using PAC.UI.Components.General;
 using PAC.Drawing;
 using PAC.Input;
 using PAC.Maths;
-using PAC.UI;
 
 using UnityEngine;
 using UnityEngine.Events;
 
-namespace PAC.ColourPicker
+namespace PAC.UI.Components.Specialised.ColourPicker
 {
     /// <summary>
     /// A class for the main colour picker in the program - the one that appears in the main view.
@@ -117,7 +117,7 @@ namespace PAC.ColourPicker
         /// </summary>
         private void CycleColourPreview(int numOfSteps)
         {
-            SelectColourPreview(MathExtensions.Mod(currentColourPreviewIndex + numOfSteps, colourPreviews.Length));
+            SelectColourPreview((currentColourPreviewIndex + numOfSteps).Mod(colourPreviews.Length));
         }
 
         /// <summary>

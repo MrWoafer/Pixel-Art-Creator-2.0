@@ -1,7 +1,8 @@
 using PAC.Input;
+
 using UnityEngine;
 
-namespace PAC.ColourPicker
+namespace PAC.UI.Components.Specialised.ColourPicker
 {
     /// <summary>
     /// A class for the lightness slider of the HSL colour picker.

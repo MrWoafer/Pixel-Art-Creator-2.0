@@ -1,5 +1,6 @@
 using UnityEngine;
 using PAC.Input;
+using PAC.UI.Components;
 
 namespace PAC.UI
 {

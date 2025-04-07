@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.Linq;
 
 using PAC.Animation;
+using PAC.UI.Components.General;
 using PAC.Colour.Compositing;
 using PAC.Extensions.System.Collections;
 using PAC.Files;
@@ -11,6 +12,7 @@ using PAC.UndoRedo;
 
 using UnityEngine;
 using UnityEngine.Events;
+using PAC.UI.Components.Specialised;
 
 namespace PAC.Layers
 {

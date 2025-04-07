@@ -1,8 +1,9 @@
 using PAC.Input;
 using PAC.KeyboardShortcuts;
+
 using UnityEngine;
 
-namespace PAC.ColourPicker
+namespace PAC.UI.Components.Specialised.ColourPicker
 {
     /// <summary>
     /// A class for the hue/saturation box of the HSL colour picker.
@@ -103,7 +104,7 @@ namespace PAC.ColourPicker
 
             Vector3 mouseLocalCoords = cursor.localPosition + transform.InverseTransformVector(mouse.worldPos - previousMousePos) * sensitivity;
 
-            mouseLocalCoords = new Vector3(Mathf.Clamp(mouseLocalCoords.x, -0.5f, 0.5f), Mathf.Clamp(mouseLocalCoords.y,-0.5f, 0.5f), 0f);
+            mouseLocalCoords = new Vector3(Mathf.Clamp(mouseLocalCoords.x, -0.5f, 0.5f), Mathf.Clamp(mouseLocalCoords.y, -0.5f, 0.5f), 0f);
 
             UpdateValuesFromMouse(mouseLocalCoords);
         }

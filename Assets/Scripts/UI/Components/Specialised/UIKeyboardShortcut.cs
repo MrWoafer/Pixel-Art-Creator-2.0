@@ -1,9 +1,11 @@
 using PAC.Input;
 using PAC.KeyboardShortcuts;
+using PAC.UI.Components.General;
+
 using UnityEngine;
 using UnityEngine.Events;
 
-namespace PAC.UI
+namespace PAC.UI.Components.Specialised
 {
     public class UIKeyboardShortcut : MonoBehaviour
     {

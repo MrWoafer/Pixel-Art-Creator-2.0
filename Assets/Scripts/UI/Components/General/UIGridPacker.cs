@@ -1,6 +1,8 @@
+using PAC.UI.Components.Specialised;
+
 using UnityEngine;
 
-namespace PAC.UI
+namespace PAC.UI.Components.General
 {
     public enum GridAlignment
     {

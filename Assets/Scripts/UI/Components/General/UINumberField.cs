@@ -3,7 +3,7 @@ using PAC.Maths;
 using UnityEngine;
 using UnityEngine.Events;
 
-namespace PAC.UI
+namespace PAC.UI.Components.General
 {
     public class UINumberField : MonoBehaviour
     {

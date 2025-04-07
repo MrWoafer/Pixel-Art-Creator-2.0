@@ -1,7 +1,8 @@
-using PAC.UI;
+using PAC.Input;
+
 using UnityEngine;
 
-namespace PAC.Input
+namespace PAC.UI.Components.General.Tooltip
 {
     [RequireComponent(typeof(InputTarget))]
     public class Tooltip : MonoBehaviour

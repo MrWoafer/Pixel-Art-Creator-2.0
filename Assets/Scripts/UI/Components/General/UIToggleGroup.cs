@@ -1,8 +1,9 @@
 using System.Collections.Generic;
+
 using UnityEngine;
 using UnityEngine.Events;
 
-namespace PAC.UI
+namespace PAC.UI.Components.General
 {
     [AddComponentMenu("Custom UI/UI Toggle Group")]
     public class UIToggleGroup : MonoBehaviour

@@ -1,12 +1,14 @@
 using System.Collections;
-using PAC.ColourPicker;
+
+using PAC.UI.Components.General;
 using PAC.Drawing;
 using PAC.Input;
 using PAC.Screen;
+
 using UnityEngine;
 using UnityEngine.Events;
 
-namespace PAC.UI
+namespace PAC.UI.Components.Specialised.ColourPicker
 {
     [AddComponentMenu("Custom UI/UI Colour Picker")]
     public class UIColourPicker : MonoBehaviour

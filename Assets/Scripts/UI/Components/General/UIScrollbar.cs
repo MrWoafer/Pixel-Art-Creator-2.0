@@ -1,9 +1,10 @@
 using PAC.Input;
+
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
 
-namespace PAC.UI
+namespace PAC.UI.Components.General
 {
     public enum ScrollDirection
     {

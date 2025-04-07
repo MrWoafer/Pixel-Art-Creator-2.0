@@ -1,4 +1,6 @@
-using PAC.UI;
+using PAC.UI.Components;
+using PAC.UI.Components.General;
+
 using UnityEngine;
 using UnityEngine.Events;
 

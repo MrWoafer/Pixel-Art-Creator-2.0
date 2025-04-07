@@ -1,7 +1,9 @@
+using PAC.UI.Components.General;
 using PAC.Files;
-using PAC.UI;
+
 using UnityEngine;
 using UnityEngine.Events;
+using PAC.UI.Components.Specialised;
 
 namespace PAC.Tilesets
 {

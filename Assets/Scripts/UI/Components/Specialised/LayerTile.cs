@@ -1,10 +1,13 @@
+using PAC.UI.Components.General;
 using PAC.Input;
-using PAC.UI;
+using PAC.UI.Components.General.Tooltip;
+
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
+using PAC.Layers;
 
-namespace PAC.Layers
+namespace PAC.UI.Components.Specialised
 {
     public class LayerTile : MonoBehaviour
     {

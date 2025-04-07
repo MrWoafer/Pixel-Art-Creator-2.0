@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace PAC.UI
+namespace PAC.UI.Components.General
 {
     public enum CollapsedState
     {

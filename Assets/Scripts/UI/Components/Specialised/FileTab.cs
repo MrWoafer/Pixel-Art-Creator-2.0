@@ -1,8 +1,10 @@
-using PAC.UI;
+using PAC.Files;
+using PAC.UI.Components.General;
+
 using UnityEngine;
 using UnityEngine.Events;
 
-namespace PAC.Files
+namespace PAC.UI.Components.Specialised
 {
     public class FileTab : MonoBehaviour
     {

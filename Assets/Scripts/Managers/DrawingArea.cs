@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 using PAC.Animation;
-using PAC.ColourPicker;
 using PAC.Colour;
 using PAC.Files;
 using PAC.Input;
@@ -21,6 +20,7 @@ using PAC.Patterns.Extensions;
 using PAC.Geometry;
 using PAC.Geometry.Extensions;
 using PAC.Extensions.UnityEngine;
+using PAC.UI.Components.Specialised.ColourPicker;
 
 namespace PAC.Drawing
 {

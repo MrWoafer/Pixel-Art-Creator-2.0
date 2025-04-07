@@ -1,8 +1,9 @@
 using PAC.Colour;
+
 using UnityEngine;
 using UnityEngine.Events;
 
-namespace PAC.ColourPicker
+namespace PAC.UI.Components.Specialised.ColourPicker
 {
     /// <summary>
     /// A class for the HSL colour picker.

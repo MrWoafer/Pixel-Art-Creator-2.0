@@ -1,10 +1,11 @@
+using PAC.UI.Components.General;
 using PAC.Shaders;
-using PAC.UI;
+
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
 
-namespace PAC.ColourPicker
+namespace PAC.UI.Components.Specialised.ColourPicker
 {
     /// <summary>
     /// A class to represent colour previews - the boxes on colour pickers that show what colours you have selected.

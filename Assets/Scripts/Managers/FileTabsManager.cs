@@ -1,5 +1,8 @@
 using System.Collections.Generic;
-using PAC.UI;
+
+using PAC.UI.Components.General;
+using PAC.UI.Components.Specialised;
+
 using UnityEngine;
 using UnityEngine.Events;
 

@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace PAC.Animation
+namespace PAC.UI.Components.Specialised.Animation
 {
     /// <summary>
     /// Stores the data about a keyframe icon on the animation timeline.

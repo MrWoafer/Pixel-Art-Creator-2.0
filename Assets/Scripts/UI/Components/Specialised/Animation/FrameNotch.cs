@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace PAC.Animation
+namespace PAC.UI.Components.Specialised.Animation
 {
     /// <summary>
     /// A class for the frame number markers on the animation timeline.

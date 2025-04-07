@@ -1,9 +1,11 @@
-using PAC.Layers;
-using PAC.UI;
+using PAC.UI.Components.General;
+using PAC.Themes;
+
 using UnityEngine;
 using UnityEngine.UI;
+using PAC.UI.Components.Specialised;
 
-namespace PAC.Themes
+namespace PAC.UI.Themes
 {
     public enum ThemeObjectType
     {

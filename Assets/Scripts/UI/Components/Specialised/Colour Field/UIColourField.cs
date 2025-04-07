@@ -1,8 +1,11 @@
+using PAC.UI.Components.General;
+using PAC.UI.Components.Specialised.ColourPicker;
+
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
 
-namespace PAC.UI
+namespace PAC.UI.Components.Specialised.ColourField
 {
     public class UIColourField : MonoBehaviour
     {

@@ -1,8 +1,9 @@
 using PAC.Screen;
+
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace PAC.UI
+namespace PAC.UI.Components.General.Tooltip
 {
     public class UITooltip : MonoBehaviour
     {

@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 
-using PAC.Extensions;
 using PAC.Geometry;
 using PAC.Geometry.Extensions;
 

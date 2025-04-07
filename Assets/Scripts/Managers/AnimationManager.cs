@@ -4,13 +4,14 @@ using PAC.Maths;
 using PAC.Files;
 using PAC.Input;
 using PAC.Layers;
-using PAC.UI;
 using UnityEngine;
 using UnityEngine.Events;
 using PAC.Colour.Compositing;
 using PAC.Extensions.UnityEngine;
 using PAC.Extensions.System.Collections;
 using PAC.ImageEditing;
+using PAC.UI.Components.General;
+using PAC.UI.Components.Specialised.Animation;
 
 namespace PAC.Animation
 {

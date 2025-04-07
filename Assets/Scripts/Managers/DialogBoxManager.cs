@@ -3,7 +3,6 @@ using System;
 using PAC.Animation;
 using PAC.Colour.Compositing;
 using PAC.Drawing;
-using PAC.UI.EffectPanels;
 using PAC.Extensions.UnityEngine;
 using PAC.Files;
 using PAC.ImageEditing;
@@ -14,6 +13,9 @@ using SFB;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
+using PAC.UI.Components.EffectPanels;
+using PAC.UI.Components.General;
+using PAC.UI.Components.Specialised.ColourField;
 
 namespace PAC.UI
 {

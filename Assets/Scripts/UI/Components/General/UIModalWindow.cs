@@ -1,9 +1,10 @@
 using System.Collections.Generic;
+
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
 
-namespace PAC.UI
+namespace PAC.UI.Components.General
 {
     public class UIModalWindow : MonoBehaviour
     {

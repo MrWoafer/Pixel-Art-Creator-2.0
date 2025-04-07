@@ -1,7 +1,9 @@
 using PAC.Input;
+using PAC.UI.Components.General;
+
 using UnityEngine;
 
-namespace PAC.UI
+namespace PAC.UI.Components
 {
     public enum UIElementSelectMode
     {

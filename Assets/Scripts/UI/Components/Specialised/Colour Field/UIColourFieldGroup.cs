@@ -1,8 +1,9 @@
 using System.Collections.Generic;
+
 using UnityEngine;
 using UnityEngine.Events;
 
-namespace PAC.UI
+namespace PAC.UI.Components.Specialised.ColourField
 {
     [AddComponentMenu("Custom UI/UI Colour Field Group")]
     public class UIColourFieldGroup : MonoBehaviour

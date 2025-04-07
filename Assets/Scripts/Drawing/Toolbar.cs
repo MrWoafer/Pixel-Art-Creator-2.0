@@ -1,16 +1,15 @@
 using System.Collections.Generic;
 using System.Linq;
-
-using PAC.DataStructures;
 using PAC.Input;
 using PAC.Geometry.Shapes;
-using PAC.UI;
 
 using UnityEngine;
 using UnityEngine.Events;
 using PAC.Geometry.Shapes.Extensions;
 using PAC.Geometry;
 using PAC.Extensions.UnityEngine;
+using PAC.UI.Components.General;
+using PAC.UI.Components.Specialised;
 
 namespace PAC.Drawing
 {

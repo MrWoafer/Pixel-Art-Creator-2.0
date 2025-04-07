@@ -1,11 +1,12 @@
 using PAC.Extensions.UnityEngine;
 using PAC.Files;
+using PAC.UI.Components.General;
 
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
 
-namespace PAC.UI
+namespace PAC.UI.Components.Specialised
 {
     public class UITileIcon : MonoBehaviour
     {
