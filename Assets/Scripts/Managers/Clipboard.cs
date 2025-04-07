@@ -1,15 +1,11 @@
-using PAC.Animation;
 using PAC.Colour.Compositing;
-using PAC.Drawing;
 using PAC.Extensions.UnityEngine;
-using PAC.Files;
 using PAC.Geometry;
 using PAC.ImageEditing;
-using PAC.Layers;
 
 using UnityEngine;
 
-namespace PAC.Clipboard
+namespace PAC.Managers
 {
     /// <summary>
     /// A class to handle copy/paste functionality.

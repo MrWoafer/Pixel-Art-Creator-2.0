@@ -1,20 +1,17 @@
 using System.Collections.Generic;
 using System.Linq;
-
-using PAC.Animation;
 using PAC.UI.Components.General;
 using PAC.Colour.Compositing;
 using PAC.Extensions.System.Collections;
 using PAC.Files;
 using PAC.ImageEditing;
-using PAC.UI;
-using PAC.UndoRedo;
 
 using UnityEngine;
 using UnityEngine.Events;
 using PAC.UI.Components.Specialised;
+using PAC.Layers;
 
-namespace PAC.Layers
+namespace PAC.Managers
 {
     public class LayerManager : MonoBehaviour
     {
@@ -178,7 +175,7 @@ namespace PAC.Layers
 
         private void ClearLayerTiles()
         {
-            foreach(LayerTile layerTile in layerTiles)
+            foreach (LayerTile layerTile in layerTiles)
             {
                 DestroyImmediate(layerTile.gameObject);
             }
@@ -188,7 +185,7 @@ namespace PAC.Layers
 
         private void AddLayerTile(Layer layer)
         {
-            LayerTile layerTile = GameObject.Instantiate(layerTilePrefab, viewport.scrollingArea).GetComponent<LayerTile>();
+            LayerTile layerTile = Instantiate(layerTilePrefab, viewport.scrollingArea).GetComponent<LayerTile>();
             layerTile.SetLayer(layer);
             layerTile.transform.localPosition = layerTileStartCoords - new Vector2(0f, yIncrement * layerTiles.Count);
 
@@ -245,7 +242,7 @@ namespace PAC.Layers
                     fileManager.currentFile.AddLayer(duplicate, i);
                 }
             }
-        
+
             OnLayersChanged();
         }
 
@@ -298,7 +295,7 @@ namespace PAC.Layers
                 fileManager.currentFile.MoveLayer(selectedLayerIndices[0], selectedLayerIndices[0] - 1);
                 movedPreviousSelectedLayer = true;
             }
-        
+
             for (int i = 1; i < selectedLayerIndices.Length; i++)
             {
                 if (selectedLayerIndices[i] > selectedLayerIndices[i - 1] + 1 || movedPreviousSelectedLayer)

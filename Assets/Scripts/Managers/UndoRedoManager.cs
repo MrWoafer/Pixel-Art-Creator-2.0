@@ -1,11 +1,14 @@
 using System.Collections.Generic;
+
 using PAC.Files;
 using PAC.Input;
 using PAC.Layers;
+using PAC.UndoRedo;
+
 using UnityEngine;
 using UnityEngine.Events;
 
-namespace PAC.UndoRedo
+namespace PAC.Managers
 {
     public class UndoRedoManager : MonoBehaviour
     {

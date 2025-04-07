@@ -1,12 +1,13 @@
 using System.Collections.Generic;
 
+using PAC.Files;
 using PAC.UI.Components.General;
 using PAC.UI.Components.Specialised;
 
 using UnityEngine;
 using UnityEngine.Events;
 
-namespace PAC.Files
+namespace PAC.Managers
 {
     public class FileTabsManager : MonoBehaviour
     {
@@ -116,7 +117,7 @@ namespace PAC.Files
 
         private void AddFileTile(File file)
         {
-            FileTab fileTile = GameObject.Instantiate(fileTilePrefab, viewport.scrollingArea).GetComponent<FileTab>();
+            FileTab fileTile = Instantiate(fileTilePrefab, viewport.scrollingArea).GetComponent<FileTab>();
             fileTile.SetFile(file);
             fileTile.transform.localPosition = fileTileStartCoords + new Vector2(xIncrement * fileTiles.Count, 0f);
 
@@ -143,7 +144,7 @@ namespace PAC.Files
                     break;
                 }
             }
-        
+
             OnFilesChanged();
         }
 

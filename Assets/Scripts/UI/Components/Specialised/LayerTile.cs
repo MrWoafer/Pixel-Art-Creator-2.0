@@ -6,6 +6,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
 using PAC.Layers;
+using PAC.Managers;
 
 namespace PAC.UI.Components.Specialised
 {

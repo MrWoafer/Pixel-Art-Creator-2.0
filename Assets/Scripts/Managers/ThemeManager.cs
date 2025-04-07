@@ -5,7 +5,7 @@ using PAC.UI.Themes;
 using UnityEngine;
 using UnityEngine.Events;
 
-namespace PAC.Themes
+namespace PAC.Managers
 {
     public class ThemeManager : MonoBehaviour
     {

@@ -1,17 +1,10 @@
-using PAC.Animation;
 using PAC.Drawing;
-using PAC.Files;
 using PAC.Input;
-using PAC.Layers;
-using PAC.Themes;
-using PAC.Tilesets;
-using PAC.UI;
 using PAC.UI.Components.Specialised.ColourPicker;
-using PAC.UndoRedo;
 
 using UnityEngine;
 
-namespace PAC
+namespace PAC.Managers
 {
     public class Finder
     {
@@ -39,7 +32,7 @@ namespace PAC
         public static GridManager gridManager => GameObject.Find("Grid Manager").GetComponent<GridManager>();
 
         public static UndoRedoManager undoRedoManager => GameObject.Find("Undo / Redo Manager").GetComponent<UndoRedoManager>();
-        public static Clipboard.Clipboard clipboard => GameObject.Find("Undo / Redo Manager").GetComponent<Clipboard.Clipboard>();
+        public static Clipboard clipboard => GameObject.Find("Undo / Redo Manager").GetComponent<Clipboard>();
         public static ImageEditManager imageEditManager => GameObject.Find("File Manager").GetComponent<ImageEditManager>();
     }
 }

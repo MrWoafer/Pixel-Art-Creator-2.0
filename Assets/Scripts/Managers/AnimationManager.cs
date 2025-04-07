@@ -1,7 +1,6 @@
 using System.Collections.Generic;
 
 using PAC.Maths;
-using PAC.Files;
 using PAC.Input;
 using PAC.Layers;
 using UnityEngine;
@@ -13,8 +12,9 @@ using PAC.ImageEditing;
 using PAC.UI.Components.General;
 using PAC.UI.Components.Specialised.Animation;
 using PAC.Config;
+using PAC.Animation;
 
-namespace PAC.Animation
+namespace PAC.Managers
 {
     /// <summary>
     /// Handles the animation timeline and playback of animations.
@@ -184,7 +184,7 @@ namespace PAC.Animation
                     frameTimer = 0f;
 
                     // Deal with reaching start/end of animation based on selected playback mode
-                    if ((playForwards && currentFrameIndex >= fileManager.currentFile.numOfFrames - 1) || (!playForwards && currentFrameIndex <= 0))
+                    if (playForwards && currentFrameIndex >= fileManager.currentFile.numOfFrames - 1 || !playForwards && currentFrameIndex <= 0)
                     {
                         if (playbackMode.selectedOption == "once")
                         {
@@ -331,7 +331,7 @@ namespace PAC.Animation
                 }
             }
 
-            UpdateOnionSkin();        
+            UpdateOnionSkin();
         }
 
         /// <summary>
@@ -451,7 +451,7 @@ namespace PAC.Animation
         /// </summary>
         public void DebugLogKeyFrames()
         {
-            Debug.Log("Current frame: " + currentFrameIndex + ". Key frames at: " + (layerManager.selectedLayer.keyFrameIndices).ToPrettyString());
+            Debug.Log("Current frame: " + currentFrameIndex + ". Key frames at: " + layerManager.selectedLayer.keyFrameIndices.ToPrettyString());
         }
 
         /// <summary>
@@ -465,11 +465,11 @@ namespace PAC.Animation
             }
             if (inputSystem.globalKeyboardTarget.OneIsHeldExactly(KeyboardShortcuts.KeyboardShortcuts.GetShortcutsFor("previous frame")))
             {
-                currentFrameIndex = MathExtensions.Mod(currentFrameIndex - 1, fileManager.currentFile.numOfFrames);
+                currentFrameIndex = (currentFrameIndex - 1).Mod(fileManager.currentFile.numOfFrames);
             }
             if (inputSystem.globalKeyboardTarget.OneIsHeldExactly(KeyboardShortcuts.KeyboardShortcuts.GetShortcutsFor("next frame")))
             {
-                currentFrameIndex = MathExtensions.Mod(currentFrameIndex + 1, fileManager.currentFile.numOfFrames);
+                currentFrameIndex = (currentFrameIndex + 1).Mod(fileManager.currentFile.numOfFrames);
             }
             if (inputSystem.globalKeyboardTarget.OneIsHeldExactly(KeyboardShortcuts.KeyboardShortcuts.GetShortcutsFor("first frame")))
             {

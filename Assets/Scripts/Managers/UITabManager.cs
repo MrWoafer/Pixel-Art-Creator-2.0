@@ -1,7 +1,8 @@
 using System.Collections.Generic;
+
 using UnityEngine;
 
-namespace PAC.UI
+namespace PAC.Managers
 {
     public class UITabManager : MonoBehaviour
     {

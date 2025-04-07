@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using PAC.UI.Components.Specialised;
 
-namespace PAC.Tilesets
+namespace PAC.Managers
 {
     public class TilesetManager : MonoBehaviour
     {

@@ -1,13 +1,12 @@
 using System.Collections.Generic;
 
 using PAC.UI.Components.General;
-using PAC.UI;
 
 using UnityEngine;
 using UnityEngine.UI;
 using PAC.UI.Components.Specialised;
 
-namespace PAC.KeyboardShortcuts
+namespace PAC.Managers
 {
     /// <summary>
     /// Handles the window where you can view / change keyboard shortcuts.
@@ -110,7 +109,7 @@ namespace PAC.KeyboardShortcuts
 
                 UIToggleButton button = Instantiate(categoryButtonPrefab, categoriesViewport.scrollingArea).GetComponent<UIToggleButton>();
                 button.transform.localPosition = new Vector3(0f, -i * button.height, 0f);
-            
+
                 button.SetText(category.categoryName);
 
                 categoriesToggleGroup.Add(button);
@@ -120,7 +119,7 @@ namespace PAC.KeyboardShortcuts
                 button.SubscribeToLeftClick(() => optionsScrollbar.SetScrollAmount(1f));
 
                 // Create the tab object for this category to use in the tab system
-            
+
                 GameObject tab = new GameObject("Tab - " + category.categoryName);
                 tab.transform.parent = optionsViewport.scrollingArea;
                 tab.transform.localPosition = Vector3.zero;
@@ -148,9 +147,9 @@ namespace PAC.KeyboardShortcuts
                     optionObj.transform.Find("Text").GetComponent<Text>().text = option.displayName;
 
                     UIKeyboardShortcut uiKeyboardShortcut = optionObj.transform.Find("Keyboard Shortcut").GetComponent<UIKeyboardShortcut>();
-                    uiKeyboardShortcut.shortcut = KeyboardShortcuts.GetShortcutsFor(option.referenceName)[0];
-                    uiKeyboardShortcut.SubscribeToOnShortcutSet((shortcut) => KeyboardShortcuts.SetShortcut(option.referenceName, shortcut));
-                    uiKeyboardShortcut.SubscribeToOnShortcutSet((shortcut) => KeyboardShortcuts.SaveShortcuts());
+                    uiKeyboardShortcut.shortcut = KeyboardShortcuts.KeyboardShortcuts.GetShortcutsFor(option.referenceName)[0];
+                    uiKeyboardShortcut.SubscribeToOnShortcutSet((shortcut) => KeyboardShortcuts.KeyboardShortcuts.SetShortcut(option.referenceName, shortcut));
+                    uiKeyboardShortcut.SubscribeToOnShortcutSet((shortcut) => KeyboardShortcuts.KeyboardShortcuts.SaveShortcuts());
                 }
             }
 

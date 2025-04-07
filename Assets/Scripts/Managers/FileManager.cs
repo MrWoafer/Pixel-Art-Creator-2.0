@@ -1,19 +1,16 @@
 using System.Collections.Generic;
-using System.IO;
 
-using PAC.Animation;
 using PAC.Config;
 using PAC.Extensions.UnityEngine;
+using PAC.Files;
 using PAC.Input;
-using PAC.Layers;
-using PAC.UI;
 
 using SFB;
 
 using UnityEngine;
 using UnityEngine.Events;
 
-namespace PAC.Files
+namespace PAC.Managers
 {
     public class FileManager : MonoBehaviour
     {
@@ -33,7 +30,7 @@ namespace PAC.Files
         [HideInInspector]
         public File previousFile = null;
 
-        private Drawing.DrawingArea drawingArea;
+        private DrawingArea drawingArea;
         private AnimationManager animationManager;
 
         private InputSystem inputSystem;
@@ -232,7 +229,7 @@ namespace PAC.Files
             string[] fileNames = StandaloneFileBrowser.OpenFilePanel("Import", "", extensions, false);
             if (fileNames.Length > 0)
             {
-                if (Path.GetExtension(fileNames[0]) == ".png" || Path.GetExtension(fileNames[0]) == ".jpg" || Path.GetExtension(fileNames[0]) == ".jpeg")
+                if (System.IO.Path.GetExtension(fileNames[0]) == ".png" || System.IO.Path.GetExtension(fileNames[0]) == ".jpg" || System.IO.Path.GetExtension(fileNames[0]) == ".jpeg")
                 {
                     Texture2D tex = Texture2DExtensions.LoadFromFile(fileNames[0]);
                     if (tex.width != currentFile.width || tex.height != currentFile.height)
@@ -244,7 +241,7 @@ namespace PAC.Files
                         currentFile.ImportImage(fileNames[0]);
                     }
                 }
-                else if (Path.GetExtension(fileNames[0]) == "." + Config.Files.pacFileExtension)
+                else if (System.IO.Path.GetExtension(fileNames[0]) == "." + Config.Files.pacFileExtension)
                 {
                     File file = File.OpenPAC(fileNames[0]);
                     if (file.width != currentFile.width || file.height != currentFile.height)
@@ -383,7 +380,7 @@ namespace PAC.Files
             {
                 previousFile = currentFile;
             }
-        
+
             currentFileIndex = fileIndex;
 
             onFileSwitch.Invoke();

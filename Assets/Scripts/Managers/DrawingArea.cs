@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using PAC.Animation;
 using PAC.Colour;
 using PAC.Files;
 using PAC.Input;
@@ -21,8 +20,10 @@ using PAC.Geometry;
 using PAC.Geometry.Extensions;
 using PAC.Extensions.UnityEngine;
 using PAC.UI.Components.Specialised.ColourPicker;
+using PAC.Drawing;
+using GradientMode = PAC.Drawing.GradientMode;
 
-namespace PAC.Drawing
+namespace PAC.Managers
 {
     public class DrawingArea : MonoBehaviour
     {
@@ -292,7 +293,7 @@ namespace PAC.Drawing
                         }
 
                         UpdateDrawing();
-                    
+
                         // Update tracker variables
                         previousPixelUsedToolOn = mousePixel;
                         previousColourUsedForTool = colour;
@@ -629,7 +630,7 @@ namespace PAC.Drawing
                 {
                     HideBrushBorder();
                 }
-            
+
                 UpdateBrushBorder(mousePixel);
             }
             else
@@ -969,9 +970,9 @@ namespace PAC.Drawing
             }
         }
 
-        private void PreviewShape(IShape shape, Color colour) => SetPreview(shape.ToTexture(colour), shape.boundingRect.bottomLeft); 
+        private void PreviewShape(IShape shape, Color colour) => SetPreview(shape.ToTexture(colour), shape.boundingRect.bottomLeft);
         private void PreviewPattern(IPattern2D<Color> pattern) => SetPreview(pattern.ToTexture(file.rect), IntVector2.zero);
-        private void PreviewPattern(IPattern2D<Color32> pattern) => SetPreview(pattern.ToTexture(file.rect), IntVector2.zero); 
+        private void PreviewPattern(IPattern2D<Color32> pattern) => SetPreview(pattern.ToTexture(file.rect), IntVector2.zero);
 
         private void PreviewMove(IntVector2 pixel)
         {
@@ -1023,7 +1024,7 @@ namespace PAC.Drawing
 
                     HashSet<IntVector2> visitedOffsets = new HashSet<IntVector2>(new List<IntVector2> { IntVector2.zero });
                     Queue<IntVector2> offsetsToVisit = new Queue<IntVector2>(new List<IntVector2> { IntVector2.up, IntVector2.down, IntVector2.left, IntVector2.right });
-                
+
                     int trials = 0;
                     while (trials <= 10000)
                     {

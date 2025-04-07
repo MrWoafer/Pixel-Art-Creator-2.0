@@ -7,6 +7,7 @@ using PAC.Screen;
 
 using UnityEngine;
 using UnityEngine.Events;
+using PAC.Managers;
 
 namespace PAC.UI.Components.Specialised.ColourPicker
 {

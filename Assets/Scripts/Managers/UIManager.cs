@@ -2,14 +2,14 @@ using UnityEngine;
 using PAC.Input;
 using PAC.UI.Components;
 
-namespace PAC.UI
+namespace PAC.Managers
 {
     public class UIManager : MonoBehaviour
     {
         public UIElement selectedUIElement { get; private set; }
 
         private bool untargetedThisFrame = false;
-        
+
         private void LateUpdate()
         {
             if (untargetedThisFrame)
@@ -53,7 +53,7 @@ namespace PAC.UI
 
         public bool CanTargetInputTarget(InputTarget inputTarget)
         {
-            return !untargetedThisFrame && (selectedUIElement == null || (inputTarget.uiElement != null && inputTarget.uiElement == selectedUIElement));
+            return !untargetedThisFrame && (selectedUIElement == null || inputTarget.uiElement != null && inputTarget.uiElement == selectedUIElement);
         }
     }
 }

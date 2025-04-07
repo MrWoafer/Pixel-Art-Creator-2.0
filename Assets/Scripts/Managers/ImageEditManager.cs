@@ -2,12 +2,11 @@ using PAC.UI.Components.General;
 using PAC.Geometry;
 using PAC.Geometry.Axes;
 using PAC.Layers;
-using PAC.UI;
 
 using UnityEngine;
 using UnityEngine.Events;
 
-namespace PAC.Files
+namespace PAC.Managers
 {
     public class ImageEditManager : MonoBehaviour
     {

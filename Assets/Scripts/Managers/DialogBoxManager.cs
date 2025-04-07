@@ -1,6 +1,4 @@
 using System;
-
-using PAC.Animation;
 using PAC.Colour.Compositing;
 using PAC.Drawing;
 using PAC.Extensions.UnityEngine;
@@ -17,7 +15,7 @@ using PAC.UI.Components.EffectPanels;
 using PAC.UI.Components.General;
 using PAC.UI.Components.Specialised.ColourField;
 
-namespace PAC.UI
+namespace PAC.Managers
 {
     public class DialogBoxManager : MonoBehaviour
     {
@@ -288,7 +286,7 @@ namespace PAC.UI
                 beenRunningAFrame = true;
             }
         }
-        
+
         public void OpenDialogBox(GameObject dialogBox)
         {
             blurPanel.EnableDisable(true);
@@ -297,7 +295,7 @@ namespace PAC.UI
             dialogBox.transform.localScale = Vector3.zero;
             LeanTween.scale(dialogBox, Vector3.one, popUpDuration).setEase(popUpOpenScaleCurve);
         }
-        
+
         public void CloseDialogBox(GameObject dialogBox) => CloseDialogBox(dialogBox, null);
         public void CloseDialogBox(GameObject dialogBox, Action onComplete)
         {
@@ -781,7 +779,7 @@ namespace PAC.UI
             }
             else
             {
-                throw new System.Exception("Unknown / unimplemented brush shape: " + brushShape);
+                throw new Exception("Unknown / unimplemented brush shape: " + brushShape);
             }
         }
 
@@ -824,7 +822,7 @@ namespace PAC.UI
             }
             else
             {
-                throw new System.Exception("Unknown / unimplemented brush shape: " + brushShape);
+                throw new Exception("Unknown / unimplemented brush shape: " + brushShape);
             }
         }
 
@@ -885,7 +883,7 @@ namespace PAC.UI
         {
             if (buttonTexts.Length != buttonOnClicks.Length)
             {
-                throw new System.Exception("Number of button texts (" + buttonTexts.Length + ") does not equal number of button onClicks (" + buttonOnClicks.Length + ")");
+                throw new Exception("Number of button texts (" + buttonTexts.Length + ") does not equal number of button onClicks (" + buttonOnClicks.Length + ")");
             }
 
             UIModalWindow modalWindow = OpenModalWindow(title, message);

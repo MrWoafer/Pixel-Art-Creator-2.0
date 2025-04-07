@@ -1,8 +1,10 @@
 using System.Collections.Generic;
-using PAC.Drawing;
+
+using PAC.Tilesets;
+
 using UnityEngine;
 
-namespace PAC.Tilesets
+namespace PAC.Managers
 {
     public class TileOutlineManager : MonoBehaviour
     {
