@@ -3,7 +3,6 @@ using PAC.Shaders;
 
 using UnityEngine;
 using UnityEngine.Events;
-using UnityEngine.UI;
 
 namespace PAC.UI.Components.Specialised.ColourPicker
 {
@@ -57,7 +56,7 @@ namespace PAC.UI.Components.Specialised.ColourPicker
         private UnityEvent onToggle = new UnityEvent();
 
         private UIToggleButton toggle;
-        private Image toggleBackground;
+        private UnityEngine.UI.Image toggleBackground;
         private RainbowOutline rainbowOutline;
         private Transform outerOutline;
         private Transform innerOutline;
@@ -90,7 +89,7 @@ namespace PAC.UI.Components.Specialised.ColourPicker
         private void GetReferences()
         {
             toggle = GetComponent<UIToggleButton>();
-            toggleBackground = toggle.transform.Find("Canvas").Find("Background").GetComponent<Image>();
+            toggleBackground = toggle.transform.Find("Canvas").Find("Background").GetComponent<UnityEngine.UI.Image>();
             rainbowOutline = transform.Find("Canvas").Find("Outline").Find("Rainbow").GetComponent<RainbowOutline>();
             outerOutline = transform.Find("Canvas").Find("Outline").Find("Outer Outline");
             innerOutline = transform.Find("Canvas").Find("Outline").Find("Inner Outline");

@@ -63,7 +63,7 @@ namespace PAC.UI.Components.General
 
         private InputTarget inputTarget;
 
-        private Image background;
+        private UnityEngine.UI.Image background;
         private BoxCollider2D collider;
         private Text textBox;
 
@@ -101,7 +101,7 @@ namespace PAC.UI.Components.General
 
         private void GetReferences()
         {
-            background = transform.Find("Canvas").Find("Background").GetComponent<Image>();
+            background = transform.Find("Canvas").Find("Background").GetComponent<UnityEngine.UI.Image>();
             collider = GetComponent<BoxCollider2D>();
             textBox = transform.Find("Canvas").Find("Text").GetComponent<Text>();
         }

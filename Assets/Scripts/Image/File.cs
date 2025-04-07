@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using PAC.DataStructures;
-using PAC.Layers;
 using PAC.Tilesets;
 using UnityEngine;
 using UnityEngine.Events;
@@ -14,8 +13,9 @@ using PAC.Geometry.Axes;
 using PAC.Geometry.Extensions;
 using PAC.Extensions.UnityEngine;
 using PAC.Extensions.System.Collections;
+using PAC.Image.Layers;
 
-namespace PAC.Files
+namespace PAC.Image
 {
     /// <summary>
     /// A class to represent a single Pixel Art Creator file.
@@ -159,11 +159,11 @@ namespace PAC.Files
         {
             if (!Path.IsPathFullyQualified(filePath))
             {
-                throw new System.Exception("filePath not fully qualified: " + filePath);
+                throw new Exception("filePath not fully qualified: " + filePath);
             }
             if (!System.IO.File.Exists(filePath))
             {
-                throw new System.Exception("filePath doesn't exist: " + filePath);
+                throw new Exception("filePath doesn't exist: " + filePath);
             }
 
             if (Path.GetExtension(filePath) == ".png")
@@ -180,7 +180,7 @@ namespace PAC.Files
             }
             else
             {
-                throw new System.Exception("Unknown / unimplemented file extension: " + Path.GetExtension(filePath));
+                throw new Exception("Unknown / unimplemented file extension: " + Path.GetExtension(filePath));
             }
         }
 
@@ -191,7 +191,7 @@ namespace PAC.Files
         {
             if (Path.GetExtension(filePath) != ".png")
             {
-                throw new System.Exception("The file is not a PNG file. File extension: " + Path.GetExtension(filePath));
+                throw new Exception("The file is not a PNG file. File extension: " + Path.GetExtension(filePath));
             }
             return OpenImage(filePath);
         }
@@ -202,7 +202,7 @@ namespace PAC.Files
         {
             if (Path.GetExtension(filePath) != ".jpeg" && Path.GetExtension(filePath) != ".jpg")
             {
-                throw new System.Exception("The file is not a JPEG / JPG file. File extension: " + Path.GetExtension(filePath));
+                throw new Exception("The file is not a JPEG / JPG file. File extension: " + Path.GetExtension(filePath));
             }
             return OpenImage(filePath);
         }
@@ -213,17 +213,17 @@ namespace PAC.Files
         {
             if (!Path.IsPathFullyQualified(filePath))
             {
-                throw new System.Exception("filePath not fully qualified: " + filePath);
+                throw new Exception("filePath not fully qualified: " + filePath);
             }
             if (!System.IO.File.Exists(filePath))
             {
-                throw new System.Exception("filePath doesn't exist: " + filePath);
+                throw new Exception("filePath doesn't exist: " + filePath);
             }
 
             Texture2D texture = Texture2DExtensions.LoadFromFile(filePath);
             if (texture == null)
             {
-                throw new System.Exception("Loaded texture is null.");
+                throw new Exception("Loaded texture is null.");
             }
 
             File file = new File(Path.GetFileNameWithoutExtension(filePath), texture.width, texture.height);
@@ -241,15 +241,15 @@ namespace PAC.Files
         {
             if (!Path.IsPathFullyQualified(filePath))
             {
-                throw new System.Exception("filePath not fully qualified: " + filePath);
+                throw new Exception("filePath not fully qualified: " + filePath);
             }
             if (!System.IO.File.Exists(filePath))
             {
-                throw new System.Exception("filePath doesn't exist: " + filePath);
+                throw new Exception("filePath doesn't exist: " + filePath);
             }
             if (Path.GetExtension(filePath) != "." + Config.Files.pacFileExtension)
             {
-                throw new System.Exception("The file is not a PAC file. File extension: " + Path.GetExtension(filePath));
+                throw new Exception("The file is not a PAC file. File extension: " + Path.GetExtension(filePath));
             }
 
             JsonData.Object json;
@@ -262,7 +262,7 @@ namespace PAC.Files
             json.Remove("file format version");
 
             File file = JsonConversion.FromJson<File>(JsonData.Parse(System.IO.File.ReadAllText(filePath)), new JsonConversion.JsonConverterSet(new JsonConverter(fileFormatVersion)), false);
-            
+
             file.savedSinceLastEdit = true;
 
             return file;
@@ -276,22 +276,22 @@ namespace PAC.Files
         {
             if (!Path.IsPathFullyQualified(filePath))
             {
-                throw new System.Exception("filePath not fully qualified: " + filePath);
+                throw new Exception("filePath not fully qualified: " + filePath);
             }
             if (!System.IO.File.Exists(filePath))
             {
-                throw new System.Exception("filePath doesn't exist: " + filePath);
+                throw new Exception("filePath doesn't exist: " + filePath);
             }
 
             Texture2D texture = Texture2DExtensions.LoadFromFile(filePath);
             if (texture == null)
             {
-                throw new System.Exception("Loaded texture is null.");
+                throw new Exception("Loaded texture is null.");
             }
 
             if (texture.width != width || texture.height != height)
             {
-                throw new System.Exception("Image dimensions (" + texture.width + ", " + texture.height + ") do not match file dimensions (" + width + ", " + height + ")");
+                throw new Exception("Image dimensions (" + texture.width + ", " + texture.height + ") do not match file dimensions (" + width + ", " + height + ")");
             }
 
             AddLayer(new NormalLayer(Path.GetFileNameWithoutExtension(filePath), texture));
@@ -304,7 +304,7 @@ namespace PAC.Files
         {
             if (mostRecentSavePath == null)
             {
-                throw new System.Exception("File has not been saved before. Please use SaveAsPAC() for the first time a file is saved.");
+                throw new Exception("File has not been saved before. Please use SaveAsPAC() for the first time a file is saved.");
             }
 
             SaveAsPAC(mostRecentSavePath);
@@ -316,11 +316,11 @@ namespace PAC.Files
         {
             if (!Path.IsPathFullyQualified(filePath))
             {
-                throw new System.Exception("filePath not fully qualified: " + filePath);
+                throw new Exception("filePath not fully qualified: " + filePath);
             }
             if (Path.GetExtension(filePath) != "." + Config.Files.pacFileExtension)
             {
-                throw new System.Exception("The file is not a PAC file. File extension: " + Path.GetExtension(filePath));
+                throw new Exception("The file is not a PAC file. File extension: " + Path.GetExtension(filePath));
             }
 
             JsonData.Object json = (JsonData.Object)JsonConversion.ToJson(this, new JsonConversion.JsonConverterSet(new JsonConverter(Config.Files.fileFormatVersion)), false);
@@ -343,7 +343,7 @@ namespace PAC.Files
         {
             if (!Path.IsPathFullyQualified(filePath))
             {
-                throw new System.Exception("filePath not fully qualified: " + filePath);
+                throw new Exception("filePath not fully qualified: " + filePath);
             }
 
             if (Path.GetExtension(filePath) == ".png")
@@ -360,7 +360,7 @@ namespace PAC.Files
             }
             else
             {
-                throw new System.Exception("Unknown / unimplemented file extension: " + Path.GetExtension(filePath));
+                throw new Exception("Unknown / unimplemented file extension: " + Path.GetExtension(filePath));
             }
 
             Debug.Log("Exported frame at: " + filePath);
@@ -395,11 +395,11 @@ namespace PAC.Files
         {
             if (!Path.IsPathFullyQualified(filePath))
             {
-                throw new System.Exception("filePath not fully qualified: " + filePath);
+                throw new Exception("filePath not fully qualified: " + filePath);
             }
             if (Path.GetExtension(filePath) != ".png")
             {
-                throw new System.Exception("The file is not a PNG file. File extension: " + Path.GetExtension(filePath));
+                throw new Exception("The file is not a PNG file. File extension: " + Path.GetExtension(filePath));
             }
 
             Texture2D texture = Render(frame).Applied();
@@ -414,11 +414,11 @@ namespace PAC.Files
         {
             if (!Path.IsPathFullyQualified(filePath))
             {
-                throw new System.Exception("filePath not fully qualified: " + filePath);
+                throw new Exception("filePath not fully qualified: " + filePath);
             }
             if (Path.GetExtension(filePath) != ".jpeg" && Path.GetExtension(filePath) != ".jpg")
             {
-                throw new System.Exception("The file is not a JPEG/JPG file. File extension: " + Path.GetExtension(filePath));
+                throw new Exception("The file is not a JPEG/JPG file. File extension: " + Path.GetExtension(filePath));
             }
 
             Texture2D texture = Render(frame).Applied();
@@ -431,7 +431,7 @@ namespace PAC.Files
         /// </summary>
         private bool ExportFrameICO(int frame, string filePath)
         {
-            throw new System.NotImplementedException();
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -469,7 +469,7 @@ namespace PAC.Files
         {
             if (layers.Contains(layer))
             {
-                throw new System.Exception("File already contains layer.");
+                throw new Exception("File already contains layer.");
             }
 
             layers.Insert(index, layer);
@@ -516,7 +516,7 @@ namespace PAC.Files
         {
             if (texture.width != width || texture.height != height)
             {
-                throw new System.Exception("Texture dimensions must match file dimensions: Texture (" + texture.width + ", " + texture.height + "); File (" + width + ", " + height + ")");
+                throw new Exception("Texture dimensions must match file dimensions: Texture (" + texture.width + ", " + texture.height + "); File (" + width + ", " + height + ")");
             }
 
             Layer layer = new NormalLayer("Layer " + newNormalLayerNameNum, texture);
@@ -560,7 +560,7 @@ namespace PAC.Files
                 int layer = layers[i] - i;
                 if (layer < 0 || layer >= this.layers.Count)
                 {
-                    throw new System.IndexOutOfRangeException("Index out of range: " + layers[i]);
+                    throw new IndexOutOfRangeException("Index out of range: " + layers[i]);
                 }
 
                 this.layers.RemoveAt(layer);
@@ -613,11 +613,11 @@ namespace PAC.Files
         {
             if (layerToReplace < 0 || layerToReplace >= layers.Count)
             {
-                throw new System.IndexOutOfRangeException("Index out of range: " + layerToReplace);
+                throw new IndexOutOfRangeException("Index out of range: " + layerToReplace);
             }
             if (layers.Contains(layerToReplaceWith))
             {
-                throw new System.Exception("File already contains layerToReplaceWith.");
+                throw new Exception("File already contains layerToReplaceWith.");
             }
             if (layers[layerToReplace] == layerToReplaceWith)
             {
@@ -644,7 +644,7 @@ namespace PAC.Files
                     return;
                 }
             }
-            throw new System.Exception("layerToReplace is not in the file.");
+            throw new Exception("layerToReplace is not in the file.");
         }
 
         /// <summary>
@@ -654,11 +654,11 @@ namespace PAC.Files
         {
             if (layerToMove < 0 || layerToMove >= layers.Count)
             {
-                throw new System.IndexOutOfRangeException("indexToMove out of range: " + layerToMove);
+                throw new IndexOutOfRangeException("indexToMove out of range: " + layerToMove);
             }
             if (indexToMoveTo < 0 || indexToMoveTo > layers.Count)
             {
-                throw new System.IndexOutOfRangeException("indexToMoveTo out of range: " + layerToMove);
+                throw new IndexOutOfRangeException("indexToMoveTo out of range: " + layerToMove);
             }
 
             // To counteract indices being shifted when we delete the layer at indexToMove
@@ -687,7 +687,7 @@ namespace PAC.Files
                     return;
                 }
             }
-            throw new System.Exception("layerToReplace is not in the file.");
+            throw new Exception("layerToReplace is not in the file.");
         }
 
         /// <summary>
@@ -712,7 +712,7 @@ namespace PAC.Files
             lowestLayer = Mathf.Clamp(lowestLayer, 0, layers.Count - 1);
             if (lowestLayer < highestLayer)
             {
-                throw new System.Exception("lowestlayer cannot be above highestLayer: " + lowestLayer + " > " + highestLayer);
+                throw new Exception("lowestlayer cannot be above highestLayer: " + lowestLayer + " > " + highestLayer);
             }
 
             if (!inclusive && (highestLayer == lowestLayer || highestLayer == lowestLayer - 1))
@@ -831,12 +831,12 @@ namespace PAC.Files
 
             if (lowestLayer < highestLayer)
             {
-                throw new System.Exception("lowestlayer cannot be above highestLayer: " + lowestLayer + " > " + highestLayer);
+                throw new Exception("lowestlayer cannot be above highestLayer: " + lowestLayer + " > " + highestLayer);
             }
 
             if (!inclusive && (highestLayer == lowestLayer || highestLayer == lowestLayer - 1))
             {
-                throw new System.Exception("inclusive == false and there are no layers strictly between the highest layer and the lowest layer. highestLayer: " + highestLayer + "; lowestLayer: " + lowestLayer);
+                throw new Exception("inclusive == false and there are no layers strictly between the highest layer and the lowest layer. highestLayer: " + highestLayer + "; lowestLayer: " + lowestLayer);
             }
 
             return RenderPixel(x, y, new IntRange(highestLayer, lowestLayer, inclusive, inclusive), frame);
@@ -852,7 +852,7 @@ namespace PAC.Files
         {
             if (layerIndices.None())
             {
-                throw new System.Exception("layerIndices cannot be empty.");
+                throw new Exception("layerIndices cannot be empty.");
             }
 
             Color pixelColour = new Color(0f, 0f, 0f, 0f);
@@ -1103,11 +1103,11 @@ namespace PAC.Files
         {
             if (file == this)
             {
-                throw new System.Exception("Cannot add a tile whose file is the file it's being added to.");
+                throw new Exception("Cannot add a tile whose file is the file it's being added to.");
             }
             if (layers[lowestLayer].layerType != LayerType.Tile)
             {
-                throw new System.Exception("Starting layer must be a tile layer.");
+                throw new Exception("Starting layer must be a tile layer.");
             }
 
             TileLayer[] linkedTileLayers = new TileLayer[file.layers.Count];
@@ -1122,7 +1122,7 @@ namespace PAC.Files
             }
             if (tileLayerCount < file.layers.Count)
             {
-                throw new System.Exception("There are not enough tile layers to add the tile at this layer.");
+                throw new Exception("There are not enough tile layers to add the tile at this layer.");
             }
 
             AddTile(new Tile(file, bottomLeft, linkedTileLayers));
@@ -1134,13 +1134,13 @@ namespace PAC.Files
         {
             if (tile.file == this)
             {
-                throw new System.Exception("Cannot add a tile whose file is the file it's being added to.");
+                throw new Exception("Cannot add a tile whose file is the file it's being added to.");
             }
             foreach (TileLayer tileLayer in tile.tileLayersAppearsOn)
             {
                 if (!layers.Contains(tileLayer))
                 {
-                    throw new System.Exception("Tile is linked to a tile layer that is not in this file.");
+                    throw new Exception("Tile is linked to a tile layer that is not in this file.");
                 }
             }
 
@@ -1162,7 +1162,7 @@ namespace PAC.Files
         {
             if (!ContainsTile(tile))
             {
-                throw new System.Exception("Tile is not in the file.");
+                throw new Exception("Tile is not in the file.");
             }
 
             bool success = true;

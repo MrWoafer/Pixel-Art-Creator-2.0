@@ -2,20 +2,20 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-using PAC.Animation;
 using PAC.DataStructures;
 using PAC.Exceptions;
 using PAC.Extensions.UnityEngine;
 using PAC.Geometry;
 using PAC.Geometry.Axes;
 using PAC.Geometry.Extensions;
+using PAC.Image.Animation;
 using PAC.ImageEditing;
 using PAC.Json;
 using PAC.Tilesets;
 
 using UnityEngine;
 
-namespace PAC.Layers
+namespace PAC.Image.Layers
 {
     /// <summary>
     /// A class to represent a tile layer - one for placing and editing tileset tiles.
@@ -62,11 +62,11 @@ namespace PAC.Layers
 
             if (ContainsTile(tile))
             {
-                throw new System.Exception("Tile has already been added to the layer.");
+                throw new Exception("Tile has already been added to the layer.");
             }
             if (!tile.tileLayersAppearsOn.Contains(this))
             {
-                throw new System.Exception("Tile is not linked to this tile layer.");
+                throw new Exception("Tile is not linked to this tile layer.");
             }
 
             // Add the tile
@@ -108,7 +108,7 @@ namespace PAC.Layers
         {
             if (!tiles.Contains(tile))
             {
-                throw new System.Exception("Tile is not in this layer.");
+                throw new Exception("Tile is not in this layer.");
             }
 
             tiles.Remove(tile);
@@ -177,7 +177,7 @@ namespace PAC.Layers
         {
             if (pixel.x < 0 || pixel.y < 0 || pixel.x >= width || pixel.y >= height)
             {
-                throw new System.Exception("Pixel (" + pixel.x + ", " + pixel.y + ") outside of layer dimensions " + width + "x" + height);
+                throw new Exception("Pixel (" + pixel.x + ", " + pixel.y + ") outside of layer dimensions " + width + "x" + height);
             }
 
             return GetKeyFrame(frame).texture.GetPixel(pixel.x, pixel.y) * new Color(1f, 1f, 1f, useLayerOpacity ? opacity : 1f);
@@ -194,7 +194,7 @@ namespace PAC.Layers
         {
             if (!rect.Contains(pixel))
             {
-                throw new System.Exception("Pixel (" + pixel.x + ", " + pixel.y + ") outside of layer dimensions " + width + "x" + height);
+                throw new Exception("Pixel (" + pixel.x + ", " + pixel.y + ") outside of layer dimensions " + width + "x" + height);
             }
 
             return PixelToTileNoValidation(pixel);
@@ -225,7 +225,7 @@ namespace PAC.Layers
             {
                 if (!rect.Contains(pixel))
                 {
-                    throw new System.Exception("Pixel (" + pixel.x + ", " + pixel.y + ") outside of layer dimensions " + width + "x" + height);
+                    throw new Exception("Pixel (" + pixel.x + ", " + pixel.y + ") outside of layer dimensions " + width + "x" + height);
                 }
 
                 Tile tile = PixelToTileNoValidation(pixel);
@@ -551,12 +551,12 @@ namespace PAC.Layers
 
             public override JsonData.Object ToJson(TileLayer layer)
             {
-                throw new System.NotImplementedException();
+                throw new NotImplementedException();
             }
 
             public override TileLayer FromJson(JsonData.Object jsonData)
             {
-                throw new System.NotImplementedException();
+                throw new NotImplementedException();
             }
         }
     }

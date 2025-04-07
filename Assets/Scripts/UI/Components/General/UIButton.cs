@@ -131,9 +131,9 @@ namespace PAC.UI.Components.General
 
         private InputTarget inputTarget;
 
-        private Image shadow;
-        private Image background;
-        private Image imageSpr;
+        private UnityEngine.UI.Image shadow;
+        private UnityEngine.UI.Image background;
+        private UnityEngine.UI.Image imageSpr;
         private BoxCollider2D collider;
         private Text textBox;
         private Canvas canvas;
@@ -157,9 +157,9 @@ namespace PAC.UI.Components.General
         private void GetReferences()
         {
             canvas = transform.Find("Canvas").GetComponent<Canvas>();
-            shadow = transform.Find("Canvas").Find("Shadow").GetComponent<Image>();
-            background = transform.Find("Canvas").Find("Background").GetComponent<Image>();
-            imageSpr = transform.Find("Canvas").Find("Image").GetComponent<Image>();
+            shadow = transform.Find("Canvas").Find("Shadow").GetComponent<UnityEngine.UI.Image>();
+            background = transform.Find("Canvas").Find("Background").GetComponent<UnityEngine.UI.Image>();
+            imageSpr = transform.Find("Canvas").Find("Image").GetComponent<UnityEngine.UI.Image>();
             collider = GetComponent<BoxCollider2D>();
             textBox = transform.Find("Canvas").Find("Text").GetComponent<Text>();
         }

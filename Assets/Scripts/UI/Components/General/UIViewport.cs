@@ -13,7 +13,7 @@ namespace PAC.UI.Components.General
         Positive = 1
     }
 
-    [RequireComponent(typeof(Mask)), RequireComponent(typeof(Image))]
+    [RequireComponent(typeof(Mask)), RequireComponent(typeof(UnityEngine.UI.Image))]
     [AddComponentMenu("Custom UI/UI Viewport")]
     public class UIViewport : MonoBehaviour
     {
@@ -57,7 +57,7 @@ namespace PAC.UI.Components.General
 
         public RectTransform rectTransform { get; private set; }
         public BoxCollider2D collider { get; private set; }
-        private Image background;
+        private UnityEngine.UI.Image background;
 
         private UnityEvent onRefresh = new UnityEvent();
 
@@ -71,7 +71,7 @@ namespace PAC.UI.Components.General
             collider = GetComponent<BoxCollider2D>();
             rectTransform = GetComponent<RectTransform>();
             scrollingArea = transform.Find("Scrolling Area");
-            background = transform.Find("Background").GetComponent<Image>();
+            background = transform.Find("Background").GetComponent<UnityEngine.UI.Image>();
         }
 
         private void OnValidate()

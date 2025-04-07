@@ -2,7 +2,7 @@ using System.Collections.Generic;
 
 using PAC.Config;
 using PAC.Extensions.UnityEngine;
-using PAC.Files;
+using PAC.Image;
 using PAC.Input;
 
 using SFB;

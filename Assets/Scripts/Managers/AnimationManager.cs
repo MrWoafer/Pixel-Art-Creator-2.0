@@ -2,7 +2,6 @@ using System.Collections.Generic;
 
 using PAC.Maths;
 using PAC.Input;
-using PAC.Layers;
 using UnityEngine;
 using UnityEngine.Events;
 using PAC.Colour.Compositing;
@@ -12,7 +11,8 @@ using PAC.ImageEditing;
 using PAC.UI.Components.General;
 using PAC.UI.Components.Specialised.Animation;
 using PAC.Config;
-using PAC.Animation;
+using PAC.Image.Layers;
+using PAC.Image.Animation;
 
 namespace PAC.Managers
 {

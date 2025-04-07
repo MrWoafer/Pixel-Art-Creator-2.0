@@ -3,7 +3,6 @@ using PAC.UI.Components.Specialised.ColourPicker;
 
 using UnityEngine;
 using UnityEngine.Events;
-using UnityEngine.UI;
 
 namespace PAC.UI.Components.Specialised.ColourField
 {
@@ -42,7 +41,7 @@ namespace PAC.UI.Components.Specialised.ColourField
 
         private UIColourPicker colourPicker;
         private UIButton button;
-        private Image background;
+        private UnityEngine.UI.Image background;
         private Transform outerOutline;
         private Transform innerOutline;
 
@@ -91,7 +90,7 @@ namespace PAC.UI.Components.Specialised.ColourField
             colourPicker = transform.Find("Colour Picker Panel").GetComponent<UIColourPicker>();
 
             button = transform.Find("Button").GetComponent<UIButton>();
-            background = button.transform.Find("Canvas").Find("Background").GetComponent<Image>();
+            background = button.transform.Find("Canvas").Find("Background").GetComponent<UnityEngine.UI.Image>();
             outerOutline = button.transform.Find("Canvas").Find("Outline").Find("Outer Outline");
             innerOutline = button.transform.Find("Canvas").Find("Outline").Find("Inner Outline");
         }

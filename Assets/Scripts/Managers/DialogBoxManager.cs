@@ -2,18 +2,17 @@ using System;
 using PAC.Colour.Compositing;
 using PAC.Drawing;
 using PAC.Extensions.UnityEngine;
-using PAC.Files;
 using PAC.ImageEditing;
-using PAC.Layers;
 
 using SFB;
 
 using UnityEngine;
 using UnityEngine.Events;
-using UnityEngine.UI;
 using PAC.UI.Components.EffectPanels;
 using PAC.UI.Components.General;
 using PAC.UI.Components.Specialised.ColourField;
+using PAC.Image;
+using PAC.Image.Layers;
 
 namespace PAC.Managers
 {
@@ -41,7 +40,7 @@ namespace PAC.Managers
         [SerializeField]
         private GameObject extendCropWindow;
         [SerializeField]
-        private Image extendCropPreview;
+        private UnityEngine.UI.Image extendCropPreview;
         [SerializeField]
         private UINumberField extendCropLeftField;
         [SerializeField]
@@ -55,7 +54,7 @@ namespace PAC.Managers
         [SerializeField]
         private GameObject scaleWindow;
         [SerializeField]
-        private Image scalePreview;
+        private UnityEngine.UI.Image scalePreview;
         [SerializeField]
         private UINumberField scaleWidthField;
         [SerializeField]
@@ -69,7 +68,7 @@ namespace PAC.Managers
         [SerializeField]
         private GameObject gridWindow;
         [SerializeField]
-        private Image gridPreview;
+        private UnityEngine.UI.Image gridPreview;
         [SerializeField]
         private UINumberField gridWidthField;
         [SerializeField]
@@ -86,7 +85,7 @@ namespace PAC.Managers
         [SerializeField]
         private GameObject outlineWindow;
         [SerializeField]
-        private Image outlinePreview;
+        private UnityEngine.UI.Image outlinePreview;
         [SerializeField]
         private UIToggleButton outlineOutsideToggle;
         [SerializeField]
@@ -112,7 +111,7 @@ namespace PAC.Managers
         [SerializeField]
         private GameObject replaceColourWindow;
         [SerializeField]
-        private Image replaceColourPreview;
+        private UnityEngine.UI.Image replaceColourPreview;
         [SerializeField]
         private UIColourField replaceColourToReplaceField;
         [SerializeField]
@@ -122,7 +121,7 @@ namespace PAC.Managers
         [SerializeField]
         private GameObject importPACWindow;
         [SerializeField]
-        private Image importPACPreview;
+        private UnityEngine.UI.Image importPACPreview;
         [SerializeField]
         private UIViewport importPACLayersViewport;
         [SerializeField]

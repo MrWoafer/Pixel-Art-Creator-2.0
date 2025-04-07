@@ -1,8 +1,8 @@
 using System.Collections.Generic;
 
-using PAC.Files;
+using PAC.Image;
+using PAC.Image.Layers;
 using PAC.Input;
-using PAC.Layers;
 using PAC.UndoRedo;
 
 using UnityEngine;

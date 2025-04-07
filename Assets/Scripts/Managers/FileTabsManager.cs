@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-using PAC.Files;
+using PAC.Image;
 using PAC.UI.Components.General;
 using PAC.UI.Components.Specialised;
 

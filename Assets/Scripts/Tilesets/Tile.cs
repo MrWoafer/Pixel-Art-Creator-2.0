@@ -1,9 +1,9 @@
 using System.Collections.Generic;
 using System.Linq;
 
-using PAC.Files;
 using PAC.Geometry;
-using PAC.Layers;
+using PAC.Image;
+using PAC.Image.Layers;
 
 using UnityEngine;
 using UnityEngine.Events;

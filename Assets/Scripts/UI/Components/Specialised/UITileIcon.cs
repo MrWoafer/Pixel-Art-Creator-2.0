@@ -1,5 +1,5 @@
 using PAC.Extensions.UnityEngine;
-using PAC.Files;
+using PAC.Image;
 using PAC.Managers;
 using PAC.UI.Components.General;
 

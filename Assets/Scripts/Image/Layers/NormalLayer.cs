@@ -1,18 +1,18 @@
 using System.Collections.Generic;
 using System.Runtime.Serialization;
 
-using PAC.Animation;
 using PAC.Colour.Compositing;
 using PAC.DataStructures;
 using PAC.Extensions.UnityEngine;
 using PAC.Geometry;
 using PAC.Geometry.Axes;
+using PAC.Image.Animation;
 using PAC.ImageEditing;
 using PAC.Json;
 
 using UnityEngine;
 
-namespace PAC.Layers
+namespace PAC.Image.Layers
 {
     /// <summary>
     /// A class to represent a normal layer - one that can be drawn on as a regular image.

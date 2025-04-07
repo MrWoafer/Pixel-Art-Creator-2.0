@@ -3,13 +3,13 @@ using System.Linq;
 using PAC.UI.Components.General;
 using PAC.Colour.Compositing;
 using PAC.Extensions.System.Collections;
-using PAC.Files;
 using PAC.ImageEditing;
 
 using UnityEngine;
 using UnityEngine.Events;
 using PAC.UI.Components.Specialised;
-using PAC.Layers;
+using PAC.Image;
+using PAC.Image.Layers;
 
 namespace PAC.Managers
 {

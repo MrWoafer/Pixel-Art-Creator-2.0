@@ -1,7 +1,6 @@
 using PAC.UI.Components.General;
 
 using UnityEngine;
-using UnityEngine.UI;
 using PAC.UI.Components.Specialised;
 using PAC.Managers;
 
@@ -46,7 +45,7 @@ namespace PAC.UI.Themes
                 return;
             }
 
-            Image image = GetComponent<Image>();
+            UnityEngine.UI.Image image = GetComponent<UnityEngine.UI.Image>();
             if (image)
             {
                 if (themeObjectType == ThemeObjectType.Background)

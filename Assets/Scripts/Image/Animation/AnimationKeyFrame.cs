@@ -7,7 +7,7 @@ using System.Runtime.Serialization;
 
 using UnityEngine;
 
-namespace PAC.Animation
+namespace PAC.Image.Animation
 {
     /// <summary>
     /// A class representing a single keyframe for a layer.

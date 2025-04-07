@@ -103,11 +103,11 @@ namespace PAC.UI.Components.General
             }
         }
 
-        private Image background;
+        private UnityEngine.UI.Image background;
         private BoxCollider2D collider;
         private Text textBox;
         private Canvas canvas;
-        private Image cursor;
+        private UnityEngine.UI.Image cursor;
 
         private InputTarget inputTarget;
 
@@ -134,10 +134,10 @@ namespace PAC.UI.Components.General
         private void GetReferences()
         {
             canvas = transform.Find("Canvas").GetComponent<Canvas>();
-            background = transform.Find("Canvas").Find("Background").GetComponent<Image>();
+            background = transform.Find("Canvas").Find("Background").GetComponent<UnityEngine.UI.Image>();
             collider = GetComponent<BoxCollider2D>();
             textBox = transform.Find("Canvas").Find("Text").GetComponent<Text>();
-            cursor = transform.Find("Canvas").Find("Cursor").GetComponent<Image>();
+            cursor = transform.Find("Canvas").Find("Cursor").GetComponent<UnityEngine.UI.Image>();
         }
 
         private void OnValidate()

@@ -1,9 +1,9 @@
 using PAC.UI.Components.General;
-using PAC.Files;
 
 using UnityEngine;
 using UnityEngine.Events;
 using PAC.UI.Components.Specialised;
+using PAC.Image;
 
 namespace PAC.Managers
 {

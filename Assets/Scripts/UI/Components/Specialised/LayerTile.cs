@@ -4,9 +4,8 @@ using PAC.UI.Components.General.Tooltip;
 
 using UnityEngine;
 using UnityEngine.Events;
-using UnityEngine.UI;
-using PAC.Layers;
 using PAC.Managers;
+using PAC.Image.Layers;
 
 namespace PAC.UI.Components.Specialised
 {
@@ -25,7 +24,7 @@ namespace PAC.UI.Components.Specialised
         private UIToggleButton visibleToggle;
         private UIToggleButton lockedToggle;
         private UITextbox nameTextbox;
-        private Image layerTypeImage;
+        private UnityEngine.UI.Image layerTypeImage;
 
         private InputTarget visibilityInputTarget;
         private LayerManager layerManager;
@@ -41,7 +40,7 @@ namespace PAC.UI.Components.Specialised
             visibleToggle = transform.Find("Visible").GetComponent<UIToggleButton>();
             lockedToggle = transform.Find("Locked").GetComponent<UIToggleButton>();
             nameTextbox = transform.Find("Name").GetComponent<UITextbox>();
-            layerTypeImage = transform.Find("Canvas").Find("Layer Type").GetComponent<Image>();
+            layerTypeImage = transform.Find("Canvas").Find("Layer Type").GetComponent<UnityEngine.UI.Image>();
 
             visibilityInputTarget = transform.Find("Visible").GetComponent<InputTarget>();
             layerManager = Finder.layerManager;

@@ -1,6 +1,7 @@
 using NUnit.Framework;
+
 using PAC.DataStructures;
-using PAC.Files;
+using PAC.Image;
 using PAC.Json;
 
 namespace PAC.Tests

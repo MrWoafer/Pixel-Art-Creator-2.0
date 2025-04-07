@@ -3,7 +3,6 @@ using PAC.Managers;
 
 using UnityEngine;
 using UnityEngine.Events;
-using UnityEngine.UI;
 
 namespace PAC.UI.Components.General
 {
@@ -76,8 +75,8 @@ namespace PAC.UI.Components.General
 
         private BoxCollider2D collider;
 
-        private Image background;
-        private Image handleImg;
+        private UnityEngine.UI.Image background;
+        private UnityEngine.UI.Image handleImg;
 
         private InputSystem inputSystem;
         private Mouse mouse;
@@ -147,8 +146,8 @@ namespace PAC.UI.Components.General
             handle = transform.Find("Handle").gameObject;
             handleInputTarget = handle.GetComponent<InputTarget>();
 
-            background = GetComponent<Image>();
-            handleImg = handle.GetComponent<Image>();
+            background = GetComponent<UnityEngine.UI.Image>();
+            handleImg = handle.GetComponent<UnityEngine.UI.Image>();
 
             collider = GetComponent<BoxCollider2D>();
         }

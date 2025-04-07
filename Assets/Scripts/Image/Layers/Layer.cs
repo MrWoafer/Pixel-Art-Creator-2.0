@@ -2,18 +2,18 @@ using System;
 using System.Collections.Generic;
 using System.Runtime.Serialization;
 
-using PAC.Animation;
 using PAC.Colour.Compositing;
 using PAC.DataStructures;
 using PAC.Extensions.UnityEngine;
 using PAC.Geometry;
 using PAC.Geometry.Axes;
+using PAC.Image.Animation;
 using PAC.Json;
 
 using UnityEngine;
 using UnityEngine.Events;
 
-namespace PAC.Layers
+namespace PAC.Image.Layers
 {
     public enum AnimFrameRefMode
     {
@@ -169,7 +169,7 @@ namespace PAC.Layers
             {
                 if (!rect.Contains(pixel))
                 {
-                    throw new System.Exception("Pixel (" + pixel.x + ", " + pixel.y + ") outside of dimensions " + width + "x" + height);
+                    throw new Exception("Pixel (" + pixel.x + ", " + pixel.y + ") outside of dimensions " + width + "x" + height);
                 }
             }
             IEnumerable<IntVector2> pixelsFilled = SetPixelsNoEvent(pixels, frame, colour, frameRefMode);
@@ -294,12 +294,12 @@ namespace PAC.Layers
         {
             if (keyFrames.Count == 0)
             {
-                throw new System.Exception("Animation has no key frames.");
+                throw new Exception("Animation has no key frames.");
             }
 
             if (frame < 0)
             {
-                throw new System.IndexOutOfRangeException("Frame index must be non-negative: " + frame);
+                throw new IndexOutOfRangeException("Frame index must be non-negative: " + frame);
             }
 
             for (int i = 0; i < keyFrames.Count; i++)
@@ -350,12 +350,12 @@ namespace PAC.Layers
         {
             if (keyFrame.frame < 0)
             {
-                throw new System.IndexOutOfRangeException("Frame index cannot be negative: " + keyFrame.frame);
+                throw new IndexOutOfRangeException("Frame index cannot be negative: " + keyFrame.frame);
             }
 
             if (keyFrame.texture.width != width || keyFrame.texture.height != height)
             {
-                throw new System.Exception("Key frame dimensions (" + keyFrame.texture.width + ", " + keyFrame.texture.height + ") do not match animation dimensions (" + width + ", " + height + ").");
+                throw new Exception("Key frame dimensions (" + keyFrame.texture.width + ", " + keyFrame.texture.height + ") do not match animation dimensions (" + width + ", " + height + ").");
             }
 
             for (int i = 0; i < keyFrames.Count; i++)

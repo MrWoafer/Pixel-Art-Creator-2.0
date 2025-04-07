@@ -1,9 +1,7 @@
 using System.Collections.Generic;
 using PAC.Colour;
-using PAC.Files;
 using PAC.Input;
 using PAC.KeyboardShortcuts;
-using PAC.Layers;
 using PAC.Tilesets;
 using PAC.UndoRedo;
 using UnityEngine;
@@ -22,6 +20,8 @@ using PAC.Extensions.UnityEngine;
 using PAC.UI.Components.Specialised.ColourPicker;
 using PAC.Drawing;
 using GradientMode = PAC.Drawing.GradientMode;
+using PAC.Image;
+using PAC.Image.Layers;
 
 namespace PAC.Managers
 {
