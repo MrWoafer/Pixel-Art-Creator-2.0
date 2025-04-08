@@ -18,10 +18,10 @@ using PAC.Geometry;
 using PAC.Geometry.Extensions;
 using PAC.Extensions.UnityEngine;
 using PAC.UI.Components.Specialised.ColourPicker;
-using PAC.Drawing;
 using GradientMode = PAC.Managers.GradientMode;
 using PAC.Image;
 using PAC.Image.Layers;
+using PAC.Tools;
 
 namespace PAC.Managers
 {
@@ -280,7 +280,7 @@ namespace PAC.Managers
                             bool smoothed = false;
                             if (toolbar.selectedTool == Tool.Pencil)
                             {
-                                smoothed = Tools.PencilLineSmoothing(line, lineSmoothingPreviousLine, lineSmoothingPreviousLineWasSmoothed);
+                                smoothed = Tools.Tools.PencilLineSmoothing(line, lineSmoothingPreviousLine, lineSmoothingPreviousLineWasSmoothed);
 
                                 if (smoothed)
                                 {
@@ -738,26 +738,26 @@ namespace PAC.Managers
 
             if (tool == Tool.Pencil)
             {
-                if (leftClickedOn) { Tools.UsePencil(file, layer, frame, pixel, colour); }
-                else if (rightClickedOn) { Tools.UseRubber(file, layer, frame, pixel); }
+                if (leftClickedOn) { Tools.Tools.UsePencil(file, layer, frame, pixel, colour); }
+                else if (rightClickedOn) { Tools.Tools.UseRubber(file, layer, frame, pixel); }
             }
             else if (tool == Tool.Brush)
             {
-                if (leftClickedOn) { Tools.UseBrush(file, layer, frame, pixel, toolbar.brushPixels, colour); }
-                else if (rightClickedOn) { Tools.UseRubber(file, layer, frame, pixel, toolbar.brushPixels); }
+                if (leftClickedOn) { Tools.Tools.UseBrush(file, layer, frame, pixel, toolbar.brushPixels, colour); }
+                else if (rightClickedOn) { Tools.Tools.UseRubber(file, layer, frame, pixel, toolbar.brushPixels); }
             }
             else if (tool == Tool.Rubber)
             {
-                if (leftClickedOn || rightClickedOn) { Tools.UseRubber(file, layer, frame, pixel, toolbar.brushPixels); }
+                if (leftClickedOn || rightClickedOn) { Tools.Tools.UseRubber(file, layer, frame, pixel, toolbar.brushPixels); }
             }
             else if (tool == Tool.EyeDropper)
             {
-                if (leftClickedOn) { colourPicker.SetColour(Tools.UseEyeDropper(file, layer, frame, pixel)); }
+                if (leftClickedOn) { colourPicker.SetColour(Tools.Tools.UseEyeDropper(file, layer, frame, pixel)); }
             }
             else if (tool == Tool.Fill)
             {
-                if (leftClickedOn) { Tools.UseFill(file, layer, frame, pixel, colour, toolbar.floodFillDiagonallyAdjacent); }
-                else if (rightClickedOn) { Tools.UseFill(file, layer, frame, pixel, Config.Colours.transparent, toolbar.floodFillDiagonallyAdjacent); }
+                if (leftClickedOn) { Tools.Tools.UseFill(file, layer, frame, pixel, colour, toolbar.floodFillDiagonallyAdjacent); }
+                else if (rightClickedOn) { Tools.Tools.UseFill(file, layer, frame, pixel, Config.Colours.transparent, toolbar.floodFillDiagonallyAdjacent); }
             }
             else if (tool == Tool.Line)
             {
@@ -871,7 +871,7 @@ namespace PAC.Managers
                 {
                     end = CoordSnapping.SnapToPerfectLine(mouseDragPoints[0], end);
                 }
-                Tools.UseShape(file, layer, frame, new Line(mouseDragPoints[0], end), colour);
+                Tools.Tools.UseShape(file, layer, frame, new Line(mouseDragPoints[0], end), colour);
                 UpdateDrawing();
             }
             else if (tool == Tool.Shape && (leftClickedOn || rightClickedOn))
@@ -883,7 +883,7 @@ namespace PAC.Managers
                     {
                         end = CoordSnapping.SnapToSquare(mouseDragPoints[0], end);
                     }
-                    Tools.UseShape(file, layer, frame, new Rectangle(new IntRect(mouseDragPoints[0], end), rightClickedOn), colour);
+                    Tools.Tools.UseShape(file, layer, frame, new Rectangle(new IntRect(mouseDragPoints[0], end), rightClickedOn), colour);
 
                     UpdateDrawing();
                 }
@@ -894,13 +894,13 @@ namespace PAC.Managers
                     {
                         end = CoordSnapping.SnapToSquare(mouseDragPoints[0], end);
                     }
-                    Tools.UseShape(file, layer, frame, new Ellipse(new IntRect(mouseDragPoints[0], end), rightClickedOn), colour);
+                    Tools.Tools.UseShape(file, layer, frame, new Ellipse(new IntRect(mouseDragPoints[0], end), rightClickedOn), colour);
 
                     UpdateDrawing();
                 }
                 else if (toolbar.shapeToolShape == Shape.RightTriangle)
                 {
-                    Tools.UseShape(file, layer, frame, new RightTriangle(mouseDragPoints[0], pixel, !holdingCtrl, rightClickedOn), colour);
+                    Tools.Tools.UseShape(file, layer, frame, new RightTriangle(mouseDragPoints[0], pixel, !holdingCtrl, rightClickedOn), colour);
 
                     UpdateDrawing();
                 }
@@ -911,7 +911,7 @@ namespace PAC.Managers
                     {
                         end = CoordSnapping.SnapToSquare(mouseDragPoints[0], end);
                     }
-                    Tools.UseShape(file, layer, frame, new Diamond(new IntRect(mouseDragPoints[0], end), rightClickedOn), colour);
+                    Tools.Tools.UseShape(file, layer, frame, new Diamond(new IntRect(mouseDragPoints[0], end), rightClickedOn), colour);
 
                     UpdateDrawing();
                 }
@@ -924,7 +924,7 @@ namespace PAC.Managers
                 }
                 else
                 {
-                    Tools.UseShape(file, layer, frame,
+                    Tools.Tools.UseShape(file, layer, frame,
                         new IsometricCuboid(new IsometricRectangle(mouseDragPoints[0], mouseDragPoints[1], false), pixel.y - mouseDragPoints[1].y, rightClickedOn, holdingCtrl), colour
                         );
                     UpdateDrawing();
@@ -965,7 +965,7 @@ namespace PAC.Managers
                     _ => throw new InvalidOperationException($"Unknown / unimplemented gradient mode: {toolbar.gradientMode}")
                 };
 
-                Tools.UsePattern(file, layer, frame, gradient);
+                Tools.Tools.UsePattern(file, layer, frame, gradient);
                 UpdateDrawing();
             }
         }

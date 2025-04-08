@@ -5,7 +5,7 @@ using PAC.Maths;
 using PAC.Geometry.Shapes;
 using PAC.Geometry;
 
-namespace PAC.Drawing
+namespace PAC.Tools
 {
     /// <summary>
     /// Provides methods to snap coordinates so they fit certain properties, such as forming a square.

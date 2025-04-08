@@ -10,7 +10,7 @@ using PAC.Geometry;
 using PAC.Image;
 using PAC.Image.Layers;
 
-namespace PAC.Drawing
+namespace PAC.Tools
 {
     /// <summary>
     /// Defines how different tools act.

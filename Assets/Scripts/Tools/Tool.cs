@@ -1,6 +1,6 @@
 using PAC.Input;
 
-namespace PAC.Drawing
+namespace PAC.Tools
 {
     /// <summary>
     /// Defines the tools available to use and their properties.
