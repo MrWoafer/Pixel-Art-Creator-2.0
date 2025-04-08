@@ -19,7 +19,7 @@ using PAC.Geometry.Extensions;
 using PAC.Extensions.UnityEngine;
 using PAC.UI.Components.Specialised.ColourPicker;
 using PAC.Drawing;
-using GradientMode = PAC.Drawing.GradientMode;
+using GradientMode = PAC.Managers.GradientMode;
 using PAC.Image;
 using PAC.Image.Layers;
 

@@ -10,9 +10,9 @@ using PAC.Geometry;
 using PAC.Extensions.UnityEngine;
 using PAC.UI.Components.General;
 using PAC.UI.Components.Specialised;
-using PAC.Managers;
+using PAC.Drawing;
 
-namespace PAC.Drawing
+namespace PAC.Managers
 {
     public enum Shape
     {
@@ -160,7 +160,8 @@ namespace PAC.Drawing
             inputSystem.SubscribeToGlobalKeyboard(CheckKeyboardShortcuts);
             inputSystem.SubscribeToGlobalMouseScroll(OnMouseScroll);
 
-            toggleGroup.SubscribeToSelectedToggleChange(() => {
+            toggleGroup.SubscribeToSelectedToggleChange(() =>
+            {
                 UpdateBrushBorder();
                 onToolChanged.Invoke();
             });

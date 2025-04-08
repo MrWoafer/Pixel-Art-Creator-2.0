@@ -8,7 +8,7 @@ using PAC.UI.Components;
 using UnityEngine;
 using UnityEngine.Events;
 
-using GradientMode = PAC.Drawing.GradientMode;
+using GradientMode = PAC.Managers.GradientMode;
 
 namespace PAC.Input
 {
