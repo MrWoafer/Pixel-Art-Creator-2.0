@@ -1,6 +1,6 @@
 using NUnit.Framework;
 
-using PAC.Extensions;
+using PAC.Extensions.UnityEngine;
 
 using UnityEngine;
 

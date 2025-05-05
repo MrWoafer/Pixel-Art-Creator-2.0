@@ -1,3 +1,4 @@
+using PAC.Geometry;
 using PAC.Geometry.Shapes.Interfaces;
 
 namespace PAC.Tests.Geometry.Shapes.RequiredTests
@@ -8,7 +9,7 @@ namespace PAC.Tests.Geometry.Shapes.RequiredTests
     public interface ITranslatableShape_RequiredTests : IDeepCopyableShape_RequiredTests
     {
         /// <summary>
-        /// Tests <see cref="ITranslatableShape{T}.Translate(DataStructures.IntVector2)"/>.
+        /// Tests <see cref="ITranslatableShape{T}.Translate(IntVector2)"/>.
         /// </summary>
         public void Translate();
     }

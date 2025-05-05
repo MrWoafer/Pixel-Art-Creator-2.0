@@ -1,8 +1,10 @@
 using System.Collections.Generic;
 using System.Linq;
-using PAC.DataStructures;
-using PAC.Files;
-using PAC.Layers;
+
+using PAC.Geometry;
+using PAC.Image;
+using PAC.Image.Layers;
+
 using UnityEngine;
 using UnityEngine.Events;
 

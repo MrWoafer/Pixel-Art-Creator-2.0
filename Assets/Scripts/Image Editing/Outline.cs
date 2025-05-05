@@ -1,9 +1,10 @@
 using System;
 using System.Collections.Generic;
 
-using PAC.DataStructures;
-using PAC.Extensions;
+using PAC.Extensions.System.Collections;
+using PAC.Extensions.UnityEngine;
 using PAC.Geometry;
+using PAC.Geometry.Extensions;
 
 using UnityEngine;
 

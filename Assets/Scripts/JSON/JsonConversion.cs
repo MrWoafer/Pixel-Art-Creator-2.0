@@ -5,7 +5,9 @@ using System.Linq;
 using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Runtime.Serialization;
-using PAC.Extensions;
+
+using PAC.Extensions.System;
+
 using UnityEngine;
 
 namespace PAC.Json

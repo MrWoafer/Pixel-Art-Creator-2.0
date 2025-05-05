@@ -2,7 +2,7 @@ using NUnit.Framework;
 
 using PAC.Colour;
 using PAC.Colour.Compositing;
-using PAC.Extensions;
+using PAC.Extensions.UnityEngine;
 
 using UnityEngine;
 

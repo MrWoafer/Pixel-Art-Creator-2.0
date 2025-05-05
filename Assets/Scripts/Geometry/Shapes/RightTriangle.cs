@@ -2,7 +2,6 @@
 using System.Collections;
 using System.Collections.Generic;
 
-using PAC.DataStructures;
 using PAC.Exceptions;
 using PAC.Geometry.Axes;
 using PAC.Geometry.Shapes.Interfaces;

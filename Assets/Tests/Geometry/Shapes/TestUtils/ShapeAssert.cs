@@ -1,13 +1,10 @@
-using System;
 using System.Collections.Generic;
 using System.Linq;
 
 using NUnit.Framework;
 
-using PAC.DataStructures;
 using PAC.Geometry;
 using PAC.Geometry.Axes;
-using PAC.Geometry.Shapes;
 using PAC.Geometry.Shapes.Interfaces;
 
 namespace PAC.Tests.Geometry.Shapes.TestUtils

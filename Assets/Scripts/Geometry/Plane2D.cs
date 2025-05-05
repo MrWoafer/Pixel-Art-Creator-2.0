@@ -1,6 +1,5 @@
 using System;
 
-using PAC.DataStructures;
 using PAC.Exceptions;
 
 namespace PAC.Geometry

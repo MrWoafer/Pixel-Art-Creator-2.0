@@ -1,0 +1,16 @@
+{
+    "name": "Project.Screen",
+    "rootNamespace": "",
+    "references": [
+        "GUID:ca5c03f8573554f479772dd1119a97e7"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

@@ -7,15 +7,14 @@
         "Project.Core",
         "Project.Exceptions",
         "Project.Json",
-        "Project.Extensions.JsonConverters",
-        "Project.Extensions.Type",
-        "Project.Extensions.TextReader",
-        "Project.Extensions.IEnumerable",
+        "Project.Json.JsonConverters",
         "Project.Maths",
-        "Project.Extensions.IReadOnlyList",
-        "Project.Extensions.DataStructures",
         "Project.Extensions.UnityEngine",
-        "Project.Extensions.Random"
+        "Project.Extensions.System",
+        "Project.Interfaces",
+        "Project.DataStructures",
+        "Project.Geometry",
+        "Project.Geometry.Shapes"
     ],
     "includePlatforms": [
         "Editor"

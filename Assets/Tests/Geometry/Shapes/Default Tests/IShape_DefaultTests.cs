@@ -4,8 +4,8 @@ using System.Linq;
 
 using NUnit.Framework;
 
-using PAC.DataStructures;
 using PAC.Exceptions;
+using PAC.Geometry;
 using PAC.Geometry.Shapes.Interfaces;
 using PAC.Tests.Geometry.Shapes.RequiredTests;
 using PAC.Tests.Geometry.Shapes.TestUtils;

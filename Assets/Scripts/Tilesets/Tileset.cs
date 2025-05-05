@@ -1,5 +1,6 @@
 using System.Collections.Generic;
-using PAC.Files;
+
+using PAC.Image;
 
 namespace PAC.Tilesets
 {

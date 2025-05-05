@@ -1,7 +1,6 @@
 using System;
 using System.Collections.Generic;
 
-using PAC.DataStructures;
 using PAC.Exceptions;
 using PAC.Geometry.Axes;
 
