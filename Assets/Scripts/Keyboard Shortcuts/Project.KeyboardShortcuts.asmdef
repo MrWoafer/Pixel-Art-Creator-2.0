@@ -1,0 +1,17 @@
+{
+    "name": "Project.KeyboardShortcuts",
+    "rootNamespace": "",
+    "references": [
+        "GUID:423d72f997499734e85de3dd59f0b8d1",
+        "GUID:ecf0bfe526f2b65449a2da93dacb22d3"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
