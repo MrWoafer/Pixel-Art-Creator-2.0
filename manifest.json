@@ -22,118 +22,6 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/PAC.Animation.AnimationKeyFrame.JsonConverter.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/PAC.Animation.AnimationKeyFrame.JsonConverter.html"
-        }
-      },
-      "version": "",
-      "Uid": null,
-      "IsMRef": true,
-      "Title": "PAC.Animation.AnimationKeyFrame.JsonConverter",
-      "Summary": null
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/PAC.Animation.AnimationKeyFrame.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/PAC.Animation.AnimationKeyFrame.html"
-        }
-      },
-      "version": "",
-      "Uid": null,
-      "IsMRef": true,
-      "Title": "PAC.Animation.AnimationKeyFrame",
-      "Summary": "<p sourcefile=\"api/PAC.Animation.AnimationKeyFrame.yml\" sourcestartlinenumber=\"1\">A class representing a single keyframe for a layer.</p>\n"
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/PAC.Animation.AnimationManager.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/PAC.Animation.AnimationManager.html"
-        }
-      },
-      "version": "",
-      "Uid": null,
-      "IsMRef": true,
-      "Title": "PAC.Animation.AnimationManager",
-      "Summary": "<p sourcefile=\"api/PAC.Animation.AnimationManager.yml\" sourcestartlinenumber=\"1\">Handles the animation timeline and playback of animations.\nThe animation system is still a work in progress.</p>\n"
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/PAC.Animation.FrameNotch.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/PAC.Animation.FrameNotch.html"
-        }
-      },
-      "version": "",
-      "Uid": null,
-      "IsMRef": true,
-      "Title": "PAC.Animation.FrameNotch",
-      "Summary": "<p sourcefile=\"api/PAC.Animation.FrameNotch.yml\" sourcestartlinenumber=\"1\">A class for the frame number markers on the animation timeline.</p>\n"
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/PAC.Animation.KeyFrameIcon.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/PAC.Animation.KeyFrameIcon.html"
-        }
-      },
-      "version": "",
-      "Uid": null,
-      "IsMRef": true,
-      "Title": "PAC.Animation.KeyFrameIcon",
-      "Summary": "<p sourcefile=\"api/PAC.Animation.KeyFrameIcon.yml\" sourcestartlinenumber=\"1\">Stores the data about a keyframe icon on the animation timeline.</p>\n"
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/PAC.Animation.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/PAC.Animation.html"
-        }
-      },
-      "version": "",
-      "Uid": null,
-      "IsMRef": true,
-      "Title": "PAC.Animation",
-      "Summary": null
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/PAC.Clipboard.Clipboard.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/PAC.Clipboard.Clipboard.html"
-        }
-      },
-      "version": "",
-      "Uid": null,
-      "IsMRef": true,
-      "Title": "PAC.Clipboard.Clipboard",
-      "Summary": "<p sourcefile=\"api/PAC.Clipboard.Clipboard.yml\" sourcestartlinenumber=\"1\">A class to handle copy/paste functionality.\nNot yet properly implemented.</p>\n"
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/PAC.Clipboard.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/PAC.Clipboard.html"
-        }
-      },
-      "version": "",
-      "Uid": null,
-      "IsMRef": true,
-      "Title": "PAC.Clipboard",
-      "Summary": null
-    },
-    {
-      "type": "ManagedReference",
       "source_relative_path": "api/PAC.Colour.Compositing.AlphaCompositing.Premultiplied.yml",
       "output": {
         ".html": {
@@ -201,20 +89,6 @@
       "IsMRef": true,
       "Title": "PAC.Colour.Compositing.BlendMode",
       "Summary": "<p sourcefile=\"api/PAC.Colour.Compositing.BlendMode.yml\" sourcestartlinenumber=\"1\">Defines how a foreground colour (the <i>top</i> colour) is blended onto a background colour (the <i>bottom</i> colour) to form a new colour, ignoring their alpha.</p>\n"
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/PAC.Colour.Compositing.BlendModeExtensions.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/PAC.Colour.Compositing.BlendModeExtensions.html"
-        }
-      },
-      "version": "",
-      "Uid": null,
-      "IsMRef": true,
-      "Title": "PAC.Colour.Compositing.BlendModeExtensions",
-      "Summary": "<p sourcefile=\"api/PAC.Colour.Compositing.BlendModeExtensions.yml\" sourcestartlinenumber=\"1\">Extension methods for <xref href=\"PAC.Colour.Compositing.BlendMode\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -386,90 +260,6 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/PAC.ColourPicker.ColourPreview.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/PAC.ColourPicker.ColourPreview.html"
-        }
-      },
-      "version": "",
-      "Uid": null,
-      "IsMRef": true,
-      "Title": "PAC.ColourPicker.ColourPreview",
-      "Summary": "<p sourcefile=\"api/PAC.ColourPicker.ColourPreview.yml\" sourcestartlinenumber=\"1\">A class to represent colour previews - the boxes on colour pickers that show what colours you have selected.</p>\n"
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/PAC.ColourPicker.GlobalColourPicker.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/PAC.ColourPicker.GlobalColourPicker.html"
-        }
-      },
-      "version": "",
-      "Uid": null,
-      "IsMRef": true,
-      "Title": "PAC.ColourPicker.GlobalColourPicker",
-      "Summary": "<p sourcefile=\"api/PAC.ColourPicker.GlobalColourPicker.yml\" sourcestartlinenumber=\"1\">A class for the main colour picker in the program - the one that appears in the main view.</p>\n"
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/PAC.ColourPicker.HSLColourPicker.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/PAC.ColourPicker.HSLColourPicker.html"
-        }
-      },
-      "version": "",
-      "Uid": null,
-      "IsMRef": true,
-      "Title": "PAC.ColourPicker.HSLColourPicker",
-      "Summary": "<p sourcefile=\"api/PAC.ColourPicker.HSLColourPicker.yml\" sourcestartlinenumber=\"1\">A class for the HSL colour picker.</p>\n"
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/PAC.ColourPicker.HSLHueSaturationBox.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/PAC.ColourPicker.HSLHueSaturationBox.html"
-        }
-      },
-      "version": "",
-      "Uid": null,
-      "IsMRef": true,
-      "Title": "PAC.ColourPicker.HSLHueSaturationBox",
-      "Summary": "<p sourcefile=\"api/PAC.ColourPicker.HSLHueSaturationBox.yml\" sourcestartlinenumber=\"1\">A class for the hue/saturation box of the HSL colour picker.</p>\n"
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/PAC.ColourPicker.HSLLightnessSlider.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/PAC.ColourPicker.HSLLightnessSlider.html"
-        }
-      },
-      "version": "",
-      "Uid": null,
-      "IsMRef": true,
-      "Title": "PAC.ColourPicker.HSLLightnessSlider",
-      "Summary": "<p sourcefile=\"api/PAC.ColourPicker.HSLLightnessSlider.yml\" sourcestartlinenumber=\"1\">A class for the lightness slider of the HSL colour picker.</p>\n"
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/PAC.ColourPicker.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/PAC.ColourPicker.html"
-        }
-      },
-      "version": "",
-      "Uid": null,
-      "IsMRef": true,
-      "Title": "PAC.ColourPicker",
-      "Summary": null
-    },
-    {
-      "type": "ManagedReference",
       "source_relative_path": "api/PAC.Config.Colours.yml",
       "output": {
         ".html": {
@@ -494,6 +284,34 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "PAC.Config.Files",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.Config.Preferences.Preference-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.Config.Preferences.Preference-1.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "PAC.Config.Preferences.Preference<T>",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.Config.Preferences.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.Config.Preferences.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "PAC.Config.Preferences",
       "Summary": null
     },
     {
@@ -540,6 +358,34 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/PAC.DataStructures.Extensions.IntRangeExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.DataStructures.Extensions.IntRangeExtensions.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "PAC.DataStructures.Extensions.IntRangeExtensions",
+      "Summary": "<p sourcefile=\"api/PAC.DataStructures.Extensions.IntRangeExtensions.yml\" sourcestartlinenumber=\"1\">Extension methods involving <xref href=\"PAC.DataStructures.IntRange\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.DataStructures.Extensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.DataStructures.Extensions.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "PAC.DataStructures.Extensions",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/PAC.DataStructures.IntRange.yml",
       "output": {
         ".html": {
@@ -551,34 +397,6 @@
       "IsMRef": true,
       "Title": "PAC.DataStructures.IntRange",
       "Summary": "<p sourcefile=\"api/PAC.DataStructures.IntRange.yml\" sourcestartlinenumber=\"1\">A set of consecutive integers.</p>\n"
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/PAC.DataStructures.IntRect.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/PAC.DataStructures.IntRect.html"
-        }
-      },
-      "version": "",
-      "Uid": null,
-      "IsMRef": true,
-      "Title": "PAC.DataStructures.IntRect",
-      "Summary": "<p sourcefile=\"api/PAC.DataStructures.IntRect.yml\" sourcestartlinenumber=\"1\">A non-empty rectangular region of integer coordinates.</p>\n"
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/PAC.DataStructures.IntVector2.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/PAC.DataStructures.IntVector2.html"
-        }
-      },
-      "version": "",
-      "Uid": null,
-      "IsMRef": true,
-      "Title": "PAC.DataStructures.IntVector2",
-      "Summary": "<p sourcefile=\"api/PAC.DataStructures.IntVector2.yml\" sourcestartlinenumber=\"1\">A 2-dimensional vector with integer coordinates.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -634,216 +452,6 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "PAC.DataStructures",
-      "Summary": null
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/PAC.Drawing.BrushShape.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/PAC.Drawing.BrushShape.html"
-        }
-      },
-      "version": "",
-      "Uid": null,
-      "IsMRef": true,
-      "Title": "PAC.Drawing.BrushShape",
-      "Summary": null
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/PAC.Drawing.CoordSnapping.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/PAC.Drawing.CoordSnapping.html"
-        }
-      },
-      "version": "",
-      "Uid": null,
-      "IsMRef": true,
-      "Title": "PAC.Drawing.CoordSnapping",
-      "Summary": "<p sourcefile=\"api/PAC.Drawing.CoordSnapping.yml\" sourcestartlinenumber=\"1\">Provides methods to snap coordinates so they fit certain properties, such as forming a square.</p>\n"
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/PAC.Drawing.DrawingArea.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/PAC.Drawing.DrawingArea.html"
-        }
-      },
-      "version": "",
-      "Uid": null,
-      "IsMRef": true,
-      "Title": "PAC.Drawing.DrawingArea",
-      "Summary": null
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/PAC.Drawing.GradientMode.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/PAC.Drawing.GradientMode.html"
-        }
-      },
-      "version": "",
-      "Uid": null,
-      "IsMRef": true,
-      "Title": "PAC.Drawing.GradientMode",
-      "Summary": null
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/PAC.Drawing.GridManager.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/PAC.Drawing.GridManager.html"
-        }
-      },
-      "version": "",
-      "Uid": null,
-      "IsMRef": true,
-      "Title": "PAC.Drawing.GridManager",
-      "Summary": "<p sourcefile=\"api/PAC.Drawing.GridManager.yml\" sourcestartlinenumber=\"1\">Handles drawing a grid over the image when the grid is enabled.</p>\n"
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/PAC.Drawing.SelectionMode.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/PAC.Drawing.SelectionMode.html"
-        }
-      },
-      "version": "",
-      "Uid": null,
-      "IsMRef": true,
-      "Title": "PAC.Drawing.SelectionMode",
-      "Summary": null
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/PAC.Drawing.Shape.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/PAC.Drawing.Shape.html"
-        }
-      },
-      "version": "",
-      "Uid": null,
-      "IsMRef": true,
-      "Title": "PAC.Drawing.Shape",
-      "Summary": null
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/PAC.Drawing.Tool.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/PAC.Drawing.Tool.html"
-        }
-      },
-      "version": "",
-      "Uid": null,
-      "IsMRef": true,
-      "Title": "PAC.Drawing.Tool",
-      "Summary": "<p sourcefile=\"api/PAC.Drawing.Tool.yml\" sourcestartlinenumber=\"1\">Defines the tools available to use and their properties.</p>\n"
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/PAC.Drawing.Toolbar.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/PAC.Drawing.Toolbar.html"
-        }
-      },
-      "version": "",
-      "Uid": null,
-      "IsMRef": true,
-      "Title": "PAC.Drawing.Toolbar",
-      "Summary": "<p sourcefile=\"api/PAC.Drawing.Toolbar.yml\" sourcestartlinenumber=\"1\">Handles selecting tools, brush size, etc.</p>\n"
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/PAC.Drawing.Tools.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/PAC.Drawing.Tools.html"
-        }
-      },
-      "version": "",
-      "Uid": null,
-      "IsMRef": true,
-      "Title": "PAC.Drawing.Tools",
-      "Summary": "<p sourcefile=\"api/PAC.Drawing.Tools.yml\" sourcestartlinenumber=\"1\">Defines how different tools act.\nI may rework this to be more like the BlendMode class where each Tool instance defines how it acts. Then to use a tool you would just do tool.Use(pixel) or similar.</p>\n"
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/PAC.Drawing.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/PAC.Drawing.html"
-        }
-      },
-      "version": "",
-      "Uid": null,
-      "IsMRef": true,
-      "Title": "PAC.Drawing",
-      "Summary": null
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/PAC.EffectPanels.BlurPanel.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/PAC.EffectPanels.BlurPanel.html"
-        }
-      },
-      "version": "",
-      "Uid": null,
-      "IsMRef": true,
-      "Title": "PAC.EffectPanels.BlurPanel",
-      "Summary": "<p sourcefile=\"api/PAC.EffectPanels.BlurPanel.yml\" sourcestartlinenumber=\"1\">A panel that blurs the view behind it.</p>\n"
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/PAC.EffectPanels.EffectPanel.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/PAC.EffectPanels.EffectPanel.html"
-        }
-      },
-      "version": "",
-      "Uid": null,
-      "IsMRef": true,
-      "Title": "PAC.EffectPanels.EffectPanel",
-      "Summary": "<p sourcefile=\"api/PAC.EffectPanels.EffectPanel.yml\" sourcestartlinenumber=\"1\">A class to represent a type of panel that applies an effect to the view behind it - e.g. a blur panel or a pixellate panel.</p>\n"
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/PAC.EffectPanels.PixellatePanel.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/PAC.EffectPanels.PixellatePanel.html"
-        }
-      },
-      "version": "",
-      "Uid": null,
-      "IsMRef": true,
-      "Title": "PAC.EffectPanels.PixellatePanel",
-      "Summary": "<p sourcefile=\"api/PAC.EffectPanels.PixellatePanel.yml\" sourcestartlinenumber=\"1\">A panel that pixellates the view behind it.</p>\n"
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/PAC.EffectPanels.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/PAC.EffectPanels.html"
-        }
-      },
-      "version": "",
-      "Uid": null,
-      "IsMRef": true,
-      "Title": "PAC.EffectPanels",
       "Summary": null
     },
     {
@@ -904,436 +512,212 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/PAC.Extensions.ColorExtensions.yml",
+      "source_relative_path": "api/PAC.Extensions.System.Collections.ICollectionExtensions.yml",
       "output": {
         ".html": {
-          "relative_path": "api/PAC.Extensions.ColorExtensions.html"
+          "relative_path": "api/PAC.Extensions.System.Collections.ICollectionExtensions.html"
         }
       },
       "version": "",
       "Uid": null,
       "IsMRef": true,
-      "Title": "PAC.Extensions.ColorExtensions",
-      "Summary": "<p sourcefile=\"api/PAC.Extensions.ColorExtensions.yml\" sourcestartlinenumber=\"1\">Extension methods for Color.</p>\n"
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/PAC.Extensions.ICollectionExtensions.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/PAC.Extensions.ICollectionExtensions.html"
-        }
-      },
-      "version": "",
-      "Uid": null,
-      "IsMRef": true,
-      "Title": "PAC.Extensions.ICollectionExtensions",
+      "Title": "PAC.Extensions.System.Collections.ICollectionExtensions",
       "Summary": null
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/PAC.Extensions.IDictionaryExtensions.yml",
+      "source_relative_path": "api/PAC.Extensions.System.Collections.IDictionaryExtensions.yml",
       "output": {
         ".html": {
-          "relative_path": "api/PAC.Extensions.IDictionaryExtensions.html"
+          "relative_path": "api/PAC.Extensions.System.Collections.IDictionaryExtensions.html"
         }
       },
       "version": "",
       "Uid": null,
       "IsMRef": true,
-      "Title": "PAC.Extensions.IDictionaryExtensions",
-      "Summary": "<p sourcefile=\"api/PAC.Extensions.IDictionaryExtensions.yml\" sourcestartlinenumber=\"1\">Extension methods for IDictionary&lt;TKey, TValue&gt;.</p>\n"
+      "Title": "PAC.Extensions.System.Collections.IDictionaryExtensions",
+      "Summary": "<p sourcefile=\"api/PAC.Extensions.System.Collections.IDictionaryExtensions.yml\" sourcestartlinenumber=\"1\">Extension methods for IDictionary&lt;TKey, TValue&gt;.</p>\n"
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/PAC.Extensions.IEnumerableExtensions.yml",
+      "source_relative_path": "api/PAC.Extensions.System.Collections.IEnumerableExtensions.yml",
       "output": {
         ".html": {
-          "relative_path": "api/PAC.Extensions.IEnumerableExtensions.html"
+          "relative_path": "api/PAC.Extensions.System.Collections.IEnumerableExtensions.html"
         }
       },
       "version": "",
       "Uid": null,
       "IsMRef": true,
-      "Title": "PAC.Extensions.IEnumerableExtensions",
-      "Summary": "<p sourcefile=\"api/PAC.Extensions.IEnumerableExtensions.yml\" sourcestartlinenumber=\"1\">Extension methods for <xref href=\"System.Collections.Generic.IEnumerable%601\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n"
+      "Title": "PAC.Extensions.System.Collections.IEnumerableExtensions",
+      "Summary": "<p sourcefile=\"api/PAC.Extensions.System.Collections.IEnumerableExtensions.yml\" sourcestartlinenumber=\"1\">Extension methods for <xref href=\"System.Collections.Generic.IEnumerable%601\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n"
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/PAC.Extensions.IPattern2DExtensions.yml",
+      "source_relative_path": "api/PAC.Extensions.System.Collections.IReadOnlyListExtensions.yml",
       "output": {
         ".html": {
-          "relative_path": "api/PAC.Extensions.IPattern2DExtensions.html"
+          "relative_path": "api/PAC.Extensions.System.Collections.IReadOnlyListExtensions.html"
         }
       },
       "version": "",
       "Uid": null,
       "IsMRef": true,
-      "Title": "PAC.Extensions.IPattern2DExtensions",
-      "Summary": "<p sourcefile=\"api/PAC.Extensions.IPattern2DExtensions.yml\" sourcestartlinenumber=\"1\">Extension methods for <xref href=\"PAC.Patterns.IPattern2D%601\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n"
+      "Title": "PAC.Extensions.System.Collections.IReadOnlyListExtensions",
+      "Summary": "<p sourcefile=\"api/PAC.Extensions.System.Collections.IReadOnlyListExtensions.yml\" sourcestartlinenumber=\"1\">Extension methods for <xref href=\"System.Collections.Generic.IReadOnlyList%601\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n"
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/PAC.Extensions.IReadOnlyContainsExtensions.yml",
+      "source_relative_path": "api/PAC.Extensions.System.Collections.yml",
       "output": {
         ".html": {
-          "relative_path": "api/PAC.Extensions.IReadOnlyContainsExtensions.html"
+          "relative_path": "api/PAC.Extensions.System.Collections.html"
         }
       },
       "version": "",
       "Uid": null,
       "IsMRef": true,
-      "Title": "PAC.Extensions.IReadOnlyContainsExtensions",
+      "Title": "PAC.Extensions.System.Collections",
       "Summary": null
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/PAC.Extensions.IReadOnlyListExtensions.yml",
+      "source_relative_path": "api/PAC.Extensions.System.IO.TextReaderExtensions.yml",
       "output": {
         ".html": {
-          "relative_path": "api/PAC.Extensions.IReadOnlyListExtensions.html"
+          "relative_path": "api/PAC.Extensions.System.IO.TextReaderExtensions.html"
         }
       },
       "version": "",
       "Uid": null,
       "IsMRef": true,
-      "Title": "PAC.Extensions.IReadOnlyListExtensions",
-      "Summary": "<p sourcefile=\"api/PAC.Extensions.IReadOnlyListExtensions.yml\" sourcestartlinenumber=\"1\">Extension methods for <xref href=\"System.Collections.Generic.IReadOnlyList%601\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n"
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/PAC.Extensions.ISetComparableExtensions.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/PAC.Extensions.ISetComparableExtensions.html"
-        }
-      },
-      "version": "",
-      "Uid": null,
-      "IsMRef": true,
-      "Title": "PAC.Extensions.ISetComparableExtensions",
-      "Summary": "<p sourcefile=\"api/PAC.Extensions.ISetComparableExtensions.yml\" sourcestartlinenumber=\"1\">Extension methods for <xref href=\"PAC.Interfaces.ISetComparable%601\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n"
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/PAC.Extensions.IShapeExtensions.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/PAC.Extensions.IShapeExtensions.html"
-        }
-      },
-      "version": "",
-      "Uid": null,
-      "IsMRef": true,
-      "Title": "PAC.Extensions.IShapeExtensions",
-      "Summary": "<p sourcefile=\"api/PAC.Extensions.IShapeExtensions.yml\" sourcestartlinenumber=\"1\">Extension methods for <xref href=\"PAC.Geometry.Shapes.Interfaces.IShape\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n"
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/PAC.Extensions.IntRangeExtensions.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/PAC.Extensions.IntRangeExtensions.html"
-        }
-      },
-      "version": "",
-      "Uid": null,
-      "IsMRef": true,
-      "Title": "PAC.Extensions.IntRangeExtensions",
-      "Summary": "<p sourcefile=\"api/PAC.Extensions.IntRangeExtensions.yml\" sourcestartlinenumber=\"1\">Extension methods involving <xref href=\"PAC.DataStructures.IntRange\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n"
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/PAC.Extensions.JsonConverters.ColorJsonConverter.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/PAC.Extensions.JsonConverters.ColorJsonConverter.html"
-        }
-      },
-      "version": "",
-      "Uid": null,
-      "IsMRef": true,
-      "Title": "PAC.Extensions.JsonConverters.ColorJsonConverter",
-      "Summary": "<p sourcefile=\"api/PAC.Extensions.JsonConverters.ColorJsonConverter.yml\" sourcestartlinenumber=\"1\">Custom JSON converter for Color.</p>\n"
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/PAC.Extensions.JsonConverters.Texture2DJsonConverter.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/PAC.Extensions.JsonConverters.Texture2DJsonConverter.html"
-        }
-      },
-      "version": "",
-      "Uid": null,
-      "IsMRef": true,
-      "Title": "PAC.Extensions.JsonConverters.Texture2DJsonConverter",
-      "Summary": "<p sourcefile=\"api/PAC.Extensions.JsonConverters.Texture2DJsonConverter.yml\" sourcestartlinenumber=\"1\">Custom JSON converter for Texture2D.</p>\n"
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/PAC.Extensions.JsonConverters.Vector2JsonConverter.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/PAC.Extensions.JsonConverters.Vector2JsonConverter.html"
-        }
-      },
-      "version": "",
-      "Uid": null,
-      "IsMRef": true,
-      "Title": "PAC.Extensions.JsonConverters.Vector2JsonConverter",
-      "Summary": "<p sourcefile=\"api/PAC.Extensions.JsonConverters.Vector2JsonConverter.yml\" sourcestartlinenumber=\"1\">Custom JSON converter for Vector2.</p>\n"
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/PAC.Extensions.JsonConverters.Vector3JsonConverter.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/PAC.Extensions.JsonConverters.Vector3JsonConverter.html"
-        }
-      },
-      "version": "",
-      "Uid": null,
-      "IsMRef": true,
-      "Title": "PAC.Extensions.JsonConverters.Vector3JsonConverter",
-      "Summary": "<p sourcefile=\"api/PAC.Extensions.JsonConverters.Vector3JsonConverter.yml\" sourcestartlinenumber=\"1\">Custom JSON converter for Vector3.</p>\n"
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/PAC.Extensions.JsonConverters.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/PAC.Extensions.JsonConverters.html"
-        }
-      },
-      "version": "",
-      "Uid": null,
-      "IsMRef": true,
-      "Title": "PAC.Extensions.JsonConverters",
+      "Title": "PAC.Extensions.System.IO.TextReaderExtensions",
       "Summary": null
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/PAC.Extensions.KeyCodeExtensions.yml",
+      "source_relative_path": "api/PAC.Extensions.System.IO.yml",
       "output": {
         ".html": {
-          "relative_path": "api/PAC.Extensions.KeyCodeExtensions.html"
+          "relative_path": "api/PAC.Extensions.System.IO.html"
         }
       },
       "version": "",
       "Uid": null,
       "IsMRef": true,
-      "Title": "PAC.Extensions.KeyCodeExtensions",
-      "Summary": "<p sourcefile=\"api/PAC.Extensions.KeyCodeExtensions.yml\" sourcestartlinenumber=\"1\">Extension methods for Unity's KeyCode.</p>\n"
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/PAC.Extensions.RandomExtensions.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/PAC.Extensions.RandomExtensions.html"
-        }
-      },
-      "version": "",
-      "Uid": null,
-      "IsMRef": true,
-      "Title": "PAC.Extensions.RandomExtensions",
-      "Summary": "<p sourcefile=\"api/PAC.Extensions.RandomExtensions.yml\" sourcestartlinenumber=\"1\">Extension methods for <xref href=\"System.Random\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n"
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/PAC.Extensions.TextReaderExtensions.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/PAC.Extensions.TextReaderExtensions.html"
-        }
-      },
-      "version": "",
-      "Uid": null,
-      "IsMRef": true,
-      "Title": "PAC.Extensions.TextReaderExtensions",
+      "Title": "PAC.Extensions.System.IO",
       "Summary": null
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/PAC.Extensions.Texture2DExtensions.ExtendCropOptions.yml",
+      "source_relative_path": "api/PAC.Extensions.System.RandomExtensions.yml",
       "output": {
         ".html": {
-          "relative_path": "api/PAC.Extensions.Texture2DExtensions.ExtendCropOptions.html"
+          "relative_path": "api/PAC.Extensions.System.RandomExtensions.html"
         }
       },
       "version": "",
       "Uid": null,
       "IsMRef": true,
-      "Title": "PAC.Extensions.Texture2DExtensions.ExtendCropOptions",
-      "Summary": "<p sourcefile=\"api/PAC.Extensions.Texture2DExtensions.ExtendCropOptions.yml\" sourcestartlinenumber=\"1\">Options for <xref href=\"PAC.Extensions.Texture2DExtensions.ExtendCrop(Texture2D%2cPAC.Extensions.Texture2DExtensions.ExtendCropOptions%40)\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n"
+      "Title": "PAC.Extensions.System.RandomExtensions",
+      "Summary": "<p sourcefile=\"api/PAC.Extensions.System.RandomExtensions.yml\" sourcestartlinenumber=\"1\">Extension methods for <xref href=\"System.Random\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n"
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/PAC.Extensions.Texture2DExtensions.yml",
+      "source_relative_path": "api/PAC.Extensions.System.TypeExtensions.yml",
       "output": {
         ".html": {
-          "relative_path": "api/PAC.Extensions.Texture2DExtensions.html"
+          "relative_path": "api/PAC.Extensions.System.TypeExtensions.html"
         }
       },
       "version": "",
       "Uid": null,
       "IsMRef": true,
-      "Title": "PAC.Extensions.Texture2DExtensions",
-      "Summary": "<p sourcefile=\"api/PAC.Extensions.Texture2DExtensions.yml\" sourcestartlinenumber=\"1\">Extension methods for Unity's Texture2D.</p>\n"
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/PAC.Extensions.TypeExtensions.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/PAC.Extensions.TypeExtensions.html"
-        }
-      },
-      "version": "",
-      "Uid": null,
-      "IsMRef": true,
-      "Title": "PAC.Extensions.TypeExtensions",
+      "Title": "PAC.Extensions.System.TypeExtensions",
       "Summary": null
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/PAC.Extensions.ValueTupleExtensions.yml",
+      "source_relative_path": "api/PAC.Extensions.System.ValueTupleExtensions.yml",
       "output": {
         ".html": {
-          "relative_path": "api/PAC.Extensions.ValueTupleExtensions.html"
+          "relative_path": "api/PAC.Extensions.System.ValueTupleExtensions.html"
         }
       },
       "version": "",
       "Uid": null,
       "IsMRef": true,
-      "Title": "PAC.Extensions.ValueTupleExtensions",
+      "Title": "PAC.Extensions.System.ValueTupleExtensions",
       "Summary": null
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/PAC.Extensions.yml",
+      "source_relative_path": "api/PAC.Extensions.System.yml",
       "output": {
         ".html": {
-          "relative_path": "api/PAC.Extensions.html"
+          "relative_path": "api/PAC.Extensions.System.html"
         }
       },
       "version": "",
       "Uid": null,
       "IsMRef": true,
-      "Title": "PAC.Extensions",
+      "Title": "PAC.Extensions.System",
       "Summary": null
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/PAC.Files.File.JsonConverter.yml",
+      "source_relative_path": "api/PAC.Extensions.UnityEngine.ColorExtensions.yml",
       "output": {
         ".html": {
-          "relative_path": "api/PAC.Files.File.JsonConverter.html"
+          "relative_path": "api/PAC.Extensions.UnityEngine.ColorExtensions.html"
         }
       },
       "version": "",
       "Uid": null,
       "IsMRef": true,
-      "Title": "PAC.Files.File.JsonConverter",
-      "Summary": null
+      "Title": "PAC.Extensions.UnityEngine.ColorExtensions",
+      "Summary": "<p sourcefile=\"api/PAC.Extensions.UnityEngine.ColorExtensions.yml\" sourcestartlinenumber=\"1\">Extension methods for Color.</p>\n"
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/PAC.Files.File.yml",
+      "source_relative_path": "api/PAC.Extensions.UnityEngine.KeyCodeExtensions.yml",
       "output": {
         ".html": {
-          "relative_path": "api/PAC.Files.File.html"
+          "relative_path": "api/PAC.Extensions.UnityEngine.KeyCodeExtensions.html"
         }
       },
       "version": "",
       "Uid": null,
       "IsMRef": true,
-      "Title": "PAC.Files.File",
-      "Summary": "<p sourcefile=\"api/PAC.Files.File.yml\" sourcestartlinenumber=\"1\">A class to represent a single Pixel Art Creator file.</p>\n"
+      "Title": "PAC.Extensions.UnityEngine.KeyCodeExtensions",
+      "Summary": "<p sourcefile=\"api/PAC.Extensions.UnityEngine.KeyCodeExtensions.yml\" sourcestartlinenumber=\"1\">Extension methods for Unity's KeyCode.</p>\n"
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/PAC.Files.FileManager.yml",
+      "source_relative_path": "api/PAC.Extensions.UnityEngine.Texture2DExtensions.yml",
       "output": {
         ".html": {
-          "relative_path": "api/PAC.Files.FileManager.html"
+          "relative_path": "api/PAC.Extensions.UnityEngine.Texture2DExtensions.html"
         }
       },
       "version": "",
       "Uid": null,
       "IsMRef": true,
-      "Title": "PAC.Files.FileManager",
-      "Summary": null
+      "Title": "PAC.Extensions.UnityEngine.Texture2DExtensions",
+      "Summary": "<p sourcefile=\"api/PAC.Extensions.UnityEngine.Texture2DExtensions.yml\" sourcestartlinenumber=\"1\">Extension methods for Unity's Texture2D.</p>\n"
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/PAC.Files.FileTab.yml",
+      "source_relative_path": "api/PAC.Extensions.UnityEngine.yml",
       "output": {
         ".html": {
-          "relative_path": "api/PAC.Files.FileTab.html"
+          "relative_path": "api/PAC.Extensions.UnityEngine.html"
         }
       },
       "version": "",
       "Uid": null,
       "IsMRef": true,
-      "Title": "PAC.Files.FileTab",
-      "Summary": null
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/PAC.Files.FileTabsManager.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/PAC.Files.FileTabsManager.html"
-        }
-      },
-      "version": "",
-      "Uid": null,
-      "IsMRef": true,
-      "Title": "PAC.Files.FileTabsManager",
-      "Summary": null
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/PAC.Files.ImageEditManager.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/PAC.Files.ImageEditManager.html"
-        }
-      },
-      "version": "",
-      "Uid": null,
-      "IsMRef": true,
-      "Title": "PAC.Files.ImageEditManager",
-      "Summary": null
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/PAC.Files.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/PAC.Files.html"
-        }
-      },
-      "version": "",
-      "Uid": null,
-      "IsMRef": true,
-      "Title": "PAC.Files",
-      "Summary": null
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/PAC.Finder.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/PAC.Finder.html"
-        }
-      },
-      "version": "",
-      "Uid": null,
-      "IsMRef": true,
-      "Title": "PAC.Finder",
+      "Title": "PAC.Extensions.UnityEngine",
       "Summary": null
     },
     {
@@ -1478,6 +862,76 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/PAC.Geometry.Extensions.IntRectExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.Geometry.Extensions.IntRectExtensions.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "PAC.Geometry.Extensions.IntRectExtensions",
+      "Summary": "<p sourcefile=\"api/PAC.Geometry.Extensions.IntRectExtensions.yml\" sourcestartlinenumber=\"1\">Extension methods for <xref href=\"PAC.Geometry.IntRect\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.Geometry.Extensions.IntVector2Extensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.Geometry.Extensions.IntVector2Extensions.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "PAC.Geometry.Extensions.IntVector2Extensions",
+      "Summary": "<p sourcefile=\"api/PAC.Geometry.Extensions.IntVector2Extensions.yml\" sourcestartlinenumber=\"1\">Extension methods for <xref href=\"PAC.Geometry.IntVector2\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.Geometry.Extensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.Geometry.Extensions.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "PAC.Geometry.Extensions",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.Geometry.IntRect.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.Geometry.IntRect.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "PAC.Geometry.IntRect",
+      "Summary": "<p sourcefile=\"api/PAC.Geometry.IntRect.yml\" sourcestartlinenumber=\"1\">A non-empty rectangular region of integer coordinates.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.Geometry.IntVector2.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.Geometry.IntVector2.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "PAC.Geometry.IntVector2",
+      "Summary": "<p sourcefile=\"api/PAC.Geometry.IntVector2.yml\" sourcestartlinenumber=\"1\">A 2-dimensional vector with integer coordinates.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/PAC.Geometry.Plane2D.Octant.yml",
       "output": {
         ".html": {
@@ -1545,6 +999,34 @@
       "IsMRef": true,
       "Title": "PAC.Geometry.Shapes.Ellipse",
       "Summary": "<p sourcefile=\"api/PAC.Geometry.Shapes.Ellipse.yml\" sourcestartlinenumber=\"1\">A pixel art ellipse shape.\n<example>\nFor example,</example></p>\n<pre><code class=\"lang-csharp\">    # # # #\n  #         #\n#             #\n#             #\n  #         #\n    # # # #</code></pre>\n\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.Geometry.Shapes.Extensions.IShapeExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.Geometry.Shapes.Extensions.IShapeExtensions.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "PAC.Geometry.Shapes.Extensions.IShapeExtensions",
+      "Summary": "<p sourcefile=\"api/PAC.Geometry.Shapes.Extensions.IShapeExtensions.yml\" sourcestartlinenumber=\"1\">Extension methods for <xref href=\"PAC.Geometry.Shapes.Interfaces.IShape\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.Geometry.Shapes.Extensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.Geometry.Shapes.Extensions.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "PAC.Geometry.Shapes.Extensions",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -1828,6 +1310,216 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/PAC.Image.Animation.AnimationKeyFrame.JsonConverter.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.Image.Animation.AnimationKeyFrame.JsonConverter.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "PAC.Image.Animation.AnimationKeyFrame.JsonConverter",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.Image.Animation.AnimationKeyFrame.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.Image.Animation.AnimationKeyFrame.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "PAC.Image.Animation.AnimationKeyFrame",
+      "Summary": "<p sourcefile=\"api/PAC.Image.Animation.AnimationKeyFrame.yml\" sourcestartlinenumber=\"1\">A class representing a single keyframe for a layer.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.Image.Animation.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.Image.Animation.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "PAC.Image.Animation",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.Image.File.JsonConverter.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.Image.File.JsonConverter.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "PAC.Image.File.JsonConverter",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.Image.File.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.Image.File.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "PAC.Image.File",
+      "Summary": "<p sourcefile=\"api/PAC.Image.File.yml\" sourcestartlinenumber=\"1\">A class to represent a single Pixel Art Creator file.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.Image.Layers.AnimFrameRefMode.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.Image.Layers.AnimFrameRefMode.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "PAC.Image.Layers.AnimFrameRefMode",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.Image.Layers.Layer.JsonConverter.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.Image.Layers.Layer.JsonConverter.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "PAC.Image.Layers.Layer.JsonConverter",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.Image.Layers.Layer.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.Image.Layers.Layer.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "PAC.Image.Layers.Layer",
+      "Summary": "<p sourcefile=\"api/PAC.Image.Layers.Layer.yml\" sourcestartlinenumber=\"1\">An abstract class to define what each type of layer must have.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.Image.Layers.LayerType.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.Image.Layers.LayerType.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "PAC.Image.Layers.LayerType",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.Image.Layers.NormalLayer.JsonConverter.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.Image.Layers.NormalLayer.JsonConverter.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "PAC.Image.Layers.NormalLayer.JsonConverter",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.Image.Layers.NormalLayer.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.Image.Layers.NormalLayer.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "PAC.Image.Layers.NormalLayer",
+      "Summary": "<p sourcefile=\"api/PAC.Image.Layers.NormalLayer.yml\" sourcestartlinenumber=\"1\">A class to represent a normal layer - one that can be drawn on as a regular image.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.Image.Layers.TileLayer.JsonConverter.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.Image.Layers.TileLayer.JsonConverter.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "PAC.Image.Layers.TileLayer.JsonConverter",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.Image.Layers.TileLayer.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.Image.Layers.TileLayer.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "PAC.Image.Layers.TileLayer",
+      "Summary": "<p sourcefile=\"api/PAC.Image.Layers.TileLayer.yml\" sourcestartlinenumber=\"1\">A class to represent a tile layer - one for placing and editing tileset tiles.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.Image.Layers.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.Image.Layers.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "PAC.Image.Layers",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.Image.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.Image.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "PAC.Image",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/PAC.ImageEditing.FloodFill.yml",
       "output": {
         ".html": {
@@ -1839,6 +1531,34 @@
       "IsMRef": true,
       "Title": "PAC.ImageEditing.FloodFill",
       "Summary": "<p sourcefile=\"api/PAC.ImageEditing.FloodFill.yml\" sourcestartlinenumber=\"1\">Handles flood-filling pixel art images.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.ImageEditing.ImageEdit.ExtendCropOptions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.ImageEditing.ImageEdit.ExtendCropOptions.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "PAC.ImageEditing.ImageEdit.ExtendCropOptions",
+      "Summary": "<p sourcefile=\"api/PAC.ImageEditing.ImageEdit.ExtendCropOptions.yml\" sourcestartlinenumber=\"1\">Options for <xref href=\"PAC.ImageEditing.ImageEdit.ExtendCrop(Texture2D%2cPAC.ImageEditing.ImageEdit.ExtendCropOptions%40)\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.ImageEditing.ImageEdit.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.ImageEditing.ImageEdit.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "PAC.ImageEditing.ImageEdit",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -2052,20 +1772,6 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/PAC.Input.Tooltip.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/PAC.Input.Tooltip.html"
-        }
-      },
-      "version": "",
-      "Uid": null,
-      "IsMRef": true,
-      "Title": "PAC.Input.Tooltip",
-      "Summary": null
-    },
-    {
-      "type": "ManagedReference",
       "source_relative_path": "api/PAC.Input.yml",
       "output": {
         ".html": {
@@ -2076,6 +1782,48 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "PAC.Input",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.Interfaces.Extensions.IReadOnlyContainsExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.Interfaces.Extensions.IReadOnlyContainsExtensions.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "PAC.Interfaces.Extensions.IReadOnlyContainsExtensions",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.Interfaces.Extensions.ISetComparableExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.Interfaces.Extensions.ISetComparableExtensions.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "PAC.Interfaces.Extensions.ISetComparableExtensions",
+      "Summary": "<p sourcefile=\"api/PAC.Interfaces.Extensions.ISetComparableExtensions.yml\" sourcestartlinenumber=\"1\">Extension methods for <xref href=\"PAC.Interfaces.ISetComparable%601\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.Interfaces.Extensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.Interfaces.Extensions.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "PAC.Interfaces.Extensions",
       "Summary": null
     },
     {
@@ -2160,6 +1908,90 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "PAC.Json.JsonConversion",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.Json.JsonConverters.JsonConverters.ColorJsonConverter.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.Json.JsonConverters.JsonConverters.ColorJsonConverter.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "PAC.Json.JsonConverters.JsonConverters.ColorJsonConverter",
+      "Summary": "<p sourcefile=\"api/PAC.Json.JsonConverters.JsonConverters.ColorJsonConverter.yml\" sourcestartlinenumber=\"1\">Custom JSON converter for Color.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.Json.JsonConverters.JsonConverters.Texture2DJsonConverter.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.Json.JsonConverters.JsonConverters.Texture2DJsonConverter.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "PAC.Json.JsonConverters.JsonConverters.Texture2DJsonConverter",
+      "Summary": "<p sourcefile=\"api/PAC.Json.JsonConverters.JsonConverters.Texture2DJsonConverter.yml\" sourcestartlinenumber=\"1\">Custom JSON converter for Texture2D.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.Json.JsonConverters.JsonConverters.Vector2JsonConverter.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.Json.JsonConverters.JsonConverters.Vector2JsonConverter.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "PAC.Json.JsonConverters.JsonConverters.Vector2JsonConverter",
+      "Summary": "<p sourcefile=\"api/PAC.Json.JsonConverters.JsonConverters.Vector2JsonConverter.yml\" sourcestartlinenumber=\"1\">Custom JSON converter for Vector2.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.Json.JsonConverters.JsonConverters.Vector3JsonConverter.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.Json.JsonConverters.JsonConverters.Vector3JsonConverter.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "PAC.Json.JsonConverters.JsonConverters.Vector3JsonConverter",
+      "Summary": "<p sourcefile=\"api/PAC.Json.JsonConverters.JsonConverters.Vector3JsonConverter.yml\" sourcestartlinenumber=\"1\">Custom JSON converter for Vector3.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.Json.JsonConverters.JsonConverters.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.Json.JsonConverters.JsonConverters.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "PAC.Json.JsonConverters.JsonConverters",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.Json.JsonConverters.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.Json.JsonConverters.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "PAC.Json.JsonConverters",
       "Summary": null
     },
     {
@@ -2346,20 +2178,6 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/PAC.KeyboardShortcuts.KeyboardShortcutOptionsManager.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/PAC.KeyboardShortcuts.KeyboardShortcutOptionsManager.html"
-        }
-      },
-      "version": "",
-      "Uid": null,
-      "IsMRef": true,
-      "Title": "PAC.KeyboardShortcuts.KeyboardShortcutOptionsManager",
-      "Summary": "<p sourcefile=\"api/PAC.KeyboardShortcuts.KeyboardShortcutOptionsManager.yml\" sourcestartlinenumber=\"1\">Handles the window where you can view / change keyboard shortcuts.</p>\n"
-    },
-    {
-      "type": "ManagedReference",
       "source_relative_path": "api/PAC.KeyboardShortcuts.KeyboardShortcuts.yml",
       "output": {
         ".html": {
@@ -2388,156 +2206,324 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/PAC.Layers.AnimFrameRefMode.yml",
+      "source_relative_path": "api/PAC.Managers.AnimationManager.yml",
       "output": {
         ".html": {
-          "relative_path": "api/PAC.Layers.AnimFrameRefMode.html"
+          "relative_path": "api/PAC.Managers.AnimationManager.html"
         }
       },
       "version": "",
       "Uid": null,
       "IsMRef": true,
-      "Title": "PAC.Layers.AnimFrameRefMode",
+      "Title": "PAC.Managers.AnimationManager",
+      "Summary": "<p sourcefile=\"api/PAC.Managers.AnimationManager.yml\" sourcestartlinenumber=\"1\">Handles the animation timeline and playback of animations.\nThe animation system is still a work in progress.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.Managers.BrushShape.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.Managers.BrushShape.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "PAC.Managers.BrushShape",
       "Summary": null
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/PAC.Layers.Layer.JsonConverter.yml",
+      "source_relative_path": "api/PAC.Managers.Clipboard.yml",
       "output": {
         ".html": {
-          "relative_path": "api/PAC.Layers.Layer.JsonConverter.html"
+          "relative_path": "api/PAC.Managers.Clipboard.html"
         }
       },
       "version": "",
       "Uid": null,
       "IsMRef": true,
-      "Title": "PAC.Layers.Layer.JsonConverter",
+      "Title": "PAC.Managers.Clipboard",
+      "Summary": "<p sourcefile=\"api/PAC.Managers.Clipboard.yml\" sourcestartlinenumber=\"1\">A class to handle copy/paste functionality.\nNot yet properly implemented.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.Managers.DialogBoxManager.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.Managers.DialogBoxManager.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "PAC.Managers.DialogBoxManager",
       "Summary": null
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/PAC.Layers.Layer.yml",
+      "source_relative_path": "api/PAC.Managers.DrawingArea.yml",
       "output": {
         ".html": {
-          "relative_path": "api/PAC.Layers.Layer.html"
+          "relative_path": "api/PAC.Managers.DrawingArea.html"
         }
       },
       "version": "",
       "Uid": null,
       "IsMRef": true,
-      "Title": "PAC.Layers.Layer",
-      "Summary": "<p sourcefile=\"api/PAC.Layers.Layer.yml\" sourcestartlinenumber=\"1\">An abstract class to define what each type of layer must have.</p>\n"
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/PAC.Layers.LayerManager.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/PAC.Layers.LayerManager.html"
-        }
-      },
-      "version": "",
-      "Uid": null,
-      "IsMRef": true,
-      "Title": "PAC.Layers.LayerManager",
+      "Title": "PAC.Managers.DrawingArea",
       "Summary": null
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/PAC.Layers.LayerTile.yml",
+      "source_relative_path": "api/PAC.Managers.FileManager.yml",
       "output": {
         ".html": {
-          "relative_path": "api/PAC.Layers.LayerTile.html"
+          "relative_path": "api/PAC.Managers.FileManager.html"
         }
       },
       "version": "",
       "Uid": null,
       "IsMRef": true,
-      "Title": "PAC.Layers.LayerTile",
+      "Title": "PAC.Managers.FileManager",
       "Summary": null
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/PAC.Layers.LayerType.yml",
+      "source_relative_path": "api/PAC.Managers.FileTabsManager.yml",
       "output": {
         ".html": {
-          "relative_path": "api/PAC.Layers.LayerType.html"
+          "relative_path": "api/PAC.Managers.FileTabsManager.html"
         }
       },
       "version": "",
       "Uid": null,
       "IsMRef": true,
-      "Title": "PAC.Layers.LayerType",
+      "Title": "PAC.Managers.FileTabsManager",
       "Summary": null
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/PAC.Layers.NormalLayer.JsonConverter.yml",
+      "source_relative_path": "api/PAC.Managers.Finder.yml",
       "output": {
         ".html": {
-          "relative_path": "api/PAC.Layers.NormalLayer.JsonConverter.html"
+          "relative_path": "api/PAC.Managers.Finder.html"
         }
       },
       "version": "",
       "Uid": null,
       "IsMRef": true,
-      "Title": "PAC.Layers.NormalLayer.JsonConverter",
+      "Title": "PAC.Managers.Finder",
       "Summary": null
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/PAC.Layers.NormalLayer.yml",
+      "source_relative_path": "api/PAC.Managers.GradientMode.yml",
       "output": {
         ".html": {
-          "relative_path": "api/PAC.Layers.NormalLayer.html"
+          "relative_path": "api/PAC.Managers.GradientMode.html"
         }
       },
       "version": "",
       "Uid": null,
       "IsMRef": true,
-      "Title": "PAC.Layers.NormalLayer",
-      "Summary": "<p sourcefile=\"api/PAC.Layers.NormalLayer.yml\" sourcestartlinenumber=\"1\">A class to represent a normal layer - one that can be drawn on as a regular image.</p>\n"
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/PAC.Layers.TileLayer.JsonConverter.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/PAC.Layers.TileLayer.JsonConverter.html"
-        }
-      },
-      "version": "",
-      "Uid": null,
-      "IsMRef": true,
-      "Title": "PAC.Layers.TileLayer.JsonConverter",
+      "Title": "PAC.Managers.GradientMode",
       "Summary": null
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/PAC.Layers.TileLayer.yml",
+      "source_relative_path": "api/PAC.Managers.GridManager.yml",
       "output": {
         ".html": {
-          "relative_path": "api/PAC.Layers.TileLayer.html"
+          "relative_path": "api/PAC.Managers.GridManager.html"
         }
       },
       "version": "",
       "Uid": null,
       "IsMRef": true,
-      "Title": "PAC.Layers.TileLayer",
-      "Summary": "<p sourcefile=\"api/PAC.Layers.TileLayer.yml\" sourcestartlinenumber=\"1\">A class to represent a tile layer - one for placing and editing tileset tiles.</p>\n"
+      "Title": "PAC.Managers.GridManager",
+      "Summary": "<p sourcefile=\"api/PAC.Managers.GridManager.yml\" sourcestartlinenumber=\"1\">Handles drawing a grid over the image when the grid is enabled.</p>\n"
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/PAC.Layers.yml",
+      "source_relative_path": "api/PAC.Managers.ImageEditManager.yml",
       "output": {
         ".html": {
-          "relative_path": "api/PAC.Layers.html"
+          "relative_path": "api/PAC.Managers.ImageEditManager.html"
         }
       },
       "version": "",
       "Uid": null,
       "IsMRef": true,
-      "Title": "PAC.Layers",
+      "Title": "PAC.Managers.ImageEditManager",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.Managers.KeyboardShortcutOptionsManager.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.Managers.KeyboardShortcutOptionsManager.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "PAC.Managers.KeyboardShortcutOptionsManager",
+      "Summary": "<p sourcefile=\"api/PAC.Managers.KeyboardShortcutOptionsManager.yml\" sourcestartlinenumber=\"1\">Handles the window where you can view / change keyboard shortcuts.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.Managers.LayerManager.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.Managers.LayerManager.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "PAC.Managers.LayerManager",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.Managers.SelectionMode.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.Managers.SelectionMode.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "PAC.Managers.SelectionMode",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.Managers.Shape.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.Managers.Shape.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "PAC.Managers.Shape",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.Managers.ThemeManager.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.Managers.ThemeManager.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "PAC.Managers.ThemeManager",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.Managers.TileOutlineManager.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.Managers.TileOutlineManager.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "PAC.Managers.TileOutlineManager",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.Managers.TilesetManager.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.Managers.TilesetManager.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "PAC.Managers.TilesetManager",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.Managers.Toolbar.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.Managers.Toolbar.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "PAC.Managers.Toolbar",
+      "Summary": "<p sourcefile=\"api/PAC.Managers.Toolbar.yml\" sourcestartlinenumber=\"1\">Handles selecting tools, brush size, etc.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.Managers.UIManager.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.Managers.UIManager.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "PAC.Managers.UIManager",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.Managers.UITabManager.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.Managers.UITabManager.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "PAC.Managers.UITabManager",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.Managers.UndoRedoManager.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.Managers.UndoRedoManager.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "PAC.Managers.UndoRedoManager",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.Managers.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.Managers.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "PAC.Managers",
       "Summary": null
     },
     {
@@ -2595,6 +2581,34 @@
       "IsMRef": true,
       "Title": "PAC.Patterns.Checkerboard<T>",
       "Summary": "<p>\nA repeating pattern of two values where horizontally/vertically adjacent points do not have the same value (unless the two values of the checkerboard are the same).\n</p>\n<example>\n<p>\nFor example, with r = red, b = blue:\n</p>\n<pre><code class=\"lang-csharp\">          .\n          .\n          .\n      r b r b r\n      b r b r b\n. . . r b r b r . . .\n      b r b r b\n      r b r b r\n          .\n          .\n          .</code></pre>\n</example>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.Patterns.Extensions.IPattern2DExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.Patterns.Extensions.IPattern2DExtensions.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "PAC.Patterns.Extensions.IPattern2DExtensions",
+      "Summary": "<p sourcefile=\"api/PAC.Patterns.Extensions.IPattern2DExtensions.yml\" sourcestartlinenumber=\"1\">Extension methods for <xref href=\"PAC.Patterns.IPattern2D%601\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.Patterns.Extensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.Patterns.Extensions.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "PAC.Patterns.Extensions",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -2668,34 +2682,6 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/PAC.Preferences.Preference-1.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/PAC.Preferences.Preference-1.html"
-        }
-      },
-      "version": "",
-      "Uid": null,
-      "IsMRef": true,
-      "Title": "PAC.Preferences.Preference<T>",
-      "Summary": null
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/PAC.Preferences.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/PAC.Preferences.html"
-        }
-      },
-      "version": "",
-      "Uid": null,
-      "IsMRef": true,
-      "Title": "PAC.Preferences",
-      "Summary": null
-    },
-    {
-      "type": "ManagedReference",
       "source_relative_path": "api/PAC.Screen.MaximiseWindow.yml",
       "output": {
         ".html": {
@@ -2734,48 +2720,6 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "PAC.Screen",
-      "Summary": null
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/PAC.Serialization.LayerSerializationSurrogate.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/PAC.Serialization.LayerSerializationSurrogate.html"
-        }
-      },
-      "version": "",
-      "Uid": null,
-      "IsMRef": true,
-      "Title": "PAC.Serialization.LayerSerializationSurrogate",
-      "Summary": null
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/PAC.Serialization.Texture2DSerializationSurrogate.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/PAC.Serialization.Texture2DSerializationSurrogate.html"
-        }
-      },
-      "version": "",
-      "Uid": null,
-      "IsMRef": true,
-      "Title": "PAC.Serialization.Texture2DSerializationSurrogate",
-      "Summary": null
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/PAC.Serialization.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/PAC.Serialization.html"
-        }
-      },
-      "version": "",
-      "Uid": null,
-      "IsMRef": true,
-      "Title": "PAC.Serialization",
       "Summary": null
     },
     {
@@ -2850,76 +2794,6 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/PAC.Themes.Theme.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/PAC.Themes.Theme.html"
-        }
-      },
-      "version": "",
-      "Uid": null,
-      "IsMRef": true,
-      "Title": "PAC.Themes.Theme",
-      "Summary": null
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/PAC.Themes.ThemeManager.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/PAC.Themes.ThemeManager.html"
-        }
-      },
-      "version": "",
-      "Uid": null,
-      "IsMRef": true,
-      "Title": "PAC.Themes.ThemeManager",
-      "Summary": null
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/PAC.Themes.ThemeObjectType.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/PAC.Themes.ThemeObjectType.html"
-        }
-      },
-      "version": "",
-      "Uid": null,
-      "IsMRef": true,
-      "Title": "PAC.Themes.ThemeObjectType",
-      "Summary": null
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/PAC.Themes.UITheme.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/PAC.Themes.UITheme.html"
-        }
-      },
-      "version": "",
-      "Uid": null,
-      "IsMRef": true,
-      "Title": "PAC.Themes.UITheme",
-      "Summary": null
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/PAC.Themes.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/PAC.Themes.html"
-        }
-      },
-      "version": "",
-      "Uid": null,
-      "IsMRef": true,
-      "Title": "PAC.Themes",
-      "Summary": null
-    },
-    {
-      "type": "ManagedReference",
       "source_relative_path": "api/PAC.Tilesets.Tile.yml",
       "output": {
         ".html": {
@@ -2930,20 +2804,6 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "PAC.Tilesets.Tile",
-      "Summary": null
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/PAC.Tilesets.TileOutlineManager.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/PAC.Tilesets.TileOutlineManager.html"
-        }
-      },
-      "version": "",
-      "Uid": null,
-      "IsMRef": true,
-      "Title": "PAC.Tilesets.TileOutlineManager",
       "Summary": null
     },
     {
@@ -2962,20 +2822,6 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/PAC.Tilesets.TilesetManager.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/PAC.Tilesets.TilesetManager.html"
-        }
-      },
-      "version": "",
-      "Uid": null,
-      "IsMRef": true,
-      "Title": "PAC.Tilesets.TilesetManager",
-      "Summary": null
-    },
-    {
-      "type": "ManagedReference",
       "source_relative_path": "api/PAC.Tilesets.yml",
       "output": {
         ".html": {
@@ -2990,492 +2836,828 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/PAC.UI.CollapsedState.yml",
+      "source_relative_path": "api/PAC.Tools.CoordSnapping.yml",
       "output": {
         ".html": {
-          "relative_path": "api/PAC.UI.CollapsedState.html"
+          "relative_path": "api/PAC.Tools.CoordSnapping.html"
         }
       },
       "version": "",
       "Uid": null,
       "IsMRef": true,
-      "Title": "PAC.UI.CollapsedState",
+      "Title": "PAC.Tools.CoordSnapping",
+      "Summary": "<p sourcefile=\"api/PAC.Tools.CoordSnapping.yml\" sourcestartlinenumber=\"1\">Provides methods to snap coordinates so they fit certain properties, such as forming a square.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.Tools.Tool.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.Tools.Tool.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "PAC.Tools.Tool",
+      "Summary": "<p sourcefile=\"api/PAC.Tools.Tool.yml\" sourcestartlinenumber=\"1\">Defines the tools available to use and their properties.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.Tools.Tools.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.Tools.Tools.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "PAC.Tools.Tools",
+      "Summary": "<p sourcefile=\"api/PAC.Tools.Tools.yml\" sourcestartlinenumber=\"1\">Defines how different tools act.\nI may rework this to be more like the BlendMode class where each Tool instance defines how it acts. Then to use a tool you would just do tool.Use(pixel) or similar.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.Tools.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.Tools.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "PAC.Tools",
       "Summary": null
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/PAC.UI.DialogBoxManager.yml",
+      "source_relative_path": "api/PAC.UI.Components.EffectPanels.BlurPanel.yml",
       "output": {
         ".html": {
-          "relative_path": "api/PAC.UI.DialogBoxManager.html"
+          "relative_path": "api/PAC.UI.Components.EffectPanels.BlurPanel.html"
         }
       },
       "version": "",
       "Uid": null,
       "IsMRef": true,
-      "Title": "PAC.UI.DialogBoxManager",
+      "Title": "PAC.UI.Components.EffectPanels.BlurPanel",
+      "Summary": "<p sourcefile=\"api/PAC.UI.Components.EffectPanels.BlurPanel.yml\" sourcestartlinenumber=\"1\">A panel that blurs the view behind it.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.UI.Components.EffectPanels.EffectPanel.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.UI.Components.EffectPanels.EffectPanel.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "PAC.UI.Components.EffectPanels.EffectPanel",
+      "Summary": "<p sourcefile=\"api/PAC.UI.Components.EffectPanels.EffectPanel.yml\" sourcestartlinenumber=\"1\">A class to represent a type of panel that applies an effect to the view behind it - e.g. a blur panel or a pixellate panel.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.UI.Components.EffectPanels.PixellatePanel.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.UI.Components.EffectPanels.PixellatePanel.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "PAC.UI.Components.EffectPanels.PixellatePanel",
+      "Summary": "<p sourcefile=\"api/PAC.UI.Components.EffectPanels.PixellatePanel.yml\" sourcestartlinenumber=\"1\">A panel that pixellates the view behind it.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.UI.Components.EffectPanels.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.UI.Components.EffectPanels.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "PAC.UI.Components.EffectPanels",
       "Summary": null
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/PAC.UI.DropdownCloseMode.yml",
+      "source_relative_path": "api/PAC.UI.Components.General.CollapsedState.yml",
       "output": {
         ".html": {
-          "relative_path": "api/PAC.UI.DropdownCloseMode.html"
+          "relative_path": "api/PAC.UI.Components.General.CollapsedState.html"
         }
       },
       "version": "",
       "Uid": null,
       "IsMRef": true,
-      "Title": "PAC.UI.DropdownCloseMode",
+      "Title": "PAC.UI.Components.General.CollapsedState",
       "Summary": null
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/PAC.UI.DropdownDirection.yml",
+      "source_relative_path": "api/PAC.UI.Components.General.DropdownCloseMode.yml",
       "output": {
         ".html": {
-          "relative_path": "api/PAC.UI.DropdownDirection.html"
+          "relative_path": "api/PAC.UI.Components.General.DropdownCloseMode.html"
         }
       },
       "version": "",
       "Uid": null,
       "IsMRef": true,
-      "Title": "PAC.UI.DropdownDirection",
+      "Title": "PAC.UI.Components.General.DropdownCloseMode",
       "Summary": null
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/PAC.UI.GridAlignment.yml",
+      "source_relative_path": "api/PAC.UI.Components.General.DropdownDirection.yml",
       "output": {
         ".html": {
-          "relative_path": "api/PAC.UI.GridAlignment.html"
+          "relative_path": "api/PAC.UI.Components.General.DropdownDirection.html"
         }
       },
       "version": "",
       "Uid": null,
       "IsMRef": true,
-      "Title": "PAC.UI.GridAlignment",
+      "Title": "PAC.UI.Components.General.DropdownDirection",
       "Summary": null
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/PAC.UI.ScrollDirection.yml",
+      "source_relative_path": "api/PAC.UI.Components.General.GridAlignment.yml",
       "output": {
         ".html": {
-          "relative_path": "api/PAC.UI.ScrollDirection.html"
+          "relative_path": "api/PAC.UI.Components.General.GridAlignment.html"
         }
       },
       "version": "",
       "Uid": null,
       "IsMRef": true,
-      "Title": "PAC.UI.ScrollDirection",
+      "Title": "PAC.UI.Components.General.GridAlignment",
       "Summary": null
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/PAC.UI.UIAnchorPoint.yml",
+      "source_relative_path": "api/PAC.UI.Components.General.ScrollDirection.yml",
       "output": {
         ".html": {
-          "relative_path": "api/PAC.UI.UIAnchorPoint.html"
+          "relative_path": "api/PAC.UI.Components.General.ScrollDirection.html"
         }
       },
       "version": "",
       "Uid": null,
       "IsMRef": true,
-      "Title": "PAC.UI.UIAnchorPoint",
+      "Title": "PAC.UI.Components.General.ScrollDirection",
       "Summary": null
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/PAC.UI.UIButton.yml",
+      "source_relative_path": "api/PAC.UI.Components.General.Tooltip.Tooltip.yml",
       "output": {
         ".html": {
-          "relative_path": "api/PAC.UI.UIButton.html"
+          "relative_path": "api/PAC.UI.Components.General.Tooltip.Tooltip.html"
         }
       },
       "version": "",
       "Uid": null,
       "IsMRef": true,
-      "Title": "PAC.UI.UIButton",
+      "Title": "PAC.UI.Components.General.Tooltip.Tooltip",
       "Summary": null
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/PAC.UI.UICollapser.yml",
+      "source_relative_path": "api/PAC.UI.Components.General.Tooltip.UITooltip.yml",
       "output": {
         ".html": {
-          "relative_path": "api/PAC.UI.UICollapser.html"
+          "relative_path": "api/PAC.UI.Components.General.Tooltip.UITooltip.html"
         }
       },
       "version": "",
       "Uid": null,
       "IsMRef": true,
-      "Title": "PAC.UI.UICollapser",
+      "Title": "PAC.UI.Components.General.Tooltip.UITooltip",
       "Summary": null
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/PAC.UI.UIColourField.yml",
+      "source_relative_path": "api/PAC.UI.Components.General.Tooltip.yml",
       "output": {
         ".html": {
-          "relative_path": "api/PAC.UI.UIColourField.html"
+          "relative_path": "api/PAC.UI.Components.General.Tooltip.html"
         }
       },
       "version": "",
       "Uid": null,
       "IsMRef": true,
-      "Title": "PAC.UI.UIColourField",
+      "Title": "PAC.UI.Components.General.Tooltip",
       "Summary": null
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/PAC.UI.UIColourFieldGroup.yml",
+      "source_relative_path": "api/PAC.UI.Components.General.UIButton.yml",
       "output": {
         ".html": {
-          "relative_path": "api/PAC.UI.UIColourFieldGroup.html"
+          "relative_path": "api/PAC.UI.Components.General.UIButton.html"
         }
       },
       "version": "",
       "Uid": null,
       "IsMRef": true,
-      "Title": "PAC.UI.UIColourFieldGroup",
+      "Title": "PAC.UI.Components.General.UIButton",
       "Summary": null
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/PAC.UI.UIColourPicker.yml",
+      "source_relative_path": "api/PAC.UI.Components.General.UICollapser.yml",
       "output": {
         ".html": {
-          "relative_path": "api/PAC.UI.UIColourPicker.html"
+          "relative_path": "api/PAC.UI.Components.General.UICollapser.html"
         }
       },
       "version": "",
       "Uid": null,
       "IsMRef": true,
-      "Title": "PAC.UI.UIColourPicker",
+      "Title": "PAC.UI.Components.General.UICollapser",
       "Summary": null
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/PAC.UI.UIDropdown.yml",
+      "source_relative_path": "api/PAC.UI.Components.General.UIDropdown.yml",
       "output": {
         ".html": {
-          "relative_path": "api/PAC.UI.UIDropdown.html"
+          "relative_path": "api/PAC.UI.Components.General.UIDropdown.html"
         }
       },
       "version": "",
       "Uid": null,
       "IsMRef": true,
-      "Title": "PAC.UI.UIDropdown",
+      "Title": "PAC.UI.Components.General.UIDropdown",
       "Summary": null
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/PAC.UI.UIDropdownChoice.yml",
+      "source_relative_path": "api/PAC.UI.Components.General.UIDropdownChoice.yml",
       "output": {
         ".html": {
-          "relative_path": "api/PAC.UI.UIDropdownChoice.html"
+          "relative_path": "api/PAC.UI.Components.General.UIDropdownChoice.html"
         }
       },
       "version": "",
       "Uid": null,
       "IsMRef": true,
-      "Title": "PAC.UI.UIDropdownChoice",
+      "Title": "PAC.UI.Components.General.UIDropdownChoice",
       "Summary": null
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/PAC.UI.UIElement.yml",
+      "source_relative_path": "api/PAC.UI.Components.General.UIGridPacker.yml",
       "output": {
         ".html": {
-          "relative_path": "api/PAC.UI.UIElement.html"
+          "relative_path": "api/PAC.UI.Components.General.UIGridPacker.html"
         }
       },
       "version": "",
       "Uid": null,
       "IsMRef": true,
-      "Title": "PAC.UI.UIElement",
+      "Title": "PAC.UI.Components.General.UIGridPacker",
       "Summary": null
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/PAC.UI.UIElementDeselectMode.yml",
+      "source_relative_path": "api/PAC.UI.Components.General.UIModalWindow.yml",
       "output": {
         ".html": {
-          "relative_path": "api/PAC.UI.UIElementDeselectMode.html"
+          "relative_path": "api/PAC.UI.Components.General.UIModalWindow.html"
         }
       },
       "version": "",
       "Uid": null,
       "IsMRef": true,
-      "Title": "PAC.UI.UIElementDeselectMode",
+      "Title": "PAC.UI.Components.General.UIModalWindow",
       "Summary": null
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/PAC.UI.UIElementSelectMode.yml",
+      "source_relative_path": "api/PAC.UI.Components.General.UINumberField.yml",
       "output": {
         ".html": {
-          "relative_path": "api/PAC.UI.UIElementSelectMode.html"
+          "relative_path": "api/PAC.UI.Components.General.UINumberField.html"
         }
       },
       "version": "",
       "Uid": null,
       "IsMRef": true,
-      "Title": "PAC.UI.UIElementSelectMode",
+      "Title": "PAC.UI.Components.General.UINumberField",
       "Summary": null
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/PAC.UI.UIGridPacker.yml",
+      "source_relative_path": "api/PAC.UI.Components.General.UIScale.yml",
       "output": {
         ".html": {
-          "relative_path": "api/PAC.UI.UIGridPacker.html"
+          "relative_path": "api/PAC.UI.Components.General.UIScale.html"
         }
       },
       "version": "",
       "Uid": null,
       "IsMRef": true,
-      "Title": "PAC.UI.UIGridPacker",
+      "Title": "PAC.UI.Components.General.UIScale",
       "Summary": null
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/PAC.UI.UIKeyboardShortcut.yml",
+      "source_relative_path": "api/PAC.UI.Components.General.UIScrollbar.yml",
       "output": {
         ".html": {
-          "relative_path": "api/PAC.UI.UIKeyboardShortcut.html"
+          "relative_path": "api/PAC.UI.Components.General.UIScrollbar.html"
         }
       },
       "version": "",
       "Uid": null,
       "IsMRef": true,
-      "Title": "PAC.UI.UIKeyboardShortcut",
+      "Title": "PAC.UI.Components.General.UIScrollbar",
       "Summary": null
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/PAC.UI.UIManager.yml",
+      "source_relative_path": "api/PAC.UI.Components.General.UITextbox.yml",
       "output": {
         ".html": {
-          "relative_path": "api/PAC.UI.UIManager.html"
+          "relative_path": "api/PAC.UI.Components.General.UITextbox.html"
         }
       },
       "version": "",
       "Uid": null,
       "IsMRef": true,
-      "Title": "PAC.UI.UIManager",
+      "Title": "PAC.UI.Components.General.UITextbox",
       "Summary": null
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/PAC.UI.UIModalWindow.yml",
+      "source_relative_path": "api/PAC.UI.Components.General.UITextboxAnchorPoint.yml",
       "output": {
         ".html": {
-          "relative_path": "api/PAC.UI.UIModalWindow.html"
+          "relative_path": "api/PAC.UI.Components.General.UITextboxAnchorPoint.html"
         }
       },
       "version": "",
       "Uid": null,
       "IsMRef": true,
-      "Title": "PAC.UI.UIModalWindow",
+      "Title": "PAC.UI.Components.General.UITextboxAnchorPoint",
       "Summary": null
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/PAC.UI.UINumberField.yml",
+      "source_relative_path": "api/PAC.UI.Components.General.UIToggleButton.yml",
       "output": {
         ".html": {
-          "relative_path": "api/PAC.UI.UINumberField.html"
+          "relative_path": "api/PAC.UI.Components.General.UIToggleButton.html"
         }
       },
       "version": "",
       "Uid": null,
       "IsMRef": true,
-      "Title": "PAC.UI.UINumberField",
+      "Title": "PAC.UI.Components.General.UIToggleButton",
       "Summary": null
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/PAC.UI.UIScale.yml",
+      "source_relative_path": "api/PAC.UI.Components.General.UIToggleGroup.yml",
       "output": {
         ".html": {
-          "relative_path": "api/PAC.UI.UIScale.html"
+          "relative_path": "api/PAC.UI.Components.General.UIToggleGroup.html"
         }
       },
       "version": "",
       "Uid": null,
       "IsMRef": true,
-      "Title": "PAC.UI.UIScale",
+      "Title": "PAC.UI.Components.General.UIToggleGroup",
       "Summary": null
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/PAC.UI.UIScrollbar.yml",
+      "source_relative_path": "api/PAC.UI.Components.General.UIViewport.yml",
       "output": {
         ".html": {
-          "relative_path": "api/PAC.UI.UIScrollbar.html"
+          "relative_path": "api/PAC.UI.Components.General.UIViewport.html"
         }
       },
       "version": "",
       "Uid": null,
       "IsMRef": true,
-      "Title": "PAC.UI.UIScrollbar",
+      "Title": "PAC.UI.Components.General.UIViewport",
       "Summary": null
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/PAC.UI.UITabManager.yml",
+      "source_relative_path": "api/PAC.UI.Components.General.ViewportSide.yml",
       "output": {
         ".html": {
-          "relative_path": "api/PAC.UI.UITabManager.html"
+          "relative_path": "api/PAC.UI.Components.General.ViewportSide.html"
         }
       },
       "version": "",
       "Uid": null,
       "IsMRef": true,
-      "Title": "PAC.UI.UITabManager",
+      "Title": "PAC.UI.Components.General.ViewportSide",
       "Summary": null
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/PAC.UI.UITextbox.yml",
+      "source_relative_path": "api/PAC.UI.Components.General.yml",
       "output": {
         ".html": {
-          "relative_path": "api/PAC.UI.UITextbox.html"
+          "relative_path": "api/PAC.UI.Components.General.html"
         }
       },
       "version": "",
       "Uid": null,
       "IsMRef": true,
-      "Title": "PAC.UI.UITextbox",
+      "Title": "PAC.UI.Components.General",
       "Summary": null
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/PAC.UI.UITextboxAnchorPoint.yml",
+      "source_relative_path": "api/PAC.UI.Components.Specialised.Animation.FrameNotch.yml",
       "output": {
         ".html": {
-          "relative_path": "api/PAC.UI.UITextboxAnchorPoint.html"
+          "relative_path": "api/PAC.UI.Components.Specialised.Animation.FrameNotch.html"
         }
       },
       "version": "",
       "Uid": null,
       "IsMRef": true,
-      "Title": "PAC.UI.UITextboxAnchorPoint",
+      "Title": "PAC.UI.Components.Specialised.Animation.FrameNotch",
+      "Summary": "<p sourcefile=\"api/PAC.UI.Components.Specialised.Animation.FrameNotch.yml\" sourcestartlinenumber=\"1\">A class for the frame number markers on the animation timeline.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.UI.Components.Specialised.Animation.KeyFrameIcon.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.UI.Components.Specialised.Animation.KeyFrameIcon.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "PAC.UI.Components.Specialised.Animation.KeyFrameIcon",
+      "Summary": "<p sourcefile=\"api/PAC.UI.Components.Specialised.Animation.KeyFrameIcon.yml\" sourcestartlinenumber=\"1\">Stores the data about a keyframe icon on the animation timeline.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.UI.Components.Specialised.Animation.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.UI.Components.Specialised.Animation.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "PAC.UI.Components.Specialised.Animation",
       "Summary": null
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/PAC.UI.UITileIcon.yml",
+      "source_relative_path": "api/PAC.UI.Components.Specialised.ColourField.UIColourField.yml",
       "output": {
         ".html": {
-          "relative_path": "api/PAC.UI.UITileIcon.html"
+          "relative_path": "api/PAC.UI.Components.Specialised.ColourField.UIColourField.html"
         }
       },
       "version": "",
       "Uid": null,
       "IsMRef": true,
-      "Title": "PAC.UI.UITileIcon",
+      "Title": "PAC.UI.Components.Specialised.ColourField.UIColourField",
       "Summary": null
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/PAC.UI.UIToggleButton.yml",
+      "source_relative_path": "api/PAC.UI.Components.Specialised.ColourField.UIColourFieldGroup.yml",
       "output": {
         ".html": {
-          "relative_path": "api/PAC.UI.UIToggleButton.html"
+          "relative_path": "api/PAC.UI.Components.Specialised.ColourField.UIColourFieldGroup.html"
         }
       },
       "version": "",
       "Uid": null,
       "IsMRef": true,
-      "Title": "PAC.UI.UIToggleButton",
+      "Title": "PAC.UI.Components.Specialised.ColourField.UIColourFieldGroup",
       "Summary": null
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/PAC.UI.UIToggleGroup.yml",
+      "source_relative_path": "api/PAC.UI.Components.Specialised.ColourField.yml",
       "output": {
         ".html": {
-          "relative_path": "api/PAC.UI.UIToggleGroup.html"
+          "relative_path": "api/PAC.UI.Components.Specialised.ColourField.html"
         }
       },
       "version": "",
       "Uid": null,
       "IsMRef": true,
-      "Title": "PAC.UI.UIToggleGroup",
+      "Title": "PAC.UI.Components.Specialised.ColourField",
       "Summary": null
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/PAC.UI.UIToolButton.yml",
+      "source_relative_path": "api/PAC.UI.Components.Specialised.ColourPicker.ColourPreview.yml",
       "output": {
         ".html": {
-          "relative_path": "api/PAC.UI.UIToolButton.html"
+          "relative_path": "api/PAC.UI.Components.Specialised.ColourPicker.ColourPreview.html"
         }
       },
       "version": "",
       "Uid": null,
       "IsMRef": true,
-      "Title": "PAC.UI.UIToolButton",
+      "Title": "PAC.UI.Components.Specialised.ColourPicker.ColourPreview",
+      "Summary": "<p sourcefile=\"api/PAC.UI.Components.Specialised.ColourPicker.ColourPreview.yml\" sourcestartlinenumber=\"1\">A class to represent colour previews - the boxes on colour pickers that show what colours you have selected.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.UI.Components.Specialised.ColourPicker.GlobalColourPicker.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.UI.Components.Specialised.ColourPicker.GlobalColourPicker.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "PAC.UI.Components.Specialised.ColourPicker.GlobalColourPicker",
+      "Summary": "<p sourcefile=\"api/PAC.UI.Components.Specialised.ColourPicker.GlobalColourPicker.yml\" sourcestartlinenumber=\"1\">A class for the main colour picker in the program - the one that appears in the main view.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.UI.Components.Specialised.ColourPicker.HSLColourPicker.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.UI.Components.Specialised.ColourPicker.HSLColourPicker.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "PAC.UI.Components.Specialised.ColourPicker.HSLColourPicker",
+      "Summary": "<p sourcefile=\"api/PAC.UI.Components.Specialised.ColourPicker.HSLColourPicker.yml\" sourcestartlinenumber=\"1\">A class for the HSL colour picker.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.UI.Components.Specialised.ColourPicker.HSLHueSaturationBox.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.UI.Components.Specialised.ColourPicker.HSLHueSaturationBox.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "PAC.UI.Components.Specialised.ColourPicker.HSLHueSaturationBox",
+      "Summary": "<p sourcefile=\"api/PAC.UI.Components.Specialised.ColourPicker.HSLHueSaturationBox.yml\" sourcestartlinenumber=\"1\">A class for the hue/saturation box of the HSL colour picker.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.UI.Components.Specialised.ColourPicker.HSLLightnessSlider.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.UI.Components.Specialised.ColourPicker.HSLLightnessSlider.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "PAC.UI.Components.Specialised.ColourPicker.HSLLightnessSlider",
+      "Summary": "<p sourcefile=\"api/PAC.UI.Components.Specialised.ColourPicker.HSLLightnessSlider.yml\" sourcestartlinenumber=\"1\">A class for the lightness slider of the HSL colour picker.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.UI.Components.Specialised.ColourPicker.UIColourPicker.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.UI.Components.Specialised.ColourPicker.UIColourPicker.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "PAC.UI.Components.Specialised.ColourPicker.UIColourPicker",
       "Summary": null
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/PAC.UI.UITooltip.yml",
+      "source_relative_path": "api/PAC.UI.Components.Specialised.ColourPicker.yml",
       "output": {
         ".html": {
-          "relative_path": "api/PAC.UI.UITooltip.html"
+          "relative_path": "api/PAC.UI.Components.Specialised.ColourPicker.html"
         }
       },
       "version": "",
       "Uid": null,
       "IsMRef": true,
-      "Title": "PAC.UI.UITooltip",
+      "Title": "PAC.UI.Components.Specialised.ColourPicker",
       "Summary": null
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/PAC.UI.UIViewport.yml",
+      "source_relative_path": "api/PAC.UI.Components.Specialised.FileTab.yml",
       "output": {
         ".html": {
-          "relative_path": "api/PAC.UI.UIViewport.html"
+          "relative_path": "api/PAC.UI.Components.Specialised.FileTab.html"
         }
       },
       "version": "",
       "Uid": null,
       "IsMRef": true,
-      "Title": "PAC.UI.UIViewport",
+      "Title": "PAC.UI.Components.Specialised.FileTab",
       "Summary": null
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/PAC.UI.ViewportSide.yml",
+      "source_relative_path": "api/PAC.UI.Components.Specialised.LayerTile.yml",
       "output": {
         ".html": {
-          "relative_path": "api/PAC.UI.ViewportSide.html"
+          "relative_path": "api/PAC.UI.Components.Specialised.LayerTile.html"
         }
       },
       "version": "",
       "Uid": null,
       "IsMRef": true,
-      "Title": "PAC.UI.ViewportSide",
+      "Title": "PAC.UI.Components.Specialised.LayerTile",
       "Summary": null
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/PAC.UI.yml",
+      "source_relative_path": "api/PAC.UI.Components.Specialised.UIKeyboardShortcut.yml",
       "output": {
         ".html": {
-          "relative_path": "api/PAC.UI.html"
+          "relative_path": "api/PAC.UI.Components.Specialised.UIKeyboardShortcut.html"
         }
       },
       "version": "",
       "Uid": null,
       "IsMRef": true,
-      "Title": "PAC.UI",
+      "Title": "PAC.UI.Components.Specialised.UIKeyboardShortcut",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.UI.Components.Specialised.UITileIcon.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.UI.Components.Specialised.UITileIcon.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "PAC.UI.Components.Specialised.UITileIcon",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.UI.Components.Specialised.UIToolButton.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.UI.Components.Specialised.UIToolButton.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "PAC.UI.Components.Specialised.UIToolButton",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.UI.Components.Specialised.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.UI.Components.Specialised.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "PAC.UI.Components.Specialised",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.UI.Components.UIElement.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.UI.Components.UIElement.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "PAC.UI.Components.UIElement",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.UI.Components.UIElementDeselectMode.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.UI.Components.UIElementDeselectMode.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "PAC.UI.Components.UIElementDeselectMode",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.UI.Components.UIElementSelectMode.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.UI.Components.UIElementSelectMode.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "PAC.UI.Components.UIElementSelectMode",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.UI.Components.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.UI.Components.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "PAC.UI.Components",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.UI.Themes.Theme.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.UI.Themes.Theme.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "PAC.UI.Themes.Theme",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.UI.Themes.ThemeObjectType.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.UI.Themes.ThemeObjectType.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "PAC.UI.Themes.ThemeObjectType",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.UI.Themes.UITheme.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.UI.Themes.UITheme.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "PAC.UI.Themes.UITheme",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PAC.UI.Themes.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.UI.Themes.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "PAC.UI.Themes",
       "Summary": null
     },
     {
@@ -3490,20 +3672,6 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "PAC.UndoRedo.UndoRedoAction",
-      "Summary": null
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/PAC.UndoRedo.UndoRedoManager.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/PAC.UndoRedo.UndoRedoManager.html"
-        }
-      },
-      "version": "",
-      "Uid": null,
-      "IsMRef": true,
-      "Title": "PAC.UndoRedo.UndoRedoManager",
       "Summary": null
     },
     {
@@ -3532,20 +3700,6 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "PAC.UndoRedo",
-      "Summary": null
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/PAC.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/PAC.html"
-        }
-      },
-      "version": "",
-      "Uid": null,
-      "IsMRef": true,
-      "Title": "PAC",
       "Summary": null
     },
     {
@@ -3580,11 +3734,11 @@
       "type": "Toc",
       "source_relative_path": "api/toc.yml",
       "output": {
-        ".json": {
-          "relative_path": "api/toc.json"
-        },
         ".html": {
           "relative_path": "api/toc.html"
+        },
+        ".json": {
+          "relative_path": "api/toc.json"
         }
       },
       "version": ""
@@ -3623,11 +3777,11 @@
       "type": "Toc",
       "source_relative_path": "manual/toc.yml",
       "output": {
-        ".json": {
-          "relative_path": "manual/toc.json"
-        },
         ".html": {
           "relative_path": "manual/toc.html"
+        },
+        ".json": {
+          "relative_path": "manual/toc.json"
         }
       },
       "version": ""
@@ -3666,11 +3820,11 @@
       "type": "Toc",
       "source_relative_path": "toc.yml",
       "output": {
-        ".json": {
-          "relative_path": "toc.json"
-        },
         ".html": {
           "relative_path": "toc.html"
+        },
+        ".json": {
+          "relative_path": "toc.json"
         }
       },
       "version": ""

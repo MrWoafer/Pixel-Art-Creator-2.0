@@ -1,0 +1,2628 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Struct IntRect | Pixel Art Creator 2.0 Docs </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Struct IntRect | Pixel Art Creator 2.0 Docs ">
+      
+      <meta name="description" content="A non-empty rectangular region of integer coordinates.">
+      <link rel="icon" href="../resources/icon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/new/main/apiSpec/new?filename=PAC_Geometry_IntRect.md&amp;value=---%0Auid%3A%20PAC.Geometry.IntRect%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../resources/logo.svg" alt="Pixel Art Creator 2.0">
+            Pixel Art Creator 2.0
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="PAC.Geometry.IntRect">
+
+
+
+  <h1 id="PAC_Geometry_IntRect" data-uid="PAC.Geometry.IntRect" class="text-break">
+Struct IntRect  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Geometry/IntRect.cs/#L33"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="PAC.html">PAC</a>.<a class="xref" href="PAC.Geometry.html">Geometry</a></dd></dl>
+  
+  </div>
+
+  <div class="markdown summary"><p>A non-empty rectangular region of integer coordinates.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public readonly struct IntRect : IReadOnlyContains&lt;IntVector2&gt;, IReadOnlyCollection&lt;IntVector2&gt;, IEnumerable&lt;IntVector2&gt;, IEnumerable, IEquatable&lt;IntRect&gt;, ISetComparable&lt;IntRect&gt;</code></pre>
+  </div>
+
+
+
+
+
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="PAC.Interfaces.IReadOnlyContains-1.html">IReadOnlyContains</a>&lt;<a class="xref" href="PAC.Geometry.IntVector2.html">IntVector2</a>&gt;</div>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlycollection-1">IReadOnlyCollection</a>&lt;<a class="xref" href="PAC.Geometry.IntVector2.html">IntVector2</a>&gt;</div>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="PAC.Geometry.IntVector2.html">IntVector2</a>&gt;</div>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.ienumerable">IEnumerable</a></div>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iequatable-1">IEquatable</a>&lt;<a class="xref" href="PAC.Geometry.IntRect.html">IntRect</a>&gt;</div>
+      <div><a class="xref" href="PAC.Interfaces.ISetComparable-1.html">ISetComparable</a>&lt;<a class="xref" href="PAC.Geometry.IntRect.html">IntRect</a>&gt;</div>
+    </dd>
+  </dl>
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+  </dd></dl>
+
+  <dl class="typelist extensionMethods">
+    <dt>Extension Methods</dt>
+    <dd>
+  <div>
+      <a class="xref" href="PAC.Interfaces.Extensions.ISetComparableExtensions.html#PAC_Interfaces_Extensions_ISetComparableExtensions_IsProperSubsetOf__2___0___1_">ISetComparableExtensions.IsProperSubsetOf&lt;T1, T2&gt;(T1, T2)</a>
+  </div>
+  <div>
+      <a class="xref" href="PAC.Interfaces.Extensions.ISetComparableExtensions.html#PAC_Interfaces_Extensions_ISetComparableExtensions_IsProperSupersetOf__2___0___1_">ISetComparableExtensions.IsProperSupersetOf&lt;T1, T2&gt;(T1, T2)</a>
+  </div>
+  <div>
+      <a class="xref" href="PAC.Interfaces.Extensions.IReadOnlyContainsExtensions.html#PAC_Interfaces_Extensions_IReadOnlyContainsExtensions_ContainsAll__1_PAC_Interfaces_IReadOnlyContains___0____0___">IReadOnlyContainsExtensions.ContainsAll&lt;T&gt;(IReadOnlyContains&lt;T&gt;, params T[])</a>
+  </div>
+  <div>
+      <a class="xref" href="PAC.Interfaces.Extensions.IReadOnlyContainsExtensions.html#PAC_Interfaces_Extensions_IReadOnlyContainsExtensions_ContainsAll__1_PAC_Interfaces_IReadOnlyContains___0__System_Collections_Generic_IEnumerable___0__">IReadOnlyContainsExtensions.ContainsAll&lt;T&gt;(IReadOnlyContains&lt;T&gt;, IEnumerable&lt;T&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="PAC.Interfaces.Extensions.IReadOnlyContainsExtensions.html#PAC_Interfaces_Extensions_IReadOnlyContainsExtensions_ContainsAny__1_PAC_Interfaces_IReadOnlyContains___0____0___">IReadOnlyContainsExtensions.ContainsAny&lt;T&gt;(IReadOnlyContains&lt;T&gt;, params T[])</a>
+  </div>
+  <div>
+      <a class="xref" href="PAC.Interfaces.Extensions.IReadOnlyContainsExtensions.html#PAC_Interfaces_Extensions_IReadOnlyContainsExtensions_ContainsAny__1_PAC_Interfaces_IReadOnlyContains___0__System_Collections_Generic_IEnumerable___0__">IReadOnlyContainsExtensions.ContainsAny&lt;T&gt;(IReadOnlyContains&lt;T&gt;, IEnumerable&lt;T&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="PAC.Interfaces.Extensions.IReadOnlyContainsExtensions.html#PAC_Interfaces_Extensions_IReadOnlyContainsExtensions_ContainsNone__1_PAC_Interfaces_IReadOnlyContains___0____0___">IReadOnlyContainsExtensions.ContainsNone&lt;T&gt;(IReadOnlyContains&lt;T&gt;, params T[])</a>
+  </div>
+  <div>
+      <a class="xref" href="PAC.Interfaces.Extensions.IReadOnlyContainsExtensions.html#PAC_Interfaces_Extensions_IReadOnlyContainsExtensions_ContainsNone__1_PAC_Interfaces_IReadOnlyContains___0__System_Collections_Generic_IEnumerable___0__">IReadOnlyContainsExtensions.ContainsNone&lt;T&gt;(IReadOnlyContains&lt;T&gt;, IEnumerable&lt;T&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="PAC.Interfaces.Extensions.IReadOnlyContainsExtensions.html#PAC_Interfaces_Extensions_IReadOnlyContainsExtensions_ContainsNotAll__1_PAC_Interfaces_IReadOnlyContains___0____0___">IReadOnlyContainsExtensions.ContainsNotAll&lt;T&gt;(IReadOnlyContains&lt;T&gt;, params T[])</a>
+  </div>
+  <div>
+      <a class="xref" href="PAC.Interfaces.Extensions.IReadOnlyContainsExtensions.html#PAC_Interfaces_Extensions_IReadOnlyContainsExtensions_ContainsNotAll__1_PAC_Interfaces_IReadOnlyContains___0__System_Collections_Generic_IEnumerable___0__">IReadOnlyContainsExtensions.ContainsNotAll&lt;T&gt;(IReadOnlyContains&lt;T&gt;, IEnumerable&lt;T&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="PAC.Extensions.System.Collections.IEnumerableExtensions.html#PAC_Extensions_System_Collections_IEnumerableExtensions_AreAllDistinct__1_System_Collections_Generic_IEnumerable___0__">IEnumerableExtensions.AreAllDistinct&lt;T&gt;(IEnumerable&lt;T&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="PAC.Extensions.System.Collections.IEnumerableExtensions.html#PAC_Extensions_System_Collections_IEnumerableExtensions_ArgMax__2_System_Collections_Generic_IEnumerable___0__System_Func___0___1__">IEnumerableExtensions.ArgMax&lt;TElement, TCompare&gt;(IEnumerable&lt;TElement&gt;, Func&lt;TElement, TCompare&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="PAC.Extensions.System.Collections.IEnumerableExtensions.html#PAC_Extensions_System_Collections_IEnumerableExtensions_ArgMin__2_System_Collections_Generic_IEnumerable___0__System_Func___0___1__">IEnumerableExtensions.ArgMin&lt;TElement, TCompare&gt;(IEnumerable&lt;TElement&gt;, Func&lt;TElement, TCompare&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="PAC.Extensions.System.Collections.IEnumerableExtensions.html#PAC_Extensions_System_Collections_IEnumerableExtensions_Concat__1_System_Collections_Generic_IEnumerable___0__System_Collections_Generic_IEnumerable___0__System_Collections_Generic_IEnumerable___0__System_Collections_Generic_IEnumerable___0____">IEnumerableExtensions.Concat&lt;T&gt;(IEnumerable&lt;T&gt;, IEnumerable&lt;T&gt;, IEnumerable&lt;T&gt;, params IEnumerable&lt;T&gt;[])</a>
+  </div>
+  <div>
+      <a class="xref" href="PAC.Extensions.System.Collections.IEnumerableExtensions.html#PAC_Extensions_System_Collections_IEnumerableExtensions_ContainsAll__1_System_Collections_Generic_IEnumerable___0____0___">IEnumerableExtensions.ContainsAll&lt;T&gt;(IEnumerable&lt;T&gt;, params T[])</a>
+  </div>
+  <div>
+      <a class="xref" href="PAC.Extensions.System.Collections.IEnumerableExtensions.html#PAC_Extensions_System_Collections_IEnumerableExtensions_ContainsAll__1_System_Collections_Generic_IEnumerable___0__System_Collections_Generic_IEnumerable___0__">IEnumerableExtensions.ContainsAll&lt;T&gt;(IEnumerable&lt;T&gt;, IEnumerable&lt;T&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="PAC.Extensions.System.Collections.IEnumerableExtensions.html#PAC_Extensions_System_Collections_IEnumerableExtensions_ContainsAny__1_System_Collections_Generic_IEnumerable___0____0___">IEnumerableExtensions.ContainsAny&lt;T&gt;(IEnumerable&lt;T&gt;, params T[])</a>
+  </div>
+  <div>
+      <a class="xref" href="PAC.Extensions.System.Collections.IEnumerableExtensions.html#PAC_Extensions_System_Collections_IEnumerableExtensions_ContainsAny__1_System_Collections_Generic_IEnumerable___0__System_Collections_Generic_IEnumerable___0__">IEnumerableExtensions.ContainsAny&lt;T&gt;(IEnumerable&lt;T&gt;, IEnumerable&lt;T&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="PAC.Extensions.System.Collections.IEnumerableExtensions.html#PAC_Extensions_System_Collections_IEnumerableExtensions_ContainsNone__1_System_Collections_Generic_IEnumerable___0____0___">IEnumerableExtensions.ContainsNone&lt;T&gt;(IEnumerable&lt;T&gt;, params T[])</a>
+  </div>
+  <div>
+      <a class="xref" href="PAC.Extensions.System.Collections.IEnumerableExtensions.html#PAC_Extensions_System_Collections_IEnumerableExtensions_ContainsNone__1_System_Collections_Generic_IEnumerable___0__System_Collections_Generic_IEnumerable___0__">IEnumerableExtensions.ContainsNone&lt;T&gt;(IEnumerable&lt;T&gt;, IEnumerable&lt;T&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="PAC.Extensions.System.Collections.IEnumerableExtensions.html#PAC_Extensions_System_Collections_IEnumerableExtensions_ContainsNotAll__1_System_Collections_Generic_IEnumerable___0____0___">IEnumerableExtensions.ContainsNotAll&lt;T&gt;(IEnumerable&lt;T&gt;, params T[])</a>
+  </div>
+  <div>
+      <a class="xref" href="PAC.Extensions.System.Collections.IEnumerableExtensions.html#PAC_Extensions_System_Collections_IEnumerableExtensions_ContainsNotAll__1_System_Collections_Generic_IEnumerable___0__System_Collections_Generic_IEnumerable___0__">IEnumerableExtensions.ContainsNotAll&lt;T&gt;(IEnumerable&lt;T&gt;, IEnumerable&lt;T&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="PAC.Extensions.System.Collections.IEnumerableExtensions.html#PAC_Extensions_System_Collections_IEnumerableExtensions_CountIsAtLeast__1_System_Collections_Generic_IEnumerable___0__System_Int32_">IEnumerableExtensions.CountIsAtLeast&lt;T&gt;(IEnumerable&lt;T&gt;, int)</a>
+  </div>
+  <div>
+      <a class="xref" href="PAC.Extensions.System.Collections.IEnumerableExtensions.html#PAC_Extensions_System_Collections_IEnumerableExtensions_CountIsAtMost__1_System_Collections_Generic_IEnumerable___0__System_Int32_">IEnumerableExtensions.CountIsAtMost&lt;T&gt;(IEnumerable&lt;T&gt;, int)</a>
+  </div>
+  <div>
+      <a class="xref" href="PAC.Extensions.System.Collections.IEnumerableExtensions.html#PAC_Extensions_System_Collections_IEnumerableExtensions_CountIsExactly__1_System_Collections_Generic_IEnumerable___0__System_Int32_">IEnumerableExtensions.CountIsExactly&lt;T&gt;(IEnumerable&lt;T&gt;, int)</a>
+  </div>
+  <div>
+      <a class="xref" href="PAC.Extensions.System.Collections.IEnumerableExtensions.html#PAC_Extensions_System_Collections_IEnumerableExtensions_EnumerateOccurrences__1_System_Collections_Generic_IEnumerable___0__">IEnumerableExtensions.EnumerateOccurrences&lt;T&gt;(IEnumerable&lt;T&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="PAC.Extensions.System.Collections.IEnumerableExtensions.html#PAC_Extensions_System_Collections_IEnumerableExtensions_Enumerate__1_System_Collections_Generic_IEnumerable___0__">IEnumerableExtensions.Enumerate&lt;T&gt;(IEnumerable&lt;T&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="PAC.Extensions.System.Collections.IEnumerableExtensions.html#PAC_Extensions_System_Collections_IEnumerableExtensions_IsSubsequenceOf__1_System_Collections_Generic_IEnumerable___0__System_Collections_Generic_IEnumerable___0__">IEnumerableExtensions.IsSubsequenceOf&lt;T&gt;(IEnumerable&lt;T&gt;, IEnumerable&lt;T&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="PAC.Extensions.System.Collections.IEnumerableExtensions.html#PAC_Extensions_System_Collections_IEnumerableExtensions_IsSupersequenceOf__1_System_Collections_Generic_IEnumerable___0__System_Collections_Generic_IEnumerable___0__">IEnumerableExtensions.IsSupersequenceOf&lt;T&gt;(IEnumerable&lt;T&gt;, IEnumerable&lt;T&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="PAC.Extensions.System.Collections.IEnumerableExtensions.html#PAC_Extensions_System_Collections_IEnumerableExtensions_MinAndMax__1_System_Collections_Generic_IEnumerable___0__">IEnumerableExtensions.MinAndMax&lt;T&gt;(IEnumerable&lt;T&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="PAC.Extensions.System.Collections.IEnumerableExtensions.html#PAC_Extensions_System_Collections_IEnumerableExtensions_None__1_System_Collections_Generic_IEnumerable___0__">IEnumerableExtensions.None&lt;T&gt;(IEnumerable&lt;T&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="PAC.Extensions.System.Collections.IEnumerableExtensions.html#PAC_Extensions_System_Collections_IEnumerableExtensions_None__1_System_Collections_Generic_IEnumerable___0__System_Func___0_System_Boolean__">IEnumerableExtensions.None&lt;T&gt;(IEnumerable&lt;T&gt;, Func&lt;T, bool&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="PAC.Extensions.System.Collections.IEnumerableExtensions.html#PAC_Extensions_System_Collections_IEnumerableExtensions_NotAll__1_System_Collections_Generic_IEnumerable___0__System_Func___0_System_Boolean__">IEnumerableExtensions.NotAll&lt;T&gt;(IEnumerable&lt;T&gt;, Func&lt;T, bool&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="PAC.Extensions.System.Collections.IEnumerableExtensions.html#PAC_Extensions_System_Collections_IEnumerableExtensions_Replace__1_System_Collections_Generic_IEnumerable___0____0___0_">IEnumerableExtensions.Replace&lt;T&gt;(IEnumerable&lt;T&gt;, T, T)</a>
+  </div>
+  <div>
+      <a class="xref" href="PAC.Extensions.System.Collections.IEnumerableExtensions.html#PAC_Extensions_System_Collections_IEnumerableExtensions_SkipIndex__1_System_Collections_Generic_IEnumerable___0__System_Int32_">IEnumerableExtensions.SkipIndex&lt;T&gt;(IEnumerable&lt;T&gt;, int)</a>
+  </div>
+  <div>
+      <a class="xref" href="PAC.Extensions.System.Collections.IEnumerableExtensions.html#PAC_Extensions_System_Collections_IEnumerableExtensions_ToPrettyString__1_System_Collections_Generic_IEnumerable___0__">IEnumerableExtensions.ToPrettyString&lt;T&gt;(IEnumerable&lt;T&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="PAC.Extensions.System.Collections.IEnumerableExtensions.html#PAC_Extensions_System_Collections_IEnumerableExtensions_ZipCurrentAndNext__1_System_Collections_Generic_IEnumerable___0__">IEnumerableExtensions.ZipCurrentAndNext&lt;T&gt;(IEnumerable&lt;T&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="PAC.Extensions.System.Collections.IEnumerableExtensions.html#PAC_Extensions_System_Collections_IEnumerableExtensions_Zip__2_System_Collections_Generic_IEnumerable___0__System_Collections_Generic_IEnumerable___1__">IEnumerableExtensions.Zip&lt;T1, T2&gt;(IEnumerable&lt;T1&gt;, IEnumerable&lt;T2&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="PAC.Maths.Combinatorics.html#PAC_Maths_Combinatorics_Pairs__1_System_Collections_Generic_IEnumerable___0__">Combinatorics.Pairs&lt;T&gt;(IEnumerable&lt;T&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="PAC.Maths.Combinatorics.html#PAC_Maths_Combinatorics_Pairs__2_System_Collections_Generic_IEnumerable___0__System_Collections_Generic_IEnumerable___1__">Combinatorics.Pairs&lt;TFirst, TSecond&gt;(IEnumerable&lt;TFirst&gt;, IEnumerable&lt;TSecond&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="PAC.Maths.Combinatorics.html#PAC_Maths_Combinatorics_Permutations__1_System_Collections_Generic_IEnumerable___0__">Combinatorics.Permutations&lt;T&gt;(IEnumerable&lt;T&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="PAC.Maths.Combinatorics.html#PAC_Maths_Combinatorics_Permutations__1_System_Collections_Generic_IEnumerable___0__System_Int32_">Combinatorics.Permutations&lt;T&gt;(IEnumerable&lt;T&gt;, int)</a>
+  </div>
+  <div>
+      <a class="xref" href="PAC.Maths.Combinatorics.html#PAC_Maths_Combinatorics_Triples__1_System_Collections_Generic_IEnumerable___0__">Combinatorics.Triples&lt;T&gt;(IEnumerable&lt;T&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="PAC.Maths.Combinatorics.html#PAC_Maths_Combinatorics_Triples__3_System_Collections_Generic_IEnumerable___0__System_Collections_Generic_IEnumerable___1__System_Collections_Generic_IEnumerable___2__">Combinatorics.Triples&lt;TFirst, TSecond, TThird&gt;(IEnumerable&lt;TFirst&gt;, IEnumerable&lt;TSecond&gt;, IEnumerable&lt;TThird&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="PAC.Maths.Combinatorics.html#PAC_Maths_Combinatorics_Tuples__1_System_Collections_Generic_IEnumerable___0__System_Int32_">Combinatorics.Tuples&lt;T&gt;(IEnumerable&lt;T&gt;, int)</a>
+  </div>
+  </dd></dl>
+
+
+
+  <h2 id="PAC_Geometry_IntRect_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>When we say an <a class="xref" href="PAC.Geometry.IntVector2.html">IntVector2</a> is in the rect, we mean that whole grid square is in the rect.
+<example>
+For example, the rect with corners <code>(0, 0), (0, 4), (3, 0), (3, 4)</code> is a 4x5 rectangle:</example></p>
+<pre><code class="lang-csharp">(0, 4) -&gt; # # # # &lt;- (3, 4)
+          # # # #
+          # # # #
+          # # # #
+(0, 0) -&gt; # # # # &lt;- (3, 0)</code></pre>
+
+The enumerator iterates over the points in the rect, starting with the bottom row, read left to right, then the next row, etc.
+This ordering is useful since it matches the expected order of pixels in Unity's Texture2D.SetPixels(Color[]).
+</div>
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="PAC_Geometry_IntRect__ctor_" data-uid="PAC.Geometry.IntRect.#ctor*"></a>
+
+  <h3 id="PAC_Geometry_IntRect__ctor_PAC_DataStructures_IntRange_PAC_DataStructures_IntRange_" data-uid="PAC.Geometry.IntRect.#ctor(PAC.DataStructures.IntRange,PAC.DataStructures.IntRange)">
+  IntRect(IntRange, IntRange)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Geometry/IntRect.cs/#L172"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Creates a rect with the given ranges of x and y coordinates.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IntRect(IntRange xRange, IntRange yRange)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>xRange</code> <a class="xref" href="PAC.DataStructures.IntRange.html">IntRange</a></dt>
+    <dd><p>The range of x coordinates.</p>
+</dd>
+    <dt><code>yRange</code> <a class="xref" href="PAC.DataStructures.IntRange.html">IntRange</a></dt>
+    <dd><p>The range of y coordinates.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section" id="PAC_Geometry_IntRect__ctor_PAC_DataStructures_IntRange_PAC_DataStructures_IntRange__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>The x and y ranges must be non-empty, as <a class="xref" href="PAC.Geometry.IntRect.html">IntRect</a>s are non-empty.</p>
+</div>
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p><code class="paramref">xRange</code> is empty and/or <code class="paramref">yRange</code> is empty.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="PAC_Geometry_IntRect__ctor_" data-uid="PAC.Geometry.IntRect.#ctor*"></a>
+
+  <h3 id="PAC_Geometry_IntRect__ctor_PAC_Geometry_IntVector2_PAC_Geometry_IntVector2_" data-uid="PAC.Geometry.IntRect.#ctor(PAC.Geometry.IntVector2,PAC.Geometry.IntVector2)">
+  IntRect(IntVector2, IntVector2)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Geometry/IntRect.cs/#L157"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Creates an <a class="xref" href="PAC.Geometry.IntRect.html">IntRect</a> with the two given points as opposite corners (inclusive) of the rect.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IntRect(IntVector2 corner, IntVector2 oppositeCorner)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>corner</code> <a class="xref" href="PAC.Geometry.IntVector2.html">IntVector2</a></dt>
+    <dd><p>The corner diagonally opposite <code class="paramref">oppositeCorner</code>.</p>
+</dd>
+    <dt><code>oppositeCorner</code> <a class="xref" href="PAC.Geometry.IntVector2.html">IntVector2</a></dt>
+    <dd><p>The corner diagonally opposite <code class="paramref">corner</code>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section" id="PAC_Geometry_IntRect__ctor_PAC_Geometry_IntVector2_PAC_Geometry_IntVector2__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><example>
+For example, with <code><code class="paramref">corner</code> = (3, 0)</code> and <code><code class="paramref">oppositeCorner</code> = (0, 4)</code>, the rect will have corners <code>(0, 0), (0, 4), (3, 0), (3, 4)</code>:
+<pre><code class="lang-csharp">(0, 4) -&gt; # # # # &lt;- (3, 4)
+          # # # #
+          # # # #
+          # # # #
+(0, 0) -&gt; # # # # &lt;- (3, 0)</code></pre>
+</example>
+</div>
+
+
+
+
+  <h2 class="section" id="fields">Fields
+</h2>
+
+
+
+  <h3 id="PAC_Geometry_IntRect_bottomLeft" data-uid="PAC.Geometry.IntRect.bottomLeft">
+  bottomLeft
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Geometry/IntRect.cs/#L42"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The coordinates of the bottom-left point in the rect (inclusive).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public readonly IntVector2 bottomLeft</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="PAC.Geometry.IntVector2.html">IntVector2</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+  <dl class="typelist seealso">
+    <dt>See Also</dt>
+    <dd>
+    <div><a class="xref" href="PAC.Geometry.IntRect.html#PAC_Geometry_IntRect_topRight">topRight</a></div>
+    <div><a class="xref" href="PAC.Geometry.IntRect.html#PAC_Geometry_IntRect_bottomRight">bottomRight</a></div>
+    <div><a class="xref" href="PAC.Geometry.IntRect.html#PAC_Geometry_IntRect_topLeft">topLeft</a></div>
+    </dd>
+  </dl>
+
+
+
+  <h3 id="PAC_Geometry_IntRect_topRight" data-uid="PAC.Geometry.IntRect.topRight">
+  topRight
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Geometry/IntRect.cs/#L49"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The coordinates of the top-right point in the rect (inclusive).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public readonly IntVector2 topRight</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="PAC.Geometry.IntVector2.html">IntVector2</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+  <dl class="typelist seealso">
+    <dt>See Also</dt>
+    <dd>
+    <div><a class="xref" href="PAC.Geometry.IntRect.html#PAC_Geometry_IntRect_bottomLeft">bottomLeft</a></div>
+    <div><a class="xref" href="PAC.Geometry.IntRect.html#PAC_Geometry_IntRect_bottomRight">bottomRight</a></div>
+    <div><a class="xref" href="PAC.Geometry.IntRect.html#PAC_Geometry_IntRect_topLeft">topLeft</a></div>
+    </dd>
+  </dl>
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="PAC_Geometry_IntRect_Count_" data-uid="PAC.Geometry.IntRect.Count*"></a>
+
+  <h3 id="PAC_Geometry_IntRect_Count" data-uid="PAC.Geometry.IntRect.Count">
+  Count
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Geometry/IntRect.cs/#L130"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The number of points in the rect.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int Count { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="PAC_Geometry_IntRect_bottomRight_" data-uid="PAC.Geometry.IntRect.bottomRight*"></a>
+
+  <h3 id="PAC_Geometry_IntRect_bottomRight" data-uid="PAC.Geometry.IntRect.bottomRight">
+  bottomRight
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Geometry/IntRect.cs/#L59"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The coordinates of the bottom-right point in the rect (inclusive).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IntVector2 bottomRight { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="PAC.Geometry.IntVector2.html">IntVector2</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+  <dl class="typelist seealso">
+    <dt>See Also</dt>
+    <dd>
+    <div><a class="xref" href="PAC.Geometry.IntRect.html#PAC_Geometry_IntRect_bottomLeft">bottomLeft</a></div>
+    <div><a class="xref" href="PAC.Geometry.IntRect.html#PAC_Geometry_IntRect_topRight">topRight</a></div>
+    <div><a class="xref" href="PAC.Geometry.IntRect.html#PAC_Geometry_IntRect_topLeft">topLeft</a></div>
+    </dd>
+  </dl>
+
+
+  <a id="PAC_Geometry_IntRect_height_" data-uid="PAC.Geometry.IntRect.height*"></a>
+
+  <h3 id="PAC_Geometry_IntRect_height" data-uid="PAC.Geometry.IntRect.height">
+  height
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Geometry/IntRect.cs/#L108"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The number of integer points the rect covers vertically.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int height { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+  <dl class="typelist seealso">
+    <dt>See Also</dt>
+    <dd>
+    <div><a class="xref" href="PAC.Geometry.IntRect.html#PAC_Geometry_IntRect_width">width</a></div>
+    <div><a class="xref" href="PAC.Geometry.IntRect.html#PAC_Geometry_IntRect_size">size</a></div>
+    </dd>
+  </dl>
+
+
+  <a id="PAC_Geometry_IntRect_isSquare_" data-uid="PAC.Geometry.IntRect.isSquare*"></a>
+
+  <h3 id="PAC_Geometry_IntRect_isSquare" data-uid="PAC.Geometry.IntRect.isSquare">
+  isSquare
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Geometry/IntRect.cs/#L136"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Whether the rect is a square - i.e. the <a class="xref" href="PAC.Geometry.IntRect.html#PAC_Geometry_IntRect_width">width</a> and <a class="xref" href="PAC.Geometry.IntRect.html#PAC_Geometry_IntRect_height">height</a> are equal.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool isSquare { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+  <dl class="typelist seealso">
+    <dt>See Also</dt>
+    <dd>
+    <div><a class="xref" href="PAC.Geometry.IntRect.html#PAC_Geometry_IntRect_IsSquare_PAC_Geometry_IntRect_">IsSquare(IntRect)</a></div>
+    </dd>
+  </dl>
+
+
+  <a id="PAC_Geometry_IntRect_maxX_" data-uid="PAC.Geometry.IntRect.maxX*"></a>
+
+  <h3 id="PAC_Geometry_IntRect_maxX" data-uid="PAC.Geometry.IntRect.maxX">
+  maxX
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Geometry/IntRect.cs/#L81"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The maximum x coordinate of points in the rect.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int maxX { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+  <dl class="typelist seealso">
+    <dt>See Also</dt>
+    <dd>
+    <div><a class="xref" href="PAC.Geometry.IntRect.html#PAC_Geometry_IntRect_minX">minX</a></div>
+    <div><a class="xref" href="PAC.Geometry.IntRect.html#PAC_Geometry_IntRect_minY">minY</a></div>
+    <div><a class="xref" href="PAC.Geometry.IntRect.html#PAC_Geometry_IntRect_maxY">maxY</a></div>
+    </dd>
+  </dl>
+
+
+  <a id="PAC_Geometry_IntRect_maxY_" data-uid="PAC.Geometry.IntRect.maxY*"></a>
+
+  <h3 id="PAC_Geometry_IntRect_maxY" data-uid="PAC.Geometry.IntRect.maxY">
+  maxY
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Geometry/IntRect.cs/#L95"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The maximum y coordinate of points in the rect.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int maxY { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+  <dl class="typelist seealso">
+    <dt>See Also</dt>
+    <dd>
+    <div><a class="xref" href="PAC.Geometry.IntRect.html#PAC_Geometry_IntRect_minX">minX</a></div>
+    <div><a class="xref" href="PAC.Geometry.IntRect.html#PAC_Geometry_IntRect_maxX">maxX</a></div>
+    <div><a class="xref" href="PAC.Geometry.IntRect.html#PAC_Geometry_IntRect_minY">minY</a></div>
+    </dd>
+  </dl>
+
+
+  <a id="PAC_Geometry_IntRect_minX_" data-uid="PAC.Geometry.IntRect.minX*"></a>
+
+  <h3 id="PAC_Geometry_IntRect_minX" data-uid="PAC.Geometry.IntRect.minX">
+  minX
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Geometry/IntRect.cs/#L74"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The minimum x coordinate of points in the rect.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int minX { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+  <dl class="typelist seealso">
+    <dt>See Also</dt>
+    <dd>
+    <div><a class="xref" href="PAC.Geometry.IntRect.html#PAC_Geometry_IntRect_maxX">maxX</a></div>
+    <div><a class="xref" href="PAC.Geometry.IntRect.html#PAC_Geometry_IntRect_minY">minY</a></div>
+    <div><a class="xref" href="PAC.Geometry.IntRect.html#PAC_Geometry_IntRect_maxY">maxY</a></div>
+    </dd>
+  </dl>
+
+
+  <a id="PAC_Geometry_IntRect_minY_" data-uid="PAC.Geometry.IntRect.minY*"></a>
+
+  <h3 id="PAC_Geometry_IntRect_minY" data-uid="PAC.Geometry.IntRect.minY">
+  minY
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Geometry/IntRect.cs/#L88"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The minimum y coordinate of points in the rect.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int minY { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+  <dl class="typelist seealso">
+    <dt>See Also</dt>
+    <dd>
+    <div><a class="xref" href="PAC.Geometry.IntRect.html#PAC_Geometry_IntRect_minX">minX</a></div>
+    <div><a class="xref" href="PAC.Geometry.IntRect.html#PAC_Geometry_IntRect_maxX">maxX</a></div>
+    <div><a class="xref" href="PAC.Geometry.IntRect.html#PAC_Geometry_IntRect_maxY">maxY</a></div>
+    </dd>
+  </dl>
+
+
+  <a id="PAC_Geometry_IntRect_size_" data-uid="PAC.Geometry.IntRect.size*"></a>
+
+  <h3 id="PAC_Geometry_IntRect_size" data-uid="PAC.Geometry.IntRect.size">
+  size
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Geometry/IntRect.cs/#L114"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The vector <code>(<a class="xref" href="PAC.Geometry.IntRect.html#PAC_Geometry_IntRect_width">width</a>, <a class="xref" href="PAC.Geometry.IntRect.html#PAC_Geometry_IntRect_height">height</a>)</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IntVector2 size { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="PAC.Geometry.IntVector2.html">IntVector2</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+  <dl class="typelist seealso">
+    <dt>See Also</dt>
+    <dd>
+    <div><a class="xref" href="PAC.Geometry.IntRect.html#PAC_Geometry_IntRect_width">width</a></div>
+    <div><a class="xref" href="PAC.Geometry.IntRect.html#PAC_Geometry_IntRect_height">height</a></div>
+    </dd>
+  </dl>
+
+
+  <a id="PAC_Geometry_IntRect_topLeft_" data-uid="PAC.Geometry.IntRect.topLeft*"></a>
+
+  <h3 id="PAC_Geometry_IntRect_topLeft" data-uid="PAC.Geometry.IntRect.topLeft">
+  topLeft
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Geometry/IntRect.cs/#L66"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The coordinates of the top-left point in the rect (inclusive).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IntVector2 topLeft { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="PAC.Geometry.IntVector2.html">IntVector2</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+  <dl class="typelist seealso">
+    <dt>See Also</dt>
+    <dd>
+    <div><a class="xref" href="PAC.Geometry.IntRect.html#PAC_Geometry_IntRect_bottomLeft">bottomLeft</a></div>
+    <div><a class="xref" href="PAC.Geometry.IntRect.html#PAC_Geometry_IntRect_topRight">topRight</a></div>
+    <div><a class="xref" href="PAC.Geometry.IntRect.html#PAC_Geometry_IntRect_bottomRight">bottomRight</a></div>
+    </dd>
+  </dl>
+
+
+  <a id="PAC_Geometry_IntRect_width_" data-uid="PAC.Geometry.IntRect.width*"></a>
+
+  <h3 id="PAC_Geometry_IntRect_width" data-uid="PAC.Geometry.IntRect.width">
+  width
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Geometry/IntRect.cs/#L102"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The number of integer points the rect covers horizontally.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int width { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+  <dl class="typelist seealso">
+    <dt>See Also</dt>
+    <dd>
+    <div><a class="xref" href="PAC.Geometry.IntRect.html#PAC_Geometry_IntRect_height">height</a></div>
+    <div><a class="xref" href="PAC.Geometry.IntRect.html#PAC_Geometry_IntRect_size">size</a></div>
+    </dd>
+  </dl>
+
+
+  <a id="PAC_Geometry_IntRect_xRange_" data-uid="PAC.Geometry.IntRect.xRange*"></a>
+
+  <h3 id="PAC_Geometry_IntRect_xRange" data-uid="PAC.Geometry.IntRect.xRange">
+  xRange
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Geometry/IntRect.cs/#L120"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The inclusive range of x coordinates in the rect, in increasing order.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IntRange xRange { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="PAC.DataStructures.IntRange.html">IntRange</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+  <dl class="typelist seealso">
+    <dt>See Also</dt>
+    <dd>
+    <div><a class="xref" href="PAC.Geometry.IntRect.html#PAC_Geometry_IntRect_yRange">yRange</a></div>
+    </dd>
+  </dl>
+
+
+  <a id="PAC_Geometry_IntRect_yRange_" data-uid="PAC.Geometry.IntRect.yRange*"></a>
+
+  <h3 id="PAC_Geometry_IntRect_yRange" data-uid="PAC.Geometry.IntRect.yRange">
+  yRange
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Geometry/IntRect.cs/#L125"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The inclusive range of y coordinates in the rect, in increasing order.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IntRange yRange { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="PAC.DataStructures.IntRange.html">IntRange</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="PAC_Geometry_IntRect_BoundingRect_" data-uid="PAC.Geometry.IntRect.BoundingRect*"></a>
+
+  <h3 id="PAC_Geometry_IntRect_BoundingRect_PAC_Geometry_IntRect_PAC_Geometry_IntRect_" data-uid="PAC.Geometry.IntRect.BoundingRect(PAC.Geometry.IntRect,PAC.Geometry.IntRect)">
+  BoundingRect(IntRect, IntRect)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Geometry/IntRect.cs/#L427"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the smallest rect containing both the given rects.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static IntRect BoundingRect(IntRect a, IntRect b)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <a class="xref" href="PAC.Geometry.IntRect.html">IntRect</a></dt>
+    <dd></dd>
+    <dt><code>b</code> <a class="xref" href="PAC.Geometry.IntRect.html">IntRect</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="PAC.Geometry.IntRect.html">IntRect</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="PAC_Geometry_IntRect_BoundingRect_" data-uid="PAC.Geometry.IntRect.BoundingRect*"></a>
+
+  <h3 id="PAC_Geometry_IntRect_BoundingRect_PAC_Geometry_IntRect___" data-uid="PAC.Geometry.IntRect.BoundingRect(PAC.Geometry.IntRect[])">
+  BoundingRect(params IntRect[])
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Geometry/IntRect.cs/#L433"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the smallest rect containing all the given rects.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static IntRect BoundingRect(params IntRect[] rects)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>rects</code> <a class="xref" href="PAC.Geometry.IntRect.html">IntRect</a>[]</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="PAC.Geometry.IntRect.html">IntRect</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p><code class="paramref">rects</code> is null.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p><code class="paramref">rects</code> is empty.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="PAC_Geometry_IntRect_BoundingRect_" data-uid="PAC.Geometry.IntRect.BoundingRect*"></a>
+
+  <h3 id="PAC_Geometry_IntRect_BoundingRect_PAC_Geometry_IntVector2___" data-uid="PAC.Geometry.IntRect.BoundingRect(PAC.Geometry.IntVector2[])">
+  BoundingRect(params IntVector2[])
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Geometry/IntRect.cs/#L417"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the smallest rect containing all the given vectors.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static IntRect BoundingRect(params IntVector2[] vectors)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>vectors</code> <a class="xref" href="PAC.Geometry.IntVector2.html">IntVector2</a>[]</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="PAC.Geometry.IntRect.html">IntRect</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p><code class="paramref">vectors</code> is null.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p><code class="paramref">vectors</code> is empty.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="PAC_Geometry_IntRect_BoundingRect_" data-uid="PAC.Geometry.IntRect.BoundingRect*"></a>
+
+  <h3 id="PAC_Geometry_IntRect_BoundingRect_System_Collections_Generic_IEnumerable_PAC_Geometry_IntRect__" data-uid="PAC.Geometry.IntRect.BoundingRect(System.Collections.Generic.IEnumerable{PAC.Geometry.IntRect})">
+  BoundingRect(IEnumerable&lt;IntRect&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Geometry/IntRect.cs/#L439"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the smallest rect containing all the given rects.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static IntRect BoundingRect(IEnumerable&lt;IntRect&gt; rects)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>rects</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="PAC.Geometry.IntRect.html">IntRect</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="PAC.Geometry.IntRect.html">IntRect</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p><code class="paramref">rects</code> is null.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p><code class="paramref">rects</code> is empty.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="PAC_Geometry_IntRect_BoundingRect_" data-uid="PAC.Geometry.IntRect.BoundingRect*"></a>
+
+  <h3 id="PAC_Geometry_IntRect_BoundingRect_System_Collections_Generic_IEnumerable_PAC_Geometry_IntVector2__" data-uid="PAC.Geometry.IntRect.BoundingRect(System.Collections.Generic.IEnumerable{PAC.Geometry.IntVector2})">
+  BoundingRect(IEnumerable&lt;IntVector2&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Geometry/IntRect.cs/#L423"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the smallest rect containing all the given vectors.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static IntRect BoundingRect(IEnumerable&lt;IntVector2&gt; vectors)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>vectors</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="PAC.Geometry.IntVector2.html">IntVector2</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="PAC.Geometry.IntRect.html">IntRect</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p><code class="paramref">vectors</code> is null.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p><code class="paramref">vectors</code> is empty.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="PAC_Geometry_IntRect_Clamp_" data-uid="PAC.Geometry.IntRect.Clamp*"></a>
+
+  <h3 id="PAC_Geometry_IntRect_Clamp_PAC_Geometry_IntVector2_" data-uid="PAC.Geometry.IntRect.Clamp(PAC.Geometry.IntVector2)">
+  Clamp(IntVector2)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Geometry/IntRect.cs/#L338"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the point in the rect that is closest to the given vector.
+Equivalently, it clamps the vector's x coord to be in the rect's range of x coords, and clamps the vector's y coord to be in the rect's range of y coords.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IntVector2 Clamp(IntVector2 vector)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>vector</code> <a class="xref" href="PAC.Geometry.IntVector2.html">IntVector2</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="PAC.Geometry.IntVector2.html">IntVector2</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <dl class="typelist seealso">
+    <dt>See Also</dt>
+    <dd>
+    <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.math.clamp#system-math-clamp(system-int32-system-int32-system-int32)">Clamp</a>(<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>)</div>
+    </dd>
+  </dl>
+
+
+  <a id="PAC_Geometry_IntRect_Contains_" data-uid="PAC.Geometry.IntRect.Contains*"></a>
+
+  <h3 id="PAC_Geometry_IntRect_Contains_PAC_Geometry_IntVector2_" data-uid="PAC.Geometry.IntRect.Contains(PAC.Geometry.IntVector2)">
+  Contains(IntVector2)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Geometry/IntRect.cs/#L257"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Whether the point is in the rect.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool Contains(IntVector2 point)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>point</code> <a class="xref" href="PAC.Geometry.IntVector2.html">IntVector2</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <dl class="typelist seealso">
+    <dt>See Also</dt>
+    <dd>
+    <div><a class="xref" href="PAC.Geometry.IntRect.html#PAC_Geometry_IntRect_Contains_System_Int32_System_Int32_">Contains(int, int)</a></div>
+    </dd>
+  </dl>
+
+
+  <a id="PAC_Geometry_IntRect_Contains_" data-uid="PAC.Geometry.IntRect.Contains*"></a>
+
+  <h3 id="PAC_Geometry_IntRect_Contains_System_Int32_System_Int32_" data-uid="PAC.Geometry.IntRect.Contains(System.Int32,System.Int32)">
+  Contains(int, int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Geometry/IntRect.cs/#L262"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Whether the point <code>(<code class="paramref">x</code>, <code class="paramref">y</code>)</code> is in the rect.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool Contains(int x, int y)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>x</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>y</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <dl class="typelist seealso">
+    <dt>See Also</dt>
+    <dd>
+    <div><a class="xref" href="PAC.Geometry.IntRect.html#PAC_Geometry_IntRect_Contains_PAC_Geometry_IntVector2_">Contains(IntVector2)</a></div>
+    </dd>
+  </dl>
+
+
+  <a id="PAC_Geometry_IntRect_ContainsX_" data-uid="PAC.Geometry.IntRect.ContainsX*"></a>
+
+  <h3 id="PAC_Geometry_IntRect_ContainsX_System_Int32_" data-uid="PAC.Geometry.IntRect.ContainsX(System.Int32)">
+  ContainsX(int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Geometry/IntRect.cs/#L268"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns whether the rect contains any points with the given x coord.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool ContainsX(int x)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>x</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <dl class="typelist seealso">
+    <dt>See Also</dt>
+    <dd>
+    <div><a class="xref" href="PAC.Geometry.IntRect.html#PAC_Geometry_IntRect_ContainsY_System_Int32_">ContainsY(int)</a></div>
+    </dd>
+  </dl>
+
+
+  <a id="PAC_Geometry_IntRect_ContainsY_" data-uid="PAC.Geometry.IntRect.ContainsY*"></a>
+
+  <h3 id="PAC_Geometry_IntRect_ContainsY_System_Int32_" data-uid="PAC.Geometry.IntRect.ContainsY(System.Int32)">
+  ContainsY(int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Geometry/IntRect.cs/#L273"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns whether the rect contains any points with the given y coord.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool ContainsY(int y)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>y</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <dl class="typelist seealso">
+    <dt>See Also</dt>
+    <dd>
+    <div><a class="xref" href="PAC.Geometry.IntRect.html#PAC_Geometry_IntRect_ContainsX_System_Int32_">ContainsX(int)</a></div>
+    </dd>
+  </dl>
+
+
+  <a id="PAC_Geometry_IntRect_Equals_" data-uid="PAC.Geometry.IntRect.Equals*"></a>
+
+  <h3 id="PAC_Geometry_IntRect_Equals_PAC_Geometry_IntRect_" data-uid="PAC.Geometry.IntRect.Equals(PAC.Geometry.IntRect)">
+  Equals(IntRect)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Geometry/IntRect.cs/#L227"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The same as <a class="xref" href="PAC.Geometry.IntRect.html#PAC_Geometry_IntRect_op_Equality_PAC_Geometry_IntRect_PAC_Geometry_IntRect_">operator ==(IntRect, IntRect)</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool Equals(IntRect other)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>other</code> <a class="xref" href="PAC.Geometry.IntRect.html">IntRect</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="PAC_Geometry_IntRect_Equals_" data-uid="PAC.Geometry.IntRect.Equals*"></a>
+
+  <h3 id="PAC_Geometry_IntRect_Equals_System_Object_" data-uid="PAC.Geometry.IntRect.Equals(System.Object)">
+  Equals(object)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Geometry/IntRect.cs/#L231"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The same as <a class="xref" href="PAC.Geometry.IntRect.html#PAC_Geometry_IntRect_Equals_PAC_Geometry_IntRect_">Equals(IntRect)</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override bool Equals(object obj)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>obj</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="PAC_Geometry_IntRect_FilterPointsInside_" data-uid="PAC.Geometry.IntRect.FilterPointsInside*"></a>
+
+  <h3 id="PAC_Geometry_IntRect_FilterPointsInside_System_Collections_Generic_IEnumerable_PAC_Geometry_IntVector2__" data-uid="PAC.Geometry.IntRect.FilterPointsInside(System.Collections.Generic.IEnumerable{PAC.Geometry.IntVector2})">
+  FilterPointsInside(IEnumerable&lt;IntVector2&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Geometry/IntRect.cs/#L388"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the elements of the sequence that are in this rect.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IEnumerable&lt;IntVector2&gt; FilterPointsInside(IEnumerable&lt;IntVector2&gt; vectors)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>vectors</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="PAC.Geometry.IntVector2.html">IntVector2</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="PAC.Geometry.IntVector2.html">IntVector2</a>&gt;</dt>
+    <dd><p>A lazily-generated sequence containing the elements of <code class="paramref">vectors</code> that are in this rect.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="PAC_Geometry_IntRect_FilterPointsInside_System_Collections_Generic_IEnumerable_PAC_Geometry_IntVector2___remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>Preserves the order of the sequence.</p>
+</div>
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p><code class="paramref">vectors</code> is null.</p>
+</dd>
+  </dl>
+
+  <dl class="typelist seealso">
+    <dt>See Also</dt>
+    <dd>
+    <div><a class="xref" href="PAC.Geometry.IntRect.html#PAC_Geometry_IntRect_FilterPointsOutside_System_Collections_Generic_IEnumerable_PAC_Geometry_IntVector2__">FilterPointsOutside(IEnumerable&lt;IntVector2&gt;)</a></div>
+    </dd>
+  </dl>
+
+
+  <a id="PAC_Geometry_IntRect_FilterPointsOutside_" data-uid="PAC.Geometry.IntRect.FilterPointsOutside*"></a>
+
+  <h3 id="PAC_Geometry_IntRect_FilterPointsOutside_System_Collections_Generic_IEnumerable_PAC_Geometry_IntVector2__" data-uid="PAC.Geometry.IntRect.FilterPointsOutside(System.Collections.Generic.IEnumerable{PAC.Geometry.IntVector2})">
+  FilterPointsOutside(IEnumerable&lt;IntVector2&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Geometry/IntRect.cs/#L405"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the elements of the sequence that are outside this rect.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IEnumerable&lt;IntVector2&gt; FilterPointsOutside(IEnumerable&lt;IntVector2&gt; vectors)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>vectors</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="PAC.Geometry.IntVector2.html">IntVector2</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="PAC.Geometry.IntVector2.html">IntVector2</a>&gt;</dt>
+    <dd><p>A lazily-generated sequence containing the elements of <code class="paramref">vectors</code> that are not in this rect.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="PAC_Geometry_IntRect_FilterPointsOutside_System_Collections_Generic_IEnumerable_PAC_Geometry_IntVector2___remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>Preserves the order of the sequence.</p>
+</div>
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p><code class="paramref">vectors</code> is null.</p>
+</dd>
+  </dl>
+
+  <dl class="typelist seealso">
+    <dt>See Also</dt>
+    <dd>
+    <div><a class="xref" href="PAC.Geometry.IntRect.html#PAC_Geometry_IntRect_FilterPointsInside_System_Collections_Generic_IEnumerable_PAC_Geometry_IntVector2__">FilterPointsInside(IEnumerable&lt;IntVector2&gt;)</a></div>
+    </dd>
+  </dl>
+
+
+  <a id="PAC_Geometry_IntRect_Flip_" data-uid="PAC.Geometry.IntRect.Flip*"></a>
+
+  <h3 id="PAC_Geometry_IntRect_Flip_PAC_Geometry_Axes_CardinalOrdinalAxis_" data-uid="PAC.Geometry.IntRect.Flip(PAC.Geometry.Axes.CardinalOrdinalAxis)">
+  Flip(CardinalOrdinalAxis)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Geometry/IntRect.cs/#L464"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the rect flipped across the given axis.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IntRect Flip(CardinalOrdinalAxis axis)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>axis</code> <a class="xref" href="PAC.Geometry.Axes.CardinalOrdinalAxis.html">CardinalOrdinalAxis</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="PAC.Geometry.IntRect.html">IntRect</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p><code class="paramref">axis</code> is null.</p>
+</dd>
+  </dl>
+
+  <dl class="typelist seealso">
+    <dt>See Also</dt>
+    <dd>
+    <div><a class="xref" href="PAC.Geometry.IntVector2.html#PAC_Geometry_IntVector2_Flip_PAC_Geometry_Axes_CardinalOrdinalAxis_">Flip</a>(<a class="xref" href="PAC.Geometry.Axes.CardinalOrdinalAxis.html">CardinalOrdinalAxis</a>)</div>
+    </dd>
+  </dl>
+
+
+  <a id="PAC_Geometry_IntRect_GetEnumerator_" data-uid="PAC.Geometry.IntRect.GetEnumerator*"></a>
+
+  <h3 id="PAC_Geometry_IntRect_GetEnumerator" data-uid="PAC.Geometry.IntRect.GetEnumerator">
+  GetEnumerator()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Geometry/IntRect.cs/#L492"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Iterates over the points in the rect, starting with the bottom row, read left to right, then the next row, etc.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IEnumerator&lt;IntVector2&gt; GetEnumerator()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerator-1">IEnumerator</a>&lt;<a class="xref" href="PAC.Geometry.IntVector2.html">IntVector2</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="PAC_Geometry_IntRect_GetEnumerator_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>The ordering of this enumerator is useful since it matches the expected order of pixels in Unity's Texture2D.SetPixels(Color[]).</p>
+</div>
+
+
+
+
+  <a id="PAC_Geometry_IntRect_GetHashCode_" data-uid="PAC.Geometry.IntRect.GetHashCode*"></a>
+
+  <h3 id="PAC_Geometry_IntRect_GetHashCode" data-uid="PAC.Geometry.IntRect.GetHashCode">
+  GetHashCode()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Geometry/IntRect.cs/#L233"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the hash code for this instance.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override int GetHashCode()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>A 32-bit signed integer that is the hash code for this instance.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="PAC_Geometry_IntRect_Intersection_" data-uid="PAC.Geometry.IntRect.Intersection*"></a>
+
+  <h3 id="PAC_Geometry_IntRect_Intersection_PAC_Geometry_IntRect_" data-uid="PAC.Geometry.IntRect.Intersection(PAC.Geometry.IntRect)">
+  Intersection(IntRect)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Geometry/IntRect.cs/#L317"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the set intersection of the two rects.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IntRect Intersection(IntRect other)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>other</code> <a class="xref" href="PAC.Geometry.IntRect.html">IntRect</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="PAC.Geometry.IntRect.html">IntRect</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.invalidoperationexception">InvalidOperationException</a></dt>
+    <dd><p>This rect and <code class="paramref">other</code> do not intersect.</p>
+</dd>
+  </dl>
+
+  <dl class="typelist seealso">
+    <dt>See Also</dt>
+    <dd>
+    <div><a class="xref" href="PAC.Geometry.IntRect.html#PAC_Geometry_IntRect_Intersection_PAC_Geometry_IntRect_PAC_Geometry_IntRect_">Intersection(IntRect, IntRect)</a></div>
+    </dd>
+  </dl>
+
+
+  <a id="PAC_Geometry_IntRect_Intersection_" data-uid="PAC.Geometry.IntRect.Intersection*"></a>
+
+  <h3 id="PAC_Geometry_IntRect_Intersection_PAC_Geometry_IntRect_PAC_Geometry_IntRect_" data-uid="PAC.Geometry.IntRect.Intersection(PAC.Geometry.IntRect,PAC.Geometry.IntRect)">
+  Intersection(IntRect, IntRect)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Geometry/IntRect.cs/#L323"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the set intersection of the two rects.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static IntRect Intersection(IntRect a, IntRect b)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <a class="xref" href="PAC.Geometry.IntRect.html">IntRect</a></dt>
+    <dd></dd>
+    <dt><code>b</code> <a class="xref" href="PAC.Geometry.IntRect.html">IntRect</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="PAC.Geometry.IntRect.html">IntRect</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.invalidoperationexception">InvalidOperationException</a></dt>
+    <dd><p><code class="paramref">a</code> and <code class="paramref">b</code> do not intersect.</p>
+</dd>
+  </dl>
+
+  <dl class="typelist seealso">
+    <dt>See Also</dt>
+    <dd>
+    <div><a class="xref" href="PAC.Geometry.IntRect.html#PAC_Geometry_IntRect_Intersection_PAC_Geometry_IntRect_">Intersection(IntRect)</a></div>
+    </dd>
+  </dl>
+
+
+  <a id="PAC_Geometry_IntRect_IsSquare_" data-uid="PAC.Geometry.IntRect.IsSquare*"></a>
+
+  <h3 id="PAC_Geometry_IntRect_IsSquare_PAC_Geometry_IntRect_" data-uid="PAC.Geometry.IntRect.IsSquare(PAC.Geometry.IntRect)">
+  IsSquare(IntRect)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Geometry/IntRect.cs/#L310"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Whether the rect is a square - i.e. the <a class="xref" href="PAC.Geometry.IntRect.html#PAC_Geometry_IntRect_width">width</a> and <a class="xref" href="PAC.Geometry.IntRect.html#PAC_Geometry_IntRect_height">height</a> are equal.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool IsSquare(IntRect rect)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>rect</code> <a class="xref" href="PAC.Geometry.IntRect.html">IntRect</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <dl class="typelist seealso">
+    <dt>See Also</dt>
+    <dd>
+    <div><a class="xref" href="PAC.Geometry.IntRect.html#PAC_Geometry_IntRect_isSquare">isSquare</a></div>
+    </dd>
+  </dl>
+
+
+  <a id="PAC_Geometry_IntRect_IsSubsetOf_" data-uid="PAC.Geometry.IntRect.IsSubsetOf*"></a>
+
+  <h3 id="PAC_Geometry_IntRect_IsSubsetOf_PAC_Geometry_IntRect_" data-uid="PAC.Geometry.IntRect.IsSubsetOf(PAC.Geometry.IntRect)">
+  IsSubsetOf(IntRect)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Geometry/IntRect.cs/#L246"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Whether this rect is a subset of <code class="paramref">other</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool IsSubsetOf(IntRect other)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>other</code> <a class="xref" href="PAC.Geometry.IntRect.html">IntRect</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <dl class="typelist seealso">
+    <dt>See Also</dt>
+    <dd>
+    <div><a class="xref" href="PAC.Geometry.IntRect.html#PAC_Geometry_IntRect_IsSupersetOf_PAC_Geometry_IntRect_">IsSupersetOf(IntRect)</a></div>
+    </dd>
+  </dl>
+
+
+  <a id="PAC_Geometry_IntRect_IsSupersetOf_" data-uid="PAC.Geometry.IntRect.IsSupersetOf*"></a>
+
+  <h3 id="PAC_Geometry_IntRect_IsSupersetOf_PAC_Geometry_IntRect_" data-uid="PAC.Geometry.IntRect.IsSupersetOf(PAC.Geometry.IntRect)">
+  IsSupersetOf(IntRect)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Geometry/IntRect.cs/#L251"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Whether this rect is a superset of <code class="paramref">other</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool IsSupersetOf(IntRect other)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>other</code> <a class="xref" href="PAC.Geometry.IntRect.html">IntRect</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <dl class="typelist seealso">
+    <dt>See Also</dt>
+    <dd>
+    <div><a class="xref" href="PAC.Geometry.IntRect.html#PAC_Geometry_IntRect_IsSubsetOf_PAC_Geometry_IntRect_">IsSubsetOf(IntRect)</a></div>
+    </dd>
+  </dl>
+
+
+  <a id="PAC_Geometry_IntRect_Overlap_" data-uid="PAC.Geometry.IntRect.Overlap*"></a>
+
+  <h3 id="PAC_Geometry_IntRect_Overlap_PAC_Geometry_IntRect_PAC_Geometry_IntRect_" data-uid="PAC.Geometry.IntRect.Overlap(PAC.Geometry.IntRect,PAC.Geometry.IntRect)">
+  Overlap(IntRect, IntRect)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Geometry/IntRect.cs/#L284"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Whether the two rects have any points in common.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool Overlap(IntRect a, IntRect b)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <a class="xref" href="PAC.Geometry.IntRect.html">IntRect</a></dt>
+    <dd></dd>
+    <dt><code>b</code> <a class="xref" href="PAC.Geometry.IntRect.html">IntRect</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <dl class="typelist seealso">
+    <dt>See Also</dt>
+    <dd>
+    <div><a class="xref" href="PAC.Geometry.IntRect.html#PAC_Geometry_IntRect_Overlaps_PAC_Geometry_IntRect_">Overlaps(IntRect)</a></div>
+    </dd>
+  </dl>
+
+
+  <a id="PAC_Geometry_IntRect_Overlaps_" data-uid="PAC.Geometry.IntRect.Overlaps*"></a>
+
+  <h3 id="PAC_Geometry_IntRect_Overlaps_PAC_Geometry_IntRect_" data-uid="PAC.Geometry.IntRect.Overlaps(PAC.Geometry.IntRect)">
+  Overlaps(IntRect)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Geometry/IntRect.cs/#L279"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Whether the two rects have any points in common.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool Overlaps(IntRect rect)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>rect</code> <a class="xref" href="PAC.Geometry.IntRect.html">IntRect</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <dl class="typelist seealso">
+    <dt>See Also</dt>
+    <dd>
+    <div><a class="xref" href="PAC.Geometry.IntRect.html#PAC_Geometry_IntRect_Overlap_PAC_Geometry_IntRect_PAC_Geometry_IntRect_">Overlap(IntRect, IntRect)</a></div>
+    </dd>
+  </dl>
+
+
+  <a id="PAC_Geometry_IntRect_RandomPoint_" data-uid="PAC.Geometry.IntRect.RandomPoint*"></a>
+
+  <h3 id="PAC_Geometry_IntRect_RandomPoint_System_Random_" data-uid="PAC.Geometry.IntRect.RandomPoint(System.Random)">
+  RandomPoint(Random)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Geometry/IntRect.cs/#L471"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Generates a uniformly random point within the rect.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IntVector2 RandomPoint(Random random)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>random</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.random">Random</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="PAC.Geometry.IntVector2.html">IntVector2</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="PAC_Geometry_IntRect_RandomSubRect_" data-uid="PAC.Geometry.IntRect.RandomSubRect*"></a>
+
+  <h3 id="PAC_Geometry_IntRect_RandomSubRect_System_Random_" data-uid="PAC.Geometry.IntRect.RandomSubRect(System.Random)">
+  RandomSubRect(Random)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Geometry/IntRect.cs/#L475"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the rect defined by two independently uniformly randomly generated points within the rect.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IntRect RandomSubRect(Random random)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>random</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.random">Random</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="PAC.Geometry.IntRect.html">IntRect</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="PAC_Geometry_IntRect_Rotate_" data-uid="PAC.Geometry.IntRect.Rotate*"></a>
+
+  <h3 id="PAC_Geometry_IntRect_Rotate_PAC_Geometry_QuadrantalAngle_" data-uid="PAC.Geometry.IntRect.Rotate(PAC.Geometry.QuadrantalAngle)">
+  Rotate(QuadrantalAngle)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Geometry/IntRect.cs/#L457"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the rect rotated clockwise by the given angle.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IntRect Rotate(QuadrantalAngle angle)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>angle</code> <a class="xref" href="PAC.Geometry.QuadrantalAngle.html">QuadrantalAngle</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="PAC.Geometry.IntRect.html">IntRect</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <dl class="typelist seealso">
+    <dt>See Also</dt>
+    <dd>
+    <div><a class="xref" href="PAC.Geometry.IntVector2.html#PAC_Geometry_IntVector2_Rotate_PAC_Geometry_QuadrantalAngle_">Rotate</a>(<a class="xref" href="PAC.Geometry.QuadrantalAngle.html">QuadrantalAngle</a>)</div>
+    </dd>
+  </dl>
+
+
+  <a id="PAC_Geometry_IntRect_SetEquals_" data-uid="PAC.Geometry.IntRect.SetEquals*"></a>
+
+  <h3 id="PAC_Geometry_IntRect_SetEquals_PAC_Geometry_IntRect_" data-uid="PAC.Geometry.IntRect.SetEquals(PAC.Geometry.IntRect)">
+  SetEquals(IntRect)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Geometry/IntRect.cs/#L241"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Whether the two rects describe the same set of points.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool SetEquals(IntRect other)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>other</code> <a class="xref" href="PAC.Geometry.IntRect.html">IntRect</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="PAC_Geometry_IntRect_SetEquals_PAC_Geometry_IntRect__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>The is the same as <a class="xref" href="PAC.Geometry.IntRect.html#PAC_Geometry_IntRect_op_Equality_PAC_Geometry_IntRect_PAC_Geometry_IntRect_">operator ==(IntRect, IntRect)</a>.</p>
+</div>
+
+
+
+
+  <a id="PAC_Geometry_IntRect_ToString_" data-uid="PAC.Geometry.IntRect.ToString*"></a>
+
+  <h3 id="PAC_Geometry_IntRect_ToString" data-uid="PAC.Geometry.IntRect.ToString">
+  ToString()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Geometry/IntRect.cs/#L507"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Represents the rect as a string in the form <code>&quot;((bottom-left x coord, bottom-left y coord), (top-right x coord, top-right y coord))&quot;</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override string ToString()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="PAC_Geometry_IntRect_TranslateClamp_" data-uid="PAC.Geometry.IntRect.TranslateClamp*"></a>
+
+  <h3 id="PAC_Geometry_IntRect_TranslateClamp_PAC_Geometry_IntRect_" data-uid="PAC.Geometry.IntRect.TranslateClamp(PAC.Geometry.IntRect)">
+  TranslateClamp(IntRect)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Geometry/IntRect.cs/#L347"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Translates <code class="paramref">toClamp</code> so it is a subset of this rect. Chooses the smallest such translation.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IntRect TranslateClamp(IntRect toClamp)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>toClamp</code> <a class="xref" href="PAC.Geometry.IntRect.html">IntRect</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="PAC.Geometry.IntRect.html">IntRect</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="PAC_Geometry_IntRect_TranslateClamp_PAC_Geometry_IntRect__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>Note this is only possible when <code class="paramref">toClamp</code> is at most as wide and at most as tall as this rect.</p>
+</div>
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p><code class="paramref">toClamp</code> is wider and/or taller than this rect.</p>
+</dd>
+  </dl>
+
+
+
+  <h2 class="section" id="operators">Operators
+</h2>
+
+
+  <a id="PAC_Geometry_IntRect_op_Addition_" data-uid="PAC.Geometry.IntRect.op_Addition*"></a>
+
+  <h3 id="PAC_Geometry_IntRect_op_Addition_PAC_Geometry_IntRect_PAC_Geometry_IntVector2_" data-uid="PAC.Geometry.IntRect.op_Addition(PAC.Geometry.IntRect,PAC.Geometry.IntVector2)">
+  operator +(IntRect, IntVector2)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Geometry/IntRect.cs/#L295"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Translates the rect by the given vector.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static IntRect operator +(IntRect rect, IntVector2 vector)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>rect</code> <a class="xref" href="PAC.Geometry.IntRect.html">IntRect</a></dt>
+    <dd></dd>
+    <dt><code>vector</code> <a class="xref" href="PAC.Geometry.IntVector2.html">IntVector2</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="PAC.Geometry.IntRect.html">IntRect</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="PAC_Geometry_IntRect_op_Addition_" data-uid="PAC.Geometry.IntRect.op_Addition*"></a>
+
+  <h3 id="PAC_Geometry_IntRect_op_Addition_PAC_Geometry_IntVector2_PAC_Geometry_IntRect_" data-uid="PAC.Geometry.IntRect.op_Addition(PAC.Geometry.IntVector2,PAC.Geometry.IntRect)">
+  operator +(IntVector2, IntRect)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Geometry/IntRect.cs/#L291"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Translates the rect by the given vector.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static IntRect operator +(IntVector2 vector, IntRect rect)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>vector</code> <a class="xref" href="PAC.Geometry.IntVector2.html">IntVector2</a></dt>
+    <dd></dd>
+    <dt><code>rect</code> <a class="xref" href="PAC.Geometry.IntRect.html">IntRect</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="PAC.Geometry.IntRect.html">IntRect</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="PAC_Geometry_IntRect_op_Equality_" data-uid="PAC.Geometry.IntRect.op_Equality*"></a>
+
+  <h3 id="PAC_Geometry_IntRect_op_Equality_PAC_Geometry_IntRect_PAC_Geometry_IntRect_" data-uid="PAC.Geometry.IntRect.op_Equality(PAC.Geometry.IntRect,PAC.Geometry.IntRect)">
+  operator ==(IntRect, IntRect)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Geometry/IntRect.cs/#L214"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Whether the two rects describe the same set of points.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool operator ==(IntRect a, IntRect b)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <a class="xref" href="PAC.Geometry.IntRect.html">IntRect</a></dt>
+    <dd></dd>
+    <dt><code>b</code> <a class="xref" href="PAC.Geometry.IntRect.html">IntRect</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="PAC_Geometry_IntRect_op_Equality_PAC_Geometry_IntRect_PAC_Geometry_IntRect__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>This is just the default <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/struct">struct</a> comparison (comparing fields).</p>
+</div>
+
+
+  <dl class="typelist seealso">
+    <dt>See Also</dt>
+    <dd>
+    <div><a class="xref" href="PAC.Geometry.IntRect.html#PAC_Geometry_IntRect_Equals_PAC_Geometry_IntRect_">Equals(IntRect)</a></div>
+    <div><a class="xref" href="PAC.Geometry.IntRect.html#PAC_Geometry_IntRect_SetEquals_PAC_Geometry_IntRect_">SetEquals(IntRect)</a></div>
+    </dd>
+  </dl>
+
+
+  <a id="PAC_Geometry_IntRect_op_Implicit_" data-uid="PAC.Geometry.IntRect.op_Implicit*"></a>
+
+  <h3 id="PAC_Geometry_IntRect_op_Implicit_PAC_Geometry_IntRect__RectInt" data-uid="PAC.Geometry.IntRect.op_Implicit(PAC.Geometry.IntRect)~RectInt">
+  implicit operator RectInt(IntRect)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Geometry/IntRect.cs/#L191"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Casts to Unity's RectInt.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static implicit operator RectInt(IntRect rect)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>rect</code> <a class="xref" href="PAC.Geometry.IntRect.html">IntRect</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">RectInt</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="PAC_Geometry_IntRect_op_Implicit_" data-uid="PAC.Geometry.IntRect.op_Implicit*"></a>
+
+  <h3 id="PAC_Geometry_IntRect_op_Implicit_RectInt__PAC_Geometry_IntRect" data-uid="PAC.Geometry.IntRect.op_Implicit(RectInt)~PAC.Geometry.IntRect">
+  implicit operator IntRect(RectInt)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Geometry/IntRect.cs/#L195"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Casts from Unity's RectInt.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static implicit operator IntRect(RectInt rect)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>rect</code> <span class="xref">RectInt</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="PAC.Geometry.IntRect.html">IntRect</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="PAC_Geometry_IntRect_op_Inequality_" data-uid="PAC.Geometry.IntRect.op_Inequality*"></a>
+
+  <h3 id="PAC_Geometry_IntRect_op_Inequality_PAC_Geometry_IntRect_PAC_Geometry_IntRect_" data-uid="PAC.Geometry.IntRect.op_Inequality(PAC.Geometry.IntRect,PAC.Geometry.IntRect)">
+  operator !=(IntRect, IntRect)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Geometry/IntRect.cs/#L223"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Whether the two rects describe different sets of points.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool operator !=(IntRect a, IntRect b)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <a class="xref" href="PAC.Geometry.IntRect.html">IntRect</a></dt>
+    <dd></dd>
+    <dt><code>b</code> <a class="xref" href="PAC.Geometry.IntRect.html">IntRect</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="PAC_Geometry_IntRect_op_Inequality_PAC_Geometry_IntRect_PAC_Geometry_IntRect__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>This is just the default <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/struct">struct</a> comparison (comparing fields).</p>
+</div>
+
+
+  <dl class="typelist seealso">
+    <dt>See Also</dt>
+    <dd>
+    <div><a class="xref" href="PAC.Geometry.IntRect.html#PAC_Geometry_IntRect_Equals_PAC_Geometry_IntRect_">Equals(IntRect)</a></div>
+    <div><a class="xref" href="PAC.Geometry.IntRect.html#PAC_Geometry_IntRect_SetEquals_PAC_Geometry_IntRect_">SetEquals(IntRect)</a></div>
+    </dd>
+  </dl>
+
+
+  <a id="PAC_Geometry_IntRect_op_Subtraction_" data-uid="PAC.Geometry.IntRect.op_Subtraction*"></a>
+
+  <h3 id="PAC_Geometry_IntRect_op_Subtraction_PAC_Geometry_IntRect_PAC_Geometry_IntVector2_" data-uid="PAC.Geometry.IntRect.op_Subtraction(PAC.Geometry.IntRect,PAC.Geometry.IntVector2)">
+  operator -(IntRect, IntVector2)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Geometry/IntRect.cs/#L300"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Translates the rect by the given vector.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static IntRect operator -(IntRect rect, IntVector2 vector)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>rect</code> <a class="xref" href="PAC.Geometry.IntRect.html">IntRect</a></dt>
+    <dd></dd>
+    <dt><code>vector</code> <a class="xref" href="PAC.Geometry.IntVector2.html">IntVector2</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="PAC.Geometry.IntRect.html">IntRect</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="PAC_Geometry_IntRect_op_UnaryNegation_" data-uid="PAC.Geometry.IntRect.op_UnaryNegation*"></a>
+
+  <h3 id="PAC_Geometry_IntRect_op_UnaryNegation_PAC_Geometry_IntRect_" data-uid="PAC.Geometry.IntRect.op_UnaryNegation(PAC.Geometry.IntRect)">
+  operator -(IntRect)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Geometry/IntRect.cs/#L304"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Negates each point in the rect.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static IntRect operator -(IntRect rect)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>rect</code> <a class="xref" href="PAC.Geometry.IntRect.html">IntRect</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="PAC.Geometry.IntRect.html">IntRect</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <h2 id="seealso">See Also</h2>
+  <div class="seealso">
+      <div><a class="xref" href="PAC.Geometry.IntVector2.html">IntVector2</a></div>
+      <div><a class="xref" href="PAC.DataStructures.IntRange.html">IntRange</a></div>
+  </div>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Geometry/IntRect.cs/#L33" class="edit-link">Edit this page</a>
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          Pixel Art Creator 2.0 Docs
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

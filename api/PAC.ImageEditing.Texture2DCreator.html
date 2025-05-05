@@ -157,7 +157,7 @@ Class Texture2DCreator  <a class="header-action link-secondary" title="View sour
 
   <h3 id="PAC_ImageEditing_Texture2DCreator_HSLHueSaturationGrid_System_Int32_System_Int32_" data-uid="PAC.ImageEditing.Texture2DCreator.HSLHueSaturationGrid(System.Int32,System.Int32)">
   HSLHueSaturationGrid(int, int)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Image Editing/Texture2DCreator.cs/#L132"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Image Editing/Texture2DCreator.cs/#L53"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Creates a Texture2D of size <code class="paramref">width</code> x <code class="paramref">height</code>, where the colour of a pixel is determined in HSL as follows:</p>
@@ -202,169 +202,11 @@ Class Texture2DCreator  <a class="header-action link-secondary" title="View sour
 
 
 
-  <a id="PAC_ImageEditing_Texture2DCreator_Solid_" data-uid="PAC.ImageEditing.Texture2DCreator.Solid*"></a>
-
-  <h3 id="PAC_ImageEditing_Texture2DCreator_Solid_System_Int32_System_Int32_Color_" data-uid="PAC.ImageEditing.Texture2DCreator.Solid(System.Int32,System.Int32,Color)">
-  Solid(int, int, Color)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Image Editing/Texture2DCreator.cs/#L53"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"><p>Creates a Texture2D of size <code class="paramref">width</code> x <code class="paramref">height</code>, filled with the given colour.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static Texture2D Solid(int width, int height, Color colour)</code></pre>
-  </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>width</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
-    <dd></dd>
-    <dt><code>height</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
-    <dd></dd>
-    <dt><code>colour</code> <span class="xref">Color</span></dt>
-    <dd></dd>
-  </dl>
-
-  <h4 class="section">Returns</h4>
-  <dl class="parameters">
-    <dt><span class="xref">Texture2D</span></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-  <h4 class="section" id="PAC_ImageEditing_Texture2DCreator_Solid_System_Int32_System_Int32_Color__remarks">Remarks</h4>
-  <div class="markdown level1 remarks"><p>
-<a class="xref" href="PAC.ImageEditing.Texture2DCreator.html#PAC_ImageEditing_Texture2DCreator_Solid_System_Int32_System_Int32_Color32_">Solid(int, int, Color32)</a> is faster.
-</p>
-<p>
-Calls Texture2D.Apply() on the returned Texture2D.
-</p>
-</div>
-
-  <h4 class="section">Exceptions</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></dt>
-    <dd><p><code class="paramref">width</code> or <code class="paramref">height</code> is &lt;= 0.</p>
-</dd>
-  </dl>
-
-
-
-  <a id="PAC_ImageEditing_Texture2DCreator_Solid_" data-uid="PAC.ImageEditing.Texture2DCreator.Solid*"></a>
-
-  <h3 id="PAC_ImageEditing_Texture2DCreator_Solid_System_Int32_System_Int32_Color32_" data-uid="PAC.ImageEditing.Texture2DCreator.Solid(System.Int32,System.Int32,Color32)">
-  Solid(int, int, Color32)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Image Editing/Texture2DCreator.cs/#L80"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"><p>Creates a Texture2D of size <code class="paramref">width</code> x <code class="paramref">height</code>, filled with the given colour.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static Texture2D Solid(int width, int height, Color32 colour)</code></pre>
-  </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>width</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
-    <dd></dd>
-    <dt><code>height</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
-    <dd></dd>
-    <dt><code>colour</code> <span class="xref">Color32</span></dt>
-    <dd></dd>
-  </dl>
-
-  <h4 class="section">Returns</h4>
-  <dl class="parameters">
-    <dt><span class="xref">Texture2D</span></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-  <h4 class="section" id="PAC_ImageEditing_Texture2DCreator_Solid_System_Int32_System_Int32_Color32__remarks">Remarks</h4>
-  <div class="markdown level1 remarks"><p>
-This is faster than <a class="xref" href="PAC.ImageEditing.Texture2DCreator.html#PAC_ImageEditing_Texture2DCreator_Solid_System_Int32_System_Int32_Color_">Solid(int, int, Color)</a>.
-</p>
-<p>
-Calls Texture2D.Apply() on the returned Texture2D.
-</p>
-</div>
-
-  <h4 class="section">Exceptions</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></dt>
-    <dd><p><code class="paramref">width</code> or <code class="paramref">height</code> is &lt;= 0.</p>
-</dd>
-  </dl>
-
-
-
-  <a id="PAC_ImageEditing_Texture2DCreator_Transparent_" data-uid="PAC.ImageEditing.Texture2DCreator.Transparent*"></a>
-
-  <h3 id="PAC_ImageEditing_Texture2DCreator_Transparent_System_Int32_System_Int32_" data-uid="PAC.ImageEditing.Texture2DCreator.Transparent(System.Int32,System.Int32)">
-  Transparent(int, int)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Image Editing/Texture2DCreator.cs/#L39"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"><p>Creates a transparent (alpha 0) Texture2D of size <code class="paramref">width</code> x <code class="paramref">height</code>.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static Texture2D Transparent(int width, int height)</code></pre>
-  </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>width</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
-    <dd></dd>
-    <dt><code>height</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
-    <dd></dd>
-  </dl>
-
-  <h4 class="section">Returns</h4>
-  <dl class="parameters">
-    <dt><span class="xref">Texture2D</span></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-  <h4 class="section" id="PAC_ImageEditing_Texture2DCreator_Transparent_System_Int32_System_Int32__remarks">Remarks</h4>
-  <div class="markdown level1 remarks"><p>Calls Texture2D.Apply() on the returned Texture2D.</p>
-</div>
-
-  <h4 class="section">Exceptions</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></dt>
-    <dd><p><code class="paramref">width</code> or <code class="paramref">height</code> is &lt;= 0.</p>
-</dd>
-  </dl>
-
-
-
   <a id="PAC_ImageEditing_Texture2DCreator_TransparentCheckerboardBackground_" data-uid="PAC.ImageEditing.Texture2DCreator.TransparentCheckerboardBackground*"></a>
 
   <h3 id="PAC_ImageEditing_Texture2DCreator_TransparentCheckerboardBackground_System_Int32_System_Int32_" data-uid="PAC.ImageEditing.Texture2DCreator.TransparentCheckerboardBackground(System.Int32,System.Int32)">
   TransparentCheckerboardBackground(int, int)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Image Editing/Texture2DCreator.cs/#L107"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Image Editing/Texture2DCreator.cs/#L28"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Creates a checkerboard Texture2D to act as the background for transparent pixels for a <code class="paramref">width</code> x <code class="paramref">height</code> image.</p>

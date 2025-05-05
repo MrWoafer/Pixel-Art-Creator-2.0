@@ -89,7 +89,7 @@
 
 
   <h1 id="PAC_Json_JsonConversion_JsonConverter_2" data-uid="PAC.Json.JsonConversion.JsonConverter`2" class="text-break">
-Class JsonConversion.JsonConverter&lt;T, JsonDataType&gt;  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/JSON/JsonConversion.cs/#L538"><i class="bi bi-code-slash"></i></a>
+Class JsonConversion.JsonConverter&lt;T, JsonDataType&gt;  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/JSON/JsonConversion.cs/#L540"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -134,19 +134,19 @@ NOTE: Has a default implementation for an overload FromJson(JsonData jsonData) t
   <dl class="typelist derived">
     <dt>Derived</dt>
     <dd>
-      <div><a class="xref" href="PAC.Animation.AnimationKeyFrame.JsonConverter.html">AnimationKeyFrame.JsonConverter</a></div>
       <div><a class="xref" href="PAC.Colour.Compositing.BlendMode.JsonConverter.html">BlendMode.JsonConverter</a></div>
       <div><a class="xref" href="PAC.DataStructures.SemanticVersion.JsonConverter.html">SemanticVersion.JsonConverter</a></div>
-      <div><a class="xref" href="PAC.Extensions.JsonConverters.ColorJsonConverter.html">JsonConverters.ColorJsonConverter</a></div>
-      <div><a class="xref" href="PAC.Extensions.JsonConverters.Texture2DJsonConverter.html">JsonConverters.Texture2DJsonConverter</a></div>
-      <div><a class="xref" href="PAC.Extensions.JsonConverters.Vector2JsonConverter.html">JsonConverters.Vector2JsonConverter</a></div>
-      <div><a class="xref" href="PAC.Extensions.JsonConverters.Vector3JsonConverter.html">JsonConverters.Vector3JsonConverter</a></div>
-      <div><a class="xref" href="PAC.Files.File.JsonConverter.html">File.JsonConverter</a></div>
+      <div><a class="xref" href="PAC.Image.Animation.AnimationKeyFrame.JsonConverter.html">AnimationKeyFrame.JsonConverter</a></div>
+      <div><a class="xref" href="PAC.Image.File.JsonConverter.html">File.JsonConverter</a></div>
+      <div><a class="xref" href="PAC.Image.Layers.Layer.JsonConverter.html">Layer.JsonConverter</a></div>
+      <div><a class="xref" href="PAC.Image.Layers.NormalLayer.JsonConverter.html">NormalLayer.JsonConverter</a></div>
+      <div><a class="xref" href="PAC.Image.Layers.TileLayer.JsonConverter.html">TileLayer.JsonConverter</a></div>
+      <div><a class="xref" href="PAC.Json.JsonConverters.JsonConverters.ColorJsonConverter.html">JsonConverters.ColorJsonConverter</a></div>
+      <div><a class="xref" href="PAC.Json.JsonConverters.JsonConverters.Texture2DJsonConverter.html">JsonConverters.Texture2DJsonConverter</a></div>
+      <div><a class="xref" href="PAC.Json.JsonConverters.JsonConverters.Vector2JsonConverter.html">JsonConverters.Vector2JsonConverter</a></div>
+      <div><a class="xref" href="PAC.Json.JsonConverters.JsonConverters.Vector3JsonConverter.html">JsonConverters.Vector3JsonConverter</a></div>
       <div><a class="xref" href="PAC.KeyboardShortcuts.CustomKeyCode.JsonConverter.html">CustomKeyCode.JsonConverter</a></div>
       <div><a class="xref" href="PAC.KeyboardShortcuts.KeyboardShortcut.JsonConverter.html">KeyboardShortcut.JsonConverter</a></div>
-      <div><a class="xref" href="PAC.Layers.Layer.JsonConverter.html">Layer.JsonConverter</a></div>
-      <div><a class="xref" href="PAC.Layers.NormalLayer.JsonConverter.html">NormalLayer.JsonConverter</a></div>
-      <div><a class="xref" href="PAC.Layers.TileLayer.JsonConverter.html">TileLayer.JsonConverter</a></div>
     </dd>
   </dl>
 
@@ -180,10 +180,10 @@ NOTE: Has a default implementation for an overload FromJson(JsonData jsonData) t
     <dt>Extension Methods</dt>
     <dd>
   <div>
-      <a class="xref" href="PAC.Extensions.ISetComparableExtensions.html#PAC_Extensions_ISetComparableExtensions_IsProperSubsetOf__2___0___1_">ISetComparableExtensions.IsProperSubsetOf&lt;T1, T2&gt;(T1, T2)</a>
+      <a class="xref" href="PAC.Interfaces.Extensions.ISetComparableExtensions.html#PAC_Interfaces_Extensions_ISetComparableExtensions_IsProperSubsetOf__2___0___1_">ISetComparableExtensions.IsProperSubsetOf&lt;T1, T2&gt;(T1, T2)</a>
   </div>
   <div>
-      <a class="xref" href="PAC.Extensions.ISetComparableExtensions.html#PAC_Extensions_ISetComparableExtensions_IsProperSupersetOf__2___0___1_">ISetComparableExtensions.IsProperSupersetOf&lt;T1, T2&gt;(T1, T2)</a>
+      <a class="xref" href="PAC.Interfaces.Extensions.ISetComparableExtensions.html#PAC_Interfaces_Extensions_ISetComparableExtensions_IsProperSupersetOf__2___0___1_">ISetComparableExtensions.IsProperSupersetOf&lt;T1, T2&gt;(T1, T2)</a>
   </div>
   </dd></dl>
 
@@ -199,7 +199,7 @@ NOTE: Has a default implementation for an overload FromJson(JsonData jsonData) t
 
   <h3 id="PAC_Json_JsonConversion_JsonConverter_2_FromJson_PAC_Json_JsonData_" data-uid="PAC.Json.JsonConversion.JsonConverter`2.FromJson(PAC.Json.JsonData)">
   FromJson(JsonData)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/JSON/JsonConversion.cs/#L557"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/JSON/JsonConversion.cs/#L559"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Attempts to convert the JSON data into a C# object of the given type. Ensures the JSON data is the correct type before calling the FromJson() overload for the specific type of JSON data.</p>
@@ -236,7 +236,7 @@ NOTE: Has a default implementation for an overload FromJson(JsonData jsonData) t
 
   <h3 id="PAC_Json_JsonConversion_JsonConverter_2_FromJson__1_" data-uid="PAC.Json.JsonConversion.JsonConverter`2.FromJson(`1)">
   FromJson(JsonDataType)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/JSON/JsonConversion.cs/#L553"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/JSON/JsonConversion.cs/#L555"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>
@@ -279,7 +279,7 @@ specific overload FromJSON(JsonDataType jsonData).
 
   <h3 id="PAC_Json_JsonConversion_JsonConverter_2_ToJson__0_" data-uid="PAC.Json.JsonConversion.JsonConverter`2.ToJson(`0)">
   ToJson(T)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/JSON/JsonConversion.cs/#L543"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/JSON/JsonConversion.cs/#L545"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Attempts to convert the C# object into JSON data.</p>
@@ -316,7 +316,7 @@ specific overload FromJSON(JsonDataType jsonData).
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/JSON/JsonConversion.cs/#L538" class="edit-link">Edit this page</a>
+          <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/JSON/JsonConversion.cs/#L540" class="edit-link">Edit this page</a>
         </div>
 
 

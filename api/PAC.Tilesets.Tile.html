@@ -89,7 +89,7 @@
 
 
   <h1 id="PAC_Tilesets_Tile" data-uid="PAC.Tilesets.Tile" class="text-break">
-Class Tile  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Tilesets/Tile.cs/#L11"><i class="bi bi-code-slash"></i></a>
+Class Tile  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Tilesets/Tile.cs/#L13"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -147,10 +147,10 @@ Class Tile  <a class="header-action link-secondary" title="View source" href="ht
     <dt>Extension Methods</dt>
     <dd>
   <div>
-      <a class="xref" href="PAC.Extensions.ISetComparableExtensions.html#PAC_Extensions_ISetComparableExtensions_IsProperSubsetOf__2___0___1_">ISetComparableExtensions.IsProperSubsetOf&lt;T1, T2&gt;(T1, T2)</a>
+      <a class="xref" href="PAC.Interfaces.Extensions.ISetComparableExtensions.html#PAC_Interfaces_Extensions_ISetComparableExtensions_IsProperSubsetOf__2___0___1_">ISetComparableExtensions.IsProperSubsetOf&lt;T1, T2&gt;(T1, T2)</a>
   </div>
   <div>
-      <a class="xref" href="PAC.Extensions.ISetComparableExtensions.html#PAC_Extensions_ISetComparableExtensions_IsProperSupersetOf__2___0___1_">ISetComparableExtensions.IsProperSupersetOf&lt;T1, T2&gt;(T1, T2)</a>
+      <a class="xref" href="PAC.Interfaces.Extensions.ISetComparableExtensions.html#PAC_Interfaces_Extensions_ISetComparableExtensions_IsProperSupersetOf__2___0___1_">ISetComparableExtensions.IsProperSupersetOf&lt;T1, T2&gt;(T1, T2)</a>
   </div>
   </dd></dl>
 
@@ -164,9 +164,9 @@ Class Tile  <a class="header-action link-secondary" title="View source" href="ht
 
   <a id="PAC_Tilesets_Tile__ctor_" data-uid="PAC.Tilesets.Tile.#ctor*"></a>
 
-  <h3 id="PAC_Tilesets_Tile__ctor_PAC_Files_File_PAC_DataStructures_IntVector2_PAC_Layers_TileLayer___" data-uid="PAC.Tilesets.Tile.#ctor(PAC.Files.File,PAC.DataStructures.IntVector2,PAC.Layers.TileLayer[])">
+  <h3 id="PAC_Tilesets_Tile__ctor_PAC_Image_File_PAC_Geometry_IntVector2_PAC_Image_Layers_TileLayer___" data-uid="PAC.Tilesets.Tile.#ctor(PAC.Image.File,PAC.Geometry.IntVector2,PAC.Image.Layers.TileLayer[])">
   Tile(File, IntVector2, TileLayer[])
-  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Tilesets/Tile.cs/#L76"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Tilesets/Tile.cs/#L78"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -178,11 +178,11 @@ Class Tile  <a class="header-action link-secondary" title="View source" href="ht
 
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
-    <dt><code>file</code> <a class="xref" href="PAC.Files.File.html">File</a></dt>
+    <dt><code>file</code> <a class="xref" href="PAC.Image.File.html">File</a></dt>
     <dd></dd>
-    <dt><code>bottomLeft</code> <a class="xref" href="PAC.DataStructures.IntVector2.html">IntVector2</a></dt>
+    <dt><code>bottomLeft</code> <a class="xref" href="PAC.Geometry.IntVector2.html">IntVector2</a></dt>
     <dd></dd>
-    <dt><code>linkedTileLayers</code> <a class="xref" href="PAC.Layers.TileLayer.html">TileLayer</a>[]</dt>
+    <dt><code>linkedTileLayers</code> <a class="xref" href="PAC.Image.Layers.TileLayer.html">TileLayer</a>[]</dt>
     <dd><p>The tile layers that the tile is on that are associated with each of the layers in the tile's file.
 Given in the same order as the layers in the tile's file.</p>
 </dd>
@@ -207,7 +207,7 @@ Given in the same order as the layers in the tile's file.</p>
 
   <h3 id="PAC_Tilesets_Tile_bottomLeft" data-uid="PAC.Tilesets.Tile.bottomLeft">
   bottomLeft
-  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Tilesets/Tile.cs/#L29"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Tilesets/Tile.cs/#L31"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -223,7 +223,7 @@ Given in the same order as the layers in the tile's file.</p>
 
   <h4 class="section">Property Value</h4>
   <dl class="parameters">
-    <dt><a class="xref" href="PAC.DataStructures.IntVector2.html">IntVector2</a></dt>
+    <dt><a class="xref" href="PAC.Geometry.IntVector2.html">IntVector2</a></dt>
     <dd></dd>
   </dl>
 
@@ -238,7 +238,7 @@ Given in the same order as the layers in the tile's file.</p>
 
   <h3 id="PAC_Tilesets_Tile_bottomRight" data-uid="PAC.Tilesets.Tile.bottomRight">
   bottomRight
-  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Tilesets/Tile.cs/#L39"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Tilesets/Tile.cs/#L41"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -254,7 +254,7 @@ Given in the same order as the layers in the tile's file.</p>
 
   <h4 class="section">Property Value</h4>
   <dl class="parameters">
-    <dt><a class="xref" href="PAC.DataStructures.IntVector2.html">IntVector2</a></dt>
+    <dt><a class="xref" href="PAC.Geometry.IntVector2.html">IntVector2</a></dt>
     <dd></dd>
   </dl>
 
@@ -269,7 +269,7 @@ Given in the same order as the layers in the tile's file.</p>
 
   <h3 id="PAC_Tilesets_Tile_centre" data-uid="PAC.Tilesets.Tile.centre">
   centre
-  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Tilesets/Tile.cs/#L63"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Tilesets/Tile.cs/#L65"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -300,7 +300,7 @@ Given in the same order as the layers in the tile's file.</p>
 
   <h3 id="PAC_Tilesets_Tile_file" data-uid="PAC.Tilesets.Tile.file">
   file
-  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Tilesets/Tile.cs/#L13"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Tilesets/Tile.cs/#L15"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -316,7 +316,7 @@ Given in the same order as the layers in the tile's file.</p>
 
   <h4 class="section">Property Value</h4>
   <dl class="parameters">
-    <dt><a class="xref" href="PAC.Files.File.html">File</a></dt>
+    <dt><a class="xref" href="PAC.Image.File.html">File</a></dt>
     <dd></dd>
   </dl>
 
@@ -331,7 +331,7 @@ Given in the same order as the layers in the tile's file.</p>
 
   <h3 id="PAC_Tilesets_Tile_height" data-uid="PAC.Tilesets.Tile.height">
   height
-  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Tilesets/Tile.cs/#L26"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Tilesets/Tile.cs/#L28"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -362,7 +362,7 @@ Given in the same order as the layers in the tile's file.</p>
 
   <h3 id="PAC_Tilesets_Tile_rect" data-uid="PAC.Tilesets.Tile.rect">
   rect
-  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Tilesets/Tile.cs/#L64"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Tilesets/Tile.cs/#L66"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -378,7 +378,7 @@ Given in the same order as the layers in the tile's file.</p>
 
   <h4 class="section">Property Value</h4>
   <dl class="parameters">
-    <dt><a class="xref" href="PAC.DataStructures.IntRect.html">IntRect</a></dt>
+    <dt><a class="xref" href="PAC.Geometry.IntRect.html">IntRect</a></dt>
     <dd></dd>
   </dl>
 
@@ -393,7 +393,7 @@ Given in the same order as the layers in the tile's file.</p>
 
   <h3 id="PAC_Tilesets_Tile_tileLayersAppearsOn" data-uid="PAC.Tilesets.Tile.tileLayersAppearsOn">
   tileLayersAppearsOn
-  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Tilesets/Tile.cs/#L23"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Tilesets/Tile.cs/#L25"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -409,7 +409,7 @@ Given in the same order as the layers in the tile's file.</p>
 
   <h4 class="section">Property Value</h4>
   <dl class="parameters">
-    <dt><a class="xref" href="PAC.Layers.TileLayer.html">TileLayer</a>[]</dt>
+    <dt><a class="xref" href="PAC.Image.Layers.TileLayer.html">TileLayer</a>[]</dt>
     <dd></dd>
   </dl>
 
@@ -424,7 +424,7 @@ Given in the same order as the layers in the tile's file.</p>
 
   <h3 id="PAC_Tilesets_Tile_topLeft" data-uid="PAC.Tilesets.Tile.topLeft">
   topLeft
-  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Tilesets/Tile.cs/#L47"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Tilesets/Tile.cs/#L49"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -440,7 +440,7 @@ Given in the same order as the layers in the tile's file.</p>
 
   <h4 class="section">Property Value</h4>
   <dl class="parameters">
-    <dt><a class="xref" href="PAC.DataStructures.IntVector2.html">IntVector2</a></dt>
+    <dt><a class="xref" href="PAC.Geometry.IntVector2.html">IntVector2</a></dt>
     <dd></dd>
   </dl>
 
@@ -455,7 +455,7 @@ Given in the same order as the layers in the tile's file.</p>
 
   <h3 id="PAC_Tilesets_Tile_topRight" data-uid="PAC.Tilesets.Tile.topRight">
   topRight
-  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Tilesets/Tile.cs/#L55"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Tilesets/Tile.cs/#L57"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -471,7 +471,7 @@ Given in the same order as the layers in the tile's file.</p>
 
   <h4 class="section">Property Value</h4>
   <dl class="parameters">
-    <dt><a class="xref" href="PAC.DataStructures.IntVector2.html">IntVector2</a></dt>
+    <dt><a class="xref" href="PAC.Geometry.IntVector2.html">IntVector2</a></dt>
     <dd></dd>
   </dl>
 
@@ -486,7 +486,7 @@ Given in the same order as the layers in the tile's file.</p>
 
   <h3 id="PAC_Tilesets_Tile_width" data-uid="PAC.Tilesets.Tile.width">
   width
-  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Tilesets/Tile.cs/#L25"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Tilesets/Tile.cs/#L27"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -519,9 +519,9 @@ Given in the same order as the layers in the tile's file.</p>
 
   <a id="PAC_Tilesets_Tile_LayerInTileToTileLayer_" data-uid="PAC.Tilesets.Tile.LayerInTileToTileLayer*"></a>
 
-  <h3 id="PAC_Tilesets_Tile_LayerInTileToTileLayer_PAC_Layers_Layer_" data-uid="PAC.Tilesets.Tile.LayerInTileToTileLayer(PAC.Layers.Layer)">
+  <h3 id="PAC_Tilesets_Tile_LayerInTileToTileLayer_PAC_Image_Layers_Layer_" data-uid="PAC.Tilesets.Tile.LayerInTileToTileLayer(PAC.Image.Layers.Layer)">
   LayerInTileToTileLayer(Layer)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Tilesets/Tile.cs/#L117"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Tilesets/Tile.cs/#L119"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Takes in the layer (that must be in the tile's file) and returns the tile layer (that the tile is on) that the layer is associated with.</p>
@@ -534,13 +534,13 @@ Given in the same order as the layers in the tile's file.</p>
 
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
-    <dt><code>layer</code> <a class="xref" href="PAC.Layers.Layer.html">Layer</a></dt>
+    <dt><code>layer</code> <a class="xref" href="PAC.Image.Layers.Layer.html">Layer</a></dt>
     <dd></dd>
   </dl>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
-    <dt><a class="xref" href="PAC.Layers.TileLayer.html">TileLayer</a></dt>
+    <dt><a class="xref" href="PAC.Image.Layers.TileLayer.html">TileLayer</a></dt>
     <dd></dd>
   </dl>
 
@@ -556,9 +556,9 @@ Given in the same order as the layers in the tile's file.</p>
 
   <a id="PAC_Tilesets_Tile_SubscribeToOnMoved_" data-uid="PAC.Tilesets.Tile.SubscribeToOnMoved*"></a>
 
-  <h3 id="PAC_Tilesets_Tile_SubscribeToOnMoved_UnityAction_PAC_DataStructures_IntRect__" data-uid="PAC.Tilesets.Tile.SubscribeToOnMoved(UnityAction{PAC.DataStructures.IntRect})">
+  <h3 id="PAC_Tilesets_Tile_SubscribeToOnMoved_UnityAction_PAC_Geometry_IntRect__" data-uid="PAC.Tilesets.Tile.SubscribeToOnMoved(UnityAction{PAC.Geometry.IntRect})">
   SubscribeToOnMoved(UnityAction&lt;IntRect&gt;)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Tilesets/Tile.cs/#L128"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Tilesets/Tile.cs/#L130"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -570,7 +570,7 @@ Given in the same order as the layers in the tile's file.</p>
 
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
-    <dt><code>call</code> <span class="xref">UnityAction</span>&lt;<a class="xref" href="PAC.DataStructures.IntRect.html">IntRect</a>&gt;</dt>
+    <dt><code>call</code> <span class="xref">UnityAction</span>&lt;<a class="xref" href="PAC.Geometry.IntRect.html">IntRect</a>&gt;</dt>
     <dd></dd>
   </dl>
 
@@ -587,9 +587,9 @@ Given in the same order as the layers in the tile's file.</p>
 
   <a id="PAC_Tilesets_Tile_TileLayerToLayerInTile_" data-uid="PAC.Tilesets.Tile.TileLayerToLayerInTile*"></a>
 
-  <h3 id="PAC_Tilesets_Tile_TileLayerToLayerInTile_PAC_Layers_TileLayer_" data-uid="PAC.Tilesets.Tile.TileLayerToLayerInTile(PAC.Layers.TileLayer)">
+  <h3 id="PAC_Tilesets_Tile_TileLayerToLayerInTile_PAC_Image_Layers_TileLayer_" data-uid="PAC.Tilesets.Tile.TileLayerToLayerInTile(PAC.Image.Layers.TileLayer)">
   TileLayerToLayerInTile(TileLayer)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Tilesets/Tile.cs/#L106"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Tilesets/Tile.cs/#L108"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Takes in the tile layer (that this tile must be on) and returns the layer it is associated with in the tile's file.</p>
@@ -602,13 +602,13 @@ Given in the same order as the layers in the tile's file.</p>
 
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
-    <dt><code>tileLayer</code> <a class="xref" href="PAC.Layers.TileLayer.html">TileLayer</a></dt>
+    <dt><code>tileLayer</code> <a class="xref" href="PAC.Image.Layers.TileLayer.html">TileLayer</a></dt>
     <dd></dd>
   </dl>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
-    <dt><a class="xref" href="PAC.Layers.Layer.html">Layer</a></dt>
+    <dt><a class="xref" href="PAC.Image.Layers.Layer.html">Layer</a></dt>
     <dd></dd>
   </dl>
 
@@ -626,7 +626,7 @@ Given in the same order as the layers in the tile's file.</p>
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Tilesets/Tile.cs/#L11" class="edit-link">Edit this page</a>
+          <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Tilesets/Tile.cs/#L13" class="edit-link">Edit this page</a>
         </div>
 
 

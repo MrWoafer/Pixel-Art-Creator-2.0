@@ -1,0 +1,1371 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class TileLayer | Pixel Art Creator 2.0 Docs </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class TileLayer | Pixel Art Creator 2.0 Docs ">
+      
+      <meta name="description" content="A class to represent a tile layer - one for placing and editing tileset tiles.">
+      <link rel="icon" href="../resources/icon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/new/main/apiSpec/new?filename=PAC_Image_Layers_TileLayer.md&amp;value=---%0Auid%3A%20PAC.Image.Layers.TileLayer%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../resources/logo.svg" alt="Pixel Art Creator 2.0">
+            Pixel Art Creator 2.0
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="PAC.Image.Layers.TileLayer">
+
+
+
+  <h1 id="PAC_Image_Layers_TileLayer" data-uid="PAC.Image.Layers.TileLayer" class="text-break">
+Class TileLayer  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Image/Layers/TileLayer.cs/#L23"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="PAC.html">PAC</a>.<a class="xref" href="PAC.Image.html">Image</a>.<a class="xref" href="PAC.Image.Layers.html">Layers</a></dd></dl>
+  
+  </div>
+
+  <div class="markdown summary"><p>A class to represent a tile layer - one for placing and editing tileset tiles.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class TileLayer : Layer</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><a class="xref" href="PAC.Image.Layers.Layer.html">Layer</a></div>
+      <div><span class="xref">TileLayer</span></div>
+    </dd>
+  </dl>
+
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="PAC.Image.Layers.Layer.html#PAC_Image_Layers_Layer_name">Layer.name</a>
+    </div>
+    <div>
+      <a class="xref" href="PAC.Image.Layers.Layer.html#PAC_Image_Layers_Layer_width">Layer.width</a>
+    </div>
+    <div>
+      <a class="xref" href="PAC.Image.Layers.Layer.html#PAC_Image_Layers_Layer_height">Layer.height</a>
+    </div>
+    <div>
+      <a class="xref" href="PAC.Image.Layers.Layer.html#PAC_Image_Layers_Layer_rect">Layer.rect</a>
+    </div>
+    <div>
+      <a class="xref" href="PAC.Image.Layers.Layer.html#PAC_Image_Layers_Layer__visible">Layer._visible</a>
+    </div>
+    <div>
+      <a class="xref" href="PAC.Image.Layers.Layer.html#PAC_Image_Layers_Layer_visible">Layer.visible</a>
+    </div>
+    <div>
+      <a class="xref" href="PAC.Image.Layers.Layer.html#PAC_Image_Layers_Layer_locked">Layer.locked</a>
+    </div>
+    <div>
+      <a class="xref" href="PAC.Image.Layers.Layer.html#PAC_Image_Layers_Layer_opacity">Layer.opacity</a>
+    </div>
+    <div>
+      <a class="xref" href="PAC.Image.Layers.Layer.html#PAC_Image_Layers_Layer__blendMode">Layer._blendMode</a>
+    </div>
+    <div>
+      <a class="xref" href="PAC.Image.Layers.Layer.html#PAC_Image_Layers_Layer_blendMode">Layer.blendMode</a>
+    </div>
+    <div>
+      <a class="xref" href="PAC.Image.Layers.Layer.html#PAC_Image_Layers_Layer_keyFrames">Layer.keyFrames</a>
+    </div>
+    <div>
+      <a class="xref" href="PAC.Image.Layers.Layer.html#PAC_Image_Layers_Layer_keyFrameIndices">Layer.keyFrameIndices</a>
+    </div>
+    <div>
+      <a class="xref" href="PAC.Image.Layers.Layer.html#PAC_Image_Layers_Layer_keyFrameTextures">Layer.keyFrameTextures</a>
+    </div>
+    <div>
+      <a class="xref" href="PAC.Image.Layers.Layer.html#PAC_Image_Layers_Layer_onPixelsChanged">Layer.onPixelsChanged</a>
+    </div>
+    <div>
+      <a class="xref" href="PAC.Image.Layers.Layer.html#PAC_Image_Layers_Layer_SetPixel_System_Int32_System_Int32_System_Int32_Color_PAC_Image_Layers_AnimFrameRefMode_">Layer.SetPixel(int, int, int, Color, AnimFrameRefMode)</a>
+    </div>
+    <div>
+      <a class="xref" href="PAC.Image.Layers.Layer.html#PAC_Image_Layers_Layer_SetPixel_PAC_Geometry_IntVector2_System_Int32_Color_PAC_Image_Layers_AnimFrameRefMode_">Layer.SetPixel(IntVector2, int, Color, AnimFrameRefMode)</a>
+    </div>
+    <div>
+      <a class="xref" href="PAC.Image.Layers.Layer.html#PAC_Image_Layers_Layer_SetPixels_System_Collections_Generic_IEnumerable_PAC_Geometry_IntVector2__System_Int32_Color_PAC_Image_Layers_AnimFrameRefMode_">Layer.SetPixels(IEnumerable&lt;IntVector2&gt;, int, Color, AnimFrameRefMode)</a>
+    </div>
+    <div>
+      <a class="xref" href="PAC.Image.Layers.Layer.html#PAC_Image_Layers_Layer_GetPixel_System_Int32_System_Int32_System_Int32_System_Boolean_">Layer.GetPixel(int, int, int, bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="PAC.Image.Layers.Layer.html#PAC_Image_Layers_Layer_IsBlank">Layer.IsBlank()</a>
+    </div>
+    <div>
+      <a class="xref" href="PAC.Image.Layers.Layer.html#PAC_Image_Layers_Layer_Flip_PAC_Geometry_Axes_CardinalAxis_">Layer.Flip(CardinalAxis)</a>
+    </div>
+    <div>
+      <a class="xref" href="PAC.Image.Layers.Layer.html#PAC_Image_Layers_Layer_Rotate_PAC_Geometry_QuadrantalAngle_">Layer.Rotate(QuadrantalAngle)</a>
+    </div>
+    <div>
+      <a class="xref" href="PAC.Image.Layers.Layer.html#PAC_Image_Layers_Layer_Extend_System_Int32_System_Int32_System_Int32_System_Int32_">Layer.Extend(int, int, int, int)</a>
+    </div>
+    <div>
+      <a class="xref" href="PAC.Image.Layers.Layer.html#PAC_Image_Layers_Layer_Scale_System_Single_">Layer.Scale(float)</a>
+    </div>
+    <div>
+      <a class="xref" href="PAC.Image.Layers.Layer.html#PAC_Image_Layers_Layer_Scale_System_Single_System_Single_">Layer.Scale(float, float)</a>
+    </div>
+    <div>
+      <a class="xref" href="PAC.Image.Layers.Layer.html#PAC_Image_Layers_Layer_Scale_System_Int32_System_Int32_">Layer.Scale(int, int)</a>
+    </div>
+    <div>
+      <a class="xref" href="PAC.Image.Layers.Layer.html#PAC_Image_Layers_Layer_Item_System_Int32_">Layer.this[int]</a>
+    </div>
+    <div>
+      <a class="xref" href="PAC.Image.Layers.Layer.html#PAC_Image_Layers_Layer_GetKeyFrame_System_Int32_">Layer.GetKeyFrame(int)</a>
+    </div>
+    <div>
+      <a class="xref" href="PAC.Image.Layers.Layer.html#PAC_Image_Layers_Layer_HasKeyFrameAt_System_Int32_">Layer.HasKeyFrameAt(int)</a>
+    </div>
+    <div>
+      <a class="xref" href="PAC.Image.Layers.Layer.html#PAC_Image_Layers_Layer_AddKeyFrame_System_Int32_">Layer.AddKeyFrame(int)</a>
+    </div>
+    <div>
+      <a class="xref" href="PAC.Image.Layers.Layer.html#PAC_Image_Layers_Layer_AddKeyFrame_System_Int32_Texture2D_">Layer.AddKeyFrame(int, Texture2D)</a>
+    </div>
+    <div>
+      <a class="xref" href="PAC.Image.Layers.Layer.html#PAC_Image_Layers_Layer_AddKeyFrame_PAC_Image_Animation_AnimationKeyFrame_">Layer.AddKeyFrame(AnimationKeyFrame)</a>
+    </div>
+    <div>
+      <a class="xref" href="PAC.Image.Layers.Layer.html#PAC_Image_Layers_Layer_DeleteMostRecentKeyFrame_System_Int32_">Layer.DeleteMostRecentKeyFrame(int)</a>
+    </div>
+    <div>
+      <a class="xref" href="PAC.Image.Layers.Layer.html#PAC_Image_Layers_Layer_DeleteKeyFrame_System_Int32_">Layer.DeleteKeyFrame(int)</a>
+    </div>
+    <div>
+      <a class="xref" href="PAC.Image.Layers.Layer.html#PAC_Image_Layers_Layer_DeleteKeyFrame_PAC_Image_Animation_AnimationKeyFrame_">Layer.DeleteKeyFrame(AnimationKeyFrame)</a>
+    </div>
+    <div>
+      <a class="xref" href="PAC.Image.Layers.Layer.html#PAC_Image_Layers_Layer_SubscribeToOnPixelsChanged_UnityAction_System_Collections_Generic_IEnumerable_PAC_Geometry_IntVector2__System_Int32____">Layer.SubscribeToOnPixelsChanged(UnityAction&lt;IEnumerable&lt;IntVector2&gt;, int[]&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="PAC.Image.Layers.Layer.html#PAC_Image_Layers_Layer_SubscribeToOnVisibilityChanged_UnityAction_">Layer.SubscribeToOnVisibilityChanged(UnityAction)</a>
+    </div>
+    <div>
+      <a class="xref" href="PAC.Image.Layers.Layer.html#PAC_Image_Layers_Layer_SubscribeToOnBlendModeChanged_UnityAction_">Layer.SubscribeToOnBlendModeChanged(UnityAction)</a>
+    </div>
+    <div>
+      <a class="xref" href="PAC.Image.Layers.Layer.html#PAC_Image_Layers_Layer_SubscribeToOnKeyFrameAdded_UnityAction_System_Int32__">Layer.SubscribeToOnKeyFrameAdded(UnityAction&lt;int&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="PAC.Image.Layers.Layer.html#PAC_Image_Layers_Layer_SubscribeToOnKeyFrameRemoved_UnityAction_System_Int32__">Layer.SubscribeToOnKeyFrameRemoved(UnityAction&lt;int&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="PAC.Image.Layers.Layer.html#PAC_Image_Layers_Layer_GetJsonConverterSet_PAC_DataStructures_SemanticVersion_">Layer.GetJsonConverterSet(SemanticVersion)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+  </dd></dl>
+
+  <dl class="typelist extensionMethods">
+    <dt>Extension Methods</dt>
+    <dd>
+  <div>
+      <a class="xref" href="PAC.Interfaces.Extensions.ISetComparableExtensions.html#PAC_Interfaces_Extensions_ISetComparableExtensions_IsProperSubsetOf__2___0___1_">ISetComparableExtensions.IsProperSubsetOf&lt;T1, T2&gt;(T1, T2)</a>
+  </div>
+  <div>
+      <a class="xref" href="PAC.Interfaces.Extensions.ISetComparableExtensions.html#PAC_Interfaces_Extensions_ISetComparableExtensions_IsProperSupersetOf__2___0___1_">ISetComparableExtensions.IsProperSupersetOf&lt;T1, T2&gt;(T1, T2)</a>
+  </div>
+  </dd></dl>
+
+
+
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="PAC_Image_Layers_TileLayer__ctor_" data-uid="PAC.Image.Layers.TileLayer.#ctor*"></a>
+
+  <h3 id="PAC_Image_Layers_TileLayer__ctor_PAC_Image_Layers_TileLayer_" data-uid="PAC.Image.Layers.TileLayer.#ctor(PAC.Image.Layers.TileLayer)">
+  TileLayer(TileLayer)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Image/Layers/TileLayer.cs/#L45"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Creates a deep copy of the TileLayer.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TileLayer(TileLayer layer)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>layer</code> <a class="xref" href="PAC.Image.Layers.TileLayer.html">TileLayer</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="PAC_Image_Layers_TileLayer__ctor_" data-uid="PAC.Image.Layers.TileLayer.#ctor*"></a>
+
+  <h3 id="PAC_Image_Layers_TileLayer__ctor_System_String_System_Int32_System_Int32_" data-uid="PAC.Image.Layers.TileLayer.#ctor(System.String,System.Int32,System.Int32)">
+  TileLayer(string, int, int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Image/Layers/TileLayer.cs/#L40"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TileLayer(string name, int width, int height)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>name</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>width</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>height</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="PAC_Image_Layers_TileLayer_layerType_" data-uid="PAC.Image.Layers.TileLayer.layerType*"></a>
+
+  <h3 id="PAC_Image_Layers_TileLayer_layerType" data-uid="PAC.Image.Layers.TileLayer.layerType">
+  layerType
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Image/Layers/TileLayer.cs/#L25"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override LayerType layerType { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="PAC.Image.Layers.LayerType.html">LayerType</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="PAC_Image_Layers_TileLayer_tiles_" data-uid="PAC.Image.Layers.TileLayer.tiles*"></a>
+
+  <h3 id="PAC_Image_Layers_TileLayer_tiles" data-uid="PAC.Image.Layers.TileLayer.tiles">
+  tiles
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Image/Layers/TileLayer.cs/#L28"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The tiles on this layer.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public List&lt;Tile&gt; tiles { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="PAC.Tilesets.Tile.html">Tile</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="PAC_Image_Layers_TileLayer_AddTile_" data-uid="PAC.Image.Layers.TileLayer.AddTile*"></a>
+
+  <h3 id="PAC_Image_Layers_TileLayer_AddTile_PAC_Tilesets_Tile_" data-uid="PAC.Image.Layers.TileLayer.AddTile(PAC.Tilesets.Tile)">
+  AddTile(Tile)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Image/Layers/TileLayer.cs/#L59"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Adds the tile to the layer.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void AddTile(Tile tile)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>tile</code> <a class="xref" href="PAC.Tilesets.Tile.html">Tile</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="PAC_Image_Layers_TileLayer_ClearFrames_" data-uid="PAC.Image.Layers.TileLayer.ClearFrames*"></a>
+
+  <h3 id="PAC_Image_Layers_TileLayer_ClearFrames" data-uid="PAC.Image.Layers.TileLayer.ClearFrames">
+  ClearFrames()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Image/Layers/TileLayer.cs/#L426"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Deletes all key frames.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override void ClearFrames()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="PAC_Image_Layers_TileLayer_ClearTiles_" data-uid="PAC.Image.Layers.TileLayer.ClearTiles*"></a>
+
+  <h3 id="PAC_Image_Layers_TileLayer_ClearTiles" data-uid="PAC.Image.Layers.TileLayer.ClearTiles">
+  ClearTiles()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Image/Layers/TileLayer.cs/#L130"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Removes all tiles.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void ClearTiles()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="PAC_Image_Layers_TileLayer_ContainsTile_" data-uid="PAC.Image.Layers.TileLayer.ContainsTile*"></a>
+
+  <h3 id="PAC_Image_Layers_TileLayer_ContainsTile_PAC_Tilesets_Tile_" data-uid="PAC.Image.Layers.TileLayer.ContainsTile(PAC.Tilesets.Tile)">
+  ContainsTile(Tile)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Image/Layers/TileLayer.cs/#L139"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns true if the tile appears on this layer.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool ContainsTile(Tile tile)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>tile</code> <a class="xref" href="PAC.Tilesets.Tile.html">Tile</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="PAC_Image_Layers_TileLayer_DeepCopy_" data-uid="PAC.Image.Layers.TileLayer.DeepCopy*"></a>
+
+  <h3 id="PAC_Image_Layers_TileLayer_DeepCopy" data-uid="PAC.Image.Layers.TileLayer.DeepCopy">
+  DeepCopy()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Image/Layers/TileLayer.cs/#L51"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Creates a deep copy of the Layer.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override Layer DeepCopy()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="PAC.Image.Layers.Layer.html">Layer</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="PAC_Image_Layers_TileLayer_DeleteKeyFrameNoEvent_" data-uid="PAC.Image.Layers.TileLayer.DeleteKeyFrameNoEvent*"></a>
+
+  <h3 id="PAC_Image_Layers_TileLayer_DeleteKeyFrameNoEvent_System_Int32_" data-uid="PAC.Image.Layers.TileLayer.DeleteKeyFrameNoEvent(System.Int32)">
+  DeleteKeyFrameNoEvent(int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Image/Layers/TileLayer.cs/#L401"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Deletes the key frame at the given frame index, if there is one, in which case it returns that key frame. Otherwise it returns null.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override AnimationKeyFrame DeleteKeyFrameNoEvent(int keyframe)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>keyframe</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="PAC.Image.Animation.AnimationKeyFrame.html">AnimationKeyFrame</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="PAC_Image_Layers_TileLayer_ExtendNoEvent_" data-uid="PAC.Image.Layers.TileLayer.ExtendNoEvent*"></a>
+
+  <h3 id="PAC_Image_Layers_TileLayer_ExtendNoEvent_System_Int32_System_Int32_System_Int32_System_Int32_" data-uid="PAC.Image.Layers.TileLayer.ExtendNoEvent(System.Int32,System.Int32,System.Int32,System.Int32)">
+  ExtendNoEvent(int, int, int, int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Image/Layers/TileLayer.cs/#L327"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Extends the dimensions of the layer in each direction by the given amounts, but does not invoke the onPixelsChanged event.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override void ExtendNoEvent(int left, int right, int up, int down)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>left</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>right</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>up</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>down</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="PAC_Image_Layers_TileLayer_FlipNoEvent_" data-uid="PAC.Image.Layers.TileLayer.FlipNoEvent*"></a>
+
+  <h3 id="PAC_Image_Layers_TileLayer_FlipNoEvent_PAC_Geometry_Axes_CardinalAxis_" data-uid="PAC.Image.Layers.TileLayer.FlipNoEvent(PAC.Geometry.Axes.CardinalAxis)">
+  FlipNoEvent(CardinalAxis)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Image/Layers/TileLayer.cs/#L254"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Flips the layer, but does not invoke the onPixelsChanged event.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override void FlipNoEvent(CardinalAxis axis)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>axis</code> <a class="xref" href="PAC.Geometry.Axes.CardinalAxis.html">CardinalAxis</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="PAC_Image_Layers_TileLayer_GetLinkedPixels_" data-uid="PAC.Image.Layers.TileLayer.GetLinkedPixels*"></a>
+
+  <h3 id="PAC_Image_Layers_TileLayer_GetLinkedPixels_PAC_Geometry_IntVector2_" data-uid="PAC.Image.Layers.TileLayer.GetLinkedPixels(PAC.Geometry.IntVector2)">
+  GetLinkedPixels(IntVector2)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Image/Layers/TileLayer.cs/#L217"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Get the pixels that are linked to the given pixel due to multiple tiles having the same file - i.e. they point to the same pixel within the tiles' file.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IEnumerable&lt;IntVector2&gt; GetLinkedPixels(IntVector2 pixel)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>pixel</code> <a class="xref" href="PAC.Geometry.IntVector2.html">IntVector2</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="PAC.Geometry.IntVector2.html">IntVector2</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="PAC_Image_Layers_TileLayer_GetLinkedPixels_" data-uid="PAC.Image.Layers.TileLayer.GetLinkedPixels*"></a>
+
+  <h3 id="PAC_Image_Layers_TileLayer_GetLinkedPixels_System_Collections_Generic_IEnumerable_PAC_Geometry_IntVector2__" data-uid="PAC.Image.Layers.TileLayer.GetLinkedPixels(System.Collections.Generic.IEnumerable{PAC.Geometry.IntVector2})">
+  GetLinkedPixels(IEnumerable&lt;IntVector2&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Image/Layers/TileLayer.cs/#L221"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Get the pixels that are linked to the given pixels due to multiple tiles having the same file - i.e. they point to the same pixels within the tiles' file.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IEnumerable&lt;IntVector2&gt; GetLinkedPixels(IEnumerable&lt;IntVector2&gt; pixels)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>pixels</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="PAC.Geometry.IntVector2.html">IntVector2</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="PAC.Geometry.IntVector2.html">IntVector2</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="PAC_Image_Layers_TileLayer_GetPixel_" data-uid="PAC.Image.Layers.TileLayer.GetPixel*"></a>
+
+  <h3 id="PAC_Image_Layers_TileLayer_GetPixel_PAC_Geometry_IntVector2_System_Int32_System_Boolean_" data-uid="PAC.Image.Layers.TileLayer.GetPixel(PAC.Geometry.IntVector2,System.Int32,System.Boolean)">
+  GetPixel(IntVector2, int, bool)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Image/Layers/TileLayer.cs/#L176"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the colour of the pixel.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override Color GetPixel(IntVector2 pixel, int frame, bool useLayerOpacity = true)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>pixel</code> <a class="xref" href="PAC.Geometry.IntVector2.html">IntVector2</a></dt>
+    <dd></dd>
+    <dt><code>frame</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>useLayerOpacity</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Color</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="PAC_Image_Layers_TileLayer_PixelToTile_" data-uid="PAC.Image.Layers.TileLayer.PixelToTile*"></a>
+
+  <h3 id="PAC_Image_Layers_TileLayer_PixelToTile_PAC_Geometry_IntVector2_" data-uid="PAC.Image.Layers.TileLayer.PixelToTile(PAC.Geometry.IntVector2)">
+  PixelToTile(IntVector2)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Image/Layers/TileLayer.cs/#L193"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the tile that the pixel lands in, or null if there isn't one.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Tile PixelToTile(IntVector2 pixel)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>pixel</code> <a class="xref" href="PAC.Geometry.IntVector2.html">IntVector2</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="PAC.Tilesets.Tile.html">Tile</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="PAC_Image_Layers_TileLayer_PixelToTile_" data-uid="PAC.Image.Layers.TileLayer.PixelToTile*"></a>
+
+  <h3 id="PAC_Image_Layers_TileLayer_PixelToTile_System_Int32_System_Int32_" data-uid="PAC.Image.Layers.TileLayer.PixelToTile(System.Int32,System.Int32)">
+  PixelToTile(int, int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Image/Layers/TileLayer.cs/#L189"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the tile that the pixel (x, y) lands in, or null if there isn't one.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Tile PixelToTile(int x, int y)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>x</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>y</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="PAC.Tilesets.Tile.html">Tile</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="PAC_Image_Layers_TileLayer_RemoveTile_" data-uid="PAC.Image.Layers.TileLayer.RemoveTile*"></a>
+
+  <h3 id="PAC_Image_Layers_TileLayer_RemoveTile_PAC_Tilesets_Tile_" data-uid="PAC.Image.Layers.TileLayer.RemoveTile(PAC.Tilesets.Tile)">
+  RemoveTile(Tile)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Image/Layers/TileLayer.cs/#L107"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Removes the tile from the layer. Throws an error if the tile is not in the layer.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void RemoveTile(Tile tile)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>tile</code> <a class="xref" href="PAC.Tilesets.Tile.html">Tile</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="PAC_Image_Layers_TileLayer_RerenderKeyFrame_" data-uid="PAC.Image.Layers.TileLayer.RerenderKeyFrame*"></a>
+
+  <h3 id="PAC_Image_Layers_TileLayer_RerenderKeyFrame_System_Int32_" data-uid="PAC.Image.Layers.TileLayer.RerenderKeyFrame(System.Int32)">
+  RerenderKeyFrame(int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Image/Layers/TileLayer.cs/#L470"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Rerenders the keyframe.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void RerenderKeyFrame(int frame)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>frame</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="PAC_Image_Layers_TileLayer_RerenderKeyFrame_" data-uid="PAC.Image.Layers.TileLayer.RerenderKeyFrame*"></a>
+
+  <h3 id="PAC_Image_Layers_TileLayer_RerenderKeyFrame_System_Int32_PAC_Geometry_IntRect_" data-uid="PAC.Image.Layers.TileLayer.RerenderKeyFrame(System.Int32,PAC.Geometry.IntRect)">
+  RerenderKeyFrame(int, IntRect)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Image/Layers/TileLayer.cs/#L474"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Rerenders the section of the keyframe within the given rect.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void RerenderKeyFrame(int frame, IntRect rect)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>frame</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>rect</code> <a class="xref" href="PAC.Geometry.IntRect.html">IntRect</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="PAC_Image_Layers_TileLayer_RerenderKeyFrame_" data-uid="PAC.Image.Layers.TileLayer.RerenderKeyFrame*"></a>
+
+  <h3 id="PAC_Image_Layers_TileLayer_RerenderKeyFrame_System_Int32_System_Collections_Generic_IEnumerable_PAC_Geometry_IntVector2__" data-uid="PAC.Image.Layers.TileLayer.RerenderKeyFrame(System.Int32,System.Collections.Generic.IEnumerable{PAC.Geometry.IntVector2})">
+  RerenderKeyFrame(int, IEnumerable&lt;IntVector2&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Image/Layers/TileLayer.cs/#L478"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Rerenders the given pixels of the keyframe.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void RerenderKeyFrame(int frame, IEnumerable&lt;IntVector2&gt; pixels)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>frame</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>pixels</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="PAC.Geometry.IntVector2.html">IntVector2</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="PAC_Image_Layers_TileLayer_RerenderKeyFrames_" data-uid="PAC.Image.Layers.TileLayer.RerenderKeyFrames*"></a>
+
+  <h3 id="PAC_Image_Layers_TileLayer_RerenderKeyFrames" data-uid="PAC.Image.Layers.TileLayer.RerenderKeyFrames">
+  RerenderKeyFrames()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Image/Layers/TileLayer.cs/#L440"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Rerenders all keyframes.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void RerenderKeyFrames()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="PAC_Image_Layers_TileLayer_RerenderKeyFrames_" data-uid="PAC.Image.Layers.TileLayer.RerenderKeyFrames*"></a>
+
+  <h3 id="PAC_Image_Layers_TileLayer_RerenderKeyFrames_PAC_Geometry_IntRect_" data-uid="PAC.Image.Layers.TileLayer.RerenderKeyFrames(PAC.Geometry.IntRect)">
+  RerenderKeyFrames(IntRect)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Image/Layers/TileLayer.cs/#L444"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Rerenders the section of every keyframe within the given rect.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void RerenderKeyFrames(IntRect rect)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>rect</code> <a class="xref" href="PAC.Geometry.IntRect.html">IntRect</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="PAC_Image_Layers_TileLayer_RerenderKeyFrames_" data-uid="PAC.Image.Layers.TileLayer.RerenderKeyFrames*"></a>
+
+  <h3 id="PAC_Image_Layers_TileLayer_RerenderKeyFrames_System_Collections_Generic_IEnumerable_PAC_Geometry_IntVector2__" data-uid="PAC.Image.Layers.TileLayer.RerenderKeyFrames(System.Collections.Generic.IEnumerable{PAC.Geometry.IntVector2})">
+  RerenderKeyFrames(IEnumerable&lt;IntVector2&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Image/Layers/TileLayer.cs/#L448"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Rerenders the given pixels of every keyframe.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void RerenderKeyFrames(IEnumerable&lt;IntVector2&gt; pixels)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>pixels</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="PAC.Geometry.IntVector2.html">IntVector2</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="PAC_Image_Layers_TileLayer_RerenderKeyFrames_" data-uid="PAC.Image.Layers.TileLayer.RerenderKeyFrames*"></a>
+
+  <h3 id="PAC_Image_Layers_TileLayer_RerenderKeyFrames_System_Int32___" data-uid="PAC.Image.Layers.TileLayer.RerenderKeyFrames(System.Int32[])">
+  RerenderKeyFrames(int[])
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Image/Layers/TileLayer.cs/#L452"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Rerenders the given keyframes.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void RerenderKeyFrames(int[] keyFrames)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>keyFrames</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>[]</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="PAC_Image_Layers_TileLayer_RerenderKeyFrames_" data-uid="PAC.Image.Layers.TileLayer.RerenderKeyFrames*"></a>
+
+  <h3 id="PAC_Image_Layers_TileLayer_RerenderKeyFrames_System_Int32___PAC_Geometry_IntRect_" data-uid="PAC.Image.Layers.TileLayer.RerenderKeyFrames(System.Int32[],PAC.Geometry.IntRect)">
+  RerenderKeyFrames(int[], IntRect)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Image/Layers/TileLayer.cs/#L456"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Rerenders the section of the given keyframes within the given rect.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void RerenderKeyFrames(int[] keyFrames, IntRect rect)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>keyFrames</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>[]</dt>
+    <dd></dd>
+    <dt><code>rect</code> <a class="xref" href="PAC.Geometry.IntRect.html">IntRect</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="PAC_Image_Layers_TileLayer_RerenderKeyFrames_" data-uid="PAC.Image.Layers.TileLayer.RerenderKeyFrames*"></a>
+
+  <h3 id="PAC_Image_Layers_TileLayer_RerenderKeyFrames_System_Int32___System_Collections_Generic_IEnumerable_PAC_Geometry_IntVector2__" data-uid="PAC.Image.Layers.TileLayer.RerenderKeyFrames(System.Int32[],System.Collections.Generic.IEnumerable{PAC.Geometry.IntVector2})">
+  RerenderKeyFrames(int[], IEnumerable&lt;IntVector2&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Image/Layers/TileLayer.cs/#L460"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Rerenders the given pixels of the given keyframes.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void RerenderKeyFrames(int[] keyFrames, IEnumerable&lt;IntVector2&gt; pixels)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>keyFrames</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>[]</dt>
+    <dd></dd>
+    <dt><code>pixels</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="PAC.Geometry.IntVector2.html">IntVector2</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="PAC_Image_Layers_TileLayer_RotateNoEvent_" data-uid="PAC.Image.Layers.TileLayer.RotateNoEvent*"></a>
+
+  <h3 id="PAC_Image_Layers_TileLayer_RotateNoEvent_PAC_Geometry_QuadrantalAngle_" data-uid="PAC.Image.Layers.TileLayer.RotateNoEvent(PAC.Geometry.QuadrantalAngle)">
+  RotateNoEvent(QuadrantalAngle)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Image/Layers/TileLayer.cs/#L284"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Rotates the layer, but does not invoke the onPixelsChanged event.
+Rotation is clockwise.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override void RotateNoEvent(QuadrantalAngle angle)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>angle</code> <a class="xref" href="PAC.Geometry.QuadrantalAngle.html">QuadrantalAngle</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="PAC_Image_Layers_TileLayer_ScaleNoEvent_" data-uid="PAC.Image.Layers.TileLayer.ScaleNoEvent*"></a>
+
+  <h3 id="PAC_Image_Layers_TileLayer_ScaleNoEvent_System_Int32_System_Int32_" data-uid="PAC.Image.Layers.TileLayer.ScaleNoEvent(System.Int32,System.Int32)">
+  ScaleNoEvent(int, int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Image/Layers/TileLayer.cs/#L374"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Resizes the dimensions to the new width and height, but does not invoke the onPixelsChanged event.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override void ScaleNoEvent(int newWidth, int newHeight)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>newWidth</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>newHeight</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="PAC_Image_Layers_TileLayer_ScaleNoEvent_" data-uid="PAC.Image.Layers.TileLayer.ScaleNoEvent*"></a>
+
+  <h3 id="PAC_Image_Layers_TileLayer_ScaleNoEvent_System_Single_System_Single_" data-uid="PAC.Image.Layers.TileLayer.ScaleNoEvent(System.Single,System.Single)">
+  ScaleNoEvent(float, float)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Image/Layers/TileLayer.cs/#L348"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Resizes the dimensions of the file by the scale factors, but does not invoke the onPixelsChanged event.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override void ScaleNoEvent(float xScaleFactor, float yScaleFactor)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>xScaleFactor</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+    <dt><code>yScaleFactor</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="PAC_Image_Layers_TileLayer_SetPixelsNoEvent_" data-uid="PAC.Image.Layers.TileLayer.SetPixelsNoEvent*"></a>
+
+  <h3 id="PAC_Image_Layers_TileLayer_SetPixelsNoEvent_System_Collections_Generic_IEnumerable_PAC_Geometry_IntVector2__System_Int32_Color_PAC_Image_Layers_AnimFrameRefMode_" data-uid="PAC.Image.Layers.TileLayer.SetPixelsNoEvent(System.Collections.Generic.IEnumerable{PAC.Geometry.IntVector2},System.Int32,Color,PAC.Image.Layers.AnimFrameRefMode)">
+  SetPixelsNoEvent(IEnumerable&lt;IntVector2&gt;, int, Color, AnimFrameRefMode)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Image/Layers/TileLayer.cs/#L144"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets the colour of the pixels.
+You do not need to check the pixels are in the layer as this check is done in Layer.SetPixels(), which is the only way this method is called.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override IEnumerable&lt;IntVector2&gt; SetPixelsNoEvent(IEnumerable&lt;IntVector2&gt; pixels, int frame, Color colour, AnimFrameRefMode frameRefMode)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>pixels</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="PAC.Geometry.IntVector2.html">IntVector2</a>&gt;</dt>
+    <dd></dd>
+    <dt><code>frame</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>colour</code> <span class="xref">Color</span></dt>
+    <dd></dd>
+    <dt><code>frameRefMode</code> <a class="xref" href="PAC.Image.Layers.AnimFrameRefMode.html">AnimFrameRefMode</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="PAC.Geometry.IntVector2.html">IntVector2</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Image/Layers/TileLayer.cs/#L23" class="edit-link">Edit this page</a>
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          Pixel Art Creator 2.0 Docs
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

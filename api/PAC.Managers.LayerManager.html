@@ -1,0 +1,854 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class LayerManager | Pixel Art Creator 2.0 Docs </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class LayerManager | Pixel Art Creator 2.0 Docs ">
+      
+      
+      <link rel="icon" href="../resources/icon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/new/main/apiSpec/new?filename=PAC_Managers_LayerManager.md&amp;value=---%0Auid%3A%20PAC.Managers.LayerManager%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../resources/logo.svg" alt="Pixel Art Creator 2.0">
+            Pixel Art Creator 2.0
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="PAC.Managers.LayerManager">
+
+
+
+  <h1 id="PAC_Managers_LayerManager" data-uid="PAC.Managers.LayerManager" class="text-break">
+Class LayerManager  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Managers/LayerManager.cs/#L16"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="PAC.html">PAC</a>.<a class="xref" href="PAC.Managers.html">Managers</a></dd></dl>
+  
+  </div>
+
+  <div class="markdown summary"></div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class LayerManager : MonoBehaviour</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">LayerManager</span></div>
+    </dd>
+  </dl>
+
+
+
+
+  <dl class="typelist extensionMethods">
+    <dt>Extension Methods</dt>
+    <dd>
+  <div>
+      <a class="xref" href="PAC.Interfaces.Extensions.ISetComparableExtensions.html#PAC_Interfaces_Extensions_ISetComparableExtensions_IsProperSubsetOf__2___0___1_">ISetComparableExtensions.IsProperSubsetOf&lt;T1, T2&gt;(T1, T2)</a>
+  </div>
+  <div>
+      <a class="xref" href="PAC.Interfaces.Extensions.ISetComparableExtensions.html#PAC_Interfaces_Extensions_ISetComparableExtensions_IsProperSupersetOf__2___0___1_">ISetComparableExtensions.IsProperSupersetOf&lt;T1, T2&gt;(T1, T2)</a>
+  </div>
+  </dd></dl>
+
+
+
+
+
+  <h2 class="section" id="fields">Fields
+</h2>
+
+
+
+  <h3 id="PAC_Managers_LayerManager_layerTypeSprite" data-uid="PAC.Managers.LayerManager.layerTypeSprite">
+  layerTypeSprite
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Managers/LayerManager.cs/#L28"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Sprite layerTypeSprite</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Sprite</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="PAC_Managers_LayerManager_tileLayerTypeSprite" data-uid="PAC.Managers.LayerManager.tileLayerTypeSprite">
+  tileLayerTypeSprite
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Managers/LayerManager.cs/#L29"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Sprite tileLayerTypeSprite</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Sprite</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="PAC_Managers_LayerManager_selectedLayer_" data-uid="PAC.Managers.LayerManager.selectedLayer*"></a>
+
+  <h3 id="PAC_Managers_LayerManager_selectedLayer" data-uid="PAC.Managers.LayerManager.selectedLayer">
+  selectedLayer
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Managers/LayerManager.cs/#L60"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The last layer that was selected.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Layer selectedLayer { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="PAC.Image.Layers.Layer.html">Layer</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="PAC_Managers_LayerManager_selectedLayerIndex_" data-uid="PAC.Managers.LayerManager.selectedLayerIndex*"></a>
+
+  <h3 id="PAC_Managers_LayerManager_selectedLayerIndex" data-uid="PAC.Managers.LayerManager.selectedLayerIndex">
+  selectedLayerIndex
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Managers/LayerManager.cs/#L50"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The index of the last layer that was selected.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int selectedLayerIndex { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="PAC_Managers_LayerManager_selectedLayerIndices_" data-uid="PAC.Managers.LayerManager.selectedLayerIndices*"></a>
+
+  <h3 id="PAC_Managers_LayerManager_selectedLayerIndices" data-uid="PAC.Managers.LayerManager.selectedLayerIndices">
+  selectedLayerIndices
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Managers/LayerManager.cs/#L71"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The indices of all selected layers, in increasing order.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int[] selectedLayerIndices { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>[]</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="PAC_Managers_LayerManager_selectedLayers_" data-uid="PAC.Managers.LayerManager.selectedLayers*"></a>
+
+  <h3 id="PAC_Managers_LayerManager_selectedLayers" data-uid="PAC.Managers.LayerManager.selectedLayers">
+  selectedLayers
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Managers/LayerManager.cs/#L81"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The selected layers, in order (highest layer first etc).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Layer[] selectedLayers { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="PAC.Image.Layers.Layer.html">Layer</a>[]</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="PAC_Managers_LayerManager_AddLayer_" data-uid="PAC.Managers.LayerManager.AddLayer*"></a>
+
+  <h3 id="PAC_Managers_LayerManager_AddLayer" data-uid="PAC.Managers.LayerManager.AddLayer">
+  AddLayer()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Managers/LayerManager.cs/#L201"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void AddLayer()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="PAC_Managers_LayerManager_AddLayer_" data-uid="PAC.Managers.LayerManager.AddLayer*"></a>
+
+  <h3 id="PAC_Managers_LayerManager_AddLayer_Texture2D_" data-uid="PAC.Managers.LayerManager.AddLayer(Texture2D)">
+  AddLayer(Texture2D)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Managers/LayerManager.cs/#L208"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void AddLayer(Texture2D texture)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>texture</code> <span class="xref">Texture2D</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="PAC_Managers_LayerManager_AddTileLayer_" data-uid="PAC.Managers.LayerManager.AddTileLayer*"></a>
+
+  <h3 id="PAC_Managers_LayerManager_AddTileLayer" data-uid="PAC.Managers.LayerManager.AddTileLayer">
+  AddTileLayer()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Managers/LayerManager.cs/#L216"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void AddTileLayer()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="PAC_Managers_LayerManager_DuplicateSelectedLayers_" data-uid="PAC.Managers.LayerManager.DuplicateSelectedLayers*"></a>
+
+  <h3 id="PAC_Managers_LayerManager_DuplicateSelectedLayers" data-uid="PAC.Managers.LayerManager.DuplicateSelectedLayers">
+  DuplicateSelectedLayers()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Managers/LayerManager.cs/#L231"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void DuplicateSelectedLayers()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="PAC_Managers_LayerManager_FlattenSelectedLayers_" data-uid="PAC.Managers.LayerManager.FlattenSelectedLayers*"></a>
+
+  <h3 id="PAC_Managers_LayerManager_FlattenSelectedLayers" data-uid="PAC.Managers.LayerManager.FlattenSelectedLayers">
+  FlattenSelectedLayers()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Managers/LayerManager.cs/#L249"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void FlattenSelectedLayers()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="PAC_Managers_LayerManager_HideAllBut_" data-uid="PAC.Managers.LayerManager.HideAllBut*"></a>
+
+  <h3 id="PAC_Managers_LayerManager_HideAllBut_PAC_Image_Layers_Layer_" data-uid="PAC.Managers.LayerManager.HideAllBut(PAC.Image.Layers.Layer)">
+  HideAllBut(Layer)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Managers/LayerManager.cs/#L337"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void HideAllBut(Layer layer)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>layer</code> <a class="xref" href="PAC.Image.Layers.Layer.html">Layer</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="PAC_Managers_LayerManager_MoveSelectedLayersDown_" data-uid="PAC.Managers.LayerManager.MoveSelectedLayersDown*"></a>
+
+  <h3 id="PAC_Managers_LayerManager_MoveSelectedLayersDown" data-uid="PAC.Managers.LayerManager.MoveSelectedLayersDown">
+  MoveSelectedLayersDown()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Managers/LayerManager.cs/#L311"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void MoveSelectedLayersDown()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="PAC_Managers_LayerManager_MoveSelectedLayersUp_" data-uid="PAC.Managers.LayerManager.MoveSelectedLayersUp*"></a>
+
+  <h3 id="PAC_Managers_LayerManager_MoveSelectedLayersUp" data-uid="PAC.Managers.LayerManager.MoveSelectedLayersUp">
+  MoveSelectedLayersUp()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Managers/LayerManager.cs/#L285"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void MoveSelectedLayersUp()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="PAC_Managers_LayerManager_OnFileSwitched_" data-uid="PAC.Managers.LayerManager.OnFileSwitched*"></a>
+
+  <h3 id="PAC_Managers_LayerManager_OnFileSwitched" data-uid="PAC.Managers.LayerManager.OnFileSwitched">
+  OnFileSwitched()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Managers/LayerManager.cs/#L116"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void OnFileSwitched()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="PAC_Managers_LayerManager_OnLayersChanged_" data-uid="PAC.Managers.LayerManager.OnLayersChanged*"></a>
+
+  <h3 id="PAC_Managers_LayerManager_OnLayersChanged" data-uid="PAC.Managers.LayerManager.OnLayersChanged">
+  OnLayersChanged()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Managers/LayerManager.cs/#L110"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void OnLayersChanged()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="PAC_Managers_LayerManager_RemoveSelectedLayers_" data-uid="PAC.Managers.LayerManager.RemoveSelectedLayers*"></a>
+
+  <h3 id="PAC_Managers_LayerManager_RemoveSelectedLayers" data-uid="PAC.Managers.LayerManager.RemoveSelectedLayers">
+  RemoveSelectedLayers()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Managers/LayerManager.cs/#L224"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void RemoveSelectedLayers()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="PAC_Managers_LayerManager_SetLayerBlendMode_" data-uid="PAC.Managers.LayerManager.SetLayerBlendMode*"></a>
+
+  <h3 id="PAC_Managers_LayerManager_SetLayerBlendMode_System_Int32_PAC_Colour_Compositing_BlendMode_" data-uid="PAC.Managers.LayerManager.SetLayerBlendMode(System.Int32,PAC.Colour.Compositing.BlendMode)">
+  SetLayerBlendMode(int, BlendMode)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Managers/LayerManager.cs/#L400"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetLayerBlendMode(int layerIndex, BlendMode blendMode)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>layerIndex</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>blendMode</code> <a class="xref" href="PAC.Colour.Compositing.BlendMode.html">BlendMode</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="PAC_Managers_LayerManager_SetLayerName_" data-uid="PAC.Managers.LayerManager.SetLayerName*"></a>
+
+  <h3 id="PAC_Managers_LayerManager_SetLayerName_System_Int32_System_String_" data-uid="PAC.Managers.LayerManager.SetLayerName(System.Int32,System.String)">
+  SetLayerName(int, string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Managers/LayerManager.cs/#L370"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetLayerName(int layerIndex, string layerName)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>layerIndex</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>layerName</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="PAC_Managers_LayerManager_SetLayerOpacity_" data-uid="PAC.Managers.LayerManager.SetLayerOpacity*"></a>
+
+  <h3 id="PAC_Managers_LayerManager_SetLayerOpacity_System_Int32_System_Single_" data-uid="PAC.Managers.LayerManager.SetLayerOpacity(System.Int32,System.Single)">
+  SetLayerOpacity(int, float)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Managers/LayerManager.cs/#L383"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetLayerOpacity(int layerIndex, float opacity)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>layerIndex</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>opacity</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="PAC_Managers_LayerManager_SubscribeToLayerChange_" data-uid="PAC.Managers.LayerManager.SubscribeToLayerChange*"></a>
+
+  <h3 id="PAC_Managers_LayerManager_SubscribeToLayerChange_UnityAction_" data-uid="PAC.Managers.LayerManager.SubscribeToLayerChange(UnityAction)">
+  SubscribeToLayerChange(UnityAction)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Managers/LayerManager.cs/#L418"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SubscribeToLayerChange(UnityAction call)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>call</code> <span class="xref">UnityAction</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="PAC_Managers_LayerManager_SubscribeToVisibilityChange_" data-uid="PAC.Managers.LayerManager.SubscribeToVisibilityChange*"></a>
+
+  <h3 id="PAC_Managers_LayerManager_SubscribeToVisibilityChange_UnityAction_" data-uid="PAC.Managers.LayerManager.SubscribeToVisibilityChange(UnityAction)">
+  SubscribeToVisibilityChange(UnityAction)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Managers/LayerManager.cs/#L422"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SubscribeToVisibilityChange(UnityAction call)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>call</code> <span class="xref">UnityAction</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="PAC_Managers_LayerManager_WorldYCoordOfLayerTile_" data-uid="PAC.Managers.LayerManager.WorldYCoordOfLayerTile*"></a>
+
+  <h3 id="PAC_Managers_LayerManager_WorldYCoordOfLayerTile_System_Int32_" data-uid="PAC.Managers.LayerManager.WorldYCoordOfLayerTile(System.Int32)">
+  WorldYCoordOfLayerTile(int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Managers/LayerManager.cs/#L360"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float WorldYCoordOfLayerTile(int layerTileIndex)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>layerTileIndex</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Managers/LayerManager.cs/#L16" class="edit-link">Edit this page</a>
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          Pixel Art Creator 2.0 Docs
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
