@@ -39,6 +39,14 @@ namespace PAC.Maths
         };
 
         /// <summary>
+        /// Returns the absolute value of <paramref name="x"/>.
+        /// </summary>
+        /// <remarks>
+        /// This is just <see cref="Mathf.Abs(float)"/> as an extension method.
+        /// </remarks>
+        public static float Abs(this float x) => Mathf.Abs(x);
+
+        /// <summary>
         /// Clamps the value so it's non-negative.
         /// </summary>
         /// <returns>
