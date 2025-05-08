@@ -1,0 +1,18 @@
+{
+    "name": "Project.Unity.Editor",
+    "rootNamespace": "",
+    "references": [
+        "GUID:f8b50924921fd7a478d01783a4da9920",
+        "GUID:2b46856cc7b42414b823cc2a19e6d617",
+        "GUID:acc5a95f1479a6e4b8af23aa64689b7c"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
