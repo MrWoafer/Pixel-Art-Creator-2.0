@@ -12,7 +12,7 @@ namespace PAC.Tests.Maths
     public class MathExtensions_Tests
     {
         [Test]
-        [Category("Utils")]
+        [Category("Maths")]
         public void Mod()
         {
             for (int a = -50; a <= 50; a++)
@@ -39,7 +39,7 @@ namespace PAC.Tests.Maths
         }
 
         [Test]
-        [Category("Utils")]
+        [Category("Maths")]
         public void Gcd()
         {
             // (a, b, gcd) - make sure all are non-negative
@@ -65,7 +65,7 @@ namespace PAC.Tests.Maths
         }
 
         [Test]
-        [Category("Utils")]
+        [Category("Maths")]
         public void Pow()
         {
             Assert.AreEqual(1, MathExtensions.Pow(0, 0), "Failed with 0 ^ 0.");
@@ -107,6 +107,75 @@ namespace PAC.Tests.Maths
             Assert.DoesNotThrow(() => MathExtensions.Pow(int.MaxValue, 1));
             Assert.Throws<OverflowException>(() => MathExtensions.Pow(int.MinValue, 2));
             Assert.Throws<OverflowException>(() => MathExtensions.Pow(int.MaxValue, 2));
+        }
+
+        /// <summary>
+        /// Tests <see cref="MathExtensions.FractionalPart(float)"/>.
+        /// </summary>
+        [Test]
+        [Category("Maths")]
+        public void FractionalPart()
+        {
+            Assert.AreEqual(0f, MathExtensions.FractionalPart(0f));
+            Assert.AreEqual(0.3f, MathExtensions.FractionalPart(0.3f), 0.00001f);
+            Assert.AreEqual(0.62f, MathExtensions.FractionalPart(5.62f), 0.00001f);
+
+            Assert.AreEqual(-0.14f, MathExtensions.FractionalPart(-0.14f), 0.00001f);
+            Assert.AreEqual(-0.167f, MathExtensions.FractionalPart(-12.167f), 0.00001f);
+
+            for (int n = -10; n <= 10; n++)
+            {
+                Assert.AreEqual(0f, MathExtensions.FractionalPart(n));
+            }
+        }
+
+        /// <summary>
+        /// Tests <see cref="MathExtensions.RoundHalfUp(float)"/>.
+        /// </summary>
+        [Test]
+        [Category("Maths")]
+        public void RoundHalfUp()
+        {
+            Assert.AreEqual(0f, MathExtensions.RoundHalfUp(0.1f));
+            Assert.AreEqual(0f, MathExtensions.RoundHalfUp(0.49f));
+            Assert.AreEqual(1f, MathExtensions.RoundHalfUp(0.51f));
+
+            Assert.AreEqual(4f, MathExtensions.RoundHalfUp(3.64f));
+            Assert.AreEqual(10f, MathExtensions.RoundHalfUp(10.3f));
+            Assert.AreEqual(-5f, MathExtensions.RoundHalfUp(-5.3f));
+            Assert.AreEqual(-8f, MathExtensions.RoundHalfUp(-7.8f));
+
+            Assert.AreEqual(-3f, MathExtensions.RoundHalfUp(-3.5f));
+            Assert.AreEqual(-2f, MathExtensions.RoundHalfUp(-2.5f));
+            Assert.AreEqual(-1f, MathExtensions.RoundHalfUp(-1.5f));
+            Assert.AreEqual(0f, MathExtensions.RoundHalfUp(-0.5f));
+            Assert.AreEqual(1f, MathExtensions.RoundHalfUp(0.5f));
+            Assert.AreEqual(2f, MathExtensions.RoundHalfUp(1.5f));
+            Assert.AreEqual(3f, MathExtensions.RoundHalfUp(2.5f));
+            Assert.AreEqual(4f, MathExtensions.RoundHalfUp(3.5f));
+
+            for (int n = -10; n <= 10; n++)
+            {
+                Assert.AreEqual(n, MathExtensions.RoundHalfUp(n));
+            }
+        }
+
+        /// <summary>
+        /// Tests <see cref="MathExtensions.RoundHalfUp(float, float)"/>.
+        /// </summary>
+        [Test]
+        [Category("Maths")]
+        public void RoundHalfUp_ToMultiple()
+        {
+            Assert.AreEqual(0f, MathExtensions.RoundHalfUp(0.3f, 2f));
+            Assert.AreEqual(0f, MathExtensions.RoundHalfUp(0.6f, 2f));
+            Assert.AreEqual(2f, MathExtensions.RoundHalfUp(1f, 2f));
+            Assert.AreEqual(2f, MathExtensions.RoundHalfUp(1.7f, 2f));
+
+            Assert.AreEqual(5f, MathExtensions.RoundHalfUp(4.2f, -5f));
+            Assert.AreEqual(-5f, MathExtensions.RoundHalfUp(-4.2f, -5f));
+            Assert.AreEqual(0f, MathExtensions.RoundHalfUp(-2.5f, -5f));
+            Assert.AreEqual(5f, MathExtensions.RoundHalfUp(2.5f, -5f));
         }
     }
 }

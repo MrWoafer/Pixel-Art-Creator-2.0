@@ -224,6 +224,27 @@ namespace PAC.Maths
         }
 
         /// <summary>
+        /// Returns the part of <paramref name="x"/> after the decimal point, preserving the sign.
+        /// </summary>
+        /// <remarks>
+        /// For example, the fractional part of 1.3 is 0.3; the fractional part of -4.7 is -0.7.
+        /// </remarks>
+        public static float FractionalPart(this float x) => x % 1f;
+
+        /// <summary>
+        /// Rounds <paramref name="x"/> to the nearest integer, rounding any .5 towards positive infinity.
+        /// </summary>
+        public static float RoundHalfUp(this float x) => x.FractionalPart().Abs() == 0.5f ? Mathf.Ceil(x) : Mathf.Round(x);
+        /// <summary>
+        /// Rounds <paramref name="x"/> to the nearest multiple of <paramref name="toMultipleOf"/>, breaking ties by rounding towards positive infinity.
+        /// </summary>
+        /// <exception cref="ArgumentException"><paramref name="toMultipleOf"/> is 0.</exception>
+        public static float RoundHalfUp(this float x, float toMultipleOf)
+            => toMultipleOf == 0f
+            ? throw new ArgumentException("Cannot round to a multiple of 0.", nameof(toMultipleOf))
+            : (RoundHalfUp(x / toMultipleOf.Abs()) * toMultipleOf.Abs());
+
+        /// <summary>
         /// Returns the multiple of <paramref name="multipleOf"/> that is closest to <paramref name="toRound"/>.
         /// </summary>
         /// <exception cref="ArgumentException"><paramref name="multipleOf"/> is 0.</exception>
