@@ -2,7 +2,7 @@
 [![release](https://img.shields.io/badge/release-1.0.0%20in%20progress-blue)][release]
 [![issues](https://img.shields.io/github/issues/MrWoafer/Pixel-Art-Creator-2.0)][issues]
 [![manual](https://img.shields.io/website?url=https%3A%2F%2Fmrwoafer.github.io%2FPixel-Art-Creator-2.0%2Fmanual%2Fconiunctis.html&label=manual)][manual]
-[![docs](https://img.shields.io/website?url=https%3A%2F%2Fmrwoafer.github.io%2FPixel-Art-Creator-2.0%2Fapi%2FPAC.html&label=docs)][docs]
+[![docs](https://img.shields.io/website?url=https%3A%2F%2Fmrwoafer.github.io%2FPixel-Art-Creator-2.0%2Fapi%2FPAC.Colour.html&label=docs)][docs]
 [![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/MrWoafer/Pixel-Art-Creator-2.0/documentation.yml?label=auto%20api%20documentation)][docfx]
 
 [release]: https://github.com/MrWoafer/Pixel-Art-Creator-2.0/releases
