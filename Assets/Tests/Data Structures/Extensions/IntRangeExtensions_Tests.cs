@@ -85,8 +85,8 @@ namespace PAC.Tests.DataStructures.Extensions
                 {
                     Assert.True(boundingRange.Contains(value), $"Failed with {testCase} and {value}.");
                 }
-                Assert.False(boundingRange.Contains(((IEnumerable<int>)boundingRange).Min() - 1), $"Failed with {testCase}.");
-                Assert.False(boundingRange.Contains(((IEnumerable<int>)boundingRange).Max() + 1), $"Failed with {testCase}.");
+                Assert.False(boundingRange.Contains(Enumerable.Min(boundingRange) - 1), $"Failed with {testCase}.");
+                Assert.False(boundingRange.Contains(Enumerable.Max(boundingRange) + 1), $"Failed with {testCase}.");
 
                 Assert.True(boundingRange.isInclIncl, $"Failed with {testCase}");
             }
