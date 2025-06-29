@@ -273,6 +273,19 @@ namespace PAC.Geometry
         public bool ContainsY(int y) => minY <= y && y <= maxY;
 
         /// <summary>
+        /// For rects with an odd width, this returns whether <paramref name="x"/> is the centre x coord of the rect.
+        /// For rects with an even width, this returns whether <paramref name="x"/> is one of the two centre x coords of the rect.
+        /// </summary>
+        public bool XCentreIs(int x)
+            => Mathf.FloorToInt((minX + maxX) / 2f) <= x && x <= Mathf.CeilToInt((minX + maxX) / 2f); // use Mathf floor/ceil, instead of int division, as they round towards +/-infinity, not 0
+        /// <summary>
+        /// For rects with an odd height, this returns whether <paramref name="y"/> is the centre y coord of the rect.
+        /// For rects with an even height, this returns whether <paramref name="y"/> is one of the two centre y coords of the rect.
+        /// </summary>
+        public bool YCentreIs(int y)
+            => Mathf.FloorToInt((minY + maxY) / 2f) <= y && y <= Mathf.CeilToInt((minY + maxY) / 2f); // use Mathf floor/ceil, instead of int division, as they round towards +/-infinity, not 0
+
+        /// <summary>
         /// Whether the two rects have any points in common.
         /// </summary>
         /// <seealso cref="Overlap(IntRect, IntRect)"/>
