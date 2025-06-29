@@ -738,7 +738,7 @@ namespace PAC.DataStructures
         /// </para>
         /// <para>
         /// <example>
-        /// For example, the range from -1 (inclusive) to 5 (exclusive) will be respresented as <c>"[-1, 5)"</c>.
+        /// For example, the range from -1 (inclusive) to 5 (exclusive) will be represented as <c>"[-1, 5)"</c>.
         /// </example>
         /// </para>
         /// </summary>
