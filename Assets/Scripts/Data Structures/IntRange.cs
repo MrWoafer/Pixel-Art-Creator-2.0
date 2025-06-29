@@ -653,30 +653,6 @@ namespace PAC.DataStructures
         /// <exception cref="InvalidOperationException">The range is empty.</exception>
         /// <seealso cref="Math.Clamp(int, int, int)"/>
         public int Clamp(int n) => isEmpty ? throw new InvalidOperationException("The range is empty.") : Math.Clamp(n, minElement, maxElement);
-
-        /// <summary>
-        /// Returns the smallest range containing all the given values.
-        /// </summary>
-        /// <returns>
-        /// The smallest range containing all the given values. It will be expressed with both boundaries inclusive, unless the sequence of values is empty, in which case it will be expressed with
-        /// both boundaries exclusive.
-        /// </returns>
-        /// <exception cref="ArgumentNullException"><paramref name="integers"/> is null.</exception>
-        public static IntRange BoundingRange(IEnumerable<int> integers)
-        {
-            if (integers is null)
-            {
-                throw new ArgumentNullException(nameof(integers), $"Cannot perform {nameof(BoundingRange)}() on null.");
-            }
-
-            if (integers.None())
-            {
-                return Empty;
-            }
-
-            (int min, int max) = integers.MinAndMax();
-            return InclIncl(min, max);
-        }
         #endregion
 
         #region Enumerator
