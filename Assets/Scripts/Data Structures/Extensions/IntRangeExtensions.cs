@@ -1,6 +1,8 @@
 using System;
 using System.Collections.Generic;
 
+using PAC.Extensions.System.Collections;
+
 namespace PAC.DataStructures.Extensions
 {
     /// <summary>
@@ -30,6 +32,30 @@ namespace PAC.DataStructures.Extensions
             {
                 yield return list[index];
             }
+        }
+
+        /// <summary>
+        /// Returns the smallest <see cref="IntRange"/> containing all the given values.
+        /// </summary>
+        /// <returns>
+        /// The smallest <see cref="IntRange"/> containing all the given values. It will be expressed with both boundaries inclusive, unless the sequence of values is empty, in which case it
+        /// will be expressed with both boundaries exclusive.
+        /// </returns>
+        /// <exception cref="ArgumentNullException"><paramref name="integers"/> is null.</exception>
+        public static IntRange Range(this IEnumerable<int> integers)
+        {
+            if (integers is null)
+            {
+                throw new ArgumentNullException(nameof(integers), $"Cannot perform {nameof(Range)}() on null.");
+            }
+
+            if (integers.None())
+            {
+                return IntRange.Empty;
+            }
+
+            (int min, int max) = integers.MinAndMax();
+            return IntRange.InclIncl(min, max);
         }
     }
 }
