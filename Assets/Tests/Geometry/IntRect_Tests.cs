@@ -71,6 +71,31 @@ namespace PAC.Tests.Geometry
         }
 
         /// <summary>
+        /// Tests <see cref="IntRect.BorderContains(IntVector2)"/>.
+        /// </summary>
+        [Test]
+        [Category("Data Structures")]
+        public void BorderContains()
+        {
+            foreach (IntRect rect in randomTestCases.Take(1_000))
+            {
+                HashSet<IntVector2> points = Enumerable.ToHashSet(rect);
+                IntRect testRegion = new IntRect(rect.bottomLeft - (2, 2), rect.topRight + (2, 2));
+                foreach (IntVector2 point in testRegion)
+                {
+                    bool isOnBorder = points.Contains(point) &&
+                        (
+                            !points.Contains(point + (1, 0))
+                            || !points.Contains(point + (-1, 0))
+                            || !points.Contains(point + (0, 1))
+                            || !points.Contains(point + (0, -1))
+                        );
+                    Assert.AreEqual(isOnBorder, rect.BorderContains(point), $"Failed with {rect} and {point}.");
+                }
+            }
+        }
+
+        /// <summary>
         /// Tests <see cref="IntRect.XCentreIs(int)"/>.
         /// </summary>
         [Test]
