@@ -259,8 +259,7 @@ namespace PAC.Geometry
         /// Whether the point <c>(<paramref name="x"/>, <paramref name="y"/>)</c> is in the rect.
         /// </summary>
         /// <seealso cref="Contains(IntVector2)"/>
-        public bool Contains(int x, int y) => minX <= x && minY <= y && x <= maxX && y <= maxY;
-
+        public bool Contains(int x, int y) => ContainsX(x) && ContainsY(y);
         /// <summary>
         /// Returns whether the rect contains any points with the given x coord.
         /// </summary>
