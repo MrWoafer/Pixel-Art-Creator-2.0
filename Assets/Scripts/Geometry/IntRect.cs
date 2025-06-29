@@ -272,6 +272,27 @@ namespace PAC.Geometry
         public bool ContainsY(int y) => minY <= y && y <= maxY;
 
         /// <summary>
+        /// Whether the point is in the rect and has at least one adjacent (up/down/left/right) point not in the rect.
+        /// </summary>
+        /// <seealso cref="BorderContains(int, int)"/>
+        public bool BorderContains(IntVector2 point) => BorderContains(point.x, point.y);
+        /// <summary>
+        /// Whether the point is in the rect and has at least one adjacent (up/down/left/right) point not in the rect.
+        /// </summary>
+        /// <seealso cref="BorderContains(IntVector2)"/>
+        public bool BorderContains(int x, int y) => Contains(x, y) && (BorderContainsX(x) || BorderContainsY(y));
+        /// <summary>
+        /// Returns <see langword="true"/> if and only if <paramref name="x"/> is <see cref="minX"/> or <see cref="maxX"/>.
+        /// </summary>
+        /// <seealso cref="BorderContainsY(int)"/>
+        public bool BorderContainsX(int x) => minX == x || x == maxX;
+        /// <summary>
+        /// Returns <see langword="true"/> if and only if <paramref name="y"/> is <see cref="minY"/> or <see cref="maxY"/>.
+        /// </summary>
+        /// <seealso cref="BorderContainsX(int)"/>
+        public bool BorderContainsY(int y) => minY == y || y == maxY;
+
+        /// <summary>
         /// For rects with an odd width, this returns whether <paramref name="x"/> is the centre x coord of the rect.
         /// For rects with an even width, this returns whether <paramref name="x"/> is one of the two centre x coords of the rect.
         /// </summary>
