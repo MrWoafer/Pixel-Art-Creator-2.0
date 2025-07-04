@@ -359,17 +359,17 @@ namespace PAC.Geometry.Shapes
         /// <summary>
         /// Returns a deep copy of the <see cref="RightTriangle"/> translated by the given vector.
         /// </summary>
-        /// <seealso cref="Translate(IntVector2)"/>
-        public static RightTriangle operator +(RightTriangle triangle, IntVector2 translation) => triangle.Translate(translation);
+        /// <seealso cref="Translated(IntVector2)"/>
+        public static RightTriangle operator +(RightTriangle triangle, IntVector2 translation) => triangle.Translated(translation);
         /// <summary>
         /// Returns a deep copy of the <see cref="RightTriangle"/> translated by the given vector.
         /// </summary>
-        /// <seealso cref="Translate(IntVector2)"/>
+        /// <seealso cref="Translated(IntVector2)"/>
         public static RightTriangle operator +(IntVector2 translation, RightTriangle triangle) => triangle + translation;
         /// <summary>
         /// Returns a deep copy of the <see cref="RightTriangle"/> translated by the given vector.
         /// </summary>
-        /// <seealso cref="Translate(IntVector2)"/>
+        /// <seealso cref="Translated(IntVector2)"/>
         public static RightTriangle operator -(RightTriangle triangle, IntVector2 translation) => triangle + (-translation);
         /// <summary>
         /// Returns a deep copy of the <see cref="RightTriangle"/> rotated 180 degrees about the origin (equivalently, reflected through the origin).
@@ -378,7 +378,7 @@ namespace PAC.Geometry.Shapes
         /// <seealso cref="Flip(CardinalOrdinalAxis)"/>
         public static RightTriangle operator -(RightTriangle triangle) => triangle.Rotate(QuadrantalAngle._180);
 
-        public RightTriangle Translate(IntVector2 translation) => new RightTriangle(boundingRect + translation, rightAngleLocation, filled);
+        public RightTriangle Translated(IntVector2 translation) => new RightTriangle(boundingRect + translation, rightAngleLocation, filled);
         public RightTriangle Flip(CardinalOrdinalAxis axis) => new RightTriangle(boundingRect.Flip(axis), FromDirection(AsDirection(rightAngleLocation).Flip(axis)), filled);
         public RightTriangle Rotate(QuadrantalAngle angle) => new RightTriangle(boundingRect.Rotate(angle), FromDirection(AsDirection(rightAngleLocation).Rotate(angle)), filled);
 

@@ -686,17 +686,17 @@ namespace PAC.Geometry.Shapes
         /// <summary>
         /// Returns a deep copy of the <see cref="IsometricRectangle"/> translated by the given vector.
         /// </summary>
-        /// <seealso cref="Translate(IntVector2)"/>
-        public static IsometricRectangle operator +(IsometricRectangle isometricRectangle, IntVector2 translation) => isometricRectangle.Translate(translation);
+        /// <seealso cref="Translated(IntVector2)"/>
+        public static IsometricRectangle operator +(IsometricRectangle isometricRectangle, IntVector2 translation) => isometricRectangle.Translated(translation);
         /// <summary>
         /// Returns a deep copy of the <see cref="IsometricRectangle"/> translated by the given vector.
         /// </summary>
-        /// <seealso cref="Translate(IntVector2)"/>
+        /// <seealso cref="Translated(IntVector2)"/>
         public static IsometricRectangle operator +(IntVector2 translation, IsometricRectangle isometricRectangle) => isometricRectangle + translation;
         /// <summary>
         /// Returns a deep copy of the <see cref="IsometricRectangle"/> translated by the given vector.
         /// </summary>
-        /// <seealso cref="Translate(IntVector2)"/>
+        /// <seealso cref="Translated(IntVector2)"/>
         public static IsometricRectangle operator -(IsometricRectangle isometricRectangle, IntVector2 translation) => isometricRectangle + (-translation);
         /// <summary>
         /// Returns a deep copy of the <see cref="IsometricRectangle"/> rotated 180 degrees about the origin (equivalently, reflected through the origin).
@@ -705,7 +705,7 @@ namespace PAC.Geometry.Shapes
         public static IsometricRectangle operator -(IsometricRectangle isometricRectangle)
             => new IsometricRectangle(-isometricRectangle.startCorner, -isometricRectangle.endCorner, isometricRectangle.filled);
 
-        public IsometricRectangle Translate(IntVector2 translation) => new IsometricRectangle(startCorner + translation, endCorner + translation, filled);
+        public IsometricRectangle Translated(IntVector2 translation) => new IsometricRectangle(startCorner + translation, endCorner + translation, filled);
 
         public IsometricRectangle Flip(VerticalAxis axis) => Flip((CardinalAxis)axis);
         public IsometricRectangle Flip(CardinalAxis axis) => new IsometricRectangle(startCorner.Flip(axis), endCorner.Flip(axis), filled);

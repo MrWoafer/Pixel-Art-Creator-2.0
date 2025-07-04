@@ -476,17 +476,17 @@ namespace PAC.Geometry.Shapes
         /// <summary>
         /// Returns a deep copy of the <see cref="Line"/> translated by the given vector.
         /// </summary>
-        /// <seealso cref="Translate(IntVector2)"/>
-        public static Line operator +(Line line, IntVector2 translation) => line.Translate(translation);
+        /// <seealso cref="Translated(IntVector2)"/>
+        public static Line operator +(Line line, IntVector2 translation) => line.Translated(translation);
         /// <summary>
         /// Returns a deep copy of the <see cref="Line"/> translated by the given vector.
         /// </summary>
-        /// <seealso cref="Translate(IntVector2)"/>
+        /// <seealso cref="Translated(IntVector2)"/>
         public static Line operator +(IntVector2 translation, Line line) => line + translation;
         /// <summary>
         /// Returns a deep copy of the <see cref="Line"/> translated by the given vector.
         /// </summary>
-        /// <seealso cref="Translate(IntVector2)"/>
+        /// <seealso cref="Translated(IntVector2)"/>
         public static Line operator -(Line line, IntVector2 translation) => line + (-translation);
         /// <summary>
         /// Returns a deep copy of the <see cref="Line"/> rotated 180 degrees about the origin (equivalently, reflected through the origin).
@@ -495,7 +495,7 @@ namespace PAC.Geometry.Shapes
         /// <seealso cref="Flip(CardinalOrdinalAxis)"/>
         public static Line operator -(Line line) => new Line(-line.start, -line.end);
 
-        public Line Translate(IntVector2 translation) => new Line(start + translation, end + translation);
+        public Line Translated(IntVector2 translation) => new Line(start + translation, end + translation);
         public Line Flip(CardinalOrdinalAxis axis) => new Line(start.Flip(axis), end.Flip(axis));
         public Line Rotate(QuadrantalAngle angle) => new Line(start.Rotate(angle), end.Rotate(angle));
 

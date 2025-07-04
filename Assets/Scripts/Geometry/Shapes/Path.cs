@@ -376,17 +376,17 @@ namespace PAC.Geometry.Shapes
         /// <summary>
         /// Returns a deep copy of the <see cref="Path"/> translated by the given vector.
         /// </summary>
-        /// <seealso cref="Translate(IntVector2)"/>
-        public static Path operator +(Path path, IntVector2 translation) => path.Translate(translation);
+        /// <seealso cref="Translated(IntVector2)"/>
+        public static Path operator +(Path path, IntVector2 translation) => path.Translated(translation);
         /// <summary>
         /// Returns a deep copy of the <see cref="Path"/> translated by the given vector.
         /// </summary>
-        /// <seealso cref="Translate(IntVector2)"/>
+        /// <seealso cref="Translated(IntVector2)"/>
         public static Path operator +(IntVector2 translation, Path path) => path + translation;
         /// <summary>
         /// Returns a deep copy of the <see cref="Path"/> translated by the given vector.
         /// </summary>
-        /// <seealso cref="Translate(IntVector2)"/>
+        /// <seealso cref="Translated(IntVector2)"/>
         public static Path operator -(Path path, IntVector2 translation) => path + (-translation);
         /// <summary>
         /// Returns a deep copy of the <see cref="Path"/> rotated 180 degrees about the origin (equivalently, reflected through the origin).
@@ -395,7 +395,7 @@ namespace PAC.Geometry.Shapes
         /// <seealso cref="Flip(CardinalOrdinalAxis)"/>
         public static Path operator -(Path path) => path.Rotate(QuadrantalAngle._180);
 
-        public Path Translate(IntVector2 translation) => new Path(_lines.Select(l => l.Translate(translation)));
+        public Path Translated(IntVector2 translation) => new Path(_lines.Select(l => l.Translated(translation)));
         public Path Flip(CardinalOrdinalAxis axis) => new Path(_lines.Select(l => l.Flip(axis)));
         public Path Rotate(QuadrantalAngle angle) => new Path(_lines.Select(l => l.Rotate(angle)));
 

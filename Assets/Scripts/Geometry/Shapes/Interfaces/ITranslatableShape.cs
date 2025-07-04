@@ -23,7 +23,7 @@ namespace PAC.Geometry.Shapes.Interfaces
     /// }
     /// </code>
     /// </example>
-    /// This is done to ensure the specific return type of the <see cref="Translate(IntVector2)"/> method.
+    /// This is done to ensure the specific return type of the <see cref="Translated(IntVector2)"/> method.
     /// Note though that <typeparamref name="T"/> is covariant (see <see langword="out"/>), so you can abstract over any shape that is translatable.
     /// <example>
     /// For example,
@@ -31,7 +31,7 @@ namespace PAC.Geometry.Shapes.Interfaces
     /// List&lt;ITranslatableShape&lt;IShape&gt;&gt;
     /// </code>
     /// </example>
-    /// This can store any shape that implements <see cref="ITranslatableShape{T}"/>. Note though that calling <see cref="Translate(IntVector2)"/> on an element of this list will return an
+    /// This can store any shape that implements <see cref="ITranslatableShape{T}"/>. Note though that calling <see cref="Translated(IntVector2)"/> on an element of this list will return an
     /// <see cref="IShape"/> so cannot be translated again without downcasting. However you can do, say,
     /// <example>
     /// <code language="csharp">
@@ -52,26 +52,26 @@ namespace PAC.Geometry.Shapes.Interfaces
         /// <seealso cref="operator +(ITranslatableShape{T}, IntVector2)"/>
         /// <seealso cref="operator +(IntVector2, ITranslatableShape{T})"/>
         /// <seealso cref="operator -(ITranslatableShape{T}, IntVector2)"/>
-        public T Translate(IntVector2 translation);
+        public T Translated(IntVector2 translation);
 
         #region Default Implementations
         /// <summary>
         /// Returns a deep copy of the shape translated by the given vector.
         /// </summary>
-        /// <seealso cref="Translate(IntVector2)"/>
-        public static T operator +(ITranslatableShape<T> shape, IntVector2 translation) => shape.Translate(translation);
+        /// <seealso cref="Translated(IntVector2)"/>
+        public static T operator +(ITranslatableShape<T> shape, IntVector2 translation) => shape.Translated(translation);
         /// <summary>
         /// Returns a deep copy of the shape translated by the given vector.
         /// </summary>
-        /// <seealso cref="Translate(IntVector2)"/>
+        /// <seealso cref="Translated(IntVector2)"/>
         public static T operator +(IntVector2 translation, ITranslatableShape<T> shape) => shape + translation;
         /// <summary>
         /// Returns a deep copy of the shape translated by the given vector.
         /// </summary>
-        /// <seealso cref="Translate(IntVector2)"/>
+        /// <seealso cref="Translated(IntVector2)"/>
         public static T operator -(ITranslatableShape<T> shape, IntVector2 translation) => shape + (-translation);
 
-        T IDeepCopyableShape<T>.DeepCopy() => Translate(IntVector2.zero);
+        T IDeepCopyableShape<T>.DeepCopy() => Translated(IntVector2.zero);
         #endregion
     }
 }

@@ -237,17 +237,17 @@ namespace PAC.Geometry.Shapes
         /// <summary>
         /// Returns a deep copy of the <see cref="Diamond"/> translated by the given vector.
         /// </summary>
-        /// <seealso cref="Translate(IntVector2)"/>
-        public static Diamond operator +(Diamond diamond, IntVector2 translation) => diamond.Translate(translation);
+        /// <seealso cref="Translated(IntVector2)"/>
+        public static Diamond operator +(Diamond diamond, IntVector2 translation) => diamond.Translated(translation);
         /// <summary>
         /// Returns a deep copy of the <see cref="Diamond"/> translated by the given vector.
         /// </summary>
-        /// <seealso cref="Translate(IntVector2)"/>
+        /// <seealso cref="Translated(IntVector2)"/>
         public static Diamond operator +(IntVector2 translation, Diamond diamond) => diamond + translation;
         /// <summary>
         /// Returns a deep copy of the <see cref="Diamond"/> translated by the given vector.
         /// </summary>
-        /// <seealso cref="Translate(IntVector2)"/>
+        /// <seealso cref="Translated(IntVector2)"/>
         public static Diamond operator -(Diamond diamond, IntVector2 translation) => diamond + (-translation);
         /// <summary>
         /// Returns a deep copy of the <see cref="Diamond"/> rotated 180 degrees about the origin (equivalently, reflected through the origin).
@@ -256,7 +256,7 @@ namespace PAC.Geometry.Shapes
         /// <seealso cref="Flip(CardinalOrdinalAxis)"/>
         public static Diamond operator -(Diamond diamond) => new Diamond(-diamond.boundingRect, diamond.filled);
 
-        public Diamond Translate(IntVector2 translation) => new Diamond(boundingRect + translation, filled);
+        public Diamond Translated(IntVector2 translation) => new Diamond(boundingRect + translation, filled);
         public Diamond Flip(CardinalOrdinalAxis axis) => new Diamond(boundingRect.Flip(axis), filled);
         public Diamond Rotate(QuadrantalAngle angle) => new Diamond(boundingRect.Rotate(angle), filled);
 

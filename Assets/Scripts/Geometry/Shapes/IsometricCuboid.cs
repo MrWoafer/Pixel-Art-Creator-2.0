@@ -173,20 +173,20 @@ namespace PAC.Geometry.Shapes
         /// <summary>
         /// Returns a deep copy of the <see cref="IsometricCuboid"/> translated by the given vector.
         /// </summary>
-        /// <seealso cref="Translate(IntVector2)"/>
-        public static IsometricCuboid operator +(IsometricCuboid isometricCuboid, IntVector2 translation) => isometricCuboid.Translate(translation);
+        /// <seealso cref="Translated(IntVector2)"/>
+        public static IsometricCuboid operator +(IsometricCuboid isometricCuboid, IntVector2 translation) => isometricCuboid.Translated(translation);
         /// <summary>
         /// Returns a deep copy of the <see cref="IsometricCuboid"/> translated by the given vector.
         /// </summary>
-        /// <seealso cref="Translate(IntVector2)"/>
+        /// <seealso cref="Translated(IntVector2)"/>
         public static IsometricCuboid operator +(IntVector2 translation, IsometricCuboid isometricCuboid) => isometricCuboid + translation;
         /// <summary>
         /// Returns a deep copy of the <see cref="IsometricCuboid"/> translated by the given vector.
         /// </summary>
-        /// <seealso cref="Translate(IntVector2)"/>
+        /// <seealso cref="Translated(IntVector2)"/>
         public static IsometricCuboid operator -(IsometricCuboid isometricCuboid, IntVector2 translation) => isometricCuboid + (-translation);
 
-        public IsometricCuboid Translate(IntVector2 translation) => new IsometricCuboid((height >= 0 ? bottomFace.DeepCopy() : topFace.DeepCopy()) + translation, height, filled, includeBackEdges);
+        public IsometricCuboid Translated(IntVector2 translation) => new IsometricCuboid((height >= 0 ? bottomFace.DeepCopy() : topFace.DeepCopy()) + translation, height, filled, includeBackEdges);
         /// <inheritdoc/>
         /// <remarks>
         /// Can only be flipped across the vertical axis (or none axis).

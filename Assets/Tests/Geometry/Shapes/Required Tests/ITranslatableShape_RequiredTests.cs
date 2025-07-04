@@ -9,8 +9,8 @@ namespace PAC.Tests.Geometry.Shapes.RequiredTests
     public interface ITranslatableShape_RequiredTests : IDeepCopyableShape_RequiredTests
     {
         /// <summary>
-        /// Tests <see cref="ITranslatableShape{T}.Translate(IntVector2)"/>.
+        /// Tests <see cref="ITranslatableShape{T}.Translated(IntVector2)"/>.
         /// </summary>
-        public void Translate();
+        public void Translated();
     }
 }

@@ -18,15 +18,15 @@ namespace PAC.Tests.Geometry.Shapes.DefaultTests
     {
         [Test]
         [Category("Shapes")]
-        public virtual void Translate() => Translate_Impl(testCases);
-        internal static void Translate_Impl(IEnumerable<T> testCases)
+        public virtual void Translated() => Translated_Impl(testCases);
+        internal static void Translated_Impl(IEnumerable<T> testCases)
         {
             foreach (T shape in testCases)
             {
                 foreach (IntVector2 translation in new IntRect(new IntVector2(-2, -2), new IntVector2(2, 2)))
                 {
                     IEnumerable<IntVector2> expected = shape.Select(p => p + translation);
-                    IEnumerable<IntVector2> translated = shape.Translate(translation);
+                    IEnumerable<IntVector2> translated = shape.Translated(translation);
                     ShapeAssert.SameGeometry(expected, translated, $"Failed with {shape} and {translation}.");
                 }
             }
