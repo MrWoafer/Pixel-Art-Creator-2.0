@@ -64,6 +64,7 @@ namespace PAC.Tests.Geometry.Shapes.DefaultTests
                 {
                     IEnumerable<IntVector2> expected = shape.Select(p => p.Flip(axis));
                     IEnumerable<IntVector2> flipped = shape.Flipped(axis);
+                    Assert.False(ReferenceEquals(shape, flipped), $"Failed with {shape} and {axis}.");
                     ShapeAssert.SameGeometry(expected, flipped, $"Failed with {shape} and {axis}.");
                 }
             }

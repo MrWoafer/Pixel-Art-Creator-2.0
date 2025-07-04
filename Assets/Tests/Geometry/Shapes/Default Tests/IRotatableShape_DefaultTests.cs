@@ -26,6 +26,7 @@ namespace PAC.Tests.Geometry.Shapes.DefaultTests
                 {
                     IEnumerable<IntVector2> expected = shape.Select(p => p.Rotate(angle));
                     IEnumerable<IntVector2> rotated = shape.Rotated(angle);
+                    Assert.False(ReferenceEquals(shape, rotated), $"Failed with {shape} and {angle}.");
                     ShapeAssert.SameGeometry(expected, rotated, $"Failed with {shape} and {angle}.");
                 }
             }

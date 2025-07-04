@@ -27,6 +27,7 @@ namespace PAC.Tests.Geometry.Shapes.DefaultTests
                 {
                     IEnumerable<IntVector2> expected = shape.Select(p => p + translation);
                     IEnumerable<IntVector2> translated = shape.Translated(translation);
+                    Assert.False(ReferenceEquals(shape, translated), $"Failed with {shape} and {translation}.");
                     ShapeAssert.SameGeometry(expected, translated, $"Failed with {shape} and {translation}.");
                 }
             }
