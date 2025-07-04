@@ -14,6 +14,9 @@ namespace PAC.Tests.Geometry.Shapes.DefaultTests
         [Test]
         [Category("Shapes")]
         public virtual void Translated() => ITranslatableShape_DefaultTests<T>.Translated_Impl(testCases);
+        [Test]
+        [Category("Shapes")]
+        public virtual void TranslateMatchesTranslated() => ITranslatableShape_DefaultTests<T>.TranslateMatchesTranslated_Impl(testCases);
 
         [Test]
         [Category("Shapes")]

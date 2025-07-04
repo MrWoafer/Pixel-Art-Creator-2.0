@@ -32,5 +32,22 @@ namespace PAC.Tests.Geometry.Shapes.DefaultTests
                 }
             }
         }
+
+        [Test]
+        [Category("Shapes")]
+        public virtual void TranslateMatchesTranslated() => TranslateMatchesTranslated_Impl(testCases);
+        internal static void TranslateMatchesTranslated_Impl(IEnumerable<T> testCases)
+        {
+            foreach (T shape in testCases)
+            {
+                foreach (IntVector2 translation in new IntRect(new IntVector2(-2, -2), new IntVector2(2, 2)))
+                {
+                    IEnumerable<IntVector2> translated = shape.Translated(translation);
+                    shape.Translate(translation);
+                    Assert.False(ReferenceEquals(shape, translated), $"Failed with {shape} and {translation}.");
+                    Assert.AreEqual(shape, translated, $"Failed with {shape} and {translation}.");
+                }
+            }
+        }
     }
 }
