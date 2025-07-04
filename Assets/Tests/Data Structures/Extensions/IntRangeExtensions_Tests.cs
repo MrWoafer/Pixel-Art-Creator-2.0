@@ -45,5 +45,53 @@ namespace PAC.Tests.DataStructures.Extensions
             Assert.Throws<ArgumentOutOfRangeException>(() => IntRangeExtensions.GetRange(list, IntRange.InclIncl(0, list.Count)).ToArray());
             Assert.Throws<ArgumentOutOfRangeException>(() => IntRangeExtensions.GetRange(list, IntRange.InclIncl(0, -1)).ToArray());
         }
+
+        /// <summary>
+        /// Tests <see cref="IntRangeExtensions.Range(IEnumerable{int})"/>.
+        /// </summary>
+        [Test]
+        [Category("Data Structures")]
+        public void Range()
+        {
+            Random random = new Random(0);
+
+            const int maxTestCaseLength = 20;
+            const int numTestCasesPerLength = 1_000;
+
+            List<int[]> testCases = new List<int[]>();
+            for (int length = 1; length <= maxTestCaseLength; length++)
+            {
+                for (int i = 0; i < numTestCasesPerLength; i++)
+                {
+                    int[] testCase = new int[length];
+                    for (int j = 0; j < length; j++)
+                    {
+                        testCase[j] = random.Next(-100, 100);
+                    }
+                    testCases.Add(testCase);
+                }
+            }
+
+            /////
+
+            Assert.True(IntRangeExtensions.Range(new int[] { }).isEmpty);
+            Assert.True(IntRangeExtensions.Range(new int[] { }).isExclExcl);
+
+            foreach (int[] testCase in testCases)
+            {
+                IntRange boundingRange = IntRangeExtensions.Range(testCase);
+
+                foreach (int value in testCase)
+                {
+                    Assert.True(boundingRange.Contains(value), $"Failed with {testCase} and {value}.");
+                }
+                Assert.False(boundingRange.Contains(Enumerable.Min(boundingRange) - 1), $"Failed with {testCase}.");
+                Assert.False(boundingRange.Contains(Enumerable.Max(boundingRange) + 1), $"Failed with {testCase}.");
+
+                Assert.True(boundingRange.isInclIncl, $"Failed with {testCase}");
+            }
+
+            Assert.Throws<ArgumentNullException>(() => IntRangeExtensions.Range(null));
+        }
     }
 }
