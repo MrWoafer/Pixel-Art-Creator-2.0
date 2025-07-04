@@ -17,15 +17,15 @@ namespace PAC.Tests.Geometry.Shapes.DefaultTests
     {
         [Test]
         [Category("Shapes")]
-        public virtual void Rotate() => Rotate_Impl(testCases);
-        internal static void Rotate_Impl(IEnumerable<T> testCases)
+        public virtual void Rotated() => Rotated_Impl(testCases);
+        internal static void Rotated_Impl(IEnumerable<T> testCases)
         {
             foreach (T shape in testCases)
             {
                 foreach (QuadrantalAngle angle in new QuadrantalAngle[] { QuadrantalAngle._0, QuadrantalAngle.Clockwise90, QuadrantalAngle._180, QuadrantalAngle.Anticlockwise90 })
                 {
                     IEnumerable<IntVector2> expected = shape.Select(p => p.Rotate(angle));
-                    IEnumerable<IntVector2> rotated = shape.Rotate(angle);
+                    IEnumerable<IntVector2> rotated = shape.Rotated(angle);
                     ShapeAssert.SameGeometry(expected, rotated, $"Failed with {shape} and {angle}.");
                 }
             }

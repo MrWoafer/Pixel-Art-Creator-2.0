@@ -19,6 +19,6 @@ namespace PAC.Tests.Geometry.Shapes.DefaultTests
 
         [Test]
         [Category("Shapes")]
-        public virtual void Rotate() => IRotatableShape_DefaultTests<T>.Rotate_Impl(testCases);
+        public virtual void Rotated() => IRotatableShape_DefaultTests<T>.Rotated_Impl(testCases);
     }
 }
