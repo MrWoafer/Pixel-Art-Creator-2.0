@@ -707,8 +707,8 @@ namespace PAC.Geometry.Shapes
 
         public IsometricRectangle Translated(IntVector2 translation) => new IsometricRectangle(startCorner + translation, endCorner + translation, filled);
 
-        public IsometricRectangle Flip(VerticalAxis axis) => Flip((CardinalAxis)axis);
-        public IsometricRectangle Flip(CardinalAxis axis) => new IsometricRectangle(startCorner.Flip(axis), endCorner.Flip(axis), filled);
+        public IsometricRectangle Flipped(VerticalAxis axis) => Flipped((CardinalAxis)axis);
+        public IsometricRectangle Flipped(CardinalAxis axis) => new IsometricRectangle(startCorner.Flip(axis), endCorner.Flip(axis), filled);
 
         IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();
         public IEnumerator<IntVector2> GetEnumerator()

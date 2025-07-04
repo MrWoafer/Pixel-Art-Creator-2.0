@@ -492,11 +492,11 @@ namespace PAC.Geometry.Shapes
         /// Returns a deep copy of the <see cref="Line"/> rotated 180 degrees about the origin (equivalently, reflected through the origin).
         /// </summary>
         /// <seealso cref="Rotated(QuadrantalAngle)"/>
-        /// <seealso cref="Flip(CardinalOrdinalAxis)"/>
+        /// <seealso cref="Flipped(CardinalOrdinalAxis)"/>
         public static Line operator -(Line line) => new Line(-line.start, -line.end);
 
         public Line Translated(IntVector2 translation) => new Line(start + translation, end + translation);
-        public Line Flip(CardinalOrdinalAxis axis) => new Line(start.Flip(axis), end.Flip(axis));
+        public Line Flipped(CardinalOrdinalAxis axis) => new Line(start.Flip(axis), end.Flip(axis));
         public Line Rotated(QuadrantalAngle angle) => new Line(start.Rotate(angle), end.Rotate(angle));
 
         /// <summary>

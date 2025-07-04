@@ -20,6 +20,6 @@ namespace PAC.Geometry.Shapes.Interfaces
         /// <summary>
         /// Returns a deep copy of the shape reflected across the given axis.
         /// </summary>
-        public T Flip(A axis);
+        public T Flipped(A axis);
     }
 }

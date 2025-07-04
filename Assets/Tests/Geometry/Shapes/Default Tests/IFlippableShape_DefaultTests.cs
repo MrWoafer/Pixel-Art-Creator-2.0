@@ -21,8 +21,8 @@ namespace PAC.Tests.Geometry.Shapes.DefaultTests
     {
         [Test]
         [Category("Shapes")]
-        public virtual void Flip() => Flip_Impl(testCases);
-        internal static void Flip_Impl(IEnumerable<T> testCases)
+        public virtual void Flipped() => Flipped_Impl(testCases);
+        internal static void Flipped_Impl(IEnumerable<T> testCases)
         {
             IEnumerable<A> axes;
             if (typeof(A) == typeof(VerticalAxis))
@@ -63,7 +63,7 @@ namespace PAC.Tests.Geometry.Shapes.DefaultTests
                 foreach (A axis in axes)
                 {
                     IEnumerable<IntVector2> expected = shape.Select(p => p.Flip(axis));
-                    IEnumerable<IntVector2> flipped = shape.Flip(axis);
+                    IEnumerable<IntVector2> flipped = shape.Flipped(axis);
                     ShapeAssert.SameGeometry(expected, flipped, $"Failed with {shape} and {axis}.");
                 }
             }

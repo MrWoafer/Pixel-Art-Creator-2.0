@@ -8,8 +8,8 @@ namespace PAC.Tests.Geometry.Shapes.RequiredTests
     public interface IFlippableShape_RequiredTests : IDeepCopyableShape_RequiredTests
     {
         /// <summary>
-        /// Tests <see cref="IFlippableShape{T, A}.Flip(A)"/>.
+        /// Tests <see cref="IFlippableShape{T, A}.Flipped(A)"/>.
         /// </summary>
-        public void Flip();
+        public void Flipped();
     }
 }

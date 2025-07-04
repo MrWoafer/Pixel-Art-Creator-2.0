@@ -196,12 +196,12 @@ namespace PAC.Tests.Geometry.Shapes
 
         [Test]
         [Category("Shapes")]
-        public override void Flip() // overridden to not test flipping across certain axes
+        public override void Flipped() // overridden to not test flipping across certain axes
         {
             foreach (IsometricCuboid cuboid in testCases)
             {
                 IEnumerable<IntVector2> expected = cuboid.Select(p => p.Flip(Axes.Vertical));
-                IsometricCuboid flipped = cuboid.Flip(Axes.Vertical);
+                IsometricCuboid flipped = cuboid.Flipped(Axes.Vertical);
                 ShapeAssert.SameGeometry(expected, flipped, $"Failed with {cuboid}.");
             }
         }
