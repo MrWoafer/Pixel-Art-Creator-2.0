@@ -59,6 +59,7 @@ namespace PAC.Geometry.Shapes
     /// </remarks>
     public class IsometricRectangle : IIsometricShape<IsometricRectangle>, IFlippableShape<IsometricRectangle, CardinalAxis>, IDeepCopyableShape<IsometricRectangle>, IEquatable<IsometricRectangle>
     {
+        private IntVector2 _startCorner;
         /// <summary>
         /// The point the mouse started dragging from.
         /// </summary>
@@ -70,7 +71,17 @@ namespace PAC.Geometry.Shapes
         /// <seealso cref="rightCorner"/>
         /// <seealso cref="bottomCorner"/>
         /// <seealso cref="topCorner"/>
-        public IntVector2 startCorner;
+        public IntVector2 startCorner
+        {
+            get => _startCorner;
+            set
+            {
+                _startCorner = value;
+                InferCornersAndBorder();
+            }
+        }
+
+        private IntVector2 _endCorner;
         /// <summary>
         /// The point the mouse has dragged to.
         /// </summary>
@@ -82,7 +93,15 @@ namespace PAC.Geometry.Shapes
         /// <seealso cref="rightCorner"/>
         /// <seealso cref="bottomCorner"/>
         /// <seealso cref="topCorner"/>
-        public IntVector2 endCorner;
+        public IntVector2 endCorner
+        {
+            get => _endCorner;
+            set
+            {
+                _endCorner = value;
+                InferCornersAndBorder();
+            }
+        }
 
         /// <summary>
         /// The list of the 4 (or fewer in special cases) corners that make up the <see cref="IsometricRectangle"/>, that have been inferred from <see cref="startCorner"/> and
@@ -106,8 +125,8 @@ namespace PAC.Geometry.Shapes
             get => inferredCorners.ArgMin(p => p.x);
             set
             {
-                startCorner = rightCorner;
-                endCorner = leftCorner;
+                _startCorner = rightCorner;
+                _endCorner = leftCorner;
                 InferCornersAndBorder();
             }
         }
@@ -124,8 +143,8 @@ namespace PAC.Geometry.Shapes
             get => inferredCorners.ArgMax(p => p.x);
             set
             {
-                startCorner = leftCorner;
-                endCorner = rightCorner;
+                _startCorner = leftCorner;
+                _endCorner = rightCorner;
                 InferCornersAndBorder();
             }
         }
@@ -142,8 +161,8 @@ namespace PAC.Geometry.Shapes
             get => inferredCorners.ArgMin(p => p.y);
             set
             {
-                startCorner = topCorner;
-                endCorner = bottomCorner;
+                _startCorner = topCorner;
+                _endCorner = bottomCorner;
                 InferCornersAndBorder();
             }
         }
@@ -160,8 +179,8 @@ namespace PAC.Geometry.Shapes
             get => inferredCorners.ArgMax(p => p.y);
             set
             {
-                startCorner = bottomCorner;
-                endCorner = topCorner;
+                _startCorner = bottomCorner;
+                _endCorner = topCorner;
                 InferCornersAndBorder();
             }
         }
@@ -212,8 +231,8 @@ namespace PAC.Geometry.Shapes
         /// <param name="filled">See <see cref="filled"/>.</param>
         public IsometricRectangle(IntVector2 startCorner, IntVector2 endCorner, bool filled)
         {
-            this.startCorner = startCorner;
-            this.endCorner = endCorner;
+            _startCorner = startCorner;
+            _endCorner = endCorner;
             this.filled = filled;
 
             InferCornersAndBorder();
