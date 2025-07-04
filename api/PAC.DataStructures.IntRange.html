@@ -171,6 +171,9 @@ Struct IntRange  <a class="header-action link-secondary" title="View source" hre
       <a class="xref" href="PAC.Interfaces.Extensions.IReadOnlyContainsExtensions.html#PAC_Interfaces_Extensions_IReadOnlyContainsExtensions_ContainsNotAll__1_PAC_Interfaces_IReadOnlyContains___0____0___">IReadOnlyContainsExtensions.ContainsNotAll&lt;T&gt;(IReadOnlyContains&lt;T&gt;, params T[])</a>
   </div>
   <div>
+      <a class="xref" href="PAC.DataStructures.Extensions.IntRangeExtensions.html#PAC_DataStructures_Extensions_IntRangeExtensions_Range_System_Collections_Generic_IEnumerable_System_Int32__">IntRangeExtensions.Range(IEnumerable&lt;int&gt;)</a>
+  </div>
+  <div>
       <a class="xref" href="PAC.Extensions.System.Collections.IEnumerableExtensions.html#PAC_Extensions_System_Collections_IEnumerableExtensions_AreAllDistinct__1_System_Collections_Generic_IEnumerable___0__">IEnumerableExtensions.AreAllDistinct&lt;T&gt;(IEnumerable&lt;T&gt;)</a>
   </div>
   <div>
@@ -633,7 +636,7 @@ so that it's equivalent to
 
   <h3 id="PAC_DataStructures_IntRange_Item_System_Int32_" data-uid="PAC.DataStructures.IntRange.Item(System.Int32)">
   this[int]
-  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Data Structures/IntRange.cs/#L691"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Data Structures/IntRange.cs/#L667"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Indexes the elements of the range from <a class="xref" href="PAC.DataStructures.IntRange.html#PAC_DataStructures_IntRange_startElement">startElement</a> to <a class="xref" href="PAC.DataStructures.IntRange.html#PAC_DataStructures_IntRange_endElement">endElement</a>.</p>
@@ -680,7 +683,7 @@ so that it's equivalent to
 
   <h3 id="PAC_DataStructures_IntRange_Item_System_Int64_" data-uid="PAC.DataStructures.IntRange.Item(System.Int64)">
   this[long]
-  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Data Structures/IntRange.cs/#L700"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Data Structures/IntRange.cs/#L676"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Indexes the elements of the range from <a class="xref" href="PAC.DataStructures.IntRange.html#PAC_DataStructures_IntRange_startElement">startElement</a> to <a class="xref" href="PAC.DataStructures.IntRange.html#PAC_DataStructures_IntRange_endElement">endElement</a>.</p>
@@ -1665,51 +1668,6 @@ more details.</p>
   </dl>
 
 
-  <a id="PAC_DataStructures_IntRange_BoundingRange_" data-uid="PAC.DataStructures.IntRange.BoundingRange*"></a>
-
-  <h3 id="PAC_DataStructures_IntRange_BoundingRange_System_Collections_Generic_IEnumerable_System_Int32__" data-uid="PAC.DataStructures.IntRange.BoundingRange(System.Collections.Generic.IEnumerable{System.Int32})">
-  BoundingRange(IEnumerable&lt;int&gt;)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Data Structures/IntRange.cs/#L665"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"><p>Returns the smallest range containing all the given values.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static IntRange BoundingRange(IEnumerable&lt;int&gt; integers)</code></pre>
-  </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>integers</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>&gt;</dt>
-    <dd></dd>
-  </dl>
-
-  <h4 class="section">Returns</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="PAC.DataStructures.IntRange.html">IntRange</a></dt>
-    <dd><p>The smallest range containing all the given values. It will be expressed with both boundaries inclusive, unless the sequence of values is empty, in which case it will be expressed with
-both boundaries exclusive.</p>
-</dd>
-  </dl>
-
-
-
-
-
-
-
-
-  <h4 class="section">Exceptions</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
-    <dd><p><code class="paramref">integers</code> is null.</p>
-</dd>
-  </dl>
-
-
-
   <a id="PAC_DataStructures_IntRange_Clamp_" data-uid="PAC.DataStructures.IntRange.Clamp*"></a>
 
   <h3 id="PAC_DataStructures_IntRange_Clamp_System_Int32_" data-uid="PAC.DataStructures.IntRange.Clamp(System.Int32)">
@@ -2029,7 +1987,7 @@ both boundaries exclusive.</p>
 
   <h3 id="PAC_DataStructures_IntRange_GetEnumerator" data-uid="PAC.DataStructures.IntRange.GetEnumerator">
   GetEnumerator()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Data Structures/IntRange.cs/#L733"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Data Structures/IntRange.cs/#L709"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Iterates throught the elements from <a class="xref" href="PAC.DataStructures.IntRange.html#PAC_DataStructures_IntRange_startElement">startElement</a> to <a class="xref" href="PAC.DataStructures.IntRange.html#PAC_DataStructures_IntRange_endElement">endElement</a>.</p>
@@ -2939,7 +2897,7 @@ If <code>T1</code> implements <code>ISetComparable&lt;T2&gt;</code> and <code>T2
 
   <h3 id="PAC_DataStructures_IntRange_ToString" data-uid="PAC.DataStructures.IntRange.ToString">
   ToString()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Data Structures/IntRange.cs/#L769"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Data Structures/IntRange.cs/#L745"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>
@@ -2947,7 +2905,7 @@ Represents the range as a string using the mathematical notation for intervals -
 </p>
 <p>
 <example>
-For example, the range from -1 (inclusive) to 5 (exclusive) will be respresented as <code>"[-1, 5)"</code>.
+For example, the range from -1 (inclusive) to 5 (exclusive) will be represented as <code>"[-1, 5)"</code>.
 </example>
 </p>
 </div>

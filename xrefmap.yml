@@ -2055,6 +2055,22 @@ references:
   isSpec: "True"
   fullName: PAC.DataStructures.Extensions.IntRangeExtensions.Next
   nameWithType: IntRangeExtensions.Next
+- uid: PAC.DataStructures.Extensions.IntRangeExtensions.Range(System.Collections.Generic.IEnumerable{System.Int32})
+  name: Range(IEnumerable<int>)
+  href: api/PAC.DataStructures.Extensions.IntRangeExtensions.html#PAC_DataStructures_Extensions_IntRangeExtensions_Range_System_Collections_Generic_IEnumerable_System_Int32__
+  commentId: M:PAC.DataStructures.Extensions.IntRangeExtensions.Range(System.Collections.Generic.IEnumerable{System.Int32})
+  name.vb: Range(IEnumerable(Of Integer))
+  fullName: PAC.DataStructures.Extensions.IntRangeExtensions.Range(System.Collections.Generic.IEnumerable<int>)
+  fullName.vb: PAC.DataStructures.Extensions.IntRangeExtensions.Range(System.Collections.Generic.IEnumerable(Of Integer))
+  nameWithType: IntRangeExtensions.Range(IEnumerable<int>)
+  nameWithType.vb: IntRangeExtensions.Range(IEnumerable(Of Integer))
+- uid: PAC.DataStructures.Extensions.IntRangeExtensions.Range*
+  name: Range
+  href: api/PAC.DataStructures.Extensions.IntRangeExtensions.html#PAC_DataStructures_Extensions_IntRangeExtensions_Range_
+  commentId: Overload:PAC.DataStructures.Extensions.IntRangeExtensions.Range
+  isSpec: "True"
+  fullName: PAC.DataStructures.Extensions.IntRangeExtensions.Range
+  nameWithType: IntRangeExtensions.Range
 - uid: PAC.DataStructures.IntRange
   name: IntRange
   href: api/PAC.DataStructures.IntRange.html
@@ -2118,22 +2134,6 @@ references:
   isSpec: "True"
   fullName: PAC.DataStructures.IntRange.AtMost
   nameWithType: IntRange.AtMost
-- uid: PAC.DataStructures.IntRange.BoundingRange(System.Collections.Generic.IEnumerable{System.Int32})
-  name: BoundingRange(IEnumerable<int>)
-  href: api/PAC.DataStructures.IntRange.html#PAC_DataStructures_IntRange_BoundingRange_System_Collections_Generic_IEnumerable_System_Int32__
-  commentId: M:PAC.DataStructures.IntRange.BoundingRange(System.Collections.Generic.IEnumerable{System.Int32})
-  name.vb: BoundingRange(IEnumerable(Of Integer))
-  fullName: PAC.DataStructures.IntRange.BoundingRange(System.Collections.Generic.IEnumerable<int>)
-  fullName.vb: PAC.DataStructures.IntRange.BoundingRange(System.Collections.Generic.IEnumerable(Of Integer))
-  nameWithType: IntRange.BoundingRange(IEnumerable<int>)
-  nameWithType.vb: IntRange.BoundingRange(IEnumerable(Of Integer))
-- uid: PAC.DataStructures.IntRange.BoundingRange*
-  name: BoundingRange
-  href: api/PAC.DataStructures.IntRange.html#PAC_DataStructures_IntRange_BoundingRange_
-  commentId: Overload:PAC.DataStructures.IntRange.BoundingRange
-  isSpec: "True"
-  fullName: PAC.DataStructures.IntRange.BoundingRange
-  nameWithType: IntRange.BoundingRange
 - uid: PAC.DataStructures.IntRange.Clamp(System.Int32)
   name: Clamp(int)
   href: api/PAC.DataStructures.IntRange.html#PAC_DataStructures_IntRange_Clamp_System_Int32_

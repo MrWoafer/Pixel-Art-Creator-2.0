@@ -89,7 +89,7 @@
 
 
   <h1 id="PAC_DataStructures_Extensions_IntRangeExtensions" data-uid="PAC.DataStructures.Extensions.IntRangeExtensions" class="text-break">
-Class IntRangeExtensions  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Data Structures/Extensions/IntRangeExtensions.cs/#L9"><i class="bi bi-code-slash"></i></a>
+Class IntRangeExtensions  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Data Structures/Extensions/IntRangeExtensions.cs/#L11"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -157,7 +157,7 @@ Class IntRangeExtensions  <a class="header-action link-secondary" title="View so
 
   <h3 id="PAC_DataStructures_Extensions_IntRangeExtensions_GetRange__1_System_Collections_Generic_IReadOnlyList___0__PAC_DataStructures_IntRange_" data-uid="PAC.DataStructures.Extensions.IntRangeExtensions.GetRange``1(System.Collections.Generic.IReadOnlyList{``0},PAC.DataStructures.IntRange)">
   GetRange&lt;T&gt;(IReadOnlyList&lt;T&gt;, IntRange)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Data Structures/Extensions/IntRangeExtensions.cs/#L22"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Data Structures/Extensions/IntRangeExtensions.cs/#L24"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Lazily iterates over the indices in the <a class="xref" href="PAC.DataStructures.IntRange.html">IntRange</a> and yields the <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList&lt;T&gt;</a>'s element at that position.</p>
@@ -208,7 +208,7 @@ Class IntRangeExtensions  <a class="header-action link-secondary" title="View so
 
   <h3 id="PAC_DataStructures_Extensions_IntRangeExtensions_Next_System_Random_PAC_DataStructures_IntRange_" data-uid="PAC.DataStructures.Extensions.IntRangeExtensions.Next(System.Random,PAC.DataStructures.IntRange)">
   Next(Random, IntRange)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Data Structures/Extensions/IntRangeExtensions.cs/#L14"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Data Structures/Extensions/IntRangeExtensions.cs/#L16"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Returns a random integer within the given range.</p>
@@ -243,11 +243,56 @@ Class IntRangeExtensions  <a class="header-action link-secondary" title="View so
 
 
 
+  <a id="PAC_DataStructures_Extensions_IntRangeExtensions_Range_" data-uid="PAC.DataStructures.Extensions.IntRangeExtensions.Range*"></a>
+
+  <h3 id="PAC_DataStructures_Extensions_IntRangeExtensions_Range_System_Collections_Generic_IEnumerable_System_Int32__" data-uid="PAC.DataStructures.Extensions.IntRangeExtensions.Range(System.Collections.Generic.IEnumerable{System.Int32})">
+  Range(IEnumerable&lt;int&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Data Structures/Extensions/IntRangeExtensions.cs/#L45"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the smallest <a class="xref" href="PAC.DataStructures.IntRange.html">IntRange</a> containing all the given values.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static IntRange Range(this IEnumerable&lt;int&gt; integers)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>integers</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="PAC.DataStructures.IntRange.html">IntRange</a></dt>
+    <dd><p>The smallest <a class="xref" href="PAC.DataStructures.IntRange.html">IntRange</a> containing all the given values. It will be expressed with both boundaries inclusive, unless the sequence of values is empty, in which case it
+will be expressed with both boundaries exclusive.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p><code class="paramref">integers</code> is null.</p>
+</dd>
+  </dl>
+
+
+
 
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Data Structures/Extensions/IntRangeExtensions.cs/#L9" class="edit-link">Edit this page</a>
+          <a href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Data Structures/Extensions/IntRangeExtensions.cs/#L11" class="edit-link">Edit this page</a>
         </div>
 
 
