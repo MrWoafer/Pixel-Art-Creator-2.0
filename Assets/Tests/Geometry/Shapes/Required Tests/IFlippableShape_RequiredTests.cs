@@ -1,3 +1,5 @@
+using PAC.Geometry.Shapes.Interfaces;
+
 namespace PAC.Tests.Geometry.Shapes.RequiredTests
 {
     /// <summary>
@@ -6,7 +8,7 @@ namespace PAC.Tests.Geometry.Shapes.RequiredTests
     public interface IFlippableShape_RequiredTests : IDeepCopyableShape_RequiredTests
     {
         /// <summary>
-        /// Tests <see cref="IFlippableShape{T}.Flip(CardinalOrdinalAxis)"/>.
+        /// Tests <see cref="IFlippableShape{T, A}.Flip(A)"/>.
         /// </summary>
         public void Flip();
     }
