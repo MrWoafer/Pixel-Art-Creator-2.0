@@ -236,8 +236,14 @@ namespace PAC.Geometry.Shapes
         /// <seealso cref="Flipped(CardinalOrdinalAxis)"/>
         public static Ellipse operator -(Ellipse ellipse) => new Ellipse(-ellipse.boundingRect, ellipse.filled);
 
+        public void Translate(IntVector2 translation)
+        {
+            boundingRect += translation;
+        }
         public Ellipse Translated(IntVector2 translation) => new Ellipse(boundingRect + translation, filled);
+
         public Ellipse Flipped(CardinalOrdinalAxis axis) => new Ellipse(boundingRect.Flip(axis), filled);
+
         public Ellipse Rotated(QuadrantalAngle angle) => new Ellipse(boundingRect.Rotate(angle), filled);
 
         IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();

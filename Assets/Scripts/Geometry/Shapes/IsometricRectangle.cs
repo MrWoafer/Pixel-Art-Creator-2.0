@@ -724,6 +724,11 @@ namespace PAC.Geometry.Shapes
         public static IsometricRectangle operator -(IsometricRectangle isometricRectangle)
             => new IsometricRectangle(-isometricRectangle.startCorner, -isometricRectangle.endCorner, isometricRectangle.filled);
 
+        public void Translate(IntVector2 translation)
+        {
+            startCorner += translation;
+            endCorner += translation;
+        }
         public IsometricRectangle Translated(IntVector2 translation) => new IsometricRectangle(startCorner + translation, endCorner + translation, filled);
 
         public IsometricRectangle Flipped(VerticalAxis axis) => Flipped((CardinalAxis)axis);

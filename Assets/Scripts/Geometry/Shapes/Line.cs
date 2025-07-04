@@ -495,8 +495,15 @@ namespace PAC.Geometry.Shapes
         /// <seealso cref="Flipped(CardinalOrdinalAxis)"/>
         public static Line operator -(Line line) => new Line(-line.start, -line.end);
 
+        public void Translate(IntVector2 translation)
+        {
+            start += translation;
+            end += translation;
+        }
         public Line Translated(IntVector2 translation) => new Line(start + translation, end + translation);
+
         public Line Flipped(CardinalOrdinalAxis axis) => new Line(start.Flip(axis), end.Flip(axis));
+
         public Line Rotated(QuadrantalAngle angle) => new Line(start.Rotate(angle), end.Rotate(angle));
 
         /// <summary>

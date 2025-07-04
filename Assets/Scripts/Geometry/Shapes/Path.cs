@@ -395,8 +395,17 @@ namespace PAC.Geometry.Shapes
         /// <seealso cref="Flipped(CardinalOrdinalAxis)"/>
         public static Path operator -(Path path) => path.Rotated(QuadrantalAngle._180);
 
+        public void Translate(IntVector2 translation)
+        {
+            foreach (Line line in _lines)
+            {
+                line.Translate(translation);
+            }
+        }
         public Path Translated(IntVector2 translation) => new Path(_lines.Select(l => l.Translated(translation)));
+
         public Path Flipped(CardinalOrdinalAxis axis) => new Path(_lines.Select(l => l.Flipped(axis)));
+
         public Path Rotated(QuadrantalAngle angle) => new Path(_lines.Select(l => l.Rotated(angle)));
 
         /// <summary>

@@ -47,11 +47,17 @@ namespace PAC.Geometry.Shapes.Interfaces
     public interface ITranslatableShape<out T> : IDeepCopyableShape<T> where T : IShape
     {
         /// <summary>
+        /// Translates the shape by the given vector, in-place.
+        /// </summary>
+        /// <seealso cref="Translated(IntVector2)"/>
+        public void Translate(IntVector2 translation);
+        /// <summary>
         /// Returns a deep copy of the shape translated by the given vector.
         /// </summary>
         /// <seealso cref="operator +(ITranslatableShape{T}, IntVector2)"/>
         /// <seealso cref="operator +(IntVector2, ITranslatableShape{T})"/>
         /// <seealso cref="operator -(ITranslatableShape{T}, IntVector2)"/>
+        /// <seealso cref="Translate(IntVector2)"/>
         public T Translated(IntVector2 translation);
 
         #region Default Implementations

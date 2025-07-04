@@ -106,8 +106,14 @@ namespace PAC.Geometry.Shapes
         /// <seealso cref="Flipped(CardinalOrdinalAxis)"/>
         public static Rectangle operator -(Rectangle rectangle) => new Rectangle(-rectangle.boundingRect, rectangle.filled);
 
+        public void Translate(IntVector2 translation)
+        {
+            boundingRect += translation;
+        }
         public Rectangle Translated(IntVector2 translation) => new Rectangle(boundingRect + translation, filled);
+
         public Rectangle Flipped(CardinalOrdinalAxis axis) => new Rectangle(boundingRect.Flip(axis), filled);
+
         public Rectangle Rotated(QuadrantalAngle angle) => new Rectangle(boundingRect.Rotate(angle), filled);
 
         IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();
