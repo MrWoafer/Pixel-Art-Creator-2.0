@@ -150,6 +150,10 @@ namespace PAC.Input
         private Texture2D cursorSpriteIsoBox;
         [SerializeField]
         private Vector2 cursorHotSpotIsoBox;
+        [SerializeField]
+        private Texture2D cursorSpriteIsometricHexagon;
+        [SerializeField]
+        private Vector2 cursorHotSpotIsometricHexagon;
 
         public bool leftClick => UnityEngine.Input.GetMouseButtonDown(0);
         public bool leftUnclick => UnityEngine.Input.GetMouseButtonUp(0);
@@ -521,6 +525,10 @@ namespace PAC.Input
             else if (shape == Shape.Diamond)
             {
                 return new Tuple<Texture2D, Vector2>(cursorSpriteDiamond, cursorHotSpotDiamond);
+            }
+            else if (shape == Shape.IsometricHexagon)
+            {
+                return new Tuple<Texture2D, Vector2>(cursorSpriteIsometricHexagon, cursorHotSpotIsometricHexagon);
             }
             else
             {

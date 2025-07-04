@@ -804,6 +804,15 @@ namespace PAC.Managers
                     }
                     PreviewShape(new Diamond(new IntRect(mouseDragPoints[0], end), rightClickedOn), colour);
                 }
+                else if (toolbar.shapeToolShape == Shape.IsometricHexagon)
+                {
+                    IntVector2 end = pixel;
+                    if (holdingCtrl)
+                    {
+                        end = CoordSnapping.SnapToSquare(mouseDragPoints[0], end);
+                    }
+                    PreviewShape(new IsometricHexagon(new IntRect(mouseDragPoints[0], end), rightClickedOn), colour);
+                }
             }
             else if (tool == Tool.IsoBox && (leftClickedOn || rightClickedOn))
             {
@@ -912,6 +921,17 @@ namespace PAC.Managers
                         end = CoordSnapping.SnapToSquare(mouseDragPoints[0], end);
                     }
                     Tools.Tools.UseShape(file, layer, frame, new Diamond(new IntRect(mouseDragPoints[0], end), rightClickedOn), colour);
+
+                    UpdateDrawing();
+                }
+                else if (toolbar.shapeToolShape == Shape.IsometricHexagon)
+                {
+                    IntVector2 end = pixel;
+                    if (holdingCtrl)
+                    {
+                        end = CoordSnapping.SnapToSquare(mouseDragPoints[0], end);
+                    }
+                    Tools.Tools.UseShape(file, layer, frame, new IsometricHexagon(new IntRect(mouseDragPoints[0], end), rightClickedOn), colour);
 
                     UpdateDrawing();
                 }
