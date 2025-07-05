@@ -13,12 +13,12 @@
     public interface IRotatableShape<out T> : IDeepCopyableShape<T> where T : IShape
     {
         /// <summary>
-        /// Rotates the shape by the given angle, in-place.
+        /// Rotates the shape about the origin by the given angle, in-place.
         /// </summary>
         /// <seealso cref="Rotated(QuadrantalAngle)"/>
         public void Rotate(QuadrantalAngle angle);
         /// <summary>
-        /// Returns a deep copy of the shape rotated by the given angle.
+        /// Returns a deep copy of the shape rotated about the origin by the given angle.
         /// </summary>
         /// <seealso cref="operator -(IRotatableShape{T})"/>
         /// /// <seealso cref="Rotate(QuadrantalAngle)"/>
