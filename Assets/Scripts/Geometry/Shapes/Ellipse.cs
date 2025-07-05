@@ -244,6 +244,10 @@ namespace PAC.Geometry.Shapes
 
         public Ellipse Flipped(CardinalOrdinalAxis axis) => new Ellipse(boundingRect.Flip(axis), filled);
 
+        public void Rotate(QuadrantalAngle angle)
+        {
+            boundingRect = boundingRect.Rotate(angle);
+        }
         public Ellipse Rotated(QuadrantalAngle angle) => new Ellipse(boundingRect.Rotate(angle), filled);
 
         IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();
