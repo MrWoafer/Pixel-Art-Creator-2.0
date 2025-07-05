@@ -504,6 +504,11 @@ namespace PAC.Geometry.Shapes
 
         public Line Flipped(CardinalOrdinalAxis axis) => new Line(start.Flip(axis), end.Flip(axis));
 
+        public void Rotate(QuadrantalAngle angle)
+        {
+            start = start.Rotate(angle);
+            end = end.Rotate(angle);
+        }
         public Line Rotated(QuadrantalAngle angle) => new Line(start.Rotate(angle), end.Rotate(angle));
 
         /// <summary>

@@ -114,6 +114,10 @@ namespace PAC.Geometry.Shapes
 
         public Rectangle Flipped(CardinalOrdinalAxis axis) => new Rectangle(boundingRect.Flip(axis), filled);
 
+        public void Rotate(QuadrantalAngle angle)
+        {
+            boundingRect = boundingRect.Rotate(angle);
+        }
         public Rectangle Rotated(QuadrantalAngle angle) => new Rectangle(boundingRect.Rotate(angle), filled);
 
         IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();

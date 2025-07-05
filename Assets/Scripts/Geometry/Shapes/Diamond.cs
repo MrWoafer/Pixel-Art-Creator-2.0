@@ -264,6 +264,10 @@ namespace PAC.Geometry.Shapes
 
         public Diamond Flipped(CardinalOrdinalAxis axis) => new Diamond(boundingRect.Flip(axis), filled);
 
+        public void Rotate(QuadrantalAngle angle)
+        {
+            boundingRect = boundingRect.Rotate(angle);
+        }
         public Diamond Rotated(QuadrantalAngle angle) => new Diamond(boundingRect.Rotate(angle), filled);
 
         IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();
