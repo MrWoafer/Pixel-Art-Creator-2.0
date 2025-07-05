@@ -12,5 +12,10 @@ namespace PAC.Tests.Geometry.Shapes.RequiredTests
         /// Tests <see cref="IRotatableShape{T}.Rotated(QuadrantalAngle)"/>.
         /// </summary>
         public void Rotated();
+
+        /// <summary>
+        /// Tests that <see cref="IRotatableShape{T}.Rotate(QuadrantalAngle)"/> and <see cref="IRotatableShape{T}.Rotated(QuadrantalAngle)"/> do the same transformation.
+        /// </summary>
+        public void RotateMatchesRotated();
     }
 }
