@@ -7506,6 +7506,19 @@ references:
   isSpec: "True"
   fullName: PAC.Geometry.Shapes.Diamond.Flip
   nameWithType: Diamond.Flip
+- uid: PAC.Geometry.Shapes.Diamond.Flipped(PAC.Geometry.Axes.CardinalOrdinalAxis)
+  name: Flipped(CardinalOrdinalAxis)
+  href: api/PAC.Geometry.Shapes.Diamond.html#PAC_Geometry_Shapes_Diamond_Flipped_PAC_Geometry_Axes_CardinalOrdinalAxis_
+  commentId: M:PAC.Geometry.Shapes.Diamond.Flipped(PAC.Geometry.Axes.CardinalOrdinalAxis)
+  fullName: PAC.Geometry.Shapes.Diamond.Flipped(PAC.Geometry.Axes.CardinalOrdinalAxis)
+  nameWithType: Diamond.Flipped(CardinalOrdinalAxis)
+- uid: PAC.Geometry.Shapes.Diamond.Flipped*
+  name: Flipped
+  href: api/PAC.Geometry.Shapes.Diamond.html#PAC_Geometry_Shapes_Diamond_Flipped_
+  commentId: Overload:PAC.Geometry.Shapes.Diamond.Flipped
+  isSpec: "True"
+  fullName: PAC.Geometry.Shapes.Diamond.Flipped
+  nameWithType: Diamond.Flipped
 - uid: PAC.Geometry.Shapes.Diamond.GetEnumerator
   name: GetEnumerator()
   href: api/PAC.Geometry.Shapes.Diamond.html#PAC_Geometry_Shapes_Diamond_GetEnumerator
@@ -7545,6 +7558,19 @@ references:
   isSpec: "True"
   fullName: PAC.Geometry.Shapes.Diamond.Rotate
   nameWithType: Diamond.Rotate
+- uid: PAC.Geometry.Shapes.Diamond.Rotated(PAC.Geometry.QuadrantalAngle)
+  name: Rotated(QuadrantalAngle)
+  href: api/PAC.Geometry.Shapes.Diamond.html#PAC_Geometry_Shapes_Diamond_Rotated_PAC_Geometry_QuadrantalAngle_
+  commentId: M:PAC.Geometry.Shapes.Diamond.Rotated(PAC.Geometry.QuadrantalAngle)
+  fullName: PAC.Geometry.Shapes.Diamond.Rotated(PAC.Geometry.QuadrantalAngle)
+  nameWithType: Diamond.Rotated(QuadrantalAngle)
+- uid: PAC.Geometry.Shapes.Diamond.Rotated*
+  name: Rotated
+  href: api/PAC.Geometry.Shapes.Diamond.html#PAC_Geometry_Shapes_Diamond_Rotated_
+  commentId: Overload:PAC.Geometry.Shapes.Diamond.Rotated
+  isSpec: "True"
+  fullName: PAC.Geometry.Shapes.Diamond.Rotated
+  nameWithType: Diamond.Rotated
 - uid: PAC.Geometry.Shapes.Diamond.ToString
   name: ToString()
   href: api/PAC.Geometry.Shapes.Diamond.html#PAC_Geometry_Shapes_Diamond_ToString
@@ -7571,6 +7597,19 @@ references:
   isSpec: "True"
   fullName: PAC.Geometry.Shapes.Diamond.Translate
   nameWithType: Diamond.Translate
+- uid: PAC.Geometry.Shapes.Diamond.Translated(PAC.Geometry.IntVector2)
+  name: Translated(IntVector2)
+  href: api/PAC.Geometry.Shapes.Diamond.html#PAC_Geometry_Shapes_Diamond_Translated_PAC_Geometry_IntVector2_
+  commentId: M:PAC.Geometry.Shapes.Diamond.Translated(PAC.Geometry.IntVector2)
+  fullName: PAC.Geometry.Shapes.Diamond.Translated(PAC.Geometry.IntVector2)
+  nameWithType: Diamond.Translated(IntVector2)
+- uid: PAC.Geometry.Shapes.Diamond.Translated*
+  name: Translated
+  href: api/PAC.Geometry.Shapes.Diamond.html#PAC_Geometry_Shapes_Diamond_Translated_
+  commentId: Overload:PAC.Geometry.Shapes.Diamond.Translated
+  isSpec: "True"
+  fullName: PAC.Geometry.Shapes.Diamond.Translated
+  nameWithType: Diamond.Translated
 - uid: PAC.Geometry.Shapes.Diamond.boundingRect
   name: boundingRect
   href: api/PAC.Geometry.Shapes.Diamond.html#PAC_Geometry_Shapes_Diamond_boundingRect
@@ -7813,6 +7852,19 @@ references:
   isSpec: "True"
   fullName: PAC.Geometry.Shapes.Ellipse.Flip
   nameWithType: Ellipse.Flip
+- uid: PAC.Geometry.Shapes.Ellipse.Flipped(PAC.Geometry.Axes.CardinalOrdinalAxis)
+  name: Flipped(CardinalOrdinalAxis)
+  href: api/PAC.Geometry.Shapes.Ellipse.html#PAC_Geometry_Shapes_Ellipse_Flipped_PAC_Geometry_Axes_CardinalOrdinalAxis_
+  commentId: M:PAC.Geometry.Shapes.Ellipse.Flipped(PAC.Geometry.Axes.CardinalOrdinalAxis)
+  fullName: PAC.Geometry.Shapes.Ellipse.Flipped(PAC.Geometry.Axes.CardinalOrdinalAxis)
+  nameWithType: Ellipse.Flipped(CardinalOrdinalAxis)
+- uid: PAC.Geometry.Shapes.Ellipse.Flipped*
+  name: Flipped
+  href: api/PAC.Geometry.Shapes.Ellipse.html#PAC_Geometry_Shapes_Ellipse_Flipped_
+  commentId: Overload:PAC.Geometry.Shapes.Ellipse.Flipped
+  isSpec: "True"
+  fullName: PAC.Geometry.Shapes.Ellipse.Flipped
+  nameWithType: Ellipse.Flipped
 - uid: PAC.Geometry.Shapes.Ellipse.GetEnumerator
   name: GetEnumerator()
   href: api/PAC.Geometry.Shapes.Ellipse.html#PAC_Geometry_Shapes_Ellipse_GetEnumerator
@@ -7852,6 +7904,19 @@ references:
   isSpec: "True"
   fullName: PAC.Geometry.Shapes.Ellipse.Rotate
   nameWithType: Ellipse.Rotate
+- uid: PAC.Geometry.Shapes.Ellipse.Rotated(PAC.Geometry.QuadrantalAngle)
+  name: Rotated(QuadrantalAngle)
+  href: api/PAC.Geometry.Shapes.Ellipse.html#PAC_Geometry_Shapes_Ellipse_Rotated_PAC_Geometry_QuadrantalAngle_
+  commentId: M:PAC.Geometry.Shapes.Ellipse.Rotated(PAC.Geometry.QuadrantalAngle)
+  fullName: PAC.Geometry.Shapes.Ellipse.Rotated(PAC.Geometry.QuadrantalAngle)
+  nameWithType: Ellipse.Rotated(QuadrantalAngle)
+- uid: PAC.Geometry.Shapes.Ellipse.Rotated*
+  name: Rotated
+  href: api/PAC.Geometry.Shapes.Ellipse.html#PAC_Geometry_Shapes_Ellipse_Rotated_
+  commentId: Overload:PAC.Geometry.Shapes.Ellipse.Rotated
+  isSpec: "True"
+  fullName: PAC.Geometry.Shapes.Ellipse.Rotated
+  nameWithType: Ellipse.Rotated
 - uid: PAC.Geometry.Shapes.Ellipse.ToString
   name: ToString()
   href: api/PAC.Geometry.Shapes.Ellipse.html#PAC_Geometry_Shapes_Ellipse_ToString
@@ -7878,6 +7943,19 @@ references:
   isSpec: "True"
   fullName: PAC.Geometry.Shapes.Ellipse.Translate
   nameWithType: Ellipse.Translate
+- uid: PAC.Geometry.Shapes.Ellipse.Translated(PAC.Geometry.IntVector2)
+  name: Translated(IntVector2)
+  href: api/PAC.Geometry.Shapes.Ellipse.html#PAC_Geometry_Shapes_Ellipse_Translated_PAC_Geometry_IntVector2_
+  commentId: M:PAC.Geometry.Shapes.Ellipse.Translated(PAC.Geometry.IntVector2)
+  fullName: PAC.Geometry.Shapes.Ellipse.Translated(PAC.Geometry.IntVector2)
+  nameWithType: Ellipse.Translated(IntVector2)
+- uid: PAC.Geometry.Shapes.Ellipse.Translated*
+  name: Translated
+  href: api/PAC.Geometry.Shapes.Ellipse.html#PAC_Geometry_Shapes_Ellipse_Translated_
+  commentId: Overload:PAC.Geometry.Shapes.Ellipse.Translated
+  isSpec: "True"
+  fullName: PAC.Geometry.Shapes.Ellipse.Translated
+  nameWithType: Ellipse.Translated
 - uid: PAC.Geometry.Shapes.Ellipse.boundingRect
   name: boundingRect
   href: api/PAC.Geometry.Shapes.Ellipse.html#PAC_Geometry_Shapes_Ellipse_boundingRect
@@ -8147,6 +8225,23 @@ references:
   fullName.vb: PAC.Geometry.Shapes.Interfaces.IFlippableShape(Of T, A).Flip
   nameWithType: IFlippableShape<T, A>.Flip
   nameWithType.vb: IFlippableShape(Of T, A).Flip
+- uid: PAC.Geometry.Shapes.Interfaces.IFlippableShape`2.Flipped(`1)
+  name: Flipped(A)
+  href: api/PAC.Geometry.Shapes.Interfaces.IFlippableShape-2.html#PAC_Geometry_Shapes_Interfaces_IFlippableShape_2_Flipped__1_
+  commentId: M:PAC.Geometry.Shapes.Interfaces.IFlippableShape`2.Flipped(`1)
+  fullName: PAC.Geometry.Shapes.Interfaces.IFlippableShape<T, A>.Flipped(A)
+  fullName.vb: PAC.Geometry.Shapes.Interfaces.IFlippableShape(Of T, A).Flipped(A)
+  nameWithType: IFlippableShape<T, A>.Flipped(A)
+  nameWithType.vb: IFlippableShape(Of T, A).Flipped(A)
+- uid: PAC.Geometry.Shapes.Interfaces.IFlippableShape`2.Flipped*
+  name: Flipped
+  href: api/PAC.Geometry.Shapes.Interfaces.IFlippableShape-2.html#PAC_Geometry_Shapes_Interfaces_IFlippableShape_2_Flipped_
+  commentId: Overload:PAC.Geometry.Shapes.Interfaces.IFlippableShape`2.Flipped
+  isSpec: "True"
+  fullName: PAC.Geometry.Shapes.Interfaces.IFlippableShape<T, A>.Flipped
+  fullName.vb: PAC.Geometry.Shapes.Interfaces.IFlippableShape(Of T, A).Flipped
+  nameWithType: IFlippableShape<T, A>.Flipped
+  nameWithType.vb: IFlippableShape(Of T, A).Flipped
 - uid: PAC.Geometry.Shapes.Interfaces.IIsometricShape`1
   name: IIsometricShape<T>
   href: api/PAC.Geometry.Shapes.Interfaces.IIsometricShape-1.html
@@ -8182,6 +8277,23 @@ references:
   fullName.vb: PAC.Geometry.Shapes.Interfaces.IRotatableShape(Of T).Rotate
   nameWithType: IRotatableShape<T>.Rotate
   nameWithType.vb: IRotatableShape(Of T).Rotate
+- uid: PAC.Geometry.Shapes.Interfaces.IRotatableShape`1.Rotated(PAC.Geometry.QuadrantalAngle)
+  name: Rotated(QuadrantalAngle)
+  href: api/PAC.Geometry.Shapes.Interfaces.IRotatableShape-1.html#PAC_Geometry_Shapes_Interfaces_IRotatableShape_1_Rotated_PAC_Geometry_QuadrantalAngle_
+  commentId: M:PAC.Geometry.Shapes.Interfaces.IRotatableShape`1.Rotated(PAC.Geometry.QuadrantalAngle)
+  fullName: PAC.Geometry.Shapes.Interfaces.IRotatableShape<T>.Rotated(PAC.Geometry.QuadrantalAngle)
+  fullName.vb: PAC.Geometry.Shapes.Interfaces.IRotatableShape(Of T).Rotated(PAC.Geometry.QuadrantalAngle)
+  nameWithType: IRotatableShape<T>.Rotated(QuadrantalAngle)
+  nameWithType.vb: IRotatableShape(Of T).Rotated(QuadrantalAngle)
+- uid: PAC.Geometry.Shapes.Interfaces.IRotatableShape`1.Rotated*
+  name: Rotated
+  href: api/PAC.Geometry.Shapes.Interfaces.IRotatableShape-1.html#PAC_Geometry_Shapes_Interfaces_IRotatableShape_1_Rotated_
+  commentId: Overload:PAC.Geometry.Shapes.Interfaces.IRotatableShape`1.Rotated
+  isSpec: "True"
+  fullName: PAC.Geometry.Shapes.Interfaces.IRotatableShape<T>.Rotated
+  fullName.vb: PAC.Geometry.Shapes.Interfaces.IRotatableShape(Of T).Rotated
+  nameWithType: IRotatableShape<T>.Rotated
+  nameWithType.vb: IRotatableShape(Of T).Rotated
 - uid: PAC.Geometry.Shapes.Interfaces.IRotatableShape`1.op_UnaryNegation(PAC.Geometry.Shapes.Interfaces.IRotatableShape{`0})
   name: operator -(IRotatableShape<T>)
   href: api/PAC.Geometry.Shapes.Interfaces.IRotatableShape-1.html#PAC_Geometry_Shapes_Interfaces_IRotatableShape_1_op_UnaryNegation_PAC_Geometry_Shapes_Interfaces_IRotatableShape__0__
@@ -8255,6 +8367,23 @@ references:
   fullName.vb: PAC.Geometry.Shapes.Interfaces.ITranslatableShape(Of T).Translate
   nameWithType: ITranslatableShape<T>.Translate
   nameWithType.vb: ITranslatableShape(Of T).Translate
+- uid: PAC.Geometry.Shapes.Interfaces.ITranslatableShape`1.Translated(PAC.Geometry.IntVector2)
+  name: Translated(IntVector2)
+  href: api/PAC.Geometry.Shapes.Interfaces.ITranslatableShape-1.html#PAC_Geometry_Shapes_Interfaces_ITranslatableShape_1_Translated_PAC_Geometry_IntVector2_
+  commentId: M:PAC.Geometry.Shapes.Interfaces.ITranslatableShape`1.Translated(PAC.Geometry.IntVector2)
+  fullName: PAC.Geometry.Shapes.Interfaces.ITranslatableShape<T>.Translated(PAC.Geometry.IntVector2)
+  fullName.vb: PAC.Geometry.Shapes.Interfaces.ITranslatableShape(Of T).Translated(PAC.Geometry.IntVector2)
+  nameWithType: ITranslatableShape<T>.Translated(IntVector2)
+  nameWithType.vb: ITranslatableShape(Of T).Translated(IntVector2)
+- uid: PAC.Geometry.Shapes.Interfaces.ITranslatableShape`1.Translated*
+  name: Translated
+  href: api/PAC.Geometry.Shapes.Interfaces.ITranslatableShape-1.html#PAC_Geometry_Shapes_Interfaces_ITranslatableShape_1_Translated_
+  commentId: Overload:PAC.Geometry.Shapes.Interfaces.ITranslatableShape`1.Translated
+  isSpec: "True"
+  fullName: PAC.Geometry.Shapes.Interfaces.ITranslatableShape<T>.Translated
+  fullName.vb: PAC.Geometry.Shapes.Interfaces.ITranslatableShape(Of T).Translated
+  nameWithType: ITranslatableShape<T>.Translated
+  nameWithType.vb: ITranslatableShape(Of T).Translated
 - uid: PAC.Geometry.Shapes.Interfaces.ITranslatableShape`1.op_Addition(PAC.Geometry.IntVector2,PAC.Geometry.Shapes.Interfaces.ITranslatableShape{`0})
   name: operator +(IntVector2, ITranslatableShape<T>)
   href: api/PAC.Geometry.Shapes.Interfaces.ITranslatableShape-1.html#PAC_Geometry_Shapes_Interfaces_ITranslatableShape_1_op_Addition_PAC_Geometry_IntVector2_PAC_Geometry_Shapes_Interfaces_ITranslatableShape__0__
@@ -8401,6 +8530,19 @@ references:
   isSpec: "True"
   fullName: PAC.Geometry.Shapes.IsometricCuboid.Flip
   nameWithType: IsometricCuboid.Flip
+- uid: PAC.Geometry.Shapes.IsometricCuboid.Flipped(PAC.Geometry.Axes.VerticalAxis)
+  name: Flipped(VerticalAxis)
+  href: api/PAC.Geometry.Shapes.IsometricCuboid.html#PAC_Geometry_Shapes_IsometricCuboid_Flipped_PAC_Geometry_Axes_VerticalAxis_
+  commentId: M:PAC.Geometry.Shapes.IsometricCuboid.Flipped(PAC.Geometry.Axes.VerticalAxis)
+  fullName: PAC.Geometry.Shapes.IsometricCuboid.Flipped(PAC.Geometry.Axes.VerticalAxis)
+  nameWithType: IsometricCuboid.Flipped(VerticalAxis)
+- uid: PAC.Geometry.Shapes.IsometricCuboid.Flipped*
+  name: Flipped
+  href: api/PAC.Geometry.Shapes.IsometricCuboid.html#PAC_Geometry_Shapes_IsometricCuboid_Flipped_
+  commentId: Overload:PAC.Geometry.Shapes.IsometricCuboid.Flipped
+  isSpec: "True"
+  fullName: PAC.Geometry.Shapes.IsometricCuboid.Flipped
+  nameWithType: IsometricCuboid.Flipped
 - uid: PAC.Geometry.Shapes.IsometricCuboid.GetEnumerator
   name: GetEnumerator()
   href: api/PAC.Geometry.Shapes.IsometricCuboid.html#PAC_Geometry_Shapes_IsometricCuboid_GetEnumerator
@@ -8453,6 +8595,19 @@ references:
   isSpec: "True"
   fullName: PAC.Geometry.Shapes.IsometricCuboid.Translate
   nameWithType: IsometricCuboid.Translate
+- uid: PAC.Geometry.Shapes.IsometricCuboid.Translated(PAC.Geometry.IntVector2)
+  name: Translated(IntVector2)
+  href: api/PAC.Geometry.Shapes.IsometricCuboid.html#PAC_Geometry_Shapes_IsometricCuboid_Translated_PAC_Geometry_IntVector2_
+  commentId: M:PAC.Geometry.Shapes.IsometricCuboid.Translated(PAC.Geometry.IntVector2)
+  fullName: PAC.Geometry.Shapes.IsometricCuboid.Translated(PAC.Geometry.IntVector2)
+  nameWithType: IsometricCuboid.Translated(IntVector2)
+- uid: PAC.Geometry.Shapes.IsometricCuboid.Translated*
+  name: Translated
+  href: api/PAC.Geometry.Shapes.IsometricCuboid.html#PAC_Geometry_Shapes_IsometricCuboid_Translated_
+  commentId: Overload:PAC.Geometry.Shapes.IsometricCuboid.Translated
+  isSpec: "True"
+  fullName: PAC.Geometry.Shapes.IsometricCuboid.Translated
+  nameWithType: IsometricCuboid.Translated
 - uid: PAC.Geometry.Shapes.IsometricCuboid.bottomFace
   name: bottomFace
   href: api/PAC.Geometry.Shapes.IsometricCuboid.html#PAC_Geometry_Shapes_IsometricCuboid_bottomFace
@@ -8721,6 +8876,25 @@ references:
   isSpec: "True"
   fullName: PAC.Geometry.Shapes.IsometricRectangle.Flip
   nameWithType: IsometricRectangle.Flip
+- uid: PAC.Geometry.Shapes.IsometricRectangle.Flipped(PAC.Geometry.Axes.CardinalAxis)
+  name: Flipped(CardinalAxis)
+  href: api/PAC.Geometry.Shapes.IsometricRectangle.html#PAC_Geometry_Shapes_IsometricRectangle_Flipped_PAC_Geometry_Axes_CardinalAxis_
+  commentId: M:PAC.Geometry.Shapes.IsometricRectangle.Flipped(PAC.Geometry.Axes.CardinalAxis)
+  fullName: PAC.Geometry.Shapes.IsometricRectangle.Flipped(PAC.Geometry.Axes.CardinalAxis)
+  nameWithType: IsometricRectangle.Flipped(CardinalAxis)
+- uid: PAC.Geometry.Shapes.IsometricRectangle.Flipped(PAC.Geometry.Axes.VerticalAxis)
+  name: Flipped(VerticalAxis)
+  href: api/PAC.Geometry.Shapes.IsometricRectangle.html#PAC_Geometry_Shapes_IsometricRectangle_Flipped_PAC_Geometry_Axes_VerticalAxis_
+  commentId: M:PAC.Geometry.Shapes.IsometricRectangle.Flipped(PAC.Geometry.Axes.VerticalAxis)
+  fullName: PAC.Geometry.Shapes.IsometricRectangle.Flipped(PAC.Geometry.Axes.VerticalAxis)
+  nameWithType: IsometricRectangle.Flipped(VerticalAxis)
+- uid: PAC.Geometry.Shapes.IsometricRectangle.Flipped*
+  name: Flipped
+  href: api/PAC.Geometry.Shapes.IsometricRectangle.html#PAC_Geometry_Shapes_IsometricRectangle_Flipped_
+  commentId: Overload:PAC.Geometry.Shapes.IsometricRectangle.Flipped
+  isSpec: "True"
+  fullName: PAC.Geometry.Shapes.IsometricRectangle.Flipped
+  nameWithType: IsometricRectangle.Flipped
 - uid: PAC.Geometry.Shapes.IsometricRectangle.GetEnumerator
   name: GetEnumerator()
   href: api/PAC.Geometry.Shapes.IsometricRectangle.html#PAC_Geometry_Shapes_IsometricRectangle_GetEnumerator
@@ -8773,6 +8947,19 @@ references:
   isSpec: "True"
   fullName: PAC.Geometry.Shapes.IsometricRectangle.Translate
   nameWithType: IsometricRectangle.Translate
+- uid: PAC.Geometry.Shapes.IsometricRectangle.Translated(PAC.Geometry.IntVector2)
+  name: Translated(IntVector2)
+  href: api/PAC.Geometry.Shapes.IsometricRectangle.html#PAC_Geometry_Shapes_IsometricRectangle_Translated_PAC_Geometry_IntVector2_
+  commentId: M:PAC.Geometry.Shapes.IsometricRectangle.Translated(PAC.Geometry.IntVector2)
+  fullName: PAC.Geometry.Shapes.IsometricRectangle.Translated(PAC.Geometry.IntVector2)
+  nameWithType: IsometricRectangle.Translated(IntVector2)
+- uid: PAC.Geometry.Shapes.IsometricRectangle.Translated*
+  name: Translated
+  href: api/PAC.Geometry.Shapes.IsometricRectangle.html#PAC_Geometry_Shapes_IsometricRectangle_Translated_
+  commentId: Overload:PAC.Geometry.Shapes.IsometricRectangle.Translated
+  isSpec: "True"
+  fullName: PAC.Geometry.Shapes.IsometricRectangle.Translated
+  nameWithType: IsometricRectangle.Translated
 - uid: PAC.Geometry.Shapes.IsometricRectangle.border
   name: border
   href: api/PAC.Geometry.Shapes.IsometricRectangle.html#PAC_Geometry_Shapes_IsometricRectangle_border
@@ -8815,7 +9002,14 @@ references:
 - uid: PAC.Geometry.Shapes.IsometricRectangle.endCorner
   name: endCorner
   href: api/PAC.Geometry.Shapes.IsometricRectangle.html#PAC_Geometry_Shapes_IsometricRectangle_endCorner
-  commentId: F:PAC.Geometry.Shapes.IsometricRectangle.endCorner
+  commentId: P:PAC.Geometry.Shapes.IsometricRectangle.endCorner
+  fullName: PAC.Geometry.Shapes.IsometricRectangle.endCorner
+  nameWithType: IsometricRectangle.endCorner
+- uid: PAC.Geometry.Shapes.IsometricRectangle.endCorner*
+  name: endCorner
+  href: api/PAC.Geometry.Shapes.IsometricRectangle.html#PAC_Geometry_Shapes_IsometricRectangle_endCorner_
+  commentId: Overload:PAC.Geometry.Shapes.IsometricRectangle.endCorner
+  isSpec: "True"
   fullName: PAC.Geometry.Shapes.IsometricRectangle.endCorner
   nameWithType: IsometricRectangle.endCorner
 - uid: PAC.Geometry.Shapes.IsometricRectangle.filled
@@ -8990,7 +9184,14 @@ references:
 - uid: PAC.Geometry.Shapes.IsometricRectangle.startCorner
   name: startCorner
   href: api/PAC.Geometry.Shapes.IsometricRectangle.html#PAC_Geometry_Shapes_IsometricRectangle_startCorner
-  commentId: F:PAC.Geometry.Shapes.IsometricRectangle.startCorner
+  commentId: P:PAC.Geometry.Shapes.IsometricRectangle.startCorner
+  fullName: PAC.Geometry.Shapes.IsometricRectangle.startCorner
+  nameWithType: IsometricRectangle.startCorner
+- uid: PAC.Geometry.Shapes.IsometricRectangle.startCorner*
+  name: startCorner
+  href: api/PAC.Geometry.Shapes.IsometricRectangle.html#PAC_Geometry_Shapes_IsometricRectangle_startCorner_
+  commentId: Overload:PAC.Geometry.Shapes.IsometricRectangle.startCorner
+  isSpec: "True"
   fullName: PAC.Geometry.Shapes.IsometricRectangle.startCorner
   nameWithType: IsometricRectangle.startCorner
 - uid: PAC.Geometry.Shapes.IsometricRectangle.topCorner
@@ -9159,6 +9360,19 @@ references:
   isSpec: "True"
   fullName: PAC.Geometry.Shapes.Line.Flip
   nameWithType: Line.Flip
+- uid: PAC.Geometry.Shapes.Line.Flipped(PAC.Geometry.Axes.CardinalOrdinalAxis)
+  name: Flipped(CardinalOrdinalAxis)
+  href: api/PAC.Geometry.Shapes.Line.html#PAC_Geometry_Shapes_Line_Flipped_PAC_Geometry_Axes_CardinalOrdinalAxis_
+  commentId: M:PAC.Geometry.Shapes.Line.Flipped(PAC.Geometry.Axes.CardinalOrdinalAxis)
+  fullName: PAC.Geometry.Shapes.Line.Flipped(PAC.Geometry.Axes.CardinalOrdinalAxis)
+  nameWithType: Line.Flipped(CardinalOrdinalAxis)
+- uid: PAC.Geometry.Shapes.Line.Flipped*
+  name: Flipped
+  href: api/PAC.Geometry.Shapes.Line.html#PAC_Geometry_Shapes_Line_Flipped_
+  commentId: Overload:PAC.Geometry.Shapes.Line.Flipped
+  isSpec: "True"
+  fullName: PAC.Geometry.Shapes.Line.Flipped
+  nameWithType: Line.Flipped
 - uid: PAC.Geometry.Shapes.Line.GetEnumerator
   name: GetEnumerator()
   href: api/PAC.Geometry.Shapes.Line.html#PAC_Geometry_Shapes_Line_GetEnumerator
@@ -9342,6 +9556,19 @@ references:
   isSpec: "True"
   fullName: PAC.Geometry.Shapes.Line.Rotate
   nameWithType: Line.Rotate
+- uid: PAC.Geometry.Shapes.Line.Rotated(PAC.Geometry.QuadrantalAngle)
+  name: Rotated(QuadrantalAngle)
+  href: api/PAC.Geometry.Shapes.Line.html#PAC_Geometry_Shapes_Line_Rotated_PAC_Geometry_QuadrantalAngle_
+  commentId: M:PAC.Geometry.Shapes.Line.Rotated(PAC.Geometry.QuadrantalAngle)
+  fullName: PAC.Geometry.Shapes.Line.Rotated(PAC.Geometry.QuadrantalAngle)
+  nameWithType: Line.Rotated(QuadrantalAngle)
+- uid: PAC.Geometry.Shapes.Line.Rotated*
+  name: Rotated
+  href: api/PAC.Geometry.Shapes.Line.html#PAC_Geometry_Shapes_Line_Rotated_
+  commentId: Overload:PAC.Geometry.Shapes.Line.Rotated
+  isSpec: "True"
+  fullName: PAC.Geometry.Shapes.Line.Rotated
+  nameWithType: Line.Rotated
 - uid: PAC.Geometry.Shapes.Line.ToString
   name: ToString()
   href: api/PAC.Geometry.Shapes.Line.html#PAC_Geometry_Shapes_Line_ToString
@@ -9368,6 +9595,19 @@ references:
   isSpec: "True"
   fullName: PAC.Geometry.Shapes.Line.Translate
   nameWithType: Line.Translate
+- uid: PAC.Geometry.Shapes.Line.Translated(PAC.Geometry.IntVector2)
+  name: Translated(IntVector2)
+  href: api/PAC.Geometry.Shapes.Line.html#PAC_Geometry_Shapes_Line_Translated_PAC_Geometry_IntVector2_
+  commentId: M:PAC.Geometry.Shapes.Line.Translated(PAC.Geometry.IntVector2)
+  fullName: PAC.Geometry.Shapes.Line.Translated(PAC.Geometry.IntVector2)
+  nameWithType: Line.Translated(IntVector2)
+- uid: PAC.Geometry.Shapes.Line.Translated*
+  name: Translated
+  href: api/PAC.Geometry.Shapes.Line.html#PAC_Geometry_Shapes_Line_Translated_
+  commentId: Overload:PAC.Geometry.Shapes.Line.Translated
+  isSpec: "True"
+  fullName: PAC.Geometry.Shapes.Line.Translated
+  nameWithType: Line.Translated
 - uid: PAC.Geometry.Shapes.Line.boundingRect
   name: boundingRect
   href: api/PAC.Geometry.Shapes.Line.html#PAC_Geometry_Shapes_Line_boundingRect
@@ -9772,6 +10012,19 @@ references:
   isSpec: "True"
   fullName: PAC.Geometry.Shapes.Path.Flip
   nameWithType: Path.Flip
+- uid: PAC.Geometry.Shapes.Path.Flipped(PAC.Geometry.Axes.CardinalOrdinalAxis)
+  name: Flipped(CardinalOrdinalAxis)
+  href: api/PAC.Geometry.Shapes.Path.html#PAC_Geometry_Shapes_Path_Flipped_PAC_Geometry_Axes_CardinalOrdinalAxis_
+  commentId: M:PAC.Geometry.Shapes.Path.Flipped(PAC.Geometry.Axes.CardinalOrdinalAxis)
+  fullName: PAC.Geometry.Shapes.Path.Flipped(PAC.Geometry.Axes.CardinalOrdinalAxis)
+  nameWithType: Path.Flipped(CardinalOrdinalAxis)
+- uid: PAC.Geometry.Shapes.Path.Flipped*
+  name: Flipped
+  href: api/PAC.Geometry.Shapes.Path.html#PAC_Geometry_Shapes_Path_Flipped_
+  commentId: Overload:PAC.Geometry.Shapes.Path.Flipped
+  isSpec: "True"
+  fullName: PAC.Geometry.Shapes.Path.Flipped
+  nameWithType: Path.Flipped
 - uid: PAC.Geometry.Shapes.Path.GetEnumerator
   name: GetEnumerator()
   href: api/PAC.Geometry.Shapes.Path.html#PAC_Geometry_Shapes_Path_GetEnumerator
@@ -9875,6 +10128,19 @@ references:
   isSpec: "True"
   fullName: PAC.Geometry.Shapes.Path.Rotate
   nameWithType: Path.Rotate
+- uid: PAC.Geometry.Shapes.Path.Rotated(PAC.Geometry.QuadrantalAngle)
+  name: Rotated(QuadrantalAngle)
+  href: api/PAC.Geometry.Shapes.Path.html#PAC_Geometry_Shapes_Path_Rotated_PAC_Geometry_QuadrantalAngle_
+  commentId: M:PAC.Geometry.Shapes.Path.Rotated(PAC.Geometry.QuadrantalAngle)
+  fullName: PAC.Geometry.Shapes.Path.Rotated(PAC.Geometry.QuadrantalAngle)
+  nameWithType: Path.Rotated(QuadrantalAngle)
+- uid: PAC.Geometry.Shapes.Path.Rotated*
+  name: Rotated
+  href: api/PAC.Geometry.Shapes.Path.html#PAC_Geometry_Shapes_Path_Rotated_
+  commentId: Overload:PAC.Geometry.Shapes.Path.Rotated
+  isSpec: "True"
+  fullName: PAC.Geometry.Shapes.Path.Rotated
+  nameWithType: Path.Rotated
 - uid: PAC.Geometry.Shapes.Path.ToString
   name: ToString()
   href: api/PAC.Geometry.Shapes.Path.html#PAC_Geometry_Shapes_Path_ToString
@@ -9901,6 +10167,19 @@ references:
   isSpec: "True"
   fullName: PAC.Geometry.Shapes.Path.Translate
   nameWithType: Path.Translate
+- uid: PAC.Geometry.Shapes.Path.Translated(PAC.Geometry.IntVector2)
+  name: Translated(IntVector2)
+  href: api/PAC.Geometry.Shapes.Path.html#PAC_Geometry_Shapes_Path_Translated_PAC_Geometry_IntVector2_
+  commentId: M:PAC.Geometry.Shapes.Path.Translated(PAC.Geometry.IntVector2)
+  fullName: PAC.Geometry.Shapes.Path.Translated(PAC.Geometry.IntVector2)
+  nameWithType: Path.Translated(IntVector2)
+- uid: PAC.Geometry.Shapes.Path.Translated*
+  name: Translated
+  href: api/PAC.Geometry.Shapes.Path.html#PAC_Geometry_Shapes_Path_Translated_
+  commentId: Overload:PAC.Geometry.Shapes.Path.Translated
+  isSpec: "True"
+  fullName: PAC.Geometry.Shapes.Path.Translated
+  nameWithType: Path.Translated
 - uid: PAC.Geometry.Shapes.Path.boundingRect
   name: boundingRect
   href: api/PAC.Geometry.Shapes.Path.html#PAC_Geometry_Shapes_Path_boundingRect
@@ -10253,6 +10532,19 @@ references:
   isSpec: "True"
   fullName: PAC.Geometry.Shapes.Rectangle.Flip
   nameWithType: Rectangle.Flip
+- uid: PAC.Geometry.Shapes.Rectangle.Flipped(PAC.Geometry.Axes.CardinalOrdinalAxis)
+  name: Flipped(CardinalOrdinalAxis)
+  href: api/PAC.Geometry.Shapes.Rectangle.html#PAC_Geometry_Shapes_Rectangle_Flipped_PAC_Geometry_Axes_CardinalOrdinalAxis_
+  commentId: M:PAC.Geometry.Shapes.Rectangle.Flipped(PAC.Geometry.Axes.CardinalOrdinalAxis)
+  fullName: PAC.Geometry.Shapes.Rectangle.Flipped(PAC.Geometry.Axes.CardinalOrdinalAxis)
+  nameWithType: Rectangle.Flipped(CardinalOrdinalAxis)
+- uid: PAC.Geometry.Shapes.Rectangle.Flipped*
+  name: Flipped
+  href: api/PAC.Geometry.Shapes.Rectangle.html#PAC_Geometry_Shapes_Rectangle_Flipped_
+  commentId: Overload:PAC.Geometry.Shapes.Rectangle.Flipped
+  isSpec: "True"
+  fullName: PAC.Geometry.Shapes.Rectangle.Flipped
+  nameWithType: Rectangle.Flipped
 - uid: PAC.Geometry.Shapes.Rectangle.GetEnumerator
   name: GetEnumerator()
   href: api/PAC.Geometry.Shapes.Rectangle.html#PAC_Geometry_Shapes_Rectangle_GetEnumerator
@@ -10292,6 +10584,19 @@ references:
   isSpec: "True"
   fullName: PAC.Geometry.Shapes.Rectangle.Rotate
   nameWithType: Rectangle.Rotate
+- uid: PAC.Geometry.Shapes.Rectangle.Rotated(PAC.Geometry.QuadrantalAngle)
+  name: Rotated(QuadrantalAngle)
+  href: api/PAC.Geometry.Shapes.Rectangle.html#PAC_Geometry_Shapes_Rectangle_Rotated_PAC_Geometry_QuadrantalAngle_
+  commentId: M:PAC.Geometry.Shapes.Rectangle.Rotated(PAC.Geometry.QuadrantalAngle)
+  fullName: PAC.Geometry.Shapes.Rectangle.Rotated(PAC.Geometry.QuadrantalAngle)
+  nameWithType: Rectangle.Rotated(QuadrantalAngle)
+- uid: PAC.Geometry.Shapes.Rectangle.Rotated*
+  name: Rotated
+  href: api/PAC.Geometry.Shapes.Rectangle.html#PAC_Geometry_Shapes_Rectangle_Rotated_
+  commentId: Overload:PAC.Geometry.Shapes.Rectangle.Rotated
+  isSpec: "True"
+  fullName: PAC.Geometry.Shapes.Rectangle.Rotated
+  nameWithType: Rectangle.Rotated
 - uid: PAC.Geometry.Shapes.Rectangle.ToString
   name: ToString()
   href: api/PAC.Geometry.Shapes.Rectangle.html#PAC_Geometry_Shapes_Rectangle_ToString
@@ -10318,6 +10623,19 @@ references:
   isSpec: "True"
   fullName: PAC.Geometry.Shapes.Rectangle.Translate
   nameWithType: Rectangle.Translate
+- uid: PAC.Geometry.Shapes.Rectangle.Translated(PAC.Geometry.IntVector2)
+  name: Translated(IntVector2)
+  href: api/PAC.Geometry.Shapes.Rectangle.html#PAC_Geometry_Shapes_Rectangle_Translated_PAC_Geometry_IntVector2_
+  commentId: M:PAC.Geometry.Shapes.Rectangle.Translated(PAC.Geometry.IntVector2)
+  fullName: PAC.Geometry.Shapes.Rectangle.Translated(PAC.Geometry.IntVector2)
+  nameWithType: Rectangle.Translated(IntVector2)
+- uid: PAC.Geometry.Shapes.Rectangle.Translated*
+  name: Translated
+  href: api/PAC.Geometry.Shapes.Rectangle.html#PAC_Geometry_Shapes_Rectangle_Translated_
+  commentId: Overload:PAC.Geometry.Shapes.Rectangle.Translated
+  isSpec: "True"
+  fullName: PAC.Geometry.Shapes.Rectangle.Translated
+  nameWithType: Rectangle.Translated
 - uid: PAC.Geometry.Shapes.Rectangle.boundingRect
   name: boundingRect
   href: api/PAC.Geometry.Shapes.Rectangle.html#PAC_Geometry_Shapes_Rectangle_boundingRect
@@ -10569,6 +10887,19 @@ references:
   isSpec: "True"
   fullName: PAC.Geometry.Shapes.RightTriangle.Flip
   nameWithType: RightTriangle.Flip
+- uid: PAC.Geometry.Shapes.RightTriangle.Flipped(PAC.Geometry.Axes.CardinalOrdinalAxis)
+  name: Flipped(CardinalOrdinalAxis)
+  href: api/PAC.Geometry.Shapes.RightTriangle.html#PAC_Geometry_Shapes_RightTriangle_Flipped_PAC_Geometry_Axes_CardinalOrdinalAxis_
+  commentId: M:PAC.Geometry.Shapes.RightTriangle.Flipped(PAC.Geometry.Axes.CardinalOrdinalAxis)
+  fullName: PAC.Geometry.Shapes.RightTriangle.Flipped(PAC.Geometry.Axes.CardinalOrdinalAxis)
+  nameWithType: RightTriangle.Flipped(CardinalOrdinalAxis)
+- uid: PAC.Geometry.Shapes.RightTriangle.Flipped*
+  name: Flipped
+  href: api/PAC.Geometry.Shapes.RightTriangle.html#PAC_Geometry_Shapes_RightTriangle_Flipped_
+  commentId: Overload:PAC.Geometry.Shapes.RightTriangle.Flipped
+  isSpec: "True"
+  fullName: PAC.Geometry.Shapes.RightTriangle.Flipped
+  nameWithType: RightTriangle.Flipped
 - uid: PAC.Geometry.Shapes.RightTriangle.GetEnumerator
   name: GetEnumerator()
   href: api/PAC.Geometry.Shapes.RightTriangle.html#PAC_Geometry_Shapes_RightTriangle_GetEnumerator
@@ -10638,6 +10969,19 @@ references:
   isSpec: "True"
   fullName: PAC.Geometry.Shapes.RightTriangle.Rotate
   nameWithType: RightTriangle.Rotate
+- uid: PAC.Geometry.Shapes.RightTriangle.Rotated(PAC.Geometry.QuadrantalAngle)
+  name: Rotated(QuadrantalAngle)
+  href: api/PAC.Geometry.Shapes.RightTriangle.html#PAC_Geometry_Shapes_RightTriangle_Rotated_PAC_Geometry_QuadrantalAngle_
+  commentId: M:PAC.Geometry.Shapes.RightTriangle.Rotated(PAC.Geometry.QuadrantalAngle)
+  fullName: PAC.Geometry.Shapes.RightTriangle.Rotated(PAC.Geometry.QuadrantalAngle)
+  nameWithType: RightTriangle.Rotated(QuadrantalAngle)
+- uid: PAC.Geometry.Shapes.RightTriangle.Rotated*
+  name: Rotated
+  href: api/PAC.Geometry.Shapes.RightTriangle.html#PAC_Geometry_Shapes_RightTriangle_Rotated_
+  commentId: Overload:PAC.Geometry.Shapes.RightTriangle.Rotated
+  isSpec: "True"
+  fullName: PAC.Geometry.Shapes.RightTriangle.Rotated
+  nameWithType: RightTriangle.Rotated
 - uid: PAC.Geometry.Shapes.RightTriangle.ToString
   name: ToString()
   href: api/PAC.Geometry.Shapes.RightTriangle.html#PAC_Geometry_Shapes_RightTriangle_ToString
@@ -10664,6 +11008,19 @@ references:
   isSpec: "True"
   fullName: PAC.Geometry.Shapes.RightTriangle.Translate
   nameWithType: RightTriangle.Translate
+- uid: PAC.Geometry.Shapes.RightTriangle.Translated(PAC.Geometry.IntVector2)
+  name: Translated(IntVector2)
+  href: api/PAC.Geometry.Shapes.RightTriangle.html#PAC_Geometry_Shapes_RightTriangle_Translated_PAC_Geometry_IntVector2_
+  commentId: M:PAC.Geometry.Shapes.RightTriangle.Translated(PAC.Geometry.IntVector2)
+  fullName: PAC.Geometry.Shapes.RightTriangle.Translated(PAC.Geometry.IntVector2)
+  nameWithType: RightTriangle.Translated(IntVector2)
+- uid: PAC.Geometry.Shapes.RightTriangle.Translated*
+  name: Translated
+  href: api/PAC.Geometry.Shapes.RightTriangle.html#PAC_Geometry_Shapes_RightTriangle_Translated_
+  commentId: Overload:PAC.Geometry.Shapes.RightTriangle.Translated
+  isSpec: "True"
+  fullName: PAC.Geometry.Shapes.RightTriangle.Translated
+  nameWithType: RightTriangle.Translated
 - uid: PAC.Geometry.Shapes.RightTriangle.bottomCorner
   name: bottomCorner
   href: api/PAC.Geometry.Shapes.RightTriangle.html#PAC_Geometry_Shapes_RightTriangle_bottomCorner

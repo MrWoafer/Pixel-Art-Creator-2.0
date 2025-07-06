@@ -302,12 +302,50 @@ When implementing this interface on a concrete type, this should be the same as 
   <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Geometry/Shapes/Interfaces/IRotatableShape.cs/#L19"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Returns a deep copy of the shape rotated by the given angle.</p>
+  <div class="markdown level1 summary"><p>Rotates the shape about the origin by the given angle, in-place.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">T Rotate(QuadrantalAngle angle)</code></pre>
+    <pre><code class="lang-csharp hljs">void Rotate(QuadrantalAngle angle)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>angle</code> <a class="xref" href="PAC.Geometry.QuadrantalAngle.html">QuadrantalAngle</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <dl class="typelist seealso">
+    <dt>See Also</dt>
+    <dd>
+    <div><a class="xref" href="PAC.Geometry.Shapes.Interfaces.IRotatableShape-1.html#PAC_Geometry_Shapes_Interfaces_IRotatableShape_1_Rotated_PAC_Geometry_QuadrantalAngle_">Rotated(QuadrantalAngle)</a></div>
+    </dd>
+  </dl>
+
+
+  <a id="PAC_Geometry_Shapes_Interfaces_IRotatableShape_1_Rotated_" data-uid="PAC.Geometry.Shapes.Interfaces.IRotatableShape`1.Rotated*"></a>
+
+  <h3 id="PAC_Geometry_Shapes_Interfaces_IRotatableShape_1_Rotated_PAC_Geometry_QuadrantalAngle_" data-uid="PAC.Geometry.Shapes.Interfaces.IRotatableShape`1.Rotated(PAC.Geometry.QuadrantalAngle)">
+  Rotated(QuadrantalAngle)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Geometry/Shapes/Interfaces/IRotatableShape.cs/#L25"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns a deep copy of the shape rotated about the origin by the given angle.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">T Rotated(QuadrantalAngle angle)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
@@ -334,6 +372,7 @@ When implementing this interface on a concrete type, this should be the same as 
     <dt>See Also</dt>
     <dd>
     <div><a class="xref" href="PAC.Geometry.Shapes.Interfaces.IRotatableShape-1.html#PAC_Geometry_Shapes_Interfaces_IRotatableShape_1_op_UnaryNegation_PAC_Geometry_Shapes_Interfaces_IRotatableShape__0__">operator -(IRotatableShape&lt;T&gt;)</a></div>
+    <div><a class="xref" href="PAC.Geometry.Shapes.Interfaces.IRotatableShape-1.html#PAC_Geometry_Shapes_Interfaces_IRotatableShape_1_Rotate_PAC_Geometry_QuadrantalAngle_">Rotate(QuadrantalAngle)</a></div>
     </dd>
   </dl>
 
@@ -346,7 +385,7 @@ When implementing this interface on a concrete type, this should be the same as 
 
   <h3 id="PAC_Geometry_Shapes_Interfaces_IRotatableShape_1_op_UnaryNegation_PAC_Geometry_Shapes_Interfaces_IRotatableShape__0__" data-uid="PAC.Geometry.Shapes.Interfaces.IRotatableShape`1.op_UnaryNegation(PAC.Geometry.Shapes.Interfaces.IRotatableShape{`0})">
   operator -(IRotatableShape&lt;T&gt;)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Geometry/Shapes/Interfaces/IRotatableShape.cs/#L26"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Geometry/Shapes/Interfaces/IRotatableShape.cs/#L32"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Returns a deep copy of the shape rotated 180 degrees about the origin (equivalently, reflected through the origin).</p>
@@ -380,7 +419,7 @@ When implementing this interface on a concrete type, this should be the same as 
   <dl class="typelist seealso">
     <dt>See Also</dt>
     <dd>
-    <div><a class="xref" href="PAC.Geometry.Shapes.Interfaces.IRotatableShape-1.html#PAC_Geometry_Shapes_Interfaces_IRotatableShape_1_Rotate_PAC_Geometry_QuadrantalAngle_">Rotate(QuadrantalAngle)</a></div>
+    <div><a class="xref" href="PAC.Geometry.Shapes.Interfaces.IRotatableShape-1.html#PAC_Geometry_Shapes_Interfaces_IRotatableShape_1_Rotated_PAC_Geometry_QuadrantalAngle_">Rotated(QuadrantalAngle)</a></div>
     </dd>
   </dl>
 

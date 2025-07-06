@@ -546,7 +546,7 @@ The enumerator does not repeat any points.
 
   <h3 id="PAC_Geometry_Shapes_Ellipse_DeepCopy" data-uid="PAC.Geometry.Shapes.Ellipse.DeepCopy">
   DeepCopy()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Geometry/Shapes/Ellipse.cs/#L409"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Geometry/Shapes/Ellipse.cs/#L423"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Returns a deep copy of the shape.</p>
@@ -578,7 +578,7 @@ The enumerator does not repeat any points.
 
   <h3 id="PAC_Geometry_Shapes_Ellipse_Equals_PAC_Geometry_Shapes_Ellipse_" data-uid="PAC.Geometry.Shapes.Ellipse.Equals(PAC.Geometry.Shapes.Ellipse)">
   Equals(Ellipse)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Geometry/Shapes/Ellipse.cs/#L399"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Geometry/Shapes/Ellipse.cs/#L413"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>See <a class="xref" href="PAC.Geometry.Shapes.Ellipse.html#PAC_Geometry_Shapes_Ellipse_op_Equality_PAC_Geometry_Shapes_Ellipse_PAC_Geometry_Shapes_Ellipse_">operator ==(Ellipse, Ellipse)</a>.</p>
@@ -615,7 +615,7 @@ The enumerator does not repeat any points.
 
   <h3 id="PAC_Geometry_Shapes_Ellipse_Equals_System_Object_" data-uid="PAC.Geometry.Shapes.Ellipse.Equals(System.Object)">
   Equals(object)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Geometry/Shapes/Ellipse.cs/#L403"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Geometry/Shapes/Ellipse.cs/#L417"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>See <a class="xref" href="PAC.Geometry.Shapes.Ellipse.html#PAC_Geometry_Shapes_Ellipse_Equals_PAC_Geometry_Shapes_Ellipse_">Equals(Ellipse)</a>.</p>
@@ -652,15 +652,47 @@ The enumerator does not repeat any points.
 
   <h3 id="PAC_Geometry_Shapes_Ellipse_Flip_PAC_Geometry_Axes_CardinalOrdinalAxis_" data-uid="PAC.Geometry.Shapes.Ellipse.Flip(PAC.Geometry.Axes.CardinalOrdinalAxis)">
   Flip(CardinalOrdinalAxis)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Geometry/Shapes/Ellipse.cs/#L240"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Geometry/Shapes/Ellipse.cs/#L245"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Returns a deep copy of the shape reflected across the given axis.</p>
+  <div class="markdown level1 summary"><p>Reflects the shape across the given axis through the origin, in-place.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Ellipse Flip(CardinalOrdinalAxis axis)</code></pre>
+    <pre><code class="lang-csharp hljs">public void Flip(CardinalOrdinalAxis axis)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>axis</code> <a class="xref" href="PAC.Geometry.Axes.CardinalOrdinalAxis.html">CardinalOrdinalAxis</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="PAC_Geometry_Shapes_Ellipse_Flipped_" data-uid="PAC.Geometry.Shapes.Ellipse.Flipped*"></a>
+
+  <h3 id="PAC_Geometry_Shapes_Ellipse_Flipped_PAC_Geometry_Axes_CardinalOrdinalAxis_" data-uid="PAC.Geometry.Shapes.Ellipse.Flipped(PAC.Geometry.Axes.CardinalOrdinalAxis)">
+  Flipped(CardinalOrdinalAxis)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Geometry/Shapes/Ellipse.cs/#L249"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns a deep copy of the shape reflected across the given axis through the origin.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Ellipse Flipped(CardinalOrdinalAxis axis)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
@@ -689,7 +721,7 @@ The enumerator does not repeat any points.
 
   <h3 id="PAC_Geometry_Shapes_Ellipse_GetEnumerator" data-uid="PAC.Geometry.Shapes.Ellipse.GetEnumerator">
   GetEnumerator()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Geometry/Shapes/Ellipse.cs/#L244"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Geometry/Shapes/Ellipse.cs/#L258"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Returns an enumerator that iterates through the collection.</p>
@@ -722,7 +754,7 @@ The enumerator does not repeat any points.
 
   <h3 id="PAC_Geometry_Shapes_Ellipse_GetHashCode" data-uid="PAC.Geometry.Shapes.Ellipse.GetHashCode">
   GetHashCode()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Geometry/Shapes/Ellipse.cs/#L405"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Geometry/Shapes/Ellipse.cs/#L419"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Serves as the default hash function.</p>
@@ -755,15 +787,53 @@ The enumerator does not repeat any points.
 
   <h3 id="PAC_Geometry_Shapes_Ellipse_Rotate_PAC_Geometry_QuadrantalAngle_" data-uid="PAC.Geometry.Shapes.Ellipse.Rotate(PAC.Geometry.QuadrantalAngle)">
   Rotate(QuadrantalAngle)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Geometry/Shapes/Ellipse.cs/#L241"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Geometry/Shapes/Ellipse.cs/#L251"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Returns a deep copy of the shape rotated by the given angle.</p>
+  <div class="markdown level1 summary"><p>Rotates the shape about the origin by the given angle, in-place.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Ellipse Rotate(QuadrantalAngle angle)</code></pre>
+    <pre><code class="lang-csharp hljs">public void Rotate(QuadrantalAngle angle)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>angle</code> <a class="xref" href="PAC.Geometry.QuadrantalAngle.html">QuadrantalAngle</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <dl class="typelist seealso">
+    <dt>See Also</dt>
+    <dd>
+    <div><a class="xref" href="PAC.Geometry.Shapes.Interfaces.IRotatableShape-1.html#PAC_Geometry_Shapes_Interfaces_IRotatableShape_1_Rotated_PAC_Geometry_QuadrantalAngle_">Rotated</a>(<a class="xref" href="PAC.Geometry.QuadrantalAngle.html">QuadrantalAngle</a>)</div>
+    </dd>
+  </dl>
+
+
+  <a id="PAC_Geometry_Shapes_Ellipse_Rotated_" data-uid="PAC.Geometry.Shapes.Ellipse.Rotated*"></a>
+
+  <h3 id="PAC_Geometry_Shapes_Ellipse_Rotated_PAC_Geometry_QuadrantalAngle_" data-uid="PAC.Geometry.Shapes.Ellipse.Rotated(PAC.Geometry.QuadrantalAngle)">
+  Rotated(QuadrantalAngle)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Geometry/Shapes/Ellipse.cs/#L255"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns a deep copy of the shape rotated about the origin by the given angle.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Ellipse Rotated(QuadrantalAngle angle)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
@@ -790,6 +860,7 @@ The enumerator does not repeat any points.
     <dt>See Also</dt>
     <dd>
     <div>operator <a class="xref" href="PAC.Geometry.Shapes.Interfaces.IRotatableShape-1.html#PAC_Geometry_Shapes_Interfaces_IRotatableShape_1_op_UnaryNegation_PAC_Geometry_Shapes_Interfaces_IRotatableShape__0__">-</a>(<a class="xref" href="PAC.Geometry.Shapes.Interfaces.IRotatableShape-1.html">IRotatableShape</a>&lt;T&gt;)</div>
+    <div><a class="xref" href="PAC.Geometry.Shapes.Interfaces.IRotatableShape-1.html#PAC_Geometry_Shapes_Interfaces_IRotatableShape_1_Rotate_PAC_Geometry_QuadrantalAngle_">Rotate</a>(<a class="xref" href="PAC.Geometry.QuadrantalAngle.html">QuadrantalAngle</a>)</div>
     </dd>
   </dl>
 
@@ -798,7 +869,7 @@ The enumerator does not repeat any points.
 
   <h3 id="PAC_Geometry_Shapes_Ellipse_ToString" data-uid="PAC.Geometry.Shapes.Ellipse.ToString">
   ToString()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Geometry/Shapes/Ellipse.cs/#L407"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Geometry/Shapes/Ellipse.cs/#L421"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Returns a string that represents the current object.</p>
@@ -834,12 +905,50 @@ The enumerator does not repeat any points.
   <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Geometry/Shapes/Ellipse.cs/#L239"><i class="bi bi-code-slash"></i></a>
   </h3>
 
+  <div class="markdown level1 summary"><p>Translates the shape by the given vector, in-place.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Translate(IntVector2 translation)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>translation</code> <a class="xref" href="PAC.Geometry.IntVector2.html">IntVector2</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <dl class="typelist seealso">
+    <dt>See Also</dt>
+    <dd>
+    <div><a class="xref" href="PAC.Geometry.Shapes.Interfaces.ITranslatableShape-1.html#PAC_Geometry_Shapes_Interfaces_ITranslatableShape_1_Translated_PAC_Geometry_IntVector2_">Translated</a>(<a class="xref" href="PAC.Geometry.IntVector2.html">IntVector2</a>)</div>
+    </dd>
+  </dl>
+
+
+  <a id="PAC_Geometry_Shapes_Ellipse_Translated_" data-uid="PAC.Geometry.Shapes.Ellipse.Translated*"></a>
+
+  <h3 id="PAC_Geometry_Shapes_Ellipse_Translated_PAC_Geometry_IntVector2_" data-uid="PAC.Geometry.Shapes.Ellipse.Translated(PAC.Geometry.IntVector2)">
+  Translated(IntVector2)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Geometry/Shapes/Ellipse.cs/#L243"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"><p>Returns a deep copy of the shape translated by the given vector.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Ellipse Translate(IntVector2 translation)</code></pre>
+    <pre><code class="lang-csharp hljs">public Ellipse Translated(IntVector2 translation)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
@@ -868,6 +977,7 @@ The enumerator does not repeat any points.
     <div>operator <a class="xref" href="PAC.Geometry.Shapes.Interfaces.ITranslatableShape-1.html#PAC_Geometry_Shapes_Interfaces_ITranslatableShape_1_op_Addition_PAC_Geometry_Shapes_Interfaces_ITranslatableShape__0__PAC_Geometry_IntVector2_">+</a>(<a class="xref" href="PAC.Geometry.Shapes.Interfaces.ITranslatableShape-1.html">ITranslatableShape</a>&lt;T&gt;, <a class="xref" href="PAC.Geometry.IntVector2.html">IntVector2</a>)</div>
     <div>operator <a class="xref" href="PAC.Geometry.Shapes.Interfaces.ITranslatableShape-1.html#PAC_Geometry_Shapes_Interfaces_ITranslatableShape_1_op_Addition_PAC_Geometry_IntVector2_PAC_Geometry_Shapes_Interfaces_ITranslatableShape__0__">+</a>(<a class="xref" href="PAC.Geometry.IntVector2.html">IntVector2</a>, <a class="xref" href="PAC.Geometry.Shapes.Interfaces.ITranslatableShape-1.html">ITranslatableShape</a>&lt;T&gt;)</div>
     <div>operator <a class="xref" href="PAC.Geometry.Shapes.Interfaces.ITranslatableShape-1.html#PAC_Geometry_Shapes_Interfaces_ITranslatableShape_1_op_Subtraction_PAC_Geometry_Shapes_Interfaces_ITranslatableShape__0__PAC_Geometry_IntVector2_">-</a>(<a class="xref" href="PAC.Geometry.Shapes.Interfaces.ITranslatableShape-1.html">ITranslatableShape</a>&lt;T&gt;, <a class="xref" href="PAC.Geometry.IntVector2.html">IntVector2</a>)</div>
+    <div><a class="xref" href="PAC.Geometry.Shapes.Interfaces.ITranslatableShape-1.html#PAC_Geometry_Shapes_Interfaces_ITranslatableShape_1_Translate_PAC_Geometry_IntVector2_">Translate</a>(<a class="xref" href="PAC.Geometry.IntVector2.html">IntVector2</a>)</div>
     </dd>
   </dl>
 
@@ -916,7 +1026,7 @@ The enumerator does not repeat any points.
   <dl class="typelist seealso">
     <dt>See Also</dt>
     <dd>
-    <div><a class="xref" href="PAC.Geometry.Shapes.Ellipse.html#PAC_Geometry_Shapes_Ellipse_Translate_PAC_Geometry_IntVector2_">Translate(IntVector2)</a></div>
+    <div><a class="xref" href="PAC.Geometry.Shapes.Ellipse.html#PAC_Geometry_Shapes_Ellipse_Translated_PAC_Geometry_IntVector2_">Translated(IntVector2)</a></div>
     </dd>
   </dl>
 
@@ -961,7 +1071,7 @@ The enumerator does not repeat any points.
   <dl class="typelist seealso">
     <dt>See Also</dt>
     <dd>
-    <div><a class="xref" href="PAC.Geometry.Shapes.Ellipse.html#PAC_Geometry_Shapes_Ellipse_Translate_PAC_Geometry_IntVector2_">Translate(IntVector2)</a></div>
+    <div><a class="xref" href="PAC.Geometry.Shapes.Ellipse.html#PAC_Geometry_Shapes_Ellipse_Translated_PAC_Geometry_IntVector2_">Translated(IntVector2)</a></div>
     </dd>
   </dl>
 
@@ -970,7 +1080,7 @@ The enumerator does not repeat any points.
 
   <h3 id="PAC_Geometry_Shapes_Ellipse_op_Equality_PAC_Geometry_Shapes_Ellipse_PAC_Geometry_Shapes_Ellipse_" data-uid="PAC.Geometry.Shapes.Ellipse.op_Equality(PAC.Geometry.Shapes.Ellipse,PAC.Geometry.Shapes.Ellipse)">
   operator ==(Ellipse, Ellipse)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Geometry/Shapes/Ellipse.cs/#L391"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Geometry/Shapes/Ellipse.cs/#L405"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Whether the two <a class="xref" href="PAC.Geometry.Shapes.Ellipse.html">Ellipse</a>s have the same shape, and the same value for <a class="xref" href="PAC.Geometry.Shapes.Ellipse.html#PAC_Geometry_Shapes_Ellipse_filled">filled</a>.</p>
@@ -1009,7 +1119,7 @@ The enumerator does not repeat any points.
 
   <h3 id="PAC_Geometry_Shapes_Ellipse_op_Inequality_PAC_Geometry_Shapes_Ellipse_PAC_Geometry_Shapes_Ellipse_" data-uid="PAC.Geometry.Shapes.Ellipse.op_Inequality(PAC.Geometry.Shapes.Ellipse,PAC.Geometry.Shapes.Ellipse)">
   operator !=(Ellipse, Ellipse)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Geometry/Shapes/Ellipse.cs/#L395"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Geometry/Shapes/Ellipse.cs/#L409"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>See <a class="xref" href="PAC.Geometry.Shapes.Ellipse.html#PAC_Geometry_Shapes_Ellipse_op_Equality_PAC_Geometry_Shapes_Ellipse_PAC_Geometry_Shapes_Ellipse_">operator ==(Ellipse, Ellipse)</a>.</p>
@@ -1084,7 +1194,7 @@ The enumerator does not repeat any points.
   <dl class="typelist seealso">
     <dt>See Also</dt>
     <dd>
-    <div><a class="xref" href="PAC.Geometry.Shapes.Ellipse.html#PAC_Geometry_Shapes_Ellipse_Translate_PAC_Geometry_IntVector2_">Translate(IntVector2)</a></div>
+    <div><a class="xref" href="PAC.Geometry.Shapes.Ellipse.html#PAC_Geometry_Shapes_Ellipse_Translated_PAC_Geometry_IntVector2_">Translated(IntVector2)</a></div>
     </dd>
   </dl>
 
@@ -1127,8 +1237,8 @@ The enumerator does not repeat any points.
   <dl class="typelist seealso">
     <dt>See Also</dt>
     <dd>
-    <div><a class="xref" href="PAC.Geometry.Shapes.Ellipse.html#PAC_Geometry_Shapes_Ellipse_Rotate_PAC_Geometry_QuadrantalAngle_">Rotate(QuadrantalAngle)</a></div>
-    <div><a class="xref" href="PAC.Geometry.Shapes.Ellipse.html#PAC_Geometry_Shapes_Ellipse_Flip_PAC_Geometry_Axes_CardinalOrdinalAxis_">Flip(CardinalOrdinalAxis)</a></div>
+    <div><a class="xref" href="PAC.Geometry.Shapes.Ellipse.html#PAC_Geometry_Shapes_Ellipse_Rotated_PAC_Geometry_QuadrantalAngle_">Rotated(QuadrantalAngle)</a></div>
+    <div><a class="xref" href="PAC.Geometry.Shapes.Ellipse.html#PAC_Geometry_Shapes_Ellipse_Flipped_PAC_Geometry_Axes_CardinalOrdinalAxis_">Flipped(CardinalOrdinalAxis)</a></div>
     </dd>
   </dl>
 

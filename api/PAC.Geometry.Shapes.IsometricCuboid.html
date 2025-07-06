@@ -697,7 +697,7 @@ The <a class="xref" href="PAC.Geometry.Shapes.IsometricRectangle.html">Isometric
 
   <h3 id="PAC_Geometry_Shapes_IsometricCuboid_DeepCopy" data-uid="PAC.Geometry.Shapes.IsometricCuboid.DeepCopy">
   DeepCopy()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Geometry/Shapes/IsometricCuboid.cs/#L255"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Geometry/Shapes/IsometricCuboid.cs/#L252"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Returns a deep copy of the shape.</p>
@@ -729,7 +729,7 @@ The <a class="xref" href="PAC.Geometry.Shapes.IsometricRectangle.html">Isometric
 
   <h3 id="PAC_Geometry_Shapes_IsometricCuboid_Equals_PAC_Geometry_Shapes_IsometricCuboid_" data-uid="PAC.Geometry.Shapes.IsometricCuboid.Equals(PAC.Geometry.Shapes.IsometricCuboid)">
   Equals(IsometricCuboid)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Geometry/Shapes/IsometricCuboid.cs/#L240"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Geometry/Shapes/IsometricCuboid.cs/#L237"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>See <a class="xref" href="PAC.Geometry.Shapes.IsometricCuboid.html#PAC_Geometry_Shapes_IsometricCuboid_op_Equality_PAC_Geometry_Shapes_IsometricCuboid_PAC_Geometry_Shapes_IsometricCuboid_">operator ==(IsometricCuboid, IsometricCuboid)</a>.</p>
@@ -766,7 +766,7 @@ The <a class="xref" href="PAC.Geometry.Shapes.IsometricRectangle.html">Isometric
 
   <h3 id="PAC_Geometry_Shapes_IsometricCuboid_Equals_System_Object_" data-uid="PAC.Geometry.Shapes.IsometricCuboid.Equals(System.Object)">
   Equals(object)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Geometry/Shapes/IsometricCuboid.cs/#L244"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Geometry/Shapes/IsometricCuboid.cs/#L241"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>See <a class="xref" href="PAC.Geometry.Shapes.IsometricCuboid.html#PAC_Geometry_Shapes_IsometricCuboid_Equals_PAC_Geometry_Shapes_IsometricCuboid_">Equals(IsometricCuboid)</a>.</p>
@@ -803,15 +803,47 @@ The <a class="xref" href="PAC.Geometry.Shapes.IsometricRectangle.html">Isometric
 
   <h3 id="PAC_Geometry_Shapes_IsometricCuboid_Flip_PAC_Geometry_Axes_VerticalAxis_" data-uid="PAC.Geometry.Shapes.IsometricCuboid.Flip(PAC.Geometry.Axes.VerticalAxis)">
   Flip(VerticalAxis)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Geometry/Shapes/IsometricCuboid.cs/#L195"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Geometry/Shapes/IsometricCuboid.cs/#L192"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Returns a deep copy of the shape reflected across the given axis.</p>
+  <div class="markdown level1 summary"><p>Reflects the shape across the given axis through the origin, in-place.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public IsometricCuboid Flip(VerticalAxis axis)</code></pre>
+    <pre><code class="lang-csharp hljs">public void Flip(VerticalAxis axis)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>axis</code> <a class="xref" href="PAC.Geometry.Axes.VerticalAxis.html">VerticalAxis</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="PAC_Geometry_Shapes_IsometricCuboid_Flipped_" data-uid="PAC.Geometry.Shapes.IsometricCuboid.Flipped*"></a>
+
+  <h3 id="PAC_Geometry_Shapes_IsometricCuboid_Flipped_PAC_Geometry_Axes_VerticalAxis_" data-uid="PAC.Geometry.Shapes.IsometricCuboid.Flipped(PAC.Geometry.Axes.VerticalAxis)">
+  Flipped(VerticalAxis)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Geometry/Shapes/IsometricCuboid.cs/#L196"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns a deep copy of the shape reflected across the given axis through the origin.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IsometricCuboid Flipped(VerticalAxis axis)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
@@ -832,16 +864,7 @@ The <a class="xref" href="PAC.Geometry.Shapes.IsometricRectangle.html">Isometric
 
 
 
-  <h4 class="section" id="PAC_Geometry_Shapes_IsometricCuboid_Flip_PAC_Geometry_Axes_VerticalAxis__remarks">Remarks</h4>
-  <div class="markdown level1 remarks"><p>Can only be flipped across the vertical axis (or none axis).</p>
-</div>
 
-  <h4 class="section">Exceptions</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
-    <dd><p><code class="paramref">axis</code> is an invalid axis.</p>
-</dd>
-  </dl>
 
 
 
@@ -849,7 +872,7 @@ The <a class="xref" href="PAC.Geometry.Shapes.IsometricRectangle.html">Isometric
 
   <h3 id="PAC_Geometry_Shapes_IsometricCuboid_GetEnumerator" data-uid="PAC.Geometry.Shapes.IsometricCuboid.GetEnumerator">
   GetEnumerator()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Geometry/Shapes/IsometricCuboid.cs/#L202"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Geometry/Shapes/IsometricCuboid.cs/#L199"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Returns an enumerator that iterates through the collection.</p>
@@ -882,7 +905,7 @@ The <a class="xref" href="PAC.Geometry.Shapes.IsometricRectangle.html">Isometric
 
   <h3 id="PAC_Geometry_Shapes_IsometricCuboid_GetHashCode" data-uid="PAC.Geometry.Shapes.IsometricCuboid.GetHashCode">
   GetHashCode()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Geometry/Shapes/IsometricCuboid.cs/#L246"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Geometry/Shapes/IsometricCuboid.cs/#L243"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Serves as the default hash function.</p>
@@ -915,7 +938,7 @@ The <a class="xref" href="PAC.Geometry.Shapes.IsometricRectangle.html">Isometric
 
   <h3 id="PAC_Geometry_Shapes_IsometricCuboid_ToString" data-uid="PAC.Geometry.Shapes.IsometricCuboid.ToString">
   ToString()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Geometry/Shapes/IsometricCuboid.cs/#L248"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Geometry/Shapes/IsometricCuboid.cs/#L245"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Returns a string that represents the current object.</p>
@@ -951,12 +974,50 @@ The <a class="xref" href="PAC.Geometry.Shapes.IsometricRectangle.html">Isometric
   <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Geometry/Shapes/IsometricCuboid.cs/#L189"><i class="bi bi-code-slash"></i></a>
   </h3>
 
+  <div class="markdown level1 summary"><p>Translates the shape by the given vector, in-place.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Translate(IntVector2 translation)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>translation</code> <a class="xref" href="PAC.Geometry.IntVector2.html">IntVector2</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <dl class="typelist seealso">
+    <dt>See Also</dt>
+    <dd>
+    <div><a class="xref" href="PAC.Geometry.Shapes.Interfaces.ITranslatableShape-1.html#PAC_Geometry_Shapes_Interfaces_ITranslatableShape_1_Translated_PAC_Geometry_IntVector2_">Translated</a>(<a class="xref" href="PAC.Geometry.IntVector2.html">IntVector2</a>)</div>
+    </dd>
+  </dl>
+
+
+  <a id="PAC_Geometry_Shapes_IsometricCuboid_Translated_" data-uid="PAC.Geometry.Shapes.IsometricCuboid.Translated*"></a>
+
+  <h3 id="PAC_Geometry_Shapes_IsometricCuboid_Translated_PAC_Geometry_IntVector2_" data-uid="PAC.Geometry.Shapes.IsometricCuboid.Translated(PAC.Geometry.IntVector2)">
+  Translated(IntVector2)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Geometry/Shapes/IsometricCuboid.cs/#L190"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"><p>Returns a deep copy of the shape translated by the given vector.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public IsometricCuboid Translate(IntVector2 translation)</code></pre>
+    <pre><code class="lang-csharp hljs">public IsometricCuboid Translated(IntVector2 translation)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
@@ -985,6 +1046,7 @@ The <a class="xref" href="PAC.Geometry.Shapes.IsometricRectangle.html">Isometric
     <div>operator <a class="xref" href="PAC.Geometry.Shapes.Interfaces.ITranslatableShape-1.html#PAC_Geometry_Shapes_Interfaces_ITranslatableShape_1_op_Addition_PAC_Geometry_Shapes_Interfaces_ITranslatableShape__0__PAC_Geometry_IntVector2_">+</a>(<a class="xref" href="PAC.Geometry.Shapes.Interfaces.ITranslatableShape-1.html">ITranslatableShape</a>&lt;T&gt;, <a class="xref" href="PAC.Geometry.IntVector2.html">IntVector2</a>)</div>
     <div>operator <a class="xref" href="PAC.Geometry.Shapes.Interfaces.ITranslatableShape-1.html#PAC_Geometry_Shapes_Interfaces_ITranslatableShape_1_op_Addition_PAC_Geometry_IntVector2_PAC_Geometry_Shapes_Interfaces_ITranslatableShape__0__">+</a>(<a class="xref" href="PAC.Geometry.IntVector2.html">IntVector2</a>, <a class="xref" href="PAC.Geometry.Shapes.Interfaces.ITranslatableShape-1.html">ITranslatableShape</a>&lt;T&gt;)</div>
     <div>operator <a class="xref" href="PAC.Geometry.Shapes.Interfaces.ITranslatableShape-1.html#PAC_Geometry_Shapes_Interfaces_ITranslatableShape_1_op_Subtraction_PAC_Geometry_Shapes_Interfaces_ITranslatableShape__0__PAC_Geometry_IntVector2_">-</a>(<a class="xref" href="PAC.Geometry.Shapes.Interfaces.ITranslatableShape-1.html">ITranslatableShape</a>&lt;T&gt;, <a class="xref" href="PAC.Geometry.IntVector2.html">IntVector2</a>)</div>
+    <div><a class="xref" href="PAC.Geometry.Shapes.Interfaces.ITranslatableShape-1.html#PAC_Geometry_Shapes_Interfaces_ITranslatableShape_1_Translate_PAC_Geometry_IntVector2_">Translate</a>(<a class="xref" href="PAC.Geometry.IntVector2.html">IntVector2</a>)</div>
     </dd>
   </dl>
 
@@ -1033,7 +1095,7 @@ The <a class="xref" href="PAC.Geometry.Shapes.IsometricRectangle.html">Isometric
   <dl class="typelist seealso">
     <dt>See Also</dt>
     <dd>
-    <div><a class="xref" href="PAC.Geometry.Shapes.IsometricCuboid.html#PAC_Geometry_Shapes_IsometricCuboid_Translate_PAC_Geometry_IntVector2_">Translate(IntVector2)</a></div>
+    <div><a class="xref" href="PAC.Geometry.Shapes.IsometricCuboid.html#PAC_Geometry_Shapes_IsometricCuboid_Translated_PAC_Geometry_IntVector2_">Translated(IntVector2)</a></div>
     </dd>
   </dl>
 
@@ -1078,7 +1140,7 @@ The <a class="xref" href="PAC.Geometry.Shapes.IsometricRectangle.html">Isometric
   <dl class="typelist seealso">
     <dt>See Also</dt>
     <dd>
-    <div><a class="xref" href="PAC.Geometry.Shapes.IsometricCuboid.html#PAC_Geometry_Shapes_IsometricCuboid_Translate_PAC_Geometry_IntVector2_">Translate(IntVector2)</a></div>
+    <div><a class="xref" href="PAC.Geometry.Shapes.IsometricCuboid.html#PAC_Geometry_Shapes_IsometricCuboid_Translated_PAC_Geometry_IntVector2_">Translated(IntVector2)</a></div>
     </dd>
   </dl>
 
@@ -1087,7 +1149,7 @@ The <a class="xref" href="PAC.Geometry.Shapes.IsometricRectangle.html">Isometric
 
   <h3 id="PAC_Geometry_Shapes_IsometricCuboid_op_Equality_PAC_Geometry_Shapes_IsometricCuboid_PAC_Geometry_Shapes_IsometricCuboid_" data-uid="PAC.Geometry.Shapes.IsometricCuboid.op_Equality(PAC.Geometry.Shapes.IsometricCuboid,PAC.Geometry.Shapes.IsometricCuboid)">
   operator ==(IsometricCuboid, IsometricCuboid)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Geometry/Shapes/IsometricCuboid.cs/#L231"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Geometry/Shapes/IsometricCuboid.cs/#L228"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Whether the two <a class="xref" href="PAC.Geometry.Shapes.IsometricCuboid.html">IsometricCuboid</a>s have the same <a class="xref" href="PAC.Geometry.Shapes.IsometricCuboid.html#PAC_Geometry_Shapes_IsometricCuboid_bottomFace">bottomFace</a> and the same values for <a class="xref" href="PAC.Geometry.Shapes.IsometricCuboid.html#PAC_Geometry_Shapes_IsometricCuboid_height">height</a>, <a class="xref" href="PAC.Geometry.Shapes.IsometricCuboid.html#PAC_Geometry_Shapes_IsometricCuboid_filled">filled</a> and
@@ -1130,7 +1192,7 @@ The <a class="xref" href="PAC.Geometry.Shapes.IsometricRectangle.html">Isometric
 
   <h3 id="PAC_Geometry_Shapes_IsometricCuboid_op_Inequality_PAC_Geometry_Shapes_IsometricCuboid_PAC_Geometry_Shapes_IsometricCuboid_" data-uid="PAC.Geometry.Shapes.IsometricCuboid.op_Inequality(PAC.Geometry.Shapes.IsometricCuboid,PAC.Geometry.Shapes.IsometricCuboid)">
   operator !=(IsometricCuboid, IsometricCuboid)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Geometry/Shapes/IsometricCuboid.cs/#L236"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Geometry/Shapes/IsometricCuboid.cs/#L233"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>See <a class="xref" href="PAC.Geometry.Shapes.IsometricCuboid.html#PAC_Geometry_Shapes_IsometricCuboid_op_Equality_PAC_Geometry_Shapes_IsometricCuboid_PAC_Geometry_Shapes_IsometricCuboid_">operator ==(IsometricCuboid, IsometricCuboid)</a>.</p>
@@ -1205,7 +1267,7 @@ The <a class="xref" href="PAC.Geometry.Shapes.IsometricRectangle.html">Isometric
   <dl class="typelist seealso">
     <dt>See Also</dt>
     <dd>
-    <div><a class="xref" href="PAC.Geometry.Shapes.IsometricCuboid.html#PAC_Geometry_Shapes_IsometricCuboid_Translate_PAC_Geometry_IntVector2_">Translate(IntVector2)</a></div>
+    <div><a class="xref" href="PAC.Geometry.Shapes.IsometricCuboid.html#PAC_Geometry_Shapes_IsometricCuboid_Translated_PAC_Geometry_IntVector2_">Translated(IntVector2)</a></div>
     </dd>
   </dl>
 

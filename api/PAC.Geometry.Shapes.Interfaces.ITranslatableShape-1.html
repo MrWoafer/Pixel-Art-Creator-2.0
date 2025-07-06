@@ -304,13 +304,13 @@ For example,</example></p>
     // Implementation of the rest of the interface...
 }</code></pre>
 
-This is done to ensure the specific return type of the <a class="xref" href="PAC.Geometry.Shapes.Interfaces.ITranslatableShape-1.html#PAC_Geometry_Shapes_Interfaces_ITranslatableShape_1_Translate_PAC_Geometry_IntVector2_">Translate(IntVector2)</a> method.
+This is done to ensure the specific return type of the <a class="xref" href="PAC.Geometry.Shapes.Interfaces.ITranslatableShape-1.html#PAC_Geometry_Shapes_Interfaces_ITranslatableShape_1_Translated_PAC_Geometry_IntVector2_">Translated(IntVector2)</a> method.
 Note though that <code class="typeparamref">T</code> is covariant (see <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/out">out</a>), so you can abstract over any shape that is translatable.
 <example>
 For example,
 <pre><code class="lang-csharp">List&lt;ITranslatableShape&lt;IShape&gt;&gt;</code></pre>
 </example>
-This can store any shape that implements <a class="xref" href="PAC.Geometry.Shapes.Interfaces.ITranslatableShape-1.html">ITranslatableShape&lt;T&gt;</a>. Note though that calling <a class="xref" href="PAC.Geometry.Shapes.Interfaces.ITranslatableShape-1.html#PAC_Geometry_Shapes_Interfaces_ITranslatableShape_1_Translate_PAC_Geometry_IntVector2_">Translate(IntVector2)</a> on an element of this list will return an
+This can store any shape that implements <a class="xref" href="PAC.Geometry.Shapes.Interfaces.ITranslatableShape-1.html">ITranslatableShape&lt;T&gt;</a>. Note though that calling <a class="xref" href="PAC.Geometry.Shapes.Interfaces.ITranslatableShape-1.html#PAC_Geometry_Shapes_Interfaces_ITranslatableShape_1_Translated_PAC_Geometry_IntVector2_">Translated(IntVector2)</a> on an element of this list will return an
 <a class="xref" href="PAC.Geometry.Shapes.Interfaces.IShape.html">IShape</a> so cannot be translated again without downcasting. However you can do, say,
 <example>
 <pre><code class="lang-csharp">List&lt;ITranslatableShape&lt;ITranslatableShape&lt;IShape&gt;&gt;&gt;</code></pre>
@@ -327,7 +327,45 @@ This allows you to translate twice before you get an <a class="xref" href="PAC.G
 
   <h3 id="PAC_Geometry_Shapes_Interfaces_ITranslatableShape_1_Translate_PAC_Geometry_IntVector2_" data-uid="PAC.Geometry.Shapes.Interfaces.ITranslatableShape`1.Translate(PAC.Geometry.IntVector2)">
   Translate(IntVector2)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Geometry/Shapes/Interfaces/ITranslatableShape.cs/#L55"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Geometry/Shapes/Interfaces/ITranslatableShape.cs/#L53"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Translates the shape by the given vector, in-place.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void Translate(IntVector2 translation)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>translation</code> <a class="xref" href="PAC.Geometry.IntVector2.html">IntVector2</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <dl class="typelist seealso">
+    <dt>See Also</dt>
+    <dd>
+    <div><a class="xref" href="PAC.Geometry.Shapes.Interfaces.ITranslatableShape-1.html#PAC_Geometry_Shapes_Interfaces_ITranslatableShape_1_Translated_PAC_Geometry_IntVector2_">Translated(IntVector2)</a></div>
+    </dd>
+  </dl>
+
+
+  <a id="PAC_Geometry_Shapes_Interfaces_ITranslatableShape_1_Translated_" data-uid="PAC.Geometry.Shapes.Interfaces.ITranslatableShape`1.Translated*"></a>
+
+  <h3 id="PAC_Geometry_Shapes_Interfaces_ITranslatableShape_1_Translated_PAC_Geometry_IntVector2_" data-uid="PAC.Geometry.Shapes.Interfaces.ITranslatableShape`1.Translated(PAC.Geometry.IntVector2)">
+  Translated(IntVector2)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Geometry/Shapes/Interfaces/ITranslatableShape.cs/#L61"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Returns a deep copy of the shape translated by the given vector.</p>
@@ -335,7 +373,7 @@ This allows you to translate twice before you get an <a class="xref" href="PAC.G
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">T Translate(IntVector2 translation)</code></pre>
+    <pre><code class="lang-csharp hljs">T Translated(IntVector2 translation)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
@@ -364,6 +402,7 @@ This allows you to translate twice before you get an <a class="xref" href="PAC.G
     <div><a class="xref" href="PAC.Geometry.Shapes.Interfaces.ITranslatableShape-1.html#PAC_Geometry_Shapes_Interfaces_ITranslatableShape_1_op_Addition_PAC_Geometry_Shapes_Interfaces_ITranslatableShape__0__PAC_Geometry_IntVector2_">operator +(ITranslatableShape&lt;T&gt;, IntVector2)</a></div>
     <div><a class="xref" href="PAC.Geometry.Shapes.Interfaces.ITranslatableShape-1.html#PAC_Geometry_Shapes_Interfaces_ITranslatableShape_1_op_Addition_PAC_Geometry_IntVector2_PAC_Geometry_Shapes_Interfaces_ITranslatableShape__0__">operator +(IntVector2, ITranslatableShape&lt;T&gt;)</a></div>
     <div><a class="xref" href="PAC.Geometry.Shapes.Interfaces.ITranslatableShape-1.html#PAC_Geometry_Shapes_Interfaces_ITranslatableShape_1_op_Subtraction_PAC_Geometry_Shapes_Interfaces_ITranslatableShape__0__PAC_Geometry_IntVector2_">operator -(ITranslatableShape&lt;T&gt;, IntVector2)</a></div>
+    <div><a class="xref" href="PAC.Geometry.Shapes.Interfaces.ITranslatableShape-1.html#PAC_Geometry_Shapes_Interfaces_ITranslatableShape_1_Translate_PAC_Geometry_IntVector2_">Translate(IntVector2)</a></div>
     </dd>
   </dl>
 
@@ -376,7 +415,7 @@ This allows you to translate twice before you get an <a class="xref" href="PAC.G
 
   <h3 id="PAC_Geometry_Shapes_Interfaces_ITranslatableShape_1_op_Addition_PAC_Geometry_IntVector2_PAC_Geometry_Shapes_Interfaces_ITranslatableShape__0__" data-uid="PAC.Geometry.Shapes.Interfaces.ITranslatableShape`1.op_Addition(PAC.Geometry.IntVector2,PAC.Geometry.Shapes.Interfaces.ITranslatableShape{`0})">
   operator +(IntVector2, ITranslatableShape&lt;T&gt;)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Geometry/Shapes/Interfaces/ITranslatableShape.cs/#L67"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Geometry/Shapes/Interfaces/ITranslatableShape.cs/#L73"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Returns a deep copy of the shape translated by the given vector.</p>
@@ -412,7 +451,7 @@ This allows you to translate twice before you get an <a class="xref" href="PAC.G
   <dl class="typelist seealso">
     <dt>See Also</dt>
     <dd>
-    <div><a class="xref" href="PAC.Geometry.Shapes.Interfaces.ITranslatableShape-1.html#PAC_Geometry_Shapes_Interfaces_ITranslatableShape_1_Translate_PAC_Geometry_IntVector2_">Translate(IntVector2)</a></div>
+    <div><a class="xref" href="PAC.Geometry.Shapes.Interfaces.ITranslatableShape-1.html#PAC_Geometry_Shapes_Interfaces_ITranslatableShape_1_Translated_PAC_Geometry_IntVector2_">Translated(IntVector2)</a></div>
     </dd>
   </dl>
 
@@ -421,7 +460,7 @@ This allows you to translate twice before you get an <a class="xref" href="PAC.G
 
   <h3 id="PAC_Geometry_Shapes_Interfaces_ITranslatableShape_1_op_Addition_PAC_Geometry_Shapes_Interfaces_ITranslatableShape__0__PAC_Geometry_IntVector2_" data-uid="PAC.Geometry.Shapes.Interfaces.ITranslatableShape`1.op_Addition(PAC.Geometry.Shapes.Interfaces.ITranslatableShape{`0},PAC.Geometry.IntVector2)">
   operator +(ITranslatableShape&lt;T&gt;, IntVector2)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Geometry/Shapes/Interfaces/ITranslatableShape.cs/#L62"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Geometry/Shapes/Interfaces/ITranslatableShape.cs/#L68"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Returns a deep copy of the shape translated by the given vector.</p>
@@ -457,7 +496,7 @@ This allows you to translate twice before you get an <a class="xref" href="PAC.G
   <dl class="typelist seealso">
     <dt>See Also</dt>
     <dd>
-    <div><a class="xref" href="PAC.Geometry.Shapes.Interfaces.ITranslatableShape-1.html#PAC_Geometry_Shapes_Interfaces_ITranslatableShape_1_Translate_PAC_Geometry_IntVector2_">Translate(IntVector2)</a></div>
+    <div><a class="xref" href="PAC.Geometry.Shapes.Interfaces.ITranslatableShape-1.html#PAC_Geometry_Shapes_Interfaces_ITranslatableShape_1_Translated_PAC_Geometry_IntVector2_">Translated(IntVector2)</a></div>
     </dd>
   </dl>
 
@@ -466,7 +505,7 @@ This allows you to translate twice before you get an <a class="xref" href="PAC.G
 
   <h3 id="PAC_Geometry_Shapes_Interfaces_ITranslatableShape_1_op_Subtraction_PAC_Geometry_Shapes_Interfaces_ITranslatableShape__0__PAC_Geometry_IntVector2_" data-uid="PAC.Geometry.Shapes.Interfaces.ITranslatableShape`1.op_Subtraction(PAC.Geometry.Shapes.Interfaces.ITranslatableShape{`0},PAC.Geometry.IntVector2)">
   operator -(ITranslatableShape&lt;T&gt;, IntVector2)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Geometry/Shapes/Interfaces/ITranslatableShape.cs/#L72"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Geometry/Shapes/Interfaces/ITranslatableShape.cs/#L78"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Returns a deep copy of the shape translated by the given vector.</p>
@@ -502,7 +541,7 @@ This allows you to translate twice before you get an <a class="xref" href="PAC.G
   <dl class="typelist seealso">
     <dt>See Also</dt>
     <dd>
-    <div><a class="xref" href="PAC.Geometry.Shapes.Interfaces.ITranslatableShape-1.html#PAC_Geometry_Shapes_Interfaces_ITranslatableShape_1_Translate_PAC_Geometry_IntVector2_">Translate(IntVector2)</a></div>
+    <div><a class="xref" href="PAC.Geometry.Shapes.Interfaces.ITranslatableShape-1.html#PAC_Geometry_Shapes_Interfaces_ITranslatableShape_1_Translated_PAC_Geometry_IntVector2_">Translated(IntVector2)</a></div>
     </dd>
   </dl>
 

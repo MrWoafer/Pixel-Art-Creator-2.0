@@ -305,12 +305,44 @@ When implementing this interface on a concrete type, this should be the same as 
   <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Geometry/Shapes/Interfaces/IFlippableShape.cs/#L23"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Returns a deep copy of the shape reflected across the given axis.</p>
+  <div class="markdown level1 summary"><p>Reflects the shape across the given axis through the origin, in-place.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">T Flip(A axis)</code></pre>
+    <pre><code class="lang-csharp hljs">void Flip(A axis)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>axis</code> <span class="xref">A</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="PAC_Geometry_Shapes_Interfaces_IFlippableShape_2_Flipped_" data-uid="PAC.Geometry.Shapes.Interfaces.IFlippableShape`2.Flipped*"></a>
+
+  <h3 id="PAC_Geometry_Shapes_Interfaces_IFlippableShape_2_Flipped__1_" data-uid="PAC.Geometry.Shapes.Interfaces.IFlippableShape`2.Flipped(`1)">
+  Flipped(A)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Geometry/Shapes/Interfaces/IFlippableShape.cs/#L27"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns a deep copy of the shape reflected across the given axis through the origin.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">T Flipped(A axis)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
