@@ -18,11 +18,11 @@ namespace PAC.Geometry.Shapes.Interfaces
     public interface IFlippableShape<out T, in A> : IDeepCopyableShape<T> where T : IShape where A : CardinalOrdinalAxis
     {
         /// <summary>
-        /// Reflects the shape across the given axis, in-place.
+        /// Reflects the shape across the given axis through the origin, in-place.
         /// </summary>
         public void Flip(A axis);
         /// <summary>
-        /// Returns a deep copy of the shape reflected across the given axis.
+        /// Returns a deep copy of the shape reflected across the given axis through the origin.
         /// </summary>
         public T Flipped(A axis);
     }
