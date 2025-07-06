@@ -193,16 +193,7 @@ namespace PAC.Geometry.Shapes
         {
             bottomFace.Flip(axis);
         }
-        /// <inheritdoc/>
-        /// <remarks>
-        /// Can only be flipped across the vertical axis (or none axis).
-        /// </remarks>
-        /// <exception cref="ArgumentException"><paramref name="axis"/> is an invalid axis.</exception>
-        public IsometricCuboid Flipped(VerticalAxis axis) => axis switch
-        {
-            VerticalAxis => new IsometricCuboid((height >= 0 ? bottomFace.DeepCopy() : topFace.DeepCopy()).Flipped(axis), height, filled, includeBackEdges),
-            _ => throw new UnreachableException()
-        };
+        public IsometricCuboid Flipped(VerticalAxis axis) => new IsometricCuboid((height >= 0 ? bottomFace.DeepCopy() : topFace.DeepCopy()).Flipped(axis), height, filled, includeBackEdges);
 
         IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();
         public IEnumerator<IntVector2> GetEnumerator()
