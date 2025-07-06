@@ -189,6 +189,10 @@ namespace PAC.Geometry.Shapes
         public void Translate(IntVector2 translation) => bottomFace.Translate(translation);
         public IsometricCuboid Translated(IntVector2 translation) => new IsometricCuboid((height >= 0 ? bottomFace.DeepCopy() : topFace.DeepCopy()) + translation, height, filled, includeBackEdges);
 
+        public void Flip(VerticalAxis axis)
+        {
+            bottomFace.Flip(axis);
+        }
         /// <inheritdoc/>
         /// <remarks>
         /// Can only be flipped across the vertical axis (or none axis).

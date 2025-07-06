@@ -262,6 +262,10 @@ namespace PAC.Geometry.Shapes
         }
         public Diamond Translated(IntVector2 translation) => new Diamond(boundingRect + translation, filled);
 
+        public void Flip(CardinalOrdinalAxis axis)
+        {
+            boundingRect = boundingRect.Flip(axis);
+        }
         public Diamond Flipped(CardinalOrdinalAxis axis) => new Diamond(boundingRect.Flip(axis), filled);
 
         public void Rotate(QuadrantalAngle angle)

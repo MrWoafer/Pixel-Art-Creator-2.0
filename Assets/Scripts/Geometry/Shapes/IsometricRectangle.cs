@@ -731,6 +731,12 @@ namespace PAC.Geometry.Shapes
         }
         public IsometricRectangle Translated(IntVector2 translation) => new IsometricRectangle(startCorner + translation, endCorner + translation, filled);
 
+        public void Flip(VerticalAxis axis) => Flip((CardinalAxis)axis);
+        public void Flip(CardinalAxis axis)
+        {
+            startCorner = startCorner.Flip(axis);
+            endCorner = endCorner.Flip(axis);
+        }
         public IsometricRectangle Flipped(VerticalAxis axis) => Flipped((CardinalAxis)axis);
         public IsometricRectangle Flipped(CardinalAxis axis) => new IsometricRectangle(startCorner.Flip(axis), endCorner.Flip(axis), filled);
 

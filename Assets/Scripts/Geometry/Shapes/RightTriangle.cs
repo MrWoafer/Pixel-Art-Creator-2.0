@@ -384,6 +384,11 @@ namespace PAC.Geometry.Shapes
         }
         public RightTriangle Translated(IntVector2 translation) => new RightTriangle(boundingRect + translation, rightAngleLocation, filled);
 
+        public void Flip(CardinalOrdinalAxis axis)
+        {
+            boundingRect = boundingRect.Flip(axis);
+            rightAngleLocation = FromDirection(AsDirection(rightAngleLocation).Flip(axis));
+        }
         public RightTriangle Flipped(CardinalOrdinalAxis axis) => new RightTriangle(boundingRect.Flip(axis), FromDirection(AsDirection(rightAngleLocation).Flip(axis)), filled);
 
         public void Rotate(QuadrantalAngle angle)

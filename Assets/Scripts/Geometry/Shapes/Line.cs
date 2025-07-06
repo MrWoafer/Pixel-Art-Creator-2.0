@@ -502,6 +502,11 @@ namespace PAC.Geometry.Shapes
         }
         public Line Translated(IntVector2 translation) => new Line(start + translation, end + translation);
 
+        public void Flip(CardinalOrdinalAxis axis)
+        {
+            start = start.Flip(axis);
+            end = end.Flip(axis);
+        }
         public Line Flipped(CardinalOrdinalAxis axis) => new Line(start.Flip(axis), end.Flip(axis));
 
         public void Rotate(QuadrantalAngle angle)

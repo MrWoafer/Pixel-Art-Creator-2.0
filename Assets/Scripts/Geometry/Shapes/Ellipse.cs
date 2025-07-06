@@ -242,6 +242,10 @@ namespace PAC.Geometry.Shapes
         }
         public Ellipse Translated(IntVector2 translation) => new Ellipse(boundingRect + translation, filled);
 
+        public void Flip(CardinalOrdinalAxis axis)
+        {
+            boundingRect = boundingRect.Flip(axis);
+        }
         public Ellipse Flipped(CardinalOrdinalAxis axis) => new Ellipse(boundingRect.Flip(axis), filled);
 
         public void Rotate(QuadrantalAngle angle)

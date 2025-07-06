@@ -112,6 +112,10 @@ namespace PAC.Geometry.Shapes
         }
         public Rectangle Translated(IntVector2 translation) => new Rectangle(boundingRect + translation, filled);
 
+        public void Flip(CardinalOrdinalAxis axis)
+        {
+            boundingRect = boundingRect.Flip(axis);
+        }
         public Rectangle Flipped(CardinalOrdinalAxis axis) => new Rectangle(boundingRect.Flip(axis), filled);
 
         public void Rotate(QuadrantalAngle angle)

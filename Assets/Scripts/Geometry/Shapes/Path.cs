@@ -404,6 +404,13 @@ namespace PAC.Geometry.Shapes
         }
         public Path Translated(IntVector2 translation) => new Path(_lines.Select(l => l.Translated(translation)));
 
+        public void Flip(CardinalOrdinalAxis axis)
+        {
+            foreach (Line line in _lines)
+            {
+                line.Flip(axis);
+            }
+        }
         public Path Flipped(CardinalOrdinalAxis axis) => new Path(_lines.Select(l => l.Flipped(axis)));
 
         public void Rotate(QuadrantalAngle angle)
