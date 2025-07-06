@@ -11,5 +11,10 @@ namespace PAC.Tests.Geometry.Shapes.RequiredTests
         /// Tests <see cref="IFlippableShape{T, A}.Flipped(A)"/>.
         /// </summary>
         public void Flipped();
+
+        /// <summary>
+        /// Tests that <see cref="IFlippableShape{T, A}.Flip(A)"/> and <see cref="IFlippableShape{T, A}.Flipped(A)"/> do the same transformation.
+        /// </summary>
+        public void FlipMatchesFlipped();
     }
 }

@@ -19,45 +19,50 @@ namespace PAC.Tests.Geometry.Shapes.DefaultTests
         where T : IFlippableShape<T, A>
         where A : CardinalOrdinalAxis
     {
+        private static IEnumerable<A> axes
+        {
+            get
+            {
+                if (typeof(A) == typeof(VerticalAxis))
+                {
+                    return (IEnumerable<A>)new CardinalOrdinalAxis[] { Axes.Vertical };
+                }
+                else if (typeof(A) == typeof(HorizontalAxis))
+                {
+                    return (IEnumerable<A>)new CardinalOrdinalAxis[] { Axes.Horizontal };
+                }
+                else if (typeof(A) == typeof(Diagonal45Axis))
+                {
+                    return (IEnumerable<A>)new CardinalOrdinalAxis[] { Axes.Diagonal45 };
+                }
+                else if (typeof(A) == typeof(Minus45Axis))
+                {
+                    return (IEnumerable<A>)new CardinalOrdinalAxis[] { Axes.Minus45 };
+                }
+                else if (typeof(A) == typeof(CardinalAxis))
+                {
+                    return (IEnumerable<A>)Axes.CardinalAxes;
+                }
+                else if (typeof(A) == typeof(OrdinalAxis))
+                {
+                    return (IEnumerable<A>)Axes.OrdinalAxes;
+                }
+                else if (typeof(A) == typeof(CardinalOrdinalAxis))
+                {
+                    return (IEnumerable<A>)Axes.CardinalOrdinalAxes;
+                }
+                else
+                {
+                    throw new UnreachableException();
+                }
+            }
+        }
+
         [Test]
         [Category("Shapes")]
         public virtual void Flipped() => Flipped_Impl(testCases);
         internal static void Flipped_Impl(IEnumerable<T> testCases)
         {
-            IEnumerable<A> axes;
-            if (typeof(A) == typeof(VerticalAxis))
-            {
-                axes = (IEnumerable<A>)new CardinalOrdinalAxis[] { Axes.Vertical };
-            }
-            else if (typeof(A) == typeof(HorizontalAxis))
-            {
-                axes = (IEnumerable<A>)new CardinalOrdinalAxis[] { Axes.Horizontal };
-            }
-            else if (typeof(A) == typeof(Diagonal45Axis))
-            {
-                axes = (IEnumerable<A>)new CardinalOrdinalAxis[] { Axes.Diagonal45 };
-            }
-            else if (typeof(A) == typeof(Minus45Axis))
-            {
-                axes = (IEnumerable<A>)new CardinalOrdinalAxis[] { Axes.Minus45 };
-            }
-            else if (typeof(A) == typeof(CardinalAxis))
-            {
-                axes = (IEnumerable<A>)Axes.CardinalAxes;
-            }
-            else if (typeof(A) == typeof(OrdinalAxis))
-            {
-                axes = (IEnumerable<A>)Axes.OrdinalAxes;
-            }
-            else if (typeof(A) == typeof(CardinalOrdinalAxis))
-            {
-                axes = (IEnumerable<A>)Axes.CardinalOrdinalAxes;
-            }
-            else
-            {
-                throw new UnreachableException();
-            }
-
             foreach (T shape in testCases)
             {
                 foreach (A axis in axes)
@@ -66,6 +71,23 @@ namespace PAC.Tests.Geometry.Shapes.DefaultTests
                     IEnumerable<IntVector2> flipped = shape.Flipped(axis);
                     Assert.False(ReferenceEquals(shape, flipped), $"Failed with {shape} and {axis}.");
                     ShapeAssert.SameGeometry(expected, flipped, $"Failed with {shape} and {axis}.");
+                }
+            }
+        }
+
+        [Test]
+        [Category("Shapes")]
+        public virtual void FlipMatchesFlipped() => FlipMatchesFlipped_Impl(testCases);
+        internal static void FlipMatchesFlipped_Impl(IEnumerable<T> testCases)
+        {
+            foreach (T shape in testCases)
+            {
+                foreach (A axis in axes)
+                {
+                    IEnumerable<IntVector2> flipped = shape.Flipped(axis);
+                    shape.Flip(axis);
+                    Assert.False(ReferenceEquals(shape, flipped), $"Failed with {shape} and {axis}.");
+                    Assert.AreEqual(shape, flipped, $"Failed with {shape} and {axis}.");
                 }
             }
         }

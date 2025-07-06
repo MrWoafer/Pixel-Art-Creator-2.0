@@ -16,6 +16,9 @@ namespace PAC.Tests.Geometry.Shapes.DefaultTests
         [Test]
         [Category("Shapes")]
         public virtual void Flipped() => IFlippableShape_DefaultTests<T, A>.Flipped_Impl(testCases);
+        [Test]
+        [Category("Shapes")]
+        public virtual void FlipMatchesFlipped() => IFlippableShape_DefaultTests<T, A>.FlipMatchesFlipped_Impl(testCases);
 
         [Test]
         [Category("Shapes")]
