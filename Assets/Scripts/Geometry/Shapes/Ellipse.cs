@@ -217,28 +217,42 @@ namespace PAC.Geometry.Shapes
         /// <summary>
         /// Returns a deep copy of the <see cref="Ellipse"/> translated by the given vector.
         /// </summary>
-        /// <seealso cref="Translate(IntVector2)"/>
-        public static Ellipse operator +(Ellipse ellipse, IntVector2 translation) => ellipse.Translate(translation);
+        /// <seealso cref="Translated(IntVector2)"/>
+        public static Ellipse operator +(Ellipse ellipse, IntVector2 translation) => ellipse.Translated(translation);
         /// <summary>
         /// Returns a deep copy of the <see cref="Ellipse"/> translated by the given vector.
         /// </summary>
-        /// <seealso cref="Translate(IntVector2)"/>
+        /// <seealso cref="Translated(IntVector2)"/>
         public static Ellipse operator +(IntVector2 translation, Ellipse ellipse) => ellipse + translation;
         /// <summary>
         /// Returns a deep copy of the <see cref="Ellipse"/> translated by the given vector.
         /// </summary>
-        /// <seealso cref="Translate(IntVector2)"/>
+        /// <seealso cref="Translated(IntVector2)"/>
         public static Ellipse operator -(Ellipse ellipse, IntVector2 translation) => ellipse + (-translation);
         /// <summary>
         /// Returns a deep copy of the <see cref="Ellipse"/> rotated 180 degrees about the origin (equivalently, reflected through the origin).
         /// </summary>
-        /// <seealso cref="Rotate(QuadrantalAngle)"/>
-        /// <seealso cref="Flip(CardinalOrdinalAxis)"/>
+        /// <seealso cref="Rotated(QuadrantalAngle)"/>
+        /// <seealso cref="Flipped(CardinalOrdinalAxis)"/>
         public static Ellipse operator -(Ellipse ellipse) => new Ellipse(-ellipse.boundingRect, ellipse.filled);
 
-        public Ellipse Translate(IntVector2 translation) => new Ellipse(boundingRect + translation, filled);
-        public Ellipse Flip(CardinalOrdinalAxis axis) => new Ellipse(boundingRect.Flip(axis), filled);
-        public Ellipse Rotate(QuadrantalAngle angle) => new Ellipse(boundingRect.Rotate(angle), filled);
+        public void Translate(IntVector2 translation)
+        {
+            boundingRect += translation;
+        }
+        public Ellipse Translated(IntVector2 translation) => new Ellipse(boundingRect + translation, filled);
+
+        public void Flip(CardinalOrdinalAxis axis)
+        {
+            boundingRect = boundingRect.Flip(axis);
+        }
+        public Ellipse Flipped(CardinalOrdinalAxis axis) => new Ellipse(boundingRect.Flip(axis), filled);
+
+        public void Rotate(QuadrantalAngle angle)
+        {
+            boundingRect = boundingRect.Rotate(angle);
+        }
+        public Ellipse Rotated(QuadrantalAngle angle) => new Ellipse(boundingRect.Rotate(angle), filled);
 
         IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();
         public IEnumerator<IntVector2> GetEnumerator()

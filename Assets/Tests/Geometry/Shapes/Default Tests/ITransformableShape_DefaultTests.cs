@@ -15,10 +15,16 @@ namespace PAC.Tests.Geometry.Shapes.DefaultTests
     {
         [Test]
         [Category("Shapes")]
-        public virtual void Flip() => IFlippableShape_DefaultTests<T, A>.Flip_Impl(testCases);
+        public virtual void Flipped() => IFlippableShape_DefaultTests<T, A>.Flipped_Impl(testCases);
+        [Test]
+        [Category("Shapes")]
+        public virtual void FlipMatchesFlipped() => IFlippableShape_DefaultTests<T, A>.FlipMatchesFlipped_Impl(testCases);
 
         [Test]
         [Category("Shapes")]
-        public virtual void Rotate() => IRotatableShape_DefaultTests<T>.Rotate_Impl(testCases);
+        public virtual void Rotated() => IRotatableShape_DefaultTests<T>.Rotated_Impl(testCases);
+        [Test]
+        [Category("Shapes")]
+        public virtual void RotateMatchesRotated() => IRotatableShape_DefaultTests<T>.RotateMatchesRotated_Impl(testCases);
     }
 }

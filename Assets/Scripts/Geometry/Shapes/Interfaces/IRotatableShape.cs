@@ -13,19 +13,25 @@
     public interface IRotatableShape<out T> : IDeepCopyableShape<T> where T : IShape
     {
         /// <summary>
-        /// Returns a deep copy of the shape rotated by the given angle.
+        /// Rotates the shape about the origin by the given angle, in-place.
+        /// </summary>
+        /// <seealso cref="Rotated(QuadrantalAngle)"/>
+        public void Rotate(QuadrantalAngle angle);
+        /// <summary>
+        /// Returns a deep copy of the shape rotated about the origin by the given angle.
         /// </summary>
         /// <seealso cref="operator -(IRotatableShape{T})"/>
-        public T Rotate(QuadrantalAngle angle);
+        /// /// <seealso cref="Rotate(QuadrantalAngle)"/>
+        public T Rotated(QuadrantalAngle angle);
 
         #region Default Implementations
         /// <summary>
         /// Returns a deep copy of the shape rotated 180 degrees about the origin (equivalently, reflected through the origin).
         /// </summary>
-        /// <seealso cref="Rotate(QuadrantalAngle)"/>
-        public static T operator -(IRotatableShape<T> shape) => shape.Rotate(QuadrantalAngle._180);
+        /// <seealso cref="Rotated(QuadrantalAngle)"/>
+        public static T operator -(IRotatableShape<T> shape) => shape.Rotated(QuadrantalAngle._180);
 
-        T IDeepCopyableShape<T>.DeepCopy() => Rotate(QuadrantalAngle._0);
+        T IDeepCopyableShape<T>.DeepCopy() => Rotated(QuadrantalAngle._0);
         #endregion
     }
 }

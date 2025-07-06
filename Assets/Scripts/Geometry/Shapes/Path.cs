@@ -376,28 +376,51 @@ namespace PAC.Geometry.Shapes
         /// <summary>
         /// Returns a deep copy of the <see cref="Path"/> translated by the given vector.
         /// </summary>
-        /// <seealso cref="Translate(IntVector2)"/>
-        public static Path operator +(Path path, IntVector2 translation) => path.Translate(translation);
+        /// <seealso cref="Translated(IntVector2)"/>
+        public static Path operator +(Path path, IntVector2 translation) => path.Translated(translation);
         /// <summary>
         /// Returns a deep copy of the <see cref="Path"/> translated by the given vector.
         /// </summary>
-        /// <seealso cref="Translate(IntVector2)"/>
+        /// <seealso cref="Translated(IntVector2)"/>
         public static Path operator +(IntVector2 translation, Path path) => path + translation;
         /// <summary>
         /// Returns a deep copy of the <see cref="Path"/> translated by the given vector.
         /// </summary>
-        /// <seealso cref="Translate(IntVector2)"/>
+        /// <seealso cref="Translated(IntVector2)"/>
         public static Path operator -(Path path, IntVector2 translation) => path + (-translation);
         /// <summary>
         /// Returns a deep copy of the <see cref="Path"/> rotated 180 degrees about the origin (equivalently, reflected through the origin).
         /// </summary>
-        /// <seealso cref="Rotate(QuadrantalAngle)"/>
-        /// <seealso cref="Flip(CardinalOrdinalAxis)"/>
-        public static Path operator -(Path path) => path.Rotate(QuadrantalAngle._180);
+        /// <seealso cref="Rotated(QuadrantalAngle)"/>
+        /// <seealso cref="Flipped(CardinalOrdinalAxis)"/>
+        public static Path operator -(Path path) => path.Rotated(QuadrantalAngle._180);
 
-        public Path Translate(IntVector2 translation) => new Path(_lines.Select(l => l.Translate(translation)));
-        public Path Flip(CardinalOrdinalAxis axis) => new Path(_lines.Select(l => l.Flip(axis)));
-        public Path Rotate(QuadrantalAngle angle) => new Path(_lines.Select(l => l.Rotate(angle)));
+        public void Translate(IntVector2 translation)
+        {
+            foreach (Line line in _lines)
+            {
+                line.Translate(translation);
+            }
+        }
+        public Path Translated(IntVector2 translation) => new Path(_lines.Select(l => l.Translated(translation)));
+
+        public void Flip(CardinalOrdinalAxis axis)
+        {
+            foreach (Line line in _lines)
+            {
+                line.Flip(axis);
+            }
+        }
+        public Path Flipped(CardinalOrdinalAxis axis) => new Path(_lines.Select(l => l.Flipped(axis)));
+
+        public void Rotate(QuadrantalAngle angle)
+        {
+            foreach (Line line in _lines)
+            {
+                line.Rotate(angle);
+            }
+        }
+        public Path Rotated(QuadrantalAngle angle) => new Path(_lines.Select(l => l.Rotated(angle)));
 
         /// <summary>
         /// Iterates through the points in the <see cref="Path"/>, but also returns the index (in <see cref="_lines"/>) of the <see cref="Line"/> that point came from.

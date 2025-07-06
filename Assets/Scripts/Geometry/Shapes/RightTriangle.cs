@@ -359,28 +359,44 @@ namespace PAC.Geometry.Shapes
         /// <summary>
         /// Returns a deep copy of the <see cref="RightTriangle"/> translated by the given vector.
         /// </summary>
-        /// <seealso cref="Translate(IntVector2)"/>
-        public static RightTriangle operator +(RightTriangle triangle, IntVector2 translation) => triangle.Translate(translation);
+        /// <seealso cref="Translated(IntVector2)"/>
+        public static RightTriangle operator +(RightTriangle triangle, IntVector2 translation) => triangle.Translated(translation);
         /// <summary>
         /// Returns a deep copy of the <see cref="RightTriangle"/> translated by the given vector.
         /// </summary>
-        /// <seealso cref="Translate(IntVector2)"/>
+        /// <seealso cref="Translated(IntVector2)"/>
         public static RightTriangle operator +(IntVector2 translation, RightTriangle triangle) => triangle + translation;
         /// <summary>
         /// Returns a deep copy of the <see cref="RightTriangle"/> translated by the given vector.
         /// </summary>
-        /// <seealso cref="Translate(IntVector2)"/>
+        /// <seealso cref="Translated(IntVector2)"/>
         public static RightTriangle operator -(RightTriangle triangle, IntVector2 translation) => triangle + (-translation);
         /// <summary>
         /// Returns a deep copy of the <see cref="RightTriangle"/> rotated 180 degrees about the origin (equivalently, reflected through the origin).
         /// </summary>
-        /// <seealso cref="Rotate(QuadrantalAngle)"/>
-        /// <seealso cref="Flip(CardinalOrdinalAxis)"/>
-        public static RightTriangle operator -(RightTriangle triangle) => triangle.Rotate(QuadrantalAngle._180);
+        /// <seealso cref="Rotated(QuadrantalAngle)"/>
+        /// <seealso cref="Flipped(CardinalOrdinalAxis)"/>
+        public static RightTriangle operator -(RightTriangle triangle) => triangle.Rotated(QuadrantalAngle._180);
 
-        public RightTriangle Translate(IntVector2 translation) => new RightTriangle(boundingRect + translation, rightAngleLocation, filled);
-        public RightTriangle Flip(CardinalOrdinalAxis axis) => new RightTriangle(boundingRect.Flip(axis), FromDirection(AsDirection(rightAngleLocation).Flip(axis)), filled);
-        public RightTriangle Rotate(QuadrantalAngle angle) => new RightTriangle(boundingRect.Rotate(angle), FromDirection(AsDirection(rightAngleLocation).Rotate(angle)), filled);
+        public void Translate(IntVector2 translation)
+        {
+            boundingRect += translation;
+        }
+        public RightTriangle Translated(IntVector2 translation) => new RightTriangle(boundingRect + translation, rightAngleLocation, filled);
+
+        public void Flip(CardinalOrdinalAxis axis)
+        {
+            boundingRect = boundingRect.Flip(axis);
+            rightAngleLocation = FromDirection(AsDirection(rightAngleLocation).Flip(axis));
+        }
+        public RightTriangle Flipped(CardinalOrdinalAxis axis) => new RightTriangle(boundingRect.Flip(axis), FromDirection(AsDirection(rightAngleLocation).Flip(axis)), filled);
+
+        public void Rotate(QuadrantalAngle angle)
+        {
+            boundingRect = boundingRect.Rotate(angle);
+            rightAngleLocation = FromDirection(AsDirection(rightAngleLocation).Rotate(angle));
+        }
+        public RightTriangle Rotated(QuadrantalAngle angle) => new RightTriangle(boundingRect.Rotate(angle), FromDirection(AsDirection(rightAngleLocation).Rotate(angle)), filled);
 
         IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();
         public IEnumerator<IntVector2> GetEnumerator()

@@ -13,11 +13,17 @@ namespace PAC.Tests.Geometry.Shapes.DefaultTests
     {
         [Test]
         [Category("Shapes")]
-        public virtual void Translate() => ITranslatableShape_DefaultTests<T>.Translate_Impl(testCases);
+        public virtual void Translated() => ITranslatableShape_DefaultTests<T>.Translated_Impl(testCases);
+        [Test]
+        [Category("Shapes")]
+        public virtual void TranslateMatchesTranslated() => ITranslatableShape_DefaultTests<T>.TranslateMatchesTranslated_Impl(testCases);
 
         [Test]
         [Category("Shapes")]
-        public virtual void Flip() => IFlippableShape_DefaultTests<T, VerticalAxis>.Flip_Impl(testCases);
+        public virtual void Flipped() => IFlippableShape_DefaultTests<T, VerticalAxis>.Flipped_Impl(testCases);
+        [Test]
+        [Category("Shapes")]
+        public virtual void FlipMatchesFlipped() => IFlippableShape_DefaultTests<T, VerticalAxis>.FlipMatchesFlipped_Impl(testCases);
 
         [Test]
         [Category("Shapes")]

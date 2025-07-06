@@ -173,30 +173,27 @@ namespace PAC.Geometry.Shapes
         /// <summary>
         /// Returns a deep copy of the <see cref="IsometricCuboid"/> translated by the given vector.
         /// </summary>
-        /// <seealso cref="Translate(IntVector2)"/>
-        public static IsometricCuboid operator +(IsometricCuboid isometricCuboid, IntVector2 translation) => isometricCuboid.Translate(translation);
+        /// <seealso cref="Translated(IntVector2)"/>
+        public static IsometricCuboid operator +(IsometricCuboid isometricCuboid, IntVector2 translation) => isometricCuboid.Translated(translation);
         /// <summary>
         /// Returns a deep copy of the <see cref="IsometricCuboid"/> translated by the given vector.
         /// </summary>
-        /// <seealso cref="Translate(IntVector2)"/>
+        /// <seealso cref="Translated(IntVector2)"/>
         public static IsometricCuboid operator +(IntVector2 translation, IsometricCuboid isometricCuboid) => isometricCuboid + translation;
         /// <summary>
         /// Returns a deep copy of the <see cref="IsometricCuboid"/> translated by the given vector.
         /// </summary>
-        /// <seealso cref="Translate(IntVector2)"/>
+        /// <seealso cref="Translated(IntVector2)"/>
         public static IsometricCuboid operator -(IsometricCuboid isometricCuboid, IntVector2 translation) => isometricCuboid + (-translation);
 
-        public IsometricCuboid Translate(IntVector2 translation) => new IsometricCuboid((height >= 0 ? bottomFace.DeepCopy() : topFace.DeepCopy()) + translation, height, filled, includeBackEdges);
-        /// <inheritdoc/>
-        /// <remarks>
-        /// Can only be flipped across the vertical axis (or none axis).
-        /// </remarks>
-        /// <exception cref="ArgumentException"><paramref name="axis"/> is an invalid axis.</exception>
-        public IsometricCuboid Flip(VerticalAxis axis) => axis switch
+        public void Translate(IntVector2 translation) => bottomFace.Translate(translation);
+        public IsometricCuboid Translated(IntVector2 translation) => new IsometricCuboid((height >= 0 ? bottomFace.DeepCopy() : topFace.DeepCopy()) + translation, height, filled, includeBackEdges);
+
+        public void Flip(VerticalAxis axis)
         {
-            VerticalAxis => new IsometricCuboid((height >= 0 ? bottomFace.DeepCopy() : topFace.DeepCopy()).Flip(axis), height, filled, includeBackEdges),
-            _ => throw new UnreachableException()
-        };
+            bottomFace.Flip(axis);
+        }
+        public IsometricCuboid Flipped(VerticalAxis axis) => new IsometricCuboid((height >= 0 ? bottomFace.DeepCopy() : topFace.DeepCopy()).Flipped(axis), height, filled, includeBackEdges);
 
         IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();
         public IEnumerator<IntVector2> GetEnumerator()

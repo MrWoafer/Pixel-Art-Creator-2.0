@@ -87,28 +87,42 @@ namespace PAC.Geometry.Shapes
         /// <summary>
         /// Returns a deep copy of the <see cref="Rectangle"/> translated by the given vector.
         /// </summary>
-        /// <seealso cref="Translate(IntVector2)"/>
-        public static Rectangle operator +(Rectangle rectangle, IntVector2 translation) => rectangle.Translate(translation);
+        /// <seealso cref="Translated(IntVector2)"/>
+        public static Rectangle operator +(Rectangle rectangle, IntVector2 translation) => rectangle.Translated(translation);
         /// <summary>
         /// Returns a deep copy of the <see cref="Rectangle"/> translated by the given vector.
         /// </summary>
-        /// <seealso cref="Translate(IntVector2)"/>
+        /// <seealso cref="Translated(IntVector2)"/>
         public static Rectangle operator +(IntVector2 translation, Rectangle rectangle) => rectangle + translation;
         /// <summary>
         /// Returns a deep copy of the <see cref="Rectangle"/> translated by the given vector.
         /// </summary>
-        /// <seealso cref="Translate(IntVector2)"/>
+        /// <seealso cref="Translated(IntVector2)"/>
         public static Rectangle operator -(Rectangle rectangle, IntVector2 translation) => rectangle + (-translation);
         /// <summary>
         /// Returns a deep copy of the <see cref="Rectangle"/> rotated 180 degrees about the origin (equivalently, reflected through the origin).
         /// </summary>
-        /// <seealso cref="Rotate(QuadrantalAngle)"/>
-        /// <seealso cref="Flip(CardinalOrdinalAxis)"/>
+        /// <seealso cref="Rotated(QuadrantalAngle)"/>
+        /// <seealso cref="Flipped(CardinalOrdinalAxis)"/>
         public static Rectangle operator -(Rectangle rectangle) => new Rectangle(-rectangle.boundingRect, rectangle.filled);
 
-        public Rectangle Translate(IntVector2 translation) => new Rectangle(boundingRect + translation, filled);
-        public Rectangle Flip(CardinalOrdinalAxis axis) => new Rectangle(boundingRect.Flip(axis), filled);
-        public Rectangle Rotate(QuadrantalAngle angle) => new Rectangle(boundingRect.Rotate(angle), filled);
+        public void Translate(IntVector2 translation)
+        {
+            boundingRect += translation;
+        }
+        public Rectangle Translated(IntVector2 translation) => new Rectangle(boundingRect + translation, filled);
+
+        public void Flip(CardinalOrdinalAxis axis)
+        {
+            boundingRect = boundingRect.Flip(axis);
+        }
+        public Rectangle Flipped(CardinalOrdinalAxis axis) => new Rectangle(boundingRect.Flip(axis), filled);
+
+        public void Rotate(QuadrantalAngle angle)
+        {
+            boundingRect = boundingRect.Rotate(angle);
+        }
+        public Rectangle Rotated(QuadrantalAngle angle) => new Rectangle(boundingRect.Rotate(angle), filled);
 
         IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();
         public IEnumerator<IntVector2> GetEnumerator()
