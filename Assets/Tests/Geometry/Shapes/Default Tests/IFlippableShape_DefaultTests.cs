@@ -25,19 +25,19 @@ namespace PAC.Tests.Geometry.Shapes.DefaultTests
             {
                 if (typeof(A) == typeof(VerticalAxis))
                 {
-                    return (IEnumerable<A>)new CardinalOrdinalAxis[] { Axes.Vertical };
+                    return (IEnumerable<A>)(new VerticalAxis[] { Axes.Vertical }).AsEnumerable();
                 }
                 else if (typeof(A) == typeof(HorizontalAxis))
                 {
-                    return (IEnumerable<A>)new CardinalOrdinalAxis[] { Axes.Horizontal };
+                    return (IEnumerable<A>)(new HorizontalAxis[] { Axes.Horizontal }).AsEnumerable();
                 }
                 else if (typeof(A) == typeof(Diagonal45Axis))
                 {
-                    return (IEnumerable<A>)new CardinalOrdinalAxis[] { Axes.Diagonal45 };
+                    return (IEnumerable<A>)(new Diagonal45Axis[] { Axes.Diagonal45 }).AsEnumerable();
                 }
                 else if (typeof(A) == typeof(Minus45Axis))
                 {
-                    return (IEnumerable<A>)new CardinalOrdinalAxis[] { Axes.Minus45 };
+                    return (IEnumerable<A>)(new Minus45Axis[] { Axes.Minus45 }).AsEnumerable();
                 }
                 else if (typeof(A) == typeof(CardinalAxis))
                 {
