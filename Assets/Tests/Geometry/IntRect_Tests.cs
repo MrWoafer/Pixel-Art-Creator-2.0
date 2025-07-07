@@ -70,6 +70,83 @@ namespace PAC.Tests.Geometry
             }
         }
 
+        /// <summary>
+        /// Tests <see cref="IntRect.BorderContains(IntVector2)"/>.
+        /// </summary>
+        [Test]
+        [Category("Data Structures")]
+        public void BorderContains()
+        {
+            foreach (IntRect rect in randomTestCases.Take(1_000))
+            {
+                HashSet<IntVector2> points = Enumerable.ToHashSet(rect);
+                IntRect testRegion = new IntRect(rect.bottomLeft - (2, 2), rect.topRight + (2, 2));
+                foreach (IntVector2 point in testRegion)
+                {
+                    bool isOnBorder = points.Contains(point) &&
+                        (
+                            !points.Contains(point + (1, 0))
+                            || !points.Contains(point + (-1, 0))
+                            || !points.Contains(point + (0, 1))
+                            || !points.Contains(point + (0, -1))
+                        );
+                    Assert.AreEqual(isOnBorder, rect.BorderContains(point), $"Failed with {rect} and {point}.");
+                }
+            }
+        }
+
+        /// <summary>
+        /// Tests <see cref="IntRect.XCentreIs(int)"/>.
+        /// </summary>
+        [Test]
+        [Category("Data Structures")]
+        public void XCentreIs()
+        {
+            (IntRect rect, int[] expected)[] testCases =
+            {
+                (new IntRect((0, 0), (0, 0)), new int[] { 0 }),
+                (new IntRect((0, 0), (1, 0)), new int[] { 0, 1 }),
+                (new IntRect((3, -2), (10, 7)), new int[] { 6, 7 }),
+                (new IntRect((-3, -14), (7, -99)), new int[] { 2 }),
+                (new IntRect((-3, 4), (-8, 11)), new int[] { -5, -6 }),
+                (new IntRect((-2, 64), (-8, 1000)), new int[] { -5 }),
+            };
+
+            foreach ((IntRect rect, int[] expected) in testCases)
+            {
+                for (int x = rect.minX - 5; x <= rect.maxX + 5; x++)
+                {
+                    Assert.AreEqual(expected.Contains(x), rect.XCentreIs(x), $"Failed with {rect} and {x}.");
+                }
+            }
+        }
+
+        /// <summary>
+        /// Tests <see cref="IntRect.YCentreIs(int)"/>.
+        /// </summary>
+        [Test]
+        [Category("Data Structures")]
+        public void YCentreIs()
+        {
+            (IntRect rect, int[] expected)[] testCases =
+            {
+                (new IntRect((0, 0), (0, 0)), new int[] { 0 }),
+                (new IntRect((0, 0), (0, 1)), new int[] { 0, 1 }),
+                (new IntRect((13, 5), (3, 12)), new int[] { 8, 9 }),
+                (new IntRect((-5, 7), (-5, 19)), new int[] { 13 }),
+                (new IntRect((0, -12), (6, -19)), new int[] { -15, -16 }),
+                (new IntRect((-1, -11), (1, -15)), new int[] { -13 }),
+            };
+
+            foreach ((IntRect rect, int[] expected) in testCases)
+            {
+                for (int y = rect.minY - 5; y <= rect.maxY + 5; y++)
+                {
+                    Assert.AreEqual(expected.Contains(y), rect.YCentreIs(y), $"Failed with {rect} and {y}.");
+                }
+            }
+        }
+
         [Test]
         [Category("Data Structures")]
         public void BoundingRect()

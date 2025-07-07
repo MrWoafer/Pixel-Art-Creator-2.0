@@ -19,7 +19,8 @@ namespace PAC.Managers
         Rectangle = 0,
         Ellipse = 1,
         RightTriangle = 2,
-        Diamond = 3
+        Diamond = 3,
+        IsometricHexagon = 4,
     }
 
     public enum SelectionMode
@@ -241,6 +242,7 @@ namespace PAC.Managers
                 else if (inputSystem.globalKeyboardTarget.IsHeldExactly(KeyCode.Alpha2)) { shapeToolShape = Shape.Ellipse; }
                 else if (inputSystem.globalKeyboardTarget.IsHeldExactly(KeyCode.Alpha3)) { shapeToolShape = Shape.RightTriangle; }
                 else if (inputSystem.globalKeyboardTarget.IsHeldExactly(KeyCode.Alpha4)) { shapeToolShape = Shape.Diamond; }
+                else if (inputSystem.globalKeyboardTarget.IsHeldExactly(KeyCode.Alpha5)) { shapeToolShape = Shape.IsometricHexagon; }
             }
             else if (selectedTool == Tool.Selection)
             {

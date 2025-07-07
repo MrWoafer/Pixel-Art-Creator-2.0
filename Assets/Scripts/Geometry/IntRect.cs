@@ -259,8 +259,7 @@ namespace PAC.Geometry
         /// Whether the point <c>(<paramref name="x"/>, <paramref name="y"/>)</c> is in the rect.
         /// </summary>
         /// <seealso cref="Contains(IntVector2)"/>
-        public bool Contains(int x, int y) => minX <= x && minY <= y && x <= maxX && y <= maxY;
-
+        public bool Contains(int x, int y) => ContainsX(x) && ContainsY(y);
         /// <summary>
         /// Returns whether the rect contains any points with the given x coord.
         /// </summary>
@@ -271,6 +270,40 @@ namespace PAC.Geometry
         /// </summary>
         /// <seealso cref="ContainsX(int)"/>
         public bool ContainsY(int y) => minY <= y && y <= maxY;
+
+        /// <summary>
+        /// Whether the point is in the rect and has at least one adjacent (up/down/left/right) point not in the rect.
+        /// </summary>
+        /// <seealso cref="BorderContains(int, int)"/>
+        public bool BorderContains(IntVector2 point) => BorderContains(point.x, point.y);
+        /// <summary>
+        /// Whether the point is in the rect and has at least one adjacent (up/down/left/right) point not in the rect.
+        /// </summary>
+        /// <seealso cref="BorderContains(IntVector2)"/>
+        public bool BorderContains(int x, int y) => Contains(x, y) && (BorderContainsX(x) || BorderContainsY(y));
+        /// <summary>
+        /// Returns <see langword="true"/> if and only if <paramref name="x"/> is <see cref="minX"/> or <see cref="maxX"/>.
+        /// </summary>
+        /// <seealso cref="BorderContainsY(int)"/>
+        public bool BorderContainsX(int x) => minX == x || x == maxX;
+        /// <summary>
+        /// Returns <see langword="true"/> if and only if <paramref name="y"/> is <see cref="minY"/> or <see cref="maxY"/>.
+        /// </summary>
+        /// <seealso cref="BorderContainsX(int)"/>
+        public bool BorderContainsY(int y) => minY == y || y == maxY;
+
+        /// <summary>
+        /// For rects with an odd width, this returns whether <paramref name="x"/> is the centre x coord of the rect.
+        /// For rects with an even width, this returns whether <paramref name="x"/> is one of the two centre x coords of the rect.
+        /// </summary>
+        public bool XCentreIs(int x)
+            => Mathf.FloorToInt((minX + maxX) / 2f) <= x && x <= Mathf.CeilToInt((minX + maxX) / 2f); // use Mathf floor/ceil, instead of int division, as they round towards +/-infinity, not 0
+        /// <summary>
+        /// For rects with an odd height, this returns whether <paramref name="y"/> is the centre y coord of the rect.
+        /// For rects with an even height, this returns whether <paramref name="y"/> is one of the two centre y coords of the rect.
+        /// </summary>
+        public bool YCentreIs(int y)
+            => Mathf.FloorToInt((minY + maxY) / 2f) <= y && y <= Mathf.CeilToInt((minY + maxY) / 2f); // use Mathf floor/ceil, instead of int division, as they round towards +/-infinity, not 0
 
         /// <summary>
         /// Whether the two rects have any points in common.
