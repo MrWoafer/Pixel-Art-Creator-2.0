@@ -1198,6 +1198,20 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/PAC.Geometry.Shapes.IsometricHexagon.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PAC.Geometry.Shapes.IsometricHexagon.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "PAC.Geometry.Shapes.IsometricHexagon",
+      "Summary": "<p sourcefile=\"api/PAC.Geometry.Shapes.IsometricHexagon.yml\" sourcestartlinenumber=\"1\">An isometric pixel art hexagon shape.\n<example>\nFor example,</example></p>\n<pre><code class=\"lang-csharp\">          # #\n      # #     # #\n  # #             # #\n#                     #\n#                     #\n#                     #\n#                     #\n#                     #\n  # #             # #\n      # #     # #\n          # #</code></pre>\n\n"
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/PAC.Geometry.Shapes.IsometricRectangle.yml",
       "output": {
         ".html": {

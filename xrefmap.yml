@@ -5719,6 +5719,60 @@ references:
   fullName.vb: PAC.Geometry.IntRect.New
   nameWithType: IntRect.IntRect
   nameWithType.vb: IntRect.New
+- uid: PAC.Geometry.IntRect.BorderContains(PAC.Geometry.IntVector2)
+  name: BorderContains(IntVector2)
+  href: api/PAC.Geometry.IntRect.html#PAC_Geometry_IntRect_BorderContains_PAC_Geometry_IntVector2_
+  commentId: M:PAC.Geometry.IntRect.BorderContains(PAC.Geometry.IntVector2)
+  fullName: PAC.Geometry.IntRect.BorderContains(PAC.Geometry.IntVector2)
+  nameWithType: IntRect.BorderContains(IntVector2)
+- uid: PAC.Geometry.IntRect.BorderContains(System.Int32,System.Int32)
+  name: BorderContains(int, int)
+  href: api/PAC.Geometry.IntRect.html#PAC_Geometry_IntRect_BorderContains_System_Int32_System_Int32_
+  commentId: M:PAC.Geometry.IntRect.BorderContains(System.Int32,System.Int32)
+  name.vb: BorderContains(Integer, Integer)
+  fullName: PAC.Geometry.IntRect.BorderContains(int, int)
+  fullName.vb: PAC.Geometry.IntRect.BorderContains(Integer, Integer)
+  nameWithType: IntRect.BorderContains(int, int)
+  nameWithType.vb: IntRect.BorderContains(Integer, Integer)
+- uid: PAC.Geometry.IntRect.BorderContains*
+  name: BorderContains
+  href: api/PAC.Geometry.IntRect.html#PAC_Geometry_IntRect_BorderContains_
+  commentId: Overload:PAC.Geometry.IntRect.BorderContains
+  isSpec: "True"
+  fullName: PAC.Geometry.IntRect.BorderContains
+  nameWithType: IntRect.BorderContains
+- uid: PAC.Geometry.IntRect.BorderContainsX(System.Int32)
+  name: BorderContainsX(int)
+  href: api/PAC.Geometry.IntRect.html#PAC_Geometry_IntRect_BorderContainsX_System_Int32_
+  commentId: M:PAC.Geometry.IntRect.BorderContainsX(System.Int32)
+  name.vb: BorderContainsX(Integer)
+  fullName: PAC.Geometry.IntRect.BorderContainsX(int)
+  fullName.vb: PAC.Geometry.IntRect.BorderContainsX(Integer)
+  nameWithType: IntRect.BorderContainsX(int)
+  nameWithType.vb: IntRect.BorderContainsX(Integer)
+- uid: PAC.Geometry.IntRect.BorderContainsX*
+  name: BorderContainsX
+  href: api/PAC.Geometry.IntRect.html#PAC_Geometry_IntRect_BorderContainsX_
+  commentId: Overload:PAC.Geometry.IntRect.BorderContainsX
+  isSpec: "True"
+  fullName: PAC.Geometry.IntRect.BorderContainsX
+  nameWithType: IntRect.BorderContainsX
+- uid: PAC.Geometry.IntRect.BorderContainsY(System.Int32)
+  name: BorderContainsY(int)
+  href: api/PAC.Geometry.IntRect.html#PAC_Geometry_IntRect_BorderContainsY_System_Int32_
+  commentId: M:PAC.Geometry.IntRect.BorderContainsY(System.Int32)
+  name.vb: BorderContainsY(Integer)
+  fullName: PAC.Geometry.IntRect.BorderContainsY(int)
+  fullName.vb: PAC.Geometry.IntRect.BorderContainsY(Integer)
+  nameWithType: IntRect.BorderContainsY(int)
+  nameWithType.vb: IntRect.BorderContainsY(Integer)
+- uid: PAC.Geometry.IntRect.BorderContainsY*
+  name: BorderContainsY
+  href: api/PAC.Geometry.IntRect.html#PAC_Geometry_IntRect_BorderContainsY_
+  commentId: Overload:PAC.Geometry.IntRect.BorderContainsY
+  isSpec: "True"
+  fullName: PAC.Geometry.IntRect.BorderContainsY
+  nameWithType: IntRect.BorderContainsY
 - uid: PAC.Geometry.IntRect.BoundingRect(PAC.Geometry.IntRect,PAC.Geometry.IntRect)
   name: BoundingRect(IntRect, IntRect)
   href: api/PAC.Geometry.IntRect.html#PAC_Geometry_IntRect_BoundingRect_PAC_Geometry_IntRect_PAC_Geometry_IntRect_
@@ -6103,6 +6157,38 @@ references:
   isSpec: "True"
   fullName: PAC.Geometry.IntRect.TranslateClamp
   nameWithType: IntRect.TranslateClamp
+- uid: PAC.Geometry.IntRect.XCentreIs(System.Int32)
+  name: XCentreIs(int)
+  href: api/PAC.Geometry.IntRect.html#PAC_Geometry_IntRect_XCentreIs_System_Int32_
+  commentId: M:PAC.Geometry.IntRect.XCentreIs(System.Int32)
+  name.vb: XCentreIs(Integer)
+  fullName: PAC.Geometry.IntRect.XCentreIs(int)
+  fullName.vb: PAC.Geometry.IntRect.XCentreIs(Integer)
+  nameWithType: IntRect.XCentreIs(int)
+  nameWithType.vb: IntRect.XCentreIs(Integer)
+- uid: PAC.Geometry.IntRect.XCentreIs*
+  name: XCentreIs
+  href: api/PAC.Geometry.IntRect.html#PAC_Geometry_IntRect_XCentreIs_
+  commentId: Overload:PAC.Geometry.IntRect.XCentreIs
+  isSpec: "True"
+  fullName: PAC.Geometry.IntRect.XCentreIs
+  nameWithType: IntRect.XCentreIs
+- uid: PAC.Geometry.IntRect.YCentreIs(System.Int32)
+  name: YCentreIs(int)
+  href: api/PAC.Geometry.IntRect.html#PAC_Geometry_IntRect_YCentreIs_System_Int32_
+  commentId: M:PAC.Geometry.IntRect.YCentreIs(System.Int32)
+  name.vb: YCentreIs(Integer)
+  fullName: PAC.Geometry.IntRect.YCentreIs(int)
+  fullName.vb: PAC.Geometry.IntRect.YCentreIs(Integer)
+  nameWithType: IntRect.YCentreIs(int)
+  nameWithType.vb: IntRect.YCentreIs(Integer)
+- uid: PAC.Geometry.IntRect.YCentreIs*
+  name: YCentreIs
+  href: api/PAC.Geometry.IntRect.html#PAC_Geometry_IntRect_YCentreIs_
+  commentId: Overload:PAC.Geometry.IntRect.YCentreIs
+  isSpec: "True"
+  fullName: PAC.Geometry.IntRect.YCentreIs
+  nameWithType: IntRect.YCentreIs
 - uid: PAC.Geometry.IntRect.bottomLeft
   name: bottomLeft
   href: api/PAC.Geometry.IntRect.html#PAC_Geometry_IntRect_bottomLeft
@@ -8771,6 +8857,338 @@ references:
   isSpec: "True"
   fullName: PAC.Geometry.Shapes.IsometricCuboid.topFace
   nameWithType: IsometricCuboid.topFace
+- uid: PAC.Geometry.Shapes.IsometricHexagon
+  name: IsometricHexagon
+  href: api/PAC.Geometry.Shapes.IsometricHexagon.html
+  commentId: T:PAC.Geometry.Shapes.IsometricHexagon
+  fullName: PAC.Geometry.Shapes.IsometricHexagon
+  nameWithType: IsometricHexagon
+- uid: PAC.Geometry.Shapes.IsometricHexagon.#ctor(PAC.Geometry.IntRect,System.Boolean)
+  name: IsometricHexagon(IntRect, bool)
+  href: api/PAC.Geometry.Shapes.IsometricHexagon.html#PAC_Geometry_Shapes_IsometricHexagon__ctor_PAC_Geometry_IntRect_System_Boolean_
+  commentId: M:PAC.Geometry.Shapes.IsometricHexagon.#ctor(PAC.Geometry.IntRect,System.Boolean)
+  name.vb: New(IntRect, Boolean)
+  fullName: PAC.Geometry.Shapes.IsometricHexagon.IsometricHexagon(PAC.Geometry.IntRect, bool)
+  fullName.vb: PAC.Geometry.Shapes.IsometricHexagon.New(PAC.Geometry.IntRect, Boolean)
+  nameWithType: IsometricHexagon.IsometricHexagon(IntRect, bool)
+  nameWithType.vb: IsometricHexagon.New(IntRect, Boolean)
+- uid: PAC.Geometry.Shapes.IsometricHexagon.#ctor*
+  name: IsometricHexagon
+  href: api/PAC.Geometry.Shapes.IsometricHexagon.html#PAC_Geometry_Shapes_IsometricHexagon__ctor_
+  commentId: Overload:PAC.Geometry.Shapes.IsometricHexagon.#ctor
+  isSpec: "True"
+  name.vb: New
+  fullName: PAC.Geometry.Shapes.IsometricHexagon.IsometricHexagon
+  fullName.vb: PAC.Geometry.Shapes.IsometricHexagon.New
+  nameWithType: IsometricHexagon.IsometricHexagon
+  nameWithType.vb: IsometricHexagon.New
+- uid: PAC.Geometry.Shapes.IsometricHexagon.Contains(PAC.Geometry.IntVector2)
+  name: Contains(IntVector2)
+  href: api/PAC.Geometry.Shapes.IsometricHexagon.html#PAC_Geometry_Shapes_IsometricHexagon_Contains_PAC_Geometry_IntVector2_
+  commentId: M:PAC.Geometry.Shapes.IsometricHexagon.Contains(PAC.Geometry.IntVector2)
+  fullName: PAC.Geometry.Shapes.IsometricHexagon.Contains(PAC.Geometry.IntVector2)
+  nameWithType: IsometricHexagon.Contains(IntVector2)
+- uid: PAC.Geometry.Shapes.IsometricHexagon.Contains*
+  name: Contains
+  href: api/PAC.Geometry.Shapes.IsometricHexagon.html#PAC_Geometry_Shapes_IsometricHexagon_Contains_
+  commentId: Overload:PAC.Geometry.Shapes.IsometricHexagon.Contains
+  isSpec: "True"
+  fullName: PAC.Geometry.Shapes.IsometricHexagon.Contains
+  nameWithType: IsometricHexagon.Contains
+- uid: PAC.Geometry.Shapes.IsometricHexagon.Count
+  name: Count
+  href: api/PAC.Geometry.Shapes.IsometricHexagon.html#PAC_Geometry_Shapes_IsometricHexagon_Count
+  commentId: P:PAC.Geometry.Shapes.IsometricHexagon.Count
+  fullName: PAC.Geometry.Shapes.IsometricHexagon.Count
+  nameWithType: IsometricHexagon.Count
+- uid: PAC.Geometry.Shapes.IsometricHexagon.Count*
+  name: Count
+  href: api/PAC.Geometry.Shapes.IsometricHexagon.html#PAC_Geometry_Shapes_IsometricHexagon_Count_
+  commentId: Overload:PAC.Geometry.Shapes.IsometricHexagon.Count
+  isSpec: "True"
+  fullName: PAC.Geometry.Shapes.IsometricHexagon.Count
+  nameWithType: IsometricHexagon.Count
+- uid: PAC.Geometry.Shapes.IsometricHexagon.DeepCopy
+  name: DeepCopy()
+  href: api/PAC.Geometry.Shapes.IsometricHexagon.html#PAC_Geometry_Shapes_IsometricHexagon_DeepCopy
+  commentId: M:PAC.Geometry.Shapes.IsometricHexagon.DeepCopy
+  fullName: PAC.Geometry.Shapes.IsometricHexagon.DeepCopy()
+  nameWithType: IsometricHexagon.DeepCopy()
+- uid: PAC.Geometry.Shapes.IsometricHexagon.DeepCopy*
+  name: DeepCopy
+  href: api/PAC.Geometry.Shapes.IsometricHexagon.html#PAC_Geometry_Shapes_IsometricHexagon_DeepCopy_
+  commentId: Overload:PAC.Geometry.Shapes.IsometricHexagon.DeepCopy
+  isSpec: "True"
+  fullName: PAC.Geometry.Shapes.IsometricHexagon.DeepCopy
+  nameWithType: IsometricHexagon.DeepCopy
+- uid: PAC.Geometry.Shapes.IsometricHexagon.Equals(PAC.Geometry.Shapes.IsometricHexagon)
+  name: Equals(IsometricHexagon)
+  href: api/PAC.Geometry.Shapes.IsometricHexagon.html#PAC_Geometry_Shapes_IsometricHexagon_Equals_PAC_Geometry_Shapes_IsometricHexagon_
+  commentId: M:PAC.Geometry.Shapes.IsometricHexagon.Equals(PAC.Geometry.Shapes.IsometricHexagon)
+  fullName: PAC.Geometry.Shapes.IsometricHexagon.Equals(PAC.Geometry.Shapes.IsometricHexagon)
+  nameWithType: IsometricHexagon.Equals(IsometricHexagon)
+- uid: PAC.Geometry.Shapes.IsometricHexagon.Equals(System.Object)
+  name: Equals(object)
+  href: api/PAC.Geometry.Shapes.IsometricHexagon.html#PAC_Geometry_Shapes_IsometricHexagon_Equals_System_Object_
+  commentId: M:PAC.Geometry.Shapes.IsometricHexagon.Equals(System.Object)
+  name.vb: Equals(Object)
+  fullName: PAC.Geometry.Shapes.IsometricHexagon.Equals(object)
+  fullName.vb: PAC.Geometry.Shapes.IsometricHexagon.Equals(Object)
+  nameWithType: IsometricHexagon.Equals(object)
+  nameWithType.vb: IsometricHexagon.Equals(Object)
+- uid: PAC.Geometry.Shapes.IsometricHexagon.Equals*
+  name: Equals
+  href: api/PAC.Geometry.Shapes.IsometricHexagon.html#PAC_Geometry_Shapes_IsometricHexagon_Equals_
+  commentId: Overload:PAC.Geometry.Shapes.IsometricHexagon.Equals
+  isSpec: "True"
+  fullName: PAC.Geometry.Shapes.IsometricHexagon.Equals
+  nameWithType: IsometricHexagon.Equals
+- uid: PAC.Geometry.Shapes.IsometricHexagon.Flip(PAC.Geometry.Axes.CardinalAxis)
+  name: Flip(CardinalAxis)
+  href: api/PAC.Geometry.Shapes.IsometricHexagon.html#PAC_Geometry_Shapes_IsometricHexagon_Flip_PAC_Geometry_Axes_CardinalAxis_
+  commentId: M:PAC.Geometry.Shapes.IsometricHexagon.Flip(PAC.Geometry.Axes.CardinalAxis)
+  fullName: PAC.Geometry.Shapes.IsometricHexagon.Flip(PAC.Geometry.Axes.CardinalAxis)
+  nameWithType: IsometricHexagon.Flip(CardinalAxis)
+- uid: PAC.Geometry.Shapes.IsometricHexagon.Flip(PAC.Geometry.Axes.VerticalAxis)
+  name: Flip(VerticalAxis)
+  href: api/PAC.Geometry.Shapes.IsometricHexagon.html#PAC_Geometry_Shapes_IsometricHexagon_Flip_PAC_Geometry_Axes_VerticalAxis_
+  commentId: M:PAC.Geometry.Shapes.IsometricHexagon.Flip(PAC.Geometry.Axes.VerticalAxis)
+  fullName: PAC.Geometry.Shapes.IsometricHexagon.Flip(PAC.Geometry.Axes.VerticalAxis)
+  nameWithType: IsometricHexagon.Flip(VerticalAxis)
+- uid: PAC.Geometry.Shapes.IsometricHexagon.Flip*
+  name: Flip
+  href: api/PAC.Geometry.Shapes.IsometricHexagon.html#PAC_Geometry_Shapes_IsometricHexagon_Flip_
+  commentId: Overload:PAC.Geometry.Shapes.IsometricHexagon.Flip
+  isSpec: "True"
+  fullName: PAC.Geometry.Shapes.IsometricHexagon.Flip
+  nameWithType: IsometricHexagon.Flip
+- uid: PAC.Geometry.Shapes.IsometricHexagon.Flipped(PAC.Geometry.Axes.CardinalAxis)
+  name: Flipped(CardinalAxis)
+  href: api/PAC.Geometry.Shapes.IsometricHexagon.html#PAC_Geometry_Shapes_IsometricHexagon_Flipped_PAC_Geometry_Axes_CardinalAxis_
+  commentId: M:PAC.Geometry.Shapes.IsometricHexagon.Flipped(PAC.Geometry.Axes.CardinalAxis)
+  fullName: PAC.Geometry.Shapes.IsometricHexagon.Flipped(PAC.Geometry.Axes.CardinalAxis)
+  nameWithType: IsometricHexagon.Flipped(CardinalAxis)
+- uid: PAC.Geometry.Shapes.IsometricHexagon.Flipped(PAC.Geometry.Axes.VerticalAxis)
+  name: Flipped(VerticalAxis)
+  href: api/PAC.Geometry.Shapes.IsometricHexagon.html#PAC_Geometry_Shapes_IsometricHexagon_Flipped_PAC_Geometry_Axes_VerticalAxis_
+  commentId: M:PAC.Geometry.Shapes.IsometricHexagon.Flipped(PAC.Geometry.Axes.VerticalAxis)
+  fullName: PAC.Geometry.Shapes.IsometricHexagon.Flipped(PAC.Geometry.Axes.VerticalAxis)
+  nameWithType: IsometricHexagon.Flipped(VerticalAxis)
+- uid: PAC.Geometry.Shapes.IsometricHexagon.Flipped*
+  name: Flipped
+  href: api/PAC.Geometry.Shapes.IsometricHexagon.html#PAC_Geometry_Shapes_IsometricHexagon_Flipped_
+  commentId: Overload:PAC.Geometry.Shapes.IsometricHexagon.Flipped
+  isSpec: "True"
+  fullName: PAC.Geometry.Shapes.IsometricHexagon.Flipped
+  nameWithType: IsometricHexagon.Flipped
+- uid: PAC.Geometry.Shapes.IsometricHexagon.GetEnumerator
+  name: GetEnumerator()
+  href: api/PAC.Geometry.Shapes.IsometricHexagon.html#PAC_Geometry_Shapes_IsometricHexagon_GetEnumerator
+  commentId: M:PAC.Geometry.Shapes.IsometricHexagon.GetEnumerator
+  fullName: PAC.Geometry.Shapes.IsometricHexagon.GetEnumerator()
+  nameWithType: IsometricHexagon.GetEnumerator()
+- uid: PAC.Geometry.Shapes.IsometricHexagon.GetEnumerator*
+  name: GetEnumerator
+  href: api/PAC.Geometry.Shapes.IsometricHexagon.html#PAC_Geometry_Shapes_IsometricHexagon_GetEnumerator_
+  commentId: Overload:PAC.Geometry.Shapes.IsometricHexagon.GetEnumerator
+  isSpec: "True"
+  fullName: PAC.Geometry.Shapes.IsometricHexagon.GetEnumerator
+  nameWithType: IsometricHexagon.GetEnumerator
+- uid: PAC.Geometry.Shapes.IsometricHexagon.GetHashCode
+  name: GetHashCode()
+  href: api/PAC.Geometry.Shapes.IsometricHexagon.html#PAC_Geometry_Shapes_IsometricHexagon_GetHashCode
+  commentId: M:PAC.Geometry.Shapes.IsometricHexagon.GetHashCode
+  fullName: PAC.Geometry.Shapes.IsometricHexagon.GetHashCode()
+  nameWithType: IsometricHexagon.GetHashCode()
+- uid: PAC.Geometry.Shapes.IsometricHexagon.GetHashCode*
+  name: GetHashCode
+  href: api/PAC.Geometry.Shapes.IsometricHexagon.html#PAC_Geometry_Shapes_IsometricHexagon_GetHashCode_
+  commentId: Overload:PAC.Geometry.Shapes.IsometricHexagon.GetHashCode
+  isSpec: "True"
+  fullName: PAC.Geometry.Shapes.IsometricHexagon.GetHashCode
+  nameWithType: IsometricHexagon.GetHashCode
+- uid: PAC.Geometry.Shapes.IsometricHexagon.ToString
+  name: ToString()
+  href: api/PAC.Geometry.Shapes.IsometricHexagon.html#PAC_Geometry_Shapes_IsometricHexagon_ToString
+  commentId: M:PAC.Geometry.Shapes.IsometricHexagon.ToString
+  fullName: PAC.Geometry.Shapes.IsometricHexagon.ToString()
+  nameWithType: IsometricHexagon.ToString()
+- uid: PAC.Geometry.Shapes.IsometricHexagon.ToString*
+  name: ToString
+  href: api/PAC.Geometry.Shapes.IsometricHexagon.html#PAC_Geometry_Shapes_IsometricHexagon_ToString_
+  commentId: Overload:PAC.Geometry.Shapes.IsometricHexagon.ToString
+  isSpec: "True"
+  fullName: PAC.Geometry.Shapes.IsometricHexagon.ToString
+  nameWithType: IsometricHexagon.ToString
+- uid: PAC.Geometry.Shapes.IsometricHexagon.Translate(PAC.Geometry.IntVector2)
+  name: Translate(IntVector2)
+  href: api/PAC.Geometry.Shapes.IsometricHexagon.html#PAC_Geometry_Shapes_IsometricHexagon_Translate_PAC_Geometry_IntVector2_
+  commentId: M:PAC.Geometry.Shapes.IsometricHexagon.Translate(PAC.Geometry.IntVector2)
+  fullName: PAC.Geometry.Shapes.IsometricHexagon.Translate(PAC.Geometry.IntVector2)
+  nameWithType: IsometricHexagon.Translate(IntVector2)
+- uid: PAC.Geometry.Shapes.IsometricHexagon.Translate*
+  name: Translate
+  href: api/PAC.Geometry.Shapes.IsometricHexagon.html#PAC_Geometry_Shapes_IsometricHexagon_Translate_
+  commentId: Overload:PAC.Geometry.Shapes.IsometricHexagon.Translate
+  isSpec: "True"
+  fullName: PAC.Geometry.Shapes.IsometricHexagon.Translate
+  nameWithType: IsometricHexagon.Translate
+- uid: PAC.Geometry.Shapes.IsometricHexagon.Translated(PAC.Geometry.IntVector2)
+  name: Translated(IntVector2)
+  href: api/PAC.Geometry.Shapes.IsometricHexagon.html#PAC_Geometry_Shapes_IsometricHexagon_Translated_PAC_Geometry_IntVector2_
+  commentId: M:PAC.Geometry.Shapes.IsometricHexagon.Translated(PAC.Geometry.IntVector2)
+  fullName: PAC.Geometry.Shapes.IsometricHexagon.Translated(PAC.Geometry.IntVector2)
+  nameWithType: IsometricHexagon.Translated(IntVector2)
+- uid: PAC.Geometry.Shapes.IsometricHexagon.Translated*
+  name: Translated
+  href: api/PAC.Geometry.Shapes.IsometricHexagon.html#PAC_Geometry_Shapes_IsometricHexagon_Translated_
+  commentId: Overload:PAC.Geometry.Shapes.IsometricHexagon.Translated
+  isSpec: "True"
+  fullName: PAC.Geometry.Shapes.IsometricHexagon.Translated
+  nameWithType: IsometricHexagon.Translated
+- uid: PAC.Geometry.Shapes.IsometricHexagon.border
+  name: border
+  href: api/PAC.Geometry.Shapes.IsometricHexagon.html#PAC_Geometry_Shapes_IsometricHexagon_border
+  commentId: P:PAC.Geometry.Shapes.IsometricHexagon.border
+  fullName: PAC.Geometry.Shapes.IsometricHexagon.border
+  nameWithType: IsometricHexagon.border
+- uid: PAC.Geometry.Shapes.IsometricHexagon.border*
+  name: border
+  href: api/PAC.Geometry.Shapes.IsometricHexagon.html#PAC_Geometry_Shapes_IsometricHexagon_border_
+  commentId: Overload:PAC.Geometry.Shapes.IsometricHexagon.border
+  isSpec: "True"
+  fullName: PAC.Geometry.Shapes.IsometricHexagon.border
+  nameWithType: IsometricHexagon.border
+- uid: PAC.Geometry.Shapes.IsometricHexagon.boundingRect
+  name: boundingRect
+  href: api/PAC.Geometry.Shapes.IsometricHexagon.html#PAC_Geometry_Shapes_IsometricHexagon_boundingRect
+  commentId: P:PAC.Geometry.Shapes.IsometricHexagon.boundingRect
+  fullName: PAC.Geometry.Shapes.IsometricHexagon.boundingRect
+  nameWithType: IsometricHexagon.boundingRect
+- uid: PAC.Geometry.Shapes.IsometricHexagon.boundingRect*
+  name: boundingRect
+  href: api/PAC.Geometry.Shapes.IsometricHexagon.html#PAC_Geometry_Shapes_IsometricHexagon_boundingRect_
+  commentId: Overload:PAC.Geometry.Shapes.IsometricHexagon.boundingRect
+  isSpec: "True"
+  fullName: PAC.Geometry.Shapes.IsometricHexagon.boundingRect
+  nameWithType: IsometricHexagon.boundingRect
+- uid: PAC.Geometry.Shapes.IsometricHexagon.filled
+  name: filled
+  href: api/PAC.Geometry.Shapes.IsometricHexagon.html#PAC_Geometry_Shapes_IsometricHexagon_filled
+  commentId: P:PAC.Geometry.Shapes.IsometricHexagon.filled
+  fullName: PAC.Geometry.Shapes.IsometricHexagon.filled
+  nameWithType: IsometricHexagon.filled
+- uid: PAC.Geometry.Shapes.IsometricHexagon.filled*
+  name: filled
+  href: api/PAC.Geometry.Shapes.IsometricHexagon.html#PAC_Geometry_Shapes_IsometricHexagon_filled_
+  commentId: Overload:PAC.Geometry.Shapes.IsometricHexagon.filled
+  isSpec: "True"
+  fullName: PAC.Geometry.Shapes.IsometricHexagon.filled
+  nameWithType: IsometricHexagon.filled
+- uid: PAC.Geometry.Shapes.IsometricHexagon.op_Addition(PAC.Geometry.IntVector2,PAC.Geometry.Shapes.IsometricHexagon)
+  name: operator +(IntVector2, IsometricHexagon)
+  href: api/PAC.Geometry.Shapes.IsometricHexagon.html#PAC_Geometry_Shapes_IsometricHexagon_op_Addition_PAC_Geometry_IntVector2_PAC_Geometry_Shapes_IsometricHexagon_
+  commentId: M:PAC.Geometry.Shapes.IsometricHexagon.op_Addition(PAC.Geometry.IntVector2,PAC.Geometry.Shapes.IsometricHexagon)
+  name.vb: +(IntVector2, IsometricHexagon)
+  fullName: PAC.Geometry.Shapes.IsometricHexagon.operator +(PAC.Geometry.IntVector2, PAC.Geometry.Shapes.IsometricHexagon)
+  fullName.vb: PAC.Geometry.Shapes.IsometricHexagon.+(PAC.Geometry.IntVector2, PAC.Geometry.Shapes.IsometricHexagon)
+  nameWithType: IsometricHexagon.operator +(IntVector2, IsometricHexagon)
+  nameWithType.vb: IsometricHexagon.+(IntVector2, IsometricHexagon)
+- uid: PAC.Geometry.Shapes.IsometricHexagon.op_Addition(PAC.Geometry.Shapes.IsometricHexagon,PAC.Geometry.IntVector2)
+  name: operator +(IsometricHexagon, IntVector2)
+  href: api/PAC.Geometry.Shapes.IsometricHexagon.html#PAC_Geometry_Shapes_IsometricHexagon_op_Addition_PAC_Geometry_Shapes_IsometricHexagon_PAC_Geometry_IntVector2_
+  commentId: M:PAC.Geometry.Shapes.IsometricHexagon.op_Addition(PAC.Geometry.Shapes.IsometricHexagon,PAC.Geometry.IntVector2)
+  name.vb: +(IsometricHexagon, IntVector2)
+  fullName: PAC.Geometry.Shapes.IsometricHexagon.operator +(PAC.Geometry.Shapes.IsometricHexagon, PAC.Geometry.IntVector2)
+  fullName.vb: PAC.Geometry.Shapes.IsometricHexagon.+(PAC.Geometry.Shapes.IsometricHexagon, PAC.Geometry.IntVector2)
+  nameWithType: IsometricHexagon.operator +(IsometricHexagon, IntVector2)
+  nameWithType.vb: IsometricHexagon.+(IsometricHexagon, IntVector2)
+- uid: PAC.Geometry.Shapes.IsometricHexagon.op_Addition*
+  name: operator +
+  href: api/PAC.Geometry.Shapes.IsometricHexagon.html#PAC_Geometry_Shapes_IsometricHexagon_op_Addition_
+  commentId: Overload:PAC.Geometry.Shapes.IsometricHexagon.op_Addition
+  isSpec: "True"
+  name.vb: +
+  fullName: PAC.Geometry.Shapes.IsometricHexagon.operator +
+  fullName.vb: PAC.Geometry.Shapes.IsometricHexagon.+
+  nameWithType: IsometricHexagon.operator +
+  nameWithType.vb: IsometricHexagon.+
+- uid: PAC.Geometry.Shapes.IsometricHexagon.op_Equality(PAC.Geometry.Shapes.IsometricHexagon,PAC.Geometry.Shapes.IsometricHexagon)
+  name: operator ==(IsometricHexagon, IsometricHexagon)
+  href: api/PAC.Geometry.Shapes.IsometricHexagon.html#PAC_Geometry_Shapes_IsometricHexagon_op_Equality_PAC_Geometry_Shapes_IsometricHexagon_PAC_Geometry_Shapes_IsometricHexagon_
+  commentId: M:PAC.Geometry.Shapes.IsometricHexagon.op_Equality(PAC.Geometry.Shapes.IsometricHexagon,PAC.Geometry.Shapes.IsometricHexagon)
+  name.vb: =(IsometricHexagon, IsometricHexagon)
+  fullName: PAC.Geometry.Shapes.IsometricHexagon.operator ==(PAC.Geometry.Shapes.IsometricHexagon, PAC.Geometry.Shapes.IsometricHexagon)
+  fullName.vb: PAC.Geometry.Shapes.IsometricHexagon.=(PAC.Geometry.Shapes.IsometricHexagon, PAC.Geometry.Shapes.IsometricHexagon)
+  nameWithType: IsometricHexagon.operator ==(IsometricHexagon, IsometricHexagon)
+  nameWithType.vb: IsometricHexagon.=(IsometricHexagon, IsometricHexagon)
+- uid: PAC.Geometry.Shapes.IsometricHexagon.op_Equality*
+  name: operator ==
+  href: api/PAC.Geometry.Shapes.IsometricHexagon.html#PAC_Geometry_Shapes_IsometricHexagon_op_Equality_
+  commentId: Overload:PAC.Geometry.Shapes.IsometricHexagon.op_Equality
+  isSpec: "True"
+  name.vb: =
+  fullName: PAC.Geometry.Shapes.IsometricHexagon.operator ==
+  fullName.vb: PAC.Geometry.Shapes.IsometricHexagon.=
+  nameWithType: IsometricHexagon.operator ==
+  nameWithType.vb: IsometricHexagon.=
+- uid: PAC.Geometry.Shapes.IsometricHexagon.op_Inequality(PAC.Geometry.Shapes.IsometricHexagon,PAC.Geometry.Shapes.IsometricHexagon)
+  name: operator !=(IsometricHexagon, IsometricHexagon)
+  href: api/PAC.Geometry.Shapes.IsometricHexagon.html#PAC_Geometry_Shapes_IsometricHexagon_op_Inequality_PAC_Geometry_Shapes_IsometricHexagon_PAC_Geometry_Shapes_IsometricHexagon_
+  commentId: M:PAC.Geometry.Shapes.IsometricHexagon.op_Inequality(PAC.Geometry.Shapes.IsometricHexagon,PAC.Geometry.Shapes.IsometricHexagon)
+  name.vb: <>(IsometricHexagon, IsometricHexagon)
+  fullName: PAC.Geometry.Shapes.IsometricHexagon.operator !=(PAC.Geometry.Shapes.IsometricHexagon, PAC.Geometry.Shapes.IsometricHexagon)
+  fullName.vb: PAC.Geometry.Shapes.IsometricHexagon.<>(PAC.Geometry.Shapes.IsometricHexagon, PAC.Geometry.Shapes.IsometricHexagon)
+  nameWithType: IsometricHexagon.operator !=(IsometricHexagon, IsometricHexagon)
+  nameWithType.vb: IsometricHexagon.<>(IsometricHexagon, IsometricHexagon)
+- uid: PAC.Geometry.Shapes.IsometricHexagon.op_Inequality*
+  name: operator !=
+  href: api/PAC.Geometry.Shapes.IsometricHexagon.html#PAC_Geometry_Shapes_IsometricHexagon_op_Inequality_
+  commentId: Overload:PAC.Geometry.Shapes.IsometricHexagon.op_Inequality
+  isSpec: "True"
+  name.vb: <>
+  fullName: PAC.Geometry.Shapes.IsometricHexagon.operator !=
+  fullName.vb: PAC.Geometry.Shapes.IsometricHexagon.<>
+  nameWithType: IsometricHexagon.operator !=
+  nameWithType.vb: IsometricHexagon.<>
+- uid: PAC.Geometry.Shapes.IsometricHexagon.op_Subtraction(PAC.Geometry.Shapes.IsometricHexagon,PAC.Geometry.IntVector2)
+  name: operator -(IsometricHexagon, IntVector2)
+  href: api/PAC.Geometry.Shapes.IsometricHexagon.html#PAC_Geometry_Shapes_IsometricHexagon_op_Subtraction_PAC_Geometry_Shapes_IsometricHexagon_PAC_Geometry_IntVector2_
+  commentId: M:PAC.Geometry.Shapes.IsometricHexagon.op_Subtraction(PAC.Geometry.Shapes.IsometricHexagon,PAC.Geometry.IntVector2)
+  name.vb: -(IsometricHexagon, IntVector2)
+  fullName: PAC.Geometry.Shapes.IsometricHexagon.operator -(PAC.Geometry.Shapes.IsometricHexagon, PAC.Geometry.IntVector2)
+  fullName.vb: PAC.Geometry.Shapes.IsometricHexagon.-(PAC.Geometry.Shapes.IsometricHexagon, PAC.Geometry.IntVector2)
+  nameWithType: IsometricHexagon.operator -(IsometricHexagon, IntVector2)
+  nameWithType.vb: IsometricHexagon.-(IsometricHexagon, IntVector2)
+- uid: PAC.Geometry.Shapes.IsometricHexagon.op_Subtraction*
+  name: operator -
+  href: api/PAC.Geometry.Shapes.IsometricHexagon.html#PAC_Geometry_Shapes_IsometricHexagon_op_Subtraction_
+  commentId: Overload:PAC.Geometry.Shapes.IsometricHexagon.op_Subtraction
+  isSpec: "True"
+  name.vb: '-'
+  fullName: PAC.Geometry.Shapes.IsometricHexagon.operator -
+  fullName.vb: PAC.Geometry.Shapes.IsometricHexagon.-
+  nameWithType: IsometricHexagon.operator -
+  nameWithType.vb: IsometricHexagon.-
+- uid: PAC.Geometry.Shapes.IsometricHexagon.op_UnaryNegation(PAC.Geometry.Shapes.IsometricHexagon)
+  name: operator -(IsometricHexagon)
+  href: api/PAC.Geometry.Shapes.IsometricHexagon.html#PAC_Geometry_Shapes_IsometricHexagon_op_UnaryNegation_PAC_Geometry_Shapes_IsometricHexagon_
+  commentId: M:PAC.Geometry.Shapes.IsometricHexagon.op_UnaryNegation(PAC.Geometry.Shapes.IsometricHexagon)
+  name.vb: -(IsometricHexagon)
+  fullName: PAC.Geometry.Shapes.IsometricHexagon.operator -(PAC.Geometry.Shapes.IsometricHexagon)
+  fullName.vb: PAC.Geometry.Shapes.IsometricHexagon.-(PAC.Geometry.Shapes.IsometricHexagon)
+  nameWithType: IsometricHexagon.operator -(IsometricHexagon)
+  nameWithType.vb: IsometricHexagon.-(IsometricHexagon)
+- uid: PAC.Geometry.Shapes.IsometricHexagon.op_UnaryNegation*
+  name: operator -
+  href: api/PAC.Geometry.Shapes.IsometricHexagon.html#PAC_Geometry_Shapes_IsometricHexagon_op_UnaryNegation_
+  commentId: Overload:PAC.Geometry.Shapes.IsometricHexagon.op_UnaryNegation
+  isSpec: "True"
+  name.vb: '-'
+  fullName: PAC.Geometry.Shapes.IsometricHexagon.operator -
+  fullName.vb: PAC.Geometry.Shapes.IsometricHexagon.-
+  nameWithType: IsometricHexagon.operator -
+  nameWithType.vb: IsometricHexagon.-
 - uid: PAC.Geometry.Shapes.IsometricRectangle
   name: IsometricRectangle
   href: api/PAC.Geometry.Shapes.IsometricRectangle.html
@@ -21595,6 +22013,12 @@ references:
   commentId: F:PAC.Managers.Shape.Ellipse
   fullName: PAC.Managers.Shape.Ellipse
   nameWithType: Shape.Ellipse
+- uid: PAC.Managers.Shape.IsometricHexagon
+  name: IsometricHexagon
+  href: api/PAC.Managers.Shape.html#PAC_Managers_Shape_IsometricHexagon
+  commentId: F:PAC.Managers.Shape.IsometricHexagon
+  fullName: PAC.Managers.Shape.IsometricHexagon
+  nameWithType: Shape.IsometricHexagon
 - uid: PAC.Managers.Shape.Rectangle
   name: Rectangle
   href: api/PAC.Managers.Shape.html#PAC_Managers_Shape_Rectangle
