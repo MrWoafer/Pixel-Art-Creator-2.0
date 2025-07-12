@@ -636,7 +636,7 @@ so that it's equivalent to
 
   <h3 id="PAC_DataStructures_IntRange_Item_System_Int32_" data-uid="PAC.DataStructures.IntRange.Item(System.Int32)">
   this[int]
-  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Data Structures/IntRange.cs/#L667"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Data Structures/IntRange.cs/#L695"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Indexes the elements of the range from <a class="xref" href="PAC.DataStructures.IntRange.html#PAC_DataStructures_IntRange_startElement">startElement</a> to <a class="xref" href="PAC.DataStructures.IntRange.html#PAC_DataStructures_IntRange_endElement">endElement</a>.</p>
@@ -683,7 +683,7 @@ so that it's equivalent to
 
   <h3 id="PAC_DataStructures_IntRange_Item_System_Int64_" data-uid="PAC.DataStructures.IntRange.Item(System.Int64)">
   this[long]
-  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Data Structures/IntRange.cs/#L676"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Data Structures/IntRange.cs/#L704"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Indexes the elements of the range from <a class="xref" href="PAC.DataStructures.IntRange.html#PAC_DataStructures_IntRange_startElement">startElement</a> to <a class="xref" href="PAC.DataStructures.IntRange.html#PAC_DataStructures_IntRange_endElement">endElement</a>.</p>
@@ -1987,7 +1987,7 @@ more details.</p>
 
   <h3 id="PAC_DataStructures_IntRange_GetEnumerator" data-uid="PAC.DataStructures.IntRange.GetEnumerator">
   GetEnumerator()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Data Structures/IntRange.cs/#L709"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Data Structures/IntRange.cs/#L737"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Iterates throught the elements from <a class="xref" href="PAC.DataStructures.IntRange.html#PAC_DataStructures_IntRange_startElement">startElement</a> to <a class="xref" href="PAC.DataStructures.IntRange.html#PAC_DataStructures_IntRange_endElement">endElement</a>.</p>
@@ -2664,6 +2664,52 @@ If <code>T1</code> implements <code>ISetComparable&lt;T2&gt;</code> and <code>T2
   </dl>
 
 
+  <a id="PAC_DataStructures_IntRange_RandomDistinctOrderedPair_" data-uid="PAC.DataStructures.IntRange.RandomDistinctOrderedPair*"></a>
+
+  <h3 id="PAC_DataStructures_IntRange_RandomDistinctOrderedPair_System_Random_" data-uid="PAC.DataStructures.IntRange.RandomDistinctOrderedPair(System.Random)">
+  RandomDistinctOrderedPair(Random)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Data Structures/IntRange.cs/#L664"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns an ordered pair <code>(x, y)</code>, with <code>x</code> and <code>y</code> in this <a class="xref" href="PAC.DataStructures.IntRange.html">IntRange</a> and with <code>x != y</code>, uniformly at random from all such ordered pairs.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public (int, int) RandomDistinctOrderedPair(Random random)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>random</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.random">Random</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt>(<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetuple-system.int32,system.int32-.x">x</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetuple-system.int32,system.int32-.y">y</a>)</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="PAC_DataStructures_IntRange_RandomDistinctOrderedPair_System_Random__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>Note that, e.g., <code>(1, 2)</code> and <code>(2, 1)</code> are different ordered pairs so could both be returned.</p>
+</div>
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.invalidoperationexception">InvalidOperationException</a></dt>
+    <dd><p>The range has &lt;= 1 element.</p>
+</dd>
+  </dl>
+
+
+
   <a id="PAC_DataStructures_IntRange_SequenceEqual_" data-uid="PAC.DataStructures.IntRange.SequenceEqual*"></a>
 
   <h3 id="PAC_DataStructures_IntRange_SequenceEqual_PAC_DataStructures_IntRange_PAC_DataStructures_IntRange_" data-uid="PAC.DataStructures.IntRange.SequenceEqual(PAC.DataStructures.IntRange,PAC.DataStructures.IntRange)">
@@ -2897,7 +2943,7 @@ If <code>T1</code> implements <code>ISetComparable&lt;T2&gt;</code> and <code>T2
 
   <h3 id="PAC_DataStructures_IntRange_ToString" data-uid="PAC.DataStructures.IntRange.ToString">
   ToString()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Data Structures/IntRange.cs/#L745"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MrWoafer/Pixel-Art-Creator-2.0/blob/main/Assets/Scripts/Data Structures/IntRange.cs/#L773"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>

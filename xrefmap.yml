@@ -2509,6 +2509,19 @@ references:
   isSpec: "True"
   fullName: PAC.DataStructures.IntRange.MoreThan
   nameWithType: IntRange.MoreThan
+- uid: PAC.DataStructures.IntRange.RandomDistinctOrderedPair(System.Random)
+  name: RandomDistinctOrderedPair(Random)
+  href: api/PAC.DataStructures.IntRange.html#PAC_DataStructures_IntRange_RandomDistinctOrderedPair_System_Random_
+  commentId: M:PAC.DataStructures.IntRange.RandomDistinctOrderedPair(System.Random)
+  fullName: PAC.DataStructures.IntRange.RandomDistinctOrderedPair(System.Random)
+  nameWithType: IntRange.RandomDistinctOrderedPair(Random)
+- uid: PAC.DataStructures.IntRange.RandomDistinctOrderedPair*
+  name: RandomDistinctOrderedPair
+  href: api/PAC.DataStructures.IntRange.html#PAC_DataStructures_IntRange_RandomDistinctOrderedPair_
+  commentId: Overload:PAC.DataStructures.IntRange.RandomDistinctOrderedPair
+  isSpec: "True"
+  fullName: PAC.DataStructures.IntRange.RandomDistinctOrderedPair
+  nameWithType: IntRange.RandomDistinctOrderedPair
 - uid: PAC.DataStructures.IntRange.SequenceEqual(PAC.DataStructures.IntRange,PAC.DataStructures.IntRange)
   name: SequenceEqual(IntRange, IntRange)
   href: api/PAC.DataStructures.IntRange.html#PAC_DataStructures_IntRange_SequenceEqual_PAC_DataStructures_IntRange_PAC_DataStructures_IntRange_
