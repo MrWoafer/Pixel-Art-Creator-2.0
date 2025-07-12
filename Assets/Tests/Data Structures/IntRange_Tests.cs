@@ -391,6 +391,50 @@ namespace PAC.Tests.DataStructures
         }
         #endregion
 
+        #region Random
+        /// <summary>
+        /// Tests <see cref="IntRange.RandomDistinctOrderedPair(Random)"/>.
+        /// </summary>
+        [Test]
+        [Category("Data Structures"), Category("Random")]
+        public void RandomDistinctOrderedPair()
+        {
+            for (int seed = 0; seed <= 2; seed++)
+            {
+                Random random = new Random(seed);
+
+                foreach (IntRange range in testCases.Take(100))
+                {
+                    if (range.Count <= 1)
+                    {
+                        Assert.Throws<InvalidOperationException>(() => range.RandomDistinctOrderedPair(random), $"Failed with {range}.");
+                        continue;
+                    }
+
+                    Dictionary<(int, int), int> counts = new Dictionary<(int, int), int>();
+
+                    const int numIterations = 10_000;
+                    for (int i = 0; i < numIterations; i++)
+                    {
+                        (int x, int y) randomOrderedPair = range.RandomDistinctOrderedPair(random);
+                        Assert.True(range.Contains(randomOrderedPair.x), $"Failed with {range} and {randomOrderedPair}.");
+                        Assert.True(range.Contains(randomOrderedPair.y), $"Failed with {range} and {randomOrderedPair}.");
+
+                        counts[randomOrderedPair] = counts.GetValueOrDefault(randomOrderedPair, 0) + 1;
+                    }
+
+                    int numDistinctOrderedPairs = range.Count * (range.Count - 1);
+                    float expected = 1f / numDistinctOrderedPairs;
+                    float tolerance = 0.02f;
+                    foreach ((int, int) orderedPair in counts.Keys)
+                    {
+                        Assert.AreEqual(expected, counts.GetValueOrDefault(orderedPair, 0) / (float)numIterations, tolerance, $"Failed with {range} and {orderedPair}.");
+                    }
+                }
+            }
+        }
+        #endregion
+
         #region Tests: Enumerator
         [Test]
         [Category("Data Structures")]

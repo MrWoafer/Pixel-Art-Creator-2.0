@@ -655,6 +655,34 @@ namespace PAC.DataStructures
         public int Clamp(int n) => isEmpty ? throw new InvalidOperationException("The range is empty.") : Math.Clamp(n, minElement, maxElement);
         #endregion
 
+        #region Random
+        /// <summary>
+        /// Returns an ordered pair <c>(x, y)</c>, with <c>x</c> and <c>y</c> in this <see cref="IntRange"/> and with <c>x != y</c>, uniformly at random from all such ordered pairs.
+        /// </summary>
+        /// <remarks>Note that, e.g., <c>(1, 2)</c> and <c>(2, 1)</c> are different ordered pairs so could both be returned.</remarks>
+        /// <exception cref="InvalidOperationException">The range has &lt;= 1 element.</exception>
+        public (int, int) RandomDistinctOrderedPair(Random random)
+        {
+            if (isEmpty)
+            {
+                throw new InvalidOperationException("The range is empty.");
+            }
+            if (Count == 1)
+            {
+                throw new InvalidOperationException("There is only one element in the range.");
+            }
+
+            int value1 = random.Next(minElement, maxElement + 1);
+            int value2 = random.Next(minElement, maxElement);
+            if (value2 >= value1)
+            {
+                value2++;
+            }
+
+            return (value1, value2);
+        }
+        #endregion
+
         #region Enumerator
         /// <summary>
         /// Indexes the elements of the range from <see cref="startElement"/> to <see cref="endElement"/>.
