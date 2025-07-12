@@ -503,9 +503,19 @@ namespace PAC.Geometry
         /// </summary>
         public IntVector2 RandomPoint(System.Random random) => new IntVector2(random.Next(minX, maxX + 1), random.Next(minY, maxY + 1));
         /// <summary>
-        /// Returns the rect defined by two independently uniformly randomly generated points within the rect.
+        /// Returns a rect uniformly at random from the set of all (weak) sub-rects.
         /// </summary>
-        public IntRect RandomSubRect(System.Random random) => new IntRect(RandomPoint(random), RandomPoint(random));
+        public IntRect RandomSubRect(System.Random random)
+        {
+            // We pick the two vertical edges of the rect, taking an int as referring to the left edge of a grid square
+            (int verticalEdge1, int verticalEdge2) = xRange.Extend(0, 1).RandomDistinctOrderedPair(random);
+            // Similarly, we pick the horizontal edges, taking an int as referring to the bottom edge of a grid square
+            (int horizontalEdge1, int horizontalEdge2) = yRange.Extend(0, 1).RandomDistinctOrderedPair(random);
+
+            IntVector2 bottomLeft = new IntVector2(Math.Min(verticalEdge1, verticalEdge2), Math.Min(horizontalEdge1, horizontalEdge2));
+            IntVector2 topRight = new IntVector2(Math.Max(verticalEdge1, verticalEdge2) - 1, Math.Max(horizontalEdge1, horizontalEdge2) - 1);
+            return new IntRect(bottomLeft, topRight);
+        }
         #endregion
 
         #region Enumerator

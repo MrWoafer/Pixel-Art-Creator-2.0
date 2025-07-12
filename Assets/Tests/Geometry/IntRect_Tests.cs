@@ -283,66 +283,39 @@ namespace PAC.Tests.Geometry
         }
 
         /// <summary>
-        /// Tests <see cref="IntRect.RandomSubRect(Random)"/> is indeed a subrect of the rect.
+        /// Tests <see cref="IntRect.RandomSubRect(Random)"/>.
         /// </summary>
         [Test]
         [Category("Data Structures"), Category("Random")]
-        public void RandomSubRect_IsSubRect()
+        public void RandomSubRect()
         {
             for (int seed = 0; seed <= 2; seed++)
             {
                 Random random = new Random(seed);
 
-                foreach (IntVector2 bottomLeft in new IntRect(new IntVector2(-1, -1), IntVector2.zero))
+                foreach (IntVector2 bottomLeft in new IntRect((-1, -1), (0, 0)))
                 {
-                    foreach (IntVector2 topRight in bottomLeft + new IntRect(IntVector2.zero, new IntVector2(2, 3)))
+                    foreach (IntVector2 topRight in bottomLeft + new IntRect((0, 0), (2, 3)))
                     {
                         IntRect rect = new IntRect(bottomLeft, topRight);
 
-                        for (int i = 0; i < 10_000; i++)
+                        Dictionary<IntRect, int> counts = new Dictionary<IntRect, int>();
+
+                        const int numIterations = 10_000;
+                        for (int i = 0; i < numIterations; i++)
                         {
                             IntRect randomSubRect = rect.RandomSubRect(random);
-                            Assert.True(randomSubRect.ToHashSet().IsSubsetOf(rect), $"Failed with {rect} and {randomSubRect}.");
-                        }
-                    }
-                }
-            }
-        }
+                            Assert.True(randomSubRect.IsSubsetOf(rect), $"Failed with {rect} and {randomSubRect}.");
 
-        /// <summary>
-        /// Tests that <see cref="IntRect.RandomSubRect(Random)"/> is not always a single point.
-        /// </summary>
-        [Test]
-        [Category("Data Structures"), Category("Random")]
-        public void RandomSubRect_IsNotAlwaysSinglePoint()
-        {
-            for (int seed = 0; seed <= 2; seed++)
-            {
-                Random random = new Random(seed);
-
-                foreach (IntVector2 bottomLeft in new IntRect(new IntVector2(-1, -1), IntVector2.zero))
-                {
-                    foreach (IntVector2 topRight in bottomLeft + new IntRect(IntVector2.zero, new IntVector2(2, 3)))
-                    {
-                        IntRect rect = new IntRect(bottomLeft, topRight);
-                        if (rect.Count == 1)
-                        {
-                            continue;
+                            counts[randomSubRect] = counts.GetValueOrDefault(randomSubRect, 0) + 1;
                         }
 
-                        bool passed = false;
-                        for (int i = 0; i < 10_000; i++)
+                        int numSubRects = (rect.width * (rect.width + 1)) / 2 * (rect.height * (rect.height + 1)) / 2;
+                        float expected = 1f / numSubRects;
+                        float tolerance = 0.02f;
+                        foreach (IntRect subRect in counts.Keys)
                         {
-                            IntRect randomSubRect = rect.RandomSubRect(random);
-                            if (randomSubRect.Count > 1)
-                            {
-                                passed = true;
-                            }
-                        }
-
-                        if (!passed)
-                        {
-                            Assert.Fail($"Failed with {rect}.");
+                            Assert.AreEqual(expected, counts.GetValueOrDefault(subRect, 0) / (float)numIterations, tolerance, $"Failed with {rect} and {subRect}.");
                         }
                     }
                 }
