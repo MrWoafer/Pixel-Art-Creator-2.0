@@ -453,24 +453,24 @@ namespace PAC.Input
                 }
                 else if (cursorState == CursorState.CurrentTool)
                 {
-                    if (toolbar.selectedTool == Tool.Pencil) { SetCursor(cursorSpritePencil, cursorHotSpotPencil); }
-                    else if (toolbar.selectedTool == Tool.Brush) { SetCursor(cursorSpriteBrush, cursorHotSpotBrush); }
-                    else if (toolbar.selectedTool == Tool.Rubber) { SetCursor(cursorSpriteRubber, cursorHotSpotRubber); }
-                    else if (toolbar.selectedTool == Tool.EyeDropper) { SetCursor(cursorSpriteEyeDropper, cursorHotSpotEyeDropper); }
-                    else if (toolbar.selectedTool == Tool.Fill) { SetCursor(cursorSpriteFill, cursorHotSpotFill); }
-                    else if (toolbar.selectedTool == Tool.Shape)
+                    if (toolbar.selectedTool is PencilTool) { SetCursor(cursorSpritePencil, cursorHotSpotPencil); }
+                    else if (toolbar.selectedTool is BrushTool) { SetCursor(cursorSpriteBrush, cursorHotSpotBrush); }
+                    else if (toolbar.selectedTool is RubberTool) { SetCursor(cursorSpriteRubber, cursorHotSpotRubber); }
+                    else if (toolbar.selectedTool is EyeDropperTool) { SetCursor(cursorSpriteEyeDropper, cursorHotSpotEyeDropper); }
+                    else if (toolbar.selectedTool is FillTool) { SetCursor(cursorSpriteFill, cursorHotSpotFill); }
+                    else if (toolbar.selectedTool is ShapeTool)
                     {
                         Tuple<Texture2D, Vector2> shapeCursor = ShapeCursor(toolbar.shapeToolShape);
                         SetCursor(shapeCursor.Item1, shapeCursor.Item2);
                     }
-                    else if (toolbar.selectedTool == Tool.IsoBox) { SetCursor(cursorSpriteIsoBox, cursorHotSpotIsoBox); }
-                    else if (toolbar.selectedTool == Tool.Move) { SetCursor(cursorSpriteCrossArrows, cursorHotSpotCrossArrows); }
-                    else if (toolbar.selectedTool == Tool.Selection)
+                    else if (toolbar.selectedTool is IsometricCuboidTool) { SetCursor(cursorSpriteIsoBox, cursorHotSpotIsoBox); }
+                    else if (toolbar.selectedTool is MoveTool) { SetCursor(cursorSpriteCrossArrows, cursorHotSpotCrossArrows); }
+                    else if (toolbar.selectedTool is SelectionTool)
                     {
                         Tuple<Texture2D, Vector2> selectionCursor = SelectionCursor(toolbar.selectionMode);
                         SetCursor(selectionCursor.Item1, selectionCursor.Item2);
                     }
-                    else if (toolbar.selectedTool == Tool.Gradient)
+                    else if (toolbar.selectedTool is GradientTool)
                     {
                         Tuple<Texture2D, Vector2> gradientCursor = GradientCursor(toolbar.gradientMode);
                         SetCursor(gradientCursor.Item1, gradientCursor.Item2);

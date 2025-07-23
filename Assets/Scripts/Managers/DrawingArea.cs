@@ -90,7 +90,7 @@ namespace PAC.Managers
         // Tool tracker variables
         private Color previousColourUsedForTool;
         private MouseButton previousMouseButtonUsedForTool;
-        private Tool previousToolUsed = Tool.None;
+        private Tool previousToolUsed = new NoneTool();
         private bool hasUnclickedSinceUsingTool = true;
         private bool hasUsedKeyboardSinceUsingTool = false;
         private bool deselectedSelectionThisFrame = false;
@@ -172,7 +172,7 @@ namespace PAC.Managers
         private IntVector2 tileBeingMovedLastValidPosition;
 
         // Line smoothing variables
-        private Line lineSmoothingPreviousLine = null;
+        private Geometry.Shapes.Line lineSmoothingPreviousLine = null;
         private bool lineSmoothingPreviousLineWasSmoothed = false;
         private Color lineSmoothingColourUnderLineEnd = Config.Colours.transparent;
         private float lineSmoothingCountdown = 0f;
@@ -274,7 +274,7 @@ namespace PAC.Managers
 
                             // Pencil line smoothing
                             bool smoothed = false;
-                            if (toolbar.selectedTool == Tool.Pencil)
+                            if (toolbar.selectedTool is PencilTool)
                             {
                                 smoothed = Tools.Tools.PencilLineSmoothing(line, lineSmoothingPreviousLine, lineSmoothingPreviousLineWasSmoothed);
 
@@ -522,7 +522,7 @@ namespace PAC.Managers
                     UpdateDrawingMoveTool(WorldPosToPixels(mouse.worldPos));
                 }*/
 
-                    if (toolbar.selectedTool == Tool.Move && !selectedLayer.locked)
+                    if (toolbar.selectedTool is MoveTool && !selectedLayer.locked)
                     {
                         if (selectedLayer.layerType == LayerType.Tile)
                         {
@@ -652,7 +652,7 @@ namespace PAC.Managers
                 ClearPreview();
                 finishedUsingTool = true;
 
-                if (toolbar.selectedTool == Tool.IsoBox)
+                if (toolbar.selectedTool is IsometricCuboidTool)
                 {
                     isoBoxPlacedBase = false;
                     inputSystem.Untarget();
@@ -689,7 +689,7 @@ namespace PAC.Managers
             }
 
             /// To be implemented
-            if (toolbar.selectedTool == Tool.Move && hasSelection)
+            if (toolbar.selectedTool is MoveTool && hasSelection)
             {
                 if (inputSystem.globalKeyboardTarget.IsPressed(KeyCode.LeftArrow))
                 {
@@ -718,7 +718,7 @@ namespace PAC.Managers
 
         private void HoverTool(Tool tool, IntVector2 pixel, int layer, int frame, Color colour)
         {
-            if (tool == Tool.IsoBox)
+            if (tool is IsometricCuboidTool)
             {
                 if (isoBoxPlacedBase)
                 {
@@ -731,30 +731,30 @@ namespace PAC.Managers
         {
             finishedUsingTool = false;
 
-            if (tool == Tool.Pencil)
+            if (tool is PencilTool)
             {
                 if (leftClickedOn) { Tools.Tools.UsePencil(file, layer, frame, pixel, colour); }
                 else if (rightClickedOn) { Tools.Tools.UseRubber(file, layer, frame, pixel); }
             }
-            else if (tool == Tool.Brush)
+            else if (tool is BrushTool)
             {
                 if (leftClickedOn) { Tools.Tools.UseBrush(file, layer, frame, pixel, toolbar.brushPixels, colour); }
                 else if (rightClickedOn) { Tools.Tools.UseRubber(file, layer, frame, pixel, toolbar.brushPixels); }
             }
-            else if (tool == Tool.Rubber)
+            else if (tool is RubberTool)
             {
                 if (leftClickedOn || rightClickedOn) { Tools.Tools.UseRubber(file, layer, frame, pixel, toolbar.brushPixels); }
             }
-            else if (tool == Tool.EyeDropper)
+            else if (tool is EyeDropperTool)
             {
                 if (leftClickedOn) { colourPicker.SetColour(Tools.Tools.UseEyeDropper(file, layer, frame, pixel)); }
             }
-            else if (tool == Tool.Fill)
+            else if (tool is FillTool)
             {
                 if (leftClickedOn) { Tools.Tools.UseFill(file, layer, frame, pixel, colour, toolbar.floodFillDiagonallyAdjacent); }
                 else if (rightClickedOn) { Tools.Tools.UseFill(file, layer, frame, pixel, Config.Colours.transparent, toolbar.floodFillDiagonallyAdjacent); }
             }
-            else if (tool == Tool.Line)
+            else if (tool is LineTool)
             {
                 if (leftClickedOn)
                 {
@@ -766,7 +766,7 @@ namespace PAC.Managers
                     PreviewShape(new Line(mouseDragPoints[0], end), colour);
                 }
             }
-            else if (tool == Tool.Shape && (leftClickedOn || rightClickedOn))
+            else if (tool is ShapeTool && (leftClickedOn || rightClickedOn))
             {
                 if (toolbar.shapeToolShape == ShapeMode.Rectangle)
                 {
@@ -809,12 +809,12 @@ namespace PAC.Managers
                     PreviewShape(new IsometricHexagon(new IntRect(mouseDragPoints[0], end), rightClickedOn), colour);
                 }
             }
-            else if (tool == Tool.IsoBox && (leftClickedOn || rightClickedOn))
+            else if (tool is IsometricCuboidTool && (leftClickedOn || rightClickedOn))
             {
                 if (!isoBoxPlacedBase) { PreviewShape(new IsometricCuboid(new IsometricRectangle(mouseDragPoints[0], pixel, false), 0, rightClickedOn, holdingCtrl), colour); }
                 else { PreviewShape(new IsometricCuboid(new IsometricRectangle(mouseDragPoints[0], mouseDragPoints[1], false), pixel.y - mouseDragPoints[1].y, rightClickedOn, holdingCtrl), colour); }
             }
-            else if (tool == Tool.Gradient && (leftClickedOn || rightClickedOn))
+            else if (tool is GradientTool && (leftClickedOn || rightClickedOn))
             {
                 Color startColour = leftClickedOn ? colourPicker.primaryColour : colourPicker.secondaryColour;
                 Color endColour = leftClickedOn ? colourPicker.secondaryColour : colourPicker.primaryColour;
@@ -828,7 +828,7 @@ namespace PAC.Managers
 
                 PreviewPattern(gradient);
             }
-            else if (tool == Tool.Selection && (leftClickedOn || rightClickedOn))
+            else if (tool is SelectionTool && (leftClickedOn || rightClickedOn))
             {
                 if (toolbar.selectionMode == SelectionMode.Draw)
                 {
@@ -857,7 +857,7 @@ namespace PAC.Managers
                     SelectionShape(new Ellipse(new IntRect(mouseDragPoints[0], end), true), rightClickedOn);
                 }
             }
-            else if (tool == Tool.Move)
+            else if (tool is MoveTool)
             {
                 if (leftClickedOn) { PreviewMove(pixel); }
             }
@@ -868,7 +868,7 @@ namespace PAC.Managers
         /// </summary>
         private void UnclickTool(Tool tool, IntVector2 pixel, int layer, int frame, Color colour)
         {
-            if (tool == Tool.Line && leftClickedOn)
+            if (tool is LineTool && leftClickedOn)
             {
                 IntVector2 end = pixel;
                 if (holdingCtrl)
@@ -878,7 +878,7 @@ namespace PAC.Managers
                 Tools.Tools.UseShape(file, layer, frame, new Line(mouseDragPoints[0], end), colour);
                 UpdateDrawing();
             }
-            else if (tool == Tool.Shape && (leftClickedOn || rightClickedOn))
+            else if (tool is ShapeTool && (leftClickedOn || rightClickedOn))
             {
                 if (toolbar.shapeToolShape == ShapeMode.Rectangle)
                 {
@@ -931,7 +931,7 @@ namespace PAC.Managers
                     UpdateDrawing();
                 }
             }
-            else if (tool == Tool.IsoBox && (leftClickedOn || rightClickedOn))
+            else if (tool is IsometricCuboidTool && (leftClickedOn || rightClickedOn))
             {
                 if (!isoBoxPlacedBase)
                 {
@@ -949,7 +949,7 @@ namespace PAC.Managers
                     inputSystem.Untarget();
                 }
             }
-            else if (tool == Tool.Move && leftClickedOn)
+            else if (tool is MoveTool && leftClickedOn)
             {
                 /*if (hasSelection)
             {
@@ -968,7 +968,7 @@ namespace PAC.Managers
 
                 UpdateDrawing();
             }
-            if (tool == Tool.Gradient && (leftClickedOn || rightClickedOn))
+            if (tool is GradientTool && (leftClickedOn || rightClickedOn))
             {
                 Color startColour = leftClickedOn ? colourPicker.primaryColour : colourPicker.secondaryColour;
                 Color endColour = leftClickedOn ? colourPicker.secondaryColour : colourPicker.primaryColour;

@@ -127,7 +127,7 @@ namespace PAC.UI.Components.Specialised.ColourPicker
         /// </summary>
         private void CheckKeyboardShortcuts()
         {
-            if (toolbar.selectedTool != Tool.Move)
+            if (toolbar.selectedTool is not MoveTool)
             {
                 if (inputSystem.globalKeyboardTarget.OneIsHeldExactly(KeyboardShortcuts.KeyboardShortcuts.GetShortcutsFor("selected colour left")))
                 {
@@ -139,7 +139,7 @@ namespace PAC.UI.Components.Specialised.ColourPicker
                 }
             }
 
-            if (toolbar.selectedTool == Tool.Pencil || toolbar.selectedTool == Tool.EyeDropper || toolbar.selectedTool == Tool.Fill)
+            if (toolbar.selectedTool is PencilTool or EyeDropperTool or FillTool)
             {
                 if (inputSystem.globalKeyboardTarget.IsHeldExactly(KeyCode.Alpha1))
                 {

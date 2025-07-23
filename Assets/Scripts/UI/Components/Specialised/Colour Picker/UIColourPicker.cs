@@ -145,7 +145,7 @@ namespace PAC.UI.Components.Specialised.ColourPicker
 
         public void SelectDeselectEyeDropper()
         {
-            if (toolbar.selectedTool == Tool.GlobalEyeDropper)
+            if (toolbar.selectedTool is GlobalEyeDropperTool)
             {
                 usingGlobalEyeDropper = false;
                 toolbar.DeselectGlobalEyeDropper();
@@ -161,7 +161,7 @@ namespace PAC.UI.Components.Specialised.ColourPicker
 
         private void OnGlobalLeftClick()
         {
-            if (toolbar.selectedTool == Tool.GlobalEyeDropper && usingGlobalEyeDropper && !selectedGlobalEyeDropperThisFrame)
+            if (toolbar.selectedTool is GlobalEyeDropperTool && usingGlobalEyeDropper && !selectedGlobalEyeDropperThisFrame)
             {
                 usingGlobalEyeDropper = false;
                 toolbar.DeselectGlobalEyeDropper();
