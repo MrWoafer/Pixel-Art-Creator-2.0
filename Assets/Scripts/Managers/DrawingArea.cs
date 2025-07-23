@@ -768,7 +768,7 @@ namespace PAC.Managers
             }
             else if (tool == Tool.Shape && (leftClickedOn || rightClickedOn))
             {
-                if (toolbar.shapeToolShape == Shape.Rectangle)
+                if (toolbar.shapeToolShape == ShapeMode.Rectangle)
                 {
                     IntVector2 end = pixel;
                     if (holdingCtrl)
@@ -777,7 +777,7 @@ namespace PAC.Managers
                     }
                     PreviewShape(new Rectangle(new IntRect(mouseDragPoints[0], end), rightClickedOn), colour);
                 }
-                else if (toolbar.shapeToolShape == Shape.Ellipse)
+                else if (toolbar.shapeToolShape == ShapeMode.Ellipse)
                 {
                     IntVector2 end = pixel;
                     if (holdingCtrl)
@@ -786,11 +786,11 @@ namespace PAC.Managers
                     }
                     PreviewShape(new Ellipse(new IntRect(mouseDragPoints[0], end), rightClickedOn), colour);
                 }
-                else if (toolbar.shapeToolShape == Shape.RightTriangle)
+                else if (toolbar.shapeToolShape == ShapeMode.RightTriangle)
                 {
                     PreviewShape(new RightTriangle(mouseDragPoints[0], pixel, !holdingCtrl, rightClickedOn), colour);
                 }
-                else if (toolbar.shapeToolShape == Shape.Diamond)
+                else if (toolbar.shapeToolShape == ShapeMode.Diamond)
                 {
                     IntVector2 end = pixel;
                     if (holdingCtrl)
@@ -799,7 +799,7 @@ namespace PAC.Managers
                     }
                     PreviewShape(new Diamond(new IntRect(mouseDragPoints[0], end), rightClickedOn), colour);
                 }
-                else if (toolbar.shapeToolShape == Shape.IsometricHexagon)
+                else if (toolbar.shapeToolShape == ShapeMode.IsometricHexagon)
                 {
                     IntVector2 end = pixel;
                     if (holdingCtrl)
@@ -880,7 +880,7 @@ namespace PAC.Managers
             }
             else if (tool == Tool.Shape && (leftClickedOn || rightClickedOn))
             {
-                if (toolbar.shapeToolShape == Shape.Rectangle)
+                if (toolbar.shapeToolShape == ShapeMode.Rectangle)
                 {
                     IntVector2 end = pixel;
                     if (holdingCtrl)
@@ -891,7 +891,7 @@ namespace PAC.Managers
 
                     UpdateDrawing();
                 }
-                else if (toolbar.shapeToolShape == Shape.Ellipse)
+                else if (toolbar.shapeToolShape == ShapeMode.Ellipse)
                 {
                     IntVector2 end = pixel;
                     if (holdingCtrl)
@@ -902,13 +902,13 @@ namespace PAC.Managers
 
                     UpdateDrawing();
                 }
-                else if (toolbar.shapeToolShape == Shape.RightTriangle)
+                else if (toolbar.shapeToolShape == ShapeMode.RightTriangle)
                 {
                     Tools.Tools.UseShape(file, layer, frame, new RightTriangle(mouseDragPoints[0], pixel, !holdingCtrl, rightClickedOn), colour);
 
                     UpdateDrawing();
                 }
-                else if (toolbar.shapeToolShape == Shape.Diamond)
+                else if (toolbar.shapeToolShape == ShapeMode.Diamond)
                 {
                     IntVector2 end = pixel;
                     if (holdingCtrl)
@@ -919,7 +919,7 @@ namespace PAC.Managers
 
                     UpdateDrawing();
                 }
-                else if (toolbar.shapeToolShape == Shape.IsometricHexagon)
+                else if (toolbar.shapeToolShape == ShapeMode.IsometricHexagon)
                 {
                     IntVector2 end = pixel;
                     if (holdingCtrl)

@@ -14,7 +14,7 @@ using PAC.Tools;
 
 namespace PAC.Managers
 {
-    public enum Shape
+    public enum ShapeMode
     {
         Rectangle = 0,
         Ellipse = 1,
@@ -89,8 +89,8 @@ namespace PAC.Managers
         }
 
         [SerializeField]
-        private Shape _shapeToolShape = Shape.Rectangle;
-        public Shape shapeToolShape
+        private ShapeMode _shapeToolShape = ShapeMode.Rectangle;
+        public ShapeMode shapeToolShape
         {
             get => _shapeToolShape;
             private set
@@ -238,11 +238,11 @@ namespace PAC.Managers
             else if (inputSystem.globalKeyboardTarget.OneIsHeldExactly(KeyboardShortcuts.KeyboardShortcuts.GetShortcutsFor("selection"))) { SelectTool(Tool.Selection); }
             else if (selectedTool == Tool.Shape)
             {
-                if (inputSystem.globalKeyboardTarget.IsHeldExactly(KeyCode.Alpha1)) { shapeToolShape = Shape.Rectangle; }
-                else if (inputSystem.globalKeyboardTarget.IsHeldExactly(KeyCode.Alpha2)) { shapeToolShape = Shape.Ellipse; }
-                else if (inputSystem.globalKeyboardTarget.IsHeldExactly(KeyCode.Alpha3)) { shapeToolShape = Shape.RightTriangle; }
-                else if (inputSystem.globalKeyboardTarget.IsHeldExactly(KeyCode.Alpha4)) { shapeToolShape = Shape.Diamond; }
-                else if (inputSystem.globalKeyboardTarget.IsHeldExactly(KeyCode.Alpha5)) { shapeToolShape = Shape.IsometricHexagon; }
+                if (inputSystem.globalKeyboardTarget.IsHeldExactly(KeyCode.Alpha1)) { shapeToolShape = ShapeMode.Rectangle; }
+                else if (inputSystem.globalKeyboardTarget.IsHeldExactly(KeyCode.Alpha2)) { shapeToolShape = ShapeMode.Ellipse; }
+                else if (inputSystem.globalKeyboardTarget.IsHeldExactly(KeyCode.Alpha3)) { shapeToolShape = ShapeMode.RightTriangle; }
+                else if (inputSystem.globalKeyboardTarget.IsHeldExactly(KeyCode.Alpha4)) { shapeToolShape = ShapeMode.Diamond; }
+                else if (inputSystem.globalKeyboardTarget.IsHeldExactly(KeyCode.Alpha5)) { shapeToolShape = ShapeMode.IsometricHexagon; }
             }
             else if (selectedTool == Tool.Selection)
             {
