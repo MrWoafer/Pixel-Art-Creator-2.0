@@ -4,7 +4,7 @@ namespace PAC.Tools
 {
     public class IsometricCuboidTool : Tool
     {
-        public override string name => "iso box";
+        public override string name => "isometric cuboid";
 
         public override bool useMovementInterpolation => false;
 
