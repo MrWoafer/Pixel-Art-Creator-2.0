@@ -13,6 +13,15 @@ namespace PAC.Tools
         public override MouseTargetDeselectMode finishMode => MouseTargetDeselectMode.Unclick;
         public override bool canBeCancelled => true;
 
+        public enum ShapeMode
+        {
+            Rectangle = 0,
+            Ellipse = 1,
+            RightTriangle = 2,
+            Diamond = 3,
+            IsometricHexagon = 4,
+        }
+
         public ShapeTool() { }
     }
 }

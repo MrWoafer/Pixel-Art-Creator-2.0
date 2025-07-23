@@ -501,17 +501,17 @@ namespace PAC.Input
             Cursor.SetCursor(cursor, hotSpot * (float)CURSOR_SCALED_RESOLUTION / CURSOR_RESOLUTION, CursorMode.Auto);
         }
 
-        private Tuple<Texture2D, Vector2> ShapeCursor(ShapeMode shape)
+        private Tuple<Texture2D, Vector2> ShapeCursor(ShapeTool.ShapeMode shape)
         {
-            if (shape == ShapeMode.Rectangle)
+            if (shape == ShapeTool.ShapeMode.Rectangle)
             {
                 return new Tuple<Texture2D, Vector2>(cursorSpriteRectangle, cursorHotSpotRectangle);
             }
-            else if (shape == ShapeMode.Ellipse)
+            else if (shape == ShapeTool.ShapeMode.Ellipse)
             {
                 return new Tuple<Texture2D, Vector2>(cursorSpriteEllipse, cursorHotSpotEllipse);
             }
-            else if (shape == ShapeMode.RightTriangle)
+            else if (shape == ShapeTool.ShapeMode.RightTriangle)
             {
                 if (inputSystem.globalKeyboardTarget.IsHeldExactly(KeyCode.LeftControl))
                 {
@@ -522,11 +522,11 @@ namespace PAC.Input
                     return new Tuple<Texture2D, Vector2>(cursorSpriteTriangle, cursorHotSpotTriangle);
                 }
             }
-            else if (shape == ShapeMode.Diamond)
+            else if (shape == ShapeTool.ShapeMode.Diamond)
             {
                 return new Tuple<Texture2D, Vector2>(cursorSpriteDiamond, cursorHotSpotDiamond);
             }
-            else if (shape == ShapeMode.IsometricHexagon)
+            else if (shape == ShapeTool.ShapeMode.IsometricHexagon)
             {
                 return new Tuple<Texture2D, Vector2>(cursorSpriteIsometricHexagon, cursorHotSpotIsometricHexagon);
             }
