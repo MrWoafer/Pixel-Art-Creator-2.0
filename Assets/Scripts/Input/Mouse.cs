@@ -8,8 +8,6 @@ using PAC.UI.Components;
 using UnityEngine;
 using UnityEngine.Events;
 
-using GradientMode = PAC.Managers.GradientMode;
-
 namespace PAC.Input
 {
     public enum CursorState
@@ -560,13 +558,13 @@ namespace PAC.Input
             }
         }
 
-        private Tuple<Texture2D, Vector2> GradientCursor(GradientMode gradientMode)
+        private Tuple<Texture2D, Vector2> GradientCursor(GradientTool.GradientMode gradientMode)
         {
-            if (gradientMode == GradientMode.Linear)
+            if (gradientMode == GradientTool.GradientMode.Linear)
             {
                 return new Tuple<Texture2D, Vector2>(cursorSpriteLinearGradient, cursorHotSpotLinearGradient);
             }
-            else if (gradientMode == GradientMode.Radial)
+            else if (gradientMode == GradientTool.GradientMode.Radial)
             {
                 return new Tuple<Texture2D, Vector2>(cursorSpriteRadialGradient, cursorHotSpotRadialGradient);
             }

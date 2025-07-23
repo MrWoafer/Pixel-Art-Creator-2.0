@@ -23,13 +23,6 @@ namespace PAC.Managers
         Diamond = 2
     }
 
-    public enum GradientMode
-    {
-        Linear = 0,
-        Radial = 1,
-    }
-
-
     /// <summary>
     /// Handles selecting tools, brush size, etc.
     /// </summary>
@@ -85,8 +78,8 @@ namespace PAC.Managers
         }
 
         [SerializeField]
-        private GradientMode _gradientMode = GradientMode.Linear;
-        public GradientMode gradientMode
+        private GradientTool.GradientMode _gradientMode = GradientTool.GradientMode.Linear;
+        public GradientTool.GradientMode gradientMode
         {
             get => _gradientMode;
             private set
@@ -299,8 +292,8 @@ namespace PAC.Managers
             }
             else if (selectedTool is GradientTool)
             {
-                if (inputSystem.globalKeyboardTarget.IsHeldExactly(KeyCode.Alpha1)) { gradientMode = GradientMode.Linear; }
-                else if (inputSystem.globalKeyboardTarget.IsHeldExactly(KeyCode.Alpha2)) { gradientMode = GradientMode.Radial; }
+                if (inputSystem.globalKeyboardTarget.IsHeldExactly(KeyCode.Alpha1)) { gradientMode = GradientTool.GradientMode.Linear; }
+                else if (inputSystem.globalKeyboardTarget.IsHeldExactly(KeyCode.Alpha2)) { gradientMode = GradientTool.GradientMode.Radial; }
             }
             else if (selectedTool is GlobalEyeDropperTool)
             {

@@ -13,6 +13,12 @@ namespace PAC.Tools
         public override MouseTargetDeselectMode finishMode => MouseTargetDeselectMode.Unclick;
         public override bool canBeCancelled => true;
 
+        public enum GradientMode
+        {
+            Linear = 0,
+            Radial = 1,
+        }
+
         public GradientTool() { }
     }
 }
