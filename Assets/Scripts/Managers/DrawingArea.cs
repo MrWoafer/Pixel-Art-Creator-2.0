@@ -21,6 +21,7 @@ using PAC.UI.Components.Specialised.ColourPicker;
 using PAC.Image;
 using PAC.Image.Layers;
 using PAC.Tools;
+using PAC.Tools.Interfaces;
 
 namespace PAC.Managers
 {

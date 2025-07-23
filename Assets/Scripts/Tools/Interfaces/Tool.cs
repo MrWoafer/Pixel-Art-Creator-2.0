@@ -1,6 +1,6 @@
 using PAC.Input;
 
-namespace PAC.Tools
+namespace PAC.Tools.Interfaces
 {
     /// <summary>
     /// A tool that can be used on an image.

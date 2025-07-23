@@ -12,6 +12,7 @@ using PAC.UI.Components.General;
 using PAC.UI.Components.Specialised;
 using PAC.Tools;
 using System;
+using PAC.Tools.Interfaces;
 
 namespace PAC.Managers
 {
