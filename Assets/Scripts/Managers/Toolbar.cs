@@ -78,8 +78,8 @@ namespace PAC.Managers
         }
 
         [SerializeField]
-        private GradientTool.GradientMode _gradientMode = GradientTool.GradientMode.Linear;
-        public GradientTool.GradientMode gradientMode
+        private GradientTool.Mode _gradientMode = GradientTool.Mode.Linear;
+        public GradientTool.Mode gradientMode
         {
             get => _gradientMode;
             private set
@@ -292,8 +292,8 @@ namespace PAC.Managers
             }
             else if (selectedTool is GradientTool)
             {
-                if (inputSystem.globalKeyboardTarget.IsHeldExactly(KeyCode.Alpha1)) { gradientMode = GradientTool.GradientMode.Linear; }
-                else if (inputSystem.globalKeyboardTarget.IsHeldExactly(KeyCode.Alpha2)) { gradientMode = GradientTool.GradientMode.Radial; }
+                if (inputSystem.globalKeyboardTarget.IsHeldExactly(KeyCode.Alpha1)) { gradientMode = GradientTool.Mode.Linear; }
+                else if (inputSystem.globalKeyboardTarget.IsHeldExactly(KeyCode.Alpha2)) { gradientMode = GradientTool.Mode.Radial; }
             }
             else if (selectedTool is GlobalEyeDropperTool)
             {

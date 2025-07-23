@@ -558,13 +558,13 @@ namespace PAC.Input
             }
         }
 
-        private Tuple<Texture2D, Vector2> GradientCursor(GradientTool.GradientMode gradientMode)
+        private Tuple<Texture2D, Vector2> GradientCursor(GradientTool.Mode gradientMode)
         {
-            if (gradientMode == GradientTool.GradientMode.Linear)
+            if (gradientMode == GradientTool.Mode.Linear)
             {
                 return new Tuple<Texture2D, Vector2>(cursorSpriteLinearGradient, cursorHotSpotLinearGradient);
             }
-            else if (gradientMode == GradientTool.GradientMode.Radial)
+            else if (gradientMode == GradientTool.Mode.Radial)
             {
                 return new Tuple<Texture2D, Vector2>(cursorSpriteRadialGradient, cursorHotSpotRadialGradient);
             }

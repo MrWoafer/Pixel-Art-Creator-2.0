@@ -820,8 +820,8 @@ namespace PAC.Managers
 
                 IPattern2D<Color> gradient = toolbar.gradientMode switch
                 {
-                    GradientTool.GradientMode.Linear => new Patterns.Gradient.Linear((mouseDragPoints[0], startColour), (pixel, endColour)),
-                    GradientTool.GradientMode.Radial => new Patterns.Gradient.Radial((mouseDragPoints[0], startColour), (pixel, endColour)),
+                    GradientTool.Mode.Linear => new Patterns.Gradient.Linear((mouseDragPoints[0], startColour), (pixel, endColour)),
+                    GradientTool.Mode.Radial => new Patterns.Gradient.Radial((mouseDragPoints[0], startColour), (pixel, endColour)),
                     _ => throw new InvalidOperationException($"Unknown / unimplemented gradient mode: {toolbar.gradientMode}")
                 };
 
@@ -974,8 +974,8 @@ namespace PAC.Managers
 
                 IPattern2D<Color> gradient = toolbar.gradientMode switch
                 {
-                    GradientTool.GradientMode.Linear => new Patterns.Gradient.Linear((mouseDragPoints[0], startColour), (pixel, endColour)),
-                    GradientTool.GradientMode.Radial => new Patterns.Gradient.Radial((mouseDragPoints[0], startColour), (pixel, endColour)),
+                    GradientTool.Mode.Linear => new Patterns.Gradient.Linear((mouseDragPoints[0], startColour), (pixel, endColour)),
+                    GradientTool.Mode.Radial => new Patterns.Gradient.Radial((mouseDragPoints[0], startColour), (pixel, endColour)),
                     _ => throw new InvalidOperationException($"Unknown / unimplemented gradient mode: {toolbar.gradientMode}")
                 };
 
