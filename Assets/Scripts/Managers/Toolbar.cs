@@ -15,14 +15,6 @@ using System;
 
 namespace PAC.Managers
 {
-    public enum SelectionMode
-    {
-        Draw = 0,
-        MagicWand = 1,
-        Rectangle = 10,
-        Ellipse = 11
-    }
-
     public enum BrushShape
     {
         Custom = -1,
@@ -105,8 +97,8 @@ namespace PAC.Managers
         }
 
         [SerializeField]
-        private SelectionMode _selectionMode = SelectionMode.Rectangle;
-        public SelectionMode selectionMode
+        private SelectionTool.SelectionMode _selectionMode = SelectionTool.SelectionMode.Rectangle;
+        public SelectionTool.SelectionMode selectionMode
         {
             get => _selectionMode;
             private set
@@ -282,10 +274,10 @@ namespace PAC.Managers
             }
             else if (selectedTool is SelectionTool)
             {
-                if (inputSystem.globalKeyboardTarget.IsHeldExactly(KeyCode.Alpha1)) { selectionMode = SelectionMode.Draw; }
-                else if (inputSystem.globalKeyboardTarget.IsHeldExactly(KeyCode.Alpha2)) { selectionMode = SelectionMode.MagicWand; }
-                else if (inputSystem.globalKeyboardTarget.IsHeldExactly(KeyCode.Alpha3)) { selectionMode = SelectionMode.Rectangle; }
-                else if (inputSystem.globalKeyboardTarget.IsHeldExactly(KeyCode.Alpha4)) { selectionMode = SelectionMode.Ellipse; }
+                if (inputSystem.globalKeyboardTarget.IsHeldExactly(KeyCode.Alpha1)) { selectionMode = SelectionTool.SelectionMode.Draw; }
+                else if (inputSystem.globalKeyboardTarget.IsHeldExactly(KeyCode.Alpha2)) { selectionMode = SelectionTool.SelectionMode.MagicWand; }
+                else if (inputSystem.globalKeyboardTarget.IsHeldExactly(KeyCode.Alpha3)) { selectionMode = SelectionTool.SelectionMode.Rectangle; }
+                else if (inputSystem.globalKeyboardTarget.IsHeldExactly(KeyCode.Alpha4)) { selectionMode = SelectionTool.SelectionMode.Ellipse; }
             }
             else if (selectedTool is BrushTool || selectedTool is RubberTool)
             {

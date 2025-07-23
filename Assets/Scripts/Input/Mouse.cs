@@ -536,21 +536,21 @@ namespace PAC.Input
             }
         }
 
-        private Tuple<Texture2D, Vector2> SelectionCursor(SelectionMode selectionMode)
+        private Tuple<Texture2D, Vector2> SelectionCursor(SelectionTool.SelectionMode selectionMode)
         {
-            if (selectionMode == SelectionMode.Draw)
+            if (selectionMode == SelectionTool.SelectionMode.Draw)
             {
                 return new Tuple<Texture2D, Vector2>(cursorSpritePencil, cursorHotSpotPencil);
             }
-            else if (selectionMode == SelectionMode.MagicWand)
+            else if (selectionMode == SelectionTool.SelectionMode.MagicWand)
             {
                 return new Tuple<Texture2D, Vector2>(cursorSpriteMagicWand, cursorHotSpotMagicWand);
             }
-            else if (selectionMode == SelectionMode.Rectangle)
+            else if (selectionMode == SelectionTool.SelectionMode.Rectangle)
             {
                 return new Tuple<Texture2D, Vector2>(cursorSpriteSelectionRectangle, cursorHotSpotSelectionRectangle);
             }
-            else if (selectionMode == SelectionMode.Ellipse)
+            else if (selectionMode == SelectionTool.SelectionMode.Ellipse)
             {
                 return new Tuple<Texture2D, Vector2>(cursorSpriteSelectionEllipse, cursorHotSpotSelectionEllipse);
             }
