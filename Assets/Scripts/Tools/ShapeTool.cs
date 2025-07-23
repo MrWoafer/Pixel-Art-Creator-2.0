@@ -13,7 +13,7 @@ namespace PAC.Tools
         public override MouseTargetDeselectMode finishMode => MouseTargetDeselectMode.Unclick;
         public override bool canBeCancelled => true;
 
-        public enum ShapeMode
+        public enum Shape
         {
             Rectangle = 0,
             Ellipse = 1,
