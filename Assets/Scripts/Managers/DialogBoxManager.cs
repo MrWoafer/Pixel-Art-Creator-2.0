@@ -12,6 +12,7 @@ using PAC.UI.Components.General;
 using PAC.UI.Components.Specialised.ColourField;
 using PAC.Image;
 using PAC.Image.Layers;
+using PAC.Tools;
 
 namespace PAC.Managers
 {

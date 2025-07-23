@@ -15,14 +15,6 @@ using System;
 
 namespace PAC.Managers
 {
-    public enum BrushShape
-    {
-        Custom = -1,
-        Circle = 0,
-        Square = 1,
-        Diamond = 2
-    }
-
     /// <summary>
     /// Handles selecting tools, brush size, etc.
     /// </summary>
