@@ -32,6 +32,10 @@ namespace PAC.Managers
                 {
                     throw new ArgumentOutOfRangeException(nameof(value), $"{nameof(brushSize)} must be positive.");
                 }
+                if (brushSize < Config.Tools.minBrushSize)
+                {
+                    throw new ArgumentOutOfRangeException(nameof(value), $"{nameof(brushSize)} cannot be less than {nameof(Config.Tools.minBrushSize)}.");
+                }
                 if (brushSize > Config.Tools.maxBrushSize)
                 {
                     throw new ArgumentOutOfRangeException(nameof(value), $"{nameof(brushSize)} cannot be more than {nameof(Config.Tools.maxBrushSize)}.");
