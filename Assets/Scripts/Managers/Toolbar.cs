@@ -26,10 +26,25 @@ namespace PAC.Managers
         public int brushSize
         {
             get => _brushSize;
-            private set
+            set
             {
+                if (brushSize < 0)
+                {
+                    throw new ArgumentOutOfRangeException(nameof(value), $"{nameof(brushSize)} must be positive.");
+                }
+                if (brushSize > Config.Tools.maxBrushSize)
+                {
+                    throw new ArgumentOutOfRangeException(nameof(value), $"{nameof(brushSize)} cannot be more than {nameof(Config.Tools.maxBrushSize)}.");
+                }
+                if (value == brushSize)
+                {
+                    return;
+                }
+
                 _brushSize = value;
+                
                 UpdateBrushBorder();
+                onBrushSizeChanged.Invoke();
             }
         }
 
@@ -216,27 +231,6 @@ namespace PAC.Managers
             return false;
         }
 
-        public bool SetBrushSize(int brushSize)
-        {
-            if (brushSize < 0)
-            {
-                return false;
-            }
-            if (brushSize > Config.Tools.maxBrushSize)
-            {
-                return false;
-            }
-            if (this.brushSize == brushSize)
-            {
-                return false;
-            }
-
-            this.brushSize = Mathf.Clamp(brushSize, 1, Config.Tools.maxBrushSize);
-            onBrushSizeChanged.Invoke();
-
-            return true;
-        }
-
         private void CheckKeyboardShortcuts()
         {
             if (inputSystem.globalKeyboardTarget.OneIsHeldExactly(KeyboardShortcuts.KeyboardShortcuts.GetShortcutsFor("pencil"))) { SelectTool(PencilTool); }
@@ -325,12 +319,12 @@ namespace PAC.Managers
             {
                 if (selectedTool is BrushTool || selectedTool is RubberTool)
                 {
-                    SetBrushSize(brushSize + (int)inputSystem.mouse.scrollDelta);
+                    brushSize = brushSize + (int)inputSystem.mouse.scrollDelta;
                 }
                 if (selectedTool is PencilTool && inputSystem.mouse.scrollDelta > 0)
                 {
                     SelectTool("brush");
-                    SetBrushSize(2);
+                    brushSize = 2;
                 }
             }
         }

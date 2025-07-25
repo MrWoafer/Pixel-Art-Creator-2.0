@@ -255,7 +255,7 @@ namespace PAC.Managers
             layerBlendModeDropdown.SubscribeToOptionChanged(UpdateLayerPropertiesPreview);
 
             brushSettingsShapeToggleGroup.SubscribeToSelectedToggleChange(UpdateBrushSettingsShape);
-            brushSettingsSizeField.SubscribeToValueChanged(() => toolbar.SetBrushSize((int)brushSettingsSizeField.value));
+            brushSettingsSizeField.SubscribeToValueChanged(() => toolbar.brushSize = (int)brushSettingsSizeField.value);
 
             floodFillSettingsFillDiagonallyToggleButton.SubscribeToTurnOn(() => toolbar.floodFillDiagonallyAdjacent = true);
             floodFillSettingsFillDiagonallyToggleButton.SubscribeToTurnOff(() => toolbar.floodFillDiagonallyAdjacent = false);
