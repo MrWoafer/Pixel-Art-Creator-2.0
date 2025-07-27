@@ -162,7 +162,7 @@ namespace PAC.Managers
             inputSystem = Finder.inputSystem;
             toggleGroup = transform.Find("Canvas").Find("Toggle Group").GetComponent<UIToggleGroup>();
 
-            BrushTool = new BrushTool(brushSize);
+            BrushTool = new BrushTool(brushSize, brushShape);
             PencilTool = new PencilTool();
             RubberTool = new RubberTool(brushSize);
             EyeDropperTool = new EyeDropperTool();
