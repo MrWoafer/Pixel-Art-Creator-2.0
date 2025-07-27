@@ -93,18 +93,6 @@ namespace PAC.Managers
         }
 
         [SerializeField]
-        private GradientTool.Mode _gradientMode = GradientTool.Mode.Linear;
-        public GradientTool.Mode gradientMode
-        {
-            get => _gradientMode;
-            private set
-            {
-                _gradientMode = value;
-                UpdateBrushBorder();
-            }
-        }
-
-        [SerializeField]
         private SelectionTool.Mode _selectionMode = SelectionTool.Mode.Rectangle;
         public SelectionTool.Mode selectionMode
         {
@@ -171,7 +159,7 @@ namespace PAC.Managers
             ShapeTool = new ShapeTool(ShapeTool.Shape.Rectangle);
             LineTool = new LineTool();
             IsometricCuboidTool = new IsometricCuboidTool();
-            GradientTool = new GradientTool();
+            GradientTool = new GradientTool(GradientTool.Mode.Linear);
             MoveTool = new MoveTool();
             SelectionTool = new SelectionTool();
 
@@ -286,8 +274,8 @@ namespace PAC.Managers
             }
             else if (selectedTool is GradientTool)
             {
-                if (inputSystem.globalKeyboardTarget.IsHeldExactly(KeyCode.Alpha1)) { gradientMode = GradientTool.Mode.Linear; }
-                else if (inputSystem.globalKeyboardTarget.IsHeldExactly(KeyCode.Alpha2)) { gradientMode = GradientTool.Mode.Radial; }
+                if (inputSystem.globalKeyboardTarget.IsHeldExactly(KeyCode.Alpha1)) { GradientTool.mode = GradientTool.Mode.Linear; }
+                else if (inputSystem.globalKeyboardTarget.IsHeldExactly(KeyCode.Alpha2)) { GradientTool.mode = GradientTool.Mode.Radial; }
             }
             else if (selectedTool is GlobalEyeDropperTool)
             {

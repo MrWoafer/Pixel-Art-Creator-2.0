@@ -470,7 +470,7 @@ namespace PAC.Input
                     }
                     else if (toolbar.selectedTool is GradientTool)
                     {
-                        Tuple<Texture2D, Vector2> gradientCursor = GradientCursor(toolbar.gradientMode);
+                        Tuple<Texture2D, Vector2> gradientCursor = GradientCursor(toolbar.GradientTool.mode);
                         SetCursor(gradientCursor.Item1, gradientCursor.Item2);
                     }
                     else { SetCursor(cursorSpriteNormal, cursorHotSpotNormal); }

@@ -819,11 +819,11 @@ namespace PAC.Managers
                 Color startColour = leftClickedOn ? colourPicker.primaryColour : colourPicker.secondaryColour;
                 Color endColour = leftClickedOn ? colourPicker.secondaryColour : colourPicker.primaryColour;
 
-                IPattern2D<Color> gradient = toolbar.gradientMode switch
+                IPattern2D<Color> gradient = toolbar.GradientTool.mode switch
                 {
                     GradientTool.Mode.Linear => new Patterns.Gradient.Linear((mouseDragPoints[0], startColour), (pixel, endColour)),
                     GradientTool.Mode.Radial => new Patterns.Gradient.Radial((mouseDragPoints[0], startColour), (pixel, endColour)),
-                    _ => throw new InvalidOperationException($"Unknown / unimplemented gradient mode: {toolbar.gradientMode}")
+                    _ => throw new InvalidOperationException($"Unknown / unimplemented gradient mode: {toolbar.GradientTool.mode}")
                 };
 
                 PreviewPattern(gradient);
@@ -973,11 +973,11 @@ namespace PAC.Managers
                 Color startColour = leftClickedOn ? colourPicker.primaryColour : colourPicker.secondaryColour;
                 Color endColour = leftClickedOn ? colourPicker.secondaryColour : colourPicker.primaryColour;
 
-                IPattern2D<Color> gradient = toolbar.gradientMode switch
+                IPattern2D<Color> gradient = toolbar.GradientTool.mode switch
                 {
                     GradientTool.Mode.Linear => new Patterns.Gradient.Linear((mouseDragPoints[0], startColour), (pixel, endColour)),
                     GradientTool.Mode.Radial => new Patterns.Gradient.Radial((mouseDragPoints[0], startColour), (pixel, endColour)),
-                    _ => throw new InvalidOperationException($"Unknown / unimplemented gradient mode: {toolbar.gradientMode}")
+                    _ => throw new InvalidOperationException($"Unknown / unimplemented gradient mode: {toolbar.GradientTool.mode}")
                 };
 
                 Tools.Tools.UsePattern(file, layer, frame, gradient);

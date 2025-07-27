@@ -19,7 +19,12 @@ namespace PAC.Tools
             Linear = 0,
             Radial = 1,
         }
+        public Mode mode { get; set; } = Mode.Linear;
 
-        public GradientTool() { }
+        /// <param name="mode">See <see cref="mode"/>.</param>
+        public GradientTool(Mode mode)
+        {
+            this.mode = mode;
+        }
     }
 }
