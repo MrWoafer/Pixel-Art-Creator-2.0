@@ -70,12 +70,24 @@ namespace PAC.Managers
 
         [SerializeField]
         private BrushShape _brushShape = BrushShape.Circle;
+        /// <summary>
+        /// The global brush shape for all tools.
+        /// </summary>
+        /// <remarks>
+        /// Do not edit the tools' brush shapes directly. Only edit them via this property (which will then update them). Editing the tools' brush shapes directly will not update this or
+        /// other tools.
+        /// </remarks>
         public BrushShape brushShape
         {
             get => _brushShape;
             set
             {
                 _brushShape = value;
+                foreach (IBrushShape tool in AllTools.OfType<IBrushShape>())
+                {
+                    tool.brushShape = value;
+                }
+
                 UpdateBrushBorder();
             }
         }
