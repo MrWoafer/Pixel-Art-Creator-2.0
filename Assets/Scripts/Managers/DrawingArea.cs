@@ -339,7 +339,7 @@ namespace PAC.Managers
                 if (lineSmoothingCountdown <= 0f)
                 {
                     lineSmoothingPreviousLine = null;
-                    lineSmoothingCountdown = toolbar.lineSmoothingTime;
+                    lineSmoothingCountdown = toolbar.PencilTool.lineSmoothingTime;
                 }
             }
         }

@@ -63,14 +63,6 @@ namespace PAC.Managers
             }
         }
 
-        [SerializeField]
-        [Min(0f)]
-        private float _lineSmoothingTime = 0.2f;
-        /// <summary>
-        /// The amount of time you have to draw a new pixel in for an old one to be potentially smoothed.
-        /// </summary>
-        public float lineSmoothingTime => _lineSmoothingTime;
-
         public Tool selectedTool { get => usingGlobalEyeDropper ? GlobalEyeDropperTool : ParseTool(toggleGroup.currentToggle.toggleName); }
         public Tool previousTool { get; private set; } = new NoneTool();
 
