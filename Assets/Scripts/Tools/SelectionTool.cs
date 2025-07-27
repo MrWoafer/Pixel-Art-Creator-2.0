@@ -21,7 +21,12 @@ namespace PAC.Tools
             Rectangle = 10,
             Ellipse = 11
         }
+        public Mode mode { get; set; }
 
-        public SelectionTool() { }
+        /// <param name="mode">See <see cref="mode"/>.</param>
+        public SelectionTool(Mode mode)
+        {
+            this.mode = mode;
+        }
     }
 }

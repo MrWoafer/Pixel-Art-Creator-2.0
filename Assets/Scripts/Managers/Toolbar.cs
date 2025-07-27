@@ -92,18 +92,6 @@ namespace PAC.Managers
             }
         }
 
-        [SerializeField]
-        private SelectionTool.Mode _selectionMode = SelectionTool.Mode.Rectangle;
-        public SelectionTool.Mode selectionMode
-        {
-            get => _selectionMode;
-            private set
-            {
-                _selectionMode = value;
-                UpdateBrushBorder();
-            }
-        }
-
         public bool floodFillDiagonallyAdjacent = false;
 
         [Header("Events")]
@@ -161,7 +149,7 @@ namespace PAC.Managers
             IsometricCuboidTool = new IsometricCuboidTool();
             GradientTool = new GradientTool(GradientTool.Mode.Linear);
             MoveTool = new MoveTool();
-            SelectionTool = new SelectionTool();
+            SelectionTool = new SelectionTool(SelectionTool.Mode.Rectangle);
 
             AllTools = new Tool[]
             {
@@ -249,10 +237,10 @@ namespace PAC.Managers
             }
             else if (selectedTool is SelectionTool)
             {
-                if (inputSystem.globalKeyboardTarget.IsHeldExactly(KeyCode.Alpha1)) { selectionMode = SelectionTool.Mode.Draw; }
-                else if (inputSystem.globalKeyboardTarget.IsHeldExactly(KeyCode.Alpha2)) { selectionMode = SelectionTool.Mode.MagicWand; }
-                else if (inputSystem.globalKeyboardTarget.IsHeldExactly(KeyCode.Alpha3)) { selectionMode = SelectionTool.Mode.Rectangle; }
-                else if (inputSystem.globalKeyboardTarget.IsHeldExactly(KeyCode.Alpha4)) { selectionMode = SelectionTool.Mode.Ellipse; }
+                if (inputSystem.globalKeyboardTarget.IsHeldExactly(KeyCode.Alpha1)) { SelectionTool.mode = SelectionTool.Mode.Draw; }
+                else if (inputSystem.globalKeyboardTarget.IsHeldExactly(KeyCode.Alpha2)) { SelectionTool.mode = SelectionTool.Mode.MagicWand; }
+                else if (inputSystem.globalKeyboardTarget.IsHeldExactly(KeyCode.Alpha3)) { SelectionTool.mode = SelectionTool.Mode.Rectangle; }
+                else if (inputSystem.globalKeyboardTarget.IsHeldExactly(KeyCode.Alpha4)) { SelectionTool.mode = SelectionTool.Mode.Ellipse; }
             }
             else if (selectedTool is BrushTool || selectedTool is RubberTool)
             {

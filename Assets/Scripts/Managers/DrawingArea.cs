@@ -830,15 +830,15 @@ namespace PAC.Managers
             }
             else if (tool is SelectionTool && (leftClickedOn || rightClickedOn))
             {
-                if (toolbar.selectionMode == SelectionTool.Mode.Draw)
+                if (toolbar.SelectionTool.mode == SelectionTool.Mode.Draw)
                 {
                     SelectionDraw(pixel, rightClickedOn);
                 }
-                else if (toolbar.selectionMode == SelectionTool.Mode.MagicWand)
+                else if (toolbar.SelectionTool.mode == SelectionTool.Mode.MagicWand)
                 {
                     SelectionMagicWand(pixel, rightClickedOn, holdingCtrl);
                 }
-                else if (toolbar.selectionMode == SelectionTool.Mode.Rectangle)
+                else if (toolbar.SelectionTool.mode == SelectionTool.Mode.Rectangle)
                 {
                     IntVector2 end = pixel;
                     if (holdingCtrl)
@@ -847,7 +847,7 @@ namespace PAC.Managers
                     }
                     SelectionShape(new Rectangle(new IntRect(mouseDragPoints[0], end), true), rightClickedOn);
                 }
-                else if (toolbar.selectionMode == SelectionTool.Mode.Ellipse)
+                else if (toolbar.SelectionTool.mode == SelectionTool.Mode.Ellipse)
                 {
                     IntVector2 end = pixel;
                     if (holdingCtrl)

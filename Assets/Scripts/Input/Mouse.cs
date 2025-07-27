@@ -465,7 +465,7 @@ namespace PAC.Input
                     else if (toolbar.selectedTool is MoveTool) { SetCursor(cursorSpriteCrossArrows, cursorHotSpotCrossArrows); }
                     else if (toolbar.selectedTool is SelectionTool)
                     {
-                        Tuple<Texture2D, Vector2> selectionCursor = SelectionCursor(toolbar.selectionMode);
+                        Tuple<Texture2D, Vector2> selectionCursor = SelectionCursor(toolbar.SelectionTool.mode);
                         SetCursor(selectionCursor.Item1, selectionCursor.Item2);
                     }
                     else if (toolbar.selectedTool is GradientTool)
