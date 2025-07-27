@@ -159,7 +159,7 @@ namespace PAC.Managers
             inputSystem = Finder.inputSystem;
             toggleGroup = transform.Find("Canvas").Find("Toggle Group").GetComponent<UIToggleGroup>();
 
-            BrushTool = new BrushTool();
+            BrushTool = new BrushTool(brushSize);
             PencilTool = new PencilTool();
             RubberTool = new RubberTool();
             EyeDropperTool = new EyeDropperTool();
