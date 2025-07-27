@@ -793,38 +793,6 @@ namespace PAC.Managers
             CloseDialogBox(floodFillSettingsWindow);
         }
 
-        public void UpdateFloodFillSettingsShape()
-        {
-            string brushShape = brushSettingsShapeToggleGroup.selectedToggles[0].toggleName;
-            if (brushShape == "circle")
-            {
-                toolbar.brushShape = BrushShape.Circle;
-            }
-            else if (brushShape == "square")
-            {
-                toolbar.brushShape = BrushShape.Square;
-            }
-            else if (brushShape == "diamond")
-            {
-                toolbar.brushShape = BrushShape.Diamond;
-            }
-            else if (brushShape == "open")
-            {
-                ExtensionFilter[] extensions = new ExtensionFilter[] { new ExtensionFilter("Image File ", "png", "jpeg", "jpg") };
-                string[] fileNames = StandaloneFileBrowser.OpenFilePanel("Open File", "", extensions, false);
-                if (fileNames.Length > 0)
-                {
-                    toolbar.LoadCustomBrush(Texture2DExtensions.LoadFromFile(fileNames[0]));
-                }
-
-                toolbar.brushShape = BrushShape.Custom;
-            }
-            else
-            {
-                throw new Exception("Unknown / unimplemented brush shape: " + brushShape);
-            }
-        }
-
         public void OpenKeyboardShortcutsWindow()
         {
             OpenDialogBox(keyboardShortcutsWindow);
