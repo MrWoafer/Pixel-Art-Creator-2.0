@@ -161,7 +161,7 @@ namespace PAC.Managers
 
             BrushTool = new BrushTool(brushSize);
             PencilTool = new PencilTool();
-            RubberTool = new RubberTool();
+            RubberTool = new RubberTool(brushSize);
             EyeDropperTool = new EyeDropperTool();
             GlobalEyeDropperTool = new GlobalEyeDropperTool();
             FillTool = new FillTool();
