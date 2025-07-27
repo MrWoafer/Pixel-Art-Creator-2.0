@@ -21,6 +21,11 @@ namespace PAC.Managers
     /// </summary>
     public class Toolbar : MonoBehaviour
     {
+        public Tool selectedTool { get => usingGlobalEyeDropper ? GlobalEyeDropperTool : ParseTool(toggleGroup.currentToggle.toggleName); }
+        public Tool previousTool { get; private set; } = new NoneTool();
+
+        private bool usingGlobalEyeDropper = false;
+
         [SerializeField]
         private int _brushSize = 1;
         /// <summary>
@@ -62,11 +67,6 @@ namespace PAC.Managers
                 onBrushSizeChanged.Invoke();
             }
         }
-
-        public Tool selectedTool { get => usingGlobalEyeDropper ? GlobalEyeDropperTool : ParseTool(toggleGroup.currentToggle.toggleName); }
-        public Tool previousTool { get; private set; } = new NoneTool();
-
-        private bool usingGlobalEyeDropper = false;
 
         [SerializeField]
         private BrushShape _brushShape = BrushShape.Circle;
