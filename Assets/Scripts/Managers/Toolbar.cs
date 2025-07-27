@@ -93,18 +93,6 @@ namespace PAC.Managers
         }
 
         [SerializeField]
-        private ShapeTool.Shape _shapeToolShape = ShapeTool.Shape.Rectangle;
-        public ShapeTool.Shape shapeToolShape
-        {
-            get => _shapeToolShape;
-            private set
-            {
-                _shapeToolShape = value;
-                UpdateBrushBorder();
-            }
-        }
-
-        [SerializeField]
         private GradientTool.Mode _gradientMode = GradientTool.Mode.Linear;
         public GradientTool.Mode gradientMode
         {
@@ -180,7 +168,7 @@ namespace PAC.Managers
             EyeDropperTool = new EyeDropperTool();
             GlobalEyeDropperTool = new GlobalEyeDropperTool();
             FillTool = new FillTool();
-            ShapeTool = new ShapeTool();
+            ShapeTool = new ShapeTool(ShapeTool.Shape.Rectangle);
             LineTool = new LineTool();
             IsometricCuboidTool = new IsometricCuboidTool();
             GradientTool = new GradientTool();
@@ -265,11 +253,11 @@ namespace PAC.Managers
             else if (inputSystem.globalKeyboardTarget.OneIsHeldExactly(KeyboardShortcuts.KeyboardShortcuts.GetShortcutsFor("selection"))) { SelectTool(SelectionTool); }
             else if (selectedTool is ShapeTool)
             {
-                if (inputSystem.globalKeyboardTarget.IsHeldExactly(KeyCode.Alpha1)) { shapeToolShape = ShapeTool.Shape.Rectangle; }
-                else if (inputSystem.globalKeyboardTarget.IsHeldExactly(KeyCode.Alpha2)) { shapeToolShape = ShapeTool.Shape.Ellipse; }
-                else if (inputSystem.globalKeyboardTarget.IsHeldExactly(KeyCode.Alpha3)) { shapeToolShape = ShapeTool.Shape.RightTriangle; }
-                else if (inputSystem.globalKeyboardTarget.IsHeldExactly(KeyCode.Alpha4)) { shapeToolShape = ShapeTool.Shape.Diamond; }
-                else if (inputSystem.globalKeyboardTarget.IsHeldExactly(KeyCode.Alpha5)) { shapeToolShape = ShapeTool.Shape.IsometricHexagon; }
+                if (inputSystem.globalKeyboardTarget.IsHeldExactly(KeyCode.Alpha1)) { ShapeTool.shape = ShapeTool.Shape.Rectangle; }
+                else if (inputSystem.globalKeyboardTarget.IsHeldExactly(KeyCode.Alpha2)) { ShapeTool.shape = ShapeTool.Shape.Ellipse; }
+                else if (inputSystem.globalKeyboardTarget.IsHeldExactly(KeyCode.Alpha3)) { ShapeTool.shape = ShapeTool.Shape.RightTriangle; }
+                else if (inputSystem.globalKeyboardTarget.IsHeldExactly(KeyCode.Alpha4)) { ShapeTool.shape = ShapeTool.Shape.Diamond; }
+                else if (inputSystem.globalKeyboardTarget.IsHeldExactly(KeyCode.Alpha5)) { ShapeTool.shape = ShapeTool.Shape.IsometricHexagon; }
             }
             else if (selectedTool is SelectionTool)
             {

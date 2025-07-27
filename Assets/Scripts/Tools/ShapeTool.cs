@@ -22,7 +22,12 @@ namespace PAC.Tools
             Diamond = 3,
             IsometricHexagon = 4,
         }
+        public Shape shape { get; set; }
 
-        public ShapeTool() { }
+        /// <param name="shape">See <see cref="shape"/>.</param>
+        public ShapeTool(Shape shape)
+        {
+            this.shape = shape;
+        }
     }
 }

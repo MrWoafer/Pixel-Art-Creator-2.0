@@ -458,7 +458,7 @@ namespace PAC.Input
                     else if (toolbar.selectedTool is FillTool) { SetCursor(cursorSpriteFill, cursorHotSpotFill); }
                     else if (toolbar.selectedTool is ShapeTool)
                     {
-                        Tuple<Texture2D, Vector2> shapeCursor = ShapeCursor(toolbar.shapeToolShape);
+                        Tuple<Texture2D, Vector2> shapeCursor = ShapeCursor(toolbar.ShapeTool.shape);
                         SetCursor(shapeCursor.Item1, shapeCursor.Item2);
                     }
                     else if (toolbar.selectedTool is IsometricCuboidTool) { SetCursor(cursorSpriteIsoBox, cursorHotSpotIsoBox); }
