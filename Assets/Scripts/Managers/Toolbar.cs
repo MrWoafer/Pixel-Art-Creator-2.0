@@ -23,6 +23,13 @@ namespace PAC.Managers
     {
         [SerializeField]
         private int _brushSize = 1;
+        /// <summary>
+        /// The global brush size for all tools.
+        /// </summary>
+        /// <remarks>
+        /// Do not edit the tools' brush sizes directly. Only edit them via this property (which will then update them). Editing the tools' brush sizes directly will not update this or
+        /// other tools.
+        /// </remarks>
         public int brushSize
         {
             get => _brushSize;
@@ -46,6 +53,10 @@ namespace PAC.Managers
                 }
 
                 _brushSize = value;
+                foreach (IBrushSize tool in AllTools.OfType<IBrushSize>())
+                {
+                    tool.brushSize = value;
+                }
                 
                 UpdateBrushBorder();
                 onBrushSizeChanged.Invoke();
