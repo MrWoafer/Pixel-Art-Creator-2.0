@@ -3,7 +3,7 @@ using PAC.Tools.Interfaces;
 
 namespace PAC.Tools
 {
-    public class RubberTool : Tool, IBrushSize
+    public class RubberTool : Tool, IBrushSize, IBrushShape
     {
         public override string name => "rubber";
 
@@ -15,11 +15,14 @@ namespace PAC.Tools
         public override bool canBeCancelled => false;
 
         public int brushSize { get; set; }
+        public BrushShape brushShape { get; set; }
 
         /// <param name="brushSize">See <see cref="brushSize"/>.</param>
-        public RubberTool(int brushSize)
+        /// <param name="brushShape">See <see cref="brushShape"/>.</param>
+        public RubberTool(int brushSize, BrushShape brushShape)
         {
             this.brushSize = brushSize;
+            this.brushShape = brushShape;
         }
     }
 }
