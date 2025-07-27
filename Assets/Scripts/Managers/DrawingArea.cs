@@ -751,8 +751,8 @@ namespace PAC.Managers
             }
             else if (tool is FillTool)
             {
-                if (leftClickedOn) { Tools.Tools.UseFill(file, layer, frame, pixel, colour, toolbar.floodFillDiagonallyAdjacent); }
-                else if (rightClickedOn) { Tools.Tools.UseFill(file, layer, frame, pixel, Config.Colours.transparent, toolbar.floodFillDiagonallyAdjacent); }
+                if (leftClickedOn) { Tools.Tools.UseFill(file, layer, frame, pixel, colour, toolbar.FillTool.floodFillDiagonallyAdjacent); }
+                else if (rightClickedOn) { Tools.Tools.UseFill(file, layer, frame, pixel, Config.Colours.transparent, toolbar.FillTool.floodFillDiagonallyAdjacent); }
             }
             else if (tool is LineTool)
             {

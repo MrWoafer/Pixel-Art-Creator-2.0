@@ -257,8 +257,8 @@ namespace PAC.Managers
             brushSettingsShapeToggleGroup.SubscribeToSelectedToggleChange(UpdateBrushSettingsShape);
             brushSettingsSizeField.SubscribeToValueChanged(() => toolbar.brushSize = (int)brushSettingsSizeField.value);
 
-            floodFillSettingsFillDiagonallyToggleButton.SubscribeToTurnOn(() => toolbar.floodFillDiagonallyAdjacent = true);
-            floodFillSettingsFillDiagonallyToggleButton.SubscribeToTurnOff(() => toolbar.floodFillDiagonallyAdjacent = false);
+            floodFillSettingsFillDiagonallyToggleButton.SubscribeToTurnOn(() => toolbar.FillTool.floodFillDiagonallyAdjacent = true);
+            floodFillSettingsFillDiagonallyToggleButton.SubscribeToTurnOff(() => toolbar.FillTool.floodFillDiagonallyAdjacent = false);
         }
 
         private void Update()
@@ -786,7 +786,7 @@ namespace PAC.Managers
         {
             OpenDialogBox(floodFillSettingsWindow);
 
-            floodFillSettingsFillDiagonallyToggleButton.SetOnOff(toolbar.floodFillDiagonallyAdjacent);
+            floodFillSettingsFillDiagonallyToggleButton.SetOnOff(toolbar.FillTool.floodFillDiagonallyAdjacent);
         }
         public void CloseFloodFillSettingsWindow()
         {

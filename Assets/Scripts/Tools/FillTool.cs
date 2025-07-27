@@ -14,6 +14,12 @@ namespace PAC.Tools
         public override MouseTargetDeselectMode finishMode => MouseTargetDeselectMode.Unclick;
         public override bool canBeCancelled => false;
 
-        public FillTool() { }
+        public bool floodFillDiagonallyAdjacent { get; set; }
+
+        /// <param name="floodFillDiagonallyAdjacent">See <see cref="floodFillDiagonallyAdjacent"/>.</param>
+        public FillTool(bool floodFillDiagonallyAdjacent)
+        {
+            this.floodFillDiagonallyAdjacent = floodFillDiagonallyAdjacent;
+        }
     }
 }

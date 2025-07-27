@@ -92,8 +92,6 @@ namespace PAC.Managers
             }
         }
 
-        public bool floodFillDiagonallyAdjacent = false;
-
         [Header("Events")]
         [SerializeField]
         /// <summary>Event invoked when selected tool changes.</summary>
@@ -143,7 +141,7 @@ namespace PAC.Managers
             RubberTool = new RubberTool(brushSize, brushShape);
             EyeDropperTool = new EyeDropperTool();
             GlobalEyeDropperTool = new GlobalEyeDropperTool();
-            FillTool = new FillTool();
+            FillTool = new FillTool(false);
             ShapeTool = new ShapeTool(ShapeTool.Shape.Rectangle);
             LineTool = new LineTool();
             IsometricCuboidTool = new IsometricCuboidTool();
