@@ -9,6 +9,7 @@ using PAC.Patterns.Extensions;
 using PAC.Geometry;
 using PAC.Image;
 using PAC.Image.Layers;
+using System.Collections.Generic;
 
 namespace PAC.Tools
 {
@@ -59,19 +60,19 @@ namespace PAC.Tools
             return false;
         }
 
-        public static void UseBrush(File file, int layer, int frame, int x, int y, IntVector2[] brushBorderMaskPixels, Color colour)
+        public static void UseBrush(File file, int layer, int frame, int x, int y, IEnumerable<IntVector2> brushBorderMaskPixels, Color colour)
         {
             UseBrush(file, layer, frame, new IntVector2(x, y), brushBorderMaskPixels, colour);
         }
-        public static void UseBrush(File file, int layer, int frame, IntVector2 pixel, IntVector2[] brushBorderMaskPixels, Color colour)
+        public static void UseBrush(File file, int layer, int frame, IntVector2 pixel, IEnumerable<IntVector2> brushBorderMaskPixels, Color colour)
         {
             file.layers[layer].SetPixels(file.rect.FilterPointsInside(brushBorderMaskPixels.Select(p => p + pixel)), frame, colour, AnimFrameRefMode.NewKeyFrame);
         }
 
         public static void UseRubber(File file, int layer, int frame, int x, int y) => UseRubber(file, layer, frame, new IntVector2(x, y));
         public static void UseRubber(File file, int layer, int frame, IntVector2 pixel) => UseRubber(file, layer, frame, pixel, new IntVector2[] { IntVector2.zero });
-        public static void UseRubber(File file, int layer, int frame, int x, int y, IntVector2[] brushBorderMaskPixels) => UseRubber(file, layer, frame, new IntVector2(x, y), brushBorderMaskPixels);
-        public static void UseRubber(File file, int layer, int frame, IntVector2 pixel, IntVector2[] brushBorderMaskPixels)
+        public static void UseRubber(File file, int layer, int frame, int x, int y, IEnumerable<IntVector2> brushBorderMaskPixels) => UseRubber(file, layer, frame, new IntVector2(x, y), brushBorderMaskPixels);
+        public static void UseRubber(File file, int layer, int frame, IntVector2 pixel, IEnumerable<IntVector2> brushBorderMaskPixels)
         {
             UseBrush(file, layer, frame, pixel, brushBorderMaskPixels, Config.Colours.transparent);
         }
