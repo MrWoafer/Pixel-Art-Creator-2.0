@@ -776,12 +776,9 @@ namespace PAC.Managers
             {
                 ExtensionFilter[] extensions = new ExtensionFilter[] { new ExtensionFilter("Image File ", "png", "jpeg", "jpg") };
                 string[] fileNames = StandaloneFileBrowser.OpenFilePanel("Open File", "", extensions, false);
-                if (fileNames.Length > 0)
-                {
-                    toolbar.LoadCustomBrush(Texture2DExtensions.LoadFromFile(fileNames[0]));
-                }
 
-                toolbar.brushShape = new BrushShape.Custom();
+                Texture2D texture = Texture2DExtensions.LoadFromFile(fileNames[0]);
+                toolbar.brushShape = new BrushShape.Custom(texture);
             }
             else
             {

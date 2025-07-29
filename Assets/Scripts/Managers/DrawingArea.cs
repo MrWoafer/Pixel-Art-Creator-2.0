@@ -407,24 +407,32 @@ namespace PAC.Managers
         }
         private void UpdateBrushBorder(IntVector2 pixel)
         {
-            brushBorderSprRen.sprite = toolbar.brushTexture.ToSprite();
+            BrushShape brushShape = (toolbar.selectedTool as IHasBrushShape)?.brushShape;
+            if (brushShape is null)
+            {
+                brushBorderSprRen.enabled = false;
+                return;
+            }
 
-            float scaleFactor = Mathf.Max(toolbar.brushTexture.width, toolbar.brushTexture.height) / pixelsPerUnit;
+            brushBorderSprRen.enabled = true;
+            brushBorderSprRen.sprite = brushShape.texture.ToSprite();
+
+            float scaleFactor = Mathf.Max(brushShape.boundingRect.width, brushShape.boundingRect.height) / pixelsPerUnit;
             brushBorderSprRen.transform.localScale = new Vector3(scaleFactor, scaleFactor, 1f);
 
             brushBorderSprRen.transform.position = PixelsToWorldPos(pixel);
-            if (toolbar.brushTexture.width % 2 == 0)
+            if (brushShape.boundingRect.width % 2 == 0)
             {
                 brushBorderSprRen.transform.localPosition += new Vector3(0.5f / pixelsPerUnit, 0f, 0f);
             }
-            if (toolbar.brushTexture.height % 2 == 0)
+            if (brushShape.boundingRect.height % 2 == 0)
             {
                 brushBorderSprRen.transform.localPosition += new Vector3(0f, 0.5f / pixelsPerUnit, 0f);
             }
 
             // When the brush is a single pixel, make the border black/white depending on the lightness of the pixel below
             Color outlineColour = Config.Colours.brushOutlineDark;
-            if (toolbar.brushPixelsIsSingleCentralPixel && file.liveRender.GetPixel(pixel).a != 0f && ((HSLA)file.liveRender.GetPixel(pixel)).l < 0.5f)
+            if (brushShape.Count == 1 && file.liveRender.GetPixel(pixel).a != 0f && ((HSLA)file.liveRender.GetPixel(pixel)).l < 0.5f)
             {
                 outlineColour = Config.Colours.brushOutlineLight;
             }
@@ -738,12 +746,12 @@ namespace PAC.Managers
             }
             else if (tool is BrushTool)
             {
-                if (leftClickedOn) { Tools.Tools.UseBrush(file, layer, frame, pixel, toolbar.brushPixels, colour); }
-                else if (rightClickedOn) { Tools.Tools.UseRubber(file, layer, frame, pixel, toolbar.brushPixels); }
+                if (leftClickedOn) { Tools.Tools.UseBrush(file, layer, frame, pixel, toolbar.BrushTool.brushShape, colour); }
+                else if (rightClickedOn) { Tools.Tools.UseRubber(file, layer, frame, pixel, toolbar.BrushTool.brushShape); }
             }
             else if (tool is RubberTool)
             {
-                if (leftClickedOn || rightClickedOn) { Tools.Tools.UseRubber(file, layer, frame, pixel, toolbar.brushPixels); }
+                if (leftClickedOn || rightClickedOn) { Tools.Tools.UseRubber(file, layer, frame, pixel, toolbar.RubberTool.brushShape); }
             }
             else if (tool is EyeDropperTool)
             {

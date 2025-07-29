@@ -60,13 +60,13 @@ namespace PAC.Managers
                 _brushSize = value;
                 foreach (IHasBrushShape tool in AllTools.OfType<IHasBrushShape>())
                 {
-                    if (tool is IHasBrushSize hasBrushSize)
+                    if (tool.brushShape is IHasBrushSize hasBrushSize)
                     {
                         hasBrushSize.brushSize = value;
                     }
                 }
                 
-                UpdateBrushBorder();
+                onBrushPixelsChanged.Invoke();
                 onBrushSizeChanged.Invoke();
             }
         }
@@ -92,7 +92,7 @@ namespace PAC.Managers
                 }
                 brushSize = brushSize;
 
-                UpdateBrushBorder();
+                onBrushPixelsChanged.Invoke();
             }
         }
 
@@ -121,16 +121,6 @@ namespace PAC.Managers
         public SelectionTool SelectionTool { get; private set; }
 
         private Tool[] AllTools;
-
-        /// <summary>The pixels, given relative to the position of the mouse, that will be affected by the current brush.</summary>
-        public IntVector2[] brushPixels { get; private set; } = new IntVector2[0];
-        public Texture2D brushTexture { get; private set; }
-        public int brushPixelsWidth { get; private set; } = 0;
-        public int brushPixelsHeight { get; private set; } = 0;
-        public bool brushPixelsIsEmpty => brushPixels.Length == 0;
-        public bool brushPixelsIsSingleCentralPixel => brushPixels.Length == 1 && brushPixels[0] == IntVector2.zero;
-
-        private Texture2D customBrushTexture = null;
 
         private InputSystem inputSystem;
         private UIToggleGroup toggleGroup;
@@ -179,11 +169,11 @@ namespace PAC.Managers
 
             toggleGroup.SubscribeToSelectedToggleChange(() =>
             {
-                UpdateBrushBorder();
+                onBrushPixelsChanged.Invoke();
                 onToolChanged.Invoke();
             });
 
-            UpdateBrushBorder();
+            onBrushPixelsChanged.Invoke();
         }
 
         private bool SelectTool(Tool tool) => SelectTool(tool.name);
@@ -196,7 +186,7 @@ namespace PAC.Managers
                 {
                     previousTool = selectedTool;
                     toggleGroup.Press(toggle);
-                    UpdateBrushBorder();
+                    onBrushPixelsChanged.Invoke();
                     onToolChanged.Invoke();
                     return true;
                 }
@@ -209,7 +199,7 @@ namespace PAC.Managers
                     {
                         previousTool = selectedTool;
                         button.Press();
-                        UpdateBrushBorder();
+                        onBrushPixelsChanged.Invoke();
                         onToolChanged.Invoke();
                         return true;
                     }
@@ -306,7 +296,7 @@ namespace PAC.Managers
             {
                 if (selectedTool is BrushTool || selectedTool is RubberTool)
                 {
-                    brushSize = brushSize + (int)inputSystem.mouse.scrollDelta;
+                    brushSize = Math.Clamp(brushSize + (int)inputSystem.mouse.scrollDelta, Config.Tools.minBrushSize, Config.Tools.maxBrushSize);
                 }
                 if (selectedTool is PencilTool && inputSystem.mouse.scrollDelta > 0)
                 {
@@ -314,99 +304,6 @@ namespace PAC.Managers
                     brushSize = 2;
                 }
             }
-        }
-
-        /// <summary>
-        /// Update the outline of the pixels the brush will affect.
-        /// </summary>
-        private void UpdateBrushBorder()
-        {
-            // Get the brush texture
-            brushTexture = new Texture2D(1, 1);
-            if (selectedTool is NoneTool || selectedTool is MoveTool)
-            {
-                brushTexture = Texture2DExtensions.Transparent(1, 1);
-            }
-            else if (selectedTool is RubberTool || selectedTool is BrushTool)
-            {
-                if (brushShape is BrushShape.Square)
-                {
-                    brushTexture = Texture2DExtensions.Solid(brushSize * 2 - 1, brushSize * 2 - 1, Config.Colours.mask);
-                }
-                else if (brushShape is BrushShape.Circle)
-                {
-                    brushTexture = new Ellipse(new IntRect(IntVector2.zero, IntVector2.one * (brushSize * 2 - 2)), true).ToTexture(Config.Colours.mask);
-                }
-                else if (brushShape is BrushShape.Diamond)
-                {
-                    brushTexture = new Diamond(new IntRect(IntVector2.zero, IntVector2.one * (brushSize * 2 - 2)), true).ToTexture(Config.Colours.mask);
-                }
-                else if (brushShape is BrushShape.Custom)
-                {
-                    if (customBrushTexture == null)
-                    {
-                        throw new System.Exception("Custom brush shape has not yet been assigned.");
-                    }
-
-                    brushTexture = customBrushTexture.DeepCopy();
-                }
-                else
-                {
-                    throw new System.Exception("Unknown / unimplemented brush shape: " + brushShape);
-                }
-            }
-            else
-            {
-                brushTexture = Texture2DExtensions.Solid(1, 1, Config.Colours.mask).Applied();
-            }
-
-            // Get array of non-transparent pixels in the brush texture
-            List<IntVector2> pixelsCovered = new List<IntVector2>();
-            for (int x = 0; x < brushTexture.width; x++)
-            {
-                for (int y = 0; y < brushTexture.height; y++)
-                {
-                    if (brushTexture.GetPixel(x, y).a != 0)
-                    {
-                        pixelsCovered.Add(new IntVector2(x - (brushTexture.width - 1) / 2, y - (brushTexture.height - 1) / 2));
-                    }
-                }
-            }
-            brushPixels = pixelsCovered.ToArray();
-
-            if (brushPixels.Length == 0)
-            {
-                brushPixelsWidth = 0;
-                brushPixelsHeight = 0;
-            }
-            else
-            {
-                brushPixelsWidth = brushPixels.Max(pixel => pixel.x) - brushPixels.Min(pixel => pixel.x) + 1;
-                brushPixelsHeight = brushPixels.Max(pixel => pixel.y) - brushPixels.Min(pixel => pixel.y) + 1;
-            }
-
-            onBrushPixelsChanged.Invoke();
-        }
-
-        /// <summary>
-        /// Turns the given texture into a brush shape by taking any pixels with non-zero alpha.
-        /// </summary>
-        public void LoadCustomBrush(Texture2D brushShape)
-        {
-            customBrushTexture = Texture2DExtensions.Transparent(brushShape.width, brushShape.height);
-
-            for (int x = 0; x < brushShape.width; x++)
-            {
-                for (int y = 0; y < brushShape.height; y++)
-                {
-                    if (brushShape.GetPixel(x, y).a != 0f)
-                    {
-                        customBrushTexture.SetPixel(x, y, Config.Colours.mask);
-                    }
-                }
-            }
-
-            customBrushTexture.Apply();
         }
 
         public Tool ParseTool(string toolName)
