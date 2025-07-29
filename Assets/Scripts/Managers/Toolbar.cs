@@ -40,7 +40,7 @@ namespace PAC.Managers
             get => _brushSize;
             set
             {
-                if (brushSize < 0)
+                if (brushSize <= 0)
                 {
                     throw new ArgumentOutOfRangeException(nameof(value), $"{nameof(brushSize)} must be positive.");
                 }
