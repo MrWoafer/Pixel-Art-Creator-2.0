@@ -3,7 +3,7 @@ using PAC.Tools.Interfaces;
 
 namespace PAC.Tools
 {
-    public class FillTool : Tool
+    public class FillTool : Tool, IHasBrushShape
     {
         public override string name => "fill";
 
@@ -13,6 +13,8 @@ namespace PAC.Tools
 
         public override MouseTargetDeselectMode finishMode => MouseTargetDeselectMode.Unclick;
         public override bool canBeCancelled => false;
+
+        public BrushShape brushShape { get; } = new BrushShape.Pixel();
 
         public bool floodFillDiagonallyAdjacent { get; set; }
 

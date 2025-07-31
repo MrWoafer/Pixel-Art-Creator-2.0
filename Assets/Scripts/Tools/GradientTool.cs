@@ -3,7 +3,7 @@ using PAC.Tools.Interfaces;
 
 namespace PAC.Tools
 {
-    public class GradientTool : Tool
+    public class GradientTool : Tool, IHasBrushShape
     {
         public override string name => "gradient";
 
@@ -13,6 +13,8 @@ namespace PAC.Tools
 
         public override MouseTargetDeselectMode finishMode => MouseTargetDeselectMode.Unclick;
         public override bool canBeCancelled => true;
+
+        public BrushShape brushShape { get; } = new BrushShape.Pixel();
 
         public enum Mode
         {

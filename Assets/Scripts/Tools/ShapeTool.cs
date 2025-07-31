@@ -3,7 +3,7 @@ using PAC.Tools.Interfaces;
 
 namespace PAC.Tools
 {
-    public class ShapeTool : Tool
+    public class ShapeTool : Tool, IHasBrushShape
     {
         public override string name => "shape";
 
@@ -13,6 +13,8 @@ namespace PAC.Tools
 
         public override MouseTargetDeselectMode finishMode => MouseTargetDeselectMode.Unclick;
         public override bool canBeCancelled => true;
+
+        public BrushShape brushShape { get; } = new BrushShape.Pixel();
 
         public enum Shape
         {

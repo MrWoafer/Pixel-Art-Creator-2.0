@@ -7,6 +7,11 @@ namespace PAC.Tools
     /// </summary>
     public abstract class BrushShape
     {
+        public class Pixel : BrushShape
+        {
+            public Pixel() { }
+        }
+
         public class Circle : BrushShape, IHasBrushSize
         {
             public int brushSize { get; set; }

@@ -5,7 +5,7 @@ using PAC.Tools.Interfaces;
 
 namespace PAC.Tools
 {
-    public class PencilTool : Tool
+    public class PencilTool : Tool, IHasBrushShape
     {
         public override string name => "pencil";
 
@@ -15,6 +15,8 @@ namespace PAC.Tools
 
         public override MouseTargetDeselectMode finishMode => MouseTargetDeselectMode.Unclick;
         public override bool canBeCancelled => false;
+
+        public BrushShape brushShape { get; } = new BrushShape.Pixel();
 
         private float _lineSmoothingTime = 0.2f;
         /// <summary>
