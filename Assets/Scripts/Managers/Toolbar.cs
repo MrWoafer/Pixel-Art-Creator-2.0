@@ -83,7 +83,7 @@ namespace PAC.Managers
             set
             {
                 _brushShape = value;
-                foreach (IBrushShape tool in AllTools.OfType<IBrushShape>())
+                foreach (IHasBrushShape tool in AllTools.OfType<IHasBrushShape>())
                 {
                     tool.brushShape = value;
                 }
