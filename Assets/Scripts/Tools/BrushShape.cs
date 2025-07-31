@@ -1,10 +1,28 @@
 namespace PAC.Tools
 {
-    public enum BrushShape
+    /// <summary>
+    /// The pixels, given relative to the position of the mouse, that will be affected by the current brush.
+    /// </summary>
+    public abstract class BrushShape
     {
-        Custom = -1,
-        Circle = 0,
-        Square = 1,
-        Diamond = 2
+        public class Circle : BrushShape
+        {
+            public Circle() { }
+        }
+
+        public class Square : BrushShape
+        {
+            public Square() { }
+        }
+
+        public class Diamond : BrushShape
+        {
+            public Diamond() { }
+        }
+
+        public class Custom : BrushShape
+        {
+            public Custom() { }
+        }
     }
 }

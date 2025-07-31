@@ -741,7 +741,14 @@ namespace PAC.Managers
         {
             OpenDialogBox(brushSettingsWindow);
 
-            brushSettingsShapeToggleGroup.Press((int)toolbar.brushShape);
+            brushSettingsShapeToggleGroup.Press(toolbar.brushShape switch
+            {
+                BrushShape.Circle => 0,
+                BrushShape.Square => 1,
+                BrushShape.Diamond => 2,
+                BrushShape.Custom => throw new InvalidOperationException($"{nameof(BrushShape.Custom)} has not been implemented."),
+                _ => throw new InvalidOperationException($"Unknown / unimplemented brush shape: {toolbar.brushShape}."),
+            });
             brushSettingsSizeField.max = Config.Tools.maxBrushSize;
             brushSettingsSizeField.value = toolbar.brushSize;
         }
@@ -755,15 +762,15 @@ namespace PAC.Managers
             string brushShape = brushSettingsShapeToggleGroup.selectedToggles[0].toggleName;
             if (brushShape == "circle")
             {
-                toolbar.brushShape = BrushShape.Circle;
+                toolbar.brushShape = new BrushShape.Circle();
             }
             else if (brushShape == "square")
             {
-                toolbar.brushShape = BrushShape.Square;
+                toolbar.brushShape = new BrushShape.Square();
             }
             else if (brushShape == "diamond")
             {
-                toolbar.brushShape = BrushShape.Diamond;
+                toolbar.brushShape = new BrushShape.Diamond();
             }
             else if (brushShape == "open")
             {
@@ -774,7 +781,7 @@ namespace PAC.Managers
                     toolbar.LoadCustomBrush(Texture2DExtensions.LoadFromFile(fileNames[0]));
                 }
 
-                toolbar.brushShape = BrushShape.Custom;
+                toolbar.brushShape = new BrushShape.Custom();
             }
             else
             {

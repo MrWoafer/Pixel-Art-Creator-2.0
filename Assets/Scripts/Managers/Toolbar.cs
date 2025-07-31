@@ -69,7 +69,7 @@ namespace PAC.Managers
         }
 
         [SerializeField]
-        private BrushShape _brushShape = BrushShape.Circle;
+        private BrushShape _brushShape = new BrushShape.Circle();
         /// <summary>
         /// The global brush shape for all tools.
         /// </summary>
@@ -244,17 +244,17 @@ namespace PAC.Managers
             {
                 if (inputSystem.globalKeyboardTarget.IsHeldExactly(KeyCode.Alpha1))
                 {
-                    brushShape = BrushShape.Circle;
+                    brushShape = new BrushShape.Circle();
                     onBrushSizeChanged.Invoke();
                 }
                 else if (inputSystem.globalKeyboardTarget.IsHeldExactly(KeyCode.Alpha2))
                 {
-                    brushShape = BrushShape.Square;
+                    brushShape = new BrushShape.Square();
                     onBrushSizeChanged.Invoke();
                 }
                 else if (inputSystem.globalKeyboardTarget.IsHeldExactly(KeyCode.Alpha3))
                 {
-                    brushShape = BrushShape.Diamond;
+                    brushShape = new BrushShape.Diamond();
                     onBrushSizeChanged.Invoke();
                 }
             }
@@ -323,19 +323,19 @@ namespace PAC.Managers
             }
             else if (selectedTool is RubberTool || selectedTool is BrushTool)
             {
-                if (brushShape == BrushShape.Square)
+                if (brushShape is BrushShape.Square)
                 {
                     brushTexture = Texture2DExtensions.Solid(brushSize * 2 - 1, brushSize * 2 - 1, Config.Colours.mask);
                 }
-                else if (brushShape == BrushShape.Circle)
+                else if (brushShape is BrushShape.Circle)
                 {
                     brushTexture = new Ellipse(new IntRect(IntVector2.zero, IntVector2.one * (brushSize * 2 - 2)), true).ToTexture(Config.Colours.mask);
                 }
-                else if (brushShape == BrushShape.Diamond)
+                else if (brushShape is BrushShape.Diamond)
                 {
                     brushTexture = new Diamond(new IntRect(IntVector2.zero, IntVector2.one * (brushSize * 2 - 2)), true).ToTexture(Config.Colours.mask);
                 }
-                else if (brushShape == BrushShape.Custom)
+                else if (brushShape is BrushShape.Custom)
                 {
                     if (customBrushTexture == null)
                     {
