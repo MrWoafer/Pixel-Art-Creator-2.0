@@ -58,7 +58,7 @@ namespace PAC.Managers
                 }
 
                 _brushSize = value;
-                foreach (IBrushSize tool in AllTools.OfType<IBrushSize>())
+                foreach (IHasBrushSize tool in AllTools.OfType<IHasBrushSize>())
                 {
                     tool.brushSize = value;
                 }
