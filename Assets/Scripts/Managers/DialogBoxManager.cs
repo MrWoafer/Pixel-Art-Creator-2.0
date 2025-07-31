@@ -762,15 +762,15 @@ namespace PAC.Managers
             string brushShape = brushSettingsShapeToggleGroup.selectedToggles[0].toggleName;
             if (brushShape == "circle")
             {
-                toolbar.brushShape = new BrushShape.Circle();
+                toolbar.brushShape = new BrushShape.Circle(toolbar.brushSize);
             }
             else if (brushShape == "square")
             {
-                toolbar.brushShape = new BrushShape.Square();
+                toolbar.brushShape = new BrushShape.Square(toolbar.brushSize);
             }
             else if (brushShape == "diamond")
             {
-                toolbar.brushShape = new BrushShape.Diamond();
+                toolbar.brushShape = new BrushShape.Diamond(toolbar.brushSize);
             }
             else if (brushShape == "open")
             {

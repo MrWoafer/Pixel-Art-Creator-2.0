@@ -58,9 +58,12 @@ namespace PAC.Managers
                 }
 
                 _brushSize = value;
-                foreach (IHasBrushSize tool in AllTools.OfType<IHasBrushSize>())
+                foreach (IHasBrushShape tool in AllTools.OfType<IHasBrushShape>())
                 {
-                    tool.brushSize = value;
+                    if (tool is IHasBrushSize hasBrushSize)
+                    {
+                        hasBrushSize.brushSize = value;
+                    }
                 }
                 
                 UpdateBrushBorder();
@@ -69,7 +72,7 @@ namespace PAC.Managers
         }
 
         [SerializeField]
-        private BrushShape _brushShape = new BrushShape.Circle();
+        private BrushShape _brushShape;
         /// <summary>
         /// The global brush shape for all tools.
         /// </summary>
@@ -87,6 +90,7 @@ namespace PAC.Managers
                 {
                     tool.brushShape = value;
                 }
+                brushSize = brushSize;
 
                 UpdateBrushBorder();
             }
@@ -136,9 +140,9 @@ namespace PAC.Managers
             inputSystem = Finder.inputSystem;
             toggleGroup = transform.Find("Canvas").Find("Toggle Group").GetComponent<UIToggleGroup>();
 
-            BrushTool = new BrushTool(brushSize, brushShape);
+            BrushTool = new BrushTool(brushShape);
             PencilTool = new PencilTool();
-            RubberTool = new RubberTool(brushSize, brushShape);
+            RubberTool = new RubberTool(brushShape);
             EyeDropperTool = new EyeDropperTool();
             GlobalEyeDropperTool = new GlobalEyeDropperTool();
             FillTool = new FillTool(false);
@@ -163,7 +167,9 @@ namespace PAC.Managers
                 GradientTool,
                 MoveTool,
                 SelectionTool,
-            }; 
+            };
+
+            brushShape = new BrushShape.Circle(brushSize);
         }
 
         void Start()
@@ -244,17 +250,17 @@ namespace PAC.Managers
             {
                 if (inputSystem.globalKeyboardTarget.IsHeldExactly(KeyCode.Alpha1))
                 {
-                    brushShape = new BrushShape.Circle();
+                    brushShape = new BrushShape.Circle(brushSize);
                     onBrushSizeChanged.Invoke();
                 }
                 else if (inputSystem.globalKeyboardTarget.IsHeldExactly(KeyCode.Alpha2))
                 {
-                    brushShape = new BrushShape.Square();
+                    brushShape = new BrushShape.Square(brushSize);
                     onBrushSizeChanged.Invoke();
                 }
                 else if (inputSystem.globalKeyboardTarget.IsHeldExactly(KeyCode.Alpha3))
                 {
-                    brushShape = new BrushShape.Diamond();
+                    brushShape = new BrushShape.Diamond(brushSize);
                     onBrushSizeChanged.Invoke();
                 }
             }

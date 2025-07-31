@@ -3,7 +3,7 @@ using PAC.Tools.Interfaces;
 
 namespace PAC.Tools
 {
-    public class BrushTool : Tool, IHasBrushSize, IHasSettableBrushShape
+    public class BrushTool : Tool, IHasSettableBrushShape
     {
         public override string name => "brush";
 
@@ -14,14 +14,11 @@ namespace PAC.Tools
         public override MouseTargetDeselectMode finishMode => MouseTargetDeselectMode.Unclick;
         public override bool canBeCancelled => false;
 
-        public int brushSize { get; set; }
         public BrushShape brushShape { get; set; }
 
-        /// <param name="brushSize">See <see cref="brushSize"/>.</param>
         /// <param name="brushShape">See <see cref="brushShape"/>.</param>
-        public BrushTool(int brushSize, BrushShape brushShape)
+        public BrushTool(BrushShape brushShape)
         {
-            this.brushSize = brushSize;
             this.brushShape = brushShape;
         }
     }
