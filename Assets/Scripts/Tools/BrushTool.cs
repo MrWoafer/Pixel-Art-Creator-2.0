@@ -3,7 +3,7 @@ using PAC.Tools.Interfaces;
 
 namespace PAC.Tools
 {
-    public class BrushTool : Tool, IHasBrushSize, IHasBrushShape
+    public class BrushTool : Tool, IHasBrushSize, IHasSettableBrushShape
     {
         public override string name => "brush";
 

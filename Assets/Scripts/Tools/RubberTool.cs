@@ -3,7 +3,7 @@ using PAC.Tools.Interfaces;
 
 namespace PAC.Tools
 {
-    public class RubberTool : Tool, IHasBrushSize, IHasBrushShape
+    public class RubberTool : Tool, IHasBrushSize, IHasSettableBrushShape
     {
         public override string name => "rubber";
 
