@@ -124,46 +124,6 @@ namespace PAC.Managers
                 return false;
             }
         }
-        public IntRect selectionRect
-        {
-            get
-            {
-                int minX = -1;
-                int minY = -1;
-                int maxX = -1;
-                int maxY = -1;
-
-                for (int x = 0; x < selectionMask.width; x++)
-                {
-                    for (int y = 0; y < selectionMask.height; y++)
-                    {
-                        if (selectionMask.GetPixel(x, y).a != 0f)
-                        {
-                            if (minX == -1 || x < minX)
-                            {
-                                minX = x;
-                            }
-                            if (minY == -1 || y < minY)
-                            {
-                                minY = y;
-                            }
-                            if (x > maxX)
-                            {
-                                maxX = x;
-                            }
-                            if (y > maxY)
-                            {
-                                maxY = y;
-                            }
-                        }
-                    }
-                }
-
-                return new IntRect(new IntVector2(minX, minY), new IntVector2(maxX, maxY));
-            }
-        }
-        private Texture2D selectionTexture;
-        private Texture2D selectionMaskCopy;
 
         // Moving tiles variables
         private Tile previousTileHoveredOver = null;
@@ -508,28 +468,6 @@ namespace PAC.Managers
                 }
                 else
                 {
-                    /*if (toolbar.selectedTool != Tool.EyeDropper && toolbar.selectedTool != Tool.Selection)
-                {
-                    undoRedo.AddUndoState(new UndoRedoState(UndoRedoAction.Draw, file.layers[layerManager.selectedLayerIndex], layerManager.selectedLayerIndex), fileManager.currentFileIndex);
-                }*/
-
-                    /*if (toolbar.selectedTool == Tool.Move && !layerManager.selectedLayer.locked)
-                {
-                    if (hasSelection)
-                    {
-                        selectionTexture = Tex2DSprite.ApplyMask(layerManager.selectedLayer[animationManager.currentFrameIndex].texture, selectionMask);
-                        DeleteSelection();
-                    }
-                    else
-                    {
-                        selectionTexture = Tex2DSprite.Copy(layerManager.selectedLayer[animationManager.currentFrameIndex].texture);
-                        layerManager.selectedLayer.ClearFrames();
-                    }
-
-                    selectionMaskCopy = Tex2DSprite.Copy(selectionMask);
-                    UpdateDrawingMoveTool(WorldPosToPixels(mouse.worldPos));
-                }*/
-
                     if (toolbar.selectedTool is MoveTool && !selectedLayer.locked)
                     {
                         if (selectedLayer.layerType == LayerType.Tile)
@@ -999,9 +937,6 @@ namespace PAC.Managers
 
         private void PreviewMove(IntVector2 pixel)
         {
-            /*selectionMask = Tex2DSprite.Offset(selectionMaskCopy, pixel - mouseDragPoints[0]);
-            UpdateDrawingMoveTool(pixel);*/
-
             if (selectedLayer.layerType == LayerType.Tile && tileBeingMoved != null)
             {
                 IntRect shiftedRect = file.rect.TranslateClamp(tileBeingMoved.rect + pixel - mouseDragPoints[0]);
@@ -1087,28 +1022,6 @@ namespace PAC.Managers
                         }
                     }
                 }
-            }
-        }
-
-        private void UpdateDrawingMoveTool(File file, int layer, int frame, IntVector2 mouseCoords)
-        {
-            if (hasSelection)
-            {
-                Texture2D bottomLayers = file.RenderLayersBelow(selectedLayerIndex, currentFrameIndex);
-                Texture2D topLayers = file.RenderLayersAbove(selectedLayerIndex, currentFrameIndex);
-                drawingSprRen.sprite = BlendMode.Normal.Blend(
-                    topLayers,
-                    BlendMode.Normal.Blend(selectionTexture, bottomLayers, mouseCoords - mouseDragPoints[0])
-                    ).ToSprite();
-            }
-            else
-            {
-                Texture2D bottomLayers = file.RenderLayersBelow(selectedLayerIndex, currentFrameIndex);
-                Texture2D topLayers = file.RenderLayersAbove(selectedLayerIndex, currentFrameIndex);
-                drawingSprRen.sprite = BlendMode.Normal.Blend(
-                    topLayers,
-                    BlendMode.Normal.Blend(selectionTexture, bottomLayers, mouseCoords - mouseDragPoints[0])
-                    ).ToSprite();
             }
         }
 
