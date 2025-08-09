@@ -2248,20 +2248,6 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/PAC.Managers.Clipboard.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/PAC.Managers.Clipboard.html"
-        }
-      },
-      "version": "",
-      "Uid": null,
-      "IsMRef": true,
-      "Title": "PAC.Managers.Clipboard",
-      "Summary": "<p sourcefile=\"api/PAC.Managers.Clipboard.yml\" sourcestartlinenumber=\"1\">A class to handle copy/paste functionality.\nNot yet properly implemented.</p>\n"
-    },
-    {
-      "type": "ManagedReference",
       "source_relative_path": "api/PAC.Managers.DialogBoxManager.yml",
       "output": {
         ".html": {
@@ -2510,20 +2496,6 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "PAC.Managers.UITabManager",
-      "Summary": null
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/PAC.Managers.UndoRedoManager.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/PAC.Managers.UndoRedoManager.html"
-        }
-      },
-      "version": "",
-      "Uid": null,
-      "IsMRef": true,
-      "Title": "PAC.Managers.UndoRedoManager",
       "Summary": null
     },
     {

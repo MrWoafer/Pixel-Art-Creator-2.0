@@ -19682,51 +19682,6 @@ references:
   commentId: F:PAC.Managers.BrushShape.Square
   fullName: PAC.Managers.BrushShape.Square
   nameWithType: BrushShape.Square
-- uid: PAC.Managers.Clipboard
-  name: Clipboard
-  href: api/PAC.Managers.Clipboard.html
-  commentId: T:PAC.Managers.Clipboard
-  fullName: PAC.Managers.Clipboard
-  nameWithType: Clipboard
-- uid: PAC.Managers.Clipboard.Copy
-  name: Copy()
-  href: api/PAC.Managers.Clipboard.html#PAC_Managers_Clipboard_Copy
-  commentId: M:PAC.Managers.Clipboard.Copy
-  fullName: PAC.Managers.Clipboard.Copy()
-  nameWithType: Clipboard.Copy()
-- uid: PAC.Managers.Clipboard.Copy*
-  name: Copy
-  href: api/PAC.Managers.Clipboard.html#PAC_Managers_Clipboard_Copy_
-  commentId: Overload:PAC.Managers.Clipboard.Copy
-  isSpec: "True"
-  fullName: PAC.Managers.Clipboard.Copy
-  nameWithType: Clipboard.Copy
-- uid: PAC.Managers.Clipboard.Cut
-  name: Cut()
-  href: api/PAC.Managers.Clipboard.html#PAC_Managers_Clipboard_Cut
-  commentId: M:PAC.Managers.Clipboard.Cut
-  fullName: PAC.Managers.Clipboard.Cut()
-  nameWithType: Clipboard.Cut()
-- uid: PAC.Managers.Clipboard.Cut*
-  name: Cut
-  href: api/PAC.Managers.Clipboard.html#PAC_Managers_Clipboard_Cut_
-  commentId: Overload:PAC.Managers.Clipboard.Cut
-  isSpec: "True"
-  fullName: PAC.Managers.Clipboard.Cut
-  nameWithType: Clipboard.Cut
-- uid: PAC.Managers.Clipboard.Paste
-  name: Paste()
-  href: api/PAC.Managers.Clipboard.html#PAC_Managers_Clipboard_Paste
-  commentId: M:PAC.Managers.Clipboard.Paste
-  fullName: PAC.Managers.Clipboard.Paste()
-  nameWithType: Clipboard.Paste()
-- uid: PAC.Managers.Clipboard.Paste*
-  name: Paste
-  href: api/PAC.Managers.Clipboard.html#PAC_Managers_Clipboard_Paste_
-  commentId: Overload:PAC.Managers.Clipboard.Paste
-  isSpec: "True"
-  fullName: PAC.Managers.Clipboard.Paste
-  nameWithType: Clipboard.Paste
 - uid: PAC.Managers.DialogBoxManager
   name: DialogBoxManager
   href: api/PAC.Managers.DialogBoxManager.html
@@ -21010,19 +20965,6 @@ references:
   isSpec: "True"
   fullName: PAC.Managers.Finder.animationManager
   nameWithType: Finder.animationManager
-- uid: PAC.Managers.Finder.clipboard
-  name: clipboard
-  href: api/PAC.Managers.Finder.html#PAC_Managers_Finder_clipboard
-  commentId: P:PAC.Managers.Finder.clipboard
-  fullName: PAC.Managers.Finder.clipboard
-  nameWithType: Finder.clipboard
-- uid: PAC.Managers.Finder.clipboard*
-  name: clipboard
-  href: api/PAC.Managers.Finder.html#PAC_Managers_Finder_clipboard_
-  commentId: Overload:PAC.Managers.Finder.clipboard
-  isSpec: "True"
-  fullName: PAC.Managers.Finder.clipboard
-  nameWithType: Finder.clipboard
 - uid: PAC.Managers.Finder.colourPicker
   name: colourPicker
   href: api/PAC.Managers.Finder.html#PAC_Managers_Finder_colourPicker
@@ -21231,19 +21173,6 @@ references:
   isSpec: "True"
   fullName: PAC.Managers.Finder.uiManager
   nameWithType: Finder.uiManager
-- uid: PAC.Managers.Finder.undoRedoManager
-  name: undoRedoManager
-  href: api/PAC.Managers.Finder.html#PAC_Managers_Finder_undoRedoManager
-  commentId: P:PAC.Managers.Finder.undoRedoManager
-  fullName: PAC.Managers.Finder.undoRedoManager
-  nameWithType: Finder.undoRedoManager
-- uid: PAC.Managers.Finder.undoRedoManager*
-  name: undoRedoManager
-  href: api/PAC.Managers.Finder.html#PAC_Managers_Finder_undoRedoManager_
-  commentId: Overload:PAC.Managers.Finder.undoRedoManager
-  isSpec: "True"
-  fullName: PAC.Managers.Finder.undoRedoManager
-  nameWithType: Finder.undoRedoManager
 - uid: PAC.Managers.GradientMode
   name: GradientMode
   href: api/PAC.Managers.GradientMode.html
@@ -22591,67 +22520,6 @@ references:
   isSpec: "True"
   fullName: PAC.Managers.UITabManager.SelectTabEditor
   nameWithType: UITabManager.SelectTabEditor
-- uid: PAC.Managers.UndoRedoManager
-  name: UndoRedoManager
-  href: api/PAC.Managers.UndoRedoManager.html
-  commentId: T:PAC.Managers.UndoRedoManager
-  fullName: PAC.Managers.UndoRedoManager
-  nameWithType: UndoRedoManager
-- uid: PAC.Managers.UndoRedoManager.AddUndoState(PAC.UndoRedo.UndoRedoState,System.Int32)
-  name: AddUndoState(UndoRedoState, int)
-  href: api/PAC.Managers.UndoRedoManager.html#PAC_Managers_UndoRedoManager_AddUndoState_PAC_UndoRedo_UndoRedoState_System_Int32_
-  commentId: M:PAC.Managers.UndoRedoManager.AddUndoState(PAC.UndoRedo.UndoRedoState,System.Int32)
-  name.vb: AddUndoState(UndoRedoState, Integer)
-  fullName: PAC.Managers.UndoRedoManager.AddUndoState(PAC.UndoRedo.UndoRedoState, int)
-  fullName.vb: PAC.Managers.UndoRedoManager.AddUndoState(PAC.UndoRedo.UndoRedoState, Integer)
-  nameWithType: UndoRedoManager.AddUndoState(UndoRedoState, int)
-  nameWithType.vb: UndoRedoManager.AddUndoState(UndoRedoState, Integer)
-- uid: PAC.Managers.UndoRedoManager.AddUndoState*
-  name: AddUndoState
-  href: api/PAC.Managers.UndoRedoManager.html#PAC_Managers_UndoRedoManager_AddUndoState_
-  commentId: Overload:PAC.Managers.UndoRedoManager.AddUndoState
-  isSpec: "True"
-  fullName: PAC.Managers.UndoRedoManager.AddUndoState
-  nameWithType: UndoRedoManager.AddUndoState
-- uid: PAC.Managers.UndoRedoManager.SubscribeToRedo(UnityAction)
-  name: SubscribeToRedo(UnityAction)
-  href: api/PAC.Managers.UndoRedoManager.html#PAC_Managers_UndoRedoManager_SubscribeToRedo_UnityAction_
-  commentId: M:PAC.Managers.UndoRedoManager.SubscribeToRedo(UnityAction)
-  fullName: PAC.Managers.UndoRedoManager.SubscribeToRedo(UnityAction)
-  nameWithType: UndoRedoManager.SubscribeToRedo(UnityAction)
-- uid: PAC.Managers.UndoRedoManager.SubscribeToRedo*
-  name: SubscribeToRedo
-  href: api/PAC.Managers.UndoRedoManager.html#PAC_Managers_UndoRedoManager_SubscribeToRedo_
-  commentId: Overload:PAC.Managers.UndoRedoManager.SubscribeToRedo
-  isSpec: "True"
-  fullName: PAC.Managers.UndoRedoManager.SubscribeToRedo
-  nameWithType: UndoRedoManager.SubscribeToRedo
-- uid: PAC.Managers.UndoRedoManager.SubscribeToUndo(UnityAction)
-  name: SubscribeToUndo(UnityAction)
-  href: api/PAC.Managers.UndoRedoManager.html#PAC_Managers_UndoRedoManager_SubscribeToUndo_UnityAction_
-  commentId: M:PAC.Managers.UndoRedoManager.SubscribeToUndo(UnityAction)
-  fullName: PAC.Managers.UndoRedoManager.SubscribeToUndo(UnityAction)
-  nameWithType: UndoRedoManager.SubscribeToUndo(UnityAction)
-- uid: PAC.Managers.UndoRedoManager.SubscribeToUndo*
-  name: SubscribeToUndo
-  href: api/PAC.Managers.UndoRedoManager.html#PAC_Managers_UndoRedoManager_SubscribeToUndo_
-  commentId: Overload:PAC.Managers.UndoRedoManager.SubscribeToUndo
-  isSpec: "True"
-  fullName: PAC.Managers.UndoRedoManager.SubscribeToUndo
-  nameWithType: UndoRedoManager.SubscribeToUndo
-- uid: PAC.Managers.UndoRedoManager.SubscribeToUndoOrRedo(UnityAction)
-  name: SubscribeToUndoOrRedo(UnityAction)
-  href: api/PAC.Managers.UndoRedoManager.html#PAC_Managers_UndoRedoManager_SubscribeToUndoOrRedo_UnityAction_
-  commentId: M:PAC.Managers.UndoRedoManager.SubscribeToUndoOrRedo(UnityAction)
-  fullName: PAC.Managers.UndoRedoManager.SubscribeToUndoOrRedo(UnityAction)
-  nameWithType: UndoRedoManager.SubscribeToUndoOrRedo(UnityAction)
-- uid: PAC.Managers.UndoRedoManager.SubscribeToUndoOrRedo*
-  name: SubscribeToUndoOrRedo
-  href: api/PAC.Managers.UndoRedoManager.html#PAC_Managers_UndoRedoManager_SubscribeToUndoOrRedo_
-  commentId: Overload:PAC.Managers.UndoRedoManager.SubscribeToUndoOrRedo
-  isSpec: "True"
-  fullName: PAC.Managers.UndoRedoManager.SubscribeToUndoOrRedo
-  nameWithType: UndoRedoManager.SubscribeToUndoOrRedo
 - uid: PAC.Maths
   name: PAC.Maths
   href: api/PAC.Maths.html
