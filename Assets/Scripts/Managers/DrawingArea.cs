@@ -60,7 +60,6 @@ namespace PAC.Managers
         private AnimationManager animationManager;
         private GlobalColourPicker colourPicker;
         private Toolbar toolbar;
-        private UndoRedoManager undoRedoManager;
         private ImageEditManager imageEditManager;
         private TileOutlineManager tileOutlineManager;
         private TilesetManager tilesetManager;
@@ -191,7 +190,6 @@ namespace PAC.Managers
             inputSystem = Finder.inputSystem;
             layerManager = Finder.layerManager;
             fileManager = Finder.fileManager;
-            undoRedoManager = Finder.undoRedoManager;
             imageEditManager = Finder.imageEditManager;
             animationManager = Finder.animationManager;
             tilesetManager = Finder.tilesetManager;
@@ -203,7 +201,6 @@ namespace PAC.Managers
 
             colourPicker = Finder.colourPicker;
             toolbar = Finder.toolbar;
-            undoRedoManager = Finder.undoRedoManager;
 
             selectionSprRen = transform.Find("Selection").GetComponent<SpriteRenderer>();
             brushBorderSprRen = transform.Find("Brush Border").GetComponent<SpriteRenderer>();
@@ -224,7 +221,6 @@ namespace PAC.Managers
             inputSystem.globalMouseTarget.SubscribeToScroll(OnMouseScroll);
             inputSystem.SubscribeToGlobalKeyboard(OnGlobalKeyboardInput);
 
-            undoRedoManager.SubscribeToUndoOrRedo(UpdateDrawing);
             imageEditManager.SubscribeToEdit(UpdateDrawing);
             imageEditManager.SubscribeToImageSizeChanged(InitialiseDisplay);
             fileManager.SubscribeToFileSwitched(ResetView);
@@ -689,7 +685,6 @@ namespace PAC.Managers
             }
             if (inputSystem.globalKeyboardTarget.IsPressed(KeyCode.Delete) && hasSelection)
             {
-                undoRedoManager.AddUndoState(new UndoRedoState(UndoRedoAction.Draw, file.layers[selectedLayerIndex], selectedLayerIndex), fileManager.currentFileIndex);
                 DeleteSelection();
             }
 
