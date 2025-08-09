@@ -31,7 +31,6 @@ namespace PAC.Managers
         public static GridManager gridManager => GameObject.Find("Grid Manager").GetComponent<GridManager>();
 
         public static UndoRedoManager undoRedoManager => GameObject.Find("Undo / Redo Manager").GetComponent<UndoRedoManager>();
-        public static Clipboard clipboard => GameObject.Find("Undo / Redo Manager").GetComponent<Clipboard>();
         public static ImageEditManager imageEditManager => GameObject.Find("File Manager").GetComponent<ImageEditManager>();
     }
 }
