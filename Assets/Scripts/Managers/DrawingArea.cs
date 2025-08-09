@@ -101,29 +101,8 @@ namespace PAC.Managers
         private SpriteRenderer brushBorderSprRen;
 
         // Selection tool variables
-        public Texture2D selectionMask
-        {
-            get => selectionSprRen.sprite.texture;
-            private set => selectionSprRen.sprite = value.ToSprite();
-        }
+        public TextureMask selectionMask;
         private SpriteRenderer selectionSprRen;
-        public bool hasSelection
-        {
-            get
-            {
-                for (int x = 0; x < selectionMask.width; x++)
-                {
-                    for (int y = 0; y < selectionMask.height; y++)
-                    {
-                        if (selectionMask.GetPixel(x, y).a != 0f)
-                        {
-                            return true;
-                        }
-                    }
-                }
-                return false;
-            }
-        }
 
         // Moving tiles variables
         private Tile previousTileHoveredOver = null;
@@ -311,7 +290,11 @@ namespace PAC.Managers
             //backgroundSprRen.material.SetFloat("_Width", 2f * file.width);
             //backgroundSprRen.material.SetFloat("_Height", 2f * file.height);
             previewSprRen.sprite = Texture2DExtensions.Transparent(1, 1).ToSprite();
-            selectionMask = Texture2DExtensions.Transparent(file.width, file.height);
+
+            selectionMask = new TextureMask(file.width, file.height, Config.Colours.mask);
+            selectionMask.texture.Apply();
+            selectionSprRen.sprite = selectionMask.texture.ToSprite();
+            selectionMask.onMaskChanged += (sender, eventArgs) => selectionMask.texture.Apply();
 
             collider.size = new Vector2(file.width / pixelsPerUnit, file.height / pixelsPerUnit);
             drawingAreaMask.transform.localScale = new Vector3(file.width / pixelsPerUnit, file.height / pixelsPerUnit, 1f);
@@ -625,17 +608,17 @@ namespace PAC.Managers
             {
                 ResetView();
             }
-            if (inputSystem.globalKeyboardTarget.OneIsHeldExactly(KeyboardShortcuts.KeyboardShortcuts.GetShortcutsFor("clear selection")) && hasSelection)
+            if (inputSystem.globalKeyboardTarget.OneIsHeldExactly(KeyboardShortcuts.KeyboardShortcuts.GetShortcutsFor("clear selection")) && selectionMask.Count != 0)
             {
                 DeselectSelection();
             }
-            if (inputSystem.globalKeyboardTarget.IsPressed(KeyCode.Delete) && hasSelection)
+            if (inputSystem.globalKeyboardTarget.IsPressed(KeyCode.Delete) && selectionMask.Count != 0)
             {
                 DeleteSelection();
             }
 
             /// To be implemented
-            if (toolbar.selectedTool is MoveTool && hasSelection)
+            if (toolbar.selectedTool is MoveTool && selectionMask.Count != 0)
             {
                 if (inputSystem.globalKeyboardTarget.IsPressed(KeyCode.LeftArrow))
                 {
@@ -1027,88 +1010,54 @@ namespace PAC.Managers
 
         private void SelectionShape(I2DShape<IShape> shape, bool erase)
         {
-            Texture2D tex = shape.ToTexture(Config.Colours.mask, file.rect);
             if (erase)
             {
-                selectionMask = BlendMode.Subtract.Blend(selectionMask, tex);
+                selectionMask.Remove(shape);
             }
         }
 
         private void SelectionMagicWand(IntVector2 pixel, bool erase, bool addToExistingSelection)
         {
-            static Texture2D GetMagicWandMask(Texture2D texture, IntVector2 clickPoint)
-            {
-                Texture2D fillMask = Texture2DExtensions.Transparent(texture.width, texture.height);
-
-                foreach (IntVector2 pixel in FloodFill.GetPixelsToFill(texture, clickPoint, false))
-                {
-                    fillMask.SetPixel(pixel.x, pixel.y, Config.Colours.mask);
-                }
-
-                return fillMask;
-            }
-
             if (erase)
             {
-                if (selectionMask.GetPixel(pixel.x, pixel.y).a != 0f)
+                if (selectionMask.Contains(pixel))
                 {
-                    selectionMask = BlendMode.Subtract.Blend(
-                        selectionMask,
-                        GetMagicWandMask(selectedLayer[animationManager.currentFrameIndex].texture, pixel)
-                        );
+                    selectionMask.Remove(FloodFill.GetPixelsToFill(selectedLayer[animationManager.currentFrameIndex].texture, pixel, false));
                 }
                 else
                 {
-                    selectionMask = BlendMode.Subtract.Blend(
-                        selectionMask,
-                        GetMagicWandMask(selectionMask, pixel)
-                        );
+                    selectionMask.Remove(FloodFill.GetPixelsToFill(selectionMask.texture, pixel, false));
                 }
             }
             else
             {
                 if (addToExistingSelection)
                 {
-                    selectionMask = BlendMode.Normal.Blend(
-                        selectionMask,
-                        GetMagicWandMask(selectedLayer[animationManager.currentFrameIndex].texture, pixel)
-                        );
+                    selectionMask.Add(FloodFill.GetPixelsToFill(selectedLayer[animationManager.currentFrameIndex].texture, pixel, false));
                 }
                 else
                 {
-                    selectionMask = GetMagicWandMask(selectedLayer[animationManager.currentFrameIndex].texture, pixel);
+                    selectionMask.Overwrite(FloodFill.GetPixelsToFill(selectedLayer[animationManager.currentFrameIndex].texture, pixel, false));
                 }
             }
         }
 
         private void SelectionDraw(IntVector2 pixel, bool erase)
         {
-            selectionMask.SetPixel(pixel.x, pixel.y, erase ? Config.Colours.transparent : Config.Colours.mask);
-            selectionMask = selectionMask.Applied();
+            selectionMask.Set(pixel, !erase);
+            selectionMask.texture.Apply();
         }
 
         private void DeselectSelection()
         {
-            selectionMask = Texture2DExtensions.Transparent(file.width, file.height);
+            selectionMask.Clear();
+            selectionMask.texture.Apply();
             deselectedSelectionThisFrame = true;
         }
 
         public void DeleteSelection()
         {
-            List<IntVector2> pixelsToFill = new List<IntVector2>();
-
-            for (int x = 0; x < selectionMask.width; x++)
-            {
-                for (int y = 0; y < selectionMask.height; y++)
-                {
-                    if (selectionMask.GetPixel(x, y) == Config.Colours.mask)
-                    {
-                        pixelsToFill.Add(new IntVector2(x, y));
-                    }
-                }
-            }
-
-            selectedLayer.SetPixels(pixelsToFill.ToArray(), animationManager.currentFrameIndex, Config.Colours.transparent, AnimFrameRefMode.NewKeyFrame);
+            selectedLayer.SetPixels(selectionMask.pixels, animationManager.currentFrameIndex, Config.Colours.transparent, AnimFrameRefMode.NewKeyFrame);
             UpdateDrawing();
         }
 
