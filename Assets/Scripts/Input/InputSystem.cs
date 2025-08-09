@@ -42,8 +42,6 @@ namespace PAC.Input
             }
         }
 
-        private UndoRedoManager undoRedoManager;
-
         public InputTarget globalInputTarget { get; private set; }
         public MouseTarget globalMouseTarget
         {
@@ -68,8 +66,6 @@ namespace PAC.Input
 
         private void Awake()
         {
-            undoRedoManager = Finder.undoRedoManager;
-
             globalInputTarget = GetComponent<InputTarget>();
         }
 

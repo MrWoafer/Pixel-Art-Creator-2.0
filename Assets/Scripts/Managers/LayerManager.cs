@@ -33,7 +33,6 @@ namespace PAC.Managers
 
         private UIToggleGroup toggleGroup;
         private FileManager fileManager;
-        private UndoRedoManager undoRedoManager;
         private ImageEditManager imageEditManager;
         private AnimationManager animationManager;
         private DialogBoxManager dialogBoxManager;
@@ -90,7 +89,6 @@ namespace PAC.Managers
         {
             toggleGroup = transform.Find("Toggle Group").GetComponent<UIToggleGroup>();
             fileManager = Finder.fileManager;
-            undoRedoManager = Finder.undoRedoManager;
             imageEditManager = Finder.imageEditManager;
             animationManager = Finder.animationManager;
             dialogBoxManager = Finder.dialogBoxManager;
@@ -103,7 +101,6 @@ namespace PAC.Managers
 
         private void Start()
         {
-            undoRedoManager.SubscribeToUndoOrRedo(RedisplayLayerTiles);
             imageEditManager.SubscribeToEdit(OnLayersChanged);
         }
 
